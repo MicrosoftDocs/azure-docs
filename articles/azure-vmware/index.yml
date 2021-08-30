@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 08/15/2021 
+  ms.date: 08/31/2021 
 
 
 # card 1
@@ -47,6 +47,8 @@ landingContent:
         links:
         - text: General
           url: ./faq.yml
+        - text: Billing
+          url: /azure/azure-vmware/faq#billing
         - text: Customer communication
           url: /azure/azure-vmware/faq#customer-communication
         - text: Configuration and setup 
@@ -108,7 +110,7 @@ landingContent:
         - text: Access and identity
           url: concepts-identity.md
         - text: Configure identity source for vCenter
-          url: tutorial-configure-identity-source-vcenter.md
+          url: configure-identity-source-vcenter.md
         - text: Rotate cloudadmin credentials
           url: rotate-cloudadmin-credentials.md
 
@@ -143,7 +145,11 @@ landingContent:
           - text: Configure Windows Server Failover Cluster
             url: configure-windows-server-failover-cluster.md
           - text: Connect multiple private clouds in same region 
-            url: connect-multiple-private-clouds-same-region.md            
+            url: connect-multiple-private-clouds-same-region.md  
+          - text: Configure storage policies
+            url: configure-storage-policy.md
+          - text: Create placement policy 
+            url: create-placement-policy.md          
 
 # card 5
   - title: Azure native integration

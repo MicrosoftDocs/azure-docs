@@ -100,7 +100,7 @@ Use the *admin* account to access NSX-T Manager. It has full privileges and lets
 
 Now that you've covered Azure VMware Solution access and identity concepts, you may want to learn about:
 
-- [How to configure external identity source for vCenter](tutorial-configure-identity-source-vcenter.md)
+- [How to configure external identity source for vCenter](configure-identity-source-vcenter.md)
 
 - [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 

@@ -1,14 +1,14 @@
 ---
-title: Tutorial - Configure storage policy
+title: Configure storage policy
 description:  Learn how to configure storage policy for your Azure VMware Solution virtual machines.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/31/2021
 
 #Customer intent: As an Azure service administrator, I want set the vSAN storage policies to determine how storage is allocated to the VM.
 
 ---
 
-# Tutorial: Configure storage policy
+# Configure storage policy
 
 vSAN storage policies define storage requirements for your virtual machines (VMs). These policies guarantee the required level of service for your VMs because they determine how storage is allocated to the VM. Each VM deployed to a vSAN datastore is assigned at least one VM storage policy.
 
@@ -116,4 +116,4 @@ Now that you've learned how to configure vSAN storage policies, you can learn mo
 
 - [How to attach disk pools to Azure VMware Solution hosts (Preview)](attach-disk-pools-to-azure-vmware-solution-hosts.md) - You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance.
 
-- [How to configure external identity for vCenter](tutorial-configure-identity-source-vcenter.md) - vCenter has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter as an external identity source.
+- [How to configure external identity for vCenter](configure-identity-source-vcenter.md) - vCenter has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter as an external identity source.

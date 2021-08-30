@@ -1,14 +1,14 @@
 ---
-title: Tutorial - Configure external identity source for vCenter
+title: Configure external identity source for vCenter
 description:  Learn how to configure Active Directory over LDAP or LDAPS for vCenter as an external identity source.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/31/2021
 
 
 
 ---
 
-# Tutorial: Configure external identity source for vCenter
+# Configure external identity source for vCenter
 
 
 
@@ -16,7 +16,7 @@ ms.date: 08/31/2021
 
 
 
-In this tutorial, you learn how to:
+In this how-to, you learn how to:
 
 > [!div class="checklist"]
 > * List all existing external identity sources integrated with vCenter SSO
@@ -183,7 +183,7 @@ You'll run the `Remove-ExternalIdentitySources` cmdlet to remove all existing ex
 
 Now that you've learned about how to configure LDAP and LDAPS, you can learn more about:
 
-- [How to configure storage policy](tutorial-configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you do other VM operations, such as cloning or migrating.
+- [How to configure storage policy](configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you do other VM operations, such as cloning or migrating.
 
 - [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
 

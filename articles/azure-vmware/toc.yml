@@ -54,42 +54,6 @@
     href: concepts-storage.md
 - name: How-to guides
   items:
-  - name: Create an Azure VMware Solution assessment
-    href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-  - name: Request host quota for Azure VMware Solution
-    href: request-host-quota-azure-vmware-solution.md
-  - name: Save costs with a reserved instance
-    href: reserved-instance.md
-  - name: Create a placement policy
-    href: create-placement-policy.md
-  - name: Configure networking
-    items:
-    - name: Configure DHCP server or relay
-      href: configure-dhcp-azure-vmware-solution.md
-    - name: Configure DHCP on L2 stretched networks
-      href: configure-l2-stretched-vmware-hcx-networks.md
-    - name: Configure DNS forwarder
-      href: configure-dns-azure-vmware-solution.md
-    - name: Configure port mirroring
-      href: configure-port-mirroring-azure-vmware-solution.md
-    - name: Enable public internet access
-      href: enable-public-internet-access.md
-    - name: Configure a site-to-site VPN in vWAN
-      href: configure-site-to-site-vpn-gateway.md
-  - name: Connect multiple private clouds in same region
-    href: connect-multiple-private-clouds-same-region.md
-  - name: Configure GitHub Enterprise Server
-    href: configure-github-enterprise-server.md
-  - name: Configure Windows Server Failover Cluster
-    href: configure-windows-server-failover-cluster.md
-  - name: Rotate cloudadmin credentials
-    href: rotate-cloudadmin-credentials.md
-  - name: Move resources
-    items:
-    - name: Move Azure VMware Solution subscriptions
-      href: move-ea-csp-subscriptions.md
-    - name: Move Azure VMware Solution resources across regions
-      href: move-azure-vmware-solution-across-regions.md
   - name: Azure native integration
     items:
     - name: Protect, monitor, and manage VMs
@@ -128,6 +92,46 @@
         href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Fail back from Azure
         href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+  - name: Create an Azure VMware Solution assessment
+    href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+  - name: Create a placement policy
+    href: create-placement-policy.md
+  - name: Configure external identity source for vCenter 
+    href: configure-identity-source-vcenter.md
+  - name: Configure GitHub Enterprise Server
+    href: configure-github-enterprise-server.md
+  - name: Configure networking
+    items:
+    - name: Configure DHCP server or relay
+      href: configure-dhcp-azure-vmware-solution.md
+    - name: Configure DHCP on L2 stretched networks
+      href: configure-l2-stretched-vmware-hcx-networks.md
+    - name: Configure DNS forwarder
+      href: configure-dns-azure-vmware-solution.md
+    - name: Configure port mirroring
+      href: configure-port-mirroring-azure-vmware-solution.md
+    - name: Enable public internet access
+      href: enable-public-internet-access.md
+    - name: Configure a site-to-site VPN in vWAN
+      href: configure-site-to-site-vpn-gateway.md
+  - name: Configure storage policies
+    href: configure-storage-policy.md 
+  - name: Configure Windows Server Failover Cluster
+    href: configure-windows-server-failover-cluster.md
+  - name: Connect multiple private clouds in same region
+    href: connect-multiple-private-clouds-same-region.md
+  - name: Move resources
+    items:
+    - name: Move Azure VMware Solution subscriptions
+      href: move-ea-csp-subscriptions.md
+    - name: Move Azure VMware Solution resources across regions
+      href: move-azure-vmware-solution-across-regions.md
+  - name: Request host quota for Azure VMware Solution
+    href: request-host-quota-azure-vmware-solution.md
+  - name: Rotate cloudadmin credentials
+    href: rotate-cloudadmin-credentials.md
+  - name: Save costs with a reserved instance
+    href: reserved-instance.md
   - name: VMware solutions
     items:
     - name: Configure vRealize Operations
@@ -146,8 +150,12 @@
       href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
   - name: VMware ecosystem
     items:
-    - name: Backup solutions for VMs
-      href: ecosystem-back-up-vms.md
+    - name: Backup and restore
+      items:
+      - name: Backup solutions for VMs
+        href: ecosystem-back-up-vms.md
+      - name: Deploy JetStream DR 
+        href: deploy-disaster-recovery-using-jetstream.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
 - name: Resources
@@ -166,6 +174,8 @@
     items:
     - name: General
       href: ./faq.yml
+    - name: Billing
+      href: /azure/azure-vmware/faq#billing
     - name: Customer communication
       href: /azure/azure-vmware/faq#customer-communication
     - name: Configuration and setup

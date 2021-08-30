@@ -28,7 +28,7 @@ Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datas
 
 ## Storage policies and fault tolerance
 
-That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. To set the storage policy, see [Configure storage policy](tutorial-configure-storage-policy.md).
+That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. To set the storage policy, see [Configure storage policy](configure-storage-policy.md).
 
 In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an architecture perspective.
 
@@ -64,7 +64,7 @@ Now that you've covered Azure VMware Solution storage concepts, you may want to 
 
 - [Attach disk pools to Azure VMware Solution hosts (Preview)](attach-disk-pools-to-azure-vmware-solution-hosts.md) - You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance.
 
-- [Configure storage policy](tutorial-configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
+- [Configure storage policy](configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
 
 - [Scale clusters in the private cloud][tutorial-scale-private-cloud] - You can scale the clusters and hosts in a private cloud as required for your application workload. Performance and availability limitations for specific services should be addressed on a case by case basis.
 
