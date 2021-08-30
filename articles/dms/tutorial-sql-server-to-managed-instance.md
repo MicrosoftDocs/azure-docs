@@ -87,7 +87,7 @@ To complete this tutorial, you need to:
 
 2. On the **Azure Database Migration Service** screen, select **Create**.
 
-    ![Create Azure Database Migration Service instance](media/tutorial-sql-server-to-managed-instance/dms-create-service1.png)
+    ![Create Azure Database Migration Service instance](media/tutorial-sql-server-to-managed-instance/dms-create-service-1.png)
 
 3. On the **Create Migration Service** basics screen:
 
@@ -98,7 +98,7 @@ To complete this tutorial, you need to:
      - Choose **Azure** as the service mode.
      - Select a pricing tier. For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
 
-    ![Configure Azure Database Migration Service instance basics settings](media/tutorial-sql-server-to-managed-instance/dms-create-service2.png)
+    ![Configure Azure Database Migration Service instance basics settings](media/tutorial-sql-server-to-managed-instance/dms-create-service-2.png)
 
      - Select **Next: Networking**.
 
@@ -110,7 +110,7 @@ To complete this tutorial, you need to:
     
     - For additional detail, see the article [Network topologies for Azure SQL Managed Instance migrations using Azure Database Migration Service](./resource-network-topologies.md).
 
-    ![Configure Azure Database Migration Service instance networking settings](media/tutorial-sql-server-to-managed-instance/dms-create-service3.png)
+    ![Configure Azure Database Migration Service instance networking settings](media/tutorial-sql-server-to-managed-instance/dms-create-service-3.png)
 
     - Select **Review + Create** to review the details and then select **Create** to create the service.
 
@@ -126,11 +126,11 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 3. Select **New Migration Project**.
 
-     ![Locate your instance of Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance/dms-create-project1.png)
+     ![Locate your instance of Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance/dms-create-project-1.png)
 
 4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **SQL Server**, in the **Target server type** text box, select **Azure SQL Database Managed Instance**, and then for **Choose type of activity**, select **Offline data migration**.
 
-   ![Create Database Migration Service Project](media/tutorial-sql-server-to-managed-instance/dms-create-project2.png)
+   ![Create Database Migration Service Project](media/tutorial-sql-server-to-managed-instance/dms-create-project-2.png)
 
 5. Select **Create and run activity** to create the project and run the migration activity.
 
