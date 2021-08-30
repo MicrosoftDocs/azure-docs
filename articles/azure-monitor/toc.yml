@@ -97,10 +97,14 @@
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
     href: cli-samples.md
+  - name: Monitor Logs in Azure CLI
+    href: logs\azure-cli-log-analytics-workspace-sample.md
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
+  - name: Azure CLI metric alerts
+    href: azure-cli-metrics-alert-sample.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -115,6 +119,8 @@
     items:
     - name: Log data
       href: logs/data-security.md
+    - name: Azure AD Authentication for Logs
+      href: logs/azure-ad-authentication-logs.md
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
     - name: Private Link networking
@@ -248,6 +254,8 @@
         href: logs/service-providers.md
       - name: Dedicated clusters
         href: logs/logs-dedicated-clusters.md
+      - name: Availability zones
+        href: logs/availability-zones.md
     - name: Log Analytics
       items:
       - name: Overview

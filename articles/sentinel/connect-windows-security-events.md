@@ -77,19 +77,21 @@ Besides the pre-selected sets of events (**All events**, **Minimal**, or **Commo
 This document shows you how to create data collection rules.
 
 > [!NOTE]
-> **Coexistence with other agents**
+> - **Coexistence with other agents**
 > 
-> The Azure Monitor agent can coexist with the existing agents, so you can continue to use the legacy connector during evaluation or migration. This is particularly important while the new connector is in preview,due to the limited support for existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention.
+>   The Azure Monitor agent can coexist with the existing agents, so you can continue to use the legacy connector during evaluation or migration. This is particularly important while the new connector is in preview,due to the limited support for existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention.
+> 
+> - **Collect security events from non-Azure machines**
+> 
+>   To collect security events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) installed and enabled *before* you enable the Azure Monitor Agent-based connector.
+>   
+>   This includes:
+>   
+>    - Windows servers installed on physical machines
+>    - Windows servers installed on on-premises virtual machines
+>    - Windows servers installed on virtual machines in non-Azure clouds
 
 ---
-## Collect security events from non-Azure machines
-
-To collect security events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) installed and enabled *before* you enable either of these connectors.
-
-This includes:
-- Windows servers installed on physical machines
-- Windows servers installed on on-premises virtual machines
-- Windows servers installed on virtual machines in non-Azure clouds
 
 ## Set up the Windows Security Events connector
 

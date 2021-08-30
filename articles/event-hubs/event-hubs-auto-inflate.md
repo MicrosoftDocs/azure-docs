@@ -23,6 +23,9 @@ Event Hubs traffic is controlled by TUs (standard tier). For the limits such as 
 - Automatically scale to the specified upper limit without throttling issues.
 - More control over scaling, because you control when and how much to scale.
 
+> [!NOTE]
+> Auto-inflate does not *automatically* scale down the number of TUs when ingress or egress rates drop below the limits. 
+
  ## Enable Auto-inflate on a namespace
 You can enable or disable Auto-inflate on a standard tier Event Hubs namespace by using either [Azure portal](https://portal.azure.com) or an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate).
 
