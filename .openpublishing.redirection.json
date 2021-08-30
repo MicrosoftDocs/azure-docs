@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/active-directory/authentication/howto-mfaserver-adfs-2012.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-adfs-windows-server",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
       "redirect_url": "/azure/storage/blobs/quickstart-blobs-c-plus-plus",
       "redirect_document_id": false
