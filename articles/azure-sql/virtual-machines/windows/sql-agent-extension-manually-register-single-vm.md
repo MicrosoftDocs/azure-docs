@@ -50,7 +50,7 @@ To register your SQL Server VM with the extension, you'll need:
 
 ## Register subscription with RP
 
-To register your SQL Server VM with the SQL IaaS Agent extension, you must first register your subscription with **Microsoft.SqlVirtualMachine** resource provider (RP). This gives the SQL IaaS Agent extension the ability to create resources within your subscription. You can do so by using the Azure portal, the Azure CLI, or Azure PowerShell.
+To register your SQL Server VM with the SQL IaaS Agent extension, you must first register your subscription with the **Microsoft.SqlVirtualMachine** resource provider (RP). This gives the SQL IaaS Agent extension the ability to create resources within your subscription. You can do so by using the Azure portal, the Azure CLI, or Azure PowerShell.
 
 ### Azure portal
 
@@ -106,7 +106,7 @@ SQL Server VMs that have registered the extension in *lightweight* mode can upgr
 To upgrade the extension to full mode using the Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to your [SQL virtual machines](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) resource.
+1. Go to your [SQL virtual machines](manage-sql-vm-portal.md#access-the-resource) resource.
 1. Select your SQL Server VM, and navigate to the **Overview** page.
 1. For SQL Server VMs with the NoAgent or lightweight IaaS extension mode, select the **Only license type and edition updates are available with the current SQL IaaS extension mode...** message.
 
