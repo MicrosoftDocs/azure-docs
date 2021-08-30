@@ -55629,6 +55629,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/calling-client-samples.md",
+      "redirect_url": "/articles/communication-services/quickstarts/voice-video-calling/calling-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
       "redirect_url": "/azure/virtual-desktop/teams-on-avd",
       "redirect_document_id": false
