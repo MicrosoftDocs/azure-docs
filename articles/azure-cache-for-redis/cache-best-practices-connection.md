@@ -17,7 +17,7 @@ Configure your client connections to retry commands with exponential backoff. Fo
 
 ## Test resiliency
 
-Test your system's resiliency to connection breaks using a [Reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance testing](cache-best-practices-performance.md).
+Test your system's resiliency to connection breaks using a [reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance testing](cache-best-practices-performance.md).
 
 ## Configure appropriate timeouts
 
