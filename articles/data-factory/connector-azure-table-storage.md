@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, synapse
-ms.date: 03/17/2021
+ms.date: 08/30/2021
 ---
 
 # Copy data to and from Azure Table storage by using Azure Data Factory
