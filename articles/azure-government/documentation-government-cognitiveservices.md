@@ -27,10 +27,10 @@ This article provides developer guidance for using Computer Vision, Face API, Te
 
 ## Part 1: Provision Cognitive Services accounts
 
-In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. You can create cognitive services in the [Azure Government portal](https://portal.azure.us/), or you can use Azure PowerShell to access the APIs and services. 
+In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. You can create cognitive services in the [Azure Government portal](https://portal.azure.us/), or you can use Azure PowerShell to access the APIs and services as described in this article.
 
 > [!NOTE]
-> You must go through the process of creating an account and retrieving a key (explained below) **for each** of the APIs you want to access.
+> You must go through the process of creating an account and retrieving account key (explained below) **for each** of the APIs you want to access.
 > 
 
 1. Make sure that you have the **Cognitive Services resource provider registered on your account**. 
@@ -71,7 +71,7 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 
 You must retrieve an account key to access the specific API. 
 
-In the PowerShell command below, replace the `youraccountname` tag with the name that you gave the Account that you created above. Replace the `rg-name` tag with the name of your resource group.
+In the PowerShell command below, replace the `<youraccountname>` tag with the name that you gave the Account that you created above. Replace the `rg-name` tag with the name of your resource group.
 
 ```powershell
 Get-AzCognitiveServicesAccountKey -Name <youraccountname> -ResourceGroupName 'rg-name'
@@ -97,7 +97,7 @@ The Quickstarts below will help you to get started with the APIs available throu
 
 ### Prerequisites
 
-- Get the Microsoft Computer Vision API Windows SDK [here](https://github.com/Microsoft/Cognitive-vision-windows).
+- Get the [Microsoft Computer Vision API Windows SDK](https://github.com/Microsoft/Cognitive-vision-windows).
 
 - Make sure Visual Studio has been installed:
   - [Visual Studio 2019](https://www.visualstudio.com/vs/), including the **Azure development** workload.
@@ -294,7 +294,7 @@ namespace VisionApp1
 ```
 ### Analyze an Image response
 
-A successful response is returned in JSON, as shown below:
+A successful response is returned in JSON. Shown below is an example of a successful response:
 
 ```json
 
@@ -366,7 +366,7 @@ For more information, see [public documentation](../cognitive-services/computer-
 
 ### Prerequisites
 
-- Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
+- Get the [Microsoft Face API Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/).
 
 - Make sure Visual Studio has been installed:
   - [Visual Studio 2019](https://www.visualstudio.com/vs/), including the **Azure development** workload.
@@ -564,7 +564,7 @@ namespace FaceApp1
 ```
 ### Face detect response
 
-A successful response is returned in JSON, as shown below: 
+A successful response is returned in JSON. Shown below is an example of a successful response: 
 
 ```json
 Response:
@@ -655,7 +655,7 @@ The sample is written in C#.
 6. Replace the `text` value with text that you want to translate.
 7. Run the program.
 
-You can also test out different languages and texts by replacing the "text", "from", and "to" variables in Program.cs. 
+You can also test out different languages and texts by replacing the `text`, `from`, and `to` variables in Program.cs. 
 
 ```csharp
 using System;
@@ -719,7 +719,7 @@ namespace TextTranslator
     }
 }
 ```
-For more information, see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](../cognitive-services/translator/reference/v3-0-reference.md) for Translator Text API.
+For more information, see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](../cognitive-services/translator/reference/v3-0-reference.md) for Translator.
 
 
 ### Next Steps
