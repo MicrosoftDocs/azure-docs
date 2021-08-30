@@ -1,8 +1,8 @@
 ---
 title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
-ms.topic: article
-ms.date: 03/15/2021
+ms.topic: overview
+ms.date: 08/27/2021
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -20,11 +20,13 @@ This article builds on the information in the [overview article](./event-hubs-ab
 
 
 ## Namespace
-An Event Hubs namespace provides DNS integrated network endpoints and a range of access control and network integration management features such as [IP filtering](event-hubs-ip-filtering.md), [virtual network service endpoint](event-hubs-service-endpoints.md), and [Private Link](private-link-service.md) and is the management container for one of multiple Event Hub instances (or topics, in Kafka parlance).
+An Event Hubs namespace is a management container for event hubs (or topics, in Kafka parlance). It provides DNS integrated network endpoints and a range of access control and network integration management features such as [IP filtering](event-hubs-ip-filtering.md), [virtual network service endpoint](event-hubs-service-endpoints.md), and [Private Link](private-link-service.md).
+
+:::image type="content" source="./media/event-hubs-features/namespace.png" alt-text="Image showing an Event Hubs namespace":::
 
 ## Event publishers
 
-Any entity that sends data to an Event Hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Azure Active Directory based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token gain publishing access.
+Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Azure Active Directory based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token gain publishing access.
 
 ### Publishing an event
 
@@ -34,15 +36,15 @@ The choice to use AMQP or HTTPS is specific to the usage scenario. AMQP requires
 
 You can publish events individually or batched. A single publication has a limit of 1 MB, regardless of whether it is a single event or a batch. Publishing events larger than this threshold will be rejected. 
 
-Event Hubs throughput is scaled by using partitions and throughput-unit allocations (see below). It is a best practice for publishers to remain unaware of the specific partitioning model chosen for an Event Hub and to only specify a *partition key* that is used to consistently assign related events to the same partition.
+Event Hubs throughput is scaled by using partitions and throughput-unit allocations (see below). It is a best practice for publishers to remain unaware of the specific partitioning model chosen for an event hub and to only specify a *partition key* that is used to consistently assign related events to the same partition.
 
 ![Partition keys](./media/event-hubs-features/partition_keys.png)
 
 Event Hubs ensures that all events sharing a partition key value are stored together and delivered in order of arrival. If partition keys are used with publisher policies, then the identity of the publisher and the value of the partition key must match. Otherwise, an error occurs.
 
-### Event Retention
+### Event retention
 
-Published events are removed from an Event Hub based on a configurable, timed-based retention policy. Here are a few important points:
+Published events are removed from an event hub based on a configurable, timed-based retention policy. Here are a few important points:
 
 - The **default** value and **shortest** possible retention period is **1 day (24 hours)**.
 - For Event Hubs **Standard**, the maximum retention period is **7 days**. 
@@ -56,10 +58,10 @@ become unavailable exactly 24 hours after it has been accepted. You cannot
 explicitly delete events. 
 
 If you need to archive events beyond the allowed
-retention period, you can have them [automatically stored in Azure Storage or
-Azure Data Lake by turning on the Event Hubs Capture
-feature](event-hubs-capture-overview.md), and if you need
-to search or analyze such deep archives, you can [easily import them into Azure
+retention period, you can have them automatically stored in Azure Storage or
+Azure Data Lake by turning on the [Event Hubs Capture
+feature](event-hubs-capture-overview.md). If you need
+to search or analyze such deep archives, you can easily import them into [Azure
 Synapse](store-captured-data-data-warehouse.md) or other
 similar stores and analytics platforms. 
 
@@ -95,7 +97,13 @@ You don't have to create publisher names ahead of time, but they must match the 
 
 ## Capture
 
-[Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically capture the streaming data in Event Hubs and save it to your choice of either a Blob storage account, or an Azure Data Lake Service account. You can enable Capture from the Azure portal, and specify a minimum size and time window to perform the capture. Using Event Hubs Capture, you specify your own Azure Blob Storage account and container, or Azure Data Lake Service account, one of which is used to store the captured data. Captured data is written in the Apache Avro format.
+[Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically capture the streaming data in Event Hubs and save it to your choice of either a Blob storage account, or an Azure Data Lake Service account. You can enable capture from the Azure portal, and specify a minimum size and time window to perform the capture. Using Event Hubs Capture, you specify your own Azure Blob Storage account and container, or Azure Data Lake Storage account, one of which is used to store the captured data. Captured data is written in the Apache Avro format.
+
+:::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage":::
+
+The files produced by Event Hubs Capture have the following Avro schema:
+
+:::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture3.png" alt-text="Image showing the structure of captured data":::
 
 ## Partitions
 [!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]

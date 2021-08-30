@@ -1,22 +1,22 @@
 ---
-title: Enable Azure Storage blob inventory reports (preview)
+title: Enable Azure Storage blob inventory reports
 description: Obtain an overview of your containers, blobs, snapshots, and blob versions within a storage account.
 services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 06/18/2021
+ms.date: 08/16/2021
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ---
 
-# Enable Azure Storage blob inventory reports (preview)
+# Enable Azure Storage blob inventory reports
 
 The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements. 
 
-To learn more about blob inventory reports, see [Azure Storage blob inventory (preview)](blob-inventory.md).
+To learn more about blob inventory reports, see [Azure Storage blob inventory](blob-inventory.md).
 
 Enable blob inventory reports by adding a policy with one or more rules to your storage account. Add, edit, or remove a policy by using the [Azure portal](https://portal.azure.com/).
 
@@ -28,7 +28,7 @@ Enable blob inventory reports by adding a policy with one or more rules to your 
 
 2. Locate your storage account and display the account overview.
 
-3. Under **Data management**, select **Blob inventory (preview)**.
+3. Under **Data management**, select **Blob inventory**.
 
 4. Select **Add your first inventory rule**.
 
@@ -91,7 +91,7 @@ You can enable static website hosting by using the Azure PowerShell module.
 
    * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-6. Create inventory rules by using the [New-AzStorageBlobInventoryPolicyRule](/powershell/module/az.storage/new-azstorageblobinventorypolicyrule) command. Each rule lists report fields. For a complete list of report fields, see [Azure Storage blob inventory (preview)](blob-inventory.md).
+6. Create inventory rules by using the [New-AzStorageBlobInventoryPolicyRule](/powershell/module/az.storage/new-azstorageblobinventorypolicyrule) command. Each rule lists report fields. For a complete list of report fields, see [Azure Storage blob inventory](blob-inventory.md).
 
    ```Powershell
     $containerName = "my-container"

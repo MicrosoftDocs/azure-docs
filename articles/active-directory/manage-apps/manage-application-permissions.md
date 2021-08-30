@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 7/10/2020
 ms.author: davidmu
-ms.reviewer: luleonpla
+ms.reviewer: phsignor
 
 ms.collection: M365-identity-device-management
 ---

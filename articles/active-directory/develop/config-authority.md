@@ -16,7 +16,7 @@ ms.reviewer: oldalton
 ms.custom: aaddev
 ---
 
-# How to: Configure MSAL for iOS and macOS to use different identity providers
+# Configure MSAL for iOS and macOS to use different identity providers
 
 This article will show you how to configure your Microsoft authentication library app for iOS and macOS (MSAL) for different authorities such as Azure Active Directory (Azure AD), Business-to-Consumer (B2C), sovereign clouds, and guest users.  Throughout this article, you can generally think of an authority as an identity provider.
 

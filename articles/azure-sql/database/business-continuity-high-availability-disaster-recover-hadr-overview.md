@@ -14,7 +14,7 @@ ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 06/25/2019
 ---
-# Overview of business continuity with Azure SQL Database
+# Overview of business continuity with Azure SQL Database & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 **Business continuity** in Azure SQL Database and SQL Managed Instance refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In the most of the cases, SQL Database and SQL Managed Instance will handle the disruptive events that might happen in the cloud environment and keep your applications and business processes running. However, there are some disruptive events that cannot be handled by SQL Database automatically such as:

@@ -19,7 +19,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 ### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling`. Make sure Include Preleased is checked and your package source is from
+Right click your project and go to `Manage Nuget Packages` to install `[Azure.Communication.Calling](https://www.nuget.org/packages/Azure.Communication.Calling)`. Make sure Include Preleased is checked and your package source is from
 https://www.nuget.org/api/v2/. 
 
 ### Request access
@@ -157,8 +157,7 @@ private async void InitCallAgentAndDeviceManager()
     deviceManager = await callClient.GetDeviceManager();
 
     CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
-    callClient = new CallClient();
-
+    
     CallAgentOptions callAgentOptions = new CallAgentOptions()
     {
         DisplayName = "<DISPLAY_NAME>"
@@ -331,5 +330,7 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
+
+Note: Calling `8:echo123` will stop the video stream because echo bot does not support video streaming. 
 
 For more information on user IDs (identity) check the [User Access Tokens](../../../access-tokens.md) guide. 

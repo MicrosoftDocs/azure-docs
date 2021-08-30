@@ -3,7 +3,7 @@ title: 'Quickstart: Azure Queue Storage client library v12 - Python'
 description: Learn how to use the Azure Queue Storage client library v12 for Python to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
 author: twooley
 ms.author: twooley
-ms.date: 12/10/2019
+ms.date: 07/23/2021
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues

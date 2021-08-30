@@ -28,10 +28,10 @@ This table provides the various limits associated with the operations within Dev
 
 | Operation |  Default Limit | Maximum Limit | Adjustable? |
 | --- | --- | --- | --- |
-| Number of devices per instance | 1,000 | 10,000 | Yes |
-| Number of update providers per instance | 5 | 5 | No |
-| Number of update names per provider per instance | 5 | 5 | No |
-| Number of update versions per update provider and name per instance | 25 | 25 | No |
+| Number of devices per instance | 10,000 | 10,000 | No |
+| Number of update providers per instance | 25 | 25 | No |
+| Number of update names per provider per instance | 25 | 25 | No |
+| Number of update versions per update provider and name per instance | 100 | 100 | No |
 | Total number of updates per instance | 100 | 100 | No |
 | Maximum single update file size | 800 MB | 800 MB | No |
 | Maximum combined size of all files in a single import action | 800 MB | 800 MB | No |

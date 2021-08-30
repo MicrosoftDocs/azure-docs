@@ -5,7 +5,7 @@ author: Juliako
 ms.author: juliako
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 04/01/2021
+ms.date: 06/01/2021
 ---
 
 # Tutorial: Live Video with Computer Vision for Spatial Analysis (preview)

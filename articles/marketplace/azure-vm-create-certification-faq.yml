@@ -58,7 +58,7 @@ sections:
           |Scenario|Error|Reason|Solution|
           |---|---|---|---|
           |1|Invalid virtual hard disk (VHD)|If the specified cookie value in the VHD footer is incorrect, the VHD will be considered invalid.|Re-create the image and submit the request.|
-          |2|Invalid blob type|VM provisioning failed because the used block is a block type instead of a page type.|Re-create the image as page type and submit the request.|
+          |2|Invalid blob type|VM provisioning failed because the used blob is a block type instead of a page type.|Re-create the image as page type and submit the request.|
           |3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Re-create the image with generalization and submit the request.|
           |
           
@@ -151,7 +151,7 @@ sections:
           | Scenario | Test case | Error | Solution |
           | --- | --- | --- | --- |
           | 1 | Linux Agent version test case | The minimum Linux agent version is 2.2.41 or later. This requirement has been mandatory since May 1, 2020. | Update the Linux agent version. It should be 2.241 or later. For more information, visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
-          | 2 | Bash history test case | An error occurs if the size of the Bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that your Bash history file doesn't contain any potentially sensitive information. | Resolve by mounting the VHD to another working VM and make changes to reduce the size to 1 KB or less. For example, delete the `.bash` history files. |
+          | 2 | Bash history test case | An error occurs if the size of the Bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that your Bash history file doesn't contain any potentially sensitive information. | Resolve by mounting the VHD to another working VM and make changes to reduce the size to 1 KB or less. For example, delete the `.bash_history` files. |
           | 3 | Required kernel parameter test case | You'll receive this error when the value for `console` isn't set to `ttyS0`. Check by running the following command: <br /> `cat /proc/cmdline` | Set the value for `console` to `ttyS0`, and resubmit the request. |
           | 4 | ClientAlive interval test case | If the toolkit gives you a failed result for this test case, there's an inappropriate value for `ClientAliveInterval`. | Set the value for `ClientAliveInterval` to less than or equal to 235, and then resubmit the request. |
           |
@@ -335,6 +335,9 @@ sections:
       - question: |
           VM images must have 1MB free space
         answer: |
+          >[!NOTE]
+          >As of **30 September, 2021**, if you are publishing images to Azure (with **GPT partition**), **ensure the first 2048 sectors (1 MB) of the OS disk is empty**. Otherwise, your publishing will fail. This requirement is to allow Azure to add important bits to the image (example include bits to improve boot time for customers, billing and other details).
+
           If you are [building your own image](azure-vm-create-using-own-image.md), ensure the first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement.
           
           ### How to keep 1 MB free space at the start on an empty VHD (2048 sectors, each sector of 512 bytes)

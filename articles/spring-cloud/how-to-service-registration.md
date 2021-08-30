@@ -1,11 +1,11 @@
 ---
-title:  Automate service registry and discovery 
+title:  Automate service registry and discovery
 description: Learn how to automate service discovery and registration using Spring Cloud Service Registry
-author:  brendm
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -62,9 +62,9 @@ Finally, we add an annotation to the top level class of your application
     @EnableEurekaClient
     public class DemoApplication {
 
-    	public static void main(String[] args) {
-	    	SpringApplication.run(DemoApplication.class, args);
-	    }
+        public static void main(String[] args) {
+            SpringApplication.run(DemoApplication.class, args);
+        }
     }
  ```
 

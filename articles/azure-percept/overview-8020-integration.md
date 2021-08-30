@@ -1,5 +1,5 @@
 ---
-title: Azure Percept DK 80/20 integration
+title: Azure Percept DK and 80/20 integration
 description: Learn more about how Azure Percept DK integrates with the 80/20 railing system.
 author: mimcco
 ms.author: mimcco

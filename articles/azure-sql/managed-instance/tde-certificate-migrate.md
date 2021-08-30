@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: sstein, jovanpop
+ms.reviewer: mathoma, jovanpop
 ms.date: 06/01/2021
 ---
 

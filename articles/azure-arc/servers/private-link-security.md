@@ -2,7 +2,7 @@
 title: Use Azure Private Link to securely connect networks to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 07/20/2021
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Arc
@@ -119,34 +119,6 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To register your subscription for the Azure Arc-enabled servers Private Link preview, you need to register the resource provider **Microsoft.HybridCompute**. You can do this from the Azure portal, with Azure PowerShell, or the Azure CLI. Do not proceed with step 3 until you've confirmed the resource provider is registered, otherwise you'll recieve a deployment error. 
-
-    * To register from the Azure portal, see [Register the resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) to enable the Arc-enabled servers Private Link preview from the Azure portal. For step 5, specify **Microsoft.HybridCompute**.
-
-    * To register using the Azure PowerShell, run the following command. See [registering a resource provider with Azure PowerShell](../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) to learn more.
-
-      ```azurepowershell
-      Register-AzProviderFeature -ProviderNamespace Microsoft.HybridCompute -FeatureName ArcServerPrivateLinkPreview
-      ```
-
-      Which returns a message that registration is on-going. To verify the resource provider is successfully registered, use: 
-       
-      ```azurepowershell
-      Get-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-      ```
-
-    * To register using the Azure CLI, run the following command. See [registering a resource provider with the Azure CLI](../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli) to learn more.
-
-      ```azurecli
-      az feature register --namespace Microsoft.HybridCompute --name ArcServerPrivateLinkPreview
-      ```
-
-      Which returns a message that registration is on-going. To verify the resource provider is successfully registered, use: 
-
-      ```azurecli-interactive
-      az provider show --namespace Microsoft.HybridCompute
-      ```
-
 1. Go to **Create a resource** in the Azure portal and search for **Azure Arc Private Link Scope**. Or you can use the following link to open the [Azure Arc Private Link Scope](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2FprivateLinkScopes) page in the portal.
 
     :::image type="content" source="./media/private-link-security/find-scope.png" alt-text="Find Private Link Scope" border="true":::
@@ -218,7 +190,7 @@ The private endpoint documentation provides guidance for configuring [on-premise
 
 If you opted out of using Azure private DNS zones during private endpoint creation, you will need to create the required DNS records in your on-premises DNS server.
 
-1. Go to the Azure portal with the Azure Arc-enabled servers private link preview features enabled.
+1. Go to the Azure portal.
 
 1. Navigate to the private endpoint resource associated with your virtual network and private link scope.
 
@@ -315,56 +287,6 @@ For Arc-enabled servers that were set up prior to your private link scope, you c
 It may take up to 15 minutes for the Private Link Scope to accept connections from the recently associated server(s).
 
 ## Troubleshooting
-
-1. Ensure the required resource providers and feature flags are registered for your subscription.
-
-    To check with the Azure CLI, run the following commands.
-
-    ```azurecli
-    az feature show --namespace Microsoft.Network --name AllowPrivateEndpoints
-
-    {
-      "id": "/subscriptions/ID/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowPrivateEndpoints",
-      "name": "Microsoft.Network/AllowPrivateEndpoints",
-      "properties": {
-        "state": "Registered"
-      },
-      "type": "Microsoft.Features/providers/features"
-    }
-    ```
- 
-    ```azurecli
-    az feature show --namespace Microsoft.HybridCompute --name ArcServerPrivateLinkPreview
-
-    {
-      "id": "/subscriptions/ID/providers/Microsoft.Features/providers/microsoft.hybridcompute/features/ArcServerPrivateLinkPreview",
-      "name": "microsoft.hybridcompute/ArcServerPrivateLinkPreview",
-      "properties": {
-        "state": "Registered"
-      },
-      "type": "Microsoft.Features/providers/features"
-    }
-    ```
-
-    To check with Azure PowerShell, run the following commands:
-
-    ```azurepowershell
-    Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowPrivateEndpoints
-
-    FeatureName           ProviderName      RegistrationState
-    -----------           ------------      -----------------
-    AllowPrivateEndpoints Microsoft.Network Registered
-    ```
-
-    ```azurepowershell
-    Get-AzProviderFeature -ProviderNamespace Microsoft.HybridCompute -FeatureName ArcServerPrivateLinkPreview
-
-    FeatureName                 ProviderName            RegistrationState
-    -----------                 ------------            -----------------
-    ArcServerPrivateLinkPreview Microsoft.HybridCompute Registered
-   ```
-
-    If the features show as registered but you are still unable to see the `Microsoft.HybridCompute/privateLinkScopes` resource when creating a private endpoint, try re-registering the resource provider as shown [here](agent-overview.md#register-azure-resource-providers).
 
 1. Check your on-premises DNS server(s) to verify it is either forwarding to Azure DNS or is configured with appropriate A records in your private link zone. These lookup commands should return private IP addresses in your Azure virtual network. If they resolve public IP addresses, double check your machine or server and network’s DNS configuration.
 

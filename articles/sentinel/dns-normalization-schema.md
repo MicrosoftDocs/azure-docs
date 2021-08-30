@@ -26,9 +26,10 @@ The DNS information model is used to describe events reported by a DNS server or
 For more information, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> The DNS normalization schema is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The DNS normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
+>
+> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Guidelines for collecting DNS events
 
@@ -64,23 +65,24 @@ The parsers can be deployed from the [Azure Sentinel GitHub repository](https://
 
 ## Normalized content
 
+Support for the DNS ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
+
 The following built-in analytic rules now work with normalized DNS parsers:
-- Added: 
-  - Excessive NXDOMAIN DNS Queries (Normalized DNS)
-  - DNS events related to mining pools (Normalized DNS)
-  - DNS events related to ToR proxies (Normalized DNS)
-- Updated to include normalized DNS: 
-  - Known Barium domains
-  - Known Barium IP addresses  
-  - Exchange Server Vulnerabilities Disclosed March 2021 IoC Match
-  - Known GALLIUM domains and hashes
-  - Known IRIDIUM IP
-  - NOBELIUM - Domain and IP IOCs - March 2021
-  - Known Phosphorus group domains/IP
-  - Known STRONTIUM group domains - July 2019
-  - Solorigate Network Beacon
-  - THALLIUM domains included in DCU takedown
-  - Known ZINC Comebacker and Klackring malware hashes
+ - [Excessive NXDOMAIN DNS Queries (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
+ - [DNS events related to mining pools (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
+ - [DNS events related to ToR proxies (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
+ - [Known Barium domains](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumDomainIOC112020.yaml)
+ - [Known Barium IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumIPIOC112020.yaml) 
+ - [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
+ - [Known GALLIUM domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)
+ - [Known IRIDIUM IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
+ - [NOBELIUM - Domain and IP IOCs - March 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
+ - [Known Phosphorus group domains/IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
+ - [Known STRONTIUM group domains - July 2019](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+ - [Solorigate Network Beacon](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
+ - [THALLIUM domains included in DCU takedown](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
+ - [Known ZINC Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+
 
 
 ## Schema details
@@ -142,7 +144,7 @@ The fields below are specific to DNS events. That said, many of them do have sim
 | **DstIpAddr** | Optional | IP Address |  `127.0.0.1` | The IP address of the server receiving the DNS request. For a regular DNS request, this value would typically be the reporting device, and in most cases set to **127.0.0.1**. |
 | **DstPortNumber** | Optional | Integer |  `53` | Destination Port number |
 | **IpAddr** | | Alias | | Alias for SrcIpAddr |
-| <a name=query></a>**DnsQuery** | Mandatory | String | `www.malicious.com` | The domain that needs to be resolved. <br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](#additionalfields) field. |
+| <a name=query></a>**DnsQuery** | Mandatory | FQDN | `www.malicious.com` | The domain that needs to be resolved. <br><br>**Note**: Some sources send this query in different formats. For example, in the DNS protocol itself, the query includes a dot (**.**)at the end, which must be removed.<br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](#additionalfields) field. |
 | **Domain** | | Alias || Alias to [Query](#query). |
 | **DnsQueryType** | Optional | Integer | `28` | This field may contain [DNS Resource Record Type codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml)). |
 | **DnsQueryTypeName** | Mandatory | Enumerated | `AAAA` | The field may contain [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case as needed. If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value. |
@@ -150,7 +152,7 @@ The fields below are specific to DNS events. That said, many of them do have sim
 | <a name=responsecodename></a>**DnsResponseCodeName** |  Mandatory | Enumerated | `NXDOMAIN` | The [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case. If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br><br> If this record represents a request and not a response, set to **NA**. |
 | **DnsResponseCode** | Optional | Integer | `3` | The [DNS numerical response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).|
 | **TransactionIdHex** | Recommended | String | | The DNS unique hex transaction ID. |
-| **NetworkProtocol** | Optional | String | `UDP` | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. |
+| **NetworkProtocol** | Optional | Enumerated | `UDP` | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. |
 | **DnsQueryClass** | Optional | Integer | | The [DNS class ID](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, making this field less valuable.|
 | **DnsQueryClassName** | Optional | String | `"IN"` | The [DNS class name](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, making this field less valuable. |
 | <a name=flags></a>**DnsFlags** | Optional | List of strings | `["DR"]` | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing and normalization are not required, and Azure Sentinel uses an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response).|
@@ -161,9 +163,10 @@ The fields below are specific to DNS events. That said, many of them do have sim
 | **DvcAction** | Optional | String | `"Blocked"` | If a DNS event source also provides DNS security, it may take an action on the request, such as blocking it. |
 | | | | | |
 
-### Additional aliases (deprecated)
+### Deprecated aliases
 
-The following fields are aliases which are maintained for backward compatibility:
+The following fields are aliases that are currently deprecated but are maintained for backwards compatibility:
+
 - Query (alias to DnsQuery)
 - QueryType (alias to DnsQueryType)
 - QueryTypeName (alias to DnsQueryTypeName)
@@ -176,8 +179,15 @@ The following fields are aliases which are maintained for backward compatibility
 
 ### Additional entities
 
-Events evolve around entities such as users, hosts, process, or files. Each entity may require several fields to describe. For example, a host may have a name and an IP address. In addition, a single record may include multiple entities of the same type, for example a source and destination host. 
-The DNS schema as documented above includes fields that describe entities. If your source includes other information to describe those entities, add more fields based on the entities below to capture this information. For more information about entities, refer to [Normalization in Azure Sentinel](normalization.md).
+Events evolve around entities such as users, hosts, process, or files, and each entity may require several fields to describe. For example:
+
+- A host may have both a name and an IP address
+- A single record may include multiple entities of the same type, such as both a source and destination host
+
+The DNS schema as documented in this article includes fields that describe entities. If your source includes other information to describe entities, add more fields based on the entities listed in the following table to capture this information.
+
+For more information, see [Normalization in Azure Sentinel](normalization.md).
+
 
 | **Entity** | **Fields** | **Type** | **Mandatory fields** | **Notes** |
 | --- | --- | --- | --- | --- |
@@ -241,7 +251,8 @@ You can also provide an extra KQL function called `_imDNS<vendor>Flags_`, which 
 For more information, see:
 
 - [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Azure Sentinel data normalization schema reference](normalization-schema.md)
-- [Azure Sentinel Process Event normalization schema reference](process-events-normalization-schema.md)
-- [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Azure Sentinel process event normalization schema reference](process-events-normalization-schema.md)
+- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

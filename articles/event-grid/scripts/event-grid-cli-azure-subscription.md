@@ -3,7 +3,7 @@ title: Azure CLI script sample - Subscribe to Azure subscription | Microsoft Doc
 description: This article provides a sample Azure CLI script that shows how to subscribe to Azure Event Grid events using Azure CLI. 
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/08/2020 
+ms.date: 07/22/2021 
 ms.custom: devx-track-azurecli
 ---
 
