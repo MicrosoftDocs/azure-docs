@@ -14,7 +14,7 @@ This article shows you how to create more than one instance of a property in Bic
 
 You can only use a loop with top-level resources, even when applying a loop to a property. To learn about changing a child resource to a top-level resource, see [Iteration for a child resource](loop-resources.md#iteration-for-a-child-resource).
 
-You can also use a loop with [resources](loop-resources.md), [variables](loop-variables.md), and [outputs](loop-outputs.md).
+You can also use a loop with [modules](loop-modules.md), [resources](loop-resources.md), [variables](loop-variables.md), and [outputs](loop-outputs.md).
 
 ## Syntax
 
@@ -46,7 +46,7 @@ Loops can be used to declare multiple properties by:
 
 ## Loop limits
 
-The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. 
 
 ## Property iteration
 

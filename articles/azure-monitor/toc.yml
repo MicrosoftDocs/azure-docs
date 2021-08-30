@@ -97,10 +97,14 @@
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
     href: cli-samples.md
+  - name: Monitor Logs in Azure CLI
+    href: logs\azure-cli-log-analytics-workspace-sample.md
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
+  - name: Azure CLI metric alerts
+    href: azure-cli-metrics-alert-sample.md
 - name: Concepts
   items:
   - name: What can you monitor?
