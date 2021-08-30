@@ -107,7 +107,7 @@ az aks install-cli
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
-[Install-AzAksKubectl][install-azakskubectl] -Version latest
+Install-AzAksKubectl -Version latest
 ```
 ---
 
@@ -254,5 +254,4 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
 [get-azaksversion]: /powershell/module/az.aks/get-azaksversion
