@@ -27,7 +27,7 @@ Registering your SQL Server VM with the [SQL IaaS Agent extension](sql-server-ia
 This article teaches you to register a single SQL Server VM with the SQL IaaS Agent extension. Alternatively, you can register all SQL Server VMs in a subscription [automatically](sql-agent-extension-automatic-registration-all-vms.md) or [multiple VMs scripted in bulk](sql-agent-extension-manually-register-vms-bulk.md).
 
 > [!NOTE]
-> Starting in July 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
+> Starting in September 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
 
 ## Overview
 
@@ -107,12 +107,12 @@ To upgrade the extension to full mode using the Azure portal, follow these steps
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to your [SQL virtual machines](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) resource.
-1. Select your SQL Server VM, and select **Overview**.
-1. For SQL Server VMs with the NoAgent or lightweight IaaS mode, select the **Only license type and edition updates are available with the SQL IaaS extension** message.
+1. Select your SQL Server VM, and navigate to the **Overview** page.
+1. For SQL Server VMs with the NoAgent or lightweight IaaS extension mode, select the **Only license type and edition updates are available with the current SQL IaaS extension mode...** message.
 
    ![Selections for changing the mode from the portal](./media/sql-agent-extension-manually-register-single-vm/change-sql-iaas-mode-portal.png)
 
-1. Select the **I agree** check box, and then select **Confirm** to upgrade your IaaS mode to full.
+1. Select **Confirm** to upgrade your SQL Server IaaS extension mode to full.
 
     ![Check box for agreeing to restart the SQL Server service on the virtual machine](./media/sql-agent-extension-manually-register-single-vm/enable-full-mode-iaas.png)
 

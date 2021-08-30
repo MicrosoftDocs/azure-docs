@@ -26,7 +26,7 @@ This article describes how to register your SQL Server virtual machines (VMs) in
 This article teaches you to register SQL Server VMs manually in bulk. Alternatively, you can register [all SQL Server VMs automatically](sql-agent-extension-automatic-registration-all-vms.md) or [individual SQL Server VMs manually](sql-agent-extension-manually-register-single-vm.md). 
 
 > [!NOTE]
-> Starting in July 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
+> Starting in September 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
 
 ## Overview
 

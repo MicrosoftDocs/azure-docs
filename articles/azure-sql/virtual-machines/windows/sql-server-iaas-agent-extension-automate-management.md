@@ -27,7 +27,7 @@ The SQL Server IaaS Agent extension (SqlIaasExtension) runs on SQL Server on Azu
 This article provides an overview of the extension. To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-agent-extension-automatic-registration-all-vms.md), [Single VMs](sql-agent-extension-manually-register-single-vm.md),  or [VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md). 
 
 > [!NOTE]
-> Starting in July 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
+> Starting in September 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
 
 ## Overview
 
