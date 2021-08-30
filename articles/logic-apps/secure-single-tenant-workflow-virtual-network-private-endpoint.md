@@ -145,9 +145,10 @@ For more information, review the following documentation:
 You can restrict storage account access so that only resources inside a virtual network can connect. Azure Storage supports adding private endpoints to your storage account. Your logic app workflows can then use these endpoints to communicate with the storage account. For more information, review [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md).
 
 > [!NOTE]
-> The following steps require temporarily enabling public access on your storage account. If you can't enable 
-> public access due to your organization's policies, you can still deploy your logic app using a private 
-> storage account. However, you have to use an Azure Resource Manager template (ARM template) for deployment.
+> The following steps require temporarily enabling public access on your storage account. If you can't enable public 
+> access due to your organization's policies, you can still deploy your logic app using a private storage account. However, 
+> you have to use an Azure Resource Manager template (ARM template) for deployment. For an example ARM template, review 
+> [Deploy logic app using secured storage account with private endpoints](https://github.com/VeeraMS/LogicApp-deployment-with-Secure-Storage).
 
 1. Create different private endpoints for each of the Table, Queue, Blob, and File storage services.
 
