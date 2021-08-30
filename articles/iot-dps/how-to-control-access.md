@@ -26,9 +26,9 @@ The Device API supports key-based and X.509 certificated-based device authentica
 
 The Service API supports key-based authentication for backend apps.  
 
-When using key-based authentication, the Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope.Azure IoT Device Provisioning SDKs automatically generate tokens without requiring any special configuration.  
+When using key-based authentication, the Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. Azure IoT Device Provisioning SDKs automatically generate tokens without requiring any special configuration.  
 
-In some cases you may need to use the HTTP Device Provisioning Service REST APIs directly, without using the SDKs. The following sections describe how authenticate directly against the REST APIs.
+In some cases you may need to use the HTTP Device Provisioning Service REST APIs directly, without using the SDKs. The following sections describe how to authenticate directly against the REST APIs.
 
 ### Device API Authentication
 
@@ -37,7 +37,7 @@ The [Device API](/rest/api/iot-dps/device/runtime-registration) is used by devic
 >[!NOTE]
 >In order to receive an authenticated connection, devices must first be registered in the Device Provisioning Service through an enrollment. Use the Service API to programmatically register a device through an enrollment.
 
-A device must authenticate to the Device API as part of the provisioning process. The method a device uses to authenticate is defined when you setup an enrollment group or individual enrollment. Regardless the authentication method, the device must issue an HTTPS PUT to the following URL to provision itself.
+A device must authenticate to the Device API as part of the provisioning process. The method a device uses to authenticate is defined when you set up an enrollment group or individual enrollment. Whatever the authentication method, the device must issue an HTTPS PUT to the following URL to provision itself.
 
 ```http
     https://global.azure-devices-provisioning.net/[ID_Scope]/registrations/[registration_id]/register?api-version=2021-06-01
@@ -60,7 +60,7 @@ The expected values are:
 
 | Value  | Description |
 |:-------|:------------|
-| `{signature}`  | An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation. |
+| `{signature}`  | An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to do the HMAC-SHA256 computation. |
 | `{expiry}`  | UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970.  |
 | `{URL-encoded-resourceURI}`   |Lower case URL-encoding of `{ID_Scope}/registrations/{registration_id}` |
 | `{policyName}`  | For the Device API, this policy is always “registration”. |
@@ -111,11 +111,11 @@ curl -L -i -X PUT -H 'Content-Type: application/json' -H 'Content-Encoding:  utf
 If using a symmetric key-based enrollment group, you'll need to first generate a `devicesymmetric` key using the enrollment group key. Use the enrollment group primary or secondary key to compute an HMAC-SHA256 of the registration ID for the device. The result is then converted into Base64 format to obtain the derived device key. To view code examples. see [How to provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md?tabs=linux%22%20%5Cl%20%22derive-a-device-key). Once the device symmetric key has been derived, you can register the device using the previous examples.
 
 >[!WARNING]
->To avoid including the group master key in your device code, the process of deriving device key should be performed off the device.
+>To avoid including the group master key in your device code, the process of deriving device key should be done off the device.
 
 #### Certificate-based authentication 
 
-If you've set up an individual enrollment or enrollment group for X.509 certificated-based authentication, the device will need to use its issued X.509 certificate to attest to Device API. Refer to the following articles on how to setup the enrollment and generate the device certificate.
+If you've set up an individual enrollment or enrollment group for X.509 certificated-based authentication, the device will need to use its issued X.509 certificate to attest to Device API. Refer to the following articles on how to set up the enrollment and generate the device certificate.
 
 * Quickstart - [Provision simulated X.509 device to Azure IoT Hub using Python](quick-create-simulated-device-x509-python.md?tabs=linux)
 
@@ -256,7 +256,7 @@ Here are the service functions exposed on the endpoints:
 | `{your-service}.azure-devices-provisioning.net/registrations/{id}` |Provides operations for retrieving and managing the status of device registrations. |
 
 
-As an example, a service generated using a pre-created shared access policy called **enrollmentread** would create a token with the following parameters:
+As an example, a service generated using a pre-created shared access policy called `enrollmentread` would create a token with the following parameters:
 
 * resource URI: `{mydps}.azure-devices-provisioning.net`,
 * signing key: one of the keys of the `enrollmentread` policy,
