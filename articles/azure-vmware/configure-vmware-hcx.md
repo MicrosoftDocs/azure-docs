@@ -46,13 +46,13 @@ In your data center, you can connect or pair the VMware HCX Cloud Manager in Azu
 
 1. Under **Infrastructure**, select **Site Pairing** and select the **Connect To Remote Site** option (in the middle of the screen).
 
-1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin\@vsphere.local username, and the password. Then select **Connect**.
+1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the credentials for a user which holds the CloudAdmin role in your private cloud, and the password. Then select **Connect**.
 
    > [!NOTE]
    > To successfully establish a site pair:
    > * Your VMware HCX Connector must be able to route to your HCX Cloud Manager IP over port 443.
    >
-   > * Use the same password that you used to sign in to vCenter. You defined this password on the initial deployment screen.
+   > * A service account from your external identity source, such as Active Directory, is recommended for site pairing eonnections. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
    You'll see a screen showing that your VMware HCX Cloud Manager in Azure VMware Solution and your on-premises VMware HCX Connector are connected (paired).
 
