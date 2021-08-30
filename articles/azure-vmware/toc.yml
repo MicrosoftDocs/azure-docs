@@ -120,6 +120,14 @@
     href: configure-windows-server-failover-cluster.md
   - name: Connect multiple private clouds in same region
     href: connect-multiple-private-clouds-same-region.md
+  - name: Disaster recovery
+    items:
+    - name: Deploy JetStream DR
+      href: deploy-disaster-recovery-using-jetstream.md
+    - name: Deploy VMware HCX for disaster recovery
+      href: deploy-disaster-recovery-using-vmware-hcx.md
+    - name: Deploy VMware SRM for disaster recovery
+      href: disaster-recovery-using-vmware-site-recovery-manager.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
@@ -134,12 +142,8 @@
     href: reserved-instance.md
   - name: VMware ecosystem
     items:
-    - name: Backup and restore
-      items:
-      - name: Backup solutions for VMs
-        href: ecosystem-back-up-vms.md
-      - name: Deploy JetStream DR 
-        href: deploy-disaster-recovery-using-jetstream.md
+    - name: Backup solutions for VMs
+      href: ecosystem-back-up-vms.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
   - name: VMware solutions
@@ -196,8 +200,6 @@
       href: /azure/azure-vmware/faq#identity-management
     - name: CSP and multi-tenancy
       href: /azure/azure-vmware/faq#csp-and-multi-tenancy
-    - name: Billing and support
-      href: /azure/azure-vmware/faq#billing-and-support
   - name: Videos
     items:
     - name: Playlist

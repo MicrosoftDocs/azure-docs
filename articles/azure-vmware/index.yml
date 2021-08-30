@@ -23,6 +23,8 @@ landingContent:
             url: introduction.md
           - text: Platform updates
             url: azure-vmware-solution-platform-updates.md
+          - text: FAQ
+            url: ./faq.yml
       - linkListType: concept
         links:
           - text: Access and identity
@@ -39,32 +41,6 @@ landingContent:
             url: concepts-run-command.md
           - text: Storage
             url: concepts-storage.md
-
-# card 2
-  - title: FAQ
-    linkLists:
-      - linkListType: reference
-        links:
-        - text: General
-          url: ./faq.yml
-        - text: Customer communication
-          url: /azure/azure-vmware/faq#customer-communication
-        - text: Configuration and setup 
-          url: /azure/azure-vmware/faq#configuration-and-setup
-        - text: VMware software 
-          url: /azure/azure-vmware/faq#vmware-software
-        - text: Compute
-          url: /azure/azure-vmware/faq#compute
-        - text: Networking and interconnectivity
-          url: /azure/azure-vmware/faq#networking-and-interconnectivity
-        - text: Storage
-          url: /azure/azure-vmware/faq#storage
-        - text: Hosts, clusters, and private clouds
-          url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
-        - text: Identity management
-          url: /azure/azure-vmware/faq#identity-management
-        - text: Billing and support
-          url: /azure/azure-vmware/faq#billing-and-support
 
 # card 3
   - title: Get started
@@ -99,6 +75,18 @@ landingContent:
           url: tutorial-scale-private-cloud.md
         - text: 8 - Delete a private cloud
           url: tutorial-delete-private-cloud.md
+
+# card 2
+  - title: Disaster recovery
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Deploy JetStream DR
+          url: deploy-disaster-recovery-using-jetstream.md
+        - text: Deploy VMware HCX for disaster recovery
+          url: deploy-disaster-recovery-using-vmware-hcx.md
+        - text: Deploy VMware SRM for disaster recovery
+          url: disaster-recovery-using-vmware-site-recovery-manager.md
 
 # card 12
   - title: Identity management
