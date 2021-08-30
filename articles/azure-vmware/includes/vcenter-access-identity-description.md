@@ -16,8 +16,6 @@ In Azure VMware Solution, vCenter has a built-in local user called *cloudadmin* 
 
 - In an Azure VMware Solution deployment, the administrator doesn't have access to the administrator user account. They can, however, assign AD users and groups to the CloudAdmin role in vCenter.  The CloudAdmin role doesn't have permissions to add an identity source like on-premises LDAP or LDAPS server to vCenter. However, you can use Run commands to add an identity source and assign cloudadmin role to users and groups.
  
-
-
 The private cloud user doesn't have access to and can't configure specific management components Microsoft supports and manages. For example, clusters, hosts, datastores, and distributed virtual switches.
 
 >[!NOTE]
