@@ -17,13 +17,9 @@ You can configure, list, and download the Azure Database for MySQL Flexible Serv
 
 The steps in this article require that you have [flexible server](quickstart-create-server-portal.md).
 
-## Configure logging
-<<<<<<< HEAD
-Configure access to the MySQL slow query log.
-=======
+## Configure logging 
 
 Configure access to the MySQL slow query log.
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
