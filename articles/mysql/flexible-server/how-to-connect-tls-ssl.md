@@ -29,10 +29,7 @@ Following are the different configurations of SSL and TLS settings you can have 
 > Changes to SSL Cipher on flexible server is not supported. FIPS cipher suites is enforced by default when tls_version is set to TLS version 1.2 . For TLS versions other than version 1.2, SSL Cipher is set to default settings which comes with MySQL community installation.
 
 In this article, you will learn how to:
-<<<<<<< HEAD
-=======
 
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
 * Configure your flexible server
   * With SSL disabled
   * With SSL enforced with TLS version < 1.2
