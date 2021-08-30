@@ -1,6 +1,6 @@
 ---
 title: vCenter access and identity description
-description: vCenter has a built-in local user called cloudadmin and assigned to the CloudAdmin role.
+description: vCenter has a built-in local user called cloudadmin and is assigned to the CloudAdmin role.
 ms.topic: include
 ms.date: 08/30/2021
 ---
@@ -9,8 +9,8 @@ ms.date: 08/30/2021
 
 In Azure VMware Solution, vCenter has a built-in local user called *cloudadmin* assigned to the CloudAdmin role. You can configure users and groups in Active Directory (AD) with the CloudAdmin role for your private cloud. In general, the CloudAdmin role creates and manages workloads in your private cloud. But in Azure VMware Solution, the CloudAdmin role has vCenter privileges that differ from other VMware cloud solutions and on-premises deployments.
 
-> [!IMPORTANT]
-> The local cloudadmin user should be treated as an emergency access account for "break glass" scenarios in your private cloud, and not for daily adminstrative activities or integration with other services. 
+>[!IMPORTANT]
+>The local cloudadmin user should be treated as an emergency access account for "break glass" scenarios in your private cloud. It's not for daily administrative activities or integration with other services. 
 
 - In a vCenter and ESXi on-premises deployment, the administrator has access to the vCenter administrator\@vsphere.local account. They can also have more AD users and groups assigned. 
 
@@ -18,5 +18,5 @@ In Azure VMware Solution, vCenter has a built-in local user called *cloudadmin* 
 
 The private cloud user doesn't have access to and can't configure specific management components Microsoft supports and manages. For example, clusters, hosts, datastores, and distributed virtual switches.
 
-> [!NOTE]
-> In Azure VMware Solution, the *vsphere.local* SSO domain is provided as a managed resource to support platform operations. It does not support the creation and management of local groups and users other than those provided by default with your private cloud.
+>[!NOTE]
+>In Azure VMware Solution, the *vsphere.local* SSO domain is provided as a managed resource to support platform operations. It does not support the creation and management of local groups and users other than those provided by default with your private cloud.
