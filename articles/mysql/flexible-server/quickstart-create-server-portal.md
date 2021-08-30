@@ -31,11 +31,7 @@ Complete these steps to create a flexible server:
 
     > :::image type="content" source="./media/quickstart-create-server-portal/find-mysql-portal.png" alt-text="Screenshot that shows a search for Azure Database for MySQL servers.":::
 
-<<<<<<< HEAD
-2. Select **Add**.
-=======
 2. Select **Create**.
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
 
 3. On the **Select Azure Database for MySQL deployment option** page, select **Flexible server** as the deployment option:
 
@@ -58,14 +54,7 @@ Complete these steps to create a flexible server:
     MySQL version|**5.7**| A MySQL major version.|
     Admin username |**mydemouser**| Your own sign-in account to use when you connect to the server. The admin user name can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.|
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. It must also contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, and so on).|
-<<<<<<< HEAD
     Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **100 iops**, **7 days** | The compute, storage, IOPS, and backup configurations for your new server. Select **Configure server**. **Burstable**, **Standard_B1ms**, **10 GiB**, **100 iops**, and **7 days** are the default values for **Compute tier**, **Compute size**, **Storage size**, **iops**, and backup **Retention period**. You can leave those values as is or adjust them. For faster data loads during migration, it is recommended to increase the IOPS to the maximum size supported by compute size and later scale it back to save cost. To save the compute and storage selection, select **Save** to continue with the configuration. The following screenshot shows the compute and storage options.|
-=======
-    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **100 IOPS**, **7 days** | The compute, storage, IOPS, and backup configurations for your new server. Select **Configure server**. **Burstable**, **Standard_B1ms**, **10 GiB**, **100 IOPS**, and **7 days** are the default values for **Compute tier**, **Compute size**, **Storage size**, **IOPS**, and backup **Retention period**. You can leave those values as is or adjust them. For faster data loads during migration, it is recommended to increase the IOPS to the maximum size supported by compute size and later scale it back to save cost. To save the compute and storage selection, select **Save** to continue with the configuration. The following screenshot shows the compute and storage options.|
-
-
-    > :::image type="content" source="./media/quickstart-create-server-portal/high-availability.png" alt-text="Screenshot that shows high availability options.":::
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
 
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Screenshot that shows compute and storage options.":::
 
@@ -73,17 +62,11 @@ Complete these steps to create a flexible server:
 
     On the **Networking** tab, you can choose how your server is reachable. Azure Database for MySQL Flexible Server provides two ways to connect to your server:
    - Public access (allowed IP addresses)
-<<<<<<< HEAD
    - Private access (VNet Integration)
 
-   When you use public access, access to your server is limited to allowed IP addresses that you add to a firewall rule. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range. When you use private access (VNet Integration), access to your server is limited to your virtual network. In this quickstart, you'll learn how to enable public access to connect to the server. [Learn more about connectivity methods in the concepts article.](./concepts-networking.md)
-=======
-   - Private access (VNet Integration)
-
-   When you use public access, access to your server is limited to allowed IP addresses that you add to a firewall rule. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range. When you use private access (VNet Integration), access to your server is limited to your virtual network. [Learn more about connectivity methods in the concepts article.](./concepts-networking.md)
+    When you use public access, access to your server is limited to allowed IP addresses that you add to a firewall rule. This method prevents external applications and tools from     connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range. When you use private access (VNet       Integration), access to your server is limited to your virtual network. [Learn more about connectivity methods in the concepts article.](./concepts-networking.md)
 
      In this quickstart, you'll learn how to enable public access to connect to the server. On the **Networking tab**, for **Connectivity method** select **Public access**. For configuring **Firewall rules**, select **Add current client IP address**.
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
 
     > [!NOTE]
     > You can't change the connectivity method after you create the server. For example, if you select **Public access (allowed IP addresses)** when you create the server, you can't change to **Private access (VNet Integration)** after the server is created. We highly recommend that you create your server with private access to help secure access to your server via VNet Integration. [Learn more about private access in the concepts article.](./concepts-networking.md)
