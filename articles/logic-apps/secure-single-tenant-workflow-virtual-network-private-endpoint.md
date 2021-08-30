@@ -158,7 +158,7 @@ You can restrict storage account access so that only resources inside a virtual 
 
    - **Visual Studio Code**: In your project root-level **local.settings.json** file, set the `AzureWebJobsStorage` setting and `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting to the connection string for your storage account. If your logic app resource doesn't use private endpoints, set the `WEBSITE_RUN_FROM_PACKAGE` setting to `1`.
 
-   - If your logic app resource also uses private endpoints, deploy using [GitHub Integrations](https://docs.github.com/en/github/customizing-your-github-workflow/about-integrations).
+   - If your logic app resource uses private endpoints, deploy using [GitHub Integrations](https://docs.github.com/en/github/customizing-your-github-workflow/about-integrations).
 
    - If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS. Also, update your DNS records to point your private endpoints at your internal IP address. Private endpoints work by sending the DNS lookup to the private address, not the public address for the specific resource. For more information, review [Private endpoints - Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
 
