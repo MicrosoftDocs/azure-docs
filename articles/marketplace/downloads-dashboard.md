@@ -61,9 +61,17 @@ Support for Lifetime Export Capability of Analytics reports:
 | Usage | ![Black X mark](media/downloads-dashboard/check-black-no.png) | Maximum of one year |
 |
 
-A user can schedule asynchronous downloads of reports from the Downloads section:
+A user can schedule asynchronous downloads of reports from the Downloads dashboard.
+
+#### [Preview interface](#tab/new-web-form)
+
+[![scheduling asynchronous downloads of reports from the Downloads page](media/downloads-dashboard/download-reports-workspaces.png)](media/downloads-dashboard/download-reports.png#lightbox)
+
+#### [Current interface](#tab/old-web-form)
 
 [![scheduling asynchronous downloads of reports from the Downloads section](media/downloads-dashboard/download-reports.png)](media/downloads-dashboard/download-reports.png#lightbox)
+
+---
 
 ## Next steps
 

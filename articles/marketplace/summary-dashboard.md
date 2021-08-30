@@ -56,7 +56,7 @@ The following sections describe how to use the summary dashboard and how to read
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a month range based on the past specified number of months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
-[ ![Illustrates the monthly range options on the summary dashboard.](./media/summary-dashboard/summary-dashboard-workspaces.png) ](./media/summary-dashboard/summary-dashboard-workspaces.png#lightbox)
+[ ![Illustrates the monthly range options on the summary dashboard.](./media/summary-dashboard/summary-dashboard-filters.png) ](./media/summary-dashboard/summary-dashboard-filters.png#lightbox)
 
 #### [Current interface](#tab/old-web-form)
 

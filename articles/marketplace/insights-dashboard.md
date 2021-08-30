@@ -61,7 +61,7 @@ The Marketplace Insights dashboard displays web telemetry details for Azure Mark
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Marketplace Insights** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
-:::image type="content" source="./media/insights-dashboard/month-filters-workspaces.png" alt-text="Illustrates the month filters on the Marketplace Insights dashboard.":::
+:::image type="content" source="./media/insights-dashboard/marketplace-insights-filters.png" alt-text="Illustrates the month filters on the Marketplace Insights dashboard.":::
 
 #### [Current interface](#tab/old-web-form)
 

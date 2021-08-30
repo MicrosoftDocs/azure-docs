@@ -63,9 +63,23 @@ Reviews are displayed in chronological order for when they were posted. The defa
 
 :::image type="content" source="media/marketplace-publisher-guide-rating-reviews/analyze-reviews.png" alt-text="Illustrates Partner Center analyze review comments" lightbox="media/marketplace-publisher-guide-rating-reviews/analyze-reviews.png":::
 
-### Responding to a review
+### Respond to a review
 
-You can respond to reviews from users and the response will be visible on either Azure Marketplace or AppSource storefronts. This functionality applies to the following offer types: Azure Application, Azure Container, Azure virtual machine, Dynamics 365 Business Central, Dynamics 365 Customer Engagement & Power Apps, Dynamics 365 Operations, IoT Edge Module, Managed service, Power BI app, and Software as a Service. To respond to a review, follow these steps:
+You can respond to reviews from users and the response will be visible on either Azure Marketplace or AppSource storefronts. This functionality applies to the following offer types: Azure Application, Azure Container, Azure virtual machine, Dynamics 365 Business Central, Dynamics 365 Customer Engagement & Power Apps, Dynamics 365 Operations, IoT Edge Module, Managed service, Power BI app, and Software as a Service.
+
+To respond to a review, follow these steps:
+
+#### [Preview interface](#tab/new-web-form)
+
+1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
+
+    :::image type="content" source="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png" alt-text="Illustrates the ratings and review page":::
+
+1. Select the **Reply** link for the review you wish to respond, type your reply on the **text box**, then select **Send reply**.
+
+The response will appear under the text of the original review in the product detail page in AppSource, and Azure Marketplace online storefront.
+
+#### [Current interface](#tab/old-web-form)
 
 1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
 
@@ -74,6 +88,8 @@ You can respond to reviews from users and the response will be visible on either
 1. Select the **Reply** link for the review you wish to respond, type your reply on the **text box**, then select **Send reply**.
 
 The response will appear under the text of the original review in the product detail page in AppSource, and Azure Marketplace online storefront.
+
+---
 
 #### Appsource
 

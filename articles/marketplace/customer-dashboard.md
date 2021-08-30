@@ -63,7 +63,7 @@ The following sections describe how to use the Customers dashboard and how to re
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Customers** page graphs by selecting a month range based on the past 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
-:::image type="content" source="./media/customer-dashboard/month-range-filters-workspaces.png" alt-text="Illustrates the month filters on the Customers page.":::
+:::image type="content" source="./media/customer-dashboard/customers-workspace-filters.png" alt-text="Illustrates the month filters on the Customers page.":::
 
 #### [Current interface](#tab/old-web-form)
 
