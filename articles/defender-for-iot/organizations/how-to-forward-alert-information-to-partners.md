@@ -45,7 +45,7 @@ In these cases, the sensor or on-premises management console is the client and i
 
 Defender for IoT was set up to either validate certificates or ignore certificate validation.  See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for information about enabling and disabling validation.
 
-If validation is enabled and the certificate cannot be verified, communication between Defender for IoT and the server will be halted.  You will receive an error message on the sensor indicating the validation failure.  If the validation is disabled and the certificate is not valid, communication will still be carried out.
+If validation is enabled and the certificate can not be verified, communication between Defender for IoT and the server will be halted.  The sensor will display an error message indicating the validation failure.  If the validation is disabled and the certificate is not valid, communication will still be carried out.
 
 The following Forwarding rules allow encryption and certificate validation:
 - Syslog CEF
