@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: apistrak
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: tutorial
 ms.service: azure-communication-services
 ---
 
