@@ -538,7 +538,7 @@ This example template shows how you can complete these tasks by defining secured
                "fabrikamPassword": {                  
                   "value": "[parameters('TemplateFabrikamPassword')]" // Template parameter reference
                },
-               "fabrikamUserName": 
+               "fabrikamUserName": {
                   "value": "[parameters('TemplateFabrikamUserName')]" // Template parameter reference
                }
             },
