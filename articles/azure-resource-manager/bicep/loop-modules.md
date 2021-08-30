@@ -10,29 +10,13 @@ ms.date: 08/27/2021
 
 # Module iteration in Bicep
 
-This article shows you how to create more than one instance of a [module](modules.md) in your Bicep file. You can add a loop to the `module` section of your file and dynamically set the number of modules to deploy. You also avoid repeating syntax in your Bicep file.
+This article shows you how to deploy more than one instance of a [module](modules.md) in your Bicep file. You can add a loop to a `module` declaration and dynamically set the number of times to deploy that module. You avoid repeating syntax in your Bicep file.
 
 You can also use a loop with [resources](loop-resources.md), [properties](loop-properties.md), [variables](loop-variables.md), and [outputs](loop-outputs.md).
 
 ## Syntax
 
-Loops can be used declare multiple modules by:
-
-- Iterating over an array.
-
-  ```bicep
-  module <module-symbolic-name> '<module-file>' = [for <item> in <collection>: {
-    <module-properties>
-  }]
-  ```
-
-  You can retrieve the index while iterating through an array:
-
-  ```bicep
-  module <module-symbolic-name> 'module-file' = [for (<item>, <index>) in <collection>: {
-    <module-properties>
-  }]
-  ```
+Loops can be used to declare multiple modules by:
 
 - Using a loop index.
 
@@ -42,13 +26,33 @@ Loops can be used declare multiple modules by:
   }]
   ```
 
+  For more information, see [Loop index](#loop-index).
+
+- Iterating over an array.
+
+  ```bicep
+  module <module-symbolic-name> '<module-file>' = [for <item> in <collection>: {
+    <module-properties>
+  }]
+  ```
+
+  For more information, see [Loop array](#loop-array).
+
+- Iterating over an array and index:
+
+  ```bicep
+  module <module-symbolic-name> 'module-file' = [for (<item>, <index>) in <collection>: {
+    <module-properties>
+  }]
+  ```
+
 ## Loop limits
 
 The Bicep file's loop iterations can't be a negative number or exceed 800 iterations.
 
-## Module iteration
+## Loop index
 
-The following example creates the number of modules specified in the `storageCount` parameter. Each module creates a storage account.
+The following example deploys a module the number of times specified in the `storageCount` parameter. Each instance of the module creates a storage account.
 
 ```bicep
 param location string = resourceGroup().location
@@ -67,7 +71,9 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): {
 
 Notice the index `i` is used in creating the storage account resource name. The storage account is passed as a parameter value to the module.
 
-The following example creates one storage account for each name provided in the `storageNames` parameter by calling a module.
+## Loop array
+
+The following example deploys a module for each name provided in the `storageNames` parameter. The module creates a storage account
 
 ```bicep
 param rgLocation string = resourceGroup().location
@@ -87,7 +93,7 @@ module stgModule './storageAccount.bicep' = [for name in storageNames: {
 
 ```
 
-Directly referencing a resource module or module collection is not currently supported in output loops. In order to loop outputs, apply an array indexer to the expression. See an example in [Output iteration](loop-outputs.md#output-iteration).
+Referencing a module collection isn't supported in output loops. To output results from modules in a collection, apply an array indexer to the expression. For more information, see [Output iteration](loop-outputs.md).
 
 ## Module iteration with condition
 
@@ -139,12 +145,9 @@ For purely sequential deployment, set the batch size to 1.
 ## Next steps
 
 - For other uses of the loop, see:
-  - [Resource iteration in Bicep files](loop-resources.md)
-  - [Property iteration in Bicep files](loop-properties.md)
-  - [Variable iteration in Bicep files](loop-variables.md)
-  - [Output iteration in Bicep files](loop-outputs.md)
-- If you want to learn about the sections of a Bicep file, see [Understand the structure and syntax of Bicep files](file.md).
-- For information about how to deploy multiple resources, see [Use Bicep modules](modules.md).
+  - [Resource iteration in Bicep](loop-resources.md)
+  - [Property iteration in Bicep](loop-properties.md)
+  - [Variable iteration in Bicep](loop-variables.md)
+  - [Output iteration in Bicep](loop-outputs.md)
+- For information about modules, see [Use Bicep modules](modules.md).
 - To set dependencies on resources that are created in a loop, see [Set resource dependencies](./resource-declaration.md#set-resource-dependencies).
-- To learn how to deploy with PowerShell, see [Deploy resources with Bicep and Azure PowerShell](deploy-powershell.md).
-- To learn how to deploy with Azure CLI, see [Deploy resources with Bicep and Azure CLI](deploy-cli.md).
