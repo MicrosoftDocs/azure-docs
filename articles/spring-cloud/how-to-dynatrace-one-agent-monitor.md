@@ -84,7 +84,7 @@ You can also set the key/value pairs using the Azure portal, use the following s
 
 
 ## Automation
-using Terraform or ARM Template, you can also run a "provisioning" automation pipeline for a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
+Using Terraform or ARM Template, you can also run a "provisioning" automation pipeline for a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
 ### Terraform
 You can leverage below code fragment to configure the environment variables, refer to [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment) for more details.
