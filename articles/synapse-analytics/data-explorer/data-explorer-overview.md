@@ -71,4 +71,4 @@ KQL has a large, growing community with the rapid adoption of Azure Monitor, Azu
 ## Next Steps
 
 * [Create a Data Explorer pool using Synapse Studio](data-explorer-create-pool-studio.md)
-* [Query data with Data Explorer pools](data-explorer-query-with-pool.md)
+* [Create a Data Explorer pool using the Azure portal (Preview)](data-explorer-create-pool-portal.md)
