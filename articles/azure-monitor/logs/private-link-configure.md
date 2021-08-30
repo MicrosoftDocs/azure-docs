@@ -125,7 +125,7 @@ az resource create -g "my-resource-group" --name "my-scope" --api-version "2021-
 ```
 
 #### Create AMPLS with mixed access modes - PowerShell example
-The below PS script creates a new AMPLS resource named "my-scope", with the query access mode Open but the ingestion access modes set to PrivateOnly (meaing it will allow ingestion only to resources in the AMPLS).
+The below PS script creates a new AMPLS resource named "my-scope", with the query access mode Open but the ingestion access modes set to PrivateOnly (meaning it will allow ingestion only to resources in the AMPLS).
 
 ```
 # scope details
@@ -210,7 +210,7 @@ The below Azure Resource Manager template creates:
 ```
 
 ### Set AMPLS access flags - PowerShell example
-To set the access mode flags on your AMPLS, you can use the following PowerShell script. This below script sets the flags to Open. To use the Private Only mode, use the value "PrivateOnly".
+To set the access mode flags on your AMPLS, you can use the following PowerShell script. The following script sets the flags to Open. To use the Private Only mode, use the value "PrivateOnly".
 
 ```
 # scope details
