@@ -100,7 +100,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
                     new SignalRMessage
                     {
                         Target = "newMessage",
-                        Arguments = new[] { $"Current start count of https://github.com/Azure/azure-signalr is: {result.StartCount}" }
+                        Arguments = new[] { $"Current star count of https://github.com/Azure/azure-signalr is: {result.StarCount}" }
                     });
             }
     
@@ -108,15 +108,15 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
             {
                 [JsonRequired]
                 [JsonProperty("stargazers_count")]
-                public string StartCount { get; set; }
+                public string StarCount { get; set; }
             }
         }
     }
     ```
     These codes have three functions. The `Index` is used to get a website as client. The `Negotiate` is used for client to get access token. The `Broadcast` is periodically
-    get start count from GitHub and broadcast messages to all clients.
+    get star count from GitHub and broadcast messages to all clients.
 
-3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `GetHomePage` function, create a new file `index.html` in `content` directory. And copy the following content.
+3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `GetHomePage` function, create a new file `index.html` in `content` directory under project root folder. And copy the following content.
     ```html
     <html>
     
@@ -143,29 +143,39 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     </html>
     ```
 
-4. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
+4. Update your `*.csproj` to make the content page in build output folder.
+
+    ```html
+    <ItemGroup>
+      <None Update="content/index.html">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+    ```
+
+5. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
     1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
         ![Search for the SignalR Service instance](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-    1. Select **Keys** to view the connection strings for the SignalR Service instance.
+    2. Select **Keys** to view the connection strings for the SignalR Service instance.
     
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copy the primary connection string. And execute the command below.
+    3. Copy the primary connection string. And execute the command below.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
-5. Run the Azure Function in local:
+6. Run the Azure Function in local:
 
     ```bash
     func start
     ```
 
-    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every few seconds.
+    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current star count. And if you star or unstar in the GitHub, you will get a star count refreshing every few seconds.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
@@ -189,5 +199,5 @@ Next, learn more about how to bi-directional communicating between clients and A
 > [Bi-directional communicating in Serverless](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
 
 > [!div class="nextstepaction"]
-> [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Deploy to Azure Function App using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure)
 

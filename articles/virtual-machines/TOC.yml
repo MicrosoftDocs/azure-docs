@@ -72,24 +72,24 @@
   - name: REST API
     href: /rest/api/compute/virtual-machines?context=/azure/virtual-machines/context/context
   - name: Python
-    items: 
+    items:
     - name: Python SDK
       href: https://github.com/Azure/azure-sdk-for-python
     - name: Samples
       href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context
-  - name: .NET 
+  - name: .NET
     items:
     - name: .NET SDK
       href: https://github.com/Azure/azure-sdk-for-net
     - name: Reference
       href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet?context=/azure/virtual-machines/context/context
-  - name: Java 
+  - name: Java
     items:
     - name: Java SDK
       href: https://github.com/Azure/azure-sdk-for-java
     - name: Reference
       href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable?context=/azure/virtual-machines/context/context
-  - name: Go 
+  - name: Go
     items:
     - name: Go SDK
       href: https://github.com/Azure/azure-sdk-for-go
@@ -150,22 +150,13 @@
     - name: Overview
       displayName: Sizes, sizing, resize, ACU, compute
       href: sizes.md
-    - name: Change the VM size
-      items:
-      - name: CLI
-        displayName: Change, resize, update size
-        href: ./linux/change-vm-size.md
-      - name: Portal or PowerShell
-        displayName: Change, resize, update size
-        href: ./windows/resize-vm.md
-    - name: Generation 2 VMs
-      displayName: Gen2, generation, gen1
-      href: generation-2.md
     - name: General purpose
       items:
       - name: Overview
         displayName: General purpose, sizes, size, vm size
         href: sizes-general.md
+      - name: Av1-series retirement
+        href: av1-series-retirement.md
       - name: Av2-series
         href: av2-series.md
       - name: B-series burstable
@@ -265,6 +256,13 @@
       - name: Setup AMD GPU drivers
         displayName: AMD GPU drivers, AMD, GPU drivers, GPU
         href: ./windows/n-series-amd-driver-setup.md
+      - name: GPU compute migration guide
+        displayName: GPU compute migration guide
+        href: ./n-series-migration.md
+      - name: NV-series retirement
+        href: nv-series-retirement.md
+      - name: NV-series migration guide
+        href: nv-series-migration-guide.md
     - name: FPGA - accelerated compute
       items:
       - name: Overview
@@ -289,6 +287,10 @@
         href: hbv3-series.md
       - name: HC-series
         href: hc-series.md
+      - name: H-series retirement
+        href: h-series-retirement.md
+      - name: HB-series retirement
+        href: hb-series-retirement.md
     - name: States and billing
       href: states-billing.md
     - name: vCPU quotas
@@ -306,9 +308,15 @@
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
+    - name: Generation 2 VMs
+      displayName: Gen2, generation, gen1
+      href: generation-2.md
     - name: Isolated sizes
       displayName: isolated VM, sole-tenant, sole
       href: isolation.md
+    - name: Previous generations
+      displayName: older, retired, expired, deprecated
+      href: sizes-previous-gen.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Benchmark scores
@@ -318,6 +326,30 @@
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
         href: ./windows/compute-benchmark-scores.md
+    - name: vCPU quotas
+      items:
+      - name: CLI
+        displayName: vCPU, quota, limit
+        href: ./linux/quotas.md
+      - name: PowerShell
+        displayName: vCPU, quota, limit
+        href: ./windows/quotas.md
+    - name: Virtual machines selector tool
+      href: https://aka.ms/vm-selector
+    - name: Change the VM size
+      items:
+      - name: CLI
+        displayName: Change, resize, update size
+        href: ./linux/change-vm-size.md
+      - name: Portal or PowerShell
+        displayName: Change, resize, update size
+        href: ./windows/resize-vm.md
+    - name: States and billing
+      href: states-billing.md
+    - name: Azure VMs with no temp disk
+      href: azure-vms-no-temp-disk.yml
+    - name: Azure VM sizes naming conventions
+      href: vm-naming-conventions.md
   - name: Dedicated hosts
     displayName: sole-tenant, sole tenant, isolated, isolation
     items:
@@ -490,7 +522,7 @@
       - name: Windows
         displayName: Azure Key Vault, key vault, encryption
         href: ./extensions/key-vault-windows.md
-    - name: Azure Policy Guest Configuration
+    - name: Azure Policy guest configuration
       href: ./extensions/guest-configuration.md
     - name: Custom Script
       items:
@@ -599,7 +631,7 @@
       href: ./extensions/update-linux-agent.md
     - name: Export extensions
       href: ./extensions/export-templates.md
-    - name: Troubleshoot
+    - name: General troubleshooting steps
       href: ./extensions/troubleshoot.md
     - name: Issues with Python 3-enabled Linux systems
       href: ./extensions/issues-using-vm-extensions-python-3.md
@@ -973,16 +1005,31 @@
     - name: Portal
       displayName: proximity placement groups, ppg
       href: ./windows/proximity-placement-groups-portal.md
-  - name: Virtual Machine Scale Sets
+  - name: Virtual machine scale sets 
     items:
-    - name: Overview
-      displayName: virtual machine scale sets, VMSS, VM scale set, scale set
-      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+    - name: Flexible VM scale sets overview (preview) 
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets.md
+    - name: Portal (preview) 
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-portal.md 
+    - name: CLI (preview) 
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-cli.md 
+    - name: PowerShell (preview) 
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-powershell.md 
+    - name: ARM template (preview) 
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-rest-api.md  
     - name: Autoscale
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-    - name: Orchestration modes
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context 
+    - name: Orchestration modes (preview) 
       displayName: VMSS, flex, scale set, scale, virtual machine sacle set
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+    - name: Uniform VM scale sets overview
+      displayName: virtual machine scale sets, VMSS, VM scale set, scale set
+      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
   - name: Understand VM reboots
     href: understand-vm-reboots.md
   - name: Azure Regions
@@ -1195,7 +1242,7 @@
         href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
       - name: Restore disks with Azure Disk Backup
         href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
-    - name: Backup and disaster recovery for disks
+    - name: Backup and disaster recovery for managed disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Snapshot a disk - CLI
       href: ./linux/snapshot-copy-managed-disk.md
@@ -1203,6 +1250,8 @@
       href: ./windows/snapshot-copy-managed-disk.md
     - name: Backup unmanaged disks
       href: ./linux/incremental-snapshots.md
+    - name: Backup and disaster recovery for unmanaged disks
+      href: page-blobs-backup-and-disaster-recovery.md
   - name: Ephemeral OS disks
     href: ephemeral-os-disks.md
   - name: Migration and conversion
@@ -1353,7 +1402,7 @@
   items:
   - name: Overview
     displayName: Networking Overview
-    href: network-overview.md?context=/azure/virtual-machines/context/context
+    href: ../virtual-network/network-overview.md?context=/azure/virtual-machines/context/context
   - name: Optimize network throughput
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: Best practices
@@ -1429,7 +1478,7 @@
       displayName: Resource Manager
       href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
   - name: Open ports to a VM
-    items: 
+    items:
     - name: CLI
       displayName: port nsg network security group
       href: ./linux/nsg-quickstart.md
@@ -1594,13 +1643,13 @@
       - name: Overview
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell 
+      - name: PowerShell
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-powershell.md
-      - name: CLI 
+      - name: CLI
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-cli.md
-      - name: Portal 
+      - name: Portal
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-portal.md
   - name: Automatic VM guest patching (Preview)
@@ -1611,7 +1660,7 @@
     - name: Hotpatch
       displayName: patching, patch, update
       href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
-  - name: Automatic extension upgrade (Preview)
+  - name: Automatic extension upgrade
     href: automatic-extension-upgrade.md
   - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context

@@ -2,11 +2,11 @@
 title: Azure Communication Services Call Automation API quickstart
 titleSuffix: An Azure Communication Services quickstart document
 description: Provides a quickstart sample for the Call Automation APIs.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
 
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services

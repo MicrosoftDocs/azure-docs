@@ -495,3 +495,7 @@ When a working PHP app behaves differently in App Service or has errors, try the
 > [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Or, see additional resources:
+
+[Environment variables and app settings reference](reference-app-settings.md)

@@ -3,7 +3,7 @@ title: Mount a virtual file system on a pool
 description: Learn how to mount a virtual file system on a Batch pool.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 03/26/2021
+ms.date: 08/18/2021
 ---
 
 # Mount a virtual file system on a Batch pool
@@ -73,11 +73,16 @@ new PoolAddParameter
 
 ### Azure Blob container
 
-Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey` or `SasKey` for your storage account. For information on getting these keys, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md) or [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md). For more information and tips on using blobfuse, see the blobfuse .
+Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey`, `SasKey` or `Managed Identity` with access to your storage account.
+
+For information on getting these keys, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md), [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md), and [Configure managed identities in Batch pools](managed-identity-pools.md). For more information and tips on using blobfuse, see the [blobfuse project](https://github.com/Azure/azure-storage-fuse).
 
 To get default access to the blobfuse mounted directory, run the task as an **Administrator**. Blobfuse mounts the directory at the user space, and at pool creation it is mounted as root. In Linux all **Administrator** tasks are root. All options for the FUSE module are described in the [FUSE reference page](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Review the [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) for more information and tips on using blobfuse. You can also review [GitHub issues in the blobfuse repository](https://github.com/Azure/azure-storage-fuse/issues) to check on current blobfuse issues and resolutions.
+
+> [!NOTE]
+> The example below shows `AccountKey`, `SasKey` and `IdentityReference`, but they are mutually exclusive; only one can be specified.
 
 ```csharp
 new PoolAddParameter
@@ -93,6 +98,7 @@ new PoolAddParameter
                 ContainerName = "containerName",
                 AccountKey = "StorageAccountKey",
                 SasKey = "SasKey",
+                IdentityReference = new ComputeNodeIdentityReference("/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name"),
                 RelativeMountPath = "RelativeMountPath",
                 BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
             },
@@ -100,6 +106,9 @@ new PoolAddParameter
     }
 }
 ```
+
+> [!TIP]
+>If using a managed identity, ensure that the identity has been [assigned to the pool](managed-identity-pools.md) so that it is available on the VM doing the mounting. The identity will need to have the `Storage Blob Data Contributor` role in order to function properly.
 
 ### Network File System
 
@@ -155,7 +164,7 @@ If a mount configuration fails, the compute node in the pool will fail and the n
 
 To get the log files for debugging, use [OutputFiles](batch-task-output-files.md) to upload the `*.log` files. The `*.log` files contain information about the file system mount at the `AZ_BATCH_NODE_MOUNTS_DIR` location. Mount log files have the format: `<type>-<mountDirOrDrive>.log` for each mount. For example, a `cifs` mount at a mount directory named `test` will have a mount log file named: `cifs-test.log`.
 
-## Support Matrix
+## Support matrix
 
 Azure Batch supports the following virtual file system types for node agents produced for their respective publisher and offer.
 

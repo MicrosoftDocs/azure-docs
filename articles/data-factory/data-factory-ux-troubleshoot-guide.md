@@ -3,6 +3,7 @@ title: Troubleshoot Azure Data Factory UX
 description: Learn how to troubleshoot Azure Data Factory UX issues.
 author: ceespino
 ms.service: data-factory
+ms.subservice: authoring
 ms.topic: troubleshooting
 ms.date: 06/01/2021
 ms.author: ceespino
@@ -119,7 +120,7 @@ Solution is to fix JSON files at first and then reopen the pipeline using Author
 For more troubleshooting help, try these resources:
 
 * [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+* [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure videos](https://azure.microsoft.com/resources/videos/index/)

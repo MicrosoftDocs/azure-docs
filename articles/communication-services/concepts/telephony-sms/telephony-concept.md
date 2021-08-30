@@ -73,7 +73,7 @@ This option requires:
 ### Conceptual documentation
 
 - [Phone number types in Azure Communication Services](./plan-solution.md)
-- [Plan for Azure direct routing](./sip-interface-infrastructure.md)
+- [Plan for Azure direct routing](./direct-routing-infrastructure.md)
 - [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
 - [Pricing](../pricing.md)
 
