@@ -181,7 +181,7 @@ services:
         # replace with path to logs folder
       - <path-to-logs-folder>:/output
   nginx:
-    image: nginx
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     ports:
       - 443:443
     volumes:
