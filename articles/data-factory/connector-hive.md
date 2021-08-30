@@ -6,9 +6,11 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic:08/30/2021
+ms.topic: conceptual
+ms.date: 08/30/2021
 ms.author: jianleishen
 ---
+
 # Copy and transform data from Hive using Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
