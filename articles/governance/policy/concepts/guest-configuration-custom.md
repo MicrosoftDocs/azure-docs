@@ -89,7 +89,7 @@ the state of the machine.
 1. Last, the provider runs `Get` to return the current state of each setting so
    details are available both about why a machine isn't compliant and to confirm
    that the current state is compliant.
-   
+
 ## Trigger Set from outside machine
 
 A challenge in previous versions of DSC has been correcting drift at scale
@@ -134,7 +134,7 @@ returned as a string value for the **Phrase** property.
 $reasons = @()
 $reasons += @{
   Code = 'Name:Name:ReasonIdentifer'
-  Phrase = 'Explain why the setting isn't compliant'
+  Phrase = 'Explain why the setting is not compliant'
 }
 return @{
     reasons = $reasons
@@ -192,7 +192,7 @@ class Example {
   [Example] Get() {
     # return current current state
   }
-  
+
   [void] Set() {
     # set the state
   }

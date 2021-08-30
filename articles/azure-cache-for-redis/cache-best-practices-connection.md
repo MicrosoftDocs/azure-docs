@@ -40,7 +40,7 @@ Avoid creating many connections at the same time when reconnecting after a conne
 If you're reconnecting many client instances, consider staggering the new connections to avoid a steep spike in the number of connected clients.
 
 > [!NOTE]
-> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](/cache-management-faq.md#stackexchangeredis-best-practices).
+> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](/azure/azure-cache-for-redis/cache-planning-faq#stackexchangeredis-best-practices).
 
 ## Avoid leftover connections
 
@@ -48,15 +48,15 @@ Caches have limits on the number of client connections per cache tier. Ensure th
 
 ## Advance maintenance notification
 
-Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance](/cache-failover.md#can-i-be-notified-in-advance-of-a-planned-maintenance).
+Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance?](cache-failover.md#can-i-be-notified-in-advance-of-a-planned-maintenance).
 
 ## Schedule maintenance window
 
-Adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Schedule updates](/azure-cache-for-redis/cache-administration.md#schedule-updates).
+Adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Schedule updates](cache-administration.md#schedule-updates).
 
 ## More design patterns for resilience
 
-Apply design patterns for resiliency. For more information, see [recommended design patterns](/cache-failover.md#how-do-i-make-my-application-resilient)
+Apply design patterns for resiliency. For more information, see [How do I make my application resilient?](cache-failover.md#how-do-i-make-my-application-resilient).
 
 ## Idle timeout
 
