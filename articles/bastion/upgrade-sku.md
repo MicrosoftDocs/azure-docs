@@ -19,8 +19,6 @@ This article helps you upgrade from the Basic Tier (SKU) to Standard. Once you u
 
 ## Configuration steps
 
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
 1. In the Azure portal, navigate to your Bastion host.
 1. On the **Configuration** page, for **Tier**, select **Standard** from the dropdown.
 
