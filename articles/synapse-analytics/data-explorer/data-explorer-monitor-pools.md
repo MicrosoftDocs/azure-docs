@@ -44,7 +44,3 @@ For example, you can filter the view to see only the Data Explorer pools contain
 To view the details about one of your Data Explorer pools, select the Data Explorer pool to view the details.
 
 ![Data Explorer pool details](media/monitor-data-explorer-pools/data-explorer-pool-details.png)
-
-## Next steps
-
-[Quickstart: Schedule pool activities in pipelines](data-explorer-schedule-pool-pipeline.md)
