@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: how-to
-ms.date: 08/23/2021
+ms.date: 08/30/2021
 ms.author: barclayn
 ms.custom: ep-msia
 #Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
@@ -27,7 +27,7 @@ In this article, we set up a virtual machine to use managed identities to connec
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - Before you begin, you must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- A [Comos DB Core (SQL) API account](../../cosmos-db/create-cosmosdb-resources-portal.md) configured with some data that you can query. The Cosmos quickstart walks you through the steps of creating an Azure Cosmos account. We assume that you have completed those steps and build on that.
+- A [Comos DB Core (SQL) API account](../../cosmos-db/create-cosmosdb-resources-portal.md) configured with some data that you can query. The Cosmos quickstart walks you through the steps of creating an Azure Cosmos account. If you are getting started with Cosmos, the quickstart is a great way to get familiar with Cosmos and set up for this tutorial and others. 
 - You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 - A resource group that we can use to create all resources.
 
@@ -107,7 +107,7 @@ To enable system-assigned managed identity, load the template into an editor, lo
    },
    ```
 
-When you're done, the following sections should be added to the `resource` section of your template and it should resemble the following:
+When you're done, the following sections should be added to the `resource` section of your template. Your template should resemble the example shown below:
 
    ```json
     "resources": [
@@ -128,7 +128,7 @@ When you're done, the following sections should be added to the `resource` secti
 
 #### Enable system assigned managed identities on existing VMs
 
-If you have an existing virtual machine you can enable system assigned managed identities anytime.
+If you have an existing virtual machine, you can enable system assigned managed identities anytime.
 
 # [Portal](#tab/azure-portal)
 
@@ -165,13 +165,13 @@ TBD
 
 User-assigned managed identities may be used with multiple resources. For information on how to create or delete user-assigned managed identities you can review [Manage user-assigned managed identities](how-manage-user-assigned-managed-identities.md)
 
-To assign a user-assigned identity to a VM, your account needs the Virtual Machine Contributor and Managed Identity Operator role assignments. No additional Azure AD directory role assignments are required.
+To assign a user-assigned identity to a VM, your account needs the Virtual Machine Contributor and Managed Identity Operator role assignments. No other Azure AD directory role assignments are required.
 
 #### Create a virtual machine with a user-assigned managed identity assigned
 
 # [Portal](#tab/azure-portal)
 
-Currently, the Azure portal does not support assigning a user-assigned managed identity during the creation of a VM. You should create a virtual machine and then assign a user assigned managed identity to it.
+Today, the Azure portal does not support assigning a user-assigned managed identity during the creation of a VM. You should create a virtual machine and then assign a user assigned managed identity to it.
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md#user-assigned-managed-identity)
 
@@ -223,7 +223,7 @@ az vm create --resource-group <MyResourceGroup> --name <myVM> --image UbuntuLTS 
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
-Depending on your API version you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format and the <identityName> value is the name of a variable that you define in the variables section of your template. In the variable you point to the user assigned managed identity that you want to assign to the managed identity.
+Depending on your API version, you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format and the <identityName> value is the name of a variable that you define in the variables section of your template. In the variable you point to the user assigned managed identity that you want to assign.
 
 ```json
     "variables": {
@@ -268,7 +268,7 @@ Under the resources element, add the following entry to assign a user-assigned m
 
 # [PowerShell](#tab/azure-powershell)
 
-To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
+To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No other Azure AD directory role assignments are required.
 
 
 ```azurepowershell-interactive
@@ -330,7 +330,7 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -PrincipalId $principalId
 ```
 
-When the role assignment step completes you should see results similar to the ones shown below.
+When the role assignment step completes, you should see results similar to the ones shown below.
 
 
 :::image type="content" source="media/how-to-manage-identities-vm-cosmos/results-role-assignment.png" alt-text="This shows the results of the role assignment":::
@@ -368,30 +368,32 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ## Access data
 
-Navigate to the Azure Cosmos DB account in the Azure portal and create a database and a container. You can view step by step instructions in the Azure Cosmos DB quickstart.
+Getting access to the data plane using managed identities may be achieved using the Azure.identity library to enable authentication in your application. You can call [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) directly or use [DefaultAzureCredential](). 
 
-https://docs.microsoft.com/en-us/azure/cosmos-db/managed-identity-based-authentication
+The ManagedIdentityCredential class attempts to authentication using a managed identity assigned to the deployment environment. The DefaultAzureCredential class goes through different authentication options in order. The second authentication option that DefaultAzureCredential attempts is Managed identities. 
 
-Download the database management project 
+[!IMPORTANT]
+> At this time, Azure AD authentication is only available for data plane operations. This means that managed identities may only be used for data plane operation and not for any [management plane operations](../../cosmos-db/audit-control-plane-logs.md#control-plane-operations-for-azure-cosmos-account). 
 
-https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement
 
-We can then use the samples 
 
-https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-dotnet-v3sdk-samples
+Navigate to the Azure Cosmos DB account in the Azure portal and create a container. You can view step-by-step instructions in the [Azure Cosmos DB quickstart](../../cosmos-db/create-cosmosdb-resources-portal.md).
 
 Next steps are language-specific:
 
 ### .NET
+
 Initialize your Cosmos DB client:
 
-```
+```csharp
 CosmosClient client = new CosmosClient("<account-endpoint>", new ManagedIdentityCredential());
 ```
+
 Then [read and write data](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples).
 
 ### Java
 Initialize your Cosmos DB client:
+
 ```java
 CosmosAsyncClient Client = new CosmosClientBuilder() .endpoint("<account-endpoint>") .credential(new ManagedIdentityCredential()) .build();
 ```
@@ -456,3 +458,4 @@ Learn more about managed identities for Azure resources:
 Learn more about Azure Cosmos
 
 * [Azure Cosmos DB resource model](https://docs.microsoft.com/en-us/azure/cosmos-db/account-databases-containers-items)
+* [Cosmos samples](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-dotnet-v3sdk-samples)
