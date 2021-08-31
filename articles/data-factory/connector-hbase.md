@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/30/2021
 ms.author: jianleishen
 ---
 # Copy data from HBase using Azure Data Factory 
@@ -33,6 +33,31 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Hbase using UI
+
+Use the following steps to create a linked service to Hbase in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Hbase and select the Hbase connector.
+
+   :::image type="content" source="media/connector-hbase/hbase-connector.png" alt-text="Screenshot of the Hbase connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-hbase/configure-hbase-linked-service.png" alt-text="Screenshot of linked service configuration for Hbase.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to HBase connector.
 
