@@ -61,9 +61,9 @@ az ml online-deployment create --file <DEPLOYMENT-FILE> --local --vscode-debug
 A Docker image is built locally. Any environment configuration or model file errors are surfaced at this stage of the process.
 
 > [!NOTE]
-> The first time you launch a new or updated development container it can take several minutes.
+> The first time you launch a new or updated dev container it can take several minutes.
 
-Once the image successfully builds, your development container opens in a VS Code window.
+Once the image successfully builds, your dev container opens in a VS Code window.
 
 You'll use a few VS Code extensions to debug your deployments in the dev container. Azure Machine Learning automatically installs these extensions in your dev container.
 
@@ -88,9 +88,10 @@ Once your environment is setup, use the VS Code debugger to test and debug your 
 1. Select the VS Code Run view.
 1. In the Run and Debug dropdown, select **Azure ML: Debug Local Endpoint** to start debugging your endpoint locally.
 
-    In the **Breakpoints** section of the Run and Debug view, check that:
-        1. **Raised Exceptions** is **unchecked**
-        1. **Uncaught Exceptions** is **checked**
+    In the **Breakpoints** section of the Run view, check that:
+
+    - **Raised Exceptions** is **unchecked**
+    - **Uncaught Exceptions** is **checked**
 
     :::image type="content" source="media/how-to-debug-managed-online-endpoints-vscode/configure-debug-profile.png" alt-text="Configure Azure ML Debug Local Environment debug profile":::
 
@@ -100,7 +101,7 @@ Once your environment is setup, use the VS Code debugger to test and debug your 
 
 For more information on the VS Code debugger, see [Debugging in VS Code](https://code.visualstudio.com/Docs/editor/debugging)
 
-## Make predictions
+## Debug your endpoint
 
 Now that your application is running in the debugger, try making a prediction to debug your scoring script.
 
@@ -163,7 +164,7 @@ To apply changes to your code:
 
 For scenarios where you need to apply changes such as renaming files and updating assets , use the `Developer: Reload Window` command in the command palette after applying your changes to . For more information, see the [command palette documentation](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 
-For more extensive changes involving updates to your environment and endpoint configuration, use the 2.0 CLI `update` command. Doing so will trigger a full image rebuild with your changes.
+For more extensive changes involving updates to your environment and endpoint configuration, use the `ml` extension `update` command. Doing so will trigger a full image rebuild with your changes.
 
 ```azurecli
 az ml online-deployment update --file $DEPLOYMENT_FILE --local --vscode-debug
