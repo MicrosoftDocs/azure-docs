@@ -1,5 +1,5 @@
 ---
-title: What is Azure Machine Learning?
+title: What is Azure Load Testing?
 description: 'Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle: Train and deploy models, and manage MLOps.'
 services: machine-learning
 ms.service: machine-learning
@@ -12,7 +12,7 @@ ms.custom: devx-track-python
 adobe-target: true
 ---
 
-# What is Azure Machine Learning?
+# What is Azure Load Testing?
 
 Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows: Train and deploy models, and manage MLOps.
 
@@ -71,7 +71,7 @@ Security integrations include:
 - Azure Key Vault where you can save security secrets, such as access information for storage accounts
 - Azure Container Registry set up behind a VNet
 
-See [Tutorial: Set up a secure workspace](tutorial-create-secure-workspace.md).
+See [Tutorial: Set up a secure workspace](../machine-learning/tutorial-create-secure-workspace.md).
 
 ## Azure integrations for complete solutions
 
@@ -91,11 +91,11 @@ Typically models are developed as part of a project with an objective and goals.
 
 While the project lifecycle can vary by project, it will often look like this:
 
-![Machine learning project lifecycle diagram](./media/overview-what-is-azure-machine-learning/overview-ml-development-lifecycle.png)
+![Machine learning project lifecycle diagram](../machine-learning/media/overview-what-is-azure-machine-learning/overview-ml-development-lifecycle.png)
 
 A workspace organizes a project and allows for collaboration for many users all working toward a common objective. Users in a workspace can easily share the results of their runs from experimentation in the studio user interface or use versioned assets for jobs like environments and storage references.
 
-For more information, see [Manage Azure Machine Learning workspaces](how-to-manage-workspace.md?tabs=python).
+For more information, see [Manage Azure Machine Learning workspaces](../machine-learning/how-to-manage-workspace.md?tabs=python).
 
 When a project is ready for operationalization, users' work can be automated in a machine learning pipeline and triggered on a schedule or HTTPS request.
 
@@ -119,19 +119,19 @@ Other languages and frameworks are supported as well, including:
 - R
 - .NET
 
-See [Open-source integration with Azure Machine Learning](concept-open-source.md).
+See [Open-source integration with Azure Machine Learning](../machine-learning/concept-open-source.md).
 
 ### Automated featurization and algorithm selection (AutoML)
 
 In a repetitive, time-consuming process, in classical machine learning data scientists use prior experience and intuition to select the right data featurization and algorithm for training. Automated ML (AutoML) speeds this process and can be used through the studio UI or Python SDK.
 
-See [What is automated machine learning?](concept-automated-ml.md)
+See [What is automated machine learning?](../machine-learning/concept-automated-ml.md)
 
 ### Hyperparameter optimization
 
 Hyperparameter optimization, or hyperparameter tuning, can be a tedious task. Azure Machine Learning can automate this task for arbitrary parameterized commands with little modification to your job definition. Results are visualized in the studio.
 
-See [How to tune hyperparameters](how-to-tune-hyperparameters.md).
+See [How to tune hyperparameters](../machine-learning/how-to-tune-hyperparameters.md).
 
 ### Multinode distributed training
 
@@ -145,7 +145,7 @@ Supported via Azure Arc-attached Kubernetes (preview) and Azure ML compute clust
 
 The MPI distribution can be used for Horovod or custom multinode logic. Additionally, Apache Spark is supported via Azure Synapse Analytics Spark clusters (preview).
 
-See [Distributed training with Azure Machine Learning](concept-distributed-training.md).
+See [Distributed training with Azure Machine Learning](../machine-learning/concept-distributed-training.md).
 
 ### Embarrassingly parallel training
 
@@ -162,8 +162,8 @@ To bring a model into production, it is deployed. Azure Machine Learning's manag
 *Real-time scoring*, or *online inferencing*, involves invoking an endpoint with one or more model deployments and receiving a response in near-real-time via HTTPs. Traffic can be split across multiple deployments, allowing for testing new model versions by diverting some amount of traffic initially and increasing once confidence in the new model is established.    
 
 See:
- - [Deploy a model with a real-time managed endpoint](how-to-deploy-managed-online-endpoints.md)
- - [Use batch endpoints for scoring](how-to-use-batch-endpoint.md) 
+ - [Deploy a model with a real-time managed endpoint](../machine-learning/how-to-deploy-managed-online-endpoints.md)
+ - [Use batch endpoints for scoring](../machine-learning/how-to-use-batch-endpoint.md) 
 
 
 ## MLOps: DevOps for machine learning 
@@ -172,9 +172,9 @@ DevOps for machine learning models, often called MLOps, is a process for develop
 
 ### ML model lifecycle 
 
-![Machine learning model lifecycle - MLOps](./media/overview-what-is-azure-machine-learning/model-lifecycle.png)
+![Machine learning model lifecycle - MLOps](../machine-learning/media/overview-what-is-azure-machine-learning/model-lifecycle.png)
 
-Learn more about [MLOps in Azure Machine Learning](concept-model-management-and-deployment.md).
+Learn more about [MLOps in Azure Machine Learning](../machine-learning/concept-model-management-and-deployment.md).
 
 ### Integrations enabling MLOPs
 
@@ -195,6 +195,6 @@ Also, Azure Machine Learning includes features for monitoring and auditing:
 ## Next steps
 
 Start using Azure Machine Learning:
-- [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
-- [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
-- [Preview: Run model training jobs with the v2 CLI](how-to-train-cli.md)
+- [Set up an Azure Machine Learning workspace](../machine-learning/quickstart-create-resources.md)
+- [Tutorial: Build a first machine learning project](../machine-learning/tutorial-1st-experiment-hello-world.md)
+- [Preview: Run model training jobs with the v2 CLI](../machine-learning/how-to-train-cli.md)
