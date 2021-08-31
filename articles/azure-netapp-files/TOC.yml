@@ -157,7 +157,7 @@
   items:
   - name: Manage volume snapshots
     items:
-    - name: Manage volume snapshots
+    - name: Create an on-demand snapshot
       href: azure-netapp-files-manage-snapshots.md
     - name: Manage snapshot policies
       href: snapshot-manage-policy.md
