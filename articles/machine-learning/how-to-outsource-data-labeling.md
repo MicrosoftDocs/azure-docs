@@ -27,22 +27,21 @@ Learn how to engage a data labeling vendor company to help you label your data. 
 
 Before you create your data labeling project:
 
-1. Select a labeling service provider.  
+1. Select a labeling service provider.  To find a provider on Azure Marketplace:
     1. Review the [listing details of these vendor labeling companies](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services?page=1&search=AzureMLVend).
     1. If the vendor labeling company meets your requirements, choose the **Contact Me** option in Azure Marketplace. Azure Marketplace will route your inquiry to the vendor labeling company. You can reach to multiple vendor labeling companies before choosing the final company.
-    1. You can also select a labeling company not listed in Azure Marketplace if you wish.
 
 1. Contact and enter into a contract with the labeling service provider.
 
 Wait until the contract has been agreed and signed between you and the vendor labeling labeling company before you create your labeling project.  Once the contract has been signed:
 
 1. Create the labeling project in [Azure Machine Learning studio](https://ml.azure.com). For more details on creating a project, see [Create a data labeling project and export labels](how-to-create-labeling-projects.md).
-1. If you use a provider from Azure Marketplace: 
-    1. Select **Use a vendor labeling company form Azure Marketplace** in the workforce step.
+1. You're not limited to using a data labeling provider from Azure Marketplace.  But if you do use a provider from Azure Marketplace:
+    1. Select **Use a vendor labeling company from Azure Marketplace** in the workforce step.
     1. Select the appropriate data labeling company in the dropdown.
 
     > [!NOTE]
-    > The vendor labeling company name cannot be changed after creating the labeling project.
+    > The vendor labeling company name cannot be changed after you create the labeling project.
 
 1. Enable access (`labeler` role, `techlead` role) to the vendor labeling labeling company using Azure Role Based Access (RBAC). This access will allow the vendor labeling company resources to annotate your labeling assets.
 
@@ -55,8 +54,9 @@ Microsoft has identified some labeling service providers with knowledge and expe
 
 Microsoft periodically reviews the list of potential labeling service providers in Azure Marketplace and may add or remove providers from the list at any time.  
 
-* If a provider is removed, it won't affect your existing projects, or the company's access to those projects.
-* A removed provider will no longer be available through Azure Marketplace, and if you use them in future projects, you would no longer select the **Use a vendor labeling company form Azure Marketplace** option in your project.
+* If a provider is removed, it won't affect any existing projects, or that company's access to those projects.
+* If you use a provider who is no longer listed in Azure Marketplace, don't select the **Use a vendor labeling company from Azure Marketplace** option in your new project.
+* A removed provider will no longer be available through Azure Marketplace.
 * A removed provider will no longer be able to be contacted through Azure Marketplace.
 
 You can engage multiple vendor labeling companies for various labeling project needs. Each project will be linked to one vendor labeling company.
@@ -69,9 +69,9 @@ Below are vendor labeling companies who might help in getting your data labeled 
 
 ## Enter into a contract 
 
-After you have selected the labeling company you want to work with, you will need to enter into a contract directly with the labeling company setting forth the terms of your engagement. Microsoft is not a party to this agreement and plays no role in determining or negotiating its terms. Amounts payable under this agreement will be paid directly to the labeling company.
+After you have selected the labeling company you want to work with, you need to enter into a contract directly with the labeling company setting forth the terms of your engagement. Microsoft is not a party to this agreement and plays no role in determining or negotiating its terms. Amounts payable under this agreement will be paid directly to the labeling company.
 
-You'll be charged directly by the vendor labeling company for the labor provided for manual labeling. If you enable ML Assisted labeling in a labeling project, Microsoft will charge you separately for the compute consumed in connection with this service. All other charges associated with your use of Azure Machine Learning (such as storage of data used in your Azure Machine Learning workspace) are governed by the terms of your agreement with Microsoft.
+If you enable ML Assisted labeling in a labeling project, Microsoft will charge you separately for the compute resources consumed in connection with this service. All other charges associated with your use of Azure Machine Learning (such as storage of data used in your Azure Machine Learning workspace) are governed by the terms of your agreement with Microsoft.
 
 ## Enable access
 
