@@ -1,8 +1,8 @@
 ---
 title: "include file"
 description: "include file"
-services: machine-learning
-ms.service: machine-learning
+services: load-testing
+ms.service: load-testing
 ms.custom: "include file"
 ms.topic: "include"
 author: j-martens
