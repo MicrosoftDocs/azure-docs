@@ -97,7 +97,7 @@ Once the database consistent snapshots are taken and the log backups are streame
 - Use cross region restore functionality to perform all/any of the above actions from secondary paired region during regional disaster.
 
 ## Using enhanced pre-post scripts for Oracle snapshots
-
+<>
 ### Summary
 
 Using database consistent snapshots + logs backed up using a custom solution, one can build a performant and cost effective database backup solution leveraging the benefits of Azure VM backup and also re-using the capabilities of database clients.
@@ -107,9 +107,5 @@ Using database consistent snapshots + logs backed up using a custom solution, on
 <details>
   <summary>Click to expand!</summary>
   
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
+  [!INCLUDE [Configuring network connectivity](../../includes/oracle-database-backup-azure-backup.md)]
 </details>
