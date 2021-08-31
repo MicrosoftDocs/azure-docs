@@ -21,13 +21,13 @@ ms.author: ofshezaf
 
 # Azure Sentinel Information Model (ASIM) parsers (Public preview)
 
-In Azure Sentinel, parsing and [normalizing](normalization.md) happens at query time. Parsers are built as [KQL user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) that transform data in existing tables, such as **CommonSecurityLog**, custom logs tables, or Syslog, into the normalized schema. Once the parser is saved as a workspace function, it can be used like any other Azure Sentinel table.
+In Azure Sentinel, parsing and [normalizing](normalization.md) happen at query time. Parsers are built as [KQL user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) that transform data in existing tables, such as **CommonSecurityLog**, custom logs tables, or Syslog, into the normalized schema. Once the parser is saved as a workspace function, it can be used like any Azure Sentinel table.
 
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## Source agnostic and source specific parsers
+## Source agnostic and source-specific parsers
 
 ASIM includes  two levels of parsers: **source-agnostic** and **source-specific** parsers:
 
@@ -55,9 +55,9 @@ vimDnsMicrosoftOMS
 ```
 
 > [!NOTE]
-> When using the ASIM source-agnostic parsers which start with `im` in the log screen, the time range picker is set to `custom`. You can still set the time range yourself. Alternatively, specific the time range using parser parameters.
+> When using the ASIM source-agnostic parsers, which start with `im` in the log screen, the time range selector is set to `custom`. You can still set the time range yourself. Alternatively, specify the time range using parser parameters.
 >
-> You can also uas an alternative parser which starts with `ASim`, which does not support parameters and does not set the time range picker to custom.
+> You can also use an alternative parser that starts with `ASim`, which does not support parameters and does not set the time range picker to custom.
 >
 
 ### Source-specific parsers
@@ -70,17 +70,17 @@ The source-specific parsers can also be used independently. For example, in an I
 
 ## <a name="optimized-parsers"></a>Optimizing parsing using parameters
 
-Parsers may have a performance impact. While the added parsing processing causes some performance impact, the primary impact results from the need to perform filtering after parsing, while the best practice is to filter first. 
+Parsers may have a performance impact. While the added parsing processing causes some performance impact, the primary effect results from the need to filter after parsing, while the best practice is to filter first. 
 
-To mitigate this issue, parsers can have optional filtering parameters. When using the filtering parameters, filtering is done prior to parsing and significantly enhances performance. By using query optimization and pre-filtering, ASIM parsers often provide enhanced performance when compared to not using normalization at all. 
+To mitigate this issue, parsers can have optional filtering parameters. When using the filtering parameters, filtering is done before parsing and significantly enhances performance. By using query optimization and pre-filtering, ASIM parsers often provide enhanced performance when compared to not using normalization at all. 
 
-To use filtering parameters, add one or more named parameters when invoking the parsers. For example, the following query start ensures that only DNS queries for non-existant domains are returned.
+To use filtering parameters, add one or more named parameters when invoking the parsers. For example, the following query start ensures that only DNS queries for non-existent domains are returned.
 
 ```kusto
 imDns(responsecodename='NXDOMAIN')
 ```
 
-This is analogues to the query
+This is analogous to the query:
 
 ```kusto
 imDns | where ResponseCodeName == 'NXDOMAIN'
@@ -88,9 +88,9 @@ imDns | where ResponseCodeName == 'NXDOMAIN'
 
 But is much more efficient.
 
-Each schema has a standard set of filtering parameters which are documented with in the schema doc. Currently only the DNS schema supports parameters, however, we are working to expand support to other schemas.
+Each schema has a standard set of filtering parameters which are documented in the schema doc. Currently, only the DNS schema supports parameters. However, we are working on expanding support to other schemas.
 
-Note that using filtering parameters is entirely optional. Also, if is not written to support filtering parameters, it still works, but without pre-filtering optimization. 
+Note that using filtering parameters is entirely optional. Also, if it is not written to support filtering parameters, it still works, but without pre-filtering optimization. 
 
 ## Writing source-specific parsers
 
@@ -131,9 +131,9 @@ let DNSQuery_MS=(
     )
 ```
 
-Next, filter based on the value of the parameters. Make sure that you
- - Filter prior to parsing using physical fields. If this fileting is not accurate enough, repeat the test after parsing to fine tune as described in ["filtering optimization"](#optimization) below.
- - Make sure to not filter if the parameter is not set and has the default value. The examples below show how to implement this for a string parameter, for which the default value is usually '*' and for a list parameter, for which the default value is usually an empty list.
+Next, filter based on the value of the parameters. Make sure that you:
+ - Filter before parsing using physical fields. If this fileting is not accurate enough, repeat the test after parsing to fine-tune as described in ["filtering optimization"](#optimization) below.
+ - Make sure to not filter if the parameter is not set and has the default value. The examples below show how to implement this for a string parameter, for which the default value is usually '*', and for a list parameter, for which the default value is usually an empty list.
 
 ``` kusto
 srcipaddr=='*' or ClientIP==srcipaddr
@@ -154,7 +154,7 @@ To ensure the performance of the parser, note the following filtering recommenda
 
 Filtering recommendations for performance may not always be trivial to follow. For example, using `has` is less accurate than `contains`. In other cases, matching the built-in field, such as `SyslogMessage`, is less accurate than comparing an extracted field, such as `DvcAction`. In such cases, we recommend that you still pre-filter using a performance-optimizing operator over a built-in field, and repeat the filter using more accurate conditions after parsing.
 
-For an example, see to the following [Infoblox DNS](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM/Infoblox) parser snippet. The parser first checks that the SyslogMessage field `has` the word `client`. However, the term might be used in a different place in the message. Therefore, after parsing the `Log_Type` field, the parser checks again that the word `client` was indeed the field's value.
+For an example, see the following [Infoblox DNS](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM/Infoblox) parser snippet. The parser first checks that the SyslogMessage field `has` the word `client`. However, the term might be used in a different place in the message. Therefore, after parsing the `Log_Type` field, the parser checks again that the word `client` was indeed the field's value.
 
 ```kusto
 Syslog | where ProcessName == "named" and SyslogMessage has "client"
@@ -164,7 +164,7 @@ Syslog | where ProcessName == "named" and SyslogMessage has "client"
 ```
 
 > [!NOTE]
-> Parsers should not filter by time, as the query that's using the parser already filters for time.
+> Parsers should not filter by time, as the query using the parser already filters for time.
 >
 
 ### Parsing
@@ -188,7 +188,7 @@ In addition to parsing string, the parsing phase may require more processing of 
 
 - **Formatting and type conversion**. The source field, once extracted, may need to be formatted to fit the target schema field. For example, you may need to convert a string representing date and time to a datetime field.     Functions such as `todatetime` and `tohex` are helpful in these cases.
 
-- **Value lookup**. The value of the source field, once extracted, may need to be mapped to the set of values specified for the target schema field. For example, some sources report numeric DNS response codes, while the schema mandates the more common text response codes. For mapping a small number of values, the functions `iff` and `case` can be useful.
+- **Value lookup**. The value of the source field, once extracted, may need to be mapped to the set of values specified for the target schema field. For example, some sources report numeric DNS response codes, while the schema mandates the more common text response codes. The functions `iff` and `case` can be helpful to map a few values.
 
     For example, the Microsoft DNS parser assigns the `EventResult` field based on the Event ID and Response Code using an `iff` statement, as follows:
 
@@ -215,30 +215,30 @@ In addition to parsing string, the parsing phase may require more processing of 
 
 ### Prepare fields in the result set
 
-The parser has to prepare the fields in the result set to ensure that the normalized fields are used. As a guideline, original fields that are not normalized should not be removed from the result set unless there is a compelling reason to do so, such as if they create confusion.
+The parser has to prepare the results set fields to ensure that the normalized fields are used. As a guideline, original fields that are not normalized should not be removed from the result set unless there is a compelling reason to do so, such as if they create confusion.
 
 The following KQL operators are used to prepare fields:
 
 |Operator  | Description  | When to use in a parser  |
 |---------|---------|---------|
 |**extend**     | Creates calculated fields and adds them to the record        |  `Extend` is used if the normalized fields are parsed or transformed from the original data. For more information, see the example in the [Parsing](#parsing) section above.     |
-|**project-rename**     | Renames fields        |     If a field exists in the original event and only needs to be renamed, use `project-rename`. <br><br>The renamed field still behaves like a built-in field, and operations on the field have much better performance.   |
+|**project-rename**     | Renames fields        |     If a field exists in the actual event and only needs to be renamed, use `project-rename`. <br><br>The renamed field still behaves like a built-in field, and operations on the field have much better performance.   |
 |**project-away**     |      Removes fields.   |Use `project-away` for specific fields that you want to remove from the result set.         |
-|**project**     |  Selects fields that were either existing before, or were created as part of the statement. Removes all other fields.       | Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
+|**project**     |  Selects fields that existed before or were created as part of the statement. Removes all other fields.       | Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
 | | | |
 
 ### Handle parsing variants
 
 In many cases, events in an event stream include variants that require different parsing logic.
 
-It's often tempting to build a parser from different subparsers, each handling another variant of the events that needs different parsing logic. Those subparsers, each a query by itself, are then unified using the `union` operator. This approach, while convenient, is *not* recommended as it significantly impacts the performance of the parser.
+It's often tempting to build a parser from different subparsers, each handling another variant of the event that needs different parsing logic. Those subparsers, each a query by itself, are then unified using the `union` operator. This approach, while convenient, is *not* recommended as it significantly impacts the performance of the parser.
 
 When handling variants, use the following guidelines:
 
 |Scenario  |Handling  |
 |---------|---------|
 |The different variants represent *different* event types, commonly mapped to different schemas     |  Use separate parsers       |
-|The different variants represent the *same* event type, but are structured differently.     |   If the variants are known, such as when there is a method to differentiate between the events before parsing, use the `case` operator to select the correct `extract_all` to run and field mapping, as demonstrated in the [Infoblox DNS parser](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM/Infoblox).      |
+|The different variants represent the *same* event type but are structured differently.     |   If the variants are known, such as when there is a method to differentiate between the events before parsing, use the `case` operator to select the correct `extract_all` to run and field mapping, as demonstrated in the [Infoblox DNS parser](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM/Infoblox).      |
 |If `union` is unavoidable     |  When using `union` is unavoidable, make sure to use the following guidelines:<br><br>-	Pre-filter using built-in fields in each one of the subqueries. <br>-	Ensure that the filters are mutually exclusive. <br>-	Consider not parsing less critical information, reducing the number of subqueries.       |
 | | |
 
@@ -248,7 +248,7 @@ Normalization allows you to use your own content and built-in content with your 
 
 For example, if you have a custom connector that receives DNS query activity log, you can ensure that the DNS query activity logs take advantage of any normalized DNS content.
 
-To do that, modify the relevant source agnostic parser to include the source-specific parser you crated. For example, modify the `imDns` source-agnostic parser to also include your parser by adding your parser to the list of parsers in the `union` statement. If your parser supports parameters, include it with the parameter signature, like the vimDnsYyyXxx parser below. If it doesn't, include it without a signature, like the vimDnsWwwZzz parer below.
+To do that, modify the relevant source agnostic parser to include the source-specific parser you created. For example, change the `imDns` source-agnostic parser to include your parser by adding your parser to the list of parsers in the `union` statement. If your parser supports parameters, include it with the parameter signature, like the vimDnsYyyXxx parser below. If it doesn't, include it without a signature, like the vimDnsWwwZzz parer below.
 
 ```kusto
 let DnsGeneric=(starttime:datetime=datetime(null), endtime:datetime=datetime(null)... ){
