@@ -60,8 +60,6 @@ Use the following steps to create a linked service to Cassandra in the Azure por
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Cassandra and select the Cassandra connector.
 
    :::image type="content" source="media/connector-cassandra/cassandra-connector.png" alt-text="Screenshot of the Cassandra connector.":::    

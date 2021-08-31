@@ -56,8 +56,6 @@ Use the following steps to create a linked service to MongoDB in the Azure porta
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Mongo and select the MongoDB connector.
 
    :::image type="content" source="media/connector-mongodb-legacy/mongodb-legacy-connector.png" alt-text="Screenshot of the MongoDB connector.":::    

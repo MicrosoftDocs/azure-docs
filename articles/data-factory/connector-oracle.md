@@ -70,8 +70,6 @@ Use the following steps to create a linked service to Oracle in the Azure portal
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Oracle and select the Oracle connector.
 
     :::image type="content" source="media/connector-oracle/oracle-connector.png" alt-text="Screenshot of the Oracle connector.":::    

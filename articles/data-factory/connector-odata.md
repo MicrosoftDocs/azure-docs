@@ -55,8 +55,6 @@ Use the following steps to create a linked service to an OData store in the Azur
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for OData and select the OData connector.
 
     :::image type="content" source="media/connector-odata/odata-connector.png" alt-text="Screenshot of the OData connector.":::    

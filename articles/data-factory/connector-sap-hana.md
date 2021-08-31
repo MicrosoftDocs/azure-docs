@@ -66,8 +66,6 @@ Use the following steps to create a linked service to SAP HANA in the Azure port
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for SAP and select the SAP HANA connector.
 
     :::image type="content" source="media/connector-sap-hana/sap-hana-connector.png" alt-text="Screenshot of the SAP HANA connector.":::    

@@ -68,8 +68,6 @@ Use the following steps to create a linked service to Salesforce in the Azure po
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Salesforce and select the Salesforce connector.
 
     :::image type="content" source="media/connector-salesforce/salesforce-connector.png" alt-text="Screenshot of the Salesforce connector.":::    

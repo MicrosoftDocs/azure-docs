@@ -49,8 +49,6 @@ Use the following steps to create a linked service to Impala in the Azure portal
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Impala and select the Impala connector.
 
    :::image type="content" source="media/connector-impala/impala-connector.png" alt-text="Screenshot of the Impala connector.":::    

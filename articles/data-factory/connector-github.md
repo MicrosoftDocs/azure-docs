@@ -32,8 +32,6 @@ Use the following steps to create a linked service to GitHub in the Azure portal
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for GitHub and select the GitHub connector.
 
    :::image type="content" source="media/connector-github/github-connector.png" alt-text="Screenshot of the GitHub connector.":::    

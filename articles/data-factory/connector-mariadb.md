@@ -50,8 +50,6 @@ Use the following steps to create a linked service to MariaDB in the Azure porta
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Maria and select the MariaDB connector.
 
    :::image type="content" source="media/connector-mariadb/mariadb-connector.png" alt-text="Screenshot of the MariaDB connector.":::    

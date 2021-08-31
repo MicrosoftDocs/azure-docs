@@ -59,8 +59,6 @@ Use the following steps to create a file system linked service in the Azure port
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for file and select the File System connector.
 
     :::image type="content" source="media/connector-file-system/file-system-connector.png" alt-text="Screenshot of the File System connector.":::    

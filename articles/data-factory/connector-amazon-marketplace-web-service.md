@@ -46,7 +46,6 @@ Use the following steps to create a linked service to Amazon Marketplace Web Ser
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-
 2. Search for Amazon and select the Amazon Marketplace Web Service connector.
 
    :::image type="content" source="media/connector-amazon-marketplace-web-service/amazon-marketplace-web-service-connector.png" alt-text="Screenshot of the Amazon Marketplace Web Service connector.":::    

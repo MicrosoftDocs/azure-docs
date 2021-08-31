@@ -48,8 +48,6 @@ Use the following steps to create a linked service to Oracle Responsys in the Az
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Oracle and select the Oracle Responsys connector.
 
    :::image type="content" source="media/connector-oracle-responsys/oracle-responsys-connector.png" alt-text="Screenshot of the Oracle Responsys connector.":::    

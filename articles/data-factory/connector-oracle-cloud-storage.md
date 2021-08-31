@@ -50,8 +50,6 @@ Use the following steps to create a linked service to Oracle Cloud Storage in th
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Oracle and select the Oracle Cloud Storage connector.
 
    :::image type="content" source="media/connector-oracle-cloud-storage/oracle-cloud-storage-connector.png" alt-text="Screenshot of the Oracle Cloud Storage connector.":::    

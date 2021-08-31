@@ -58,8 +58,6 @@ Use the following steps to create a REST linked service in the Azure portal UI.
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for REST and select the REST connector.
 
     :::image type="content" source="media/connector-rest/rest-connector.png" alt-text="Select REST connector.":::    

@@ -66,8 +66,6 @@ Use the following steps to create a linked service to an HTTP source in the Azur
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for HTTP and select the HTTP connector.
 
     :::image type="content" source="media/connector-http/http-connector.png" alt-text="Screenshot of the HTTP connector.":::    

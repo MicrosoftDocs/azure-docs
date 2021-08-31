@@ -79,8 +79,6 @@ Use the following steps to create a linked service to a SharePoint Online List i
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for SharePoint and select the SharePoint Online List connector.
 
     :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-list-connector.png" alt-text="Screenshot of the SharePoint Online List connector.":::    

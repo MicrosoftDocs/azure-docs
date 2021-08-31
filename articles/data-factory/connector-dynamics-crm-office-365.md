@@ -81,8 +81,6 @@ Use the following steps to create a linked service to Dynamics 365 in the Azure 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Dynamics and select the Dynamics 365 connector.
 
     :::image type="content" source="media/connector-azure-blob-storage/azure-blob-storage-connector.png" alt-text="Screenshot of the Dynamics 365 connector.":::    

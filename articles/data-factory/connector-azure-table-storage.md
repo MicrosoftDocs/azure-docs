@@ -52,8 +52,6 @@ Use the following steps to create an Azure Table storage linked service in the A
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Azure Table and select the Azure Table storage connector.
 
     :::image type="content" source="media/connector-azure-table-storage/azure-table-storage-connector.png" alt-text="Screenshot of the Azure Table storage connector.":::    

@@ -54,8 +54,6 @@ Use the following steps to create a linked service to Netezza in the Azure porta
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Netezza and select the Netezza connector.
 
    :::image type="content" source="media/connector-netezza/netezza-connector.png" alt-text="Screenshot of the Netezza connector.":::    

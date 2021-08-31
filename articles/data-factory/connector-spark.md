@@ -49,8 +49,6 @@ Use the following steps to create a linked service to Spark in the Azure portal 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Spark and select the Spark connector.
 
    :::image type="content" source="media/connector-spark/spark-connector.png" alt-text="Screenshot of the Spark connector.":::    

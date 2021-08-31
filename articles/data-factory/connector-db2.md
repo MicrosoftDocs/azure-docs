@@ -67,8 +67,6 @@ Use the following steps to create a linked service to DB2 in the Azure portal UI
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for DB2 and select the DB2 connector.
 
     :::image type="content" source="media/connector-db2/db2-connector.png" alt-text="Screenshot of the DB2 connector.":::    

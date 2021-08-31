@@ -48,8 +48,6 @@ Use the following steps to create a linked service to QuickBooks in the Azure po
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for QuickBooks and select the QuickBooks connector.
 
    :::image type="content" source="media/connector-quickbooks/quickbooks-connector.png" alt-text="Screenshot of the QuickBooks connector.":::    

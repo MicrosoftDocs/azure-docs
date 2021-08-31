@@ -47,8 +47,6 @@ Use the following steps to create a linked service to Magento in the Azure porta
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Magento and select the Magento connector.
 
    :::image type="content" source="media/connector-magento/magento-connector.png" alt-text="Screenshot of the Magento connector.":::    

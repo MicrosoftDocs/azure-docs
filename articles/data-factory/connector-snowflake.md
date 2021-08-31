@@ -49,8 +49,6 @@ Use the following steps to create a linked service to Snowflake in the Azure por
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Snowflake and select the Snowflake connector.
 
     :::image type="content" source="media/connector-snowflake/snowflake-connector.png" alt-text="Screenshot of the Snowflake connector.":::    

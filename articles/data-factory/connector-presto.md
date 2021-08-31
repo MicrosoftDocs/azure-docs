@@ -44,8 +44,6 @@ Use the following steps to create a linked service to Presto in the Azure portal
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Presto and select the Presto connector.
 
    :::image type="content" source="media/connector-presto/presto-connector.png" alt-text="Screenshot of the Presto connector.":::    

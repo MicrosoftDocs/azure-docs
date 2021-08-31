@@ -48,8 +48,6 @@ Use the following steps to create a linked service to Greenplum in the Azure por
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Greenplum and select the Greenplum connector.
 
    :::image type="content" source="media/connector-greenplum/greenplum-connector.png" alt-text="Screenshot of the Greenplum connector.":::    

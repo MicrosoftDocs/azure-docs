@@ -48,8 +48,6 @@ Use the following steps to create a linked service to Oracle Eloqua in the Azure
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Oracle and select the Oracle Eloqua connector.
 
    :::image type="content" source="media/connector-oracle-eloqua/oracle-eloqua-connector.png" alt-text="Screenshot of the Oracle Eloqua connector.":::    
