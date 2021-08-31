@@ -1,4 +1,4 @@
-In the New Table dialog, fill out the form as follows.
+In the **New Table** dialog, fill out the form as follows.
 
 1. Enter the name **WeatherData** for the Table id.  This is the name of the table.
 1. Select **Manual** under *Table throughput (autoscale)* for this example.
