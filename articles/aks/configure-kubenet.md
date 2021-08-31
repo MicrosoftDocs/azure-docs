@@ -72,7 +72,7 @@ The following basic calculations compare the difference in network models:
   - This node count could only support up to *240* pods (with a default maximum of 30 pods per node with *Azure CNI*)
 
 > [!NOTE]
-> These maximums don't take into account upgrade or scale operations. In practice, you can't run the maximum number of nodes that the subnet IP address range supports. You must leave some IP addresses available for use during scale of upgrade operations.
+> These maximums don't take into account upgrade or scale operations. In practice, you can't run the maximum number of nodes that the subnet IP address range supports. You must leave some IP addresses available for use during scale or upgrade operations.
 
 ### Virtual network peering and ExpressRoute connections
 

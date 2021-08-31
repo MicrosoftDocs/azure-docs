@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: davidmu
-ms.reviewer: luleon
+ms.reviewer: alamaral
 ---
 
 # Manage user assignment for an app in Azure Active Directory

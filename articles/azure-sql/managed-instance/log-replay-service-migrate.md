@@ -161,7 +161,7 @@ Azure Blob Storage is used as intermediary storage for backup files between SQL 
 
 In migrating databases to a managed instance by using LRS, you can use the following approaches to upload backups to Blob Storage:
 - Using SQL Server native [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) functionality
-- Using [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer) to upload backups to a blob container
+- Using [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) to upload backups to a blob container
 - Using Storage Explorer in the Azure portal
 
 ### Make backups from SQL Server directly to Blob Storage

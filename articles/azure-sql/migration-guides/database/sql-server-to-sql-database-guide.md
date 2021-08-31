@@ -30,7 +30,7 @@ For more migration information, see the [migration overview](sql-server-to-sql-d
 
 ## Prerequisites 
 
-For your [SQL Server migration](https://azure.microsoft.com/en-us/migration/sql-server/) to Azure SQL Database, make sure you have: 
+For your [SQL Server migration](https://azure.microsoft.com/migration/sql-server/) to Azure SQL Database, make sure you have: 
 
 - Chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools .
 - Installed [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server.

@@ -50,14 +50,14 @@ Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 > [!NOTE]
 > `AllowPrerelease` switch in `Install-Module` cmdlet allows installation of beta release. 
 >
-> For additional information, see [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-7.1#parameters).
+> For additional information, see [Install-Module](/powershell/module/powershellget/install-module?view=powershell-7.1#parameters).
 >
 
 ### Enable monitoring
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 	
 		
@@ -76,7 +76,7 @@ Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ### Enable monitoring
 
 ```powershell
-Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 
 

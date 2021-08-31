@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 08/11/2021
 ms.author: apimpm
 ms.custom: references_regions
 
@@ -26,20 +26,26 @@ Configuring API Management for zone redundancy is currently supported in the fol
 * Australia East
 * Brazil South
 * Canada Central
-* Central India
+* Central India (*)
 * Central US
 * East US
 * East US 2
 * France Central
+* Germany West Central
 * Japan East
+* Korea Central (*)
 * North Europe
-* South Africa North
+* Norway East (*)
+* South Africa North (*)
 * South Central US
 * Southeast Asia
 * UK South
 * West Europe
 * West US 2
 * West US 3
+
+> [!IMPORTANT]
+> The regions with * against them have restrictive access in an Azure Subscription to enable Availability Zone support. Please work with your Microsoft sales or customer representative
 
 ## Prerequisites
 

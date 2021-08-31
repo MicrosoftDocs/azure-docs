@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/03/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to be able to get a quick read of CPU and memory usage by a virtual machine on my Azure Stack Edge Pro GPU device.
 ---
@@ -30,15 +30,15 @@ If a device is disconnected, metrics are cached on the device. When the device i
 
 1. Open the device in the Azure portal, and go to **Virtual Machines**. Select the virtual machine, and select **Metrics**.
 
-    ![Metrics tab on the dashboard for a virtual machine](media/azure-stack-edge-gpu-monitor-virtual-machine-metrics/metrics-01.png)
+    ![Screenshot showing the Metrics tab for a virtual machine on an Azure Stack Edge device. The Metrics tab is highlighted.](media/azure-stack-edge-gpu-monitor-virtual-machine-metrics/metrics-01.png)
 
 2. By default, the graphs show average CPU and memory usage for the previous hour. To see data for a different time period, select a different option beside **Show data for last**.
 
-    ![Metrics tab showing average CPU and memory usage for the last 12 hours](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics/metrics-02.png)
+    ![Screenshot of the Metrics tab for a virtual machine on an Azure Stack Edge device. The Show Data for Last Option and selected value are highlighted.](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics/metrics-02.png)
 
 3. Point anywhere in either chart with your mouse to display a vertical line with a hand that you can move left or right to view an earlier or later data sample. Click to open a detail view for that time period.
 
-    ![Screenshot showing how to hover over the 0 percent data line to view an earlier or later data sample.](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics/metrics-03.png)
+    ![Screenshot showing the Metrics tab for a virtual machine. The pointer that's displayed when you hover over an area of a chart is highlighted.](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics/metrics-03.png)
 
 
 ## Next steps

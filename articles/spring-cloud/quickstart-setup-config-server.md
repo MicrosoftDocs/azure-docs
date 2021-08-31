@@ -22,7 +22,7 @@ Azure Spring Cloud Config server is a centralized configuration service for dist
 
 ## Azure Spring Cloud config server procedures
 
-Set up your config-server with the location of the git repository for the project by running the following command. Replace `<service instance name>` with the name of the service you created earlier. The default value for service instance name that you set in the preceding quickstart doesn't work with this command.
+Set up your config-server with the location of the git repository for the project by running the following command. Replace *\<service instance name>* with the name of the service you created earlier. The default value for service instance name that you set in the preceding quickstart doesn't work with this command.
 
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --search-paths steeltoe-sample/config
@@ -52,22 +52,21 @@ The following procedure sets up the config server using the Azure portal to depl
 
 2. In the **Default repository** section, set **URI** to "https://github.com/azure-samples/spring-petclinic-microservices-config".
 
-3. Click **Validate**.
+3. Select **Validate**.
 
     ![Navigate to config server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
-4. When validation is complete, click **Apply** to save your changes.
+4. When validation is complete, select **Apply** to save your changes.
 
     ![Validating config server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
 
 5. Updating the configuration can take a few minutes.
- 
-    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png)
 
 6. You should get a notification when the configuration is complete.
 
 #### [CLI](#tab/Azure-CLI)
-
 
 The following procedure uses the Azure CLI to set up the config server to deploy the [Pet Clinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
 
@@ -86,24 +85,24 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 
 The following procedure explains how to troubleshoot config server settings.
 
-1. In the Azure portal, go to the service **Overview** page and select **Logs**. 
-1. Select **Queries** and **Show the application logs that contain the "error" or "exception" terms"**. 
-1. Click **Run**. 
+1. In the Azure portal, go to the service **Overview** page and select **Logs**.
+1. Select **Queries** and **Show the application logs that contain the "error" or "exception" terms"**.
+1. Select **Run**.
 1. If you find the error **java.lang.illegalStateException** in logs, this indicates that spring cloud service cannot locate properties from config server.
 
     [ ![ASC portal run query](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
 
 1. Go to the service **Overview** page.
-1. Select **Diagnose and solve problems**. 
+1. Select **Diagnose and solve problems**.
 1. Select **Config Server** detector.
 
     [ ![ASC portal diagnose problems](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
 
-3. Click **Config Server Health Check**.
+1. Select **Config Server Health Check**.
 
     [ ![ASC portal genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
 
-4. Click **Config Server Status** to see more details from the detector.
+1. Select **Config Server Status** to see more details from the detector.
 
     [ ![ASC portal health status](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 

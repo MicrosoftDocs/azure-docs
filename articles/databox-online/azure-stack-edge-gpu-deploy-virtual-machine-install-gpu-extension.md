@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/02/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install GPU extension on GPU virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
@@ -32,7 +32,7 @@ Before you install GPU extension on the GPU VMs running on your device, make sur
 
         Here is an example where Port 2 was connected to the internet and was used to enable the compute network. If Kubernetes is not deployed on your environment, you can skip the Kubernetes node IP and external service IP assignment.
 
-        ![Enable compute settings on port connected to internet](media/azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension/enable-compute-network-1.png)
+        ![Screenshot of the Compute pane for an Azure Stack Edge device. Compute settings for Port 2 are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension/enable-compute-network-1.png)
 1. [Download the GPU extension templates and parameters files](https://aka.ms/ase-vm-templates) to your client machine. Unzip it into a directory you’ll use as a working directory.
 1. Verify that the client you'll use to access your device is still connected to the Azure Resource Manager over Azure PowerShell. The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge device restarts. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
 

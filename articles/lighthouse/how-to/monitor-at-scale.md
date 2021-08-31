@@ -1,7 +1,7 @@
 ---
 title: Monitor delegated resources at scale
 description: Azure Lighthouse helps you use Azure Monitor Logs in a scalable way across customer tenants.
-ms.date: 06/30/2021
+ms.date: 08/12/2021
 ms.topic: how-to
 ---
 
@@ -26,7 +26,7 @@ We recommend creating these workspaces directly in the customer tenants. This wa
 You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/logs/quick-create-workspace.md), by using [Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md), or by using [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
-> Even if all the workspaces are created in the customer tenant, the Microsoft.Insights resource provider must also be registered on a subscription in the managing tenant. If your managing tenant doesn't have an existing Azure subscription, you can register the resource provider manually by using the following PowerShell commands:
+> If all workspaces are created in customer tenants, the Microsoft.Insights resource providers must also be [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant. If your managing tenant doesn't have an existing Azure subscription, you can register the resource provider manually by using the following PowerShell commands:
 >
 > ```powershell
 > $ManagingTenantId = "your-managing-Azure-AD-tenant-id"
@@ -38,7 +38,6 @@ You can create a Log Analytics workspace by using the [Azure portal](../../azure
 > New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4
 > New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d 
 > ```
->
 
 ## Deploy policies that log data
 
@@ -67,6 +66,9 @@ workspace("WS-customer-tenant-2").AzureDiagnostics
 
 For more examples of queries across multiple Log Analytics workspaces, see [Query across resources with Azure Monitor](../../azure-monitor/logs/cross-workspace-query.md).
 
+> [!IMPORTANT]
+> If you use an automation account used to query data from a Log Analytics workspace, that automation account must be created in the same tenant as the workspace.
+
 ## View alerts across customers
 
 You can view [alerts](../../azure-monitor/alerts/alerts-overview.md) for the delegated subscriptions in customer tenants that your manage.
@@ -88,5 +90,5 @@ alertsmanagementresources
 ## Next steps
 
 - Try out the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) workbook on GitHub.
-- Explore this [MVP-built sample workbook](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), which tracks patch compliance reporting by [querying Update Management logs](../../automation/update-management/query-logs.md) across multiple Log Analytics workspaces. 
+- Explore this [MVP-built sample workbook](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), which tracks patch compliance reporting by [querying Update Management logs](../../automation/update-management/query-logs.md) across multiple Log Analytics workspaces.
 - Learn about other [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).

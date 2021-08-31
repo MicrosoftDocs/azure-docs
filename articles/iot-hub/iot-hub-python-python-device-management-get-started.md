@@ -66,7 +66,6 @@ In this section, you:
 3. Add the following `import` statements at the start of the **dmpatterns_getstarted_device.py** file.
 
     ```python
-    import threading
     import time
     import datetime
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
@@ -78,59 +77,72 @@ In this section, you:
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-5. Add the following function callbacks to implement the direct method on the device.
+5. Add the following function to instantiate a client configured for direct methods on the device.
 
     ```python
-    def reboot_listener(client):
-        while True:
-            # Receive the direct method request
-            method_request = client.receive_method_request("rebootDevice")  # blocking call
+    def create_client():
+        # Instantiate the client
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
-            # Act on the method by rebooting the device...
-            print( "Rebooting device" )
-            time.sleep(20)
-            print( "Device rebooted")
+        # Define the handler for method requests
+        def method_request_handler(method_request):
+            if method_request.name == "rebootDevice":
+                # Act on the method by rebooting the device
+                print("Rebooting device")
+                time.sleep(20)
+                print("Device rebooted")
 
-            # ...and patching the reported properties
-            current_time = str(datetime.datetime.now())
-            reported_props = {"rebootTime": current_time}
-            client.patch_twin_reported_properties(reported_props)
-            print( "Device twins updated with latest rebootTime")
+                # ...and patching the reported properties
+                current_time = str(datetime.datetime.now())
+                reported_props = {"rebootTime": current_time}
+                client.patch_twin_reported_properties(reported_props)
+                print( "Device twins updated with latest rebootTime")
 
-            # Send a method response indicating the method request was resolved
-            resp_status = 200
-            resp_payload = {"Response": "This is the response from the device"}
-            method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
+                # Create a method response indicating the method request was resolved
+                resp_status = 200
+                resp_payload = {"Response": "This is the response from the device"}
+                method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
+            
+            else:
+                # Create a method response indicating the method request was for an unknown method
+                resp_status = 404
+                resp_payload = {"Response": "Unknown method"}
+                method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
+
+            # Send the method response
             client.send_method_response(method_response)
+
+        try:
+            # Attach the handler to the client
+            client.on_method_request_received = method_request_handler
+        except:
+            # In the event of failure, clean up
+            client.shutdown()
+
+        return client
     ```
 
-6. Start the direct method listener and wait.
+6. Start the direct method sample and wait.
 
     ```python
-    def iothub_client_init():
-        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
-        return client
+    def main():
+        print ("Starting the IoT Hub Python sample...")
+        client = create_client()
 
-    def iothub_client_sample_run():
+        print ("Waiting for commands, press Ctrl-C to exit")
         try:
-            client = iothub_client_init()
-
-            # Start a thread listening for "rebootDevice" direct method invocations
-            reboot_listener_thread = threading.Thread(target=reboot_listener, args=(client,))
-            reboot_listener_thread.daemon = True
-            reboot_listener_thread.start()
-
+            # Wait for program exit
             while True:
                 time.sleep(1000)
-
         except KeyboardInterrupt:
-            print ( "IoTHubDeviceClient sample stopped" )
+            print("IoTHubDeviceClient sample stopped")
+        finally:
+            # Graceful exit
+            print("Shutting down IoT Hub Client")
+            client.shutdown()
 
     if __name__ == '__main__':
-        print ( "Starting the IoT Hub Python sample..." )
-        print ( "IoTHubDeviceClient waiting for commands, press Ctrl-C to exit" )
-
-        iothub_client_sample_run()
+        main()
     ```
 
 7. Save and close the **dmpatterns_getstarted_device.py** file.

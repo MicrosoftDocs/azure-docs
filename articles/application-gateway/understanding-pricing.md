@@ -396,4 +396,4 @@ Observed Capacity Units in metrics = 49.23
 See the following articles to learn more about how pricing works in Azure Application Gateway:
 
 * [Azure Application Gateway pricing page](https://azure.microsoft.com/pricing/details/application-gateway/)
-* [Azure Application Gateway pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=application-gateway)
+* [Azure Application Gateway pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=application-gateway)

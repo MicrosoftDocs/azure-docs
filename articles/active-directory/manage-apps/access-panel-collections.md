@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: davidmu
-ms.reviewer: kasimpso
+ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
 ---
 
@@ -63,6 +63,9 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
    ![Add users and groups](media/acces-panel-collections/add-users-and-groups.png)
 
 11. Select **Review + Create**. The properties for the new collection appear.
+
+> [!NOTE]
+> Admin collections are managed through the [Azure portal](https://portal.azure.com), not from [My Apps portal](https://myapps.microsoft.com). For example, if you assign users or groups as an owner, then they can only manage the collection through the Azure portal.
 
 ## View audit logs
 
