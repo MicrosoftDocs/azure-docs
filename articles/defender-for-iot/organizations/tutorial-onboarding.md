@@ -26,11 +26,8 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Onboard with Azure Defender for IoT
-> * Create and install the virtual management console
 > * Create and install the virtual sensor
-> * Activate the on-premises management console
-> * Setup the sensor
-> * Connect the sensor to the management console
+> * Setup the virtual sensor
 
 ## Prerequisites
 
@@ -66,7 +63,7 @@ To evaluate Defender for IoT, you can use a trial subscription. The trial is val
 
 1. Confirm your evaluation.
 
-## Download the ISO for the virtual sensor and management console
+## Download the ISO for the virtual sensor
 
 The virtual appliances have minimum specifications that are required for both the sensor and management console. The following table show the specifications needed for the sensor depending on you environment.
 
@@ -90,165 +87,6 @@ The virtual appliances have minimum specifications that are required for both th
 
     :::image type="content" source="media/tutorial-onboarding/sensor-download.png" alt-text="Under the sensor tab, select download, to download the ISO file for the virtual sensor.":::
 
-### Virtual management console
-
-The following table show the specifications needed for the management console.
-
-| Type | Enterprise |
-|--|--|
-| Description | Virtual appliance for enterprise deployment types |
-| vCPU | 8 |
-| Memory | 32 GB |
-| Storage | 1.8 TB |
-
-**To download the ISO file for the virtual management console**:
-
-1. Navigate to the [Azure portal](https://ms.portal.azure.com/).
-
-1. Search for, and select **Azure Defender for IoT**.
-
-1. On the Getting started page, select the **On-premises management console** tab.
-
-1. Select **Download**.
-
-    :::image type="content" source="media/tutorial-onboarding/console-management-download.png" alt-text="Under the On-premises management console tab, select download, to download the ISO file for the virtual management console.":::
-
-## Create and install the virtual management console
-
-The on-premises management console VM supports any of the following architectures:
-
-| Architecture | Specifications | Usage |
-|--|--|--|
-| **Enterprise** <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments |
-| **Small** | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
-| **Office** | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments |
-
-The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, verify the following:
-
-- VMware (ESXi 5.5 or later) or Hyper-V hypervisor (Windows 10 Pro or Enterprise) is installed and operational.
-
-- The hardware resources are available for the virtual machine.
-
-- You have the ISO installation file for the on-premises management console.
-
-- The hypervisor is running.
-
-### Create the virtual machine for the management console (ESXi)
-
-**To a create virtual machine (ESXi)**:
-
-1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
-
-1. Upload the image and select **Close**.
-
-1. Go to **Virtual Machines**.
-
-1. Select **Create/Register VM**.
-
-1. Select **Create new virtual machine** and select **Next**.
-
-1. Add a sensor name and choose:
-
-   - Compatibility: \<latest ESXi version>
-
-   - Guest OS family: Linux
-
-   - Guest OS version: Ubuntu Linux (64-bit)
-
-1. Select **Next**.
-
-1. Choose relevant datastore and select **Next**.
-
-1. Change the virtual hardware parameters according to the required [architecture](#create-and-install-the-virtual-management-console).
-
-1. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
-
-1. Select **Next** > **Finish**.
-
-### Create the virtual machine for the management console (Hyper-V)
-
-**To create a virtual machine by using Hyper-V**:
-
-1. Create a virtual disk in Hyper-V Manager.
-
-1. Select the format **VHDX**.
-
-1. Select **Next**.
-
-1. Select the type **Dynamic expanding**.
-
-1. Select **Next**.
-
-1. Enter the name and location for the VHD.
-
-1. Select **Next**.
-
-1. Enter the required size (according to the [architecture](#create-and-install-the-virtual-management-console)).
-
-1. Select **Next**.
-
-1. Review the summary and select **Finish**.
-
-1. On the **Actions** menu, create a new virtual machine.
-
-1. Select **Next**.
-
-1. Enter a name for the virtual machine.
-
-1. Select **Next**.
-
-1. Select **Generation** and set it to **Generation 1**.
-
-1. Select **Next**.
-
-1. Specify the memory allocation (according to the [architecture](#create-and-install-the-virtual-management-console)) and select the check box for dynamic memory.
-
-1. Select **Next**.
-
-1. Configure the network adaptor according to your server network topology.
-
-1. Select **Next**.
-
-1. Connect the VHDX created previously to the virtual machine.
-
-1. Select **Next**.
-
-1. Review the summary and select **Finish**.
-
-1. Right-click the new virtual machine, and then select **Settings**.
-
-1. Select **Add Hardware** and add a new adapter for **Network Adapter**.
-
-1. For **Virtual Switch**, select the switch that will connect to the sensor management network.
-
-1. Allocate CPU resources (according to the [architecture](#create-and-install-the-virtual-management-console)).
-
-1. Connect the management console's ISO image to a virtual DVD drive.
-
-1. Start the virtual machine.
-
-1. On the **Actions** menu, select **Connect** to continue the software installation.
-
-### Install the management console software (ESXi and Hyper-V)
-
-Either ESXi, or Hyper-V can be used to install the software for the management console. 
-
-**To install the management console software**:
-
-1. Open the virtual machine console.
-
-1. The VM will start the installation process from the ISO image and the language selection screen will appear. Select **English**.
-
-1. Select the required [architecture](#create-and-install-the-virtual-management-console) for your deployment.
-
-1. Define the network interface for the sensor management network: interface, IP, subnet, DNS server, and default gateway.
-
-1. Sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
-
-   The appliance will then reboot.
-
-1. Access the management console via the IP address previously configured: `<https://ip_address>`.
-
 ## Create and install the virtual sensor
 
 The sensor VM supports any of the following architectures:
@@ -257,9 +95,9 @@ The sensor VM supports any of the following architectures:
 |--|--|--|--|
 | **Enterprise** | CPU: 8<br/>Memory: 32G RAM<br/>HDD: 1800 GB | Production environment | Default and most common |
 | **Small Business** | CPU: 4 <br/>Memory: 8G RAM<br/>HDD: 500 GB | Test or small production environments | - |
-| **Office** | CPU: 4<br/>Memory: 8G RAM<br/>HDD: 100 GB | Small test environments | - |
+| **Corporate** | CPU: 4<br/>Memory: 8G RAM<br/>HDD: 100 GB | Small test environments | - |
 
-The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
+The sensor supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
 
 - VMware (ESXi 5.5 or later) or Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational
 
@@ -376,7 +214,7 @@ Either ESXi, or Hyper-V can be used to install the software for the sensor.
 
 1. The appliance restarts.
 
-1. Access the management console via the IP address previously configured: `https://ip_address`.
+1. Access the sensor via the IP address previously configured: `https://ip_address`.
 
 ### Post-installation validation
 
@@ -384,17 +222,15 @@ To validate the installation of a physical appliance, you need to perform many t
 
 The validation is available to both the **Support**, and **CyberX** user.
 
-:::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
-
 **To access the post validation tool**:
 
 1. Sign in to the sensor.
 
 1. Select **System Settings** from the left side pane.
 
-1. Select **System Statistics**.
+1. Select the :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false"::: button.
 
-    :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
+    :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
 
 For post-installation validation, you must test to ensure the system is running, that you have the right version, and to verify that all of the input interfaces that were configured during the installation process are running.
 
@@ -405,41 +241,6 @@ For post-installation validation, you must test to ensure the system is running,
 1. Select **Version**, and ensure that the correct version appears.
 
 1. Select **ifconfig** to displays the parameters for the appliance's physical interfaces.
-
-## Activate the on-premises management console
-
-In order to set up your management console, you will need to sign in, and activate it.
-
-**To sign in to the management console:**
-
-1. Navigate to the IP address you received for the on-premises management console during the system installation.
-
-1. Enter the username and password you received for the on-premises management console during the system installation.
-
-After you sign in for the first time, you will need to activate the on-premises management console by getting, and uploading an activation file.
-
-**To activate the on-premises management console:**
-
-1. Select the **Take Action** link, in the alert notification at the top of the screen.
-
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/take-action.png" alt-text="Select the Take Action link from the alert on the top of the screen.":::
-
-1. In the Activation popup screen, select the **Azure portal** link.
-
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/azure-portal.png" alt-text="Select the Azure portal link from the popup message.":::
-
-1. Select a subscription to associate the on-premises management console to, and then select the **Download on-premises management console activation file** button. The activation file is downloaded.
-
-   The on-premises management console can be associated to one, or more subscriptions. The activation file will be associated with all of the selected subscriptions, and the number of committed devices at the time of download.
-
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="You can select multiple subscriptions to onboard your on-premises management console to.":::
-
-1. Navigate back to the **Activation** popup screen, and select **Choose File**.
-
-1. Select the downloaded file.
-
-> [!Note]
-> Valuation environments will use the self signed certificate. Production environments should not use the self signed certificate.
 
 ## Setup the sensor
 
@@ -518,29 +319,3 @@ After registering a sensor you will be able to download an activation file. The 
 1. Select **Save**.  
 
 You might need to refresh your screen after uploading the CA-signed certificate.
-
-## Connect the sensor to the management console
-
-Connecting the sensor to the management console will allow the sensor to send device, and alert information to the management console. This connection also allows the management console to push system settings to the sensor and perform other management tasks on the sensor.
-
-**To connect the sensor to the management console**:
-
-1. Sign in to the on-premises management console.
-
-1. Select **System Settings**.
-
-1. In the **Sensor Setup – Connection String** section, copy the automatically generated connection string.
-
-   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Copy the connection string from this screen.":::
-
-1. Sign in to the sensor console.
-
-1. On the left pane, select **System Settings**.
-
-1. Select **Management Console Connection**.
-
-    :::image type="content" source="media/how-to-manage-individual-sensors/management-console-connection-screen.png" alt-text="Screenshot of the Management Console Connection dialog box.":::
-
-1. Paste the connection string in the **Connection string** box and select **Connect**.
-
-1. In the on-premises management console, in the **Site Management** window, assign the sensor to a zone.
