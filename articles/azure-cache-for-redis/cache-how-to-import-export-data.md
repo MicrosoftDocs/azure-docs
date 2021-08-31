@@ -68,8 +68,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
     ![On the navigation pane for contoso5premium, the Export data option on the Administration list is highlighted.](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. Select **Choose Storage Container** and select the storage account you want. The storage account must be in the same subscription and region as your cache.
 
- 
-   > [!IMPORTANT] 
+   > [!IMPORTANT]
    >
    > - Export works with page blobs that are supported by both classic and Resource Manager storage accounts.
    > - Azure Cache for Redis does not support exporting to ADLS Gen2 storage accounts.
