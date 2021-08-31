@@ -1,0 +1,49 @@
+- name: Azure Load Testing docs
+  href: index.yml
+- name: Overview
+  items: 
+    - name: What is Azure Load Testing?
+      displayName: ALT, load
+      href: overview-what-is-azure-load-testing.md
+- name: Tutorials
+  expanded: true
+  items: 
+    - name: Identify performance bottleneck
+      href: tutorial-identify-bottlenecks-in-azure-portal.md
+- name: Reference
+  items: 
+    - name: CLI 
+      items: 
+        - name: Train models with CLI (v2)
+          href: ../machine-learning/how-to-train-cli.md
+        - name: Access resources with managed endpoints
+          href: ../machine-learning/tutorial-deploy-managed-endpoints-using-system-managed-identity.md
+- name: How-tos
+  expanded: true
+  items: 
+    - name: Identify bottlenecks with Visual Studio Code
+      href: how-to-identify-bottlenecks-in-vs-code.md
+    - name: Automation
+      items: 
+        - name: Azure Pipelines for CI/CD
+          displayName: continuous, integration, delivery
+          href: /azure/devops/pipelines/targets/azure-machine-learning.md?view=azure-devops&tabs=yaml
+        - name: GitHub Actions for CI/CD
+          href: ../machine-learning/how-to-github-actions-machine-learning.md 
+- name: Resources
+  items: 
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/roadmap/
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/load-testing-service/
+    - name: Service limits
+      href: ../machine-learning/resource-limits-quotas-capacity.md      
+    - name: Regional availability
+      href: https://azure.microsoft.com/regions/services/
+    - name: Feature availability across regions
+      href: ../machine-learning/reference-machine-learning-cloud-parity.md
+    - name: User forum
+      href: /answers/topics/azure-machine-learning.html
+    - name: Accessibility features
+      displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
+      href: ../machine-learning/designer-accessibility.md
