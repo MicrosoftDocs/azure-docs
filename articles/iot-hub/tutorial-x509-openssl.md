@@ -236,6 +236,13 @@ You now have both a root CA certificate and a subordinate CA certificate. You ca
 
 1. Enter a display name in the **Certificate Name** field, and select the PEM  certificate file you created previously.
 
+> [!NOTE]
+> The .crt certificates created above are the same as .pem certificates. You can simply change the extension when uploading a certificate to prove possession, or you can use the following OpenSSL command:
+
+```bash
+openssl x509 -in mycert.crt -out mycert.pem -outform PEM
+```
+
 1. Select **Save**. Your certificate is shown in the certificate list with a status of **Unverified**. The verification process will prove that you own the certificate.
 
    
