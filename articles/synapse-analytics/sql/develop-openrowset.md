@@ -108,10 +108,10 @@ You have two choices for input files that contain the target data for querying. 
 **'unstructured_data_path'**
 
 The unstructured_data_path that establishes a path to the data may be an absolute or relative path:
-- Absolute path in the format '\<prefix>://\<storage_account_path>/\<storage_path>' enables a user to directly read the files.
-- Relative path in the format '<storage_path>' that must be used with the `DATA_SOURCE` parameter and describes the file pattern within the <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
+- Absolute path in the format `\<prefix>://\<storage_account_path>/\<storage_path>` enables a user to directly read the files.
+- Relative path in the format `<storage_path>` that must be used with the `DATA_SOURCE` parameter and describes the file pattern within the <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
 
-Below you'll find the relevant <storage account path> values that will link to your particular external data source. 
+Below you'll find the relevant \<storage account path> values that will link to your particular external data source. 
 
 | External Data Source       | Prefix | Storage account path                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
