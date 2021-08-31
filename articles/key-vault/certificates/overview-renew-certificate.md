@@ -24,7 +24,7 @@ This article discusses how to renew your Azure Key Vault certificates.
 To get notified about certificate life events, you would need to add certificate contact. Certificate contacts contain contact information to send notifications triggered by certificate lifetime events. The contacts information is shared by all the certificates in the key vault. A notification is sent to all the specified contacts for an event for any certificate in the key vault.
 
 ### Steps to set certificate notifications:
-First, add a certificate contact to your key vault. You can add using Azure portal or PowerShell cmdlet [`Add-AzKeyVaultCertificateContact`](https://docs.microsoft.com/en-us/powershell/module/az.keyvault/add-azkeyvaultcertificatecontact).
+First, add a certificate contact to your key vault. You can add using the Azure portal or the PowerShell cmdlet [Add-AzKeyVaultCertificateContact](/powershell/module/az.keyvault/add-azkeyvaultcertificatecontact).
 
 Second, configure when you want to be notified about the certificate expiration. To configure the lifecycle attributes of the certificate, see [Configure certificate autorotation in Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
