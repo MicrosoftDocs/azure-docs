@@ -2279,6 +2279,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/tutorial-deploy-managed-endpoints-using-system-managed-identity.md",
+      "redirect_url": "/azure/machine-learning/how-to-access-resources-from-endpoints-managed-identities",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-auto-train-remote.md",
       "redirect_url": "/azure/machine-learning/concept-automated-ml#local-remote",
       "redirect_document_id": false

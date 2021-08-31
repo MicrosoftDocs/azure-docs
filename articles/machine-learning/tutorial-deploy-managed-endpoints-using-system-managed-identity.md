@@ -4,9 +4,9 @@ description: Securely access Azure resources for your machine learning model dep
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: seramasu
+ms.author: nibaccam
 ms.reviewer: laobri
-author: rsethur
+author: nibaccam
 ms.date: 08/05/2021
 ms.topic: tutorial
 ms.custom: tutorial, devplatv2
