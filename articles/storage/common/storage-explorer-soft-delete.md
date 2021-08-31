@@ -15,9 +15,9 @@ Soft delete helps mitigate the impact of accidentally deleting critical data. Th
 
 ## Configuring delete retention policy
 
-You can configure the delete retention policy in Storage Explorer for each storage account. To do that, open the context menu of "Blob Containers" node under the storage account and choose **Configure Soft Delete Policy...**. 
+You can configure the delete retention policy for each storage account in Storage Explorer. Open the context menu for any "Blob Containers" node under the storage account and choose **Configure Soft Delete Policy...**. 
 
-Setting a new policy may take up to 30 seconds for it to take effect. Deleting data without waiting for the new policy to take effect may result in unexpected behavior. Storage Explorer will count the 30 seconds for you while setting a new policy. Once the activity says a new policy is successfully configured, it has already taken effect.
+Setting a new policy may take up to 30 seconds for it to take effect. Deleting data without waiting for the new policy to take effect may result in unexpected behavior. Storage Explorer waits 30 seconds before reporting a successfully configured policy in the Activity Log.
 
 ## Soft delete with hierarchical namespace enabled
 
@@ -25,15 +25,15 @@ The soft delete feature has fundamental differences between blob containers with
 
 HNS enabled blob containers have real directories. Those directories can also be soft-deleted. When a real directory is soft-deleted, all the active blobs or directories under it will become inaccessible. These blobs and directories will be recovered when the directory is undeleted and discarded when the directory expires. Blobs or directories under it that have already been soft-deleted will be kept as is.
 
-Non-HNS enabled blob containers don't allow coexistence of soft-deleted blobs and active blobs. Uploading a blob on top of a soft-deleted blob with the same name will cause the soft-deleted blob to become a snapshot of the new one. In an HNS enabled blob container, doing the same thing would result in the soft-deleted blob coexist with the new one. HNS enabled blob containers also allow coexistence of multiple soft-deleted blobs as well.
+Non-HNS enabled blob containers don't allow soft-deleted blobs and active blobs with the same name to coexist. Uploading a blob with the same name as a soft-deleted blob will cause the soft-deleted blob to become a snapshot of the new one. In an HNS enabled blob container, doing the same thing will result in the soft-deleted blob coexisting with the new one. HNS enabled blob containers also allow the coexistence of multiple soft-deleted blobs with the same name.
 
-Each soft-deleted blob or directory in an HNS enabled blob container has a property named "DeletionID". This property can be used to distinguish blobs or directories with the same name. Soft-deleted blobs in non-HNS enabled blob containers don't have this property.
+Each soft-deleted blob or directory in an HNS enabled blob container has a `DeletionID` property. This property distinguishes blobs or directories with the same name. Soft-deleted blobs in non-HNS enabled blob containers don't have a `DeletionID` property.
 
-Non-HNS enabled blob containers have a featured named "blob versioning". If blob versioning is enabled, the behavior of certain operations will be changed. See [blob versioning in Storage Explorer](./storage-explorer-blob-versioning.md) on how blob versioning may affect soft delete in Storage Explorer.
+Non-HNS enabled blob containers also support "blob versioning". If blob versioning is enabled, the behavior of certain operations, such as delete, changes. For more information, see [Azure Storage Explorer blob versioning guide](./storage-explorer-blob-versioning.md).
 
 ## View soft-deleted blobs
 
-In Blob Explorer, soft-deleted blobs are included in certain view contexts.
+In Blob Explorer, soft-deleted blobs are shown under certain view contexts.
 
 For blob containers without HNS enabled, you can view soft-deleted blobs under the "Active blobs and soft deleted blobs" and the "All blobs and blobs without current version" view contexts.
 
@@ -52,7 +52,7 @@ You can undelete soft-deleted blobs in batch and recursively in Storage Explorer
 
 To undelete blobs, select them and use the **Undelete → Undelete Selected** from the toolbar or the context menu.
 
-You can also undelete blobs recursively under a directory. If an active directory is included in the selection, Storage Explorer will list all the soft-deleted blobs under it and undelete them.
+You can also undelete blobs recursively under a directory. If an active directory is included in the selection, Storage Explorer will undelete all the soft-deleted blobs or directories in it.
 
 In HNS enabled blob containers, undeleting a blob will fail if an active blob with the same name already exists.
 
@@ -61,13 +61,13 @@ In HNS enabled blob containers, undeleting a blob will fail if an active blob wi
 
 ## Undelete blobs by date range
 
-Storage Explorer provides a convenience feature to undelete blobs based on their deletion time.
+Storage Explorer also lets you undelete blobs based on their deletion time.
 
-To undelete blobs by date range, select them and use the **Undelete → Undelete by Date...** from the toolbar or the context menu.
+To undelete blobs by date range, select the soft-deleted blobs you want to undelete and use the **Undelete → Undelete by Date...** from the toolbar or the context menu.
 
-**Undelete by Date...** works exactly the same as **Undelete Selected**, except that it will filter out blobs or directories whose deletion time is out of range.
+**Undelete by Date...** works exactly the same as **Undelete Selected**, except that it will filter out blobs or directories whose deletion time is out of the range you specify.
 
 ## See Also
 
-* [Blob versioning in Storage Explorer](./storage-explorer-blob-versioning.md)
+* [Azure Storage Explorer blob versioning guide](./storage-explorer-blob-versioning.md)
 * [Soft delete for blobs](../blobs/soft-delete-blob-overview.md)
