@@ -1,0 +1,54 @@
+- name: Azure Chaos Studio documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Chaos Studio?
+    href: chaos-studio-overviews.md 
+  - name: What is chaos engineering?
+    href: chaos-studio-chaos-engineering-overview.md
+- name: Quickstarts
+  items:
+  - name: Cause a DNS outage using the Network Security Group fault
+    href: chaos-studio-quickstart-dns-outage.md
+- name: Tutorials
+  items:
+  - name: Create and run an experiment that uses service-direct faults
+    href: chaos-studio-tutorial-service-direct.md
+  - name: Create and run an experiment that uses agent-based faults
+    href: chaos-studio-tutorial-agent-based.md
+  - name: Create and run an expeirment that uses Chaos Mesh faults on AKS
+    href: chaos-studio-tutorial-aks.md
+- name: Samples
+  items:
+  - name: Azure REST API 
+    href: chaos-studio-samples-rest-api.md
+- name: Concepts
+  items:
+  - name: What is chaos engineering?
+    href: chaos-studio-chaos-engineering-overview.md
+- name: How-to guides
+  items:
+  - name: Run and manage an experiment
+    href: chaos-studio-run-experiment.md
+- name: Reference
+  items:
+  - name: Fault library
+    href: chaos-studio-fault-library.md
+  - name: Fault providers
+    href: chaos-studio-fault-providers.md
+  - name: REST API documentation
+    href: https://aka.ms/chaosRESTAPI
+- name: Resources
+  items:
+  - name: Azure Chaos Studio Billing
+    href: chaos-studio-billing.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/
