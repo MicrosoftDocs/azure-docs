@@ -90,7 +90,7 @@ For permissions required to use the PIM API, see [Understand the Privileged Iden
 
 ### HTTP POST request
 
-The following is a sample HTTP request to create an eligible assignment. The scope of the eligibility is all directory objects in the tenant until June 30, 2022 at midnight UTC time. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http).
+The following is a sample HTTP request to create an eligible assignment. The scope of the eligibility is all directory objects in the tenant until June 30, 2022 at midnight UTC time. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http).
 
 ````HTTP
 
