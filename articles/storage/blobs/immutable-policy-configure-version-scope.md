@@ -137,7 +137,8 @@ Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
 Next, call the **Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration** command to migrate the container. Include the `-AsJob` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
 
 ```azurepowershell
-$migrationOperation = Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration -ResourceGroupName <resource-group> `
+$migrationOperation = Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration `
+    -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
     -Name <container> `
     -AsJob
@@ -155,7 +156,8 @@ If the container does not have an existing time-based retention policy when you 
 if ($migrationOperation.JobStateInfo.State -eq "Failed") {
 Write-Host $migrationOperation.Error
 }
-The container sample-container must have an immutability policy set as a default policy before initiating container migration to support object level immutability with versioning.
+The container <container-name> must have an immutability policy set as a default policy 
+before initiating container migration to support object level immutability with versioning.
 ```
 
 After the migration is complete, check the **Output** property of the operation to see that support for version-level immutability is enabled.
@@ -352,20 +354,56 @@ To configure a time-based retention policy when you upload a blob, follow these 
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-blob-upload.png" alt-text="Screenshot showing options for configuring retention policy on blob upload in Azure portal":::
 
-## Modify an unlocked retention policy
+## Modify or delete an unlocked retention policy
 
 You can modify an unlocked time-based retention policy to shorten or lengthen the retention interval. You can also delete an unlocked policy. Editing or deleting an unlocked time-based retention policy for a blob version does not affect policies in effect for any other versions. If there is a default time-based retention policy in effect for the container, then the blob version with the modified or deleted policy will no longer inherit from the container.
 
-To modify an unlocked time-based retention policy, follow these steps:
+### [Portal](#tab/azure-portal)
+
+To modify an unlocked time-based retention policy in the Azure portal, follow these steps:
 
 1. Locate the target container or version. Select the **More** button and choose **Access policy**.
-1. Under the **Immutable blob versions** section, locate the existing unlocked policy. Select the **More** button, then select **Edit** from the menu.
+1. Locate the existing unlocked immutability policy. Select the **More** button, then select **Edit** from the menu.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/edit-existing-version-policy.png" alt-text="Screenshot showing how to edit an existing version-level time-based retention policy in Azure portal":::
 
 1. Provide the new date and time for the policy expiration.
 
-To delete an unlocked policy, follow steps 1 through 4, then select **Delete** from the menu.
+To delete the unlocked policy, select **Delete** from the **More** menu.
+
+### [PowerShell](#tab/azure-powershell)
+
+To modify an unlocked time-based retention policy with PowerShell, call the **Set-AzStorageBlobImmutabilityPolicy** command on the blob version with the new date and time for the policy expiration.
+
+```azurepowershell
+$containerName = "<container>"
+$blobName = "<blob>"
+
+# Get the previous blob version.
+$blobVersion = Get-AzStorageBlob -Container $containerName `
+    -Blob $blobName `
+    -VersionId "2021-08-31T00:26:41.2273852Z" `
+    -Context $ctx
+
+# Extend the retention interval by five days.
+$blobVersion = $blobVersion | 
+    Set-AzStorageBlobImmutabilityPolicy -ExpiresOn (Get-Date).AddDays(5) `
+
+# View the new policy parameters.
+$blobVersion.BlobProperties.ImmutabilityPolicy
+```
+
+To delete an unlocked retention policy, call the **Remove-AzStorageBlobImmutabilityPolicy** command.
+
+```azurepowershell
+$blobVersion = $blobVersion | Remove-AzStorageBlobImmutabilityPolicy
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
 
 ## Lock a time-based retention policy
 
@@ -373,13 +411,40 @@ When you have finished testing a time-based retention policy, you can lock the p
 
 After a policy is locked, you cannot delete it. However, you can delete the blob after the retention interval has expired.
 
-To lock a policy, follow these steps:
+### [Portal](#tab/azure-portal)
+
+To lock a policy in the Azure portal, follow these steps:
 
 1. Locate the target container or version. Select the **More** button and choose **Access policy**.
 1. Under the **Immutable blob versions** section, locate the existing unlocked policy. Select the **More** button, then select **Lock policy** from the menu.
 1. Confirm that you want to lock the policy.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/lock-policy-portal.png" alt-text="Screenshot showing how to lock a time-based retention policy in Azure portal":::
+
+### [PowerShell](#tab/azure-powershell)
+
+To lock a policy with PowerShell, call the **Set-AzStorageBlobImmutabilityPolicy** command and set the **PolicyMode** parameter to *Locked*.
+
+The following example shows how to lock a policy by specifying the same retention interval that was in effect for the unlocked policy. You can also change the expiry at the time that you lock the policy.
+
+```azurepowershell
+# Get the previous blob version.
+$blobVersion = Get-AzStorageBlob -Container $containerName `
+    -Blob $blobName `
+    -VersionId "2021-08-31T00:26:41.2273852Z" `
+    -Context $ctx
+
+$blobVersion = $blobVersion | 
+    Set-AzStorageBlobImmutabilityPolicy `
+        -ExpiresOn $blobVersion.BlobProperties.ImmutabilityPolicy.ExpiresOn `
+        -PolicyMode Locked
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
 
 ## Configure or clear a legal hold
 
