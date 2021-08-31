@@ -365,6 +365,8 @@
           href: msal-net-migration.md
         - name: Migrate confidential client apps to MSAL.NET
           href: msal-net-migration-confidential-client.md
+        - name: Migrate public client apps to MSAL.NET
+          href: msal-net-migration-public-client.md
         - name: Migrate Xamarin Android app using broker to MSAL.NET
           href: msal-net-migration-android-broker.md
         - name: Migrate Xamarin iOS app using broker to MSAL.NET
