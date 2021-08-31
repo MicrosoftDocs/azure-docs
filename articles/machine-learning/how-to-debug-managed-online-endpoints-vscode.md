@@ -1,5 +1,5 @@
 ---
-title: Debug managed online endpoints deployment VS Code (preview)
+title: Debug managed online endpoints locally in VS Code (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Visual Studio Code to test and debug managed online endpoints locally before deploying them to Azure.
 services: machine-learning
@@ -19,9 +19,9 @@ Learn how to use the Visual Studio Code (VS Code) debugger to test and debug man
 
 Azure Machine Learning local endpoints helps you test and debug your scoring script, environment configuration, code configuration, and machine learning model locally.
 
-## Managed endpoint local debugging options
+## Managed endpoint local debugging
 
-You have different options for debugging endpoints locally with the VS Code.
+Debugging endpoints locally before deploying them to the cloud can help you catch errors in your code and configuration earlier. You have different options for debugging endpoints locally with the VS Code.
 
 - [Azure Machine Learning inference HTTP server (Preview)](how-to-inference-server-http.md)
 - Local endpoint
@@ -149,7 +149,7 @@ At this point, any breakpoints in your `run` function are caught. Use the debug 
 
 To stop your debug session, use the stop icon in the debug actions bar.
 
-## Editing your endpoint
+## Edit your endpoint
 
 As you debug and troubleshoot your application, there are scenarios where you need to update your scoring script and configurations.
 
@@ -160,9 +160,7 @@ To apply changes to your code:
 1. Restart your debug session
 
 > [!NOTE]
-> Since the directory containing your code and endpoint assets is mounted onto the dev container, any changes you make in the dev container are synced with your local file system. 
-
-For scenarios where you need to apply changes such as renaming files and updating assets , use the `Developer: Reload Window` command in the command palette after applying your changes to . For more information, see the [command palette documentation](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+> Since the directory containing your code and endpoint assets is mounted onto the dev container, any changes you make in the dev container are synced with your local file system.
 
 For more extensive changes involving updates to your environment and endpoint configuration, use the `ml` extension `update` command. Doing so will trigger a full image rebuild with your changes.
 
