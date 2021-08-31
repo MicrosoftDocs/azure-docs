@@ -1,14 +1,13 @@
 ---
 title: What is Azure Load Testing?
-description: 'Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle: Train and deploy models, and manage MLOps.'
+description: 'Azure Load Testing is a cloud service for accelerating and managing the machine learning project lifecycle: Train and deploy models, and manage MLOps.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-ms.author: cgronlun
-author: cjgronlund
+ms.author: jmartens
+author: j-martens
 ms.date: 08/03/2021
-ms.custom: devx-track-python
 adobe-target: true
 ---
 

@@ -49,7 +49,7 @@ conceptualContent:
     # Card
     - title: Train models
       links:
-        - url: how-to-train-cli.md
+        - url: ../machine-learning/how-to-train-cli.md
           itemType: how-to-guide
           text: Run training code in the cloud (v2 CLI preview)
         - url: ../machine-learning/how-to-tune-hyperparameters.md
