@@ -40,7 +40,7 @@ As we're adding new integrations, the auto-instrumentation capability matrix bec
 Application monitoring on Azure App Service on Windows is available for **[.NET](./azure-web-apps.md?tabs=net)** (enabled by default), **[.NET Core](./azure-web-apps.md?tabs=netcore)**, **[Java](./azure-web-apps.md?tabs=java)**, and **[Node.js](./azure-web-apps.md?tabs=nodejs)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
 
 > [!NOTE]
-> FOr Windows, application monitoring is currently available for code-based/managed services on App Service. Monitoring for apps on Windows Containers on App Service is not yet supported through the integration with Application Insights.
+> For Windows, application monitoring is currently available for code-based/managed services on App Service. Monitoring for apps on Windows Containers on App Service is not yet supported through the integration with Application Insights.
 
 ### Linux
 You can enable monitoring for **[Java](./azure-web-apps.md?tabs=java)** and **[Node.js](./azure-web-apps.md?tabs=nodejs)** apps running on Linux in App Service through the portal - the experience for both languages is in GA and available in all regions. 
