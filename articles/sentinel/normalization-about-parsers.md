@@ -54,6 +54,12 @@ vimDnsInfobloxNIOS,
 vimDnsMicrosoftOMS
 ```
 
+> [!NOTE]
+> When using the ASIM source-agnostic parsers which start with `im` in the log screen, the time range picker is set to `custom`. You can still set the time range yourself. Alternatively, specific the time range using parser parameters.
+>
+> You can also uas an alternative parser which starts with `ASim`, which does not support parameters and does not set the time range picker to custom.
+>
+
 ### Source-specific parsers
 
 Adding **source-specific** normalized parsers to the source-agnostic parser enables you to include custom sources in built-in queries that use the source agnostic parsers.
@@ -62,6 +68,30 @@ Source-specific parsers enable you to get immediate value from built-in content,
 
 The source-specific parsers can also be used independently. For example, in an Infoblox-specific workbook, use the `vimDnsInfobloxNIOS` parser.
 
+## <a name="optimized-parsers"></a>Optimizing parsing using parameters
+
+Parsers may have a performance impact. While the added parsing processing causes some performance impact, the primary impact results from the need to perform filtering after parsing, while the best practice is to filter first. 
+
+To mitigate this issue, parsers can have optional filtering parameters. When using the filtering parameters, filtering is done prior to parsing and significantly enhances performance. By using query optimization and pre-filtering, ASIM parsers often provide enhanced performance when compared to not using normalization at all. 
+
+To use filtering parameters, add one or more named parameters when invoking the parsers. For example, the following query start ensures that only DNS queries for non-existant domains are returned.
+
+```kusto
+imDns(responsecodename='NXDOMAIN')
+```
+
+This is analogues to the query
+
+```kusto
+imDns | where ResponseCodeName == 'NXDOMAIN'
+```
+
+But is much more efficient.
+
+Each schema has a standard set of filtering parameters which are documented with in the schema doc. Currently only the DNS schema supports parameters, however, we are working to expand support to other schemas.
+
+Note that using filtering parameters is entirely optional. Also, if is not written to support filtering parameters, it still works, but without pre-filtering optimization. 
+
 ## Writing source-specific parsers
 
 A parser is a KQL query saved as a workspace function. Once saved, it can be used like built-in tables. The parser query includes the following parts:
@@ -69,6 +99,8 @@ A parser is a KQL query saved as a workspace function. Once saved, it can be use
 **Filter** > **Parse** > **Prepare fields**
 
 ### Filtering
+
+#### Filtering the relevant records
 
 In many cases, a table includes multiple types of events. For example:
 * The Syslog table has data from multiple sources.
@@ -81,6 +113,39 @@ Filtering in KQL is done using the `where` operator. For example, **Sysmon event
 ```kusto
 Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
 ```
+
+#### Filtering based on parser parameters
+
+To support [parameter parsers](#optimized-parsers), first make sure that your parser accepts the filtering parameters for the relevant schema. Those are documented in the schema specific documentation. The function signature would be identical for each schema. For example. this is the DNS query parameter parser signature:
+
+```kusto
+let DNSQuery_MS=(
+    starttime:datetime=datetime(null), 
+    endtime:datetime=datetime(null), 
+    srcipaddr:string='*', 
+    domain_has_any:dynamic=dynamic([]),
+    responsecodename:string='*', 
+    dnsresponsename:string='*', 
+    response_has_any_prefix:dynamic=dynamic([]),
+    eventtype:string='lookup'
+    )
+```
+
+Next, filter based on the value of the parameters. Make sure that you
+ - Filter prior to parsing using physical fields. If this fileting is not accurate enough, repeat the test after parsing to fine tune as described in ["filtering optimization"](#optimization) below.
+ - Make sure to not filter if the parameter is not set and has the default value. The examples below show how to implement this for a string parameter, for which the default value is usually '*' and for a list parameter, for which the default value is usually an empty list.
+
+``` kusto
+srcipaddr=='*' or ClientIP==srcipaddr
+array_length(domain_has_any) == 0 or Name has_any (domain_has_any)
+```
+
+> [!TIP]
+> An existing parser of the same type is a great starting for implementing parameter filtering.
+>
+
+#### <a name="optimization"></a>Filtering optimization
+
 
 To ensure the performance of the parser, note the following filtering recommendations:
 
@@ -181,22 +246,27 @@ When handling variants, use the following guidelines:
 
 Normalization allows you to use your own content and built-in content with your custom data.
 
-For example, if you have a custom connector that receives DNS query activity log, you can ensure that the DNS query activity logs take advantage of any normalized DNS content by:
+For example, if you have a custom connector that receives DNS query activity log, you can ensure that the DNS query activity logs take advantage of any normalized DNS content.
 
-To do that, modify the relevant source agnostic parser to include the source-specific parser you crated. For example, modify the `imDns` source-agnostic parser to also include your parser by adding your parser to the list of parsers in the `union` statement:
+To do that, modify the relevant source agnostic parser to include the source-specific parser you crated. For example, modify the `imDns` source-agnostic parser to also include your parser by adding your parser to the list of parsers in the `union` statement. If your parser supports parameters, include it with the parameter signature, like the vimDnsYyyXxx parser below. If it doesn't, include it without a signature, like the vimDnsWwwZzz parer below.
 
 ```kusto
-union isfuzzy=true 
+let DnsGeneric=(starttime:datetime=datetime(null), endtime:datetime=datetime(null)... ){
+  union isfuzzy=true
     vimDnsEmpty, 
-    vimDnsCiscoUmbrella, 
-    vimDnsInfobloxNIOS, 
-    vimDnsMicrosoftOMS,
-    vimDnsYyyXxx
+    vimDnsCiscoUmbrella (starttime, endtime, srcipaddr...),
+    vimDnsInfobloxNIOS (starttime, endtime, srcipaddr...),
+    vimDnsMicrosoftOMS (starttime, endtime, srcipaddr...),
+    vimDnsYyyXxx (starttime, endtime, srcipaddr...),
+    vimDnsWwwZzz
+  };
+  DnsGeneric( starttime, endtime, srcipaddr...)
 ```
+
 
 ## Deploy parsers
 
-Deploy parsers manually by copying them to the Azure Monitor **Log** page and saving your change. This method is useful for testing. For more information, see [Create a function](../azure-monitor/logs/functions.md).
+Deploy parsers manually by copying them to the Azure Monitor Log page and saving your change. This method is useful for testing. For more information, see [Create a function](../azure-monitor/logs/functions.md).
 
 However, to deploy a large number of parsers, we recommend that you use an ARM template. For example, you may want to use an ARM template when deploying a complete normalization solution that includes a source-agnostic parser and several source-specific parsers, or when deploying multiple parsers for different schemas for a source.
 
