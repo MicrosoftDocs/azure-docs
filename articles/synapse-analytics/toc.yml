@@ -615,7 +615,7 @@ items:
       href: ./spark/apache-spark-notebook-concept.md
     - name: Package management
       href: ./spark/apache-spark-azure-portal-add-libraries.md
-    - name: Monitoring tools
+    - name: Monitor Apache Spark applications 
       href: monitoring/how-to-monitor-spark-applications.md
   - name: How-to guides
     items:
@@ -661,14 +661,16 @@ items:
         href: ./spark/apache-spark-history-server.md
       - name: Monitor Spark applications
         href: monitoring/apache-spark-applications.md
-      - name: Monitor Spark pools
+      - name: Monitor Apache Spark pools
         href: monitoring/how-to-monitor-spark-pools.md
-      - name: Connect and monitor Azure Synapse Spark Application level metrics
+      - name: Collect Apache Spark applications metrics using APIs
         href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
-      - name: Monitor Apache Spark application level metrics with Prometheus and Grafana
+      - name: Monitor Apache Spark Applications metrics with Prometheus and Grafana
         href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-      - name: Use Azure Log Analytics to collect and visualize metrics and logs (preview)
-        href: ./spark/apache-spark-azure-log-analytics.md      
+      - name: Monitor your Apache Spark applications with Azure Log Analytics (preview)
+        href: ./spark/apache-spark-azure-log-analytics.md 
+      - name: Collect Apache Spark applications logs and metrics with Azure Storage account
+        href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md         
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3
