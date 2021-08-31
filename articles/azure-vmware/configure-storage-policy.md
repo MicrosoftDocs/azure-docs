@@ -18,7 +18,7 @@ The Run command lets authorized users change the default or existing VM storage 
 
 
 >[!NOTE]
->Commands are executed one at a time in the order submitted.
+>Run commands are executed one at a time in the order submitted.
 
 
 In this how-to, you learn how to:

@@ -107,7 +107,7 @@ JetStream DR installation is available through the Run command functionality in 
 
 
 >[!NOTE]
->Commands are executed one at a time in the order submitted.
+>Run commands are executed one at a time in the order submitted.
 
 ### Check the current state of the system
 
