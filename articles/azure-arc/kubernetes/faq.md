@@ -44,7 +44,7 @@ az connectedk8s show -n <name> -g <resource-group>
 
 In the output, the value of the `managedIdentityCertificateExpirationTime` indicates when the managed identity certificate will expire (90D mark for that certificate). 
 
-If the value of managedIdentityCertificateExpirationTime indicates a timestamp from the past, then the `connectivityStatus` field in the above output will be set to `Expired`. In such cases, to get your Kubernetes cluster working with Azure Arc again:
+If the value of `managedIdentityCertificateExpirationTime` indicates a timestamp from the past, then the `connectivityStatus` field in the above output will be set to `Expired`. In such cases, to get your Kubernetes cluster working with Azure Arc again:
 
 1. Delete Azure Arc enabled Kubernetes resource and agents on the cluster. 
 
