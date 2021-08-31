@@ -40,7 +40,7 @@ Users, groups, and applications from that directory can manage resources in the 
 
 - Access to data in Azure AD requires user authentication via a security token service (STS). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
 
-:::image type="content" source="media/isolation-choices/azure-isolation-fig-1.svg" alt-text="Diagram showing Azure tenancy." border="false":::
+   :::image type="content" source="media/isolation-choices/azure-isolation-fig-1.svg" alt-text="Diagram showing Azure tenancy." border="false":::
 
 - Tenants are discrete containers and there is no relationship between these.
 
