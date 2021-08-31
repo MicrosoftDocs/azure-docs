@@ -57,9 +57,9 @@ You'll run the `Get-StoragePolicy` cmdlet to list the vSAN based storage policie
    
    | **Field** | **Value** |
    | --- | --- |
-   | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **Get-StoragePolicies-Exec1**. |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **Get-StoragePolicies-Exec1**. |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
 
@@ -81,9 +81,9 @@ You'll run the `Set-AvsVMStoragePolicy` cmdlet to Modify vSAN based storage poli
    | --- | --- |
    | **VMName** | Name of the target VM. |
    | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
-   | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **changeVMStoragePolicy**.  |
-   | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **changeVMStoragePolicy**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
 
@@ -100,9 +100,9 @@ You'll run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default stora
    | --- | --- |
    | **ClusterName** | Name of the cluster. |
    | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
-   | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **Set-ClusterDefaultStoragePolicy-Exec1**.  |
-   | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **Set-ClusterDefaultStoragePolicy-Exec1**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
 
