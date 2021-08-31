@@ -1,6 +1,6 @@
 ---
-title: Overview of zone redundant high availability with Azure Database for MySQL Flexible Server
-description: Learn about the concepts of zone redundant high availability with Azure Database for MySQL Flexible Server
+title: Zone redundant HA with Azure Database for MySQL - Flexible Server
+description: Get a conceptual overview of zone redundant high availability in Azure Database for MySQL - Flexible Server.
 author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 08/26/2021
 ---
 
-# High availability concepts in Azure Database for MySQL Flexible Server (Preview)
+# High availability in Azure Database for MySQL - Flexible Server Preview
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT] 
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
-Azure Database for MySQL Flexible Server (Preview) allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost because of failures and that the database will not be a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. There are two high availability architectural models:
+Azure Database for MySQL - Flexible Server Preview allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost because of failures and that the database will not be a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. There are two high availability architectural models:
 
 * **Zone Redundant High Availability (HA):** This option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides highest level of availability, but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA can be enabled only at the server creation time. Zone redundant HA is available in [subset of Azure regions](./overview.md#azure-regions) where the region supports multiple [Availability Zones](../../availability-zones/az-overview.md) and [Zone redundant Premium file shares](../..//storage/common/storage-redundancy.md#zone-redundant-storage) are available.
 
