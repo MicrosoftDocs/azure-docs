@@ -93,6 +93,9 @@ items:
   - name: Use customer-managed encryption keys
     href: customer-keys.md
 
+  - name: Load balance client traffic
+    href: client-load-balancing.md
+
   - name: Product overview
     href: https://azure.microsoft.com/services/hpc-cache/
   - name: Pricing and purchasing options
