@@ -75,7 +75,7 @@ You'll use a few VS Code extensions to debug your deployments in the dev contain
 > [!IMPORTANT]
 > Before starting your debug session, make sure that the VS Code extensions have finished installing in your dev container.  
 
-## Start debugging session
+## Start debug session
 
 Once your environment is setup, use the VS Code debugger to test and debug your deployment locally.
 
@@ -142,6 +142,8 @@ In this case, `<REQUEST-FILE>` is a JSON file that contains input data samples f
 >  "type": "online"
 >}
 >```
+>
+>The scoring URI can be found in the `scoring_uri` property.
 
 At this point, any breakpoints in your `run` function are caught. Use the debug actions to step through your code. For more information on debug actions, see the [debug actions guide](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
 
