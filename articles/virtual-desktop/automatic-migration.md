@@ -20,11 +20,11 @@ The migration module tool (preview) lets you migrate your organization from Azur
 
 Before you use the migration module, make sure you have the following things ready:
 
-- An Azure subscription where you’ll create new Azure service objects.
+- An Azure subscription where you'll create new Azure service objects.
 
 - You must be assigned the Contributor role to create Azure objects on your subscription, and the User Access Administrator role to assign users to application groups.
 
-- At least Remote Desktop Services (RDS) Contributor permissions on an RDS tenant or the specific host pools you’re migrating.
+- At least Remote Desktop Services (RDS) Contributor permissions on an RDS tenant or the specific host pools you're migrating.
 
 - The latest version of the Microsoft.RdInfra.RDPowershell PowerShell module 
 
@@ -54,7 +54,7 @@ To prepare your PowerShell environment:
     https://www.powershellgallery.com/packages/Az.Resources/
     ```
 
-    If you don’t, then install and import the modules by running these cmdlets:
+    If you don't, then install and import the modules by running these cmdlets:
 
     ```powershell
     Install-module Az.Resources
@@ -82,9 +82,12 @@ To prepare your PowerShell environment:
     Get-Module Microsoft.RDInfra.RDPowershell
     ```
 
-5. Now, let's install and import the migration module by running this cmdlet:
+5. Now, let's install and import the migration module by running these cmdlets:
 
     ```powershell
+    Install-Module -Name PackageManagement -Repository PSGallery -Force
+    Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    # Then restart shell
     Install-Module -Name Microsoft.RdInfra.RDPowershell.Migration -RequiredVersion 1.0.3595-Prerelease -AllowPrerelease
     Import-Module <Full path to the location of the migration module>\Microsoft.RdInfra.RDPowershell.Migration.psd1
     ```
