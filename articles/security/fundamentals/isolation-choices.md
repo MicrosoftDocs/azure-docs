@@ -3,9 +3,8 @@ title: Isolation in the Azure Public Cloud | Microsoft Docs
 description: Learn how Azure provides isolation against both malicious and non-malicious users and offers various isolation choices to architects.
 services: security
 documentationcenter: na
-author: UnifyCloud
+author: TomSh
 manager: rkarlin
-editor: TomSh
 
 ms.assetid:
 ms.service: security
@@ -14,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
-ms.author: TomSh
+ms.date: 08/30/2021
+ms.author: terrylan
 
 ---
 
@@ -41,7 +40,7 @@ Users, groups, and applications from that directory can manage resources in the 
 
 - Access to data in Azure AD requires user authentication via a security token service (STS). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
 
-![Azure Tenancy](./media/isolation-choices/azure-isolation-fig1.png)
+:::image type="content" source="media/isolation-choices/azure-isolation-fig1.svg" alt-text="Diagram showing Azure tenancy." border="false":::
 
 - Tenants are discrete containers and there is no relationship between these.
 
