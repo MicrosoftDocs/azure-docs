@@ -15,8 +15,8 @@ Configuring a Private Link requires a few steps:
 
 This article reviews how it's done through the Azure portal and provides an example Azure Resource Manager (ARM) template to automate the process. 
 
-## Create a Private Link connection through the Azure Portal
-In this section, we review the process of setting up a Private Link through the Azure Portal, step by step. See [Use APIs and command line](#use-apis-and-command-line) to create and manage a Private Link using the command line or an Azure Resource Manager template (ARM template).
+## Create a Private Link connection through the Azure portal
+In this section, we review the process of setting up a Private Link through the Azure portal, step by step. See [Use APIs and command line](#use-apis-and-command-line) to create and manage a Private Link using the command line or an Azure Resource Manager template (ARM template).
 
 ### Create an Azure Monitor Private Link Scope
 
@@ -125,7 +125,7 @@ az resource create -g "my-resource-group" --name "my-scope" --api-version "2021-
 ```
 
 #### Create AMPLS with mixed access modes - PowerShell example
-The below PS script creates a new AMPLS resource named "my-scope", with the query access mode Open but the ingestion access modes set to PrivateOnly (meaning it will allow ingestion only to resources in the AMPLS).
+The below PowerShell script creates a new AMPLS resource named "my-scope", with the query access mode Open but the ingestion access modes set to PrivateOnly (meaning it will allow ingestion only to resources in the AMPLS).
 
 ```
 # scope details
