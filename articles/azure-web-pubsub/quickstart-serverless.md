@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Build a serverless real-time chat app with authentication
-description: A tutorial to walk through how to using Azure Web PubSub service and Azure Functions to build a serverless chat app with authentication.
+title: Tutorial - Build a serverless real-time chat app with client authentication
+description: A tutorial to walk through how to using Azure Web PubSub service and Azure Functions to build a serverless chat app with client authentication.
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
@@ -191,10 +191,10 @@ In this tutorial, you learn how to:
             return connection;
         }
         ```
-    > [!NOTE]
-    > Here we use [AAD](/azure/app-service/configure-authentication-user-identities) user identity header `x-ms-client-principal-name` to retrieve userId. And this won't work in a local function. You can make it empty or change to other ways to get userId when running in local.
 
-1. Create a `message` function to broadcast client messages through service.
+    > Here we use [AAD](/azure/app-service/configure-authentication-user-identities) user identity header `x-ms-client-principal-name` to retrieve `userId`. And this won't work in a local function. You can make it empty or change to other ways to get or generate `userId` when playing in local. For example, let client type a user name and pass it in query like `?user={$username}` when call `negotiate` function to get service connection url, and in the `negotiate` function, set `userId` with value `{query.user}`.
+
+2. Create a `message` function to broadcast client messages through service.
    ```bash
    func new -n message -t HttpTrigger
    ```
@@ -265,7 +265,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-1. Add the client single page `index.html` in the project root folder and copy content as below.
+3. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
     <html>
         <body>
@@ -325,7 +325,7 @@ In this tutorial, you learn how to:
     </ItemGroup>
     ``
 
-## Deploy and the Azure Function app
+## Create and Deploy the Azure Function App
 
 Before you can deploy your function code to Azure, you need to create 3 resources:
 * A resource group, which is a logical container for related resources.
@@ -379,7 +379,7 @@ Use the following commands to create these items.
 
 ## Configure the Web PubSub service `Event Handler`
 
-In this sample, we're using `WebPubSubTrigger` to listen to service upstream message requests. And Web PubSub need to know the function's endpoint information in order to send target client requests. In the previous step after we deployed the Function App with `message` functions, we're able to get a system key.
+In this sample, we're using `WebPubSubTrigger` to listen to service upstream message requests. So Web PubSub need to know the function's endpoint information in order to send target client requests. And Azure Function App requires a system key for security regarding extension-specific webhook methods. In the previous step after we deployed the Function App with `message` functions, we're able to get the system key.
 
 Go to **Azure portal** -> Find your Function App resource -> **App keys** -> **System keys** -> **`webpubsub_extension`**. Copy out the value as `<APP_KEY>`.
 
@@ -394,18 +394,18 @@ Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find 
 
 :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
 
-## Configure to enable authentication
+> If you're running the functions in local. You can expose the function url with [ngrok](https://ngrok.com/download) by command `ngrok http 7071` after function start. And configure the Web PubSub service `Event Handler` with url: `https://<NGROK_ID>.ngrok.io/runtime/webhooks/webpubsub`. 
 
-1. Configure Function App to use Authentication. Go to **Azure portal** -> Find your Function App resource -> **Authentication**. Click **`Add identity provider`**. You can configure identity provider with below options following detail doc. Basically you can use default settings. Then **`Add`**. Remember the identity provider **Name** if you change it. By default it'll use your function app's name. And **Save**.
+## Configure to enable client authentication
 
-   * [Microsoft(Azure AD)](/azure/app-service/configure-authentication-provider-aad)
-   * [Facebook](/azure/app-service/configure-authentication-provider-facebook)
-   * [Google](/azure/app-service/configure-authentication-provider-google)
-   * [Twitter](/azure/app-service/configure-authentication-provider-twitter) 
+Go to **Azure portal** -> Find your Function App resource -> **Authentication**. Click **`Add identity provider`**. Set **App Service authentication settings** to **Allow unauthenticated access**, so you client index page can be visited by anonymous users before redirect to authenticate. Then **Save**.
 
-1. Configure Web PubSub service to enable Authentication. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Right next your previously set `Event Handler`, **Enable** authentication and choose **Select from existing AAD application**. Find the identity name you just created for your function app. And **Save**.
+Here we choose `Microsoft` as identify provider which will use `x-ms-client-principal-name` as `userId` in the `negotiate` function. Besides, You can configure other identity providers following below links, and don't forget update the `userId` value in `negotiate` function accordingly.
 
-    :::image type="content" source="media/quickstart-serverless/enable-authentication.png" alt-text="Screenshot of enable authentication.":::
+* [Microsoft(Azure AD)](/azure/app-service/configure-authentication-provider-aad)
+* [Facebook](/azure/app-service/configure-authentication-provider-facebook)
+* [Google](/azure/app-service/configure-authentication-provider-google)
+* [Twitter](/azure/app-service/configure-authentication-provider-twitter)
 
 ## Try the application
 
