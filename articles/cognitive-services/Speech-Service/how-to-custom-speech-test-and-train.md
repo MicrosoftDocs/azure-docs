@@ -144,6 +144,7 @@ Additionally, you'll want to account for the following restrictions:
 * Avoid repeating characters, words, or groups of words more than three times. For example: "aaaa", "yeah yeah yeah yeah", or "that's it that's it that's it that's it". The Speech service might drop lines with too many repetitions.
 * Don't use special characters or UTF-8 characters above `U+00A1`.
 * URIs will be rejected.
+* For Japanese and Korean, uploading a text data is expected taking longer period of time than for the other languages. By this limitation, if you upload large amout of text data such as tens of megabytes, uploading and processing will take few hours or generate a timeout error. Please consider to divide into 20.000 lines per each text file.
 
 ## Pronunciation data for training
 
