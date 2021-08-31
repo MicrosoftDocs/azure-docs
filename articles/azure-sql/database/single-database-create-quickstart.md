@@ -164,14 +164,37 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Create a database and resources
 
-Run the [az sql up](/cli/azure/sql#az_sql_up) command to quickly create a database and all associated resources. If a parameter for a required resource isn't used with the command, that resource is created with a random name.
+The [az sql up](/cli/azure/sql#az_sql_up) command simplifies the database creation process. With it, you can create a database and all of its associated resources with a single command. This includes the resource group, server name, server location, database name, and login information. The database is created with a default pricing tier of General Purpose, Provisioned, Gen5, 2 vCores. 
+
+This command is meant to get an Azure Database for SQL server up and running and configured for immediate use. For more control when creating a database, use the standard Azure CLI commands in this article.
 
 > [!NOTE]
-> The `az sql up` command requires the installation of the `db-up` extension for CloudShell. The extension is currently in preview.
+> When running the `az sql up` command for the first time, the Azure CLI prompts you to install the `db-up` extension. This extension is currently in preview. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-```azurecli-interactive
-az sql up --resource-group myResourceGroup --server-name serverName --database-name mySampleDatabase --admin-user adminlogin --admin-password password
-```
+1. Run the `az sql up` command. If any required parameters aren't used, like `--server-name`, that resource is created with a random name and login information assigned to it.
+
+    ```azurecli-interactive
+    az sql up \
+        --resource-group $resourceGroupName \
+        --location $location \
+        --server-name $serverName \
+        --database-name mySampleDatabase \
+        --admin-user $adminlogin \
+        --admin-password $password
+    ```
+
+2.	A server firewall rule is automatically created. If the SQL server declines your IP address, create a new firewall using the `az sql server firewall-rule create` command.
+
+    ```azurecli-interactive
+    az sql server firewall-rule create \
+        --resource-group $resourceGroupName \
+        --server $serverName \
+        -n AllowYourIp \
+        --start-ip-address $startip \
+        --end-ip-address $endip
+    ```
+
+3. All required resources are created, and the database is ready for queries.
 
 # [PowerShell](#tab/azure-powershell)
 
