@@ -640,9 +640,13 @@ Azure team will investigate the content of the `delta_log` file and provide more
 
 ### Resolving delta log on path ... failed with error: Cannot parse JSON object from log file
 
-This error might happen if you have [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters) on Delta Lake dataset. Serverless SQL pools in Synapse Analytics do not support datasets with the [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+This error might happen due to the following reasons/unsupported features:
+- [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters) on Delta Lake dataset. Serverless SQL pools in Synapse Analytics do not support datasets with the [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+- Float column in Delta Lake data set with statistics.
+- Data set partitioned on a float column.
 
-**Workaround**: [Remove BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) if you want to read Delta Lake folder using the serverless SQL pool.
+**Workaround**: [Remove BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) if you want to read Delta Lake folder using the serverless SQL pool. 
+If you have `float` columns that are causing the issue, you would need to re-partition the data set or remove the statistics.
 
 ## Security
 
