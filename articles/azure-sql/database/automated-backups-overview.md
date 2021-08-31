@@ -150,7 +150,7 @@ For all new, restored, and copied databases, Azure SQL Database and Azure SQL Ma
 > [NOTE]
 > A 24-hour differential backup frequency may increase the time required to restore the database. 
 
-With the exception of Hyperscale and Basic tier databases, you can [change backup retention period](#change-the-pitr-backup-retention-period) per each active database in the 1-35 day range. As described in [Backup storage consumption](#backup-storage-consumption), backups stored to enable PITR may be older than the retention period. For Azure SQL Managed Instance only, it is possible to set the PITR backup retention rate once a database has been deleted in the 0-35 days range. 
+With the exception of Hyperscale and Basic tier databases, you can [change backup retention period](#change-the-short-term-retention-policy) per each active database in the 1-35 day range. As described in [Backup storage consumption](#backup-storage-consumption), backups stored to enable PITR may be older than the retention period. For Azure SQL Managed Instance only, it is possible to set the PITR backup retention rate once a database has been deleted in the 0-35 days range. 
 
 If you delete a database, the system keeps backups in the same way it would for an online database with its specific retention period. You cannot change backup retention period for a deleted database.
 
@@ -250,7 +250,7 @@ All database backups are taken with the CHECKSUM option to provide additional ba
 
 ## Compliance
 
-When you migrate your database from a DTU-based service tier to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy isn't compromised. If the default retention doesn't meet your compliance requirements, you can change the PITR retention period. For more information, see [Change the PITR backup retention period](#change-the-pitr-backup-retention-period).
+When you migrate your database from a DTU-based service tier to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy isn't compromised. If the default retention doesn't meet your compliance requirements, you can change the PITR retention period. For more information, see [Change the PITR backup retention period](#change-the-short-term-retention-policy).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -414,6 +414,8 @@ Status code: 200
 ```
 
 For more information, see [Backup Retention REST API](/rest/api/sql/backupshorttermretentionpolicies).
+
+---
 
 ## Configure backup storage redundancy
 
