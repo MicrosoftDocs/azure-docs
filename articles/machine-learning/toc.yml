@@ -521,6 +521,8 @@
               href: how-to-safely-rollout-managed-endpoints.md
             - name: Use managed online endpoints in studio
               href: how-to-use-managed-online-endpoint-studio.md
+            - name: Access storage with managed online endpoint and managed identity
+              href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Use REST to deploy a model as a managed online endpoint
