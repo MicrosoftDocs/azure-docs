@@ -60,6 +60,10 @@ The ASN that Azure Route Server uses is 65515. Make sure you configure a differe
 
 * If your VM is in a different virtual network than the one that hosts your NVA and Azure Route Server. Check if VNet Peering is enabled between the two VNets *and* if Use Remote Route Server is enabled on your VM’s VNet.
 
+### Why is the Equal-Cost Multi-Path (ECMP) function of my ExpressRoute turned off after I deploy Azure Route Server to the virtual network?
+
+When you advertise the same routes from your on-premises network to Azure over multiple ExpressRoute connections, normally ECMP is enabled by default for the traffic destined for these routes from Azure back to your premises. However, after the route server is deployed, the multiple-path information is lost in the BGP exchange between ExpressRoute and Azure Route Server, and consequently traffic from Azure will traverse only on one of the ExpressRoute connections. This limitation will be lifed in the future release of Azure Route Server.  
+
 ## Next steps
 
 Learn how to [configure an Azure Route Server](quickstart-configure-route-server-powershell.md)
