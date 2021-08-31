@@ -150,16 +150,16 @@ public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X5
      app.AddInMemoryTokenCache();  // Microsoft.Identity.Web 1.16 or over
    
      // Make the call to get a token for client_credentials flow (app to app scenario) 
-     return await app.AcquireTokenForClient(scopes);
+     return await app.AcquireTokenForClient(scopes).ExecuteAsync();
      
      // OR Make the call to get a token for OBO (web api scenario)
-     return await app.AcquireTokenOnBehalfOf(scopes, userAssertion);
+     return await app.AcquireTokenOnBehalfOf(scopes, userAssertion).ExecuteAsync();
      
      // OR Make the call to get a token via auth code (web app scenario)
      try
      {          
-          var account = await app.GetAccount(homeAccountId);
-          return await app.AcquireTokenSilent(scopes, account); 
+          var account = await app.GetAccountsAsync(homeAccountId);
+          return await app.AcquireTokenSilent(scopes, account).ExecuteAsync();; 
      } 
      catch (MsalUiRequiredException)
      {
