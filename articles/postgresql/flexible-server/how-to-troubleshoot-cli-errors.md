@@ -14,7 +14,7 @@ This doc will help you troubleshoot common issues with Azure CLI when using Post
 
 ## Command not found
 
- If you receive and error that a command **is misspelled or not recognized by the system**. This could mean that CLI version on your client machine may not be up to date. Run ```az upgrade``` to upgrade to latest version.   
+ If you receive and error that a command **is misspelled or not recognized by the system**. This could mean that CLI version on your client machine may not be up to date. Run ```az upgrade``` to upgrade to latest version. Doing an upgrade of your CLI version can help resolve issues with incompatibilities of a command due to any API changes.
  
 ## Debug deployment failures 
 Currently, Azure CLI doesn't support turning on debug logging, but you can retrieve debug logging following the steps below.
