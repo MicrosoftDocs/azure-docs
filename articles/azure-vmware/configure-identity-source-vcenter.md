@@ -14,7 +14,8 @@ ms.date: 08/31/2021
 
 [!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
 
-
+>[!NOTE]
+>Commands are executed one at a time in the order submitted.
 
 In this how-to, you learn how to:
 
@@ -25,8 +26,7 @@ In this how-to, you learn how to:
 > * Remove AD group from the cloudadmin role
 > * Remove existing external identity sources
 
->[!NOTE]
->Executions are queued and executed one at a time.
+
 
 ## Prerequisites
 
