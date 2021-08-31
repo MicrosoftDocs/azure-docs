@@ -2,14 +2,17 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 08/12/2021
+ms.date: 08/26/2021
 ms.author: larryfr
 ---
 
-When using Azure Machine Learning __compute instance__ or __compute cluster__, allow inbound traffic from Azure Batch management and Azure Machine Learning services. When creating the user-defined routes for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
+When using Azure Machine Learning __compute instance__ (with a public IP) or __compute cluster__, allow inbound traffic from Azure Batch management and Azure Machine Learning services. A Network Security Group allowing this traffic is dynamically created for you, however you may need to also create user-defined routes (UDR) if you have a firewall. When creating a UDR for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
 
 > [!IMPORTANT]
 > Using service tags with user-defined routes is currently in preview and may not be fully supported. For more information, see [Virtual Network routing](/azure/virtual-network/virtual-networks-udr-overview#service-tags-for-user-defined-routes-preview).
+
+> [!TIP]
+> While a compute instance without a public IP (a preview feature) does not need a UDR for this traffic, you will still need a UDR if you also use a compute cluster.
 
 # [IP Address routes](#tab/ipaddress)
 
