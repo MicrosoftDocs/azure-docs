@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
+ms.date: 08/30/2021
 ---
 
 # Copy data from Amazon Simple Storage Service by using Azure Data Factory
