@@ -64,6 +64,83 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
+## Activate using Graph API
+
+For permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md). 
+
+### HTTP POST request
+
+This is a sample HTTP request to create an eligible assignment. The scope of the eligibility is all directory objects in the tenant until June 30, 2022 at midnight UTC time. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http).
+
+````HTTP
+
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests
+Content-Type: application/json
+
+{
+  "action": "AdminAssign",
+  "justification": "Assign User Admin eligibility to IT Helpdesk (User) group",
+  "roleDefinitionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "directoryScopeId": "/",
+  "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "scheduleInfo": {
+    "startDateTime": "2021-07-01T00:00:00Z",
+    "expiration": {
+      "endDateTime": "2022-06-30T00:00:00Z",
+      "type": "AfterDateTime"
+    }
+  }
+}
+````
+
+### Response
+
+The following is an example of the response. The response object shown here might be shortened for readability.
+
+````HTTP
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity",
+    "id": "672c03bf-226a-42ec-a8b7-3bfab96064a1",
+    "status": "Provisioned",
+    "createdDateTime": "2021-07-26T18:08:03.1299669Z",
+    "completedDateTime": "2021-07-26T18:08:06.2081758Z",
+    "approvalId": null,
+    "customData": null,
+    "action": "AdminAssign",
+    "principalId": "07706ff1-46c7-4847-ae33-3003830675a1",
+    "roleDefinitionId": "fdd7a751-b60b-444a-984c-02652fe8fa1c",
+    "directoryScopeId": "/",
+    "appScopeId": null,
+    "isValidationOnly": false,
+    "targetScheduleId": "672c03bf-226a-42ec-a8b7-3bfab96064a1",
+    "justification": "Assign User Admin eligibility to IT Helpdesk (User) group",
+    "createdBy": {
+        "application": null,
+        "device": null,
+        "user": {
+            "displayName": null,
+            "id": "fc9a2c2b-1ddc-486d-a211-5fe8ca77fa1f"
+        }
+    },
+    "scheduleInfo": {
+        "startDateTime": "2021-07-26T18:08:06.2081758Z",
+        "recurrence": null,
+        "expiration": {
+            "type": "afterDateTime",
+            "endDateTime": "2022-06-30T00:00:00Z",
+            "duration": null
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": null,
+        "ticketSystem": null
+    }
+} 
+````
+
 ## View the status of your requests for new version
 
 You can view the status of your pending requests to activate.
@@ -90,9 +167,9 @@ If you do not require activation of a role that requires approval, you can cance
 
    ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## Troubleshoot for new version
+## Troubleshoot portal delay
 
-### Permissions are not granted after activating a role
+### Permissions aren't granted after activating a role
 
 When you activate a role in Privileged Identity Management, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, sign out of the portal you are trying to perform the action and then sign back in. In the Azure portal, PIM signs you out and back in automatically.
 
