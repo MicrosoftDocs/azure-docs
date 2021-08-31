@@ -165,6 +165,7 @@ In this tutorial, you learn how to:
                     "type": "webPubSubConnection",
                     "name": "connection",
                     "hub": "simplechat",
+                    "userId": "{headers.x-ms-client-principal-name}",
                     "direction": "in"
                 }
             ]
@@ -183,13 +184,15 @@ In this tutorial, you learn how to:
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-            [WebPubSubConnection(Hub = "simplechat")] WebPubSubConnection connection,
+            [WebPubSubConnection(Hub = "simplechat", UserId = "{headers.x-ms-client-principal-name}")] WebPubSubConnection connection,
             ILogger log)
         {
             log.LogInformation("Connecting...");
             return connection;
         }
         ```
+    > [!NOTE]
+    > Here we use [AAD](/azure/app-service/configure-authentication-user-identities) user identity header `x-ms-client-principal-name` to retrieve userId. And this won't work in a local function. You can make it empty or change to other ways to get userId when running in local.
 
 1. Create a `message` function to broadcast client messages through service.
    ```bash
@@ -197,7 +200,7 @@ In this tutorial, you learn how to:
    ```
 
    > [!NOTE]
-   > This function is actually using `WebPubSubTrigger`. However, since the service is still in preview, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to create the function template and change trigger type in code.
+   > This function is actually using `WebPubSubTrigger`. However, since the service is still in preview, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to initialize the function template and change trigger type in code.
 
    # [JavaScript](#tab/javascript)
    - Update `message/function.json` and copy following json codes.
@@ -230,7 +233,7 @@ In this tutorial, you learn how to:
                 "message": `[${context.bindingData.connectionContext.userId}] ${message}`,
                 "dataType": context.bindingData.dataType
             };
-            // MessageResponse directly return to caller. Can be skipped.
+            // MessageResponse directly return to caller
             var response = { 
                 "message": '[SYSTEM] ack.',
                 "dataType" : "text"
@@ -262,7 +265,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-2. Add the client single page `index.html` in the project root folder and copy content as below.
+1. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
     <html>
         <body>
@@ -397,15 +400,15 @@ Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find 
    * [Microsoft(Azure AD)](/azure/app-service/configure-authentication-provider-aad)
    * [Facebook](/azure/app-service/configure-authentication-provider-facebook)
    * [Google](/azure/app-service/configure-authentication-provider-facebook)
-   * [Twitter](/azure/app-service/configure-authentication-provider-facebook) on demand. And choose your configure settings then 
+   * [Twitter](/azure/app-service/configure-authentication-provider-facebook) 
 
-2. Configure Web PubSub service to enable Authentication. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Right under your previously set `Event Handler`, **Turn on** authentication and choose **Select from existing AAD application**. Type the identity name you just created for your function app. And **Save**.
+2. Configure Web PubSub service to enable Authentication. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Right next your previously set `Event Handler`, **Enable** authentication and choose **Select from existing AAD application**. Find the identity name you just created for your function app. And **Save**.
 
     :::image type="content" source="media/quickstart-serverless/enable-authentication.png" alt-text="Screenshot of enable authentication.":::
 
 ## Try the application
 
-Now you're able to test your page from your function app: `https://<FUNCTION_APP>.azurewebsites.net/api/index`. See snapshot below.
+Now you're able to test your page from your function app: `https://<FUNCTIONAPP_NAME>.azurewebsites.net/api/index`. See snapshot below.
 1. Click `login` to auth yourself.
 2. Type message in the input box to chat.
 
