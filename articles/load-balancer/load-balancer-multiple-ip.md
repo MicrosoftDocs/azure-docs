@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Load balance multiple IP configurations using the Azure portal 
 
-One of the ways to host multiple websites is to use multiple IP addresses associated with the network interface controller (NIC) of a virtual machine. Azure Load Balancer supports deployment of load-balancing to support the high availability of the websites.
+To host multiple websites, you can use another network interface associated with a virtual machine. Azure Load Balancer supports deployment of load-balancing to support the high availability of the websites.
 
 In this tutorial, you learn how to:
 
@@ -124,7 +124,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
 
 ## Create virtual machines
 
-In this section you'll create two virtual machines to host the IIS websites.
+In this section, you'll create two virtual machines to host the IIS websites.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -274,7 +274,7 @@ You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the s
 
 10. In the PowerShell window, execute the `ipconfig /all` command to see which IP address is assigned to the secondary network interface. In this example, 10.1.0.6 is assigned to interface 13. No default gateway address is returned for the secondary network interface.
 
-11. To route all traffic destined for addresses outside the subnet of the secondary network interface to the gateway for the subnet, execute the following command:
+11. To route all traffic for addresses outside the subnet to the gateway, execute the following command:
 
     ```console
     route -p add 0.0.0.0 MASK 0.0.0.0 10.1.0.1 METRIC 5015 IF 13
@@ -398,7 +398,9 @@ You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the s
 
 ## Create load balancer
 
-In this section, you'll create a zone redundant load balancer that load balances virtual machines. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.
+You'll create a zone redundant load balancer that load balances virtual machines in this section. 
+
+With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.
 
 During the creation of the load balancer, you'll configure:
 
@@ -565,7 +567,7 @@ During the creation of the load balancer, you'll configure:
 
 ## Test load balancer
 
-In this section, you'll discover the public IP address for each website. You'll enter the website IP into a web browser to test the external load balancing of the websites you created earlier. Finally, you'll shutdown one of the virtual machines to display the failover of the load balancer.
+In this section, you'll discover the public IP address for each website. You'll enter the IP into a browser to test the websites you created earlier.
 
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
