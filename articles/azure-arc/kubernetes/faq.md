@@ -59,7 +59,7 @@ If the value of `managedIdentityCertificateExpirationTime` indicates a timestamp
     ```
 
 > [!NOTE]
-> `az connectedk8s delete` will also delete configurations on top of the cluster. After running `az connectedk8s connect`, recreate the configurations on the cluster, either manually or using Azure Policy.
+> `az connectedk8s delete` will also delete configurations and cluster extensions on top of the cluster. After running `az connectedk8s connect`, recreate the configurations and cluster extensions on the cluster, either manually or using Azure Policy.
 
 ## If I am already using CI/CD pipelines, can I still use Azure Arc enabled Kubernetes and configurations?
 
