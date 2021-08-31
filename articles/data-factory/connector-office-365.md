@@ -71,21 +71,21 @@ Use the following steps to create a linked service to Office 365 in the Azure po
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
     # [Synapse Analytics](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 ---
 
 2. Search for Office and select the Office 365 connector.
 
-    :::image type="content" source="media/connector-office-365/office-365-connector.png" alt-text="Select the Office 365 connector.":::    
+    :::image type="content" source="media/connector-office-365/office-365-connector.png" alt-text="Screenshot of the Office 365 connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-office-365/configure-office-365-linked-service.png" alt-text="Configure a linked service to Office 365.":::
+    :::image type="content" source="media/connector-office-365/configure-office-365-linked-service.png" alt-text="Screenshot of linked service configuration for Office 365.":::
 
 ## Connector configuration details
 

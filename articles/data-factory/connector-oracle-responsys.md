@@ -42,22 +42,22 @@ Use the following steps to create a linked service to Oracle Responsys in the Az
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
     # [Synapse Analytics](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 ---
 
 2. Search for Oracle and select the Oracle Responsys connector.
 
-   :::image type="content" source="media/connector-oracle-responsys/oracle-responsys-connector.png" alt-text="Select the Oracle Responsys connector.":::    
+   :::image type="content" source="media/connector-oracle-responsys/oracle-responsys-connector.png" alt-text="Screenshot of the Oracle Responsys connector.":::    
 
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-   :::image type="content" source="media/connector-oracle-responsys/configure-oracle-responsys-linked-service.png" alt-text="Configure a linked service to Oracle Responsys.":::
+   :::image type="content" source="media/connector-oracle-responsys/configure-oracle-responsys-linked-service.png" alt-text="Screenshot of linked service configuration for Oracle Responsys.":::
 
 ## Connector configuration details
 

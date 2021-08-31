@@ -38,22 +38,22 @@ Use the following steps to create a linked service to Presto in the Azure portal
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
     # [Synapse Analytics](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 ---
 
 2. Search for Presto and select the Presto connector.
 
-   :::image type="content" source="media/connector-presto/presto-connector.png" alt-text="Select the Presto connector.":::    
+   :::image type="content" source="media/connector-presto/presto-connector.png" alt-text="Screenshot of the Presto connector.":::    
 
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-   :::image type="content" source="media/connector-presto/configure-presto-linked-service.png" alt-text="Configure a linked service to Presto.":::
+   :::image type="content" source="media/connector-presto/configure-presto-linked-service.png" alt-text="Screenshot of linked service configuration for Presto.":::
 
 ## Connector configuration details
 

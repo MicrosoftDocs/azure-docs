@@ -42,22 +42,22 @@ Use the following steps to create a linked service to Greenplum in the Azure por
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
     # [Synapse Analytics](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 ---
 
 2. Search for Greenplum and select the Greenplum connector.
 
-   :::image type="content" source="media/connector-greenplum/greenplum-connector.png" alt-text="Select the Greenplum connector.":::    
+   :::image type="content" source="media/connector-greenplum/greenplum-connector.png" alt-text="Screenshot of the Greenplum connector.":::    
 
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-   :::image type="content" source="media/connector-greenplum/configure-greenplum-linked-service.png" alt-text="Configure a linked service to Greenplum.":::
+   :::image type="content" source="media/connector-greenplum/configure-greenplum-linked-service.png" alt-text="Screenshot of linked service configuration for Greenplum.":::
 
 ## Connector configuration details
 

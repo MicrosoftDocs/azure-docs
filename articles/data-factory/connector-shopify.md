@@ -42,22 +42,22 @@ Use the following steps to create a linked service to Shopify in the Azure porta
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
     # [Synapse Analytics](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 ---
 
 2. Search for Shopify and select the Shopify connector.
 
-   :::image type="content" source="media/connector-shopify/shopify-connector.png" alt-text="Select the Shopify connector.":::    
+   :::image type="content" source="media/connector-shopify/shopify-connector.png" alt-text="Screenshot of the Shopify connector.":::    
 
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-   :::image type="content" source="media/connector-shopify/configure-shopify-linked-service.png" alt-text="Configure a linked service to Shopify.":::
+   :::image type="content" source="media/connector-shopify/configure-shopify-linked-service.png" alt-text="Screenshot of linked service configuration for Shopify.":::
 
 ## Connector configuration details
 

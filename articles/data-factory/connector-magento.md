@@ -41,22 +41,22 @@ Use the following steps to create a linked service to Magento in the Azure porta
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
     # [Synapse Analytics](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 ---
 
 2. Search for Magento and select the Magento connector.
 
-   :::image type="content" source="media/connector-magento/magento-connector.png" alt-text="Select the Magento connector.":::    
+   :::image type="content" source="media/connector-magento/magento-connector.png" alt-text="Screenshot of the Magento connector.":::    
 
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-   :::image type="content" source="media/connector-magento/configure-magento-linked-service.png" alt-text="Configure a linked service to Magento.":::
+   :::image type="content" source="media/connector-magento/configure-magento-linked-service.png" alt-text="Screenshot of linked service configuration for Magento.":::
 
 ## Connector configuration details
 
