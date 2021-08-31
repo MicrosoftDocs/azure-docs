@@ -126,7 +126,18 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    Deploy-Eflow
    ```
 
-   The `Deploy-Eflow` command takes optional parameters that help you customize your deployment.
+   >[!TIP]
+   >By default, the `Deploy-Eflow` command creates your Linux virtual machine with 1 GB of RAM, 1 vCPU core, and 16 GB of disk space. However, the resources your VM needs are highly dependent on the workloads you deploy. If your VM does not have sufficient memory to support your workloads, it will fail to start.
+   >
+   >You can customize the virtual machine's available resources using the `Deploy-Eflow` command's optional parameters.
+   >
+   >For example, the command below creates a virtual machine with 4 vCPU cores, 4 GB of RAM, and 20 GB of disk space:
+   >
+   >   ```powershell
+   >   Deploy-Eflow -cpuCount 4 -memoryInMB 4096 -vmDiskSize 20
+   >   ```
+   >
+   >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
    You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](gpu-acceleration.md).
 
@@ -134,8 +145,6 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
 
    >[!WARNING]
    >Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
-
-
 
 1. Enter 'Y' to accept the license terms.
 
