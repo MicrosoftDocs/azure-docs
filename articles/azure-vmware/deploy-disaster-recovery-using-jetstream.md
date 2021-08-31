@@ -18,7 +18,7 @@ JetStream DR software consists of three main components:
 
 - Management Server Virtual Appliance (MSA) is installed and configured before DR protection. 
 
-- DR Virtual Appliance (DRVA) is an .ISO image that is automatically deployed by the JetStream DR MSA.
+- DR Virtual Appliance (DRVA) is an .ISO image that the JetStream DR MSA automatically deploys.
 
 - Host components (IO Filter packages) 
 
@@ -28,7 +28,7 @@ In this article, you'll deploy and learn how to use JetStream DR in your Azure V
 
 
 ## Supported scenarios
-Depending on the protection services required and the type of private cloud being protected, you can deploy JetStream DR in two ways:
+Depending on the protection services required and the type of private cloud protected, you can deploy JetStream DR in two ways:
 
 - On-premises to cloud
 
@@ -41,16 +41,16 @@ VMs running in an organization's VMware‐based data center are continuously rep
 
 ### Cloud to cloud deployment
 
-In this configuration, Azure VMware Solution hosts the customer's primary environment in one data center. It protects the VMs and their data by continuously replicating to another private cloud in another of its data centers. If there is an incident, VMs and data are recovered in the second data center. This protection can be bi‐directional, with data center "A" protecting data center "B", and vice‐versa.
+In this configuration, Azure VMware Solution hosts your primary environment in one data center. It protects the VMs and the data by continuously replicating to another private cloud in another of its data centers. If there is an incident, VMs and data are recovered in the second data center. This protection can be bi‐directional, with data center "A" protecting "B", and vice‐versa.
 
 :::image type="content" source="media/jetstream-disaster-recovery/jetstream-cloud-to-cloud-diagram.png" alt-text="Diagram showing the Azure VMware Solution private cloud to private cloud JetStream deployment." border="false":::
 
 
 ## Prerequisites
 
-- Azure VMware Solution private cloud must be deployed as a secondary region. 
+- Azure VMware Solution private cloud deployed as a secondary region. 
 
-- An Ubuntu Linux jump box with an ExpressRoute connection to their Azure VMware Solution private cloud. 
+- An Ubuntu Linux jump box with an ExpressRoute connection to your Azure VMware Solution private cloud. 
 
 - Latest PowerShell installed onto the Linux jump box.
 
@@ -72,13 +72,13 @@ Any of the following types can be used:
 | **Item**  | **Description**  |  
 | --- | --- |  
 | **vCenter Server**  | <ul><li>Supported version: 6.7</li><li>HTTPS port: If using a firewall, HTTPS port 443 must be open.</li><li>Connectivity: The JetStream DR Management Server Appliance FQDN must be reachable from vCenter. Otherwise, the plug-in installation fails.</li><li>Time: The vCenter and JetStream DR MSA clocks must be synchronized.</li></ul>  |
-| **Distributed Resource Schedular (DRS)**  | It’s recommended on the compute cluster for resource balancing.  |
+| **Distributed Resource Scheduler (DRS)**  | It’s recommended on the compute cluster for resource balancing.  |
 | **Cluster**  | vSphere Hosts: VMs to be protected by JetStream DR must be part of a cluster.  |
-| **vSphere Host**  | <ul><li>Supported version: 6.7U1 (build #10302608) or later</li><li>Connectivity: vCenter Server FQDN must be reachable from the host, otherwise the host configuration fails.</li><li>Time: The vSphere hosts and JetStream DR MSA clocks must be synchronized.</li><li>CIM Service: The CIM server must be enabled, which is the default setting.</li></ul>  |
+| **vSphere Host**  | <ul><li>Supported version: 6.7U1 (build #10302608) or later</li><li>Connectivity: vCenter Server FQDN must be reachable from the host. Otherwise, the host configuration fails.</li><li>Time: The vSphere hosts and JetStream DR MSA clocks must be synchronized.</li><li>CIM Service: The CIM server must be enabled, which is the default setting.</li></ul>  |
 | **JetStream DR MSA**  | <ul><li>CPU: 64 bit, 4 vCPUs</li><li>Memory: 4 GB</li><li>Disk space: 60 GB</li><li>Network: Static or dynamically assigned (DHCP) IP addresses can be used. The FQDN must be registered with DNS.</li><li>DNS: DNS name resolution for vSphere hosts and vCenter Server</li></ul>  |
 | **JetStream DRVA**  | <ul><li>CPU: 4 cores</li><li>Memory: 8 GB</li><li>Network: Static or dynamically assigned (DHCP) IP addresses can be used.</li></ul>  |
-| **Replication Log Store**  | For optimal performance, the protected site should expose a low-latency, flash storage device that the hosts share in the cluster. This device can be controlled by the JetStream DR software or provided by a third party. It's used as a repository for the replication log. The DRVA and ESXi host(s) must have direct access to this storage over iSCSI.  |
-| **Ports**  | When JetStream DR software is installed, a range of ports is opened automatically on the source ESXi hosts. For most users, no more action is necessary. However, in cases where the on-premises/source setup has special firewall rules blocking these ports, you'll need to open these ports manually.<br /><br />Port range: 32873-32878  |
+| **Replication Log Store**  | The protected site should expose a low-latency, flash storage device that the hosts share in the cluster for optimal performance. This device can be controlled by the JetStream DR software or provided by a third party. It's used as a repository for the replication log. The DRVA and ESXi host(s) must have direct access to this storage over iSCSI.  |
+| **Ports**  | When JetStream DR software is installed, a range of ports automatically opens on the source ESXi hosts. So for most users, no more action is necessary. However, in cases where the on-premises/source setup has special firewall rules blocking these ports, you'll need to open these ports manually.<br /><br />Port range: 32873-32878  |
 
 
 
@@ -106,7 +106,7 @@ JetStream DR installation is available through the Run command functionality in 
 :::image type="content" source="media/run-command/run-command-overview-jetstream.png" alt-text="Screenshot showing how to access the JetStream run commands available." lightbox="media/run-command/run-command-overview-jetstream.png":::
 
 
-### Check current state of the system
+### Check the current state of the system
 
 You'll run the `Invoke-PreflightJetDRSystemCheck` cmdlet to check the state of your system and whether the minimal requirements for the script are met. It also checks the required vCenter configuration to executes other cmdlets.  
 
@@ -125,9 +125,9 @@ The cmdlet checks:
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **checkDRsystem**.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **checkDRsystem**.  |
+   | **Timeout**  | The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress. 
 
@@ -152,9 +152,9 @@ You'll run the `Invoke-PreflightJetDRInstall` cmdlet to check the following clus
    | **VMName** | Name of MSA VM. For example, **jetstreamServer**. |
    | **Cluster** | Cluster name where MSA will be deployed. For example, **Cluster-1**. |
    | **ProtectedCluster** | Cluster to be protected. For example, **Cluster-1**. |
-   | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **check_jetserverdetails**.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **check_jetserverdetails**.  |
+   | **Timeout**  | The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  
 
@@ -183,9 +183,9 @@ You'll run the `Install-JetDR` cmdlet to deploy JetDR MSA, register vCenter to t
    | **Datastore** | Datastore where MSA will be deployed.  |
    | **ProtectedCluster** | Cluster to be protected. For example, **Cluster-1**. |
    | **RegisterWithIp** | Register MSA with Ip instead of hostname. <ul><li>True if hostname of the MSA is not DNS registered.</li><li>False if hostname of the MSA is DNS registered. </li></ul> |
-   | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **check_jetserverdetails**.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **check_jetserverdetails**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  
 
@@ -212,9 +212,9 @@ You'll run the `Invoke-PreflightJetDRUninstall` cmdlet to diagnose the existing 
    | **MSIp** | IP address of the MSA VM.  |
    | **Credential** | Credentials of root user of the MSA VM. It must be the same provided at the time of installation.  |
    | **ProtectedCluster** | Name of the protected cluster, for example, **Cluster-1**.  It must be the cluster that was provided at the time of installation. |
-   | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **uninstallcheck_jetserverdetails**.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **uninstallcheck_jetserverdetails**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  
 
@@ -234,9 +234,9 @@ You'll run the `Uninstall-JetDR` cmdlet to uninstall JetStream DR and its compon
    | **MSIp** | IP address of the MSA VM.  |
    | **Credential** | Credentials of root user of the MSA VM. It must be the same provided at the time of installation.   |
    | **ProtectedCluster** | Name of the protected cluster, for example, **Cluster-1**.  It must be the cluster that was provided at the time of installation. |
-   | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **uninstallcheck_jetserverdetails**.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **uninstallcheck_jetserverdetails**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  
 
