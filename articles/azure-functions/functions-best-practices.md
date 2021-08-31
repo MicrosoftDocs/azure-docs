@@ -1,10 +1,10 @@
 ---
 title: Azure Functions best practices 
-description: Learn how to best improve the performance and reliability of running your functions in Azure.
+description: Learn best practices for designing, deploying, and maintaining efficient function code running in Azure.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/30/2021
-
+# Customer intent: As a developer, I want to understand how to correctly design, deploy, and maintain my functions so I can run them in the most safe and efficient way possible.
 ---
 # Best practices for reliable Azure Functions
 
@@ -83,7 +83,7 @@ app, but they can also run in separate function apps. In Premium and Dedicated (
 
 For Consumption and Premium plan, all functions in a function app are dynamically scaled together.
 
-For more information on how to organize your functions, see [Organizing your Azure Functions applications](performance-reliability.md#organizing-your-azure-functions-applications).
+For more information on how to organize your functions, see [Function organization best practices](performance-reliability.md#function-organization-best-practices).
 
 ## Optimize deployments
 
@@ -101,7 +101,7 @@ Consider these options for a successful deployment:
 
 + Consider using [continuous deployment](functions-continuous-deployment.md) to connect deployments to your source control solution. Continuous deployments also let you run from the deployment package.
 
-+ For [Premium plan hosting](functions-premiumplan.md), consider adding a warmup trigger to reduce latency when new instances are added. To learn more, see [Azure Functions warm-up trigger](functions-bindings-warmup.md). 
++ For [Premium plan hosting](functions-premium-plan.md), consider adding a warmup trigger to reduce latency when new instances are added. To learn more, see [Azure Functions warm-up trigger](functions-bindings-warmup.md). 
 
 ## Write robust functions
 
@@ -172,7 +172,7 @@ For your language of choice, consider the following:
 
 ## Maximize availability
 
-Cold start is a key consideration for serverless architectures. To learn more, see [Cold starts](event-driven-scaling#cold-start). If cold start is a concern for your scenario, you can find a deeper dive in the post [Understanding serverless cold start](https://azure.microsoft.com/blog/understanding-serverless-cold-start/) . 
+Cold start is a key consideration for serverless architectures. To learn more, see [Cold starts](event-driven-scaling.md#cold-start). If cold start is a concern for your scenario, you can find a deeper dive in the post [Understanding serverless cold start](https://azure.microsoft.com/blog/understanding-serverless-cold-start/) . 
 
 Premium plan is the recommended plan for reducing colds starts while maintaining dynamic scale. You can use the following guidance to reduce cold starts and improve availability in all three hosting plans. 
 
@@ -206,7 +206,7 @@ You should be aware of the following considerations when using Application Insig
 
 + Make sure that the [AzureWebJobsDashboard](functions-app-settings.md#azurewebjobsdashboard) application setting is removed. This setting was supported in older version of Functions. If it exists, removing `AzureWebJobsDashboard` improves performance of your functions. 
 
-+  Review the [Application Insights logs](analyze-telemetry-data). If data you expect to find is missing, consider adjusting the sampling settings to better capture your monitoring scenario. You can use the `excludedTypes` setting to exclude certain types from sampling, such as `Request` or `Exception`. To learn more, see [Configure sampling](configure-monitoring.md?tabs=v2#configure-sampling).
++  Review the [Application Insights logs](analyze-telemetry-data.md). If data you expect to find is missing, consider adjusting the sampling settings to better capture your monitoring scenario. You can use the `excludedTypes` setting to exclude certain types from sampling, such as `Request` or `Exception`. To learn more, see [Configure sampling](configure-monitoring.md?tabs=v2#configure-sampling).
 
 Azure Functions also allows you to [send system-generated and user-generated logs to Azure Monitor Logs](functions-monitor-log-analytics.md). Integration with Azure Monitor Logs is current in preview. 
 

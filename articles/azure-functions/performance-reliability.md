@@ -1,10 +1,9 @@
 ---
 title: Improve Azure Functions performance and reliability 
 description: Learn how to best improve the performance and reliability of running your functions in Azure.
-ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/25/2021
-
+# Customer intent: As a developer, I want to understand how to correctly design my functions so I can run them in the most efficient way possible.
 ---
 
 # Improve the performance and reliability of Azure Functions
