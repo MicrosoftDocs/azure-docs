@@ -169,7 +169,7 @@ The [az sql up](/cli/azure/sql#az_sql_up) command simplifies the database creati
 This command is meant to get an Azure Database for SQL server up and running and configured for immediate use. For more control when creating a database, use the standard Azure CLI commands in this article.
 
 > [!NOTE]
-> When running the `az sql up` command for the first time, the Azure CLI prompts you to install the `db-up` extension. This extension is currently in preview. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+> When running the `az sql up` command for the first time, the Azure CLI prompts you to install the `db-up` extension. Accept the installation to continue. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 1. Run the `az sql up` command. If any required parameters aren't used, like `--server-name`, that resource is created with a random name and login information assigned to it.
 
@@ -183,7 +183,7 @@ This command is meant to get an Azure Database for SQL server up and running and
         --admin-password $password
     ```
 
-2.	A server firewall rule is automatically created. If the SQL server declines your IP address, create a new firewall using the `az sql server firewall-rule create` command.
+2.	A server firewall rule is automatically created. If the SQL server declines your IP address, create a new firewall rule using the `az sql server firewall-rule create` command.
 
     ```azurecli-interactive
     az sql server firewall-rule create \
