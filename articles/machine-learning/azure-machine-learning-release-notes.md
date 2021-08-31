@@ -18,6 +18,38 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2021-09-07
+
+### Azure Machine Learning SDK for Python v1.34.0
+  + **azureml-automl-core**
+    + Add support to return predicted probabilities from AutoML scoring script
+    + Classical forecasting learners (AutoArima, Prophet, ExponentialSmoothing, etc.) are now supported when lags/rolling windows are enabled.
+    +  Added the ability to fit the model on new data; - Added the ability to predict in sample.
+  + **azureml-automl-runtime**
+    + Add support to return predicted probabilities from AutoML scoring script
+    + The forecasting of the whole numbers was implemented.
+    + Removed the target column name from being part of model explanation feature names for local experiments with training_data / label_column_name as dataset inputs.
+    +  Added the ability to fit the model on new data; - Added the ability to predict in sample.
+  + **azureml-core**
+    + added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
+    + revert: added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
+    + added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
+    + New optional fields are added to Kubernetes.attach_configuration(identity_type=None, identity_ids=None) which allows attaching KubernetesCompute with either SystemAssigned 	or UserAssigned identity. User will see a new identity fields that contains identity_type, identity_id, principal_id and tenant_id/client_id when print(compute_target) or 	 compute_target.serialize()
+  + **azureml-dataprep**
+    + added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
+  + **azureml-defaults**
+    + The dependency `azureml-inference-server-http==0.3.1` has been added to `azureml-defaults`.
+  + **azureml-mlflow**
+    + Allow pagination of list_experiments API by adding `max_results` and `page_token` optional params. For documentation, see MLflow official docs.
+  + **azureml-responsibleai**
+    + It seems if there are no RAI insights available, we return an empty list and during download() if try to reference from the list. The download fails because, we try to 	   	reference from the list. This is not a good user experience hence failing the list() method so that user knows that something did not work.
+    + Enable `mlflow` model loader for Model Analysis
+  + **azureml-sdk**
+    + Replaced dependency on deprecated package(azureml-train) inside azureml-sdk.
+    + Add azureml-responsibleai to azureml-sdk extras
+  + **azureml-train-automl-client**
+    + Expose the `test_data` and `test_size` parameters in `AutoMLConfig`. These parameters can be used to automatically start a test run after the model training phase has been 	completed. The test run will compute predictions using the best model and will generate metrics given these predictions.
+
 ## 2021-08-18
 
 ### Azure Machine Learning Experimentation User Interface
