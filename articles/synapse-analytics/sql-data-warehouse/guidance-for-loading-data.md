@@ -1,5 +1,5 @@
 ---
-title: Data loading best practices for dedicated SQL pools
+title: Deprecated - Data loading best practices for dedicated SQL pools
 description: Recommendations and performance optimizations for loading data using dedicated SQL pools in Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT 
