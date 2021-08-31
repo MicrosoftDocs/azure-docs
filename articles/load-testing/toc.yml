@@ -44,12 +44,6 @@
       href: ../machine-learning/reference-machine-learning-cloud-parity.md
     - name: User forum
       href: /answers/topics/azure-machine-learning.html
-    - name: Microsoft Learn
-      href: /learn/browse/?expanded=azure&products=azure-machine-learning
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
-    - name: Compare our ML products
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
     - name: Accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
       href: ../machine-learning/designer-accessibility.md
