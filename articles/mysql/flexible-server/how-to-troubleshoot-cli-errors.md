@@ -16,7 +16,8 @@ This doc will help you troubleshoot common issues with Azure CLI when using MySQ
 
 ## Command not found
 
- If you receive and error that a command **is misspelled or not recognized by the system**. This could mean that CLI version on your client machine may not be up to date. Run ```az upgrade``` to upgrade to latest version.
+ If you receive and error that a command **is misspelled or not recognized by the system**. This could mean that CLI version on your client machine may not be up to date. Run ```az upgrade``` to upgrade to latest version. Doing an upgrade of your CLI version can help resolve issues with incompatibilities of a command due to any API changes.
+
  
 ## Debug deployment failures 
 Currently, Azure CLI doesn't support turning on debug logging, but you can retrieve debug logging following the steps below.
@@ -64,7 +65,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 |SubscriptionNotFound| The requested subscription was not found. Run ```az account list all``` to see all your current subscriptions.|
 |InvalidParameterValue| An invalid value was given to a parameter.Check the [CLI reference docs](/cli/azure/mysql/flexible-server?view=azure-cli-latest&preserve-view=true) to see what is the correct values supported for the arguments.|
 |InvalidLocation| An invalid location was specified. Check availability of Azure Database for MySQL Flexible Server in [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=mysql) |
-|InvalidServerName| Identified an invalid server name. Please check the sever name. Run the command [az mysql flexible-server list](/cli/azure/mysql/flexible-server?view=azure-cli-latest#az_mysql_flexible_server_list) to see all the list of Flexible servers available. |
+|InvalidServerName| Identified an invalid server name. Please check the sever name. Run the command [az mysql flexible-server list](/cli/azure/mysql/flexible-server?view=azure-cli-latest&preserve-view=true#az_mysql_flexible_server_list) to see all the list of Flexible servers available. |
 |InvalidResourceIdSegment| This is usually a syntax error in your Azure Resource Manager template. Use an JSON formatter tool to validate the JSON to identify the syntax error.|
 |InvalidUserName| Enter a valid username. The admin user name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_.|
 |BlockedUserName| The admin user name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_. Avoid using these patterns in the admin name.|
