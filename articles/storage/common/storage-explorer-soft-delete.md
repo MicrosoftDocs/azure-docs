@@ -41,7 +41,7 @@ For blob containers with HNS enabled, choose the "Active and soft deleted blobs"
 
 ## Delete blobs
 
-When deleting blobs or directories, Storage Explorer checks the storage account's current delete retention policy. A confirmation dialog then informs you what will happen if you proceed with the delete operation. If soft delete is disabled, you can enable it from the confirmation dialog by selecting the **Enable Soft Delete** button.
+When deleting blobs or directories, Storage Explorer checks the storage account's current delete retention policy. A confirmation dialog then informs you what will happen if you continue with the delete operation. If soft delete is disabled, you can enable it from the confirmation dialog by selecting the **Enable Soft Delete** button.
 
 > [!WARNING]
 > Storage Explorer may not see a new delete retention policy if you just saved it. It is highly recommended that you wait at least 30 seconds for the new policy to take effect before deleting data.
