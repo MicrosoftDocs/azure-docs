@@ -50,12 +50,12 @@ Use the following steps to create a linked service to Shopify in the Azure porta
 
 ---
 
-2.Search for Shopify and select the Shopify connector.
+2. Search for Shopify and select the Shopify connector.
 
    :::image type="content" source="media/connector-shopify/shopify-connector.png" alt-text="Select the Shopify connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-shopify/configure-shopify-linked-service.png" alt-text="Configure a linked service to Shopify.":::
 

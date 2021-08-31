@@ -50,12 +50,12 @@ Use the following steps to create a linked service to Phoenix in the Azure porta
 
 ---
 
-2.Search for Phoenix and select the Phoenix connector.
+2. Search for Phoenix and select the Phoenix connector.
 
    :::image type="content" source="media/connector-phoenix/phoenix-connector.png" alt-text="Select the Phoenix connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-phoenix/configure-phoenix-linked-service.png" alt-text="Configure a linked service to Phoenix.":::
 

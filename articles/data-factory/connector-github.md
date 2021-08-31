@@ -34,12 +34,12 @@ Use the following steps to create a linked service to GitHub in the Azure portal
 
 ---
 
-2.Search for GitHub and select the GitHub connector.
+2. Search for GitHub and select the GitHub connector.
 
    :::image type="content" source="media/connector-github/github-connector.png" alt-text="Select the GitHub connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-github/configure-github-linked-service.png" alt-text="Configure a linked service to GitHub.":::
 

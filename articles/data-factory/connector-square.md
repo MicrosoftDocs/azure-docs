@@ -50,12 +50,12 @@ Use the following steps to create a linked service to Square in the Azure portal
 
 ---
 
-2.Search for Square and select the Square connector.
+2. Search for Square and select the Square connector.
 
    :::image type="content" source="media/connector-square/square-connector.png" alt-text="Select the Square connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-square/configure-square-linked-service.png" alt-text="Configure a linked service to Square.":::
 

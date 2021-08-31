@@ -62,12 +62,12 @@ Use the following steps to create a linked service to Cassandra in the Azure por
 
 ---
 
-2.Search for Cassandra and select the Cassandra connector.
+2. Search for Cassandra and select the Cassandra connector.
 
    :::image type="content" source="media/connector-cassandra/cassandra-connector.png" alt-text="Select the Cassandra connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-cassandra/configure-cassandra-linked-service.png" alt-text="Configure a linked service to Cassandra.":::
 

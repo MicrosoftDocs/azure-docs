@@ -52,12 +52,12 @@ Use the following steps to create a linked service to Concur in the Azure portal
 
 ---
 
-2.Search for Concur and select the Concur connector.
+2. Search for Concur and select the Concur connector.
 
    :::image type="content" source="media/connector-concur/concur-connector.png" alt-text="Select the Concur connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-concur/configure-concur-linked-service.png" alt-text="Configure a linked service to Concur.":::
 

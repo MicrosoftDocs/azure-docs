@@ -50,12 +50,12 @@ Use the following steps to create a linked service to Hbase in the Azure portal 
 
 ---
 
-2.Search for Hbase and select the Hbase connector.
+2. Search for Hbase and select the Hbase connector.
 
    :::image type="content" source="media/connector-hbase/hbase-connector.png" alt-text="Select the Hbase connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-hbase/configure-hbase-linked-service.png" alt-text="Configure a linked service to Hbase.":::
 

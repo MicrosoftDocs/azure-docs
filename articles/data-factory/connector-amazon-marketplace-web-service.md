@@ -48,12 +48,12 @@ Use the following steps to create a linked service to Amazon Marketplace Web Ser
 
 ---
 
-2.Search for Amazon and select the Amazon Marketplace Web Service connector.
+2. Search for Amazon and select the Amazon Marketplace Web Service connector.
 
    :::image type="content" source="media/connector-amazon-marketplace-web-service/amazon-marketplace-web-service-connector.png" alt-text="Select the Amazon Marketplace Web Service connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-amazon-marketplace-web-service/configure-amazon-marketplace-web-service-linked-service.png" alt-text="Configure a linked service to Amazon Marketplace Web Service.":::
 

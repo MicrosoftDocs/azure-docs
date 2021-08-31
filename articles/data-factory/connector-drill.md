@@ -51,12 +51,12 @@ Use the following steps to create a linked service to Drill in the Azure portal 
 
 ---
 
-2.Search for Drill and select the Drill connector.
+2. Search for Drill and select the Drill connector.
 
    :::image type="content" source="media/connector-drill/drill-connector.png" alt-text="Select the Drill connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-drill/configure-drill-linked-service.png" alt-text="Configure a linked service to Drill.":::
 

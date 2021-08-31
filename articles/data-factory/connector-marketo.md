@@ -52,12 +52,12 @@ Use the following steps to create a linked service to Marketo in the Azure porta
 
 ---
 
-2.Search for Marketo and select the Marketo connector.
+2. Search for Marketo and select the Marketo connector.
 
    :::image type="content" source="media/connector-marketo/marketo-connector.png" alt-text="Select the Marketo connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-marketo/configure-marketo-linked-service.png" alt-text="Configure a linked service to Marketo.":::
 

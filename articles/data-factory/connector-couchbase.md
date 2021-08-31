@@ -52,12 +52,12 @@ Use the following steps to create a linked service to Couchbase in the Azure por
 
 ---
 
-2.Search for Couchbase and select the Couchbase connector.
+2. Search for Couchbase and select the Couchbase connector.
 
    :::image type="content" source="media/connector-couchbase/couchbase-connector.png" alt-text="Select the Couchbase connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-couchbase/configure-couchbase-linked-service.png" alt-text="Configure a linked service to Couchbase.":::
 

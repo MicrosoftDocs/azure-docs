@@ -54,12 +54,12 @@ Use the following steps to create a linked service to Informix in the Azure port
 
 ---
 
-2.Search for Informix and select the Informix connector.
+2. Search for Informix and select the Informix connector.
 
    :::image type="content" source="media/connector-informix/informix-connector.png" alt-text="Select the Informix connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-informix/configure-informix-linked-service.png" alt-text="Configure a linked service to Informix.":::
 

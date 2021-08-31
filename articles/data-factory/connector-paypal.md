@@ -49,12 +49,12 @@ Use the following steps to create a linked service to PayPal in the Azure portal
 
 ---
 
-2.Search for PayPal and select the PayPal connector.
+2. Search for PayPal and select the PayPal connector.
 
    :::image type="content" source="media/connector-paypal/paypal-connector.png" alt-text="Select the PayPal connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-paypal/configure-paypal-linked-service.png" alt-text="Configure a linked service to PayPal.":::
 

@@ -50,12 +50,12 @@ Use the following steps to create a linked service to Greenplum in the Azure por
 
 ---
 
-2.Search for Greenplum and select the Greenplum connector.
+2. Search for Greenplum and select the Greenplum connector.
 
    :::image type="content" source="media/connector-greenplum/greenplum-connector.png" alt-text="Select the Greenplum connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-greenplum/configure-greenplum-linked-service.png" alt-text="Configure a linked service to Greenplum.":::
 

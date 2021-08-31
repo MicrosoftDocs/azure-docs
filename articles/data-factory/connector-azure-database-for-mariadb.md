@@ -48,12 +48,12 @@ Use the following steps to create a linked service to Azure Database for MariaDB
 
 ---
 
-2.Search for Maria and select the Azure Database for MariaDB connector.
+2. Search for Maria and select the Azure Database for MariaDB connector.
 
    :::image type="content" source="media/connector-azure-database-for-mariadb/azure-database-for-mariadb-connector.png" alt-text="Select the Azure Database for MariaDB connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-azure-database-for-mariadb/configure-azure-database-for-mariadb-linked-service.png" alt-text="Configure a linked service to Azure Database for MariaDB.":::
 
