@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/24/2021
+ms.date: 08/27/2021
 ms.author: jeedes
 ---
 
@@ -36,6 +36,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Cornerstone supports **SP** initiated SSO.
+
+* Cornerstone supports [Automated user provisioning](cornerstone-ondemand-provisioning-tutorial.md).
 
 * If you are integrating one or multiple products from this particular list then you should use this Cornerstone Single Sign-On app from the Gallery.
 
@@ -138,6 +140,7 @@ To configure SSO in Cornerstone, you need to reach out to your Cornerstone imple
 
 In this section, you create a user called Britta Simon in Cornerstone. Please work with your Cornerstone implementation project team to add the users in Cornerstone. Users must be created and activated before you use single sign-on.
 
+Cornerstone Single Sign-On also supports automatic user provisioning, you can find more details [here](./cornerstone-ondemand-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
