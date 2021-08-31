@@ -121,7 +121,7 @@ Before you make your portal available to the visitors, you should personalize th
 The default **Home** page is filled with placeholder content. You can either remove entire sections containing this content or keep the structure and adjust the elements one by one. Replace the generated text and images with your own and make sure the links point to desired locations. You can edit the structure and content of the home page by:
 * Dragging and dropping page elements to the desired placement on the site.
 * Selecting text and heading elements to edit and format content. 
-* Verify your buttons point to the right locations.
+* Verifying your buttons point to the right locations.
 
 ### Layouts
 
