@@ -43,8 +43,6 @@ Use the following steps to create a linked service to Azure Search in the Azure 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Search and select the Azure Search connector.
 
    :::image type="content" source="media/connector-azure-search/azure-search-connector.png" alt-text="Select the Azure Search connector.":::    

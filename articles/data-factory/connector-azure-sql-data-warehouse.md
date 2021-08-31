@@ -61,8 +61,6 @@ Use the following steps to create an Azure Synapse Analytics linked service in t
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Synapse and select the Azure Synapse Analytics connector.
 
     :::image type="content" source="media/connector-azure-sql-data-warehouse/azure-sql-data-warehouse-connector.png" alt-text="Select the Azure Synapse Analytics connector.":::    

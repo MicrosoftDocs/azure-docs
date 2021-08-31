@@ -54,8 +54,6 @@ Use the following steps to create a linked service to an ODBC data store in the 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for ODBC and select the ODBC connector.
 
     :::image type="content" source="media/connector-odbc/odbc-connector.png" alt-text="Select the ODBC connector.":::    

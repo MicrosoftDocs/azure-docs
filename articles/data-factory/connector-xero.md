@@ -48,8 +48,6 @@ Use the following steps to create a linked service to Xero in the Azure portal U
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Xero and select the Xero connector.
 
    :::image type="content" source="media/connector-xero/xero-connector.png" alt-text="Select the Xero connector.":::    

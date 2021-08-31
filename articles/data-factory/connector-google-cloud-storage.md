@@ -65,8 +65,6 @@ Use the following steps to create a linked service to Google Cloud Storage in th
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Google and select the Google Cloud Storage (S3 API) connector.
 
     :::image type="content" source="media/connector-google-cloud-storage/google-cloud-storage-connector.png" alt-text="Select the Google Cloud Storage (S3 API) connector.":::    

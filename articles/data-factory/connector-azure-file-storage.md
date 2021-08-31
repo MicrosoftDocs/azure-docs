@@ -51,8 +51,6 @@ Use the following steps to create a linked service to Azure Files in the Azure p
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for file and select the connector for Azure Files labeled *Azure File Storage*.
 
     :::image type="content" source="media/connector-azure-file-storage/azure-file-storage-connector.png" alt-text="Select the Azure File Storage connector.":::    

@@ -53,8 +53,6 @@ Use the following steps to create a linked service to Microsoft Access in the Az
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Access and select the Microsoft Access connector.
 
    :::image type="content" source="media/connector-microsoft-access/microsoft-access-connector.png" alt-text="Select the Microsoft Access connector.":::    

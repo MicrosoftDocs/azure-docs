@@ -63,8 +63,6 @@ Use the following steps to create a SQL Server linked service in the Azure porta
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for SQL and select the SQL Server connector.
 
     :::image type="content" source="media/connector-sql-server/sql-server-connector.png" alt-text="Select the SQL Server connector.":::    

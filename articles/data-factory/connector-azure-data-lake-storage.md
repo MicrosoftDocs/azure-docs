@@ -60,8 +60,6 @@ Use the following steps to create an Azure Data Lake Storage Gen2 linked service
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Data Lake and select the Azure Data Lake Storage Gen2 connector.
 
     :::image type="content" source="media/connector-azure-data-lake-storage/azure-data-lake-storage-connector.png" alt-text="Select Azure Data Lake Storage Gen2 connector.":::    

@@ -57,8 +57,6 @@ Use the following steps to create a linked service to Amazon Redshift in the Azu
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Amazon and select the Amazon Redshift connector.
 
     :::image type="content" source="media/connector-amazon-redshift/amazon-redshift-connector.png" alt-text="Select the Amazon Redshift connector.":::    

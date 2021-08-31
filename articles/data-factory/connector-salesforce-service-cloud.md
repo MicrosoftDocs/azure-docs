@@ -64,8 +64,6 @@ Use the following steps to create a linked service to Salesforce Service Cloud i
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Salesforce and select the Salesforce Service Cloud connector.
 
     :::image type="content" source="media/connector-salesforce-service-cloud/salesforce-service-cloud-connector.png" alt-text="Select the Salesforce Service Cloud connector.":::    

@@ -59,8 +59,6 @@ Use the following steps to create a linked service to an FTP server in the Azure
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for FTP and select the FTP connector.
 
     :::image type="content" source="media/connector-ftp/ftp-connector.png" alt-text="Select the FTP connector.":::    

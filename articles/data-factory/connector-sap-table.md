@@ -83,8 +83,6 @@ Use the following steps to create a linked service to an SAP table in the Azure 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for SAP and select the SAP table connector.
 
     :::image type="content" source="media/connector-sap-table/sap-table-connector.png" alt-text="Select the SAP table connector.":::    

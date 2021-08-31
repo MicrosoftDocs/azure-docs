@@ -64,8 +64,6 @@ Use the following steps to create an Amazon S3 linked service in the Azure porta
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Amazon and select the Amazon S3 connector.
 
     :::image type="content" source="media/connector-amazon-simple-storage-service/amazon-simple-storage-service-connector.png" alt-text="Select the Amazon S3 connector.":::    

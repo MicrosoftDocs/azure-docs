@@ -45,8 +45,6 @@ Use the following steps to create a linked service to ServiceNow in the Azure po
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for ServiceNow and select the ServiceNow connector.
 
     :::image type="content" source="media/connector-servicenow/servicenow-connector.png" alt-text="Select the ServiceNow connector.":::    

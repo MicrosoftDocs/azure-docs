@@ -57,8 +57,6 @@ Use the following steps to create a linked service to Web Table in the Azure por
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Web and select the Web Table connector.
 
    :::image type="content" source="media/connector-web-table/web-table-connector.png" alt-text="Select the Web Table connector.":::    

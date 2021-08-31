@@ -49,8 +49,6 @@ Use the following steps to create a linked service to Dynamics AX in the Azure p
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Dynamics and select the Dynamics AX connector.
 
     :::image type="content" source="media/connector-dynamics-ax/dynamics-ax-connector.png" alt-text="Select the Dynamics AX connector.":::    
