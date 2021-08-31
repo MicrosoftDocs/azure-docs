@@ -3,7 +3,8 @@ title: Create an Azure Service Fabric cluster template
 description: Learn how to create a Resource Manager template for a Service Fabric cluster. Configure security, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
 
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 08/16/2018 
+ms.custom: devx-track-azurepowershell
 ---
 # Create a Service Fabric cluster Resource Manager template
 

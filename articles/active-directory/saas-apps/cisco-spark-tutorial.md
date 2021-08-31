@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/17/2021
+ms.date: 07/16/2021
 ms.author: jeedes
 ---
 
@@ -35,6 +35,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Cisco Webex supports **SP** initiated SSO.
 * Cisco Webex supports [**Automated user provisioning**](./cisco-webex-provisioning-tutorial.md).
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding Cisco Webex from the gallery
 
 To configure the integration of Cisco Webex into Azure AD, you need to add Cisco Webex from the gallery to your list of managed SaaS apps.
@@ -55,17 +58,17 @@ To configure and test Azure AD SSO with Cisco Webex, perform the following steps
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
 	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
-2. **[Configure Cisco Webex](#configure-cisco-webex)** to configure the SSO settings on application side.
+2. **[Configure Cisco Webex SSO](#configure-cisco-webex-sso)** to configure the SSO settings on application side.
 	1. **[Create Cisco Webex test user](#create-cisco-webex-test-user)** to have a counterpart of B.Simon in Cisco Webex that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Cisco Webex** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -80,7 +83,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. After successful completion of uploading Service Provider metadata file the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section:
 
-	In the **Sign on URL** textbox, paste the value of **Reply URL**, which gets autofilled by SP metadata file upload.
+	d. In the **Sign on URL** textbox, type a URL using the following pattern:
+	`https://web.ciscospark.com/idb/Consumer/metaAlias/<ID>/sp`
+	
+	> [!NOTE]
+	> This value is not real. Copy the lateral Reply URL value and add this value to the `https://web.ciscospark.com/` to formulate the actual Sign on URL value.
 
 1. Cisco Webex application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -123,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Cisco Webex
+## Configure Cisco Webex SSO
 
 1. Sign in to Cisco Webex with your administrator credentials.
 
@@ -195,4 +202,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Cisco Webex you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Once you configure Cisco Webex you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

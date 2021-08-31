@@ -1,3 +1,4 @@
+items: 
 - name: Data Factory Documentation
   href: index.yml
 - name: Switch to version 1 documentation
@@ -6,6 +7,8 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
+  - name: What's new in Azure Data Factory
+    href: whats-new.md
   - name: Compare current version to version 1
     href: compare-versions.md
     displayName: timeout
@@ -113,6 +116,8 @@
       items:
       - name: Best practices for landing data in the lake with ADLS Gen2
         href: tutorial-data-flow-write-to-lake.md
+      - name: Dynamically set column names
+        href: tutorial-data-flow-dynamic-columns.md
       - name: Transform data in the lake with Delta Lake
         href: tutorial-data-flow-delta-lake.md
       - name: Transform data with mapping data flows
@@ -158,7 +163,7 @@
   - name: Lineage
     items:
     - name: Push Data Factory lineage data to Azure Purview
-      href: turorial-push-lineage-to-purview.md
+      href: tutorial-push-lineage-to-purview.md
   - name: End-to-end labs
     items:
     - name: Data integration using data factory and data share
@@ -207,6 +212,8 @@
       - name: Data flow performance
         href: concepts-data-flow-performance.md
         displayName: merge, timeout
+      - name: Integration Runtime performance
+        href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
       - name: Expression builder
@@ -253,6 +260,8 @@
       href: connector-amazon-redshift.md
     - name: Amazon S3
       href: connector-amazon-simple-storage-service.md
+    - name: Amazon S3 Compatible Storage
+      href: connector-amazon-s3-compatible-storage.md
     - name: Avro format
       href: format-avro.md
     - name: Azure Blob Storage
@@ -299,14 +308,14 @@
       href: connector-cassandra.md
     - name: Common Data Model format
       href: format-common-data-model.md
-    - name: Common Data Service for Apps
-      href: connector-dynamics-crm-office-365.md
     - name: Concur
       href: connector-concur.md
     - name: Couchbase
       href: connector-couchbase.md
     - name: DB2
       href: connector-db2.md
+    - name: Dataverse
+      href: connector-dynamics-crm-office-365.md
     - name: Delimited text format
       href: format-delimited-text.md
     - name: Delta format
@@ -383,6 +392,8 @@
       href: connector-office-365.md
     - name: Oracle
       href: connector-oracle.md
+    - name: Oracle Cloud Storage
+      href: connector-oracle-cloud-storage.md
     - name: Oracle Eloqua
       href: connector-oracle-eloqua.md
     - name: Oracle Responsys
@@ -472,6 +483,8 @@
       href: delete-activity.md
     - name: Copy data tool
       href: copy-data-tool.md
+    - name: Metadata driven copy data
+      href: copy-data-tool-metadata-driven.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md
       displayName: zip
@@ -706,8 +719,11 @@
         - name: Automation scripts of self-hosted integration runtime
           href: self-hosted-integration-runtime-automation-scripts.md
           displayName: self hosted
-        - name: Run Self-Hosted Integration Runtime in Windows container
+        - name: Run self-Hosted Integration Runtime in Windows container
           href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
+          displayName: self hosted
+        - name: Diagnostic tool for self-hosted integration runtime
+          href: self-hosted-integration-runtime-diagnostic-tool.md
           displayName: self hosted
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
@@ -751,7 +767,7 @@
       href: configure-azure-ssis-integration-runtime-performance.md
     - name: Configure disaster recovery for Azure-SSIS IR
       href: configure-bcdr-azure-ssis-integration-runtime.md
-    - name: Clean up SSISDB logs with Elastic Database Jobs
+    - name: Clean up SSISDB logs automatically
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
     - name: Use Azure SQL Managed Instance with Azure-SSIS IR
       href: how-to-use-sql-managed-instance-with-ir.md
@@ -877,7 +893,7 @@
       href: ssis-integration-runtime-management-troubleshoot.md
       displayName: timeout
     - name: Package Execution in Azure-SSIS IR
-      href: ssis-integration-runtime-ssis-activity-faq.md
+      href: ssis-integration-runtime-ssis-activity-faq.yml
       displayName: retry, timeout
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
@@ -900,12 +916,14 @@
     href: policy-reference.md
   - name: Azure CLI
     href: /cli/azure/datafactory
+  - name: Compute optimized data flows retired
+    href: compute-optimized-data-flow-retire.md
 - name: Resources
   items:
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ
-    href: frequently-asked-questions.md
+    href: frequently-asked-questions.yml
     displayName: timeout
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-factory
@@ -916,10 +934,12 @@
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
-    href: https://feedback.azure.com/forums/270578-azure-data-factory
+    href: /answers/topics/azure-data-factory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits

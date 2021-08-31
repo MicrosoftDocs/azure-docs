@@ -7,8 +7,9 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/15/2021
-ms.author: rolyon
+ms.date: 08/31/2021
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Assign Azure roles using Azure PowerShell
@@ -23,7 +24,7 @@ To assign roles, you must have:
 
 - `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 - [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
-- The account you use to run the PowerShell command must have the Microsoft Graph `Directory.Read.All` permission.
+- The account you use to run the PowerShell command must have the Azure Active Directory Graph `Directory.Read.All` and Microsoft Graph `Directory.Read.All` permissions.
 
 ## Steps to assign an Azure role
 

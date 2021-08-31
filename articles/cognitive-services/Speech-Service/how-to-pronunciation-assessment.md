@@ -29,7 +29,7 @@ In this article, you'll learn how to set up `PronunciationAssessmentConfig` and 
 
 In the samples below, you'll create a `PronunciationAssessmentConfig`, then apply it to a `SpeechRecognizer`.
 
-The following snippets illustrate how to use automatic language detection in your apps:
+The following snippets illustrate how to use language identification in your apps:
 
 ::: zone pivot="programming-language-csharp"
 

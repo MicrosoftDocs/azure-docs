@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 06/03/2021
 ms.author: jeedes
 
 ---
@@ -33,9 +33,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Glint Inc supports **SP and IDP** initiated SSO
+* Glint Inc supports **SP and IDP** initiated SSO.
 
-## Adding Glint Inc from the gallery
+## Add Glint Inc from the gallery
 
 To configure the integration of Glint Inc into Azure AD, you need to add Glint Inc from the gallery to your list of managed SaaS apps.
 
@@ -46,12 +46,11 @@ To configure the integration of Glint Inc into Azure AD, you need to add Glint I
 1. In the **Add from the gallery** section, type **Glint Inc** in the search box.
 1. Select **Glint Inc** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD SSO for Glint Inc
 
 Configure and test Azure AD SSO with Glint Inc using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Glint Inc.
 
-To configure and test Azure AD SSO with Glint Inc, complete the following building blocks:
+To configure and test Azure AD SSO with Glint Inc, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -66,11 +65,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Glint Inc** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://api.<REGION>.glintinc.com/api/client/<CUSTOMER_NAME>/token/saml2/consume/includeDeskLink`
@@ -93,6 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Glint Inc** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -129,18 +129,18 @@ In this section, you create a user called Britta Simon in Glint Inc. Work with 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-#### SP-initiated:
+#### SP initiated:
 
 * Click on **Test this application** in Azure portal. This will redirect to Glint Inc Sign on URL where you can initiate the login flow.  
 
 * Go to Glint Inc Sign-on URL directly and initiate the login flow from there.
 
-#### IDP-initiated:
+#### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Glint Inc for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Glint Inc for which you set up the SSO. 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Glint Inc tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Glint Inc for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Glint Inc tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Glint Inc for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Glint Inc you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Glint Inc you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

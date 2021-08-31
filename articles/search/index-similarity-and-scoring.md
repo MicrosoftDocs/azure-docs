@@ -2,18 +2,19 @@
 title: Similarity and scoring overview
 titleSuffix: Azure Cognitive Search
 description: Explains the concepts of similarity and scoring, and what a developer can do to customize the scoring result.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+
+author: puneet-hariharan-MSFT
+ms.author: puhariharan
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ---
 # Similarity and scoring in Azure Cognitive Search
 
-This article describes the two similarity ranking algorithms in Azure Cognitive Search. It also introduces two related features: *scoring profiles* (criteria for adjusting a search score) and the *featuresMode* parameter (unpacks a search score to show more detail). 
+This article describes the two similarity ranking algorithms used by Azure Cognitive Search to determine which matching documents are the most relevant to the query. this article also introduces two related features: *scoring profiles* (criteria for adjusting a search score) and the *featuresMode* parameter (unpacks a search score to show more detail).
 
-A third semantic re-ranking algorithm is currently in public preview. For more information, start with [Semantic search overview](semantic-search-overview.md).
+> [!NOTE]
+> A third [semantic re-ranking algorithm](semantic-ranking.md) is currently in public preview. For more information, start with [Semantic search overview](semantic-search-overview.md).
 
 ## Similarity ranking algorithms
 

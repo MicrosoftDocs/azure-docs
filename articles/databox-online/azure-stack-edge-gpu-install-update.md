@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 07/12/2021
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -19,17 +19,17 @@ This article describes the steps required to install update on your Azure Stack 
 The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version.
 
 > [!IMPORTANT]
-> - Update **2103** is the current update and corresponds to:
->   - Device software version - **2.2.1540.2890**
->   - Kubernetes server version - **v1.17.3**
->   - IoT Edge version: **0.1.0-beta13**
+> - Update **2106** is the current update and corresponds to:
+>   - Device software version - **2.2.1636.3457**
+>   - Kubernetes server version - **v1.20.2**
+>   - IoT Edge version: **0.1.0-beta14**
 >   - GPU driver version: **460.32.03**
 >   - CUDA version: **11.2**
 >    
->    For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2103-release-notes.md).
-> - To apply 2103 update, your device must be running 2010. If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*.
+>    For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2105-release-notes.md).
+> - To apply 2105 update, your device must be running 2010. If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*.
 > - This update requires you to apply two updates sequentially. First you apply the device software updates and then the Kubernetes updates.
-> - Keep in mind that installing an update or hotfix restarts your device. This update contains the device software updates and the Kubernetes updates. Given that the Azure Stack Edge Pro is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 1.5 hours for the update.
+> - Keep in mind that installing an update or hotfix restarts your device. This update contains the device software updates and the Kubernetes updates. Given that the Azure Stack Edge Pro GPU is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 1.5 hours for the update.
 
 To install updates on your device, you first need to configure the location of the update server. After the update server is configured, you can apply the updates via the Azure portal UI or the local web UI.
 
@@ -150,13 +150,13 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
     ![Search catalog](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
 
-2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge Pro**, and then click **Search**.
+2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2103**.
+    The update listing appears as **Azure Stack Edge Update 2105**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
-4. Select **Download**. There are two packages to download: KB 4613486 and KB 46134867 that correspond to the device software updates (*SoftwareUpdatePackage.exe*) and Kubernetes updates (*Kubernetes_Package.exe*) respectively. Download the packages to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
+4. Select **Download**. There are two packages to download: <!--KB 4616970 and KB 4616971--> one for the device software updates (*SoftwareUpdatePackage.exe*) and another for the Kubernetes updates (*Kubernetes_Package.exe*), respectively. Download the packages to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
 
 ### Install the update or the hotfix
 
@@ -187,7 +187,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2103**. 
+6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2105**. 
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)-->
 

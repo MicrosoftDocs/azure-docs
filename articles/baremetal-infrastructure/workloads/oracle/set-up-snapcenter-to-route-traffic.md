@@ -2,7 +2,7 @@
 title: Set up SnapCenter to route traffic from Azure to Oracle BareMetal servers
 description: Learn how to set up NetApp SnapCenter to route traffic from Azure to Oracle BareMetal Infrastructure servers.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 05/05/2021
 ---
 

@@ -21,6 +21,8 @@ This guide assumes you have already <a href="https://portal.azure.com/#create/Mi
 
 ## Submit data to the service
 
+You submit either a local image or a remote image to the Read API. For local, you put the binary image data in the HTTP request body. For remote, you specify the image's URL by formatting the request body like the following: `{"url":"http://example.com/images/test.jpg"}`.
+
 The Read API's [Read call](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously.
 
 `https://{endpoint}/vision/v3.2/read/analyze[?language][&pages][&readingOrder]`

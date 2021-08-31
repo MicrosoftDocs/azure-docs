@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to scale an Service Fabric cluster 
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Tutorial: Scale a Service Fabric cluster in Azure
 

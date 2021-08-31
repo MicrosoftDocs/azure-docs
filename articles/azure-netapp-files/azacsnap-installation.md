@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/03/2021
 ms.author: phjensen
 ---
 
@@ -43,8 +43,13 @@ tools.
     set up SSH with a private/public key pair, and provide the public key for each node where the
     snapshot tools are planned to be executed to Microsoft Operations for setup on the storage
     back-end.
-   1. **For Azure NetApp Files (refer separate section for details)**: Customer must generate the
-      service principal authentication file.
+   1. **For Azure NetApp Files (refer separate section for details)**: Customer must generate the service principal authentication file.
+      
+      > [!IMPORTANT]
+      > When validating communication with Azure NetApp Files, communication might fail or time-out. Check to ensure firewall rules are not blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
+      > - (https://)management.azure.com:443
+      > - (https://)login.microsoftonline.com:443
+      
    1. **For Azure Large Instance (refer separate section for details)**: Customer must set up SSH with a
       private/public key pair, and provide the public key for each node where the snapshot tools are
       planned to be executed to Microsoft Operations for setup on the storage back-end.
@@ -69,9 +74,13 @@ tools.
 
 ## Enable communication with storage
 
-This section explains how to enable communication with storage.
+This section explains how to enable communication with storage.  
 
-### Azure NetApp Files
+Follow the instructions to configure storage for your configuration, either:
+1. [Azure NetApp Files (with Virtual Machine)](#azure-netapp-files-with-virtual-machine) 
+1. [Azure Large Instance (Bare Metal)](#azure-large-instance-bare-metal)
+
+### Azure NetApp Files (with Virtual Machine)
 
 Create RBAC Service Principal
 
@@ -118,7 +127,7 @@ Create RBAC Service Principal
 1. Cut and Paste the output content into a file called `azureauth.json` stored on the same system as the `azacsnap`
    command and secure the file with appropriate system permissions.
 
-### Azure Large Instance
+### Azure Large Instance (Bare Metal)
 
 Communication with the storage back-end executes over an encrypted SSH channel. The following
 example steps are to provide guidance on setup of SSH for this communication.

@@ -70,7 +70,7 @@ As you're analyzing test results, keep in mind the following recommendations:
 
 ### Get latte.exe onto the VMs
 
-Download the [latest version of latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
+Download the [latest version of latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe).
 
 Consider putting latte.exe in separate folder, such as *c:\tools*.
 

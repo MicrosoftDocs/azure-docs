@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 03/05/2020
  ms.author: rogarana
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]

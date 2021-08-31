@@ -3,7 +3,8 @@ author: cephalin
 ms.service: app-service
 ms.topic: include
 ms.date: 08/12/2019
-ms.author: cephalin
+ms.author: cephalin 
+ms.custom: devx-track-azurepowershell
 ---
 ## <a name="rest"></a>Deploy ZIP file with REST APIs 
 

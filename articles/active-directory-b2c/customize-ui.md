@@ -9,8 +9,8 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.custom: project-no-code
+ms.date: 06/27/2021
+ms.custom: "project-no-code, b2c-support"
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -32,6 +32,9 @@ Branding and customizing the user interface that Azure Active Directory B2C (Azu
 ## Overview
 
 Azure AD B2C provide several built-in templates you can choose from to give your user experience pages a professional look. These page templates can also and serve as starting point for your own customization, using the [company branding](#company-branding) feature.
+
+> [!NOTE]
+> Supported browsers for the Classic template include current and previous versions of Internet Explorer, Microsoft Edge, Google Chrome, Mozilla Firefox, and Safari. The Ocean Blue and Slate Gray templates may have limited support with older browser versions, such as Internet Explorer 11 and 10; we recommend that you test your application with the browsers you intend to support.
 
 ### Ocean Blue
 
@@ -153,31 +156,31 @@ Classic:
 ```xml
 <ContentDefinitions>
   <ContentDefinition Id="api.error">
-    <LoadUri>~/tenant/templates/default/exception.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/exception.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.idpselections">
-    <LoadUri>~/tenant/templates/default/idpSelector.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/idpSelector.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.idpselections.signup">
-    <LoadUri>~/tenant/templates/default/idpSelector.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/idpSelector.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.signuporsignin">
-    <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.selfasserted">
-    <LoadUri>~/tenant/templates/default/selfAsserted.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.selfasserted.profileupdate">
-    <LoadUri>~/tenant/templates/default/selfAsserted.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.localaccountsignup">
-    <LoadUri>~/tenant/templates/default/selfAsserted.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.localaccountpasswordreset">
-    <LoadUri>~/tenant/templates/default/selfAsserted.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.phonefactor">
-    <LoadUri>~/tenant/templates/default/multifactor-1.0.0.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/multifactor-1.0.0.cshtml</LoadUri>
   </ContentDefinition>
 </ContentDefinitions>
 ```

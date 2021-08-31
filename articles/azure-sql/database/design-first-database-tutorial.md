@@ -5,9 +5,9 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
-ms.reviewer: v-masebo
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma, v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ---

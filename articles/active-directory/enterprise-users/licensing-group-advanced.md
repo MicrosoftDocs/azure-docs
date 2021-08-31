@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2021
+ms.date: 05/28/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -71,23 +71,21 @@ A user can be a member of multiple groups with licenses. Here are some things to
 
 ## Direct licenses coexist with group licenses
 
-When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. Changes must be made in the group and then propagated to all users.
+When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. You can change the license assignment only in the group and the changes are then propagated to all users. If you need to assign any additional features to a user that has their license from a group license assignment you must create another group to assign the additional features to the user.
 
-It is possible, however, to assign the same product license directly to the user, in addition to the inherited license. You can enable additional services from the product just for one user, without affecting other users.
-
-Directly assigned licenses can be removed, and don’t affect inherited licenses. Consider the user who inherits an Office 365 Enterprise E3 license from a group.
+Directly assigned licenses can be removed, and don’t affect a user's inherited licenses. Consider the user who inherits an Office 365 Enterprise E3 license from a group.
 
 Initially, the user inherits the license only from the *E3 basic services* group, which enables four service plans.
 
-1. Select **Assign** to directly assign an E3 license to the user. In this case, you are going to disable all service plans except Yammer Enterprise.
+1. Select **Assign** to directly assign an E3 license to the user. For example, if you want to disable all service plans except Yammer Enterprise.
 
-    As a result, the user still uses only one license of the E3 product. But the direct assignment enables the Yammer Enterprise service for that user only. You can see which services are enabled by the group membership versus the direct assignment.
+   As a result, the user still uses only one license of the E3 product. But the direct assignment enables the Yammer Enterprise service for that user only. You can see which services are enabled by the group membership versus the direct assignment.
 
 1. When you use direct assignment, the following operations are allowed:
 
-   - Yammer Enterprise can be turned off on the user resource directly. The **On/Off** toggle in the illustration was enabled for this service, as opposed to the other service toggles. Because the service is enabled directly on the user, it can be modified.
+   - Yammer Enterprise can be turned off for a individual user. Because the service is assigned directly to the user, it can be changed.
    - Additional services can be enabled as well, as part of the directly assigned license.
-   - The **Remove** button can be used to remove the direct license from the user. You can see that the user now only has the inherited group license and only the original services remain enabled:
+   - The **Remove** button can be used to remove the direct license from the user. You can see that the user then has the inherited group license and only the original services remain enabled.
 
 ## Managing new services added to products
 

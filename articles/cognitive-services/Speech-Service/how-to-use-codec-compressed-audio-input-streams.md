@@ -14,9 +14,9 @@ ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
 ---
 
-# Use codec compressed audio input with the Speech SDK
+# Use codec compressed audio input
 
-The Speech service SDK can accept compressed audio formats. It decoompresses the audio before it sends it over the wire to the Speech service as raw PCM.
+The Speech SDK and Speech CLI can accept compressed audio formats using GStreamer. GStreamer decompresses the audio before it is sent over the wire to the Speech service as raw PCM.
 
 Platform | Languages | Supported GStreamer version
 | :--- | ---: | :---:
@@ -27,7 +27,7 @@ Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.
 ## Speech SDK version required for compressed audio input
 * Speech SDK version 1.10.0 or later is required for RHEL 8 and CentOS 8
 * Speech SDK version 1.11.0 or later is required for for Windows.
-* Speech SDK version 1.16.0 or later for latest gstreamer on Windows and Android.
+* Speech SDK version 1.16.0 or later for latest GStreamer on Windows and Android.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

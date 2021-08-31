@@ -5,7 +5,7 @@ author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
 ms.custom: "devx-track-csharp, vs-azure"
-ms.date: 07/30/2020
+ms.date: 06/24/2021
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ---
@@ -23,7 +23,7 @@ You can publish multiple WebJobs to a single web app, provided that each WebJob 
 With version 3.x of the Azure WebJobs SDK, you can create and publish WebJobs as .NET Core console apps. For step-by-step instructions to create and publish a .NET Core console app to Azure as a WebJob, see [Get started with the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-get-started.md).
 
 > [!NOTE]
-> .NET Core WebJobs can't be linked with web projects. If you need to deploy your WebJob with a web app, [create your WebJobs as a .NET Framework console app](#webjobs-as-net-framework-console-apps).  
+> .NET Core Web Apps and/or .NET Core WebJobs can't be linked with web projects. If you need to deploy your WebJob with a web app, [create your WebJobs as a .NET Framework console app](#webjobs-as-net-framework-console-apps).  
 
 ### Deploy to Azure App Service
 

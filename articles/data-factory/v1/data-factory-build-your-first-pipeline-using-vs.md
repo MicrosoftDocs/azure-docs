@@ -6,7 +6,7 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-azurepowershell
 ms.date: 01/22/2018
 ---
 

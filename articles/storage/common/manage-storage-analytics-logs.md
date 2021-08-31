@@ -8,7 +8,7 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: monitoring
+ms.custom: monitoring, devx-track-azurepowershell
 ---
 # Enable and manage Azure Storage Analytics logs (classic)
 
@@ -107,11 +107,11 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
 
-### [.NET v12](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
-### [.NET v11](#tab/dotnet11)
+### [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -204,7 +204,7 @@ Log data can accumulate in your account over time which can increase the cost of
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
 
-### [.NET v12](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 The following example prints to the console the retention period for blob and queue storage services.
 
@@ -214,7 +214,7 @@ The following example changes the retention period to 4 days.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
 
-### [.NET v11](#tab/dotnet11)
+### [.NET v11 SDK](#tab/dotnet11)
 
 The following example prints to the console the retention period for blob and queue storage services.
 

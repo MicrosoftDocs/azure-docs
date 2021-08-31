@@ -14,7 +14,7 @@ keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
 ---
 
-# What is the Anomaly Detector API?
+# What is the Anomaly Detector univariate API?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
@@ -51,16 +51,7 @@ To run the demo, you need to create an Anomaly Detector resource and get the API
 
 To learn how to call the Anomaly Detector API, try this [Notebook](https://aka.ms/adNotebook). This Jupyter Notebook shows you how to send an API request and visualize the result.
 
-To run the Notebook, complete the following steps:
-
-1. Get a valid Anomaly Detector API subscription key and an API endpoint. The section below has instructions for signing up.
-1. Sign in, and select Clone, in the upper right corner.
-1. Uncheck the "public" option in the dialog box before completing the clone operation, otherwise your notebook, including any subscription keys, will be public.
-1. Select **Run on free compute**
-1. Select one of the notebooks.
-1. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable.
-1. Change the `endpoint` variable to your endpoint. For example: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. On the top menu bar, select **Cell**, then **Run All**.
+To run the Notebook, you should get a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
 
 ## Workflow
 
@@ -103,7 +94,6 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 ## Join the Anomaly Detector community
 
 * Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
-* See selected [user generated content](user-generated-content.md)
 
 ## Next steps
 

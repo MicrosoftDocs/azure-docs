@@ -13,7 +13,7 @@ Learn how to use Apache Maven to create a Java-based MapReduce application, then
 
 ## Prerequisites
 
-* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-support-on-azure).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 

@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 04/19/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -226,6 +226,19 @@ related resources to match.
     resource group specified in **ResourceGroupName**.
   - For _Subscription_, queries the entire subscription for the related resource.
   - Default is _ResourceGroup_.
+- **EvaluationDelay** (optional)
+  - Specifies when the existence of the related resources should be evaluated. The delay is only
+    used for evaluations that are a result of a create or update resource request.
+  - Allowed values are `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure`,
+    or an ISO 8601 duration between 10 and 360 minutes.
+  - The _AfterProvisioning_ values inspect the provisioning result of the resource that was
+    evaluated in the policy rule's IF condition. `AfterProvisioning` runs after provisioning is
+    complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
+    failure when determining _AfterProvisioning_ evaluation delays.
+  - Default is `PT10M` (10 minutes).
+  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+    not update until the next
+    [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
   - If not specified, any related resource of **type** satisfies the effect and doesn't trigger the
     audit.
@@ -345,7 +358,7 @@ when the condition is met.
 
 ### DeployIfNotExists evaluation
 
-DeployIfNotExists runs about 15 minutes after a Resource Provider has handled a create or update
+DeployIfNotExists runs after a configurable delay when a Resource Provider handles a create or update
 subscription or resource request and has returned a success status code. A template deployment
 occurs if there are no related resources or if the resources defined by **ExistenceCondition** don't
 evaluate to true. The duration of the deployment depends on the complexity of resources included in
@@ -382,6 +395,19 @@ related resources to match and the template deployment to execute.
     resource group specified in **ResourceGroupName**.
   - For _Subscription_, queries the entire subscription for the related resource.
   - Default is _ResourceGroup_.
+- **EvaluationDelay** (optional)
+  - Specifies when the existence of the related resources should be evaluated. The delay is only
+    used for evaluations that are a result of a create or update resource request.
+  - Allowed values are `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure`,
+    or an ISO 8601 duration between 0 and 360 minutes.
+  - The _AfterProvisioning_ values inspect the provisioning result of the resource that was
+    evaluated in the policy rule's IF condition. `AfterProvisioning` runs after provisioning is
+    complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
+    failure when determining _AfterProvisioning_ evaluation delays.
+  - Default is `PT10M` (10 minutes).
+  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+    not update until the next
+    [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
   - If not specified, any related resource of **type** satisfies the effect and doesn't trigger the
     deployment.
@@ -408,6 +434,10 @@ related resources to match and the template deployment to execute.
   - This property should include the full template deployment as it would be passed to the
     `Microsoft.Resources/deployments` PUT API. For more information, see the
     [Deployments REST API](/rest/api/resources/deployments).
+  - Nested `Microsoft.Resources/deployments` within the template should use unique names to avoid
+    contention between multiple policy evaluations. The parent deployment's name can be used as part
+    of the nested deployment name via
+    `[concat('NestedDeploymentName-', uniqueString(deployment().name))]`.
 
   > [!NOTE]
   > All functions inside the **Deployment** property are evaluated as components of the template,
@@ -430,6 +460,7 @@ If not, then a deployment to enable is executed.
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
+        "evaluationDelay": "AfterProvisioning",
         "roleDefinitionIds": [
             "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
@@ -621,7 +652,7 @@ The following operations are supported by Modify:
   _Indexed_ unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
   virtual machine scale sets.
-- Add or replace the values of certain aliases (preview).
+- Add or replace the values of certain aliases.
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
     in Azure PowerShell **4.6.0** or higher to get a list of aliases that can be used with Modify.
@@ -651,7 +682,7 @@ If either of these checks fail, the policy evaluation falls back to the specifie
 **conflictEffect**.
 
 > [!IMPORTANT]
-> It's recommeneded that Modify definitions that include aliases use the _audit_ **conflict effect**
+> It's recommended that Modify definitions that include aliases use the _audit_ **conflict effect**
 > to avoid failing requests using API versions where the mapped property isn't 'Modifiable'. If the
 > same alias behaves differently between API versions, conditional modify operations can be used to
 > determine the modify operation used for each API version.

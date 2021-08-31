@@ -17,6 +17,7 @@ ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
+ROBOTS: NOINDEX
 ---
 
 # Create, list, or delete a user-assigned managed identity using Azure PowerShell

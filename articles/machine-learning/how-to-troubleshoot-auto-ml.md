@@ -143,8 +143,17 @@ If the listed version is not a supported version:
     1. `pip uninstall PyJWT` in the command shell and enter `y` for confirmation.
     1. Install using `pip install 'PyJWT<2.0.0'`.
   
+
+## Data access
+ 
+For automated ML runs, you need to ensure the file datastore that connects to your AzureFile storage has the appropriate authentication credentials. Otherwise, the following message results. Learn how to [update your data access authentication credentials](how-to-train-with-datasets.md#azurefile-storage).
+
+Error message: 
+`Could not create a connection to the AzureFileService due to missing credentials. Either an Account Key or SAS token needs to be linked the default workspace blob store.`
+
 ## Databricks
 See [How to configure an automated ML experiment with Databricks](how-to-configure-databricks-automl-environment.md#troubleshooting).
+
 
 ## Forecasting R2 score is always zero
 

@@ -3,12 +3,12 @@ title: Regions - Speech service
 titleSuffix: Azure Cognitive Services
 description: A list of available regions and endpoints for the Speech service, including speech-to-text, text-to-speech, and speech translation.
 services: cognitive-services
-author: mahilleb-msft
+author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 07/01/2021
 ms.author: panosper
 ms.custom: seodec18,references_regions
 ---
@@ -24,6 +24,9 @@ Keep in mind the following points when considering regions:
 * If your application uses a [Speech SDK](speech-sdk.md), you provide the region identifier, such as `westus`, when creating a speech configuration.
 * If your application uses one of the Speech service's [REST APIs](./overview.md#reference-docs), the region is part of the endpoint URI you use when making requests.
 * Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
+
+> [!NOTE]
+> Speech Services doesn't store/process customer data outside the region the customer deploys the service instance in.
 
 ## Speech SDK
 

@@ -6,14 +6,15 @@ ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: cawrites
 ms.date: 03/19/2021
 ---
 
 # Migration guide: Access to Azure SQL Database
 
-In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your Microsoft Access database to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for Access (SSMA for Access).
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your Microsoft Access database to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant for Access (SSMA for Access).
 
 For other migration guides, see [Azure Database Migration Guide](/data-migration). 
 
@@ -164,7 +165,7 @@ For more assistance with completing this migration scenario, see the following r
 
 | Title | Description |
 | --- | --- |
-| [Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Provides suggested “best fit” target platforms, cloud readiness, and application/database remediation levels for specified workloads. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated, uniform target-platform decision process. |
+| [Data workload assessment model and tool](https://www.microsoft.com/download/details.aspx?id=103130) | Provides suggested “best fit” target platforms, cloud readiness, and application/database remediation levels for specified workloads. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated, uniform target-platform decision process. |
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 

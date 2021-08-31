@@ -51,7 +51,13 @@ Create a Hugo app using the Hugo Command Line Interface (CLI):
 1. Initialize a Git repo.
 
    ```bash
-    git init
+   git init
+   ```
+
+1. Ensure that your branch is named `main`.
+
+   ```bash
+   git branch -M main
    ```
 
 1. Next, add a theme to the site by installing a theme as a git submodule and then specifying it in the Hugo config file.
@@ -151,7 +157,7 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig

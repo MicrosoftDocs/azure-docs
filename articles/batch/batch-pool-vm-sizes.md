@@ -2,14 +2,14 @@
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 08/27/2021
 ms.custom: seodec18
 
 ---
 
 # Choose a VM size and image for compute nodes in an Azure Batch pool
 
-When you select a node size for an Azure Batch pool, you can choose from among almost all the VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads.
+When you select a node size for an Azure Batch pool, you can choose from almost all the VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads.
 
 ## Supported VM series and sizes
 
@@ -31,15 +31,16 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | Dv4, Dsv4 | Not supported |
 | Ev3, Esv3 | All sizes, except for E64is_v3 |
 | Eav4, Easv4 | All sizes |
-| Edv4, Edsv4 |  All sizes |
+| Edv4, Edsv4 | All sizes |
 | Ev4, Esv4 | Not supported |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |
+| FX<sup>1</sup> | All sizes |
 | G, Gs | All sizes |
 | H | All sizes |
 | HB | All sizes |
 | HBv2 | All sizes |
-| HBv3 | Standard_HB120rs_v3 (other sizes not yet available) |
+| HBv3 | All sizes |
 | HC | All sizes |
 | Ls | All sizes |
 | Lsv2 | All sizes |
@@ -50,7 +51,9 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | NCv3 | All sizes |
 | NCasT4_v3 | All sizes |
 | ND | All sizes |
+| NDv4 | All sizes |
 | NDv2 | None - not yet available |
+| NP | All sizes |
 | NV | All sizes |
 | NVv3 | All sizes |
 | NVv4 | All sizes |

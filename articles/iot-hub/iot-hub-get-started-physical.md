@@ -7,7 +7,7 @@ keywords: azure iot hub tutorial
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/22/2017
+ms.date: 06/14/2021
 ms.author: wesmc
 ms.custom: ['Role: Cloud Development']
 ---
@@ -19,6 +19,5 @@ These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorial
 | IoT device                       | Programming language |
 |---------------------------------|----------------------|
 | Raspberry Pi                    | [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md), [C](iot-hub-raspberry-pi-kit-c-get-started.md)  |
-| IoT DevKit                      | [Arduino in VSCode](iot-hub-arduino-iot-devkit-az3166-get-started.md)     |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]

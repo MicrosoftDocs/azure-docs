@@ -7,7 +7,8 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.author: banders
+ms.author: banders 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Link a partner ID to your Power Apps accounts

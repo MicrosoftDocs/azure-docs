@@ -27,6 +27,7 @@ If you don’t have an Azure subscription, create a free trial account
 
 - An IoT Hub must be created
 - An IoT Edge device must be created
+- An IoT Edge device must be registered
 
 ## Deploy the OPC Publisher from the Azure Marketplace
 
@@ -37,16 +38,7 @@ If you don’t have an Azure subscription, create a free trial account
 5. Click on "OPCPublisher" to open the OPC Publisher's "Update IoT Edge Module" page and then select "Container Create Options".
 6. Specify additional container create options based on your usage of OPC Publisher, see next section below.
 
-
-### Accessing the Microsoft Container Registry Docker containers for OPC Publisher manually
-
-The latest released version of OPC Publisher can be run manually via:
-
-```
-docker run mcr.microsoft.com/iotedge/opc-publisher:latest <name>
-```
-
-Where "name" is the name for the container.
+All supported docker images for the docker OPC Publisher are listed [here](https://mcr.microsoft.com/v2/iotedge/opc-publisher/tags/list). For non-OPC UA-enabled assets, we have partnered with the leading industrial connectivity providers and helped them port their OPC UA adapter software to Azure IoT Edge. These adapters are available in the Azure [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1).
 
 ## Specifying Container Create Options in the Azure portal
 When deploying OPC Publisher through the Azure portal, container create options can be specified in the Update IoT Edge Module page of OPC Publisher. These create options must be in JSON format. The OPC Publisher command line arguments can be specified via the Cmd key, e.g.:

@@ -2,7 +2,8 @@
 title: Enable disk encryption for Service Fabric managed cluster nodes
 description: Learn how to enable disk encryption for Azure Service Fabric managed cluster nodes in Windows using an ARM template.
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 5/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Enable disk encryption for Service Fabric managed cluster nodes
 
@@ -30,7 +31,7 @@ Azure Disk Encryption requires an Azure Key Vault to control and manage disk enc
 
 ### Create Key Vault with disk encryption enabled
 
-Run the following commands to create a new Key Vault for disk encryption. Make sure the region for your Key Vault is [supported for Service Fabric managed clusters](faq-managed-cluster.md#what-regions-are-supported) and is in the same region as your cluster.
+Run the following commands to create a new Key Vault for disk encryption. Make sure the region for your Key Vault is [supported for Service Fabric managed clusters](./faq-managed-cluster.yml#what-regions-are-supported-) and is in the same region as your cluster.
 
 # [PowerShell](#tab/azure-powershell)
 

@@ -1,12 +1,14 @@
 ---
-title: Configure a signal gate for event-based video recording - Azure
-description: This article provides guidance about how to configure a signal gate in a media graph.
+title: Configure a signal gate for event-based video recording with Live Video Analytics - Azure
+description: This article provides guidance about how to configure a signal gate in a media graph with Live Video Analytics.
 ms.topic: how-to
 ms.date: 11/3/2020
 
 ---
 
-# Configure a signal gate for event-based video recording
+# Configure a signal gate for event-based video recording with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Within a media graph, a [signal gate processor node](media-graph-concept.md#signal-gate-processor) allows you to forward media from one node to another when the gate is triggered by an event. When it's triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate closes, and media stops flowing. You can use the signal gate processor for event-based video recording.
 

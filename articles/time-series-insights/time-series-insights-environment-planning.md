@@ -3,9 +3,10 @@ title: 'Plan your Gen1 environment - Azure Time Series Insights | Microsoft Docs
 description: Best practices for preparing, configuring, and deploying your Azure Time Series Insights Gen1 environment.
 services: time-series-insights
 ms.service: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
@@ -28,7 +29,7 @@ This article describes how to plan your Azure Time Series Insights Gen1 environm
 
 ## Best practices
 
-To get started with Azure Time Series Insights, it's best if you know how much data you expect to push by the minute and how long you need to store your data.  
+To get started with Azure Time Series Insights, it's best if you know how much data you expect to push by the minute and how long you need to store your data.
 
 For more information about capacity and retention for both Azure Time Series Insights SKUs, read [Azure Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
@@ -113,7 +114,7 @@ It's important to ensure that the way you send events to Azure Time Series Insig
 A *reference dataset* is a collection of items that augment the events from your event source. The Azure Time Series Insights ingress engine joins each event from your event source with the corresponding data row in your reference dataset. The augmented event is then available for query. The join is based on the **Primary Key** columns that are defined in your reference dataset.
 
 > [!NOTE]
-> Reference data isn't joined retroactively. Only current and future ingress data is matched and joined to the reference dataset after it's configured and uploaded. If you plan to send a large amount of historical data to Azure Time Series Insights and don't first upload or create reference data in Azure Time Series Insights, you might have to redo your work (hint: not fun).  
+> Reference data isn't joined retroactively. Only current and future ingress data is matched and joined to the reference dataset after it's configured and uploaded. If you plan to send a large amount of historical data to Azure Time Series Insights and don't first upload or create reference data in Azure Time Series Insights, you might have to redo your work (hint: not fun).
 
 To learn more about how to create, upload, and manage your reference data in Azure Time Series Insights, read our [Reference dataset documentation](time-series-insights-add-reference-data-set.md).
 

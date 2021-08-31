@@ -29,11 +29,11 @@ Microsoft provides the following utilities to work with Azure Storage:
 
 | Tool | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |âœ” |âœ” |âœ” |
-| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |âœ” |âœ” |âœ” |
-| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |âœ” |
-| [AzCopy](../storage/common/storage-use-azcopy-v10.md) |âœ” | |âœ” |
-| [Hadoop command](#hadoop-command-line) |âœ” |âœ” |âœ” |
+| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
+| [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
+| [Hadoop command](#hadoop-command-line) |✔ |✔ |✔ |
 
 > [!NOTE]  
 > The Hadoop command is only available on the HDInsight cluster. The command only allows loading data from the local file system into Azure Storage.  
@@ -71,12 +71,12 @@ There are also several applications that provide a graphical interface for worki
 
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |âœ” |âœ” |âœ” |
-| [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |âœ” |âœ” |âœ” |
-| [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |âœ” |
-| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |âœ” |
-| [CloudBerry Explorer for Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |âœ” |
-| [Cyberduck](https://cyberduck.io/) | |âœ” |âœ” |
+| [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
+| [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
+| [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
+| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
+| [CloudBerry Explorer for Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 ## Mount Azure Storage as Local Drive
 

@@ -199,7 +199,7 @@ Another option you have is to specify the sample size as a percent:
 ```sql
 CREATE STATISTICS col1_stats
     ON dbo.table1 (col1)
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
 #### Create single-column statistics on only some of the rows
@@ -227,7 +227,7 @@ You can also combine the options together. The following example creates a filte
 CREATE STATISTICS stats_col1
     ON table1 (col1)
     WHERE col1 > '2000101' AND col1 < '20001231'
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
 For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true).
@@ -245,7 +245,7 @@ In this example, the histogram is on *product\_category*. Cross-column statistic
 CREATE STATISTICS stats_2cols
     ON table1 (product_category, product_sub_category)
     WHERE product_category > '2000101' AND product_category < '20001231'
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
 Because a correlation exists between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
@@ -886,6 +886,6 @@ WHERE   st.[user_created] = 1
 
 ## Next steps
 
-To further improve query performance for dedicated SQL pool, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and [Best practices for dedicated SQL pool](best-practices-dedicated-sql-pool.md#maintain-statistics).
+To further improve query performance for dedicated SQL pool, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context) and [Best practices for dedicated SQL pool](best-practices-dedicated-sql-pool.md#maintain-statistics).
 
 To further improve query performance for serverless SQL pool see [Best practices for serverless SQL pool](best-practices-serverless-sql-pool.md)

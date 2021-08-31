@@ -68,7 +68,7 @@ The examples in this article use resource group deployments.
    }
    ```
 
-1. Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](template-deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+1. Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 1. To deploy a template, provide your subscription ID, the name of the resource group, the name of the deployment in the request URI.
 
@@ -211,4 +211,4 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
 - To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](../management/async-operations.md).
-- To learn more about templates, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- To learn more about templates, see [Understand the structure and syntax of ARM templates](./syntax.md).

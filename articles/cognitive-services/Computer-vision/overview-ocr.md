@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 06/21/2021
 ms.author: pafarley
 ms.custom: "seodec18, devx-track-csharp"
 ---
@@ -38,7 +38,7 @@ The **Read** call takes images and documents as its input. They have the followi
 
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
 * For PDF and TIFF files, up to 2000 pages (only first two pages for the free tier) are processed.
-* The file size must be less than 50 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
+* The file size must be less than 50 MB (6 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
 
 ## Supported languages
 The Read API supports a total of 73 languages for print style text. Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). Handwritten-style OCR is supported exclusively for English.
@@ -63,10 +63,6 @@ Learn [how to use the OCR features](./vision-api-how-to-topics/call-read-api.md)
 The Read 3.x cloud APIs are the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
 
 For on-premise deployment, the [Read Docker container (preview)](./computer-vision-how-to-install-containers.md) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
-
-## OCR API
-
-The legacy [OCR API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. See the OCR column of [supported languages](./language-support.md#optical-character-recognition-ocr) for a list of supported languages.
 
 > [!WARNING]
 > The Computer Vision 2.0 RecognizeText operations are in the process of being deprecated in favor of the new [Read API](#read-api) covered in this article. Existing customers should [transition to using Read operations](upgrade-api-versions.md).

@@ -2,7 +2,7 @@
 title: Monitoring metrics for Azure Front Door Standard/Premium
 description: This article describes the Azure Front Door Standard/Premium monitoring metrics.
 services: frontdoor
-author: duau
+author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: how-to
@@ -34,7 +34,7 @@ You can configure alerts for each metric such as a threshold for 4XXErrorRate or
 | ------------- | ------------- | ------------- |
 | Bytes Hit ratio | The percentage of egress from AFD cache, computed against the total egress. </br> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. </br> **Scenarios excluded in bytes hit ratio calculation**:</br> 1. You explicitly configure no cache either through Rules Engine or Query String caching behavior. </br> 2. You explicitly configure cache-control directive with no-store or private cache. </br>3. Byte hit ratio can be low if most of the traffic is forwarded to origin rather than served from caching based on your configurations or scenarios. | Endpoint |
 | RequestCount | The number of client requests served by CDN. | Endpoint, client country, client region, HTTP status, HTTP status group |
-| ResponseSize | The number of client requests served by AFD. |Endpoint, client country, client region, HTTP status, HTTP status group |
+| ResponseSize | The number of bytes sent as responses from Front Door to clients. |Endpoint, client country, client region, HTTP status, HTTP status group |
 | TotalLatency | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint, client country, client region, HTTP status, HTTP status group |
 | RequestSize | The number of bytes sent as requests from clients to AFD. | Endpoint, client country, client region, HTTP status, HTTP status group |
 | 4XX % ErrorRate | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region |

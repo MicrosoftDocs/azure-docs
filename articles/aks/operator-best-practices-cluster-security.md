@@ -275,38 +275,19 @@ You can then upgrade your AKS cluster using the [az aks upgrade][az-aks-upgrade]
 
 For more information about upgrades in AKS, see [Supported Kubernetes versions in AKS][aks-supported-versions] and [Upgrade an AKS cluster][aks-upgrade].
 
-## Process Linux node updates and reboots using kured
+## Process Linux node updates
 
-> **Best practice guidance** 
-> 
-> While AKS automatically downloads and installs security fixes on each Linux node, it does not automatically reboot. 
-> 1. Use `kured` to watch for pending reboots.
-> 1. Safely cordon and drain the node to allow the node to reboot.
-> 1. Apply the updates.
-> 1. Be as secure as possible with respect to the OS. 
+Each evening, Linux nodes in AKS get security patches through their distro update channel. This behavior is automatically configured as the nodes are deployed in an AKS cluster. To minimize disruption and potential impact to running workloads, nodes are not automatically rebooted if a security patch or kernel update requires it. For more information about how to handle node reboots, see [Apply security and kernel updates to nodes in AKS][aks-kured].
 
-For Windows Server nodes, regularly perform an AKS upgrade operation to safely cordon and drain pods and deploy updated nodes.
+### Node image upgrades
 
-Each evening, Linux nodes in AKS get security patches through their distro update channel. This behavior is automatically configured as the nodes are deployed in an AKS cluster. To minimize disruption and potential impact to running workloads, nodes are not automatically rebooted if a security patch or kernel update requires it.
+Unattended upgrades apply updates to the Linux node OS, but the image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete. You can use node image upgrade to check for and update node images used by your cluster. For more details on nod image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
 
-The open-source [kured (KUbernetes REboot Daemon)][kured] project by Weaveworks watches for pending node reboots. When a Linux node applies updates that require a reboot, the node is safely cordoned and drained to move and schedule the pods on other nodes in the cluster. Once the node is rebooted, it is added back into the cluster and Kubernetes resumes pod scheduling. To minimize disruption, only one node at a time is permitted to be rebooted by `kured`.
+## Process Windows Server node updates
 
-![The AKS node reboot process using kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
-
-If you want even closer control over reboots, `kured` can integrate with Prometheus to prevent reboots if there are other maintenance events or cluster issues in progress. This integration reduces complication by rebooting nodes while you are actively troubleshooting other issues.
-
-For more information about how to handle node reboots, see [Apply security and kernel updates to nodes in AKS][aks-kured].
-
-## Next steps
-
-This article focused on how to secure your AKS cluster. To implement some of these areas, see the following articles:
-
-* [Integrate Azure Active Directory with AKS][aks-aad]
-* [Upgrade an AKS cluster to the latest version of Kubernetes][aks-upgrade]
-* [Process security updates and node reboots with kured][aks-kured]
+For Windows Server nodes, regularly perform a node image upgrade operation to safely cordon and drain pods and deploy updated nodes.
 
 <!-- EXTERNAL LINKS -->
-[kured]: https://github.com/weaveworks/kured
 [k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
 [seccomp]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -326,3 +307,4 @@ This article focused on how to secure your AKS cluster. To implement some of the
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
 [security-center-aks]: ../security-center/defender-for-kubernetes-introduction.md
+[node-image-upgrade]: node-image-upgrade.md

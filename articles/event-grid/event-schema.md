@@ -1,13 +1,13 @@
 ---
 title: Azure Event Grid event schema
-description: Describes the properties and schema that are present for all events. Events consist of a set of five required string properties and a required data object.
+description: Describes the properties and schema that are present for all events. Events consist of a set of four required string properties.
 ms.topic: reference
 ms.date: 07/07/2020
 ---
 
 # Azure Event Grid event schema
 
-This article describes the properties and schema that are present for all events. Events consist of a set of five required string properties and a required data object. The properties are common to all events from any publisher. The data object has properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
+This article describes the properties and schema that are present for all events. Events consist of a set of four required string properties. The properties are common to all events from any publisher. The data object has properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
 
 Event sources send events to Azure Event Grid in an array, which can have several event objects. When posting events to an event grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 1 MB. If an event or the array is greater than the size limits, you receive the response **413 Payload Too Large**. Operations are charged in 64 KB increments though. So, events over 64 KB will incur operations charges as though they were multiple events. For example, an event that is 130 KB would incur operations as though it were 3 separate events.
 

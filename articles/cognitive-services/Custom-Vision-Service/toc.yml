@@ -5,6 +5,8 @@
   items:
   - name: What is Custom Vision?
     href: overview.md
+  - name: Pricing and limits
+    href: limits-and-quotas.md
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
@@ -45,6 +47,8 @@
     items:
     - name: Export your model to mobile
       href: export-your-model.md
+    - name: Export a model programmatically
+      href: export-programmatically.md
     - name: Use ONNX model with Windows ML
       href: custom-vision-onnx-windows-ml.md
     - name: Run TensorFlow model in Python
@@ -97,8 +101,6 @@
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
   - name: Samples
     href: /samples/browse/?products=azure&term=vision
-  - name: Limits and quotas
-    href: limits-and-quotas.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Release Notes

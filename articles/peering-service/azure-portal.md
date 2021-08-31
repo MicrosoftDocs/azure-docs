@@ -32,7 +32,7 @@ You must have a valid and active Microsoft Azure account. This account is requir
 
 ### Connectivity provider
 
-You can work with any [Azure peering service provider](https://docs.microsoft.com/azure/peering-service/location-partners) to obtain Peering Service to connect your network optimally with the Microsoft network.
+You can work with any [Azure peering service provider](./location-partners.md) to obtain Peering Service to connect your network optimally with the Microsoft network.
 
 
 

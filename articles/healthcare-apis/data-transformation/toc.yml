@@ -1,0 +1,17 @@
+items:
+- name: Transfer and transform data
+  href: index.yml
+
+- name: Export data
+  expanded: true
+  items:
+    - name: Configure settings for export
+      href: configure-export-data.md
+    - name: Export
+      href: export-data.md
+    - name: De-identified export
+      href: de-identified-export.md
+    - name: Export to Synapse
+      href: move-to-synapse.md
+- name: Convert data
+  href: convert-data.md

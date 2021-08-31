@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 06/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -24,7 +24,8 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+> [!IMPORTANT]
+> Starting May 2021, GitHub announced a change that impacts your Azure AD B2C custom policy federation. Due to the change, add `<Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>` metadata to your GitHub technical profile. For more information, see [Deprecating API authentication through query parameters](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/).
 
 ::: zone-end
 
@@ -117,6 +118,7 @@ You can define a GitHub account as a claims provider by adding it to the **Claim
             <Item Key="HttpBinding">GET</Item>
             <Item Key="scope">read:user user:email</Item>
             <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>  
             <Item Key="UserAgentForClaimsExchange">CPIM-Basic/{tenant}/{policy}</Item>
             <!-- Update the Client ID below to the Application ID -->
             <Item Key="client_id">Your GitHub application ID</Item>

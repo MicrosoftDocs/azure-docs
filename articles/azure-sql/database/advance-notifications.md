@@ -3,13 +3,13 @@ title: Advance notifications (Preview) for planned maintenance events
 description: Get notification before planned maintenance for Azure SQL Database.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: scott-kim-sql
+ms.author: scottkim
+ms.reviewer: mathoma
 ms.date: 03/02/2021
 ---
 # Advance notifications for planned maintenance events (Preview)

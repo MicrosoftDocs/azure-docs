@@ -9,7 +9,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/16/2020
+ms.date: 07/02/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -56,7 +56,7 @@ To complete this article, you need:
 
 Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for ARM templates.
 
-The template used in this quickstart is called [Create an Azure Key Vault and a secret](https://azure.microsoft.com/resources/templates/101-key-vault-create/). The template creates a key vault, and then adds a secret to the key vault.
+The template used in this quickstart is called [Create an Azure Key Vault and a secret](https://azure.microsoft.com/resources/templates/key-vault-create/). The template creates a key vault, and then adds a secret to the key vault.
 
 1. From Visual Studio Code, select **File** > **Open File**.
 2. In **File name**, paste the following URL:
@@ -218,8 +218,6 @@ The deployment script adds a certificate to the key vault. Configure the key vau
             # private key is added as a secret that can be retrieved in the Resource Manager template
             Add-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName -CertificatePolicy $policy -Verbose
 
-            $newCert = Get-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName
-
             # it takes a few seconds for KeyVault to finish
             $tries = 0
             do {
@@ -239,6 +237,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
               }
             } while ($operation.Status -ne 'completed')
 
+            $newCert = Get-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName
             $DeploymentScriptOutputs['certThumbprint'] = $newCert.Thumbprint
             $newCert | Out-String
           }

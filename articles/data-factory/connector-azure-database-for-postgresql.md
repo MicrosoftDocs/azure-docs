@@ -1,12 +1,14 @@
 ---
 title: Copy and transform data in Azure Database for PostgreSQL
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Azure Database for PostgreSQL by using Azure Data Factory.
-ms.author: jianleishen
-author: jianleishen
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 02/25/2021
+ms.custom: synapse
+ms.date: 08/30/2021
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL by using Azure Data Factory
@@ -30,6 +32,32 @@ Currently, data flow in Azure Data Factory supports Azure database for PostgreSQ
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Azure database for PostgreSQL using UI
+
+Use the following steps to create a linked service to Azure database for PostgreSQL in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for PostgreSQL and select the Azure database for PostgreSQL connector.
+
+    :::image type="content" source="media/connector-azure-database-for-postgresql/azure-database-for-postgresql-connector.png" alt-text="Select the Azure database for PostgreSQL connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-database-for-postgresql/configure-azure-database-for-postgresql-linked-service.png" alt-text="Configure a linked service to Azure database for PostgreSQL.":::
+
+## Connector configuration details
 
 The following sections offer details about properties that are used to define Data Factory entities specific to Azure Database for PostgreSQL connector.
 
@@ -168,7 +196,7 @@ To copy data to Azure Database for PostgreSQL, the following properties are supp
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **AzurePostgreSQLSink**. | Yes |
 | preCopyScript | Specify a SQL query for the copy activity to execute before you write data into Azure Database for PostgreSQL in each run. You can use this property to clean up the preloaded data. | No |
-| writeMethod | The method used to write data into Azure Database for PostgreSQL.<br>Allowed values are: **CopyCommand** (preview, which is more performant), **BulkInsert** (default). | No |
+| writeMethod | The method used to write data into Azure Database for PostgreSQL.<br>Allowed values are: **CopyCommand** (default, which is more performant), **BulkInsert**. | No |
 | writeBatchSize | The number of rows loaded into Azure Database for PostgreSQL per batch.<br>Allowed value is an integer that represents the number of rows. | No (default is 1,000,000) |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br>Allowed values are Timespan strings. An example is 00:30:00 (30 minutes). | No (default is 00:30:00) |
 

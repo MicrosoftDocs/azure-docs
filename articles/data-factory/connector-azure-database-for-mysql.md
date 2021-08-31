@@ -1,12 +1,14 @@
 ---
 title: Copy and transform data in Azure Database for MySQL
+titleSuffix: Azure Data Factory & Azure Synapse
 description: earn how to copy and transform data in Azure Database for MySQL by using Azure Data Factory.
-ms.author: jianleishen
-author: jianleishen
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/10/2021
+ms.custom: synapse
+ms.date: 08/30/2021
 ---
 
 # Copy and transform data in Azure Database for MySQL by using Azure Data Factory
@@ -28,6 +30,33 @@ This Azure Database for MySQL connector is supported for the following activitie
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Azure Database for MySQL using UI
+
+Use the following steps to create a linked service to Azure Database for MySQL in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for MySQL and select the Azure Database for MySQL connector.
+
+   :::image type="content" source="media/connector-azure-database-for-mysql/azure-database-for-mysql-connector.png" alt-text="Select the Azure Database for MySQL connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-azure-database-for-mysql/configure-azure-database-for-mysql-linked-service.png" alt-text="Configure a linked service to Azure Database for MySQL.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Database for MySQL connector.
 

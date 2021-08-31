@@ -209,8 +209,8 @@ systemctl show --property=Environment aziot-identityd
 
 Log in to your IoT Edge for Linux on Windows virtual machine:
 
-```azurepowershell-interactive
-Ssh-EflowVm
+```powershell
+Connect-EflowVm
 ```
 
 Follow the same steps as the Linux section above to configure the IoT Edge daemon.
@@ -352,7 +352,7 @@ With the environment variables included, your module definition should look like
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
-        "createOptions": ""
+        "createOptions": "{}"
     },
     "env": {
         "https_proxy": {
@@ -381,7 +381,7 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
 
 If the proxy you're attempting to use performs traffic inspection on TLS-secured connections, it's important to note that authentication with X.509 certificates doesn't work. IoT Edge establishes a TLS channel that's encrypted end to end with the provided certificate and key. If that channel is broken for traffic inspection, the proxy can't reestablish the channel with the proper credentials, and IoT Hub and the IoT Hub device provisioning service return an `Unauthorized` error.
 
-To use a proxy that performs traffic inspection, you must use either shared access signature authentication or have IoT Hub and the IoT Hub device provisioning service added to an allow list to avoid inspection.
+To use a proxy that performs traffic inspection, you must use either shared access signature authentication or have IoT Hub and the IoT Hub device provisioning service added to an allowlist to avoid inspection.
 
 ## Next steps
 

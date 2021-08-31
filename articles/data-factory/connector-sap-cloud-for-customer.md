@@ -1,12 +1,14 @@
 ---
 title: Copy data from/to SAP Cloud for Customer
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP Cloud for Customer to supported sink data stores (or) from supported source data stores to SAP Cloud for Customer by using Data Factory.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
+ms.custom: synapse
+ms.date: 08/30/2021
 ---
 
 # Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory
@@ -32,6 +34,33 @@ Specifically, this connector enables Azure Data Factory to copy data from/to SAP
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to SAP Cloud for Customer using UI
+
+Use the following steps to create a linked service to SAP Cloud for Customer in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for SAP and select the SAP Cloud for Customer connector.
+
+   :::image type="content" source="media/connector-sap-cloud-for-customer/sap-cloud-for-customer-connector.png" alt-text="Select the SAP Cloud for Customer connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-sap-cloud-for-customer/configure-sap-cloud-for-customer-linked-service.png" alt-text="Configure a linked service to SAP Cloud for Customer.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP Cloud for Customer connector.
 

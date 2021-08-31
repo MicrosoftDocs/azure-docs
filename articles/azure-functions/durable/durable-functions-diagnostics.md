@@ -3,7 +3,7 @@ title: Diagnostics in Durable Functions - Azure
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 06/29/2021
 ms.author: azfuncdf
 ---
 
@@ -67,34 +67,12 @@ The verbosity of tracking data emitted to Application Insights can be configured
 }
 ```
 
-By default, all non-replay tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations.
-
-To enable emitting the verbose orchestration replay events, the `LogReplayEvents` can be set to `true` in the `host.json` file under `durableTask` as shown:
-
-#### Functions 1.0
-
-```json
-{
-    "durableTask": {
-        "logReplayEvents": true
-    }
-}
-```
-
-#### Functions 2.0
-
-```json
-{
-    "extensions": {
-        "durableTask": {
-            "logReplayEvents": true
-        }
-    }
-}
-```
+By default, all _non-replay_ tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations. To enable emitting the verbose orchestration replay events, set the `logReplayEvents` to `true` in the [host.json](durable-functions-bindings.md#host-json) configuration file.
 
 > [!NOTE]
 > By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](../configure-monitoring.md#configure-sampling) explains how to configure this behavior.
+
+Inputs and outputs of orchestrator, activity, and entity functions are not logged by default. This default behavior is recommended because logging inputs and outputs could increase Application Insights costs. Function input and output payloads may also contain sensitive information. Instead, the number of bytes for function inputs and outputs are logged instead of the actual payloads by default. If you want the Durable Functions extension to log the full input and output payloads, set the `traceInputsAndOutputs` property to `true` in the [host.json](durable-functions-bindings.md#host-json) configuration file.
 
 ### Single instance query
 
@@ -149,10 +127,12 @@ The result is a list of instance IDs and their current runtime status.
 
 The Durable extension logs are useful for understanding the behavior of your orchestration logic. However, these logs don't always contain enough information to debug framework-level performance and reliability issues. Starting in **v2.3.0** of the Durable extension, logs emitted by the underlying Durable Task Framework (DTFx) are also available for collection.
 
-When looking at logs emitted by the DTFx, it's important to understand that the DTFx engine is composed of two components: the core dispatch engine (`DurableTask.Core`) and one of many supported storage providers (Durable Functions uses `DurableTask.AzureStorage` by default).
+When looking at logs emitted by the DTFx, it's important to understand that the DTFx engine is composed of two components: the core dispatch engine (`DurableTask.Core`) and one of many supported storage providers (Durable Functions uses `DurableTask.AzureStorage` by default but [other options are available](durable-functions-storage-providers.md)).
 
-* **DurableTask.Core**: contains information about orchestration execution and low-level scheduling.
-* **DurableTask.AzureStorage**: contains information related to interactions with Azure Storage artifacts, including the internal queues, blobs, and storage tables used to store and fetch internal orchestration state.
+* **DurableTask.Core**: Core orchestration execution and low-level scheduling logs and telemetry.
+* **DurableTask.AzureStorage**: Backend logs specific to the Azure Storage state provider. These logs include detailed interactions with the internal queues, blobs, and storage tables used to store and fetch internal orchestration state.
+* **DurableTask.Netherite**: Backend logs specific to the [Netherite storage provider](https://microsoft.github.io/durabletask-netherite), if enabled.
+* **DurableTask.SqlServer**: Backend logs specific to the [Microsoft SQL (MSSQL) storage provider](https://microsoft.github.io/durabletask-mssql), if enabled.
 
 You can enable these logs by updating the `logging/logLevel` section of your function app's **host.json** file. The following example shows how to enable warning and error logs from both `DurableTask.Core` and `DurableTask.AzureStorage`:
 
@@ -171,7 +151,7 @@ You can enable these logs by updating the `logging/logLevel` section of your fun
 If you have Application Insights enabled, these logs will be automatically added to the `trace` collection. You can search them the same way that you search for other `trace` logs using Kusto queries.
 
 > [!NOTE]
-> For production applications, it is recommended that you enable `DurableTask.Core` and `DurableTask.AzureStorage` logs using the `"Warning"` filter. Higher verbosity filters such as `"Information"` are very useful for debugging performance issues. However, these log events are high-volume and can significantly increase Application Insights data storage costs.
+> For production applications, it is recommended that you enable `DurableTask.Core` and the appropriate storage provider (e.g. `DurableTask.AzureStorage`) logs using the `"Warning"` filter. Higher verbosity filters such as `"Information"` are very useful for debugging performance issues. However, these log events can be high-volume and can significantly increase Application Insights data storage costs.
 
 The following Kusto query shows how to query for DTFx logs. The most important part of the query is `where customerDimensions.Category startswith "DurableTask"` since that filters the results to logs in the `DurableTask.Core` and `DurableTask.AzureStorage` categories.
 
@@ -466,6 +446,13 @@ This is useful for debugging because you see exactly what state an orchestration
 
 > [!WARNING]
 > While it's convenient to see execution history in table storage, avoid taking any dependency on this table. It may change as the Durable Functions extension evolves.
+
+> [!NOTE]
+> Other storage providers can be configured instead of the default Azure Storage provider. Depending on the storage provider configured for your app, you may need to use different tools to inspect the underlying state. For more information, see the [Durable Functions Storage Providers](durable-functions-storage-providers.md) documentation.
+
+## 3rd party tools
+
+The Durable Functions community publishes a variety of tools that can be useful for debugging, diagnostics, or monitoring. One such tool is the open source [Durable Functions Monitor](https://github.com/scale-tone/DurableFunctionsMonitor#durable-functions-monitor), a graphical tool for monitoring, managing, and debugging your orchestration instances.
 
 ## Next steps
 

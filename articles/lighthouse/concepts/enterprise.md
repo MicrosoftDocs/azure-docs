@@ -33,7 +33,7 @@ In most enterprise scenarios, you’ll want to delegate a full subscription to A
 
 Either way, be sure to [follow the principle of least privilege when defining which users will have access to delegated resources](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Doing so helps to ensure that users only have the permissions needed to perform the required tasks and reduces the chance of inadvertent errors.
 
-Azure Lighthouse only provides logical links between a managing tenant and managed tenants, rather than physically moving data or resources. Furthermore, the access always goes in only one direction, from the managing tenant to the managed tenants.  Users and groups in the managing tenant should continue to use multi-factor authentication when performing management operations on managed tenant resources.
+Azure Lighthouse only provides logical links between a managing tenant and managed tenants, rather than physically moving data or resources. Furthermore, the access always goes in only one direction, from the managing tenant to the managed tenants. Users and groups in the managing tenant should continue to use multifactor authentication when performing management operations on managed tenant resources.
 
 Enterprises with internal or external governance and compliance guardrails can use [Azure Activity logs](../../azure-monitor/essentials/platform-logs-overview.md) to meet their transparency requirements. When enterprise tenants have established managing and managed tenant relationships, users in each tenant can view logged activity to see actions taken by users in the managing tenant.
 

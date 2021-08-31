@@ -3,13 +3,13 @@ title: Plan for Azure maintenance events
 description: Learn how to prepare for planned maintenance events in Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 3/23/2021
 ---
 
@@ -22,7 +22,7 @@ Learn how to prepare for planned maintenance events on your database in Azure SQ
 
 To keep Azure SQL Database and Azure SQL Managed Instance services secure, compliant, stable, and performant, updates are being performed through the service components almost continuously. Thanks to the modern and robust service architecture and innovative technologies like [hot patching](https://aka.ms/azuresqlhotpatching), majority of updates are fully transparent and non-impactful in terms of service availability. Still, few types of updates cause short service interrupts and require special treatment. 
 
-For each database, Azure SQL Database and Azure SQL Managed Instance maintain a quorum of database replicas where one replica is the primary. At all times, a primary replica must be online servicing, and at least one secondary replica must be healthy. During planned maintenance, members of the database quorum will go offline one at a time, with the intent that there is one responding primary replica and at least one secondary replica online to ensure no client downtime. When the primary replica needs to be brought offline, a reconfiguration process will occur in which one secondary replica will become the new primary.  
+During planned maintenance, members of the database quorum will go offline one at a time, with the intent that there is one responding primary replica. For Business Critical and Premium databases, at least one secondary replica will also be online to ensure no client downtime. When the primary replica needs to be brought offline, a reconfiguration process will occur. For Business Critical and Premium databases one of the secondary replicas will become the new primary replica. For General Purpose, Standard, and Basic databases the primary replica will move to another stateless compute node with sufficient free capacity.
 
 ## What to expect during a planned maintenance event
 
@@ -35,6 +35,10 @@ Ensuring that your client application is resilient to maintenance events prior t
 ## Retry logic
 
 Any client production application that connects to a cloud database service should implement a robust connection [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors). This will help make reconfigurations transparent to the end users, or at least minimize negative effects.
+
+### Service Health Alert
+
+If you want to receive alerts for service issues or planned maintenance activities, you can use Service Health alerts in the Azure portal with appropriate event type and action groups. For more information, see this [Receive alerts on Azure service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
 
 ## Resource health
 

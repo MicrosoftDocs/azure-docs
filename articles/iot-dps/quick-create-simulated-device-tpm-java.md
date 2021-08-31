@@ -22,7 +22,7 @@ In this quickstart, you create a simulated IoT device on a Windows computer. The
 - Familiar with [provisioning](about-iot-dps.md#provisioning-process) concepts.
 - Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure).
 - [Maven](https://maven.apache.org/install.html).
 - [Git](https://git-scm.com/download/).
 
@@ -30,7 +30,7 @@ In this quickstart, you create a simulated IoT device on a Windows computer. The
 
 ## Prepare the environment 
 
-1. Make sure you have [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) installed on your machine.
+1. Make sure you have [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) installed on your machine.
 
 1. Download and install [Maven](https://maven.apache.org/install.html).
 

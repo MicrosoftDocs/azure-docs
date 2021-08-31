@@ -31,7 +31,7 @@ A farm is a geographical area of interest for which you want to create a soil mo
 
 ## Deploy sensors
 
-You should physically deploy soil moisture sensors on the farm. You can purchase soil moisture sensors from any of our approved partners - [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/) and [Teralytic](https://teralytic.com/). You should coordinate with your sensor provider to do the physical setup on your farm.
+You should physically deploy soil moisture sensors on the farm. You can purchase soil moisture sensors from any of our approved partners - [Davis Instruments](https://www.davisinstruments.com/products/enviromonitor-gateway-us-lte) and [Teralytic](https://teralytic.com/). You should coordinate with your sensor provider to do the physical setup on your farm.
 
 ## Get soil moisture sensor data from partner
 

@@ -3,7 +3,7 @@ title: Manage and monitor MARS Agent backups
 description: Learn how to manage and monitor Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 06/08/2021
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
@@ -195,6 +195,34 @@ We recommend the following configuration for your antivirus software to avoid co
 
 >[!NOTE]
 >While excluding these paths will be sufficient for most antivirus software, some may still continue to interfere with MARS Agent operations. If you are seeing unexpected failures, uninstall the antivirus software temporarily and monitor to see if the problem goes away. If this resolves the issue, contact your antivirus software vendor for assistance with proper configuration of their product.
+
+## Monitor using Backup Reports
+
+Azure Backup provides a reporting solution that uses Azure Monitor logs and Azure workbooks. To get started, you must have [Backup Reports configured](configure-reports.md) for your vault. Once configured, data begins to flow into the workspace and can be queried using the backup reports.
+
+To monitor backup data usage and daily churn, follow these steps:
+
+1. Navigate to the **Overview** pane of the vault and click **Backup Reports**.
+
+1. In the **Backup Report** blade, under the **Overview** section, select the configured log analytics workspace. 
+
+1. Set the report filter **Backup Solution** to **Azure Backup Agent** to view MARS agent backups only. 
+
+   Set **Subscription Name**, **Vault Location**, and **Vault Name** as applicable.
+ 
+    ![Set the report filter Backup Solution.](./media/backup-azure-manage-mars/set-report-filter-backup-solution.png)
+
+1. To view the usage by billed entity, navigate to the **Usage** tab. 
+
+   The total protected instances billed. and the storage usage data are displayed. You can also see the trend information.
+ 
+    ![View the usage by billed entity.](./media/backup-azure-manage-mars/view-usage-by-billed-entity.png)
+
+1. To view the average backup data added by backup jobs for each volume in the protected server, navigate to the **Jobs** tab. 
+ 
+    ![View the average backup data.](./media/backup-azure-manage-mars/view-average-backup-data.png)
+
+Learn more about [other report tabs](configure-reports.md) and receiving those [reports through email](backup-reports-email.md).
 
 ## Next steps
 

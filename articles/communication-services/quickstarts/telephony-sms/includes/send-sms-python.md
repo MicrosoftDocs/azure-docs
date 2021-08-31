@@ -7,7 +7,7 @@ manager: ankita
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/11/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
@@ -17,9 +17,8 @@ Get started with Azure Communication Services by using the Communication Service
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-<!--**TODO: update all these reference links as the resources go live**
-
-[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)-->
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-sms-quickstart)
 
 ## Prerequisites
 
@@ -81,8 +80,7 @@ Instantiate an **SmsClient** with your connection string. Learn how to [manage y
 # Create the SmsClient object which will be used to send SMS messages
 sms_client = SmsClient.from_connection_string(<connection_string>)
 ```
-For simplicity we are using connection strings in this quickstart, but in production environments we recommend using [managed identities](../../../quickstarts/managed-identity.md) because they are more secure and manageable at scale.
-
+For simplicity we are using connection strings in this quickstart, but in production environments we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
 ## Send a 1:1 SMS Message
 

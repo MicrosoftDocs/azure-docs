@@ -29,4 +29,4 @@ Once you have moved your VMs across regions, you may re-enable Automanage on the
 
 ## Next steps
 * [Learn more about Azure Automanage](./automanage-virtual-machines.md)
-* [View frequently asked questions about Azure Automanage](./faq.md)
+* [View frequently asked questions about Azure Automanage](./faq.yml)

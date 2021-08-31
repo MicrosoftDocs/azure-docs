@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
+ms.date: 06/02/2021
 ---
 # Quickstart: Deploy a Managed Apache Spark Cluster (Preview) with Azure Databricks
 
@@ -74,9 +74,9 @@ Follow these steps to create an Azure Databricks cluster in a Virtual Network th
 1. In the **New cluster** pane, accept default values for all fields other than the following fields:
 
    * **Cluster Name** - Enter a name for the cluster.
-   * **Databricks Runtime Version** - Select Scala 2.11 or lower version that is supported by the Cassandra Connector.
+   * **Databricks Runtime Version** - We recommend selecting Databricks runtime version 7.5 or higher, for Spark 3.x support. 
 
-    :::image type="content" source="./media/deploy-cluster-databricks/spark-cluster.png" alt-text="Select the Databricks runtime version and the Spark Cluster." border="true":::
+    :::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Select the Databricks runtime version and the Spark Cluster." border="true":::
 
 1. Expand **Advanced Options** and add the following configuration. Make sure to replace the node IPs and credentials:
 
@@ -88,9 +88,9 @@ Follow these steps to create an Azure Databricks cluster in a Virtual Network th
     spark.cassandra.connection.ssl.enabled true
     ```
 
-1. From the **Libraries** tab, install the latest version of spark connector for Cassandra(*spark-cassandra-connector*) and restart the cluster:
+1. Add the Apache Spark Cassandra Connector library to your cluster to connect to both native and Azure Cosmos DB Cassandra endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` in Maven coordinates.
 
-    :::image type="content" source="./media/deploy-cluster-databricks/connector.png" alt-text="Install the Cassandra connector." border="true":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Databricks.":::
 
 ## Clean up resources
 

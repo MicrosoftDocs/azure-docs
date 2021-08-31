@@ -8,7 +8,8 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Elevate access to manage all Azure subscriptions and management groups

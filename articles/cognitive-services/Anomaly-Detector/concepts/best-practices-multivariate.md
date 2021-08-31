@@ -13,95 +13,161 @@ ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ---
 
-# Multivariate time series Anomaly Detector best practices
+# Best practices for using the Anomaly Detector multivariate API
 
-This article will provide guidance around recommended practices to follow when using the multivariate Anomaly Detector APIs.
+This article will provide guidance around recommended practices to follow when using the multivariate Anomaly Detector (MVAD) APIs. 
+In this tutorial, you'll:
 
-## How to prepare data for training
+> [!div class="checklist"]
+> * **API usage**: Learn how to use MVAD without errors.
+> * **Data engineering**: Learn how to best cook your data so that MVAD performs with better accuracy.
+> * **Common pitfalls**: Learn how to avoid common pitfalls that customers meet.
+> * **FAQ**: Learn answers to frequently asked questions.
 
-To use the Anomaly Detector multivariate APIs, we need to train our own model before using detection. Data used for training is a batch of time series, each time series should be in CSV format with two columns, timestamp and value. All of the time series should be zipped into one zip file and uploaded to Azure Blob storage. By default the file name will be used to represent the variable for the time series. Alternatively, an extra meta.json file can be included in the zip file if you wish the name of the variable to be different from the .zip file name. Once we generate a [blob SAS (Shared access signatures) URL](../../../storage/common/storage-sas-overview.md), we can use it for training.
+## API usage
 
-## Data quality and quantity
+Follow the instructions in this section to avoid errors while using MVAD. If you still get errors, please refer to the [full list of error codes](./troubleshoot.md) for explanations and actions to take.
 
-The Anomaly Detector multivariate API uses state-of-the-art deep neural networks to learn normal patterns from historical data and predicts whether future values are anomalies. The quality and quantity of training data is important to train an optimal model. As the model learns normal patterns from historical data, the training data should represent the overall normal state of the system. It is hard for the model to learn these types of patterns if the training data is full of anomalies. Also, the model has millions of parameters and it needs a minimum number of data points to learn an optimal set of parameters. The general rule is that you need to provide at least 15,000 data points per variable to properly train the model. The more data, the better the model.
+[!INCLUDE [mvad-input-params](../includes/mvad-input-params.md)]
 
-It is common that many time series have missing values, which may affect the performance of trained models. The missing ratio of each time series should be controlled under a reasonable value. A time series having 90% values missing provides little information about normal patterns of the system. Even worse, the model may consider filled values as normal patterns, which are usually straight segments or constant values. When new data flows in, the data might be detected as anomalies.
+[!INCLUDE [mvad-data-schema](../includes/mvad-data-schema.md)]
 
-A recommended max missing value threshold is 20%, but a higher threshold might be acceptable under some circumstances. For example, if you have a time series with one-minute granularity and another time series with hourly granularity.  Each hour there are 60 data points per minute of data and 1 data point for hourly data, which means that the missing ratio for hourly data is 98.33%. However, it is fine to fill the hourly data with the only value if the hourly time series does not typically fluctuate too much.
 
-## Parameters
+## Data engineering
 
-### Sliding window
+Now you're able to run the your code with MVAD APIs without any error. What could be done to improve your model accuracy?
 
-Multivariate anomaly detection takes a segment of data points of length `slidingWindow` as input and decides if the next data point is an anomaly. The larger the sample length, the more data will be considered for a decision. You should keep two things in mind when choosing a proper value for `slidingWindow`: properties of input data, and the trade-off between training/inference time and potential performance improvement. `slidingWindow` consists of an integer between 28 and 2880. You may decide how many data points are used as inputs based on whether your data is periodic, and the sampling rate for your data.
+### Data quality
 
-When your data is periodic, you may include 1 - 3 cycles as an input and when your data is sampled at a high frequency (small granularity) like minute-level or second-level data, you may select more data as an input. Another issue is that longer inputs may cause longer training/inference time, and there is no guarantee that more input points will lead to performance gains. Whereas too few data points, may make the model difficult to converge to an optimal solution. For example, it is hard to detect anomalies when the input data only has two points.
+* As the model learns normal patterns from historical data, the training data should represent the **overall normal** state of the system. It is hard for the model to learn these types of patterns if the training data is full of anomalies. An empirical threshold of abnormal rate is **1%** and below for good accuracy.
+* In general, the **missing value ratio of training data should be under 20%**. Too much missing data may end up with automatically filled values (usually linear values or constant values) being learnt as normal patterns. That may result in real (not missing) data points being detected as anomalies.
+    However, there are cases when a high missing ratio is acceptable. For example, if you have two variables (time series) in a group using `Outer` mode to align their timestamps. One of them has one-minute granularity, the other one has hourly granularity. Then the hourly variable by nature has at least 59 / 60 = 98.33% missing data points. In such cases, it's fine to fill the hourly variable using the only value available (not missing) if it typically does not fluctuate too much.
 
-### Align mode
+### Data quantity
 
-The parameter `alignMode` is used to indicate how you want to align multiple time series on time stamps. This is because many time series have missing values and we need to align them on the same time stamps before further processing. There are two options for this parameter, `inner join` and `outer join`. `inner join` means we will report detection results on timestamps on which **every time series** has a value, while `outer join` means we will report detection results on time stamps for **any time series** that has a value.  **The `alignMode` will also affect the input sequence of the model**, so choose a suitable `alignMode` for your scenario because the results might be significantly different.
+* The underlying model of MVAD has millions of parameters. It needs a minimum number of data points to learn an optimal set of parameters. The empirical rule is that you need to provide **15,000 or more data points (timestamps) per variable** to train the model for good accuracy. In general, the more the training data, better the accuracy. However, in cases when you're not able to accrue that much data, we still encourage you to experiment with less data and see if the compromised accuracy is still acceptable.
+* Every time when you call the inference API, you need to ensure that the source data file contains just enough data points. That is normally `slidingWindow` + number of data points that **really** need inference results. For example, in a streaming case when every time you want to inference on **ONE** new timestamp, the data file could contain only the leading `slidingWindow` plus **ONE** data point; then you could move on and create another zip file with the same number of data points (`slidingWindow` + 1) but moving ONE step to the "right" side and submit for another inference job. 
 
-Here we show an example to explain different `alignModel` values.
+    Anything beyond that or "before" the leading sliding window will not impact the inference result at all and may only cause performance downgrade.Anything below that may lead to an `NotEnoughInput` error.
 
-#### Series1
 
-|timestamp | value|
-----------| -----|
-|`2020-11-01`| 1  
-|`2020-11-02`| 2  
-|`2020-11-04`| 4  
-|`2020-11-05`| 5
+### Timestamp round-up
 
-#### Series2
+In a group of variables (time series), each variable may be collected from an independent source. The timestamps of different variables may be inconsistent with each other and with the known frequencies. Here is a simple example.
 
-timestamp | value  
---------- | -
-`2020-11-01`| 1  
-`2020-11-02`| 2  
-`2020-11-03`| 3  
-`2020-11-04`| 4
+*Variable-1*
 
-#### Inner join two series
-  
-timestamp | Series1 | Series2
-----------| - | -
-`2020-11-01`| 1 | 1
-`2020-11-02`| 2 | 2
-`2020-11-04`| 4 | 4
+| timestamp | value |
+| --------- | ----- |
+| 12:00:01  | 1.0   |
+| 12:00:35  | 1.5   |
+| 12:01:02  | 0.9   |
+| 12:01:31  | 2.2   |
+| 12:02:08  | 1.3   |
 
-#### Outer join two series
+*Variable-2*
 
-timestamp | series1 | series2
---------- | - | -
-`2020-11-01`| 1 | 1
-`2020-11-02`| 2 | 2
-`2020-11-03`| NA | 3
-`2020-11-04`| 4 | 4
-`2020-11-05`| 5 | NA
+| timestamp | value |
+| --------- | ----- |
+| 12:00:03  | 2.2   |
+| 12:00:37  | 2.6   |
+| 12:01:09  | 1.4   |
+| 12:01:34  | 1.7   |
+| 12:02:04  | 2.0   |
 
-### Fill not available (NA)
+We have two variables collected from two sensors which send one data point every 30 seconds. However, the sensors are not sending data points at a strict even frequency, but sometimes earlier and sometimes later. Because MVAD will take into consideration correlations between different variables, timestamps must be properly aligned so that the metrics can correctly reflect the condition of the system. In the above example, timestamps of variable 1 and variable 2 must be properly 'rounded' to their frequency before alignment.
 
-After variables are aligned on timestamp by outer join, there might be some `Not Available` (`NA`) value in some of the variables. You can specify method to fill this NA value. The options for the `fillNAMethod` are `Linear`, `Previous`, `Subsequent`,  `Zero`, and `Fixed`.
+Let's see what happens if they're not pre-processed. If we set `alignMode` to be `Outer` (which means union of two sets), the merged table will be
 
-| Option     | Method                                                                                           |
-| ---------- | -------------------------------------------------------------------------------------------------|
-| Linear     | Fill NA values by linear interpolation                                                           |
-| Previous   | Propagate last valid value to fill gaps. Example: `[1, 2, nan, 3, nan, 4]` -> `[1, 2, 2, 3, 3, 4]` |
-| Subsequent | Use next valid value to fill gaps. Example: `[1, 2, nan, 3, nan, 4]` -> `[1, 2, 3, 3, 4, 4]`       |
-| Zero       | Fill NA values with 0.                                                                           |
-| Fixed      | Fill NA values with a specified valid value that should be provided in `paddingValue`.          |
+| timestamp | Variable-1 | Variable-2 |
+| --------- | -------- | -------- |
+| 12:00:01  | 1.0      | `nan`    |
+| 12:00:03  | `nan`    | 2.2      |
+| 12:00:35  | 1.5      | `nan`    |
+| 12:00:37  | `nan`    | 2.6      |
+| 12:01:02  | 0.9      | `nan`    |
+| 12:01:09  | `nan`    | 1.4      |
+| 12:01:31  | 2.2      | `nan`    |
+| 12:01:34  | `nan`    | 1.7      |
+| 12:02:04  | `nan`    | 2.0      |
+| 12:02:08  | 1.3      | `nan`    |
 
-## Model analysis
+`nan` indicates missing values. Obviously, the merged table is not what you might have expected. Variable 1 and variable 2 interleave, and the MVAD model cannot extract information about correlations between them. If we set `alignMode` to `Inner`, the merged table will be empty as there is no common timestamp in variable 1 and variable 2.
 
-### Training latency
+Therefore, the timestamps of variable 1 and variable 2 should be pre-processed (rounded to the nearest 30-second timestamps) and the new time series are
 
-Multivariate Anomaly Detection training can be time-consuming. Especially when you have a large quantity of timestamps used for training. Therefore, we allow part of the training process to be asynchronous. Typically, users submit train task through Train Model API. Then get model status through the `Get Multivariate Model API`. Here we demonstrate how to extract the remaining time before training completes. In the Get Multivariate Model API response, there is an item named `diagnosticsInfo`. In this item, there is a `modelState` element. To calculate the remaining time, we need to use `epochIds` and `latenciesInSeconds`. An epoch represents one complete cycle through the training data. Every 10 epochs, we will output status information. In total, we will train for 100 epochs, the latency indicates how long an epoch takes. With this information, we know remaining time left to train the model.
+*Variable-1*
 
-### Model performance
+| timestamp | value |
+| --------- | ----- |
+| 12:00:00  | 1.0   |
+| 12:00:30  | 1.5   |
+| 12:01:00  | 0.9   |
+| 12:01:30  | 2.2   |
+| 12:02:00  | 1.3   |
 
-Multivariate Anomaly Detection, as an unsupervised model. The best way to evaluate it is to check the anomaly results manually. In the Get Multivariate Model response, we provide some basic info for us to analyze model performance. In the `modelState` element returned by the Get Multivariate Model API, we can use `trainLosses` and `validationLosses` to evaluate whether the model has been trained as expected. In most cases, the two losses will decrease gradually. Another piece of information for us to analyze model performance against is in `variableStates`. The variables state list is ranked by `filledNARatio` in descending order. The larger the worse our performance, usually we need to reduce this `NA ratio` as much as possible. `NA` could be caused by missing values or unaligned variables from a timestamp perspective.
+*Variable-2*
+
+| timestamp | value |
+| --------- | ----- |
+| 12:00:00  | 2.2   |
+| 12:00:30  | 2.6   |
+| 12:01:00  | 1.4   |
+| 12:01:30  | 1.7   |
+| 12:02:00  | 2.0   |
+
+Now the merged table is more reasonable.
+
+| timestamp | Variable-1 | Variable-2 |
+| --------- | -------- | -------- |
+| 12:00:00  | 1.0      | 2.2      |
+| 12:00:30  | 1.5      | 2.6      |
+| 12:01:00  | 0.9      | 1.4      |
+| 12:01:30  | 2.2      | 1.7      |
+| 12:02:00  | 1.3      | 2.0      |
+
+Values of different variables at close timestamps are well aligned, and the MVAD model can now extract correlation information.
+
+## Common pitfalls
+
+Apart from the [error code table](./troubleshoot.md), we've learned from customers like you some common pitfalls while using MVAD APIs. This table will help you to avoid these issues.
+
+| Pitfall | Consequence |Explanation and solution |
+| --------- | ----- | ----- |
+| Timestamps in training data and/or inference data were not rounded up to align with the respective data frequency of each variable. | The timestamps of the inference results are not as expected: either too few timestamps or too many timestamps.  | Please refer to [Timestamp round-up](#timestamp-round-up).  |
+| Too many anomalous data points in the training data | Model accuracy is impacted negatively because it treats anomalous data points as normal patterns during training. | Empirically, keep the abnormal rate at or below **1%** will help. |
+| Too little training data | Model accuracy is compromised. | Empirically, training a MVAD model requires 15,000 or more data points (timestamps) per variable to keep a good accuracy.|
+| Taking all data points with `isAnomaly`=`true` as anomalies | Too many false positives | You should use both `isAnomaly` and `severity` (or `score`) to sift out anomalies that are not severe and (optionally) use grouping to check the duration of the anomalies to suppress random noises. Please refer to the [FAQ](#faq) section below for the difference between `severity` and `score`.  |
+| Sub-folders are zipped into the data file for training or inference. | The csv data files inside sub-folders are ignored during training and/or inference. | No sub-folders are allowed in the zip file. Please refer to [Folder structure](#folder-structure) for details. |
+| Too much data in the inference data file: for example, compressing all historical data in the inference data zip file | You may not see any errors but you'll experience degraded performance when you try to upload the zip file to Azure Blob as well as when you try to run inference. | Please refer to [Data quantity](#data-quantity) for details. |
+| Creating Anomaly Detector resources on Azure regions that don't support MVAD yet and calling MVAD APIs  | You will get a "resource not found" error while calling the MVAD APIs. | During preview stage, MVAD is available on limited regions only. Please bookmark [What's new in Anomaly Detector](../whats-new.md)  to keep up to date with MVAD region roll-outs. You could also file a GitHub issue or contact us at AnomalyDetector@microsoft.com to request for specific regions. |
+
+## FAQ
+
+### How does MVAD sliding window work?
+
+Let's use two examples to learn how MVAD's sliding window works. Suppose you have set `slidingWindow` = 1,440, and your input data is at one-minute granularity.
+
+* **Streaming scenario**: You want to predict whether the ONE data point at "2021-01-02T00:00:00Z" is anomalous. Your `startTime` and `endTime` will be the same value ("2021-01-02T00:00:00Z"). Your inference data source, however, must contain at least 1,440 + 1 timestamps. Because, MVAD will take the leading data before the target data point ("2021-01-02T00:00:00Z") to decide whether the target is an anomaly. The length of the needed leading data is `slidingWindow` or 1,440 in this case. 1,440 = 60 * 24, so your input data must start from at latest "2021-01-01T00:00:00Z".
+
+* **Batch scenario**: You have multiple target data points to predict. Your `endTime` will be greater than your `startTime`. Inference in such scenarios is performed in a "moving window" manner. For example, MVAD will use data from `2021-01-01T00:00:00Z` to `2021-01-01T23:59:00Z` (inclusive) to determine whether data at `2021-01-02T00:00:00Z` is anomalous. Then it moves forward and uses data from `2021-01-01T00:01:00Z` to `2021-01-02T00:00:00Z` (inclusive)
+to determine whether data at `2021-01-02T00:01:00Z` is anomalous. It moves on in the same manner (taking 1,440 data points to compare) until the last timestamp specified by `endTime` (or the actual latest timestamp). Therefore, your inference data source must contain data starting from `startTime` - `slidingWindow` and ideally contains in total of size `slidingWindow` + (`endTime` - `startTime`).
+
+### Why only accepting zip files for training and inference?
+
+We use zip files because in batch scenarios, we expect the size of both training and inference data would be very large and cannot be put in the HTTP request body. This allows users to perform batch inference on historical data either for model validation or data analysis.
+
+However, this might be somewhat inconvenient for streaming inference and for high frequency data. We have a plan to add a new API specifically designed for streaming inference that users can pass data in the request body.
+
+### What's the difference between `severity` and `score`?
+
+Normally we recommend you use  `severity` as the filter to sift out 'anomalies' that are not so important to your business. Depending on your scenario and data pattern, those anomalies that are less important often have relatively lower `severity` values or standalone (discontinuous) high `severity` values like random spikes.
+
+In cases where you've found a need of more sophisticated rules than thresholds against `severity` or duration of continuous high `severity` values, you may want to use `score` to build more powerful filters. Understanding how MVAD is using `score` to determine anomalies may help:
+
+We consider whether a data point is anomalous from both global and local perspective. If `score` at a timestamp is higher than a certain threshold, then the timestamp is marked as an anomaly. If `score` is lower than the threshold but is relatively higher in a segment, it is also marked as an anomaly.
 
 ## Next steps
 
-- [Quickstarts](../quickstarts/client-libraries-multivariate.md).
-- [Learn about the underlying algorithms that power Anomaly Detector Multivariate](https://arxiv.org/abs/2009.02040)
+* [Quickstarts: Use the Anomaly Detector multivariate client library](../quickstarts/client-libraries-multivariate.md).
+* [Learn about the underlying algorithms that power Anomaly Detector Multivariate](https://arxiv.org/abs/2009.02040)

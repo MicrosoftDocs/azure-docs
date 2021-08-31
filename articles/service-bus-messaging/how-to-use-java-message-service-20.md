@@ -33,7 +33,7 @@ To learn more about how to prepare your developer environment for Java on Azure,
 
 ## What JMS features are supported?
 
-[!INCLUDE [service-bus-jms-features-list](../../includes/service-bus-jms-feature-list.md)]
+[!INCLUDE [service-bus-jms-features-list](./includes/service-bus-jms-feature-list.md)]
 
 ## Downloading the Java Message Service (JMS) client library
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/09/2021
+ms.date: 06/03/2021
 ms.author: alkohli
 ---
 # Security and data protection for Azure Stack Edge Pro R and Azure Stack Edge Mini R
@@ -46,7 +46,7 @@ The rugged device is an on-premises device that helps transform your data by pro
     - For the device software, default firewall logs are collected for inbound and outbound traffic from the device. These logs are bundled in the support package.
     - For the device hardware, all the device chassis events such as opening and closing of the device chassis, are logged in the device.
 
-    For more information on the specific logs that contain the hardware and software intrusion events and how to get the logs, go to [Gather advanced security logs](azure-stack-edge-gpu-troubleshoot.md).
+    For more information on the specific logs that contain the hardware and software intrusion events and how to get the logs, go to [Gather advanced security logs](azure-stack-edge-gpu-troubleshoot.md#gather-advanced-security-logs).
 
 
 ### Protect the device via activation key

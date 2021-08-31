@@ -2,7 +2,8 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus.
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/03/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshooting guide for Azure Service Bus

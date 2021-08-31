@@ -6,7 +6,7 @@ manager: gwallace
 ms.date: 03/21/2019
 ms.topic: quickstart
 ms.service: container-instances
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - mvc
   - mode-api
 ---

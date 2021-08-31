@@ -72,4 +72,4 @@ To resolve this error when the parent resource was previously deployed in a diff
 }
 ```
 
-For more information, see [Define the order for deploying resources in Azure Resource Manager templates](define-resource-dependency.md).
+For more information, see [Define the order for deploying resources in Azure Resource Manager templates](./resource-dependency.md).

@@ -1,13 +1,13 @@
 ---
 title: Install a master target server for Linux VM failback with Azure Site Recovery
 description: Learn how to set up a Linux master target server for failback to an on-premises site during disaster recovery of VMware VMs to Azure using Azure Site Recovery.
-author: mayurigupta13
 services: site-recovery
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.author: mayg
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 
@@ -332,7 +332,16 @@ You need to install VMware tools or open-vm-tools on the master target so that i
 
 ### Upgrade the master target server
 
-Run the installer. It automatically detects that the agent is installed on the master target. To upgrade, select **Y**.  After the setup has been completed, check the version of the master target installed by using the following command:
+Running the installer will automatically detect that the agent is installed on the master target. To complete the upgrade, complete the following steps:
+1. Copy tar.gz from configuration server to linux master target
+2. Run this command to validate the version you are running: cat /usr/local/.vx_version
+3. Extract tar: tar -xvf latestlinuxmobsvc.tar.gz
+4. Give permissions to execute changes: chmod 755 ./install
+5. Run the upgrade script: sudo ./install
+6. The installer should detect the agent is installed on the master target. To upgrade, select **Y**.
+7. Validate the agent is running the new version: cat /usr/local/.vx_version
+
+After the setup has been completed, check the version of the master target installed by using the following command:
 
 `cat /usr/local/.vx_version`
 

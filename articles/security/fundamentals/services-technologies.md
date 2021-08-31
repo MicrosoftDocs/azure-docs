@@ -85,7 +85,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)|A TCP/UDP application network load balancer. |
 | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)| A dedicated WAN link between on-premises networks and Azure Virtual Networks. |
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| A global DNS load balancer.|
-| [Azure Application Proxy](../../active-directory/manage-apps/application-proxy.md)| An authenticating front-end used to secure remote access for web applications hosted on-premises. |
+| [Azure Application Proxy](../../active-directory/app-proxy/application-proxy.md)| An authenticating front-end used to secure remote access for web applications hosted on-premises. |
 |[Azure Firewall](../../firewall/overview.md)|A managed, cloud-based network security service that protects your Azure Virtual Network resources.|
 |[Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
 |[Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)|Extends your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection.|

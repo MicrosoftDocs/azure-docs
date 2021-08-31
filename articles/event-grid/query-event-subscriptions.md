@@ -2,7 +2,8 @@
 title: Query Azure Event Grid subscriptions
 description: This article describes how to list Event Grid subscriptions in your Azure subscription. You provide different parameters based on the type of subscription.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/07/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Query Event Grid subscriptions 
