@@ -54,11 +54,9 @@ Use the following steps to create a linked service to Amazon S3 Compatible Stora
 
     :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
-
----
 
 2. Search for Amazon and select the Amazon S3 Compatible Storage connector.
 

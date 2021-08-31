@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 08/27/2021
+ms.date: 08/31/2021
 ms.topic: reference
 ms.custom: generated
 ---
@@ -45,7 +45,6 @@ For sample queries for this table, see [Resource Graph sample queries for guestc
   - Sample query: [Count machines in scope of guest configuration policies](../samples/samples-by-category.md#count-machines-in-scope-of-guest-configuration-policies)
   - Sample query: [Count of non-compliant guest configuration assignments](../samples/samples-by-category.md#count-of-non-compliant-guest-configuration-assignments)
   - Sample query: [Find all reasons a machine is non-compliant for guest configuration assignments](../samples/samples-by-category.md#find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments)
-  - Sample query: [Query details of guest configuration assignment reports](../samples/samples-by-category.md#query-details-of-guest-configuration-assignment-reports)
 
 ## healthresources
 
@@ -136,6 +135,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Citrix.Services/XenDesktopEssentials (Citrix Virtual Desktops Essentials)
 - conexlink.mycloudit/accounts
 - crypteron.datasecurity/apps
+- dynatrace.observability/monitors
 - GitHub.Enterprise/accounts (GitHub AE)
 - gridpro.evops/accounts
 - gridpro.evops/accounts/eventrules
@@ -277,6 +277,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
   - Sample query: [Count virtual machines by OS type](../samples/samples-by-category.md#count-virtual-machines-by-os-type)
   - Sample query: [Count virtual machines by OS type with extend](../samples/samples-by-category.md#count-virtual-machines-by-os-type-with-extend)
   - Sample query: [List all extensions installed on a virtual machine](../samples/samples-by-category.md#list-all-extensions-installed-on-a-virtual-machine)
+  - Sample query: [List machines that are not running and the last compliance status](../samples/samples-by-category.md#list-machines-that-are-not-running-and-the-last-compliance-status)
   - Sample query: [List of virtual machines by availability state and power state with Resource Ids and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - Sample query: [List virtual machines with their network interface and public IP](../samples/samples-by-category.md#list-virtual-machines-with-their-network-interface-and-public-ip)
   - Sample query: [Show all virtual machines ordered by name in descending order](../samples/samples-by-category.md#show-all-virtual-machines-ordered-by-name-in-descending-order)
@@ -293,6 +294,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.ConnectedCache/cacheNodes (Connected Cache Resources)
 - Microsoft.ConnectedVehicle/platformAccounts (Connected Vehicle Platforms)
 - microsoft.connectedvmwarevsphere/clusters
+- microsoft.connectedvmwarevsphere/datastores
 - microsoft.connectedvmwarevsphere/resourcepools
 - Microsoft.connectedVMwareVSphere/vCenters (VMware vCenters)
 - Microsoft.ConnectedVMwarevSphere/VirtualMachines (VMware + AVS virtual machines)
@@ -337,6 +339,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.DataProtection/BackupVaults (Backup vaults)
 - Microsoft.DataProtection/resourceGuards (Resource Guards (Preview))
 - microsoft.dataprotection/resourceoperationgatekeepers
+- microsoft.datareplication/replicationfabrics
 - microsoft.datareplication/replicationvaults
 - Microsoft.DataShare/accounts (Data Shares)
 - Microsoft.DBforMariaDB/servers (Azure Database for MariaDB servers)
@@ -414,6 +417,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.hardwaresecuritymodules/dedicatedhsms
 - Microsoft.HDInsight/clusterpools (HDInsight cluster pools)
 - Microsoft.HDInsight/clusterpools/clusters (HDInsight gen2 clusters)
+- microsoft.hdinsight/clusterpools/clusters/sessionclusters
 - Microsoft.HDInsight/clusters (HDInsight clusters)
 - Microsoft.HealthBot/healthBots (Azure Health Bot)
 - Microsoft.HealthcareApis/services (Azure API for FHIR)
@@ -425,7 +429,9 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.HpcWorkbench/instances (HPC Workbenches (preview))
 - Microsoft.HybridCompute/machines (Servers - Azure Arc)
   - Sample query: [Get count and percentage of Arc-enabled servers by domain](../samples/samples-by-category.md#get-count-and-percentage-of-arc-enabled-servers-by-domain)
+  - Sample query: [List all extensions installed on an Azure Arc-enabled server](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - microsoft.hybridcompute/machines/extensions
+  - Sample query: [List all extensions installed on an Azure Arc-enabled server](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - Microsoft.HybridCompute/privateLinkScopes (Azure Arc Private Link Scopes)
 - Microsoft.HybridData/dataManagers (StorSimple Data Managers)
 - Microsoft.HybridNetwork/devices (Azure Network Function Manager – Devices  (Preview))
@@ -680,6 +686,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.Search/searchServices (Search services)
 - microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
+- microsoft.security/securityconnectors
 - Microsoft.SecurityDetonation/chambers (Security Detonation Chambers)
 - Microsoft.ServiceBus/namespaces (Service Bus Namespaces)
 - Microsoft.ServiceFabric/clusters (Service Fabric clusters)
