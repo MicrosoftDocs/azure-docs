@@ -21,7 +21,7 @@ Azure VMware Solution supports the following operations:
 
 ## View the status of an execution
 
-You can view the status of any run command executed including the output, errors, warnings, and information.
+You can view the status of any run command executed, including the output, errors, warnings, and information.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -37,21 +37,21 @@ You can view the status of any run command executed including the output, errors
 
    You can view more details about the execution including the output, errors, warnings, and information.
 
-   - **Details** - Shows the summary of the execution details, such as the name, status, package, and command name ran. 
+   - **Details** - Summary of the execution details, such as the name, status, package, and command name ran. 
 
-   - **Output** - Shows the output of the cmdlet.  Not all cmdlets have output.
+   - **Output** - Message at the end of successful execution of a cmdlet. Not all cmdlets have output.
 
       :::image type="content" source="media/run-command/run-execution-status-example-output.png" alt-text="Screenshot showing the output of a run execution.":::
 
-   - **Error** - Shows any errors encountered during the execution of the cmdlet. The minimal requirements for the script not met resulting in the execution failing.   
+   - **Error** - Terminating exception that stopped the execution of a cmdlet.    
 
       :::image type="content" source="media/run-command/run-execution-status-example-error.png" alt-text="Screenshot showing the errors detected during the execution of an execution.":::
 
-   - **Warning** - Shows any warnings encountered during the execution of the cmdlet.  The minimal requirements were met but the environment changed during execution. For example, the VM was rebooted during execution triggering the cmdlet to stop resulting in the execution failing. 
+   - **Warning** - Non-Terminating exception occurred during the execution of a cmdlet. 
 
       :::image type="content" source="media/run-command/run-execution-status-example-warning.png" alt-text="Screenshot showing the warnings detected during the execution of an execution.":::
 
-   - **Information** - Shows the overall real-time progress of the cmdlet as it runs. 
+   - **Information** - Progress message during the execution of a cmdlet. 
 
       :::image type="content" source="media/run-command/run-execution-status-example-information.png" alt-text="Screenshot showing the overall real-time progress of the cmdlet as it runs.":::
 
@@ -78,7 +78,7 @@ You can view the status of any run command executed including the output, errors
 
 1. Select **Run command** > **Packages** > **Run execution status**.
 
-2. Select the **More** (...) button of the job you want to cancel and delete.
+2. Select **More** (...) for the job you want to cancel and delete.
 
    :::image type="content" source="media/run-command/run-execution-cancel-delete-job-method-2.png" alt-text="Screenshot showing how to cancel and delete a run command using the ellipsis.":::
 

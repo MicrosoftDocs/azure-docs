@@ -41,16 +41,16 @@ VMs running in an organization's VMware‐based data center are continuously rep
 
 ### Cloud to cloud deployment
 
-In this configuration, Azure VMware Solution hosts the customer's primary environment in one data center. It protects the VMs and their data by continuously replicating to another private cloud in another of its data centers. If there is an incident, VMs and data are recovered in the second data center. This protection can be bi‐directional, with data center "A" protecting data center "B", and vice‐versa.
+In this configuration, Azure VMware Solution hosts your primary environment in one data center. It protects the VMs and the data by continuously replicating to another private cloud in another of its data centers. If there is an incident, VMs and data are recovered in the second data center. This protection can be bi‐directional, with data center "A" protecting data center "B", and vice‐versa.
 
 :::image type="content" source="media/jetstream-disaster-recovery/jetstream-cloud-to-cloud-diagram.png" alt-text="Diagram showing the Azure VMware Solution private cloud to private cloud JetStream deployment." border="false":::
 
 
 ## Prerequisites
 
-- Azure VMware Solution private cloud must be deployed as a secondary region. 
+- Azure VMware Solution private cloud deployed as a secondary region. 
 
-- An Ubuntu Linux jump box with an ExpressRoute connection to their Azure VMware Solution private cloud. 
+- An Ubuntu Linux jump box with an ExpressRoute connection to your Azure VMware Solution private cloud. 
 
 - Latest PowerShell installed onto the Linux jump box.
 
@@ -72,7 +72,7 @@ Any of the following types can be used:
 | **Item**  | **Description**  |  
 | --- | --- |  
 | **vCenter Server**  | <ul><li>Supported version: 6.7</li><li>HTTPS port: If using a firewall, HTTPS port 443 must be open.</li><li>Connectivity: The JetStream DR Management Server Appliance FQDN must be reachable from vCenter. Otherwise, the plug-in installation fails.</li><li>Time: The vCenter and JetStream DR MSA clocks must be synchronized.</li></ul>  |
-| **Distributed Resource Schedular (DRS)**  | It’s recommended on the compute cluster for resource balancing.  |
+| **Distributed Resource Scheduler (DRS)**  | It’s recommended on the compute cluster for resource balancing.  |
 | **Cluster**  | vSphere Hosts: VMs to be protected by JetStream DR must be part of a cluster.  |
 | **vSphere Host**  | <ul><li>Supported version: 6.7U1 (build #10302608) or later</li><li>Connectivity: vCenter Server FQDN must be reachable from the host, otherwise the host configuration fails.</li><li>Time: The vSphere hosts and JetStream DR MSA clocks must be synchronized.</li><li>CIM Service: The CIM server must be enabled, which is the default setting.</li></ul>  |
 | **JetStream DR MSA**  | <ul><li>CPU: 64 bit, 4 vCPUs</li><li>Memory: 4 GB</li><li>Disk space: 60 GB</li><li>Network: Static or dynamically assigned (DHCP) IP addresses can be used. The FQDN must be registered with DNS.</li><li>DNS: DNS name resolution for vSphere hosts and vCenter Server</li></ul>  |
