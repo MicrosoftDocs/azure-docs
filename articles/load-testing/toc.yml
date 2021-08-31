@@ -19,6 +19,7 @@
         - name: Access resources with managed endpoints
           href: ../machine-learning/tutorial-deploy-managed-endpoints-using-system-managed-identity.md
 - name: How-tos
+  expanded: true
   items: 
     - name: Identify bottlenecks with VS Code
       href: how-to-identify-bottlenecks-in-vs-code.md
@@ -26,7 +27,7 @@
       items: 
         - name: Azure Pipelines for CI/CD
           displayName: continuous, integration, delivery
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+          href: /azure/devops/pipelines/targets/azure-machine-learning
         - name: GitHub Actions for CI/CD
           href: ../machine-learning/how-to-github-actions-machine-learning.md 
 - name: Resources
