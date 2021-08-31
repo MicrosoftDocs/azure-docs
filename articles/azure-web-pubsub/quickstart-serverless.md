@@ -192,6 +192,7 @@ In this tutorial, you learn how to:
         }
         ```
 
+
     > Here we use [AAD](/azure/app-service/configure-authentication-user-identities) user identity header `x-ms-client-principal-name` to retrieve `userId`. And this won't work in a local function. You can make it empty or change to other ways to get or generate `userId` when playing in local. For example, let client type a user name and pass it in query like `?user={$username}` when call `negotiate` function to get service connection url, and in the `negotiate` function, set `userId` with value `{query.user}`.
 
 2. Create a `message` function to broadcast client messages through service.
