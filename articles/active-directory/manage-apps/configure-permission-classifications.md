@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
@@ -26,7 +26,7 @@ To complete the tasks in this guide, you need the following:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Global Administrator role.
-- Set up Azure AD PowerShell. See [Azure AD PowerShell for Graph](https://docs.microsoft.com/powershell/azure/
+- Set up Azure AD PowerShell. See [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/)
 
 ## Manage permission classifications
 

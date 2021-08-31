@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: phsignor
 
@@ -28,7 +28,7 @@ For more information on consenting to applications, see [Azure Active Directory 
 
 To do the following actions, you must sign in as a global administrator, an application administrator, or a cloud application administrator.
 
-- Set up Microsoft Graph PowerShell SDK. See [Microsoft Graph PowerShell Installation](https://docs.microsoft.com/graph/powershell/installation)
+- Set up Azure AD PowerShell. See [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/)
 
 To restrict access to applications, you need to require user assignment and then assign users or groups to the application.  For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md).
 
@@ -99,12 +99,8 @@ We recommend that you disable the application to block users' access and to keep
 
 Retrieve the service principal object ID.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
-2. Select **Azure Active Directory** > **Enterprise applications**.
-3. Select the application that you want to restrict access to.
-4. Select **Properties**, and then copy the object ID.
-
    ```powershell
+   $app_name = "<Your App's display name>"
    $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
    $sp.ObjectId
    ```
