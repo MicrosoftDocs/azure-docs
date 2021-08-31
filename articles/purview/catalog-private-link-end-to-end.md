@@ -166,7 +166,7 @@ These instructions are provided for accessing Azure Purview securely from an Azu
 ## Deploy self-hosted integration runtime (IR) and scan your data sources.
 Once you deploy ingestion private endpoints for your Azure Purview, you need to setup and register at least one self-hosted integration runtime (IR):
 
-- All on-premises source types like Azure SQL Server, Oracle, SAP, and others are currently supported only via self-hosted IR-based scans. The self-hosted IR must run within your private network and then be peered with your virtual network in Azure. 
+- All on-premises source types like Microsoft SQL Server, Oracle, SAP, and others are currently supported only via self-hosted IR-based scans. The self-hosted IR must run within your private network and then be peered with your virtual network in Azure. 
    
 - For all Azure source types like Azure Blob Storage and Azure SQL Database, you must explicitly choose to run the scan by using a self-hosted integration runtime that is deployed in the same VNet as Azure Purview ingestion private endpoint. 
 

@@ -22,7 +22,7 @@ In this article, you'll rotate the cloudadmin credentials (vCenter Server *Cloud
 
 Consider and determine which services connect to vCenter as *cloudadmin@vsphere.local* before you rotate the password. These services may include VMware services such as HCX, vRealize Orchestrator, vRealize Operations Manager, VMware Horizon, or other third-party tools used for monitoring or provisioning. 
 
-One way to determine which services authenticate to vCenter with the cloudadmin user is to inspect vSphere events using the vSphere Client for your private cloud. After you identify such services, and before rotating the password, stop these services. Otherwise, the services won't work after you rotate the password. You'll also experience temporary locks on your vCenter CloudAdmin account, as these services continuously attempt to authenticate using a cached version of the old credentials. 
+One way to determine which services authenticate to vCenter with the cloudadmin user is to inspect vSphere events using the vSphere Client for your private cloud. After you identify such services, and before rotating the password, you must stop these services. Otherwise, the services won't work after you rotate the password. You'll also experience temporary locks on your vCenter CloudAdmin account, as these services continuously attempt to authenticate using a cached version of the old credentials. 
 
 Instead of using the cloudadmin user to connect services to vCenter, we recommend individual accounts for each service. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 

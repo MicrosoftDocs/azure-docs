@@ -21,7 +21,7 @@ Serverless SQL pool supports reading multiple files/folders by using wildcards, 
 
 Your first step is to **create a database** where you'll execute the queries. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
 
-You'll use the folder *csv/taxi* to follow the sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016 to June 2018. Files in *csv/taxi* are named after year and month using the following pattern: yellow_tripdata_<year>-<month>.csv
+You'll use the folder *csv/taxi* to follow the sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016 to June 2018. Files in *csv/taxi* are named after year and month using the following pattern: yellow_tripdata_\<year>-\<month>.csv
 
 ## Read all files in folder
 
