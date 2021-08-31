@@ -66,7 +66,7 @@ Use the following steps to create an Azure Data Lake Storage Gen2 linked service
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-data-lake-storage/configure-data-lake-storage-linked-service.png" alt-text="Screenshot of configuration forzure Data Lake Storage Gen2 linked service.":::
+    :::image type="content" source="media/connector-azure-data-lake-storage/configure-data-lake-storage-linked-service.png" alt-text="Screenshot of configuration for Azure Data Lake Storage Gen2 linked service.":::
 
 ## Connector configuration details
 

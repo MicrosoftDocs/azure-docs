@@ -66,7 +66,7 @@ Use the following steps to create an Azure Blob Storage linked service in the Az
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Screenshot of configuration forzure Blob Storage linked service.":::
+    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Screenshot of configuration for Azure Blob Storage linked service.":::
 
 ## Connector configuration details
 
