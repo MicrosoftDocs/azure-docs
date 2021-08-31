@@ -21,18 +21,8 @@ Learn how to access Azure resources from your scoring script with a managed onli
 
 Managed endpoints (preview) allow Azure Machine Learning to manage the burden of provisioning your compute resource and deploying your machine learning model. Typically your model needs to access Azure resources such as the Azure Container Registry or your blob storage for inferencing; with a managed identity you can access these resources without needing to manage credentials in your code. [Learn more about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-In this example, walk through how to
- 
-* Define the configuration YAML
-* Configure the variables for your deployment
-* Create the managed identity to be used with your endpoint
-* Create a storage and container that you want to access
-* Create a managed online endpoint
-* Give required permissions to the managed identity
-* Review the Scoring script to access Azure resource
-* Create a deployment using your configuration
-* Confirm your endpoint deployed successfully
-* Delete the endpoint and storage account
+In this guide, you 
+
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -68,7 +58,7 @@ To deploy a managed endpoint with the CLI, you need to define the configuration 
 
 # [System-assigned managed identity](#tab/system-identity)
 
-The following YAML example is located at`endpoints/online/managed/managed-identities/2-sai-create-endpoint-with-deployment.yml`. The file, 
+The following YAML example is located at `endpoints/online/managed/managed-identities/2-sai-create-endpoint-with-deployment.yml`. The file, 
 
 * Defines the name by which you want to refer to the endpoint, `my-sai-endpoint`.
 * Specifies the type of authorization to use to access the endpoint, `auth-mode: key`.
@@ -145,7 +135,8 @@ To create an user-assigned identity, use the following:
 
 ## Create a storage and container
 
-For this example, create a blob storage account and blob container, and then upload the previously created text file to the blob container.
+For this example, create a blob storage account and blob container, and then upload the previously created text file to the blob container. 
+This is the storage account and blob container that you'll give the endpoint and managed identity access to. 
 
 # [System-assigned managed identity](#tab/system-identity)
 
@@ -184,7 +175,6 @@ Then, upload file in container.
 ## Create a managed online endpoint
 
 The following code creates a managed online endpoint without specifying a deployment. 
-
 When you create a managed endpoint, a system-assigned managed identity is created for the endpoint by default.
 
 >[!IMPORTANT]
