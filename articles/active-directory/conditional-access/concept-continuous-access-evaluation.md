@@ -12,7 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
-
+ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
 ---
 # Continuous access evaluation

@@ -41,7 +41,7 @@ The following is a quick checklist of VM size best practices for running your SQ
 - Consider a higher memory-to-vCore ratio for mission critical and data warehouse workloads. 
 - Use the Azure Virtual Machine marketplace images as the SQL Server settings and storage options are configured for optimal SQL Server performance. 
 - Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.
-- Use the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) [SKU recommendation](/sql/dma/dma-sku-recommend-sql-db.md) tool to find the right VM size for your existing SQL Server workload.
+- Use the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) [SKU recommendation](/sql/dma/dma-sku-recommend-sql-db) tool to find the right VM size for your existing SQL Server workload.
 
 To learn more, see the comprehensive [VM size best practices](performance-guidelines-best-practices-vm-size.md). 
 

@@ -116,7 +116,9 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 * For the containers with analytical store turned on, automatic backup and restore of your data in the analytical store is not supported at this time. When Synapse Link is enabled on a database account, Azure Cosmos DB will continue to automatically [take backups](./online-backup-and-restore.md) of your data in the transactional store (only) of containers at scheduled backup interval, as always. It is important to note that when a container with analytical store turned on is restored to a new account, the container will be restored with only transactional store and no analytical store enabled.
 
-* Accessing the Azure Cosmos DB analytics store with Synapse SQL provisioned is currently not available.
+* Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently isn't supported.
+
+* Currently Azure Cosmos DB serverless accounts aren't supported.
 
 ## Security
 

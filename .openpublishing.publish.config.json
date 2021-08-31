@@ -782,6 +782,12 @@
       "url": "https://github.com/dotnet/samples",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-docs-bicep-samples",
+      "url": "https://github.com/Azure/azure-docs-bicep-samples/",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
