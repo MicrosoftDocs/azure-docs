@@ -1,5 +1,5 @@
 ---
-title: Email notifications in PIM - Azure Active Directory | Microsoft Docs
+title: Email notifications in Privileged Identity Management (PIM) - Azure Active Directory | Microsoft Docs
 description: Describes email notifications in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 06/30/2021
+ms.date: 08/24/2021
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
@@ -33,6 +33,21 @@ These emails include a **PIM** prefix in the subject line. Here's an example:
 
 - PIM: Alain Charon was permanently assigned the Backup Reader role
 
+## Email timing for activation approvals
+
+When users activate their role and the role setting requires approval, approvers will receive two emails for each approval:
+
+- Request to approve or deny the user's activation request (sent by the request approval engine)
+- The user's request is approved (sent by the request approval engine)
+
+Also, Global Administrators and Privileged Role Administrators receive an email for each approval:
+
+- The user's role is activated (sent by Privileged Identity Management)
+
+The first two emails sent by the request approval engine can be delayed. Currently, 90% of emails take three to ten minutes, but for 1% customers it can be much longer, up to fifteen minutes.
+
+If an approval request is approved in the Azure portal before the first email is sent, the first email will no longer be triggered and other approvers won't be notified by email of the approval request. It might appear as if the they didn't get an email but it's the expected behavior.
+
 ## Notifications for Azure AD roles
 
 Privileged Identity Management sends emails when the following events occur for Azure AD roles:
@@ -41,7 +56,7 @@ Privileged Identity Management sends emails when the following events occur for 
 - When a privileged role activation request is completed
 - When Azure AD Privileged Identity Management is enabled
 
-Who receives these emails for Azure AD roles depends on your role, the event, and the notifications setting:
+Who receives these emails for Azure AD roles depends on your role, the event, and the notifications setting.
 
 | User | Role activation is pending approval | Role activation request is completed | PIM is enabled |
 | --- | --- | --- | --- |
@@ -72,22 +87,7 @@ The email includes:
 
 The **Overview of your top roles** section lists the top five roles in your organization based on total number of permanent and eligible administrators for each role. The **Take action** link opens [Discovery & Insights](pim-security-wizard.md) where you can convert permanent administrators to eligible administrators in batches.
 
-## Email timing for activation approvals
-
-When users activate their role and the role setting requires approval, approvers will receive two emails for each approval:
-
-- Request to approve or deny the user's activation request (sent by the request approval engine)
-- The user's request is approved (sent by the request approval engine)
-
-Also, Global Administrators and Privileged Role Administrators receive an email for each approval:
-
-- The user's role is activated (sent by Privileged Identity Management)
-
-The first two emails sent by the request approval engine can be delayed. Currently, 90% of emails take three to ten minutes, but for 1% customers it can be much longer, up to fifteen minutes.
-
-If an approval request is approved in the Azure portal before the first email is sent, the first email will no longer be triggered and other approvers won't be notified by email of the approval request. It might appear as if the they didn't get an email but it's the expected behavior.
-
-## PIM emails for Azure resource roles
+## Notifications for Azure resource roles
 
 Privileged Identity Management sends emails to Owners and User Access Administrators when the following events occur for Azure resource roles:
 
@@ -108,6 +108,25 @@ Privileged Identity Management sends emails to end users when the following even
 The following shows an example email that is sent when a user is assigned an Azure resource role for the fictional Contoso organization.
 
 ![New Privileged Identity Management email for Azure resource roles](./media/pim-email-notifications/email-resources-new.png)
+
+## Notifications for Privileged Access groups
+
+Privileged Identity Management sends emails to Owners only when the following events occur for Privileged Access group assignments:
+
+- When an Owner or Member role assignment is pending approval
+- When an Owner or Member role is assigned
+- When an Owner or Member role is soon to expire
+- When an Owner or Member role is eligible to extend
+- When an Owner or Member role is being renewed by an end user
+- When an Owner or Member role activation request is completed
+
+Privileged Identity Management sends emails to end users when the following events occur for Privileged Access group role assignments:
+
+- When an Owner or Member role is assigned to the user
+- When a user's an Owner or Member role is expired
+- When a user's an Owner or Member role is extended
+- When a user's an Owner or Member role activation request is completed
+
 
 ## Next steps
 

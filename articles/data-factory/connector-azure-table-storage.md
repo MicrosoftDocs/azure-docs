@@ -46,21 +46,19 @@ Use the following steps to create an Azure Table storage linked service in the A
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
-
----
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 2. Search for Azure Table and select the Azure Table storage connector.
 
-    :::image type="content" source="media/connector-azure-table-storage/azure-table-storage-connector.png" alt-text="Select the Azure Table storage connector.":::    
+    :::image type="content" source="media/connector-azure-table-storage/azure-table-storage-connector.png" alt-text="Screenshot of the Azure Table storage connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-table-storage/configure-azure-table-storage-linked-service.png" alt-text="Configure an Azure Table storage linked service.":::
+    :::image type="content" source="media/connector-azure-table-storage/configure-azure-table-storage-linked-service.png" alt-text="Screenshot of configuration for an Azure Table storage linked service.":::
 
 ## Connector configuration details
 
