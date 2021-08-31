@@ -13,6 +13,7 @@ Resource Manager provides the following functions for getting resource values in
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [pickZones](#pickzones)
+* [providers (deprecated)](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -461,6 +462,10 @@ The following example shows how to use the pickZones function to enable zone red
   }
 ]
 ```
+
+## providers
+
+**The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
 
 ## reference
 
