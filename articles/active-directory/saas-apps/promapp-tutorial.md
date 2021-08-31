@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/10/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -34,6 +34,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Nintex Promapp supports **SP and IDP** initiated SSO.
 * Nintex Promapp supports **Just In Time** user provisioning.
+
+* Nintex Promapp supports [Automated user provisioning](promapp-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -95,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign on URL** box, type a URL using the following pattern: `https://<DOMAIN_NAME>.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE]
-	> These values are placeholders. You need to use the actual identifier, reply URL, and sign-on URL. Contact the [Nintex Promapp support team](https://www.promapp.com/about-us/contact-us/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+	> These values are placeholders. You need to use the actual Identifier,Reply URL and Sign on URL. Contact the [Nintex Promapp support team](https://www.promapp.com/about-us/contact-us/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -157,6 +159,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create Nintex Promapp test user
 
 In this section, a user called B.Simon is created in Nintex Promapp. Nintex Promapp supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Nintex Promapp, a new one is created after authentication.
+
+Nintex Promapp also supports automatic user provisioning, you can find more details [here](./promapp-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
