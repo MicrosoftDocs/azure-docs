@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Harness supports **SP and IDP** initiated SSO.
+
+* Harness supports [Automated user provisioning](harness-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -173,6 +175,8 @@ To enable Azure AD users to sign in to Harness, they must be provisioned into Ha
     b. Select your **User Groups**.
 
     c. Click **Submit**.
+
+Harness also supports automatic user provisioning, you can find more details [here](./harness-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
