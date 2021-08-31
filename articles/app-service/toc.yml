@@ -129,24 +129,24 @@
       href: ./security-controls-policy.md
     - name: Security overview
       href: overview-security.md
-  - name: Networking features
+  - name: Networking
     items:
     - name: Overview
       href: networking-features.md
+    - name: Inbound and outbound IPs
+      href: overview-inbound-outbound-ips.md
+    - name: Private endpoint
+      href: networking/private-endpoint.md
+    - name: Hybrid connections
+      href: app-service-hybrid-connections.md
+    - name: Virtual Network Integration
+      href: web-sites-integrate-with-vnet.md
     - name: Application Gateway integration
       href: networking/app-gateway-with-service-endpoints.md
     - name: NAT gateway integration
       href: networking/nat-gateway-integration.md
-    - name: Private Endpoint
-      href: networking/private-endpoint.md
-  - name: Inbound and outbound IPs
-    href: overview-inbound-outbound-ips.md
-  - name: Virtual Network Integration
-    href: web-sites-integrate-with-vnet.md
-  - name: Hybrid connections
-    href: app-service-hybrid-connections.md
-  - name: Traffic Manager integration
-    href: web-sites-traffic-manager.md
+    - name: Traffic Manager integration
+      href: web-sites-traffic-manager.md
   - name: Local cache
     href: overview-local-cache.md
   - name: Diagnostics

@@ -44,7 +44,7 @@ You can use PowerShell, CLI, Terraform scripts, or the .NET SDK to deploy the He
 FHIR service includes FHIR APIs and endpoints in Azure for data access and storage in FHIR data 
 format. A FHIR service manages Protected Health Information (PHI) in a secure and compliant cloud 
 environment. Deploying a FHIR service allows you to bring together clinical heath data from multiple 
-systems into the Azure Cloud based on the [FHIR](https://www.hl7.org/fhir/index.html) interoperable data standard published by HL7. For more information, see [About FHIR service](https://docs.microsoft.com/azure/healthcare-apis/fhir/overview).
+systems into the Azure Cloud based on the [FHIR](https://www.hl7.org/fhir/index.html) interoperable data standard published by HL7. For more information, see [About FHIR service](./fhir/overview.md).
 
 ## DICOM service
 
@@ -60,7 +60,7 @@ Some features are configured at the workspace level and apply to all child servi
 
 ### Application monitoring
 
-Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For information about Azure Monitor, see [Azure Monitor overview](https://docs.microsoft.com/azure/azure-monitor/) documentation.
+Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For information about Azure Monitor, see [Azure Monitor overview](../azure-monitor/index.yml) documentation.
 
 ### Role-based access control (RBAC)
 
@@ -68,7 +68,7 @@ Azure role-based access control (Azure RBAC) is a system that provides fine-grai
 of Azure resources. Using Azure RBAC, you can segregate duties within your team and grant only the 
 amount of access to users that they need to perform their jobs. Furthermore, it helps you manage who 
 has access to Azure resources, what they can do with those resources, and what areas they have access 
-to. For more information, see [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/) documentation.
+to. For more information, see [Azure RBAC](../role-based-access-control/index.yml) documentation.
 
 
 ## Next steps
@@ -77,6 +77,3 @@ To start working with the Azure Healthcare APIs, follow the 5-minute quick start
 
 >[!div class="nextstepaction"]
 >[Deploy workspace in the Azure portal](healthcare-apis-quickstart.md)
-
-
-

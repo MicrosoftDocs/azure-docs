@@ -2,18 +2,14 @@
 title: 'Tutorial: Configure Tribeloo for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tribeloo.
 services: active-directory
-documentationcenter: ''
 author: twimmers
 writer: twimmers
 manager: beatrizd
-
 ms.assetid: d1063ef2-5d39-4480-a1e2-f58ebe7f98c3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: thwimmer
 ---
@@ -115,10 +111,12 @@ This section guides you through the steps to configure the Azure AD provisioning
    |Attribute|Type|Supported for filtering|
    |---|---|---|
    |userName|String|&check;
+   |emails[type eq "work"].value|String|
    |active|Boolean|   
    |displayName|String|
    |name.givenName|String|
    |name.familyName|String|
+   |addresses[type eq "work"].formatted|String|
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -141,7 +139,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md). 
+
+## Change Log
+* 08/12/2021 - Added support for core user attributes **emails[type eq "work"].value** and **addresses[type eq "work"].formatted**.
 
 ## More resources
 

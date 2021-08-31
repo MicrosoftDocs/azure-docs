@@ -71,7 +71,7 @@ You can move data from existing Cassandra workloads to Azure Cosmos DB by using 
 
 ### Migrate data by using the cqlsh COPY command
 
-Use the [CQL COPY command](https://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) to copy local data to the Cassandra API account in Azure Cosmos DB.
+Use the [CQL COPY command](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html#cqlshrc) to copy local data to the Cassandra API account in Azure Cosmos DB.
 
 1. Get your Cassandra API account’s connection string information:
 
@@ -107,7 +107,3 @@ In this tutorial, you've learned how to migrate your data to a Cassandra API acc
 
 > [!div class="nextstepaction"]
 > [Tunable data consistency levels in Azure Cosmos DB](../consistency-levels.md)
-
-
-
-

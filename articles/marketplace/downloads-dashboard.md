@@ -4,9 +4,10 @@ description: Learn how to access download requests for your marketplace offers.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
+ms.reviewer: sroy
+ms.date: 08/21/2020
 ---
 
 # Downloads dashboard in commercial marketplace analytics

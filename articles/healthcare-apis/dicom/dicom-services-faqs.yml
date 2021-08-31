@@ -7,12 +7,11 @@ metadata:
   ms.service: healthcare-apis
   ms.subservice: fhir
   ms.topic: reference
-  ms.date: 07/10/2021
+  ms.date: 08/04/2021
   ms.author: aersoy
     
 title: Frequently asked questions about the DICOM service
 summary: |
-  - These are the frequently asked questions about the Azure Healthcare APIs DICOM service.
 
 sections:
   - name: Ignored
@@ -29,7 +28,7 @@ sections:
           
           - **Blob storage**: persists all DICOM data and metadata
           - **Azure SQL**: indexes a subset of the DICOM metadata to support queries, and maintains a queryable log of changes
-          - **Azure Key Vault**: stores critical security information
+          - **Azure Managed Identity**: stores critical security information
           
       - question: What data formats are compatible with the DICOM service?
         answer: |
@@ -59,6 +58,9 @@ sections:
           
       - question: What is the difference between Retrieve, Query, and Store?
         answer: |
-          Query, Retrieve, and store are standard DICOMweb&trade; verbs. Query (QIDO) searches for DICOM objects. QIDO enables you to search for studies, series and instances by patient ID. Retrieve (WADO) enables you to retrieve specific studies, series, and instances by reference. Store (STOW-RS) enables you to store specific instances to a DICOM server.
+          Query, Retrieve, and store are standard DICOMweb&trade; verbs. Query (QIDO) searches for DICOM objects. QIDO enables you to search for studies, series and instances by patient ID. Retrieve (WADO) enables you to retrieve specific studies, series, and instances by reference. Store (STOW-RS) enables you to store specific instances to a DICOM server. For more information about the specifics of QIDO, WADO, and STOW, see [DICOMweb&trade;](https://www.dicomstandard.org/dicomweb).
+      
+      - question: What is REST API versioning in the DICOM service?
+        answer: |
+          DICOM service has versions for the REST API used to access the service. The version is specified as a URL path in the requests. For more information visit the [API Versioning for DICOM service Documentation](./api-versioning-dicom-service.md).
           
-          For more information about the specifics of QIDO, WADO, and STOW, see [DICOMweb&trade;](https://www.dicomstandard.org/dicomweb).

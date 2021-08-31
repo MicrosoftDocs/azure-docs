@@ -73,7 +73,7 @@ You can get this information from your Azure Active Directory through a process 
 
 1. Select **App Registrations** from the menu and select your newly registered app.
 
-1. Select **API Permissions** from the menu and click the **Add a permission** button.
+1. Select **API Permissions** from the menu and select the **Add a permission** button.
 
 1. On the **Select an API** page, select the **Microsoft Graph** API and then choose from a list of Microsoft Graph permissions.
 
@@ -97,11 +97,11 @@ Now that your app has been registered and permissions have been granted, you can
 
 1. Select **App Registrations** from the menu and select your newly registered app.
 
-1. Select **Certificates & secrets** from the menu and click the **New client secret** button to receive a secret (API key) for your app.
+1. Select **Certificates & secrets** from the menu and select the **New client secret** button to receive a secret (API key) for your app.
 
     :::image type="content" source="media/connect-threat-intelligence-tip/threat-intel-client-secret.png" alt-text="Get client secret":::
 
-1. Click the **Add** button and **copy the client secret**.
+1. Select the **Add** button and **copy the client secret**.
 
     > [!IMPORTANT]
     > You must copy the **client secret** before leaving this screen. You cannot retrieve this secret again if you navigate away from this page. You will need this value when you configure your TIP or custom solution.
@@ -130,9 +130,9 @@ The last step in the integration process is to enable the **Threat Intelligence 
 
 1. Choose the **workspace** to which you want to import the threat indicators sent from your TIP or custom solution.
 
-1. Select **Data connectors** from the menu, select **Threat Intelligence Platforms** from the connectors gallery, and click the **Open connector page** button.
+1. Select **Data connectors** from the menu, select **Threat Intelligence Platforms** from the connectors gallery, and select the **Open connector page** button.
 
-1. As you’ve already completed the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to click the **Connect** button.
+1. As you’ve already completed the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to select the **Connect** button.
 
 Within a few minutes, threat indicators should begin flowing into this Azure Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade, accessible from the Azure Sentinel navigation menu.
 
@@ -140,5 +140,5 @@ Within a few minutes, threat indicators should begin flowing into this Azure Sen
 
 In this document, you learned how to connect your threat intelligence platform to Azure Sentinel. To learn more about Azure Sentinel, see the following articles.
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

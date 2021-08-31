@@ -4,7 +4,7 @@ description: Describes how to view support requests, send messages, change the r
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 08/24/2021
 # To add: close and reopen, review request status, update contact info
 ---
 
@@ -52,7 +52,7 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
 ## Share diagnostic information with Azure support
 
-When you create a support request, the **Share diagnostic information** option is selected by default. This option allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources that can potentially help resolve your issue.
+When you create a support request, you can select **Yes** or **No** in the **Share diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources that can potentially help resolve your issue.
 
 To change your **Share diagnostic information** selection after the request has been created:
 

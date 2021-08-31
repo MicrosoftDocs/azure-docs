@@ -7,7 +7,7 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: philmea
+
 
 #Customer intent: As an administrator, I want to customize the themes and help links within Central so that my company's brand is represented within the app.
 ---

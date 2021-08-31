@@ -228,20 +228,17 @@ The following example configuration demonstrates how to override an error code.
 {
   "responseOverrides": {
     "400": {
-      "rewrite": "/invalid-invitation-error.html",
-      "statusCode": 200
+      "rewrite": "/invalid-invitation-error.html"
     },
     "401": {
       "statusCode": 302,
       "redirect": "/login"
     },
     "403": {
-      "rewrite": "/custom-forbidden-page.html",
-      "statusCode": 200
+      "rewrite": "/custom-forbidden-page.html"
     },
     "404": {
-      "rewrite": "/custom-404.html",
-      "statusCode": 200
+      "rewrite": "/custom-404.html"
     }
   }
 }

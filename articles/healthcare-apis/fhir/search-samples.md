@@ -5,11 +5,14 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/21/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
 ---
 
 # FHIR search examples
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a `POST` request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
    
@@ -154,6 +157,12 @@ GET [your-fhir-server]/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
 ``` 
 
 This request specifies the component containing a code of `2823-3`, which in this case would be potassium. Following the `$` symbol, it specifies the range of the value for the component using `lt` for "less than or equal to" and `9.2` for the potassium value range. 
+
+Composite search parameters can also be used to filter multiple component code value quantities with an OR. For example, to express the query to find diastolic blood pressure greater than 90 OR systolic blood pressure greater than 140:
+
+```rest
+GET [your-fhir-server]/Observation?component-code-value-quantity=http://loinc.org|8462-4$gt90,http://loinc.org|8480-6$gt140
+``` 
 
 ## Search the next entry set
 

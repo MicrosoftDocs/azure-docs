@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a management group with Azure PowerShell'
 description: In this quickstart, you use Azure PowerShell to create a management group to organize your resources into a resource hierarchy.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom:
   - devx-track-azurepowershell

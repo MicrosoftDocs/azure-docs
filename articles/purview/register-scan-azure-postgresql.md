@@ -33,7 +33,7 @@ Purview supports only SQL authentication for Azure database for PostgreSQL.
 
 #### SQL authentication for an Azure database for PostgreSQL
 
-Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can follow the instructions in [CONNECT AND QUERY](/azure/postgresql/connect-python) to create a login for your Azure database for PostgreSQL if you don't have this available. You will need **username** and **password** for the next steps.
+Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can follow the instructions in [CONNECT AND QUERY](../postgresql/connect-python.md) to create a login for your Azure database for PostgreSQL if you don't have this available. You will need **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal
 1. Select **Settings > Secrets**
