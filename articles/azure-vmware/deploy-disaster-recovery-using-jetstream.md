@@ -126,8 +126,8 @@ The cmdlet checks:
    | **Field** | **Value** |
    | --- | --- |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **checkDRsystem**.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **checkDRsystem**.  |
+   | **Timeout**  | The period after which a cmdlet will exit if a certain execution is taking too long to finish.  |
 
 1. Check **Notifications** to see the progress. 
 
@@ -153,8 +153,8 @@ You'll run the `Invoke-PreflightJetDRInstall` cmdlet to check the following clus
    | **Cluster** | Cluster name where MSA will be deployed. For example, **Cluster-1**. |
    | **ProtectedCluster** | Cluster to be protected. For example, **Cluster-1**. |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **check_jetserverdetails**.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **check_jetserverdetails**.  |
+   | **Timeout**  | The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  
 
@@ -184,8 +184,8 @@ You'll run the `Install-JetDR` cmdlet to deploy JetDR MSA, register vCenter to t
    | **ProtectedCluster** | Cluster to be protected. For example, **Cluster-1**. |
    | **RegisterWithIp** | Register MSA with Ip instead of hostname. <ul><li>True if hostname of the MSA is not DNS registered.</li><li>False if hostname of the MSA is DNS registered. </li></ul> |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **check_jetserverdetails**.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **check_jetserverdetails**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  
 
@@ -213,8 +213,8 @@ You'll run the `Invoke-PreflightJetDRUninstall` cmdlet to diagnose the existing 
    | **Credential** | Credentials of root user of the MSA VM. It must be the same provided at the time of installation.  |
    | **ProtectedCluster** | Name of the protected cluster, for example, **Cluster-1**.  It must be the cluster that was provided at the time of installation. |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **uninstallcheck_jetserverdetails**.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **uninstallcheck_jetserverdetails**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  
 
@@ -235,8 +235,8 @@ You'll run the `Uninstall-JetDR` cmdlet to uninstall JetStream DR and its compon
    | **Credential** | Credentials of root user of the MSA VM. It must be the same provided at the time of installation.   |
    | **ProtectedCluster** | Name of the protected cluster, for example, **Cluster-1**.  It must be the cluster that was provided at the time of installation. |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **uninstallcheck_jetserverdetails**.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **uninstallcheck_jetserverdetails**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  
 

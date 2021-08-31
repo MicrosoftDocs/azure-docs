@@ -54,8 +54,8 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
    | **Field** | **Value** |
    | --- | --- |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. The default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute.  |
-   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
 
@@ -80,8 +80,8 @@ You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an exte
    | **Credential**  | The username and password used for authentication with the AD source (not cloudadmin).  |
    | **GroupName**  | Group to give cloud admin access in your external identity source.  For example, **avs-admins**.  |
    | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. The default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **addexternalIdentity**.  |
-   | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **addexternalIdentity**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
 
@@ -112,8 +112,8 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
    | **CertificateSAS** | Path to SAS strings with the certificates for authentication to the AD source.  |
    | **GroupName**  | Group to give cloud admin access in your external identity source.  For example, **avs-admins**.  |
    | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. The default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **addexternalIdentity**.  |
-   | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **addexternalIdentity**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
 
@@ -132,8 +132,8 @@ You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to cl
    | --- | --- |
    | **GroupName**  | Name of the group to add. For example, **VcAdminGroup**.  |
    | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. The default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **addADgroup**.  |
-   | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **addADgroup**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
 
@@ -152,8 +152,8 @@ You'll run the `Remove-GroupFromCloudAdmins` cmdlet to remove a specified AD gro
    | --- | --- |
    | **GroupName**  | Name of the group to remove. For example, **VcAdminGroup**.  |
    | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. The default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **removeADgroup**.  |
-   | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **removeADgroup**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
 
@@ -173,8 +173,8 @@ You'll run the `Remove-ExternalIdentitySources` cmdlet to remove all existing ex
    | **Field** | **Value** |
    | --- | --- |
    | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. The default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **remove_externalIdentity**.  |
-   | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **remove_externalIdentity**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
 
