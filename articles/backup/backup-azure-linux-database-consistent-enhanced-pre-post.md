@@ -108,4 +108,5 @@ Using database consistent snapshots + logs backed up using a custom solution, on
   <summary>Click to expand!</summary>
   
   [!INCLUDE [Configuring network connectivity](../../includes/oracle-database-backup-azure-backup.md)]
+
 </details>
