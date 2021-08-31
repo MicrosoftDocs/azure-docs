@@ -22,14 +22,14 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.34.0
   + **azureml-automl-core**
-    + Add support to return predicted probabilities from AutoML scoring script
     + Classical forecasting learners (AutoArima, Prophet, ExponentialSmoothing, etc.) are now supported when lags/rolling windows are enabled.
     +  Added the ability to fit the model on new data; - Added the ability to predict in sample.
   + **azureml-automl-runtime**
-    + Add support to return predicted probabilities from AutoML scoring script
+    + Deployed endpoint of an AutoML classifier model.
     + The forecasting of the whole numbers was implemented.
-    + Removed the target column name from being part of model explanation feature names for local experiments with training_data / label_column_name as dataset inputs.
-    +  Added the ability to fit the model on new data; - Added the ability to predict in sample.
+    + Removed the target column name from being part of model explanation feature names for local experiments with training_data_label_column_name
+    +  as dataset inputs.
+    +  Added the ability to fit the model on new data - Added the ability to predict in sample.
   + **azureml-core**
     + added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
     + revert: added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
@@ -41,9 +41,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + The dependency `azureml-inference-server-http==0.3.1` has been added to `azureml-defaults`.
   + **azureml-mlflow**
     + Allow pagination of list_experiments API by adding `max_results` and `page_token` optional params. For documentation, see MLflow official docs.
-  + **azureml-responsibleai**
-    + It seems if there are no RAI insights available, we return an empty list and during download() if try to reference from the list. The download fails because, we try to 	   	reference from the list. This is not a good user experience hence failing the list() method so that user knows that something did not work.
-    + Enable `mlflow` model loader for Model Analysis
   + **azureml-sdk**
     + Replaced dependency on deprecated package(azureml-train) inside azureml-sdk.
     + Add azureml-responsibleai to azureml-sdk extras
