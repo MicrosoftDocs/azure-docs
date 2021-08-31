@@ -93,24 +93,37 @@ For permissions required to use the PIM API, see [Understand the Privileged Iden
 The following is a sample HTTP request to create an eligible assignment. The scope of the eligibility is all directory objects in the tenant until June 30, 2022 at midnight UTC time. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
 
 ````HTTP
+POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests 
 
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests
-Content-Type: application/json
+ 
 
-{
-  "action": "AdminAssign",
-  "justification": "Assign User Admin eligibility to IT Helpdesk (User) group",
-  "roleDefinitionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "directoryScopeId": "/",
-  "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "scheduleInfo": {
-    "startDateTime": "2021-07-01T00:00:00Z",
-    "expiration": {
-      "endDateTime": "2022-06-30T00:00:00Z",
-      "type": "AfterDateTime"
-    }
-  }
-}
+{ 
+
+    "action": "AdminAssign", 
+
+    "justification": "abcde", 
+
+    "directoryScopeId": "/", 
+
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+
+    "roleDefinitionId": "cf1c38e5-3621-4004-a7cb-879624dced7c", 
+
+    "scheduleInfo": { 
+
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+
+        "expiration": { 
+
+            "type": "AfterDuration", 
+
+            "duration": "PT3H" 
+
+        } 
+
+    } 
+
+} 
 ````
 
 ### HTTP response
@@ -118,47 +131,83 @@ Content-Type: application/json
 The following is an example of the response. The response object shown here might be shortened for readability.
 
 ````HTTP
-HTTP/1.1 201 Created
-Content-Type: application/json
+{ 
 
-{
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity",
-    "id": "672c03bf-226a-42ec-a8b7-3bfab96064a1",
-    "status": "Provisioned",
-    "createdDateTime": "2021-07-26T18:08:03.1299669Z",
-    "completedDateTime": "2021-07-26T18:08:06.2081758Z",
-    "approvalId": null,
-    "customData": null,
-    "action": "AdminAssign",
-    "principalId": "07706ff1-46c7-4847-ae33-3003830675a1",
-    "roleDefinitionId": "fdd7a751-b60b-444a-984c-02652fe8fa1c",
-    "directoryScopeId": "/",
-    "appScopeId": null,
-    "isValidationOnly": false,
-    "targetScheduleId": "672c03bf-226a-42ec-a8b7-3bfab96064a1",
-    "justification": "Assign User Admin eligibility to IT Helpdesk (User) group",
-    "createdBy": {
-        "application": null,
-        "device": null,
-        "user": {
-            "displayName": null,
-            "id": "fc9a2c2b-1ddc-486d-a211-5fe8ca77fa1f"
-        }
-    },
-    "scheduleInfo": {
-        "startDateTime": "2021-07-26T18:08:06.2081758Z",
-        "recurrence": null,
-        "expiration": {
-            "type": "afterDateTime",
-            "endDateTime": "2022-06-30T00:00:00Z",
-            "duration": null
-        }
-    },
-    "ticketInfo": {
-        "ticketNumber": null,
-        "ticketSystem": null
-    }
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+
+    "id": "57ae4c91-495c-4dac-96a8-a3999f2d9c49", 
+
+    "status": "Provisioned", 
+
+    "createdDateTime": "2021-07-15T19:36:11.7541438Z", 
+
+    "completedDateTime": "2021-07-15T19:36:14.5979249Z", 
+
+    "approvalId": null, 
+
+    "customData": null, 
+
+    "action": "AdminAssign", 
+
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+
+    "roleDefinitionId": "9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3", 
+
+    "directoryScopeId": "/", 
+
+    "appScopeId": null, 
+
+    "isValidationOnly": false, 
+
+    "targetScheduleId": "57ae4c91-495c-4dac-96a8-a3999f2d9c49", 
+
+    "justification": "test", 
+
+    "createdBy": { 
+
+        "application": null, 
+
+        "device": null, 
+
+        "user": { 
+
+            "displayName": null, 
+
+            "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
+
+        } 
+
+    }, 
+
+    "scheduleInfo": { 
+
+        "startDateTime": "2021-07-15T19:36:14.5979249Z", 
+
+        "recurrence": null, 
+
+        "expiration": { 
+
+            "type": "afterDuration", 
+
+            "endDateTime": null, 
+
+            "duration": "PT3H" 
+
+        } 
+
+    }, 
+
+    "ticketInfo": { 
+
+        "ticketNumber": null, 
+
+        "ticketSystem": null 
+
+    } 
+
 } 
+
+  
 ````
 
 ## Update or remove an existing role assignment
