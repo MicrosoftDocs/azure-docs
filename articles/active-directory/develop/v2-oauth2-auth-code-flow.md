@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -216,7 +216,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `redirect_uri`  | required  | The same redirect_uri value that was used to acquire the authorization_code. |
 | `grant_type` | required   | Must be `authorization_code` for the authorization code flow.   |
 | `code_verifier` | recommended  | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| `client_secret` | required for confidential web apps | The application secret that you created in the app registration portal for your app. You shouldn't use the application secret in a native app or single page app because client_secrets can't be reliably stored on devices or web pages. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.  Like all parameters discussed here, the client secret must be URL-encoded before being sent, a step usually performed by the SDK. For more information on uri encoding,  see the [URI Generic Syntax specification](https://tools.ietf.org/html/rfc3986#page-12). |
+| `client_secret` | required for confidential web apps | The application secret that you created in the app registration portal for your app. You shouldn't use the application secret in a native app or single page app because client_secrets can't be reliably stored on devices or web pages. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.  Like all parameters discussed here, the client secret must be URL-encoded before being sent, a step usually performed by the SDK. For more information on uri encoding,  see the [URI Generic Syntax specification](https://tools.ietf.org/html/rfc3986#page-12).  The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
 
 ### Request an access token with a certificate credential
 

@@ -7,7 +7,7 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Add a map layer from the Open Geospatial Consortium (OGC)

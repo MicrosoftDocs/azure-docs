@@ -49,8 +49,8 @@ The following steps show how to create a Windows image from a Windows Hyper-V vi
     For more information, read the article that shows how to [convert the virtual disk to a fixed size VHD](../virtual-machines/windows/prepare-for-upload-vhd-image.md#convert-the-virtual-disk-to-a-fixed-size-vhd).
 
 To help with resizing the VHD and converting to a VHDX, you can also use the following PowerShell cmdlets:
-- [Resize-VHD](https://docs.microsoft.com/powershell/module/hyper-v/resize-vhd?view=windowsserver2019-ps)
-- [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps)
+- [Resize-VHD](/powershell/module/hyper-v/resize-vhd?view=windowsserver2019-ps)
+- [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps)
 
 ## Upload the custom image to a shared image gallery
 

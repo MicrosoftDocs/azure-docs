@@ -68,7 +68,7 @@ For more information on Azure Government Compliance, refer to the [compliance do
 
 ### Azure Blueprints
 
-[Azure Blueprints](../governance/blueprints/overview.md) is a service that helps you deploy and update cloud environments in a repeatable manner using composable artifacts such as Azure Resource Manager templates to provision resources, role-based access controls, and policies. Resources provisioned through Azure Blueprints adhere to an organization’s standards, patterns, and compliance requirements. The overarching goal of Azure Blueprints is to help automate compliance and cybersecurity risk management in cloud environments. To help you deploy a core set of policies for any Azure-based architecture that requires compliance with certain US government compliance requirements, see [Azure Blueprint samples](/azure/governance/blueprints/samples/).
+[Azure Blueprints](../governance/blueprints/overview.md) is a service that helps you deploy and update cloud environments in a repeatable manner using composable artifacts such as Azure Resource Manager templates to provision resources, role-based access controls, and policies. Resources provisioned through Azure Blueprints adhere to an organization’s standards, patterns, and compliance requirements. The overarching goal of Azure Blueprints is to help automate compliance and cybersecurity risk management in cloud environments. To help you deploy a core set of policies for any Azure-based architecture that requires compliance with certain US government compliance requirements, see [Azure Blueprint samples](../governance/blueprints/samples/index.md).
 
 ## Endpoint mapping
 

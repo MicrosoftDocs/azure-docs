@@ -4,9 +4,10 @@ description: Learn how to access analytic reports about your commercial marketpl
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/06/2021
 author: smannepalle
 ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 08/06/2021
 ---
 
 # Orders dashboard in commercial marketplace analytics

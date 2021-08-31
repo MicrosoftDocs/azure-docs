@@ -219,7 +219,7 @@ You can now automate creating, updating, and deleting user accounts for these ne
 - [Zip](../saas-apps/zip-provisioning-tutorial.md)
 - [TimeClock 365](../saas-apps/timeclock-365-provisioning-tutorial.md)
 
-For more information about how to better secure your organization by using automated user account provisioning, read [Automate user provisioning to SaaS applications with Azure AD](../manage-apps/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, read [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
 ---
 
@@ -428,7 +428,7 @@ The [device code flow](../develop/v2-oauth2-device-code.md) has been updated to 
 **Service category:** User Management  
 **Product capability:** User Management
  
-You can now view your users' last sign-in date and time stamp on the Azure portal. The information is available for each user on the user profile page. This information helps you identify inactive users and effectively manage risky events. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=/azure/active-directory/enterprise-users/context/ugr-context).
+You can now view your users' last sign-in date and time stamp on the Azure portal. The information is available for each user on the user profile page. This information helps you identify inactive users and effectively manage risky events. [Learn more](./active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context).
  
 ---
 
@@ -581,7 +581,7 @@ The new simplified user flow experience offers feature parity with preview featu
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
  
-This new detection serves as an ad-hoc method to allow our security teams to notify you and protect your users by raising their session risk to a High risk when we observe an attack happening. The detection will also mark the associated sign-ins as risky. This detection follows the existing Azure Active Directory threat intelligence for user risk detection to provide complete coverage of the various attacks observed by Microsoft security teams. [Learn more](../identity-protection/concept-identity-protection-risks.md#user-risk).
+This new detection serves as an ad-hoc method to allow our security teams to notify you and protect your users by raising their session risk to a High risk when we observe an attack happening. The detection will also mark the associated sign-ins as risky. This detection follows the existing Azure Active Directory threat intelligence for user risk detection to provide complete coverage of the various attacks observed by Microsoft security teams. [Learn more](../identity-protection/concept-identity-protection-risks.md#user-linked-detections).
  
 ---
 

@@ -104,6 +104,10 @@ Metrics may differ from the numbers shown on your Azure IoT Central invoice. Thi
 
 * While metrics may show a subset of device-to-cloud communication, all communication between the device and the cloud [counts as a message for billing](https://azure.microsoft.com/pricing/details/iot-central/).
 
+## Monitor connected IoT Edge devices
+
+To learn how to remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration, see [Collect and transport metrics](../../iot-edge/how-to-collect-and-transport-metrics.md).
+
 ## Next steps
 
 Now that you've learned how to manage and monitor Azure IoT Central applications from the Azure portal, here is the suggested next step:

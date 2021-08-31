@@ -36,7 +36,7 @@ This article provides a general workflow for moving resources to a different reg
 > This article applies to migrations within the Azure public cloud or within the same sovereign cloud.
 
 > [!NOTE]
-> To move Azure SQL databases and elastic pools to a different Azure region, you can also use Azure Resource Mover (in preview). Refer [this tutorial](https://docs.microsoft.com/azure/resource-mover/tutorial-move-region-sql) for detailed steps to do the same.
+> To move Azure SQL databases and elastic pools to a different Azure region, you can also use Azure Resource Mover (in preview). Refer [this tutorial](../../resource-mover/tutorial-move-region-sql.md) for detailed steps to do the same.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -53,7 +53,7 @@ This article provides a general workflow for moving resources to a different reg
       > A server or managed instance in one region can now be connected to a key vault in any other region.
     - As a best practice to ensure the target server has access to older encryption keys (required for restoring database backups), run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet on the source server or [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) cmdlet on the source managed instance to return the list of available keys and add those keys to the target server.
     - For more information and best practices on configuring customer-managed TDE on the target server, see [Azure SQL transparent data encryption with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
-    - To move the key vault to the new region, see [Move an Azure key vault across regions](https://docs.microsoft.com/azure/key-vault/general/move-region) 
+    - To move the key vault to the new region, see [Move an Azure key vault across regions](../../key-vault/general/move-region.md) 
 1. If database-level audit is enabled, disable it and enable server-level auditing instead. After failover, database-level auditing will require the cross-region traffic, which isn't desired or possible after the move.
 1. For server-level audits, ensure that:
    - The storage container, Log Analytics, or event hub with the existing audit logs is moved to the target region.

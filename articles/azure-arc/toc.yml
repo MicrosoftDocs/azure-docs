@@ -15,7 +15,7 @@
 - name: Arc-enabled data services  >
   href: ./data/overview.md
 - name: SQL Server on Azure Arc-enabled servers >
-  href: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+  href: /sql/sql-server/azure-arc/overview
 - name: Arc validation program
   items:
    - name: Program overview

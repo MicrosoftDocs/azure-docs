@@ -68,6 +68,9 @@ Here are some concepts to be familiar with when you're using virtual networks wi
   
   At this time, we don't support NSGs where an ASG is part of the rule with Azure Database for PostgreSQL - Flexible Server. We currently advise using [IP-based source or destination filtering](../../virtual-network/network-security-groups-overview.md#security-rules) in an NSG. 
 
+  > [!IMPORTANT]
+  > Features of Azure Database for PostgreSQL - Flexible Server require ability to send outbound traffic to destination ports 5432, 6432. If you create Network Security Groups (NSG) to deny outbound traffic from your Azure Database for PostgreSQL - Flexible Server, please make sure to allow traffic to these destination ports. 
+
 * **Private DNS zone integration**. Azure private DNS zone integration allows you to resolve the private DNS within the current virtual network or any in-region peered virtual network where the private DNS zone is linked. 
 
 ### Using a private DNS zone
