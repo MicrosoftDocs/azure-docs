@@ -63,11 +63,11 @@ The following are the equivalent entities, as described by different concepts. U
 | Blobs – General purpose object storage | Container              | Virtual directory (SDK only – does not provide atomic manipulation) | Blob           |
 | Azure Data Lake Storage Gen2 – Analytics Storage          | Container            | Directory                                                           | File           |
 
-## Supported Blob storage features
+## Supported Blob Storage features
 
-Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) are available to your account. 
+Blob Storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) are available to your account. Most Blob Storage features will be fully supported, but some features might be supported only at the preview level or not yet supported.  
 
-For a list of supported Blob storage features, see [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+To see how each Blob Storage feature is supported with Data Lake Storage Gen2, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
 
 ## Supported Azure service integrations
 
