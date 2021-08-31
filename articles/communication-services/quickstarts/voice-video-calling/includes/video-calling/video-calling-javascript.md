@@ -409,16 +409,16 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 Open your browser and on two tabs navigate to http://localhost:8080/. You should see the following:
-:::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png":::
+:::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png" alt-text="1 on 1 video calling page":::
 
 On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token (Refer to the [user access token documentation](../../../access-tokens.md) if you don't already have tokens available to use).
 On both tabs, click on the "Initialize Call Agent" buttons. You should see the following: 
-:::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png":::
+:::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="1 on 1 video calling page":::
 
 On the first tab, enter the ACS user identity of the second tab, and click the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
-:::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png":::
+:::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png" alt-text="1 on 1 video calling page":::
 
 From the second tab, click on the "Accept Call" button and the call will be answered and connected. You should see the following:
-:::image type="content" source="../../media/javascript/1-on-1-video-calling-d.png":::
+:::image type="content" source="../../media/javascript/1-on-1-video-calling-d.png" alt-text="1 on 1 video calling page":::
 
 Both tabs are now successfully in a 1 to 1 video call. Both tabs can hear each other's audio and see each other video stream.
