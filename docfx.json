@@ -491,6 +491,7 @@
         "articles/storage/**/*.md": "https://feedback.azure.com/forums/217298-storage",
         "articles/storsimple/**/*.md": "https://feedback.azure.com/forums/257791-storsimple",
         "articles/stream-analytics/**/*.md": "https://feedback.azure.com/forums/270577-stream-analytics",
+        "articles/synapse-analytics/**/*.md": "https://docs.microsoft.com/answers/questions/topics/single/25423.html",
         "articles/terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/time-series-insights/**/*.md": "https://feedback.azure.com/forums/906859-azure-time-series-insights",
         "articles/traffic-manager/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77466",
