@@ -518,6 +518,7 @@ Delta Lake support is currently in public preview in serverless SQL pools. There
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds below.
 - Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
+- Serverless SQL pools in Synapse Analytics do not support datasets with the [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
 You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
@@ -636,6 +637,12 @@ In the data set is valid, and the workarounds cannot help, report a support tick
 - Send the content of the copied `_delta_log` file to Azure support.
 
 Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
+
+### Resolving delta log on path ... failed with error: Cannot parse JSON object from log file
+
+This error might happen if you have [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters) on Delta Lake dataset. Serverless SQL pools in Synapse Analytics do not support datasets with the [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+
+**Workaround**: [Remove BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) if you want to read Delta Lake folder using the serverless SQL pool.
 
 ## Security
 
