@@ -262,7 +262,8 @@ To learn more about logging, see [Monitor Azure Functions](functions-monitoring.
 
 ### Log custom telemetry
 
-By default, some of the telemetry is collected for Functions apps. This telemetry ends up as traces in Application Insights. For more control, you can instead use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure) to send custom telemetry data to your Application Insights instance. 
+Log telemetry is collected for Functions apps via Functions runtime by default. This telemetry ends up as traces in Application Insights. Request and dependency telemetry for certain Azure services are also collected by default via [Function bindings](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings?tabs=csharp#supported-bindings). To collect custom request/dependency telemetry (not through bindings) you can use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure) to send custom telemetry data to your Application Insights instance.
+
 You can find the list of supported libraries [here](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
 
 >[!NOTE]
