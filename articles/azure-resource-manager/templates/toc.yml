@@ -432,12 +432,10 @@
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
       href: deploy-github-actions.md
-  - name: Discover template properties
+  - name: Export template
     items:
-    - name: Export template
+    - name: Portal
       href: export-template-portal.md
-    - name: Discover resources
-      href: view-resources.md
   - name: Use authoring tools
     items:
     - name: Visual Studio
