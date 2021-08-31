@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
 title: Azure Load Testing documentation
-summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more. 
+summary: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, CLI references, and more. 
 
 metadata:
-  title: Azure Machine Learning documentation
-  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more. 
+  title: Azure Load Testing documentation
+  description: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, CLI references, and more. 
  
   services: machine-learning
   ms.service: machine-learning
@@ -25,13 +25,17 @@ highlightedContent:
       itemType: overview
       url: overview-what-is-azure-load-testing.md
     # Card
+    - title: 'Tutorial: Identify performance bottlenecks'
+      itemType: get-started
+      url: tutorial-identify-bottlenecks-in-azure-portal.md
+    # Card
     - title: Set up resources
       itemType: get-started
       url: ../machine-learning/quickstart-create-resources.md
     # Card
-    - title: 'Preview: Train models with v2 CLI'
-      itemType: tutorial
-      url: ../machine-learning/how-to-train-cli.md      
+    - title: 'Automate regression testing with pipelines (CI/CD)'
+      itemType: deploy
+      url: /azure/devops/pipelines/targets/azure-machine-learning.md?view=azure-devops&tabs=yaml     
     # Card
     - title: Architecture & terms
       itemType: overview
