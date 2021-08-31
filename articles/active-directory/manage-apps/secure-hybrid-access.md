@@ -39,7 +39,7 @@ The following partners offer pre-built solutions to support conditional access p
 
 - [Citrix Application Delivery Controller (ADC)](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)  
 
-- [Datawiza Access Broker](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+- [Datawiza Access Broker](datawiza-with-azure-ad.md)
 
 - [F5 Big-IP APM ADC](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
 

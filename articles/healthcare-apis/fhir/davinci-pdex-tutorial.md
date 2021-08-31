@@ -15,7 +15,7 @@ ms.date: 08/06/2021
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this tutorial, we'll walk through setting up the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
+In this tutorial, we'll walk through setting up the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
 
 > [!NOTE]
 > For all these tests, we'll run them against the JSON tests. The FHIR service supports both JSON and XML, but it doesn’t have separate endpoints to access JSON or XML. Because of this, all the XML tests will fail. If you want to view the capability statement in XML you simply pass the \_format parameter: \`GET

@@ -21,11 +21,11 @@ The Azure Connected Machine agent package contains several logical components, w
 
 * The Hybrid Instance Metadata service (HIMDS) manages the connection to Azure and the connected machine's Azure identity.
 
-* The Guest Configuration agent provides In-Guest Policy and Guest Configuration functionality, such as assessing whether the machine complies with required policies.
+* The guest configuration agent provides functionality such as assessing whether the machine complies with required policies and enforcing compliance.
 
-    Note the following behavior with Azure Policy [Guest Configuration](../../governance/policy/concepts/guest-configuration.md) for a disconnected machine:
+    Note the following behavior with Azure Policy [guest configuration](../../governance/policy/concepts/guest-configuration.md) for a disconnected machine:
 
-    * A Guest Configuration policy assignment that targets disconnected machines is unaffected.
+    * An Azure Policy assignment that targets disconnected machines is unaffected.
     * Guest assignment is stored locally for 14 days. Within the 14-day period, if the Connected Machine agent reconnects to the service, policy assignments are reapplied.
     * Assignments are deleted after 14 days, and are not reassigned to the machine after the 14-day period.
 
@@ -46,8 +46,8 @@ Metadata information about the connected machine is collected after the Connecte
 * Connected Machine agent heartbeat
 * Connected Machine agent version
 * Public key for managed identity
-* Policy compliance status and details (if using Azure Policy Guest Configuration policies)
-* Microsoft SQL Server installed (Boolean value)
+* Policy compliance status and details (if using guest configuration policies)
+* SQL Server installed (Boolean value)
 * Cluster resource ID (for Azure Stack HCI nodes) 
 
 The following metadata information is requested by the agent from Azure:
@@ -150,7 +150,7 @@ URLs:
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`*.guestconfiguration.azure.com` |Guest Configuration|
+|`*.guestconfiguration.azure.com` |Guest configuration|
 |`*.his.arc.azure.com`|Hybrid Identity Service|
 |`*.blob.core.windows.net`|Download source for Arc-enabled servers extensions|
 
@@ -158,8 +158,8 @@ Preview agents (version 0.11 and lower) also require access to the following URL
 
 | Agent resource | Description |
 |---------|---------|
-|`agentserviceapi.azure-automation.net`|Guest Configuration|
-|`*-agentservice-prod-1.azure-automation.net`|Guest Configuration|
+|`agentserviceapi.azure-automation.net`|Guest configuration|
+|`*-agentservice-prod-1.azure-automation.net`|Guest configuration|
 
 For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
@@ -226,7 +226,7 @@ After installing the Connected Machine agent for Windows, the following system-w
     |%ProgramData%\AzureConnectedMachineAgent |Contains the agent configuration files.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contains the acquired tokens.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contains the agent configuration file `agentconfig.json` recording its registration information with the service.|
-    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Installation path containing the Guest Configuration agent files. |
+    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Installation path containing the guest configuration agent files. |
     |%ProgramData%\GuestConfig |Contains the (applied) policies from Azure.|
     |%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | Extensions are downloaded from Azure and copied here.|
 
@@ -235,8 +235,8 @@ After installing the Connected Machine agent for Windows, the following system-w
     |Service name |Display name |Process name |Description |
     |-------------|-------------|-------------|------------|
     |himds |Azure Hybrid Instance Metadata Service |himds |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
-    |GCArcService |Guest Configuration Arc Service |gc_service |Monitors the desired state configuration of the machine.|
-    |ExtensionService |Guest Configuration Extension Service | gc_service |Installs the required extensions targeting the machine.|
+    |GCArcService |Guest configuration Arc Service |gc_service |Monitors the desired state configuration of the machine.|
+    |ExtensionService |Guest configuration Extension Service | gc_service |Installs the required extensions targeting the machine.|
 
 * The following environmental variables are created during agent installation.
 
@@ -276,7 +276,7 @@ After installing the Connected Machine agent for Linux, the following system-wid
     |-------|------------|
     |/var/opt/azcmagent/ |Default installation path containing the agent support files.|
     |/opt/azcmagent/ |
-    |/opt/GC_Ext | Installation path containing the Guest Configuration agent files.|
+    |/opt/GC_Ext | Installation path containing the guest configuration agent files.|
     |/opt/DSC/ |
     |/var/opt/azcmagent/tokens |Contains the acquired tokens.|
     |/var/lib/GuestConfig |Contains the (applied) policies from Azure.|
