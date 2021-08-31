@@ -28,8 +28,6 @@ For a simple WebSocket client, the *server* is a MUST HAVE role to handle the ev
 > [!NOTE]
 > Currently, WebPubSub Service only support [proto3](https://developers.google.com/protocol-buffers/docs/proto3).
 
-You can download [protobuf-subprotocol.proto](./protobuf-subprotocol.proto) and generate clients in different languages.
-
 ## Permissions
 
 You may have noticed that when we describe the PubSub WebSocket clients, a client can publish to other clients only when it's *authorized* to. The `role`s of the client determines the *initial* permissions the client have:
