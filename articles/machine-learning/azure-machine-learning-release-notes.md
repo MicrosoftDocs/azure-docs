@@ -34,9 +34,9 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
     + revert: added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
     + added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
-    + New optional fields are added to Kubernetes.attach_configuration(identity_type=None, identity_ids=None) which allows attaching KubernetesCompute with
-    + either SystemAssigned or UserAssigned identity. User will see a new identity fields that contains identity_type, identity_id, principal_id and tenant_id/client_id
-    + when print(compute_target) or compute_target.serialize()
+    + New optional fields are added to Kubernetes.attach_configuration(identity_type=None, identity_ids=None) which allows attaching KubernetesCompute 
+    + with either SystemAssigned or UserAssigned identity. User will see a new identity fields that contains identity_type, identity_id, principal_id 
+    + and tenant_id/client_id when print(compute_target) or compute_target.serialize()
   + **azureml-dataprep**
     + added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
   + **azureml-defaults**
