@@ -36,31 +36,7 @@ For fastest loading speed, run only one load job at a time. If that is not feasi
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
 
-<!-- ### Create a loading user
-
-This example creates a loading user for the staticrc20 resource class. The first step is to **connect to master** and create a login.
-
-```sql
-   -- Connect to master
-   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-```
-
-Connect to the data warehouse and create a user. The following code assumes you are connected to the database called mySampleDataWarehouse. It shows how to create a user called LoaderRC20, give the user control permission on a database. It then adds the user as a member of the staticrc20 database role.  
-
-```sql
-   -- Connect to the database
-   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-```
-
-To run a load with resources for the staticRC20 resource classes, sign in as LoaderRC20 and run the load.
-
-Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](resource-consumption-models.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
-
-OR
-
-### Example of creating a loading user
+### Create a loading user
 
 This example creates a loading user classified to a specific workload group. The first step is to **connect to master** and create a login.
 
@@ -82,7 +58,7 @@ Connect to the dedicated SQL pool and create a user. The following code assumes 
    
    CREATE WORKLOAD GROUP DataLoads
    WITH ( 
-       MIN_PERCENTAGE_RESOURCE = 100
+       MIN_PERCENTAGE_RESOURCE = 0
        ,CAP_PERCENTAGE_RESOURCE = 100
        ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
 	);
@@ -93,11 +69,12 @@ Connect to the dedicated SQL pool and create a user. The following code assumes 
        ,MEMBERNAME = 'loader'
    );
 ```
+
 <br><br>
 >[!IMPORTANT] 
 >This is an extreme example of allocating 100% resources of the SQL pool to a single load. This will give you a maximum concurrency of 1. Be aware that this should be used only for the initial load where you will need to create additional workload groups with their own configurations to balance resources across your workloads. 
 
-To run a load with resources for the loading workload group, sign in as loader and run the load. -->
+To run a load with resources for the loading workload group, sign in as loader and run the load. 
 
 ## Allow multiple users to load
 
