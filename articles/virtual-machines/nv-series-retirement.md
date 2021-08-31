@@ -12,7 +12,7 @@ ms.author: vikancha
 
 We continue to bring modern and optimized virtual machine (VM) instances to Azure by using the latest innovations in datacenter technologies. As we innovate, we also thoughtfully plan how we retire aging hardware. With this context in mind, we're retiring our NV-series Azure VM sizes on September 1, 2022.
 
-## How does the NV-series migration affect me?
+## How does the NV series migration affect me?
 
 After September 1, 2022, any remaining NV and NV_Promo-size VMs remaining in your subscription will be set to a deallocated state. These VMs will be stopped and removed from the host. These VMs will no longer be billed in the deallocated state. 
 

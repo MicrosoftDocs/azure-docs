@@ -1,6 +1,6 @@
 ---
 title: NV series migration guide
-description: NV-series migration guide
+description: NV series migration guide
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
@@ -59,7 +59,7 @@ To deal with general changes:
 
 1. Get a quota for the target VM series.
 
-1. Resize the current NV series VM size to the target size.
+1. Resize the current NV-series VM size to the target size.
 
   If the target size is NVv4, make sure to remove the Nvidia GPU driver and install the AMD GPU driver.
 
