@@ -55,8 +55,6 @@ Use the following steps to create a linked service to PostgreSQL in the Azure po
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Postgre and select the PostgreSQL connector.
 
     :::image type="content" source="media/connector-postgresql/postgresql-connector.png" alt-text="Select the PostgreSQL connector.":::    
