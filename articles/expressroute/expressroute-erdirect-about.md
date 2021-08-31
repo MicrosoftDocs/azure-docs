@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 08/31/2021
 ms.author: duau
 ---
 
@@ -95,13 +95,25 @@ ExpressRoute Direct supports both QinQ and Dot1Q VLAN tagging.
 
 * **Dot1Q VLAN Tagging** allows for a single tagged VLAN on a per ExpressRoute Direct port pair basis. A C-Tag used on a peering must be unique across all circuits and peerings on the ExpressRoute Direct port pair.
 
-## Workflow
+## Workflows
 
-[![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+### Setup ExpressRoute Direct
+
+:::image type="content" source="./media/expressroute-erdirect-about/setup-workflow.png" alt-text="Diagram of the ExpressRoute Direct set up workflow." lightbox="./media/expressroute-erdirect-about/setup-workflow-expanded.png":::
+
+### Delete ExpressRoute Direct
+
+:::image type="content" source="./media/expressroute-erdirect-about/delete-workflow.png" alt-text="Diagram of the ExpressRoute Direct delete workflow." lightbox="./media/expressroute-erdirect-about/delete-workflow-expanded.png":::
 
 ## SLA
 
-ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active redundant connections into the Microsoft Global Network. ExpressRoute infrastructure is redundant and connectivity into the Microsoft Global Network is redundant and diverse and scales correctly with customer requirements. 
+ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active redundant connections into the Microsoft Global Network. ExpressRoute infrastructure is redundant and connectivity into the Microsoft Global Network is redundant and diverse and scales correctly with customer requirements.
+
+## Pricing
+
+ExpressRoute Direct's port pairs are billed 45 days into the creation of the ExpressRoute Direct resource or when 1 or both of the links are enabled, whichever comes first. The 45-day grace period is granted to allow customers to complete the cross-connection process with the colocation provider.
+
+You'll stop being charged for ExpressRoute Direct's port pairs after you delete the direct ports and remove the cross-connects. For more pricing details,[ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## Next steps
 
