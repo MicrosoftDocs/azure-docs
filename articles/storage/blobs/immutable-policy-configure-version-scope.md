@@ -130,8 +130,7 @@ To migrate a container to support version-level immutable storage with PowerShel
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
    -StorageAccountName <storage-account> `
    -ContainerName <container> `
-   -ImmutabilityPeriod <retention-interval> `
-   -AllowProtectedAppendWrite $true
+   -ImmutabilityPeriod <retention-interval>
 ```
 
 Next, call the **Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration** command to migrate the container. Include the `-AsJob` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
@@ -177,8 +176,7 @@ az storage container immutability-policy create \
     --resource-group <resource-group> \
     --account-name <storage-account> \
     --container-name <container> \
-    --period <retention-interval> \
-    --allow-protected-append-writes true
+    --period <retention-interval>
 ```
 
 Next, call the [az storage container-rm migrate-vlw](/cli/azure/storage/container-rm#az_storage_container_rm_migrate_vlw) command to migrate the container. Include the `--no-wait` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
