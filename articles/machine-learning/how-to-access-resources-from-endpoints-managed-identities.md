@@ -261,7 +261,7 @@ Check the status of the deployment.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deploy_Status" :::
 
-To refine the above query to only return specific data, see [Query Azure CLI command output](cli/azure/query-azure-cli).
+To refine the above query to only return specific data, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
 
 > [!NOTE]
 > The init method in the scoring script reads the file from your storage account using the system assigned managed identity token.
