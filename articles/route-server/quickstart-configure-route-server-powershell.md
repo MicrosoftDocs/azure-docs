@@ -92,7 +92,7 @@ $virtualnetwork | Set-AzVirtualNetwork
 
     ```azurepowershell-interactive
     $rs = @{
-        RouterServerName = 'myRouteServer'
+        RouteServerName = 'myRouteServer'
         ResourceGroupName = 'myRouteServerRG'
         Location = 'WestUS'
         HostedSubnet = $subnetConfig.Id
