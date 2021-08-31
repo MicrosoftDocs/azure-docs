@@ -21,7 +21,7 @@ This document is a step-by-step guide to move an Azure Synapse workspace from on
 ## Prerequisites
 
 - Integrate source region Synapse workspace with Azure DevOps or GitHub, see [Source control in Synapse Studio](cicd/source-control.md)
-- [Az PowerShell](/powershell/azure/new-azureps-module-az?view=azps-6.3.0) and [AZ CLI](/cli/azure/install-azure-cli) modules installed on the server where scripts are executed.
+- [Az PowerShell](/powershell/azure/new-azureps-module-az?view=azps-6.3.0&preserve-view=true) and [AZ CLI](/cli/azure/install-azure-cli) modules installed on the server where scripts are executed.
 - All dependent services, for example Azure Machine Learning, Azure Storage, Private link hubs, need to be recreated in target region or moved to target region if the service supports region move. 
 - To move Azure Storage to a different region, see [Move an Azure Storage account to another region](../storage/common/storage-account-move.md)
 - dedicated SQL pool name and Spark pool name should be the same in the source region and the target region workspace.
