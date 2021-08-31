@@ -145,9 +145,9 @@ Azure SQL Database and Azure SQL Managed Instance provide both short-term and lo
 
 ### Short-term retention
 
-For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last seven days by default. Regular full, differential and log backups are taken to ensure databases are restorable to any point-in-time within the retention period defined for the database or managed instance. Additionally, for Azure SQL Dataases, differential backups can be configued to either a 12-hour frequency (default) or a 24-hour frequency. 
+For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last seven days by default. Regular full, differential and log backups are taken to ensure databases are restorable to any point-in-time within the retention period defined for the database or managed instance. Additionally, for Azure SQL Databases, differential backups can be configured to either a 12-hour frequency (default) or a 24-hour frequency. 
 
-> [NOTE]
+> [!NOTE]
 > A 24-hour differential backup frequency may increase the time required to restore the database. 
 
 With the exception of Hyperscale and Basic tier databases, you can [change backup retention period](#change-the-short-term-retention-policy) per each active database in the 1-35 day range. As described in [Backup storage consumption](#backup-storage-consumption), backups stored to enable PITR may be older than the retention period. For Azure SQL Managed Instance only, it is possible to set the PITR backup retention rate once a database has been deleted in the 0-35 days range. 
@@ -341,7 +341,7 @@ Once PITR backup retention has been reduced for a deleted database, it no longer
 
 ### Change the short-term retention policy using the REST API
 
-The below request updates the retetntion period to 28 days and also sets the differential backup frequency to 24 hours.
+The below request updates the retention period to 28 days and also sets the differential backup frequency to 24 hours.
 
 
 #### [SQL Database](#tab/single-database)
