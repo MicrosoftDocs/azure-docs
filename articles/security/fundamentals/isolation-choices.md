@@ -127,7 +127,7 @@ Each node also has one special Root VM, which runs the Host OS. A critical bound
 
 The Azure platform uses a virtualized environment. User instances operate as standalone virtual machines that do not have access to a physical host server.
 
-The Azure hypervisor acts like a micro-kernel and passes all hardware access requests from guest virtual machines to the host for processing by using a shared-memory interface called VMBus. This prevents users from obtaining raw read/write/execute access to the system and mitigates the risk of sharing system resources.
+The Azure hypervisor acts like a micro-kernel and passes all hardware access requests from guest virtual machines to the host for processing by using a shared-memory interface called VM Bus. This prevents users from obtaining raw read/write/execute access to the system and mitigates the risk of sharing system resources.
 
 ### Advanced VM placement algorithm & protection from side channel attacks
 
