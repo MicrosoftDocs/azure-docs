@@ -55,7 +55,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 | Error code | Mitigation |
 | ---------- | ---------- | 
 |MissingSubscriptionRegistration|Register your subscription with the resource provider. Run the command ```az provider register --namespace Microsoft.DBMySQL``` to resolve the issue.|
-|InternalServerError| This is a generic error.  Try to view the activity logs for your server to see if there is more information. Run the command ```az monitor activity-log list --correlation-id <enter correlation-id>```. You can try the same CLI command after a few minutes. If the issues persists, please [report it](https://github.com/Azure/azure-cli/issues) or reach out to Microsoft support.|
+|InternalServerError| Try to view the activity logs for your server to see if there is more information. Run the command ```az monitor activity-log list --correlation-id <enter correlation-id>```. You can try the same CLI command after a few minutes. If the issues persists, [report it](https://github.com/Azure/azure-cli/issues) or reach out to Microsoft support.|
 |ResourceNotFound| Resource being reference cannot be found.  You can check resource properties, or check if resource is deleted or check if the resource is another subscription. |
 |LocationNotAvailableForResourceType| - Check availability of Azure Database for MySQL Flexible Server in [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=mysql). <br>- Check if Azure DB for MySQL Resource types is registered with your subscription. |
 |ResourceGroupBeingDeleted| Resource group is being deleted. Wait for deletion to complete.|
@@ -65,8 +65,8 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 |SubscriptionNotFound| The requested subscription was not found. Run ```az account list all``` to see all your current subscriptions.|
 |InvalidParameterValue| An invalid value was given to a parameter.Check the [CLI reference docs](/cli/azure/mysql/flexible-server?view=azure-cli-latest&preserve-view=true) to see what is the correct values supported for the arguments.|
 |InvalidLocation| An invalid location was specified. Check availability of Azure Database for MySQL Flexible Server in [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=mysql) |
-|InvalidServerName| Identified an invalid server name. Please check the sever name. Run the command [az mysql flexible-server list](/cli/azure/mysql/flexible-server?view=azure-cli-latest&preserve-view=true#az_mysql_flexible_server_list) to see all the list of Flexible servers available. |
-|InvalidResourceIdSegment| This is usually a syntax error in your Azure Resource Manager template. Use an JSON formatter tool to validate the JSON to identify the syntax error.|
+|InvalidServerName| Identified an invalid server name. Check the sever name. Run the command [az mysql flexible-server list](/cli/azure/mysql/flexible-server?view=azure-cli-latest&preserve-view=true#az_mysql_flexible_server_list) to see all the list of Flexible servers available. |
+|InvalidResourceIdSegment| A syntax error was identified in your Azure Resource Manager template. Use an JSON formatter tool to validate the JSON to identify the syntax error.|
 |InvalidUserName| Enter a valid username. The admin user name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_.|
 |BlockedUserName| The admin user name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_. Avoid using these patterns in the admin name.|
 
