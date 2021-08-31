@@ -44,7 +44,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Azure AD roles - activation page contains duration and scope](./media/pim-how-to-activate-role/activate-page.png)
 
-1. Select **Additional verification required**"** and follow the instructions to provide additional security verification. You are required to authenticate only once per session.
+1. Select **Additional verification required**"** and follow the instructions to provide security verification. You are required to authenticate only once per session.
 
     ![Screen to provide security verification such as a PIN code](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
@@ -63,83 +63,6 @@ When you need to assume an Azure AD role, you can request activation by opening 
     If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
     ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## Activate using Graph API
-
-For permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md). 
-
-### HTTP POST request
-
-This is a sample HTTP request to create an eligible assignment. The scope of the eligibility is all directory objects in the tenant until June 30, 2022 at midnight UTC time. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http).
-
-````HTTP
-
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests
-Content-Type: application/json
-
-{
-  "action": "AdminAssign",
-  "justification": "Assign User Admin eligibility to IT Helpdesk (User) group",
-  "roleDefinitionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "directoryScopeId": "/",
-  "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "scheduleInfo": {
-    "startDateTime": "2021-07-01T00:00:00Z",
-    "expiration": {
-      "endDateTime": "2022-06-30T00:00:00Z",
-      "type": "AfterDateTime"
-    }
-  }
-}
-````
-
-### Response
-
-The following is an example of the response. The response object shown here might be shortened for readability.
-
-````HTTP
-HTTP/1.1 201 Created
-Content-Type: application/json
-
-{
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity",
-    "id": "672c03bf-226a-42ec-a8b7-3bfab96064a1",
-    "status": "Provisioned",
-    "createdDateTime": "2021-07-26T18:08:03.1299669Z",
-    "completedDateTime": "2021-07-26T18:08:06.2081758Z",
-    "approvalId": null,
-    "customData": null,
-    "action": "AdminAssign",
-    "principalId": "07706ff1-46c7-4847-ae33-3003830675a1",
-    "roleDefinitionId": "fdd7a751-b60b-444a-984c-02652fe8fa1c",
-    "directoryScopeId": "/",
-    "appScopeId": null,
-    "isValidationOnly": false,
-    "targetScheduleId": "672c03bf-226a-42ec-a8b7-3bfab96064a1",
-    "justification": "Assign User Admin eligibility to IT Helpdesk (User) group",
-    "createdBy": {
-        "application": null,
-        "device": null,
-        "user": {
-            "displayName": null,
-            "id": "fc9a2c2b-1ddc-486d-a211-5fe8ca77fa1f"
-        }
-    },
-    "scheduleInfo": {
-        "startDateTime": "2021-07-26T18:08:06.2081758Z",
-        "recurrence": null,
-        "expiration": {
-            "type": "afterDateTime",
-            "endDateTime": "2022-06-30T00:00:00Z",
-            "duration": null
-        }
-    },
-    "ticketInfo": {
-        "ticketNumber": null,
-        "ticketSystem": null
-    }
-} 
-````
 
 ## View the status of your requests for new version
 
