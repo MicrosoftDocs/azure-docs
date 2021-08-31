@@ -61,7 +61,7 @@ The following table lists the major features of SQL Server and provides informat
 | [DDL statements](/sql/t-sql/statements/statements) | Most - see individual statements | Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [DDL triggers](/sql/relational-databases/triggers/ddl-triggers) | Database only |  Yes |
 | [Distributed partition views](/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | No | Yes |
-| [Distributed transactions - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](elastic-transactions-overview.md) |  No - see [Linked server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Try to consolidate databases from several distributed SQL Server instances into one SQL Managed Instance during migration. |
+| [Distributed transactions - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](elastic-transactions-overview.md) | No - see [Elastic transactions](elastic-transactions-overview.md) |
 | [DML triggers](/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements |  Yes |
 | [DMVs](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Most - see individual DMVs |  Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Elastic query](elastic-query-overview.md) (in public preview) | Yes, with required RDBMS type. | No |
