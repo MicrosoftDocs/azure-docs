@@ -259,7 +259,7 @@ For firewall appliance to allow outbound traffic, you need to allow outbound to 
 
 -   Port 445 with destination as Azure Storage (only required when you execute SSIS package stored in Azure Files).
 
-    If you use Azure Firewall, you can specify network rule with Storage Service Tag, otherwise you might allow destination as specific azure file storage url in firewall appliance.
+    If you use Azure Firewall, you can specify network rule with Storage Service Tag, otherwise you might allow destination as specific Azure file share URL in firewall appliance.
 
 > [!NOTE]
 > For Azure SQL and Storage, if you configure Virtual Network service endpoints on your subnet, then traffic between Azure-SSIS IR and Azure SQL in same region \ Azure Storage in same region or paired region will be routed to Microsoft Azure backbone network directly instead of your firewall appliance.
