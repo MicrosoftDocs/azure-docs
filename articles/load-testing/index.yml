@@ -47,12 +47,12 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Train models
+    - title: Identify bottlenecks
       links:
         - url: ../machine-learning/how-to-train-cli.md
-          itemType: how-to-guide
+          itemType: tutorial
           text: Run training code in the cloud (v2 CLI preview)
-        - url: ../machine-learning/how-to-tune-hyperparameters.md
+        - url: how-to-identify-bottlenecks-in-vs-code.md
           itemType: how-to-guide
           text: Tune hyperparameters for model training
         - url: ../machine-learning/how-to-create-machine-learning-pipelines.md

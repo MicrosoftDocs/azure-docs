@@ -20,6 +20,8 @@
           href: ../machine-learning/tutorial-deploy-managed-endpoints-using-system-managed-identity.md
 - name: How-tos
   items: 
+    - name: Identify bottlenecks with VS Code
+      href: how-to-identify-bottlenecks-in-vs-code.md
     - name: Automation
       items: 
         - name: Azure Pipelines for CI/CD
