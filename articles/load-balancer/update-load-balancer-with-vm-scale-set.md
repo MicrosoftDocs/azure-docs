@@ -103,7 +103,7 @@ To add multiple IP configurations:
 1. On the left menu, select **All resources**. Then select **MyLoadBalancer** from the resource list.
 1. Under **Settings**, select **Frontend IP configuration**. Then select **Add**.
 1. On the **Add frontend IP address** page, enter the values and select **OK**.
-1. Follow [step 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) and [step 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) in this tutorial if new load-balancing rules are needed.
+1. Refer to [Manage rules for Azure Load Balancer - Azure portal](manage-rules-how-to.md) if new load-balancing rules are needed.
 1. Create a new set of inbound NAT rules by using the newly created front-end IP configurations if needed. An example is found in the previous section.
 
 ## Multiple Virtual Machine Scale Sets behind a single Load Balancer
