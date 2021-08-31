@@ -25,7 +25,8 @@ In this how-to, you learn how to:
 > * Remove AD group from the cloudadmin role
 > * Remove existing external identity sources
 
-
+>[!NOTE]
+>Executions are queued and executed one at a time.
 
 ## Prerequisites
 
@@ -38,6 +39,8 @@ In this how-to, you learn how to:
  
 
 ## List external identity
+
+
 
 You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identity sources already integrated with vCenter SSO.
 
