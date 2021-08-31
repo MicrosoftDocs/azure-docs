@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/22/2020
+ms.date: 08/30/2021
 ---
 
 # Copy data from SAP HANA using Azure Data Factory
