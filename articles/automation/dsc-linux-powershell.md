@@ -4,13 +4,14 @@ description: This article tells you how to configure a Linux virtual machine to 
 ms.topic: conceptual
 services: automation
 ms.subservice: dsc
-ms.date: 06/18/2021
+ms.date: 08/31/2021
 ---
 
 # Configure Linux desired state with Azure Automation State Configuration using PowerShell
 
-In this tutorial, you'll apply an Azure Automation State Configuration with PowerShell to a Linux virtual machine to check whether it complies with a desired state. Specifically, you'll check whether the apache2 service is running Azure Automation State Configuration allows you to specify configurations for your servers and ensure that those servers are in the specified state over time. For more information about State Configuration, see [Azure Automation State Configuration overview](./automation-dsc-overview.md).
+In this tutorial, you'll apply an Azure Automation State Configuration with PowerShell to a Linux virtual machine to check whether it complies with a desired state. Specifically, you'll check whether the apache2 service is running. Azure Automation State Configuration allows you to specify configurations for your machines and ensure that those machines are in the specified state over time. For more information about State Configuration, see [Azure Automation State Configuration overview](./automation-dsc-overview.md).
 
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Onboard a Linux VM to be managed by Azure Automation DSC
 > - Compose a configuration
@@ -27,7 +28,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 - An Azure Automation account. To learn more about Automation accounts, see [Automation Account authentication overview](./automation-security-overview.md).
 - An Azure Resource Manager virtual machine (VM) running Ubuntu 18.04 LTS or later. For instructions on creating a Linux VM, see [Create a Linux virtual machine in Azure with PowerShell](../virtual-machines/windows/quick-create-powershell.md).
-- The PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed on your workstation. Ensure you have the latest version. If necessary, run `Update-Module -Name Az`.
+- The PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed on the machine you'll be using to write, compile, and apply a state configuration to a target Linux VM. Ensure you have the latest version. If necessary, run `Update-Module -Name Az`.
 
 ## Create a configuration
 
@@ -61,7 +62,7 @@ Configuration LinuxConfig
 
 ## Sign in to Azure
 
-From your workstation, sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) PowerShell cmdlet and follow the on-screen directions.
+From your machine, sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) PowerShell cmdlet and follow the on-screen directions.
 
 ```powershell
 # Sign in to your Azure subscription
@@ -103,7 +104,7 @@ $moduleVersion = "1.0"
 
 ## Install nx module
 
-Azure Automation uses a number of PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations. **nx** is the module with DSC Resources for Linux. Install the **nx**  module with the [New-AzAutomationModule](/powershell/module/az.automation/new-azautomationmodule) cmdlet. For more information about modules, see [Manage modules in Azure Automation](./shared-resources/modules.md). Execute the following code:
+Azure Automation uses a number of PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations. **nx** is the module with DSC Resources for Linux. Install the **nx**  module with the [New-AzAutomationModule](/powershell/module/az.automation/new-azautomationmodule) cmdlet. For more information about modules, see [Manage modules in Azure Automation](./shared-resources/modules.md). Run the following command:
 
 ```powershell
 New-AzAutomationModule `
@@ -117,7 +118,7 @@ The output should look similar as shown below:
 
    :::image type="content" source="media/dsc-linux-powershell/new-azautomationmodule-output.png" alt-text="Output from New-AzAutomationModule command.":::
 
-You can verify the installation with the following code:
+You can verify the installation running the following command:
 
 ```powershell
 Get-AzAutomationModule `
@@ -128,13 +129,13 @@ Get-AzAutomationModule `
 
 ## Import configuration to Azure Automation
 
-Call the [Import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration) cmdlet to upload the configuration into your Automation account. Revise value for `-SourcePath` with your actual path and then execute the following code:
+Call the [Import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration) cmdlet to upload the configuration into your Automation account. Revise value for `-SourcePath` with your actual path and then run the following command:
 
 ```powershell
 Import-AzAutomationDscConfiguration `
    -ResourceGroupName $resourceGroup `
    -AutomationAccountName $automationAccount `
-   -SourcePath "C:\DscConfigs\LinuxConfig.ps1" `
+   -SourcePath "path\LinuxConfig.ps1" `
    -Published
 ```
 
@@ -142,7 +143,7 @@ The output should look similar as shown below:
 
    :::image type="content" source="media/dsc-linux-powershell/import-azautomationdscconfiguration-output.png" alt-text="Output from Import-AzAutomationDscConfiguration command.":::
 
-You can view the configuration from Automation with the following code:
+You can view the configuration from your Automation account running the following command:
 
 ```powershell
 Get-AzAutomationDscConfiguration `
@@ -153,7 +154,7 @@ Get-AzAutomationDscConfiguration `
 
 ## Compile configuration in Azure Automation
 
-Before you can apply a desired state to a node, the configuration defining that state must be compiled into one or more node configurations.  Call the [Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob) cmdlet to compile the `LinuxConfig` configuration in Azure Automation. For more information about compilation, see [Compile DSC configurations](./automation-dsc-compile.md). Execute the following code:
+Before you can apply a desired state to a node, the configuration defining that state must be compiled into one or more node configurations.  Call the [Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob) cmdlet to compile the `LinuxConfig` configuration in Azure Automation. For more information about compilation, see [Compile DSC configurations](./automation-dsc-compile.md). Run the following command:
 
 ```powershell
 Start-AzAutomationDscCompilationJob `
@@ -166,7 +167,7 @@ The output should look similar as shown below:
 
    :::image type="content" source="media/dsc-linux-powershell/start-azautomationdsccompilationjob-output.png" alt-text="Output from Start-AzAutomationDscCompilationJob command.":::
 
-You can view the compilation job from Automation with the following code:
+You can view the compilation job from your Automation account using the following command:
 
 ```powershell
 Get-AzAutomationDscCompilationJob `
@@ -175,7 +176,7 @@ Get-AzAutomationDscCompilationJob `
    -ConfigurationName $configurationName
 ```
 
-Wait for the compilation job to complete before proceeding as the configuration must be compiled into a node configuration before it can be assigned to a node. Execute the following code to check for status every 5 seconds:
+Wait for the compilation job to complete before proceeding. The configuration must be compiled into a node configuration before it can be assigned to a node. Execute the following code to check for status every 5 seconds:
 
 ```powershell
 while ((Get-AzAutomationDscCompilationJob `
@@ -189,7 +190,7 @@ while ((Get-AzAutomationDscCompilationJob `
 Write-Output "Compilation complete"
 ```
 
-After the compilation job completes, you can also view the node configuration metadata with the following code:
+After the compilation job completes, you can also view the node configuration metadata using the following command:
 
 ```powershell
 Get-AzAutomationDscNodeConfiguration `
@@ -199,9 +200,9 @@ Get-AzAutomationDscNodeConfiguration `
 
 ## Register the Linux VM for an Automation account
 
-Register the Azure virtual machine as an APS Desired State Configuration (DSC) node for the Azure Automation account. The [Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode) cmdlet only supports VMs running Windows OS. The Linux virtual machine will first need to be configured for DSC. For detailed steps, see [Get started with Desired State Configuration (DSC) for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+Register the Azure virtual machine as a Desired State Configuration (DSC) node for the Azure Automation account. The [Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode) cmdlet only supports VMs running Windows OS. The Linux virtual machine will first need to be configured for DSC. For detailed steps, see [Get started with Desired State Configuration (DSC) for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
-1. Craft the bash registration command from PowerShell for later execution on your Linux VM. Execute the following code:
+1. Construct a python script with the registration command using PowerShell for later execution on your Linux VM by running the following code:
 
    ```powershell
     $primaryKey = (Get-AzAutomationRegistrationInfo `
@@ -217,7 +218,7 @@ Register the Azure virtual machine as an APS Desired State Configuration (DSC) n
 
    These commands obtain the Automation account's primary access key and URL and concatenates it to the registration command. Ensure you remove any carriage returns from the output. This command will be used in a later step.
 
-1. Connect to your linux VM. If you used a password, you can use the syntax below. If you used a public-private key pair, see [SSH on Linux](./../virtual-machines/linux/mac-create-ssh-keys.md) for detailed steps. The additional commands perform a few updates and installs Python.
+1. Connect to your Linux VM. If you used a password, you can use the syntax below. If you used a public-private key pair, see [SSH on Linux](./../virtual-machines/linux/mac-create-ssh-keys.md) for detailed steps. The other commands retrieve information about what packages can be installed, including what updates to currently installed packages packages are available, and installs Python.
 
    ```cmd
    ssh user@IP
@@ -242,7 +243,7 @@ Register the Azure virtual machine as an APS Desired State Configuration (DSC) n
    sudo dpkg -i ./dsc-1.2.1-0.ssl_110.x64.deb
    ```
 
-1. Now you can register the node using the `sudo /opt/microsoft/dsc/Scripts/Register.py <PRIMARY ACCESS KEY> <URL>` code you crafted in step 1. Execute the code in your ssh session. The output should look similar as shown below:
+1. Now you can register the node using the `sudo /opt/microsoft/dsc/Scripts/Register.py <Primary Access Key> <URL>` Python script created in step 1. Run the commands in your ssh session, and the following output should look similar as shown below:
 
    ```output
    instance of SendConfigurationApply
@@ -252,7 +253,7 @@ Register the Azure virtual machine as an APS Desired State Configuration (DSC) n
    
    ```
 
-1. You can verify the registration back in PowerShell with the following code:
+1. You can verify the registration in PowerShell using the following command:
 
    ```powershell
      Get-AzAutomationDscNode `
@@ -267,7 +268,7 @@ Register the Azure virtual machine as an APS Desired State Configuration (DSC) n
 
 ## Assign a node configuration
 
-Call the [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode) cmdlet to set the node configuration mapping. Execute the following code:
+Call the [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode) cmdlet to set the node configuration mapping. Run the following commands:
 
 ```powershell
 # Get the ID of the DSC node
@@ -291,7 +292,7 @@ The output should look similar as shown below:
 
 ## Modify the node configuration mapping
 
-Call the [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode) cmdlet to modify the node configuration mapping. Here, you modify the current node configuration mapping from `LinuxConfig.IsNotPresent` to `LinuxConfig.IsPresent`. Execute the following code:
+Call the [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode) cmdlet to modify the node configuration mapping. Here, you modify the current node configuration mapping from `LinuxConfig.IsNotPresent` to `LinuxConfig.IsPresent`. Run the following command:
 
 ```powershell
 # Modify node configuration mapping
@@ -305,7 +306,7 @@ Set-AzAutomationDscNode `
 
 ## Check the compliance status of a managed node
 
-Each time State Configuration does a consistency check on a managed node, the node sends a status report back to the pull server. Call the [Get-AzAutomationDscNodeReport](/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport) cmdlet to get reports on the compliance status of a managed node using the following code:
+Each time State Configuration does a consistency check on a managed node, the node sends a status report back to the pull server. The following example uses the [Get-AzAutomationDscNodeReport](/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport) cmdlet to report on the compliance status of a managed node.
 
 ```powershell
 Get-AzAutomationDscNodeReport `
@@ -319,56 +320,72 @@ The output should look similar as shown below:
 
    :::image type="content" source="media/dsc-linux-powershell/get-azautomationdscnodereport-output.png" alt-text="Output from Get-AzAutomationDscNodeReport command.":::
 
-It can take some time after a node is enabled before the first report is available. You might
-need to wait up to 30 minutes for the first report after you enable a node. For more information about report data, see [Using a DSC report server](/powershell/scripting/dsc/pull-server/reportserver).
+The first report may not be available immediately and may take up to 30 minutes after you enable a node. For more information about report data, see see [Using a DSC report server](/powershell/scripting/dsc/pull-server/reportserver).
 
 ## Clean up resources
 
-Delete resources when no longer needed with the following code:
+The following steps help you delete the resources created for this tutorial that are no longer needed.
 
-```powershell
-# Get the ID of the DSC node
-$NodeID = (Get-AzAutomationDscNode `
-   -ResourceGroupName $resourceGroup `
-   -AutomationAccountName $automationAccount `
-   -Name $VM).Id
+1. Remove DSC node from management by an Automation account. Although you can't register a node through PowerShell, you can unregister it with PowerShell. Run the following commands:
 
-# Remove DSC node from management by an Automation account.
-# Although you can't register a node through PowerShell, you can unregister it with PowerShell.
-Unregister-AzAutomationDscNode `
-   -ResourceGroupName $resourceGroup `
-   -AutomationAccountName $automationAccount `
-   -Id $NodeID `
-   -Force
+    ```powershell
+    # Get the ID of the DSC node
+    $NodeID = (Get-AzAutomationDscNode `
+       -ResourceGroupName $resourceGroup `
+       -AutomationAccountName $automationAccount `
+       -Name $VM).Id
+    
+    Unregister-AzAutomationDscNode `
+       -ResourceGroupName $resourceGroup `
+       -AutomationAccountName $automationAccount `
+       -Id $NodeID `
+       -Force
+    ```
 
-# Remove metadata from DSC node configurations in Automation.
-Remove-AzAutomationDscNodeConfiguration `
-   -ResourceGroupName $resourceGroup `
-   -AutomationAccountName $automationAccount `
-   -Name $nodeConfigurationName0 `
-   -IgnoreNodeMappings `
-   -Force
+   The commands do not produce any output.
 
-Remove-AzAutomationDscNodeConfiguration `
-   -ResourceGroupName $resourceGroup `
-   -AutomationAccountName $automationAccount `
-   -Name $nodeConfigurationName1 `
-   -IgnoreNodeMappings `
-   -Force
+1. Remove metadata from DSC node configurations in Automation. Run the following commands:
 
-# Remove DSC configuration from Automation.
-Remove-AzAutomationDscConfiguration `
-   -AutomationAccountName $automationAccount `
-   -ResourceGroupName $resourceGroup `
-   -Name $configurationName `
-   -Force
+    ```powershell
+    Remove-AzAutomationDscNodeConfiguration `
+       -ResourceGroupName $resourceGroup `
+       -AutomationAccountName $automationAccount `
+       -Name $nodeConfigurationName0 `
+       -IgnoreNodeMappings `
+       -Force
+    
+    Remove-AzAutomationDscNodeConfiguration `
+       -ResourceGroupName $resourceGroup `
+       -AutomationAccountName $automationAccount `
+       -Name $nodeConfigurationName1 `
+       -IgnoreNodeMappings `
+       -Force
+    ```
 
-# Removes nx module from Automation.
-Remove-AzAutomationModule `
-   -ResourceGroupName $resourceGroup `
-   -AutomationAccountName $automationAccount `
-   -Name $moduleName 
-```
+   The commands do not produce any output.
+
+1. Remove DSC configuration from Automation. Run the following command:
+
+    ```powershell
+    Remove-AzAutomationDscConfiguration `
+       -AutomationAccountName $automationAccount `
+       -ResourceGroupName $resourceGroup `
+       -Name $configurationName `
+       -Force
+    ```
+
+   The command does not produce any output.
+
+1. Removes nx module from Automation. Run the following command:
+
+    ```powershell
+    Remove-AzAutomationModule `
+       -ResourceGroupName $resourceGroup `
+       -AutomationAccountName $automationAccount `
+       -Name $moduleName -Force
+    ```
+
+   The command does not produce any output.
 
 ## Next steps
 
