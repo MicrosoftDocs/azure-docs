@@ -20,10 +20,6 @@ ms.author: duau
 
 Azure Route Server is a fully managed service that allows you to easily manage routing between your network virtual appliance (NVA) and your virtual network.
 
-## Why does Azure Route Server require a public IP address?
-
-Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, as such a public IP address is required. 
-
 ### Is Azure Route Server just a VM?
 
 No. Azure Route Server is a service designed with high availability. If it's deployed in an Azure region that supports [Availability Zones](../availability-zones/az-overview.md), it will have zone-level redundancy.
@@ -47,6 +43,10 @@ No. Azure Route Server only exchanges BGP routes with your NVA. The data traffic
 
 ### Does Azure Route Server store customer data?
 No. Azure Route Server only exchanges BGP routes with your NVA and then propagates them to your virtual network.
+
+### Why does Azure Route Server require a public IP address?
+
+Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, as such a public IP address is required. 
 
 ### If Azure Route Server receives the same route from more than one NVA, how does it handle them?
 

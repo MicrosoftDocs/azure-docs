@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 08/30/2021
 ---
 
 # Copy data from Amazon Redshift using Azure Data Factory or Synapse Analytics
@@ -43,7 +43,33 @@ Specifically, this Amazon Redshift connector supports retrieving data from Redsh
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define entities specific to Amazon Redshift connector.
+## Create a linked service to Amazon Redshift using UI
+
+Use the following steps to create a linked service to Amazon Redshift in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for Amazon and select the Amazon Redshift connector.
+
+    :::image type="content" source="media/connector-amazon-redshift/amazon-redshift-connector.png" alt-text="Select the Amazon Redshift connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-amazon-redshift/configure-amazon-redshift-linked-service.png" alt-text="Configure a linked service to Amazon Redshift.":::
+
+## Connector configuration details
+
+The following sections provide details about properties that are used to define Data Factory entities specific to Amazon Redshift connector.
 
 ## Linked service properties
 

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/01/2019
+ms.date: 08/30/2021
 ---
 
 # Copy data from Oracle Service Cloud using Azure Data Factory or Synapse Analytics (Preview)
@@ -34,7 +34,34 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define entities specific to Oracle Service Cloud connector.
+## Create a linked service to Oracle Service Cloud using UI
+
+Use the following steps to create a linked service to Oracle Service Cloud in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for Oracle and select the Oracle Service Cloud connector.
+
+   :::image type="content" source="media/connector-oracle-service-cloud/oracle-service-cloud-connector.png" alt-text="Select the Oracle Service Cloud connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-oracle-service-cloud/configure-oracle-service-cloud-linked-service.png" alt-text="Configure a linked service to Oracle Service Cloud.":::
+
+## Connector configuration details
+
+The following sections provide details about properties that are used to define Data Factory entities specific to Oracle Service Cloud connector.
 
 ## Linked service properties
 
