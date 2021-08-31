@@ -1,4 +1,4 @@
-- name: Azure Load Testing documentation
+- name: Azure Load Testing docs
   href: index.yml
 - name: Overview
   items: 

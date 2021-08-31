@@ -7,8 +7,8 @@ metadata:
   title: Azure Load Testing documentation
   description: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, CLI references, and more. 
  
-  services: machine-learning
-  ms.service: machine-learning
+  services: load-testing
+  ms.service: load-testing
   ms.subservice: core
   ms.topic: hub-page
   ms.collection: collection

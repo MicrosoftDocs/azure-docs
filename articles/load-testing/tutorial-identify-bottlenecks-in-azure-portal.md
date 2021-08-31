@@ -2,8 +2,8 @@
 title: Identify bottlenecks in Azure portal
 titleSuffix: Azure Load Testing
 description: In Azure portal, identify & monitor performance bottlenecks with Azure Load Testing.
-services: machine-learning
-ms.service: machine-learning
+services: load-testing
+ms.service: load-testing
 ms.author: jmartens
 author: j-martens
 ms.date: 8/25/2021

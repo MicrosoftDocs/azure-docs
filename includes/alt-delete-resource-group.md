@@ -16,7 +16,7 @@ ms.date: 9/04/2021
 If you don't plan to use any of the resources that you created, delete them so you don't incur any further charges.
 
 * In the Azure portal:
-    1. , select **Resource groups** on the far left.
+    1. Select **Resource groups** on the far left.
  
     1. From the list, select the resource group that you created.
 
