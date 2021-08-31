@@ -4,7 +4,7 @@ description: Learn more about new features and enhancements in Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 08/31/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -39,10 +39,21 @@ For more information, see:
 ### Premium, hot, and cool storage capacity reservations 
 Azure Files supports storage capacity reservations (also referred to as *reserve instances*). Storage capacity reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports capacity reservations on the premium, hot, and cool tiers. Capacity reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
 
+For more information, see:
+
+- [Understanding Azure Files billing](understanding-billing.md)
+- [Optimized costs for Azure Files with reserved capacity](files-reserve-capacity.md)
+- [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
+
 ### Improved portal experience for domain joining to Active Directory
 The experience for domain joining an Azure storage account has been improved to help guide first-time Azure file share admins through the process. When you select Active Directory under **File share settings** in the **File shares** section of the Azure portal, you will be guided through the steps required to domain join.
 
 :::image type="content" source="media/files-whats-new/ad-domain-join-1.png" alt-text="Screenshot of the new portal experience for domain joining a storage account to Active Directory" lightbox="media/files-whats-new/ad-domain-join-1.png":::
+
+For more information, see:
+
+- [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md)
+- [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md)
 
 ## 2021 quarter 1 (January, February, March)
 ### Azure Files management now available through the control plane

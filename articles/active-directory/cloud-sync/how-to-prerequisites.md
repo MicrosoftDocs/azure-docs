@@ -129,6 +129,9 @@ When using OU scoping filter
 - You can only sync up to 59 separate OUs for a given configuration. 
 - Nested OUs are supported (that is, you **can** sync an OU that has 130 nested OUs, but you **cannot** sync 60 separate OUs in the same configuration). 
 
+### Password Hash Sync
+- Using password hash sync with InetOrgPerson is not supported.
+
 
 ## Next steps 
 
