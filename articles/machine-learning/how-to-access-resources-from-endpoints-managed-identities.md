@@ -21,7 +21,7 @@ Learn how to access Azure resources from your scoring script with a managed onli
 
 Managed endpoints (preview) allow Azure Machine Learning to manage the burden of provisioning your compute resource and deploying your machine learning model. Typically your model needs to access Azure resources such as the Azure Container Registry or your blob storage for inferencing; with a managed identity you can access these resources without needing to manage credentials in your code. [Learn more about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-This guide assumes you don't have a managed identity, a storage account or a managed online endpoint. If you already have these components, skip to the [give permissions to the identity](#give-required-permissions-to-the-identity) section. 
+This guide assumes you don't have a managed identity, a storage account or a managed online endpoint. If you already have these components, skip to the [give access permission to the managed identity](#give-access-permission-to-the-managed-identity) section. 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -261,7 +261,7 @@ Check the status of the deployment.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deploy_Status" :::
 
-To refine the above query to only return specific data, see [Query Azure CLI command output](https://docs.microsoft.com/cli/azure/query-azure-cli).
+To refine the above query to only return specific data, see [Query Azure CLI command output](cli/azure/query-azure-cli).
 
 > [!NOTE]
 > The init method in the scoring script reads the file from your storage account using the system assigned managed identity token.
@@ -282,7 +282,7 @@ Once the command executes, you can check the status of the deployment.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="check_endpoint_Status" :::
 
-To refine the above query to only return specific data, see [Query Azure CLI command output](https://docs.microsoft.com/cli/azure/query-azure-cli).
+To refine the above query to only return specific data, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="check_deployment_log" :::
 
