@@ -143,6 +143,8 @@ FROM
 		passenger_count int
 	) AS nyc;
 ```
+> [!Note]
+> If the column contains unicode data and you are using Latin1_General_100_BIN2_UTF8 Collation, you may need to increase the length to accomodate the increased stoage requirements
 
 ## Filter optimization
 
