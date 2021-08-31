@@ -13,16 +13,18 @@ ms.topic: how-to
 
 # Run a load test and identify performance bottlenecks
 
-In this article, you'll learn how to load test a sample application to identify performance bottlenecks. You will be guided through the following steps:
-* Set up a sample application to load test. The application consists of a Web API deployed to Azure App Service that interacts with an Azure Cosmos DB data store.
-* Create and run a load test that exercises the sample application.
-* Use the test results to identify performance bottlenecks in the application.
-* Re-run the load test to verify performance improvements after making cloud configuration changes to the application.
-* Clean up resources.
+In this article, you'll learn how to load test a sample application to identify performance bottlenecks, including:
+
+> [!div class="checklist"]
+> * Set up a sample application to load test. The application consists of a Web API deployed to Azure App Service that interacts with an Azure Cosmos DB data store.
+> * Create and run a load test that exercises the sample application.
+> * Use the test results to identify performance bottlenecks in the application.
+> * Re-run the load test to verify performance improvements after making cloud configuration changes to the application.
+> * Clean up resources.
 
 
->Note: The estimated cost to run the sample application is approximately $1 USD every 2-3 hours. When you have completed this tutorial, we recommend following the steps in
-    **[Clean Up Resources](https://github.com/microsoft/azureloadtest/blob/main/tutorial/loadtest.md#clean-up-resources)** to delete the sample application and stop being charged. 
+> [!Note]
+> The estimated cost to run the sample application is approximately $1 USD every 2-3 hours. When you have completed this tutorial, we recommend following the steps in **[Clean Up Resources](https://github.com/microsoft/azureloadtest/blob/main/tutorial/loadtest.md#clean-up-resources)** to delete the sample application and stop being charged. 
 
 
 ## Prerequisites
@@ -34,31 +36,36 @@ In this article, you'll learn how to load test a sample application to identify 
 ## Deploy the sample app
 
 1. In your terminal window, log into Azure and set the subscription to the one that is allowlisted to use the load test service private preview:
-
-        az login
-        az account set -s mySubscriptionName
+   ```cli
+   az login
+   az account set -s mySubscriptionName
+   ```
 
 2. Clone the sample application's source repository. The sample application is a Node.js app consisting of an Azure App Service web component and a Cosmos DB database. The repo also contains a PowerShell script that deploys the sample app to your Azure subscription, and a JMeter script that we'll use in subsequent steps.
-
-        git clone https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git
+   ```txt
+    git clone https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git
+   ```
 
 3. Deploy the sample app using the PowerShell script.
-
-        cd nodejs-appsvc-cosmosdb-bottleneck
-        .\deploymentscript.ps1
+   ```txt
+    cd nodejs-appsvc-cosmosdb-bottleneck
+    .\deploymentscript.ps1
+   ```
         
-    *Tip: PowerShell Core can also be installed on [Linux/WASL](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-1804) or [macOS](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7.1).
-    After installing it, you can run the previous command with `pwsh .\deploymentscript.ps1`.*
+   > [!TIP]
+   > PowerShell Core can also be installed on [Linux/WASL](./powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-1804&preserve-view=true) or [macOS](./powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7.1).
+   > After installing it, you can run the previous command with `pwsh .\deploymentscript.ps1`.*
 
 4. You will be prompted to supply a unique application name and a location (default is `eastus`).
 
 5. Once deployment is complete, browse to the running sample application with your browser.
-
-        https://<app_name>.azurewebsites.net
+   ```txt
+    https://<app_name>.azurewebsites.net
+   ```
 
 6. You can also go to the [Azure portal](https://portal.azure.com) to view the application's components by going to its resource group.
 
-   ![list of machine learning published pipelines](./media/how-to-identify-bottlenecks-in-vs-code/rg.png)
+   ![Resource groups](./media/how-to-identify-bottlenecks-in-vs-code/rg.png)
 
 Now that the application is deployed and running, let’s get started with running your first load test against it.
 
@@ -73,14 +80,15 @@ The sample application's source repository contains a JMeter script named `Sampl
 1. Before starting, make sure you have the directory of the cloned sample app open in Visual Studio Code.
 
 2. Open the JMX script named `SampleApp.jmx` in a text editor, and update lines 36, 81, and 119 with the URL of your newly deployed sample application (tip: the URL needs to be updated in 3 separate places, and do not include the `https://` prefix). Save your changes and close the file.
-```xml
-<stringProp name="HTTPSampler.domain">APPNAME.azurewebsites.net</stringProp>
-```
+   ```xml
+   <stringProp name="HTTPSampler.domain">APPNAME.azurewebsites.net</stringProp>
+   ```
+
 3. Use **Ctrl+Shift+P** to launch the command palette. Begin typing `Azure load` and you would see 2 commands associated with the Azure Load Test extension:
     * **Create New Test**: This command is used to author a new cloud load test from an existing JMeter script.
     * **Run Current File as Load Test in Cloud**: This command is used to run an existing cloud load test at scale in Azure.
 
-   ![list of machine learning published pipelines](./media/how-to-identify-bottlenecks-in-vs-code/createtest.png)
+   ![Create new Azure Load Testing test](./media/how-to-identify-bottlenecks-in-vs-code/createtest.png)
 
 3. Select **Create New Test**
 
@@ -96,9 +104,6 @@ The sample application's source repository contains a JMeter script named `Sampl
  
    ![Updated yml](./media/how-to-identify-bottlenecks-in-vs-code/updatedyaml.png)
 
-   <p align ="left">
-        <img src="images/updatedyaml.png" width="600">
-    </p>
 7. Save your YAML changes, and then select **Run Current File as Load Test in Cloud** from the VS Code command palette. Sign in to Azure if prompted.
 
    ![Subscriptions](./media/how-to-identify-bottlenecks-in-vs-code/subslist.png)
@@ -172,8 +177,9 @@ We see that the response time for the `add` and `get` API's has improved compare
 ## **Clean up resources**
 
 Now that you have successfully run your first load test and have identified and corrected performance bottlenecks in your application, you may want to delete the resources to avoid to continue incurring charges. Use the `az group delete` command to remove the resource group and all related resources.
-
-        az group delete --name myResourceGroup
+   ```cli
+   az group delete --name myResourceGroup
+   ```
 
 Similarly, you can utilize the **Delete resource group** toolbar button on the sample application's resource group to remove all the resources.
 
