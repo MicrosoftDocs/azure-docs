@@ -35,22 +35,22 @@ Non-HNS enabled blob containers also support "blob versioning". If blob versioni
 
 In Blob Explorer, soft-deleted blobs are shown under certain view contexts.
 
-For blob containers without HNS enabled, you can view soft-deleted blobs under the "Active blobs and soft deleted blobs" and the "All blobs and blobs without current version" view contexts.
+For blob containers without HNS enabled, choose the "Active blobs and soft deleted blobs" or the "All blobs and blobs without current version" view context to view soft-deleted blobs.
 
-For blob containers with HNS enabled, you can view soft-deleted blobs and directories under the "Active and soft deleted blobs" and the "Deleted only" view contexts.
+For blob containers with HNS enabled, choose the "Active and soft deleted blobs" or the "Deleted only" view context to view soft-deleted blobs and directories.
 
 ## Delete blobs
 
-Storage Explorer will try to peek the current delete retention policy and inform you of the consequence of the delete operation. If soft delete is known to be disabled, you can quickly enable it for the current storage account from the **Enable Soft Delete** button in the confirmation dialog.
+When deleting blobs or directories, Storage Explorer checks the storage account's current delete retention policy. A confirmation dialog then informs you what will happen if you proceed with the delete operation. If soft delete is disabled, you can enable it from the confirmation dialog by selecting the **Enable Soft Delete** button.
 
 > [!WARNING]
-> If you have just saved a new delete retention policy and haven't waited for the new policy to take effect, the policy peeked might be incorrect. It is highly recommended to not delete data before a new policy has taken effect.
+> Storage Explorer may not see a new delete retention policy if you just saved it. It is highly recommended that you wait at least 30 seconds for the new policy to take effect before deleting data.
 
 ## Undelete blobs
 
-You can undelete soft-deleted blobs in batch and recursively in Storage Explorer.
+Storage Explorer can undelete soft-deleted blobs recursively and in batches.
 
-To undelete blobs, select them and use the **Undelete → Undelete Selected** from the toolbar or the context menu.
+To undelete blobs, select the soft-deleted blobs you want to undelete and use the **Undelete → Undelete Selected** from the toolbar or the context menu.
 
 You can also undelete blobs recursively under a directory. If an active directory is included in the selection, Storage Explorer will undelete all the soft-deleted blobs or directories in it.
 
