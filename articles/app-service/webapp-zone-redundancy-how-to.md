@@ -10,7 +10,7 @@ ms.author: jordanselig
 
 App Services can be deployed into [Availability Zones (AZ)](../availability-zones/az-overview.md) which enables [high availability](https://en.wikipedia.org/wiki/High_availability) for your apps. This architecture is also known as zone redundancy.
 
-An app lives in an App Service plan (ASP). The ASP exists in a single scale unit. When an App Service is configured to be zone redundant, the platform automatically spreads the VM instances in the ASP across all three zones in the selected region. If a capacity larger than three is specified and the number of instances is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones. In terms of traffic distribution to your zone redundant app, this is all managed by Azure behind the scenes. See [this doc](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability) for more information on highly available architectures and delivering reliability in Azure.
+An app lives in an App Service plan (ASP). The ASP exists in a single scale unit. When an App Service is configured to be zone redundant, the platform automatically spreads the VM instances in the ASP across all three zones in the selected region. If a capacity larger than three is specified and the number of instances is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones. For traffic distribution to your zone redundant app, this is all managed by Azure behind the scenes. For more information about highly available architectures and delivering reliability in Azure topic, see the [doc](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 ## Requirements
 
@@ -42,7 +42,7 @@ Zone redundancy, is a property of the ASP. The following are the current require
   - Currently if you're running on Pv3, then you're already on the footprint that supports AZ. All you need to do is create a new ASP.
   - If you aren't using Pv3 or a scale unit that supports AZ, are in an unsupported region, or are unsure, follow the steps below:
     - Create a new resource group in a region that is supported
-        - This is to ensure the App Service control plane can find a scale unit in the desired region that supports zone redundancy
+        - This ensures the App Service control plane can find a scale unit in the selected region that supports zone redundancy
     - Create a new ASP (and app) in a region of your choice using the **new** resource group
 - Must be created using [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md)
 
