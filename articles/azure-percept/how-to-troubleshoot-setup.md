@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot issues during the Azure Percept DK setup experience
+title: Troubleshoot the Azure Percept DK setup experience
 description: Get troubleshooting tips for some of the more common issues found during the setup experience
-author: mimcco
-ms.author: mimcco
+author: SillyKeith
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: troubleshooting
 ms.date: 03/25/2021
 ms.custom: template-how-to
 ---
 
-# Azure Percept DK setup experience troubleshooting guide
+# Troubleshoot the Azure Percept DK setup experience
 
 Refer to the table below for workarounds to common issues found during the [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md). If your issue still persists, contact Azure customer support.
 

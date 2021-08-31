@@ -58,7 +58,7 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 1. From the data connectors gallery, select **Azure Active Directory** and then select **Open connector page**.
 
-1. Mark the check boxes next to the log types you want to stream into Azure Sentinel (see above), and click **Connect**.
+1. Mark the check boxes next to the log types you want to stream into Azure Sentinel (see above), and select **Connect**.
 
 ## Find your data
 
