@@ -23,7 +23,7 @@ Azure Data Factory and Synapse Analytics mapping data flow's debug mode allows y
 
 ![Screenshot that shows where is the Debug slider 2](media/data-flow/debug-button-4.png)
 
-Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a default 60-minute time to live will be spun up. If you'd like to allow for more idle team before your session times out, you can choose a higher TTL setting. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#ir).
+Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a default 60-minute time to live will be spun up. If you'd like to allow for more idle team before your session times out, you can choose a higher TTL setting. For more information on data flow integration runtimes, see [Integration Runtime performance](concepts-integration-runtime-performance.md).
 
 ![Debug IR selection](media/data-flow/debug-new-1.png "Debug IR selection")
 
