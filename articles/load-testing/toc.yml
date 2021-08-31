@@ -1,4 +1,4 @@
-- name: Azure Load Testing Documentation
+- name: Azure Load Testing documentation
   href: index.yml
 - name: Overview
   items: 
@@ -21,7 +21,7 @@
 - name: How-tos
   expanded: true
   items: 
-    - name: Identify bottlenecks with VS Code
+    - name: Identify bottlenecks with Visual Studio Code
       href: how-to-identify-bottlenecks-in-vs-code.md
     - name: Automation
       items: 
