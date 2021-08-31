@@ -9,7 +9,6 @@ metadata:
  
   services: load-testing
   ms.service: load-testing
-  ms.subservice: core
   ms.topic: hub-page
   ms.collection: collection
   ms.author: jmartens
