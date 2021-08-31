@@ -33,7 +33,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Asana supports **SP** initiated SSO
 
-* Asana supports [**Automated** user provisioning](asana-provisioning-tutorial.md)
+* Asana supports [**automated** user provisioning](asana-provisioning-tutorial.md)
 
 ## Add Asana from the gallery
 

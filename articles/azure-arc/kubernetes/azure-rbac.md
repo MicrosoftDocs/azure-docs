@@ -47,27 +47,29 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
     ```azurecli
-    az ad app create --display-name "<clusterName>Server" --identifier-uris "https://<clusterName>Server" --query appId -o tsv
+    CLUSTERNAME="<clusterName>"
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTERNAME}Server" --identifier-uris "https://${CLUSTERNAME}Server" --query appId -o tsv)
+    echo $SERVER_APP_ID
     ```
 
 1. Update the application's group membership claims:
 
     ```azurecli
-    az ad app update --id <serverApplicationId> --set groupMembershipClaims=All
+    az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
     ```
 
 1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster.
 
     ```azurecli
-    az ad sp create --id <serverApplicationId>
-    az ad sp credential reset --name <serverApplicationId> --credential-description "ArcSecret" --query password -o tsv
+    az ad sp create --id "${SERVER_APP_ID}"
+    SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
     ```
 
-1. Grant API permissions to the application:
+1. Grant "Sign in and read user profile" API permissions to the application:
 
     ```azurecli
-    az ad app permission add --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
-    az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000
+    az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
+    az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000
     ```
 
     > [!NOTE]
@@ -80,26 +82,27 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
 
     ```azurecli
-    az ad app create --display-name "<clusterName>Client" --native-app --reply-urls "https://<clusterName>Client" --query appId -o tsv
+    CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTERNAME}Client" --native-app --reply-urls "https://${CLUSTERNAME}Client" --query appId -o tsv)
+    echo $CLIENT_APP_ID
     ```
 
 2. Create a service principal for this client application:
 
     ```azurecli
-    az ad sp create --id <clientApplicationId>
+    az ad sp create --id "${CLIENT_APP_ID}"
     ```
 
 3. Get the `oAuthPermissionId` value for the server application:
 
     ```azurecli
-    az ad app show --id <serverApplicationId> --query "oauth2Permissions[0].id" -o tsv
+    az ad app show --id "${SERVER_APP_ID}" --query "oauth2Permissions[0].id" -o tsv
     ```
 
 4. Grant the required permissions for the client application:
 
     ```azurecli
-    az ad app permission add --id <clientApplicationId> --api <serverApplicationId> --api-permissions <oAuthPermissionId>=Scope
-    az ad app permission grant --id <clientApplicationId> --api <serverApplicationId>
+    az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
+    az ad app permission grant --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}"
     ```
 
 ## Create a role assignment for the server application
@@ -128,15 +131,13 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 2. Run the following command to create the new custom role:
 
     ```azurecli
-    az role definition create --role-definition ./accessCheck.json
+    ROLE_ID=$(az role definition create --role-definition ./accessCheck.json --query id -o tsv)
     ```
 
-3. From the output of the preceding command, store the value of the `id` field. This field is used in later steps as `roleId`.
-
-4. Create a role assignment on the server application as `assignee` by using the role that you created:
+3. Create a role assignment on the server application as `assignee` by using the role that you created:
 
     ```azurecli
-    az role assignment create --role <roleId> --assignee <serverApplicationId> --scope /subscriptions/<subscription-id>
+    az role assignment create --role "${ROLE_ID}" --assignee "${SERVER_APP_ID}" --scope /subscriptions/<subscription-id>
     ```
 
 ## Enable Azure RBAC on the cluster
@@ -144,7 +145,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 Enable Azure role-based access control (RBAC) on your Arc enabled Kubernetes cluster by running the following command:
 
 ```console
-az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id <serverApplicationId> --app-secret <serverApplicationSecret>
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
     
 > [!NOTE]

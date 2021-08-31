@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/19/2021
+ms.date: 08/03/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to be able to review VM activity in real-time for the compute workloads on my Azure Stack Edge Pro GPU device.
 ---
@@ -27,21 +27,21 @@ To view activity logs for the virtual machines on your Azure Stack Edge Pro GPU 
 
 1. Go to the device and then to **Virtual Machines**. Select **Activity log**.
 
-    ![Screenshot showing the Activity logs view for virtual machines on an Azure Stack Edge device in the Azure portal](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-01.png)<!--Shoot a new screen: Larger text; clearer. Lightbox treatment? Remove all MS info.-->
+    ![Screenshot showing the Activity log pane for virtual machines on an Azure Stack Edge device. Activity log is highlighted in the navigation pane.](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-01.png)
 
     You'll see the VM guest logs for virtual machines on the device.
 
 1. Use filters above the list to target the activity you need to see.
 
-    ![Screenshot showing the Timespan filter for Activity for virtual machines on an Azure Stack Edge device in the Azure portal](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-02.png)<!--Reshoot to remove pointer. Lightbox treatment?-->
+    ![Screenshot showing the Timespan options on the Activity logs page for Virtual Machines. The selected time span is highlighted.](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-02.png)<!--Reshoot to remove pointer. Lightbox treatment?-->
 
 1. Click the down arrow by an operation name to view the associated activity.
 
-    ![Screenshot showing Activity logs view for virtual machines on an Azure Stack Edge device](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-03.png)<!--Reshoot to remove pointer. May be able to replace drop-down only.-->
+    ![Screenshot showing the Activity logs page for Virtual Machines on an Azure Stack Edge device. An expanded operation is highlighted in the list.](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-03.png)<!--Reshoot to remove pointer. May be able to replace drop-down only.-->
 
-On any **Activity log** pane in Azure, you can filter and sort activities, select columns to display, drill down to details for a specific activity, and get **Quick Insights** into errors, failed deployments, alerts, service health, and security changes over the last 24 hours. For more information about the logs and the filtering options, see [View activity logs](/azure/azure-resource-manager/management/view-activity-logs).
+On any **Activity log** pane in Azure, you can filter and sort activities, select columns to display, drill down to details for a specific activity, and get **Quick Insights** into errors, failed deployments, alerts, service health, and security changes over the last 24 hours. For more information about the logs and the filtering options, see [View activity logs](../azure-resource-manager/management/view-activity-logs.md).
 
 ## Next steps
 
-- [Troubleshoot VM deployment](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
-- [Collect VM guest logs in a Support package](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
+- [Troubleshoot VM deployment](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md).
+- [Collect VM guest logs in a Support package](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).

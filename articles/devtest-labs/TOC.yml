@@ -4,8 +4,6 @@
   items:
   - name: About DevTest Labs 
     href: devtest-lab-overview.md
-  - name: Azure DevTest Labs and Lab Services
-    href: lab-services-overview.md
 - name: Quickstart
   items:
   - name: Create a lab - Resource Manager template

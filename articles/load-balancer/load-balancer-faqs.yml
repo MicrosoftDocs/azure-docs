@@ -18,7 +18,7 @@ sections:
       - question: |
           What types of Load Balancer exist?
         answer: |
-          Internal load balancers which balance traffic within a VNET and external load balancers which balance traffic to and from an internet connected endpoint. For more information, see [Load Balancer Types](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). 
+          Internal load balancers which balance traffic within a VNET and external load balancers which balance traffic to and from an internet connected endpoint. For more information, see [Load Balancer Types](./load-balancer-overview.md). 
           
           For both these types, Azure offers a Basic SKU and Standard SKU that have different functional, performance, security and health tracking capabilities. These differences are explained in our [SKU Comparison](skus.md) article.
           
@@ -95,6 +95,11 @@ sections:
           How can I view the traffic from my configured health probe(s)?
         answer: |
           To view the traffic sent to each backend instance from the health probe you can use IP stack statistics with a tool such as netstat. When looking through this tool, the health probe traffic will be coming from 168.63.129.16.
+
+      - question: |
+          If I enable DDoS Protection Standard for my load balancer frontend, what does that mean for the resources in the backend pool?
+        answer: |
+          When enabled on the frontend IP for a load balancer, DDoS Protection Standard will apply protection for all backend pool resources that are accessible through that public IP.  Please see [Azure DDoS Protection Reference](../ddos-protection/ddos-protection-reference-architectures.md) for more details. 
 
 additionalContent: |
 

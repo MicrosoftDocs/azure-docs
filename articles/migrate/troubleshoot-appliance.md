@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Migrate appliance deployment and discovery
-description: Get help with appliance deployment and server discovery.
+title: Troubleshoot Azure Migrate appliance
+description: Get help to troubleshoot problems that might occur with the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -9,7 +9,7 @@ ms.date: 07/01/2020
 ---
 
 
-# Troubleshoot the Azure Migrate appliance and discovery
+# Troubleshoot the Azure Migrate appliance
 
 This article helps you troubleshoot issues when deploying the [Azure Migrate](migrate-services-overview.md) appliance, and using the appliance to discover on-premises servers.
 
@@ -40,10 +40,10 @@ You are getting an error in the connectivity check on the appliance.
 
 **Remediation**
 
-1. Ensure that you can connect to the required [URLs](/azure/migrate/migrate-appliance#url-access) from the appliance.
+1. Ensure that you can connect to the required [URLs](./migrate-appliance.md#url-access) from the appliance.
 1. Check if there is a proxy or firewall blocking access to these URLs. If you are required to create an allowlist, make sure that you include all of the URLs.
 1. If there is a proxy server configured on-premises, make sure that you provide the proxy details correctly by selecting **Setup proxy** in the same step. Make sure that you provide the authorization credentials if the proxy needs them.
-1. Ensure that the server has not been previously used to set up the [replication appliance](/azure/migrate/migrate-replication-appliance) or that you have the mobility service agent installed on the server.
+1. Ensure that the server has not been previously used to set up the [replication appliance](./migrate-replication-appliance.md) or that you have the mobility service agent installed on the server.
 
 ## Connectivity check failing for aka.ms URL during 'Set up prerequisites'
 
@@ -58,10 +58,10 @@ You are getting an error in the connectivity check on the appliance for aka.ms U
 3. You can go back to the appliance configuration manager and rerun prerequisites to initiate auto-update.
 3. If retry doesn't help, you can download the *latestcomponents.json* file from [here](https://aka.ms/latestapplianceservices) to check the latest versions of the services that are failing and manually update them from the download links in the file.
 
- If you have enabled the appliance for **private endpoint connectivity**, and don't want to allow access to this URL over internet, you can [disable auto-update](/azure/migrate/migrate-appliance#turn-off-auto-update), as the aka.ms link is required for this service.
+ If you have enabled the appliance for **private endpoint connectivity**, and don't want to allow access to this URL over internet, you can [disable auto-update](./migrate-appliance.md#turn-off-auto-update), as the aka.ms link is required for this service.
 
  >[!Note]
- >If you disable auto-update service, the services running on the appliance will not get the latest updates automatically. To get around this, [update the appliance services manually](/azure/migrate/migrate-appliance#manually-update-an-older-version).
+ >If you disable auto-update service, the services running on the appliance will not get the latest updates automatically. To get around this, [update the appliance services manually](./migrate-appliance.md#manually-update-an-older-version).
 
 ## Auto Update check failing during 'Set up prerequisites'
 
@@ -71,8 +71,8 @@ You are getting an error in the auto update check on the appliance.
 
 **Remediation**
 
-1. Make sure that you created an allowlist for the [required URLs](/azure/migrate/migrate-appliance#url-access) and that no proxy or firewall setting is blocking them.
-1. If the update of any appliance component is failing, either rerun the prerequisites or [manually update the appliance services](/azure/migrate/migrate-appliance#manually-update-an-older-version).
+1. Make sure that you created an allowlist for the [required URLs](./migrate-appliance.md#url-access) and that no proxy or firewall setting is blocking them.
+1. If the update of any appliance component is failing, either rerun the prerequisites or [manually update the appliance services](./migrate-appliance.md#manually-update-an-older-version).
 
 ## Time sync check failing during 'Set up prerequisites'
 
@@ -121,7 +121,7 @@ This issue happens when the Azure user account that was used to log in from the 
 **Remediation**
 1. To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal 
    OR
-1. Assign the required roles and [permissions](/azure/migrate/tutorial-prepare-vmware#prepare-azure) to the other Azure user account being used for appliance registration
+1. Assign the required roles and [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to the other Azure user account being used for appliance registration
 
 ## "Azure Active Directory (AAD) operation failed with status Forbidden" during appliance registration
 
@@ -131,7 +131,7 @@ You are unable to complete registration due to insufficient AAD privileges and g
 
 **Remediation**
 
-Ensure that you have the [required permissions](/azure/migrate/tutorial-prepare-vmware#prepare-azure) to create and manage AAD Applications in Azure. You should have the **Application Developer** role OR the user role with **User can register applications** allowed at the tenant level.
+Ensure that you have the [required permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to create and manage AAD Applications in Azure. You should have the **Application Developer** role OR the user role with **User can register applications** allowed at the tenant level.
 
 ## "Forbidden to access Key Vault" during appliance registration
 
@@ -143,9 +143,9 @@ This usually happens when the Azure user account that was used to register the a
 
 **Remediation**
 
-1. Ensure that the currently logged in user account on the appliance has the required permissions on the Key Vault (mentioned in the error message). The user account needs permissions as mentioned [here](/azure/migrate/tutorial-discover-vmware#prepare-an-azure-user-account).
-2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. [Learn more](/azure/key-vault/general/assign-access-policy-portal)
-3. If you have enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same VNet where the Key Vault has been created or it is connected to the Azure VNet (where Key Vault has been created) over a private link. Make sure that the Key Vault private link is resolvable from the appliance. Go to **Azure Migrate**: **Discovery** and **assessment**> **Properties** to find the details of private endpoints for resources like the Key Vault created during the Azure Migrate key creation. [Learn more](https://go.microsoft.com/fwlink/?linkid=2162447)
+1. Ensure that the currently logged in user account on the appliance has the required permissions on the Key Vault (mentioned in the error message). The user account needs permissions as mentioned [here](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
+2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. [Learn more](../key-vault/general/assign-access-policy-portal.md)
+3. If you have enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same VNet where the Key Vault has been created or it is connected to the Azure VNet (where Key Vault has been created) over a private link. Make sure that the Key Vault private link is resolvable from the appliance. Go to **Azure Migrate**: **Discovery** and **assessment**> **Properties** to find the details of private endpoints for resources like the Key Vault created during the Azure Migrate key creation. [Learn more](./troubleshoot-network-connectivity.md)
 4. If you have the required permissions and connectivity, re-try the registration on the appliance after some time.
 
 ## Unable to connect to vCenter Server during validation
@@ -184,8 +184,8 @@ You are unable to validate the added Hyper-V host/cluster due to an error-"Acces
 
 **Remediation**
 
-1. Ensure that you have met all the [prerequisites for the Hyper-V hosts](/azure/migrate/migrate-support-matrix-hyper-v#hyper-v-host-requirements). 
-1. Check the steps [**here**](/azure/migrate/tutorial-discover-hyper-v#prepare-hyper-v-hosts) on how to prepare the Hyper-V hosts manually or using a provisioning PowerShell script.
+1. Ensure that you have met all the [prerequisites for the Hyper-V hosts](./migrate-support-matrix-hyper-v.md#hyper-v-host-requirements). 
+1. Check the steps [**here**](./tutorial-discover-hyper-v.md#prepare-hyper-v-hosts) on how to prepare the Hyper-V hosts manually or using a provisioning PowerShell script.
 
 ## "The server does not support WS-Management Identify operations" during validation
 

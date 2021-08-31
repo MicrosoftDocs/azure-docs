@@ -186,10 +186,7 @@ During the public preview, the ability to publish custom metrics is available on
 |Azure region |Regional endpoint prefix|
 |---|---|
 | All Public Cloud Regions | https://<azure_region_code>.monitoring.azure.com |
-| **Azure Government** | |
-| US Gov Arizona | https:\//usgovarizona.monitoring.azure.us |
-| **China** | |
-| China East 2 | https:\//chinaeast2.monitoring.azure.cn |
+
 
 ## Latency and storage retention
 

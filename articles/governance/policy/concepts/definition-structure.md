@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -20,7 +20,7 @@ assignment is applied to a resource group, it's applicable to all the resources 
 group.
 
 The policy definition _policyRule_ schema is found here:
-[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+[https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -986,7 +986,7 @@ The following functions are only available in policy rules:
     [DeployIfNotExists example](effects.md#deployifnotexists-example).
 
 - `requestContext().apiVersion`
-  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`).
+  - Returns the API version of the request that triggered policy evaluation (example: `2021-09-01`).
     This value is the API version that was used in the PUT/PATCH request for evaluations on resource
     creation/update. The latest API version is always used during compliance evaluation on existing
     resources.
@@ -1122,7 +1122,8 @@ array element to a target value. When used with [count](#count) expression, it's
 - Check if all\any\none of the array elements meet a complex condition
 - Check if exactly ***n*** array elements meet a complex condition
 
-For more information and examples, see [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+For more information and examples, see
+[Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 ## Next steps
 

@@ -70,7 +70,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 [SP initiated](saml-service-provider.md) | NA | GA | POST and Redirect bindings. |
-[IDP initiated](saml-service-provider-options.md#identity-provider-initiated-flow) | NA | GA | Where the initiating identity provider is Azure AD B2C.  |
+[IDP initiated](saml-service-provider-options.md#configure-idp-initiated-flow) | NA | GA | Where the initiating identity provider is Azure AD B2C.  |
 
 ## User experience customization
 
@@ -119,7 +119,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |[OAuth2](oauth2-technical-profile.md) | NA | GA | For example, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md), and [Facebook](identity-provider-facebook.md).|
 |[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [Twitter](identity-provider-twitter.md). |
 |[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Azure AD](identity-provider-azure-ad-single-tenant.md).  |
-|[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS].(identity-provider-adfs.md) |
+|[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS](identity-provider-adfs.md). |
 | WSFED | NA | NA | |
 
 ### API connectors
@@ -181,5 +181,5 @@ Developers consuming the custom policy feature set should adhere to the followin
 
 ## Next steps
 
-- Check the [Microsoft Graph operations available for Azure AD B2C](microsoft-graph-operations.md)
+- Check the [Microsoft Graph operations available for Azure AD B2C](microsoft-graph-operations.md).
 - Learn more about [custom policies and the differences with user flows](custom-policy-overview.md).

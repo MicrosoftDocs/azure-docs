@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/19/2021
+ms.date: 07/30/2021
 ms.author: alkohli
 ---
 # Collect VM guest logs on an Azure Stack Edge Pro GPU device
@@ -47,5 +47,5 @@ To collect guest logs for failed virtual machines on an Azure Stack Edge Pro GPU
 
 ## Next steps
 
-- [Monitor the VM activity log](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
-- [Troubleshoot VM provisioning on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
+- [Monitor the VM activity log](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
+- [Troubleshoot VM provisioning on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md).

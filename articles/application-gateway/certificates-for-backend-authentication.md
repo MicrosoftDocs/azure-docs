@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 06/17/2020
+ms.date: 07/30/2021
 ms.author: absha
 ---
 

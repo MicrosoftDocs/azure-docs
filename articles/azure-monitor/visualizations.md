@@ -96,7 +96,7 @@ Here is a video walkthrough on creating dashboards.
 - Cost to support additional Grafana infrastructure or additional cost for Grafana Cloud.
 
 ## Azure Monitor partners
-Some [Azure Monitor partners](/azure/azure-monitor/partners) may provide visualization functionality. The previous link lists partners evaluated by Microsoft. 
+Some [Azure Monitor partners](./partners.md) may provide visualization functionality. The previous link lists partners evaluated by Microsoft. 
 
 ### Advantages
 - May provide out of the box visualizations saving time
@@ -148,4 +148,3 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Learn about [import log data into Power BI](./visualize/powerbi.md).
 - Learn about the [Grafana Azure Monitor data source plugin](./visualize/grafana-plugin.md).
 - Learn about [Views in Azure Monitor](visualize/view-designer.md).
-

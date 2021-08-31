@@ -13,9 +13,7 @@ ms.custom: template-how-to
 
 # Manage a public IP address with a load balancer
 
-A public load balancer is a Layer 4 solution for distributing TCP and UDP traffic to a backend pool. Basic and standard SKUs are available for load balancer. 
-
-These SKUs correspond with the basic and standard SKUs of a public IP address.
+A public load balancer is a Layer 4 solution for distributing TCP and UDP traffic to a backend pool. Basic and standard SKUs are available for load balancer. These SKUs correspond with the basic and standard SKUs of a public IP address.
 
 A public IP associated with a load balancer serves as an Internet-facing frontend IP configuration. The frontend is used to access resources in the backend pool. The frontend IP can be used for members of the backend pool to egress to the Internet. 
 
@@ -118,7 +116,7 @@ Multiple IPs avoid SNAT port exhaustion. Each Frontend IP provides 64,000 epheme
 In this section, you'll change the frontend configuration used for outbound connections to use a public IP prefix.
 
 > [!IMPORTANT]
-> To complete this section, you must have a load balancer with an outbound frontend configuration and outbound rules deployed. For more information on creating a load balancer outbound configuration, see **[Create outbound rule configuration](../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration)**.
+> To complete this section, you must have a load balancer with an outbound frontend configuration and outbound rules deployed.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -152,7 +150,7 @@ In this section, you'll change the frontend configuration used for outbound conn
 
 ## Caveats
 
-* Standard public load balancers can use IPv6 addresses as their frontend public IPs or public IP prefixes.  Every deployment must be dual-stack with both IPv4 and IPv6 frontends. NAT64 translation is unavailable. For more information, see [Deploy an IPv6 dual stack application in Azure - PowerShell](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)
+* Standard public load balancers can use standard SKU static IPv6 addresses as their frontend public IPs or public IP prefixes.  Every deployment must be dual-stack with both IPv4 and IPv6 frontends. NAT64 translation is unavailable. For more information, see [Deploy an IPv6 dual stack application in Azure - PowerShell](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)  (Note that Basic public load balancers can use basic SKU dynamic IPv6 addresses as their frontend public IPs.)
 
 * When multiple frontends are assigned to a public load balancer, there isn't a method to assign flows from particular backend instances to egress on a specific IP.  For more information, see [Multiple frontends for Azure Load Balancer](../load-balancer/load-balancer-multivip-overview.md)
 ## Next steps

@@ -1,14 +1,17 @@
 ---
-title: Copy data from and to a REST endpoint by using Azure Data Factory 
-description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using a copy activity in an Azure Data Factory pipeline.
+title: Copy and transform data from and to a REST endpoint by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 08/30/2021
 ms.author: makromer
 ---
 
-# Copy data from and to a REST endpoint by using Azure Data Factory
+# Copy and transform data from and to a REST endpoint by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
@@ -40,6 +43,32 @@ Specifically, this generic REST connector supports:
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a REST linked service using UI
+
+Use the following steps to create a REST linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for REST and select the REST connector.
+
+    :::image type="content" source="media/connector-rest/rest-connector.png" alt-text="Select REST connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-rest/configure-rest-linked-service.png" alt-text="Configure REST linked service.":::
+
+## Connector configuration details
 
 The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
 
@@ -431,11 +460,13 @@ REST is supported in data flows for both integration datasets and inline dataset
 | httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
 | writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
 
-You can set the delete, insert, update, and upsert methods as well as the row data to send to the REST sink.
+You can set the delete, insert, update, and upsert methods as well as the relative row data to send to the REST sink for CRUD operations.
 
 ![Data flow REST sink](media/data-flow/data-flow-sink.png)
 
 ## Sample data flow script
+
+Notice the use of an alter row transformation prior to the sink to instruct ADF what type of action to take with your REST sink. I.e. insert, update, upsert, delete.
 
 ```
 AlterRow1 sink(allowSchemaDrift: true,

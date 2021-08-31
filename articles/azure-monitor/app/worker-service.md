@@ -302,7 +302,7 @@ The following lists the full telemetry automatically collected by Application In
 
 ### ILogger logs
 
-Logs emitted via `ILogger` of severity `Warning` or greater are automatically captured. Follow [ILogger docs](ilogger.md#control-logging-level) to customize which log levels are captured by Application Insights.
+Logs emitted via `ILogger` of severity `Warning` or greater are automatically captured. Follow [ILogger docs](ilogger.md#logging-level) to customize which log levels are captured by Application Insights.
 
 ### Dependencies
 

@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 7/21/2021 
+ms.date: 8/02/2021 
 ms.custom: devx-track-azurepowershell
 ---
 # Create a metric alert with a Resource Manager template
@@ -1010,6 +1010,10 @@ az deployment group create \
     --template-file multidimensionalstaticmetricalert.json \
     --parameters @multidimensionalstaticmetricalert.parameters.json
 ```
+
+> [!NOTE]
+>
+> Using "All" as a dimension value is equivalent to selecting "\*" (all current and future values).
 
 
 ## Template for a Dynamic Thresholds metric alert that monitors multiple dimensions
