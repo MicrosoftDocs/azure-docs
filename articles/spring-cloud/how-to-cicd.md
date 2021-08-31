@@ -87,9 +87,18 @@ steps:
 
 ### Deploy artifacts
 
-#### To production
+#### Set up Pipeline to production
+<ol>
+<li>click on Pipelines blade and create a new pipeline with Maven template.</li>
+<li>Edit yml file:
+<ul>
+<li>Click show assistance on the right side and choose Azure Spring Cloud template</li>
+<li>Choose subscription and click authorize. Make sure you have “Owner” or “User Access Administrator”.  If authorization does not work, please follow [this guide](/azure/devops/pipelines/library/connect-to-azure) to create Azure Resource Manager server connection. </li>
+<li>Choose Spring Cloud Instance and App Instance, and disable “Use Staging Deployment”</li>
+<li>Change package or folder to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar</li>
+</ul>
 
-You can build and deploy your projects using a series of tasks. This snippet first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Cloud task for Azure Pipelines.
+Or you can build and deploy your projects using following template. This snippet first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Cloud task for Azure Pipelines.
 
 ```yaml
 steps:
@@ -106,6 +115,9 @@ steps:
     DeploymentName: 'default'
     Package: ./target/your-result-jar.jar
 ```
+</li>
+<li>Click save and run, and then wait for job to be done.</li>
+<ol>
 
 #### Blue-green deployments
 
