@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package azure.webpubsub;
+
+import "google/protobuf/any.proto";
+
+message UpstreamMessage {
+  oneof message {
+      SendToGroupMessage send_to_group_message = 1;
+      EventMessage event_message = 5;
+      JoinGroupMessage join_group_message = 6;
+      LeaveGroupMessage leave_group_message = 7;
+  }
+
+  message SendToGroupMessage {
+      string group = 1;
+      optional int32 ack_id = 2;
+      MessageData data = 3;
+  }
+
+  message EventMessage {
+      string event = 1;
+      MessageData data = 2;
+  }
+  
+  message JoinGroupMessage {
+      string group = 1;
+      optional int32 ack_id = 2;
+  }
+
+  message LeaveGroupMessage {
+      string group = 1;
+      optional int32 ack_id = 2;
+  }
+}
+
+message DownstreamMessage {
+  oneof message {
+      AckMessage ack_message = 1;
+      DataMessage data_message = 2;
+      SystemMessage system_message = 3;
+  }
+  
+  message AckMessage {
+      int32 ack_id = 1;
+      bool success = 2;
+      optional ErrorMessage error = 3;
+  
+      message ErrorMessage {
+          string name = 1;
+          string message = 2;
+      }
+  }
+
+  message DataMessage {
+      string from = 1;
+      optional string group = 2;
+      MessageData data = 3;
+  }
+
+  message SystemMessage {
+      oneof message {
+          ConnectedMessage connected_message = 1;
+          DisconnectedMessage disconnected_message = 2;
+      }
+  
+      message ConnectedMessage {
+          string connection_id = 1;
+          string user_id = 2;
+      }
+
+      message DisconnectedMessage {
+          string reason = 2;
+      }
+  }
+}
+
+message MessageData {
+  oneof data {
+      string text_data = 1;
+      bytes binary_data = 2;
+      google.protobuf.Any protobuf_data = 3;
+  }
+}
