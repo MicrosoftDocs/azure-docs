@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Fuze
@@ -34,6 +34,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * Fuze supports **SP** initiated SSO.
 
 * Fuze supports **Just In Time** user provisioning.
+
+* Fuze supports [Automated user provisioning](fuze-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -117,7 +119,9 @@ To configure single sign-on on **Fuze** side, you need to send the downloaded **
 
 In this section, a user called B.Simon is created in Fuze. Fuze supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Fuze, a new one is created after authentication.
 
-## Test SSO 
+Fuze also supports automatic user provisioning, you can find more details [here](./fuze-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
