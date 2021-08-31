@@ -341,6 +341,10 @@
         href: power-bi-app-technical-configuration.md
       - name: Supplemental content
         href: power-bi-app-supplemental-content.md
+  - name: Power BI visual offers
+    items:
+    - name: FAQs for migrating to Partner Center
+      href: power-bi-visual-faq.md
   - name: SaaS offers
     items:
     - name: Plan the offer
