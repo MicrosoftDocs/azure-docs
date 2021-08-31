@@ -10,6 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/01/2021
+ms.custom: references_regions
 ---
 
 # Migrate databases with Azure SQL Migration extension for Azure Data Studio (Preview)
@@ -24,7 +25,7 @@ DMS uses Azure Data Factory's self-hosted integration runtime to access and uplo
 
 The workflow of the migration process is illustrated below.
 
-:::image type="content" source="media/migration-using-azure-data-studio/architecture-ads-sql-migration.png" alt-text="Architecture for database migration using Azure Data Studio with DMS":::
+:::image type="content" source="media/migration-using-azure-data-studio/architecture-ads-sql-migration.png" alt-text="Diagram of architecture for database migration using Azure Data Studio with DMS":::
 
 1. **Source SQL Server**: SQL Server instance on-premises, private cloud, or any public cloud virtual machine. All editions of SQL Server 2008 and above are supported.
 1. **Target Azure SQL**: Supported Azure SQL targets are Azure SQL Managed Instance or SQL Server on Azure Virtual Machines (registered with SQL IaaS Agent extension in [Full management mode](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md#management-modes))
