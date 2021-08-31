@@ -74,15 +74,15 @@ To add the key/value pairs using the Azure portal, use the following steps:
 
 1. Navigate to the list of your existing applications.
 
-   ![Existing applications view](media/dynatrace-oneagent/existing-applications.png)
+   :::image type="content" source="media/dynatrace-oneagent/existing-applications.png" alt-text="Existing applications view" lightbox="media/dynatrace-oneagent/existing-applications.png":::
 
 1. Select an application to navigate to the **Overview** page of the application.
 
-   ![Overview](media/dynatrace-oneagent/overview-application.png)
+   :::image type="content" source="media/dynatrace-oneagent/overview-application.png" alt-text="Overview" lightbox="media/dynatrace-oneagent/overview-application.png":::
 
 1. Select **Configurations** to add, update, or delete values in the **Environment variables** section for the application.
 
-   ![Configuration](media/dynatrace-oneagent/configuration-application.png)
+   :::image type="content" source="media/dynatrace-oneagent/configuration-application.png" alt-text="Configuration" lightbox="media/dynatrace-oneagent/configuration-application.png":::
 
 ## Automation
 
@@ -116,6 +116,8 @@ To configure the environment variables in an ARM template, add the following cod
 
 ## View reports in Dynatrace
 
+This section describes how to view various reports
+
 > [!NOTE]
 > Because the Dynatrace menu will evolve its layout gradually, the dashboard may be moved to other sections in the Dynatrace website.
 
@@ -123,39 +125,39 @@ After you add the environment variables to your application, Dynatrace starts co
 
 * You can find the **Service flow** from **yourAppName/Details/Service flow**:
 
-   ![Service flow](media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png)
+   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png" alt-text="Service flow" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png":::
 
 * You can find the **Method hotspots** from **yourAppName/Details/Method hotspots**:
 
-   ![Method hotspots](media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png)
+   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png" alt-text="Method hotspots" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png":::
 
 * You can find the **Database statements** from **yourAppName/Details/Response time analysis**:
 
-   ![Database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png)
+   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png" alt-text="Database statements" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png":::
 
 You can go to **Multidimensional analysis** section.
 
 * You can find the **Top database statements** from **Multidimensional analysis/Top database statements**:
 
-   ![Top database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png)
+   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png" alt-text="Top database statements" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png":::
 
 * You can find the **Exceptions overview** from **Multidimensional analysis/Exceptions overview**:
 
-   ![Exceptions overview](media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png)
+   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png" alt-text="Exceptions overview" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png":::
 
 You can go to **Profiling and optimization** section.
 
 * You can find the **CPU analysis** from the following section:
 
-   ![CPU analysis](media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png)
+   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png" alt-text="CPU analysis" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png":::
 
 You can go to **Database** section.
 
 * You can find **Backtrace** from the following section:
 
-   ![Backtrace](media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png)
+   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png" alt-text="Backtrace" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png":::
 
-## Dynatrace OneAgent Logging
+## Dynatrace OneAgent logging
 
 By default, Azure Spring Cloud will print the *info* level logs of the Dynatrace OneAgent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
 
