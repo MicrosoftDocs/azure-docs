@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Reward Gateway
@@ -32,6 +32,8 @@ To configure Azure AD integration with Reward Gateway, you need the following it
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Reward Gateway supports **IDP** initiated SSO.
+
+* Reward Gateway supports [Automated user provisioning](reward-gateway-provisioning-tutorial.md).
 
 ## Add Reward Gateway from the gallery
 
@@ -131,6 +133,8 @@ To configure single sign-on on **Reward Gateway** side, start setting up an Inte
 ### Create Reward Gateway test user
 
 In this section, you create a user called Britta Simon in Reward Gateway. Work with [Reward Gateway support team](mailto:clientsupport@rewardgateway.com) to add the users in the Reward Gateway platform. Users must be created and activated before you use single sign-on.
+
+Reward Gateway also supports automatic user provisioning, you can find more details [here](./reward-gateway-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

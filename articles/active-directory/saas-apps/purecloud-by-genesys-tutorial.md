@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/26/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -32,7 +32,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Genesys Cloud for Azure supports **SP and IDP**–initiated SSO.
+* Genesys Cloud for Azure supports **SP and IDP** initiated SSO.
+
+* Genesys Cloud for Azure supports [Automated user provisioning](purecloud-by-genesys-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -200,6 +202,9 @@ To enable Azure AD users to sign in to Genesys Cloud for Azure, they must be pro
 	b. In the **Email** box, enter the email of the user. For example: **b.simon\@contoso.com**.
 
 	c. Select **Create**.
+
+> [!NOTE]
+> Genesys Cloud for Azure also supports automatic user provisioning, you can find more details [here](./purecloud-by-genesys-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
