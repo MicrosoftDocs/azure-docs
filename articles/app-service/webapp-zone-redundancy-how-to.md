@@ -10,11 +10,11 @@ ms.author: jordanselig
 
 App Services can be deployed into [Availability Zones (AZ)](../availability-zones/az-overview.md) which enables [high availability](https://en.wikipedia.org/wiki/High_availability) for your apps. This architecture is also known as zone redundancy.
 
-An app lives in an App Service plan (ASP). The ASP exists in a single scale unit. When an App Service is configured to be zone redundant, the platform automatically spreads the VM instances in the ASP across all three zones in the selected region. If a capacity larger than three is specified and the number of instances is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones. For traffic distribution to your zone redundant app, this is all managed by Azure behind the scenes. For more information about highly available architectures and delivering reliability in Azure topic, see the [doc](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability).
+An app lives in an App Service plan (ASP), and the App Service plan exists in a single scale unit. When an App Service is configured to be zone redundant, the platform automatically spreads the VM instances in the App Service plan across all three zones in the selected region. If a capacity larger than three is specified and the number of instances is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones. For more information about highly available architectures and delivering reliability in Azure topic, see the [doc](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 ## Requirements
 
-Zone redundancy, is a property of the ASP. The following are the current requirements/limitations for enabling zone redundancy:
+Zone redundancy, is a property of the App Service plan. The following are the current requirements/limitations for enabling zone redundancy:
 
 - Both Windows and Linux are supported
 - Requires either **Premium v2** or **Premium v3** App Service plans
@@ -36,29 +36,29 @@ Zone redundancy, is a property of the ASP. The following are the current require
   - Japan East
   - Southeast Asia
   - Australia East
-- Zone redundancy can only be specified when creating a **new** ASP
-  - Currently you can't convert a pre-existing ASP. See next bullet for details on how to create a new ASP that supports zone redundancy.
-- AZ is only supported in the newer portion of the App Service footprint
-  - Currently if you're running on Pv3, then you're already on the footprint that supports AZ. All you need to do is create a new ASP.
-  - If you aren't using Pv3 or a scale unit that supports AZ, are in an unsupported region, or are unsure, follow the steps below:
+- Zone redundancy can only be specified when creating a **new** App Service plan
+  - Currently you can't convert a pre-existing App Service plan. See next bullet for details on how to create a new App Service plan that supports zone redundancy.
+- Zone redundancy is only supported in the newer portion of the App Service footprint
+  - Currently if you are running on Pv3, then it is possible that you are already on a footprint that supports zone redundancy. In this scenario, you can create a new App Service plan and specify zone redundancy when creating the new app service plan.
+  - If you aren't using Pv3 or a scale unit that supports zone redundancy, are in an unsupported region, or are unsure, follow the steps below:
     - Create a new resource group in a region that is supported
         - This ensures the App Service control plane can find a scale unit in the selected region that supports zone redundancy
-    - Create a new ASP (and app) in a region of your choice using the **new** resource group
+    - Create a new App Service plan (and app) in a region of your choice using the **new** resource group
 - Must be created using [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md)
+
+In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances. If you also have autoscale configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances (autoscale behavior is independent of App Service platform behavior). It's important to note there's no guarantee that requests for additional instances in a zone-down scenario will succeed since back filling lost instances occurs on a best-effort basis. The recommended solution is to provision your App Service plans to account for losing a zone as described previously in the next section this article.
 
 ## How to Deploy a Zone Redundant App Service
 
-Currently, you need to use an ARM template to create a zone redundant App Service. Once created via an ARM template, the ASP can be viewed and interacted with via the Azure portal and CLI tooling. An ARM template is only needed for the initial creation of the ASP.
+Currently, you need to use an ARM template to create a zone redundant App Service. Once created via an ARM template, the App Service plan can be viewed and interacted with via the Azure portal and CLI tooling. An ARM template is only needed for the initial creation of the App Service plan.
 
-The only changes needed in an ARM template to specify a zone redundant App Service are the new ***zoneRedundant*** property (required) and optionally the ASP instance count (***capacity***) on the [Microsoft.Web/serverfarms](https://docs.microsoft.com/azure/templates/microsoft.web/serverfarms?tabs=json) resource. If you don't specify a capacity, the platform defaults to 3. The ***zoneRedundant*** property should be set to ***true*** and ***capacity*** should be set based on the workload requirement, but no less than three. A good rule of thumb to choose capacity is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
+The only changes needed in an ARM template to specify a zone redundant App Service are the new ***zoneRedundant*** property (required) and optionally the App Service plan instance count (***capacity***) on the [Microsoft.Web/serverfarms](https://docs.microsoft.com/azure/templates/microsoft.web/serverfarms?tabs=json) resource. If you don't specify a capacity, the platform defaults to 3. The ***zoneRedundant*** property should be set to ***true*** and ***capacity*** should be set based on the workload requirement, but no less than three. A good rule of thumb to choose capacity is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
 
 > [!TIP]
 > To decide instance capacity, you can use the following calculation:
 >
 > Since the platform spreads VMs across 3 zones and you need to account for at least the failure of 1 zone, multiply peak workload instance count by a factor of zones/(zones-1), or 3/2. For example, if your typical peak workload requires 4 instances, you should provision 6 instances: (2/3 * 6 instances) = 4 instances.
-> 
-
-In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances. If you also have autoscale configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances (autoscale behavior is independent of App Service platform behavior). It's important to note there's no guarantee that requests for additional instances in a zone-down scenario will succeed since back filling lost instances occurs on a best-effort basis. The recommended solution is to provision your App Service plans to account for losing a zone as described previously in this article.
+>
 
 The ARM template snippet below shows the new ***zoneRedundant*** property and ***capacity*** specification.
 
