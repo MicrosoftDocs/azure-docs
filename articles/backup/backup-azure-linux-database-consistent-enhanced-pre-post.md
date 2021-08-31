@@ -101,3 +101,15 @@ Once the database consistent snapshots are taken and the log backups are streame
 ### Summary
 
 Using database consistent snapshots + logs backed up using a custom solution, one can build a performant and cost effective database backup solution leveraging the benefits of Azure VM backup and also re-using the capabilities of database clients.
+
+## A collapsible section with markdown
+
+<details>
+  <summary>Click to expand!</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
