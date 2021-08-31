@@ -75,10 +75,10 @@ All metrics that you send using [trackMetric](./api-custom-events-metrics.md#tra
 
 ## Quotas
 
-Pre-aggregated metrics are stored as timeseries in Azure Monitor, and [Azure Monitor's quotas on custom metrics](../essentials/metrics-custom-overview#quotas-and-limits) apply.
+Pre-aggregated metrics are stored as time series in Azure Monitor, and [Azure Monitor quotas on custom metrics](../essentials/metrics-custom-overview.md#quotas-and-limits) apply.
 
 > [!NOTE]
-> Going over the quota might have unpleasant consequences, making Azure Monitor unreliable in the given subscription/region. Consult [Design limitations and considerations](../essentials/metrics-custom-overview#design-limitations-and-considerations) to make sure this doesn't happen.
+> Going over the quota might have unintended consequences. Azure Monitor might become unreliable in your subscription or region. To learn how to avoid exceeding the quota, see [Design limitations and considerations](../essentials/metrics-custom-overview.md#design-limitations-and-considerations).
   
 ## Why is collection of custom metrics dimensions turned off by default?
 
