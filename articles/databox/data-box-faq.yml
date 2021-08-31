@@ -209,7 +209,7 @@ sections:
       - question: |
           When do the automatically generated self-signed certificates on my device expire?
         answer: |
-          [!INCLUDE [return-data-box-before-certificates-expire](../../includes\data-box-certificate-expiration.md)] For more information, see [Use your own certificates](data-box-bring-your-own-certificates.md).     
+          [!INCLUDE [return-data-box-before-certificates-expire](../../includes/data-box-certificate-expiration.md)] For more information, see [Use your own certificates](data-box-bring-your-own-certificates.md).     
 
   - name: Track status
     questions:

@@ -24,7 +24,7 @@ A certificate provides a link between a **public key** and an entity (such as do
 When your Data Box device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
 
 > [!NOTE]
-> [!INCLUDE [return-data-box-before-certificates-expire](../../includes\data-box-certificate-expiration.md)]
+> [!INCLUDE [return-data-box-before-certificates-expire](../../includes/data-box-certificate-expiration.md)]
 
 On a Data Box or Data Box Heavy device, two types of endpoint certificates are used:
 
