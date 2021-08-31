@@ -21,8 +21,8 @@ In this quickstart, you'll learn how to deploy the IoT Connector in the Azure po
 It's important that you have the following prerequisites completed before you begin the steps of creating an IoT Connector instance in Azure Healthcare APIs.
 
 * [Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
-* [Resource group deployed in the Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md)
-* [Event Hubs namespace and Event Hub deployed in the Azure portal](../event-hubs/event-hubs-create.md)
+* [Resource group deployed in the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md)
+* [Event Hubs namespace and Event Hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
 * [Workspace deployed in Azure Healthcare APIs](../workspace-overview.md)  
 * [FHIR service deployed in Azure Healthcare APIs](../fhir/fhir-portal-quickstart.md) 
 
@@ -55,7 +55,7 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
    The Event Hub name is the name of the **Event Hubs Instance** that you've deployed. 
 
-   For information about Azure Event Hubs, see [Quickstart: Create an Event Hub using Azure portal](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
+   For information about Azure Event Hubs, see [Quickstart: Create an Event Hub using Azure portal](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
 
 3. Enter the **Consumer Group**.
 
