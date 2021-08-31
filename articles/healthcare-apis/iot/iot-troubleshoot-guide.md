@@ -6,10 +6,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 07/20/2021
+ms.date: 08/06/2021
 ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article provides steps for troubleshooting common Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;) error messages and conditions. You'll also learn how to create copies of the Azure IoT Connector for FHIR (preview) Conversion Mapping JSON templates such as Device and FHIR. Also, you can use the Conversion Mapping JSON templates for editing and archiving outside of the Azure portal.  
 
