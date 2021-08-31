@@ -43,10 +43,10 @@ This guide assumes you have the following items installed locally on your PC.
 
 - [Docker](https://docs.docker.com/engine/install/)
 - [VS Code](https://code.visualstudio.com/#alt-downloads)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [Azure CLI `ml` extension](how-to-configure-cli.md)
 
-For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints#prepare-your-system).
+For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md#prepare-your-system).
 
 ## Launch development container
 
@@ -55,7 +55,7 @@ Azure Machine Learning local endpoints use Docker and VS Code development contai
 To debug managed online endpoints locally in VS Code, use the `--vscode-debug` flag when creating or updating and Azure Machine Learning online deployment.
 
 ```azurecli
-az ml online-deployment create --endpoint-name <ENDPOINT-NAME> --name <DEPLOYMENT-NAME> --file <DEPLOYMENT-FILE> --local --vscode-debug
+az ml online-deployment create --file <DEPLOYMENT-FILE> --local --vscode-debug
 ```
 
 A Docker image is built locally. Any environment configuration or model file errors are surfaced at this stage of the process.
@@ -67,7 +67,7 @@ Once the image successfully builds, your development container opens in a VS Cod
 
 You'll use a few VS Code extensions to debug your deployments in the dev container. Azure Machine Learning automatically installs these extensions in your dev container.
 
-- Inferece Debug
+- Inference Debug
 - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
 - [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -80,7 +80,7 @@ You'll use a few VS Code extensions to debug your deployments in the dev contain
 Once your environment is setup, use the VS Code debugger to test and debug your deployment locally.
 
 1. Open your scoring script in Visual Studio Code. In this guide, the sample used is the [*simple-flow*](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/simple-flow) sample in the [*azureml-examples*](https://github.com/Azure/azureml-examples) repository. However, the steps in this guide work with any scoring script.
-1. Set a breakpoint anywhere in your scoring script. 
+1. Set a breakpoint anywhere in your scoring script.
 
     - To debug startup behavior, place your breakpoint(s) inside the `init` function.
     - To debug scoring behavior, place your breakpoint(s) inside the `run` function.
@@ -119,12 +119,28 @@ In this case, `<REQUEST-FILE>` is a JSON file that contains input data samples f
 ]}
 ```
 
-> [!IMPORTANT]
-> When using something other than the 2.0 CLI, you need to know the `scoring_uri` where your deployment is listening for requests. Use the 2.0 CLI to get the `scoring_uri` for your endpoint.
+> [!TIP]
+> The scoring URI is the address where your endpoint listens for requests. Use the `ml` extension to get the scoring URI.
 >
 >    ```azurecli
->    az ml online-endpoint show --name $ENDPOINT_NAME --local
+>    az ml online-endpoint show --name <ENDPOINT-NAME> --local
 >    ```
+>
+> The output should look similar to the following:
+>
+> ```json
+> {
+>  "auth_mode": "aml_token",
+>  "location": "local",
+>  "name": "my-new-endpoint",
+>  "properties": {},
+>  "provisioning_state": "Succeeded",
+>  "scoring_uri": "http://localhost:5001/score",
+>  "tags": {},
+>  "traffic": {},
+>  "type": "online"
+>}
+>```
 
 At this point, any breakpoints in your `run` function are caught. Use the debug actions to step through your code. For more information on debug actions, see the [debug actions guide](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
 
