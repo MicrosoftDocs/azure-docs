@@ -168,8 +168,8 @@ To connect large number of devices to your application, you can bulk import devi
 
 | Column | Description |
 | - | - |
-| IOTC_DEVICEID | The device ID is a unique identified this device will use to connect. The device ID can contain letters, numbers, and the `-` character without any spaces. |
-| IOTC_DEVICENAME | Optional. The device name is a friendly name that will be displayed throughout the application. If not specified, the same as the device ID.   |
+| IOTC_DEVICEID | The device ID is a unique identified this device will use to connect. The device ID can contain letters, numbers, and the `-` character without any spaces. The maximum length is 128 characters. |
+| IOTC_DEVICENAME | Optional. The device name is a friendly name that will be displayed throughout the application. If not specified, the same as the device ID. The maximum length is 148 characters. |
 
 To bulk-register devices in your application:
 
@@ -225,7 +225,7 @@ To bulk export devices from your application:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-For more information about connection strings and connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](concepts-get-connected.md).
+For more information about connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](concepts-get-connected.md).
 
 ## Next steps
 

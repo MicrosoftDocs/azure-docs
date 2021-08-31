@@ -4,7 +4,7 @@ description: Describes how to deploy Bicep files by using GitHub Actions.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/23/2021
 ms.custom: github-actions-azure
 ---
 
@@ -82,7 +82,7 @@ You need to create secrets for your Azure credentials, resource group, and subsc
 Add a Bicep file to your GitHub repository. The following Bicep file creates a storage account:
 
 ```url
-https://raw.githubusercontent.com/mumian/azure-docs-json-samples/master/get-started-with-templates/add-variable/azuredeploy.bicep
+https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/get-started-with-bicep-files/add-variable/azuredeploy.bicep
 ```
 
 The Bicep file takes one parameter called **storagePrefix** with 3 to 11 characters.
@@ -123,6 +123,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./azuredeploy.bicep
             parameters: storagePrefix=mystore
+            failOnStdErr: false
     ```
 
     Replace **mystore** with your own storage account name prefix.
@@ -154,4 +155,4 @@ When your resource group and repository are no longer needed, clean up the resou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn module: Automate the deployment of ARM templates by using GitHub Actions](/learn/modules/deploy-templates-command-line-github-actions/)
+> [Learn module: Build your first Bicep deployment workflow by using GitHub Actions](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/)

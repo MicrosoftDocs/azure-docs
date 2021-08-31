@@ -51,13 +51,13 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 
 ## Sizing for HANA database on Azure NetApp Files
 
-The throughput of an Azure NetApp volume is a function of the volume size and Service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
+The throughput of an Azure NetApp volume is a function of the volume size and Service level, as documented in [Service levels for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
 
-Important to understand is the performance relationship the size and that there are physical limits for an LIF (Logical Interface) of the SVM (Storage Virtual Machine).
+Important to understand is the performance relationship the size and that there are physical limits for a storage endpoint of the service. Each storage endpoint will be dynamically injected into the [Azure NetApp Files delegated subnet](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) upon volume creation and receive an IP address. Azure NetApp Files volumes can – depending on available capacity and deployment logic – share a storage endpoint
 
-The table below demonstrates that it could make sense to create a large “Standard” volume to store backups and that it does not make sense to create a “Ultra” volume larger than 12 TB because the physical bandwidth capacity of a single LIF would be exceeded. 
+The table below demonstrates that it could make sense to create a large “Standard” volume to store backups and that it does not make sense to create a “Ultra” volume larger than 12 TB because the maximal physical bandwidth capacity of a single volume would be exceeded. 
 
-The maximum throughput for a LIF and a single Linux session is between 1.2 and 1.4 GB/s. If you require more throughput for /hana/data, you can use SAP HANA data volume partitioning to stripe the I/O activity during data reload or HANA savepoints across multiple HANA data files that are located on multiple NFS shares. For more details on HANA data volume striping read these articles:
+The maximum write throughput for a volume and a single Linux session is between 1.2 and 1.4 GB/s. If you require more throughput for /hana/data, you can use SAP HANA data volume partitioning to stripe the I/O activity during data reload or HANA savepoints across multiple HANA data files that are located on multiple NFS shares. For more details on HANA data volume striping read these articles:
 
 - [The HANA Administrator's Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
 - [Blog about SAP HANA – Partitioning Data Volumes](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
@@ -91,7 +91,7 @@ Since all three KPIs are demanded, the **/hana/data** volume needs to be sized t
 For HANA systems, which are not requiring high bandwidth, the  ANF volume sizes can be smaller. And in case a HANA system requires more throughput the volume could be adapted by resizing the capacity online. No KPIs are defined for backup volumes. However the backup volume throughput is essential for a well performing environment. Log – and Data volume performance must be designed to the customer expectations.
 
 > [!IMPORTANT]
-> Independent of the capacity you deploy on a single NFS volume, the throughput, is expected to plateau in the range of 1.2-1.4 GB/sec bandwidth leveraged by a consumer in a virtual machine. This has to do with the underlying architecture of the ANF offer and related Linux session limits around NFS. The performance and throughput numbers as documented in the article [Performance benchmark test results for Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) were conducted against one shared NFS volume with multiple client VMs and as a result with multiple sessions. That scenario is different to the scenario we measure in SAP. Where we measure throughput from a single VM against an NFS volume. Hosted on ANF.
+> Independent of the capacity you deploy on a single NFS volume, the throughput, is expected to plateau in the range of 1.2-1.4 GB/sec bandwidth utilized by a consumer in a single session. This has to do with the underlying architecture of the ANF offer and related Linux session limits around NFS. The performance and throughput numbers as documented in the article [Performance benchmark test results for Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) were conducted against one shared NFS volume with multiple client VMs and as a result with multiple sessions. That scenario is different to the scenario we measure in SAP. Where we measure throughput from a single VM against an NFS volume. Hosted on ANF.
 
 To meet the SAP minimum throughput requirements for data and log, and according to the guidelines for **/hana/shared**, the recommended sizes would look like:
 
@@ -100,7 +100,7 @@ To meet the SAP minimum throughput requirements for data and log, and according 
 | /hana/log/ | 4 TiB | 2 TiB | v4.1 |
 | /hana/data | 6.3 TiB | 3.2 TiB | v4.1 |
 | /hana/shared scale-up | Min(1 TB, 1 x RAM)  | Min(1 TB, 1 x RAM) | v3 or v4.1 |
-| /hana/shared scale-out | 1 x RAM of worker node<br /> per 4 worker nodes  | 1 x RAM of worker node<br /> per 4 worker nodes  | v3 or v4.1 |
+| /hana/shared scale-out | 1 x RAM of worker node<br /> per four worker nodes  | 1 x RAM of worker node<br /> per four worker nodes  | v3 or v4.1 |
 | /hana/logbackup | 3 x RAM  | 3 x RAM | v3 or v4.1 |
 | /hana/backup | 2 x RAM  | 2 x RAM | v3 or v4.1 |
 
@@ -124,10 +124,10 @@ ANF system updates and upgrades are applied without impacting the customer envir
 
 
 ## Volumes and IP addresses and capacity pools
-With ANF, it is important to understand how the underlying infrastructure is built. A capacity pool is only a structure, which makes it simpler to create a billing model for ANF. A capacity pool has no physical relationship to the underlying infrastructure. If you create a capacity pool only a shell is created which can be charged, not more. When you create a volume, the first SVM (Storage Virtual Machine) is created on a cluster of several NetApp systems. A single IP is created for this SVM to access the volume. If you create several volumes, all the volumes are distributed in this SVM over this multi-controller NetApp cluster. Even if you get only one IP the data is distributed over several controllers. ANF has a logic that automatically distributes customer workloads once the volumes or/and capacity of the configured storage reaches an internal pre-defined level. You might notice such cases because a new IP address gets assigned to access the volumes.
+With ANF, it is important to understand how the underlying infrastructure is built. A capacity pool is only a construct, which provides a capacity and performance budget and unit of billing, based on capacity pool service level. A capacity pool has no physical relationship to the underlying infrastructure. When you create a volume on the service, a storage endpoint is created. A single IP address is assigned to this storage endpoint to provide data access to the volume. If you create several volumes, all the volumes are distributed across the underlying bare metal fleet, tied to this storage endpoint. ANF has a logic that automatically distributes customer workloads once the volumes or/and capacity of the configured storage reaches an internal pre-defined level. You might notice such cases because a new storage endpoint, with a new IP address, gets created automatically to access the volumes. The ANF service does not provide customer control over this distribution logic.
 
-##Log volume and log backup volume
-The “log volume” (**/hana/log**) is used to write the online redo log. Thus, there are open files located in this volume and it makes no sense to snapshot this volume. Online redo logfiles are archived or backed up to the log backup volume once the online redo log file is full or a redo log backup is executed. To provide reasonable backup performance, the log backup volume requires a good throughput. To optimize storage costs, it can make sense to consolidate the log-backup-volume of multiple HANA instances. So that multiple HANA instances leverage the same volume and write their backups into different directories. Using such a consolidation, you can get more throughput with since you need to make the volume a bit larger. 
+## Log volume and log backup volume
+The “log volume” (**/hana/log**) is used to write the online redo log. Thus, there are open files located in this volume and it makes no sense to snapshot this volume. Online redo logfiles are archived or backed up to the log backup volume once the online redo log file is full or a redo log backup is executed. To provide reasonable backup performance, the log backup volume requires a good throughput. To optimize storage costs, it can make sense to consolidate the log-backup-volume of multiple HANA instances. So that multiple HANA instances use the same volume and write their backups into different directories. Using such a consolidation, you can get more throughput with since you need to make the volume a bit larger. 
 
 The same applies for the volume you use write full HANA database backups to.  
  
@@ -166,7 +166,7 @@ az netappfiles snapshot create -g mygroup --account-name myaccname --pool-name m
 BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
 ```
 
-This snapshot backup procedure can be managed in a variety of ways, using various tools. One example is the python script “ntaphana_azure.py” available on GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana)
+This snapshot backup procedure can be managed in various ways, using various tools. One example is the python script “ntaphana_azure.py” available on GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana)
 This is sample code, provided “as-is” without any maintenance or support.
 
 
@@ -179,8 +179,8 @@ For users of Commvault backup products, a second option is Commvault IntelliSnap
 
 
 ### Back up the snapshot using Azure blob storage
-Back up to Azure blob storage is a cost effective and fast method to save ANF-based HANA database storage snapshot backups. To save the snapshots to Azure Blob storage, the azcopy tool is preferred. Download the latest version of this tool and install it, for example, in the bin directory where the python script from GitHub is installed.
-Download the latest azcopy tool:
+Back up to Azure blob storage is a cost effective and fast method to save ANF-based HANA database storage snapshot backups. To save the snapshots to Azure Blob storage, the AzCopy tool is preferred. Download the latest version of this tool and install it, for example, in the bin directory where the python script from GitHub is installed.
+Download the latest AzCopy tool:
 
 ```
 root # wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1

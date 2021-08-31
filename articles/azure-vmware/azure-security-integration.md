@@ -20,6 +20,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
  
 :::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagram showing the architecture of Azure Integrated Security." border="false":::
 
+**Log Analytics agent** collects log data from Azure, Azure VMware Solution, and on-premises VMs. The log data is sent to Azure Monitor Logs and stored in a **Log Analytics Workspace**. Each workspace has its own data repository and configuration to store data.  Once the logs are collected, **Azure Security Center** assesses the vulnerability status of Azure VMware Solution VMs and raises an alert for any critical vulnerability. Once assessed, Azure Security Center forwards the vulnerability status to Azure Sentinel to create an incident and map with other threats.  Azure Security Center is connected to Azure Sentinel using Azure Security Center Connector. 
 
 ## Prerequisites
 
@@ -86,6 +87,8 @@ Recommendations and assessments provide you with the security health details of 
    :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Screenshot showing the Azure Security Center security recommendations and assessments.":::
 
 ## Deploy an Azure Sentinel workspace
+
+Azure Sentinel provides security analytics, alert detection, and automated threat response across an environment. It's a cloud-native, security information event management (SIEM) solution  that's built on top of a Log Analytics Workspace.
 
 Since Azure Sentinel is built on top of a Log Analytics workspace, you'll only need to select the workspace you want to use.
 
@@ -170,7 +173,7 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
 
 6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next: Automated response**.
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Azure Sentinel.":::
+    :::image type="content" source="../sentinel/media/tutorial-detect-threats-custom/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Azure Sentinel.":::
 
 7. Select **Next: Review**.
 
@@ -203,7 +206,7 @@ You can create queries or use the available pre-defined query in Azure Sentinel 
    >[!TIP]
    >You can also create a new query by selecting **New Query**. 
    >
-   >:::image type="content" source="media/azure-security-integration/create-new-query.png" alt-text="Screenshot of Azure Sentinel Hunting page with + New Query highlighted.":::
+   >:::image type="content" source="../sentinel/media/hunting/save-query.png" alt-text="Screenshot of Azure Sentinel Hunting page with + New Query highlighted.":::
 
 3. Select a query and then select **Run Query**.
 

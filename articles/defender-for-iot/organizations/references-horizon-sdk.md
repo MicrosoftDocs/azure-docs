@@ -35,6 +35,7 @@ Develop dissector plugins without:
 
 - violating compliance regulations.
 
+Contact <ms-horizon-support@microsoft.com> for information about developing protocol plugins.
 ## Customization and localization  
 
 The SDK supports various customization options, including:
@@ -81,11 +82,11 @@ Defender for IoT provides basic dissectors for common protocols. You can build y
 
 This kit contains the header files needed for development. The development process requires basic steps and optional advanced steps, described in this SDK.
 
-Contact support.microsoft.com for information on receiving header files and other resources.
+Contact <ms-horizon-support@microsoft.com> for information on receiving header files and other resources.
 
 ## About the environment and setup 
 
-### Requirements 
+### Requirements
 
 - The preferred development environment is Linux. If you are developing in a Windows environment, consider using a VM with a Linux System.
 
@@ -318,7 +319,7 @@ This section describes other fields.
 
 | Parameter Label | Description |
 |-----------------|--------|
-| **allow lists** | You can index the protocol values and display them in Data Mining Reports. These reports reflect your network baseline. :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="A sample of the data mining view."::: <br /> For more information, see [Connect to an indexing service (Baseline)](#connect-to-an-indexing-service-baseline) for details. |
+| **allow_lists** | You can index the protocol values and display them in Data Mining Reports. These reports reflect your network baseline. :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="A sample of the data mining view."::: <br /> For more information, see [Connect to an indexing service (Baseline)](#connect-to-an-indexing-service-baseline) for details. |
 | **firmware** | You can extract firmware information, define index values, and trigger firmware alerts for the plugin protocol. For more information, see [Extract firmware data](#extract-firmware-data) for details. |
 | **value_mapping** | You can customize plugin output text to meet the needs of your enterprise environment by defining and updating mapping files. For example, map to language files. Changes can easily be implemented to text without changing or impacting the code. For more information, see [Create mapping files (JSON)](#create-mapping-files-json) for details. |
 
@@ -879,7 +880,7 @@ In order to achieve this, the JSON configuration file needs to be updated using 
 
 ## Allow list (data mining) fields
 
-The following allow list fields are available:
+The following Allowlist fields are available:
 
 - name – The name used for indexing.
 
@@ -887,7 +888,7 @@ The following allow list fields are available:
 
 - alert_text – Additional information
 
-Multiple allow lists can be added, allowing complete flexibility in indexing.
+Multiple Allowlists can be added, allowing complete flexibility in indexing.
 
 ## JSON sample with indexing 
 
@@ -1313,7 +1314,7 @@ The name of the file should match the JSON config file ID.
 
 The following sample presents a basic JSON file as a key value.
 
-When you create an allow list, and it contains one or more of the mapped fields. The value will be converted from a number, string, or any type, in to formatted text presented in the mapping file.
+When you create an Allowlist, and it contains one or more of the mapped fields. The value will be converted from a number, string, or any type, in to formatted text presented in the mapping file.
 
 ```json
 {
@@ -1340,7 +1341,7 @@ dependency": { "field": "CyberXHorizonProtocol.function"  }}]
 
 The file contains a mapping between the dependency field and the function field. For example, between the function, and sub function. The sub function changes according to the function supplied.
 
-In the allow list previously configured, there is no dependency configuration, as shown below.
+In the Allowlist previously configured, there is no dependency configuration, as shown below.
 
 ```json
 "whitelists": [

@@ -2,8 +2,9 @@
 title: Join an Azure-SSIS integration runtime to a virtual network
 description: Learn how to join an Azure-SSIS integration runtime to an Azure virtual network. 
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell
@@ -50,7 +51,7 @@ When joining your Azure-SSIS IR to a virtual network, remember these important p
 
 - If a classic virtual network is already connected to your on-premises network in a different location from your Azure-SSIS IR, you can create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network) for your Azure-SSIS IR to join. Then configure a [classic-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) connection. 
  
-- If an Azure Resource Manager virtual network is already connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network) for your Azure-SSIS IR to join. Then configure an Azure Resource Manager-to-Azure Resource Manager virtual network connection. 
+- If an Azure Resource Manager virtual network is already connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network) for your Azure-SSIS IR to join. Then configure an [Azure Resource Manager-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) connection. 
 
 ## Hosting the SSIS catalog in SQL Database
 
@@ -258,7 +259,7 @@ For firewall appliance to allow outbound traffic, you need to allow outbound to 
 
 -   Port 445 with destination as Azure Storage (only required when you execute SSIS package stored in Azure Files).
 
-    If you use Azure Firewall, you can specify network rule with Storage Service Tag, otherwise you might allow destination as specific azure file storage url in firewall appliance.
+    If you use Azure Firewall, you can specify network rule with Storage Service Tag, otherwise you might allow destination as specific Azure file share URL in firewall appliance.
 
 > [!NOTE]
 > For Azure SQL and Storage, if you configure Virtual Network service endpoints on your subnet, then traffic between Azure-SSIS IR and Azure SQL in same region \ Azure Storage in same region or paired region will be routed to Microsoft Azure backbone network directly instead of your firewall appliance.

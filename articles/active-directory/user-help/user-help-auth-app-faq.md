@@ -47,6 +47,12 @@ On Android, Microsoft recommends allowing the app to access location all the tim
 
 **A**: The Authenticator app collects your GPS information to determine what country you are located in. The country name and location coordinates are sent back to the system to determine if you are allowed to access the protected resource. The country name is stored and reported back to your IT admin, but your actual coordinates are never saved or stored on Microsoft servers.
 
+### Notification blocks sign-in
+
+**Q**: I’m trying to sign in and I need to select the number in my app that’s displayed on the sign- in screen. However, the notification prompt from Authenticator is blocking the sign-in screen. What do I do?  
+
+**A**: Select the “Hide” option on the notification so you can see the sign-in screen and the number you need to select. The prompt will reappear after 5 seconds, and you can select the correct number then.
+
 ### Registering a device
 
 **Q**: Is registering a device agreeing to give the company or service access to my device?

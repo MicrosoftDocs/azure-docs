@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2021
+ms.date: 07/22/2021
 ms.author: jeedes
 
 ---
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Citrix Cloud SAML SSO with Azure
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Citrix Cloud SAML SSO single sign-on (SSO) enabled subscription.
+* A Citrix Cloud subscription. If you don’t have a subscription, sign up for one. 
 
 ## Scenario description
 
@@ -51,7 +51,7 @@ To configure the integration of Citrix Cloud SAML SSO into Azure AD, you need to
 
 ## Configure and test Azure AD SSO for Citrix Cloud SAML SSO
 
-Configure and test Azure AD SSO with Citrix Cloud SAML SSO using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Citrix Cloud SAML SSO.
+Configure and test Azure AD SSO with Citrix Cloud SAML SSO using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Citrix Cloud SAML SSO.This user must also exist in your Active Directory that is synced with Azure AD Connect to your Azure AD subscription.
 
 To configure and test Azure AD SSO with Citrix Cloud SAML SSO, perform the following steps:
 
@@ -59,7 +59,6 @@ To configure and test Azure AD SSO with Citrix Cloud SAML SSO, perform the follo
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Citrix Cloud SAML SSO](#configure-citrix-cloud-saml-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Citrix Cloud SAML SSO test user](#create-citrix-cloud-saml-sso-test-user)** - to have a counterpart of B.Simon in Citrix Cloud SAML SSO that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -75,23 +74,27 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, perform the following step:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://citrix.cloud.com/go/<CUSTOM_URL>`
+    `https://<SUBDOMAIN>.cloud.com`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Citrix Cloud SAML SSO Client support team](mailto:workspacadmins@citirx.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with your Citrix Workspace URL. Access your Citrix Cloud account to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Citrix Cloud SAML SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Citrix Cloud SAML SSO application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Citrix Cloud SAML SSO application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre-populated but you can review them as per your requirements.The values passed in the SAML response should map to the Active Directory attributes of the user.
 	
 	| Name | Source Attribute |
 	| -----|-----|
 	| cip_sid | user.onpremisesecurityidentifier |
 	| cip_upn | user.userprincipalname |
-	| cip_oid | user.objectid |
+	| cip_oid | ObjectGUID (Extension Attribute ) |
 	| cip_email | user.mail |
+	| displayName | user.displayname |
+
+	> [!NOTE]
+	> ObjectGUID must be configured manually according to your requirements.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
@@ -113,6 +116,9 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
+	> [!NOTE]
+	> This user needs to be synced from an Active Directory. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Citrix Cloud SAML SSO.
+	
 ### Assign the Azure AD test user
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Citrix Cloud SAML SSO.
@@ -143,47 +149,27 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
-	b. In the **Sign Authentication Request**, select **Yes** to allow Citrix Cloud to Sign authentication requests.
+	b. In the **Sign Authentication Request**, select **No**.
 
 	c. In the **SSO Service URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
 	d. Select **Binding Mechanism** from the drop down, you can select either **HTTP-POST** or **HTTP-Redirect** binding.
 
-	e. Select **SAML Response** from the dropdown.
+	e. Under **SAML Response**, select **Sign Either Response or Assertion** from the dropdown.
 
-	f. Open the downloaded **Certificate (PEM)** from the Azure portal into Notepad and upload the content file into the **X.509 Certificate**.
+	f. Upload the **Certificate (PEM)** from the Azure portal into the **X.509 Certificate** section.
 
-	g. In the **Authentication Context**, select **Authentication Context** and **Type**  from the dropdown.
+	g. In the **Authentication Context**, select **Unspecified** and **Exact**  from the dropdown.
 
 	h. Click **Test and Finish**.
-
-### Create Citrix Cloud SAML SSO test user
-
-1. Log in to your Citrix Cloud SAML SSO company site as an administrator.
-
-1. Navigate to the Citrix Cloud menu and select **Identity and Access Management**.
-
-	![Account](./media/citrix-cloud-saml-sso-tutorial/menu.png "Account") 
-
-1. Under **Administrators** section, perform the following steps.
-
-	![Invite Account](./media/citrix-cloud-saml-sso-tutorial/user.png "Invite Account") 
-
-	a. Select **Citrix Identity** as an identity provider from the dropdown.
-
-	b. Give a valid **Email Address** in the textbox.
-	
-	c. Click **Invite**.
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Citrix Cloud SAML SSO Sign-on URL where you can initiate the login flow. 
+* Access your Citrix Workspace URL directly and initiate the login flow from there.
 
-* Go to Citrix Cloud SAML SSO Sign-on URL directly and initiate the login flow from there.
-
-* You can use Microsoft My Apps. When you click the Citrix Cloud SAML SSO tile in the My Apps, this will redirect to Citrix Cloud SAML SSO Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* Log in with your AD-Synced Active Directory user into your Citrix Workspace to complete the test.
 
 ## Next steps
 

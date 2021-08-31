@@ -20,19 +20,20 @@ You can use the [monitoring](cache-how-to-monitor.md) features of Azure Cache fo
 You can monitor the following metrics to help determine if you need to scale.
 
 - Redis Server Load
-  - Redis is a single threaded process and high Redis server load means that Redis is unable to keep pace with the requests from all the client connections. In such situations, it helps to enable clustering or increase shard count so that client connections get distributed across multiple Redis processes.
+  - Redis server is a single threaded process. High Redis server load means that the server is unable to keep pace with the requests from all the client connections. In such situations, it helps to enable clustering or increase shard count so overhead functions are distributed across multiple Redis processes. Clustering and larger shard counts distribute TLS encryption and decryption, and distribute TLS connection and disconnection.
+  - For more information, see [Set up clustering](cache-how-to-premium-clustering.md#set-up-clustering).
 - Memory Usage
-  - High memory usage indicates that your data size is too large for the current cache size and you should consider scaling to a cache size with larger memory.
+  - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory.
 - Client connections
   - Each cache size has a limit to the number of client connections it can support. If your client connections are close to the limit for the cache size, consider scaling up to a larger tier, or scaling out to enable clustering and increase shard count. Your choice depends on the Redis server load and memory usage.
-  - For more information on connection limits by cache size, see [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
+  - For more information on connection limits by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 - Network Bandwidth
   - If the Redis server exceeds the available bandwidth, clients requests could time out because the server can't push data to the client fast enough. Check "Cache Read" and "Cache Write" metrics to see how much server-side bandwidth is being used. If you Redis server is exceeding available network bandwidth, you should consider scaling up to a larger cache size with higher network bandwidth.
-  - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
+  - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
 If you determine your cache is no longer meeting your application's requirements, you can scale to an appropriate cache pricing tier for your application. You can choose a larger or smaller cache to match your needs.
 
-For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq) to view the complete list of available SKU specifications.
+For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
 ## Scale a cache
 
@@ -132,8 +133,8 @@ The following list contains answers to commonly asked questions about Azure Cach
 - You can scale from one **Premium** cache pricing tier to another.
 - You can't scale from a **Basic** cache directly to a **Premium** cache. First, scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a later scaling operation.
 - If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#cluster-size). If your cache was created without clustering enabled, you can configure clustering at a later time.
-  
-  For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
+
+For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
 
 ### After scaling, do I have to change my cache name or access keys?
 
@@ -151,7 +152,7 @@ No, your cache name and keys are unchanged during a scaling operation.
 
 - When you scale a **Basic** cache to a new size, all data is lost and the cache is unavailable during the scaling operation.
 - When you scale a **Basic** cache to a **Standard** cache, the data in the cache is typically preserved.
-- When you scale a **Standard** cache to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling down a Standard or Premium cache to a smaller size, data can be lost if the data size exceeds the new smaller size when it's scaled down. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
+- When you scale a **Standard** cache to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling a Standard or Premium cache to a smaller size, data can be lost if the data size exceeds the new smaller size when it's scaled down. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
 
 ### Is my custom databases setting affected during scaling?
 

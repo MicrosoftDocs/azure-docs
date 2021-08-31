@@ -7,7 +7,7 @@ ms.date: 04/19/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, contperf-fy21q2
+ms.custom: mvc, contperf-fy21q2, contperf-fy22q1
 ---
 
 # What is Azure IoT Central?
@@ -20,10 +20,10 @@ This article outlines, for IoT Central:
 
 - The typical user roles associated with a project.
 - How to create your application.
-- How to connect your devices to your application
-- How to manage your application.
-- Azure IoT Edge capabilities in IoT Central.
-- How to connect your Azure IoT Edge runtime powered devices to your application.
+- How to connect your devices to your application.
+- How to integrate your application with other services.
+- How to administer your application.
+- Pricing options.
 
 ## User roles
 

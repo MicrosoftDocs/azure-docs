@@ -95,7 +95,7 @@ IoT Hub and the device SDKs support the following protocols for connecting devic
 * MQTT
 * MQTT over WebSockets
 
-IoT Hub and the device SDKs support the [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) conventions for connecting devices. IoT Plug and Play devices use a device model to advertise their capabilities to IoT Plug and Play-enabled applications. The device model enables solution builders to integrate smart devices with their solutions without any manual configuration.
+IoT Hub and the device SDKs support the [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) conventions for connecting devices. IoT Plug and Play devices use a device model to advertise their capabilities to IoT Plug and Play-enabled applications. The device model enables solution builders to integrate smart devices with their solutions without any manual configuration.
 
 If your solution cannot use the device libraries, devices can use the MQTT v3.1.1, HTTPS 1.1, or AMQP 1.0 protocols to connect natively to your hub.
 

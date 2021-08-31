@@ -151,7 +151,7 @@ After setting up Azure Key Vault, be sure to [enable logging](../../key-vault/ge
 | End-user consent to application| Low| Azure AD Audit logs| Activity: Consent to application / ConsentContext.IsAdminConsent = false| Look for: <li>high profile or highly privileged accounts.<li> app requests high-risk permissions<li>apps with suspicious names, for example generic, misspelled, etc. |
 
 
-The act of consenting to an application is not in itself malicious. However, investigate new end-user consent grants looking for suspicious applications. You can [restrict user consent operations](/security/fundamentals/steps-secure-identity).
+The act of consenting to an application is not in itself malicious. However, investigate new end-user consent grants looking for suspicious applications. You can [restrict user consent operations](../../security/fundamentals/steps-secure-identity.md).
 
 For more information on consent operations, see the following resources:
 
@@ -209,7 +209,7 @@ The following are links to useful resources:
 
 * Github Azure AD toolkit - [https://github.com/microsoft/AzureADToolkit](https://github.com/microsoft/AzureADToolkit)
 
-* Azure Key Vault security overview and security guidance - [Azure Key Vault security overview](../../key-vault/general/security-overview.md), [Secure access to a key vault](../../key-vault/general/secure-your-key-vault.md)
+* Azure Key Vault security overview and security guidance - [Azure Key Vault security overview](../../key-vault/general/security-features.md)
 
 * Solorgate risk information and tools - [Azure AD workbook to help you access Solorigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)
 

@@ -7,7 +7,7 @@ ms.date: 06/21/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc
 
 #Customer intent: As a customer, I want to build an IoT system so that I can use Azure Maps APIs for spatial analytics on the device data.
@@ -268,7 +268,7 @@ For a complete list of Azure Maps REST APIs, see:
 
 * [Azure Maps REST APIs](/rest/api/maps/spatial/getgeofence)
 
-* [IoT Plug and Play](../iot-pnp/index.yml)
+* [IoT Plug and Play](../iot-develop/index.yml)
 
 To get a list of devices that are Azure certified for IoT, visit:
 

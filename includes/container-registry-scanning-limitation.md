@@ -14,6 +14,6 @@ ms.custom: include file
 
 > [!IMPORTANT]
 > Some functionality may be unavailable or require more configuration in a container registry that restricts access to private endpoints, selected subnets, or IP addresses. 
-> * When accessing the registry from outside the allowed network, you can't list repositories or tags using the Azure portal or other tools.
-> * Access by certain [trusted services](../articles/container-registry/allow-access-trusted-services.md) including Azure Security Center requires enabling a setting to allow trusted services to access the registry.
-> * Instances of certain Azure services including Azure DevOps Services, Web Apps, and Azure Container Instances are currently unable to access the container registry.
+> * When public network access to a registry is disabled, registry access by certain [trusted services](../articles/container-registry/allow-access-trusted-services.md) including Azure Security Center requires enabling a network setting to bypass the network rules.
+> * Instances of certain Azure services including Azure DevOps Services and Azure Container Instances are currently unable to access the container registry.
+> * If the registry has an approved private endpoint and public network access is disabled, repositories and tags can't be listed outside the virtual network using the Azure portal, Azure CLI, or other tools.

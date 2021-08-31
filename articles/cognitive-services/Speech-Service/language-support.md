@@ -3,13 +3,13 @@ title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: references_regions
 ---
 
@@ -99,6 +99,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Maltese (Malta)                    | `mt-MT` | Text                                   |                           |                          |
 | Marathi (India)                    | `mr-IN` | Text                                   |                           |                          |
 | Norwegian (Bokmål, Norway)         | `nb-NO` | Text                                   |     Yes                      |                          |
+| Persian (Iran)                     | `fa-IR` | Text                                   |                           |                          |
 | Polish (Poland)                    | `pl-PL` | Text                                   |       Yes                    |                          |
 | Portuguese (Brazil)                | `pt-BR` | Audio (20190620, 20201015)<br>Text<br>Pronunciation|          Yes                 |                          |
 | Portuguese (Portugal)              | `pt-PT` | Text<br>Pronunciation                  |             Yes              |                          |
@@ -128,6 +129,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Spanish (Uruguay)                  | `es-UY` | Text<br>Pronunciation                  |                           |                          |
 | Spanish (USA)                      | `es-US` | Text<br>Pronunciation                  |                           |                          |
 | Spanish (Venezuela)                | `es-VE` | Text<br>Pronunciation                  |                           |                          |
+| Swahili (Kenya)                    | `sw-KE` | Text<br>Pronunciation                  |                           |                          |
 | Swedish (Sweden)                   | `sv-SE` | Text                                   |   Yes                        |                          |
 | Tamil (India)                      | `ta-IN` | Text                                   |                           |                          |
 | Telugu (India)                     | `te-IN` | Text                                   |                           |                          |
@@ -212,8 +214,19 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-RyanNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-AriaNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| English (United States) | `en-US` | Female | `en-US-JennyNeural` | General |
-| English (United States) | `en-US` | Male | `en-US-GuyNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-JennyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-GuyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-AmberNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-AshleyNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-CoraNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-ElizabethNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-MichelleNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-MonicaNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Kid | `en-US-AnaNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-BrandonNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-ChristopherNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-JacobNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-EricNeural` <sup>New</sup> | General |
 | Estonian (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
 | Estonian (Estonia) | `et-EE` | Male | `et-EE-KertNeural` | General |
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
@@ -324,18 +337,7 @@ Below neural voices are in public preview.
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| English (United States) | `en-US` | Female | `en-US-AmberNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-AshleyNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-CoraNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-ElizabethNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>New</sup> | General，multi-lingual capabilities available [using SSML](speech-synthesis-markup.md#create-an-ssml-document) |
-| English (United States) | `en-US` | Female | `en-US-MichelleNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-MonicaNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Kid | `en-US-AnaNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-BrandonNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-ChristopherNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-JacobNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-EricNeural` <sup>New</sup> | General |
 
 > [!IMPORTANT]
 > Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
@@ -351,7 +353,7 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 > The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".
 
 > [!TIP]
-> You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" in your speech synthesis requests.
+> You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)" in your speech synthesis requests.
 
 ### Standard voices
 
@@ -473,6 +475,7 @@ Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based
 | Korean (Korea) | `ko-KR` | Yes | Yes |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Yes | No |
 | Portuguese (Brazil) | `pt-BR` | Yes | Yes |
+| Russian (Russia) | `ru-RU` | Yes | Yes |
 | Spanish (Mexico) | `es-MX` | Yes | Yes |
 | Spanish (Spain) | `es-ES` | Yes | Yes |
 

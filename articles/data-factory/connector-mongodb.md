@@ -1,12 +1,14 @@
 ---
 title: Copy data from or to MongoDB
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from MongoDB to supported sink data stores, or from supported source data stores to MongoDB, by using a copy activity in an Azure Data Factory pipeline.
-author: jianleishen
-ms.author: jianleishen
+ms.author: chez
+author: chez-charlie
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/01/2021
+ms.custom: synapse
+ms.date: 08/30/2021
 ---
 
 # Copy data from or to MongoDB by using Azure Data Factory
@@ -34,6 +36,32 @@ Specifically, this MongoDB connector supports **versions up to 4.2**.
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to MongoDB using UI
+
+Use the following steps to create a linked service to MongoDB in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for MongoDB and select the MongoDB connector.
+
+    :::image type="content" source="media/connector-mongodb/mongodb-connector.png" alt-text="Select the MongoDB connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-mongodb/configure-mongodb-linked-service.png" alt-text="Configure a linked service to MongoDB.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to MongoDB connector.
 

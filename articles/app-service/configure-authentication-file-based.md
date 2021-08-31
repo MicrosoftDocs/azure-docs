@@ -2,33 +2,29 @@
 title: File-based configuration of AuthN/AuthZ
 description: Configure authentication and authorization in App Service using a configuration file to enable certain preview capabilities. 
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 07/15/2021
 ---
 
-# File-based configuration in Azure App Service authentication (Preview)
+# File-based configuration in Azure App Service authentication
 
-With [App Service authentication](overview-authentication-authorization.md), the authentication settings can be configured with a file (Preview). You may need to use file-based configuration to use certain preview capabilities of App Service authentication / authorization.
+With [App Service authentication](overview-authentication-authorization.md), the authentication settings can be configured with a file. You may need to use file-based configuration to use certain preview capabilities of App Service authentication / authorization before they are exposed via [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs.
 
 > [!IMPORTANT]
 > Remember that your app payload, and therefore this file, may move between environments, as with [slots](./deploy-staging-slots.md). It is likely you would want a different app registration pinned to each slot, and in these cases, you should continue to use the standard configuration method instead of using the configuration file.
 
 ## Enabling file-based configuration
 
-> [!CAUTION]
-> During preview, enabling file-based configuration will disable management of the App Service Authentication / Authorization feature for your application through some clients, such as the Azure portal, Azure CLI, and Azure PowerShell.
-
 1. Create a new JSON file for your configuration at the root of your project (deployed to D:\home\site\wwwroot in your web / function app). Fill in your desired configuration according to the [file-based configuration reference](#configuration-file-reference). If modifying an existing Azure Resource Manager configuration, make sure to translate the properties captured in the `authsettings` collection into your configuration file.
 
-2. Modify the existing configuration, which is captured in the [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs under `Microsoft.Web/sites/<siteName>/config/authsettings`. To modify this, you can use an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or a tool like [Azure Resource Explorer](https://resources.azure.com/). Within the authsettings collection, you will need to set three properties (and may remove others):
+2. Modify the existing configuration, which is captured in the [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs under `Microsoft.Web/sites/<siteName>/config/authsettingsV2`. To modify this, you can use an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or a tool like [Azure Resource Explorer](https://resources.azure.com/). Within the authsettingsV2 collection, you will need to set three properties (and may remove others):
 
-    1.	Set `enabled` to "true"
-    2.	Set `isAuthFromFile` to "true"
-    3.	Set `authFilePath` to the name of the file (for example, "auth.json")
+    1. Set `platform.enabled` to "true"
+    2. Set `platform.configFilePath` to the name of the file (for example, "auth.json")
 
 > [!NOTE]
-> The format for `authFilePath` varies between platforms. On Windows, both relative and absolute paths are supported. Relative is recommended. For Linux, only absolute paths are supported currently, so the value of the setting should be "/home/site/wwwroot/auth.json" or similar.
+> The format for `platform.configFilePath` varies between platforms. On Windows, both relative and absolute paths are supported. Relative is recommended. For Linux, only absolute paths are supported currently, so the value of the setting should be "/home/site/wwwroot/auth.json" or similar.
 
-Once you have made this configuration update, the contents of the file will be used to define the behavior of App Service Authentication / Authorization for that site. If you ever wish to return to Azure Resource Manager configuration, you can do so by setting `isAuthFromFile` back to "false".
+Once you have made this configuration update, the contents of the file will be used to define the behavior of App Service Authentication / Authorization for that site. If you ever wish to return to Azure Resource Manager configuration, you can do so by removing changing the setting `platform.configFilePath` to null.
 
 ## Configuration file reference
 
@@ -211,7 +207,7 @@ The following exhausts possible configuration options within the file:
 }
 ```
 
-## Next steps
+## More resources
 
-> [!div class="nextstepaction"]
-> [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Environment variables and app settings for authentication](reference-app-settings.md#authentication--authorization)

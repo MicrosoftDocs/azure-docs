@@ -2,7 +2,7 @@
 title: Use Bicep to deploy resources to management group
 description: Describes how to create a Bicep file that deploys resources at the management group scope.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/19/2021
 ---
 
 # Management group deployments with Bicep files
@@ -123,7 +123,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
 }
 ```
 
-To target another management group, add a module. Use the [managementGroup function](bicep-functions-scope.md#managementgroup) to set the `scope` property. Provide the management group name.
+To target another management group, add a [module](modules.md). Use the [managementGroup function](bicep-functions-scope.md#managementgroup) to set the `scope` property. Provide the management group name.
 
 ```bicep
 targetScope = 'managementGroup'
@@ -132,7 +132,7 @@ param otherManagementGroupName string
 
 // module deployed at management group level but in a different management group
 module exampleModule 'module.bicep' = {
-  name: 'deployToDifferntMG'
+  name: 'deployToDifferentMG'
   scope: managementGroup(otherManagementGroupName)
 }
 ```

@@ -7,17 +7,17 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Create SQL Managed iInstance - Azure Arc using Azure Data Studio
+# Create SQL Managed Instance - Azure Arc using Azure Data Studio
 
 This document walks you through the steps for installing Azure SQL Managed Instance - Azure Arc using Azure Data Studio
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ## Create Azure SQL Managed Instance on Azure Arc
 
@@ -45,7 +45,7 @@ This document walks you through the steps for installing Azure SQL Managed Insta
 - View all the Azure SQL Managed Instances provisioned, using the following commands:
 
 ```azurecli
-azdata arc sql mi list
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 Output should look like this, copy the ServerEndpoint (including the port number) from here.

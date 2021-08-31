@@ -148,7 +148,7 @@ sections:
           
           ### How can I migrate my SQL Server instance to SQL Managed Instance?
           
-          To migrate your SQL Server instance, see [SQL Server instance migration to Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md).
+          To migrate your SQL Server instance, see [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
           
           ### How can I migrate from other platforms to SQL Managed Instance?
           
@@ -264,7 +264,7 @@ sections:
           
           ### Is native restore (from .bak files) to Managed Instance supported?
           
-          Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](./migrate-to-instance-from-sql-server.md#native-restore-from-url).
+          Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
           
       - question: |
           Business continuity

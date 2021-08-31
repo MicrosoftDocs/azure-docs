@@ -41,8 +41,8 @@
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
   - name: License management
     href: isv-app-license.md
-  - name: Private offers
-    href: private-offers.md
+  - name: Private plans
+    href: private-plans.md
   - name: Plans and pricing
     href: plans-pricing.md
   - name: Standard contract
@@ -86,7 +86,7 @@
     - name: Azure consumption commitment enrollment
       href: azure-consumption-commitment-enrollment.md
     - name: Preferred solutions
-      href: /marketplace/appsource-overview#microsoft-preferred-solutions
+      href: preferred-solution.md
     - name: Integrated solutions
       href: integrated-solutions-for-publishers.md
   - name: Activate marketplace rewards
@@ -111,6 +111,8 @@
   items:
   - name: Publishing guide by offer type
     href: publisher-guide-by-offer-type.md 
+  - name: Marketplace categories and industries
+    href: marketplace-categories-industries.md 
   - name: Azure application offer
     items:
     - name: Plan the offer

@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
@@ -15,11 +15,6 @@ zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 # Upload logs to Azure Monitor
 
 Periodically, you can export logs and then upload them to Azure. Exporting and uploading logs also creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
-
-> [!NOTE] 
-> During the preview period, there is no cost for using Azure Arc-enabled data services.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Before you begin
 
@@ -119,7 +114,6 @@ SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```console
 $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
-```
 ::: zone-end
 
 
@@ -213,7 +207,7 @@ With the environment variables set, you can upload logs to the log workspace.
 
 1. Log in to to the Azure Arc data controller with Azure (`az`)  CLI with the `arcdata` extension.
 
-   ```console
+   ```azurecli
    az arcdata login
    ```
 
@@ -221,13 +215,16 @@ With the environment variables set, you can upload logs to the log workspace.
 
 1. Export all logs to the specified file:
 
-   ```console
+> [!NOTE]
+> Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
+
+   ```azurecli
    az arcdata dc export --type logs --path logs.json
    ```
 
 2. Upload logs to an Azure monitor log analytics workspace:
 
-   ```console
+   ```azurecli
    az arcdata dc upload --path logs.json
    ```
 
@@ -252,8 +249,8 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
 ```azurecli
-az arcdata dc export --type metrics --path metrics.json --force
-az arcdata dc upload --path metrics.json
+az arcdata dc export --type logs --path logs.json --force
+az arcdata dc upload --path logs.json
 ```
 
 Make the script file executable

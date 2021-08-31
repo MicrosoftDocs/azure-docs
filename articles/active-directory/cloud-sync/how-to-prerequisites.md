@@ -104,6 +104,9 @@ To enable TLS 1.2, follow these steps.
     ```
 
 1. Restart the server.
+## NTLM requirement
+
+You should not enable NTLM on the Windows Server that is running the Azure AD Connect Provisioning Agent and if it is enabled you should make sure you disable it. 
 
 ## Known limitations
 
@@ -125,6 +128,9 @@ The following are known limitations:
 When using OU scoping filter
 - You can only sync up to 59 separate OUs for a given configuration. 
 - Nested OUs are supported (that is, you **can** sync an OU that has 130 nested OUs, but you **cannot** sync 60 separate OUs in the same configuration). 
+
+### Password Hash Sync
+- Using password hash sync with InetOrgPerson is not supported.
 
 
 ## Next steps 
