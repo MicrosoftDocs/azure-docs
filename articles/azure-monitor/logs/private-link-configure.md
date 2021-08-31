@@ -155,7 +155,7 @@ The below Azure Resource Manager template creates:
 * A Log Analytics workspace named "my-workspace"
 * Add a scoped resource to the "my-scope" AMPLS, named "my-workspace-connection"
 > [!NOTE]
-> The below ARM template uses API version "2019-04-01", which doesn't support setting the AMPLS access modes. When using the below template, the resulting AMPLS is set with QueryAccessMode="Open" and IngestionAccessMode="PrivateOnly", meaning it allows queries to run on resources both in and out of the AMPLS, but limits ingestion to reach only Private Link resources.
+> The below ARM template uses an old API version which doesn't support setting the AMPLS access modes. When using the below template, the resulting AMPLS is set with QueryAccessMode="Open" and IngestionAccessMode="PrivateOnly", meaning it allows queries to run on resources both in and out of the AMPLS, but limits ingestion to reach only Private Link resources.
 
 ```
 {
