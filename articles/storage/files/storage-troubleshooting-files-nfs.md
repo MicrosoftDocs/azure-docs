@@ -35,7 +35,7 @@ Check that idmapping is disabled and nothing is re-enabling it, then perform the
 - Unmount the share
 - Disable id-mapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
 - Mount the share back
-- If running rsync, run rsync with “—numeric-ids” argument from directory which do not have any bad dir/file name.
+- If running rsync, run rsync with "—numeric-ids" argument from directory which do not have any bad dir/file name.
 
 ## Unable to create an NFS share
 
