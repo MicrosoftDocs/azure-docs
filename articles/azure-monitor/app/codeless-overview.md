@@ -34,7 +34,7 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 
 ### Windows
 
-Application monitoring on Azure App Service on Windows is available for **[.NET](./azure-web-apps-net.md)** (enabled by default), **[.NET Core](./azure-web-apps-netcore.md)**, **[Java](./azure-web-apps-java.)** (in public preview), and **[Node.js](./azure-web-apps-nodejs.md)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
+Application monitoring on Azure App Service on Windows is available for **[.NET](./azure-web-apps-net.md)** (enabled by default), **[.NET Core](./azure-web-apps-netcore.md)**, **[Java](./azure-web-apps-java.md)** (in public preview), and **[Node.js](./azure-web-apps-nodejs.md)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
 
 > [!NOTE]
 > Application monitoring is currently available for Windows code-based applications on App Service. Monitoring for apps on Windows Containers on App Service is not yet supported through the integration with Application Insights.

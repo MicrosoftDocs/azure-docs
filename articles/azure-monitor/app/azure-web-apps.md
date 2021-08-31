@@ -8,22 +8,22 @@ ms.custom: "devx-track-js, devx-track-dotnet"
 
 # Application Monitoring for Azure App Service Overview
 
-Enabling monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. This article will walk you through enabling Azure Monitor application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
+Enabling monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. 
 
 ## Enable Application Insights
 
 There are two ways to enable application monitoring for Azure App Services hosted applications:
 
-* **Agent-based application monitoring** (ApplicationInsightsAgent). 
+- **Agent-based application monitoring** (ApplicationInsightsAgent). 
  
-    * This method is the easiest to enable, and no code change or advanced configurations are required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
+    - This method is the easiest to enable, and no code change or advanced configurations are required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
 
-    The following are support for agent-based monitoring:
+    - The following are support for agent-based monitoring:
         - [.NET Core](./azure-web-apps-netcore.md)
-        - [.NET](./azure-web-apps-net.md))
-        - [Java]((./azure-web-apps-java.md))
-        - [Nodejs](./(./azure-web-apps-nodejs.md))
-
+        - [.NET](./azure-web-apps-net.md)
+        - [Java](./azure-web-apps-java.md)
+        - [Nodejs](./azure-web-apps-nodejs.md)
+    
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
 
     * This approach is much more customizable, but it requires the following approaches: SDK for [.NET Core](./asp-net-core.md), [.NET](./asp-net.md), [Node.js](./nodejs.md), [Python](./opencensus-python.md), and a standalone agent for [Java](./java-in-process-agent.md). This method, also means you have to manage the updates to the latest version of the packages yourself.

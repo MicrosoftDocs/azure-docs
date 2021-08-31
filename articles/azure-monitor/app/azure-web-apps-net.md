@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure app services performance ASP.NET | Microsoft Docs
-description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
+description: Application performance monitoring for Azure app services using ASP.NET. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.custom: "devx-track-js, devx-track-dotnet, devx-track-azurepowershell"
@@ -13,24 +13,8 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
 > [!NOTE]
 > For .NET on Windows only: manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` and are automatically updated with each stable release. If you follow the agent-based instructions to enable monitoring below, it will automatically remove the deprecated extension for you.
 
-## Enable Application Insights
-
-There are two ways to enable application monitoring for Azure App Services hosted applications:
-
-* **Agent-based application monitoring** (ApplicationInsightsAgent).  
-    * This method is the easiest to enable, and no code change or advanced configurations are required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
-
-* **Manually instrumenting the application through code** by installing the Application Insights SDK.
-
-    * This approach is much more customizable, but it requires the SDK for [.NET](./asp-net.md). This method, also means you have to manage the updates to the latest version of the packages yourself.
-
-    * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](./api-custom-events-metrics.md) to learn more. 
-
 > [!NOTE]
 > If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
-
-> [!NOTE]
-> Snapshot debugger and profiler are only available in .NET and .Net Core
 
 ## Enable agent-based monitoring
 
@@ -198,7 +182,7 @@ This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set 
 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
-[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot)]
+[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
 ## Next steps
 * [Run the profiler on your live app](./profiler.md).

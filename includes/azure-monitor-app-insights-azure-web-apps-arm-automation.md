@@ -9,7 +9,7 @@ ms.subservice: application-insights
 
 ### App Service Application settings with Azure Resource Manager
 
-Application settings for App Services can be managed and configured with [Azure Resource Manager templates](../../../azure-resource-manager/templates/syntax.md). This method can be used when deploying new App Service resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
+Application settings for App Services can be managed and configured with [Azure Resource Manager templates](../articles/azure-resource-manager/templates/syntax.md). This method can be used when deploying new App Service resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
 
 The basic structure of the application settings JSON for an app service is below:
 
@@ -41,11 +41,12 @@ To create an Azure Resource Manager template with all the default Application In
 
 Select **Automation options**
 
-   ![App Service web app creation menu](https://docs.microsoft.com/azure/azure-monitor/app/media/azure-web-apps/create-web-app.png)
+:::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="App Service web app creation menu" border="false":::
 
 This option generates the latest Azure Resource Manager template with all required settings configured.
 
-  ![App Service web app template](https://docs.microsoft.com/azure/azure-monitor/app/media/azure-web-apps/arm-template.png)
+:::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png" alt-text="App Service web app template" border="false":::
+
 
 Below is a sample, replace all instances of  `AppMonitoredSite` with your site name:
 

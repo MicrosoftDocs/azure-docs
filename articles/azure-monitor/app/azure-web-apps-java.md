@@ -10,14 +10,13 @@ ms.custom: "devx-track-java"
 
 Monitoring of your Java-based web applications running on [Azure App Services](../../app-service/index.yml) does not require any modifications to the code. This article will walk you through enabling Azure Monitor application insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
-
 ## Enable Application Insights
 
 The recommended way to enable application monitoring for Java application running on Azure App Services is through Azure portal. Turning on application monitoring in Azure portal will automatically instrument your application with application insights.  
 
 ### Auto-instrumentation through Azure portal
 
-This method requires no code change or advanced configurations, making it the easiest way to get started with monitoring for Azure App Services. You can apply additional configurations, and then based on your specific scenario you can evaluate whether more advanced monitoring through [manual instrumentation](https://docs.microsoft.com/azure/azure-monitor/app/java-2x-get-started?tabs=maven) is needed.
+This method requires no code change or advanced configurations, making it the easiest way to get started with monitoring for Azure App Services. You can apply additional configurations, and then based on your specific scenario you can evaluate whether more advanced monitoring through [manual instrumentation](./java-2x-get-started.md?tabs=maven) is needed.
 
 ### Enable backend monitoring
 
@@ -30,13 +29,14 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
    * Choose to create a new resource, or select an existing Application Insights resource for this application.
 
     > [!NOTE]
-    > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
+    > When you select **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
     >[!div class="mx-imgBorder"]
     >![Instrument your web app.](./media/azure-web-apps/ai-create-new.png)
+
 2. This step is not required. After specifying which resource to use, you can configure the Java agent. If you do not configure the Java agent, default configurations will apply. 
 
-    The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid [json file](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#an-example). **Exclude the connection string and any configurations that are in preview** - you will be able to add the items that are currently in preview as they become generally available.
+    The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid [json file](./java-standalone-config.md#an-example). **Exclude the connection string and any configurations that are in preview** - you will be able to add the items that are currently in preview as they become generally available.
 
     Once you modify the configurations through Azure portal, APPLICATIONINSIGHTS_CONFIGURATION_FILE environment variable will automatically be populated and will appear in App Service settings panel. This variable will contain the full json content that you have pasted in Azure portal configuration text box for your Java app. 
 
@@ -81,8 +81,8 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
 1. Sometimes the latest version of the Application Insights Java agent is not available in App Service - it takes a couple of months for the latest versions to roll out to all regions. In case you need the latest version of Java agent to monitor your app in App Service, you can upload the agent manually: 
     * Upload the Java agent jar file to App Service
         * Get the latest version of [az cli tool](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli)
-        * Get the latest version of [Application Insights Java agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-        * Deploy Java agent to App Service - a sample command to deploy the Java agent jar: `az webapp deploy --src-path applicationinsights-agent-{VERSION_NUMBER}.jar --target-path java/applicationinsights-agent-{VERSION_NUMBER}.jar --type static --resource-group {YOUR_RESOURCE_GROUP} --name {YOUR_APP_SVC_NAME}` or use [this guide](https://docs.microsoft.com/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux#configure-the-maven-plugin) to deploy through Maven plugin
+        * Get the latest version of [Application Insights Java agent](./java-in-process-agent.md)
+        * Deploy Java agent to App Service - a sample command to deploy the Java agent jar: `az webapp deploy --src-path applicationinsights-agent-{VERSION_NUMBER}.jar --target-path java/applicationinsights-agent-{VERSION_NUMBER}.jar --type static --resource-group {YOUR_RESOURCE_GROUP} --name {YOUR_APP_SVC_NAME}` or use [this guide](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux#configure-the-maven-plugin) to deploy through Maven plugin
     * Once the agent jar file is uploaded, go to App Service configurations and add a new environment variable, JAVA_OPTS and set it's value to `-javaagent:D:/home/{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`
     * Disable Application Insights via Application Insights blade
     * Restart the app
@@ -91,7 +91,7 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
     > If you set the JAVA_OPTS environment variable, you will have to disable Application Insights in the portal. Alternatively, if you prefer to enable Application Insights from the portal, make sure that you don't set the JAVA_OPTS variable in App Service configurations settings. 
 
 
-[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot)]
+[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
 ## Next steps
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
