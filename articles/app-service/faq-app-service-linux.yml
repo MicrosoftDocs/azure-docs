@@ -206,12 +206,12 @@ sections:
   - name: Other questions
     questions:
       - question: |    
-        **How do I specify port in my Linux container?**
+          How do I specify port in my Linux container?
         answer: |
-        | Container type     | Default port |  Description |
-        |--------------------|--------------|-------------|
-        | Built-in container | 80   | App service will attempt to detect the port. If no port is detected, it defaults to 80. <br/>To manually configure a custom port, use the EXPOSE instruction in the Dockerfile and the app setting, WEBSITES_PORT, with a port value to bind on the container.
-        | Custom container   | N/A  | To manually configure a custom port, use the EXPOSE instruction in the Dockerfile and the app setting, WEBSITES_PORT, with a port value to bind on the container.    
+          | Container type     | Default port |  Description |
+          |--------------------|--------------|-------------|
+          | Built-in container | 80   | App service will attempt to detect the port. If no port is detected, it defaults to 80. <br/>To manually configure a custom port, use the EXPOSE instruction in the Dockerfile and the app setting, WEBSITES_PORT, with a port value to bind on the container.
+          | Custom container   | N/A  | To manually configure a custom port, use the EXPOSE instruction in the Dockerfile and the app setting, WEBSITES_PORT, with a port value to bind on the container.    
         
       - question: |
           Can I use a file based database (like SQLight) with my Linux Webapp?
