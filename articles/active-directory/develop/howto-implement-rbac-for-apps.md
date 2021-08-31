@@ -93,7 +93,7 @@ Implementing RBAC in an ASP.NET Core web API mainly involves utilizing the *Auth
     ```
     And then follow the instructions specified in [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](./quickstart-v2-aspnet-core-webapp.md?view=aspnetcore-5.0) to add authentication to your application.
 1. Add role checks on your controller actions as outlined in [Adding role checks](/aspnet/core/security/authorization/roles?view=aspnetcore-5.0#adding-role-checks).
-1. To be added...
+1. Call the API from a client app.  See [Angular single-page application calling .NET Core web API and using App Roles to implement Role-Based Access Control](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl/1-call-api-roles) for an end to end sample.
 
 
 ## Implementing RBAC in other platforms
