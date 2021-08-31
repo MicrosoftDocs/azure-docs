@@ -185,7 +185,7 @@ A device could report an error such as:
 
 ### Object type
 
-If a writable property is defined as an object, the service must send a complete object to the device. The device should also acknowledge the update by sending a complete object.
+If a writable property is defined as an object, the service must send a complete object to the device. The device can acknowledge the update by sending a complete object.
 
 The following example shows a writable property defined as an `Object` with four fields:
 
@@ -194,16 +194,16 @@ DTDL:
 ```json
 {
   "@type": "Property",
-  "name": "sampling_range",
+  "name": "samplingRange",
   "schema": {
     "@type": "Object",
     "fields": [
       {
-        "name": "start_time",
+        "name": "startTime",
         "schema": "dateTime"
       },
       {
-        "name": "last_time",
+        "name": "lastTime",
         "schema": "dateTime"
       },
       {
@@ -211,7 +211,7 @@ DTDL:
         "schema": "integer"
       },
       {
-        "name": "error_count",
+        "name": "errorCount",
         "schema": "integer"
       }
     ]
@@ -225,11 +225,11 @@ To update this writable property, send a complete object from the service that l
 
 ```json
 {
-  "sampling_range": {
-    "start_time": "2021-08-17T12:53:00.000Z",
-    "last_time": "2021-08-17T14:54:00.000Z",
+  "samplingRange": {
+    "startTime": "2021-08-17T12:53:00.000Z",
+    "lastTime": "2021-08-17T14:54:00.000Z",
     "count": 100,
-    "error_count": 5
+    "errorCount": 5
   }
 }
 ```
@@ -238,15 +238,15 @@ The device responds with an acknowledgement that looks like the following:
 
 ```json
 {
-  "sampling_range": {
+  "samplingRange": {
     "ac": 200,
     "av": 5,
     "ad": "Weighing status updated",
     "value": {
-      "start_time": "2021-08-17T12:53:00.000Z",
-      "last_time": "2021-08-17T14:54:00.000Z",
+      "startTime": "2021-08-17T12:53:00.000Z",
+      "lastTime": "2021-08-17T14:54:00.000Z",
       "count": 100,
-      "error_count": 5
+      "errorCount": 5
     }
   }
 }
@@ -254,7 +254,7 @@ The device responds with an acknowledgement that looks like the following:
 
 ### Sample no component writable property
 
-When a device receives multiple reported properties in a single payload, it can send the reported property responses across multiple payloads.
+When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads.
 
 A device or module can send any valid JSON that follows the DTDL v2 rules:
 

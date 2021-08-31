@@ -211,7 +211,7 @@ The device twin is updated with the next reported property:
 
 These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `DeviceClient` or `ModuleClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
 
-If the property type is `Object`, the service must send a complete object to the device even if it's only updating a subset of the object's fields. The acknowledgement the device sends must also be a complete object.
+If the property type is `Object`, the service must send a complete object to the device even if it's only updating a subset of the object's fields. The acknowledgement the device sends can also be a complete object.
 
 ### Report a writable property
 
