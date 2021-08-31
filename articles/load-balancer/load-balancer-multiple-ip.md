@@ -594,24 +594,19 @@ In this section, you'll discover the public IP address for each website. You'll 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-<resources> with the following steps:
+the virtual machines and load balancer with the following steps:
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+1. In the search box at the top of the portal, enter **Resource group**.  Select **Resource groups** in the search results.
 
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+2. Select **TutorialLBIP-rg** in **Resource groups**.
+
+3. Select **Delete resource group**.
+
+4. Enter **TutorialLBIP-rg** in **TYPE THE RESOURCE GROUP NAME:**. Select **Delete**.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
+Advance to the next article to learn how to create a cross-region load balancer:
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+> [!div class="nextstepaction"]
+> [Create a cross-region load balancer using the Azure portal](tutorial-cross-region-portal.md)
