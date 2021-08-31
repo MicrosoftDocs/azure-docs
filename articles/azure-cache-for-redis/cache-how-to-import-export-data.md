@@ -68,8 +68,14 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
     ![On the navigation pane for contoso5premium, the Export data option on the Administration list is highlighted.](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. Select **Choose Storage Container** and select the storage account you want. The storage account must be in the same subscription and region as your cache.
 
-   > [!IMPORTANT]
-   > Export works with page blobs, which are supported by both classic and Resource Manager storage accounts. Export is not supported by Blob storage accounts at this time. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
+ 
+   > [!IMPORTANT] 
+   >
+   > - Export works with page blobs that are supported by both classic and Resource Manager storage accounts.
+   > - Azure Cache for Redis does not support exporting to ADLS Gen2 storage accounts.
+   > - Export is not supported by Blob storage accounts at this time.
+   >
+   > For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
    >
 
     ![Storage account](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
@@ -150,7 +156,7 @@ Yes, for PowerShell instructions see [To import an Azure Cache for Redis](cache-
 
 On the left, if you remain on **Import data** or **Export data** for longer than 15 minutes before starting the operation, you receive an error with an error message similar to the following example:
 
-```output
+```azcopy
 The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
 ```
 
