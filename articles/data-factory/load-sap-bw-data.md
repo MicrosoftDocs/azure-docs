@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ---
 
 # Copy data from SAP Business Warehouse by using Azure Data Factory

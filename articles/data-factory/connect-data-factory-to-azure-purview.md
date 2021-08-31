@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ---
 
 # Connect Data Factory to Azure Purview (Preview)

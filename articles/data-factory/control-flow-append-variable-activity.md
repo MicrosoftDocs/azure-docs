@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ---
 
 # Append Variable Activity in Azure Data Factory

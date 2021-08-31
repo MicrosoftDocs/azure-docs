@@ -8,7 +8,7 @@ ms.custom: synapse
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ---
 
 # Transform data by running a Databricks notebook

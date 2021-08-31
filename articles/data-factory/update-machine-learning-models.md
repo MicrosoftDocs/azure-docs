@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ---
 
 # Update Azure Machine Learning Studio (classic) models by using Update Resource activity

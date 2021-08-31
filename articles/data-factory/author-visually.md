@@ -8,7 +8,7 @@ ms.custom: synapse
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ---
 
 # Visual authoring in Azure Data Factory

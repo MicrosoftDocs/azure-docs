@@ -5,7 +5,7 @@ description: Learn how to process or transform data by running a Databricks Pyth
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-python, synapse

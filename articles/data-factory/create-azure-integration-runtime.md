@@ -5,7 +5,7 @@ description: Learn how to create Azure integration runtime in Azure Data Factory
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 author: lrtoyou1223
 ms.author: lle 
 ms.custom: devx-track-azurepowershell, synapse
