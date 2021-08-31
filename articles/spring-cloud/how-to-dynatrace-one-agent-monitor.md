@@ -22,7 +22,7 @@ With the Dynatrace OneAgent, you can:
 * Configure the Dynatrace OneAgent by using environment variables.
 * Check all monitoring data from Dynatrace dashboard.
 
-The following video introduces Dynatrace Java OneAgent.
+The following video introduces Dynatrace OneAgent.
 
 <br>
 
@@ -31,8 +31,8 @@ The following video introduces Dynatrace Java OneAgent.
 ## Prerequisites
 
 * [Azure CLI](/cli/azure/install-azure-cli)
-* A Dynatrace account
-* [Dynatrace PaaS token and Tenant token](https://www.dynatrace.com/support/help/reference/dynatrace-concepts/access-tokens/)
+* [A Dynatrace account](https://www.dynatrace.com/)
+* [A Dynatrace PaaS token and tenant token](https://www.dynatrace.com/support/help/reference/dynatrace-concepts/access-tokens/)
 
 ## Activate Dynatrace OneAgent
 
@@ -50,7 +50,9 @@ The following sections describe how to activate Dynatrace OneAgent.
 
 ### Determine the values for the required environment variables
 
-To activate Dynatrace OneAgent on your Azure Spring Cloud instance, you need to configure four environment variables: `DT_TENANT`, `DT_TENANTTOKEN`, `DT_CONNECTION_POINT` and `DT_CLUSTER_ID`. Please refer to [Integrate AppDynamics OneAgent with Azure Spring Cloud](https://www.dynatrace.com/support/help/shortlink/azure-spring). For applications with multiple instances, Dynatrace has several ways to group them. `DT_CLUSTER_ID` is one of the ways. One can refer to [Customize the structure of process groups](https://www.dynatrace.com/support/help/how-to-use-dynatrace/process-groups/configuration/adapt-the-composition-of-default-process-groups/) for more details.
+To activate Dynatrace OneAgent on your Azure Spring Cloud instance, you need to configure four environment variables: `DT_TENANT`, `DT_TENANTTOKEN`, `DT_CONNECTION_POINT`, and `DT_CLUSTER_ID`. For more information, see [Integrate OneAgent with Azure Spring Cloud](https://www.dynatrace.com/support/help/shortlink/azure-spring).
+
+For applications with multiple instances, Dynatrace has several ways to group them. `DT_CLUSTER_ID` is one of the ways. For more information, see [Customize the structure of process groups](https://www.dynatrace.com/support/help/how-to-use-dynatrace/process-groups/configuration/adapt-the-composition-of-default-process-groups/).
 
 ### Add the environment variables to your application
 
@@ -68,7 +70,7 @@ az spring-cloud app deploy --name <your-application-name> --jar-path app.jar \
 
 #### Option 2: Portal
 
-You can also set the key/value pairs using the Azure portal, use the following steps:
+To add the key/value pairs using the Azure portal, use the following steps:
 
 1. Navigate to the list of your existing applications.
 
@@ -78,37 +80,37 @@ You can also set the key/value pairs using the Azure portal, use the following s
 
    ![Overview](media/dynatrace-oneagent/overview-application.png)
 
-1. Select **Configurations** to add, update, or delete values int he the **Environment variables** section for the application.
+1. Select **Configurations** to add, update, or delete values in the **Environment variables** section for the application.
 
    ![Configuration](media/dynatrace-oneagent/configuration-application.png)
 
 ## Automation
 
-Using Terraform or ARM Template, you can also run a "provisioning" automation pipeline for a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
+Using Terraform or an ARM template, you can also run a provisioning automation pipeline. This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
 ### Terraform
 
-You can leverage below code fragment to configure the environment variables, refer to [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment) for more details.
+To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
 ```terraform
 environment_variables = {
-  "DT_TENANT": "CustomizeWithYourCase",
-  "DT_TENANTTOKEN": "CustomizeWithYourCase",
-  "DT_CONNECTION_POINT": "CustomizeWithYourCase",
-  "DT_CLUSTER_ID": "CustomizeWithYourCase"
+  "DT_TENANT": "<your-environment-ID>",
+  "DT_TENANTTOKEN": "<your-tenant-token>",
+  "DT_CONNECTION_POINT": "<your-communication-endpoint>",
+  "DT_CLUSTER_ID": "<your-cluster-ID>"
 }
 ```
 
 ### ARM
 
-You can leverage below code fragment to configure the environment variables, refer to [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json) for more details.
+To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
-```arm
+```ARM
 "environmentVariables": {
-  "DT_TENANT": "CustomizeWithYourCase",
-  "DT_TENANTTOKEN": "CustomizeWithYourCase",
-  "DT_CONNECTION_POINT": "CustomizeWithYourCase",
-  "DT_CLUSTER_ID": "CustomizeWithYourCase"
+  "DT_TENANT": "<your-environment-ID>",
+  "DT_TENANTTOKEN": "<your-tenant-token>",
+  "DT_CONNECTION_POINT": "<your-communication-endpoint>",
+  "DT_CLUSTER_ID": "<your-cluster-ID>"
 }
 ```
 
@@ -143,25 +145,25 @@ You can go to **Multidimensional analysis** section.
 
 You can go to **Profiling and optimization** section.
 
-* You can find the **CPU analysis** from the following blade:
+* You can find the **CPU analysis** from the following section:
 
    ![CPU analysis](media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png)
 
 You can go to **Database** section.
 
-* You can find **Backtrace** from the following blade:
+* You can find **Backtrace** from the following section:
 
    ![Backtrace](media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png)
 
 ## Dynatrace OneAgent Logging
 
-By default, Azure Spring Cloud will print the **info** level logs of the Dynatrace OneAgent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Cloud will print the *info* level logs of the Dynatrace OneAgent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the Dynatrace agent from the following locations:
 
-* Azure Spring Cloud Logs.
-* Azure Spring Cloud Application Insights.
-* Azure Spring Cloud LogStream.
+* Azure Spring Cloud Logs
+* Azure Spring Cloud Application Insights
+* Azure Spring Cloud LogStream
 
 You can leverage some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs.
 
@@ -173,16 +175,16 @@ You can leverage some environment variables provided by Dynatrace to configure l
 The Dynatrace OneAgent auto-upgrade is disabled and will be upgraded quarterly with the JDK. Agent upgrade may impact the following scenarios:
 
 * Existing applications using Dynatrace OneAgent before upgrade will be unchanged.
-* Existing applications that use Dynatrace OneAgent before upgrade require restart or redeploy to engage the new version of Dynatrace OneAgent.
+* Existing applications using Dynatrace OneAgent before upgrade require restart or redeploy to engage the new version of Dynatrace OneAgent.
 * Applications created after upgrade will use the new version of Dynatrace OneAgent.
 
 ## VNet injection instance outbound traffic configuration
 
-For a VNet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. Refer to [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/) on how to get `communicationEndpoints`, also see [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md) for further details.
+For a VNet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For additional details, see [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md).
 
-## Dynatrace Support Model
+## Dynatrace support model
 
-Refer to [Dynatrace OneAgent platform and capability support matrix](https://www.dynatrace.com/support/help/technology-support/oneagent-platform-and-capability-support-matrix/#cloud-application-platforms) for limitations when deploy Dynatrace OneAgent in application-only mode.
+For information about limitations when deploying Dynatrace OneAgent in application-only mode, see the [Cloud application platforms](https://www.dynatrace.com/support/help/technology-support/oneagent-platform-and-capability-support-matrix/#cloud-application-platforms) section of [OneAgent platform and capability support matrix](https://www.dynatrace.com/support/help/technology-support/oneagent-platform-and-capability-support-matrix).
 
 ## Next steps
 
