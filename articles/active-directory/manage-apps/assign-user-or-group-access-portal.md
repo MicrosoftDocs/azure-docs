@@ -26,7 +26,7 @@ To assign users to an app using PowerShell, you need the following:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- Set up Microsoft Graph PowerShell SDK. See [Microsoft Graph PowerShell Installation](https://docs.microsoft.com/en-us/graph/powershell/installation)
+- Set up Azure AD PowerShell. See [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/)
 - Optional: Azure Active Directory Premium P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
 - Optional: Completion of [Configure an app](add-application-portal-configure.md).
 
