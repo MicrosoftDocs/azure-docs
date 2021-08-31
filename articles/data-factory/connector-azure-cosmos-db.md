@@ -142,13 +142,16 @@ The Azure Cosmos DB (SQL API) connector supports the following authentication ty
 
 To use service principal authentication, follow these steps.
 
-1. Register an application entity in Azure Active Directory (Azure AD) by following the steps in [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
+1. Register an application entity in Azure Active Directory (Azure AD) by following the steps in [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to grant the entity proper permission and define the linked service:
 
-    - Application ID
-    - Application key
-    - Tenant ID
+    - Tenant ID: used in linked service "Tenant"
+    - Application ID: used in linked service "Service principal ID"
+    - Application key/certificate: used in linked service "Service principal credential"
+    - Service principal ID: used to assign the custom role in the following steps
 
-2. Grant the service principal proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the service principle via service principle object ID. For more information, see [here](#aad-authentication-guidance).
+    :::image type="content" source="media/connector-azure-cosmos-db/azure-cosmosdb-service-principal-authentication.png" alt-text="Register an application entity.":::
+
+2. Grant the service principal proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the service principle via service principle object ID. For more information, see [Guidance for granting proper permission to service principal or managed identity](#aad-authentication-guidance).
 
 These properties are supported for the linked service:
 
@@ -232,7 +235,7 @@ To use managed identities for Azure resource authentication, follow these steps.
 
 1. [Retrieve the managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your service.
 
-2. Grant the managed identity proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the managed identity. For more information, see [here](#aad-authentication-guidance).
+2. Grant the managed identity proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the managed identity. For more information, see [Guidance for granting proper permission to service principal or managed identity](#aad-authentication-guidance).
 
 These properties are supported for the linked service:
 
@@ -293,8 +296,7 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -PrincipalId $principalId
 ```
 
-For more details, please refer to CosmosDB docs:
-[Configure role-based access control for your Azure Cosmos DB account with Azure AD](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac)
+For more details, please refer to [Configure role-based access control for your Azure Cosmos DB account with Azure AD](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac).
 
 # [CLI](#tab/cli)
 1. Create a custom role definition
@@ -330,8 +332,7 @@ principalId='<service principal or managed identity object ID>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $roleDefinitionId
 ```
 
-For more details, please refer to CosmosDB docs:
-[Configure role-based access control for your Azure Cosmos DB account with Azure AD](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac)
+For more details, please refer to [Configure role-based access control for your Azure Cosmos DB account with Azure AD](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac).
 
 # [ARM Template](#tab/arm-template)
 1. Create a custom role definition
@@ -378,9 +379,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > The `roleDefinitionId` and `roleAssignmentId` are customized random GUIDs.
 
-For more details, please refer to CosmosDB docs:
-[Create Update Sql Role Definition](https://docs.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-definition)
-[Create Update Sql Role Assignment](https://docs.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-assignment)
+For more details, please refer to [Create Update Sql Role Definition](https://docs.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-definition), [Create Update Sql Role Assignment](https://docs.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-assignment).
 
 ## Dataset properties
 
