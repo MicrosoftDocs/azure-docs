@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Load balance multiple IP configurations - Azure portal'
 titleSuffix: Azure Load Balancer
-description: In this article, learn about load balancing across primary and secondary IP configurations using the Azure portal.
+description: In this article, learn about load balancing across primary and secondary NIC configurations using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
@@ -45,7 +45,7 @@ In this section, you'll create a virtual network for the load balancer and virtu
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **Create new**. </br> In **Name** enter **CreateIPLBTutorial-rg**. </br> Select **OK**. |
+    | Resource Group   | Select **Create new**. </br> In **Name** enter **TutorialLBIP-rg**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **(Europe) West Europe** |
@@ -98,7 +98,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **CreateIPLBTutorial-rg**. |
+    | Resource group | Select **TutorialLBIP-rg**. |
     | **Instance details** |    |
     | NAT gateway name | Enter **myNATgateway**. |
     | Availability zone | Select **None**. |
@@ -136,7 +136,7 @@ In this section you'll create two virtual machines to host the IIS websites.
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **CreateIPLBTutorial-rg** |
+    | Resource Group | Select **TutorialLBIP-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **(Europe) West Europe** |
@@ -175,7 +175,7 @@ In this section you'll create two virtual machines to host the IIS websites.
     | ------- | ---- |
     | Name |  **myVM2** |
     | Availability zone | **2** |
-    | Network security group | Select the existing **myNSG**| Select the existing **myNSG** |
+    | Network security group | Select the existing **myNSG** |
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
@@ -191,11 +191,15 @@ In this section, you'll change the private IP address of the existing NIC of eac
 
 4. Select **Networking** in **Settings**.
 
-5. In **Networking**, select the name of the network interface next to **Network interface**. The network interface will begin with the name of the VM and have a random number assigned. In this example, **myVM1481**.
+5. In **Networking**, select the name of the network interface next to **Network interface**. The network interface will begin with the name of the VM and have a random number assigned. In this example, **myVM1266**.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-nic.png" alt-text="Screenshot of myVM1 networking configuration in Azure portal.":::
 
 6. In the network interface page, select **IP configurations** in **Settings**.
 
 7. In **IP configurations**, select **ipconfig1**.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-ipconfig1.png" alt-text="Screenshot of myVM1 network interface configuration.":::
 
 8. Select **Static** in **Assignment** in the **ipconfig1** configuration.
 
@@ -207,6 +211,8 @@ In this section, you'll change the private IP address of the existing NIC of eac
 
 12. In the **Networking** page, select **Attach network interface**.
 
+    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-attach-nic.png" alt-text="Screenshot of myVM1 network interface configuration.":::
+
 13. In **Attach network interface**, select **Create and attach network interface**.
 
 14. In **Create network interface**, enter or select the following information:
@@ -214,7 +220,7 @@ In this section, you'll change the private IP address of the existing NIC of eac
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
-    | Resource group | Select **CreateIPLBTutorial-rg**. |
+    | Resource group | Select **TutorialLBIP-rg**. |
     | **Network interface** |  |
     | Name | Enter **myVM1NIC2** |
     | Subnet | Select **myBackendSubnet (10.1.0.0/24)**. |
@@ -225,18 +231,18 @@ In this section, you'll change the private IP address of the existing NIC of eac
 
 15. Select **Create**. 
 
-16. Start **myVM1**.
+16. Start the virtual machine.
 
-17. Repeat steps 1 through 15 for **myVM2**, replacing the following information:
+17. Repeat steps 1 through 16 for **myVM2**, replacing the following information:
 
     | Setting | myVM2 |
     | ------  | ----- |
     | Name | **myVM2NIC2** |
     | Private IP address | **10.1.0.7** |
 
-## Install and configure IIS
+## Configure virtual machines
 
-In this section, you'll connect through Remote Desktop Protocol (RDP) to **myVM1** and **myVM2** through Azure Bastion. You'll install IIS and configure the two test websites.
+You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the secondary network configuration in this section. You'll add a route for the gateway for the secondary network configuration. You'll then install IIS on each virtual machine and customize the websites to display the hostname of the virtual machine.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -254,7 +260,29 @@ In this section, you'll connect through Remote Desktop Protocol (RDP) to **myVM1
 
 8. On the server desktop, navigate to Start > Windows Administrative Tools > Windows PowerShell > Windows PowerShell.
 
-9. Execute the following commands in the PowerShell windows to install and configure IIS and the test websites:
+9. In the PowerShell window, execute the `route print` command, which returns output similar to the following output for a virtual machine with two attached network interfaces:
+
+    ```console
+    ===========================================================================
+    Interface List
+      6...00 22 48 86 00 53 ......Microsoft Hyper-V Network Adapter #2
+     13...00 22 48 83 0b da ......Microsoft Hyper-V Network Adapter #3
+      1...........................Software Loopback Interface 1
+    ===========================================================================
+    ```
+    In this example, **Microsoft Hyper-V Network Adapter #3 (interface 13)** is the secondary network interface that doesn't have a default gateway assigned to it.
+
+10. In the PowerShell window, execute the `ipconfig /all` command to see which IP address is assigned to the secondary network interface. In this example, 10.1.0.6 is assigned to interface 13. No default gateway address is returned for the secondary network interface.
+
+11. To route all traffic destined for addresses outside the subnet of the secondary network interface to the gateway for the subnet, execute the following command:
+
+    ```console
+    route -p add 0.0.0.0 MASK 0.0.0.0 10.1.0.1 METRIC 5015 IF 13
+    ```
+
+    In this example, **10.1.0.1** is the default gateway for the virtual network you created previously.
+
+12. Execute the following commands in the PowerShell windows to install and configure IIS and the test websites:
 
     ```powershell
     ## Install IIS and the management tools. ##
@@ -273,7 +301,7 @@ In this section, you'll connect through Remote Desktop Protocol (RDP) to **myVM1
         Name = 'Default Web Site'
         BindingInformation = '*:80:'
     }
-    Remove-IISSiteBinding @para2
+    Remove-IISSiteBinding @para2 -Force
 
     ## Remove the default htm file. ##
     Remove-Item c:\inetpub\wwwroot\iisstart.htm
@@ -308,10 +336,11 @@ In this section, you'll connect through Remote Desktop Protocol (RDP) to **myVM1
 
     }
     Add-Content @para6
-    ```
-10. Close the Bastion connection to **myVM1**.
 
-11. Repeat steps 1 through 10 for **myVM2**.
+    ```
+13. Close the Bastion connection to **myVM1**.
+
+14. Repeat steps 1 through 13 for **myVM2**. Use the PowerShell code below for **myVM2** for the IIS install.
 
     ```powershell
     ## Install IIS and the management tools. ##
@@ -364,6 +393,7 @@ In this section, you'll connect through Remote Desktop Protocol (RDP) to **myVM1
         Value = $("Hello World from www.fabrikam.com" + "-" + $env:computername)
     }
     Add-Content @para6
+
     ```
 
 ## Create load balancer
@@ -386,7 +416,7 @@ During the creation of the load balancer, you'll configure:
     | ---                     | ---                                                |
     | **Project details** |   |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **CreateIPLBTutorial-rg**. |
+    | Resource group         | Select **TutorialLBIP-rg**. |
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **(Europe) West Europe**.                                        |
@@ -449,7 +479,7 @@ During the creation of the load balancer, you'll configure:
 
 18. Select **myVNet** in **Virtual network**.
 
-19. Select **IP address** for **Backend Pool Configuration**.
+19. Select **NIC** for **Backend Pool Configuration**.
 
 20. Select **IPv4** for **IP version**.
 
@@ -543,14 +573,23 @@ In this section, you'll discover the public IP address for each website. You'll 
 
 3. Copy the **IP address** in the overview page of **myPublicIP-contoso**.
 
+    :::image type="content" source="./media/load-balancer-multiple-ip/public-ip-contoso.png" alt-text="Screenshot of myPublicIP-fabrikam public IP address.":::
+
 4. Open a web browser and paste the public IP address into the address bar.
 
-<!-- Screenshot
--->
+    :::image type="content" source="./media/load-balancer-multiple-ip/test-contoso.png" alt-text="Screenshot of contoso website in web browser.":::
 
-5. Return to **Public IP addresses**.  Select **myPublicIP-fabrikam**.
+5. Return to **Public IP addresses**. Select **myPublicIP-fabrikam**.
 
 6. Copy the **IP address** in the overview page of **myPublicIP-fabrikam**.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/public-ip-fabrikam.png" alt-text="Screenshot of myPublicIP-contoso public IP address.":::
+
+7. Open a web browser and paste the public IP address into the address bar.
+
+    :::image type="content" source="./media/load-balancer-multiple-ip/test-fabrikam.png" alt-text="Screenshot of fabrikam website in web browser.":::
+
+8. To test the load balancer, refresh the browser or shut down one of the virtual machines.
 
 ## Clean up resources
 
