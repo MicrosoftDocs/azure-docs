@@ -1,16 +1,13 @@
 ---
 title: Store and share application packages (preview)
-description: Learn how to store and share application packages using an Azure Compute Gallery..
-author: cynthn
+description: Learn how to store and share application packages using an Azure Compute Gallery.
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 07/22/2021
-ms.author: cynthn
-ms.reviewer: akjosh 
+ms.reviewer:
 ms.custom: 
-ms.category: sig, disks
 
 ---
 
@@ -151,7 +148,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
 ### [PowerShell](#tab/powershell2)
 
-Create the application definition using `New-AzGalleryApplication`.
+Create the application definition using `New-AzGalleryApplication`. In this example, we are creating an app named *myApp* in the *myGallery* Azure Compute Gallery, in the *myGallery* resource group. Replace the values of the variables as needed.
 
 ```azurepowershell-interactive
 $galleryName = myGallery
@@ -160,7 +157,9 @@ $applicationName = myApp
 New-AzGalleryApplication -ResourceGroupName $rgName -GalleryName $galleryName -Name $applicationName
 ```
 
-Create a version of your application using `New-AzGalleryApplicationVersion`.
+Create a version of your application using `New-AzGalleryApplicationVersion`. Allowed characters for version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+
+In this example, we are creating version number *1.0.0*. Replace the values of the variables as needed.
 
 ```azurepowershell-interactive
 $version = 1.0.0
@@ -169,6 +168,7 @@ New-AzGalleryApplicationVersion -ResourceGroupName $rgName -GalleryName $gallery
 
 To add the application to a VM, get the application version and use that to get the version ID. Use the ID to add the application to the VM configuration.
 
+%%%% This seems wrong - should you get the vm, not the version? Why do new-azvmgalleryapplicationversion again?%%%%
 ```azurepowershell-interactive
 $version = Get-AzGalleryApplicationVersion -ResourceGroupName $rgname -GalleryName $galleryname -ApplicationName $applicationname -Version $version
 
@@ -181,7 +181,7 @@ Update-AzVm -ResourceGroupName $rgname -VM $vm
 
 ### [REST](#tab/rest2)
 
-Creating a VM application definition.
+Create the application definition.
 
 
 ```rest
@@ -213,6 +213,8 @@ PUT
 /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/applications/<applicationName>/versions/<versionName>?api-version=2019-03-01 
 ```
 
+
+%%%% Need to ask for REST for applying the app to a VM %%%%
 ---
 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->

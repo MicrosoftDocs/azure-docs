@@ -45,22 +45,17 @@ Application packages provide benefits over other deployment and packaging method
 
 - **No more than 3 replicas per VM Application version**: When creating a VM Application version, the maximum number of supported replicas per region is three. There are no current plans to increase it.
 
-- **Retrying failed installations**: Currently, the only way to retry a failed installation is to remove the application from the profile, then add it back. We are seeking feedback on how practical this is for our customers.
+- **Retrying failed installations**: Currently, the only way to retry a failed installation is to remove the application from the profile, then add it back. 
 
 - **Only 5 applications supported per VM**: No more than 5 applications may be deployed to a VM at any point.
 
-- **1GB Application size**: The maximum file size of an application version is 1GB. 
+- **1GB application size**: The maximum file size of an application version is 1GB. 
 
 - **No guarantees on reboots in your script**: If your script requires a reboot, the recommendation is to place that application last during deployment. While the code attempts to handle reboots, it may fail.
 
 - **Requires a VM Agent**: The VM agent must exist on the VM and be able to receive goal states.
 
-- **Currently supports only API**: There is currently no PS, CLI and Portal support.
-
-- **Not available in Azure Gov and sovereign clouds yet.**
-
-- **Multiple versions of same application on the same VM**: This is currently a bug, and multiple versions of the same application
-will be prevented in the future. For now, the behavior is undefined.
+- **Multiple versions of same application on the same VM**: You can't have multiple versions of the same application on a VM.
 
 - **Deploying VM Applications to Virtual Machine Scales Sets**: Due to a bug with how VMApp extension is handled by Virtual Machine Scale Sets. It is required to always pass a non-empty virtual machine application profile in the same request which updates the application profile for a VMSS. 
 
