@@ -56,23 +56,21 @@ If your Storage Explorer isn't connected to Azure, you can't use it to manage re
 
 ## Upload a managed disk from an on-premises virtual hard disk
 
-1. In the left pane, expand **Disks** and select the resource group to which you'll upload your disk.
+1. In the **Explorer** pane, expand **Disks** and select the resource group to which you'll upload your disk.
 
-    ![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    [![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-lrg.png#lightbox)
 
-1. Select **Upload**.
+1. In the resource group details pane, select **Upload**.
 
-    ![Select upload](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button.png)
+    [![Select upload](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button-lrg.png#lightbox)
 
-1. In **Upload VHD** specify your virtual hard disk (VHD) source file, the name of the disk, the operating system type, the region to which you want to upload the disk, and the account type. If the region supports availability zones, you can select a zone of your choice.
+1. In the **Upload VHD** dialog box, specify your virtual hard disk (VHD) source file, the name of the disk, the operating system type, the region to which you want to upload the disk, and the account type. If the region supports availability zones, you can select a zone of your choice. Select **Create** to begin uploading your disk.
 
-1. Select **Create** to begin uploading your disk.
-
-    ![Upload vhd dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog.png)
+    [![Upload vhd dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog-lrg.png#lightbox)
 
 1. The status of the upload will now display in **Activities**.
 
-    ![Upload status](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading.png)
+    [![Upload status](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-lrg.png#lightbox)
 
 If the upload has finished and you don't see the disk in the right pane, select **Refresh**.
 
@@ -82,12 +80,12 @@ Follow the steps in this section to download a managed disk to an on-premises VH
 
 1. In the **Explorer** pane, expand **Disks** and select the resource group from which you'll download your disk.
 
-    ![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    [![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-dl-lrg.png#snapshot)
 
-1. In the right pane, select the disk you want to download.
+1. In the resource group details pane, select the disk you want to download.
 1. Select **Download** and then choose where you would like to save the disk.
 
-    ![Download a managed disk](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button.png)
+    [![Download a managed disk](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button-lrg.png#lightbox)
 
 1. Select **Save** the begin the download. The download status will display in **Activities**.
 
