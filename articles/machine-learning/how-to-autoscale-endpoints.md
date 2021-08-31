@@ -85,7 +85,7 @@ In Azure Machine Learning studio:
 
 :::image type="content" source="media/how-to-autoscale-endpoints/endpoints-portal.png" alt-text="Screenshot showing Endpoints page of Azure Machine Learning studio":::
 
-In the endpoint details screen, in the Details tab, select "tk wording Configure autoscaling" to open the tk 
+In the endpoint details screen, in the Details tab, select the deployment in which you're interested. In the deployment details section, select "Configure autoscaling" to open the autoscaling wizard.
 
 :::image type="content" source="media/how-to-autoscale-endpoints/endpoint-details.png" alt-text="Screenshot showing link to configure autoscaling":::
 
