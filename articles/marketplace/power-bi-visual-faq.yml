@@ -126,7 +126,7 @@ sections:
 
             The commercial marketplace provides a compare feature with improved filtering options that allow you to see the changes before publishing your offer and compare it with what is already in preview or available to customers. The updates you don’t publish are saved as drafts. Learn more about the **Compare** feature at [Update existing offers in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/update-existing-offer#compare-changes-to-your-offer)
 
-            :::image type="content" source="media/power-bi-visual/enhanced-preview.png" lightbox="enhanced-preview.png" alt-text="Shows the offer compare page in Partner Center.":::
+            :::image type="content" source="media/power-bi-visual/enhanced-preview.png" lightbox="media/power-bi-visual/enhanced-preview.png" alt-text="Shows the offer compare page in Partner Center.":::
 
           1. **Branding and navigation changes**
 
@@ -137,5 +137,5 @@ sections:
 additionalContent: |
 
   ## Next steps
-  
-  - [Create a Power BI visual offer in Partner Center](marketplace-power-bi-visual.md)
+  <!--
+  - [Create a Power BI visual offer in Partner Center](marketplace-power-bi-visual.md) -->

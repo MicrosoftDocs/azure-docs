@@ -344,7 +344,7 @@
   - name: Power BI visual offers
     items:
     - name: FAQs for migrating to Partner Center
-      href: power-bi-visual-faq.md
+      href: power-bi-visual-faq.yml
   - name: SaaS offers
     items:
     - name: Plan the offer
