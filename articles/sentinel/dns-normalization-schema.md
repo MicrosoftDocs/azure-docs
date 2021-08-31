@@ -70,19 +70,19 @@ The parsers can be deployed from the [Azure Sentinel GitHub repository](https://
 
 ### Filtering parser parameters
 
-The `im` and `vim` parsers support [filtering parameters](normalization-about-parsers.md#optimized-parsers). Using them is optional, but will improve query performance.
+The `im` and `vim` parsers support [filtering parameters](normalization-about-parsers.md#optimized-parsers). Using them is optional but will improve query performance.
 
 The following filtering parameters are available:
 
 | Name     | Type      | Description |
 |----------|-----------|-------------|
 | starttime|  datetime | Filter only DNS queries on or after this time. |
-|  endtime |  datetime | Filter only DNS queries  on or before this time. |
-|  srcipaddr |  string |  Filter only DNS queries  from this source IP address. |
-|  domain_has_any|  dynamic | Filter only DNS queries in which the `domain` (or `query`) has any of the listed domain names. Note that the listed domain might be a part of the event domain.  |
-|  responsecodename |  string | Filter only DNS queries for which the response code name matches the provided value, for example `NXDOMAIN`.  |
-|  dnsresponsename |  string | Filter only DNS queries in which the response field start with  the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. Note that for sources that do not provide a response, no results will be returned. |
-|  response_has_any_prefix |  dynamic| Filter only DNS queries in which the response field start with  any of the listed IP addresses or IP address prefixes. Use this parameter when you want to filter on a list of IP addresses or prefixes. Note that for sources that do not provide a response, no results will be returned. |
+|  endtime |  datetime | Filter only DNS queries on or before this time. |
+|  srcipaddr |  string |  Filter only DNS queries from this source IP address. |
+|  domain_has_any|  dynamic | Filter only DNS queries where the `domain` (or `query`) has any of the listed domain names. Note that the listed domain might be a part of the event domain.  |
+|  responsecodename |  string | Filter only DNS queries for which the response code name matches the provided value, for example, `NXDOMAIN`.  |
+|  response_has |  string | Filter only DNS queries in which the response field starts with the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. Note that for sources that do not provide a response, no results will be returned. |
+|  response_has_any_prefix |  dynamic| Filter only DNS queries in which the response field starts with any of the listed IP addresses or IP address prefixes. Use this parameter when you want to filter on a list of IP addresses or prefixes. Note that for sources that do not provide a response, no results will be returned. |
 |  eventtype|  string | Filter only DNQ queries of the specified type. If no value is specified, only `lookup` queries are returned. |
 ||||
 
