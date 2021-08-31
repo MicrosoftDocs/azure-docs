@@ -5,7 +5,7 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 06/25/2021
+ ms.date: 08/24/2021
  ms.author: duau
  ms.custom: include file
 ---
@@ -22,7 +22,7 @@
 | Custom web application firewall rules per policy | 100 |
 | Web application firewall policy per subscription | 100 |
 | Web application firewall match conditions per custom rule | 10 |
-| Web application firewall IP address ranges per match condition | 600 |
+| Web application firewall IP address ranges per custom rule | 600 |
 | Web application firewall string match values per match condition | 10 |
 | Web application firewall string match value length | 256 |
 | Web application firewall POST body parameter name length | 256 |
@@ -50,7 +50,7 @@
 | URLs in a single cache purge call | 100 | 100 |
 | Custom web application firewall rules per policy | 100 | 100 |
 | Web application firewall match conditions per custom rule | 10 | 10 |
-| Web application firewall IP address ranges per match condition | 600 | 600 |
+| Web application firewall IP address ranges per custom rule | 600 | 600 |
 | Web application firewall string match values per match condition | 10 | 10 |
 | Web application firewall string match value length | 256 | 256 |
 | Web application firewall POST body parameter name length | 256 | 256 |
