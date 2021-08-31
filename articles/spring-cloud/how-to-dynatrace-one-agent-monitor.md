@@ -11,9 +11,6 @@ ms.custom: devx-track-java
 
 # How to monitor Azure Spring Cloud applications with Dynatrace Java OneAgent (Preview)
 
-> [!Note]
-> This document is in progress and will undergo further editorial review.
-
 This article explains how to use Dynatrace OneAgent to monitor Azure Spring Cloud applications.
 
 With the Dynatrace OneAgent, you can:
@@ -26,7 +23,7 @@ The following video introduces Dynatrace OneAgent.
 
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/cLXy2eV6amo]
+> [!VIDEO https://www.youtube.com/embed/PF0_SxuiZ2w]
 
 ## Prerequisites
 
@@ -127,7 +124,7 @@ To configure the environment variables in an ARM template, add the following cod
 This section describes how to find various reports in Dynatrace.
 
 > [!NOTE]
-> Because the Dynatrace menu will evolve its layout gradually, the dashboard may be moved to other sections in the Dynatrace website.
+> The Dynatrace menu and user interface will evolve gradually. For this reason, the dashboard may be moved to other sections in the Dynatrace website, and the following screenshots may not reflect the current version of the user interface.
 
 After you add the environment variables to your application, Dynatrace starts collecting data. To view reports, use the [Dynatrace menu](https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services**, and then select your application.
 
@@ -155,13 +152,13 @@ You can find the **Exceptions overview** from **Multidimensional analysis/Except
 
 Next, go to the **Profiling and optimization** section.
 
-You can find the **CPU analysis** from the following section:
+You can find the **CPU analysis** from **Profiling and optimization/CPU analysis**:
 
 :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png" alt-text="Screenshot of the 'CPU analysis' report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png":::
 
-Next, go to the **Database** section.
+Next, go to the **Databases** section.
 
-You can find **Backtrace** from the following section:
+You can find **Backtrace** from **Databases/Details/Backtrace**:
 
 :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png" alt-text="Screenshot of the Backtrace report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png":::
 
@@ -184,8 +181,7 @@ You can apply some environment variables provided by Dynatrace to configure logg
 
 The Dynatrace OneAgent auto-upgrade is disabled and will be upgraded quarterly with the JDK. Agent upgrade may affect the following scenarios:
 
-* Existing applications using Dynatrace OneAgent before upgrade will be unchanged.
-* Existing applications using Dynatrace OneAgent before upgrade require restart or redeploy to engage the new version of Dynatrace OneAgent.
+* Existing applications using Dynatrace OneAgent before upgrade will be unchanged, but will require restart or redeploy to engage the new version of Dynatrace OneAgent.
 * Applications created after upgrade will use the new version of Dynatrace OneAgent.
 
 ## VNet injection instance outbound traffic configuration
