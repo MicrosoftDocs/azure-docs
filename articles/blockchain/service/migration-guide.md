@@ -113,7 +113,7 @@ Decrypt the data using the API access key. You can [get the key from the Azure p
 
 #### Data format v2
 
-In this version, the SAS token is encryped instead of the data, resulting in faster snapshot creation. *If* you choose to migrate to ConsenSys Quorum Blockchain Service, importing to Quorum Blockchain Service is also faster.
+In this version, the SAS token is encrypted instead of the data, resulting in faster snapshot creation. *If* you choose to migrate to ConsenSys Quorum Blockchain Service, importing to Quorum Blockchain Service is also faster.
 
 After the SAS token is decrypted, data can be downloaded as normal. The data itself won't have an additional layer of encryption.
 
@@ -123,7 +123,7 @@ After the SAS token is decrypted, data can be downloaded as normal. The data its
 > [!CAUTION]
 > The default transaction node API access key 1 is used to encrypt the SAS token.
 >
-> Do not reset the API access key between migration.
+> Do not reset the API access key between or during migration.
 
 You can use the data with either ConsenSys Quorum Blockchain service or your IaaS VM-based deployment.
 
