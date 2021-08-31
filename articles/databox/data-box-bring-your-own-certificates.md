@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/30/2021
+ms.date: 08/31/2021
 ms.author: alkohli
 ---
 
@@ -24,7 +24,7 @@ A certificate provides a link between a **public key** and an entity (such as do
 When your Data Box device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
 
 > [!NOTE]
-> If you use the default auto-generated certificates, the certificates expire after 12 months, and the device can no longer be used. You'll be notified at 3 months before certificate expiration. To avoid data loss, return the device at least 1 month before certificate expiration so that all data can be ingested in the datacenter before certificates expire. 
+> [!INCLUDE [return-data-box-before-certificates-expire](..\..\includes\data-box-certificate-expiration.md)]
 
 On a Data Box or Data Box Heavy device, two types of endpoint certificates are used:
 
