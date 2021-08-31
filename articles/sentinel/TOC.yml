@@ -142,6 +142,8 @@
       href: connect-log-forwarder.md
     - name: Troubleshoot CEF/Syslog data collection
       href: troubleshooting-cef-syslog.md
+    - name: Connect using Logstash
+      href: connect-logstash.md
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Connect Azure Stack VMs

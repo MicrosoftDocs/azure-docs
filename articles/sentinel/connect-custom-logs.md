@@ -52,12 +52,12 @@ Select the appropriate tab below, depending on whether your connector has a data
 
 1. Install and onboard the agent on the device that generates the logs. Choose Linux or Windows as appropriate.
 
-    |Machine type  |Instructions  |
-    |---------|---------|
-    |**For an Azure Linux VM**     |       1. Under **Choose where to install the Linux agent**, expand **Install agent on Azure Linux virtual machine**.<br><br>2. Select the **Download & install agent for Azure Linux Virtual machines >** link. <br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.          |
-    |**For any other Linux machine**     |       1. Under **Choose where to install the Linux agent**, expand **Install agent on a non-Azure Linux Machine**. <br><br>    2. Select the **Download & install agent for non-Azure Linux machines >** link. <br><br>3. In the **Agents management** blade, select the **Linux servers** tab, then copy the command for **Download and onboard agent for Linux** and run it on your Linux machine.<br><br>        If you want to keep a local copy of the Linux agent installation file, select the **Download Linux Agent** link above the "Download and onboard agent" command.|
-    |**For an Azure Windows VM**     |     1. Under **Choose where to install the Windows agent**, expand **Install agent on Azure Windows virtual machine**. <br><br>2. Select the **Download & install agent for Azure Windows Virtual machines >** link. <br><br>2. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.        |
-    |**For any other Windows machine**     |      1. Under **Choose where to install the Windows agent**, expand **Install agent on a non-Azure Windows Machine** <br><br><br>2. Select the **Download & install agent for non-Azure Windows machines >** link.  <br><br>3. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.      |
+    | Machine type | Instructions |
+    | --------- | --------- |
+    | **For an Azure Linux VM** | <ol><li>Under **Choose where to install the Linux agent**, expand **Install agent on Azure Linux virtual machine**.<br><br><li>Select the **Download & install agent for Azure Linux Virtual machines >** link.<br><br><li>In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect. |
+    | **For any other Linux machine** | <ol><li>Under **Choose where to install the Linux agent**, expand **Install agent on a non-Azure Linux Machine**.<br><br><li>Select the **Download & install agent for non-Azure Linux machines >** link.<br><br><li>In the **Agents management** blade, select the **Linux servers** tab, then copy the command for **Download and onboard agent for Linux** and run it on your Linux machine.<br><br> If you want to keep a local copy of the Linux agent installation file, select the **Download Linux Agent** link above the "Download and onboard agent" command.|
+    | **For an Azure Windows VM** | <ol><li>Under **Choose where to install the Windows agent**, expand **Install agent on Azure Windows virtual machine**.<br><br><li>Select the **Download & install agent for Azure Windows Virtual machines >** link.<br><br><li>In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect. |
+    | **For any other Windows machine** | <ol><li>Under **Choose where to install the Windows agent**, expand **Install agent on a non-Azure Windows Machine**<br><br><li>Select the **Download & install agent for non-Azure Windows machines >** link.<br><br><li>In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate. |
 
 
 # [Other data sources](#tab/CUS)
@@ -66,10 +66,10 @@ Select the appropriate tab below, depending on whether your connector has a data
 
 1. Install and onboard the agent on the device that generates the logs. Choose Linux or Windows as appropriate.
 
-    |Machine type  |Instructions  |
-    |---------|---------|
-    |**Azure VM (Windows or Linux)**     |   1. From the Log Analytics workspace navigation menu, select **Virtual machines**. <br><br>2. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.      |
-    |**Any other Windows or Linux machine**     |         1. From the Log Analytics workspace navigation menu, select **Agents management**.<br><br> 2. Select the **Windows servers** or **Linux servers** tab as appropriate.<br><br>        3. For Windows, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate. For Linux, copy the command for **Download and onboard agent for Linux** and run it from your command line, or select the **Download Linux Agent** link to download a local copy of the installation file.  |
+    | Machine type | Instructions |
+    | --------- | --------- |
+    | **Azure VM (Windows or Linux)** | <ol><li>From the Log Analytics workspace navigation menu, select **Virtual machines**.<br><br><li>In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**.<br>Repeat this step for each VM you wish to connect. |
+    | **Any other Windows or Linux machine** | <ol><li>From the Log Analytics workspace navigation menu, select **Agents management**.<br><br><li>Select the **Windows servers** or **Linux servers** tab as appropriate.<br><br><li>For Windows, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate. For Linux, copy the command for **Download and onboard agent for Linux** and run it from your command line, or select the **Download Linux Agent** link to download a local copy of the installation file. |
 
 ---
 

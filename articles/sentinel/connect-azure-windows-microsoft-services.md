@@ -1,5 +1,5 @@
 ﻿---
-title: Connect to Azure, Windows, and Microsoft services
+title: Connect Azure Sentinel to Azure, Windows, and Microsoft services
 description: Learn how to connect Azure Sentinel to Azure and Microsoft 365 cloud services and to Windows Server event logs.
 author: yelevin
 manager: rkarlin
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: yelevin
 ---
-# Connect to Azure, Windows, Microsoft, and Amazon services
+# Connect Azure Sentinel to Azure, Windows, Microsoft, and Amazon services
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -71,6 +71,8 @@ To ingest data into Azure Sentinel:
 
 1. In the **Configuration** section of the connector page, select the link to open the resource configuration page.
 
+    If presented with a list of resources of the desired type, select the link for a resource whose logs you want to ingest.
+
 1. From the resource navigation menu, select **Diagnostic settings**.
 
 1. Select **+ Add diagnostic setting** at the bottom of the list.
@@ -108,10 +110,10 @@ Connectors of this type use Azure Policy to apply a single diagnostic settings c
     1. In the **Basics** tab, select the button with the three dots under **Scope** to choose your subscription (and, optionally, a resource group). You can also add a description.
 
     1. In the **Parameters** tab:
-      - Clear the **Only show parameters that require input** check box.
-      - If you see **Effect** and **Setting name** fields, leave them as is.
-      - Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list.
-      - The remaining drop-down fields represent the available diagnostic log types. Leave marked as “True” all the log types you want to ingest.
+       - Clear the **Only show parameters that require input** check box.
+       - If you see **Effect** and **Setting name** fields, leave them as is.
+       - Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list.
+       - The remaining drop-down fields represent the available diagnostic log types. Leave marked as “True” all the log types you want to ingest.
 
     1. The policy will be applied to resources added in the future. To apply the policy on your existing resources as well, select the **Remediation** tab and mark the **Create a remediation task** check box.
 

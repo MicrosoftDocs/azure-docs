@@ -58,7 +58,7 @@ This article describes how to deploy data connectors in Azure Sentinel, listing 
 | **Azure Function App code** | https://aka.ms/sentinel-agari-functionapp |
 | **API credentials** | <li>Client ID<li>Client Secret<li>(Optional: Graph Tenant ID, Graph Client ID, Graph Client Secret) |
 | **Vendor documentation/<br>installation instructions** | <li>[Quick Start](https://developers.agari.com/agari-platform/docs/quick-start)<li>[Agari Developers Site](https://developers.agari.com/agari-platform) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>clientID<li>clientSecret<li>workspaceID<li>workspaceKey<li>enableBrandProtectionAPI (true/false)<li>enablePhishingResponseAPI (true/false)<li>enablePhishingDefenseAPI (true/false)<li>resGroup (enter Resource group)<li>functionName<li>subId (enter Subscription ID)<li>enableSecurityGraphSharing (true/false; see below)<br>Required if enableSecurityGraphSharing is set to true (see below):<li>GraphTenantId<li>GraphClientId<li>GraphClientSecret<li>logAnalyticsUri (optional) |
 | **Supported by** | [Agari](https://support.agari.com/hc/en-us/articles/360000645632-How-to-access-Agari-Support) |
 | | |
@@ -231,7 +231,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | **Azure Function App code** | https://aka.ms/sentinel-confluenceauditapi-functionapp |
 | **API credentials** | <li>ConfluenceAccessToken<li>ConfluenceUsername<li>ConfluenceHomeSiteName |
 | **Vendor documentation/<br>installation instructions** | <li>[API Documentation](https://developer.atlassian.com/cloud/confluence/rest/api-group-audit/)<li>[Requirements and instructions for obtaining credentials](https://developer.atlassian.com/cloud/confluence/rest/intro/#auth)<li>[View the audit log](https://support.atlassian.com/confluence-cloud/docs/view-the-audit-log/) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | ConfluenceAudit |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-confluenceauditapi-parser |
 | **Application settings** | <li>ConfluenceUsername<li>ConfluenceAccessToken<li>ConfluenceHomeSiteName<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -247,7 +247,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | **Azure Function App code** | https://aka.ms/sentinel-jiraauditapi-functionapp |
 | **API credentials** | <li>JiraAccessToken<li>JiraUsername<li>JiraHomeSiteName |
 | **Vendor documentation/<br>installation instructions** | <li>[API Documentation - Audit records](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/)<li>[Requirements and instructions for obtaining credentials](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#authentication) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | JiraAudit |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-jiraauditapi-parser |
 | **Application settings** | <li>JiraUsername<li>JiraAccessToken<li>JiraHomeSiteName<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -391,13 +391,21 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections, managed by Azure Policy](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)**<br><br>[Notes about storage account diagnostic settings configuration](#notes-about-storage-account-diagnostic-settings-configuration) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md?tabs=SA#diagnostic-settings-based-connections)**<br><br>[Notes about storage account diagnostic settings configuration](#notes-about-storage-account-diagnostic-settings-configuration) |
 | **Log Analytics table(s)** | StorageBlobLogs<br>StorageQueueLogs<br>StorageTableLogs<br>StorageFileLogs |
-| **Recommended diagnostics** | **Blob/Queue/Table/File**<br><li>Read<li>Write<li>Delete |
+| **Recommended diagnostics** | **Account resource**<li>Transaction<br>**Blob/Queue/Table/File resources**<br><li>StorageRead<li>StorageWrite<li>StorageDelete<li>Transaction |
 | **Supported by** | Microsoft |
 | | |
 
 ### Notes about storage account diagnostic settings configuration
+
+The storage account (parent) resource has within it other (child) resources for each type of storage: files, tables, queues, and blobs.
+
+When configuring diagnostics for a storage account, you must select and configure, in turn:
+- The parent account resource, exporting the **Transaction** metric.
+- Each of the child storage-type resources, exporting all the logs and metrics (see the table above).
+
+You will only see the storage types that you actually have defined resources for.
 
 ## Azure Web Application Firewall (WAF)
 
@@ -544,9 +552,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) |
 | **Log Analytics table(s)** | Cisco_Umbrella_dns_CL<br>Cisco_Umbrella_proxy_CL<br>Cisco_Umbrella_ip_CL<br>Cisco_Umbrella_cloudfirewall_CL |
 | **Azure Function App code** | https://aka.ms/sentinel-CiscoUmbrellaConn-functionapp |
-| **API credentials** | <li>AWS Access Key Id<li>AWS Secret Access Key<li>AWS S3 Bucket Name |
+| **API credentials** | <li>AWS Access Key ID<li>AWS Secret Access Key<li>AWS S3 Bucket Name |
 | **Vendor documentation/<br>installation instructions** | <li>[Logging to Amazon S3](https://docs.umbrella.com/deployment-umbrella/docs/log-management#section-logging-to-amazon-s-3) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Cisco_Umbrella |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-ciscoumbrella-function |
 | **Application settings** | <li>WorkspaceID<li>WorkspaceKey<li>S3Bucket<li>AWSAccessKeyId<li>AWSSecretAccessKey<li>logAnalyticsUri (optional) |
@@ -591,7 +599,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | --- | --- |
 | **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | CognniIncidents_CL |
-| **Vendor documentation/<br>installation instructions** | **Connect to Cognni**<br><ol><li>Go to [Cognni integrations page](https://intelligence.cognni.ai/integrations).<li>Select **Connect** on the Azure Sentinel box.<li>Paste **workspaceId** and **sharedKey** (Primary Key) to the fields on Cognni's integrations screen.<li>Select the **Connect** botton to complete the configuration. |
+| **Vendor documentation/<br>installation instructions** | **Connect to Cognni**<br><ol><li>Go to [Cognni integrations page](https://intelligence.cognni.ai/integrations).<li>Select **Connect** on the Azure Sentinel box.<li>Paste **workspaceId** and **sharedKey** (Primary Key) to the fields on Cognni's integrations screen.<li>Select the **Connect** button to complete the configuration. |
 | **Supported by** | [Cognni](https://cognni.ai/contact-support/)
 | | |
 
@@ -643,7 +651,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | **Log Analytics table(s)** | ESETEnterpriseInspector_CL​ |
 | **API credentials** | <li>EEI Username<li>EEI Password<li>Base URL |
 | **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.5/en-US/api.html) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) |
+| **Connector deployment instructions** | [Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template |
 | **Supported by** | [ESET](https://support.eset.com/en) |
 | | |
 ### Create an API user
@@ -896,7 +904,7 @@ end
 | **Azure Function App code** | https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp |
 | **API credentials** | <li>GooglePickleString |
 | **Vendor documentation/<br>installation instructions** | <li>[API Documentation](https://developers.google.com/admin-sdk/reports/v1/reference/activities)<li>Get credentials at [Perform Google Workspace Domain-Wide Delegation of Authority](https://developers.google.com/admin-sdk/reports/v1/guides/delegation)<li>[Convert token.pickle file to pickle string](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | GWorkspaceActivityReports |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-GWorkspaceReportsAPI-parser |
 | **Application settings** | <li>GooglePickleString<li>WorkspaceID<li>workspaceKey<li>logAnalyticsUri (optional) |
@@ -905,7 +913,7 @@ end
 
 ### Extra configuration for the Google Reports API
 
-Add http://localhost:8081/ under **Authorised redirect URIs** while creating [Web application credentials](https://developers.google.com/workspace/guides/create-credentials#web).
+Add http://localhost:8081/ under **Authorized redirect URIs** while creating [Web application credentials](https://developers.google.com/workspace/guides/create-credentials#web).
 
 1. [Follow the instructions](https://developers.google.com/admin-sdk/reports/v1/quickstart/python) to obtain the credentials.json.
 1. To get the Google pickle string run [this python script](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode) (in the same path as credentials.json).
@@ -1036,7 +1044,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | **Azure Function App code** | https://aka.ms/sentinel-netskope-functioncode |
 | **API credentials** | <li>Netskope API Token |
 | **Vendor documentation/<br>installation instructions** | <li>[Netskope Cloud Security Platform](https://www.netskope.com/platform)<li>[Netskope API Documentation](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v1-overview.html)<li>[Obtain an API Token](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v2-overview.html) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPS) |
 | **Kusto function alias** | Netskope |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-netskope-parser |
 | **Application settings** | <li>apikey<li>workspaceID<li>workspaceKey<li>uri (depends on region, follows schema: `https://<Tenant Name>.goskope.com`) <li>timeInterval (set to 5)<li>logTypes<li>logAnalyticsUri (optional) |
@@ -1098,7 +1106,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | **Azure Function App code** | https://aka.ms/sentineloktaazurefunctioncodev2 |
 | **API credentials** | <li>API Token |
 | **Vendor documentation/<br>installation instructions** | <li>[Okta System Log API Documentation](https://developer.okta.com/docs/reference/api/system-log/)<li>[Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Connect Okta SSO to Azure Sentinel](connect-okta-single-sign-on.md) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>apiToken<li>workspaceID<li>workspaceKey<li>uri (follows schema `https://<OktaDomain>/api/v1/logs?since=`. [Identify your domain namespace](https://developer.okta.com/docs/reference/api-overview/#url-namespace).) <li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 | | |
@@ -1201,7 +1209,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | **Azure Function App code** | https://aka.ms/sentinel-proofpointpod-functionapp |
 | **API credentials** | <li>ProofpointClusterID<li>ProofpointToken |
 | **Vendor documentation/<br>installation instructions** | <li>[Sign in to the Proofpoint Community](https://proofpointcommunities.force.com/community/s/article/How-to-request-a-Community-account-and-gain-full-customer-access?utm_source=login&utm_medium=recommended&utm_campaign=public)<li>[Proofpoint API documentation and instructions](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | ProofpointPOD |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-proofpointpod-parser |
 | **Application settings** | <li>ProofpointClusterID<li>ProofpointToken<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -1217,7 +1225,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | **Azure Function App code** | https://aka.ms/sentinelproofpointtapazurefunctioncode |
 | **API credentials** | <li>API Username<li>API Password |
 | **Vendor documentation/<br>installation instructions** | <li>[Proofpoint SIEM API Documentation](https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation/SIEM_API) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>apiUsername<li>apiUsername<li>uri (set to `https://tap-api-v2.proofpoint.com/v2/siem/all?format=json&sinceSeconds=300`)<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 | | |
@@ -1244,7 +1252,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | **Azure Function App code** | https://aka.ms/sentinel-qualyskb-functioncode |
 | **API credentials** | <li>API Username<li>API Password |
 | **Vendor documentation/<br>installation instructions** | <li>[QualysVM API User Guide](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPS) |
 | **Kusto function alias** | QualysKB |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-qualyskb-parser |
 | **Application settings** | <li>apiUsername<li>apiUsername<li>uri (by region; see [API Server list](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf#G4.735348). Follows schema `https://<API Server>/api/2.0`.<li>WorkspaceID<li>WorkspaceKey<li>filterParameters (add to end of URI, delimited by `&`. No spaces.)<li>logAnalyticsUri (optional) |
@@ -1270,7 +1278,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | **Azure Function App code** | https://aka.ms/sentinelqualysvmazurefunctioncode |
 | **API credentials** | <li>API Username<li>API Password |
 | **Vendor documentation/<br>installation instructions** | <li>[QualysVM API User Guide](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>apiUsername<li>apiUsername<li>uri (by region; see [API Server list](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf#G4.735348). Follows schema `https://<API Server>/api/2.0/fo/asset/host/vm/detection/?action=list&vm_processed_after=`.<li>WorkspaceID<li>WorkspaceKey<li>filterParameters (add to end of URI, delimited by `&`. No spaces.)<li>timeInterval (set to 5. If you modify, change Function App timer trigger accordingly.)<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 | | |
@@ -1308,7 +1316,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | **Azure Function App code** | https://aka.ms/sentinel-SalesforceServiceCloud-functionapp |
 | **API credentials** | <li>Salesforce API Username<li>Salesforce API Password<li>Salesforce Security Token<li>Salesforce Consumer Key<li>Salesforce Consumer Secret |
 | **Vendor documentation/<br>installation instructions** | [Salesforce REST API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm)<br>Under **Set up authorization**, use **Session ID** method instead of OAuth. |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | SalesforceServiceCloud |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-SalesforceServiceCloud-parser |
 | **Application settings** | <li>SalesforceUser<li>SalesforcePass<li>SalesforceSecurityToken<li>SalesforceConsumerKey<li>SalesforceConsumerSecret<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -1336,7 +1344,7 @@ For more information, see [Insecure protocols workbook setup](./get-visibility.m
 | **Azure Function App code** | https://aka.ms/sentinel-SentinelOneAPI-functionapp |
 | **API credentials** | <li>SentinelOneAPIToken<li>SentinelOneUrl (`https://<SOneInstanceDomain>.sentinelone.net`) |
 | **Vendor documentation/<br>installation instructions** | <li>https://`<SOneInstanceDomain>`.sentinelone.net/api-doc/overview<li>See instructions below |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | SentinelOne |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-SentinelOneAPI-parser |
 | **Application settings** | <li>SentinelOneAPIToken<li>SentinelOneUrl<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -1492,11 +1500,11 @@ Follow the instructions to obtain the credentials.
 | **Log Analytics table(s)** | TrendMicro_XDR_CL |
 | **API credentials** | <li>API Token |
 | **Vendor documentation/<br>installation instructions** | <li>[Trend Micro Vision One API](https://automation.trendmicro.com/xdr/home)<li>[Obtaining API Keys for Third-Party Access](https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/ObtainingAPIKeys) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) |
+| **Connector deployment instructions** | [Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template |
 | **Supported by** | [Trend Micro](https://success.trendmicro.com/technical-support) |
 | | |
 
-## VMWare Carbon Black Endpoint Standard (Preview)
+## VMware Carbon Black Endpoint Standard (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1505,7 +1513,7 @@ Follow the instructions to obtain the credentials.
 | **Azure Function App code** | https://aka.ms/sentinelcarbonblackazurefunctioncode |
 | **API credentials** | **API access level** (for *Audit* and *Event* logs):<li>API ID<li>API Key<br><br>**SIEM access level** (for *Notification* events):<li>SIEM API ID<li>SIEM API Key |
 | **Vendor documentation/<br>installation instructions** | <li>[Carbon Black API Documentation](https://developer.carbonblack.com/reference/carbon-black-cloud/cb-defense/latest/rest-api/)<li>[Creating an API Key](https://developer.carbonblack.com/reference/carbon-black-cloud/authentication/#creating-an-api-key) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>apiId<li>apiKey<li>WorkspaceID<li>WorkspaceKey<li>uri (by region; [see list of options](https://community.carbonblack.com/t5/Knowledge-Base/PSC-What-URLs-are-used-to-access-the-APIs/ta-p/67346). Follows schema: `https://<API URL>.conferdeploy.net`.)<li>timeInterval (Set to 5)<li>SIEMapiId (if ingesting *Notification* events)<li>SIEMapiKey (if ingesting *Notification* events)<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 | | |
@@ -1572,7 +1580,7 @@ Follow the instructions to obtain the credentials.
 | **Azure Function App code** | https://aka.ms/sentinel-WorkplaceFacebook-functionapp |
 | **API credentials** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken |
 | **Vendor documentation/<br>installation instructions** | <li>[Configure Webhooks](https://developers.facebook.com/docs/workplace/reference/webhooks)<li>[Configure permissions](https://developers.facebook.com/docs/workplace/reference/permissions) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Workplace_Facebook |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-WorkplaceFacebook-parser |
 | **Application settings** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -1629,7 +1637,7 @@ For more information about connecting to Azure Sentinel, see [Connect Zimperium 
 | **Azure Function App code** | https://aka.ms/sentinel-ZoomAPI-functionapp |
 | **API credentials** | <li>ZoomApiKey<li>ZoomApiSecret |
 | **Vendor documentation/<br>installation instructions** | <li>[Get credentials using JWT With Zoom](https://marketplace.zoom.us/docs/guides/auth/jwt) |
-| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Zoom |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-ZoomAPI-parser |
 | **Application settings** | <li>ZoomApiKey<li>ZoomApiSecret<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -1671,7 +1679,7 @@ Follow the configuration steps below to get Zscaler Private Access logs into Azu
     wget -v https://aka.ms/sentinel-zscalerprivateaccess-conf -O zpa.conf
     ```
 
-1. Login to the server where you have installed the Azure Log Analytics agent.
+1. Sign in to the server where you have installed the Azure Log Analytics agent.
 1. Copy zpa.conf to the /etc/opt/microsoft/omsagent/`workspace_id`/conf/omsagent.d/ folder.
 1. Edit zpa.conf as follows:
     1. Specify the port which you have set your Zscaler Log Receivers to forward logs to (line 4)
