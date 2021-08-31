@@ -99,7 +99,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 # [SQL API](#tab/sql-api)
 
-**If your application is currently using the primary key**
+#### If your application is currently using the primary key
 
 1. Navigate to your Azure Cosmos DB account on the Azure portal.
 
@@ -115,7 +115,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
     :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
 
-**If your application is currently using the secondary key**](#tab/using-secondary-key)**
+#### If your application is currently using the secondary key
 
 1. Navigate to your Azure Cosmos DB account on the Azure portal.
 
@@ -149,7 +149,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
     :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
 
-**If your application is currently using the secondary key**](#tab/using-secondary-key)**
+**If your application is currently using the secondary key**
 
 1. Navigate to your Azure Cosmos DB account on the Azure portal.
 
@@ -183,7 +183,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
     :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
 
-**If your application is currently using the secondary key**](#tab/using-secondary-key)**
+**If your application is currently using the secondary key**
 
 1. Navigate to your Azure Cosmos DB account on the Azure portal.
 
@@ -217,7 +217,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
     :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
 
-**If your application is currently using the secondary key**](#tab/using-secondary-key)**
+**If your application is currently using the secondary key**
 
 1. Navigate to your Azure Cosmos DB account on the Azure portal.
 
@@ -251,7 +251,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
     :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
 
-**If your application is currently using the secondary key**](#tab/using-secondary-key)**
+**If your application is currently using the secondary key**
 
 1. Navigate to your Azure Cosmos DB account on the Azure portal.
 
