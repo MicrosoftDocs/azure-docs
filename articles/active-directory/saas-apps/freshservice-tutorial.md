@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -35,7 +35,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Freshservice supports **SP** initiated SSO
+* Freshservice supports **SP** initiated SSO.
+* Freshservice supports [Automated user provisioning](freshservice-provisioning-tutorial.md).
 
 ## Add Freshservice from the gallery
 
@@ -185,6 +186,9 @@ To enable Azure AD users to sign in to FreshService, they must be provisioned in
 
     > [!NOTE]
     > You can use any other FreshService user account creation tools or APIs provided by FreshService to provision Azure AD user accounts.
+   
+> [!NOTE]
+>Freshservice also supports automatic user provisioning, you can find more details [here](./freshservice-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
