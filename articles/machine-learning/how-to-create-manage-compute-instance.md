@@ -118,7 +118,7 @@ For more information, see the [az ml computetarget create computeinstance](/cli/
 1. <a name="advanced-settings"></a> Select **Next: Advanced Settings** if you want to:
 
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh) below.
-    * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __Public IP Only__ (preview) to prevent the creation of a public IP address. For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
+    * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __Private IP Only__ (preview) to prevent the creation of a public IP address. For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#on-behalf).
     * Provision with a setup script (preview) - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#setup-script).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule) below.

@@ -86,9 +86,11 @@ In this article you learn how to secure the following training compute resources
         :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
 
         > [!TIP]
-        > If your compute instance does not use a public IP address, these NSG rules are not required. If you also use a compute cluster, the cluster will still require these rules.
+        > If your compute instance does not use a public IP address (a preview feature), these inbound NSG rules are not required. If you also use a compute cluster, the cluster will still require these rules.
 
-    * For compute clusters, one public IP address. For compute instance, a public IP is __optional__ (a preview feature). If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute will fail.
+    * For compute clusters, one public IP address. If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute will fail.
+
+    * For compute instance, it is now possible to remove the public IP address (a preview feature). If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute will succeed.
 
     * One load balancer
 
@@ -140,7 +142,7 @@ For more information on using Azure Databricks in a virtual network, see [Deploy
 
 For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 
-## <a name="compute-instance"></a>Compute clusters & instances 
+## <a name="compute-cluster"></a>Compute clusters
 
 Use the tabs below to select how you plan to create a compute cluster:
 
@@ -162,9 +164,6 @@ Use the following steps to create a compute cluster in the Azure Machine Learnin
     > [!TIP]
     > If your workspace uses a private endpoint to connect to the virtual network, the __Virtual network__ selection field is greyed out.
     > 
-    > To prevent the creation of a public IP address for the compute instance, select __Private IP only__.
-
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Screenshot of virtual network settings":::
 
 1. Select __Create__ to create the compute cluster.
 
@@ -212,6 +211,10 @@ except ComputeTargetException:
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
+## Compute instance
+
+For steps to create a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) .  Use studio to specify **Private IP only** to create a private IP address for the instance.  
 
 ### Inbound traffic
 
