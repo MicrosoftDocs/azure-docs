@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 Azure Synapse Analytics allows the different computational workspace engines to share databases and tables. Currently, the databases and the tables (Parquet or CSV backed) that are created on the Apache Spark pools are automatically shared with the serverless SQL pool engine.
 
-A database created with a Spark job will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom objects (external tables, views, procedures) directly in this replicated database using the serverless SQL pool.
+A database created with a Spark job will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom objects (external tables, views, procedures) directly in this synchronized database using the serverless SQL pool.
 
 The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a database called `default`. 
 You can't create a database in Spark and then create another database with the same name in serverless SQL pool.
@@ -36,7 +36,7 @@ Objects in synchronized databases cannot be modified from serverless SQL pool.
 
 The Spark databases and tables, along with their synchronized representations in the SQL engine will be secured at the underlying storage level.
 
-The security principal who creates a database is considered the owner of that database, and has all the rights to the database and its objects. Synapse Administrator and Synapse SQL Administrator will also have all the permissions on synchronized objects in serverless SQL pool by default. Creating custom objects (including users) in replicated SQL databases is not allowed. 
+The security principal who creates a database is considered the owner of that database, and has all the rights to the database and its objects. Synapse Administrator and Synapse SQL Administrator will also have all the permissions on synchronized objects in serverless SQL pool by default. Creating custom objects (including users) in synchronized SQL databases is not allowed. 
 
 To give a security principal, such as a user, Azure AD app or a security group, access to the underlying data used for external tables, you need to give them `read (R)` permissions on files (such as the table's underlying data files) and `execute (X)` on folder where the files are stored + on every parent folder up to the root. You can read more about these permissions on [Access control lists(ACLs)](/azure/storage/blobs/data-lake-storage-access-control) page. 
 
