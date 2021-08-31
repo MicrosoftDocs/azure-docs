@@ -1,6 +1,6 @@
 ---
-title: Use Azure Data Tables client library for Java
-description: Store structured data in the cloud using Azure Tables client library for Java.
+title: Use the Azure Data Tables client library for Java
+description: Store structured data in the cloud using the Azure Data Tables client library for Java.
 ms.service: cosmos-db or storage
 ms.subservice: cosmosdb-table or storage-table
 ms.devlang: Java
@@ -37,13 +37,11 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 ## Create a Java application
 
-In this guide, you will use storage features that you can run in a Java application locally, or in code running in a web role or worker role in Azure.
-
-To use the samples in this article, install the Java Development Kit (JDK), then create an Azure storage account or Azure Cosmos DB account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Data Tables SDK for Java][Azure Data Tables SDK for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository. After you complete those tasks, you can create a Java application that uses the examples in this article.
+To use the samples in this article, install the [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule), then create an Azure storage account or Azure Cosmos DB account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Data Tables client library for Java][Azure Data Tables client library for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository. After you complete those tasks, you can create a Java application that uses the examples in this article.
 
 ## Configure your application to access Table Storage
 
-Add the following import statements to the top of the Java file where you want to use Azure Data Tables APIs to access tables:
+Add the following entry to your POM's dependency section:
 
 ```xml
 // Update the pom.xml file to now include table APIs
@@ -53,6 +51,8 @@ Add the following import statements to the top of the Java file where you want t
   <version>12.1.1</version>
 </dependency>
 ```
+
+Then, add the following import statements to the top of the Java file where you want to use Azure Data Tables APIs to access tables:
 
 ```java
 // Include the following imports to use table APIs
@@ -117,8 +117,7 @@ The following samples assume that you have used one of these methods to get the 
 
 ## Create a table
 
-A `TableServiceClient` object allows you to interact with the Tables service in order to create, list, and delete tables. The following code creates a `TableServiceClient` object
-and uses it to create a new `TableClient` object, which represents a table named "Employees".
+A `TableServiceClient` object allows you to interact with the Tables service in order to create, list, and delete tables. The following code creates a `TableServiceClient` object and uses it to create a new `TableClient` object, which represents a table named "Employees".
 
 ```java
 try
@@ -313,7 +312,7 @@ catch (Exception e)
 
 ## Retrieve a range of entities in a partition
 
-If you don't want to query all the entities in a partition, you can specify a range by using comparison operators in a filter. The following code combines two filters to get all entities in partition "Smith" where the row key (first name) starts with a letter up to 'E' in the alphabet. Then it prints the query results. If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise Smith); Jeff Smith is not included.
+If you don't want to query all the entities in a partition, you can specify a range by using comparison operators in a filter. The following code combines two filters to get all entities in partition "Sales" where the row key between '0001' and '0004'. Then it prints the query results. If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise).
 
 ```java
 try
@@ -331,7 +330,7 @@ try
         .buildClient();
 
     // Create a filter condition where the partition key is "Sales".
-    ListEntitiesOptions options = new ListEntitiesOptions().setFilter(PARTITION_KEY + " eq 'Sales' AND " + ROW_KEY + " lt 'E'");
+    ListEntitiesOptions options = new ListEntitiesOptions().setFilter(PARTITION_KEY + " eq 'Sales' AND " + ROW_KEY + " lt '0004' AND ROW_KEY + " gt '0001'");
     
     // Loop through the results, displaying information about the entities.
     tableClient.listEntities(options, null, null).forEach(tableEntity -> {
@@ -352,7 +351,7 @@ catch (Exception e)
 
 ## Retrieve a single entity
 
-You can write a query to retrieve a single, specific entity. The following code calls `TableClient.getEntity` with partition key and row key parameters to retrieve the entity for employee "Jeff Smith", instead of creating a `ListEntitiesOptions` and using filters to do the same thing. When executed, the retrieve operation returns just one entity, rather than a collection. A `null` value is returned if no entity has an exact partition and row key match. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
+You can write a query to retrieve a single, specific entity. The following code calls `TableClient.getEntity` with partition key and row key parameters to retrieve the entity for employee "Sales 0001", instead of creating a `ListEntitiesOptions` and using filters to do the same thing. When executed, the retrieve operation returns just one entity, rather than a collection. A `null` value is returned if no entity has an exact partition and row key match. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
 
 ```java
 try
@@ -500,7 +499,7 @@ try
         .tableName(tableName)
         .buildClient();
 
-    // Delete the entity for Jeff Smith from table.
+    // Delete the entity for 'Sales 0001' from table.
     tableClient.deleteEntity("Sales", "0001");
 }
 catch (Exception e)
