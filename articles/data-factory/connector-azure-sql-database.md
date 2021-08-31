@@ -62,7 +62,7 @@ Use the following steps to create an Azure SQL Database linked service in the Az
 
    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-   ---
+   
 
 2. Search for SQL and select the Azure SQL Database connector.
 
@@ -70,7 +70,7 @@ Use the following steps to create an Azure SQL Database linked service in the Az
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-sql-database/configure-azure-sql-database-linked-service.png" alt-text="Screenshot of configuration forzure SQL Database linked service.":::
+    :::image type="content" source="media/connector-azure-sql-database/configure-azure-sql-database-linked-service.png" alt-text="Screenshot of configuration for Azure SQL Database linked service.":::
 
 ## Connector configuration details
 
