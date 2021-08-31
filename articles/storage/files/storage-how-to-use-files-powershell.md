@@ -4,7 +4,7 @@ description: Use this quickstart to learn to manage Azure file shares using Azur
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/26/2018
+ms.date: 08/31/2021
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
