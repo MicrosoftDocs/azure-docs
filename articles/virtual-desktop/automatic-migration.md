@@ -170,7 +170,7 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
   - Use **Copy** to copy all user assignments from your old app groups to Azure Resource Manager application groups. Users will be able to see feeds for both versions of their clients.
   - Use **None** if you don't want to change the user assignments. Later, you can assign users or user groups to app groups with the Azure portal, PowerShell, or API. Users will only be able to see feeds using the Azure Virtual Desktop (classic) clients.
 
-  You can only copy 2,000 user assignments per subscription, so your limit will depend on how many assigments are already in your subscription. The module calculates the limit based on how many assignments you already have. If you don't have enough assigments to copy, you'll get an error message that says "Insufficient role assignment quota to copy user assignments. Rerun command without the -CopyUserAssignments switch to migrate."
+  You can only copy 2,000 user assignments per subscription, so your limit will depend on how many assignments are already in your subscription. The module calculates the limit based on how many assignments you already have. If you don't have enough assignments to copy, you'll get an error message that says "Insufficient role assignment quota to copy user assignments. Rerun command without the -CopyUserAssignments switch to migrate."
 
 3. Once you run the commands, it will take up to 15 minutes for the module to create the service objects. If you copied or moved any user assignments, that will add to the time it takes for the module to finish setting everything up.
 
@@ -242,6 +242,31 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
     The *-Hostpool* parameter is optional. You can use this parameter if there's a specific Azure Virtual Desktop (classic) host pool you want to hide.
 
     This cmdlet will hide the Azure Virtual Desktop (classic) user feed and service objects instead of deleting them. However, this is usually only used for testing and doesn't count as a completed migration. To complete your migration, you'll need to run the **Complete-RdsHostPoolMigration** command. Otherwise, revert your deployment by running **Revert-RdsHostPoolMigration**.
+
+## Troubleshoot automatic migration
+
+This section explains how to solve commonly encountered issues in the migration module.
+
+### I can't access the tenant
+
+First, try these two things:
+
+- Make sure your admin account has the required permissions to access the tenant.
+- Try running **Get-RdsTenant** on the tenant.
+
+If those two things work, try running the **Set-RdsMigrationContext** cmdlet to set the RDS Context and Adal Context for your migration:
+
+1. Create the RDS Context by running the **Add-RdsAccount** cmdlet.       
+
+2. Find the RDS Context in the global variable *$rdMgmtContext*.         
+
+3. Find the Adal Context in the global variable *$AdalContext*.
+
+4. Run **Set-RdsMigrationContext** with the variables you found in this format:
+
+   ```powershell
+   Set-RdsMigrationContext -RdsContext <rdscontext> -AdalContext <adalcontext>
+   ```
 
 ## Next steps
 
