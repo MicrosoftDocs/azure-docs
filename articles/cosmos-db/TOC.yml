@@ -1321,19 +1321,17 @@
           href: ./table/how-to-use-python.md
     - name: Tutorials
       items:
-        - name: 1 - Create and manage data
-          href: table/tutorial-develop-table-dotnet.md
-        - name: 2 - Migrate data
+        - name: 1 - Migrate data
           displayName: import
           href: table/table-import.md
-        - name: 3 - Query data
+        - name: 2 - Query data
           href: table/tutorial-query-table.md
-        - name: 4 - Distribute data globally
+        - name: 3 - Distribute data globally
           href: table/tutorial-global-distribution-table.md
     - name: Samples
       items:
         - name: .NET
-          href: ./table/tutorial-develop-table-dotnet.md
+          href: https://github.com/Azure-Samples/msdocs-azure-tables-sdk-dotnet.git
         - name: Java
           href: table/how-to-use-java.md
         - name: Node.js
@@ -1372,15 +1370,13 @@
     - name: Reference
       items:
         - name: .NET
-          href: table/dotnet-sdk.md
-        - name: .NET Standard
-          href: table/dotnet-standard-sdk.md
+          href: /dotnet/api/overview/azure/data.tables-readme-pre
         - name: Java
-          href: table/java-sdk.md
+          href: /java/api/overview/azure/data-tables-readme
         - name: Node.js
-          href: table/nodejs-sdk.md
+          href: /javascript/api/overview/azure/data-tables-readme
         - name: Python
-          href: table/python-sdk.md
+          href: /python/api/azure-data-tables/azure.data.tables
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Table storage REST APIs
