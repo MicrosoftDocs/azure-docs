@@ -20,7 +20,7 @@ Azure VMware Solution supports the following operations:
 
 
 >[!NOTE]
->Commands are executed one at a time in the order submitted.
+>Run commands are executed one at a time in the order submitted.
 
 ## View the status of an execution
 
