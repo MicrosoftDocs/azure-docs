@@ -278,13 +278,13 @@ You get the error "WS-Management service cannot process the request. The WMI ser
 - If you're still facing the issue, make sure that the user account has access permissions to CIMV2 Namespace and sub-namespaces in the WMI Control Panel. You can set the access by following these steps:
 
     1. Go to the server that's failing validation on the appliance.
-    1. Search and select **Run** from the **Start** menu. In the **Run** dialog box, enter **wmimgmt.msc** in the **Open** text box and select **Enter**.
+    1. Search and select **Run** from the **Start** menu. In the **Run** dialog, enter **wmimgmt.msc** in the **Open** text box and select **Enter**.
     1. The wmimgmt console opens where you can find **WMI Control (Local)** in the left pane. Right-click it, and select **Properties** from the menu.
-    1. In the **WMI Control (Local) Properties** dialog box, select the **Securities** tab.
+    1. In the **WMI Control (Local) Properties** dialog, select the **Securities** tab.
     1. On the **Securities** tab, expand the **Root** folder in the namespace tree and select the **cimv2** namespace.
-    1. Select **Security** to open the **Security for ROOT\cimv2** dialog box.
-    1. Under the **Group or users names** section, select **Add** to open the **Select Users, Computers, Service Accounts or Groups** dialog box.
-    1. Search for the user account, select it, and select **OK** to return to the **Security for ROOT\cimv2** dialog box.
+    1. Select **Security** to open the **Security for ROOT\cimv2** dialog.
+    1. Under the **Group or users names** section, select **Add** to open the **Select Users, Computers, Service Accounts or Groups** dialog.
+    1. Search for the user account, select it, and select **OK** to return to the **Security for ROOT\cimv2** dialog.
     1. In the **Group or users names** section, select the user account just added. Check if the following permissions are allowed:<br/>
        - Enable account <br/>
        - Remote enable
