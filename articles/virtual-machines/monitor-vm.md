@@ -16,21 +16,11 @@ When you have critical applications and business processes relying on Azure reso
 [Azure Monitor](/azure/azure-monitor/overview) is a full stack monitoring service that provides a complete set of features to monitor your Azure resources. You don't need to directly interact with Azure Monitor though to perform a variety of monitoring tasks since its features are integrated into the Azure portal for Azure services that it monitors. If you're interested in a general overview of how Azure Monitor works with Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
 
 ## Collect guest metrics
-Azure Monitor starts collecting metric data for your virtual machine host automatically. To collect metrics from the guest operating system of the virtual machine though, you must install an agent that can send this data to Azure Monitor. The [Diagnostic extension](../azure-monitor/agents/diagnostics-extension-overview.md) is the classic agent used to collect guest metrics from Azure virtual machines. You can configure it directly from the virtual machine's menu in the Azure portal. The diagnostic extension does require that metric data also be sent to an Azure storage account.
+Azure Monitor starts collecting metric data for your virtual machine host automatically. To collect metrics from the guest operating system of the virtual machine though, you must install an agent that can send this data to Azure Monitor. The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) 
 
 > [!NOTE]
-> Azure Monitor agent is intended to replace diagnostic extension to collect guest metrics. While the agent is generally available, metric collection is currently still in preview. When this feature is generally available, this content will be updated to use Azure Monitor agent instead of diagnostic extension.
+> Prior to the Azure Monitor agent, guest metrics for Azure virtual machines were collected with the [Azure diagnostic extension](../azure-monitor/agents/diagnostics-extension-overview.md) for Windows (WAD) and Linux (LAD). These agents are still available and can be configured with the **Diagnostic settings** menu item for the virtual machine, but they are in the process of being replaced with Azure Monitor agent.
 
-### Windows virtual machines
-Use the following procedure to install the diagnostic extension and enable guest metric collection on a Windows virtual machine.
-
-1. From the virtual machine's menu in the Azure portal, select **Diagnostic settings**. Select a storage account and click **Enable guest-level monitoring**.
-
-:::image type="content" source="media/monitor-vm/diagnostic-extension-windows-enable.png" lightbox="media/monitor-vm/diagnostic-extension-windows-enable.png" alt-text="Enable guest monitoring for Windows virtual machine":::
-
-2. Select **Performance counters** and select the categories that you want to collect. Select **Custom** if you want to select individual counters or change the sample rate.
-
-:::image type="content" source="media/monitor-vm/diagnostic-extension-windows-counters.png" lightbox="media/monitor-vm/diagnostic-extension-windows-counters.png" alt-text="Select performance counters for Windows virtual machine":::
 
 
 
