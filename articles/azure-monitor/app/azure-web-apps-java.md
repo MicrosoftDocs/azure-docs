@@ -80,7 +80,7 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
 1. Set APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL environment variable to 'debug' if you do not see any errors and there is no telemetry
 1. Sometimes the latest version of the Application Insights Java agent is not available in App Service - it takes a couple of months for the latest versions to roll out to all regions. In case you need the latest version of Java agent to monitor your app in App Service, you can upload the agent manually: 
     * Upload the Java agent jar file to App Service
-        * Get the latest version of [az cli tool](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli)
+        * Get the latest version of [az cli tool](/cli/azure/install-azure-cli-windows?tabs=azure-cli)
         * Get the latest version of [Application Insights Java agent](./java-in-process-agent.md)
         * Deploy Java agent to App Service - a sample command to deploy the Java agent jar: `az webapp deploy --src-path applicationinsights-agent-{VERSION_NUMBER}.jar --target-path java/applicationinsights-agent-{VERSION_NUMBER}.jar --type static --resource-group {YOUR_RESOURCE_GROUP} --name {YOUR_APP_SVC_NAME}` or use [this guide](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux#configure-the-maven-plugin) to deploy through Maven plugin
     * Once the agent jar file is uploaded, go to App Service configurations and add a new environment variable, JAVA_OPTS and set it's value to `-javaagent:D:/home/{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`

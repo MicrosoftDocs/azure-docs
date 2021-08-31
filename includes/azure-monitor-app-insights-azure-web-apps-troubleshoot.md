@@ -19,5 +19,5 @@ The duration for `serverresponsetime` calculated by Application Insights is not 
 
 ## Release notes
 
-For the latest updates and bug fixes [consult the release notes](../web-app-extension-release-notes.md).
+For the latest updates and bug fixes [consult the release notes](../articles/azure-monitor/app//web-app-extension-release-notes.md).
 
