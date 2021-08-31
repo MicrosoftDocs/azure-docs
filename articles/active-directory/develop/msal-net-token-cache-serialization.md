@@ -134,8 +134,6 @@ using Microsoft.Extensions.DependencyInjection;
 
 ```CSharp
 
- 
-
 public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X509Certificate cert, string authority, string[] scopes)
  {
      // Create the confidential client application
