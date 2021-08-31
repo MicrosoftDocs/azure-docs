@@ -10,7 +10,7 @@ ms.author: jordanselig
 
 App Services can be deployed into [Availability Zones (AZ)](../availability-zones/az-overview.md) which enables [high availability](https://en.wikipedia.org/wiki/High_availability) for your apps. This architecture is also known as zone redundancy.
 
-An app lives in an App Service plan (ASP), and the App Service plan exists in a single scale unit. When an App Service is configured to be zone redundant, the platform automatically spreads the VM instances in the App Service plan across all three zones in the selected region. If a capacity larger than three is specified and the number of instances is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones. For more information about highly available architectures and delivering reliability in Azure topic, see the [doc](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability).
+An app lives in an App Service plan (ASP), and the App Service plan exists in a single scale unit. When an App Service is configured to be zone redundant, the platform automatically spreads the VM instances in the App Service plan across all three zones in the selected region. If a capacity larger than three is specified and the number of instances is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones. For more information about highly available architectures and delivering reliability in Azure, see the [doc](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 ## Requirements
 
@@ -39,7 +39,7 @@ Zone redundancy, is a property of the App Service plan. The following are the cu
 - Zone redundancy can only be specified when creating a **new** App Service plan
   - Currently you can't convert a pre-existing App Service plan. See next bullet for details on how to create a new App Service plan that supports zone redundancy.
 - Zone redundancy is only supported in the newer portion of the App Service footprint
-  - Currently if you are running on Pv3, then it is possible that you are already on a footprint that supports zone redundancy. In this scenario, you can create a new App Service plan and specify zone redundancy when creating the new app service plan.
+  - Currently if you're running on Pv3, then it is possible that you're already on a footprint that supports zone redundancy. In this scenario, you can create a new App Service plan and specify zone redundancy when creating the new App Service plan.
   - If you aren't using Pv3 or a scale unit that supports zone redundancy, are in an unsupported region, or are unsure, follow the steps below:
     - Create a new resource group in a region that is supported
         - This ensures the App Service control plane can find a scale unit in the selected region that supports zone redundancy
@@ -47,6 +47,8 @@ Zone redundancy, is a property of the App Service plan. The following are the cu
 - Must be created using [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md)
 
 In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances. If you also have autoscale configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances (autoscale behavior is independent of App Service platform behavior). It's important to note there's no guarantee that requests for additional instances in a zone-down scenario will succeed since back filling lost instances occurs on a best-effort basis. The recommended solution is to provision your App Service plans to account for losing a zone as described previously in the next section this article.
+
+Applications deployed in an App Service plan enabled for zone redundancy will continue to run and serve traffic even if other zones in the same region suffer an outage. However it's possible that non-runtime behaviors including application service plan scaling, application creation, application configuration, and application publishing may still be impacted from an outage in other Availability Zones. Zone redundancy for App Service plans only ensures continued uptime for deployed applications.
 
 ## How to Deploy a Zone Redundant App Service
 
