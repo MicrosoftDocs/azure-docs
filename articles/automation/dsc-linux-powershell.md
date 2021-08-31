@@ -9,11 +9,12 @@ ms.date: 08/31/2021
 
 # Configure Linux desired state with Azure Automation State Configuration using PowerShell
 
-In this tutorial, you'll apply an Azure Automation State Configuration with PowerShell to a Linux virtual machine to check whether it complies with a desired state. Specifically, you'll check whether the apache2 service is running. Azure Automation State Configuration allows you to specify configurations for your machines and ensure that those machines are in the specified state over time. For more information about State Configuration, see [Azure Automation State Configuration overview](./automation-dsc-overview.md).
+In this tutorial, you'll apply an Azure Automation State Configuration with PowerShell to an Azure Linux virtual machine to check whether it complies with a desired state. The desired state is to identify if the apache2 service is present on the node.
+Azure Automation State Configuration allows you to specify configurations for your machines and ensure those machines are in a specified state over time. For more information about State Configuration, see [Azure Automation State Configuration overview](./automation-dsc-overview.md).
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> - Onboard a Linux VM to be managed by Azure Automation DSC
+> - Onboard an Azure Linux VM to be managed by Azure Automation DSC
 > - Compose a configuration
 > - Install PowerShell module for Automation
 > - Import a configuration to Azure Automation
@@ -27,8 +28,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 - An Azure Automation account. To learn more about Automation accounts, see [Automation Account authentication overview](./automation-security-overview.md).
-- An Azure Resource Manager virtual machine (VM) running Ubuntu 18.04 LTS or later. For instructions on creating a Linux VM, see [Create a Linux virtual machine in Azure with PowerShell](../virtual-machines/windows/quick-create-powershell.md).
-- The PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed on the machine you'll be using to write, compile, and apply a state configuration to a target Linux VM. Ensure you have the latest version. If necessary, run `Update-Module -Name Az`.
+- An Azure Resource Manager virtual machine (VM) running Ubuntu 18.04 LTS or later. For instructions on creating an Azure Linux VM, see [Create a Linux virtual machine in Azure with PowerShell](../virtual-machines/windows/quick-create-powershell.md).
+- The PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed on the machine you'll be using to write, compile, and apply a state configuration to a target Azure Linux VM. Ensure you have the latest version. If necessary, run `Update-Module -Name Az`.
 
 ## Create a configuration
 
@@ -84,7 +85,7 @@ For efficiency and decreased chance of error when executing the cmdlets, revise 
 |---|---|
 |$resourceGroup| Replace `yourResourceGroup` with the actual name of your resource group.|
 |$automationAccount| Replace `yourAutomationAccount` with the actual name of your Automation account.|
-|$VM| Replace `yourVM` with the actual name of your Linux virtual machine.|
+|$VM| Replace `yourVM` with the actual name of your Azure Linux VM.|
 |$configurationName| Leave as is with `LinuxConfig`. The name of the configuration used in this tutorial.|
 |$nodeConfigurationName0|Leave as is with `LinuxConfig.IsNotPresent`. The name of a node configuration used in this tutorial.|
 |$nodeConfigurationName1|Leave as is with `LinuxConfig.IsPresent`. The name of a node configuration used in this tutorial.|
@@ -198,11 +199,11 @@ Get-AzAutomationDscNodeConfiguration `
    -AutomationAccountName $automationAccount
 ```
 
-## Register the Linux VM for an Automation account
+## Register the Azure Linux VM for an Automation account
 
-Register the Azure virtual machine as a Desired State Configuration (DSC) node for the Azure Automation account. The [Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode) cmdlet only supports VMs running Windows OS. The Linux virtual machine will first need to be configured for DSC. For detailed steps, see [Get started with Desired State Configuration (DSC) for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+Register the Azure Linux VM as a Desired State Configuration (DSC) node for the Azure Automation account. The [Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode) cmdlet only supports VMs running Windows OS. The Azure Linux VM will first need to be configured for DSC. For detailed steps, see [Get started with Desired State Configuration (DSC) for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
-1. Construct a python script with the registration command using PowerShell for later execution on your Linux VM by running the following code:
+1. Construct a python script with the registration command using PowerShell for later execution on your Azure Linux VM by running the following code:
 
    ```powershell
     $primaryKey = (Get-AzAutomationRegistrationInfo `
@@ -218,7 +219,7 @@ Register the Azure virtual machine as a Desired State Configuration (DSC) node f
 
    These commands obtain the Automation account's primary access key and URL and concatenates it to the registration command. Ensure you remove any carriage returns from the output. This command will be used in a later step.
 
-1. Connect to your Linux VM. If you used a password, you can use the syntax below. If you used a public-private key pair, see [SSH on Linux](./../virtual-machines/linux/mac-create-ssh-keys.md) for detailed steps. The other commands retrieve information about what packages can be installed, including what updates to currently installed packages packages are available, and installs Python.
+1. Connect to your Azure Linux VM. If you used a password, you can use the syntax below. If you used a public-private key pair, see [SSH on Linux](./../virtual-machines/linux/mac-create-ssh-keys.md) for detailed steps. The other commands retrieve information about what packages can be installed, including what updates to currently installed packages packages are available, and installs Python.
 
    ```cmd
    ssh user@IP
@@ -340,9 +341,13 @@ The following steps help you delete the resources created for this tutorial that
        -AutomationAccountName $automationAccount `
        -Id $NodeID `
        -Force
-    ```
 
-   The commands do not produce any output.
+    # Verify using the same command from Register the Azure Linux VM for an Automation account. A blank response indicates success.
+    Get-AzAutomationDscNode `
+       -ResourceGroupName $resourceGroup `
+       -AutomationAccountName $automationAccount `
+       -Name $VM
+    ```
 
 1. Remove metadata from DSC node configurations in Automation. Run the following commands:
 
@@ -360,9 +365,20 @@ The following steps help you delete the resources created for this tutorial that
        -Name $nodeConfigurationName1 `
        -IgnoreNodeMappings `
        -Force
+
+    # Verify using the same command from Compile configuration in Azure Automation.
+    Get-AzAutomationDscNodeConfiguration `
+       -ResourceGroupName $resourceGroup `
+       -AutomationAccountName $automationAccount `
+       -Name $nodeConfigurationName0
+    
+    Get-AzAutomationDscNodeConfiguration `
+       -ResourceGroupName $resourceGroup `
+       -AutomationAccountName $automationAccount `
+       -Name $nodeConfigurationName1
     ```
 
-   The commands do not produce any output.
+      Successful removal is indicated by output that looks similar to the following: `Get-AzAutomationDscNodeConfiguration : NodeConfiguration LinuxConfig.IsNotPresent not found`.
 
 1. Remove DSC configuration from Automation. Run the following command:
 
@@ -372,9 +388,15 @@ The following steps help you delete the resources created for this tutorial that
        -ResourceGroupName $resourceGroup `
        -Name $configurationName `
        -Force
+
+    # Verify using the same command from Import configuration to Azure Automation.
+    Get-AzAutomationDscConfiguration `
+       -ResourceGroupName $resourceGroup `
+       -AutomationAccountName $automationAccount `
+       -Name $configurationName
     ```
 
-   The command does not produce any output.
+   Successful removal is indicated by output that looks similar to the following: `Get-AzAutomationDscConfiguration : Operation returned an invalid status code 'NotFound'`.
 
 1. Removes nx module from Automation. Run the following command:
 
@@ -383,13 +405,19 @@ The following steps help you delete the resources created for this tutorial that
        -ResourceGroupName $resourceGroup `
        -AutomationAccountName $automationAccount `
        -Name $moduleName -Force
+
+    # Verify using the same command from Install nx module.
+    Get-AzAutomationModule `
+        -ResourceGroupName $resourceGroup `
+        -AutomationAccountName $automationAccount `
+        -Name $moduleName
     ```
 
-   The command does not produce any output.
+   Successful removal is indicated by output that looks similar to the following: `Get-AzAutomationModule : The module was not found. Module name: nx.`.
 
 ## Next steps
 
-In this tutorial, you applied an Azure Automation State Configuration with PowerShell to a Linux virtual machine to check whether it complied with a desired state. For a more thorough explanation of configuration composition, see:
+In this tutorial, you applied an Azure Automation State Configuration with PowerShell to an Azure Linux VM to check whether it complied with a desired state. For a more thorough explanation of configuration composition, see:
 
 > [!div class="nextstepaction"]
 > [Compose DSC configurations](./compose-configurationwithcompositeresources.md)
