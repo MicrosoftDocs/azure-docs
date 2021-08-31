@@ -47,8 +47,6 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
 
 To enable client-side monitoring for your Java application, you need to [manually add the client-side JavaScript SDK to your application](./javascript.md).
 
-
-
 ## Automate monitoring
 
 ### Application settings
@@ -68,7 +66,6 @@ In order to enable telemetry collection with Application Insights, only the foll
 > Profiler and snapshot debugger are not available for Java applications
 
 [!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
-
 
 ## Troubleshooting
 
@@ -97,7 +94,6 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot)]
 
 ## Next steps
-* [Run the profiler on your live app](./profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
 * [Enable Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
 * [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive.

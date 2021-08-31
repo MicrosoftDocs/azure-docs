@@ -20,15 +20,15 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
 
-    * This approach is much more customizable, but it requires the following approaches: SDK [for .NET Core](./asp-net-core.md), [.NET](./asp-net.md), [Node.js](./nodejs.md), [Python](./opencensus-python.md), and a standalone agent for [Java](./java-in-process-agent.md). This method, also means you have to manage the updates to the latest version of the packages yourself.
+    * This approach is much more customizable, but it requires the SDK for [.NET Core](./asp-net-core.md). This method, also means you have to manage the updates to the latest version of the packages yourself.
 
     * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](./api-custom-events-metrics.md) to learn more. 
 
 > [!NOTE]
-> If both agent-based monitoring and manual SDK-based instrumentation is detected, in .NET only the manual instrumentation settings will be honored, while in Java only the agent-based instrumentation will be emitting the telemetry. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
+> If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
 
 > [!NOTE]
-> Snapshot debugger and profiler are only available in .NET and .Net Core
+> Snapshot debugger and profiler are only available in .NET and .NET Core
 
 ## Enable agent-based monitoring
 
@@ -56,7 +56,9 @@ Targeting the full framework from ASP.NET Core is **not supported** in Linux. Us
  In Linux, Framework-dependent deployment and self-contained deployment are supported. 
 
 See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
+
 ---
+ 
 
 ### Enable monitoring 
 
@@ -157,6 +159,7 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET and ASP.NET Core based applications running on Azure App Services.
 
 # [Windows](#tab/windows)
+
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
 2. Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.  
 
@@ -264,8 +267,8 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     
     ```
     
-
 1. Validate that `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_STARTUP_HOOKS` and `APPLICATIONINSIGHTS_CONNECTION_STRING` are set.
+
 ---
 
 #### Default website deployed with web apps does not support automatic client-side monitoring

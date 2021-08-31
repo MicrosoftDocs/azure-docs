@@ -2,11 +2,8 @@
 title: Monitor your apps without code changes - auto-instrumentation for Azure Monitor Application Insights | Microsoft Docs
 description: Overview of auto-instrumentation for Azure Monitor Application Insights - codeless application performance management
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
 ms.date: 05/17/2021
 
-ms.reviewer: mbullwin
 ---
 
 # What is auto-instrumentation or codeless attach - Azure Monitor Application Insights?
@@ -37,15 +34,15 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 
 ### Windows
 
-Application monitoring on Azure App Service on Windows is available for **[.NET](./azure-web-apps.md?tabs=net)** (enabled by default), **[.NET Core](./azure-web-apps.md?tabs=netcore)**, **[Java](./azure-web-apps.md?tabs=java)** (in public preview), and **[Node.js](./azure-web-apps.md?tabs=nodejs)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
+Application monitoring on Azure App Service on Windows is available for **[.NET](./azure-web-apps-net.md)** (enabled by default), **[.NET Core](./azure-web-apps-netcore.md)**, **[Java](./azure-web-apps-java.)** (in public preview), and **[Node.js](./azure-web-apps-nodejs.md)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
 
 > [!NOTE]
 > Application monitoring is currently available for Windows code-based applications on App Service. Monitoring for apps on Windows Containers on App Service is not yet supported through the integration with Application Insights.
 
 ### Linux
-You can enable monitoring for **[Java](./azure-web-apps.md?tabs=java)** and **[Node.js](./azure-web-apps.md?tabs=nodejs)** apps running on Linux in App Service through the portal - the experience for both languages is in public preview and available in all regions. 
+You can enable monitoring for **[Java](./azure-web-apps-java.md?)**, **[Node.js](./azure-web-apps-nodejs.md?tabs=linux)**, and **[.NET Core](./azure-web-apps-netcore.md?tabs=linux)** apps running on Linux in App Service through the portal - the experience for both languages is in public preview and available in all regions. 
 
-For other languages - [.NET Core](./asp-net-core.md) and [Python](./opencensus-python.md), use the SDK.
+For [Python](./opencensus-python.md), use the SDK.
 
 ## Azure Functions
 
