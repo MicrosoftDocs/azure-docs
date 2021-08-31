@@ -211,7 +211,7 @@ In this section, you'll change the private IP address of the existing NIC of eac
 
 12. In the **Networking** page, select **Attach network interface**.
 
-    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-attach-nic.png" alt-text="Screenshot of myVM1 network interface configuration.":::
+    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-attach-nic.png" alt-text="Screenshot of myVM1 attach network interface.":::
 
 13. In **Attach network interface**, select **Create and attach network interface**.
 
