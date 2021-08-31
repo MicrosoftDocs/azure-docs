@@ -4,6 +4,8 @@ description: Summarizes the supported components and requirements for Hyper-V VM
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
+author: Sharmistha-Rai
+ms.author: sharrai
 ---
 
 
@@ -91,7 +93,7 @@ Accelerated Networking | No | No
 ## Hyper-V host storage
 
 **Storage** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
---- | --- | --- 
+--- | --- | ---
 NFS | NA | NA
 SMB 3.0 | Yes | Yes
 SAN (ISCSI) | Yes | Yes
@@ -147,6 +149,7 @@ Secure transfer option | Yes | Yes
 **Feature** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
 --- | --- | ---
 Availability sets | Yes | Yes
+Availability zones | No | No
 HUB | Yes | Yes  
 Managed disks | Yes, for failover.<br/><br/> Failback of managed disks isn't supported. | Yes, for failover.<br/><br/> Failback of managed disks isn't supported.
 
@@ -186,7 +189,7 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 To make sure your deployment is compatible with settings in this article, make sure you're running the latest provider and agent versions.
 
 **Name** | **Description** | **Details**
---- | --- | --- 
+--- | --- | ---
 Azure Site Recovery provider | Coordinates communications between on-premises servers and Azure <br/><br/> Hyper-V with Virtual Machine Manager: Installed on Virtual Machine Manager servers<br/><br/> Hyper-V without Virtual Machine Manager: Installed on Hyper-V hosts| [Latest features and fixes](./site-recovery-whats-new.md)
 Microsoft Azure Recovery Services agent | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without Virtual Machine Manager) | Latest agent available from the portal
 

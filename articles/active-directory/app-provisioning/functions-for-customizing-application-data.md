@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/29/2021
+ms.date: 08/30/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -34,7 +34,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 
 ## List of Functions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### Append
@@ -277,11 +277,8 @@ Returns a date/time string representing a date to which a specified time interva
 
 The **interval** string must have one of the following values: 
  * yyyy Year 
- * q Quarter
  * m Month
- * y Day of year
  * d Day
- * w Weekday
  * ww Week
  * h Hour
  * n Minute
@@ -311,6 +308,57 @@ The **interval** string must have one of the following values:
 `DateAdd("yyyy", 2, CDate([StatusHireDate]))`
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 3/16/2014 7:00:00 AM
+---
+### DateDiff
+**Function:**  
+`DateDiff(interval, date1, date2)`
+
+**Description:**  
+This function uses the *interval* parameter to return a number that indicates the difference between the two input dates. It returns 
+  * a positive number if date2 > date1, 
+  * a negative number if date2 < date1, 
+  * 0 if date2 == date1
+
+**Parameters:** 
+
+| Name | Required/Optional | Type | Notes |
+| --- | --- | --- | --- |
+| **interval** |Required | String | Interval of time to use for calculating the difference. |
+| **date1** |Required | DateTime | DateTime representing a valid date. |
+| **date2** |Required | DateTime | DateTime representing a valid date. |
+
+The **interval** string must have one of the following values: 
+ * yyyy Year 
+ * m Month
+ * d Day
+ * ww Week
+ * h Hour
+ * n Minute
+ * s Second
+
+**Example 1: Compare current date with hire date from Workday with different intervals** <br>
+`DateDiff("d", Now(), CDate([StatusHireDate]))`
+
+| Example | interval | date1 | date2 | output |
+| --- | --- | --- | --- | --- |
+| Positive difference in days between two dates | d | 2021-08-18+08:00 | 2021-08-31+08:00 | 13 |
+| Negative difference in days between two dates | d | 8/25/2021 5:41:18 PM | 2012-03-16-07:00 | -3449 |
+| Difference in weeks between two dates | ww | 8/25/2021 5:41:18 PM | 2012-03-16-07:00 | -493 | 
+| Difference in months between two dates | m | 8/25/2021 5:41:18 PM | 2012-03-16-07:00 | -113 | 
+| Difference in years between two dates | yyyy | 8/25/2021 5:41:18 PM | 2012-03-16-07:00 | -9 | 
+| Difference when both dates are same | d | 2021-08-31+08:00 | 2021-08-31+08:00 | 0 | 
+| Difference in hours between two dates | h | 2021-08-24 | 2021-08-25 | 24 | 
+| Difference in minutes between two dates | n | 2021-08-24 | 2021-08-25 | 1440 | 
+| Difference in seconds between two dates | s | 2021-08-24 | 2021-08-25 | 86400 | 
+
+**Example 2: Combine DateDiff with IIF function to set attribute value** <br>
+If an account is Active in Workday, set the *accountEnabled* attribute of the user to True only if hire date is within the next 5 days. 
+
+```
+Switch([Active], , 
+  "1", IIF(DateDiff("d", Now(), CDate([StatusHireDate])) > 5, "False", "True"), 
+  "0", "False")
+```
 
 ---
 
@@ -606,6 +654,28 @@ Requires one string argument. Returns the string, but with any diacritical chara
 | **source** |Required |String | Usually a first name or last name attribute. |
 
 
+| Character with Diacritic  | Normalized character | Character with Diacritic  | Normalized character | 
+| --- | --- | --- | --- | 
+| ä, à, â, ã, å, á, ą, ă | a | Ä, À, Â, Ã, Å, Á, Ą, Ă | A | 
+| æ | ae | Æ | AE | 
+| ç, č, ć | c | Ç, Č, Ć | C | 
+| ď | d | Ď | D | 
+| ë, è, é, ê, ę, ě, ė | e | Ë, È, É, Ê, Ę, Ě, Ė | E | 
+| ğ | g | Ğ | G | 
+| Ï, Î, Ì, Í, İ | I | ï, î, ì, í, ı | i | 
+| ľ, ł | l |  Ł, Ľ | L | 
+| ñ, ń, ň | n |  Ñ, Ń, Ň | N | 
+| ö, ò, ő, õ, ô, ó | o |  Ö, Ò, Ő, Õ, Ô, Ó | O | 
+| ø | oe |  Ø | OE | 
+| ř | r |  Ř | R | 
+| ß | ss | | | 
+| š, ś, ș, ş | s |  Š, Ś, Ș, Ş | S | 
+| ť, ț | t | Ť, Ț | T | 
+| ü, ù, û, ú, ů, ű | u |  Ü, Ù, Û, Ú, Ů, Ű | U | 
+| ÿ, ý | y | Ÿ, Ý | Y | 
+| ź, ž, ż | z | Ź, Ž, Ż | Z | 
+
+
 #### Remove diacritics from a string
 Example: You need to replace characters containing accent marks with equivalent characters that don't contain accent marks.
 
@@ -661,11 +731,11 @@ The NumFromDate function converts a DateTime value to Active Directory format th
 **Example:**
 * Workday example 
   Assuming you want to map the attribute *ContractEndDate* from Workday which is in the format *2020-12-31-08:00* to *accountExpires* field in AD, here is how you can use this function and change the timezone offset to match your locale. 
-  `NumFromDate(Join("", FormatDateTime([ContractEndDate], ,"yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
+  `NumFromDate(Join("", FormatDateTime([ContractEndDate], ,"yyyy-MM-ddzzz", "yyyy-MM-dd"), " 23:59:59-08:00"))`
 
 * SuccessFactors example 
   Assuming you want to map the attribute *endDate* from SuccessFactors which is in the format *M/d/yyyy hh:mm:ss tt* to *accountExpires* field in AD, here is how you can use this function and change the time zone offset to match your locale.
-  `NumFromDate(Join("",FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
+  `NumFromDate(Join("",FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd")," 23:59:59-08:00"))`
 
 
 ---

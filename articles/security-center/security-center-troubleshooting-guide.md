@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 08/15/2021
 ms.author: memildin
 
 ---
@@ -14,6 +14,14 @@ ms.author: memildin
 This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations are using Azure Security Center and need to troubleshoot Security Center related issues.
 
 Security Center uses the Log Analytics agent to collect and store data. See [Azure Security Center Platform Migration](./security-center-enable-data-collection.md) to learn more. The information in this article represents Security Center functionality after transition to the Log Analytics agent.
+
+> [!TIP]
+> A, dedicated area of the Security Center pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Security Center and Azure Defender.
+> 
+> When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is good place to look for solutions:
+> 
+> :::image type="content" source="media/release-notes/solve-problems.png" alt-text="Security Center's 'Diagnose and solve problems' page":::
+
 
 ## Troubleshooting guide
 

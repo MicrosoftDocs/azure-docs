@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
 ---
 # Copy data from an OData source by using Azure Data Factory
@@ -40,6 +40,32 @@ Specifically, this OData connector supports:
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to an OData store using UI
+
+Use the following steps to create a linked service to an OData store in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for OData and select the OData connector.
+
+    :::image type="content" source="media/connector-odata/odata-connector.png" alt-text="Select the OData connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-odata/configure-odata-linked-service.png" alt-text="Configure a linked service to an OData store.":::
+
+## Connector configuration details
 
 The following sections provide details about properties you can use to define Data Factory entities that are specific to an OData connector.
 

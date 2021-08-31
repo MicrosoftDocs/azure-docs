@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 04/14/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Azure Policy assignment structure
@@ -93,7 +93,8 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
 
 - `updatedBy` (string): The friendly name of the security principal that updated the assignment, if
   any.
-- `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if any.
+- `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if
+  any.
 
 ## Enforcement Mode
 
