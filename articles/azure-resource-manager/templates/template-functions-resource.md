@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -24,7 +24,7 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 
 ## extensionResourceId
 
-`extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
+`extensionResourceId(baseResourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the resource ID for an [extension resource](../management/extension-resource-types.md), which is a resource type that is applied to another resource to add to its capabilities.
 
@@ -32,9 +32,9 @@ Returns the resource ID for an [extension resource](../management/extension-reso
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceId |Yes |string |The resource ID for the resource that the extension resource is applied to. |
-| resourceType |Yes |string |Type of resource including resource provider namespace. |
-| resourceName1 |Yes |string |Name of resource. |
+| baseResourceId |Yes |string |The resource ID for the resource that the extension resource is applied to. |
+| resourceType |Yes |string |Type of the extension resource including resource provider namespace. |
+| resourceName1 |Yes |string |Name of the extension resource. |
 | resourceName2 |No |string |Next resource name segment, if needed. |
 
 Continue adding resource names as parameters when the resource type includes more segments.
@@ -47,7 +47,7 @@ The basic format of the resource ID returned by this function is:
 {scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-The scope segment varies by the resource being extended.
+The scope segment varies by the base resource being extended. For example, the ID for a subscription has different segments than the ID for a resource group.
 
 When the extension resource is applied to a **resource**, the resource ID is returned in the following format:
 
@@ -55,23 +55,27 @@ When the extension resource is applied to a **resource**, the resource ID is ret
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-When the extension resource is applied to a **resource group**, the format is:
+When the extension resource is applied to a **resource group**, the returned format is:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-When the extension resource is applied to a **subscription**, the format is:
+An example of using this function with a resource group is shown in the next section.
+
+When the extension resource is applied to a **subscription**, the returned format is:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-When the extension resource is applied to a **management group**, the format is:
+When the extension resource is applied to a **management group**, the returned format is:
 
 ```json
 /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
+
+An example of using this function with a management group is shown in the next section.
 
 ### extensionResourceId example
 
