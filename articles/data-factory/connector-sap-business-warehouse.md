@@ -67,8 +67,6 @@ Use the following steps to create a linked service to SAP BW in the Azure portal
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for SAP and select the SAP BW via MDX connector.
 
     :::image type="content" source="media/connector-sap-business-warehouse/sap-business-warehouse-connector.png" alt-text="Select the SAP BW via MDX connector.":::    

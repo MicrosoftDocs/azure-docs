@@ -48,8 +48,6 @@ Use the following steps to create a linked service to Oracle Service Cloud in th
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Oracle and select the Oracle Service Cloud connector.
 
    :::image type="content" source="media/connector-oracle-service-cloud/oracle-service-cloud-connector.png" alt-text="Select the Oracle Service Cloud connector.":::    
