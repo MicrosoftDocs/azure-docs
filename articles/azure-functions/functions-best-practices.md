@@ -176,27 +176,11 @@ Cold start is a key consideration for serverless architectures. To learn more, s
 
 Premium plan is the recommended plan for reducing colds starts while maintaining dynamic scale. You can use the following guidance to reduce cold starts and improve availability in all three hosting plans. 
 
-### Premium plan
-
-+ [Implement a Warmup trigger in your function app](functions-bindings-warmup.md).
-
-+ [Set the values for Always-Ready instances and Max Burst limit](functions-premium-plan.md#plan-and-sku-settings).
-
-+ [Use virtual network trigger support when using non-HTTP triggers on a virtual network](functions-networking-options.md#premium-plan-with-virtual-network-triggers) .
-
-### Dedicated plans
-
-+ [Run on at least two instances with Azure App Service Health Check enabled](../app-service/monitor-instances-health-check.md).
-
-+ [Implement autoscaling](/azure/architecture/best-practices/auto-scaling).
-
-### Consumption plan
-
-+ Review your use of Singleton patterns and the concurrency settings for bindings and triggers to avoid artificially placing         limits on how your function app scales.
-
-+ [Review the `functionAppScaleLimit` setting, which can limit scale-out](event-driven-scaling.md#limit-scale-out). 
-
-+ Check for a Daily Usage Quota (GB-Sec) limit set during development and testing. Consider removing this limit for         production.
+| Plan | Guidance |
+| --- | --- | 
+| **Premium plan** | • [Implement a Warmup trigger in your function app](functions-bindings-warmup.md)<br/>• [Set the values for Always-Ready instances and Max Burst limit](functions-premium-plan.md#plan-and-sku-settings)<br/>• [Use virtual network trigger support when using non-HTTP triggers on a virtual network](functions-networking-options.md#premium-plan-with-virtual-network-triggers)|
+| **Dedicated plans** | • [Run on at least two instances with Azure App Service Health Check enabled](../app-service/monitor-instances-health-check.md)<br/>• [Implement autoscaling](/azure/architecture/best-practices/auto-scaling)|
+| **Consumption plan** | • Review your use of Singleton patterns and the concurrency settings for bindings and triggers to avoid artificially placing limits on how your function app scales.<br/>• [Review the `functionAppScaleLimit` setting, which can limit scale-out](event-driven-scaling.md#limit-scale-out)<br/>• Check for a Daily Usage Quota (GB-Sec) limit set during development and testing. Consider removing this limit in production environments. |
 
 ## Monitor effectively
 
