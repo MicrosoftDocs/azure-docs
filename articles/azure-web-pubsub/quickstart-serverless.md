@@ -379,13 +379,13 @@ Use the following commands to create these items.
 
 ## Configure the Web PubSub service `Event Handler`
 
-In this sample, we're using `WebPubSubTrigger` to listen to service upstream message requests. And Web PubSub need to know the endpoint information in order to send target client requests. In the previous step after we deployed the Function App with `message` functions, we're able to get a system key.
+In this sample, we're using `WebPubSubTrigger` to listen to service upstream message requests. And Web PubSub need to know the function's endpoint information in order to send target client requests. In the previous step after we deployed the Function App with `message` functions, we're able to get a system key.
 
 Go to **Azure portal** -> Find your Function App resource -> **App keys** -> **System keys** -> **`webpubsub_extension`**. Copy out the value as `<APP_KEY>`.
 
 :::image type="content" source="media/quickstart-serverless/func-keys.png" alt-text="Screenshot of get function system keys.":::
 
-Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the <FUNCTIONAPP_NAME> to yours.
+Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the `<FUNCTIONAPP_NAME>` and `<APP_KEY>` to yours.
 
    - Hub Name: `simplechat`
    - URL Template: **https://<FUNCTIONAPP_NAME>.azurewebsites.net/runtime/webhooks/webpubsub?code=<APP_KEY>**
@@ -396,13 +396,14 @@ Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find 
 
 ## Configure to enable authentication
 
-1. Configure Function App to use Authentication. Go to **Azure portal** -> Find your Function App resource -> **Authentication**. Click **`Add identity provider`**. You can configure identity provider with below options following detail doc. Basically you can use default settings. Then **`Add`**. Remember the **Name** if you change it. By default it'll using your function app's name.
+1. Configure Function App to use Authentication. Go to **Azure portal** -> Find your Function App resource -> **Authentication**. Click **`Add identity provider`**. You can configure identity provider with below options following detail doc. Basically you can use default settings. Then **`Add`**. Remember the identity provider **Name** if you change it. By default it'll use your function app's name. And **Save**.
+
    * [Microsoft(Azure AD)](/azure/app-service/configure-authentication-provider-aad)
    * [Facebook](/azure/app-service/configure-authentication-provider-facebook)
-   * [Google](/azure/app-service/configure-authentication-provider-facebook)
-   * [Twitter](/azure/app-service/configure-authentication-provider-facebook) 
+   * [Google](/azure/app-service/configure-authentication-provider-google)
+   * [Twitter](/azure/app-service/configure-authentication-provider-twitter) 
 
-2. Configure Web PubSub service to enable Authentication. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Right next your previously set `Event Handler`, **Enable** authentication and choose **Select from existing AAD application**. Find the identity name you just created for your function app. And **Save**.
+1. Configure Web PubSub service to enable Authentication. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Right next your previously set `Event Handler`, **Enable** authentication and choose **Select from existing AAD application**. Find the identity name you just created for your function app. And **Save**.
 
     :::image type="content" source="media/quickstart-serverless/enable-authentication.png" alt-text="Screenshot of enable authentication.":::
 
@@ -431,10 +432,10 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application. 
 
 > [!div class="nextstepaction"]
-> [Quick start: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+> [Azure Web PubSub bindings for Azure Functions](https://azure.github.io/azure-webpubsub/references/functions-bindings)
 
 > [!div class="nextstepaction"]
-> [Azure Web PubSub bindings for Azure Functions](https://azure.github.io/azure-webpubsub/references/functions-bindings)
+> [Quick start: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)
