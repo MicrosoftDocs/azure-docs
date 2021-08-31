@@ -56,7 +56,7 @@ For applications with multiple instances, Dynatrace has several ways to group th
 
 ### Add the environment variables to your application
 
-When you have the values for the environment variables required for activating Dynatrace OneAgent, you can add the respective key/value pairs to your application using either the Azure portal or the Azure CLI. The following sections provide instructions for each of these options.
+You can add the environment variable key/value pairs to your application using either the Azure portal or the Azure CLI.
 
 #### Option 1: Azure CLI
 
@@ -86,7 +86,7 @@ To add the key/value pairs using the Azure portal, use the following steps:
 
 ## Automation
 
-Using Terraform or an ARM template, you can also run a provisioning automation pipeline. This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
+Using Terraform or an Azure Resource Manager template (ARM template), you can also run a provisioning automation pipeline. This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
 ### Terraform
 
@@ -101,11 +101,11 @@ environment_variables = {
 }
 ```
 
-### ARM
+### ARM template
 
 To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
-```ARM
+```ARM template
 "environmentVariables": {
   "DT_TENANT": "<your-environment-ID>",
   "DT_TENANTTOKEN": "<your-tenant-token>",
@@ -116,46 +116,46 @@ To configure the environment variables in an ARM template, add the following cod
 
 ## View reports in Dynatrace
 
-This section describes how to view various reports
+This section describes how to find various reports in Dynatrace.
 
 > [!NOTE]
 > Because the Dynatrace menu will evolve its layout gradually, the dashboard may be moved to other sections in the Dynatrace website.
 
 After you add the environment variables to your application, Dynatrace starts collecting data. To view reports, use the [Dynatrace menu](https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services**, and then select your application.
 
-* You can find the **Service flow** from **yourAppName/Details/Service flow**:
+You can find the **Service flow** from **\<your-app-name>/Details/Service flow**:
 
-   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png" alt-text="Service flow" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png":::
+:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png" alt-text="Service flow" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png":::
 
-* You can find the **Method hotspots** from **yourAppName/Details/Method hotspots**:
+You can find the **Method hotspots** from **\<your-app-name>/Details/Method hotspots**:
 
-   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png" alt-text="Method hotspots" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png":::
+:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png" alt-text="Method hotspots" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png":::
 
-* You can find the **Database statements** from **yourAppName/Details/Response time analysis**:
+You can find the **Database statements** from **\<your-app-name>/Details/Response time analysis**:
 
-   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png" alt-text="Database statements" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png":::
+:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png" alt-text="Database statements" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png":::
 
-You can go to **Multidimensional analysis** section.
+Next, go to the **Multidimensional analysis** section.
 
-* You can find the **Top database statements** from **Multidimensional analysis/Top database statements**:
+You can find the **Top database statements** from **Multidimensional analysis/Top database statements**:
 
-   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png" alt-text="Top database statements" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png":::
+:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png" alt-text="Top database statements" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png":::
 
-* You can find the **Exceptions overview** from **Multidimensional analysis/Exceptions overview**:
+You can find the **Exceptions overview** from **Multidimensional analysis/Exceptions overview**:
 
-   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png" alt-text="Exceptions overview" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png":::
+:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png" alt-text="Exceptions overview" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png":::
 
-You can go to **Profiling and optimization** section.
+Next, go to the **Profiling and optimization** section.
 
-* You can find the **CPU analysis** from the following section:
+You can find the **CPU analysis** from the following section:
 
-   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png" alt-text="CPU analysis" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png":::
+:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png" alt-text="CPU analysis" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png":::
 
-You can go to **Database** section.
+Next, go to the **Database** section.
 
-* You can find **Backtrace** from the following section:
+You can find **Backtrace** from the following section:
 
-   :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png" alt-text="Backtrace" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png":::
+:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png" alt-text="Backtrace" lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png":::
 
 ## Dynatrace OneAgent logging
 
@@ -167,14 +167,14 @@ You can also get the logs of the Dynatrace agent from the following locations:
 * Azure Spring Cloud Application Insights
 * Azure Spring Cloud LogStream
 
-You can leverage some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs.
+You can apply some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs.
 
 > [!CAUTION]
 > We strongly recommend that you do not override the default logging behavior provided by Azure Spring Cloud for Dynatrace. If you do, the logging scenarios above will be blocked, and the log file(s) may be lost. For example, you should not output the `DT_LOGLEVELFILE` environment variable to your applications.
 
 ## Dynatrace OneAgent upgrade
 
-The Dynatrace OneAgent auto-upgrade is disabled and will be upgraded quarterly with the JDK. Agent upgrade may impact the following scenarios:
+The Dynatrace OneAgent auto-upgrade is disabled and will be upgraded quarterly with the JDK. Agent upgrade may affect the following scenarios:
 
 * Existing applications using Dynatrace OneAgent before upgrade will be unchanged.
 * Existing applications using Dynatrace OneAgent before upgrade require restart or redeploy to engage the new version of Dynatrace OneAgent.
@@ -182,7 +182,7 @@ The Dynatrace OneAgent auto-upgrade is disabled and will be upgraded quarterly w
 
 ## VNet injection instance outbound traffic configuration
 
-For a VNet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For additional details, see [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md).
+For a VNet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md).
 
 ## Dynatrace support model
 
