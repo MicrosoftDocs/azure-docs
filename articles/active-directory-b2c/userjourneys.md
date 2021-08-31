@@ -132,32 +132,31 @@ The **Precondition** elements contains the following elements:
 | ------- | ----------- | ----------- |
 | Value | 1:2 | The identifier of a claim type. The claim is already defined in the claims schema section in the policy file, or parent policy file. When the precondition is type of `ClaimEquals`, a second `Value` element contains the value to be checked. |
 | Action | 1:1 | The action that should be performed if the precondition evaluation is satisfied. Possible value: `SkipThisOrchestrationStep`. The associated orchestration step skips to the next one. |
-
+  
 Each precondition evaluates a single claim. There are two types of preconditions:
  
 - **ClaimsExist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
 - **ClaimEquals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`. 
-  
-  If the claim is null or uninitialized, the precondition is ignored, whether the `ExecuteActionsIf` is `true`, or `false`. As a best practice, check both that the claim exists, and equals to a value. 
- 
-  An example scenario would be to challenge the user for MFA if the user has `MfaPreference` set to `Phone`. To perform this conditional logic, check if the `MfaPreference` claim exists, and also check the claim value equals to `Phone`. The following XML demonstrates how to implement this logic with preconditions. 
-  
-  ```xml
-  <Preconditions>
-    <!-- Skip this orchestration step if MfaPreference doesn't exist. -->
-    <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
-      <Value>MfaPreference</Value>
-      <Action>SkipThisOrchestrationStep</Action>
-    </Precondition>
-    <!-- Skip this orchestration step if MfaPreference doesn't equal to Phone. -->
-    <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
-      <Value>MfaPreference</Value>
-      <Value>Phone</Value>
-      <Action>SkipThisOrchestrationStep</Action>
-    </Precondition>
-  </Preconditions>
-  ```
 
+    If the claim is null or uninitialized, the precondition is ignored, whether the `ExecuteActionsIf` is `true`, or `false`. As a best practice, check both that the claim exists, and equals to a value.
+
+An example scenario would be to challenge the user for MFA if the user has `MfaPreference` set to `Phone`. To perform this conditional logic, check if the `MfaPreference` claim exists, and also check the claim value equals to `Phone`. The following XML demonstrates how to implement this logic with preconditions. 
+  
+```xml
+<Preconditions>
+  <!-- Skip this orchestration step if MfaPreference doesn't exist. -->
+  <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+  <!-- Skip this orchestration step if MfaPreference doesn't equal to Phone. -->
+  <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Value>Phone</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+</Preconditions>
+```
 
 #### Preconditions examples
 
