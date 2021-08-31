@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 12/18/2020
+ms.date: 08/31/2021
 ms.topic: conceptual
 ---
 
@@ -27,7 +27,7 @@ Many security features are only available for pools configured using [Virtual Ma
 
 Batch account access supports two methods of authentication: Shared Key and [Azure Active Directory (Azure AD)](batch-aad-auth.md).
 
-We strongly recommend using Azure AD for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here.
+We strongly recommend using Azure AD for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here. The service API authentication mechanism for a Batch account can be restricted to only Azure AD using the [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create) property. When this property is set, API calls using Shared Key authentication will be rejected.
 
 ### Batch account pool allocation mode
 
@@ -138,7 +138,7 @@ For extra security, encrypt these disks using one of these Azure disk encryption
 
 ## Securely access services from compute nodes
 
-Batch nodes can [securely access credentials and secrets](credential-access-key-vault.md) stored in [Azure Key Vault](../key-vault/general/overview.md), which can be used by task applications to access other services. A certificate is used to grant the pool nodes access to Key Vault.
+Batch nodes can securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md), which can be used by task applications to access other services. A certificate is used to grant the pool nodes access to Key Vault. You can [create a Batch pool with a certificate that will automatically be renewed](automatic-certificate-rotation.md). To do so, your pool must be created with a user-assigned managed identity that will have access to the certificate in Azure Key Vault. This is the recommended option for Batch nodes to to access credentials storedd in Azure Key Vault, although you can also [set up Batch nodes to securely access credentials and secrets with a certificate](credential-access-key-vault.md) without automatic certificate rotation. 
 
 ## Governance and compliance
 
