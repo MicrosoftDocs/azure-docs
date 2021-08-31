@@ -38,9 +38,9 @@ Azure tenancy (Azure Subscription) refers to a “customer/billing” relationsh
 
 Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights using the Azure portal, Azure command-line tools, and Azure Management APIs. An Azure AD tenant is logically isolated using security boundaries so that no customer can access or compromise co-tenants, either maliciously or accidentally. Azure AD runs on “bare metal” servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
 
-- Access to data in Azure AD requires user authentication via a security token service (STS). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
+:::image type="content" source="media/isolation-choices/azure-isolation-fig-1.svg" alt-text="Diagram showing Azure tenancy." border="false":::
 
-   :::image type="content" source="media/isolation-choices/azure-isolation-fig-1.svg" alt-text="Diagram showing Azure tenancy." border="false":::
+- Access to data in Azure AD requires user authentication via a security token service (STS). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
 
 - Tenants are discrete containers and there is no relationship between these.
 
