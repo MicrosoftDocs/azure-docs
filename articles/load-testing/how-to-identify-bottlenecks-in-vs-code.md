@@ -53,7 +53,7 @@ In this article, you'll learn how to load test a sample application to identify 
    ```
         
    > [!TIP]
-   > PowerShell Core can also be installed on [Linux/WASL](./powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-1804&preserve-view=true) or [macOS](./powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7.1).
+   > PowerShell Core can also be installed on [Linux/WASL](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-1804&preserve-view=true) or [macOS](/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7.1).
    > After installing it, you can run the previous command with `pwsh .\deploymentscript.ps1`.*
 
 4. You will be prompted to supply a unique application name and a location (default is `eastus`).
@@ -98,7 +98,7 @@ The sample application's source repository contains a JMeter script named `Sampl
 
 5. A YAML-based load test with smart defaults will open. By default, the name of the load test matches the JMeter script name we selected in the previous step, but this can be changed to something else. The cloud load test YAML is saved in the current workspace. Know more about the Yaml properties [here](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies#brief-overview-of-yaml-properties)
 
-   ![YAML](./media/how-to-identify-bottlenecks-in-vs-code/yaml.png)
+   ![YAML-based load test](./media/how-to-identify-bottlenecks-in-vs-code/yaml.png)
 
 6. You can edit the parameters or comment out the optional parameters if those don’t apply. For instance, since we don’t have any configuration files associated with our current test plan, we can remove these for now.
  
@@ -144,7 +144,7 @@ Let’s now analyze the load test results to see if there are any performance bo
 
 4. Let's now examine metrics for Cosmos DB. We see that the **Normalized RU Consumption** metric shows that we were quickly running at 100% utilization soon after the load test began. This would have caused throttling errors and increased response times for the `add` and `get` web APIs.
 
-   ![Cosmos DB Metrics](./media/how-to-identify-bottlenecks-in-vs-code/scosmosmetrics.png)
+   ![Cosmos DB Metrics](./media/how-to-identify-bottlenecks-in-vs-code/cosmosmetrics.png)
 
 5. In the chart above, we note that the **Provisioned Throughput** metric shows that our Cosmos DB has been configured with a maximum throughput of 400 RUs. Let's adjust this limit and verify whether it addresses our performance bottleneck.
 
