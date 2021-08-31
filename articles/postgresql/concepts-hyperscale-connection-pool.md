@@ -43,9 +43,9 @@ through PgBouncer, follow these steps:
    > If the checkbox does not exist, PgBouncer isn't enabled for your server
    > group yet. Managed PgBouncer is being rolled out to all [supported
    > regions](concepts-hyperscale-configuration-options.md#regions).  Once
-   > enabled in a region, it'll be rolled out to all existing server groups
-   > during a [scheduled maintenance](concepts-hyperscale-maintenance.md)
-   > event.
+   > enabled in a region, it'll be added to existing server groups in the
+   > region during a [scheduled
+   > maintenance](concepts-hyperscale-maintenance.md) event.
 
 3. Update client applications to connect with the new string.
 
