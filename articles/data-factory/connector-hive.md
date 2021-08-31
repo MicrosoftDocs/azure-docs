@@ -7,9 +7,10 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
 ---
+
 # Copy and transform data from Hive using Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -34,6 +35,34 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## Create a linked service to Hive using UI
+
+Use the following steps to create a linked service to Hive in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for Hive and select the Hive connector.
+
+    :::image type="content" source="media/connector-hive/hive-connector.png" alt-text="Select the Hive connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-hive/configure-hive-linked-service.png" alt-text="Configure a linked service to Hive.":::
+
+## Connector configuration details
+
+
+
 The following sections provide details about properties that are used to define Data Factory entities specific to Hive connector.
 
 ## Linked service properties
@@ -44,7 +73,7 @@ The following properties are supported for Hive linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Hive** | Yes |
 | host | IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enabled).  | Yes |
-| port | The TCP port that the Hive server uses to listen for client connections. If you connect to Azure HDInsights, specify port as 443. | Yes |
+| port | The TCP port that the Hive server uses to listen for client connections. If you connect to Azure HDInsight, specify port as 443. | Yes |
 | serverType | The type of Hive server. <br/>Allowed values are: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | No |
 | thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed values are: **Binary**, **SASL**, **HTTP** | No |
 | authenticationType | The authentication method used to access the Hive server. <br/>Allowed values are: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. Kerberos authentication is not supported now. | Yes |

@@ -58,6 +58,9 @@
       - name: Resources
         displayName: iteration,copy,multiple,batches,child,condition,filter
         href: loop-resources.md
+      - name: Modules
+        displayName: iteration,copy,multiple,batches,condition,filter
+        href: loop-modules.md
       - name: Properties
         displayName: iteration,copy,multiple
         href: loop-properties.md

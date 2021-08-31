@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ---
 
 # Move operation support for resources
@@ -2018,6 +2018,7 @@ Jump to a resource provider namespace:
 > | availablestacks | No | No | No |
 > | billingmeters | No | No | No |
 > | certificates | No | Yes | No |
+> | certificates (managed) | No | No | No |
 > | connectiongateways | Yes | Yes | No |
 > | connections | Yes | Yes | No |
 > | customapis | Yes | Yes | No |
