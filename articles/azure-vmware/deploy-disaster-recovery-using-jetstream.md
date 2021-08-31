@@ -106,6 +106,9 @@ JetStream DR installation is available through the Run command functionality in 
 :::image type="content" source="media/run-command/run-command-overview-jetstream.png" alt-text="Screenshot showing how to access the JetStream run commands available." lightbox="media/run-command/run-command-overview-jetstream.png":::
 
 
+>[!NOTE]
+>Executions are queued and executed one at a time.
+
 ### Check the current state of the system
 
 You'll run the `Invoke-PreflightJetDRSystemCheck` cmdlet to check the state of your system and whether the minimal requirements for the script are met. It also checks the required vCenter configuration to executes other cmdlets.  
