@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
 ---
 # Copy data from Presto using Azure Data Factory
@@ -29,6 +29,31 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Presto using UI
+
+Use the following steps to create a linked service to Presto in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Presto and select the Presto connector.
+
+   :::image type="content" source="media/connector-presto/presto-connector.png" alt-text="Screenshot of the Presto connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-presto/configure-presto-linked-service.png" alt-text="Screenshot of linked service configuration for Presto.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Presto connector.
 
