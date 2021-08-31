@@ -45,8 +45,6 @@ az monitor autoscale create \
   --count 2
 ```
 
-{>> snippets? <<}
-
 > [!NOTE]
 > For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
 
@@ -87,7 +85,7 @@ In Azure Machine Learning studio:
 
 In the endpoint details screen, in the Details tab, select the deployment in which you're interested. In the deployment details section, select "Configure autoscaling" to open the autoscaling wizard.
 
-:::image type="content" source="media/how-to-autoscale-endpoints/endpoint-details.png" alt-text="Screenshot showing link to configure autoscaling":::
+:::image type="content" source="media/how-to-autoscale-endpoints/configure-autoscale.png" alt-text="Screenshot showing link to configure autoscaling":::
 
 ## Next steps
 
