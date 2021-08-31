@@ -188,6 +188,9 @@ static async Task BlobIndexTagsExample()
 
 This task can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
 
+> [!NOTE]
+> You can't use index tags to retrieve previous versions. Tags for previous versions aren't passed to the blob index engine. For more information, see [Conditions and known issues](storage-manage-find-blobs.md#conditions-and-known-issues).
+
 # [Portal](#tab/azure-portal)
 
 Within the Azure portal, the blob index tags filter automatically applies the `@container` parameter to scope your selected container. If you wish to filter and find tagged data across your entire storage account, use our REST API, SDKs, or tools.

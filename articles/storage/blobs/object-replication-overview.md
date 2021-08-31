@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 08/30/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -64,7 +64,11 @@ Object replication is supported when the source and destination accounts are in 
 
 ### Immutable blobs
 
-Object replication does not support immutable blobs. If a source or destination container has a time-based retention policy or legal hold, then object replication fails. For more information about immutable blobs, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
+Immutability policies for Azure Blob Storage include time-based retention policies and legal holds. When an immutability policy is in effect on the destination account, object replication may be affected. For more information about immutability policies, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
+
+If a container-level immutability policy is in effect for a container in the destination account, and an object in the source container is updated or deleted, then the operation on the source container may succeed, but replication of that operation to the destination container will fail. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with container-level scope](immutable-storage-overview.md#scenarios-with-container-level-scope).
+
+If a version-level immutability policy is in effect for a blob version in the destination account, and a delete or update operation is performed on the blob version in the source container, then the operation on the source object may succeed, but replication of that operation to the destination object will fail. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with version-level scope](immutable-storage-overview.md#scenarios-with-version-level-scope).
 
 ## Object replication policies and rules
 

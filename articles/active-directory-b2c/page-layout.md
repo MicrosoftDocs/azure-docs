@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/03/2021
+ms.date: 08/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -151,6 +151,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 - Added support for multiple sign-up links.
 - Added support for user input validation according to the predicate rules defined in the policy.
+- When the [sign-in option](sign-in-options.md) is set to Email, the sign-in header presents "Sign in with your sign in name". The username field presents "Sign in name". For more information, see [localization](localization-string-ids.md#sign-up-or-sign-in-page-elements).
 
 **1.2.0**
 
