@@ -49,8 +49,6 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Getting started with the Calling SDK
-      href: quickstarts/voice-video-calling/calling-sdk.md
     - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
     - name: Use the call automation APIs
