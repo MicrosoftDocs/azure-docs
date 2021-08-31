@@ -38,12 +38,10 @@ The following video introduces Dynatrace OneAgent.
 
 The following sections describe how to activate Dynatrace OneAgent.
 
-### Prepare your environment using the Azure portal
+### Prepare your Azure Spring Cloud environment
 
-1. In the Azure portal, create an instance of Azure Spring Cloud.
-1. In the new Azure Spring Cloud instance, create a resource group where Dynatrace will be deployed.
-1. In the new resource group, create an application that you want to report to Dynatrace by running the following command. Replace the placeholders *\<...>* with your own values.
-
+1. Create an instance of Azure Spring Cloud.
+1. Create an application that you want to report to Dynatrace by running the following command. Replace the placeholders *\<...>* with your own values.
    ```azurecli
    az spring-cloud app create \
        --resource-group <your-resource-group-name> \
