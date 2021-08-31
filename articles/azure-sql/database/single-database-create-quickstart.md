@@ -169,7 +169,7 @@ The [az sql up](/cli/azure/sql#az_sql_up) command simplifies the database creati
 This command creates and configures a [logical server](logical-servers.md) for Azure SQL Database for immediate use. For more granular resource control during database creation, use the standard Azure CLI commands in this article.
 
 > [!NOTE]
-> When running the `az sql up` command for the first time, the Azure CLI prompts you to install the `db-up` extension. Accept the installation to continue. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+> When running the `az sql up` command for the first time, the Azure CLI prompts you to install the `db-up` extension. This extension is currently in preview. Accept the installation to continue. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 1. Run the `az sql up` command. If any required parameters aren't used, like `--server-name`, that resource is created with a random name and login information assigned to it.
 
