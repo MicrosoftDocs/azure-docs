@@ -22,9 +22,9 @@ This quickstart shows how to access the Azure Cosmos DB [Table API](introduction
 
 ## Prerequisites
 
-The sample application is written in [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet/3.1), though the principles apply to both .NET Framework and .NET Core applications.  You can use either [Visual Studio](https://www.visualstudio.com/downloads/) or [Visual Studio Code](https://code.visualstudio.com/) as an IDE.
+The sample application is written in [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet/3.1), though the principles apply to both .NET Framework and .NET Core applications.  You can use either [Visual Studio](https://www.visualstudio.com/downloads/), [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/), or [Visual Studio Code](https://code.visualstudio.com/) as an IDE.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note-dotnet.md)]
 
 ## Sample application
 
@@ -469,19 +469,18 @@ public void UpsertTableEntity(WeatherInputModel model)
 
 ### Insert or Upsert a custom entity that extends ITableEntity
 
-The AddEntity and UpsertEntity methods may be used to insert any object that implements the [ITableEntity](/dotnet/api/azure.data.tables.itableentity) interface. This allows you to build custom entities that better represent your business domain and insert them using the Table API.  
+The `AddEntity` and `UpsertEntity` methods may be used to insert any object that implements the [ITableEntity](/dotnet/api/azure.data.tables.itableentity) interface. This allows you to build custom entities that better represent your business domain and insert them using the Table API.  
 
 To create a custom entity that can be inserted or upserted using the Table API, first have your class implement the [ITableEntity](/dotnet/api/azure.data.tables.itableentity) interface. Implementing this interface requires your class to implement four properties: [PartionKey](/dotnet/api/azure.data.tables.itableentity.partitionkey#Azure_Data_Tables_ITableEntity_PartitionKey), [RowKey](/dotnet/api/azure.data.tables.itableentity.rowkey#Azure_Data_Tables_ITableEntity_RowKey), [Timestamp](/dotnet/api/azure.data.tables.itableentity.timestamp#Azure_Data_Tables_ITableEntity_Timestamp) and [Etag](/dotnet/api/azure.data.tables.itableentity.etag#Azure_Data_Tables_ITableEntity_ETag).
 
-In the example application, the PartitionKey and RowKey properties are mapped to the StationName and ObservationDate properties on the object respectively.  This allows the application to interact with the object with property names that make sense in a business context while still supporting the requirements to insert or upsert this object using the Table API.
+In the example application, the `PartitionKey` and `RowKey` properties are mapped to the `StationName` and `ObservationDate` properties on the object respectively.  This allows the application to interact with the object with property names that make sense in a business context while still supporting the requirements to insert or upsert this object using the Table API.
 
-If you are following along with the starter application, copy the following code into the `WeatherDataEntity` class located in the Entities folder of the application.
+If you are following along with the starter application, copy the following code into the `WeatherDataEntity` class located in the `Entities` directory of the application.
 
 ```csharp
 public class WeatherDataEntity : ITableEntity
 {
-
-    public String PartitionKey 
+    public string PartitionKey 
     { 
         get => StationName; 
         set => StationName = value; 
@@ -508,7 +507,7 @@ public class WeatherDataEntity : ITableEntity
  
 ```
 
-To insert or update a custom entity object, the PartitionKey and RowKey values must be populated.  The Timestamp and Etag properties do not.
+To insert or update a custom entity object, the `PartitionKey` and `RowKey` values must be populated.  The `Timestamp` and `Etag` properties do not.
 
 In the example application, the `InsertCustomEntity` and `UpsertCustomEntity` methods both map the data from a `WeatherInputModel` object into a `WeatherDataEntity` custom entity.  Then, either [AddEntity](/dotnet/api/azure.data.tables.tableclient.addentity) or [UpsertEntity](/dotnet/api/azure.data.tables.tableclient.upsertentity) can be called using the `WeatehrDataEntity` object.  
 
@@ -565,7 +564,6 @@ In the sample application, the `ExpandableWeatherObject` class is built around a
 ```csharp
 public class ExpandableWeatherObject
 {
-
     public Dictionary<string, object> _properties = new Dictionary<string, object>();
 
     public string StationName { get; set; }
@@ -583,7 +581,6 @@ public class ExpandableWeatherObject
     public int PropertyCount => _properties.Count;
 
     public bool ContainsProperty(string name) => _properties.ContainsKey(name);
-
 }
 ```
 
@@ -648,7 +645,7 @@ public class UpdateWeatherObject
 }
 ```
 
-In the sample app, this object is passed to the `UpdateEntity` method in the `TableService` class.  This method first loads the existing entity from the Table API using the [GetEntity](/dotnet/api/azure.data.tables.tableclient.getentity) method on the [TableClient](/dotnet/api/azure.data.tables.tableclient).  It then updates that entity object and uses the UpdateEntity method save the updates to the database.  Note how the [UpdateEntity](/dotnet/api/azure.data.tables.tableclient.updateentity) method takes the current Etag of the object to insure the object has not changed since it was initially loaded.  If you want to update the entity regardless, you may pass a value of Etag.Any to the UpdateEntity method.
+In the sample app, this object is passed to the `UpdateEntity` method in the `TableService` class.  This method first loads the existing entity from the Table API using the [GetEntity](/dotnet/api/azure.data.tables.tableclient.getentity) method on the [TableClient](/dotnet/api/azure.data.tables.tableclient).  It then updates that entity object and uses the `UpdateEntity` method save the updates to the database.  Note how the [UpdateEntity](/dotnet/api/azure.data.tables.tableclient.updateentity) method takes the current Etag of the object to insure the object has not changed since it was initially loaded.  If you want to update the entity regardless, you may pass a value of `Etag.Any` to the `UpdateEntity` method.
 
 ```csharp
 public void UpdateEntity(UpdateWeatherObject weatherObject)
@@ -684,7 +681,7 @@ public void RemoveEntity(string partitionKey, string rowKey)
 
 For situations when bulk edits are required to data in a table, the [SubmitTransaction](/dotnet/api/azure.data.tables.tableclient.submittransaction) on the [TableClient](/dotnet/api/azure.data.tables.tableclient) class is used. The [SubmitTransaction](/dotnet/api/azure.data.tables.tableclient.submittransaction) method takes an IEnumerable of [TableTransactionAction](/dotnet/api/azure.data.tables.tabletransactionaction) objects.  A [TableTransactionAction](/dotnet/api/azure.data.tables.tabletransactionaction) object encapsulates a TableEntity object along with [TableTransactionActionType](/dotnet/api/azure.data.tables.tabletransactionactiontype) object that represents the operation to be performed on the table entity (add, delete, upsert replace, upsert merge, update replace, or update merge).  This collection of objects is then operated on as a transaction, meaning all operations either succeed of fail.
 
-In the sample application, modify the InsertBulkData method of the TableService class to match the following definition.  This code converts the incoming model objects to TableEntity objects.  It then creates an IEnumerable\<TableTransactionAction\> by using a LINQ query which can be passed to the SubmitTransaction method.
+In the sample application, modify the `InsertBulkData` method of the `TableService` class to match the following definition.  This code converts the incoming model objects to `TableEntity` objects.  It then creates an `IEnumerable\<TableTransactionAction\>` by using a LINQ query which can be passed to the `SubmitTransaction` method.
 
 ```csharp
 public void InsertBulkData(IEnumerable<WeatherInputModel> items)
