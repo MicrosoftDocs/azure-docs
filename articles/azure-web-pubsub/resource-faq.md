@@ -16,6 +16,15 @@ This is the FAQ of Azure Web PubSub service.
 
 The Azure Web PubSub service is in public preview state and doesn't have a committed SLA. 
 
+## When will Azure Web PubSub service be ready for production use?
+
+The Azure Web PubSub service is planed to be GA by the end of Nov. 2021. 
+When GA, the service will support:
+1. AAD authentication
+2. API Management integration
+3. Binary Pub/Sub WebSocket subprotocol
+4. Azure Resource Log Integration
+
 ## How do I choose between Azure SignalR Service and Azure Web PubSub service?
 
 Both [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) and [Azure Web PubSub service](https://azure.microsoft.com/services/web-pubsub) help customers build real-time web applications easily with large scale and high availability and enable customers to focus on their business logic instead of managing the messaging infrastructure. In general, you may choose Azure SignalR Service if you already use SignalR library to build real-time application. Instead, if you're looking for a generic solution to build real-time application based on WebSocket and publish-subscribe pattern, you may choose Azure Web PubSub service. The Azure Web PubSub service is **not** a replacement for Azure SignalR Service. They're targeting different scenarios.
