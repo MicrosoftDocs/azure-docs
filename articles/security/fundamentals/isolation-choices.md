@@ -40,7 +40,7 @@ Users, groups, and applications from that directory can manage resources in the 
 
 - Access to data in Azure AD requires user authentication via a security token service (STS). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
 
-:::image type="content" source="media/isolation-choices/azure-isolation-fig1.svg" alt-text="Diagram showing Azure tenancy." border="false":::
+:::image type="content" source="media/isolation-choices/azure-isolation-fig-1.svg" alt-text="Diagram showing Azure tenancy." border="false":::
 
 - Tenants are discrete containers and there is no relationship between these.
 
@@ -86,7 +86,7 @@ Some other capabilities for Azure Active Directory include:
 
 - Azure AD provides Identity as a Service through federation by using [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), synchronization, and replication with on-premises directories.
 
-- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
+- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the [Multi-Factor Authentication Server](../../active-directory/authentication/multi-factor-authentication-faq.md#general), and also with custom applications and directories using the SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to an Active Directory domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 
@@ -314,6 +314,6 @@ Azure deployment has multiple layers of network isolation. The following diagram
 
 ## Next Steps
 
-- Learn about [Network Isolation Options for Machines in Windows Azure Virtual Networks](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). This includes the classic front-end and back-end scenario where machines in a particular back-end network or subnetwork may only allow certain clients or other computers to connect to a particular endpoint based on an allow list of IP addresses.
+- Learn about [Network Isolation Options for Machines in Windows Azure Virtual Networks](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). This includes the classic front-end and back-end scenario where machines in a particular back-end network or subnetwork may only allow certain clients or other computers to connect to a particular endpoint based on an allowlist of IP addresses.
 
 - Learn about [virtual machine isolation in Azure](../../virtual-machines/isolation.md). Azure Compute offers virtual machine sizes that are isolated to a specific hardware type and dedicated to a single customer.
