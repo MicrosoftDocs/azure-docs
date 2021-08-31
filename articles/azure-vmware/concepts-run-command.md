@@ -19,6 +19,9 @@ Azure VMware Solution supports the following operations:
 - [View and edit the storage policy](configure-storage-policy.md) 
 
 
+>[!NOTE]
+>Executions are queued and executed one at a time.
+
 ## View the status of an execution
 
 You can view the status of any run command executed, including the output, errors, warnings, and information.
