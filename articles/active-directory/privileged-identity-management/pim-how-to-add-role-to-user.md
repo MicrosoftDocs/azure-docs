@@ -90,7 +90,7 @@ For permissions required to use the PIM API, see [Understand the Privileged Iden
 
 ### HTTP POST request
 
-The following is a sample HTTP request to create an eligible assignment. The scope of the eligibility is all directory objects in the tenant until June 30, 2022 at midnight UTC time. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http).
+The following is a sample HTTP request to create an eligible assignment. The scope of the eligibility is all directory objects in the tenant until June 30, 2022 at midnight UTC time. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
 
 ````HTTP
 
@@ -178,8 +178,8 @@ Follow these steps to update or remove an existing role assignment. **Azure AD P
     ![Update or remove role assignment](./media/pim-how-to-add-role-to-user/remove-update-assignments.png)
 
 1. Select **Update** or **Remove** to update or remove the role assignment.
- 
-## Remove assignment via API
+
+## Remove eligible assignment via API
 
 ### Request
 
