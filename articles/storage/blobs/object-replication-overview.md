@@ -39,11 +39,7 @@ Object replication requires that the following Azure Storage features are also e
 
 Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
-<<<<<<< HEAD
-Object replication is supported only for general-purpose v2 storage accounts. Both the source and destination accounts must be general-purpose v2.
-=======
 Object replication is supported only for general-purpose v2 storage accounts. Both the source and destination accounts must be general-purpose v2. Object replication supports block blobs only; append blobs and page blobs are not supported.
->>>>>>> b1ea21e594dee73b53307f911d1549876241cc8d
 
 ## How object replication works
 
