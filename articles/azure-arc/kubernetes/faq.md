@@ -32,7 +32,17 @@ If the Azure Arc enabled Kubernetes cluster is on Azure Stack Edge, AKS on Azure
 
 ## How to address expired Azure Arc enabled Kubernetes resources?
 
-The Managed Service Identity (MSI) certificate associated with your Azure Arc enabled Kubernetes has an expiration window of 90 days. Once this certificate expires, the resource is considered `Expired` and all features (such as configuration, monitoring, and policy) stop working on this cluster. To get your Kubernetes cluster working with Azure Arc again:
+The system assigned managed identity associated with your Azure Arc enabled Kubernetes cluster is only used by the Arc agents to communicate with the Azure Arc services. The certificate associated with this system assigned managed identity has an expiration window of 90 days and the agents keep attempting to renew this certificate between Day 46 to Day 90. Once this certificate expires, the resource is considered `Expired` and all features (such as configuration, monitoring, and policy) stop working on this cluster and you'll then need to delete and connect the cluster to Azure Arc once again. It is thus advisable to have the cluster come online at least once between Day 46 to Day 90 time window to ensure renewal of the managed identity certificate.
+
+To check when the certificate is about to expire for any given cluster, run the following command:
+
+```console
+az connectedk8s show -n <name> -g <resource-group>
+```
+
+In the output, the value of the `managedIdentityCertificateExpirationTime` indicates when the managed identity certificate will expire (90D mark for that certificate). 
+
+If the value of `managedIdentityCertificateExpirationTime` indicates a timestamp from the past, then the `connectivityStatus` field in the above output will be set to `Expired`. In such cases, to get your Kubernetes cluster working with Azure Arc again:
 
 1. Delete Azure Arc enabled Kubernetes resource and agents on the cluster. 
 
@@ -47,7 +57,7 @@ The Managed Service Identity (MSI) certificate associated with your Azure Arc en
     ```
 
 > [!NOTE]
-> `az connectedk8s delete` will also delete configurations on top of the cluster. After running `az connectedk8s connect`, recreate the configurations on the cluster, either manually or using Azure Policy.
+> `az connectedk8s delete` will also delete configurations and cluster extensions on top of the cluster. After running `az connectedk8s connect`, recreate the configurations and cluster extensions on the cluster, either manually or using Azure Policy.
 
 ## If I am already using CI/CD pipelines, can I still use Azure Arc enabled Kubernetes and configurations?
 
