@@ -196,7 +196,7 @@ The following table lists the Flexible orchestration mode features and links to 
 | Availability Zones | Optionally specify all instances land in   a single availability zone |
 | Fault Domain - Max spreading (Azure will maximally spread instances) | Yes |
 | Fault Domain - Fixed spreading | 2-3 FDs (depending on regional maximum FD Count), 1 FD for zonal deployments |
-| Update Domains | Deprecated |
+| Update Domains | Deprecated, platform maintenance performed FD by FD |
 | Availability SLA | None (during preview) |
 | Full control over VM, NICs, Disks | Yes |
 | Assign VM to a Specific Fault Domain | Yes |
@@ -225,7 +225,6 @@ The following table lists the Flexible orchestration mode features and links to 
 | Azure Alerts | No |
 | VM Insights | No |
 | Azure Site Recovery |  Yes, via PowerShell |
-| Add/remove existing VM to the group | No |
 | Service Fabric | No |
 | Azure Kubernetes Service (AKS) | No |
 | Trusted Virtual Machines (preview) | Yes |
@@ -235,7 +234,7 @@ The following table lists the Flexible orchestration mode features and links to 
 ### Unsupported parameters
 
 The following virtual machine scale set parameters are not currently supported during Virtual Machine Scale Set Flexible Orchestration Public Preview:
-- Single placement group - ou must choose `singlePlacementGroup=False`.
+- Single placement group - you must choose `singlePlacementGroup=False`.
 - Multi-zone deployment - deployments can either be regional or all VMs in a single zone
 - Deployment using Specialty SKUs: G, H, L, M, N series VM families
 - VMSS Overprovisioning

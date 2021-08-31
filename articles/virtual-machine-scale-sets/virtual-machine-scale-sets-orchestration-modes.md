@@ -101,7 +101,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Availability Zones  | Optionally specify all instances land in a single availability zone  | Specify instances land across 1, 2 or 3 availability zones  | Not supported  |
 | Fault Domain – Max Spreading (Azure will maximally spread instances)  | Yes  | Yes  | No  |
 | Fault Domain – Fixed Spreading  | 2-3 FDs (depending on regional maximum); 1 for zonal deployments  | 2, 3, 5 FDs; 1, 5 for zonal deployments  | 2-3 FDs (depending on regional maximum)  |
-| Update Domains  | Deprecated | 5 update domains  | Up to 20 update domains  |
+| Update Domains  | Deprecated, platform maintenance performed FD by FD | 5 update domains  | Up to 20 update domains  |
 | Availability SLA  | Not at this time  | 99.95% for FD>1 in Single Placement Group; 99.99% for instances spread across multiple zones  | 99.95%  |
 | Full control over VM, NICs, Disks  | Yes  | Limited control with virtual machine scale sets VM API  | Yes  |
 | Automatic Scaling (manual, metrics based, schedule based)  | Yes  | Yes  | No  |
@@ -130,7 +130,6 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | VM Insights  | No  | Yes  | Yes  |
 | Azure Backup  | Yes  | No  | Yes  |
 | Azure Site Recovery  | Yes (via Powershell)  | No  | Yes  |
-| Add/remove existing VM to the group  | No  | No  | No  |
 | Service Fabric  | No  | Yes  | No  |
 | Azure Kubernetes Service (AKS) / AKE  | No  | Yes  | No  |
 
@@ -155,11 +154,11 @@ Register and get started with [Flexible orchestration mode](..\virtual-machines\
     | Placement groups  | Flexible mode always uses multiple placement groups (singlePlacementGroup = false)  | You can choose Single Placement Group or Multiple Placement Groups | N/A  |
     | Update domains  | None, maintenance or host updates are done fault domain by fault domain  | Up to 5 update domains  | Up to 20 update domains  |
 
-- **What is the maximum instance count with guaranteed fault domain availability?**
+- **What is the absolute max instance count with guaranteed fault domain availability?**
 
     | Feature  | Supported by Flexible orchestration (Preview)  | Supported by Uniform orchestration (General Availability)  | Supported by AvSets (General Availability)  |
     |-|-|-|-|
-    | Maximum Instance Count (with FD availability guarantee)  | 1000  | 100  | 200  |
+    | Maximum Instance Count (with FD availability guarantee)  | 1000  | 3000  | 200  |
 
 
 ## Troubleshoot scale sets with Flexible orchestration
