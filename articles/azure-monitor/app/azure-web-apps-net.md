@@ -128,7 +128,7 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 
 ## Troubleshooting
 
-Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET and ASP.NET Core based applications running on Azure App Services.
+Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET based applications running on Azure App Services.
 
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
 2. Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.  
