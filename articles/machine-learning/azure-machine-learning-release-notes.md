@@ -22,8 +22,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.34.0
   + **azureml-automl-core**
-    + Added support for re-fitting a previously trained forecasting pipeline
-    + Added ability to get predictions on the training data (in-sample prediction) for forecasting
+    + Added support for re-fitting a previously trained forecasting pipeline.
+    + Added ability to get predictions on the training data (in-sample prediction) for forecasting.
   + **azureml-automl-runtime**
     + Add support to return predicted probabilities from a deployed endpoint of an AutoML classifier model.
     + Added a forecasting option for users to specify that all predictions should be integers.
