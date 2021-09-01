@@ -35,7 +35,7 @@
       items:
       - name: Build a notification app with Azure Function
         href: tutorial-serverless-notification.md
-      - name: Build a chat app with Azure Function
+      - name: Build a real-time chat app with client authentication
         href: quickstart-serverless.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
