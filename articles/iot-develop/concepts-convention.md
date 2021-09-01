@@ -185,7 +185,13 @@ A device could report an error such as:
 
 ### Object type
 
-If a writable property is defined as an object, the service must send a complete object to the device. The device can acknowledge the update by sending a complete object.
+If a writable property is defined as an object, the service must send a complete object to the device. The device should acknowledge the update by sending sufficient information back to the service for the service to understand how the device has acted on the update. This response could include:
+
+- The entire object.
+- Just the fields that the device updated.
+- A subset of the fields.
+
+For large objects, consider minimizing the size of the object you include in the acknowledgement.
 
 The following example shows a writable property defined as an `Object` with four fields:
 
@@ -254,7 +260,7 @@ The device responds with an acknowledgement that looks like the following:
 
 ### Sample no component writable property
 
-When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads.
+When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads or or combine the responses into a single payload.
 
 A device or module can send any valid JSON that follows the DTDL v2 rules:
 
@@ -269,6 +275,12 @@ DTDL:
     {
       "@type": "Property",
       "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    },
+    {
+      "@type": "Property",
+      "name": "targetHumidity",
       "schema": "double",
       "writable": true
     }
@@ -313,13 +325,16 @@ Sample reported property second payload:
 }
 ```
 
+> [!NOTE]
+> You could choose to combine these two reported property payloads into a single payload.
+
 ### Sample multiple components writable property
 
 The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
 The marker is sent only for updates to properties defined in a component. Updates to properties defined in the default component don't include the marker, see [Sample no component writable property](#sample-no-component-writable-property)
 
-When a device receives multiple reported properties in a single payload, it can send the reported property responses across multiple payloads.
+When a device receives multiple reported properties in a single payload, it can send the reported property responses across multiple payloads or combine the responses into a single payload.
 
 The device or module should confirm that it received the properties by sending reported properties:
 
@@ -403,6 +418,9 @@ Sample reported property second payload:
   }
 }
 ```
+
+> [!NOTE]
+> You could choose to combine these two reported property payloads into a single payload.
 
 ## Commands
 
