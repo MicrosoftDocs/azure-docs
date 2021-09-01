@@ -39,8 +39,6 @@ Instead of using the cloudadmin user to connect services to vCenter, we recommen
 1. Select the confirmation checkbox and then select **Generate password**.
 
 
-
-
 ### [Azure CLI](#tab/azure-cli)
 
 To begin using Azure CLI:
