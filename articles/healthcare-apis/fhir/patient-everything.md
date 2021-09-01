@@ -23,7 +23,7 @@ To call patient-everything, use the following command:
 ```json
 GET {FHIRURL}/Patient/{ID}/$everything
 ```
-The FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
+The FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
 * [Patient resource](https://www.hl7.org/fhir/patient.html) 
 * Resources that are directly referenced by the Patient resource (except link) 
 * Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)

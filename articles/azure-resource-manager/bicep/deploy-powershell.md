@@ -34,7 +34,7 @@ You can target your deployment to a resource group, subscription, management gro
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-bicep>
   ```
 
-- To deploy to a **subscription**, use [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment) which is an alias of the `New-AzDeployment` cmdlet:
+- To deploy to a **subscription**, use [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment), which is an alias of the `New-AzDeployment` cmdlet:
 
   ```azurepowershell
   New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-bicep>
@@ -70,7 +70,7 @@ If you're deploying to a resource group that doesn't exist, create the resource 
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-To deploy a local Bicep file, use the `-TemplateFile` parameter in the deployment command. 
+To deploy a local Bicep file, use the `-TemplateFile` parameter in the deployment command.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -152,7 +152,7 @@ Before deploying your Bicep file, you can preview the changes the Bicep file wil
 
 ## Deploy template specs
 
-Currently, Azure PowerShell doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep). You can also build your Bicep file into an ARM template JSON by using the Bicep CLI, and then create a template spec with the JSON template.
+Currently, Azure PowerShell doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. The [Create template spec sample](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) shows how to create a template spec in a Bicep file. You can also build your Bicep file into an ARM template JSON by using the Bicep CLI, and then create a template spec with the JSON template.
 
 ## Deployment name
 

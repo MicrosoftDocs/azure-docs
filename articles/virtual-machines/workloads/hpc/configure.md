@@ -13,7 +13,9 @@ ms.reviewer: cynthn
 
 # Configure and optimize VMs
 
-This article shares some guidance on configuring and optimizing the InfiniBand enabled [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs for HPC.
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
+This article shares some guidance on configuring and optimizing the InfiniBand-enabled [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs for HPC.
 
 ## VM images
 On InfiniBand (IB) enabled VMs, the appropriate drivers are required to enable RDMA.

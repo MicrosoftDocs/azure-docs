@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # How to detach a data disk from a Windows virtual machine
 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage.
 
 > [!WARNING]

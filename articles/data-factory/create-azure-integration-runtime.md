@@ -5,7 +5,7 @@ description: Learn how to create Azure integration runtime in Azure Data Factory
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 08/24/2021
 author: lrtoyou1223
 ms.author: lle 
 ms.custom: devx-track-azurepowershell, synapse
@@ -51,8 +51,6 @@ Use the following steps to create an Azure IR using UI.
 
     :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="The home page Manage button":::
 
----
-
 2. Select **Integration runtimes** on the left pane, and then select **+New**.
 
     # [Azure Data Factory](#tab/data-factory)
@@ -62,8 +60,6 @@ Use the following steps to create an Azure IR using UI.
     # [Azure Synapse](#tab/synapse-analytics)
 
     :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Screenshot that highlights Integration runtimes in the left pane and the +New button.":::
-
----
 
 3. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
 

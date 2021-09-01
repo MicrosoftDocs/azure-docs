@@ -2,7 +2,7 @@
 title: Create an account in the Azure portal
 description: Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud.
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 08/31/2021
 ms.custom: subject-rbac-steps
 
 ---
@@ -81,7 +81,7 @@ When creating your first Batch account in user subscription mode, you need to re
 
 1. Return to the **Subscription** page, then select **Access control (IAM)**.
 
-1. Assign the **Contributor** or **Owner** role to the Batch API. You can find this account by searching for **Microsoft Azure Batch** or **MicrosoftAzureBatch**. (The Object ID for the Batch API is **f520d84c-3fd3-4cc8-88d4-2ed25b00d27a**, and the Application ID is **ddbf3205-c6bd-46ae-8127-60eb93363864**.)
+1. Assign the **Contributor** or **Owner** role to the Batch API. You can find this account by searching for **Microsoft Azure Batch**. (The Application ID for this account is **ddbf3205-c6bd-46ae-8127-60eb93363864**.)
 
    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
