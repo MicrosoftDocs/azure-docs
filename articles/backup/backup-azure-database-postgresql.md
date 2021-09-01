@@ -303,7 +303,7 @@ Refer to [this document](https://download.microsoft.com/download/7/4/d/74d689aa-
 Establish network line of sight by enabling the **Allow access to Azure services** flag in the server view. In the server view, under the **Connection security** pane, set the **Allow access to Azure services** flag to **Yes**.
 
 >[!Note]
->Ensure that you set the **Deny public network access** flag to **No**, otherwise, it will not allow you to enabling the **Allow access to Azure services** flag.
+>Before you enable this flag, ensure that you set the **Deny public network access** flag to **No**.
 
 ![Allow access to Azure services](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 
