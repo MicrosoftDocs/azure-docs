@@ -5375,17 +5375,17 @@
     },
     {
       "source_path_from_root": "/articles/automation/automation-quickstart-create-account.md",
-      "redirect_url": "/azure/automation/quickstarts/create-account-portal.md",
+      "redirect_url": "/azure/automation/quickstarts/create-account-portal",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/automation/automation-quickstart-create-runbook.md",
-      "redirect_url": "/azure/automation/quickstarts/create-powershell-runbook.md",
+      "redirect_url": "/azure/automation/quickstarts/create-powershell-runbook",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/automation/automation-quickstart-dsc-configuration.md",
-      "redirect_url": "/azure/automation/quickstarts/dsc-configuration.md",
+      "redirect_url": "/azure/automation/quickstarts/dsc-configuration",
       "redirect_document_id": false
     },
     {
