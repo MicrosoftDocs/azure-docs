@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/31/2021
+ms.date: 09/01/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
@@ -53,6 +53,10 @@ Follow these steps to make a user eligible for an Azure AD admin role.
     - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
 
 1. To specify a specific assignment duration, add a start and end date and time boxes. When finished, select **Assign** to create the new role assignment.
+
+    - **Permanent** assignments have no expiration date. Use this option for permanent workers who frequently need the role permissions.
+
+    - **Time-bound** assignments will expire at the end of a specified period. Use this option with contract or vendor workers, for example, whose project end date and time are known.
 
     ![Memberships settings - date and time](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
