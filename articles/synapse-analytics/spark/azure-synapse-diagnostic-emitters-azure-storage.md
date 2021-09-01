@@ -21,7 +21,7 @@ In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitt
 
 ### Step 1: Create a storage account
 
-To collect diagnostic logs and metrics to storage account, you can use existing Azure Storage accounts. Or if you don't have one, you can [create an Azure blob storage account](../../azure/storage/common/storage-account-create.md) or [create a storage account to use with Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
+To collect diagnostic logs and metrics to storage account, you can use existing Azure Storage accounts. Or if you don't have one, you can [create an Azure blob storage account](../../storage/common/storage-account-create.md) or [create a storage account to use with Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
 
 ### Step 2: Create a Apache Spark configuration file
 
@@ -120,5 +120,4 @@ Azure Synapse Analytics workspaces support enabling data exfiltration protection
 [Key Vault](https://azure.microsoft.com/services/key-vault/)
 [Spark Metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics)
 [Synapse Spark Diagnostic Emitter Configuration Samples](https://go.microsoft.com/fwlink/?linkid=2169375)
-[Understanding block blobs, append blobs, and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 [Synapse Managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
