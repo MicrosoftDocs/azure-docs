@@ -125,7 +125,7 @@ The virtual sensor supports both VMware, and Hyper-V deployment options. Before 
 
 1. Choose the relevant datastore and select **Next**.
 
-1. Change the virtual hardware parameters according to the required [architecture](#create-and-install-the-virtual-sensor).
+1. Change the virtual hardware parameters according to the required [architecture](#download-the-iso-for-the-virtual-sensor).
 
 1. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
 
@@ -149,7 +149,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Enter the name and location for the VHD.
 
-1. Enter the required size (according to the [architecture](#create-and-install-the-virtual-sensor)).
+1. Enter the required size (according to the [architecture](#download-the-iso-for-the-virtual-sensor)).
 
 1. Review the summary and select **Finish**.
 
@@ -159,7 +159,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Select **Specify Generation** > **Generation 1**.
 
-1. Specify the memory allocation (according to the [architecture](#create-and-install-the-virtual-sensor)) and select the check box for dynamic memory.
+1. Specify the memory allocation (according to the [architecture](#download-the-iso-for-the-virtual-sensor)) and select the check box for dynamic memory.
 
 1. Configure the network adaptor according to your server network topology.
 
@@ -173,7 +173,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Select the virtual switch that will connect to the sensor management network.
 
-1. Allocate CPU resources (according to the [architecture](#create-and-install-the-virtual-sensor)).
+1. Allocate CPU resources (according to the [architecture](#download-the-iso-for-the-virtual-sensor)).
 
 1. Connect the management console's ISO image to a virtual DVD drive.
 
@@ -191,13 +191,13 @@ Either ESXi, or Hyper-V can be used to install the software for the virtual sens
 
 1. The VM will start from the ISO image, and the language selection screen will appear. Select **English**.
 
-1. Select the required [architecture](#create-and-install-the-virtual-sensor).
+1. Select the required [architecture](#download-the-iso-for-the-virtual-sensor).
 
 1. Define the appliance profile and network properties:
 
     | Parameter | Configuration |
     | ----------| ------------- |
-    | **Hardware profile** | Based on the required [architecture](#create-and-install-the-virtual-sensor). |
+    | **Hardware profile** | Based on the required [architecture](#download-the-iso-for-the-virtual-sensor). |
     | **Management interface** | **ens192** |
     | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
     | **bridge interfaces:** | There's no need to configure the bridge interface. This option is for special use cases only. |
