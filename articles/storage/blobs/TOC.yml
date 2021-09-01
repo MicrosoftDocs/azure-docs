@@ -474,8 +474,12 @@ items:
           href: archive-rehydrate-to-online-tier.md
         - name: Handle an event on blob rehydration
           href: archive-rehydrate-handle-event.md
-    - name: Configure object replication
-      href: object-replication-configure.md
+    - name: Manage object replication
+      items:
+      - name: Configure object replication policies
+        href: object-replication-configure.md
+      - name: Prevent object replication across tenants
+        href: object-replication-prevent-cross-tenant-policies.md  
     - name: Manage concurrency
       href: concurrency-manage.md
     - name: Use a storage emulator
