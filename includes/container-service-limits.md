@@ -23,6 +23,11 @@ ms.custom: include file
 
 <sup>1</sup>The OSM add-on for AKS is in a preview state and will undergo additional enhancements before general availability (GA). During the preview phase, it's recommended to not surpass the limits shown.<br />
 
+| Kubernetes Control Plane Limits                                                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Clusters on paid tier                                                                                  | Automatically scales out based on the load                                                                                                                                                                                                        |
+| Clusters on free tier                       | Limited resources with inflight requests limit of 25 mutating and 50 read-only calls                                                                                                                                                                                                         |
+
 > [!IMPORTANT]
 > We recommend customers to enable Uptime SLA tier for production and performance/load testing workloads. Uptime SLA tier enables autoscaling of the Kubernetes control plane and is required to support clusters with production workloads within [the Uptime SLA](../articles/aks/uptime-sla.md).
 
