@@ -3,7 +3,7 @@ title: Configure a custom container
 description: Learn how to configure a custom container in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.topic: article
-ms.date: 02/23/2021 
+ms.date: 08/25/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -30,8 +30,8 @@ This guide provides key concepts and instructions for containerization of Linux 
 
 For your custom Windows image, you must choose the right [parent image (base image)](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want:
 
-- To deploy .NET Framework apps, use a parent image based on the Windows Server Core [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) release. 
-- To deploy .NET Core apps, use a parent image based on the Windows Server Nano [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) release. 
+- To deploy .NET Framework apps, use a parent image based on the Windows Server 2019 Core [Long-Term Servicing Channel (LTSC)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) release. 
+- To deploy .NET Core apps, use a parent image based on the Windows Server 2019 Nano [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started/servicing-channels-comparison#semi-annual-channel) release. 
 
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
@@ -382,6 +382,7 @@ Multi-container is currently in preview. The following App Service platform feat
 - Managed Identities
 - CORS
 - VNET integration is not supported for Docker Compose scenarios
+- Docker Compose on Azure App Services currently has a limit of 4,000 characters at this time.
 
 ### Docker Compose options
 
@@ -427,4 +428,5 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 Or, see additional resources:
 
-[Load certificate in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)
+- [Environment variables and app settings reference](reference-app-settings.md)
+- [Load certificate in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/28/2020
+ms.date: 07/30/2021
 ms.author: jeedes
 
 ---
@@ -29,11 +29,14 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Prolorus single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Prolorus supports **SP** initiated SSO
+* Prolorus supports **SP** initiated SSO.
 
 ## Adding Prolorus from the gallery
 
@@ -45,7 +48,6 @@ To configure the integration of Prolorus into Azure AD, you need to add Prolorus
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Prolorus** in the search box.
 1. Select **Prolorus** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Prolorus
 
@@ -66,7 +68,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Prolorus** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -127,11 +129,11 @@ In this section, you create a user called Britta Simon in Prolorus. Work with th
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to Prolorus Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Prolorus Sign-on URL where you can initiate the login flow. 
 
-2. Go to Prolorus Sign-on URL directly and initiate the login flow from there.
+* Go to Prolorus Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Prolorus tile in the Access Panel, this will redirect to Prolorus Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Prolorus tile in the My Apps, this will redirect to Prolorus Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

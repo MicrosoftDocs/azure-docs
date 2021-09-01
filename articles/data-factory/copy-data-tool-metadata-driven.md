@@ -117,9 +117,10 @@ Each row in control table contains the metadata for one object (for example, one
 | CopySinkSettings | Metadata of sink property in copy activity. It can be preCopyScript, tableOption etc. Here is an [example](connector-azure-sql-database.md#azure-sql-database-as-the-sink). |
 | CopyActivitySettings | Metadata of translator property in copy activity. It is used to define column mapping. |
 | TopLevelPipelineName | Top Pipeline name, which can copy this object. |
-| TriggerName | Trigger name, which can trigger the pipeline to copy this object. |
+| TriggerName | Trigger name, which can trigger the pipeline to copy this object. If debug run, the name is Sandbox. If manual execution, the name is Manual. If scheduled run, the name is the associated trigger name. It can be input multiple names. |
 | DataLoadingBehaviorSettings |Full load vs. delta load. |
 | TaskId | The order of objects to be copied following the TaskId in control table (ORDER BY [TaskId] DESC). If you have huge amounts of objects to be copied but only limited concurrent number of copied allowed, you can change the TaskId for each object to decide which objects can be copied earlier. The default value is 0. |
+| CopyEnabled | Specify if the item is enabled in data ingestion process. Allowed values: 1 (enabled), 0 (disabled). Default value is 1. |
 
 ### Connection control table
 Each row in control table contains one connection setting for the data store.
@@ -198,7 +199,7 @@ This pipeline will copy objects from one group. The objects belonging to this gr
 ### Known limitations
 - Copy data tool does not support metadata driven ingestion for incrementally copying new files only currently. But you can bring your own parameterized pipelines to achieve that.
 - IR name, database type, file format type cannot be parameterized in ADF. For example, if you want to ingest data from both Oracle Server and SQL Server, you will need two different parameterized pipelines. But the single control table can be shared by two sets of pipelines. 
-
+- OPENJSON is used in generated SQL scripts by copy data tool. If you are using SQL Server to host control table, it must be SQL Server 2016 (13.x) and later in order to support OPENJSON function.
 
 
 ## Next steps

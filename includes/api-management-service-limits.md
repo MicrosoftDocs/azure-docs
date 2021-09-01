@@ -8,7 +8,7 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 06/09/2021
+ms.date: 08/20/2021
 ms.author: vlvinogr
 ms.custom: include file
 ---
@@ -28,11 +28,12 @@ ms.custom: include file
 | Maximum number of APIs per service instance<sup>8</sup> | 50 |
 | Maximum number of API management operations per service instance<sup>8</sup> | 1,000 |
 | Maximum total request duration<sup>8</sup> | 30 seconds |
+| Maximum request payload size<sup>8</sup> | 1 GiB |
 | Maximum buffered payload size<sup>8</sup> | 2 MiB |
-| Maximum request URL size<sup>9</sup> | 4096 bytes |
+| Maximum request URL size<sup>9</sup> | 16384 bytes |
 | Maximum length of URL path segment<sup>10</sup> | 260 characters |
 | Maximum size of API schema used by [validation policy](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 MB |
-| Maximum size of request or response body in [validate-content policy](../articles/api-management/validation-policies.md#validate-content) | 100 KB |
+| Maximum size of request or response body in [validate-content policy](../articles/api-management/validation-policies.md#validate-content)<sup>10</sup> | 100 KB |
 | Maximum number of self-hosted gateways<sup>11</sup> | 25 |
 
 <sup>1</sup>Scaling limits depend on the pricing tier. For details on the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>

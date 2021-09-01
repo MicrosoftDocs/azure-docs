@@ -8,7 +8,7 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: article
-  ms.date: 05/11/2021
+  ms.date: 07/21/2021
   ms.author: alkohli
   ms.custom: references_regions
     
@@ -298,6 +298,11 @@ sections:
           I ordered a Data Box in US East but I received a device that was shipped from a location in US West. Where should I return the device to?
         answer: |
           We try to get a Data Box device to you as quickly as possible. We prioritize the shipment from a datacenter closest to your storage account location but will ship a device from any Azure datacenter that has available inventory. Your Data Box should be returned to the same location where it was shipped from as displayed in the shipping label.
+
+      - question: |
+          I need to ship a Data Box to Puerto Rico. Are there any special requirements?
+        answer: |
+          If you need to have a device shipped to Puerto Rico, email [adbops@microsoft.com](mailto:adbops@microsoft.com) for instructions. You'll be asked to create an order using a United States address but provide the Operations team a Puerto Rico address via email. Shipping a device to Puerto Rico doesn't add any extra shipping cost from UPS.
 
       - question: |
           E-ink display is not showing the return shipment label. What should I do?

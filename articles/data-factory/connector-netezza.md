@@ -1,10 +1,13 @@
 ---
 title: Copy data from Netezza by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Netezza to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
 ---
 # Copy data from Netezza by using Azure Data Factory
@@ -35,7 +38,32 @@ Azure Data Factory provides a built-in driver to enable connectivity. You don't 
 
 ## Get started
 
-You can create a pipeline that uses a copy activity by using the .NET SDK, the Python SDK, Azure PowerShell, the REST API, or an Azure Resource Manager template. See the [Copy Activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions on how to create a pipeline that has a copy activity.
+You can create a pipeline that uses a copy activity by using the .NET SDK, the Python SDK, Azure PowerShell, the REST API, or an Azure Resource Manager template. See the [Copy Activity tutorial](quickstart-create-data-factory-dot-net.md)for step-by-step instructions to create a pipeline with a copy activity.
+
+## Create a linked service to Netezza using UI
+
+Use the following steps to create a linked service to Netezza in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Netezza and select the Netezza connector.
+
+   :::image type="content" source="media/connector-netezza/netezza-connector.png" alt-text="Screenshot of the Netezza connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-netezza/configure-netezza-linked-service.png" alt-text="Screenshot of linked service configuration for Netezza.":::
+
+## Connector configuration details
 
 The following sections provide details about properties you can use to define Data Factory entities that are specific to the Netezza connector.
 

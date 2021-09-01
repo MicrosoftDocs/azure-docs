@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 10/20/2020
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.custom: how-to
 ---
@@ -83,7 +83,7 @@ It's also possible to use a custom Dockerfile. Use this approach if you need to 
 ```python 
 # Specify Docker steps as a string. 
 dockerfile = r"""
-FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1
 RUN echo "Hello from custom container!"
 """
 
@@ -98,8 +98,8 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 
 >[!IMPORTANT]
 > Azure Machine Learning only supports Docker images that provide the following software:
-> * Ubuntu 16.04 or greater.
-> * Conda 4.5.# or greater.
+> * Ubuntu 18.04 or greater.
+> * Conda 4.7.# or greater.
 > * Python 3.6+.
 > * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
@@ -136,6 +136,11 @@ except ComputeTargetException:
 # Use get_status() to get a detailed status for the current AmlCompute.
 print(compute_target.get_status().serialize())
 ```
+
+
+>[!IMPORTANT]
+>Use CPU SKUs for any image build on compute. 
+
 
 ## Configure your training job
 

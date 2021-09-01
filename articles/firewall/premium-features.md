@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 08/10/2021
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -20,9 +20,6 @@ ms.custom: references_regions
 :::image type="content" source="media/premium-features/premium-overview.png" alt-text="Azure Firewall Premium overview diagram":::
 
 Azure Firewall Premium uses Firewall Policy, a global resource that can be used to centrally manage your firewalls using Azure Firewall Manager. Starting this release, all new features are configurable via Firewall Policy only. Firewall Rules (classic) continue to be supported and can be used to configure existing Standard Firewall features.  Firewall Policy can be managed independently or with Azure Firewall Manager. A firewall policy associated with a single firewall has no charge.
-
-> [!IMPORTANT]
-> Currently the Firewall Premium SKU is  not supported in Secure Hub deployments and forced tunnel configurations. 
 
 Azure Firewall Premium includes the following features:
 
@@ -49,7 +46,7 @@ Azure Firewall Premium provides signature-based IDPS to allow rapid detection of
 
 The Azure Firewall signatures/rulesets include:
 - An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
-- Over 35,000 rules in over 50 categories.
+- Over 55,000 rules in over 50 categories.
     - The categories include malware command and control, DoS attacks, botnets, informational events, exploits, vulnerabilities, SCADA network protocols, exploit kit activity, and more.
 - 20 to 40+ new rules are released each day.
 - Low false positive rating by using state-of-the-art malware sandbox and global sensor network feedback loop.
@@ -95,6 +92,7 @@ Azure Firewall Premium is supported in the following regions:
 - Australia East (Public / Australia)
 - Australia Southeast (Public / Australia)
 - Brazil South (Public / Brazil)
+- Brazil Southeast (Public / Brazil)
 - Canada Central (Public / Canada)
 - Canada East (Public / Canada)
 - Central India (Public / India)

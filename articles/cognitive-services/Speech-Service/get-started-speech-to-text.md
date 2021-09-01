@@ -3,13 +3,13 @@ title: "Speech-to-text quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Speech SDK to convert speech-to-text. In this quickstart, you learn about object construction, supported audio input formats, and configuration options for speech recognition.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/15/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-twenty-three
 keywords: speech to text, speech to text software

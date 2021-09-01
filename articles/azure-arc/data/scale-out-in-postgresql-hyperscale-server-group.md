@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -44,12 +44,12 @@ The scenario uses a sample of publicly available GitHub data, available from the
 ##### List the connection information
 Connect to your Azure Arc-enabled PostgreSQL Hyperscale server group by first getting the connection information:
 The general format of this command is
-```console
-azdata arc postgres endpoint list -n <server name>
+```azurecli
+az postgres arc-server endpoint list -n <server name>  --k8s-namespace <namespace> --use-k8s
 ```
 For example:
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01  --k8s-namespace <namespace> --use-k8s
 ```
 
 Example output:
@@ -148,20 +148,20 @@ Make a note of the query execution time.
 
 ## Scale out
 The general format of the scale-out command is:
-```console
-azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
+```azurecli
+az postgres arc-server edit -n <server group name> -w <target number of worker nodes> --k8s-namespace <namespace> --use-k8s
 ```
 
 
 In this example, we increase the number of worker nodes from 2 to 4, by running the following command:
 
-```console
-azdata arc postgres server edit -n postgres01 -w 4
+```azurecli
+az postgres arc-server edit -n postgres01 -w 4 --k8s-namespace <namespace> --use-k8s 
 ```
 
 Upon adding  nodes, and you'll see a Pending state for the server group. For example:
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 ```console
@@ -175,10 +175,12 @@ Once the nodes are available, the Hyperscale Shard Rebalancer runs automatically
 ### Verify the new shape of the server group (optional)
 Use either of the methods below to verify that the server group is now using the additional worker nodes you added.
 
-#### With azdata:
+#### With Azure CLI (az):
+
 Run the command:
-```console
-azdata arc postgres server list
+
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 It returns the list of server groups created in your namespace and indicates their number of worker nodes. For example:
@@ -236,8 +238,8 @@ Note the execution time.
 To scale in (reduce the number of worker nodes in your server group), you use the same command as to scale out but you indicate a smaller number of worker nodes. The worker nodes that are removed are the latest ones added to the server group. When you run this command, the system moves the data out of the nodes that are removed and redistributes (rebalances) it automatically to the remaining nodes. 
 
 The general format of the scale-in command is:
-```console
-azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
+```azurecli
+az postgres arc-server edit -n <server group name> -w <target number of worker nodes> --k8s-namespace <namespace> --use-k8s
 ```
 
 

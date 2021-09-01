@@ -152,7 +152,7 @@ The RDB persistence backup frequency interval doesn't start until the previous b
 
 ### What happens to the old RDB backups when a new backup is made?
 
-All RDB persistence backups, except for the most recent one, are automatically deleted. This deletion might not happen immediately, but older backups aren't persisted indefinitely.
+All RDB persistence backups, except for the most recent one, are automatically deleted. This deletion might not happen immediately, but older backups aren't persisted indefinitely. Note that if soft delete is turned on for your storage account, the soft delete setting applies and existing backups continue to reside in the soft delete state.
 
 ### When should I use a second storage account?
 
@@ -189,7 +189,7 @@ Data stored in AOF files is divided into multiple page blobs per node to increas
 
 When clustering is enabled, each shard in the cache has its own set of page blobs, as indicated in the previous table. For example, a P2 cache with three shards distributes its AOF file across 24 page blobs (eight blobs per shard, with three shards).
 
-After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the background and append to the first set of files. Set operations, sent to the cache during the rewrite, append to the second set. A backup is temporarily stored during rewrites if there's a failure. The backup is promptly deleted after a rewrite finishes.
+After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the background and append to the first set of files. Set operations, sent to the cache during the rewrite, append to the second set. A backup is temporarily stored during rewrites if there's a failure. The backup is promptly deleted after a rewrite finishes. Note that if soft delete is turned on for your storage account, the soft delete setting applies and existing backups continue to reside in the soft delete state.
 
 ### Will I be charged for the storage being used in Data Persistence?
 

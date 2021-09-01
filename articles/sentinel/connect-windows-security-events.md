@@ -22,17 +22,28 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-The Windows Security Events connector lets you stream security events from any Windows server (physical or virtual, on-premises or in any cloud) connected to your Azure Sentinel workspace. This enables you to view Windows security events in your dashboards, to use them in creating custom alerts, and to rely on them to improve your investigations, giving you more insight into your organization's network and expanding your security operations capabilities. 
+The Windows Security Events connector lets you stream security events from any Windows server (physical or virtual, on-premises or in any cloud) connected to your Azure Sentinel workspace. This enables you to view Windows security events in your dashboards, to use them in creating custom alerts, and to rely on them to improve your investigations, giving you more insight into your organization's network and expanding your security operations capabilities.
 
-There are now two versions of this connector: **Security events** is the legacy version, based on the Log Analytics Agent (sometimes known as the MMA or OMS agent), and **Windows Security Events** is the new version, currently in **preview** and based on the new Azure Monitor Agent (AMA). This document presents information on both connectors. You can choose from the tabs below to see the information relevant to your chosen connector.
+## Connector options
+
+The Windows Security Events connector supports the following versions:
+
+|Connector version  |Description  |
+|---------|---------|
+|**Security events**     |Legacy version, based on the Log Analytics Agent, and sometimes known as the Microsoft Monitoring Agent (MMA) or the OMS agent. <br><br>Limited to 10,000 events per second. To ensure optimal performance, make sure to keep to 8,500 events per second or fewer.       |
+|**Windows Security Events**     |Newer version, currently in preview, and based on the Azure Monitor Agent (AMA.)   <br><br>Supports additional features, such as pre-ingestion log filtering and individual data collection rules for certain groups of machines.      |
+|     |         |
+
 
 > [!NOTE]
-> To collect security events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) installed and enabled *before* you enable either of these connectors.
+> The MMA for Linux does not support multi-homing, which sends logs to multiple workspaces. If you require multi-homing, we recommend that you use the **Windows Security Events** connector.
+
+> [!TIP]
+> If you need multiple agents, you may want to use a virtual machine scale that's set to run multiple agents for log ingestion, or use several machines. Both the Security events and Windows Security events connector can then be used with a load balancer to ensure that the machines are not overloaded, and to prevent data duplication.
 >
-> This includes:
-> - Windows servers installed on physical machines
-> - Windows servers installed on on-premises virtual machines
-> - Windows servers installed on virtual machines in non-Azure clouds
+
+This article presents information on both versions of the connector. Select from the tabs below to view the information relevant to your selected connector.
+
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 
@@ -66,9 +77,19 @@ Besides the pre-selected sets of events (**All events**, **Minimal**, or **Commo
 This document shows you how to create data collection rules.
 
 > [!NOTE]
-> **Coexistence with other agents**
+> - **Coexistence with other agents**
 > 
-> The Azure Monitor agent can coexist with the existing agents, so you can continue to use the legacy connector during evaluation or migration. This is particularly important while the new connector is in preview,due to the limited support for existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention.
+>   The Azure Monitor agent can coexist with the existing agents, so you can continue to use the legacy connector during evaluation or migration. This is particularly important while the new connector is in preview,due to the limited support for existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention.
+> 
+> - **Collect security events from non-Azure machines**
+> 
+>   To collect security events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) installed and enabled *before* you enable the Azure Monitor Agent-based connector.
+>   
+>   This includes:
+>   
+>    - Windows servers installed on physical machines
+>    - Windows servers installed on on-premises virtual machines
+>    - Windows servers installed on virtual machines in non-Azure clouds
 
 ---
 
@@ -78,7 +99,7 @@ To collect your Windows security events in Azure Sentinel:
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, click on **Security Events**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Security Events**, and then **Open connector page** on the details pane. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
 1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
@@ -86,13 +107,13 @@ To collect your Windows security events in Azure Sentinel:
 
     For Azure Virtual Machines:
     
-    1. Click on **Install agent on Azure Windows Virtual Machine**, and then on the link that appears below.
-    1. For each virtual machine that you want to connect, click on its name in the list that appears on the right, and then click **Connect**.
+    1. Select **Install agent on Azure Windows Virtual Machine**, and then on the link that appears below.
+    1. For each virtual machine that you want to connect, select its name in the list that appears on the right, and then select **Connect**.
 
     For non-Azure Windows machines (physical, virtual on-prem, or virtual in another cloud):
 
-    1. Click on **Install agent on non-Azure Windows Machine**, and then on the link that appears below.
-    1. Click on the appropriate download links that appear on the right, under **Windows Computers**.
+    1. Select **Install agent on non-Azure Windows Machine**, and then on the link that appears below.
+    1. Select the appropriate download links that appear on the right, under **Windows Computers**.
     1. Using the downloaded executable file, install the agent on the Windows systems of your choice, and configure it using the **Workspace ID and Keys** that appear below the download links mentioned above.
 
     > [!NOTE]
@@ -105,13 +126,13 @@ To collect your Windows security events in Azure Sentinel:
 
 1. Select which event set (All, Common, or Minimal) you want to stream. See the [lists of event IDs included](#event-id-reference) in the Minimal and Common event sets.
 
-1. Click **Update**.
+1. Select **Update**.
 
 1. To use the relevant schema in Log Analytics for Windows security events, type `SecurityEvent` in the query window.
 
 # [Azure Monitor Agent (New)](#tab/AMA)
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, click on **Windows Security Events (Preview)**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Windows Security Events (Preview)**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
 1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
@@ -152,7 +173,7 @@ You'll see all your data collection rules (including those created through the A
 
 ### Create data collection rules using the API
 
-You can also create data collection rules using the API ([see schema](/rest/api/monitor/data-collection-rules)), which can make life easier if you're creating a lot of rules (if you're an MSSP, for example). Here's an example you can use as a template for creating a rule:
+You can also create data collection rules using the API ([see schema](/rest/api/monitor/data-collection-rules)), which can make life easier if you're creating many rules (if you're an MSSP, for example). Here's an example you can use as a template for creating a rule:
 
 **Request URL and header**
 
@@ -227,7 +248,7 @@ Azure Sentinel can apply machine learning (ML) to Security events data to identi
 
 1. You must be collecting RDP login data (Event ID 4624) through the **Security events** or **Windows Security Events** data connectors. Make sure you have selected an [event set](#event-id-reference) besides "None", or created a data collection rule that includes this event ID, to stream into Azure Sentinel.
 
-1. From the Azure Sentinel portal, click **Analytics**, and then click the **Rule templates** tab. Choose the **(Preview) Anomalous RDP Login Detection** rule, and move the **Status** slider to **Enabled**.
+1. From the Azure Sentinel portal, select **Analytics**, and then select the **Rule templates** tab. Choose the **(Preview) Anomalous RDP Login Detection** rule, and move the **Status** slider to **Enabled**.
 
     > [!NOTE]
     > As the machine learning algorithm requires 30 days' worth of data to build a baseline profile of user behavior, you must allow 30 days of Windows Security events data to be collected before any incidents can be detected.
@@ -244,6 +265,6 @@ The following list provides a complete breakdown of the Security and App Locker 
 
 ## Next steps
 In this document, you learned how to connect Windows security events to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started detecting threats with Azure Sentinel, using [built-in](tutorial-detect-threats-built-in.md) or [custom](tutorial-detect-threats-custom.md) rules.
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started detecting threats with Azure Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.
 

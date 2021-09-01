@@ -36,9 +36,9 @@ Before scoring for relevance, content must be reduced to a manageable number of 
 
 Each document is now represented by a single long string.
 
+The string is composed of tokens, not characters or words. The maximum token count is 128 unique tokens. For estimation purposes, you can assume that 128 tokens is roughly equivalent to a string that is 128 words in length. 
+
 > [!NOTE]
-> The string is composed of tokens, not characters or words. The maximum token count is 128 unique tokens. For estimation purposes, you can assume that 128 tokens is roughly equivalent to a string that is 128 words in length. 
->
 >Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from searchFields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
 
 ## Extraction

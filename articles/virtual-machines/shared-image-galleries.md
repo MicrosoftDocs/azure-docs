@@ -14,6 +14,8 @@ ms.reviewer: cynthn
 ---
 # Shared Image Galleries overview
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Shared Image Gallery is a service that helps you build structure and organization around your images. Shared Image Galleries provide:
 
 - Global replication of images.
@@ -186,7 +188,7 @@ The following SDKs support creating Shared Image Galleries:
 
 - [.NET](/dotnet/api/overview/azure/virtualmachines/management)
 - [Java](/java/azure/)
-- [Node.js](/javascript/api/@azure/arm-compute)
+- [Node.js](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)
 - [Go](/azure/go/)
 

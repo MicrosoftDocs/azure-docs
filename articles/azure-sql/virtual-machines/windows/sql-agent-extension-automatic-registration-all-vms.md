@@ -6,10 +6,10 @@ ms.author: mathoma
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: management
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020 
+ms.date: 9/01/2021 
 ms.custom: devx-track-azurepowershell
 ---
 # Automatic registration with SQL IaaS Agent extension
@@ -18,6 +18,9 @@ ms.custom: devx-track-azurepowershell
 Enable the automatic registration feature in the Azure portal to automatically register all current and future SQL Server on Azure Virtual Machines (VMs) with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) in lightweight mode. 
 
 This article teaches you to enable the automatic registration feature. Alternatively, you can [register a single VM](sql-agent-extension-manually-register-single-vm.md), or [register your VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md) with the SQL IaaS Agent extension. 
+
+> [!NOTE]
+> Starting in September 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
 
 ## Overview
 
@@ -82,7 +85,7 @@ You can enable the automatic registration feature for multiple Azure subscriptio
 
 To do so, follow these steps:
 
-1. Save [this script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/AutoRegTools.psm1).
+1. Save [this script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/EnableBySubscription.ps1).
 1. Navigate to where you saved the script by using an administrative Command Prompt or PowerShell window. 
 1. Connect to Azure (`az login`).
 1. Execute the script, passing in SubscriptionIds as parameters such as   

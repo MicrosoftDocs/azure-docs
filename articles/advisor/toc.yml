@@ -21,6 +21,10 @@
   items:
   - name: Get started with Advisor
     href: advisor-get-started.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: How-to guides
   items:
   - name: Reliability

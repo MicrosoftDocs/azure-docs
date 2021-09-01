@@ -14,6 +14,8 @@ ms.reviewer: tigorman
 
 # Design and implement an Oracle database in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 ## Assumptions
 
 - You're planning to migrate an Oracle database from on-premises to Azure.
