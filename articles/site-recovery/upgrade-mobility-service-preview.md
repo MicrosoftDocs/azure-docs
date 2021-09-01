@@ -11,12 +11,13 @@ ms.date: 09/01/2021
 
 From this preview, you do not need to maintain source machine's Root/Admin credentials are not required for performing upgrades. The credentials are required only for the initial installation of the agent. Once done, you can remove the credentials.
 
-> [!NOTE]
-> If you are using private preview bits, automatic updates are blocked for the protected machines. Ensure that you setup Site Recovery on your machine again, using a fresh Preview appliance.
 
 ## Update mobility agent automatically
 
 By default, automatic updates are enabled on a vault. Automatic updates will be triggered at 12:00 AM local time every day, if a new version is available.
+
+> [!NOTE]
+> If you are using private preview bits, automatic updates are blocked for the protected machines. Ensure that you setup Site Recovery on your machine again, using a fresh Preview appliance.
 
 To avail the latest features, enhancements and fixes, we recommend you to choose **Allow Site Recovery to manage** option on the **Mobility agent upgrade settings (Preview)**. Automatic updates do not require a reboot or affect on-going replication of your virtual machines. Automatic updates also ensure that all the replication appliances in the vault are automatically updated.
 
