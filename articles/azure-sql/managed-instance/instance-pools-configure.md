@@ -55,7 +55,7 @@ For operations related to instances both inside pools and single instances, use 
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../azure-cli-prepare-your-environment-no-header.md)]
 
 Available [Azure CLI](/cli/azure/sql) commands:
 
