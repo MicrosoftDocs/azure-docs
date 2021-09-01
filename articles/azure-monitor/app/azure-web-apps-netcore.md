@@ -54,7 +54,7 @@ See the [enable monitoring section](#enable-monitoring ) below to begin setting 
     >[!div class="mx-imgBorder"]
     >![Instrument your web app](./media/azure-web-apps/ai-create-new.png)
 
-2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled** for ASP.NET Core 3.1.
+2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled**.
 
     ![Choose options per platform.](./media/azure-web-apps/choose-options-new-net-core.png)
 
