@@ -18,12 +18,14 @@ The Azure Web PubSub service is in public preview state and doesn't have a commi
 
 ## When will Azure Web PubSub service be ready for production use?
 
-The Azure Web PubSub service is planned to be GA late this year. 
+The product team is actively working on Azure Web PubSub service GA. 
 When GA, the service will support:
 - Azure Active Directory support
 - API Management integration
 - Binary Pub/Sub WebSocket subprotocol
 - Azure Resource Log Integration
+
+Contact the product team if you want more details on GA features.
 
 ## How do I choose between Azure SignalR Service and Azure Web PubSub service?
 
