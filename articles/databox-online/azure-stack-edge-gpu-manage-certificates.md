@@ -35,11 +35,16 @@ Before you upload your root certificates and endpoint certificates on to the dev
 
 To upload the root and endpoint certificates on the device, use the **+ Add certificate** option on the **Certificates** page in the local web UI. Follow these steps:
 
-1. Upload the root certificates first. In the local web UI, go to **Certificates > + Add certificate**.
+1. Upload the root certificates first. In the local web UI, go to **Certificates**.
+1. Select **+ Add certificate**.
 
     ![Add signing chain certificate 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
 
-2. Next upload the endpoint certificates. 
+1. Save the certificate.
+
+#### Upload endpoint certificate
+
+1. Next upload the endpoint certificates. 
 
     ![Add signing chain certificate 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
 
@@ -53,6 +58,15 @@ To upload the root and endpoint certificates on the device, use the **+ Add cert
 
 > [!IMPORTANT]
 > If the device name or the DNS domain are changed, new certificates must be created. The client certificates and the device certificates should then be updated with the new device name and DNS domain. 
+
+#### Upload Kubernetes certificates
+
+Upload Edge container registry certificate
+Upload Kubernetes dashboard certificate
+
+#### Upload IoT Edge certificates
+
+
 
 ## Import certificates on the client accessing the device
 

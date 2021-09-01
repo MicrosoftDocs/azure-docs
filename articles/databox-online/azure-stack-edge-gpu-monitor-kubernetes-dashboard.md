@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 08/31/2021
 ms.author: alkohli
 ---
 # Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device
@@ -39,15 +39,31 @@ On your Azure Stack Edge Pro device, you can use the Kubernetes Dashboard in *re
 The Kubernetes Dashboard is *read-only* and runs on the Kubernetes master node at port 31000. Follow these steps to access the dashboard: 
 
 1. In the local UI of your device, go to **Device** and then go to **Device endpoints**. 
-1. Select **Download config** to download a `kubeconfig` that allows you to access the dashboard. Save the `config.json` file on your local system.
-1. Select the Kubernetes dashboard URL to open the dashboard in a browser.
+1. Copy the **Kubernetes dashboard** endpoint. Create a DNS entry into the `C:\Windows\System32\Drivers\etc\hosts` file of your client to connect to the Kubernetes dashboard. 
 
-    ![Kubernetes Dashboard URL in Device page in local UI](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-url-local-ui-1.png)
+    `<IP address of the Kubernetes dashboard>    <Kubernetes dashboard endpoint suffix>` 
+        
+    ![Add DNS entry for Kubernetes dashboard endpoint](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/add-domain-name-service-entry-hosts-1.png) 
 
-1. On the **Kubernetes Dashboard sign in** page:
+1. In the row for the **Kubernetes dashboard** endpoint, select **Download config**. This action downloads a `kubeconfig` that allows you to access the dashboard. Save the `config.json` file on your local system.   
+
+1. Download the Kubernetes dashboard certificate from Local UI. 
+    1. In the local UI of the device, go to **Certificates**.
+    1. Locate the entry for **Kubernetes dashboard endpoint certificate**. To the right of this entry, select the **Download** to download the certificate on your client system that you'll use to access the dashboard. 
+
+    ![Download Kubernetes dashboard endpoint certificate](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/download-kubernetes-dashboard-endpoint-certificate-1.png)  
+
+1. Install the downloaded certificate on the client. If using a Windows client, follow these steps: 
+    1. Select the certificate and in the **Certificate Import Wizard**, select store location as **Local machine**. 
+
+        ![Install certificate on client 1](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-1.png) 
+    
+    1. Install the certificate on your Local machine in the trusted root store. 
+
+        ![Install certificate on client 2](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-2.png) 
+1. Copy and use the Kubernetes dashboard URL to open the dashboard in a browser. On the **Kubernetes Dashboard sign in** page:
     
     1. Select **kubeconfig**. 
-        ![Select kubeconfig option](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
     1. Select the ellipsis **...**. Browse and point to the `kubeconfig` that you downloaded earlier on your local system. Select **Sign in**.
         ![Browse to kubeconfig file](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 

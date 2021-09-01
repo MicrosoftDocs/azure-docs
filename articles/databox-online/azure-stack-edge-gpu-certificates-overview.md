@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/30/2021
+ms.date: 08/02/2021
 ms.author: alkohli
 ---
 # What are certificates on Azure Stack Edge Pro GPU?
@@ -150,15 +150,31 @@ There are three IoT Edge certificates that you need to install to enable this tr
 
 - The IoT Edge certificates are uploaded in `.pem` format. 
 
-For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](../iot-edge/how-to-manage-device-certificates.md?preserve-view=true&view=iotedge-2020-11#create-production-certificates).
+For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](/azure/iot-edge/how-to-manage-device-certificates?view=iotedge-2020-11&preserve-view=true#create-production-certificates).
 
 ## Kubernetes certificates
 
-If your device has an Edge container registry, then you'll need an Edge Container Registry certificate for secure communication with the client that is accessing the registry on the device.
+The following Kubernetes certificates may be used with your Azure Stack Edge device.
+
+- **Edge container registry certificate**: If your device has an Edge container registry, then you'll need an Edge Container Registry certificate for secure communication with the client that is accessing the registry on the device.
+- **Dashboard endpoint certificate**: You'll need a dashboard endpoint certificate to access the Kubernetes dashboard on your device.
+
 
 #### Caveats
 
-- The Edge Container Registry certificate must be uploaded as *.pfx* format with a private key.
+- The Edge Container Registry certificate should: 
+    - Be a PEM format certificate.
+    - Contain either Subject Alternative Name (SAN) or CName (CN) of type: `*.<endpoint suffix>` or `ecr.<endpoint suffix>`. For example: `*.dbe-1d6phq2.microsoftdatabox.com OR ecr.dbe-1d6phq2.microsoftdatabox.com`
+    - Use the `openssl` to create this certificate. An example is shown below: 
+
+        `openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=ecr.dbe-1d6phq2.microsoftdatabox.com"`
+
+- The dashboard certificate should:
+    - Be a PEM format certificate.
+    - Contain either Subject Alternative Name (SAN) or CName (CN) of type:  `*.<endpoint suffix>` or `kubernetes-dashboard.<endpoint suffix>`. For example: `*.dbe-1d6phq2.microsoftdatabox.com` or `kubernetes-dashboard.dbe-1d6phq2.microsoftdatabox.com`. 
+    - Use the `openssl` to create this certificate. An example is shown below: 
+
+        `openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=kubernetes-dashboard.dbe-1d6phq2.microsoftdatabox.com"`
 
 ## VPN certificates
 
