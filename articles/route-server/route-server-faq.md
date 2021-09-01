@@ -89,8 +89,6 @@ Azure Route Server has the following limits (per deployment).
 
 If your NVA advertises more routes than the limit, the BGP session will get dropped. In the event BGP session is dropped between the gateway and Azure Route Server, you'll lose connectivity from your on-premises network to Azure. For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 
-The number of VMs that Azure Route Server can support is not a hard limit. It depends on the number of routes the route server receives and needs to process. If the route server receives 10000 routes from ExpressRoute, this number could be as low as 4500. 
-
 ## Next steps
 
 Learn how to [configure Azure Route Server](quickstart-configure-route-server-powershell.md).
