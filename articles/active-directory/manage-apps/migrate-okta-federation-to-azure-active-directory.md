@@ -73,7 +73,7 @@ Follow these steps to enable Seamless SSO:
 
 2. On the final page, select **Configure** to update the Azure AD Connect Server.
 
-![image shows update the azure ad connect server](media/migrate-okta-federation-to-azure-active-directory/update-azuread-connect-server.png)
+![image shows update the azure ad connect server](media/migrate-okta-federation-to-azure-active-directory/update-azure-ad-connect-server.png)
 
 3. Ignore the warning for Hybrid Azure AD join for now, however the **Device options** needs to be reconfigured after disabling federation from Okta.
 
