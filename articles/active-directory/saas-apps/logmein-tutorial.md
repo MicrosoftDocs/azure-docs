@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/18/2021
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with LogMeIn
@@ -32,6 +32,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * LogMeIn supports **SP and IDP** initiated SSO.
+* LogMeIn supports [Automated user provisioning](logmein-provisioning-tutorial.md).
 
 ## Adding LogMeIn from the gallery
 
@@ -139,6 +140,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Fill the required fields in the following page and click **Save**.
 
     ![Screenshot for user fields.](./media/logmein-tutorial/create-user.png)
+
+> [!NOTE]
+> LogMeIn also supports automatic user provisioning, you can find more details [here](./logmein-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
