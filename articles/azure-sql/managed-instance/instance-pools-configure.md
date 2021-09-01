@@ -57,7 +57,7 @@ Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../azure-cli-prepare-your-environment-no-header.md)]
 
-Available [Azure CLI](/cli/azure/sql/instance-pool) commands:
+Available [Azure CLI](/cli/azure/sql) commands:
 
 |Cmdlet |Description |
 |:---|:---|
@@ -148,6 +148,8 @@ az sql instance-pool create
     --subnet miPoolSubnet
     --vnet-name miPoolVirtualNetwork
 ```
+
+---
 
 > [!IMPORTANT]
 > Because deploying an instance pool is a long running operation, you need to wait until it completes before running any of the following steps in this article.
