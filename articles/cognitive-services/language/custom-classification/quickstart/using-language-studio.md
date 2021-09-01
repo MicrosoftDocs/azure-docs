@@ -38,7 +38,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. If you're using a preexisting resource, see [creating Azure resources](../concepts/development-lifecycle#creating-azure-resources). When you are done, select **Next**. 
+4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. If you're using a preexisting resource, see [creating Azure resources](../concepts/using-azure-resources.md). When you are done, select **Next**. 
  
     >[!NOTE]
     > * You only need to do this step once for each new resource you use. 
