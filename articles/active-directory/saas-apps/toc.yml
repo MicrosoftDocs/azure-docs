@@ -1996,6 +1996,8 @@
         href: terraform-cloud-tutorial.md
       - name: Terraform Enterprise
         href: terraform-enterprise-tutorial.md
+      - name: TerraTrue
+        href: terratrue-tutorial.md  
       - name: TextExpander
         href: textexpander-tutorial.md
       - name: Textline
