@@ -2,19 +2,19 @@
 title: Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 ms.topic: article
-ms.date: 04/19/2021
+ms.date: 09/01/2021
 ---
 
 # Message sessions
-Microsoft Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. This article shows how to use sessions to implement these patterns when using Service Bus. 
+Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. This article shows how to use sessions to implement these patterns when using Service Bus. 
 
 > [!NOTE]
 > The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## First-in, first out (FIFO) pattern
-To realize a FIFO guarantee in Service Bus, use sessions. Service Bus isn't prescriptive about the nature of the relationship between the messages, and also doesn't define a particular model for determining where a message sequence starts or ends.
+To realize a FIFO guarantee in Service Bus, use sessions. Service Bus isn't prescriptive about the nature of the relationship between messages, and also doesn't define a particular model for determining where a message sequence starts or ends.
 
-Any sender can create a session when submitting messages into a topic or queue by setting the **session ID** property to some application-defined identifier that is unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
+Any sender can create a session when submitting messages into a topic or queue by setting the **session ID** property to some application-defined identifier that's unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
 
 On session-aware queues or subscriptions, sessions come into existence when there's at least one message with the session ID. Once a session exists, there's no defined time or API for when the session expires or disappears. Theoretically, a message can be received for a session today, the next message in a year's time, and if the session ID matches, the session is the same from the Service Bus perspective.
 
