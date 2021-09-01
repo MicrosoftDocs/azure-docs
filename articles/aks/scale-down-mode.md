@@ -14,7 +14,7 @@ author: qpetraroia
 
 By default, scale-up operations performed manually or by the cluster autoscaler require the allocation and provisioning of new nodes, and scale-down operations delete nodes. Scale-down Mode allows you to decide whether you would like to delete or deallocate the nodes in your Azure Kubernetes Service (AKS) cluster upon scaling down. 
 
-When an Azure VM is in the `Stopped` (deallocated) state, you will not be charged for the VM compute resources. However, you will still need to pay for any OS and data storage disks attached to the VM. This also means that the container images will be preserved on those nodes. For more information, see [States and billing of Azure Virtual Machines][state-billing-azure-vm]. This behavior allows for diminished startup times and costs during scale-up, as the deallocated nodes will be utilized before the creation of any net new nodes.
+When an Azure VM is in the `Stopped` (deallocated) state, you will not be charged for the VM compute resources. However, you will still need to pay for any OS and data storage disks attached to the VM. This also means that the container images will be preserved on those nodes. For more information, see [States and billing of Azure Virtual Machines][state-billing-azure-vm]. This behavior allows for faster operation speeds, as your deployment leverages cached images. Scale-down Mode allows you to no longer have to pre-provision nodes and pre-pull container images, saving you compute cost.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
