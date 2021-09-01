@@ -188,6 +188,8 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | UPDATE IF NOT EXISTS | Yes |
 | UPDATE conditions | No |
 
+NOTE: Lightweight Transactions are currently not supported for Accounts with Multi-region Writes enabled.
+
 ## CQL Shell commands
 
 Azure Cosmos DB supports the following database commands on Cassandra API accounts.

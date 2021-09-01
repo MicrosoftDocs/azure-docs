@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs 
 ---
@@ -130,7 +130,7 @@ To migrate a container to support version-level immutable storage with PowerShel
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
    -StorageAccountName <storage-account> `
    -ContainerName <container> `
-   -ImmutabilityPeriod <retention-interval>
+   -ImmutabilityPeriod <retention-interval-in-days>
 ```
 
 Next, call the **Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration** command to migrate the container. Include the `-AsJob` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
@@ -176,7 +176,7 @@ az storage container immutability-policy create \
     --resource-group <resource-group> \
     --account-name <storage-account> \
     --container-name <container> \
-    --period <retention-interval>
+    --period <retention-interval-in-days>
 ```
 
 Next, call the [az storage container-rm migrate-vlw](/cli/azure/storage/container-rm#az_storage_container_rm_migrate_vlw) command to migrate the container. Include the `--no-wait` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
@@ -234,7 +234,7 @@ To configure a default version-level immutability policy for a container with Po
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
    -StorageAccountName <storage-account> `
    -ContainerName <container> `
-   -ImmutabilityPeriod <retention-period> `
+   -ImmutabilityPeriod <retention-interval-in-days> `
    -AllowProtectedAppendWrite $true
 ```
 
@@ -246,7 +246,7 @@ To configure a default version-level immutability policy for a container with Az
 az storage container immutability-policy create \
     --account-name <storage-account> \
     --container-name <container> \
-    --period 90 \
+    --period <retention-interval-in-days> \
     --allow-protected-append-writes true
 ```
 
