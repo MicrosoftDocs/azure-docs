@@ -15,6 +15,10 @@ ms.reviewer: ylunagaria
 
 Blob storage now supports the Secure File Transfer (SFTP) protocol. This support provides .... 
 
+> [!IMPORTANT]
+> SFTP protocol support is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## SFTP and the hierarchical namespace
 
 SFTP protocol support requires blobs to be organized into on a hierarchical namespace. You can enable a hierarchical namespace when you create a storage account. The ability to use a hierarchical namespace was introduced by Azure Data Lake Storage Gen2. It organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized.  The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. Different protocols extend from the hierarchical namespace. The SFTP protocol is one of the these available protocols.   
