@@ -33,11 +33,11 @@ To complete a successful transition to CA, the existing Okta sign on policies sh
 
 1. Check the global sign-on policies by navigating to **Security**, selecting **Authentication**, and then **Sign On**.
 
-![image shows global sign on policies](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies.png)
+   ![image shows global sign on policies](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies.png)
 
-In this example, our global sign-on policy is enforcing MFA on all sessions outside of our configured network zones.
+   In this example, our global sign-on policy is enforcing MFA on all sessions outside of our configured network zones.
 
-![image shows global sign on policies enforc mfa](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies-enforce-mfa.png)
+   ![image shows global sign on policies enforc mfa](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies-enforce-mfa.png)
 
 2. Next, navigate to **Applications**, and check the application-level sign-on policies. Select **Applications** from the submenu, and then select your Office 365 connected instance from the **Active apps list**.
 
@@ -53,7 +53,7 @@ In the following example, our Office 365 application sign-on policy has four sep
 
 - **Block legacy authentication** - Prevents any legacy authentication clients from connecting to the service.
 
-![image shows o365 sign on rules](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-on-rules.png)
+  ![image shows o365 sign on rules](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-on-rules.png)
 
 ## Step 2 - Configure condition pre-requisites
 
@@ -109,26 +109,26 @@ tenant settings for your organization.
 
 2. Select **Azure Active Directory**, followed by **Users**, and then **Multi-Factor Authentication** this will take you to the Legacy Azure MFA portal.
 
-![image shows legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/legacy-azure-ad-portal.png)
+   ![image shows legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/legacy-azure-ad-portal.png)
 
 Instead, you can use **<https://aka.ms/mfaportal>**.
 
 4. From the **Legacy Azure MFA** menu, change the status menu through **enabled** and **enforced** to confirm you have no users enabled for Legacy MFA. If your tenant has users in the below views, you must disable them in the legacy menu. Only then CA policies will take effect on their account.
 
-![image shows disable user in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/disable-user-legacy-azure-ad-portal.png)
+   ![image shows disable user in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/disable-user-legacy-azure-ad-portal.png)
 
-**Enforced** field should also be empty.
+   **Enforced** field should also be empty.
 
-![image shows enforced field is empty in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enforced-empty-legacy-azure-ad-portal.png)
+   ![image shows enforced field is empty in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enforced-empty-legacy-azure-ad-portal.png)
 
 5. After confirming no users are configured for legacy MFA, select the **Service settings** option. Change the **App passwords** selection to **Do not allow users to create app passwords to sign in to non-browser apps**.
 
 6. Ensure the **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)** boxes are unchecked and then select **Save**.
 
->[!NOTE]
->See [best practices for configuring MFA prompt settings](https://aka.ms/mfaprompts).
+   >[!NOTE]
+   >See [best practices for configuring MFA prompt settings](https://aka.ms/mfaprompts).
 
-![image shows uncheck fields in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
+   ![image shows uncheck fields in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
 
 ## Step 4 - Configure CA policies
 
@@ -145,9 +145,9 @@ practices for deploying and designing CA](https://docs.microsoft.com/azure/activ
 
 5. This policy as any other in this tutorial can be targeted to a specific application, test group of users or both.
 
-![image shows testing user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/test-user.png)
+   ![image shows testing user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/test-user.png)
 
-![image shows success in testing user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/success-test-user.png)
+   ![image shows success in testing user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/success-test-user.png)
 
 6. After you configured the location-based policy, and device
 trust policy, its time to configure the equivalent [**Block legacy authentication**](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) policy.
@@ -179,19 +179,19 @@ See the [end-user documentation for MFA enrollment](https://docs.microsoft.com/a
 
 1. To roll out testing, change the policies created in the earlier examples to **Enabled test user login**. 
 
-![image shows enable test user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enable-test-user.png)
+   ![image shows enable test user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enable-test-user.png)
 
 2. On the next sign-in to Office 365, the test user John Smith is prompted to sign in with Okta MFA, and Azure AD Multi-Factor Authentication.
 
-![image shows sign-in through okta](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-in-through-okta.png)
+   ![image shows sign-in through okta](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-in-through-okta.png)
 
 3. Complete the MFA verification through Okta.
 
-![image shows mfa verification through okta](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-verification-through-okta.png)
+   ![image shows mfa verification through okta](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-verification-through-okta.png)
 
 4. After the user completes the Okta MFA prompt, the user will be prompted for CA. Ensure that the policies have been configured appropriately and is within conditions to be triggered for MFA.
 
-![image shows mfa verification through okta prompted for CA](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-verification-through-okta-prompted-ca.png)
+   ![image shows mfa verification through okta prompted for CA](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-verification-through-okta-prompted-ca.png)
 
 ## Step 7 - Cutover from sign on to CA policies
 
@@ -208,13 +208,13 @@ The final migration step to CA can be done in a staged or cut-over fashion.
 
 2. Set the Enforce MFA policy to **Inactive** or assign the policy to a new group that doesn't include our Azure AD users.
 
-![image shows mfa policy to inactive](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-policy-inactive.png)
+   ![image shows mfa policy to inactive](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-policy-inactive.png)
 
 3. On the application-level sign-on policy, update the policies to inactive by selecting the **Disable Rule** option. You can also assign the policy to a new group that doesn't include the Azure AD users.
 
 4. Ensure there is at least one application level sign-on policy that is enabled for the application that allows access without MFA.
 
-![image shows application access without mfa](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/application-access-without-mfa.png)
+   ![image shows application access without mfa](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/application-access-without-mfa.png)
 
 5. After disabling the Okta sign on policies, or excluding the migrated Azure AD users from the enforcement groups, the users should be prompted **only** for CA on their next sign-in.
 
