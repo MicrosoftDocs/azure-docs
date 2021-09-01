@@ -23,6 +23,8 @@ ms.custom: include file
 
 <sup>1</sup>The OSM add-on for AKS is in a preview state and will undergo additional enhancements before general availability (GA). During the preview phase, it's recommended to not surpass the limits shown.<br />
 
+<br />
+
 | Kubernetes Control Plane Limits                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Clusters on paid tier                                                                                  | Automatically scales out based on the load                                                                                                                                                                                                        |
