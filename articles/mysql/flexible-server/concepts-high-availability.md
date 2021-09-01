@@ -88,48 +88,48 @@ The health of your HA is continuously monitored and reported on the overview pag
 | **ReplicatingData** | The standby is catching up with the primary server after being created. |
 | **FailingOver** | The database server is in the process of failing over from the primary to the standby. |
 | **Healthy** | Zone redundant HA is in a steady state and is healthy. |
-| **RemovingStandby** | Based on user action, the standby replica is in the process of deletion.| 
+| **RemovingStandby** | A user has deleted the standby replica, and deletion is in process.| 
 
 ##  Limitations 
  
-Here are few considerations to keep in mind when you use high availability:
-* Zone Redundant High availability can only be set during Flexible server create time.
-* High availability is not supported in burstable compute tier.
-* Restarting the primary database server to pick up static parameter changes also restarts standby replica.
-* Configuring read replicas for zone redundant high availability servers is not supported.
-* Data-in replication is not supported for HA servers 
-* GTID mode will be set to ON as the HA solution uses GTID. Confirm if your workload has [Restrictions or Limitations on Replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
+Here are some considerations to keep in mind when you use high availability:
+* Zone redundant high availability can be set only when the flexible server is created.
+* High availability isn't supported in the burstable compute tier.
+* Restarting the primary database server to pick up static parameter changes also restarts the standby replica.
+* Read replicas aren't supported for zone redundant HA servers.
+* Data-in Replication isn't supported for HA servers. 
+* GTID mode will be turned on as the HA solution uses GTID. Check whether your workload has [Restrictions or Limitations on Replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
  
-## Frequently Asked Questions (FAQs)
+## Frequently asked questions (FAQ)
  
 **Can I use the standby replica for read or write operations?** </br>
-The standby server is not available for any read or write operations but is a passive standby to enable fast failover.</br>
-**Will I have any data loss when failover happens?**</br>
-With logs in the ZRS, the logs are accessible even in cases when the primary server is unavailable and this helps to make sure that we have zero data loss. Once the standby replica is activated and binary logs are applied, it takes the roles of the primary server. </br>
-**Do users need to do any action post failover?**</br>
-The failover is fully transparent from the client application and doesn't require any user actions. Application should just implement the retry logic for their connections. </br>
-**What happens when I don’t select a specific zone for my standby replica? Can I change it later?**</br>
-If no zone is selected, it will randomly select a zone other than the one used for the primary server. To change the zone later, you can set High Availability Mode to Disabled, and then set it back to Zone Redundant with zone of your choice from the High Availability Blade.</br>
-**Is the replication between primary and standby replica synchronous.?**</br>
- The replication solution between primary and the standby can be considered similar to  [semi synchronous mode](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html) in MySQL. When one transaction committed, it isn’t required to commit to the standby.  But when the primary is unavailable, we could make sure the standby could replicate all data changes what primary had and make sure we have zero data loss.</br> 
-**Do we failover to the standby replica in case of all unplanned failures?**</br>
-If there is a database crash or node failure, the flexible server VM is restarted on the same node. At the same time, an automatic failover is triggered. If flexible server VM restart is successful before the failover finishes, the failover operation will be canceled. Whichever takes less time that option will be considered to decide which would act as primary vs standby replica.</br>
-**Do I have any performance impact when I use HA solution?**</br>
-With Zone redundant HA might cause 5-10% drop in latency if the application connecting to the database server across availability zones where network latency is</br> relatively higher in the order of 2-4 ms. For same-zone HA, as we have primary and standby replica on same zone the replication lag is less and it provides lower latencies between the application server and database server if placed within the same Azure availability zone.</br>
-**How does Maintenance of my HA server happens?**</br>
-Planned events such as scale compute and minor version upgrades happen in both primary and standby at the same time. You can have the [Scheduled maintenance window](./concepts-maintenance.md) set for HA server as you do for Flexible servers. It would have the same amount of downtime as you would have for the Azure Database for MySQL Flexible server with HA disabled. Using the failover mechanism to reduce the downtime for HA servers is in our roadmap and we will have the feature soon available. </br>
-**Can I do a Point-in-time restore (PITR) of my HA server?**</br>
-You can do a [PITR](./concepts-backup-restore.md#point-in-time-restore) for HA enabled Azure database for MySQL Flexible server to a new Azure database for MySQL Flexible server that has HA disabled. If the source server was created with Zone Redundant HA, you could enable Zone Redundant HA or Same Zone HA on the restored server later. If the source server was created with Same Zone HA, you can only enable Same Zone on the restored server..</br>
-**Can I enable HA for a server after creation?**</br>
-You can enable same-zone HA after server creation but for Zone redundant server HA option can be selected only at the time of creation.</br> 
-**Can I disable HA for server post creation?** </br>
-Post creation of the server you can disable HA and billing stops immediately  </br>
-**How can I mitigate the downtime?**</br>
-When you are not using HA feature, you need to still be able to mitigate downtime for your application. Planning service downtimes such as scheduled patches, minor version upgrades or the user initiated operations such as scale compute can be performed as part of scheduled maintenance windows as it incurs downtime. To mitigate application impact for Azure initiated maintenance tasks, you can choose to schedule them during the day of the week and time which least impacts the application.</br>
-**Can we have read replica for a HA enabled server?**</br>
-Currently HA enabled server does not support read replica. But read replica for HA servers is in our roadmap, and we are working to make this feature available soon.</br>
-**Can I use Data-in replication for HA servers?**</br>
-Currently Data in replication is not supported for HA servers. But  Data in replication for HA servers is in our roadmap, and we are working to make this feature available soon. For now if you would like to use the Data-in replication feature for migration you can follow these steps
+The standby server isn't available for read or write operations. It's a passive standby to enable fast failover.</br>
+**Will I have data loss when failover happens?**</br>
+Logs in ZRS are accessible even when the primary server is unavailable. This availability helps to ensure there's no loss of data. After the standby replica is activated and binary logs are applied, it takes the roles of the primary server. </br>
+**Do I need to take any action after a failover?**</br>
+Failovers are fully transparent from client application. You don't need to take any action. Applications should just use the retry logic for their connections. </br>
+**What happens when I don’t choose a specific zone for my standby replica? Can I change the zone later?**</br>
+If you don't choose a zone, one will be randomly selected. It won't be the one used for the primary server. To change the zone later, you can set **High Availability Mode** to **Disabled** on the **High Availability** pane, and then set it back to **Zone Redundant** and choose a zone .</br>
+**Is replication between the primary and standby replicas synchronous?**</br>
+ The replication between the primary and the standby is similar to [semisynchronous mode](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html) in MySQL. When a transaction is committed, it doesn't necessarily commit to the standby. But when the primary is unavailable, the standby does replicate all data changes from the primary to make sure there's no data loss.</br> 
+**Is there a failover to the standby replica for all unplanned failures?**</br>
+If there's a database crash or node failure, the Flexible Server VM is restarted on the same node. At the same time, an automatic failover is triggered. If the Flexible Server VM restart is successful before the failover finishes, the failover operation will be canceled. The determination of which server to use as the primary replica depends on the process that completes first.</br>
+**Is there a performance impact when I use HA?**</br>
+For zone redundant HA, there might be a 5-10 percent drop in latency if the application is connecting to the database server across availability zones where network latency is relatively higher (2-4 ms). For same-zone HA, because the primary and the standby replica are in the same zone, the replication lag is lower. There's less latency between the application server and the database server when they're in the same Azure availability zone.</br>
+**How does maintenance of my HA server happen?**</br>
+Planned events like scaling of compute and minor version upgrades happen on the primary and the standby at the same time. You can set the [scheduled maintenance window](./concepts-maintenance.md) for HA servers as you do for flexible servers. The amount of downtime will be the same as the downtime for the Azure Database for MySQL flexible server if HA were disabled. Using the failover mechanism to reduce downtime for HA servers is in our roadmap and will be available soon. </br>
+**Can I do a point-in-time restore (PITR) of my HA server?**</br>
+You can do a [PITR](./concepts-backup-restore.md#point-in-time-restore) for an HA-enabled Azure Database for MySQL flexible server to a new Azure Database for MySQL flexible server that has HA disabled. If the source server was created with zone redundant HA, you can enable zone redundant HA or same-zone HA on the restored server later. If the source server was created with same-zone HA, you can enable only same-zone HA on the restored server.</br>
+**Can I enable HA on a server after I create the server?**</br>
+You can enable same-zone HA after you create the server. Zone redundant HA needs to be enabled when the server is created.</br> 
+**Can I disable HA for a server after I create it?** </br>
+You can disable HA on a server after you create it. Billing stops immediately.  </br>
+**How can I mitigate downtime?**</br>
+You need to be able to mitigate downtime for your application even when you're not using HA. Service downtime, like scheduled patches, minor version upgrades, or customer-initiated operations like scaling of compute can be performed during scheduled maintenance windows. To mitigate application impact for Azure-initiated maintenance tasks, you can schedule them on a day of the week and time that minimizes the impact on the application.</br>
+**Can I use a read replica for an HA-enabled server?**</br>
+Read replicas aren't supported for HA servers. This feature is on our roadmap, and we're working to make it available soon.</br>
+**Can I use Data-in Replication for HA servers?**</br>
+Data-in Replication isn't supported for HA servers. But Data-in Replication for HA servers is in our roadmap, and we are working to make this feature available soon. For now if you would like to use the Data-in replication feature for migration you can follow these steps
 * Create the server with Zone redundant HA enabled
 * Disable HA
 * Follow the article to [setup data-in replication](./concepts-data-in-replication.md)  (Make sure that GTID_Mode has the same setting on the source and target servers.)
