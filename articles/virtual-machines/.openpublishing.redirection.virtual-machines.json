@@ -2793,6 +2793,18 @@
           {
             "source_path": "articles/virtual-machines/vm-specialized-image-version-cli.md",
             "redirect_url": "/azure/virtual-machines/image-version",
+            "source_path_from_root": "/articles/virtual-machines/linux/dedicated-hosts-cli.md",
+            "redirect_url": "/azure/virtual-machines/dedicated-hosts-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/windows/dedicated-hosts-powershell.md",
+            "redirect_url": "/azure/virtual-machines/dedicated-hosts-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/dedicated-hosts-portal.md",
+            "redirect_url": "/azure/virtual-machines/dedicated-hosts-how-to",
             "redirect_document_id": false
           },
           {
