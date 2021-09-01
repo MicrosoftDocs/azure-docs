@@ -64,7 +64,7 @@ The values supported within the Acquisitions chart include:
 - Trial: These are trial acquisitions. Length and expiration of these trial acquisitions are based on your selected trial lengths during the store submission process.
 - Site License: These are paid acquisitions where an entire tenant is provisioned with a license.
 - Deployment: These are the number of tenants who have deployed your solution. One tenant deployment here may generate multiple assignments. For the amount of end-users who received a license for your solution, please see the Assignments chart.
- 
+
 <a name="BKMK_delist"> </a>
 ## Markets chart
 
