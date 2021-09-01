@@ -47,7 +47,7 @@ Each PartitionKeyRangeId maps to one physical partition and is assigned to hold 
 
 Azure Cosmos DB distributes your data across logical and physical partitions based on your partition key to enable horizontal scaling. As data gets written, Azure Cosmos DB uses the hash of the partition key value to determine which logical and physical partition the data lives on.
 
-### Step 2: Calculate: current number of physical partitions * 10,000 RU/s 
+### Step 2: Calculate the default maximum throughput
 The highest RU/s you can scale to without triggering Azure Cosmos DB to split partitions is equal to `Current number of physical partitions * 10,000 RU/s`.
 
 #### Example
@@ -66,11 +66,11 @@ For example, suppose we have a container with three physical partitions and 30,0
 > [!NOTE]
 > Applications can always ingest or query data during a split. The Azure Cosmos DB client SDKs and service automatically handle this scenario and ensure that requests are routed to the correct physical partition, so no additional user action is required. 
  
-If you have a workload that is very evenly distributed with respect to storage and request volume—typically accomplished by partitioning by high cardinality fields like /id—it's recommended when you scale-up to set RU/s such that all partitions are split evenly. 
+If you have a workload that is very evenly distributed with respect to storage and request volume—typically accomplished by partitioning by high cardinality fields like /id—it's recommended when you scale-up, set RU/s such that all partitions are split evenly. 
  
 To see why, let's take an example where we have an existing container with 2 physical partitions, 20,000 RU/s, and 80 GB of data.
 
-Thanks to choosing a good partition key with high cardinality, the data is roughly evenly distributed both physical partitions. Each physical partition is assigned roughly 50% of the keyspace, which is defined as the total range of possible hash values.
+Thanks to choosing a good partition key with high cardinality, the data is roughly evenly distributed in both physical partitions. Each physical partition is assigned roughly 50% of the keyspace, which is defined as the total range of possible hash values.
 
 In addition, Azure Cosmos DB distributes RU/s evenly across all physical partitions. As a result, each physical partition has 10,000 RU/s and 50% (40 GB) of the total data. 
 The following diagram shows our current state. 
@@ -120,29 +120,35 @@ When you plan to migrate or ingest a large amount of data into Azure Cosmos DB, 
  
 We can take advantage of the fact that during container creation, Azure Cosmos DB uses the heuristic formula of starting RU/s to calculate the number of physical partitions to start with. 
  
-### Step 1: Review choice of partition key
+### Step 1: Review the choice of partition key
 Follow [best practices](partitioning-overview.md#choose-partitionkey) for choosing a partition key to ensure you will have even distribution of request volume and storage post-migration. 
  
-### Step 2: Calculate the number of partitions P you'll need 
-`P = Total data size in GB / Desired data per partition in GB`
+### Step 2: Calculate the number of physical partitions you'll need 
+`Number of physical partitions = Total data size in GB / Target data per physical partition in GB`
 
-If you are not sure, you can assume each partition should be packed to 80% full, which is 40 GB / 50 GB. If you anticipate storage to grow post-migration, you can set this value lower to give more room for growth. 
+Each physical partition can hold a maximum of 50 GB of storage (30 GB for Cassandra API). The value you should choose for the `Target data per physical partition in GB` depends on how fully packed you want the physical partitions to be and how much you expect storage to grow post-migration. 
+
+For example, if you anticipate that storage will continue to grow, you may choose to set the value to 30 GB. Assuming you've chosen a good partition key that evenly distributes storage, each partition will be ~60% full (30 GB / 50 GB). As future data is written, it can be stored on the existing set of physical partitions, without requiring the service to immediately add more physical partitions.
+
+In contrast, if you believe that storage will not grow significantly post-migration, you may choose to set the value higher, for example 45 GB. This means each partition will be ~90% full (45 GB / 50 GB). This minimizes the number of physical partitions your data is spread across, which means each physical partition can get a larger fraction of the total provisioned RU/s. 
  
 ### Step 3: Calculate the number of RU/s to start with
-`Starting RU/s = P * N`.
-- `N` = 10,000 RU/s when using autoscale or shared throughput databases
-- `N` = 6000 RU/s when using manual throughput 
+`Starting RU/s = Number of physical partitions * Initial throughput per physical partition`.
+- `Initial throughput per physical partition` = 10,000 RU/s when using autoscale or shared throughput databases
+- `Initial throughput per physical partition` = 6000 RU/s when using manual throughput 
  
 ### Example
 Let's say we have 1 TB (1000 GB) of data we plan to ingest and we want to use manual throughput. Each physical partition in Azure Cosmos DB has a capacity of 50 GB. Let's assume we aim to pack partitions to be 80% full (40 GB), leaving us room for future growth. 
  
-This means that for 1 TB of data, we'll need 1000 / 40 = 25 physical partitions. To ensure we'll get 25 partitions, if we're using manual throughput, we first provision 25 * 6000 RU/ = 150,000 RU/s. Then, after the container is created, to help our ingestion go faster, we increase the RU/s to 250,000 RU/s (happens instantly because we already have 25 physical partitions). This allows each partition to get the maximum of 10,000 RU/s. 
+This means that for 1 TB of data, we'll need 1000 GB / 40 GB = 25 physical partitions. To ensure we'll get 25 physical partitions, if we're using manual throughput, we first provision 25 * 6000 RU/s = 150,000 RU/s. Then, after the container is created, to help our ingestion go faster, we increase the RU/s to 250,000 RU/s before the ingestion begins (happens instantly because we already have 25 physical partitions). This allows each partition to get the maximum of 10,000 RU/s. 
+
+If we're using autoscale throughput or a shared throughput database, to get 25 physical partitions, we'd first provision 25 * 10,000 RU/s = 250,000 RU/s. Because we are already at the highest RU/s that can be supported with 25 physical partitions, we would not further increase our provisioned RU/s before the ingestion.
  
-In theory, with 250,000 RU/s and 1 TB of data, if we assume 1-kb documents and 10 RUs required for write, the ingestion can theoretically complete in: 1000 GB * (1,000,000 kb / 1 GB) * (one document / 1 kb) * (10 RU / document) * (1 sec / 150,000 RU) * (1 hour / 3600 seconds) = 11.1 hours. 
+In theory, with 250,000 RU/s and 1 TB of data, if we assume 1-kb documents and 10 RUs required for write, the ingestion can theoretically complete in: 1000 GB * (1,000,000 kb / 1 GB) * (1 document / 1 kb) * (10 RU / document) * (1 sec / 150,000 RU) * (1 hour / 3600 seconds) = 11.1 hours. 
 
 This calculation is an estimate assuming the client performing the ingestion can fully saturate the throughput and distribute writes across all physical partitions. As a best practice, it’s recommended to “shuffle” your data on the client-side. This ensures that each second, the client is writing to many distinct logical (and thus physical) partitions. 
  
-Once the migration is over, we can lower the RU/s or enable autoscale as needed. 
+Once the migration is over, we can lower the RU/s as needed.
 
 ## Next steps
 * [Monitor normalized RU/s consumption](monitor-normalized-request-units.md) of your database or container.
