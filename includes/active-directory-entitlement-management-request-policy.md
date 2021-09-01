@@ -237,6 +237,6 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 1. Click on the **Attributes (Preview)** sub tab to view attributes associated with resources added to the access package.
 
     > [!NOTE]
-    > To add or update attributes for an access package's resources, go to **Catalogs** and find the catalog associated with the access package. Click [here](/governance/entitlement-management-catalog-create.md#add-resource-attributes-preview-in-the-catalog) to learn more about how to edit the attributes list for a specific catalog resource and the prerequisite roles. 
+    > To add or update attributes for an access package's resources, go to **Catalogs** and find the catalog associated with the access package. Click [here](../governance/entitlement-management-catalog-create.md#add-resource-attributes-preview-in-the-catalog) to learn more about how to edit the attributes list for a specific catalog resource and the prerequisite roles. 
 
 1. Click **Next**
