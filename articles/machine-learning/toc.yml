@@ -711,50 +711,46 @@
       items:
         - name: Overview
           href: reference-yaml-overview.md
-        - name: Assets
+        - name: Resources
           items:
             - name: Workspace
               href: reference-yaml-workspace.md
             - name: Compute
               href: reference-yaml-compute.md
+            - name: Command job
+              href: reference-yaml-job-command.md
+            - name: Sweep job
+              href: reference-yaml-job-sweep.md
+            - name: Azure Blob datastore
+              href: reference-yaml-datastore-blob.md
+            - name: Azure Files datastore
+              href: reference-yaml-datastore-files.md
+            - name: Azure Data Lake Gen1 datastore
+              href: reference-yaml-datastore-data-lake-gen1.md
+            - name: Azure Data Lake Gen2 datastore
+              href: reference-yaml-datastore-data-lake-gen2.md
+            - name: Managed online (real-time) endpoint
+              href: reference-yaml-endpoint-managed-online.md
+            - name: Managed batch endpoint
+              href: reference-yaml-endpoint-managed-batch.md
+            - name: Kubernetes (k8s) online endpoint
+              href: reference-yaml-endpoint-k8s-online.md
+            - name: Managed online (real-time) deployment
+              href: reference-yaml-deployment-managed-online.md
+            - name: Managed batch deployment
+              href: reference-yaml-deployment-managed-batch.md
+            - name: Kubernetes (k8s) online deployment
+              href: reference-yaml-deployment-k8s-online.md
+        - name: Assets
+          items:
             - name: Environment
               href: reference-yaml-environment.md
             - name: Dataset
               href: reference-yaml-dataset.md
             - name: Model
               href: reference-yaml-model.md
-        - name: Datastores
-          items:
-            - name: Azure Blob
-              href: reference-yaml-datastore-blob.md
-            - name: Azure Files
-              href: reference-yaml-datastore-files.md
-            - name: Azure Data Lake Gen1
-              href: reference-yaml-datastore-data-lake-gen1.md
-            - name: Azure Data Lake Gen2
-              href: reference-yaml-datastore-data-lake-gen2.md
-        - name: Jobs
-          items:
-            - name: Command
-              href: reference-yaml-job-command.md
-            - name: Sweep 
-              href: reference-yaml-job-sweep.md
-        - name: Endpoints
-          items:
-            - name: Managed online (real-time)
-              href: reference-yaml-endpoint-managed-online.md
-            - name: Managed batch
-              href: reference-yaml-endpoint-managed-batch.md
-            - name: Kubernetes (k8s) online
-              href: reference-yaml-endpoint-k8s-online.md
         - name: Deployments
           items:
-            - name: Managed online (real-time)
-              href: reference-yaml-deployment-managed-online.md
-            - name: Managed batch
-              href: reference-yaml-deployment-managed-batch.md
-            - name: Kubernetes (k8s) online
-              href: reference-yaml-deployment-k8s-online.md
     - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
