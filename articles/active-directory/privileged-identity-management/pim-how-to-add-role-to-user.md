@@ -56,7 +56,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
     - **Permanent** assignments have no expiration date. Use this option for permanent workers who frequently need the role permissions.
 
-    - **Time-bound** assignments will expire at the end of a specified period. Use this option with contract or vendor workers, for example, whose project end date and time are known.
+    - **Time-bound** assignments will expire at the end of a specified period. Use this option with temporary or contract workers, for example, whose project end date and time are known.
 
     ![Memberships settings - date and time](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
