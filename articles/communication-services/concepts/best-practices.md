@@ -46,7 +46,7 @@ Your application should not connect to calls from multiple browser tabs simultan
 ```JavaScript 
 document.addEventListener("visibilitychange", function() {
 	if (document.visibilityState != 'visible') {
-      		// hangup call
+      		// call.hangUp
   	}
 });
  ```
