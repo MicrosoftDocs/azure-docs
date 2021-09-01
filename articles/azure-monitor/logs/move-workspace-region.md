@@ -1,6 +1,6 @@
 ---
 title: Move a Log Analytics workspace to another Azure region by using the Azure portal
-description: Use a Azure Resource Manager template to move a Log Analytics workspace from one Azure region to another by using the Azure portal.
+description: Use an Azure Resource Manager template to move a Log Analytics workspace from one Azure region to another by using the Azure portal.
 author: yossiy
 ms.topic: how-to
 ms.date: 08/17/2021
@@ -13,7 +13,7 @@ There are various scenarios in which you would want to move your existing Log An
 
 A Log Analytics workspace can't be moved from one region to another. But you can use an Azure Resource Manager template to export the workspace resource and related resources. You can then stage the resources in another region by exporting the workspace to a template, modifying the parameters to match the destination region, and then deploying the template to the new region. For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). 
 
-A workspace environment can be complex and include connected sources, managed solutions, linked services, alerts, and query packs. Not all resources can be exported in a Resource Manager template, and some will require separate configuration when you're moving a workspace.
+A workspace environment can be complex and include connected sources, managed solutions, linked services, alerts, and query packs. Not all resources can be exported in a Resource Manager template, and some require separate configuration when you're moving a workspace.
 
 ## Prerequisites
 
