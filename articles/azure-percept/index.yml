@@ -61,6 +61,19 @@ landingContent:
           - text: Get Azure Percept hardware support from ASUS
             url: how-to-get-hardware-support.md
 
+  - title: Set up the Azure Percept Audio device
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Set up the Azure Percept Audio device
+            url: quickstart-percept-audio-setup.md
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Percept Audio button and LED states
+            url: audio-button-led-behavior.md
+          - text: Troubleshoot Azure Percept Audio and speech module
+            url: troubleshoot-audio-accessory-speech-module.md  
+
   - title: Manage your Azure Percept DK
     linkLists:
       - linkListType: how-to-guide
