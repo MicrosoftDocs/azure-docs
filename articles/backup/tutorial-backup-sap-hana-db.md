@@ -2,7 +2,7 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 08/24/2021
+ms.date: 09/01/2021
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM
@@ -139,8 +139,9 @@ If you want to throttle backup service disk IOPS consumption to a maximum value,
 
 Running the pre-registration script performs the following functions:
 
+* Based on your Linux distribution, the script installs or updates any necessary packages required by the Azure Backup agent.
 * It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
-* It logs into your HANA system using the custom user key or SYSTEM user key mentioned as part of the [prerequisites](#prerequisites). This is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and the user key can be deleted after the pre-registration script runs successfully. Note that the SYSTEM user key must not be deleted.
+* It logs into your HANA system using the custom user key or SYSTEM user key mentioned as part of the [prerequisites](#prerequisites). This is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and the user key can be deleted after the pre-registration script runs successfully. _Note that the SYSTEM user key must not be deleted_.
 * AZUREWLBACKUPHANAUSER is assigned these required roles and permissions:
   * For MDC: DATABASE ADMIN and BACKUP ADMIN (from HANA 2.0 SPS05 onwards): to create new databases during restore.
   * For SDC: BACKUP ADMIN: to create new databases during restore.
@@ -169,10 +170,7 @@ The command output should display the {SID}{DBNAME} key, with the user shown as 
 >[!NOTE]
 > Make sure you have a unique set of SSFS files under `/usr/sap/{SID}/home/.hdb/`. There should be only one folder in this path.
 
-Here's a summary of steps required for completing the pre-registration script run.
-
->[!Note]
->In this flow we're providing the SYSTEM user key as an input parameter to the pre-registration script.
+Here's a summary of steps required for completing the pre-registration script run. Note that in this flow we're providing the SYSTEM user key as an input parameter to the pre-registration script.
 
 |Who  |From  |What to run  |Comments  |
 |---------|---------|---------|---------|
