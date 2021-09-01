@@ -3,7 +3,7 @@ title: Redundancy options for Azure managed disks
 description: Learn about zone-redundant storage and locally-redundant storage for Azure managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 07/28/2021
+ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
