@@ -32,11 +32,11 @@ Once the review has been created, follow the steps in this article to complete t
 
 3. Select the access review that you want to manage. Below is a sample screenshot of the **Access Reviews** overview for both **Azure resources** and **Azure AD roles**.
 
-    <kbd>![Azure AD roles - Access reviews list showing role, owner, start date, end date, and status](media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-azure-ad-roles-home-list.png)</kbd>
+    <kbd>![Azure AD roles - Access reviews list showing role, owner, start date, end date, and status screenshot.](media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-azure-ad-roles-home-list.png)</kbd>
 
 On the detail page, the following options are available for managing the review of **Azure resources** and **Azure AD roles**:
 
-![Options for managing a review in Azure resources - Stop, Reset, Apply, Delete](media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-menu.png)
+![Options for managing a review in Azure resources - Stop, Reset, Apply, Delete screenshot.](media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-menu.png)
 
 ### Stop an access review
 
@@ -61,12 +61,12 @@ If you are not interested in the review any further, delete it. To remove the ac
 
 On the **Results** page, you may view and download a list of your review results.
 
-<kbd>![Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure AD roles](media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-ad-results.png)</kbd>
+<kbd>![Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure AD roles screenshot.](media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-ad-results.png)</kbd>
 
 > [!Note]
 > **Azure AD roles** have a concept of role-assignable groups, where a group can be assigned to the role. When this happens, the group will show up in the review instead of expanding the members of the group, and a reviewer will either approve or deny the entire group.
 
-<kbd>![Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure resource roles](media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-results.png)</kbd>
+<kbd>![Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure resource roles screenshot.](media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-results.png)</kbd>
 
 > [!Note]
 >If a group is assigned to **Azure resource roles**, the reviewer of the Azure resource role will see the expanded list of the users in a nested group. Should a reviewer deny a member of a nested group, that deny result will not be applied successfully because the user will not be removed from the nested group.
@@ -78,7 +78,7 @@ On the **Reviewers** page, you may view and add reviewers to your existing acces
 > [!Note]
 > If the reviewer type selected is user or group, you can add more users or groups as the primary reviewers at any point. You can also remove primary reviewers at any point. If the reviewer type is manager, you can add users or groups as the fallback reviewers to complete reviews on users who do not have managers. Fallback reviewers cannot be removed.
 
-<kbd>![Reviewers page listing name and user principal name for Azure resource roles](media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-reviewers.png)</kbd>
+<kbd>![Reviewers page listing name and user principal name for Azure resource roles screenshot.](media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-reviewers.png)</kbd>
 
 ## Next steps
 
