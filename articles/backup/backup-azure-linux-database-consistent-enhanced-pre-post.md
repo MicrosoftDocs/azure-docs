@@ -96,9 +96,7 @@ Once the database consistent snapshots are taken and the log backups are streame
 - Use file-recovery option and generate a script. Run the script on the target VM and attach the recovery point as iSCSI disks. Use database clients to run database-specific validation functions on the attached disks and validate the backup data. Also, use database clients to export/recover few tables/files instead of recovering the entire database.
 - Use the Cross Region Restore functionality to perform all/any of the above actions from secondary paired region during regional disaster.
 
-## Using enhanced pre-post scripts for Oracle snapshots
-<>
-### Summary
+## Summary
 
 Using database consistent snapshots + logs backed up using a custom solution, you can build a performant and cost effective database backup solution leveraging the benefits of Azure VM backup and also re-using the capabilities of database clients.
 
