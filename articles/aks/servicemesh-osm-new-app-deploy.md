@@ -49,7 +49,7 @@ namespace/bookwarehouse created
 
 ## Onboard the namespaces to be managed by OSM
 
-When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
+When you add the namespaces to the OSM mesh, this action will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -104,7 +104,7 @@ deployment.apps/bookwarehouse created
 
 ## Checkpoint: What got installed?
 
-The example Bookstore application is a multi-tiered app that consists of four services, being the bookbuyer, bookthief, bookstore, and bookwarehouse. Both the bookbuyer and bookthief service communicate to the bookstore service to retrieve books from the bookstore service. The bookstore service retrieves books out of the bookwarehouse service to supply the bookbuyer and bookthief. This is a simple multi-tiered application that works well in showing how a service mesh can be used to protect and authorize communications between the applications services. As we continue through the walkthrough, we will be enabling and disabling Service Mesh Interface (SMI) policies to both allow and disallow the services to communicate via OSM. Below is an architecture diagram of what got installed for the bookstore application.
+The Bookstore application is an example multi-tiered application that works well for testing service mesh functionality. The application consists of four services, being the bookbuyer, bookthief, bookstore, and bookwarehouse. Both the bookbuyer and bookthief service communicate to the bookstore service to retrieve books from the bookstore service. The bookstore service retrieves books out of the bookwarehouse service to supply the bookbuyer and bookthief. This is a simple multi-tiered application that works well in showing how a service mesh can be used to protect and authorize communications between the applications services. As we continue through the walkthrough, we will be enabling and disabling Service Mesh Interface (SMI) policies to both allow and disallow the services to communicate via OSM. Below is an architecture diagram of what got installed for the bookstore application.
 
 ![OSM bookbuyer app architecture](./media/aks-osm-addon/osm-bookstore-app-arch.png)
 
@@ -136,7 +136,7 @@ Once we have the pod's name, we can now use the port-forward command to set up a
 kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
 ```
 
-You should see output similar to this.
+You should see output similar to the following:
 
 ```Output
 Forwarding from 127.0.0.1:8080 -> 14001
@@ -294,7 +294,7 @@ You can now set up a port forwarding session on either the bookbuyer or bookstor
 
 For our final demonstration, we will create an [SMI](https://smi-spec.io/) traffic split policy to configure the weight of communications from one service to multiple services as a backend. The traffic split functionality allows you to progressively move connections to one service over to another by weighting the traffic on a scale of 0 to 100.
 
-The below graphic is a diagram of the [SMI](https://smi-spec.io/) Traffic Split policy to be deployed. We will deploy an additional Bookstore version 2 and then split the incoming traffic from the bookbuyer, weighting 25% of the traffic to the bookstore v1 service and 75% to the bookstore v2 service.
+The below graphic is a diagram of the [SMI](https://smi-spec.io/) Traffic Split policy to be deployed. We will deploy another Bookstore appliction as version 2 and then split the incoming traffic from the bookbuyer, weighting 25% of the traffic to the bookstore v1 service and 75% to the bookstore v2 service.
 
 ![OSM bookbuyer traffic split diagram](./media/aks-osm-addon/osm-bookbuyer-traffic-split-diagram.png)
 
@@ -413,6 +413,6 @@ You should see the following output.
 trafficsplit.split.smi-spec.io/bookstore-split created
 ```
 
-Set up a port forward tunnel to the bookbuyer pod and you should now see books being purchased from the bookstore v2 service. If you continue to watch the increment of purchases you should notice a faster increment of purchases happening through the bookstore v2 service.
+Set up a port forward tunnel to the bookbuyer pod and you should now see books being purchased from the bookstore v2 service. If you continue to watch the increment of purchases, you should notice a faster increment of purchases happening through the bookstore v2 service.
 
 ![OSM bookbuyer books boough UI](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
