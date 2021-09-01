@@ -89,7 +89,7 @@ The following browsers are supported for the sensors and on-premises management 
 
 For more information on supported browsers, see [Recommended browsers](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
-### Set up Certificates
+### Set up certificates
 
 Following sensor and on-premises management console installation, a local self-signed certificate is generated and used to access the sensor web application. When signing in to Defender for IoT for the first time, Administrator users are prompted to provide an SSL/TLS certificate. In addition, an option to validate to this certificate  as well other system certificates is automatically is enabled. See [About Certificates](how-to-deploy-certificates.md) for details.
 

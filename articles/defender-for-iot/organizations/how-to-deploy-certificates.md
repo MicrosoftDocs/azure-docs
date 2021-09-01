@@ -5,7 +5,7 @@ ms.date: 08/29/2021
 ms.topic: how-to
 ---
 
-# About Certificates
+# About certificates
 
 This article provides information needed when creating and deploying certificates for Azure Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
 
@@ -46,9 +46,9 @@ Validation is carried out twice:
 1. When uploading the certificate to sensors and on-premises management consoles. If validation fails, the certificate cannot be uploaded.
 1. When initiating encrypted communication between:
 
-- Defender for IoT system components, for example, a sensor and on-premises management console.
+    - Defender for IoT system components, for example, a sensor and on-premises management console.
 
-- Defender for IoT and certain 3rd party servers defined in Forwarding rules.  See [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information) for more information.  
+    - Defender for IoT and certain 3rd party servers defined in Forwarding rules.  See [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information) for more information.  
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
 
@@ -62,18 +62,18 @@ If the certificate is not created properly by the certificate lead or there are 
 
 The option to validate the uploaded certificate and third-party certificates is automatically enabled, but can be disabled. When disabled, encrypted communications between components continues, even if a certificate is invalid.
 
-## Certificate Deployment Tasks
+## Certificate deployment tasks
 
 This section describes the steps you need to take to ensure that certificate deployment runs smoothly.
 
 **To deploy certificates, verify that:**
 
-1. A security, PKI or certificate specialist is creating or overseeing certificate creation. 
-1. You create a unique certificate for each sensor, management console and HA machine.
-1. You meet certificate creation prerequisites. See Certificate creation prerequisites.
-1. Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
+- A security, PKI or certificate specialist is creating or overseeing certificate creation. 
+- You create a unique certificate for each sensor, management console and HA machine.
+- You meet certificate creation requirements. See [Certificate creation requirements](#certificate-creation-requirements).
+- Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
 
-## Certificate Creation Requirements
+## Certificate creation requirements
 
 This section covers certificate creation requirement, including:
 
@@ -93,11 +93,11 @@ Certificate validation is evaluated against a Certificate Revocation List, and t
 
 Some organizational security policies may block access to this port. If your organization does not have access to port 80, you can: 
 
-1. Define another URL and a specific port in the certificate. 
+1. Define another URL and a specific port in the certificate.
 
-- The URL should be defined as http:// rather than https://. 
+    - The URL should be defined as http: //  rather than https: // .
 
-- Verify that the destination CRL server can listen on the port you defined. 
+    - Verify that the destination CRL server can listen on the port you defined. 
 
 1. Use a proxy server that will access the CRL on port 80.
 
