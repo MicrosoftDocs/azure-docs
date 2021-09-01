@@ -51,9 +51,8 @@ If you are not using Azure Firewall, the required network rules and IP address d
 | packages.microsoft.com | HTTPS | 443 | Required for updates to Azure security scanner definition and signatures |
 
 ### DNS access
-The system is using DNS names to reach the Azure services described above to take advantage of load balancers. Therefore the VNet needs to run a DNS server which can resolve
-those adresses. The vms will honor the nameserver communicated through the DHCP protocol. In most cases Azure will set up a DNS server for the VNet automatically. If this
-is not the case, the above DNS names are a good guide to get started. 
+
+The system uses DNS names to reach the Azure services described in this article so that it can use load balancers. Therefore, the virtual network must run a DNS server that can resolve those adresses. The virtual machines in the virtual network honor the name server that is communicated through the DHCP protocol. In most cases, Azure automatically sets up a DNS server for the virtual network. If this doesn't occur in your scenario, the DNS names that are described in this article are a good guide to get started. 
 
 ## Managed Instance for Apache Cassandra internal port usage
 
