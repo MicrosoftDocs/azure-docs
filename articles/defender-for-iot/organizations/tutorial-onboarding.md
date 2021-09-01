@@ -131,9 +131,7 @@ The virtual sensor supports both VMware, and Hyper-V deployment options. Before 
 
 1. Select **Next** > **Finish**.
 
-1. Select the **Console** button, to power on the VM.
-
-    :::image type="content" source="media/tutorial-onboarding/console-button.png" alt-text="Select the console button to power on the virtual console.":::
+1. Power on the VM, and open a console.
 
 ### Create the virtual machine for the sensor (Hyper-V)
 
