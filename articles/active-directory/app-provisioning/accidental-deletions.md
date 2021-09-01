@@ -13,9 +13,9 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Enable accidental deletions prevention in Application Provisioning
+# Enable accidental deletions prevention in the Azure AD provisioning service
 
-Application Provisioning includes a feature to help avoid accidental deletions. This feature ensures that users are not disabled or deleted in an application unexpectedly. 
+The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users are not disabled or deleted in an application unexpectedly. 
 
 The feature lets you specify a deletion threshold, above which an admin 
 needs to explicitly choose to allow the deletions to be processed.
@@ -30,8 +30,10 @@ To enable accidental deletion prevention:
 2.  Select **Enterprise applications** and then select your app.
 3.  Select **Provisioning** and then on the provisioning page select **Edit provisioning**.
 4. Under **Settings**, select the **Prevent accidental deletions** checkbox and specify a deletion 
-threshold.
+threshold. Also, be sure the notification email address is completed. If the deletion threshold his met and email will be sent.
 5. Select **Save**, to save the changes.
+
+When the deletion threshold is met, the job will go into quarantine and a notification email will be sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
 
 :::image type="content" source="media/accidental-deletions/accidental-deletions-setting.png" alt-text="A checkbox to enable accidental deletions and a textbox to set the deletion threshold." lightbox="media/accidental-deletions/accidental-deletions-setting.png":::
 
@@ -58,7 +60,7 @@ When a user is set to be removed from the target application, it will be counted
 deletion threshold. Scenarios that could lead to a user being removed from the target 
 application could include: unassigning the user from the application, changing the sync scope 
 from “sync all” to “sync assigned” to soft / hard deleting a user in the directory. Groups 
-evaluated for deletion count towards the deletion threshold.
+evaluated for deletion count towards the deletion threshold. In addition to deletions, the same functionality also works for disables.
 
 ### What is the interval that the deletion threshold is evaluated on?
 It is evaluated each cycle. If the number of deletions does not exceed the threshold during a 
@@ -66,8 +68,8 @@ single cycle, the “circuit breaker” won’t be triggered. If multiple cycles
 steady state, the deletion threshold will be evaluated per cycle.
 
 ### How are these deletion events logged?
-You can find users that should be disabled / deleted but haven’t due to the deletion threshold 
-by navigating to the provisioning logs and selecting the “StagedDelete” action.
+You can find users that should be disabled / deleted but haven’t due to the deletion threshold. 
+Navigation to **Provisioning logs** and then filter **Action** with *StagedAction* or *StagedDelete*.
 
 
 ## Next steps 
