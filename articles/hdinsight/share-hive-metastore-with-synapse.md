@@ -9,7 +9,7 @@ ms.date: 08/22/2020
 
 # Share Hive Metastore with Synapse Spark Pool (Preview）
 
-Azure Synapse Analytics allows Apache Spark pools in the same workspace to share a managed HMS(Hive Metastore) compatible metastore as their catalog. When customers want to share catalog objects with other computational engines outside of the workspace, such as HDInsight Hive and Spark clusters, they prefer to connect to an external Hive Metastore. In this article, you learn how to connect Synapse Spark to an external Apache Hive Metastore. 
+Azure Synapse Analytics allows Apache Spark pools in the same workspace to share a managed HMS (Hive Metastore Service) compatible metastore as their catalog. When customers want to share catalog objects with other computational engines outside of the workspace, such as HDInsight Hive and Spark clusters, they prefer to connect to an external Hive Metastore. In this article, you learn how to connect Synapse Spark to an external Apache Hive Metastore. 
 
 ## Supported Hive metastore versions
 
@@ -127,22 +127,7 @@ The linked service to Hive metastore database just provides access to Hive catal
 If the underlying data of your Hive tables is stored in the workspace primary storage account, you don’t need to do extra settings. It will just work as long as you followed storage setting up instructions during workspace creation.
 
 #### Other ADLS Gen 2 account
-If the underlying data of your Hive catalogs is stored in another ADLS Gen 2 account, you need to set up the connection to the ADLS Gen 2 accounts following below steps:
-
-1.	Open Synapse Studio, go to **Data > Linked tab > Add** button > **Connect to external data**.  
-
-   :::image type="content" source="./media/share-hive-metastore-with-synapse/connect-to-storage-account.png" alt-text="Connect to storage account" border="true":::
-
-2.	Choose **Azure Data Lake Storage Gen2**, and click **Continue**.
-3.	Provide the **Name** of the linked service.
-4.	Select the ADLS Gen2 account. Choose Managed Identity method in Authentication method, which is the simplest way to manage access. If you have to use Account key as the authentication method, follow the instructions [here](../synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary.md)..
- 
-5.	Follow the instructions to grant workspace service managed identity access to your ADLS Gen2 account.
-
-   :::image type="content" source="./media/share-hive-metastore-with-synapse/adls-gen2-access-management.png" alt-text="Manage ADLS Gen2 account access" border="true":::
-
-6.	Make sure the users who run Spark queries have **Storage Blob Data Contributor** role on the ADLS Gen2 storage account. This step can be done later after creating the linked service.
-7.	**Test connection** and click **Create**.
+If the underlying data of your Hive catalogs is stored in another ADLS Gen 2 account, you need to make sure the users who run Spark queries have **Storage Blob Data Contributor** role on the ADLS Gen2 storage account. 
 
 ### Set up connection to Blob Storage
 If the underlying data of your Hive tables are stored in Azure Blob storage account, set up the connection follow below steps:
