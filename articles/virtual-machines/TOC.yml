@@ -356,15 +356,9 @@
     - name: Overview
       displayName: Dedicated hosts, ADH
       href: dedicated-hosts.md
-    - name: CLI
-      displayName: Dedicated hosts, ADH
-      href: ./linux/dedicated-hosts-cli.md
-    - name: Portal
-      displayName: Dedicated hosts, ADH
-      href: dedicated-hosts-portal.md
-    - name: PowerShell
-      displayName: Dedicated hosts, ADH
-      href: ./windows/dedicated-hosts-powershell.md
+    - name: How-to
+      displayName: dedicated adh 
+      href: dedicated-hosts-how-to.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview
