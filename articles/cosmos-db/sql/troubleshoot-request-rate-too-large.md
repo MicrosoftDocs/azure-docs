@@ -91,7 +91,7 @@ This sample output shows that in a particular minute, the logical partition key 
 Review the guidance on [how to chose a good partition key](../partitioning-overview.md#choose-partitionkey).
 
 If there is high percent of rate limited requests and no hot partition:
-- You can [increase the RU/s](set-throughput.md) on the database or container using the client SDKs, Azure portal, PowerShell, CLI or ARM template. Follow [best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md) to determine the right RU/s to set.
+- You can [increase the RU/s](../set-throughput.md) on the database or container using the client SDKs, Azure portal, PowerShell, CLI or ARM template. Follow [best practices for scaling provisioned throughput (RU/s)](../scaling-provisioned-throughput-best-practices.md) to determine the right RU/s to set.
 
 If there is high percent of rate limited requests and there is an underlying hot partition:
 -  Long-term, for best cost and performance, consider **changing the partition key**. The partition key cannot be updated in place, so this requires migrating the data to a new container with a different partition key. Azure Cosmos DB supports a [live data migration tool](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/) for this purpose.
