@@ -412,6 +412,31 @@ This error means that the subscription was determined to be problematic, and the
 
 To investigate and resolve this issue, [contact the feature team](mailto:azuredg@microsoft.com).
 
+### Scenario: Definitions in category "Guest Configuration" cannot be duplicated from Azure Portal
+
+#### Issue
+
+When attempting to create a custom policy definition from the Azure Portal page for policy
+definitions, you click the "Duplicate definition" button. After assigning the policy, you
+find machines are NonCompliant because no guest configuration assignment resource exists.
+
+#### Cause
+
+Guest configuration relies on custom metadata added to policy definitions when
+creating guest configuration assignment resources. The "Duplicate definition" activity in
+the Azure Portal does not copy custom metadata.
+
+#### Resolution
+
+Instead of using the portal, duplicate the policy definition using the Policy
+Insights API. The following PowerShell sample provides an option.
+
+```powershell
+# duplicates the built-in policy which audits Windows machines for pending reboots
+$def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c' | % Properties
+New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
+```
+
 ## Next steps
 
 If your problem isn't listed in this article or you can't resolve it, get support by visiting one of
