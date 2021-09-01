@@ -17,6 +17,10 @@ You can assign a VM storage policy in an initial deployment of a VM or when you 
 The Run command lets authorized users change the default or existing VM storage policy to an available policy for a VM post-deployment. There are no changes made on the disk-level VM storage policy. You can always change the disk level VM storage policy as per your requirements.
 
 
+>[!NOTE]
+>Run commands are executed one at a time in the order submitted.
+
+
 In this how-to, you learn how to:
 
 > [!div class="checklist"]
@@ -91,6 +95,9 @@ You'll run the `Set-AvsVMStoragePolicy` cmdlet to Modify vSAN based storage poli
 ## Specify storage policy for a cluster
 
 You'll run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default storage policy for a cluster,
+
+>[!NOTE]
+>Changing the storage policy of the default management cluster isn't allowed.
 
 1. Select **Run command** > **Packages** > **Set-ClusterDefaultStoragePolicy**.
 
