@@ -22,20 +22,20 @@ items:
       href: custom-classification/quickstart/using-api.md
   - name: How-to guides
     items:
-    - name: Improve a model
-      href: custom-classification/how-to/improve-model.md
-    - name: Run inference
-      href: custom-classification/how-to/run-inference.md
     - name: Tag data
       href: custom-classification/how-to/tag-data.md
     - name: Train a model
       href: custom-classification/how-to/train-model.md
     - name: View model evaluation
       href: custom-classification/how-to/view-model-evaluation.md
+    - name: Improve a model
+      href: custom-classification/how-to/improve-model.md
+    - name: Submit text classification tasks
+      href: custom-classification/how-to/run-inference.md
   - name: Concepts
     items:
-    - name: Development lifecycle
-      href: custom-classification/concepts/development-lifecycle.md
+    - name: Using Azure resources
+      href: custom-classification/concepts/using-azure-resources.md
     - name: Recommended practices
       href: custom-classification/concepts/recommended-practices.md
     - name: Definitions
