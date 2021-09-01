@@ -100,9 +100,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Create and then select a new self-signed test certificate for the package:
 >     1. In the **Solution Explorer**, double-click the *Package.appxmanifest* file.
 >     1. Select **Packaging** > **Choose Certificate...** > **Create...**.
->     1. Enter a password and then select **OK**.
->     1. Select **Select from file...**, and then select the *Native_UWP_V2_TemporaryKey.pfx* file you just created, and select **OK**.
->     1. Close the *Package.appxmanifest* file (select **OK** if prompted to save the file).
+>     1. Enter a password and then select **OK**. A certificate called *Native_UWP_V2_TemporaryKey.pfx* is created. 
+>     1. Select **OK** to dismiss the **Choose a certificate** dialog, and then verify that you see *Native_UWP_V2_TemporaryKey.pfx* in Solution Explorer.
 >     1. In the **Solution Explorer**, right-click the **Native_UWP_V2** project and select **Properties**.
 >     1. Select **Signing**, and then select the .pfx you created in the **Choose a strong name key file** drop-down.
 
