@@ -113,7 +113,7 @@ ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active re
 
 ExpressRoute Direct's port pairs are billed 45 days into the creation of the ExpressRoute Direct resource or when 1 or both of the links are enabled, whichever comes first. The 45-day grace period is granted to allow customers to complete the cross-connection process with the colocation provider.
 
-You'll stop being charged for ExpressRoute Direct's port pairs after you delete the direct ports and remove the cross-connects. For more pricing details,[ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
+You'll stop being charged for ExpressRoute Direct's port pairs after you delete the direct ports and remove the cross-connects. For more pricing details, see [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## Next steps
 
