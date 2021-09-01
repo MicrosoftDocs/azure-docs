@@ -22,8 +22,8 @@ Version 1.10
 
 ### Fixed
 
-• The guest configuration policy agent can now configure and remediate system settings. Existing policy assignments continue to be audit-only. Learn more about the Azure Policy [guest configuration remediation options](../../governance/policy/concepts/guest-configuration-policy-effects.md).
-• The guest configuration policy agent now restarts every 48 hours instead of every 6 hours.
+- The guest configuration policy agent can now configure and remediate system settings. Existing policy assignments continue to be audit-only. Learn more about the Azure Policy [guest configuration remediation options](../../governance/policy/concepts/guest-configuration-policy-effects.md).
+- The guest configuration policy agent now restarts every 48 hours instead of every 6 hours.
 
 ## July 2021
 
