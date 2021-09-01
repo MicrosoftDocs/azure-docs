@@ -103,16 +103,19 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 
 #### Available Apache Spark configuration
 
-| Configuration name                                  | Default value                | Description                                                                                                                                                                                                |
-| --------------------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| spark.synapse.logAnalytics.enabled                  | false                        | To enable the Log Analytics sink for the Spark applications, true. Otherwise, false.                                                                                                                  |
-| spark.synapse.logAnalytics.workspaceId              | -                            | The destination Log Analytics workspace ID.                                                                                                                                                          |
-| spark.synapse.logAnalytics.secret                   | -                            | The destination Log Analytics workspace secret.                                                                                                                                                      |
-| spark.synapse.logAnalytics.keyVault.linkedServiceName   | -                            | The Key Vault linked service name for the Log Analytics workspace ID and key.                                                                                                                       |
-| spark.synapse.logAnalytics.keyVault.name            | -                            | The Key Vault name for the Log Analytics ID and key.                                                                                                                                                |
-| spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | The Key Vault secret name for the Log Analytics workspace ID.                                                                                                                                       |
-| spark.synapse.logAnalytics.keyVault.key.secret      | SparkLogAnalyticsSecret      | The Key Vault secret name for the Log Analytics workspace key.                                                                                                                                      |
-| spark.synapse.logAnalytics.uriSuffix       | ods.opinsights.azure.com     | The destination Log Analytics workspace [URI suffix][uri_suffix]. If your workspace isn't in Azure global, you need to update the URI suffix according to the respective cloud. |
+| Configuration name | Default value | Description |
+| ------------------ | ------------- | ----------- |
+| spark.synapse.logAnalytics.enabled | false | To enable the Log Analytics sink for the Spark applications, true. Otherwise, false. |
+| spark.synapse.logAnalytics.workspaceId | - | The destination Log Analytics workspace ID. |
+| spark.synapse.logAnalytics.secret | - | The destination Log Analytics workspace secret. |
+| spark.synapse.logAnalytics.keyVault.linkedServiceName   | - | The Key Vault linked service name for the Log Analytics workspace ID and key. |
+| spark.synapse.logAnalytics.keyVault.name | - | The Key Vault name for the Log Analytics ID and key. |
+| spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | The Key Vault secret name for the Log Analytics workspace ID. |
+| spark.synapse.logAnalytics.keyVault.key.secret | SparkLogAnalyticsSecret | The Key Vault secret name for the Log Analytics workspace |
+| spark.synapse.logAnalytics.uriSuffix | ods.opinsights.azure.com | The destination Log Analytics workspace [URI suffix][uri_suffix]. If your workspace isn't in Azure global, you need to update the URI suffix according to the respective cloud. |
+| spark.synapse.logAnalytics.filter.eventName.match | - | Optional. The comma-separated spark event names, you can specify which events to collect. For example: `SparkListenerJobStart,SparkListenerJobEnd` |
+| spark.synapse.logAnalytics.filter.loggerName.match | - | Optional. The comma-separated log4j logger names, you can specify which logs to collect. For example: `org.apache.spark.SparkContext,org.example.Logger` |
+| spark.synapse.logAnalytics.filter.metricName.match | - | Optional. The comma-separated spark metric name suffixes, you can specify which metrics to collect. For example: `jvm.heap.used`|
 
 > [!NOTE]  
 > - For Azure China, the `spark.synapse.logAnalytics.uriSuffix` parameter should be `ods.opinsights.azure.cn`. 
@@ -237,11 +240,11 @@ Users can query to evaluate metrics and logs at a set frequency, and fire an ale
 
 After the Synapse workspace is created with [data exfiltration protection](../security/workspace-data-exfiltration-protection.md) enabled.
 
-when you want to enabled this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (AMPLS)](https://docs.microsoft.com/azure/azure-monitor/logs/private-link-security) in the workspace’s approved Azure AD tenants.
+when you want to enabled this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (AMPLS)](../azure/azure-monitor/logs/private-link-security.md) in the workspace’s approved Azure AD tenants.
 
 You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (AMPLS):
 
-1. If there is no existing AMPLS, please follow [Azure Monitor Private Link connection setup](https://docs.microsoft.com/azure/azure-monitor/logs/private-link-security#private-link-connection-setup) to create one.
+1. If there is no existing AMPLS, please follow [Azure Monitor Private Link connection setup](../azure-monitor/logs/private-link-security.md) to create one.
 2. Navigate to your AMPLS in Azure portal, on the **Azure Monitor Resources** page, click **Add** to add connection to your Azure Log Analytics workspace.
 3. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Monitor Private Link Scopes** and **continue**.
    > [!div class="mx-imgBorder"]
@@ -253,7 +256,7 @@ You can follow below steps to create a managed private endpoint connection to Az
 6. Navigate to your AMPLS in Azure portal again, on the **Private Endpoint connections** page, select the connection just provisioned and **Approve**.
 
 > [!NOTE] 
->  - The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security#ampls-limits) for a deeper review of these limits. 
+>  - The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](../azure-monitor/logs/private-link-security.md) for a deeper review of these limits. 
 >  - Check if you have [right permission](../security/synapse-workspace-access-control-overview.md) to create managed private endpoint.
 
 ## Next steps

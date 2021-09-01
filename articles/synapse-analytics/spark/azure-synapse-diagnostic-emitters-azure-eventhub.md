@@ -22,7 +22,7 @@ In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitt
 ### Step 1: Create an Azure Event Hub instance
 
 To collect diagnostic logs and metrics to Azure Event Hubs, you can use existing Azure Event Hubs instance.
-Or if you don't have one, you can [create an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+Or if you don't have one, you can [create an event hub](../event-hubs/event-hubs-create.md).
 
 ### Step 2: Create a Apache Spark configuration file
 
@@ -52,7 +52,7 @@ For more description of the parameters, please refer to [Azure EventHub configur
 | `spark.synapse.diagnostic.emitter.<destination>.type`                       | Required. Built-in destination type. To enable Azure Event Hubs destination, the value should be `AzureEventHub`.                                                                                    |
 | `spark.synapse.diagnostic.emitter.<destination>.categories`                 | Optional. The comma-separated selected log categories. Available values include `DriverLog`, `ExecutorLog`, `EventLog`, `Metrics`. If not set, the default value is **all** categories.              |
 | `spark.synapse.diagnostic.emitter.<destination>.secret`                     | Optional. The Azure Eventhub instance connection string. This field should match this pattern `Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>;EntityPath=<PathName>` |
-| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Required if `.secret` is not specified. The [Azure Key vault](azure-key-vault) name where the secret (connection string) is stored.                                                                  |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Required if `.secret` is not specified. The [Azure Key vault](../key-vault/general/overview.md) name where the secret (connection string) is stored.                                                                  |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.secretName` | Required if `.secret.keyVault` is specified. The Azure Key vault secret name where the secret (connection string) is stored.                                                                         |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.eventName.match`     | Optional. The comma-separated spark event names, you can specify which events to collect. For example: `SparkListenerApplicationStart,SparkListenerApplicationEnd` |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.loggerName.match`    | Optional. The comma-separated log4j logger names, you can specify which logs to collect. For example: `org.apache.spark.SparkContext,org.example.Logger` |
@@ -89,17 +89,17 @@ Here is a sample log record in JSON format:
 
 ## Synapse workspace with data exfiltration protection enabled
 
-Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, the logs and metrics can not be sent out to the destination endpoints directly. You can create corresponding [managed private endpoints][managed-private-endpoint] for different destination endpoints or [create IP firewall rules](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-ip-firewall) in this scenario.
+Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, the logs and metrics can not be sent out to the destination endpoints directly. You can create corresponding [managed private endpoints](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md) for different destination endpoints or [create IP firewall rules](../synapse-analytics/security/synapse-workspace-ip-firewall.md) in this scenario.
 
 
-[storage-account-create]: https://docs.microsoft.com/azure/storage/common/storage-account-create
-[create-data-lake-storage-account]: https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account
-[synapse-notebook]: https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks
-[magic-command]: https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical#spark-session-config-magic-command
-[access-key-auth]: https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage
-[sas-auth]: https://docs.microsoft.com/azure/storage/common/storage-sas-overview
-[azure-key-vault]: https://azure.microsoft.com/services/key-vault/
-[spark-metrics-system]: https://spark.apache.org/docs/latest/monitoring.html#metrics
-[azure-sample-repo]: TBD
-[append-blob]: https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs
-[managed-private-endpoint]: https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints
+[Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create)
+[Create a storage account to use with Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account)
+[Create, develop, and maintain Synapse notebooks in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks)
+[Spark session config magic command](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical#spark-session-config-magic-command)
+[Manage storage account access keys](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+[Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+[Key Vault](https://azure.microsoft.com/services/key-vault/)
+[Spark Metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics)
+[Synapse Spark Diagnostic Emitter Configuration Samples](https://go.microsoft.com/fwlink/?linkid=2169375)
+[Understanding block blobs, append blobs, and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+[Synapse Managed private endpoints](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints)
