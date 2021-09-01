@@ -58,7 +58,7 @@ You’ll be prompted to enter a name for your app.
 
 #### [Preview interface](#tab/new-web-form)
 
-1. When filling out the **Product setup** page, keep answer the following questions:
+1. When filling out the **Product setup** page, you'll need to answer the following questions:
 
     - **Will your app be listed in the Apple Store?**
     If so, include your Apple ID. You'll see a warning that reminds you to enter this information on screen.
@@ -71,7 +71,7 @@ You’ll be prompted to enter a name for your app.
 
 1. Select **Save draft** before continuing to the next page: Packages.
 
-The following screenshot shows two yellow warning boxes that remind you to fill in your Apple ID and provide test credentials.
+The following screenshot shows two yellow warning boxes on the **Product setup** page that remind you to fill in your Apple ID and provide test credentials.
 
 [ ![Yellow warning box reminds you to fill in your Apple ID.](./images/add-in-submission-guide/step-3-yellow-warnings-workspaces.png)](./images/add-in-submission-guide/step-3-yellow-warnings-workspaces.png#lightbox)
 
@@ -96,13 +96,11 @@ The following screenshot shows two yellow warning boxes that remind you to fill 
 
 #### [Preview interface](#tab/new-web-form)
 
-You will need to upload your manifest file to the grey box on the **Packages** page.
-
-Remember to pre-test your package to prevent any unexpected failures in this step. Get information on all [the pre-testing manifest tools](/office/dev/add-ins/testing/troubleshoot-manifest#:~:text=%20To%20use%20a%20command-line%20XML%20schema%20validation,and%20replace%20XML_FILE%20with%20the%20path...%20More%20).
+You will need to upload your manifest file to the grey box on the **Packages** page. Remember to pre-test your package to prevent any unexpected failures in this step. Get information on all [the pre-testing manifest tools](/office/dev/add-ins/testing/troubleshoot-manifest#:~:text=%20To%20use%20a%20command-line%20XML%20schema%20validation,and%20replace%20XML_FILE%20with%20the%20path...%20More%20).
 
 When your manifest is uploaded and is correct, you will receive a confirmation and see that manifest checks have passed and that the **Status** column shows **Complete**.
 
-![A completed manifest upload](./images/add-in-submission-guide/step-4-packages-complete-upload.png)
+[ ![A completed manifest upload.](./images/add-in-submission-guide/step-4-packages-complete-upload.png) ](./images/add-in-submission-guide/step-4-packages-complete-upload.png#lightbox)
 
 #### [Current interface](#tab/old-web-form)
 
@@ -131,16 +129,14 @@ When your manifest is uploaded and is correct, you will receive a confirmation a
     [ ![Screenshot of the standard contract and EULA options.](./images/add-in-submission-guide/step-5-contract-eula.png) ](./images/add-in-submission-guide/step-5-contract-eula.png#lightbox)
     ***Figure 1 Choose an end user license agreement***
 
-1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
+1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy, as seen in figure 2. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
-1. In the **Support document link** box, enter a link (starting with https) that customers will use if they have issues with your product.
-
-    The yellow warning seen in the following screenshot reminds you that notes for certification are required.
+1. In the **Support document link** box, enter a link (starting with https) that customers will use if they have issues with your product, as seen in figure 2.
 
     [ ![Screenshot of the privacy policy and support document link boxes.](./images/add-in-submission-guide/step-5-privacy-support.png) ](./images/add-in-submission-guide/step-5-privacy-support.png#lightbox)
     ***Figure 2 Privacy policy and Support document link boxes***
 
-    Figure 2 shows that to pass certification, your privacy policy must include:
+    The yellow warning seen in this screenshot reminds you of the following things your privacy policy must include to pass certification:
 
     - Information on your policies regarding user's personal information.
     - Refer to the app or your service overall and NOT your website.
@@ -148,7 +144,7 @@ When your manifest is uploaded and is correct, you will receive a confirmation a
     - A valid URL link that does not generate a 404 error.
 
     > [!NOTE]
-    > A Terms of Use Policy is not considered a privacy policy. You must include a privacy policy that is separate from your Terms of Use policy.
+    > A _Terms of Use Policy_ is not considered a privacy policy. You must include a privacy policy that is separate from your Terms of Use policy.
 
 1. Select **Save** before continuing to the next page: Marketplace listings.
 
@@ -183,17 +179,13 @@ If you don't specify a support document link, you will be prompted to enter one.
 
 ## Step 6: Define your languages in Marketplace Listings
 
-1. To create a store entry, on the **Marketplace listings** page select **Manage additional languages**.
-1. In the dialog box that appears, select the languages your app will be in.
-1. Select **Update**.
-
-1. To create a store entry, on the **Marketplace listings** page select **Manage additional languages**.
+1. To create a store entry, on the **Marketplace listings** page, select **Manage additional languages**.
 1. In the dialog box that appears, select the languages your app will be in.
 1. Select **Update**.
 
 ## Step 7: For each language your app is available in, create your detailed store listing
 
-Your store listing is configured on the **Marketplace listings** page, and should include a summary, description, search keywords, icons, screenshots, and an optional video. For details, see [our submission checklist](./checklist.md).
+Your store listing is configured on the **Marketplace listings** page. You should include a summary, description, search keywords, icons, screenshots, and an optional video. For details, see [our submission checklist](./checklist.md).
 
 Within the language option, you'll find where you can fill in your app's store listing information, such as your app description and images.
 
@@ -203,9 +195,14 @@ To get started, select the language you want to configure under the **Language**
 
 ## Step 8: Decide on your availability date
 
-On the **Availability** page, schedule when your app will be available. Note it typically takes 4 to 6 weeks to complete an app submission and get it approved. On average, most apps require multiple submissions to pass our validation process, so follow our checklist carefully to reduce this time.  
+1. On the **Availability** page, schedule when your app will be available.
 
-![Make my product available in a future market is selected in the Availability step](./images/add-in-submission-guide/step-8-set-availability-time-date-workspaces.png)
+    > [!NOTE]
+    > It typically takes 4 to 6 weeks to complete an app submission and get it approved. On average, most apps require multiple submissions to pass our validation process, so follow our checklist carefully to reduce this time.  
+
+    ![Make my product available in a future market is selected in the Availability step](./images/add-in-submission-guide/step-8-set-availability-time-date-workspaces.png)
+
+1. Select **Save draft** before continuing.
 
 ## Step 9:  Make sure you add your critical testing instructions
 
