@@ -424,7 +424,7 @@
     - name: Live Ingest - Fragmented MP4 live ingest specification
       href: media-services-fmp4-live-ingest-overview.md
     - name: Live Ingest - Signaling Timed Metadata in Live Streaming
-      href: ../media-services-specifications-live-timed-metadata.md
+      href: media-services-specifications-live-timed-metadata.md
     - name: Smooth Streaming HEVC
       href: media-services-specifications-ms-sstr-amendment-hevc.md
   - name: Legacy components
