@@ -157,11 +157,7 @@
       - name: Selective disk backup
         href: selective-disk-backup-restore.md
       - name: Using Azure VM backup for database consistent snapshots
-        items:
-        - name: Overview
-          href: backup-azure-linux-database-consistent-enhanced-pre-post.md
-        - name: Oracle (Preview)
-          href: /azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup
+        href: backup-azure-linux-database-consistent-enhanced-pre-post.md
     - name: Restore
       items:
       - name: About Azure VM restore

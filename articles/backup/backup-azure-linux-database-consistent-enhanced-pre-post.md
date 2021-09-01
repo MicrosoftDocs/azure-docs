@@ -2,7 +2,7 @@
 title: Database consistent snapshots using enhanced pre-post script framework
 description: Learn how Azure Backup allows you to take database consistent snapshots, leveraging Azure VM backup and using packaged pre-post scripts
 ms.topic: conceptual
-ms.date: 08/31/2021 
+ms.date: 09/01/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -14,17 +14,19 @@ snapshot of disks and calling post-script (commands to un-freeze the application
 Following are the key benefits of the new 'enhanced' pre-post script framework.
 
 - These pre-post scripts are directly installed in Azure VMs along with backup extension. You need not have to author them and worry about downloading them from an external location.
-- You can still view the definition/content of pre-post scripts in [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts). They can submit changes and Azure Backup team will verify, review and merge, if necessary so that the benefits are available for all users.
+- You can still view the definition/content of pre-post scripts in [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts). You can submit changes and Azure Backup team will verify, review and merge, if necessary so that the benefits are available for all users.
 - You can also choose to add new pre-post scripts for any other database via [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts). With sufficient information and testing, Azure Backup team can choose to merge them and provide them for all users as well.
 - The framework is now robust to deal with scenarios such as pre-script execution failure or crashes. In any event, the post-script is definitely called to roll back all changes done in pre-script.
 - The framework also provides a _messaging_ channel for external tools to listen to and to prepare their own action plan on any message/event.
 
-Following are the list of databases covered under the enhanced framework.
+## Support matrix
 
-- Oracle (Preview)
+The following the list of databases are covered under the enhanced framework:
+
+- [Oracle (Preview)](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup)
 - MySQL (Preview)
 
-## Pre-requisites
+## Prerequisites
 
 You only need to edit a configuration file, *workload.conf* in `/etc/azure`, and provide connection information so that Azure Backup can connect to the relevant application and execute pre and post-scripts. The configuration file has the following parameters.
 
@@ -51,7 +53,7 @@ These parameters are explained below.
 |timeout     |    yes     |     This is the max time till which the database will be in quiesce state. The default value is 90 seconds. It's not recommended to set any value lesser than 60 seconds    |
 
 > [!NOTE]
-> The JSON definition is a template that the Azure Backup service may modify to suit a particular database. To understand configuration file for each database, refer to each database's detailed manual.
+> The JSON definition is a template that the Azure Backup service may modify to suit a particular database. To understand configuration file for each database, refer to [each database's detailed manual](#support-matrix).
 
 Overall, the customer experience to use the enhanced pre-post script framework is as follows:
 
@@ -69,11 +71,9 @@ Usually, streaming backups (such as full, differential, or incremental) and logs
 - **Performance and cost**: A daily full + logs would be the fastest during restore, but comes at a significant cost. Including differentials/incrementals reduces cost but might impact the restore performance.
 - **Impact on database/infrastructure**: The performance of a streaming backup depends on the underlying storage IOPS and the network bandwidth available when the stream is targeted to a remote location.
 - **Re-usability**: The commands for triggering different streaming backup types are different for each database. So, scripts can't be easily re-used. Also, if you're using different backup types, you need to understand the dependency chain to maintain the life cycle. Of course, some database clients do take care of such aspects, but that means the backup data too is prone for deletion by these clients.
-- **Long-term retention**: Full backups are definitely good for long-term retention as they can be independently moved and recovered at any point-in-time.
+- **Long-term retention**: Full backups are definitely good for long-term retention as they can be independently moved and recovered at any point-in-time. Snapshots retention helps you in quick restore, thus avoiding performance issues happen due to streaming backup.
 
-Snapshots are an option that can reduce some of the concerns listed above. 
-
-- **Performance and cost**: They provide instant backup and restore and snapshots, via Azure VM backup, are also _incremental_, and therefore are cost effective too. With snapshot, acting as a full during restore, you may not need streaming fulls and incrementals backups, and save on storage costs for operational backups.
+- **Performance and cost**: They provide instant backup and restore and snapshots, via Azure VM backup, are also _incremental_, and therefore are cost effective too. With snapshot, acting as a full during restore, you may not need streaming fulls and incremental backups, and save on storage costs for operational backups.
 - **Impact on database/infrastructure**: snapshots have the least impact on database and infrastructure.
 - **Re-usability:** You need to learn only one command, that is, for snapshot per database. No dependency chain is required. The enhanced pre-script takes care of the command.
 - **Short term retention:** They may not be used for long-term retention (due to link with underlying storage), but are best for short-term retention and daily operational backups.
