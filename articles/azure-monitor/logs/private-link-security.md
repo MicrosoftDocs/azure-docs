@@ -56,7 +56,7 @@ All Log Analytics endpoints except the Query endpoint, are workspace-specific. S
 
 
 > [!NOTE]
-> Create only a single AMPLS for all networks that share the same DNS. Creating multiple AMPLS resources will cause Azure Monitor DNS endpoints to override each other, and break existing environments.
+> Create only a single AMPLS for all networks that share the same DNS. Creating multiple AMPLS resources will cause Azure Monitor DNS zones to override each other, and break existing environments.
 
 ### Private Link access modes: Private Only vs Open
 As discussed in [Azure Monitor Private Link relies on your DNS](#azure-monitor-private-link-relies-on-your-dns), only a single AMPLS resource should be created for all networks that share the same DNS. As a result, organizations that use a single global or regional DNS in fact have a single Private Link to manage traffic to all Azure Monitor resources, across all global, or regional networks.

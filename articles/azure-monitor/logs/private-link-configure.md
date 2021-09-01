@@ -209,8 +209,10 @@ The below Azure Resource Manager template creates:
 }
 ```
 
-### Set AMPLS access flags - PowerShell example
+### Set AMPLS access modes - PowerShell example
 To set the access mode flags on your AMPLS, you can use the following PowerShell script. The following script sets the flags to Open. To use the Private Only mode, use the value "PrivateOnly".
+
+Allow ~10 minutes for the AMPLS access modes update to take effect.
 
 ```
 # scope details
