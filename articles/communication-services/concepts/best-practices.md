@@ -41,6 +41,16 @@ Communication Services applications should dispose `VideoStreamRendererView`, or
 ### Hang up the call on onbeforeunload event
 Your application should invoke `call.hangup` when the `onbeforeunload` event is emitted.
 
+### Handling multiple Tabs on mobile
+Your application should not connect to calls from multiple tabs simultaneously as this can cause undefined behavior due to contention for microphone and camera resources on the device. Developers are encouraged to always hangup the calls in all background tabs before starting a new one.
+```JavaScript
+document.addEventListener("visibilitychange", function() {
+	if (document.visibilityState != 'visible') {
+      		// hangup call
+  	}
+});
+ ```
+
 ### Hang up the call on microphoneMuteUnexpectedly UFD
 When an iOS/Safari user receives a PSTN call, Azure Communication Services loses microphone access. 
 Azure Communication Services will raise the `microphoneMuteUnexpectedly` call diagnostic event, and at this point Communication Services will not be able to regain access to microphone.
