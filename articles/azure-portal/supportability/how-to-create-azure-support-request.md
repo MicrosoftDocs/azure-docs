@@ -46,7 +46,7 @@ To start a support request in the context of the resource you're currently worki
 
 1. From the resource menu, in the **Support + troubleshooting** section, select **New Support Request**.
 
-   ![In context](./media/how-to-create-azure-support-request/incontext2lower.png)
+   :::image type="content" source="media/how-to-create-azure-support-request/incontext2lower.png" alt-text="Screenshot of the New Support Request option in the resource pane.":::
 
 1. Follow the prompts to provide us with information about the problem you're having. When you start the support request process from a resource, some options are pre-selected for you.
 
@@ -54,38 +54,41 @@ To start a support request in the context of the resource you're currently worki
 
 We'll walk you through some steps to gather information about your problem and help you solve it. Each step is described in the following sections.
 
-### Basics
+### Problem description
 
-The first step of the support request process gathers basic information about your issue and your support plan.
+The first step of the support request process is to select an issue type. You'll then be prompted for more information, which can vary depending on what type of issue you selected. In most cases, you'll need to specify a subscription, briefly describe your issue, and select a problem type. If you select **Technical**, you'll need to specify the service that your issue relates to. Depending on the service, you'll see additional options for **Problem type** and **Problem subtype**.
 
-On the **Basics** tab of **New support request**, use the selectors to start to tell us about the problem. First, you'll identify some general categories for the issue type and choose the related subscription. Select the service, for example **Virtual Machine running Windows**. Select the resource, such as the name of your virtual machine. Describe the problem in your own words, then select **Problem type** and **Problem subtype** to get more specific.
+:::image type="content" source="media/how-to-create-azure-support-request/basics2lower.png" alt-text="Screenshot of the Problem description step of the support request process.":::
 
-![Basics blade](./media/how-to-create-azure-support-request/basics2lower.png)
+Once you've provided all of these details, select **Next**.
 
-### Solutions
+### Recommended solution
 
-After gathering basic information, we next show you solutions to try on your own. In some cases, we may even run a quick diagnostic. Solutions are written by Azure engineers and will solve most common problems.
+Based on the information you provided, we'll show you recommended solutions you can use to try and resolve the problem. In some cases, we may even run a quick diagnostic. Solutions are written by Azure engineers and will solve most common problems.
 
-### Details
+If you're still unable to resolve the issue, continue creating your support request by selecting **Next**.
+
+### Additional details
 
 Next, we collect additional details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
 
-1. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
+1. Complete the **problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
 1. In the **Share diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. In some cases, there will be additional options to choose from, such as whether to allow access to a virtual machine's memory.
 
-1. **Support method** section of **Details**, select the severity of impact. The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
+1. In the **Support method** section, select the severity of impact. The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
 
 1. Provide your preferred contact method, your availability, and your preferred support language.
 
 1. Next, complete the **Contact info** section so we know how to contact you.
 
+Select **Next** when you've completed all of the necessary information.
+
 ### Review + create
 
-Complete all required information on each tab, then select **Review + create**. Check the details that you'll send to support. Go back to any tab to make a change if needed. When you're satisfied the support request is complete, select **Create**.
+Before you create your request, review all of the details that you'll send to support. You can select **Previous** to return to any tab if you need to make changes. When you're satisfied the support request is complete, select **Create**.
 
 A support engineer will contact you using the method you indicated. For information about initial response times, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
-
 
 ## Next steps
 
