@@ -235,7 +235,7 @@ The following release notes are for version 11.2.0.0 of the Azure File Sync agen
 - New PowerShell cmdlet (Add-StorageSyncAllowedServerEndpointPath) to configure allowed server endpoints paths on a server. This cmdlet is useful for scenarios in which the Azure File Sync deployment is managed by a Cloud Solution Provider (CSP) or Service Provider and the customer wants to configure allowed server endpoints paths on a server. When creating a server endpoint, if the path specified is not in the allowlist, the server endpoint creation will fail. Note, this is an optional feature and all supported paths are allowed by default when creating a server endpoint.  
 
 	
-	- To add a server endpoint path that’s allowed, run the following PowerShell commands on the server:
+	- To add a server endpoint path that's allowed, run the following PowerShell commands on the server:
 
 	```powershell
 	Import-Module 'C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll' -verbose
