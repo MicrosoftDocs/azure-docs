@@ -312,7 +312,7 @@ catch (Exception e)
 
 ## Retrieve a range of entities in a partition
 
-If you don't want to query all the entities in a partition, you can specify a range by using comparison operators in a filter. The following code combines two filters to get all entities in partition "Sales" where the row key between '0001' and '0004'. Then it prints the query results. If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise).
+If you don't want to query all the entities in a partition, you can specify a range by using comparison operators in a filter. The following code combines two filters to get all entities in partition "Sales" with a row key between '0001' and '0004'. Then it prints the query results. If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise).
 
 ```java
 try
@@ -351,7 +351,7 @@ catch (Exception e)
 
 ## Retrieve a single entity
 
-You can write a query to retrieve a single, specific entity. The following code calls `TableClient.getEntity` with partition key and row key parameters to retrieve the entity for employee "Sales 0001", instead of creating a `ListEntitiesOptions` and using filters to do the same thing. When executed, the retrieve operation returns just one entity, rather than a collection. A `null` value is returned if no entity has an exact partition and row key match. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
+You can write a query to retrieve a single, specific entity. The following code calls `TableClient.getEntity` with partition key and row key parameters to retrieve the entity for employee "Jeff Smith", instead of creating a `ListEntitiesOptions` and using filters to do the same thing. When executed, the retrieve operation returns just one entity, rather than a collection. A `null` value is returned if no entity has an exact partition and row key match. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
 
 ```java
 try
@@ -499,7 +499,7 @@ try
         .tableName(tableName)
         .buildClient();
 
-    // Delete the entity for 'Sales 0001' from table.
+    Delete the entity for partition key 'Sales' and row key '0001' from the table.
     tableClient.deleteEntity("Sales", "0001");
 }
 catch (Exception e)
