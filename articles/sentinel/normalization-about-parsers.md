@@ -55,9 +55,9 @@ vimDnsMicrosoftOMS
 ```
 
 > [!NOTE]
-> When using the ASIM source-agnostic parsers, which start with `im` in the log screen, the time range selector is set to `custom`. You can still set the time range yourself. Alternatively, specify the time range using parser parameters.
+> When using the ASIM source-agnostic parsers, which start with `im` in the **Logs** page, the time range selector is set to `custom`. You can still set the time range yourself. Alternatively, specify the time range using parser parameters.
 >
-> You can also use an alternative parser that starts with `ASim`, which does not support parameters and does not set the time range picker to custom.
+> Alternately, use an `ASim` parser, which does not support parameters, and also does not set the time-range picker to `custom` by default.
 >
 
 ### Source-specific parsers
@@ -70,27 +70,21 @@ The source-specific parsers can also be used independently. For example, in an I
 
 ## <a name="optimized-parsers"></a>Optimizing parsing using parameters
 
-Parsers may have a performance impact. While the added parsing processing causes some performance impact, the primary effect results from the need to filter after parsing, while the best practice is to filter first. 
+Using parsers may impact your query performance, primarily from having to filter the results after parsing. For this reason, many parsers have optional filtering parameters, which enable you to filter before parsing and enhance query performance. Together with query optimization and pre-filtering efforts, ASIM parsers often provide better performance when compared to not using normalization at all.
 
-To mitigate this issue, parsers can have optional filtering parameters. When using the filtering parameters, filtering is done before parsing and significantly enhances performance. By using query optimization and pre-filtering, ASIM parsers often provide enhanced performance when compared to not using normalization at all. 
-
-To use filtering parameters, add one or more named parameters when invoking the parsers. For example, the following query start ensures that only DNS queries for non-existent domains are returned.
+Use filtering parameters by adding one or more named parameters when invoking the parser. For example, the following query start ensures that only DNS queries for non-existent domains are returned:
 
 ```kusto
 imDns(responsecodename='NXDOMAIN')
 ```
 
-This is analogous to the query:
+The previous example is similar to the following query, but is much more efficient.
 
 ```kusto
 imDns | where ResponseCodeName == 'NXDOMAIN'
 ```
 
-But is much more efficient.
-
-Each schema has a standard set of filtering parameters which are documented in the schema doc. Currently, only the DNS schema supports parameters. However, we are working on expanding support to other schemas.
-
-Note that using filtering parameters is entirely optional. Also, if it is not written to support filtering parameters, it still works, but without pre-filtering optimization. 
+Each schema has a standard set of filtering parameters which are documented in the schema doc. Filtering parameters are entirely optional and are currently fully supported only for the DNS schema. Other schemas support standard filtering parameters without pre-filtering optimization.
 
 ## Writing source-specific parsers
 
@@ -116,7 +110,9 @@ Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
 
 #### Filtering based on parser parameters
 
-To support [parameter parsers](#optimized-parsers), first make sure that your parser accepts the filtering parameters for the relevant schema. Those are documented in the schema specific documentation. The function signature would be identical for each schema. For example. this is the DNS query parameter parser signature:
+When using [parameterized parsers](#optimized-parsers), make sure that your parser accepts the filtering parameters for the relevant schema, as documented in the reference article for that schema.
+
+The function article is identical for each schema. For example, for the DNS query parameterized parser signature:
 
 ```kusto
 let DNSQuery_MS=(
@@ -131,9 +127,10 @@ let DNSQuery_MS=(
     )
 ```
 
-Next, filter based on the value of the parameters. Make sure that you:
- - Filter before parsing using physical fields. If this fileting is not accurate enough, repeat the test after parsing to fine-tune as described in ["filtering optimization"](#optimization) below.
- - Make sure to not filter if the parameter is not set and has the default value. The examples below show how to implement this for a string parameter, for which the default value is usually '*', and for a list parameter, for which the default value is usually an empty list.
+Add your filters, based on your parameter values. When filtering, make sure that you:
+
+- **Filter before parsing using physical fields**. If the filtered results are not accurate enough, repeat the test after parsing to fine-tune your results. For more information, see  ["filtering optimization"](#optimization).
+ - **Do not filter if the parameter is not defined and still has the default value**. The following examples show how to implement filtering for a string parameter, where the default value is usually '\*', and for a list parameter, where the default value is usually an empty list.
 
 ``` kusto
 srcipaddr=='*' or ClientIP==srcipaddr
