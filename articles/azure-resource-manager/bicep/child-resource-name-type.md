@@ -15,6 +15,8 @@ Each parent resource accepts only certain resource types as child resources. The
 
 In Bicep, you can specify the child resource either within the parent resource or outside of the parent resource. The values you provide for the resource name and resource type vary based on whether the child resource is defined inside or outside of the parent resource.
 
+To learn more about child resources, and for hands-on guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on Microsoft Learn.
+
 ## Within parent resource
 
 The following example shows the child resource included within the resources property of the parent resource.

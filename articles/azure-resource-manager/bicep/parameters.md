@@ -15,6 +15,8 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
+To learn more about parameters, and for hands-on guidance, see [Build reusable Bicep templates by using parameters](/learn/modules/build-reusable-bicep-templates-parameters) on Microsoft Learn.
+
 ## Minimal declaration
 
 Each parameter needs a name and type. A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
