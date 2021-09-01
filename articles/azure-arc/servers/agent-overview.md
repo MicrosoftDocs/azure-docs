@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 08/18/2021
+ms.date: 09/01/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -79,7 +79,7 @@ Arc-enabled servers support the installation of the Connected Machine agent on a
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
-- Windows Server 2008 R2 SP1, Windows Server 2012 R2 and higher (including Server Core)
+- Windows Server 2008 R2 SP1, Windows Server 2012 R2, 2016, 2019, and 2022 (including Server Core)
 - Ubuntu 16.04, 18.04, and 20.04 LTS (x64)
 - CentOS Linux 7 and 8  (x64)
 - SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
