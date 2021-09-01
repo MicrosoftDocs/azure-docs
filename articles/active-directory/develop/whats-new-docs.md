@@ -24,11 +24,11 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 ### New articles
 
 - [Authorization basics](authorization-basics.md)
-- [How to: Create a self-signed public certificate to authenticate your application](howto-create-self-signed-certificate.md)
+- [Create a self-signed public certificate to authenticate your application](howto-create-self-signed-certificate.md)
 
 ### Updated articles
 
-- [How to: Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
+- [Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
 - [Microsoft Enterprise SSO plug-in for Apple devices (preview)](apple-sso-plugin.md)
 - [Microsoft identity platform code samples](sample-v2-code.md)
 - [Migrate applications to the Microsoft Authentication Library (MSAL)](msal-migration.md)
