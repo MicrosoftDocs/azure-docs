@@ -18,11 +18,11 @@ ms.author: lajanuar
 
 Version 3 of the Translator provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
 
- * Transliteration to convert text in one language from one script to another script.
- * Translation to multiple languages in one request.
- * Language detection, translation, and transliteration in one request.
- * Dictionary to look up alternative translations of a term, to find back-translations and examples showing terms used in context.
- * More informative language detection results.
+* Transliteration to convert text in one language from one script to another script.
+* Translation to multiple languages in one request.
+* Language detection, translation, and transliteration in one request.
+* Dictionary to look up alternative translations of a term, to find back-translations and examples showing terms used in context.
+* More informative language detection results.
 
 ## Base URLs
 
@@ -126,6 +126,7 @@ Available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centrali
 If you pass the secret key in the query string with the parameter `Subscription-Key`, then you must specify the region with query parameter `Subscription-Region`.
 
 ### Authenticating with an access token
+
 Alternatively, you can exchange your secret key for an access token. This token is included with each request as the `Authorization` header. To obtain an authorization token, make a `POST` request to the following URL:
 
 | Resource type     | Authentication service URL                                |
@@ -150,6 +151,27 @@ Authorization: Bearer <Base64-access_token>
 ```
 
 An authentication token is valid for 10 minutes. The token should be reused when making multiple calls to the Translator. However, if your program makes requests to the Translator over an extended period of time, then your program must request a new access token at regular intervals (for example, every 8 minutes).
+
+### Authenticating with Azure Active Directory (Azure AD)
+
+Translator v3.0 supports Azure AD authentication, Microsoft’s cloud-based identity and access management solution. Azure AD provides an access token as proof of authentication. The token is then sent to Translator service in the REST API  request authorization header allowing it to validate the client and complete the request.
+
+|Headers|Value|
+|:-----|:----|
+|Authorization| The value is the bearer token.|
+|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator.|
+|Ocp-Apim-Subscription-Region| The value is the region of the translator resource. This value is optional if the resource is `global`|
+
+Here's an example request using cURL:
+
+```curl
+curl -X  POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es" \
+       -H  "Authorization: Bearer <Base64-access_token>"\
+       -H  "Ocp-Apim-Subscription-Key: <your-subscription-key>" \
+       -H "Ocp-Apim-Subscription-Region: <your-region>" \
+       -H "Content-Type: application/json" \
+       -data-raw '[{"Text":"Hello" }]'
+```
 
 ## Virtual Network support
 
