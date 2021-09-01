@@ -1,7 +1,7 @@
 ---
 title: Creating and using resource files 
 description: Learn how to create Batch resource files from various input sources. This article covers a few common methods on how to create and place them on a VM.
-ms.date: 05/25/2021
+ms.date: 08/18/2021
 ms.topic: how-to
 ---
 
@@ -28,8 +28,7 @@ There are a few different options available to generate resource files, each wit
 
 Using a storage container URL means, with the correct permissions, you can access files in any storage container in Azure.
 
-In this C# example, the files have already been uploaded to an Azure storage container as blob storage. To access the data needed to create a resource file, we first need to get access to the storage container.
-
+In this C# example, the files have already been uploaded to an Azure storage container as blob storage. To access the data needed to create a resource file, we first need to get access to the storage container. This can be done in several ways.
 
 #### Shared Access Signature
 
@@ -63,9 +62,9 @@ If desired, you can use the [blobPrefix](/dotnet/api/microsoft.azure.batch.resou
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl, blobPrefix = yourPrefix);
 ```
 
-#### Managed Identity
+#### Managed identity
 
-Create a User Assigned Managed Identity and assign it the `Storage Blob Data Reader` role for your Azure Storage container. Next, [assign the managed identity to your pool](managed-identity-pools.md) so that your VMs can access the identity. Finally, you can access the files in your container by specifying the identity for Batch to use.
+Create a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) and assign it the `Storage Blob Data Reader` role for your Azure Storage container. Next, [assign the managed identity to your pool](managed-identity-pools.md) so that your VMs can access the identity. Finally, you can access the files in your container by specifying the identity for Batch to use.
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -73,9 +72,9 @@ CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(container.Uri, identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" });
 ```
 
-#### Public Access
+#### Public access
 
-An alternative to generating a SAS URL or using a Managed Identity is to enable anonymous, public read-access to a container and its blobs in Azure Blob storage. By doing so, you can grant read-only access to these resources without sharing your account key, and without requiring a SAS. Public read-access is typically used for scenarios where you want certain blobs to be always available for anonymous read-access. If this scenario suits your solution, see the [Anonymous access to blobs](../storage/blobs/anonymous-read-access-configure.md) article to learn more about managing access to your blob data.
+An alternative to generating a SAS URL or using a managed identity is to enable anonymous, public read-access to a container and its blobs in Azure Blob storage. By doing so, you can grant read-only access to these resources without sharing your account key, and without requiring a SAS. Public access is typically used for scenarios where you want certain blobs to be always available for anonymous read-access. If this scenario suits your solution, see [Configure anonymous public read access for containers and blobs](../storage/blobs/anonymous-read-access-configure.md) to learn more about managing access to your blob data.
 
 ### Storage container name (autostorage)
 
@@ -111,7 +110,7 @@ You can also use a string that you define as a URL (or a combination of strings 
 ResourceFile inputFile = ResourceFile.FromUrl(yourDomain + yourFile, filePath);
 ```
 
-If your file is in Azure Storage, you can use a Managed Identity instead of generating a Shared Access Signature for the resource file.
+If your file is in Azure Storage, you can use a managed identity instead of generating a Shared Access Signature for the resource file.
 
 ```csharp
 ResourceFile inputFile = ResourceFile.FromUrl(yourURLFromAzureStorage, 
@@ -121,7 +120,7 @@ ResourceFile inputFile = ResourceFile.FromUrl(yourURLFromAzureStorage,
 ```
 
 > [!Note]
-> Managed Identity authentication will only work with files in Azure Storage. The Managed Identity needs the `Storage Blob Data Reader` role assignment for the container the file is in and it must also be [assigned to the Batch pool](managed-identity-pools.md).
+> Managed identity authentication will only work with files in Azure Storage. The nanaged identity needs the `Storage Blob Data Reader` role assignment for the container the file is in, and it must also be [assigned to the Batch pool](managed-identity-pools.md).
 
 ## Tips and suggestions
 

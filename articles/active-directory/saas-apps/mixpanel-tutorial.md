@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Mixpanel
@@ -32,6 +32,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Mixpanel supports **SP** initiated SSO.
+
+* Mixpanel supports [Automated user provisioning](mixpanel-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -150,6 +152,9 @@ The objective of this section is to create a user called Britta Simon in Mixpane
 
 > [!Note]
 > The user will get an email to set up the profile.
+
+> [!NOTE]
+> Mixpanel also supports automatic user provisioning, you can find more details [here](./mixpanel-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

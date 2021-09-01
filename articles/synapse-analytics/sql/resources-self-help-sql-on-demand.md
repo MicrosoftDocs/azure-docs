@@ -518,6 +518,7 @@ Delta Lake support is currently in public preview in serverless SQL pools. There
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds below.
 - Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
+- Serverless SQL pools in Synapse Analytics do not support datasets with the [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
 You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
@@ -552,17 +553,41 @@ Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the sto
 
 **Status**: Resolved
 
-**Release**: July 2021
+**Release**: August 2021
 
 ### Query failed because of a topology change or compute container failure
 
 **Status**: Resolved
 
-**Release**: July 2021
+**Release**: August 2021
 
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 
-You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake.
+You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference).
+
+```sql
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
+    FORMAT = 'delta') as rows;
+```
+
+Automatic schema inference doesn't work with the nested columns in Delta Lake. Verify that the query returns some results if you specify FORMAT='parquet' and append ** to the path.
+
+**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
+
+### Cannot parse field 'type' in JSON object
+
+You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). 
+
+```sql
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
+    FORMAT = 'delta') as rows;
+```
+
+Automatic schema inference doesn't work with the nested columns in Delta Lake. Verify that the query returns some results if you specify FORMAT='parquet' and append ** to the path.
 
 **Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
 
@@ -593,11 +618,16 @@ First, make sure that your Delta Lake data set is not corrupted.
 - Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
 
 Some common errors and workarounds:
+
 - `JSON text is not properly formatted. Unexpected character '.'` - it is possible that the underlying parquet files contain some data types that are not supported in serverless SQL pool.
+
 **Workaround:** Try to use WITH schema that will exclude unsupported types.
 
 - `JSON text is not properly formatted. Unexpected character '{'` - it is possible that you are using some `_UTF8` database collation. 
+
 **Workaround:** Try to run a query on `master` database or any other database that has non-UTF8 collation. If this workaround resolves your issue, use a database without `_UTF8` collation. Specify `_UTF8` collation in the column definition in the `WITH` clause.
+
+**General workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
 
 In the data set is valid, and the workarounds cannot help, report a support ticket and provide a repro to Azure support:
 - Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
@@ -607,6 +637,16 @@ In the data set is valid, and the workarounds cannot help, report a support tick
 - Send the content of the copied `_delta_log` file to Azure support.
 
 Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
+
+### Resolving delta log on path ... failed with error: Cannot parse JSON object from log file
+
+This error might happen due to the following reasons/unsupported features:
+- [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters) on Delta Lake dataset. Serverless SQL pools in Synapse Analytics do not support datasets with the [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+- Float column in Delta Lake data set with statistics.
+- Data set partitioned on a float column.
+
+**Workaround**: [Remove BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) if you want to read Delta Lake folder using the serverless SQL pool. 
+If you have `float` columns that are causing the issue, you would need to re-partition the data set or remove the statistics.
 
 ## Security
 

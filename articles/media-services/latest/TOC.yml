@@ -15,9 +15,6 @@
       - name: Frequently asked questions
         href: frequently-asked-questions.yml
         displayName: faq, questions, frequently asked questions
-      - name: Troubleshooting tips
-        href: questions-collection.md 
-        displayName: faq, troubleshooting, tips, common issues, errors.
 - name: Quickstarts
   items:
   - name: Set up your environment
@@ -164,7 +161,7 @@
       href: media-services-apis-overview.md
       displayName: accessing, long-running, sdk, invalid character, name, naming, file name, SDK, client, library, API, develop, developer
     - name: Page, filter, order entities
-      href: filter-order-page-entitites-how-to.md
+      href: filter-order-page-entities-how-to.md
       displayName: paging, filtering, sorting, order, ordering, REST, SDK, client
     - name: Error codes
       items:
