@@ -56,7 +56,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 9. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, or another administrator who can manage reviews, can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
 
-10. In the **Users Scope** section, select the scope of the review. For **Azure AD roles**, the scope option is Users and Groups. For **Azure resource roles**, the scope will be Users despite it being displayed as Users and Groups. The reason for this clarification in users scope is because role-assignable groups will show up unexpanded in reviews of Azure AD roles, but such nested groups will be expanded to show the users for Azure resource roles. You may also select **Service Principals** to review the machine accounts with access to either the Azure resource or Azure AD role.
+10. In the **Users Scope** section, select the scope of the review. For **Azure AD roles**, the first scope option is Users and Groups. Directly assigned users and [role-assignable groups](link to this article: https://docs.microsoft.com/en-us/azure/active-directory/roles/groups-concept) will be included in this selection. For **Azure resource roles**, the first scope will be Users. Groups assigned to Azure resource roles are expanded to display transitive user assignments in the review with this selection. You may also select **Service Principals** to review the machine accounts with direct access to either the Azure resource or Azure AD role.
 
 
     <kbd> ![Users scope to review role membership of](./media/pim-create-azuread-roles-and-resource-roles-review/users.png) </kbd>
@@ -79,8 +79,8 @@ The need for access to privileged Azure resource and Azure AD roles by employees
     ![Reviewers list of selected users or members (self)](./media/pim-create-azuread-roles-and-resource-roles-review/reviewers.png)
 
     - **Selected users** - Use this option to designate a specific user to complete the review. This option is available regardless of the scope of the review, and the selected reviewers can review users, groups and service principals.
-    - **Members (self)** - Use this option to have the users review their own role assignments. Groups assigned to the role will not be a part of the review when this option is selected. For **Azure AD roles**, this option is only available if the review is scoped to **Users and Groups**.
-    - **Manager** – Use this option to have the user’s manager review their role assignment. This option is only available if the review is scoped to **Users and Groups**. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. For **Azure AD roles**, groups assigned to the role will be reviewed by the fallback reviewer if one is selected. 
+    - **Members (self)** - Use this option to have the users review their own role assignments. This option is only available if the review is scoped to **Users and Groups** or **Users**. For **Azure AD roles**, role-assignable groups will not be a part of the review when this option is selected. 
+    - **Manager** – Use this option to have the user’s manager review their role assignment. This option is only available if the review is scoped to **Users and Groups** or **Users**. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. For **Azure AD roles**, role-assignable groups will be reviewed by the fallback reviewer if one is selected. 
 
 ### Upon completion settings
 
@@ -90,14 +90,14 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
 2. If you want to automatically remove access for users that were denied, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
 
-3. Use the **If reviewer don't respond** list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
+3. Use the **If reviewer don't respond** list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who were reviewed by the reviewers.
 
     - **No change** - Leave user's access unchanged
     - **Remove access** - Remove user's access
     - **Approve access** - Approve user's access
     - **Take recommendations** - Take the system's recommendation on denying or approving the user's continued access
     
-4. Use the **Action to apply on denied guest users** list to specify what happens for guest users that are denied:
+4. Use the **Action to apply on denied guest users** list to specify what happens for guest users that are denied. This setting is not editable for Azure AD and Azure resource role reviews at this time; guest users, like all users, will always lose access to the resource if denied.
 
     <kbd> ![Upon completion settings - Action to apply on denied guest users](./media/pim-create-azuread-roles-and-resource-roles-review/action-to-apply-on-denied-guest-users.png) </kbd>
 
@@ -136,7 +136,7 @@ To manage a series of access reviews, navigate to the access review, and you wil
 Based on your selections in **Upon completion settings**, auto-apply will be executed after the review's end date or when you manually stop the review. The status of the review will change from **Completed** through intermediate states such as **Applying** and finally to state **Applied**. You should expect to see denied users, if any, being removed from roles in a few minutes.
 
 > [!IMPORTANT]
-> If a group is assigned to **Azure resource roles**, the reviewer of the Azure resource role will see the expanded list of the users in a nested group. Should a reviewer deny a member of a nested group, that deny result will not be applied successfully because the user will not be removed from the nested group. For **Azure AD roles**, the concept of role-assignable groups applies, where a group can be assigned to the role. When this happens, the group will show up in the review instead of expanding the members of the group, and a reviewer will either approve or deny access to the entire group.
+> If a group is assigned to **Azure resource roles**, the reviewer of the Azure resource role will see the expanded list of the indirect users with access assigned through a nested group. Should a reviewer deny a member of a nested group, that deny result will not be applied successfully for the role because the user will not be removed from the nested group. For **Azure AD roles**, [role-assignable groups](link to this article: https://docs.microsoft.com/en-us/azure/active-directory/roles/groups-concept) will show up in the review instead of expanding the members of the group, and a reviewer will either approve or deny access to the entire group.
 
 ## Update the access review
 
