@@ -4,7 +4,7 @@ description: In this tutorial, learn how to onboard a sensor and management cons
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 09/01/2021
 ms.custom: template-tutorial
 ---
 
@@ -137,6 +137,10 @@ The virtual sensor supports both VMware, and Hyper-V deployment options. Before 
 1. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
 
 1. Select **Next** > **Finish**.
+
+1. Power on the VM by selecting the **Console** button.
+
+    :::image type="content" source="media/tutorial-onboarding/console-button.png" alt-text="Select the console button to power on the virtual console.":::
 
 ### Create the virtual machine for the sensor (Hyper-V)
 
@@ -320,3 +324,8 @@ After registering the sensor you will be able to download an activation file. Th
 1. Select **Save**.  
 
 You might need to refresh your screen after uploading the CA-signed certificate.
+
+## Next steps
+
+Learn how to setup a [additional appliances](how-to-install-software.md#about-defender-for-iot-appliances).
+Read about the [agentless architecture](architecture.md).
