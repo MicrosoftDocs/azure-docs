@@ -13,12 +13,12 @@ An Azure HDInsight cluster consists of multiple nodes (head nodes, worker nodes,
 
 With this new availability zone feature, the user can now specify which Availability Zone should host all the nodes of the HDInsight cluster. The cluster nodes are physically separated from another availability zone and are isolated from failures in other Availability Zones in the same region. This deployment model also provides inexpensive, low latency network connectivity within the cluster. 
 
-Replicating this deployment model into multiple Availability Zone can provide a higher level of availability to protect against hardware failure.
+Replicating this deployment model into multiple Availability Zones can provide a higher level of availability to protect against hardware failure.
 
-This article shows you how to create an HDInsight cluster within an Availability Zone and how to leverage this feature to achieve higher availability. 
+This article shows you how to create an HDInsight cluster within an Availability Zone and how to use this feature to achieve higher availability. 
 
 ## Before you begin
-Availability Zone feature is only supported for clusters created after June 15th. Availability zone settings can't be updated after the cluster is created. You also can't update an existing, non-availability zone cluster to use availability zones.
+Availability Zone feature is only supported for clusters created after June 15. Availability zone settings can't be updated after the cluster is created. You also can't update an existing, non-availability zone cluster to use availability zones.
 
 ## Prerequisites and region availability
 Prerequisites:
@@ -96,7 +96,7 @@ You can scale up an HDInsight cluster with more worker nodes. The newly added wo
 
 **Limitations**: 
 
- - Availability zone feature in HDInsight does not support clusters which require managed disks (Kafka cluster and Accelerated write feature enabled HBase cluster) 
+ - Availability zone feature in HDInsight does not support clusters that require managed disks (Kafka cluster and Accelerated write feature enabled HBase cluster) 
 
 ## Best Practices
 
