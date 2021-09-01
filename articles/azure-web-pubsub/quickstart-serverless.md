@@ -56,7 +56,7 @@ In this tutorial, you learn how to:
 
 1. Make sure you have [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) installed. And then create an empty directory for the project. Run command under this working directory.
 
-    # [Javascript](#tab/javascript)
+    # [JavaScript](#tab/javascript)
     ```bash
     func init --worker-runtime javascript
     ```
