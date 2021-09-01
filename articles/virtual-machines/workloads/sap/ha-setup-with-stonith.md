@@ -67,7 +67,7 @@ Follow these steps to set up HA using STONITH:
 ## Identify the SBD device
 
 > [!NOTE]
-> This section only applies to an existing customer. If you're a new customer, the Microsoft Service Management team will give you the SBD device name, so skip this section.
+> This section only applies to existing customers. If you're a new customer, the Microsoft Service Management team will give you the SBD device name, so skip this section.
 
 For existing customers only: Once the Microsoft Service Management team has configured the STONITH device, you'll need to determine the SBD device for your setup.
 
@@ -145,46 +145,46 @@ This section describes the steps to set up the SUSE HA cluster.
     
 2. Now, set up the cluster.	You can either use the *ha-cluster-init* command, or use the yast2 wizard to set up the cluster. In this example, we've used the yast2 wizard. Do this step **only on the Primary node**.
 
-- Follow yast2> High Availability > Cluster
-
-    ![Screenshot shows the YaST Control Center with High Availability and Cluster selected.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
+    - Follow yast2> High Availability > Cluster
     
-    ![Screenshot shows a dialog box with Install and Cancel options.](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
+        ![Screenshot shows the YaST Control Center with High Availability and Cluster selected.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
+        
+        ![Screenshot shows a dialog box with Install and Cancel options.](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
+        
+    - Select **Cancel** since the halk2 package is already installed.
     
-- Select **Cancel** since the halk2 package is already installed.
-
-    ![Screenshot shows a message about your cancel option.](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
-
-- Select **Continue**.
-
-    Expected value=Number of nodes deployed (in this case 2).
+        ![Screenshot shows a message about your cancel option.](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
     
-    ![Screenshot shows Cluster Security with an Enable Security Auth check box.](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)
+    - Select **Continue**.
     
-- Select **Next**.
-
-    ![Screenshot shows Cluster Configure window with Sync Host and Sync File lists.](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png)
+        Expected value=Number of nodes deployed (in this case 2).
+        
+        ![Screenshot shows Cluster Security with an Enable Security Auth check box.](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)
+        
+    - Select **Next**.
     
-    Add node names and then select Add suggested files.
+        ![Screenshot shows Cluster Configure window with Sync Host and Sync File lists.](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png)
+        
+        Add node names and then select Add suggested files.
+        
+    - Select **Turn csync2 ON**.
     
-- Select **Turn csync2 ON**.
-
-- Select **Generate Pre-Shared-Keys**; it shows below popup.
-
-    ![Screenshot shows a message that your key has been generated.](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
+    - Select **Generate Pre-Shared-Keys**; it shows below popup.
     
-- Select **OK**.
-
-    The authentication is performed using the IP addresses and pre-shared-keys in Csync2. The key file is generated with csync2 -k /etc/csync2/key_hagroup. The file key_hagroup should be copied to all members of the cluster manually after it's created. **Be sure to copy the file from node 1 to node2**.
+        ![Screenshot shows a message that your key has been generated.](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
+        
+    - Select **OK**.
     
-    ![Screenshot shows a Cluster Configure dialog box with options necessary to copy the key to all members of the cluster.](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
+        The authentication is performed using the IP addresses and pre-shared-keys in Csync2. The key file is generated with csync2 -k /etc/csync2/key_hagroup. The file key_hagroup should be copied to all members of the cluster manually after it's created. **Be sure to copy the file from node 1 to node2**.
+        
+        ![Screenshot shows a Cluster Configure dialog box with options necessary to copy the key to all members of the cluster.](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
+        
+    - Select **Next**.
+        ![Screenshot shows the Cluster Service window.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+        
+        In the default option, Booting was off. Change it to on, so pacemaker is started on boot. You can make the choice based on your setup requirements.
     
-- Select **Next**.
-    ![Screenshot shows the Cluster Service window.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
-    
-    In the default option, Booting was off. Change it to on, so pacemaker is started on boot. You can make the choice based on your setup requirements.
-
-- Select **Next**, and the cluster configuration is complete.
+    - Select **Next**, and the cluster configuration is complete.
 
 ## Set up the softdog watchdog
 
@@ -297,11 +297,13 @@ Next, you'll join the node to the cluster.
 ## Configure cluster properties and resources
 
 This section describes the steps to configure the cluster resources.
-In this example, set up the following resources; the rest can be configured (if needed) by referencing the SUSE HA guide. Do the configuration in **one of the nodes** only. Do it on the primary node.
+In this example, set up the following resources; the rest can be configured (if needed) by referencing the SUSE HA guide.
 
 - Cluster bootstrap
 - STONITH device
 - The virtual IP address
+
+Do the configuration in **one of the nodes** only. Do it on the primary node.
 
 1. Configure the cluster bootstrap and more: Add the cluster bootstrap. Create the file and add the text as follows:
     
@@ -334,12 +336,12 @@ In this example, set up the following resources; the rest can be configured (if 
     primitive stonith-sbd stonith:external/sbd \
     params pcmk_delay_max="15"
     ```
-- Add the configuration to the cluster.
-
-    ```
-    crm configure load update crm-sbd.txt
-    ```
-    
+      - Add the configuration to the cluster.
+        
+          ```
+          crm configure load update crm-sbd.txt
+          ```
+        
 4. Configure the virtual IP address: Add resource virtual IP. Create the file and add the text as follows.
 
     ```
@@ -349,20 +351,20 @@ In this example, set up the following resources; the rest can be configured (if 
     op monitor interval="10s" timeout="20s" \
     params ip="10.35.0.197"
     ```
-- Add the configuration to the cluster:
-
-    ```
-    crm configure load update crm-vip.txt
-    ```
+    - Add the configuration to the cluster:
     
+        ```
+        crm configure load update crm-vip.txt
+        ```
+        
 5. Now validate the resources. When you run the command, *crm_mon*, you can see the two resources.
 
     ![Screenshot shows a console window with two resources.](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-- You can also see the status at *https://\<node IP address>:7630/cib/live/state*.
-
-    ![Screenshot shows the status of the two resources.](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
-
+    - You can also see the status at *https://\<node IP address>:7630/cib/live/state*.
+    
+        ![Screenshot shows the status of the two resources.](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
+    
 ## Test the failover process
 
 1. To test the failover process, stop the pacemaker service on node1, and the resources failover to node2.
@@ -477,10 +479,10 @@ For the high availability option to be visible on the yast2 control center, you 
 
 1. Using Yast2>Software>Software management, select the following patterns:
 
-- SAP HANA server base
-- C/C++ Compiler and tools
-- High availability
-- SAP Application server base
+    - SAP HANA server base
+    - C/C++ Compiler and tools
+    - High availability
+    - SAP Application server base
 
     The following screen shows the steps to install the patterns.
 
@@ -511,9 +513,9 @@ The HANA installation fails with the following error.
 
 ![Screenshot shows an error message that the operating system isn't ready to perform g c c 5 assemblies.](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
 
-To fix the issue, you need to install libraries (libgcc_sl and libstdc++6) as per the following screenshot.
+- To fix the issue, you need to install libraries (libgcc_sl and libstdc++6) as per the following screenshot.
 
-![Screenshot shows a console window installing required libraries.](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
+    ![Screenshot shows a console window installing required libraries.](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
 
 ### Scenario 5: Pacemaker service fails
 
