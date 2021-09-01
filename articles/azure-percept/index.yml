@@ -84,7 +84,7 @@ landingContent:
         links:
           - text: Software releases for OTA updates
             url: software-releases-over-the-air-updates.md
-          - text: Software releases for update over USB cable
+          - text: Software releases for USB cable updates 
             url: software-releases-usb-cable-updates.md
           - text: Azure Percept DK software release notes
             url: azure-percept-devkit-software-release-notes.md
