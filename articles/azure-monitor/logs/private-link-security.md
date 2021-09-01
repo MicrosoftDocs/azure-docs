@@ -56,10 +56,10 @@ All Log Analytics endpoints except the Query endpoint, are workspace-specific. S
 
 
 > [!NOTE]
-> Create only a single AMPLS for all networks that share the same DNS. Creaing multiple AMPLS resources will cause Azure Monitor DNS endpoints to override each other, and break existing environments.
+> Create only a single AMPLS for all networks that share the same DNS. Creating multiple AMPLS resources will cause Azure Monitor DNS zones to override each other, and break existing environments.
 
 ### Private Link access modes: Private Only vs Open
-As discussed in [Azure Monitor Private Link relies on your DNS](#azure-monitor-private-link-relies-on-your-dns)), only a single AMPLS resource should be created for all networks that share the same DNS. As a result, organizations that use a single global or regional DNS in fact have a single Private Link to manage traffic to all Azure Monitor resources, across all global, or regional networks.
+As discussed in [Azure Monitor Private Link relies on your DNS](#azure-monitor-private-link-relies-on-your-dns), only a single AMPLS resource should be created for all networks that share the same DNS. As a result, organizations that use a single global or regional DNS in fact have a single Private Link to manage traffic to all Azure Monitor resources, across all global, or regional networks.
 
 For Private Links created before September 2021, that means - 
 * Log ingestion works only for resources in the AMPLS. Ingestion to all other resources is denied (across all networks that share the same DNS), regardless of subscription or tenant.

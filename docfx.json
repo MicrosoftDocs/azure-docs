@@ -331,6 +331,7 @@
         "articles/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/active-directory/**/*.md": "https://docs.microsoft.com/azure/active-directory/fundamentals/support-help-options",
         "articles/active-directory/develop/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
+        "articles/active-directory-b2c/**/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
         "articles/active-directory-domain-services/**/*.md": "https://feedback.azure.com/forums/169401-azure-active-directory",
         "articles/advisor/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/aks/**/*.md": "https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks",
