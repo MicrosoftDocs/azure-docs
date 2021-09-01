@@ -6,7 +6,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 07/01/2021
+ms.date: 09/01/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -50,7 +50,6 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Permissions and consent in the Microsoft identity platform](v2-permissions-and-consent.md)
 - [Protected web API: Verify scopes and app roles](scenario-protected-web-api-verification-scope-app-roles.md)
 - [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](quickstart-v2-aspnet-core-webapp.md)
-
 
 ## June 2021
 
