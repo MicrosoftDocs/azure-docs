@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 06/29/2021
+ms.date: 09/01/2021
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors with using Azure Policy
@@ -98,6 +98,11 @@ To troubleshoot your policy definition, do the following:
    of the definition to the evaluated property value indicates why a resource was noncompliant.
    - If the **target value** is wrong, revise the policy definition.
    - If the **current value** is wrong, validate the resource payload through `resources.azure.com`.
+1. For a [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes)
+   definition that supports a RegEx string parameter (such as `Microsoft.Kubernetes.Data` and the
+   built-in definition "Container images should be deployed from trusted registries only"), validate
+   that the [RegEx string](/dotnet/standard/base-types/regular-expression-language-quick-reference)
+   parameter is correct.
 1. For other common issues and solutions, see
    [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected).
 
