@@ -616,7 +616,7 @@ Known issues on Linux:
 | Property | Value  |
 |-|-|
 | Fault Provider (service-direct) | AzureCosmosDbChaos |
-| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region in order to simulate a [write region outage](../cosmos-db/high-availability#multi-region-accounts-with-a-single-write-region-write-region-outage) |
+| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region in order to simulate a [write region outage](../cosmos-db/high-availability.md#multi-region-accounts-with-a-single-write-region-write-region-outage) |
 | Prerequisites | None. |
 | Name | urn:provider:Azure-cosmosDb:Microsoft.Azure.Chaos.Fault.AzureCosmosDbFailover |
 | Parameters (key, value) |  |
