@@ -24,7 +24,7 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ### Limitations
 
-- [Ephemeral OS][ephemeral-os] disks are not supported. Be sure to specify managed OS disks via `--node-osdisk-type Managed` when creating a node pool.
+- [Ephemeral OS][ephemeral-os] disks are not supported. Be sure to specify managed OS disks via `--node-osdisk-type Managed` when creating a cluster or node pool.
 - [Spot node pools][spot-node-pool] are not supported.
 
 ### Install aks-preview CLI extension
