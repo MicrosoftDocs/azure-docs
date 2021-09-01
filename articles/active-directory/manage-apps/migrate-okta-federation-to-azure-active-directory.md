@@ -146,7 +146,7 @@ applications in Okta that they need to access, to allow the users easy access to
 >[!Note]
 >You'll need tenant ID, and application ID later to configure Identity Provider in Okta.
 
-![image shows record tenant id and application id](media/migrate-okta-federation-to-azure-active-directory/record-ids.png)
+   ![image shows record tenant id and application id](media/migrate-okta-federation-to-azure-active-directory/record-ids.png)
 
 8. Select **Certificates & Secrets** on the left menu. Select **New Client Secret** and give it a generic name and set its expiration time.
 
@@ -155,7 +155,7 @@ applications in Okta that they need to access, to allow the users easy access to
 >[!NOTE]
 >You'll not be able to record this info later and will instead have to regenerate a secret if lost.
 
-![image shows record secrets](media/migrate-okta-federation-to-azure-active-directory/record-secrets.png)
+   ![image shows record secrets](media/migrate-okta-federation-to-azure-active-directory/record-secrets.png)
 
 10. Select **API Permissions** on the left menu, and grant the application access to the OpenID Connect (OIDC) stack.
 
@@ -192,12 +192,11 @@ common attribute between users to match against.
 
     ![image shows redirect okta sign-in](media/migrate-okta-federation-to-azure-active-directory/redirect-okta.png)
 
-After creating the IDP, extra configuration is needed  to send users to the correct IDP.
+    After creating the IDP, extra configuration is needed  to send users to the correct IDP.
 
 19. Select **Routing Rules** from the Identity Providers menu, and then select **Add Routing Rule** using one of the available attributes in the Okta profile.
 
-20. Configure the policy as shown to direct sign-ins from all
-devices and IPs to Azure AD.
+20. Configure the policy as shown to direct sign-ins from all devices and IPs to Azure AD.
 
     In the example, our attribute **Division** is unused on all our Okta profiles, which makes it an easy candidate to use for IDP routing.
 
@@ -207,8 +206,7 @@ devices and IPs to Azure AD.
 
     ![image shows application registration](media/migrate-okta-federation-to-azure-active-directory/application-registration.png)
 
-22. Navigate back to your application registration and select the
-authentication tab, followed by **Add a platform** and **Web**.
+22. Navigate back to your application registration and select the authentication tab, followed by **Add a platform** and **Web**.
 
    ![image shows add platform](media/migrate-okta-federation-to-azure-active-directory/add-platform.png)
 
@@ -237,8 +235,7 @@ After configuring the Okta app in Azure AD and the Identity Provider in the Okta
 
    ![image shows adding a group](media/migrate-okta-federation-to-azure-active-directory/add-group.png)
 
-3. After about 15 minutes, sign in as one of the Managed
-Authentication Pilot users and access [Myapplications](https://myapplications.microsoft.com).
+3. After about 15 minutes, sign in as one of the Managed Authentication Pilot users and access [Myapplications](https://myapplications.microsoft.com).
 
    ![image shows access myapplications](media/migrate-okta-federation-to-azure-active-directory/my-applications.png)
 
