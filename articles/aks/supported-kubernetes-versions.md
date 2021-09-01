@@ -96,14 +96,19 @@ You can use one minor version older or newer of `kubectl` relative to your *kube
 
 For example, if your *kube-apiserver* is at *1.17*, then you can use versions *1.16* to *1.18* of `kubectl` with that *kube-apiserver*.
 
+To install or update `kubectl` to the latest version, run:
+
 ### [Azure CLI](#tab/azure-cli)
 
-To install or update your version of `kubectl`, run `az aks install-cli`.
+```azurecli
+az aks install-cli
+```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To install or update your version of `kubectl`, run [Install-AzAksKubectl][install-azakskubectl].
-
+```powershell
+Install-AzAksKubectl -Version latest
+```
 ---
 
 ## Release and deprecation process
@@ -249,5 +254,4 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
 [get-azaksversion]: /powershell/module/az.aks/get-azaksversion

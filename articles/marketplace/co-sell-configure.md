@@ -20,7 +20,7 @@ The Co-sell option is available for the following offer types.
 - Azure Container
 - Azure Virtual Machine
 - Consulting service
-- Dynamics 365 for Customer Engagement & PowerApps
+- Dynamics 365 for Customer Engagement & Power Apps
 - Dynamics 365 for operations
 - Dynamics 365 business central
 - IoT Edge Module

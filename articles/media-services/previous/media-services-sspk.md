@@ -100,6 +100,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * FAIRWIT HONGKONG CO., LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
+* Guangdong Asano Technology CO.,Ltd.
 * Hisense Broadband Multimedia Technologies Co.,Ltd.
 * Hisense International Co., Ltd.
 * Hisense Visual Technology Co., Ltd
