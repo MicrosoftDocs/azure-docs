@@ -202,7 +202,7 @@ kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.w
 1845
 ```
 
-This number indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under 1000 it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle, the Validating Webhook would be erroring out and prohibiting the user from making changes to the osm-config ConfigMap in the kube-system namespace.
+This number indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under 1000 it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle, the Validating Webhook would error out and prohibit the user from making changes to the osm-config ConfigMap in the kube-system namespace.
 
 A sample error when the CA Bundle is incorrect:
 

@@ -232,7 +232,7 @@ We will now describe the deployment as a check to see if there is a service acco
 kubectl describe deployment bookbuyer -n bookbuyer
 ```
 
-In this particular deployment you can see that there is a service account associated with the deployment listed under the Pod Template section. This deployment is using the service account bookbuyer. If you do not see the **Serivce Account:** property, your deployment is not configured to use a service account.
+In this particular deployment you can see that there is a service account associated with the deployment listed under the Pod Template section. This deployment is using the service account bookbuyer. If you do not see the **Service Account:** property, your deployment is not configured to use a service account.
 
 ```Output
 Pod Template:
