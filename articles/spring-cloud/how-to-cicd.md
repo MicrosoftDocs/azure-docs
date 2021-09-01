@@ -22,13 +22,14 @@ The following video describes end-to-end automation using tools of your choice, 
 
 > [!VIDEO https://www.youtube.com/embed/D2cfXAbUwDc?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
+::: zone pivot="programming-language-csharp"
+
 ## Create an Azure Resource Manager service connection
 
 Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn how to create an Azure Resource Manager service connection to your Azure DevOps project. Be sure to select the same subscription you are using for your Azure Spring Cloud service instance.
 
 ## Build and deploy apps
 
-::: zone pivot="programming-language-csharp"
 
 ### Deploy artifacts
 
@@ -85,17 +86,28 @@ steps:
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
+## Set up Spring Cloud Instance and DevOps project
+1.	Go to your Azure Spring Cloud instance and create a new app. 
+2.	Go to Azure DevOps website and create a new project under a chosen organization. If you do not have a DevOps organization, you could create one for free.
+3.	Go to repo section and import demo code from [this link](!https://github.com/spring-guides/gs-spring-boot) to repo.
+
+## Create an Azure Resource Manager service connection
+
+Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn how to create an Azure Resource Manager service connection to your Azure DevOps project. Be sure to select the same subscription you are using for your Azure Spring Cloud service instance.
+
+## Build and deploy apps
 ### Deploy artifacts
 
 #### Set up Pipeline to production
 <ol>
-<li>click on Pipelines blade and create a new pipeline with Maven template.</li>
+<li>Click on Pipelines blade and create a new pipeline with a Maven template.</li>
 <li>Edit yml file:
 <ul>
 <li>Click show assistance on the right side and choose Azure Spring Cloud template</li>
-<li>Choose subscription and click authorize. Make sure you have “Owner” or “User Access Administrator”.  If authorization does not work, please follow [this guide](/azure/devops/pipelines/library/connect-to-azure) to create Azure Resource Manager server connection. </li>
-<li>Choose Spring Cloud Instance and App Instance, and disable “Use Staging Deployment”</li>
+<li>Choose the service connection you just created for Azure Subscription. Choose your Spring Cloud Instance and App Instance. </li>
+<li>Disable “Use Staging Deployment”</li>
 <li>Change package or folder to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar</li>
+<li>Add this task to your pipeline</li>
 </ul>
 
 Or you can build and deploy your projects using following template. This snippet first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Cloud task for Azure Pipelines.
@@ -117,7 +129,7 @@ steps:
 ```
 </li>
 <li>Click save and run, and then wait for job to be done.</li>
-<ol>
+</ol>
 
 #### Blue-green deployments
 
