@@ -1021,7 +1021,7 @@
     - name: Double encryption in transit 
       href: ./domain-joined/encryption-in-transit.md
     - name: Use availability zones 
-      href: ./hdinsight-cluster-availability.md
+      href: ./hdinsight-use-availability-zones.md
   - name: How-to guides
     items:
     - name: Use ID Broker for credential management
