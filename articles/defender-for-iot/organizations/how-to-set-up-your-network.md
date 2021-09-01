@@ -1,7 +1,7 @@
 ---
 title: Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
-ms.date: 07/25/2021
+ms.date: 09/01/2021
 ms.topic: how-to
 ---
 
@@ -11,13 +11,13 @@ Azure Defender for IoT delivers continuous ICS threat monitoring and device disc
 
 **Defender for IoT sensors:** Sensors collect ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero performance impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console. There, you can view, investigate, and analyze them in a network map, a device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors. 
 
-**Defender for IoT on-premises management console**: The on-premises management console provides a consolidated view of all network devices. It delivers a real-time view of key OT and IoT risk indicators and alerts across all your facilities. Tightly integrated with your SOC workflows and playbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats. 
+**Defender for IoT on-premises management console**: The on-premises management console provides a consolidated view of all network devices. It delivers a real-time view of key OT and IoT risk indicators and alerts across all your facilities. Tightly integrated with your SOC workflows and playbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.
 
-**Defender for IoT portal:** The Defender for IoT application can help you purchase solution appliances, install and update software, and update TI packages. 
+**Defender for IoT portal:** The Defender for IoT application can help you purchase solution appliances, install and update software, and update TI packages.
 
 This article provides information about solution architecture, network preparation, prerequisites, and more to help you successfully set up your network to work with Defender for IoT appliances. Readers working with the information in this article should be experienced in operating and managing OT and IoT networks. Examples include automation engineers, plant managers, OT network infrastructure service providers, cybersecurity teams, CISOs, or CIOs.
 
-For assistance or support, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+For assistance or support, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## On-site deployment tasks
 
@@ -89,28 +89,36 @@ For more information on supported browsers, see [recommended browsers](../../azu
 
 Verify that your organizational security policy allows access to the following:
 
+#### Sensor access to the network - passive/active monitoring
+
+| Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| WMI | UDP | Out | 135 | Monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
+| Passive SPAN |  |  |  |  |  |  |  |
+| OT Protocols | TCP/UDP | Out |  | Monitoring | Active querying from sensor to network |  | Relevant network element |
+
 #### User access to the sensor and management console
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console. | Access to Web console | Client. | Sensor and on-premises management console. |
-| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console. |
+| HTTPS | TCP | In/Out | 443 | Sensor and on-premises management console web console | Access to Web console | Client | Sensor and on-premises management console |
+| SSH | TCP | In/Out | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
 
 #### Sensor access to the Azure portal (cloud connected sensors)
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console | Access to Web console | Client | Sensor and on-premises management console |
-| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
+| HTTPS / Websocket | TCP | In/Out | 443 | Sensor and on-premises management console web console | Access to Web console | Client | Sensor and on-premises management console |
+| HTTP | TCP | In/Out | 80 | Certificate validation | Download CRL file | Sensor | CRL server |
 
 #### Sensor access to the on-premises management console
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| SSL | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console | The connection between the sensor and the Management console. | Sensor | On-premises management console |
-| NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to the Sensor. | Sensor | On-premises management console |
-| Tunneling | TCP | IN | 9000 </br></br> on top of port 443 </br></br> From the end user to the on-premises management console. </br></br> Port 22 from sensor to the on-premises management console. | monitoring | Tunneling | Sensor | On-premises management console |
-| NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server, when there is no on-premises management console installed. | sensor | NTP |
+| SSL | TCP | In/Out | 443 | Sensor and on-premises management console | The connection between the sensor and the Central Management | Sensor | On-premises management console |
+| NTP | UDP | In | 123 | Time Sync | Uses the on-premises management console as NTP to the sensor | Sensor | on-premises management console |
+| Tunneling | TCP | In | 9000 </br></br> on top of port 443 </br></br> From the end user to the on-premises management console. </br></br> Port 22 from sensor to the on-premises management console. | Monitoring | Tunneling | Sensor | On-premises management console |
+| NTP | UDP | In/Out | 123 | Time Sync | Connects the sensor to an external NTP server, when there is no on-premises management console installed | Sensor | NTP |
 
 #### (Optional) Defender for IoT extra services
 
@@ -118,12 +126,14 @@ Access extra capabilities by opening these other ports.
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| Syslog | UDP | OUT | 514 | LEEF/CEF | Logs that send from the on-premises management console to Syslog server. | On-premises management console and Sensor. | Syslog server |
-| DNS | UDP/TCP | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor. | DNS server |
-| LDAP | TCP | IN/OUT | 389 | Active Directory | Active Directory management of users that have access to sign in to the system. | On-premises management console and Sensor. | LDAP server |
-| LDAPS | TCP | IN/OUT | 636 | Active Directory | Active Directory management of users that have access to sign in to the system. | On-premises management console and Sensor | LDAPS server |
-| SNMP | UDP | OUT | 161 | MIB | Sensor health monitoring. | On-premises management console and Sensor. | SNMP server |
-| SMTP | TCP | OUT | 25 | Email | Access to the customers mail server to send emails for alerts, and events. | On-premises management console and Sensor. | Email server |
+| HTTP | TCP | Out | 80 | CRL download for certificate validation | Access to the CRL server | Sensor and on-premises management console | CRL server |
+| LDAP | TCP | In/Out | 389 | Active Directory | The Active Directory management of users that have access to login to the system. | On-premises management console and Sensor | LDAP server |
+| LDAPS | TCP | In/Out | 636 | Active Directory | The Active Directory management of users that have access to login to the system. | On-premises management console and Sensor | LDAPS server |
+| SNMP | UDP | Out | 161 | Monitoring | Monitors the sensor's health | On-premises management console and Sensor | SNMP server |
+| SMTP | TCP | Out | 25 | Email | Used to open the customer's mail server in order to send emails for alerts, and events. | Sensor and On-premises management console | Email server |
+| Syslog | UDP | Out | 514 | LEEF | Logs that are sent from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
+| DNS |  | In/Out | 53 | DNS | DNS server port | On-premises management console and Sensor | DNS server |
+| NTP | UDP | In/Out | 123 | Time Sync | Connects the sensor to an external NTP server, when there is no on-premises management console installed | Sensor | NTP |
 
 ### Planning rack installation
 
