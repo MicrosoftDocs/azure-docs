@@ -108,7 +108,7 @@ Expression = {
 ImmutableID \| export-csv C:\\temp\\AzureADSyncedIDS.csv
 ```
 
-![image shows azure ad powershell session](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/azuread-powershell.png)
+![image shows azure ad powershell session](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/azure-ad-powershell.png)
 
 Once you have both exports, confirm that the ImmutableID for each user matches.
 
