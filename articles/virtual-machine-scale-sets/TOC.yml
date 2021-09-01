@@ -327,15 +327,12 @@
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: Use dedicated hosts
+      displayName: sole-tenant, sole tenant, isolated, isolation
       items:
       - name: Overview
         href: ../virtual-machines/dedicated-hosts.md
-      - name: CLI
-        href: ../virtual-machines/linux/dedicated-hosts-cli.md
-      - name: PowerShell
-        href: ../virtual-machines/windows/dedicated-hosts-powershell.md
-      - name: Portal
-        href: ../virtual-machines/dedicated-hosts-portal.md
+      - name: How-to
+        href: ../virtual-machines/dedicated-hosts.md
     - name: Azure Spot Virtual Machines
       href: use-spot.md
     - name: Azure Hybrid Benefit for Linux
