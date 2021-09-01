@@ -254,13 +254,13 @@ First, try these two things:
 - Make sure your admin account has the required permissions to access the tenant.
 - Try running **Get-RdsTenant** on the tenant.
 
-If those two things work, try running the **Set-RdsMigrationContext** cmdlet to set the RDS Context and Adal Context for your migration:
+If those two things work, try running the **Set-RdsMigrationContext** cmdlet to set the RDS Context and ADAL Context for your migration:
 
 1. Create the RDS Context by running the **Add-RdsAccount** cmdlet.       
 
 2. Find the RDS Context in the global variable *$rdMgmtContext*.         
 
-3. Find the Adal Context in the global variable *$AdalContext*.
+3. Find the ADAL Context in the global variable *$AdalContext*.
 
 4. Run **Set-RdsMigrationContext** with the variables you found in this format:
 
