@@ -14179,7 +14179,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/index.md",
+      "source_path_from_root": "/articles/blockchain/index.yml",
       "redirect_url": "/azure/blockchain",
       "redirect_document_id": false
     },
