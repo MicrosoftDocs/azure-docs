@@ -119,7 +119,7 @@ To require attributes for access requests, use the following steps:
     1. If you choose **Built-in**, you can choose an attribute from the dropdown list. If you choose **Directory schema extension**, you can enter the attribute name in the textbox.
 
     > [!NOTE]
-    > The User.mobilePhone attribute can be updated only for non-administrator users. Learn more [here](https://docs.microsoft.com/graph/permissions-reference#remarks-5). 
+    > The User.mobilePhone attribute can be updated only for non-administrator users. Learn more [here](/graph/permissions-reference#remarks-5). 
 
 1.	Select the Answer format in which you would like requestors to answer. Answer formats include: **short text**, **multiple choice**, and **long text**.
 
