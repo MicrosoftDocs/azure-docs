@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell
 
 # Enhanced pre-post scripts for database consistent snapshot
 
-Azure Backup service already provides a ['pre-post' script framework](/azure/backup/backup-azure-linux-app-consistent) to achieve application consistency in Linux VMs using Azure Backup. This involves invoking a pre-script (to quiesce the applications) before taking
+Azure Backup service already provides a [_pre-post_ script framework](/azure/backup/backup-azure-linux-app-consistent) to achieve application consistency in Linux VMs using Azure Backup. This involves invoking a pre-script (to quiesce the applications) before taking
 snapshot of disks and calling post-script (commands to un-freeze the applications) after the snapshot is completed to return the applications to the normal mode. Customers should author these pre-post scripts and provide the relevant information in the *VMSnapshotScriptPluginConfig.json* file in the `etc/azure` directory. But customers were concerned about authoring, debugging and maintaining their scripts and considered that work as overhead. So, Azure Backup has decided to provide an _enhanced_ pre-post scripts experience to marquee databases so that users can get application consistent snapshots daily without any additional overhead. 
 
 Following are the key benefits of the new 'enhanced' pre-post script framework.
@@ -70,7 +70,7 @@ Usually, streaming backups (such as full, differential, or incremental) and logs
 
 - **Performance and cost**: A daily full + logs would be the fastest during restore, but comes at a significant cost. Including differentials/incrementals reduces cost but might impact the restore performance.
 - **Impact on database/infrastructure**: The performance of a streaming backup depends on the underlying storage IOPS and the network bandwidth available when the stream is targeted to a remote location.
-- **Re-usability**: The commands for triggering different streaming backup types are different for each database. So, scripts can't be easily re-used. Also, if you're using different backup types, you need to understand the dependency chain to maintain the life cycle. Of course, some database clients do take care of such aspects, but that means the backup data too is prone for deletion by these clients.
+- **Re-usability**: The commands for triggering different streaming backup types are different for each database. So, scripts can't be easily re-used. Also, if you're using different backup types, you need to understand the dependency chain to maintain the life cycle. Of course, some database clients do take care of such aspects, but that means the backup data also is prone for deletion by these clients.
 - **Long-term retention**: Full backups are definitely good for long-term retention as they can be independently moved and recovered at any point-in-time. Snapshots retention helps you in quick restore, thus avoiding performance issues happen due to streaming backup.
 
 - **Performance and cost**: They provide instant backup and restore and snapshots, via Azure VM backup, are also _incremental_, and therefore are cost effective too. With snapshot, acting as a full during restore, you may not need streaming fulls and incremental backups, and save on storage costs for operational backups.
