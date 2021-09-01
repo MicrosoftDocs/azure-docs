@@ -276,29 +276,27 @@ When you enable Application Insights, disable the built-in logging that uses Azu
 
 To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings). Before you delete the app setting, make sure no existing functions in the same function app use the setting for Azure Storage triggers or bindings.
 
-## Production deployments with high volume of telemetry
+## Solutions with high volume of telemetry 
 
-Working in the context of production deployments with high volumes of telemetry, where hundreds of functions executions per second results in GBs of data generated each day, you can easily reach your daily cap (avoiding to proper monitor your function app) or incur in elevated cost because of the huge volume of Application Insights logs generated. In this context, you want to maintain the function app observability for a proper production operation while control the volume of logs generated, to provide a cost-effective monitoring solution. 
+Working with solutions in production with high volumes of telemetry, such IoT solutions, eventing based Finacial Systems, etc., will be challenging from the point of view of monitoring. You can have multiple function apps with hundreds, or even thousands, of functions executions per second, resulting in GBs of data generated each day. Within this context, you can easily reach your Application Insights daily cap, avoiding to proper monitor your function apps, or you will incur in a elevated cost for your monitoring solution. The goal is to maintain your function apps observability for a proper production operation, while control the volume of logs generated, that is, to provide a cost-effective monitoring solution. 
 
-Depending on how you are going to consume the telemetry generated (real-time dashboards, alerting, detailed diagnostics, etc.) and the custom traces, metrics and events that your code might be generating, you will need to define a strategy to reduce the volumne of data generated and, at the same time, maintain your ability to monitor, operate and diagnose your production deployment.
+Depending on how you are going to consume the telemetry generated (real-time dashboards, alerting, detailed diagnostics, etc.), you will need to define a strategy to reduce the volumne of data generated which allows you to proper monitor, operate and diagnose your function apps in production. With this in mind, you can consider:
 
-With this in mind, you can consider:
+* **Use sampling**: as mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested. It could happen that even using sampling you still get high volume of telemetry. Inspect the options that [Adaptative sampling](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-applications) provides to you, for example set the `maxTelemetryItemsPerSecond` to a value that balance the volume generated with your monitoring needs, and keep in mind that the telemetry sampling is applied per host executing your function app. 
 
-* Use sampling: it will help to dramatically reduce the volume of telemetry events ingested. It could happen that even using sampling you still get high volume of telemetry. Inspect the options that [Adaptative sampling](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-applications) provides to you, for example set the `maxTelemetryItemsPerSecond` to a value that balance the volume generated with your monitoring needs, and keep in mind that the telemetry sampling is applied per host executing your function app. 
+* **Default log level**: use a `Warning` or `Error` as the default value for all telemetry categories. Now you can decide which [categories](#configure-categories) you want to set at `Information` so you can monitor and diagnose your functions properly.
 
-* Default log level: use a `Warning` or `Error` as the default value for all telemetry. This means that, by default, all categories will be set to `Warning` or `Error` log level. Now you can decide which [categories](#configure-categories) you want to set at `Information` so you can monitor and diagnose your functions properly.
+* **Tune your functions telemetry**: with the default log level set to `Error` or `Warning`, no detailed information from each function will be gathered ( dependencies, custom metrics, custome events and traces). For those functions that are key for production deployment monitoring, define an explicit entry in the logging configuration with the log level set to `Information`. You provide diferent log level user generated traces so, for example, you can continue gathering dependencies but avoid to gather custom informational traces. 
 
-* Tune your functions telemetry: with the default log level set to `Error` or `Warning`, no detailed information from each function will be gathered ( dependencies, custom metrics, custome events and traces). For those functions that are key for production deployment monitoring, define an explicit entry in the logging configuration with the log level set to `Information`. You provide diferent log level user generated traces so, for example, you can continue gathering dependencies but avoid to gather custom informational traces. 
+* **Host.Aggregator category**: as described in [Configure categories](#configure-categories), this category provides aggregated information of function invocations. The information from this category is gatehered in the Application Insights `customMetrics` table, and it is shown in the function overview dashboard, at the Azure Portal. If you set this category to other value different than `Information`, you will stop gathering the data in the `customMetrics` table and will not be displayed function details at the Azure Portal. Depending on how you configure the aggregator, consider that there will be a delay (determined by the `flushTimeout`) in the telemetry gatehered.
+![Host.Aggregator telemetry in portal and Application Insights customMetrics](media/configure-monitoring/host-aggregator-metrics-portal-logs.png)
 
-* Host.Aggregator category: as described in [Configure categories](#configure-categories), this category provides aggregated information of function invocations. The information from this category is gatehered in the Application Insights `customMetrics` table, and it is shown in the function overview dashboard, at the Azure Portal. If you set this category to other value different than `Information`, you will stop gathering the data in the `customMetrics` table and will not be displayed function details at the Azure Portal.
+* **Host.Results category**: as described in [Configure categories](#configure-categories), this category provides the runtime-generated logs indicating success of failure of a function. The information from this category is gathered in the Application Insights `requests` table, and it is shown in the function monitor dashboard, as well as in different Application Insights dashboards (Performance, Failures, etc.). If you set this category to other value different than `Information`, you will stop gathering the data in the `requests` table and will not be displayed it the mentioned dashboards.
 <IMAGE OF METRICS IN PORTAL and APP INSIGHTS -> Portal & customMetrics>
 
-* Host.Results category: as described in [Configure categories](#configure-categories), this category provides the runtime-generated logs indicating success of failure of a function. The information from this category is gathered in the Application Insights `requests` table, and it is shown in the function monitor dashboard, as well as in different Application Insights dashboards (Performance, Failures, etc.). If you set this category to other value different than `Information`, you will stop gathering the data in the `requests` table and will not be displayed it the mentioned dashboards.
-<IMAGE OF METRICS IN PORTAL and APP INSIGHTS -> Portal & customMetrics>
+* **Host.Aggregator vs Host.Results**: both categories provide good insights regarding function executions, if needed, you can remove the detailed information from one of these categories, so your monitoring and alerting will be based in the other.
 
-* Host.Aggregator vs Host.Results: both categories provide good insights regarding function executions, if needed, you can remove the detailed information from one of these categories, so your monitoring and alerting will be based in the other.
-
-Sample configuration:
+Here is a sample configuration:
 ``` json
 {
   "version": "2.0",  
@@ -323,20 +321,26 @@ Sample configuration:
 ```
 
 With this configuration, you will have:
-* The default value for all functions and telemetry categories is set to warning (including Microsoft and Worker categories). This allows to grab all errors and warnings generated by both the runtime-generated logs and, initially, the user-generated logs. 
-* The `Function` is set to `Error`, so for all functions, by default, only exceptions and error logs will be gathered (dependencies, user-generated metrics and user-generated events will be skipped).
-* For the `Host.Aggregator` we will be gathering all the information, so it will be shown in function default dashboard and will be stored in the customMetrics Application.Insighs table.
-* For the `Host.Results` we will only gather execution results for those invocations which results in error. Those will be reflected in the function monitor dasboard (but not the successful invocations) and Application Insights will lost the function executions information (shown as requests in Performance and Failures dasboards). We will pick all function host exceptions and errors logged.
-* For the function called 'Function1', we have set the log level to `Information` so, for this concrete function, we will be gathering all the telemetry (dependency, custom metrics, custom events) but the user generated traces, is set to `Error`, so in this case, only custom error loging will be gathered.  
+* The default value for all functions and telemetry categories is set to warning (including Microsoft and Worker categories). This allows to, by default, grab all errors and warnings generated by both the runtime and the custom logs. 
+* The `Function` category is set to `Error`, so for all functions, by default, only exceptions and error logs will be gathered (dependencies, user-generated metrics and user-generated events will be skipped).
+* For the `Host.Aggregator` category, we will be gathering all the information, so it will be shown in function default dashboard and will be stored in the `customMetrics` Application Insighs table.
+* For the `Host.Results` category, we will only gather execution results for those invocations which results in error. Those will be reflected in the function monitor dasboard (not the successful invocations) and Application Insights will lost the function executions information (shown as requests in Performance and Failures dasboards). Anyway, will have function host exceptions and errors logged.
+* For the function called `Function1`, we have set the log level to `Information` so, for this concrete function, we will be gathering all the telemetry (dependency, custom metrics, custom events) but the user generated traces, is set to `Error`, so in this case, only custom error loging will be gathered. 
+* Sampling is configured to send one telemetry item per second per type, excluding the exceptions. This will happen for each server host running our function app, so if we have 4 instances, this configuration will emmit 4 telemetry items per second per type and all the exceptions that might occur. By the way, for metrics counts such as request rate and exception rate are adjusted to compensate for the sampling rate, so that they show approximately correct values in Metric Explorer.  
 
-
-> Consider creating some load testing for your application that allows to generate a volume of telemetry close to real. Experiment with different logging configuration to ensure you have all the required insights so you can properly cover monitoring, alerting as well as you have detailed diagnostics telemetry in case of errors or solution malfunctioning.
+> Consider to run load tests over your solution to generate a close-to-real volume of telemetry during a limited period of time. Experiment with different logging configurations to ensure you have all the required insights so you can properly cover monitoring, alerting as well as you have detailed diagnostics telemetry in case of errors or malfunctioning.
 
 ### Overriding monitoring configuration at runtime
-Finally, there would be situations where you need to quick change the logging behavior for the a certain category
+Finally, there would be situations where you need to quick change the logging behavior for the a certain category in production and you not want to make a whole deployment. For such as cases you can override the [host json values](https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json#override-hostjson-values).
 
+
+> [!PENDING] To configure these values at App settings level (to avoid redeployment on just host.json changes), you should override specific host.json values be creating an equivalent value as an application setting. When the runtime finds an application setting in the format AzureFunctionsJobHost__path__to__setting, it overrides the equivalent host.json setting located at path.to.setting in the JSON. When expressed as an application setting, the dot (.) used to indicate JSON hierarchy is replaced by a double underscore (__). So, for eg, you can use the below app settings to configure individual function log levels as in host.json above.
+
+> AzureFunctionsJobHost__logging__logLevel__default
+AzureFunctionsJobHost__logging__logLevel__Function
+AzureFunctionsJobHost__logging__logLevel__Function.Function1
+AzureFunctionsJobHost__logging__logLevel__Function.Function2.User
  
-
 ## Next steps
 
 To learn more about monitoring, see:
