@@ -296,7 +296,9 @@ Depending on how you are going to consume the telemetry generated (real-time das
 
 * **Host.Aggregator vs Host.Results**: both categories provide good insights regarding function executions, if needed, you can remove the detailed information from one of these categories, so your monitoring and alerting will be based in the other.
 
-Here is a sample configuration:
+Here's a sample:
+# [v2.x+](#tab/v2)
+
 ``` json
 {
   "version": "2.0",  
