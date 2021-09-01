@@ -4,7 +4,7 @@ description: Customers who need assistance can use the Azure portal to find self
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 08/24/2021
+ms.date: 09/01/2021
 ---
 
 # Create an Azure support request
@@ -17,12 +17,6 @@ Azure enables you to create and manage support requests, also known as support t
 >* Azure portal for commercial use is: [https://portal.azure.com](https://portal.azure.com)
 >* Azure portal for Germany is: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
 >* Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
-
-The support request experience focuses on three main goals:
-
-* **Streamlined**: Make support and troubleshooting easy to find and simplify how you submit a support request.
-* **Integrated**: You can easily open a support request when you're troubleshooting an issue with an Azure resource, without switching context.
-* **Efficient**: Gather the key information your support engineer needs to efficiently resolve your issue.
 
 Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).
 
@@ -40,21 +34,21 @@ To start a support request from anywhere in the Azure portal:
 
 1. Select the **?** in the global header, then select **Help + support**.
 
-   ![Help and Support](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
+   :::image type="content" source="media/how-to-create-azure-support-request/helpandsupportnewlower.png" alt-text="Screenshot of the Help menu in the Azure portal.":::
 
-1. Select **New support request**. Follow the prompts to provide information about your problem. We'll suggest some possible solutions, gather details about the issue, and help you submit and track the support request.
+1. Select **Create a support request**. Follow the prompts to provide information about your problem. We'll suggest some possible solutions, gather details about the issue, and help you submit and track the support request.
 
-   ![New Support Request](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
+   :::image type="content" source="media/how-to-create-azure-support-request/newsupportrequest2lower.png" alt-text="Screenshot of the Help + support page with Create a support request link.":::
 
 ### Go to Help + support from a resource menu
 
 To start a support request in the context of the resource you're currently working with:
 
-1. From the resource menu, in the **Support + Troubleshooting** section, select **New support request**.
+1. From the resource menu, in the **Support + troubleshooting** section, select **New Support Request**.
 
    ![In context](./media/how-to-create-azure-support-request/incontext2lower.png)
 
-1. Follow the prompts to provide us with information about the problem you're having. When you start the support request process from the resource, some options are pre-selected for you.
+1. Follow the prompts to provide us with information about the problem you're having. When you start the support request process from a resource, some options are pre-selected for you.
 
 ## Create a support request
 
