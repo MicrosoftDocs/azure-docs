@@ -132,7 +132,7 @@
       items:
         - name: Software releases for OTA updates
           href: software-releases-over-the-air-updates.md
-        - name: Azure Percept DK software releases for updating over USB
+        - name: Software releases for USB cable updates
           href: software-releases-usb-cable-updates.md
         - name: Azure Percept DK software release notes
           href: azure-percept-devkit-software-release-notes.md
