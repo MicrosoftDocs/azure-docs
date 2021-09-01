@@ -28,7 +28,7 @@ ms.custom: include file
 | Kubernetes Control Plane Limits                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Paid tier                                                                                  | Automatically scales out based on the load                                                                                                                                                                                                        |
-| Free tier                       | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 25 mutating and 50 non-mutating calls                                                                                                                                                                                                         |
+| Free tier                       | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls                                                                                                                                                                                                         |
 
 <!-- LINKS - Internal -->
 
