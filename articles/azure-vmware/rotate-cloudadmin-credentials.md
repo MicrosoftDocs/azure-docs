@@ -47,7 +47,7 @@ To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. From the Azure portal, open an Azure Cloud Shell session.
+1. In your Azure VMware Solution private cloud, open an Azure Cloud Shell session.
 
 2. Update your vCenter *CloudAdmin* credentials.  Remember to replace **{SubscriptionID}**, **{ResourceGroup}**, and **{PrivateCloudName}** with your private cloud information. 
 
