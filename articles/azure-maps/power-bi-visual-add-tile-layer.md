@@ -1,8 +1,8 @@
 ---
 title: Add a tile layer to the Azure Maps Power BI visual | Microsoft Azure Maps
 description: In this article, you will learn how to use the tile layer in the Microsoft Azure Maps visual for Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
