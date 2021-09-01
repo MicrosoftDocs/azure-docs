@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Migrate databases with Azure SQL Migration extension for Azure Data Studio (Preview)
 
-The Azure SQL Migration extension for [Azure Data Studio](/sql/azure-data-studio/what-is-azure-data-studio.md) enables you to use the new SQL Server assessment and migration capability in Azure Data Studio.
+The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) enables you to use the new SQL Server assessment and migration capability in Azure Data Studio.
 
 ## Architecture of Azure SQL Migration extension for Azure Data Studio
 

@@ -39,7 +39,7 @@ $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 ```
 
-List the VM sizes that are available on the hardware cluster where the VM is hosted. 
+List the VM sizes that are available in the region where the VM is hosted. 
    
 ```powershell
 Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
