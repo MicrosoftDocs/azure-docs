@@ -95,7 +95,7 @@
           href: how-to-update-over-the-air.md
         - name: Update Azure Percept DK over a USB-C connection
           href: how-to-update-via-usb.md
-    - name: Connect to your Azure Percept DK
+    - name: Connect to/from your Azure Percept DK
       items:
         - name: Connect to Azure Percept DK over Ethernet
           href: how-to-connect-over-ethernet.md
