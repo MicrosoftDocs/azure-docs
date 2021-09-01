@@ -1,5 +1,5 @@
 ---
-title: Examine the  Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API - Azure
+title: Examine the v2 API output from Azure Video Analyzer for Media (formerly Video Indexer)
 titleSuffix: Azure Video Analyzer for Media
 description: This topic examines the Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API.
 services: azure-video-analyzer
@@ -850,7 +850,7 @@ Video Analyzer for Media makes inference of main topics from transcripts. When p
 |Name|Description|
 |---|---|
 |id|The speaker ID.|
-|name|The speaker name in the form of "Speaker #*<number>*" For example: "Speaker #1".|
+|name|The speaker name in the form of "Speaker #*\<number\>*" For example: "Speaker #1".|
 |instances |A list of time ranges where this speaker appeared.|
 
 ```json
