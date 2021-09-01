@@ -384,11 +384,11 @@ Clients can receive messages published from one group the client joined, or from
 
 You will always get a `DownstreamMessage.DataMessage`
 
-1. When the message is from a group, `from` will be `group`. When the message is from the server. `from` will be `server`
+- When the message is from a group, `from` will be `group`. When the message is from the server. `from` will be `server`
 
-1. When the message is from a group, `group` will be the group name.
+- When the message is from a group, `group` will be the group name.
 
-1. The sender's `dateType` will cause in one of the messages being set. If `dateType` is `text`, you should use `message_response_message.data.text_data`. If `dateType` is `binary`, you should use `message_response_message.data.binary_data`. If `dateType` is `protobuf`, you should use `message_response_message.data.protobuf_data`. If `dateType` is `json`, you should use `message_response_message.data.text_data` and the content is serialized json string.
+- The sender's `dateType` will cause in one of the messages being set. If `dateType` is `text`, you should use `message_response_message.data.text_data`. If `dateType` is `binary`, you should use `message_response_message.data.binary_data`. If `dateType` is `protobuf`, you should use `message_response_message.data.protobuf_data`. If `dateType` is `json`, you should use `message_response_message.data.text_data` and the content is serialized json string.
 
 ### System response
 
