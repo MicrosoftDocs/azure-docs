@@ -136,11 +136,11 @@
     - name: Azure AD roles and Azure resource roles
       items:
       - name: Create an access review
-        href: ../privileged-identity-management/pim-create-azuread-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+        href: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Perform an access review
-        href: ../privileged-identity-management/pim-perform-azuread-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+        href: ../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Complete an access review
-        href: ../privileged-identity-management/pim-complete-azuread-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+        href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
 - name: Reference
   expanded: true
   items:
