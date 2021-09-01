@@ -273,7 +273,7 @@ The required information is described in the [Configure authentication in a samp
 ## Run your application
 
 1. Build and run the project.
-1. Browse to https://localhost:5001. 
+1. Browse to `https://localhost:5001`. 
 1. Select **SignIn/Up**.
 1. Complete the sign-up or sign-in process.
 
