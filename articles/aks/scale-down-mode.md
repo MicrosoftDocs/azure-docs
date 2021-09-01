@@ -98,7 +98,7 @@ az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 10 --m
 ## Next steps
 
 - To learn more about upgrading your AKS cluster, see [Upgrade an AKS cluster][aks-upgrade]
-- TO learn more about the cluster autoscaler, see [Automatically scale a cluster to meet application demands on AKS][cluster-autoscaler]
+- To learn more about the cluster autoscaler, see [Automatically scale a cluster to meet application demands on AKS][cluster-autoscaler]
 
 <!-- LINKS - Internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
