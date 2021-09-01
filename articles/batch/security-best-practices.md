@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 08/31/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
 ---
 
@@ -138,9 +138,7 @@ For extra security, encrypt these disks using one of these Azure disk encryption
 
 ## Securely access services from compute nodes
 
-Batch nodes can securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md), which can be used by task applications to access other services. A certificate is used to grant the pool nodes access to Key Vault.
-
-You can [create a Batch pool with a certificate that will automatically be renewed](automatic-certificate-rotation.md). To do so, your pool must be created with a user-assigned managed identity that will have access to the certificate in Azure Key Vault. This is the recommended option for Batch nodes to to access credentials stored in Azure Key Vault, although you can also [set up Batch nodes to securely access credentials and secrets with a certificate](credential-access-key-vault.md) without automatic certificate rotation.
+Batch nodes can securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md), which can be used by task applications to access other services. A certificate is used to grant the pool nodes access to Key Vault. By [enabling automatic certificate rotation in your Batch pool](automatic-certificate-rotation.md), the credentials will be automatically renewed. To do so, your pool must be created with a user-assigned managed identity that will have access to the certificate in Azure Key Vault. This is the recommended option for Batch nodes to access credentials stored in Azure Key Vault, although you can also [set up Batch nodes to securely access credentials and secrets with a certificate](credential-access-key-vault.md) without automatic certificate rotation.
 
 ## Governance and compliance
 
