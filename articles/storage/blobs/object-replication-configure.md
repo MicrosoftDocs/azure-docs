@@ -43,7 +43,7 @@ Before you configure object replication in the Azure portal, create the source a
 
 # [Azure portal](#tab/portal)
 
-The Azure portal automatically creates the policy on the source account after you configure it for the destination account. ???why do we say this here???
+The Azure portal automatically creates the policy on the destination account after you configure it for the source account.
 
 To create a replication policy in the Azure portal, follow these steps:
 

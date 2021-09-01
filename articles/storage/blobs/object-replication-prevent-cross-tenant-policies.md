@@ -19,7 +19,7 @@ Object replication asynchronously copies block blobs from a container in one sto
 
 By default, an authorized user is permitted to configure an object replication policy where the source account is in one Azure Active Directory (Azure AD) tenant, and the destination account is in a different tenant. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow the creation of policies where the source and destination accounts are in different tenants. By default, cross-tenant object replication is enabled for a storage account unless you explicitly disallow it.
 
-This article descsribes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage whether cross-tenant object replication is permitted for your storage accounts.
+This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage whether cross-tenant object replication is permitted for your storage accounts.
 
 For more information on how to configure object replication policies, including cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
 
@@ -50,25 +50,42 @@ To disallow cross-tenant object replication for a new storage account, follow th
 To disallow cross-tenant object replication for a new storage account, call the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command, and include the `AllowCrossTenantReplication` parameter with a value of *$false*.
 
 ```azurepowershell
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$location = "<location>"
+
 # Create a storage account and disallow cross-tenant replication.
-New-AzStorageAccount -ResourceGroupName <resource-group> `
-    -Name <storage-account> `
-    -Location <location> `
-    -SkuName Standard_GRS
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -Name $accountName `
+    -Location $location `
+    -SkuName Standard_LRS
     -AllowCrossTenantReplication $false
 
-# Read the property for the storage account
+# Read the property for the new storage account
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowCrossTenantReplication
 ```
 
 #### [Azure CLI](#tab/azure-cli)
 
-TBD
+To disallow cross-tenant object replication for a new storage account, call the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command, and include the `allow-cross-tenant-replication` parameter with a value of *false*.
+
+```azurecli
+# Create a storage account with cross-tenant replication disallowed.
+az storage account create \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --location <location> \
+    --sku Standard_LRS 
+    --allow-cross-tenant-replication false
+
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query allowCrossTenantReplication \
+    --output tsv 
+```
 
 ---
-
-
-
 
 ### Remediate cross-tenant replication for an existing account
 
@@ -98,8 +115,11 @@ To disallow cross-tenant object replication for an existing storage account that
 The following example shows how to disallow cross-tenant object replication for an existing storage account with PowerShell. Remember to replace the placeholder values in brackets with your own values:
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> `
-    -AccountName <storage-account> `
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
     -AllowCrossTenantReplication $false
 ```
 
