@@ -99,7 +99,6 @@ Follow these links to learn more:
 
 * [How to manage an Azure support request](how-to-manage-azure-support-request.md)
 * [Azure support ticket REST API](/rest/api/support)
-* [Send us your feedback and suggestions](https://feedback.azure.com/forums/266794-support-feedback)
 * Engage with us on [Twitter](https://twitter.com/azuresupport)
 * Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)
 * Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)
