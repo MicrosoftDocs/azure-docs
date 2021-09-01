@@ -198,7 +198,7 @@ az ml service delete -n triton-densenet-onnx
 
 ## How to use Azure Machine Learning Triton Inference Server container image
 
-Learn how to use Azure Machine Learning Triton Inference Server container image with new [CLI(v2)](https://docs.microsoft.com/cli/azure/ml?view=azure-cli-latest). The examples below use [online endpoint and deployments](concept-endpoints.md#what-are-online-endpoints-preview) concept. 
+Learn how to use Azure Machine Learning Triton Inference Server container image with new [CLI(v2)](/cli/azure/ml?view=azure-cli-latest&preserve-view=true). The examples below use [online endpoint and deployments](concept-endpoints.md#what-are-online-endpoints-preview) concept. 
 
 1. [Deploy single Triton model](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-managed-online-endpoint.sh).
 1. [Deploy Triton multiple models](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-multiple-models-online-endpoint.sh).
