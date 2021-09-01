@@ -145,7 +145,7 @@ public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X5
        .Build();
 
      // Add a static in-memory token cache. Other options available: see below
-     app.AddInMemoryTokenCache();  // Microsoft.Identity.Web 1.16 or over
+     app.AddInMemoryTokenCache();  // Microsoft.Identity.Web 1.16+
    
      // Make the call to get a token for client_credentials flow (app to app scenario) 
      return await app.AcquireTokenForClient(scopes).ExecuteAsync();
@@ -154,14 +154,18 @@ public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X5
      return await app.AcquireTokenOnBehalfOf(scopes, userAssertion).ExecuteAsync();
      
      // OR Make the call to get a token via auth code (web app scenario)
+     return await app.AcquireTokenByAuthorizationCode(scopes, authCode);    
+     
+     // OR, when the user has previously logged in, get a token silently
+     var homeAccountId = GetHomeAccountIdFromClaimsPrincipal(); // uid and utid claims
+     var account = await app.GetAccountsAsync(homeAccountId);
      try
-     {          
-          var account = await app.GetAccountsAsync(homeAccountId);
+     {
           return await app.AcquireTokenSilent(scopes, account).ExecuteAsync();; 
      } 
      catch (MsalUiRequiredException)
      {
-          return await app.AcquireTokenByAuthorizationCode(scopes, authCode);    
+      	// cannot get a token silently, so redirect the user to be challenged 
      }
   }
 ```
