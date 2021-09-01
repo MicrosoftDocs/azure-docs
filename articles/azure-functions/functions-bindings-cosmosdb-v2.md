@@ -1,9 +1,9 @@
 ---
-title: Azure Cosmos DB bindings for Functions 2.xd and higher
+title: Azure Cosmos DB bindings for Functions 2.x and higher
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 02/24/2017
+ms.date: 09/01/2021
 ms.author: cshoe
 ---
 
@@ -47,6 +47,13 @@ Working with the trigger and bindings requires that you reference the appropriat
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+
+### Cosmos DB extension 4.x and higher
+
+A new version of the Cosmos DB bindings extension is available as a [preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.0.0-preview1). This preview introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For .NET applications, it also changes the types that you can bind to, replacing the types from the v2 SDK `Microsoft.Azure.DocumentDB` with newer types from the v3 SDK [Microsoft.Azure.Cosmos](https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-api-sdk-dotnet-standard). Learn more about how these new types are different and how to migrate to them from the [SDK migration guide](https://docs.microsoft.com/en-us/azure/cosmos-db/sql/migrate-dotnet-v3?tabs=dotnet-v3), [trigger](./functions-bindings-cosmosdb-v2-trigger.md), [input binding](./functions-bindings-cosmosdb-v2-input.md), and [output binding](./functions-bindings-cosmosdb-v2-output.md) examples.
+
+> [!NOTE]
+> Currently, authentication with an identity instead of a secret using the 4.x preview extension is only available for Elastic Premium plans. Support for all plans will be coming in the near future.
 
 ### Functions 1.x
 
