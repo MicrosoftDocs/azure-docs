@@ -127,13 +127,13 @@ conceptualContent:
 
     - title: Protocols and specifications
       links:
-          - url: media-services-specifications-live-timed-metadata.md
+          - url: ./previous/media-services-specifications-live-timed-metadata.md
             itemType: concept
             text: Timed Metadata in Live Streaming (RTMP & Smooth Streaming)
-          - url: media-services-specifications-ms-sstr-amendment-hevc.md
+          - url: ./previous/media-services-specifications-ms-sstr-amendment-hevc.md
             itemType: concept
             text: Smooth Streaming protocol (MS-SSTR) amendment for HEVC
-          - url: media-services-fmp4-live-ingest-overview.md
+          - url: ./previous/media-services-fmp4-live-ingest-overview.md
             itemType: concept
             text:  Smooth Streaming ingest protocol   
             
