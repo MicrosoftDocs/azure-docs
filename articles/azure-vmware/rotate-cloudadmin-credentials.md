@@ -16,7 +16,7 @@ ms.date: 08/31/2021
 In this article, you'll rotate the cloudadmin credentials (vCenter Server *CloudAdmin* credentials) for your Azure VMware Solution private cloud.  Although the password for this account doesn't expire, you can generate a new one at any time.
 
 >[!CAUTION]
->If you use your cloudadmin user credentials to connect services to vCenter in your private cloud, those connections will stop working once you rotate your password. Those connections will also lock out the cloudadmin account unless you stop those services before rotating the password.
+>If you use your cloudadmin credentials to connect services to vCenter in your private cloud, those connections will stop working once you rotate your password. Those connections will also lock out the cloudadmin account unless you stop those services before rotating the password.
 
 ## Prerequisites
 
