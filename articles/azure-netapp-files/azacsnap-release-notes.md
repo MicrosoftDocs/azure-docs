@@ -23,15 +23,15 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 
 ## Aug-2021
 
-### AzAcSnap v5.0.2 (Build_20210825.376) - Patch update to v5.0.1
+### AzAcSnap v5.0.2 (Build_20210827.19086) - Patch update to v5.0.1
 
-AzAcSnap v5.0.2 (Build_20210825.376) is provided as a patch update to the v5.0 branch with the following fixes and improvements:
+AzAcSnap v5.0.2 (Build_20210827.19086) is provided as a patch update to the v5.0 branch with the following fixes and improvements:
 
-- Ignore `ssh` 255 exit codes.  In some cases the `ssh` command, which is used to communicate with storage on Azure Large Instance, would emit an exit code of 255 when there were no errors or execution failures (refer `man ssh` "EXIT STATUS").   Where these are not critical, for example listing snapshots, `azacsnap` will now ignore 255 exit codes from `ssh`.
+- Ignore `ssh` 255 exit codes.  In some cases the `ssh` command, which is used to communicate with storage on Azure Large Instance, would emit an exit code of 255 when there were no errors or execution failures  (refer `man ssh` "EXIT STATUS") - subsequently AzAcSnap would trap this as a failure and abort.  With this update additional verification is done to validate correct execution, this includes parsing `ssh` STDOUT and STDERR for errors in addition to traditional Exit Code checks.
 - Fix installer hdbuserstore source path check.  The installer would check for the existence of an incorrect source directory for the hdbuserstore for the user running the install - this is fixed to check for `~/.hdb`.  This is applicable to systems (e.g. Azure Large Instance) where the hdbuserstore was pre-configured for the `root` user before installing `azacsnap`.
 - Installer now shows the version it will install/extract (if the installer is run without any arguments).
 
-Download the [latest release](https://aka.ms/azacsnapdownload) of the installer and review how to [get started](azacsnap-get-started.md).
+Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).
 
 ## May-2021
 
