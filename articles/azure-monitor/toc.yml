@@ -740,7 +740,7 @@
         items: 
         - name: Overview
           href: app/azure-web-apps.md
-        - name: .NET Core
+        - name: ASP.NET Core
           href: app/azure-web-apps-netcore.md
         - name: .NET 
           href: app/azure-web-apps-net.md
