@@ -23,13 +23,14 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ### Azure Machine Learning SDK for Python v1.34.0
   + **azureml-automl-core**
     + Classical forecasting learners (AutoArima, Prophet, ExponentialSmoothing, etc.) are now supported when lags/rolling windows are enabled.
-    +  Added the ability to fit the model on new data; - Added the ability to predict in sample.
+    + Added the ability to fit the model on new data; - Added the ability to predict in sample.
   + **azureml-automl-runtime**
-    + Deployed endpoint of an AutoML classifier model.
+    + Add support to return predicted probabilities from a deployed endpoint of an AutoML classifier model.
     + The forecasting of the whole numbers was implemented.
     + Removed the target column name from being part of model explanation feature names for local experiments with training_data_label_column_name
-    +  as dataset inputs.
-    +  Added the ability to fit the model on new data - Added the ability to predict in sample.
+    + as dataset inputs.
+    + Added the ability to fit the model on new data.
+    + Added the ability to predict in sample.
   + **azureml-core**
     + added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
     + revert: added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
@@ -38,7 +39,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + with either SystemAssigned or UserAssigned identity. User will see a new identity fields that contains identity_type, identity_id, principal_id 
     + and tenant_id/client_id when print(compute_target) or compute_target.serialize()
   + **azureml-dataprep**
-    + added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
+    + Added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
   + **azureml-defaults**
     + The dependency `azureml-inference-server-http==0.3.1` has been added to `azureml-defaults`.
   + **azureml-mlflow**
