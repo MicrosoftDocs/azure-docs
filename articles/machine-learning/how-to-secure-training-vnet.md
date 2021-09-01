@@ -46,7 +46,7 @@ In this article you learn how to secure the following training compute resources
 
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
-    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This is not needed for ARM template deployments
+    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This is not needed for Azure Resource Manager (ARM) template deployments
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
@@ -216,15 +216,17 @@ When the creation process finishes, you train your model by using the cluster in
 
 ## Compute instance
 
-For steps to create a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) .  In studio, specify **No public IP** to create a private IP address for the instance (a preview feature).  
+For steps to create a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) .  In studio, specify **No public IP** to create a private IP address for the instance (a preview feature).  You can also enable no public IP in an ARM template.
 
 ### <a name="no-public-ip"></a>No public IP for compute instances (preview)
 
 When you enable **No public IP**, your compute instance doesn't use a public IP for communication with any dependencies. Instead, it communicates solely within the virtual network using Azure Private Link ecosystem as well as service endpoints, eliminating the need for a public IP entirely. **No public IP** instances are dependent on [Azure Private Link](how-to-configure-private-link.md) for Azure Machine Learning workspace. Compute instances will do packet filtering to reject any traffic from outside virtual network.
 
-You need to setup a gateway and route traffic to the gateway for outbound connections to work. For instance, you can use a firewall setup with [outbound configuration](how-to-access-azureml-behind-firewall.md) and route traffic there by defining a route table on the subnet in which the compute instance is deployed. The route table entry can set up the next hop of the private IP address of the gateway with the address prefix of 0.0.0.0/0.
+You need to set up a gateway and route traffic to the gateway for outbound connections to work. For instance, you can use a firewall set up with [outbound configuration](how-to-access-azureml-behind-firewall.md) and route traffic there by defining a route table on the subnet in which the compute instance is deployed. The route table entry can set up the next hop of the private IP address of the gateway with the address prefix of 0.0.0.0/0.
 
 A compute instance with **No public IP** enabled has fewer inbound NSG rule requirements compared to those for public IP compute instance. Specifically, neither inbound rule (`BatchNodeManagement`, `AzureMachineLearning`) is required.
+
+A compute instance with **No public IP** also requires you to disable private endpoint network policies and private link service network policies.  Follow instruction from [Disable network policies for Private Link service source IP](../private-link/disable-private-link-service-network-policy.md) to set the parameters `disable-private-endpoint-network-policies` and `disable-private-link-service-network-policies` on the virtual network subnet.
 
 [!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
 
