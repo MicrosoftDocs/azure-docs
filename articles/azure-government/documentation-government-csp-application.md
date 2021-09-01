@@ -59,8 +59,8 @@ After the validation has been completed and terms have been signed, you are read
 - For a list of available services, see [Azure services available in the CSP program](/partner-center/azure-plan-available).
 - Get your questions answered by visiting [FAQ for Partner Center](/partner-center/faq-for-us-govt-cloud).
 - If you are still unclear about CSP or are looking to apply for the commercial side of the program, see [Enroll in the CSP program](/partner-center/enrolling-in-the-csp-program).
-- If you are interested in Office 365 GCC for CSP which is transacted via the CSP for Commercial platform, see [Sell Office 365 Government GCC for CSP subscriptions to qualified customers](/partner-center/csp-gcc-overview).
+- If you are interested in Office 365 GCC for CSP, which is transacted via the CSP for Commercial platform, see [Sell Office 365 Government GCC for CSP subscriptions to qualified customers](/partner-center/csp-gcc-overview).
 
 ## Next steps
 
-Once you have onboarded and are ready to create your first customer, make sure to review [Resources for building your Government CSP practice](https://devblogs.microsoft.com/azuregov/resources-for-building-your-government-csp-practice/). If you have any additional questions, contact the [Azure Government CSP program](mailto:azgovcsp@microsoft.com).
+Once you have onboarded and are ready to create your first customer, make sure to review [Resources for building your Government CSP practice](https://devblogs.microsoft.com/azuregov/resources-for-building-your-government-csp-practice/). If you have any more questions, contact the [Azure Government CSP program](mailto:azgovcsp@microsoft.com).

@@ -27,9 +27,9 @@ There are no initial Microsoft compliance requirements to publish solutions to A
 
 Once a solution has been published, customers can deploy it into their own subscriptions as part of a broader operational environment or business solution. Customers might then opt to certify the overall environment. As part of that certification process, they might reach out to the publisher with extra requirements, which the publisher can then evaluate and triage with the customer.
 
-## Marketplace offer type support
+## Supported offers
 
-Currently, Azure Government Marketplace only supports the following offer types:
+Currently, Azure Government Marketplace supports only the following offer types:
 
 - Virtual Machines > Bring your own license
 - Virtual Machines > Pay-as-you-go
@@ -47,7 +47,7 @@ Currently, Azure Government Marketplace only supports the following offer types:
 1. **Open the offer** you want to publish to Azure Government Marketplace.
 1. Go to the **Plan overview** page using the left menu.  
 1. **Click on the plan you want to update** to be available in Azure Government. 
-1. In the **Plan setup** page, under **Azure regions**, check the **Azure Government** box. Remember that this option [isn't available for all offers](#marketplace-offer-support).
+1. In the **Plan setup** page, under **Azure regions**, check the **Azure Government** box. Remember that this option [isn't available for all offers](#supported-offers).
 1. ***Optionally***, click the **+ Add Certification** link to add links to any certifications that are relevant for your product and that you want to make available to customers.
 1. ***Optionally***, add your Azure Government subscription to preview your marketplace offering before it is broadly available. 
     1. Click on **Preview audience** entry in the offer-level left menu.
@@ -67,7 +67,7 @@ To obtain an account:
 
 ## Troubleshooting
 
-Generally, virtual machines and solution templates work across both Azure and Azure Government; however, there are a few instances when this is not the case. The following section outlines the most common reasons why a virtual machine or solution template would work in Azure Marketplace but not in Azure Government Marketplace.
+Generally, virtual machines and solution templates work across both Azure and Azure Government; however, there are a few exceptions. The following section outlines the most common reasons why a virtual machine or solution template would work in Azure Marketplace but not in Azure Government Marketplace.
 
 ### Not available after publish
 
@@ -99,7 +99,7 @@ Verify that resources, API versions, VM images, and extensions used in your solu
 
 #### Images
 
-Make sure that the image your solution template relies on is available in Azure Government. If this is a Virtual Machine you own, need to also publish that to Azure Government Marketplace. Check out the [Azure Government Marketplace images](./documentation-government-image-gallery.md) documentation to obtain the list of available images.
+Make sure that the image your solution template relies on is available in Azure Government. If you rely on a VM that you own, you need to also publish it to Azure Government Marketplace. Check out the [Azure Government Marketplace images](./documentation-government-image-gallery.md) documentation to obtain the list of available images.
 
 #### Resource providers and API versions
 
