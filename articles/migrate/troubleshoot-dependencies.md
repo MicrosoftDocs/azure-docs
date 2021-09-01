@@ -83,7 +83,7 @@ The list of agentless dependency analysis errors is summarized in the following 
 | **10008**: Unable to create the file required to contain the discovered metadata on the server. | The role associated to the credentials provided on the appliance or a group policy on-premises is restricting the creation of file in the required folder. The issue was encountered when trying the following credentials on the server: \<FriendlyNameOfCredentials>. | 1. Check if the credentials provided on the appliance have created file permission on the folder \<folder path/folder name> in the server.<br/>2. If the credentials provided on the appliance don't have the required permissions, either provide another set of credentials or edit an existing one. (Find the friendly name of the credentials tried by Azure Migrate in the possible causes.) |
 | **10009**: Unable to write the discovered metadata in the file on the server. | The role associated to the credentials provided on the appliance or a group policy on-premises is restricting writing in the file on the server. The issue was encountered when trying the following credentials on the server: \<FriendlyNameOfCredentials>. | 1. Check if the credentials provided on the appliance have write file permission on the folder \<folder path/folder name> in the server.<br/>2. If the credentials provided on the appliance don't have the required permissions, either provide another set of credentials or edit an existing one. (Find the friendly name of the credentials tried by Azure Migrate in the possible causes.) |
 | **10010**: Unable to discover because the command- %CommandName; required to collect some metadata is missing on the server. | The package containing the command %CommandName; isn't installed on the server. | Ensure that the package that contains the command %CommandName; is installed on the server. |
-| **10011**: The credentials provided on the appliance were used to log in and log off for an interactive session. | The interactive log in and log off forces the registry keys to be unloaded in the profile of the account being used. This condition makes the keys unavailable for future use. | Use the resolution methods documented on [this website](/sharepoint/troubleshoot/administration/800703fa-illegal-operation-error#resolutionus/sharepoint/troubleshoot/administration/800703fa-illegal-operation-error). |
+| **10011**: The credentials provided on the appliance were used to log in and log out for an interactive session. | The interactive login and logout forces the registry keys to be unloaded in the profile of the account being used. This condition makes the keys unavailable for future use. | Use the resolution methods documented on [this website](/sharepoint/troubleshoot/administration/800703fa-illegal-operation-error#resolutionus/sharepoint/troubleshoot/administration/800703fa-illegal-operation-error). |
 | **10012**: Credentials haven't been provided on the appliance for the server. | Either no credentials have been provided for the server or you've provided domain credentials with an incorrect domain name on the appliance. [Learn more](troubleshoot-dependencies.md#error-10012-credentialnotprovided) about the cause of this error. | 1. Ensure that the credentials are provided on the appliance for the server and the server is accessible by using the credentials. <br/>2. You can now add multiple credentials on the appliance for servers. Go back to the appliance configuration manager to provide credentials for the server.|
 
 
@@ -96,13 +96,13 @@ The error usually appears for Linux servers when you haven't provided credential
 You have two options:
 
 - Ensure that you've provided a root user account.
-- Or, ensure that an account has these permissions on /bin/netstat and /bin/ls files:
+- Ensure that an account has these permissions on /bin/netstat and /bin/ls files:
    - CAP_DAC_READ_SEARCH
    - CAP_SYS_PTRACE
 
 To check if the user account provided on the appliance has the required privileges:
 
-1. Sign in to the server where you encountered this error with the same user account as mentioned in the error message.
+1. Log in to the server where you encountered this error with the same user account as mentioned in the error message.
 1. Run the following commands in Azure Shell. You'll get errors if you don't have the required privileges for agentless dependency analysis.
 
    ````
@@ -184,7 +184,7 @@ There can be multiple reasons for this issue. One reason is when the username pr
 - You'll continue to see the error until you check the issue with the server and restart the discovery service.
 
 ### Remediation
-1. Sign in to the server that's encountering this error.
+1. Log in to the server that's encountering this error.
 1. Run the following commands on PowerShell:
    ````
    Get-WMIObject win32_operatingsystem;
@@ -202,7 +202,7 @@ There can be multiple reasons for this issue. One reason is when the username pr
 
 ### Remediation
 - Ensure the validity of credentials _(friendly name provided in the error)_ by selecting **Revalidate credentials** on the appliance configuration manager.
-- Ensure that you can sign in to the affected server by using the same credential provided in the appliance.
+- Ensure that you can log in to the affected server by using the same credential provided in the appliance.
 - You can try using another user account (for the same domain, in case the server is domain joined) for that server instead of the administrator account.
 - The issue can happen when Global Catalog <-> Domain Controller communication is broken. Check for this problem by creating a new user account in the domain controller and providing the same in the appliance. You might also need to restart the domain controller.
 - After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
