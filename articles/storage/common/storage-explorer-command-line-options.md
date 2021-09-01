@@ -6,7 +6,7 @@ author: JasonYeMSFT
 ms.service: storage
 ms.topic: article
 ms.date: 02/24/2021
-ms.author: JasonYeMSFT
+ms.author: chuye
 ---
 
 # Azure Storage Explorer command-line options

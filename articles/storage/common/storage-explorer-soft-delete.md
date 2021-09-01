@@ -6,7 +6,7 @@ author: JasonYeMSFT
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.author: JasonYeMSFT
+ms.author: chuye
 ---
 
 # Azure Storage Explorer soft delete guide
