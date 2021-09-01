@@ -117,6 +117,8 @@ Use the [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.f
 If your storage is behind a virtual network or firewall, set the parameter `validate=False` in your `from_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files. Learn more about how to [use datastores and datasets in a virtual network](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 ```Python
+from azureml.core import Workspace, Datastore, Dataset
+
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
 datastore_paths = [(datastore, 'animals')]
 animal_ds = Dataset.File.from_files(path=datastore_paths)
@@ -130,6 +132,14 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 If you want to upload all the files from a local directory, create a FileDataset in a single method with [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). This method uploads data to your underlying storage, and as a result incur storage costs. 
 
 ```Python
+from azureml.core import Workspace, Datastore, Dataset
+from azureml.data.datapath import DataPath
+
+ws = Workspace.from_config()
+datastore = Datastore.get(ws, '<name of your datastore>')
+ds = Dataset.File.upload_directory(src_dir='<path to you data>',
+           target=DataPath(datastore,  '<path on the datastore>'),
+           show_progress=True)
 
 ```
 
@@ -323,15 +333,29 @@ titanic_ds.take(3).to_pandas_dataframe()
 You can create and register TabularDatasets from a pandas or spark dataframe. 
 
 To create a TabularDataset from an in memory pandas dataframe
-use the [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactoryy#register-pandas-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) method. This method   registers the TabularDataset to the workspace and uploads data to your underlying storage. 
+use the [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactoryy#register-pandas-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) method. This method registers the TabularDataset to the workspace and uploads data to your underlying storage, which incurs storage costs. 
 
 ```python
+from azureml.core import Workspace, Datastore, Dataset
+import pandas as pd
+
+pandas_df = pd.read_csv('<path to your csv file>')
+ws = Workspace.from_config()
+datastore = Datastore.get(ws, '<name of your datastore>')
+dataset = Dataset.Tabular.register_pandas_dataframe(pandas_df, datastore, "dataset_from_pandas_df", show_progress=True)
+
 ```
 
-You can also create a TabularDataset from a spark dataframe with the 
-[`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-spark-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) method. This method   registers the TabularDataset to the workspace and uploads data to your underlying storage. 
+You can also create a TabularDataset from a readily available spark dataframe with the 
+[`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-spark-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) method. This method   registers the TabularDataset to the workspace and uploads data to your underlying storage, which incurs storage costs. 
 
 ```python
+from azureml.core import Workspace, Datastore, Dataset
+
+ws = Workspace.from_config()
+datastore = Datastore.get(ws, '<name of your datastore>')
+dataset = Dataset.Tabular.register_spark_dataframe(spark_df, datastore, "dataset_from_spark_df", show_progress=True)
+
 ```
 
 ## Register datasets
