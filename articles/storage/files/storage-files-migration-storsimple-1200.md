@@ -25,7 +25,7 @@ StorSimple 1200 series will reach its [end-of-life](https://support.microsoft.co
 ## Azure File Sync
 
 > [!IMPORTANT]
-> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan or assistance during the migration.
+> Microsoft is committed to assist customers in their migration with a customized migration plan or assistance during the migration: :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-migration-email.png" alt-text="Email address in one word: Azure Files migration at microsoft dot com":::
 
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
