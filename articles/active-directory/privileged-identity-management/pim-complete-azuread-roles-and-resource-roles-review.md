@@ -30,7 +30,7 @@ Once the review has been created, follow the steps in this article to complete t
 
 2. For **Azure resources**, select your resource under **Azure resources** and then select **Access reviews** from the dashboard. For **Azure AD roles**, proceed directly to the **Access reviews** on the dashboard.
 
-3. Select the access review that you want to manage. Below are sample screenshots of the **Access Reviews** overview for both **Azure resources** and **Azure AD roles**.
+3. Select the access review that you want to manage. Below is a sample screenshot of the **Access Reviews** overview for both **Azure resources** and **Azure AD roles**.
 
     <kbd>![Azure resources - Access reviews list showing role, owner, start date, end date, and status](media/pim-complete-azuread-roles-and-resource-roles-review/rbac-azure-resources-home-list.png)</kbd>
 
