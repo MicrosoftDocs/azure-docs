@@ -52,7 +52,7 @@ This will open a page to enter the details of a new private endpoint.
 
 :::image type="content" source="media/private-links/create-private-endpoint.png" alt-text="Screenshot of the Azure portal showing the Create private endpoint page. It contains the fields described below.":::
 
-1. Fill in selections for your **Subscription** and **Resource group**. Set the **Location** to the same location as the VNet you'll be using. Choose a **Name** for the endpoint, and for **Target sub-resources** select *environment*.
+1. Fill in selections for your **Subscription** and **Resource group**. Set the **Location** to the same location as the VNet you'll be using. Choose a **Name** for the endpoint, and for **Target sub-resources** select *environment* or *tsiExplorer*.
 
 1. Next, select the **Virtual network** and **Subnet** you'd like to use to deploy the endpoint.
 
