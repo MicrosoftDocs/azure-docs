@@ -38,7 +38,6 @@ Instead of using the cloudadmin user to connect services to vCenter, we recommen
 
 1. Select the confirmation checkbox and then select **Generate password**.
 
-   :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-2.png" alt-text="Screenshot prompting confirmation to generate a new vCenter credentials." lightbox="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-2.png":::
 
 
 
