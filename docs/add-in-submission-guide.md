@@ -75,8 +75,6 @@ The following screenshot shows two yellow warning boxes that remind you to fill 
 
 [ ![Yellow warning box reminds you to fill in your Apple ID.](./images/add-in-submission-guide/step-3-yellow-warnings-workspaces.png)](./images/add-in-submission-guide/step-3-yellow-warnings-workspaces.png#lightbox)
 
-
-
 #### [Current interface](#tab/old-web-form)
 
 - **Will your app be listed in the Apple Store?**
