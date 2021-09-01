@@ -88,126 +88,142 @@ For more information about creating administrative units, see [Add and remove ad
 
 For permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md). 
 
-### HTTP POST request
+### Eligible with no end date
 
-The following is a sample HTTP request to create an eligible assignment. The scope of the eligibility is all directory objects in the tenant until June 30, 2022 at midnight UTC time. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+The following is a sample HTTP request to create an eligible assignment with no end date. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+
+#### HTTP request
 
 ````HTTP
 POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests 
 
- 
-
-{ 
-
     "action": "AdminAssign", 
-
     "justification": "abcde", 
-
     "directoryScopeId": "/", 
-
     "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
-
-    "roleDefinitionId": "cf1c38e5-3621-4004-a7cb-879624dced7c", 
-
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
     "scheduleInfo": { 
-
         "startDateTime": "2021-07-15T19:15:08.941Z", 
-
         "expiration": { 
-
-            "type": "AfterDuration", 
-
-            "duration": "PT3H" 
-
-        } 
-
+            "type": "NoExpiration"        } 
     } 
-
+{ 
 } 
 ````
 
-### HTTP response
+#### HTTP response
 
 The following is an example of the response. The response object shown here might be shortened for readability.
 
 ````HTTP
 { 
-
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
-
-    "id": "57ae4c91-495c-4dac-96a8-a3999f2d9c49", 
-
+    "id": "bd3cb7fc-cf0e-4590-a668-de8d0cc8c7e6", 
     "status": "Provisioned", 
-
-    "createdDateTime": "2021-07-15T19:36:11.7541438Z", 
-
-    "completedDateTime": "2021-07-15T19:36:14.5979249Z", 
-
+    "createdDateTime": "2021-07-15T19:47:41.0939004Z", 
+    "completedDateTime": "2021-07-15T19:47:42.4376681Z", 
     "approvalId": null, 
-
     "customData": null, 
-
     "action": "AdminAssign", 
-
     "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
-
-    "roleDefinitionId": "9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3", 
-
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
     "directoryScopeId": "/", 
-
     "appScopeId": null, 
-
     "isValidationOnly": false, 
-
-    "targetScheduleId": "57ae4c91-495c-4dac-96a8-a3999f2d9c49", 
-
+    "targetScheduleId": "bd3cb7fc-cf0e-4590-a668-de8d0cc8c7e6", 
     "justification": "test", 
-
     "createdBy": { 
-
         "application": null, 
-
         "device": null, 
-
         "user": { 
-
             "displayName": null, 
-
             "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
-
         } 
-
     }, 
-
     "scheduleInfo": { 
-
-        "startDateTime": "2021-07-15T19:36:14.5979249Z", 
-
+        "startDateTime": "2021-07-15T19:47:42.4376681Z", 
         "recurrence": null, 
-
         "expiration": { 
-
-            "type": "afterDuration", 
-
+            "type": "noExpiration", 
             "endDateTime": null, 
-
-            "duration": "PT3H" 
-
+            "duration": null 
         } 
-
     }, 
-
     "ticketInfo": { 
-
         "ticketNumber": null, 
-
         "ticketSystem": null 
-
     } 
+}   
+````
 
+### Active and time-bound
+
+The following is a sample HTTP request to create an active assignment that's time-bound. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+
+#### HTTP request
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+
+{ 
+    "action": "AdminAssign", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "cf1c38e5-3621-4004-a7cb-879624dced7c", 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+        "expiration": { 
+            "type": "AfterDuration", 
+            "duration": "PT3H" 
+        } 
+    } 
 } 
+````
 
-  
+#### HTTP response
+
+The following is an example of the response. The response object shown here might be shortened for readability.
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
+    "id": "5ea884f1-8a4d-4c75-b085-c509b93cd582", 
+    "status": "Provisioned", 
+    "createdDateTime": "2021-07-15T19:15:09.7093491Z", 
+    "completedDateTime": "2021-07-15T19:15:11.4437343Z", 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminAssign", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "cf1c38e5-3621-4004-a7cb-879624dced7c", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "5ea884f1-8a4d-4c75-b085-c509b93cd582", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:11.4437343Z", 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "afterDuration", 
+            "endDateTime": null, 
+            "duration": "PT3H" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
 ````
 
 ## Update or remove an existing role assignment
@@ -238,17 +254,11 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilitySc
  
 
 { 
-
     "action": "AdminRemove", 
-
     "justification": "abcde", 
-
     "directoryScopeId": "/", 
-
     "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
-
     "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b" 
-
 } 
 ````
 
@@ -256,63 +266,34 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilitySc
 
 ````HTTP
 { 
-
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
-
     "id": "fc7bb2ca-b505-4ca7-ad2a-576d152633de", 
-
     "status": "Revoked", 
-
     "createdDateTime": "2021-07-15T20:23:23.85453Z", 
-
     "completedDateTime": null, 
-
     "approvalId": null, 
-
     "customData": null, 
-
     "action": "AdminRemove", 
-
     "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
-
     "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
-
     "directoryScopeId": "/", 
-
     "appScopeId": null, 
-
     "isValidationOnly": false, 
-
     "targetScheduleId": null, 
-
     "justification": "test", 
-
     "scheduleInfo": null, 
-
     "createdBy": { 
-
         "application": null, 
-
         "device": null, 
-
         "user": { 
-
             "displayName": null, 
-
             "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
-
         } 
-
     }, 
-
     "ticketInfo": { 
-
         "ticketNumber": null, 
-
         "ticketSystem": null 
-
     } 
-
 } 
 ````
 
