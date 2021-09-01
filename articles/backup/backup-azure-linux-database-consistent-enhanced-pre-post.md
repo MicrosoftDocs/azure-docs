@@ -62,7 +62,7 @@ Overall, the customer experience to use the enhanced pre-post script framework i
 - Trigger the VM backup
 - Restore VMs or disks or files as necessary from the application consistent recovery point.
 
-## Using enhanced pre-post script framework to build a generic database backup strategy
+## Build a database backup strategy
 
 ### Using snapshots instead of streaming
 
