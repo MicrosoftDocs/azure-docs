@@ -27,8 +27,8 @@ ms.custom: include file
 
 | Kubernetes Control Plane Limits                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Clusters on paid tier                                                                                  | Automatically scales out based on the load                                                                                                                                                                                                        |
-| Clusters on free tier                       | Limited resources with inflight requests limit of 25 mutating and 50 read-only calls                                                                                                                                                                                                         |
+| Paid tier                                                                                  | Automatically scales out based on the load                                                                                                                                                                                                        |
+| Free tier                       | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 25 mutating and 50 non-mutating calls                                                                                                                                                                                                         |
 
 <!-- LINKS - Internal -->
 
