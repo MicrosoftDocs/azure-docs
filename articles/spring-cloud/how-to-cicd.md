@@ -89,7 +89,7 @@ steps:
 ## Set up Spring Cloud Instance and DevOps project
 1.	Go to your Azure Spring Cloud instance and create a new app. 
 2.	Go to Azure DevOps website and create a new project under a chosen organization. If you do not have a DevOps organization, you could create one for free.
-3.	Go to repo section and import demo code from [this link](!https://github.com/spring-guides/gs-spring-boot) to repo.
+3.	Go to repo section and import demo code from [this link](https://github.com/spring-guides/gs-spring-boot) to repo.
 
 ## Create an Azure Resource Manager service connection
 
