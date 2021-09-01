@@ -18,7 +18,7 @@ By enabling Azure Automation State Configuration, you can manage and monitor the
 To complete this quickstart, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](./manage-runas-account.md).
+* An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](../manage-runas-account.md).
 * An Azure Resource Manager virtual machine running Red Hat Enterprise Linux, CentOS, or Oracle Linux. For instructions on creating a VM, see [Create your first Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md)
 
 ## Sign in to Azure
@@ -37,7 +37,7 @@ There are many different methods to enable a machine for Automation State Config
 5. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as `Node Configuration Name`. You can set the [configuration mode](/powershell/scripting/dsc/managing-nodes/metaConfig) to control the configuration behavior for the machine.
 6. Click **OK**. While the DSC extension is deployed to the virtual machine, the status reported is `Connecting`.
 
-![Enabling an Azure VM for DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
+![Enabling an Azure VM for DSC](./media/dsc-configuration/dsc-onboard-azure-vm.png)
 
 ## Import modules
 
@@ -48,7 +48,7 @@ Modules contain DSC resources and many can be found in the [PowerShell Gallery](
 1. Click on the module to import.
 1. Click **Import**.
 
-![Importing a DSC Module](./media/automation-quickstart-dsc-configuration/dsc-import-module-nx.png)
+![Importing a DSC Module](./media/dsc-configuration/dsc-import-module-nx.png)
 
 ## Import the configuration
 
@@ -114,13 +114,13 @@ You can assign a compiled node configuration to a DSC node. Assignment applies t
 1. To force an immediate check, you can run the following command locally on the Linux virtual machine:
    `sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
 
-![Assigning a Node Configuration](./media/automation-quickstart-dsc-configuration/dsc-assign-node-configuration.png)
+![Assigning a Node Configuration](./media/dsc-configuration/dsc-assign-node-configuration.png)
 
 ## View node status
 
 You can view the status of all State Configuration-managed nodes in your Automation account. The information is displayed by choosing **State Configuration (DSC)** and clicking the **Nodes** tab. You can filter the display by status, node configuration, or name search.
 
-![DSC Node Status](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
+![DSC Node Status](./media/dsc-configuration/dsc-node-status.png)
 
 ## Next steps
 
