@@ -17,14 +17,14 @@ ms.date: 08/26/2021
 
 Azure Database for MySQL - Flexible Server Preview allows you to configure high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost because of failures and that the database won't be a single point of failure in your software architecture. When high availability is configured, Flexible Server automatically provisions and manages a standby replica. There are two high availability architectural models:
 
-* **Zone redundant high availability (HA).** This option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides the highest level of availability, but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve the highest level of availability against any infrastructure failure in the availability zone and when latency across the availability zone is acceptable. It can be enabled only when the server is created. Zone redundant HA is available in [subset of Azure regions](./overview.md#azure-regions) where the region supports multiple [availability zones](../../availability-zones/az-overview.md) and [zone redundant Premium file shares](../..//storage/common/storage-redundancy.md#zone-redundant-storage) are available.
+* **Zone redundant high availability (HA).** This option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides the highest level of availability, but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve the highest level of availability against any infrastructure failure in the availability zone and when latency across the availability zone is acceptable. It can be enabled only when the server is created. Zone redundant HA is available in a [subset of Azure regions](./overview.md#azure-regions) where the region supports multiple [availability zones](../../availability-zones/az-overview.md) and [zone redundant Premium file shares](../..//storage/common/storage-redundancy.md#zone-redundant-storage) are available.
 
 * **Same-zone high availability (HA).** This option is preferred for infrastructure redundancy with lower network latency because the primary and standby servers will be in the same availability zone. It provides high availability without the need to configure application redundancy across zones. Same-zone HA is preferred when you want to achieve the highest level of availability within a single availability zone with the lowest network latency. Same-zone HA is available in all [Azure regions](./overview.md#azure-regions) where you can use Azure Database for MySQL - Flexible Server.  
 
 ## Zone redundant high availability architecture
  
 When you deploy a server with zone redundant HA, two servers will be created: 
-- A primary server created in one availability zone
+- A primary server in one availability zone
 - A standby replica server that has the same configuration as the primary server (compute tier, compute size, storage size, and network configuration) in another availability zone of the same Azure region
  
 You can choose the availability zone for the primary and the standby replica. Placing the standby database servers and standby applications in the same zone reduces latency. It also allows you to better prepare for disaster recovery situations and "zone down" scenarios.
@@ -77,7 +77,7 @@ Azure Database for MySQL - Flexible Server forced failover enables you to manual
  
 ### Unplanned: Automatic failover 
  
-Unplanned service downtime can be caused by software bugs or infrastructure faults like compute, network, or storage failures, or power outages that affect the availability of the database. If the database becomes unavailable, replication to the standby replica is severed and the standby replica is activated as the primary database. DNS is updated, and clients reconnect to the database server and resume their operations. The overall failover time is expected to take between 60 and 120 seconds. But depending on the activity in the primary database server at the time of the failover, like large transactions and recovery time, the failover might take longer.
+Unplanned service downtime can be caused by software bugs or infrastructure faults like compute, network, or storage failures, or power outages that affect the availability of the database. If the database becomes unavailable, replication to the standby replica is severed and the standby replica is activated as the primary database. DNS is updated, and clients reconnect to the database server and resume their operations. The overall failover time is expected to be between 60 and 120 seconds. But, depending on the activity in the primary database server at the time of the failover, like large transactions and recovery time, the failover might take longer.
 
 ## High availability monitoring
 The health of your HA is continuously monitored and reported on the overview page. Here are the replication statuses:
@@ -98,7 +98,7 @@ Here are some considerations to keep in mind when you use high availability:
 * Restarting the primary database server to pick up static parameter changes also restarts the standby replica.
 * Read replicas aren't supported for zone redundant HA servers.
 * Data-in Replication isn't supported for HA servers. 
-* GTID mode will be turned on as the HA solution uses GTID. Check whether your workload has [Restrictions or Limitations on Replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
+* GTID mode will be turned on as the HA solution uses GTID. Check whether your workload has [restrictions or limitations on replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
  
 ## Frequently asked questions (FAQ)
  
@@ -107,9 +107,9 @@ The standby server isn't available for read or write operations. It's a passive 
 **Will I have data loss when failover happens?**</br>
 Logs in ZRS are accessible even when the primary server is unavailable. This availability helps to ensure there's no loss of data. After the standby replica is activated and binary logs are applied, it takes the roles of the primary server. </br>
 **Do I need to take any action after a failover?**</br>
-Failovers are fully transparent from client application. You don't need to take any action. Applications should just use the retry logic for their connections. </br>
+Failovers are fully transparent from the client application. You don't need to take any action. Applications should just use the retry logic for their connections. </br>
 **What happens when I don’t choose a specific zone for my standby replica? Can I change the zone later?**</br>
-If you don't choose a zone, one will be randomly selected. It won't be the one used for the primary server. To change the zone later, you can set **High Availability Mode** to **Disabled** on the **High Availability** pane, and then set it back to **Zone Redundant** and choose a zone.</br>
+If you don't choose a zone, one will be randomly selected. It won't be the one used for the primary server. To change the zone later, you can set **High Availability Mode** to **Disabled** in the **High Availability** pane, and then set it back to **Zone Redundant** and choose a zone.</br>
 **Is replication between the primary and standby replicas synchronous?**</br>
  The replication between the primary and the standby is similar to [semisynchronous mode](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html) in MySQL. When a transaction is committed, it doesn't necessarily commit to the standby. But when the primary is unavailable, the standby does replicate all data changes from the primary to make sure there's no data loss.</br> 
 **Is there a failover to the standby replica for all unplanned failures?**</br>
@@ -117,7 +117,7 @@ If there's a database crash or node failure, the Flexible Server VM is restarted
 **Is there a performance impact when I use HA?**</br>
 For zone redundant HA, there might be a 5-10 percent drop in latency if the application is connecting to the database server across availability zones where network latency is relatively higher (2-4 ms). For same-zone HA, because the primary and the standby replica are in the same zone, the replication lag is lower. There's less latency between the application server and the database server when they're in the same Azure availability zone.</br>
 **How does maintenance of my HA server happen?**</br>
-Planned events like scaling of compute and minor version upgrades happen on the primary and the standby at the same time. You can set the [scheduled maintenance window](./concepts-maintenance.md) for HA servers as you do for flexible servers. The amount of downtime will be the same as the downtime for the Azure Database for MySQL flexible server if HA is disabled. Using the failover mechanism to reduce downtime for HA servers is in our roadmap and will be available soon. </br>
+Planned events like scaling of compute and minor version upgrades happen on the primary and the standby at the same time. You can set the [scheduled maintenance window](./concepts-maintenance.md) for HA servers as you do for flexible servers. The amount of downtime will be the same as the downtime for the Azure Database for MySQL flexible server when HA is disabled. Using the failover mechanism to reduce downtime for HA servers is in our roadmap and will be available soon. </br>
 **Can I do a point-in-time restore (PITR) of my HA server?**</br>
 You can do a [PITR](./concepts-backup-restore.md#point-in-time-restore) for an HA-enabled Azure Database for MySQL flexible server to a new Azure Database for MySQL flexible server that has HA disabled. If the source server was created with zone redundant HA, you can enable zone redundant HA or same-zone HA on the restored server later. If the source server was created with same-zone HA, you can enable only same-zone HA on the restored server.</br>
 **Can I enable HA on a server after I create the server?**</br>
@@ -129,7 +129,7 @@ You need to be able to mitigate downtime for your application even when you're n
 **Can I use a read replica for an HA-enabled server?**</br>
 Read replicas aren't supported for HA servers. This feature is on our roadmap, and we're working to make it available soon.</br>
 **Can I use Data-in Replication for HA servers?**</br>
-Data-in Replication isn't supported for HA servers. But Data-in Replication for HA servers is in our roadmap, and will be available soon. For now, if you want to use Data-in Replication for migration, you can follow these steps:
+Data-in Replication isn't supported for HA servers. But Data-in Replication for HA servers is in our roadmap and will be available soon. For now, if you want to use Data-in Replication for migration, you can follow these steps:
 1. Create the server with zone redundant HA enabled.
 1. Disable HA.
 1. Complete the steps to [set up Data-in Replication](./concepts-data-in-replication.md).  (Be sure `gtid_mode` has the same setting on the source and target servers.)
