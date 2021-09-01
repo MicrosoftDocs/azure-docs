@@ -128,9 +128,9 @@ Follow [best practices](partitioning-overview.md#choose-partitionkey) for choosi
 
 Each physical partition can hold a maximum of 50 GB of storage (30 GB for Cassandra API). The value you should choose for the `Target data per physical partition in GB` depends on how fully packed you want the physical partitions to be and how much you expect storage to grow post-migration. 
 
-For example, if you anticipate that storage will continue to grow, you may choose to set the value to 30 GB. Assuming you've chosen a good partition key that evenly distributes storage, each partition will be ~60% full (30 GB / 50 GB). As future data is written, it can be stored on the existing set of physical partitions, without requiring the service to immediately add more physical partitions.
+For example, if you anticipate that storage will continue to grow, you may choose to set the value to 30 GB. Assuming you've chosen a good partition key that evenly distributes storage, each partition will be ~60% full (30 GB out of 50 GB). As future data is written, it can be stored on the existing set of physical partitions, without requiring the service to immediately add more physical partitions.
 
-In contrast, if you believe that storage will not grow significantly post-migration, you may choose to set the value higher, for example 45 GB. This means each partition will be ~90% full (45 GB / 50 GB). This minimizes the number of physical partitions your data is spread across, which means each physical partition can get a larger fraction of the total provisioned RU/s. 
+In contrast, if you believe that storage will not grow significantly post-migration, you may choose to set the value higher, for example 45 GB. This means each partition will be ~90% full (45 GB out of 50 GB). This minimizes the number of physical partitions your data is spread across, which means each physical partition can get a larger fraction of the total provisioned RU/s. 
  
 ### Step 3: Calculate the number of RU/s to start with
 `Starting RU/s = Number of physical partitions * Initial throughput per physical partition`.
