@@ -4,7 +4,7 @@ description: Centralize application management with Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-provisioning
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
 ms.date: 03/02/2019

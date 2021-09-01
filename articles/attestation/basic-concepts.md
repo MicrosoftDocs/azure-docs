@@ -16,7 +16,7 @@ Below are some basic concepts related to Microsoft Azure Attestation.
 
 ## JSON Web Token (JWT)
 
-[JSON Web Token](https://jwt.io/) (JWT) is an open standard [RFC7519](https://tools.ietf.org/html/rfc7519) method for securely transmitting information between parties as a JavaScript Object Notation (JSON) object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret or a public/private key pair.
+[JSON Web Token](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) (JWT) is an open standard [RFC7519](https://tools.ietf.org/html/rfc7519) method for securely transmitting information between parties as a JavaScript Object Notation (JSON) object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret or a public/private key pair.
 
 ## JSON Web Key (JWK)
 

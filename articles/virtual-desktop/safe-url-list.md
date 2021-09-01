@@ -37,7 +37,7 @@ You need the following things to use the Required URL Check tool:
 To use the Required URL Check tool:
 
 1. Open a command prompt as an administrator on your VM.
-2. Run the following command to change the directory to the same folder as the build agent:
+2. Run the following command to change the directory to the same folder as the current build agent (RDAgent_1.0.2944.1200 in this example):
 
     ```console
     cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200

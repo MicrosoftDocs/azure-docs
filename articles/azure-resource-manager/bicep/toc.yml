@@ -58,6 +58,9 @@
       - name: Resources
         displayName: iteration,copy,multiple,batches,child,condition,filter
         href: loop-resources.md
+      - name: Modules
+        displayName: iteration,copy,multiple,batches,condition,filter
+        href: loop-modules.md
       - name: Properties
         displayName: iteration,copy,multiple
         href: loop-properties.md
@@ -74,10 +77,10 @@
         displayName: deployment commands,multiple resource groups
       - name: Subscription
         href: deploy-to-subscription.md
-        displayName: Azure policy,policy,access control
+        displayName: Azure Policy,policy,access control
       - name: Management group
         href: deploy-to-management-group.md
-        displayName: policy,Azure policy
+        displayName: policy,Azure Policy
       - name: Tenant
         href: deploy-to-tenant.md
         displayName: assign role

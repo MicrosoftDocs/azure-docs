@@ -5,7 +5,7 @@ metadata:
   ms.topic: article
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
-  ms.date:  08/09/2021
+  ms.date:  08/19/2021
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -63,9 +63,9 @@ sections:
       - question: When does metering begin and end for trial Azure VMware Solution clusters?
         answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
 
-      - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
+      - question:  Is it necessary to procure additional VMware licensing and resources other than the AV36 instance when migrating from the on-premises VM environment with an L2 extension?  
         answer: | 
-          No.    
+          No, you don't need to procure additional VMware licensing beyond the Azure VMware Solution service. For more information, see the [Azure VMware Solution pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/) to see what VMware technology is included.     
 
 
   - name: Support

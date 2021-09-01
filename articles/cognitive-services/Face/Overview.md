@@ -18,7 +18,7 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 # What is the Azure Face service?
 
 > [!WARNING]
-> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States. When you create a new Face resource, you must acknowledge and agree in Azure Portal that you will not use the service by or for a police department in the United States and that you have reviewed the [Responsible AI (RAI) documentation](https://go.microsoft.com/fwlink/?linkid=2164191) and will use this service in accordance with it.
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
@@ -50,7 +50,11 @@ For more information on face detection and analysis, see the [Face detection](co
 
 ## Identity verification
 
-Modern enterprises and apps can use the the Face identification and Face verification operations to verify that a user is who they claim to be. Face identification can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building access to a certain group of people or verifying the user of a device.
+Modern enterprises and apps can use the the Face identification and Face verification operations to verify that a user is who they claim to be. 
+
+### Identification
+
+Face identification can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building access to a certain group of people or verifying the user of a device.
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 

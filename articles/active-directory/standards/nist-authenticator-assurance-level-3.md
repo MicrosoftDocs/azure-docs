@@ -39,7 +39,7 @@ Microsoft offers authentication methods that enable you to meet required NIST au
 
 We recommend using a multifactor cryptographic hardware authenticator to achieve AAL3. Passwordless authentication eliminates the greatest attack surface, the password, and offers users a streamlined authentication method. If your organization is completely cloud based, we recommend that you use FIDO2 security keys.
 
-Note that FIDO2 keys and Windows Hello for Business haven't been validated at the required FIPS 140 Security Level. So federal customers need to conduct risk assessment and evaluation before accepting these authenticators as AAL3.
+Note that Windows Hello for Business has not been validated at the required FIPS 140 Security Level and as such federal customers would need to conduct risk assessment and evaluation before accepting it as AAL3. .
 
 For detailed guidance, see [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md).
 

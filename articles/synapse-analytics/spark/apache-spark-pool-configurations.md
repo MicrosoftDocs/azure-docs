@@ -6,7 +6,7 @@ author: mlee3gsd
 ms.service:  synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 12/2/2020 
+ms.date: 08/19/2021 
 ms.author: martinle
 ms.reviewer: euang
 ---

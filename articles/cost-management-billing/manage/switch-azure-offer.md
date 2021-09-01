@@ -7,15 +7,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 08/27/2021
 ms.author: banders
 ---
 
 # Change your Azure subscription to a different offer
 
-As a customer with a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription, you can switch your Azure subscription to another offer in the Azure portal. For example, you can use this feature to take advantage of the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+As a customer with a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/), you can switch your Azure subscription to another offer in the Azure portal. For example, you can use this feature to take advantage of the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-If you have an expired Visual Studio subscription, you can switch to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription.
+If you have an expired Visual Studio subscription, you can switch to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/) .
 
 **Just want to upgrade from Free Trial?** See [upgrade your subscription](upgrade-azure-subscription.md).
 
@@ -30,7 +30,7 @@ You can switch from a pay-as-you-go subscription to:
 - [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
 - [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/)
 
-You can also switch from an expired [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) subscription to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. 
+You can also switch from an expired [Visual Studio Enterprise subscription](https://azure.microsoft.com/offers/ms-azr-0063p/) to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/). 
 
 > [!NOTE]
 > For other offer changes, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -59,12 +59,12 @@ To convert your subscription:
 
 1. Navigate to **Subscriptions** and then select your Visual Studio Enterprise subscription.
 1. You'll see a banner at the top of the page stating `Your Visual Studio subscription is expired and has been disabled. To continue using this subscription, please click here to convert to a pay-as-you-go subscription`. Select the banner.  
-    :::image type="content" source="./media/switch-azure-offer/visual-studio-expired-banner.png" alt-text="Screenshot showing an expired subscription with the banner to convert the subscription." lightbox="./media/switch-azure-offer/visual-studio-expired-banner.png" :::
+    :::image type="content" source="./media/switch-azure-offer/visual-studio-expired-banner.png" alt-text="Screenshot showing an expired subscription with the banner to convert it." lightbox="./media/switch-azure-offer/visual-studio-expired-banner.png" :::
 1. On the Switch Offer page, Select an offer tab, select the pay-as-you-go option, and then select **Next**.  
     :::image type="content" source="./media/switch-azure-offer/select-offer-pay-as-you-go.png" alt-text="Screenshot showing the Switch Offer option." lightbox="./media/switch-azure-offer/select-offer-pay-as-you-go.png" :::
 1. On the Select payment method tab, select **Select a payment method**, enter your payment method information, and then select **Next**.  
 1. On the Review + convert page, you can optionally change the subscription name. Review the agreement information, select the **I agree** option, and then at the bottom of the page, select **Switch Offer**.  
-    :::image type="content" source="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" alt-text="Screenshot showing the Review + convert tab with subscription name and agreement acknowledgement." lightbox="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" :::
+    :::image type="content" source="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" alt-text="Screenshot showing the Review + convert tab with subscription name and agreement acceptance." lightbox="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" :::
 
 View your new converted subscription by navigating to **Subscriptions**.
 
@@ -75,11 +75,11 @@ The following sections answer commonly asked questions about switching from a pa
 
 ### What is an Azure offer?
 
-An Azure offer is the *type* of the Azure subscription you have. For example, [an subscription with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer has different [terms](https://azure.microsoft.com/support/legal/offer-details/) and some have special benefits. The offer of your subscription is shown on the subscription details page.
+An Azure offer is the *type* of the Azure subscription you have. For example, [a subscription with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer has different [terms](https://azure.microsoft.com/support/legal/offer-details/) and some have special benefits. The offer of your subscription is shown on the subscription details page.
 
 :::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="Subscription details page showing the offer type" lightbox="./media/switch-azure-offer/subscription-details.png" :::
 
-### Why don't I see Switch Offer option?
+### Why don't I see the Switch Offer option?
 
 You might not see the **Switch Offer** option if:
 
@@ -112,7 +112,7 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 ### Can I migrate from a subscription with pay-as-you-go rates to Cloud Solution Provider (CSP) or Enterprise Agreement (EA)?
 
 * To migrate to CSP, see [Transfer Azure subscriptions between subscribers and CSPs](transfer-subscriptions-subscribers-csp.md).
-* To migrate to EA, have your Enrollment Admin add your account into the EA. Follow instructions in the invitation email to have your subscriptions moved under the EA enrollment.
+* If you have a pay-as-you-go subscription (Azure offer ID MS-AZR-0003P) or an Azure plan with pay-as-you-go rates (Azure offer ID MS-AZR-0017G) and you want to migrate to an EA enrollment, have your Enrollment Admin add your account into the EA. Follow instructions in the invitation email to have your subscriptions moved under the EA enrollment. For more information, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 ### Can I migrate data and services to a new subscription?
 
