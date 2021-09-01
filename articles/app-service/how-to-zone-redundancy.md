@@ -3,8 +3,9 @@ title: Availability Zone support for public multi-tenant App Service
 description: Learn how to deploy your App Service so that your apps are zone redundant.
 author: seligj95
 ms.topic: article
-ms.date: 08/31/2021
+ms.date: 09/01/2021
 ms.author: jordanselig
+ms.custom: references_regions
 ---
 # Availability Zone support for public multi-tenant App Service
 
@@ -86,4 +87,10 @@ The ARM template snippet below shows the new ***zoneRedundant*** property and **
 ]
 ```
 
-For details on how to deploy ARM templates, see [this doc](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md). For App Service ARM quickstarts, visit [this](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web) GitHub repo.
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn how to create and deploy ARM templates](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md)
+
+> [!div class="nextstepaction"]
+> [ARM Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/)
