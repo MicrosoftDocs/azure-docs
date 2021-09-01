@@ -143,8 +143,8 @@ applications in Okta that they need to access, to allow the users easy access to
 
 7. After opening the application, record your tenant ID and application ID.
 
->[!Note]
->You'll need tenant ID, and application ID later to configure Identity Provider in Okta.
+   >[!Note]
+   >You'll need tenant ID, and application ID later to configure Identity Provider in Okta.
 
    ![image shows record tenant id and application id](media/migrate-okta-federation-to-azure-active-directory/record-ids.png)
 
@@ -152,15 +152,14 @@ applications in Okta that they need to access, to allow the users easy access to
 
 9. Record the value and ID of the secret before leaving this page.
 
->[!NOTE]
->You'll not be able to record this info later and will instead have to regenerate a secret if lost.
+   >[!NOTE]
+   >You'll not be able to record this info later and will instead have to regenerate a secret if lost.
 
    ![image shows record secrets](media/migrate-okta-federation-to-azure-active-directory/record-secrets.png)
 
 10. Select **API Permissions** on the left menu, and grant the application access to the OpenID Connect (OIDC) stack.
 
-11. Select **Add Permission** > **Microsoft Graph** > **Delegated
-Permissions**.
+11. Select **Add Permission** > **Microsoft Graph** > **Delegated Permissions**.
 
     ![image shows delegated permissions](media/migrate-okta-federation-to-azure-active-directory/delegated-permissions.png)
 
@@ -184,9 +183,8 @@ Permissions**.
 
 17. Select **Show Advanced Settings**. By default this will tie User Principal Name (UPN) in Okta and Azure AD for the reverse federation access.
 
->[!IMPORTANT]
->If your UPNs do not match in Okta and Azure AD, select a
-common attribute between users to match against.
+    >[!IMPORTANT]
+    >If your UPNs do not match in Okta and Azure AD, select a common attribute between users to match against.
 
 18. Finalize your selection for auto provisioning. By default, if a user doesn't match to Okta, it will attempt to provision them in Azure AD. If you have migrated Provisioning away from Okta, select the **Redirect to Okta Sign-in page** option.
 
@@ -208,7 +206,7 @@ common attribute between users to match against.
 
 22. Navigate back to your application registration and select the authentication tab, followed by **Add a platform** and **Web**.
 
-   ![image shows add platform](media/migrate-okta-federation-to-azure-active-directory/add-platform.png)
+    ![image shows add platform](media/migrate-okta-federation-to-azure-active-directory/add-platform.png)
 
 23. Add in the redirect URI from the IDP in Okta, then select **Access and ID tokens**.
 
