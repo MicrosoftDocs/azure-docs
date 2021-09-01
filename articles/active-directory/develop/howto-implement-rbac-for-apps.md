@@ -99,8 +99,10 @@ Implementing RBAC in an ASP.NET Core web API mainly involves utilizing the *Auth
 ## Implementing RBAC in other platforms
 
 ### Angular SPA using MsalGuard
+Implementing RBAC in an Angular SPA involves the use of [msal-angular](https://www.npmjs.com/package/@azure/msal-angular) to authorize access to the Angular routes contained within the application.  This is shown in the [Enable your Angular single-page application to sign-in users and call APIs with the Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial#chapter-5-control-access-to-your-protected-api-using-app-roles-and-security-groups) sample.
 
-
+> [!NOTE]
+> Client-side RBAC implementations should be paired with server-side RBAC to prevent unauthorized applications from accessing sensitive resources.
 
 ### Node.js with Express application
 
