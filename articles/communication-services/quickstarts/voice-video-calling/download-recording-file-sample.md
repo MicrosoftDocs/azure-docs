@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: jken
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 

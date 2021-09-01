@@ -156,6 +156,8 @@
         href: backup-azure-linux-app-consistent.md
       - name: Selective disk backup
         href: selective-disk-backup-restore.md
+      - name: Using Azure VM backup for database consistent snapshots
+        href: backup-azure-linux-database-consistent-enhanced-pre-post.md
     - name: Restore
       items:
       - name: About Azure VM restore
