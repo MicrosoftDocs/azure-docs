@@ -216,15 +216,17 @@ When the creation process finishes, you train your model by using the cluster in
 
 ## Compute instance
 
-For steps to create a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) .  In studio, specify **No public IP** to create a private IP address for the instance.  
+For steps to create a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) .  In studio, specify **No public IP** to create a private IP address for the instance (a preview feature).  
 
-### <a name="no-public-ip"></a>No public IP for compute instances
+### <a name="no-public-ip"></a>No public IP for compute instances (preview)
 
 When you enable **No public IP**, your compute instance doesn't use a public IP for communication with any dependencies. Instead, it communicates solely within the virtual network using Azure Private Link ecosystem as well as service endpoints, eliminating the need for a public IP entirely. **No public IP** instances are dependent on [Azure Private Link](how-to-configure-private-link.md) for Azure Machine Learning workspace. Compute instances will do packet filtering to reject any traffic from outside virtual network.
 
 You need to setup a gateway and route traffic to the gateway for outbound connections to work. For instance, you can use a firewall setup with [outbound configuration](how-to-access-azureml-behind-firewall.md) and route traffic there by defining a route table on the subnet in which the compute instance is deployed. The route table entry can set up the next hop of the private IP address of the gateway with the address prefix of 0.0.0.0/0.
 
 A compute instance with **No public IP** enabled has fewer inbound NSG rule requirements compared to those for public IP compute instance. Specifically, neither inbound rule (`BatchNodeManagement`, `AzureMachineLearning`) is required.
+
+[!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
 
 ## Inbound traffic
 
