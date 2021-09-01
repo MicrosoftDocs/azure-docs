@@ -18,14 +18,13 @@ ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-
 # Perform an access review of Azure resource and Azure AD roles in PIM
 
 Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure Active Directory (AD) and other Microsoft online services like Microsoft 365 or Microsoft Intune. Follow the steps in this article to perform reviews of access to roles.
 
 If you are assigned to an administrative role, your organization's privileged role administrator may ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com) and begin.
 
-If you're a privileged role administrator or global administrator interested in access reviews, get more details at [How to start an access review](pim-create-azuread-roles-and-resource-roles-review.md).
+If you're a privileged role administrator or global administrator interested in access reviews, get more details at [How to start an access review](pim-create-azure-ad-roles-and-resource-roles-review.md).
 
 ## Approve or deny access
 
@@ -41,14 +40,14 @@ Follow these steps to find and complete the access review:
 1. Select **Azure Active Directory** and open **Privileged Identity Management**.
 1. Select **Review access**. If you have any pending access reviews, they will appear in the access reviews page.
 
-   <kbd>![Screenshot of Privileged Identity Management application, with Review access blade selected for Azure AD roles](media/pim-perform-azuread-roles-and-resource-roles-review/rbac-access-review-azure-ad-complete.png)</kbd>
+   <kbd>![Screenshot of Privileged Identity Management application, with Review access blade selected for Azure AD roles](media/pim-perform-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-ad-complete.png)</kbd>
 
 1. Select the review you want to complete.
 1. Choose **Approve** or **Deny**. In the **Provide a reason box**, enter a business justification for your decision as needed.
 
-     <kbd>![Screenshot of Privileged Identity Management application, with the selected Access Review for Azure AD roles](media/pim-perform-azuread-roles-and-resource-roles-review/rbac-access-review-azure-ad-completed.png)</kbd>
+     <kbd>![Screenshot of Privileged Identity Management application, with the selected Access Review for Azure AD roles](media/pim-perform-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-ad-completed.png)</kbd>
 
 ## Next steps
 
-- [Create an access review of Azure resource and Azure AD roles in PIM](pim-create-azuread-roles-and-resource-roles-review.md)
-- [Complete an access review of Azure resource and Azure AD roles in PIM](pim-complete-azuread-roles-and-resource-roles-review.md)
+- [Create an access review of Azure resource and Azure AD roles in PIM](pim-create-azure-ad-roles-and-resource-roles-review.md)
+- [Complete an access review of Azure resource and Azure AD roles in PIM](pim-complete-azure-ad-roles-and-resource-roles-review.md)

@@ -4,7 +4,7 @@
 
       "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md",
 
-      "redirect_url": "articles/active-directory/privileged-identity-management/pim-create-azuread-roles-and-resource-roles-review.md",
+      "redirect_url": "articles/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
 
       "redirect_document_id": false
 
@@ -13,7 +13,7 @@
 
       "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-start-security-review.md",
 
-      "redirect_url": "articles/active-directory/privileged-identity-management/pim-create-azuread-roles-and-resource-roles-review.md",
+      "redirect_url": "articles/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
 
       "redirect_document_id": false
 
@@ -22,7 +22,7 @@
 
       "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review.md",
 
-      "redirect_url": "articles/active-directory/privileged-identity-management/pim-perform-azuread-roles-and-resource-roles-review.md",
+      "redirect_url": "articles/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review",
 
       "redirect_document_id": false
 
@@ -31,7 +31,7 @@
 
       "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-perform-security-review.md",
 
-      "redirect_url": "articles/active-directory/privileged-identity-management/pim-perform-azuread-roles-and-resource-roles-review.md",
+      "redirect_url": "articles/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review",
 
       "redirect_document_id": false
 
@@ -40,7 +40,7 @@
 
       "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-complete-review.md",
 
-      "redirect_url": "articles/active-directory/privileged-identity-management/pim-complete-azuread-roles-and-resource-roles-review.md",
+      "redirect_url": "articles/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review",
 
       "redirect_document_id": false
 
@@ -49,7 +49,7 @@
 
       "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review.md",
 
-      "redirect_url": "articles/active-directory/privileged-identity-management/pim-complete-azuread-roles-and-resource-roles-review.md",
+      "redirect_url": "articles/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review",
 
       "redirect_document_id": false
 
