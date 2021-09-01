@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to connect Logic Apps to Azure Digital Twins, using a custom connector
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/31/2021
+ms.date: 9/1/2021
 ms.topic: how-to
 ms.service: digital-twins
 
