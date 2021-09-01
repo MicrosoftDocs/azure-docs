@@ -35,9 +35,9 @@ Within your project you can do the following operations:
 
 Custom text classification supports two types of projects
 
-* **Single class classification**: You can only assign one class for each file of your dataset. For example, if it is a movie script, your file can only be `Action`, `Thriller` or `Romance`.
+* **Single label classification**: You can only assign one class for each file of your dataset. For example, if it is a movie script, your file can only be `Action`, `Thriller` or `Romance`.
 
-* **Multiple class classification**: You can assign **multiple** classes for each file of your dataset. For example, if it is a movie script, your file can be `Action` or `Action` and `Thriller` or `Romance`.
+* **Multiple label classification**: You can assign **multiple** classes for each file of your dataset. For example, if it is a movie script, your file can be `Action` or `Action` and `Thriller` or `Romance`.
 
 ## Model
 

@@ -50,7 +50,7 @@ After deploying your model it is ready for you to send text classification tasks
 
 6. Submit the request
 
-7. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze/jobs/<jobId}>`
+7. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId}>`
 
 8. Copy the retrieve request and replace `jobId` and submit the request.
 
@@ -85,7 +85,7 @@ You will get the `model id` from the get train results request you submitted ear
 
 Use this **POST** request to start an entity extraction task. replace `{projectName}` with the project name where you have the model you want to use.
 
-`{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze`
+`{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze`
 
 #### Headers
 
@@ -139,7 +139,7 @@ Use this **POST** request to start an entity extraction task. replace `{projectN
 You will receive a 202 response indicating success. In the response **headers**, extract `operation-location`.
 `operation-location` is formatted like this:
 
- `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze/jobs/<jobId>`
+ `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId>`
 
 You will use this endpoint in the next step to get the custom classification task results.
 
@@ -149,7 +149,7 @@ You will use this endpoint in the next step to get the custom classification tas
 
 Use the following **GET** request to query the status/results of the custom classification task. You can use the endpoint you received from the previous step.
 
-`{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze/jobs/<jobId>`.
+`{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId>`.
 
 #### Headers
 

@@ -34,7 +34,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 1. Login through the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
-2. Scroll down until you see **Custom classification** from the available services, and select it.
+2. Scroll down until you see **Custom text classification** from the available services, and select it.
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
@@ -106,7 +106,7 @@ After you've tested your model, you can begin [improving the model's performance
 
 ## Clean up resources
 
-When you don't need your project anymore, you can delete your project using [Language Studio](https://language.azure.com/customText/projects/classification). Select **Custom text classification** in the left navigation menu, select project you want to delete and click on **Delete**.
+When you don't need your project anymore, you can delete it from your [projects page in Language Studio](https://language.azure.com/customText/projects/classification). Select the project you want to delete and click on **Delete**.
 
 ## Next steps
 
