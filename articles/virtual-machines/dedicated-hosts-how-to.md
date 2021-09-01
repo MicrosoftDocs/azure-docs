@@ -619,7 +619,7 @@ You can also delete the entire resource group in a single command using [Remove-
 Remove-AzResourceGroup -Name $rgName
 ```
 
-
+---
 
 ## Next steps
 
