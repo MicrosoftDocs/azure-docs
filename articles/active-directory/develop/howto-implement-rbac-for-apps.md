@@ -105,7 +105,7 @@ Implementing RBAC in an Angular SPA involves the use of [msal-angular](https://w
 > Client-side RBAC implementations should be paired with server-side RBAC to prevent unauthorized applications from accessing sensitive resources.
 
 ### Node.js with Express application
-
+Implementing RBAC in a Node.js with express application involves the use of MSAL to authorize access to the Express routes contained within the application.  This is shown in the [Enable your Node.js web app to sign-in users and call APIs with the Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-tutorial#chapter-4-control-access-to-your-app-using-app-roles-and-security-groups).
 
 ## Next steps
 
