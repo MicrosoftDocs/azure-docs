@@ -4379,6 +4379,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/view-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/export-template-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/management/azure-resource-manager-security-controls.md",
       "redirect_url": "/azure/azure-resource-manager/management/security-baseline",
       "redirect_document_id": false
