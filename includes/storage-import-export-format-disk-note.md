@@ -12,4 +12,4 @@ ms.custom: include file
 
 ---
 
-If you copy data or files you didn't intend to copy, or you come across errors while you're copying data to a disk, delete the data or files without formatting the disk. Formatting the disk can lead to copy job failure, and you might have to redo the job. And it's not needed: the disk will be secure erased after the data is uploaded to Azure.
+If you copy files you didn't intend to or notice issues while copying data to a disk, delete the files; don't format the disks. If you return a disk in a formatted state, the data copy at the Azure datacenter will fail, and you'll need to redo the job.
