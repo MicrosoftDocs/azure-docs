@@ -58,6 +58,7 @@ To add or deactivate custom security attributes, you must have:
     A description can be 128 characters long. If necessary, you can later change the description.
 
 1. From the Data type list, select the data type for the custom security attribute.
+
     | Data type | Description |
     | --- | --- |
     | Boolean | A Boolean value that can be true, True, false, or False. |
@@ -120,9 +121,87 @@ Once you add a custom security attribute, you can't delete it. However, you can 
 
     The custom security attribute is deactivated and moved to the Deactivated attributes list.
 
+## PowerShell
+
+To manage custom security attributes in your Azure AD organization, you can also use the PowerShell. The following command can manage custom security attributes and attribute sets.
+
+### Get all custom security attributes
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinition
+```
+
+### Get a custom security attribute
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinition -Id "TestSet_TestAttribute"
+```
+ 
+### Update a custom security attribute
+
+```powershell
+Set-AzureADMSCustomSecurityAttributeDefinition -Id "TestSet_TestAttribute" -Description "New Test Description"
+Set-AzureADMSCustomSecurityAttributeDefinition -Id Storage_Project2 -Status "Deprecated" -UsePreDefinedValuesOnly $false
+```
+ 
+### Add a single custom security attribute
+
+```powershell
+New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "TestSet" -Name "TestAttribute" -Description "TestAttributeDescription" -Type "String" -Status "Available" -IsCollection $true -IsSearchable $true -UsePreDefinedValuesOnly $true
+```
+ 
+### Get all allowed values
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "TestSet_TestAttribute"
+```
+ 
+### Get an allowed value
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue 
+```
+ 
+### Update allowed value
+
+```powershell
+Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue -IsActive $true
+```
+ 
+### Add a new allowed value
+
+```powershell
+Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id "TestAllowedValue" -IsActive $true
+```
+ 
+### Get all attribute sets
+
+```powershell
+Get-AzureADMSAttributeSet
+```
+
+### Get an attribute set
+
+```powershell
+Get-AzureADMSAttributeSet -Id "testAttributeSet"
+```
+
+### Update an attribute set
+
+```powershell
+Set-AzureADMSAttributeSet -Id "testAttributeSet" -Description "New Test Description"
+Set-AzureADMSAttributeSet -Id "testAttributeSet" -MaxAttributesPerSet 20
+```
+ 
+### Add an attribute set
+
+```powershell
+New-AzureADMSAttributeSet -Id "testAttributeSet" -Description "TestAttributeDescription" -MaxAttributesPerSet 10 
+```
+
 ## Microsoft Graph API
 
-To manage custom security attribute assignments in your Azure AD organization, you can also use the Microsoft Graph API. The following API calls can be made to manage assignments.
+To manage custom security attributes in your Azure AD organization, you can also use the Microsoft Graph API. The following API calls can be made to manage custom security attributes.
 
 ### Add a new custom security attribute
 
