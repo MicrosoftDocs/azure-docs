@@ -70,12 +70,12 @@ After the module is installed, import it, and follow these steps to connect to t
 
 3. There are several ways to manually confirm the objectGUID to Base64 conversion on-premises, for individual validation use this example:
 
-```PowerShell
-Get-ADUser onpremupn | fl objectguid
-$objectguid = 'your-guid-here-1010'
+   ```PowerShell
+   Get-ADUser onpremupn | fl objectguid
+   $objectguid = 'your-guid-here-1010'
 
-[system.convert]::ToBase64String(([GUID]$objectGUID).ToByteArray())
-```
+   [system.convert]::ToBase64String(([GUID]$objectGUID).ToByteArray())
+   ```
 
    ![image shows how manually change Okta objectGUID to ImmutableID](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/manual-objectguid.png)
 
@@ -87,26 +87,26 @@ The example will grab **all** on-premises AD users, and export a list of their o
 
 1. Run these commands in PowerShell on a domain controller on-premises. 
 
-```PowerShell
-Get-ADUser -Filter * -Properties objectGUID | Select-Object
-UserPrincipalName, Name, objectGUID, @{Name = 'ImmutableID';
-Expression = {
-[system.convert\]::ToBase64String(([GUID\]\$_.objectGUID).ToByteArray())
-} } | export-csv C:\\Temp\\OnPremIDs.csv
-```
+   ```PowerShell
+   Get-ADUser -Filter * -Properties objectGUID | Select-Object
+   UserPrincipalName, Name, objectGUID, @{Name = 'ImmutableID';
+   Expression = {
+   [system.convert\]::ToBase64String(([GUID\]\$_.objectGUID).ToByteArray())
+   } } | export-csv C:\\Temp\\OnPremIDs.csv
+   ```
 
    ![image shows domain controller on-premises commands](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/domain-controller.png)
 
 2. Run these commands in an Azure AD PowerShell session to gather the already synchronized values:
 
-```powershell
+   ```powershell
 
-Get-AzureADUser -all $true | Where-Object {$_.dirsyncenabled -like
-"true\"} | Select-Object UserPrincipalName, @{Name = 'objectGUID';
-Expression = {
-[GUID][System.Convert]::FromBase64String($_.ImmutableID) } },
-ImmutableID | export-csv C:\\temp\\AzureADSyncedIDS.csv
-```
+   Get-AzureADUser -all $true | Where-Object {$_.dirsyncenabled -like
+   "true"} | Select-Object UserPrincipalName, @{Name = 'objectGUID';
+   Expression = {
+   [GUID][System.Convert]::FromBase64String($_.ImmutableID) } },
+   ImmutableID | export-csv C:\\temp\\AzureADSyncedIDS.csv
+   ```
 
    ![image shows azure ad powershell session](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/azure-ad-powershell.png)
 
