@@ -33,7 +33,7 @@ You must have the following resources installed:
 - The Azure CLI, version 2.20.0 or later
 - The `aks-preview` extension version 0.5.5 or later
 - OSM version v0.8.0 or later
-- apt-get install jq
+- JSON processor "jq" version 1.6+
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

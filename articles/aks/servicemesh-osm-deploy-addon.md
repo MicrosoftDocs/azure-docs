@@ -18,6 +18,7 @@ This article will discuss how to deploy the OSM add-on to AKS.
 - The Azure CLI, version 2.20.0 or later
 - The `aks-preview` extension version 0.5.5 or later
 - OSM version v0.9.1 or later
+- JSON processor "jq" version 1.6+
 
 ## Install the aks-preview extension
 
@@ -186,7 +187,7 @@ spec:
     useHTTPSIngress: false
 ```
 
-Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services. For more detailed information, please visit and read the [Permissive Traffic Policy Mode](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) article. 
 
 > [!WARNING]
 > Before proceeding please verify that your permissive traffic policy mode is set to true, if not please change it to **true** using the command below

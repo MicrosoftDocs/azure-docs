@@ -38,6 +38,15 @@ In this tutorial, you will:
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+## Before you begin
+
+You must have the following resources installed:
+
+- The Azure CLI, version 2.20.0 or later
+- The `aks-preview` extension version 0.5.5 or later
+- OSM version v0.8.0 or later
+- JSON processor "jq" version 1.6+
+
 ## Deploy and configure a Prometheus instance for OSM
 
 We will use Helm to deploy the Prometheus instance. Run the following commands to install Prometheus via Helm:
