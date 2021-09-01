@@ -1,6 +1,6 @@
 ---
 title: Using Azure Monitor and Application Insights
-description: How to use Azure Azure Monitor and Application Insights with Open Service Mesh
+description: How to use Azure Monitor and Application Insights with Open Service Mesh
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
@@ -10,7 +10,7 @@ ms.author: pgibson
 
 # Open Service Mesh (OSM) Monitoring and Observability using Azure Monitor and Applications Insights
 
-Both Azure Monitor and Azure Application Insights helps you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+Both Azure Monitor and Azure Application Insights assist with maximizing the availability and performance of your applications and services. This is done by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
