@@ -749,8 +749,6 @@
               href: reference-yaml-dataset.md
             - name: Model
               href: reference-yaml-model.md
-        - name: Deployments
-          items:
     - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
