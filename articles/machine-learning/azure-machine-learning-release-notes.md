@@ -22,15 +22,15 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.34.0
   + **azureml-automl-core**
-    + Classical forecasting learners (AutoArima, Prophet, ExponentialSmoothing, etc.) are now supported when lags/rolling windows are enabled.
-    + Added the ability to fit the model on new data; - Added the ability to predict in sample.
+    + Added support for re-fitting a previously trained forecasting pipeline
+    + Added ability to get predictions on the training data (in-sample prediction) for forecasting
   + **azureml-automl-runtime**
     + Add support to return predicted probabilities from a deployed endpoint of an AutoML classifier model.
-    + The forecasting of the whole numbers was implemented.
+    + Added a forecasting option for users to specify that all predictions should be integers.
     + Removed the target column name from being part of model explanation feature names for local experiments with training_data_label_column_name
     + as dataset inputs.
-    + Added the ability to fit the model on new data.
-    + Added the ability to predict in sample.
+    + Added support for re-fitting a previously trained forecasting pipeline.
+    + Added ability to get predictions on the training data (in-sample prediction) for forecasting.
   + **azureml-core**
     + Added support to set stream column type, mount and download stream columns in tabular dataset.
     + New optional fields added to Kubernetes.attach_configuration(identity_type=None, identity_ids=None) which allow attaching KubernetesCompute with either SystemAssigned or UserAssigned identity. New identity fields will be included when calling print(compute_target) or compute_target.serialize(): identity_type, identity_id, principal_id, and tenant_id/client_id.
