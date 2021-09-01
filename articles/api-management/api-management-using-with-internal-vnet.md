@@ -29,7 +29,7 @@ When API Management deploys in internal VNET mode, you can only view the followi
 
 Use API Management in internal mode to:
 
-* Make APIs hosted in your private datacenter securely accessible by third parties, using site-to-site or Azure ExpressRoute VPN connections.
+* Make APIs hosted in your private datacenter securely accessible by third parties outside of it by using Azure VPN Connections or Azure ExpressRoute.
 * Enable hybrid cloud scenarios by exposing your cloud-based APIs and on-premises APIs through a common gateway.
 * Manage your APIs hosted in multiple geographic locations, using a single gateway endpoint.
 
@@ -70,7 +70,7 @@ After successful deployment, you should see your API Management service's **priv
 | Virtual IP address | Description |
 | ----- | ----- |
 | **Private virtual IP address** | A load balanced IP address from within the API Management-delegated subnet, over which you can access `gateway`, `portal`, `management`, and `scm` endpoints. |  
-| **Public virtual IP address** | Used *only* for control plane traffic to `management` endpoint over `port 3443`. Can be locked down to the [ApiManagement][ServiceTags] service tag. |  
+| **Public virtual IP address** | Used for control plane traffic to `management` endpoint over `port 3443`. Can be locked down to the [ApiManagement][ServiceTags] service tag. In the none and external VNet configurations, they are used for incoming runtime API traffic. They are also used for outgoing runtime traffic on the internet in all VNet configurations. |  
 
 ![API Management dashboard with an internal VNET configured][api-management-internal-vnet-dashboard]
 

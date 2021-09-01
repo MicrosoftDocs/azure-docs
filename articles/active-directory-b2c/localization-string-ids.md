@@ -368,7 +368,7 @@ The following are the IDs for a [Verification display control](display-control-v
 |but_send_new_code | Send new code|
 |but_change_claims | Change e-mail|
 
-Note: The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customiztion](customize-ui-with-html.md) with Cascading Style Sheets. For example:
+Note: The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customization](customize-ui-with-html.md) with Cascading Style Sheets. For example:
     
 ```css
 .verificationInfoText div{display: block!important}
@@ -509,11 +509,12 @@ The following are the IDs for a [one-time password technical profile](one-time-p
 
 | ID | Default value |
 | -- | ------------- |
-|UserMessageIfMaxRetryAttempted |One time password provided verification has exceeded maximum number of attempts |
-|UserMessageIfSessionDoesNotExist |One time password verification session has expired |
-|UserMessageIfSessionConflict |One time password verification session has conflict |
-|UserMessageIfInvalidCode |One time password provided for verification is incorrect |
-|UserMessageIfVerificationFailedRetryAllowed |That code is incorrect. Please try again. | 
+| UserMessageIfSessionDoesNotExist | No | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier. |
+| UserMessageIfMaxRetryAttempted | No | The message to display to the user if they've exceeded the maximum allowed verification attempts. |
+| UserMessageIfMaxNumberOfCodeGenerated | No | The message to display to the user if the code generation has exceeded the maximum allowed number of attempts. |
+| UserMessageIfInvalidCode | No | The message to display to the user if they've provided an invalid code. |
+| UserMessageIfVerificationFailedRetryAllowed | No | The message to display to the user if they've provided an invalid code, and user is allowed to provide the correct code.  |
+|UserMessageIfSessionConflict|No| The message to display to the user if the code cannot be verified.|
 
 ### One time password example
 
@@ -522,9 +523,10 @@ The following are the IDs for a [one-time password technical profile](one-time-p
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```

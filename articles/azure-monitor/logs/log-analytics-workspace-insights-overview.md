@@ -105,8 +105,7 @@ In our demo workspace, you can clearly see that 3 Kuberbetes clusters send far m
 
 ### Health tab
 
-This tab shows the workspace health state and when it was last reported, as well as operational [errors and warnings](./monitor-workspace.md) (retrieved from the _LogOperation table).
-
+This tab shows the workspace health state and when it was last reported, as well as operational [errors and warnings](../logs/monitor-workspace.md) (retrieved from the _LogOperation table). You can find more details on the listed issues as well as mitigation steps in [here](../logs/monitor-workspace.md#categories).
 
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-health.png" alt-text="Screenshot of the workspace health tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-health.png":::
 
@@ -116,7 +115,7 @@ This tab provides information on the agents sending logs to this workspace.
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-agents.png" alt-text="Screenshot of the workspae agents tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-agents.png":::
 
 * Operation errors and warnings - these are errors and warning related specifically to agents. They are grouped by the error/warning title to help you get a clearer view of different issues that may occur, but can be expanded to show the exact times and resources they refer to. Also note you can click 'Run query in Logs' to query the _LogOperation table through the Logs experience, see the raw data and analyze if further.
-* Workspace agents - these are the agents that sent logs to the workspace during the selected time range. You can see the agents' types (Direct, Gateway, SCOM or SCOM management servers) and health state. Agents marked healthy aren't necessarily working well - it only indicated they sent a heartbeat during the last hour. A more detailed health state is detailed in the below grid.
+* Workspace agents - these are the agents that sent logs to the workspace during the selected time range. You can see the agents' types and health state. Agents marked healthy aren't necessarily working well - it only indicated they sent a heartbeat during the last hour. A more detailed health state is detailed in the below grid.
 * Agents activity - this grid shows information on either all agents, healthy or unhealthy agents. Here too "Healthy" only indicated the agent send a heartbeat during the last hour. To understand its state better, review the trend shown in the grid - it shows how many heartbeats this agent sent over time. The true health state can only be inferred if you know how the monitored resource operates, for example - If a computer is intentionally shut down at particular times, you can expect the agent's heartbeats to appear intermittenly, in a matching pattern.
 
 

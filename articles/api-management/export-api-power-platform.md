@@ -1,25 +1,20 @@
 ---
-title: Export APIs from Azure API Management to the Power Platform  | Microsoft Docs
-description: Learn how to export APIs from API Management to the Power Platform.
+title: Export APIs from Azure API Management to Microsoft Power Platform | Microsoft Docs
+description: Learn how to export an API from API Management as a custom connector to Power Apps and Power Automate in the Microsoft Power Platform.
 services: api-management
-documentationcenter: ''
 author: miaojiang
-manager: gwallace
-editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 05/01/2020
+ms.topic: how-to
+ms.date: 07/27/2021
 ms.author: apimpm
 
 ---
 # Export APIs from Azure API Management to the Power Platform 
 
-Citizen developers using the Microsoft [Power Platform](https://powerplatform.microsoft.com) often needs to reach the business capabilities that are developed by professional developers and deployed in Azure. [Azure API Management](https://aka.ms/apimrocks) enables professional developers to publish their backend service as APIs, and easily export these APIs to the Power Platform (Power Apps and Power Automate) as custom connectors for consumption by citizen developers. 
+Citizen developers using the Microsoft [Power Platform](https://powerplatform.microsoft.com) often need to reach the business capabilities that are developed by professional developers and deployed in Azure. [Azure API Management](https://aka.ms/apimrocks) enables professional developers to publish their backend service as APIs, and easily export these APIs to the Power Platform ([Power Apps](/powerapps/powerapps-overview) and [Power Automate](/power-automate/getting-started)) as custom connectors for discovery and consumption by citizen developers. 
 
-This article walks through the steps to export APIs from API Management to the Power Platform. 
+This article walks through the steps in the Azure portal to create a custom Power Platform connector to an API in API Management. With this capability, citizen developers can use the Power Platform to create and distribute apps that are based on internal and external APIs managed by API Management.
 
 ## Prerequisites
 
@@ -27,20 +22,26 @@ This article walks through the steps to export APIs from API Management to the P
 + Make sure there is an API in your API Management instance that you'd like to export to the Power Platform
 + Make sure you have a Power Apps or Power Automate [environment](/powerapps/powerapps-overview#power-apps-for-admins) 
 
-## Export an API
+## Create a custom connector to an API
 
-1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
-2. Click on the three dots next to the API you want to export. 
-3. Select **Export**.
-4. Select **Power Apps and Power Automate**.
-5. Choose an environment to export the API to. 
-6. Provide a display name, which will be used as the name of the custom connector.  
-7. Optional, if the API is protected by an OAuth 2.0 server, you will also need to provide additional details including `Client ID`, `Client secret`, `Authorization URL`, `Token URL`, and `Refresh URL`.  
-8. Select **Export**. 
+1. Navigate to your API Management service in the Azure portal.
+1. In the menu, under **APIs**, select **Power Platform**.
+1. Select **Create a connector**.
+1. In the **Create a connector** window, do the following:
+    1. Select an API to publish to the Power Platform.
+    1. Select a Power Platform environment to publish the API to. 
+    1. Enter a display name, which will be used as the name of the custom connector.  
+    1. Optionally, if the API is [protected by an OAuth 2.0 server](api-management-howto-protect-backend-with-aad.md), provide details including **Client ID**, **Client secret**, **Authorization URL**, **Token URL**, and **Refresh URL**.  
+1. Select **Create**. 
 
-Once the export completes, navigate to your Power App or Power Automate environment. You will see the API as a custom connector.
+    :::image type="content" source="media/export-api-power-platform/create-custom-connector.png" alt-text="Create custom connector to API in API Management":::
+
+Once the connector is created, navigate to your [Power Apps](https://make.powerapps.com) or [Power Automate](https://flow.microsoft.com) environment. You will see the API listed under **Data > Custom Connectors**.
+
+:::image type="content" source="media/export-api-power-platform/custom-connector-power-app.png" alt-text="Custom connector in Power Platform":::
 
 ## Next steps
 
 * [Learn more about the Power Platform](https://powerplatform.microsoft.com/)
+* [Learn more about creating and using custom connectors](/connectors/custom-connectors/)
 * [Learn common tasks in API Management by following the tutorials](./import-and-publish.md)

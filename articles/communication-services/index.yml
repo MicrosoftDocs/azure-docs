@@ -8,9 +8,9 @@ metadata:
   description: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps.
   ms.service: azure-communication-services
   ms.topic: landing-page # Required
-  author: mikben
-  ms.author: mikben
-  ms.date: 03/10/2021
+  author: probableprime
+  ms.author: rifox
+  ms.date: 06/30/2021
 
 landingContent:
   - title: About Azure Communication Services

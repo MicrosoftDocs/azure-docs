@@ -54,6 +54,11 @@ This article describes how to provision a dedicated gateway, configure the integ
 
 3. If you're using the .NET or Java SDK, set the connection mode to [gateway mode](sql-sdk-connection-modes.md#available-connectivity-modes). This step isn't necessary for the Python and Node.js SDKs since they don't have additional options of connecting besides gateway mode.
 
+> [!NOTE]
+> If you are using the latest .NET or Java SDK version, the default connection mode is direct mode. In order to use the integrated cache, you must override this default.
+
+If you're using the Java SDK, you must also manually set [contentResponseOnWriteEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable&preserve-view=true) to `true` within the `CosmosClientBuilder`. If you're using any other SDK, this value already defaults to `true`, so you don't need to make any changes.
+
 ## Adjust request consistency
 
 You must adjust the request consistency to eventual. If not, the request will always bypass the integrated cache. The easiest way to configure eventual consistency for all read operations is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). You can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level), which is recommended if you only want a subset of your reads to utilize the integrated cache.
@@ -80,7 +85,7 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 ```
 
 > [!NOTE]
-> Currently, you can only adjust the MaxIntegratedCacheStaleness using the latest .NET and Java preview SDK's.
+> Currently, you can only adjust the MaxIntegratedCacheStaleness using the latest [.NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) and [Java](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.16.0-beta.1) preview SDK's.
 
 ## Verify cache hits
 

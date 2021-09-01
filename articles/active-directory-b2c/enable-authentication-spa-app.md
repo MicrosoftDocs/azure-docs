@@ -1,6 +1,6 @@
 ---
-title: Enable authentication in a SPA application using Azure Active Directory B2C building blocks
-description:  The building blocks of Azure Active Directory B2C to sign in and sign up users in a SPA application.
+title: Enable authentication in a SPA application by using Azure Active Directory B2C building blocks
+description:  This article discusses the building blocks of Azure Active Directory B2C for signing in and signing up users in a SPA application.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,53 +13,58 @@ ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Enable authentication in your own Single Page Application using Azure Active Directory B2C
+# Enable authentication in your own single-page application by using Azure AD B2C
 
-This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own Single Page Application (SPA). Learn how create a SPA application with [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js) authentication library. Use this article with [Configure authentication in a sample SPA application](./configure-authentication-sample-spa-app.md), substituting the sample SPA app with your own SPA app.
+This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own single-page application (SPA). Learn how create a SPA application by using the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
+
+Use this article with [Configure authentication in a sample SPA application](./configure-authentication-sample-spa-app.md), substituting the sample SPA app with your own SPA app.
 
 ## Overview
 
-This article uses Node.js and [Express](https://expressjs.com/), to create a basic Node.js web app. Express is a minimal and flexible Node.js web app framework that provides a set of features for web and mobile applications.
+This article uses Node.js and [Express](https://expressjs.com/) to create a basic Node.js web app. Express is a minimal and flexible Node.js web app framework that provides a set of features for web and mobile applications.
 
-The [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js) authentication library is a Microsoft provided library that simplifies adding authentication and authorization support to SPA apps.
+The [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js) authentication library is a Microsoft-provided library that simplifies adding authentication and authorization support to SPA apps.
 
 > [!TIP]
-> The entire MSAL.js code runs on the client side. You can substitute the Node.js and Express server side code with other solutions, such as .NET core, Java, and PHP.
+> The entire MSAL.js code runs on the client side. You can substitute the Node.js and Express server side code with other solutions, such as .NET Core, Java, and Hypertext Preprocessor (PHP) scripting languages.
 
 ## Prerequisites
 
-Review the prerequisites and integration steps in [Configure authentication in a sample SPA application](configure-authentication-sample-spa-app.md) article.
+To review the prerequisites and integration instructions, see [Configure authentication in a sample SPA application](configure-authentication-sample-spa-app.md).
 
-## Create an SPA app project
+## Step 1: Create an SPA app project
 
-You can use an existing SPA app project, or create new one. To create a new project, follow these steps:
+You can use an existing SPA app project or create new one. To create a new project, do the following:
 
-1. Open command shell, and create a new directory.  For example, *myApp*. This directory will contain your app code, user interface, and configuration files.
-1. Enter the directory your created.
-1. Use the `npm init` command to create a `package.json` file for your app. This command prompts you for information about your app. For example, the name and version of your app, and the name of the initial entry point, the `index.js` file. Run the following command, and accept the defaults:
+1. Open a command shell, and create a new directory (for example, *myApp*). This directory will contain your app code, user interface, and configuration files.
+
+1. Enter the directory you created.
+
+1. Use the `npm init` command to create a `package.json` file for your app. This command prompts you for information about your app (for example, the name and version of your app, and the name of the initial entry point, the *index.js* file). Run the following command, and accept the default values:
 
 ```
 npm init
 ```
 
-## Install the dependencies
+## Step 2: Install the dependencies
 
-To install the Express package, in your command shell run the following commands:
+To install the Express package, in your command shell, run the following command:
 
 ```
 npm install express
 ```
 
 To locate the app's static files, the server-side code uses the [Path](https://www.npmjs.com/package/path) package. 
-To install the Path package, in your command shell run the following commands:
+
+To install the Path package, in your command shell, run the following command:
 
 ```
 npm install path
 ```
 
-## Configure your web server
+## Step 3: Configure your web server
 
-In your *myApp* folder, create a file named `index.js` containing the following code:
+In your *myApp* folder, create a file named *index.js*, which contains the following code:
 
 ```javascript
 // Initialize express
@@ -86,33 +91,34 @@ app.listen(port, () => {
 });
 ```
 
-## Create the SPA user interface
+## Step 4: Create the SPA user interface
 
-In this step,  add the SAP app `index.html` file. This file implements the user interface built with Bootstrap framework, imports script files for configuration, authentication, and web API calls.
+Add the SAP app `index.html` file. This file implements a user interface that's built with a Bootstrap framework, and it imports script files for configuration, authentication, and web API calls.
 
-The table below details the resources referenced by the *index.html* file. 
+The resources referenced by the *index.html* file are detailed in the following table: 
 
 |Reference |Definition|
 |---|---|
 |MSAL.js library| MSAL.js authentication JavaScript library [CDN path](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/cdn-usage.md).|
-|[Bootstrap stylesheet](https://getbootstrap.com/) | A free front-end framework for faster and easier web development. The framework includes HTML and CSS based design templates. |
-|[policies.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js) | Contains the Azure AD B2C custom policies and user-flows. |
+|[Bootstrap stylesheet](https://getbootstrap.com/) | A free front-end framework for faster and easier web development. The framework includes HTML-based and CSS-based design templates. |
+|[policies.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js) | Contains the Azure AD B2C custom policies and user flows. |
 |[authConfig.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authConfig.js) | Contains authentication configuration parameters.|
 |[authRedirect.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authRedirect.js) | Contains the authentication logic. |
 |[apiConfig.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/apiConfig.js) | Contains web API scopes and the API endpoint location. |
-|[api.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | Defines the method to call your API and handle its response|
-|[ui.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controls UI elements |
+|[api.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | Defines the method to use to call your API and handle its response.|
+|[ui.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controls the UI elements. |
+| | |
 
-To render the SPA index file, in the *myApp* folder, create a file named *index.html* containing the following HTML snippet.
+To render the SPA index file, in the *myApp* folder, create a file named *index.html*, which contains the following HTML snippet.
 
 ```html
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My AAD B2C test app</title>
+        <title>My Azure AD B2C test app</title>
     </head>
     <body>
-        <h2>My AAD B2C test app</h2>
+        <h2>My Azure AD B2C test app</h2>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
         <button type="button" id="signIn" class="btn btn-secondary" onclick="signIn()">Sign-in</button>
         <button type="button" id="signOut" class="btn btn-success d-none" onclick="signOut()">Sign-out</button>
@@ -141,15 +147,15 @@ To render the SPA index file, in the *myApp* folder, create a file named *index.
 </html>
  ```
 
-## Configure the authentication library
+## Step 5: Configure the authentication library
 
-In this section, configure how the MSAL.js library integrates with Azure AD B2C. The MSAL.js library uses a common configuration object to connect to your Azure AD B2C tenants authentication endpoints.
+Configure how the MSAL.js library integrates with Azure AD B2C. The MSAL.js library uses a common configuration object to connect to your Azure AD B2C tenant's authentication endpoints.
 
-To configure the authentication library, follow these steps:
+To configure the authentication library, do the following:
 
 1. In the *myApp* folder, create a new folder called *App*. 
 1. Inside the *App* folder, create a new file named *authConfig.js*.
-1. Add following JavaScript code to the *authConfig.js* file:
+1. Add the following JavaScript code to the *authConfig.js* file:
 
     ```javascript
     const msalConfig = {
@@ -175,16 +181,16 @@ To configure the authentication library, follow these steps:
     };
     ```
 
-1. Replace `<Application-ID>` with your app registration application ID. For more information, see [Configure authentication in a sample SPA application article](./configure-authentication-sample-spa-app.md#23-register-the-client-app).
+1. Replace `<Application-ID>` with your app registration application ID. For more information, see [Configure authentication in a sample SPA application](./configure-authentication-sample-spa-app.md#step-23-register-the-spa).
 
 > [!TIP]
 > For more MSAL object configuration options, see the [Authentication options](./enable-authentication-spa-app-options.md) article.
 
-### Specify your Azure AD B2C user flows
+## Step 6: Specify your Azure AD B2C user flows
 
-In this step,  create the *policies.js* file, which provides information about your Azure AD B2C environment. The MSAL.js library uses this information to create authentication requests to Azure AD B2C.
+Create the *policies.js* file, which provides information about your Azure AD B2C environment. The MSAL.js library uses this information to create authentication requests to Azure AD B2C.
 
-To specify your Azure AD B2C user flows, follow these steps:
+To specify your Azure AD B2C user flows, do the following:
 
 1. Inside the *App* folder, create a new file named *policies.js*.
 1. Add the following code to the *policies.js* file:
@@ -211,13 +217,13 @@ To specify your Azure AD B2C user flows, follow these steps:
 1. Replace `B2C_1_EditProfile` with your edit profile Azure AD B2C policy name.
 1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./tenant-management.md#get-your-tenant-name).
 
-## Use the MSAL to sign in the user
+## Step 7: Use the MSAL to sign in the user
 
-In this step, implement the methods to initialize the sign-in flow, api access token acquisition, and the sign-out methods. 
+In this step, implement the methods to initialize the sign-in flow, API access token acquisition, and the sign-out methods. 
 
 For more information, see the [MSAL PublicClientApplication class reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html), and [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-microsoft-authentication-library-msal-to-sign-in-the-user) articles.
 
-To sign in the user, follow these steps:
+To sign in the user, do the following:
 
 1. Inside the *App* folder, create a new file named *authRedirect.js*.
 1. In your *authRedirect.js*, copy and paste the following code:
@@ -373,11 +379,11 @@ To sign in the user, follow these steps:
     }
     ```
 
-## Configure the web API location and scope
+## Step 8: Configure the web API location and scope
 
-To allow your SPA app to call a web API, provide the web API endpoint location, and the [scopes](./configure-authentication-sample-spa-app.md#app-registration-overview) used to authorize access to the web API.
+To allow your SPA app to call a web API, provide the web API endpoint location and the [scopes](./configure-authentication-sample-spa-app.md#app-registration-overview) to use to authorize access to the web API.
 
-To configure the web API location and scopes, follow these steps:
+To configure the web API location and scopes, do the following:
 
 1. Inside the *App* folder, create a new file named *apiConfig.js*.
 1. In your *apiConfig.js*, copy and paste the following code:
@@ -390,16 +396,16 @@ To configure the web API location and scopes, follow these steps:
     };
     ```
 
-1. Replace `contoso` with your tenant name. The required scope name can be found as described in the [Configure scopes](./configure-authentication-sample-spa-app.md#22-configure-scopes) article.
+1. Replace `contoso` with your tenant name. The required scope name can be found as described in the [Configure scopes](./configure-authentication-sample-spa-app.md#step-22-configure-scopes) article.
 1. Replace the value for `webApi` with your web API endpoint location.
 
-## Call your web API
+## Step 9: Call your web API
 
-In this step,  define the HTTP request to your API endpoint. The HTTP request is configured to pass the Access Token acquired with MSAL.js into the `Authorization` HTTP header in the request.
+Define the HTTP request to your API endpoint. The HTTP request is configured to pass the access token that was acquired with *MSAL.js* into the `Authorization` HTTP header in the request.
 
-The code below defines the HTTP `GET` request to the API endpoint, passing the access token within the `Authorization` HTTP header. The API location is defined by the `webApi` key in *apiConfig.js*. 
+The following code defines the HTTP `GET` request to the API endpoint, passing the access token within the `Authorization` HTTP header. The API location is defined by the `webApi` key in *apiConfig.js*. 
 
-To call your web API by using the token you acquired, follow these steps:
+To call your web API by using the token you acquired, do the following:
 
 1. Inside the *App* folder, create a new file named *api.js*.
 1. Add the following code to the *api.js* file:
@@ -434,13 +440,13 @@ To call your web API by using the token you acquired, follow these steps:
     }
     ```
 
-## Add the UI elements reference
+## Step 10: Add the UI elements reference
 
-The SPA app uses JavaScript to control the UI elements. For example, display the sign-in and sign-out buttons, render the users ID token claims to the screen.
+The SPA app uses JavaScript to control the UI elements. For example, it displays the sign-in and sign-out buttons, and renders the users ID token claims to the screen.
 
-To add the UI elements reference, follow these steps:
+To add the UI elements reference, do the following:
 
-1. Inside the *App* folder, create a new file named *ui.js*.
+1. Inside the *App* folder, create a file named *ui.js*.
 1. Add the following code to the *ui.js* file:
 
     ```javascript
@@ -470,7 +476,7 @@ To add the UI elements reference, follow these steps:
     }
     ```
   
-## Run your SPA application
+## Step 11: Run your SPA application
 
 In your command shell, run the following commands:
 
@@ -479,14 +485,14 @@ npm install
 npm ./index.js
 ```
 
-1. Browse to https://localhost:6420. 
+1. Go to https://localhost:6420. 
 1. Select **Sign-in**.
 1. Complete the sign-up or sign-in process.
 
-After you successfully authenticate, you can see the parsed ID token appear on the screen. Select `Call API`, to call your API endpoint.
+After you've authenticated successfully, the parsed ID token is displayed on the screen. Select `Call API` to call your API endpoint.
 
 ## Next steps
 
-* Learn more [about the code sample](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
-* Configure [Authentication options in your own SPA application using Azure AD B2C](enable-authentication-spa-app-options.md)
-* [Enable authentication in your own web API](enable-authentication-web-api.md)
+* Learn more about the [code sample](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa).
+* Configure [Authentication options in your own SPA application by using Azure AD B2C](enable-authentication-spa-app-options.md).
+* [Enable authentication in your own web API](enable-authentication-web-api.md).

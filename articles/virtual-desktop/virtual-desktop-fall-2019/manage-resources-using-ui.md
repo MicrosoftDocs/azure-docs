@@ -40,7 +40,7 @@ After you deploy and configure the management tool, we recommend you ask a user 
 
 Before you start, ensure the server and client apps have consent by visiting the [Azure Virtual Desktop Consent Page](https://rdweb.wvd.microsoft.com) for the Azure Active Directory (AAD) represented.
 
-Follow these instructions to deploy the Azure Resource Management template:
+Follow these instructions to deploy the Azure Resource Manager template:
 
 1. Go to the [GitHub Azure RDS-Templates page](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Deploy the template to Azure.

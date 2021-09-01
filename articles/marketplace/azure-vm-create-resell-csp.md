@@ -4,9 +4,9 @@ description: Resell your offer through Cloud Solution Providers (CSP) on Azure M
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
-ms.date: 11/05/2020
+author: iqshahmicrosoft
+ms.author: iqshah
+ms.date: 11/06/2020
 ---
 
 # Resell your offer through CSP

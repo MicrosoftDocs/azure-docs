@@ -9,7 +9,7 @@ ms.date: 1/28/2021
 ---
 # Major version upgrade in Azure Database for MySQL Single Server
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 > [!NOTE]
 > This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we will remove it from this article.

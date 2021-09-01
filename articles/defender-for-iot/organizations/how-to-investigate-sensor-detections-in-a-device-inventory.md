@@ -206,6 +206,49 @@ To import:
 
    :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-new-file.png" alt-text="Upload of added files was successful.":::
 
+## View and delete inactive devices from the inventory
+
+You may want to view devices in your network that have been inactive and delete them.
+Devices may become inactive because of:
+- Misconfigured SPAN ports
+- Changes in network coverage
+- Unplugging from the network
+
+Deleting inactive devices helps:
+
+- Defender for IoT create a more accurate representation of current network activity
+- Better evaluate committed devices when managing subscriptions
+- Reduce clutter on your screen
+
+### View inactive devices
+
+You can filter the inventory to display devices that are inactive:
+
+- for 7 days or more
+- for 14 days or more
+- 30 days or more
+- 90 days or more
+
+**To filter the inventory:**
+  
+1. Select the **Last Seen** filter icon in the Inventory.
+1. Select a filter option.
+1. Select **Apply**.
+
+### Delete inactive devices
+
+Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example Data Mining, Risk Assessment, and Attack Vector reports.
+
+You will be prompted to record a reason for deleting devices. This information, as well as the time/date and number of devices deleted, appears in the Event timeline.
+
+**To delete devices from the inventory:**
+  
+1. Select the **Last Seen** filter icon in the Inventory.
+1. Select a filter option.
+1. Select **Apply**.
+1. Select **Delete Inactive Devices**.
+1. In the confirmation dialog box that opens, enter the reason for the deletion and select **Delete**. All devices detected within the range of the filter will be deleted. If you  delete a large number of devices, the delete process may take a few minutes.
+
 ## Export device inventory information
 
 You can export device inventory information to an Excel file.

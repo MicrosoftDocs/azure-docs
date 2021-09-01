@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # How to create and manage read replicas in Azure Database for MySQL using PowerShell
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 In this article, you learn how to create and manage read replicas in the Azure Database for MySQL
 service using PowerShell. To learn more about read replicas, see the
@@ -74,8 +74,8 @@ Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
   New-AzMySqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
-To learn more about which regions you can create a replica in, visit the
-[read replica concepts article](concepts-read-replicas.md).
+> [!NOTE]
+> To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
 
 By default, read replicas are created with the same server configuration as the source unless the
 **Sku** parameter is specified.
@@ -118,6 +118,16 @@ To delete a source server, you can run the `Remove-AzMySqlServer` cmdlet.
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
+
+### Known Issue
+
+There are two generations of storage which the servers in General Purpose and Memory Optimized tier use, General purpose storage v1 (Supports up to 4-TB) & General purpose storage v2 (Supports up to 16-TB storage).
+Source server and the replica server should have same storage type. As [General purpose storage v2](./concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage) is not available in all regions, please make sure you choose the correct replica region while you use location with the PowerShell for read replica creation. On how to identify the storage type of your source server refer to link [How can I determine which storage type my server is running on](./concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on). 
+
+If you choose a region where you cannot create a read replica for your source server, you will encounter the issue where the deployment will keep running as shown in the figure below and then will timeout with the error *“The resource provision operation did not complete within the allowed timeout period.”*
+
+[ :::image type="content" source="media/howto-read-replicas-powershell/replcia-ps-known-issue.png" alt-text="Read replica cli error":::](media/howto-read-replicas-powershell/replcia-ps-known-issue.png#lightbox)
+
 
 ## Next steps
 

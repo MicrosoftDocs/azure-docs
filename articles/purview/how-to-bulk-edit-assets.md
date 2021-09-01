@@ -3,8 +3,8 @@ title: How to bulk edit assets to tag classifications, glossary terms and modify
 description: Learn bulk edit assets in Azure Purview.
 author: nayenama
 ms.author: nayenama
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ---

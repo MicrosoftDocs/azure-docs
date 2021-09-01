@@ -4,6 +4,7 @@ description:  Learn how to use a solution template to transform data by using a 
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020

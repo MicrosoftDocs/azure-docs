@@ -32,6 +32,7 @@ To configure Azure AD integration with Infor CloudSuite, you need the following 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Infor CloudSuite supports **SP and IDP** initiated SSO
+* Infor CloudSuite supports [**Automated** user provisioning and deprovisioning](infor-cloudsuite-provisioning-tutorial.md) (recommended).
 * Infor CloudSuite supports **Just In Time** user provisioning
 
 ## Add Infor CloudSuite from the gallery

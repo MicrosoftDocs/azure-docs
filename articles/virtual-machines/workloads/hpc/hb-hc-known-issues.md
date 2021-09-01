@@ -13,6 +13,8 @@ ms.reviewer: cynthn
 
 # Known issues with H-series and N-series VMs
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article attempts to list recent common issues and their solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
 
 ## Cache topology on Standard_HB120rs_v3
@@ -45,7 +47,7 @@ More details on this are available on this [TechCommunity article](https://techc
 
 ## InfiniBand driver installation on non-SR-IOV VMs
 
-Currently H16r, H16mr and NC24r are not SR-IOV enabled. Some details on the InfiniBand stack bifurcation are [here](../../sizes-hpc.md#rdma-capable-instances).
+Currently H16r, H16mr and NC24r are not SR-IOV enabled. For more information on the InfiniBand stack bifurcation, see [Azure VM sizes - HPC](../../sizes-hpc.md#rdma-capable-instances).
 InfiniBand can be configured on the SR-IOV enabled VM sizes with the OFED drivers while the non-SR-IOV VM sizes require ND drivers. This IB support is available appropriately for [CentOS, RHEL, and Ubuntu](configure.md).
 
 ## Duplicate MAC with cloud-init with Ubuntu on H-series and N-series VMs

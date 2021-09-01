@@ -46,7 +46,7 @@ To add B2B collaboration users to the directory, follow these steps:
    - **Email address (required)**. The email address of the guest user.
    - **Personal message (optional)** Include a personal welcome message to the guest user.
    - **Groups**: You can add the guest user to one or more existing groups, or you can do it later.
-   -  **Roles**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role by selecting **User** next to **Roles**.  [Learn more](/azure/role-based-access-control/role-assignments-external-users) about Azure roles for external guest users.
+   -  **Roles**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role by selecting **User** next to **Roles**.  [Learn more](../../role-based-access-control/role-assignments-external-users.md) about Azure roles for external guest users.
 
    > [!NOTE]
    > Group email addresses aren’t supported; enter the email address for an individual. Also, some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.

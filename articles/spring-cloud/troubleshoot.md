@@ -1,11 +1,11 @@
 ---
 title: Troubleshooting guide for Azure Spring Cloud | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
@@ -23,7 +23,8 @@ The following error message might appear in your logs:
 
 > "org.springframework.context.ApplicationContextException: Unable to start web server"
 
-The message indicates one of two likely problems: 
+The message indicates one of two likely problems:
+
 * One of the beans or one of its dependencies is missing.
 * One of the bean properties is missing or invalid. In this case, "java.lang.IllegalArgumentException" will likely be displayed.
 
@@ -33,7 +34,6 @@ Service bindings might also cause application start failures. To query the logs,
 
 To fix this error, go to the `server parameters` of your MySQL instance, and change the `time_zone` value from *SYSTEM* to *+0:00*.
 
-
 ### My application crashes or throws an unexpected error
 
 When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to _App management_ in the Azure portal to ensure that the statuses of all the applications are _Running_ and _UP_.
@@ -42,33 +42,36 @@ When you're debugging application crashes, start by checking the running status 
 
 * If the discovery status is _UP_, go to Metrics to check the application's health. Inspect the following metrics:
 
+   - `TomcatErrorCount` (_tomcat.global.error_):
 
-  - `TomcatErrorCount` (_tomcat.global.error_):
-    All Spring application exceptions are counted here. If this number is large, go to Azure Log Analytics to inspect your application logs.
+      All Spring application exceptions are counted here. If this number is large, go to Azure Log Analytics to inspect your application logs.
 
-  - `AppMemoryMax` (_jvm.memory.max_):
-    The maximum amount of memory available to the application. The amount might be undefined, or it might change over time if it is defined. If it's defined, the amount of used and committed memory is always less than or equal to max. However, a memory allocation might fail with an `OutOfMemoryError` message if the allocation attempts to increase the used memory such that *used > committed*, even if *used <= max* is still true. In such a situation, try to increase the maximum heap size by using the `-Xmx` parameter.
+   - `AppMemoryMax` (_jvm.memory.max_):
 
-  - `AppMemoryUsed` (_jvm.memory.used_):
-    The amount of memory in bytes that's currently used by the application. For a normal load Java application, this metric series forms a *sawtooth* pattern, where the memory usage steadily increases and decreases in small increments and suddenly drops a lot, and then the pattern recurs. This metric series occurs because of garbage collection inside Java virtual machine, where collection actions represent drops on the sawtooth pattern.
-    
+      The maximum amount of memory available to the application. The amount might be undefined, or it might change over time if it is defined. If it's defined, the amount of used and committed memory is always less than or equal to max. However, a memory allocation might fail with an `OutOfMemoryError` message if the allocation attempts to increase the used memory such that *used > committed*, even if *used <= max* is still true. In such a situation, try to increase the maximum heap size by using the `-Xmx` parameter.
+
+   - `AppMemoryUsed` (_jvm.memory.used_):
+
+      The amount of memory in bytes that's currently used by the application. For a normal load Java application, this metric series forms a *sawtooth* pattern, where the memory usage steadily increases and decreases in small increments and suddenly drops a lot, and then the pattern recurs. This metric series occurs because of garbage collection inside Java virtual machine, where collection actions represent drops on the sawtooth pattern.
+
     This metric is important to help identify memory issues, such as:
+
     * A memory explosion at the very beginning.
     * The surge memory allocation for a specific logic path.
     * Gradual memory leaks.
-  For more information, see [Metrics](./concept-metrics.md).
-  
+
+   For more information, see [Metrics](./concept-metrics.md).
+
 * If the application fails to start, verify that the application has valid jvm parameters. If jvm memory is set too high, the following error message might appear in your logs:
 
-  >"required memory 2728741K is greater than 2000M available for allocation"
-
-
+   > "required memory 2728741K is greater than 2000M available for allocation"
 
 To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ### My application experiences high CPU usage or high memory usage
 
 If your application experiences high CPU or memory usage, one of two things is true:
+
 * All the app instances experience high CPU or memory usage.
 * Some of the app instances experience high CPU or memory usage.
 
@@ -165,12 +168,13 @@ To learn more about Azure Log Analytics, see [Get started with Log Analytics in 
 
 ### I want to inspect my application's environment variables
 
-Environment variables inform the Azure Spring Cloud framework, ensuring that Azure understands where and how to configure the services that make up your application. Ensuring that your environment variables are correct is a necessary first step in troubleshooting potential problems.  You can use the Spring Boot Actuator endpoint to review your environment variables.  
+Environment variables inform the Azure Spring Cloud framework, ensuring that Azure understands where and how to configure the services that make up your application. Ensuring that your environment variables are correct is a necessary first step in troubleshooting potential problems.  You can use the Spring Boot Actuator endpoint to review your environment variables.
 
 > [!WARNING]
 > This procedure exposes your environment variables by using your test endpoint.  Do not proceed if your test endpoint is publicly accessible or if you've assigned a domain name to your application.
 
-1. Go to `https://<your application test endpoint>/actuator/health`.  
+1. Go to `https://<your application test endpoint>/actuator/health`.
+
     - A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled.
     - If the response is negative, include the following dependency in your *POM.xml* file:
 
@@ -181,7 +185,7 @@ Environment variables inform the Azure Spring Cloud framework, ensuring that Azu
             </dependency>
         ```
 
-1. With the Spring Boot Actuator endpoint enabled, go to the Azure portal and look for the configuration page of your application.  Add an environment variable with the name `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` and the value `*` . 
+1. With the Spring Boot Actuator endpoint enabled, go to the Azure portal and look for the configuration page of your application.  Add an environment variable with the name `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` and the value `*`.
 
 1. Restart your application.
 
@@ -210,7 +214,7 @@ Look for the child node named `systemEnvironment`.  This node contains your appl
 
 Go to **App management** to ensure that the application statuses are _Running_ and _UP_.
 
-Check to see whether _JMX_ is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.  
+Check to see whether _JMX_ is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.
 
 Check to see whether the `spring-boot-actuator` dependency is enabled in your application package and that it successfully boots up.
 

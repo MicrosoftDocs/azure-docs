@@ -60,7 +60,7 @@ VNet name: VNet1<br>
 Resource Group name: RG1<br>
 Virtual network gateway name: GW1<br>
 
-The following steps apply to the Resource Manager deployment model.
+The following steps apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 ### 1. Get the virtual network gateway that you want to delete.
 
@@ -143,7 +143,7 @@ VNet name: VNet1<br>
 Resource Group name: RG1<br>
 Virtual network gateway name: GW1<br>
 
-The following steps apply to the Resource Manager deployment model.
+The following steps apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 ### 1. Get the virtual network gateway that you want to delete.
 
@@ -231,7 +231,7 @@ VNet name: VNet1<br>
 Resource Group name: RG1<br>
 Virtual network gateway name: GW1<br>
 
-The following steps apply to the Resource Manager deployment model.
+The following steps apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 
 >[!NOTE]
@@ -284,7 +284,7 @@ Set-AzVirtualNetwork -VirtualNetwork $GWSub
 
 ## <a name="delete"></a>Delete a VPN gateway by deleting the resource group
 
-If you are not concerned about keeping any of your resources in the resource group and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything. The following steps apply only to the Resource Manager deployment model.
+If you are not concerned about keeping any of your resources in the resource group and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything. The following steps apply only to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 ### 1. Get a list of all the resource groups in your subscription.
 

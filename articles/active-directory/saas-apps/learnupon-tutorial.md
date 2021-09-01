@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<companyname>.learnupon.com/saml/consumer`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. Contact [LearnUpon Client support team](https://www.learnupon.com/features/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Reply URL. Contact [LearnUpon Client support team](https://www.learnupon.com/contact/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, locate the **THUMBPRINT** - This will be added to your LearnUpon SAML Settings.
 
@@ -154,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create LearnUpon test user
 
-In this section, a user called Britta Simon is created in LearnUpon. LearnUpon supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in LearnUpon, a new one is created after authentication. If you need to create an user manually, you need to contact [LearnUpon support team](https://www.learnupon.com/features/support/).
+In this section, a user called Britta Simon is created in LearnUpon. LearnUpon supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in LearnUpon, a new one is created after authentication. If you need to create an user manually, you need to contact [LearnUpon support team](https://www.learnupon.com/contact/).
 
 ## Test SSO 
 

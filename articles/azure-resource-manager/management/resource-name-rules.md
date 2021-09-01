@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 07/08/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -34,39 +34,39 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | service | global | 1-50 | Alphanumerics, and hyphens.<br><br>Start with letter, and end with alphanumeric. |
-> | service / apis | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / issues | api | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / issues / attachments | issue | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / issues / comments | issue | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / operations | api | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / operations / tags | operation | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service | global | 1-50 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / issues | api | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / issues / attachments | issue | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / issues / comments | issue | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / operations | api | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / operations / tags | operation | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
 > | service / apis / releases | api | 1-80 | Alphanumerics, underscores, and hyphens.<br><br>Start and end with alphanumeric or underscore. |
-> | service / apis / schemas | api | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / tagDescriptions | api | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / apis / tags | api | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / api-version-sets | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / authorizationServers | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / backends | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / certificates | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / diagnostics | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / groups | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / groups / users | group | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / identityProviders | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / loggers | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / notifications | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / notifications / recipientEmails | notification | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / openidConnectProviders | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / policies | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / products | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / products / apis | product | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / products / groups | product | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / products / tags | product | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / properties | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / subscriptions | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / tags | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / templates | service | 1-256 | Can't use:<br> `*#&+:<>?` |
-> | service / users | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / apis / schemas | api | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / tagDescriptions | api | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / apis / tags | api | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / api-version-sets | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / authorizationServers | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / backends | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / certificates | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / diagnostics | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / groups | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / groups / users | group | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / identityProviders | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / loggers | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / notifications | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / notifications / recipientEmails | notification | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / openidConnectProviders | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / policies | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / products | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / products / apis | product | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / products / groups | product | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / products / tags | product | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / properties | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / subscriptions | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / tags | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / templates | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
+> | service / users | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
 
 ## Microsoft.AppConfiguration
 
@@ -90,7 +90,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | automationAccounts | resource group & region <br>(See note below) | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter, and end with alphanumeric. |
+> | automationAccounts | resource group & region <br>(See note below) | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
 > | automationAccounts / certificates | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space.  |
 > | automationAccounts / connections | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
 > | automationAccounts / credentials | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
@@ -166,6 +166,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
+> | cloudservices | resource group | 1-15 <br><br>See note below. | Can't use space or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 > | diskEncryptionSets | resource group | 1-80 | Alphanumerics and underscores. |
 > | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | galleries | resource group | 1-80 | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
@@ -263,7 +264,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | workspaces | resource group | 3-30 | Alphanumerics, underscores, and hyphens |
+> | workspaces | resource group | 3-64 | Alphanumerics, underscores, and hyphens |
 
 ## Microsoft.DataFactory
 

@@ -24,7 +24,7 @@ landingContent:
       - text: Policies and terms
         url: policies-terms.md
       - text: Microsoft commercial marketplace FAQs
-        url: marketplace-faq-publisher-guide.md
+        url: marketplace-faq-publisher-guide.yml
       - text: Microsoft Publisher Agreement
         url: /legal/marketplace/msft-publisher-agreement
       - text: What's new
@@ -119,7 +119,7 @@ landingContent:
       - text: SaaS fulfillment APIs
         url: partner-center-portal/pc-saas-fulfillment-api-v2.md
       - text: Marketplace metering service APIs
-        url: marketplace-metering-service-apis-faq.md
+        url: marketplace-metering-service-apis-faq.yml
       - text: Reporting API (PDF)
         url: https://partneranalytics-api.azureedge.net/partneranalytics-api/Programmatic%20Access%20to%20Commercial%20Marketplace%20Analytics%20Data_v1.pdf
 

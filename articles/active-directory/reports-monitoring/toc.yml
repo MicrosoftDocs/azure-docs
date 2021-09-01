@@ -48,6 +48,8 @@
     href: concept-activity-logs-azure-monitor.md
   - name: Plan a reporting and monitoring deployment
     href: plan-monitoring-and-reporting.md
+  - name: Sign-in diagnostics scenarios
+    href: concept-sign-in-diagnostics-scenarios.md
 
 - name: How-to guides
   expanded: true

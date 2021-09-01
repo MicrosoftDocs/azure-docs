@@ -1251,7 +1251,7 @@ Both Bing and Azure maps support overlaying georeferenced images on the map so t
 
 **Before: Bing Maps**
 
-When creating a ground overlay in Bing Maps you need to specify the URL to the image to overlay and a bounding box to bind the image to on the map. This example overlays a map image of [Newark New Jersey from 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) on the map.
+When creating a ground overlay in Bing Maps you need to specify the URL to the image to overlay and a bounding box to bind the image to on the map. This example overlays a map image of Newark New Jersey from 1922 on the map.
 
 ```html
 <!DOCTYPE html>

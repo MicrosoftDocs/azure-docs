@@ -6,6 +6,7 @@ author: amberz
 co-author: ATLArcht
 
 ms.service: data-factory
+ms.subservice: tutorials
 ms.workload: data-services
 
 ms.topic: conceptual

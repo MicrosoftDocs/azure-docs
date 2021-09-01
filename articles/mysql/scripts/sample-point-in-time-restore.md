@@ -12,7 +12,7 @@ ms.date: 12/02/2019
 
 # Restore an Azure Database for MySQL server using Azure CLI
 
-[[!INCLUDE[applies-to-single-flexible-server](../includes/applies-to-single-flexible-server.md)]
+[[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 This sample CLI script restores a single Azure Database for MySQL server to a previous point in time.
 

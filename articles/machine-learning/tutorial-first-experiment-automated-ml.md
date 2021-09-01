@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 06/11/2021
+ms.date: 07/01/2021
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
@@ -19,15 +19,15 @@ ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 Learn how to train a classification model with no-code AutoML using Azure Machine Learning automated ML in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
-With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
+With automated ML, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
 You won't write any code in this tutorial, you'll use the studio interface to perform training.  You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Machine Learning workspace.
 > * Run an automated machine learning experiment.
-> * View experiment details.
-> * Deploy the model.
+> * Explore model details.
+> * Deploy the recommended model.
 
 Also try automated machine learning for these other model types:
 
@@ -89,7 +89,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select **Next** on the bottom left, to  upload it to the default container that was automatically set up during your workspace creation.  
     
-       When the upload is complete, the Settings and preview form is pre-populated based on the file type. 
+       When the upload is complete, the **Settings and preview** form is pre-populated based on the file type. 
        
     1. Verify that the **Settings and preview** form is populated as follows and select **Next**.
         
@@ -139,7 +139,7 @@ After you load and configure your data, you can set up your experiment. This set
             ----|---|---
             Compute name |	A unique name that identifies your compute context. | automl-compute
             Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
-            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
+            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|1800 (default)
             Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None               
 
         1. Select **Create** to create your compute target. 
@@ -152,7 +152,7 @@ After you load and configure your data, you can set up your experiment. This set
 
     1. Select **Next**.
 
-1. On the **Task type and settings** form, complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
+1. On the **Select task and settings** form, complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
     
     1.  Select **Classification** as the machine learning task type.
 
@@ -169,7 +169,7 @@ After you load and configure your data, you can set up your experiment. This set
         
         Select **Save**.
     
-1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
+1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio to inform you of the status of your experiment.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.

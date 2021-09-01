@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 07/01/2021
 
 ms.author: justinha
 author: justinha
@@ -65,8 +65,8 @@ The following table outlines when an authentication method can be used during a 
 | Windows Hello for Business     | Yes                    | MFA                       |
 | Microsoft Authenticator app    | Yes                    | MFA and SSPR              |
 | FIDO2 security key             | Yes                    | MFA                       |
-| OATH hardware tokens (preview) | No                     | MFA                       |
-| OATH software tokens           | No                     | MFA                       |
+| OATH hardware tokens (preview) | No                     | MFA and SSPR              |
+| OATH software tokens           | No                     | MFA and SSPR              |
 | SMS                            | Yes                    | MFA and SSPR              |
 | Voice call                     | No                     | MFA and SSPR              |
 | Password                       | Yes                    |                           |
@@ -86,9 +86,6 @@ To learn more about how each authentication method works, see the following sepa
 
 > [!NOTE]
 > In Azure AD, a password is often one of the primary authentication methods. You can't disable the password authentication method. If you use a password as the primary authentication factor, increase the security of sign-in events using Azure AD Multi-Factor Authentication.
-
-> [!IMPORTANT]
-> While FIDO2 meets the requirements necessary to serve as a form of MFA, FIDO2 can only be used as a passwordless form of authentication.
 
 The following additional verification methods can be used in certain scenarios:
 

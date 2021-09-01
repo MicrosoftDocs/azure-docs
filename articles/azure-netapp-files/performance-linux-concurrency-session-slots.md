@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 08/02/2021
 ms.author: b-juche
 ---
 # Linux concurrency best practices for Azure NetApp Files - Session slots and slot table entries
@@ -43,7 +43,7 @@ A concurrency level as low as 155 is sufficient to achieve 155,000 Oracle DB NFS
 
 See [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md) for details.
 
-The `sunrpc.max_tcp_slot_table_entries` tunable is a connection-level tuning parameter.  *As a best practice, set this value to 128 or less per connection, not surpassing 3,000 slots environment wide.*
+The `sunrpc.max_tcp_slot_table_entries` tunable is a connection-level tuning parameter.  *As a best practice, set this value to 128 or less per connection, not surpassing 10,000 slots environment wide.*
 
 ### Examples of slot count based on concurrency recommendation 
 
@@ -104,7 +104,7 @@ Example 4 uses the reduced per-client `sunrpc.max_tcp_slot_table_entry` value of
         * The client will issue no more than 8 requests in flight to the server per connection.
         * The server will accept no more than 128 requests in flight from this single connection.
 
-When using NFSv3, *you should collectively keep the storage endpoint slot count to 2,000 or less*. It is best to set the per-connection value for `sunrpc.max_tcp_slot_table_entries` to less than 128 when an application scales out across many network connections (`nconnect` and HPC in general, and EDA in particular).  
+When using NFSv3, *you should collectively keep the storage endpoint slot count to 10,000 or less*. It is best to set the per-connection value for `sunrpc.max_tcp_slot_table_entries` to less than 128 when an application scales out across many network connections (`nconnect` and HPC in general, and EDA in particular).  
 
 ### How to calculate the best `sunrpc.max_tcp_slot_table_entries` 
 
@@ -124,7 +124,7 @@ The following table shows a sample study of concurrency with arbitrary latencies
 
 ### How to calculate concurrency settings by connection count
 
-For example, the workload is an EDA farm, and 200 clients all drive workload to the same storage end point (a storage endpoint is a storage IP address), then you calculate the required I/O rate and divide the concurrency across the farm.
+For example, if the workload is an EDA farm and 1,250 clients all drive workload to the same storage end point (a storage end point is a storage IP address), then you calculate the required I/O rate and divide the concurrency across the farm.
 
 Assume that the workload is 4,000 MiB/s using a 256-KiB average operation size and an average latency of 10 ms. To calculate concurrency, use the following formula:
 
@@ -134,7 +134,7 @@ The calculation translates to a concurrency of 160:
  
 `(160 = 16,000 × 0.010)`
 
-Given the need for 200 clients, you could safely set `sunrpc.max_tcp_slot_table_entries` to 2 per client to reach the 4,000 MiB/s.  However, you might decide to build in extra headroom by setting the number per client to 4 or even 8, keeping under the 2000 recommended slot ceiling. 
+Given the need for 1,250 clients, you could safely set `sunrpc.max_tcp_slot_table_entries` to 2 per client to reach the 4,000 MiB/s.  However, you might decide to build in extra headroom by setting the number per client to 4 or even 8, keeping well under the 10,000 recommended slot ceiling. 
 
 ### How to set `sunrpc.max_tcp_slot_table_entries` on the client
 
@@ -261,5 +261,9 @@ The following example shows Packet 14 (server maximum requests):
 
 ## Next steps  
 
+* [Linux direct I/O best practices for Azure NetApp Files](performance-linux-direct-io.md)
+* [Linux filesystem cache best practices for Azure NetApp Files](performance-linux-filesystem-cache.md)
 * [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)
+* [Linux NFS read-ahead best practices](performance-linux-nfs-read-ahead.md)
+* [Azure virtual machine SKUs best practices](performance-virtual-machine-sku.md) 
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 

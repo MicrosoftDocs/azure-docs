@@ -11,6 +11,17 @@ ms.service: iot-hub-device-update
 # Importing updates into Device Update for IoT Hub
 In order to deploy an update to devices from Device Update for IoT Hub, you first have to _import_ that update into the Device Update service. Here is an overview of some important concepts to understand when it comes to importing updates.
 
+## Limits on importing updates
+For each Device Update for IoT Hub instance, the following limits are enforced:
+
+* 5 providers per ADU instance
+* 5 names per providers
+* 25 versions per name
+
+There is also a limit of 100 update versions cumulatively (across all providers and names).
+
+The maximum allowed file size is 800MB for any individual file in an update submission. The _combined_ total of all files in one update submission must also not exceed 800MB.
+
 ## Import manifest
 
 An import manifest is a JSON file that defines important information about the update that you are importing. You will submit both your import manifest and associated update file or files (such as a firmware update package) as part of the import process. The metadata that is defined in the import manifest is used to ingest the update. Some of the metadata is also used at deployment time - for example, to validate if an update was installed correctly.
