@@ -168,7 +168,7 @@ To view all guest configuration assignments across your tenant, from the Azure
 portal open the **Guest Assignments** page. To view detailed compliance
 information, select each assignment using the link in the column "Name".
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-assignment-view.png" alt-text="Screenshot of the Guest Assignment page." border="true":::
+:::image type="content" source="../media/determine-non-compliance/guest-config-assignment-view.png" alt-text="Screenshot of the Guest Assignment page." border="true":::
 
 ## <a name="change-history"></a>Change history (Preview)
 
