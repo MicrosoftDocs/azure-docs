@@ -12,7 +12,9 @@ author: qpetraroia
 
 # Use Scale-down Mode to delete/deallocate your nodes in Azure Kubernetes Service (AKS) (preview)
 
-By default, scale-up operations performed by the cluster autoscaler require the allocation and provisioning of new nodes, and scale-down operations delete nodes. Scale-down Mode allows you to decide whether you would like to delete or deallocate the nodes in your Azure Kubernetes Service (AKS) cluster upon scaling down. When deallocated, nodes will be stopped with their image cached. This allows for diminished startup times and costs during scale-up, as the deallocated nodes do not need to be pre-provisioned, and will be utilized before the creation of any net new nodes.
+By default, scale-up operations performed manually or by the cluster autoscaler require the allocation and provisioning of new nodes, and scale-down operations delete nodes. Scale-down Mode allows you to decide whether you would like to delete or deallocate the nodes in your Azure Kubernetes Service (AKS) cluster upon scaling down. 
+
+When an Azure VM is in the `Stopped` (deallocated) state, you will not be charged for the VM compute resources. However, you will still need to pay for any OS and data storage disks attached to the VM. This also means that the container images will be preserved on those nodes. For more information, see [States and billing of Azure Virtual Machines][state-billing-azure-vm]. This behavior allows for diminished startup times and costs during scale-up, as the deallocated nodes do not need to be pre-provisioned, and will be utilized before the creation of any net new nodes.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -22,11 +24,12 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ### Limitations
 
-- [Ephemeral OS][ephemeral-os] disks are not supported. Be sure to specify managed OS disks via `--node-osdisk-type Managed` when creating a cluster or node pool.
+- [Ephemeral OS][ephemeral-os] disks are not supported. Be sure to specify managed OS disks via `--node-osdisk-type Managed` when creating a node pool.
+- [Spot node pools][spot-node-pool] are not supported.
 
 ### Install aks-preview CLI extension
 
-You also need the *aks-preview* Azure CLI extension version 0.5.3 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+You also need the *aks-preview* Azure CLI extension version 0.5.30 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -62,7 +65,7 @@ az provider register --namespace Microsoft.ContainerService
 
 By setting `--scale-down-mode Deallocate`, nodes will be deallocated during a scale-down of your cluster/node pool. All deallocated nodes are stopped. When your cluster/node pool needs to scale up, the deallocated nodes will be started first before any new nodes are provisioned.
 
-In this example, we create a new nodepool with 20 nodes and specify that upon scale-down, nodes are to be deallocated via `--scale-down-mode Deallocate`.
+In this example, we create a new node pool with 20 nodes and specify that upon scale-down, nodes are to be deallocated via `--scale-down-mode Deallocate`.
 
 ```azurecli-interactive
 az aks nodepool add --node-count 20 --scale-down-mode Deallocate --node-osdisk-type Managed --max-pods 10 --name nodepool2 --cluster-name myAKSCluster --resource-group myResourceGroup
@@ -76,7 +79,7 @@ az aks nodepool scale --node-count 5 --name nodepool2 --cluster-name myAKSCluste
 
 ### Deleting previously deallocated nodes
 
-To delete your deallocated nodes, you can change your scale-down-mode to delete by setting `--scale-down-mode Delete`. The 15 deallocated nodes will now be deleted.
+To delete your deallocated nodes, you can change your scale-down-mode to `Delete` by setting `--scale-down-mode Delete`. The 15 deallocated nodes will now be deleted.
 
 ```azurecli-interactive
 az aks nodepool update --scale-down-mode Delete --name nodepool2 --cluster-name myAKSCluster --resource-group myResourceGroup
@@ -95,6 +98,7 @@ az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 10 --m
 ## Next steps
 
 - To learn more about upgrading your AKS cluster, see [Upgrade an AKS cluster][aks-upgrade]
+- TO learn more about the cluster autoscaler, see [Automatically scale a cluster to meet application demands on AKS][cluster-autoscaler]
 
 <!-- LINKS - Internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
@@ -108,4 +112,7 @@ az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 10 --m
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [aks-upgrade]: upgrade-cluster.md
+[cluster-autoscaler]: cluster-autoscaler.md
 [ephemeral-os]: cluster-configuration.md#ephemeral-os
+[state-billing-azure-vm]: ../virtual-machines/states-billing.md
+[spot-node-pool]: spot-node-pool.md
