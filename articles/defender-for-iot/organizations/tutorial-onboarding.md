@@ -27,7 +27,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Onboard with Azure Defender for IoT
 > * Download the ISO for the virtual sensor
-> * Create and install the virtual sensor
+> * Create the virtual sensor
+> * Install the virtual sensor software
 > * Setup the virtual sensor
 
 ## Prerequisites
@@ -88,23 +89,15 @@ The virtual appliances have minimum specifications that are required for both th
 
     :::image type="content" source="media/tutorial-onboarding/sensor-download.png" alt-text="Under the sensor tab, select download, to download the ISO file for the virtual sensor.":::
 
-## Create and install the virtual sensor
-
-The virtual sensor supports any of the following architectures:
-
-| Architecture | Specifications | Usage | Comments |
-|--|--|--|--|
-| **Enterprise** | CPU: 8<br/>Memory: 32G RAM<br/>HDD: 1800 GB | Production environment | Default and most common |
-| **Small Business** | CPU: 4 <br/>Memory: 8G RAM<br/>HDD: 500 GB | Test or small production environments | - |
-| **Corporate** | CPU: 4<br/>Memory: 8G RAM<br/>HDD: 100 GB | Small test environments | - |
+## Create the virtual sensor
 
 The virtual sensor supports both VMware, and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
 
-- VMware (ESXi 5.5 or later) or Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational
+- VMware (ESXi 5.5 or later), or Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational.
 
-- Available hardware resources for the virtual machine
+- Available hardware resources for the virtual machine.
 
-- ISO installation file for the Azure Defender for IoT sensor
+- ISO installation file for the Azure Defender for IoT sensor.
 
 - Make sure the hypervisor is running.
 
@@ -138,7 +131,7 @@ The virtual sensor supports both VMware, and Hyper-V deployment options. Before 
 
 1. Select **Next** > **Finish**.
 
-1. Power on the VM by selecting the **Console** button.
+1. Select the **Console** button, to power on the VM.
 
     :::image type="content" source="media/tutorial-onboarding/console-button.png" alt-text="Select the console button to power on the virtual console.":::
 
@@ -188,9 +181,9 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. On the **Actions** menu, select **Connect** to continue the software installation.
 
-### Install the virtual sensor software (ESXi and Hyper-V)
+## Install the virtual sensor software (ESXi and Hyper-V)
 
-Either ESXi, or Hyper-V can be used to install the software for the virtual  sensor.
+Either ESXi, or Hyper-V can be used to install the software for the virtual sensor.
 
 **To install the software on the virtual sensor**:
 
