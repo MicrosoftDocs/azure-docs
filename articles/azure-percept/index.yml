@@ -42,12 +42,8 @@ landingContent:
             url: quickstart-percept-dk-unboxing.md
           - text: Set up the Azure Percept DK device
             url: quickstart-percept-dk-set-up.md
-          - text: Set up the Azure Percept Audio device
-            url: quickstart-percept-audio-setup.md
       - linkListType: how-to-guide
         links:
-          - text: Connect to Azure Percept DK over Ethernet
-            url: how-to-connect-over-ethernet.md
           - text: Connect Azure Percept over 5G or LTE networks
             url: connect-over-cellular.md
           - text: Connect to Azure Percept DK over SSH
@@ -56,10 +52,21 @@ landingContent:
             url: troubleshoot-dev-kit.md
           - text: Troubleshoot the Azure Percept DK setup experience
             url: how-to-troubleshoot-setup.md      
-          - text: Azure Percept Audio button and LED states
-            url: audio-button-led-behavior.md 
           - text: Get Azure Percept hardware support from ASUS
             url: how-to-get-hardware-support.md
+
+  - title: Set up the Azure Percept Audio device
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Set up the Azure Percept Audio device
+            url: quickstart-percept-audio-setup.md
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Percept Audio button and LED states
+            url: audio-button-led-behavior.md
+          - text: Troubleshoot Azure Percept Audio and speech module
+            url: troubleshoot-audio-accessory-speech-module.md  
 
   - title: Manage your Azure Percept DK
     linkLists:
@@ -75,11 +82,9 @@ landingContent:
             url: how-to-update-via-usb.md
       - linkListType: download
         links:
-          - text: Select your Azure Percept DK update package
-            url: how-to-select-update-package.md
           - text: Software releases for OTA updates
             url: software-releases-over-the-air-updates.md
-          - text: Azure Percept DK software releases for update over USB cable
+          - text: Software releases for USB cable updates 
             url: software-releases-usb-cable-updates.md
           - text: Azure Percept DK software release notes
             url: azure-percept-devkit-software-release-notes.md
@@ -105,7 +110,7 @@ landingContent:
           - text: Troubleshoot Azure Percept Vision and vision modules
             url: vision-solution-troubleshooting.md
 
-  - title: Create a no-code voice assistant
+  - title: Create a no-code voice assistant with Azure Percept Studio
     linkLists:
       - linkListType: tutorial
         links:
