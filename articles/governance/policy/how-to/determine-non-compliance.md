@@ -165,8 +165,8 @@ creates guest configuration assignments, or you might
 [assign configurations when you deploy machines]().
 
 To view all guest configuration assignments across your tenant, from the Azure
-Portal open the **Guest Assignments** page. To view detailed compliance
-information, click on each assignment using the link in the column "Name".
+portal open the **Guest Assignments** page. To view detailed compliance
+information, select each assignment using the link in the column "Name".
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-assignmentview.png" alt-text="Screenshot of the Guest Assignment page." border="false":::
 
