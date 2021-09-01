@@ -24,7 +24,7 @@ Azure Chaos Studio leverages [Chaos Mesh](https://chaos-mesh.org/), a free, open
 ## Install Chaos Mesh on your AKS cluster
 Before you can run Chaos Mesh faults in Chaos Studio you need to install Chaos Mesh on your AKS cluster.
 
-1. Run the following commands in an Azure Cloud Shell window where you have the [active subscription](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) set to be the subscription where your AKS cluster is deployed. Replace `$RESOURCE_GROUP` and `$CLUSTER_NAME` with the resource group and name of your cluster resource.
+1. Run the following commands in an Azure Cloud Shell window where you have the [active subscription](../../cli/azure/manage-azure-subscriptions-azure-cli.md#change-the-active-subscription) set to be the subscription where your AKS cluster is deployed. Replace `$RESOURCE_GROUP` and `$CLUSTER_NAME` with the resource group and name of your cluster resource.
 
 ```bash
 az aks get-credentials -g $RESOURCE_GROUP -n $CLUSTER_NAME
