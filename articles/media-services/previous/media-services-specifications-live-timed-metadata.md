@@ -1395,11 +1395,3 @@ When testing your implementation with the Azure Media Services platform, please 
 | 08/22/19 | Updated to add OnUserDataEvent to RTMP for custom metadata                                                          |
 | 1/08/20  | Fixed error on RTMP Simple and RTMP SCTE35 mode. Changed from "onCuePoint" to "onAdCue". Updated Simple mode table. |
 | 08/4/20  | Removed support for DATERANGE tag to match the implementation in production service.    |
-
-## Next steps
-View Media Services learning paths.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
