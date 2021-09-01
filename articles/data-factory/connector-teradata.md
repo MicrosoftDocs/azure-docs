@@ -61,8 +61,6 @@ Use the following steps to create a linked service to Teradata in the Azure port
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
----
-
 2. Search for Teradata and select the Teradata connector.
 
     :::image type="content" source="media/connector-teradata/teradata-connector.png" alt-text="Select the Teradata connector.":::    
