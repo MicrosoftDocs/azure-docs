@@ -145,6 +145,7 @@ In this tutorial, you learn how to:
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
+    > [!NOTE]
     > In this sample, we use [AAD](/azure/app-service/configure-authentication-user-identities) user identity header `x-ms-client-principal-name` to retrieve `userId`. And this won't work in a local function. You can make it empty or change to other ways to get or generate `userId` when playing in local. For example, let client type a user name and pass it in query like `?user={$username}` when call `negotiate` function to get service connection url. And in the `negotiate` function, set `userId` with value `{query.user}`.
     
     # [JavaScript](#tab/javascript)
@@ -394,6 +395,7 @@ Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find 
 
 :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
 
+> [!NOTE]
 > If you're running the functions in local. You can expose the function url with [ngrok](https://ngrok.com/download) by command `ngrok http 7071` after function start. And configure the Web PubSub service `Event Handler` with url: `https://<NGROK_ID>.ngrok.io/runtime/webhooks/webpubsub`. 
 
 ## Configure to enable client authentication
