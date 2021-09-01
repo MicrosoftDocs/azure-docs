@@ -101,7 +101,7 @@ You can get playbook templates from the following sources:
 
 - The [**Azure Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button. 
 
-Technically, a playbook template is an [ARM template](../azure-resource-manager/templates.md) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved. 
+Technically, a playbook template is an [ARM template](../azure-resource-manager/templates/index.yml) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved. 
 
 ## Steps for creating a playbook
 

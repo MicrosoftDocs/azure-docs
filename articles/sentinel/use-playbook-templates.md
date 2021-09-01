@@ -39,7 +39,7 @@ You can get playbook templates from the following sources:
 
 - The [**Azure Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button. 
 
-Technically, a playbook template is an [ARM template](../azure-resource-manager/templates.md) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved. 
+Technically, a playbook template is an [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/index.yml) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved. 
 
 This article focuses on deploying a playbook template from Playbook templates tab under Automation.
 
@@ -55,7 +55,7 @@ From the Azure Sentinel navigation menu, select **Automation** and then the **Pl
 
 The playbook templates displayed here demonstrate leading automation scenarios that SOCs tend to use or get ideas from. Most of these playbooks were contributed by the Azure Sentinel community, and were originally located in Azure Sentinel GitHub repository. Some of these have been integrated into Azure Sentinel Solutions.
 
-:::image type="content" source="media/use-playbook-templates/gallery.png" alt-text="View of the playbooks gallery":::
+:::image type="content" source="media/use-playbook-templates/gallery.png" alt-text="Screenshot of the playbooks gallery." lightbox="media/use-playbook-templates/gallery.png":::
 
 To find a playbook template that fits your requirements, you can filter the list by the following criteria:
 
@@ -107,7 +107,7 @@ You can repeat this process to create multiple playbooks on the same template.
 
         :::image type="content" source="media/use-playbook-templates/parameters.png" alt-text="Playbook creation wizard, parameters tab":::
 
-    - **Connections:** See the existing connections you created for previous playbooks. Learn more about [creating connections for playbooks](authenticate-playbooks-to-sentinel.md).
+    - **Connections:** Expand each action to see the existing connections you created for previous playbooks. Learn more about [creating connections for playbooks](authenticate-playbooks-to-sentinel.md).
     
         > [!NOTE]
         > For custom connectors, connections will be displayed by the name of the custom connector entered in the **Parameters** tab.
@@ -128,9 +128,9 @@ You can repeat this process to create multiple playbooks on the same template.
 1. For each connector you chose to create a new connection for after deployment:
     1. From the navigation menu, select **API connections**.
     1. Select the connection name.
-    1. Select **Edit API connection**.
+    1. Select **Edit API connection** from the navigation menu.
     1. Fill in the required parameters and click **Save**.
-        ![editAPIconnections](media/use-playbook-templates/editAPIconnection.png)
+        :::image type="content" source="media/use-playbook-templates/edit-api-connection.png" alt-text="Screenshot showing how to edit A P I connections.":::
     
     Alternatively, you can create a new connection from within the relevant steps in the Logic Apps designer:
     1. For each step which appears with an error sign, select it to expand.
