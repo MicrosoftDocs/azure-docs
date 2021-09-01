@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 
@@ -32,7 +32,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* InVision supports **SP and IDP** initiated SSO
+* InVision supports **SP and IDP** initiated SSO.
+* InVision supports [Automated user provisioning](invision-provisioning-tutorial.md).
 
 ## Adding InVision from the gallery
 
@@ -64,7 +65,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **InVision** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -181,6 +182,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Once verify the email address and then click **Invite**.
 
     ![Screenshot shows the Invite dialog where you can select Invite to proceed.](./media/invision-tutorial/user3.png)
+
+> [!NOTE]
+> InVision also supports automatic user provisioning, you can find more details [here](./invision-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
