@@ -28,6 +28,23 @@ Instead of using the cloudadmin user to connect services to vCenter, we recommen
 
 ## Reset your vCenter credentials
 
+### [Portal](#tab/azure-portal)
+ 
+1. In your Azure VMware Solution private cloud, select **Identity**.
+
+1. Select **Generate new password**.
+
+1. Select the confirmation checkbox and then select **Generate password**.
+
+
+
+
+### [Azure CLI](#tab/azure-cli)
+
+To begin using Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 1. From the Azure portal, open an Azure Cloud Shell session.
 
 2. Update your vCenter *CloudAdmin* credentials.  Remember to replace **{SubscriptionID}**, **{ResourceGroup}**, and **{PrivateCloudName}** with your private cloud information. 
@@ -35,6 +52,12 @@ Instead of using the cloudadmin user to connect services to vCenter, we recommen
    ```azurecli-interactive
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
+
+---
+
+
+
+
  
 ## Update HCX Connector 
 
