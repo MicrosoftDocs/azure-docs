@@ -39,11 +39,14 @@ For more information on determining the cache pricing tier to use, see [Choosing
 
 To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** from the **Resource menu**.
 
-![Scale](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+<!-- ![Scale](./media/cache-how-to-scale/redis-cache-scale-menu.png) -->
+:::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="scale on the resource menu":::
 
-On the left, select the pricing tier you want from **Select pricing tier** and **Select**.
+
+On the left, select the pricing tier on the right and **Select**.
 
 :::image type="content" source="media/cache-how-to-scale/redis-cache-pricing-tier-blade.png" alt-text="redis cache pricing tier screenshot":::
+:::image type="content" source="media/cache-how-to-scale/" alt-text="redis cache pricing tier screenshot":::
 
 You can scale to a different pricing tier with the following restrictions:
 
@@ -54,9 +57,11 @@ You can scale to a different pricing tier with the following restrictions:
 - You can't scale from a **Basic** cache directly to a **Premium** cache. First, scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in the next scaling operation.
 - You can't scale from a larger size down to the **C0 (250 MB)** size. However, you can scale down to any other size within the same pricing tier. For example, you can scale down from C5 Standard to C1 Standard.
 
-While the cache is scaling to the new pricing tier, a **Scaling** status is displayed on the left in the **Azure Cache for Redis**.
+While the cache is scaling to the new pricing tier, a **Scaling** status is displayed in the **Azure Cache for Redis**.
 
-:::image type="content" source="media/cache-how-to-scale/redis-cache-scaling.png" alt-text="redis cache scaling":::
+<!-- :::image type="content" source="media/cache-how-to-scale/redis-cache-scaling.png" alt-text="redis cache scaling"::: -->
+
+:::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="tiers for selection":::
 
 When scaling is complete, the status changes from **Scaling** to **Running**.
 
