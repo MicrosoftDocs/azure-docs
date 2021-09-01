@@ -39,13 +39,13 @@ Deploying an AutoML-trained model from the Automated ML page is a no-code experi
 1. Once you select a model, the Deploy button will light up with a drop-down menu
 1. Select *Deploy to real-time endpoint (preview)* option
 
-:::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu":::
+   :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu":::
 
-The system will generate the Model and Environment needed for the deployment. 
+   The system will generate the Model and Environment needed for the deployment. 
 
-:::image type="content" source="media/how-to-deploy-automl-endpoint/model.png" alt-text="Screenshot showing the generated Model":::
+   :::image type="content" source="media/how-to-deploy-automl-endpoint/model.png" alt-text="Screenshot showing the generated Model":::
 
-:::image type="content" source="media/how-to-deploy-automl-endpoint/environment.png" alt-text="Screenshot showing the generated Environment":::
+   :::image type="content" source="media/how-to-deploy-automl-endpoint/environment.png" alt-text="Screenshot showing the generated Environment":::
 
 5. Complete the wizard to deploy the model to a real-time endpoint
 
@@ -144,7 +144,7 @@ az ml endpoint create -f automl_deployment.yml
 
 Once you've created a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
-Next steps:
+## Next steps
 
 - [Troubleshooting managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
