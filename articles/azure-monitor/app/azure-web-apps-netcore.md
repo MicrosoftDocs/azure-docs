@@ -136,7 +136,7 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 
 ## Troubleshooting
 
-Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET and ASP.NET Core based applications running on Azure App Services.
+Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET Core based applications running on Azure App Services.
 
 # [Windows](#tab/windows)
 
