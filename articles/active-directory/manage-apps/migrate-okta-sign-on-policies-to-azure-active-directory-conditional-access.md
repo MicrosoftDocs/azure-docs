@@ -80,7 +80,7 @@ Enabling hybrid Azure AD join can be done on your Azure AD Connect server by run
 
 2. On the SCP configuration page, select the **Authentication Service** drop-down. Choose your Okta federation provider URL followed by **Add**. Enter your on-premises enterprise administrator credentials then select **Next**.
 
-  ![image shows scp configuration](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/scp-configuration.png)
+   ![image shows scp configuration](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/scp-configuration.png)
 
 3. If you have blocked legacy authentication on Windows clients in either the global or app level sign on policy, make a rule to allow the hybrid Azure AD join process to finish.
 
