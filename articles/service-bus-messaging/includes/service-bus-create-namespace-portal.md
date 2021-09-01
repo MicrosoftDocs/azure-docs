@@ -18,7 +18,6 @@ To create a namespace:
 1. Sign in to the [Azure portal](https://portal.azure.com)
 2. In the left navigation pane of the portal, select **+ Create a resource**, select **Integration**, and then select **Service Bus**.
 
-    ![Create a resource -> Integration -> Service Bus]()
     :::image type="content" source="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" alt-text="Image showing selection of Create a resource, Integration, and then Service Bus in the menu.":::
 3. In the **Basics** tag of the **Create namespace** page, follow these steps: 
     1. For **Subscription**, choose an Azure subscription in which to create the namespace.
