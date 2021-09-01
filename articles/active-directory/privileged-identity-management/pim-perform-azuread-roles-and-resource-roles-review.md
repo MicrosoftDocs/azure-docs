@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 8/27/2021
+ms.date: 9/1/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management

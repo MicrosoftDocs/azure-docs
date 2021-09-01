@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 8/27/2021
+ms.date: 9/1/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -31,8 +31,6 @@ Once the review has been created, follow the steps in this article to complete t
 2. For **Azure resources**, select your resource under **Azure resources** and then select **Access reviews** from the dashboard. For **Azure AD roles**, proceed directly to the **Access reviews** on the dashboard.
 
 3. Select the access review that you want to manage. Below is a sample screenshot of the **Access Reviews** overview for both **Azure resources** and **Azure AD roles**.
-
-    <kbd>![Azure resources - Access reviews list showing role, owner, start date, end date, and status](media/pim-complete-azuread-roles-and-resource-roles-review/rbac-azure-resources-home-list.png)</kbd>
 
     <kbd>![Azure AD roles - Access reviews list showing role, owner, start date, end date, and status](media/pim-complete-azuread-roles-and-resource-roles-review/rbac-azure-ad-roles-home-list.png)</kbd>
 
@@ -79,8 +77,6 @@ On the **Reviewers** page, you may view and add reviewers to your existing acces
 
 > [!Note]
 > If the reviewer type selected is user or group, you can add more users or groups as the primary reviewers at any point. You can also remove primary reviewers at any point. If the reviewer type is manager, you can add users or groups as the fallback reviewers to complete reviews on users who do not have managers. Fallback reviewers cannot be removed.
-
-<kbd>![Reviewers page listing name and user principal name for Azure AD roles](media/pim-complete-azuread-roles-and-resource-roles-review/rbac-access-review-azure-ad-reviewers.png)</kbd>
 
 <kbd>![Reviewers page listing name and user principal name for Azure resource roles](media/pim-complete-azuread-roles-and-resource-roles-review/rbac-access-review-azure-resource-reviewers.png)</kbd>
 

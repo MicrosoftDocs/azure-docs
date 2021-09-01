@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 8/27/2021
+ms.date: 9/1/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -24,7 +24,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
- To create access reviews for Azure resources, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role for the Azure resources. To create access reviews for Azure AD roles, you must be assigned to the [Global Administrator](../roles/permissions-reference.md#global-administrator) role.
+ To create access reviews for Azure resources, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role for the Azure resources. To create access reviews for Azure AD roles, you must be assigned to the [Global Administrator](../roles/permissions-reference.md#global-administrator) or the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
 ## Create access reviews
 
@@ -125,9 +125,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
 ## Manage the access review
 
-You can track the progress as the reviewers complete their reviews on the **Overview** page of the access review. No access rights are changed in the directory until the review is completed. Below are screenshots showing the respective overview pages for both **Azure resources** and **Azure AD roles** access reviews.
-
-![Access reviews overview page showing the details of the access review for Azure resources](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+You can track the progress as the reviewers complete their reviews on the **Overview** page of the access review. No access rights are changed in the directory until the review is completed. Below is a screenshot showing the overview page for **Azure resources** and **Azure AD roles** access reviews.
 
 <kbd> ![Access reviews overview page showing the details of the access review for Azure AD roles](./media/pim-create-azuread-roles-and-resource-roles-review/access-review-overview.png) </kbd>
 
