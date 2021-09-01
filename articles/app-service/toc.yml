@@ -318,7 +318,7 @@
     - name: High availability
       items:
         - name: Configuring high availability
-          href: webapp-zone-redundancy-how-to.md
+          href: how-to-zone-redundancy.md
 - name: Reference
   items:
     - name: Monitoring data
