@@ -110,7 +110,7 @@ To require attributes for access requests, use the following steps:
 
 1. Click on the ellipses next to the resource you want to add attributes, then select **Require attributes (Preview)**. 
 
-    <kbd>![Add resources - select require attributes](./media/entitlement-management-catalog-create/resources-require-attributes.png)<kbd>
+    ![Add resources - select require attributes](./media/entitlement-management-catalog-create/resources-require-attributes.png)
  
 1.	Select the attribute type:
 
@@ -132,10 +132,11 @@ To require attributes for access requests, use the following steps:
 1. If you want the attribute value to be editable during direct assignments and self-service requests, select **Yes**.
 
     > [!NOTE]
+    > ![Add resources - add attributes - make attributes editable](./media/entitlement-management-catalog-create/attributes-are-editable.png)
     > - If you select **No** in Attribute value is editable field, and the attribute value **is empty**, users will have the ability to enter the value of that attribute. Once saved, the value will no longer be editable. 
     > - If you select **No** in Attribute value is editable field, and the attribute value **is not empty**, then users will not be able to edit the pre-existing value, both during direct assignments and during self-service requests.
  
-    <kbd>![Add resources - add attributes - questions](./media/entitlement-management-catalog-create/add-attributes-questions.png)<kbd>
+    ![Add resources - add attributes - questions](./media/entitlement-management-catalog-create/add-attributes-questions.png)
 
 1.	If you would like to add localization, click **Add localization**.
 
@@ -143,7 +144,7 @@ To require attributes for access requests, use the following steps:
     1. In the language you configured, type the question in the **Localized Text** box.
     1. Once you've added all of the localizations needed, click **Save**.
 
-    <kbd>![Add resources - add attributes - localization](./media/entitlement-management-catalog-create/attributes-add-localization.png)<kbd>
+    ![Add resources - add attributes - localization](./media/entitlement-management-catalog-create/attributes-add-localization.png)
 
 1.	Once all attribute information is completed on the **Require attributes (Preview)** page, click **Save**.
 
