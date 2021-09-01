@@ -1056,4 +1056,3 @@
         href: ./domain-joined/domain-joined-authentication-issues.md
       - name: Cluster creation fails with DomainNotFound
         href: ./domain-joined/troubleshoot-domainnotfound.md
-  
