@@ -26,6 +26,10 @@ All other network, compute, and storage limitations apply to the provisioned inf
 >
 > For Windows Server containers, you can perform an upgrade operation to apply the latest node updates. If you don't have the available IP address space or vCPU quota to handle these temporary resources, the cluster upgrade process will fail. For more information on the Windows Server node upgrade process, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
+## Supported VM sizes
+
+The list of supported VM sizes in AKS is evolving with the release of new VM SKUs in Azure. Please follow the [AKS release notes](https://github.com/Azure/AKS/releases) to stay informed of new supported SKUs.
+
 ## Restricted VM sizes
 
 Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure the required *kube-system* pods and your applications can  be reliably scheduled, **don't use the following VM SKUs in AKS**:
