@@ -1,6 +1,6 @@
 ---
-title: Reference - JavaScript SDK for the Azure Web PubSub service
-description: The reference describes the JavaScript SDK for the Azure Web PubSub service
+title: Reference - JavaScript SDK for Azure Web PubSub
+description: This reference describes the JavaScript SDK for the Azure Web PubSub service.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
@@ -8,22 +8,14 @@ ms.topic: conceptual
 ms.date: 08/26/2021
 ---
 
-# JavaScript SDK for the Azure Web PubSub service
+# JavaScript SDK for Azure Web PubSub
 
-There are 2 libraries offered for JavaScript:
-- [Service client library](#service-client-library) to
-    - Send messages to hubs and groups.
-    - Send messages to particular users and connections.
-    - Organize users and connections into groups.
-    - Close connections
-    - Grant/revoke/check permissions for an existing connection
-- [Express middleware](#express) to handle incoming client events
-  - Handle abuse validation requests
-  - Handle client events requests
+There are two libraries offered for JavaScript: the service client library and express middleware. The following sections contain more information about these libraries.
 
 <a name="service-client-library"></a>
 
 ## Azure Web PubSub service client library for JavaScript
+
 Use the library to:
 
 - Send messages to hubs and groups.
