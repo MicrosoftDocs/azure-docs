@@ -129,14 +129,14 @@ When your manifest is uploaded and is correct, you will receive a confirmation a
     [ ![Screenshot of the standard contract and EULA options.](./images/add-in-submission-guide/step-5-contract-eula.png) ](./images/add-in-submission-guide/step-5-contract-eula.png#lightbox)
     ***Figure 1 Choose an end user license agreement***
 
-1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy, as seen in figure 2. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
+1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy, as seen in the following screenshot. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
-1. In the **Support document link** box, enter a link (starting with https) that customers will use if they have issues with your product, as seen in figure 2.
+1. In the **Support document link** box, enter a link (starting with https) that customers will use if they have issues with your product, as seen this screenshot.
 
     [ ![Screenshot of the privacy policy and support document link boxes.](./images/add-in-submission-guide/step-5-privacy-support.png) ](./images/add-in-submission-guide/step-5-privacy-support.png#lightbox)
     ***Figure 2 Privacy policy and Support document link boxes***
 
-    The yellow warning seen in this screenshot reminds you of the following things your privacy policy must include to pass certification:
+    The yellow warning seen in Figure 2 reminds you of the following things your privacy policy must include to pass certification:
 
     - Information on your policies regarding user's personal information.
     - Refer to the app or your service overall and NOT your website.
@@ -187,9 +187,7 @@ If you don't specify a support document link, you will be prompted to enter one.
 
 Your store listing is configured on the **Marketplace listings** page. You should include a summary, description, search keywords, icons, screenshots, and an optional video. For details, see [our submission checklist](./checklist.md).
 
-Within the language option, you'll find where you can fill in your app's store listing information, such as your app description and images.
-
-To get started, select the language you want to configure under the **Language** column.
+To provide your listing information, select the language you want to configure under the **Language** column.
 
 ![English has been added to the listing](./images/add-in-submission-guide/step-7-define-your-store-page.png)
 
@@ -198,7 +196,7 @@ To get started, select the language you want to configure under the **Language**
 1. On the **Availability** page, schedule when your app will be available.
 
     > [!NOTE]
-    > It typically takes 4 to 6 weeks to complete an app submission and get it approved. On average, most apps require multiple submissions to pass our validation process, so follow our checklist carefully to reduce this time.  
+    > It typically takes 4 to 6 weeks to complete an app submission and get it approved. On average, most apps require multiple submissions to pass our validation process, so follow our [checklist](checklist.md) carefully to reduce this time.  
 
     ![Make my product available in a future market is selected in the Availability step](./images/add-in-submission-guide/step-8-set-availability-time-date-workspaces.png)
 
@@ -210,11 +208,11 @@ To get started, select the language you want to configure under the **Language**
 
 This final critical step requires you to include notes for certification. Provide any instructions for the reviewer who will be testing your app, including test accounts, license keys, and testing credentials.
 
-If you indicated in a previous step that your app requires additional purchases, make sure you provide any information such as license keys that a review might need to evaluate your app.
+If you indicated in a previous step that your app requires additional purchases, make sure you provide any information such as license keys that a reviewer might need to evaluate your app.
 
 When you are ready to publish your app, in the upper-right of the page, select **Review and publish**.
 
-The following image shows the **Notes for certification** box where you must provide information.
+The following screenshot shows the **Notes for certification** box where you must provide information.
 
 [ ![Provide your testing credentials in the red box.](./images/add-in-submission-guide/step-9-certification-notes-workspaces.png) ](./images/add-in-submission-guide/step-9-certification-notes-workspaces.png#lightbox)
 
@@ -223,7 +221,7 @@ In addition to _Notes for certification_, you can optionally provide additional 
 - Enables you to include images to improve the clarity of the instructions
 - The PDF file is uploaded, saved, and persisted for subsequent submissions.
 
-The following image shows where you can optionally upload a PDF file of instructions for reviewers.
+The following screenshot shows where you can optionally upload a PDF file of instructions for reviewers.
 
 [ ![Screenshot of the Additional Certification Info page.](./images/add-in-submission-guide/additional-cert-info-workspaces.png) ](./images/add-in-submission-guide/additional-cert-info-workspaces.png#lightbox)
 
@@ -260,7 +258,7 @@ Use our **[pre-submission checklist](./checklist.md)** to address all the things
 
 - Did you include Terms of Use links?
 - Did you include Privacy Policy links?
-- Did you including Testing instructions for the Reviewer?
+- Did you include Testing instructions for the Reviewer?
 - Did you indicate Service or Account disclosures?
 - Did you indicate any Additional Charge Disclosures for required paid services?
 
