@@ -4,7 +4,7 @@ description: Learn how to create a new container of resources and access package
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: 
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 8/31/2021
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
@@ -87,7 +87,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 1. Click a resource type: **Groups and Teams**, **Applications**, or **SharePoint sites**.
 
-    If you don't see a resource that you want to add or you are unable to add a resource, make sure you have the required Azure AD directory role and entitlement management role. You might need to have someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    If you don't see a resource that you want to add or you're unable to add a resource, make sure you have the required Azure AD directory role and entitlement management role. You might need to have someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Select one or more resources of the type that you would like to add to the catalog.
 
@@ -96,6 +96,56 @@ To include resources in an access package, the resources must exist in a catalog
 1. When finished, click **Add**.
 
     These resources can now be included in access packages within the catalog.
+
+### Add resource attributes (Preview) in the catalog
+
+Attributes are required fields that requestors will be asked to answer before submitting their access request. Their answers for these attributes will be shown to approvers and also stamped on the user object in Azure Active Directory. 
+
+> [!NOTE]
+>All attributes set up on a resource would require an answer before a request for an access package containing that resource can be submitted. If requestors don't provide an answer, there request won't be processed.
+
+To require attributes for access requests, use the following steps:
+
+1. Click **Resources** in the left menu, and a list of resources in the catalog will appear. 
+
+1. Click on the ellipses next to the resource you want to add attributes, then select **Require attributes (Preview)**. 
+
+    <kbd>![Add resources - select require attributes](./media/entitlement-management-catalog-create/resources-require-attributes.png)<kbd>
+ 
+1.	Select the attribute type:
+
+    1. **Built-in**: includes Azure Active Directory user profile attributes.
+    1. **Directory schema extension**: provides a way to store additional data in Azure Active Directory on user objects and other directory objects. This includes groups, tenant details, and service principals. Only extension attributes on user objects can be used to send out claims to applications.
+    1. If you choose **Built-in**, you can choose an attribute from the dropdown list. If you choose **Directory schema extension**, you can enter the attribute name in the textbox.
+
+    > [!NOTE]
+    > The User.mobilePhone attribute can be updated only for non-administrator users. Learn more [here](https://docs.microsoft.com/graph/permissions-reference#remarks-5). 
+
+1.	Select the Answer format in which you would like requestors to answer. Answer formats include: **short text**, **multiple choice**, and **long text**.
+
+1.	If selecting multiple choice, click on the **Edit and localize** button to configure the answer options.
+    1. After selecting Edit and localize, the **View/edit question** pane will open.
+    1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
+    1. Select the language the for the response option. You can localize response options if you choose additional languages.
+    1. Type in as many responses as you need then click **Save**.
+
+1. If you want the attribute value to be editable during direct assignments and self-service requests, select **Yes**.
+
+    > [!NOTE]
+    > - If you select **No** in Attribute value is editable field, and the attribute value **is empty**, users will have the ability to enter the value of that attribute. Once saved, the value will no longer be editable. 
+    > - If you select **No** in Attribute value is editable field, and the attribute value **is not empty**, then users will not be able to edit the pre-existing value, both during direct assignments and during self-service requests.
+ 
+    <kbd>![Add resources - add attributes - questions](./media/entitlement-management-catalog-create/add-attributes-questions.png)<kbd>
+
+1.	If you would like to add localization, click **Add localization**.
+
+    1. Once in the **Add localizations for questions** pane, select the language code for the language in which you want to localize the question related to the selected attribute.
+    1. In the language you configured, type the question in the **Localized Text** box.
+    1. Once you've added all of the localizations needed, click **Save**.
+
+    <kbd>![Add resources - add attributes - localization](./media/entitlement-management-catalog-create/attributes-add-localization.png)<kbd>
+
+1.	Once all attribute information is completed on the **Require attributes (Preview)** page, click **Save**.
 
 ### Add a Multi-geo SharePoint Site
 
@@ -111,7 +161,7 @@ You can also add a resource to a catalog using Microsoft Graph.  A user in an ap
 
 ## Remove resources from a catalog
 
-You can remove resources from a catalog. A resource can only be removed from a catalog if it is not being used in any of the catalog's access packages.
+You can remove resources from a catalog. A resource can only be removed from a catalog if it isn't being used in any of the catalog's access packages.
 
 **Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
@@ -166,7 +216,7 @@ You can edit the name and description for a catalog. Users see this information 
 
 ## Delete a catalog
 
-You can delete a catalog, but only if it does not have any access packages.
+You can delete a catalog, but only if it doesn't have any access packages.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
 
