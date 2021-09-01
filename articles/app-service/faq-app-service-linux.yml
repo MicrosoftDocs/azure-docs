@@ -208,10 +208,9 @@ sections:
       - question: |    
           How do I specify port in my Linux container?
         answer: |
-          | Container type     | Default port |  Description |
-          |--------------------|--------------|-------------|
-          | Built-in container | 80   | App service will attempt to detect the port. If no port is detected, it defaults to 80. <br/>To manually configure a custom port, use the EXPOSE instruction in the Dockerfile and the [app setting](configure-common.md#configure-app-settings), WEBSITES_PORT, with a port value to bind on the container.
-          | Custom container   | N/A  | To manually configure a custom port, use the EXPOSE instruction in the Dockerfile and the [app setting](configure-common.md#configure-app-settings), WEBSITES_PORT, with a port value to bind on the container.    
+                | Container type | Description | How to set/use port |
+                | Built-in containers | If you select a language/framework version for a Linux app, a predefined container is selected for you. | To point your app code to the right port, use the PORT environment variable. |
+                | Custom containers | You have full control over the container. | App Service has no control about which port your container listens on. What it does need is to know which port to forward requests to. If your container listens to port 80 or 8080, App Service is able to automatically detect it. If it listens to any other port, you need to set the WEBSITES_PORT app setting to the port number, and App Service forwards requests to that port in the container. The WEBSITES_PORT app setting does not have any effect within the container, and you can’t access it as an environment variable within the container. |
         
       - question: |
           Can I use a file based database (like SQLight) with my Linux Webapp?
