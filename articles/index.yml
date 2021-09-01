@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 08/09/2021
+  ms.date: 09/01/2021
   featureFlags:
   - clicktale
 
@@ -390,13 +390,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: hdinsight/r-server/r-server-overview.md
-    # Card
-    - title: Azure Blockchain Service (Preview)
-      summary: Build, govern, and expand consortium blockchain networks
-      imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-service.svg
-      azureCategories:
-        - blockchain
-      url: blockchain/service/index.yml
     # Card
     - title: Azure Blockchain Workbench (Preview)
       summary: Easily prototype blockchain apps in the cloud
@@ -1075,7 +1068,7 @@ productDirectory:
         - management-and-governance
       url: azure-resource-manager/index.yml
     # Card
-    - title: Azure Resource Mover 
+    - title: Azure Resource Mover
       summary: Simplify how you move multiple resources between Azure regions
       imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
       azureCategories:
