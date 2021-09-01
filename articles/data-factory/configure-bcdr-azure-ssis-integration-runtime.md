@@ -63,19 +63,7 @@ To configure a dual standby Azure-SSIS IR pair that works in sync with Azure SQL
 
    When [selecting to use SSISDB](./create-azure-ssis-integration-runtime.md#creating-ssisdb) on the **Deployment settings** page of **Integration runtime setup** pane, select also the **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** check box. For **Dual standby pair name**, enter the same name to identify your pair of primary and secondary Azure-SSIS IRs. When you complete the creation of your secondary Azure-SSIS IR, it will be started and attached to the secondary SSISDB.
 
-1. Azure SQL Managed Instance can secure sensitive data in databases, such as SSISDB, by encrypting them using Database Master Key (DMK). DMK itself is in turn encrypted using Service Master Key (SMK) by default. At the time of writing, Azure SQL Managed Instance failover group doesn't replicate SMK from the primary Azure SQL Managed Instance, so DMK and in turn SSISDB can't be decrypted on the secondary Azure SQL Managed Instance after failover occurs. To work around this, you can add a password encryption for DMK to be decrypted on the secondary Azure SQL Managed Instance. Using SSMS, complete the following steps.
-
-   1. Run the following command for SSISDB in your primary Azure SQL Managed Instance to add a password for encrypting DMK.
-
-      ```sql
-      ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'YourPassword'
-      ```
-   
-   1. Run the following command for SSISDB in both your primary and secondary Azure SQL Managed Instances to add the new password for decrypting DMK.
-
-      ```sql
-      EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB', @password = N'YourPassword', @action = N'add'
-      ```
+1. Azure SQL Managed Instance can secure sensitive data in databases, such as SSISDB, by encrypting them using Database Master Key (DMK). DMK itself is in turn encrypted using Service Master Key (SMK) by default. At the time of writing, the SMK is replicated from the primary Azure SQL Managed Instance during the creation of Azure SQL Managed Instance failover group. But if your Azure SQL Managed Instance failover group was created before September 2021, please delete all user databases including SSISDB from the secondary instance, and then recreate the Azure SQL Managed Instance failover group.
 
 1. If you want to have a near-zero downtime when SSISDB failover occurs, keep both of your Azure-SSIS IRs running. Only your primary Azure-SSIS IR can access the primary SSISDB to fetch and execute packages, as well as write package execution logs, while your secondary Azure-SSIS IR can only do the same for packages deployed somewhere else, for example in Azure Files.
 
