@@ -230,7 +230,7 @@ In addition to _Notes for certification_, you can optionally provide additional 
 
 The following image shows where you can optionally upload a PDF file of instructions for reviewers.
 
-[ ![Alt-Text.](./images/add-in-submission-guide/additional-cert-info-workspaces.png) ](additional-cert-info-workspaces#lightbox)
+[ ![Alt-Text.](./images/add-in-submission-guide/additional-cert-info-workspaces.png) ](additional-cert-info-workspaces.png#lightbox)
 
 >[!TIP]
 > Do not include an email address of a company employee who can provide sign-in information. Our reviewers will **not be able to email you for sign-in information**. Applications that do not list clear instructions in the certification notes will automatically fail the submission process.
