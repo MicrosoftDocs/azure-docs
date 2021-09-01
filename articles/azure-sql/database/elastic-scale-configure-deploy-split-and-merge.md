@@ -179,7 +179,7 @@ The script files included are:
 4. *ShardManagement.psm1*  - helper script that wraps the ShardManagement API
 5. *SqlDatabaseHelpers.psm1* - helper script for creating and managing databases in SQL Database
 
-   <table style="width:100%">
+   <table width="100%">
      <tr>
        <th>PowerShell file</th>
        <th>Steps</th>
@@ -201,7 +201,7 @@ The script files included are:
        <td>5. Declares the SchemaInfo for the sharded table.</td>
      </tr>
    </table>
-   <table style="width:100%">
+   <table width="100%">
      <tr>
        <th>PowerShell file</th>
        <th>Steps</th>
@@ -223,7 +223,7 @@ The script files included are:
 
 ## Use PowerShell to verify your deployment
 
-1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
+1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the "powershell" directory.
 
 2. Create a server (or choose an existing server) where the shard map manager and shards will be created.
 
@@ -264,7 +264,7 @@ The script files included are:
     -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
     ```
 
-    If you receive the below error, it is most likely a problem with your Web endpoint’s certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
+    If you receive the below error, it is most likely a problem with your Web endpoint's certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
 
     `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.`
 
@@ -315,8 +315,8 @@ The service can move data in both sharded tables and reference tables. A sharded
 
 In order to perform a split-merge operation, you must declare the sharded tables and reference tables that you want to have moved. This is accomplished with the **SchemaInfo** API. This API is in the **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema** namespace.
 
-1. For each sharded table, create a **ShardedTableInfo** object describing the table’s parent schema name (optional, defaults to “dbo”), the table name, and the column name in that table that contains the sharding key.
-2. For each reference table, create a **ReferenceTableInfo** object describing the table’s parent schema name (optional, defaults to “dbo”) and the table name.
+1. For each sharded table, create a **ShardedTableInfo** object describing the table's parent schema name (optional, defaults to "dbo"), the table name, and the column name in that table that contains the sharding key.
+2. For each reference table, create a **ReferenceTableInfo** object describing the table's parent schema name (optional, defaults to "dbo") and the table name.
 3. Add the above TableInfo objects to a new **SchemaInfo** object.
 4. Get a reference to a **ShardMapManager** object, and call **GetSchemaInfoCollection**.
 5. Add the **SchemaInfo** to the **SchemaInfoCollection**, providing the shard map name.

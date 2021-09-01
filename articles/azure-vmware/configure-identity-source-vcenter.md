@@ -14,7 +14,8 @@ ms.date: 08/31/2021
 
 [!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
 
-
+>[!NOTE]
+>Run commands are executed one at a time in the order submitted.
 
 In this how-to, you learn how to:
 
@@ -38,6 +39,8 @@ In this how-to, you learn how to:
  
 
 ## List external identity
+
+
 
 You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identity sources already integrated with vCenter SSO.
 
