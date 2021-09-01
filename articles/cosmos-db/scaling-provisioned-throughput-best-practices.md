@@ -148,7 +148,7 @@ In theory, with 250,000 RU/s and 1 TB of data, if we assume 1-kb documents and 1
 
 This calculation is an estimate assuming the client performing the ingestion can fully saturate the throughput and distribute writes across all physical partitions. As a best practice, it’s recommended to “shuffle” your data on the client-side. This ensures that each second, the client is writing to many distinct logical (and thus physical) partitions. 
  
-Once the migration is over, we can lower the RU/s as needed.
+Once the migration is over, we can lower the RU/s or enable autoscale as needed.
 
 ## Next steps
 * [Monitor normalized RU/s consumption](monitor-normalized-request-units.md) of your database or container.
