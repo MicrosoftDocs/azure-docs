@@ -21,7 +21,7 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure 
 
 ### Supported Kubernetes versions
 
-The minimum recommended Kubernetes versions for this feature is 1.18. 
+The minimum recommended Kubernetes version for this feature is 1.18. 
 
 ## Features
 
