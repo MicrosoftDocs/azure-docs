@@ -6,9 +6,8 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/03/2021
+ms.date: 08/31/2021
 ms.author: cynthn
-ms.reviewer: akjosh 
 ms.custom: 
 
 ---

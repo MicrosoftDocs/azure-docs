@@ -8,7 +8,6 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/05/2021
 ms.author: cynthn
-ms.reviewer: akjosh 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 

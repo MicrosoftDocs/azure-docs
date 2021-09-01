@@ -6,10 +6,10 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/05/2021
+ms.date: 08/31/2021
 ms.author: cynthn 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-#PMcontact: akjosh
+
 ---
 # Create a VM from a generalized image version
 

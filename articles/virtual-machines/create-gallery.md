@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 07/15/2021
 ms.author: cynthn
-ms.reviewer: akjosh
 ms.custom: template-how-to 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
