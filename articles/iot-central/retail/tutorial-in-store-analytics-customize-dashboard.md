@@ -42,7 +42,7 @@ To customize the dashboard, you have to edit the default dashboard in your appli
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/dashboard-edit.png" alt-text="Azure IoT Central edit dashboard.":::
 
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/new-dashboard.png" alt-text="Azure IoT Central edit dashboard.":::
+    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/new-dashboard.png" alt-text="Azure IoT Central new dashboard.":::
 
 
 ## Customize image tiles on the dashboard
