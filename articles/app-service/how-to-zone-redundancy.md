@@ -93,4 +93,4 @@ The ARM template snippet below shows the new ***zoneRedundant*** property and **
 > [Learn how to create and deploy ARM templates](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md)
 
 > [!div class="nextstepaction"]
-> [ARM Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/)
+> [ARM Quickstart Templates](https://azure.microsoft.com/resources/templates/)
