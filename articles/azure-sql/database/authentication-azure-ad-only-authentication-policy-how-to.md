@@ -18,12 +18,12 @@ ms.date: 08/31/2021
 > [!NOTE]
 > The **Azure AD-only authentication** and associated Azure Policy feature discussed in this article is in **public preview**. 
 
-This article guides you through creating an Azure Policy that would enforce Azure AD-only authentication when users create an Azure SQL Database logical server or Azure SQL Managed Instance. For more information about enabling Azure AD-only authentication during SQL logical server or managed instance creation, see [Create server with Azure AD-only authentication enabled in Azure SQL](authentication-azure-ad-only-authentication-create-server.md).
+This article guides you through creating an Azure Policy that would enforce Azure AD-only authentication when users create an Azure SQL Managed Instance, or a [logical server](logical-servers.md) for Azure SQL Database. To learn more about Azure AD-only authentication during resource creation, see [Create server with Azure AD-only authentication enabled in Azure SQL](authentication-azure-ad-only-authentication-create-server.md).
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> - Create an Azure Policy that enforces Azure SQL logical server or managed instance creation with [Azure AD-only authentication](authentication-azure-ad-only-authentication.md) enabled
+> - Create an Azure Policy that enforces logical server or managed instance creation with [Azure AD-only authentication](authentication-azure-ad-only-authentication.md) enabled
 > - Check Azure Policy compliance
 
 ## Prerequisite
@@ -67,7 +67,7 @@ Start off by creating an Azure Policy enforcing SQL Database or Managed Instance
 
 1. Once you're back on the **Basics** tab, customize the **Assignment name** and provide an optional **Description**. Make sure the **Policy enforcement** is **Enabled**.
 1. Go over to the **Parameters** tab. Unselect the option **Only show parameters that require input**.
-1. Under **Effect**, select **Deny**. This setting will prevent a logical SQL server creation without Azure AD-only authentication enabled.
+1. Under **Effect**, select **Deny**. This setting will prevent a logical server creation without Azure AD-only authentication enabled.
 
    :::image type="content" source="media/authentication-azure-ad-only-authentication-policy/deny-policy-azure-ad-only-authentication.png" alt-text="Screenshot of  Azure Policy effect parameter for Azure AD-only authentication":::
 
@@ -88,7 +88,7 @@ Search for the assignment name that you have given earlier to the policy.
 
 :::image type="content" source="media/authentication-azure-ad-only-authentication-policy/compliance-policy-azure-ad-only-authentication.png" alt-text="Screenshot of Azure Policy compliance for Azure AD-only authentication":::
 
-Once the SQL logical server is created with Azure AD-only authentication, the policy report will increase the counter under the **Resources by compliance state** visual. You'll be able to see which resources are compliant, or non-compliant.
+Once the logical server is created with Azure AD-only authentication, the policy report will increase the counter under the **Resources by compliance state** visual. You'll be able to see which resources are compliant, or non-compliant.
 
 If the resource group that the policy was chosen to cover contains already created servers, the policy report will indicate those resources that are compliant and non-compliant.
 
@@ -97,7 +97,7 @@ If the resource group that the policy was chosen to cover contains already creat
 
 ## Provision a server
 
-You can then try to provision a SQL logical server or managed instance in the resource group that you assigned the Azure Policy. If Azure AD-only authentication is enabled during server creation, the provision will succeed. When Azure AD-only authentication isn't enabled, the provision will fail.
+You can then try to provision a logical server or managed instance in the resource group that you assigned the Azure Policy. If Azure AD-only authentication is enabled during server creation, the provision will succeed. When Azure AD-only authentication isn't enabled, the provision will fail.
 
 For more information, see [Create server with Azure AD-only authentication enabled in Azure SQL](authentication-azure-ad-only-authentication-create-server.md).
 

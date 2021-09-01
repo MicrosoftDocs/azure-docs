@@ -180,7 +180,7 @@ Go to your **SQL server** resource in the [Azure portal](https://portal.azure.co
 
 # [The Azure CLI](#tab/azure-cli)
 
-These commands can be used to check whether Azure AD-only authentication is enabled for your SQL Database logical server or SQL managed instance. Members of the [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) and [SQL Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) roles can use these commands to check the status of Azure AD-only authentication, but can't enable or disable the feature.
+These commands can be used to check whether Azure AD-only authentication is enabled for your [logical server](logical-servers.md) for Azure SQL Database, or SQL Managed Instance. Members of the [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) and [SQL Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) roles can use these commands to check the status of Azure AD-only authentication, but can't enable or disable the feature.
 
 ## Check status in SQL Database
 
@@ -236,7 +236,7 @@ These commands can be used to check whether Azure AD-only authentication is enab
 
 # [PowerShell](#tab/azure-powershell)
 
-These commands can be used to check whether Azure AD-only authentication is enabled for your SQL Database logical server or SQL managed instance. Members of the [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) and [SQL Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) roles can use these commands to check the status of Azure AD-only authentication, but can't enable or disable the feature.
+These commands can be used to check whether Azure AD-only authentication is enabled for your [logical server](logical-servers.md) for Azure SQL Database, or SQL Managed Instance. Members of the [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) and [SQL Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) roles can use these commands to check the status of Azure AD-only authentication, but can't enable or disable the feature.
 
 The status will return **True** if the feature is enabled, and **False** if disabled.
 
