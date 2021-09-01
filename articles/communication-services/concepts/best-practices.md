@@ -41,8 +41,8 @@ Communication Services applications should dispose `VideoStreamRendererView`, or
 ### Hang up the call on onbeforeunload event
 Your application should invoke `call.hangup` when the `onbeforeunload` event is emitted.
 
-### Handling multiple Tabs on mobile
-Your application should not connect to calls from multiple tabs simultaneously as this can cause undefined behavior due to contention for microphone and camera resources on the device. Developers are encouraged to always hangup the calls in all background tabs before starting a new one.
+### Handling multiple calls on multiple Tabs on mobile
+Your application should not connect to calls from multiple browser tabs simultaneously as this can cause undefined behavior due to resource allocation for microphone and camera on the device. Developers are encouraged to always hangup calls when completed in the background before starting a new one.
 ```JavaScript
 document.addEventListener("visibilitychange", function() {
 	if (document.visibilityState != 'visible') {
