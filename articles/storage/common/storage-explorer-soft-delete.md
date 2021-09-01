@@ -2,11 +2,11 @@
 title: Azure Storage Explorer soft delete guide | Microsoft Docs
 description: Soft delete in Azure Storage Explorer
 services: storage
-author: chuye
+author: JasonYeMSFT
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.author: chuye
+ms.author: JasonYeMSFT
 ---
 
 # Azure Storage Explorer soft delete guide

@@ -6,7 +6,7 @@ author: MRayermannMSFT
 ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
-ms.author: chuye
+ms.author: MRayermannMSFT
 ---
 
 # Sign in to Storage Explorer
