@@ -15,14 +15,6 @@
     href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 # - name: Tutorials
 # - name: Samples
-- name: Register and set up
-  items:
-  - name: Register for Azure NetApp Files
-    href: azure-netapp-files-register.md
-  - name: Create a NetApp account
-    href: azure-netapp-files-create-netapp-account.md
-  - name: Delegate a subnet to Azure NetApp Files
-    href: azure-netapp-files-delegate-subnet.md
 - name: Concepts
   items:
   - name: Service levels for Azure NetApp Files
@@ -97,8 +89,16 @@
     href: storage-service-add-ons.md
   - name: What changing to volume hard quota means
     href: volume-hard-quota-guidelines.md
-- name: Manage
+- name: How-to guides
   items: 
+  - name: Register and set up
+    items:
+    - name: Register for Azure NetApp Files
+      href: azure-netapp-files-register.md
+    - name: Create a NetApp account
+      href: azure-netapp-files-create-netapp-account.md
+    - name: Delegate a subnet to Azure NetApp Files
+      href: azure-netapp-files-delegate-subnet.md
   - name: Manage Active Directory 
     items:
     - name: Create and manage Active Directory connections
@@ -183,30 +183,30 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
-- name: Develop
-  items:
-  - name: REST API
-    href: azure-netapp-files-develop-with-rest-api.md
-  - name: REST API using PowerShell
-    href: develop-rest-api-powershell.md
-  - name: SDKs, CLI tools, and ARM templates
-    href: azure-netapp-files-sdk-cli.md
-- name: Troubleshoot
-  items:
-  - name: Troubleshoot capacity pools 
-    href: troubleshoot-capacity-pools.md
-  - name: Troubleshoot cross-region replication
-    href: troubleshoot-cross-region-replication.md
-  - name: Troubleshoot SMB or dual-protocol volumes
-    href: troubleshoot-dual-protocol-volumes.md
-  - name: Troubleshoot NFSv4.1 Kerberos volumes
-    href: troubleshoot-nfsv41-kerberos-volumes.md
-  - name: Troubleshoot snapshot policies
-    href: troubleshoot-snapshot-policies.md
-  - name: Troubleshoot LDAP volumes
-    href: troubleshoot-ldap-volumes.md
-  - name: Troubleshoot Resource Provider errors
-    href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+  - name: Develop
+    items:
+    - name: REST API
+      href: azure-netapp-files-develop-with-rest-api.md
+    - name: REST API using PowerShell
+      href: develop-rest-api-powershell.md
+    - name: SDKs, CLI tools, and ARM templates
+      href: azure-netapp-files-sdk-cli.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot capacity pools 
+      href: troubleshoot-capacity-pools.md
+    - name: Troubleshoot cross-region replication
+      href: troubleshoot-cross-region-replication.md
+    - name: Troubleshoot SMB or dual-protocol volumes
+      href: troubleshoot-dual-protocol-volumes.md
+    - name: Troubleshoot NFSv4.1 Kerberos volumes
+      href: troubleshoot-nfsv41-kerberos-volumes.md
+    - name: Troubleshoot snapshot policies
+      href: troubleshoot-snapshot-policies.md
+    - name: Troubleshoot LDAP volumes
+      href: troubleshoot-ldap-volumes.md
+    - name: Troubleshoot Resource Provider errors
+      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Reference
   items:
   - name: REST
