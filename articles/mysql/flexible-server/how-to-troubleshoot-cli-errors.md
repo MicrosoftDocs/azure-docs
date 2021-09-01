@@ -26,7 +26,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 > - Replace ```examplegroup``` and ```exampledeployment``` with the correct resource group and deployment name for your database server. 
 > - You can see the Deployment name in the deployments page in your resource group. See [how to find the deployment name](../../azure-resource-manager/templates/deployment-history.md?tabs=azure-portal).
 
-- List the deployments in resource group to identify the MySQL Server deployment 
+1. List the deployments in resource group to identify the MySQL Server deployment 
 	```azurecli
 
 		az deployment operation group list \
@@ -34,7 +34,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 		  --name exampledeployment
 	```
 
-- Get the request content of the MySQL Server deployment 
+2. Get the request content of the MySQL Server deployment 
 	```azurecli
 
 		az deployment operation group list \
@@ -42,7 +42,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 		  -g examplegroup \
 		  --query [].properties.request
 	```
-- Examine the response content 
+3. Examine the response content 
 	```azurecli
 	az deployment operation group list \
 	  --name exampledeployment \
