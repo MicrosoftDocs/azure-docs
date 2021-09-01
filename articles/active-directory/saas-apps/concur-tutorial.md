@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/26/2020
+ms.date: 08/26/2021
 ms.author: jeedes
 ---
 
@@ -32,8 +32,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Concur supports **SP** initiated SSO
-* Concur supports **Just In Time** user provisioning
+* Concur supports **SP** initiated SSO.
+* Concur supports **Just In Time** user provisioning.
+* Concur supports [Automated user provisioning](concur-provisioning-tutorial.md).
 
 ## Adding Concur from the gallery
 
@@ -131,6 +132,8 @@ To configure single sign-on on **Concur** side, you need to send the downloaded 
 ### Create Concur test user
 
 In this section, a user called B.Simon is created in Concur. Concur supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Concur, a new one is created after authentication.
+
+Concur also supports automatic user provisioning, you can find more details [here](./concur-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

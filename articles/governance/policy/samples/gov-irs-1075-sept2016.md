@@ -1,14 +1,14 @@
 ---
 title: Regulatory Compliance details for IRS 1075 September 2016 (Azure Government)
 description: Details of the IRS 1075 September 2016 (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 08/13/2021
+ms.date: 08/27/2021
 ms.topic: sample
 ms.custom: generated
 ---
 # Details of the IRS 1075 September 2016 (Azure Government) Regulatory Compliance built-in initiative
 
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
-definition maps to **compliance domains** and **controls** in IRS 1075 September 2016.
+definition maps to **compliance domains** and **controls** in IRS 1075 September 2016 (Azure Government).
 For more information about this compliance standard, see
 [IRS 1075 September 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf). To understand
 _Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
@@ -22,7 +22,7 @@ Then, find and select the **IRS1075 September 2016** Regulatory Compliance built
 initiative definition.
 
 This built-in initiative is deployed as part of the
-[IRS 1075 September 2016 (Azure Government) blueprint sample](../../blueprints/samples/irs-1075-sept2016.md).
+[IRS 1075 September 2016 blueprint sample](../../blueprints/samples/irs-1075-sept2016.md).
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.

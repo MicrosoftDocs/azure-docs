@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/19/2021
+ms.date: 08/30/2021
 ---
 
 # Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse Analytics
@@ -48,7 +48,31 @@ Specifically, with this connector you can:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide information about properties that are used to define entities specific to Azure Data Lake Store.
+## Create a linked service to Azure Data Lake Storage Gen1 using UI
+
+Use the following steps to create a linked service to Azure Data Lake Storage Gen1 in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for and select the Azure Data Lake Storage Gen1 connector.
+
+    :::image type="content" source="media/connector-azure-data-lake-store/azure-data-lake-store-connector.png" alt-text="Screenshot of the Azure Data Lake Storage Gen1 connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-data-lake-store/configure-azure-data-lake-store-linked-service.png" alt-text="Screenshot of linked service configuration for Azure Data Lake Storage Gen1.":::
+
+## Connector configuration details
+
+The following sections provide information about properties that are used to define entities specific to Azure Data Lake Store Gen1.
 
 ## Linked service properties
 
