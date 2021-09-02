@@ -16,6 +16,12 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## August 2021
+
+### Image tagging language expansion
+
+The [latest version (v3.2)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200) of the Image tagger now supports tags in 50 languages. See the [language support](language-support.md) page for more information.
+
 ## May 2021
 
 ### Spatial Analysis container update

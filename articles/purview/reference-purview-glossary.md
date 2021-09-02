@@ -36,7 +36,7 @@ A regular expression included in a classification rule that represents the colum
 ## Contact
 An individual who is associated with an entity in the data catalog 
 ## Control plane operation
-Operations that manage resources in your subscription, such as role-based access control and Azure policy, that are sent to the Azure Resource Manager end point. 
+Operations that manage resources in your subscription, such as role-based access control and Azure Policy, that are sent to the Azure Resource Manager end point. 
 ## Credential
 A verification of identity or tool used in an access control system. Credentials can be used to authenticate an individual or group for the purpose of granting access to a data asset. 
 ## Data catalog
