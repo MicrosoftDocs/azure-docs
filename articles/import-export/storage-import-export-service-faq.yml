@@ -6,7 +6,7 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 01/14/2021
+  ms.date: 08/24/2021
   ms.author: alkohli
   ms.subservice: common
     
@@ -127,6 +127,12 @@ sections:
           When shipping my drive, the carrier asks for the data center contact address and phone number. What should I provide?
         answer: |
           The phone number and DC address is provided as part of job creation.
+
+      - question: |
+          Why is my order status still Shipping when my device has already been delivered?
+        answer: |
+          After the carrier delivers a physical device, it takes 1 to 3 business days for the delivery to be processed in Azure Import/Export. When processing completes, the order's status will change to Received.
+
 
   - name: Miscellaneous
     questions:

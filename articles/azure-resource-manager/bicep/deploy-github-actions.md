@@ -4,7 +4,7 @@ description: Describes how to deploy Bicep files by using GitHub Actions.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/23/2021
 ms.custom: github-actions-azure
 ---
 
@@ -155,4 +155,4 @@ When your resource group and repository are no longer needed, clean up the resou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn module: Automate the deployment of ARM templates by using GitHub Actions](/learn/modules/deploy-templates-command-line-github-actions/)
+> [Learn module: Build your first Bicep deployment workflow by using GitHub Actions](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/)

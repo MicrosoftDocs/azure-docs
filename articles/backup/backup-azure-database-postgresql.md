@@ -2,7 +2,7 @@
 title: Backup Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention (preview)
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 09/01/2021
 ms.custom: references_regions , devx-track-azurecli
 ---
 
@@ -301,6 +301,9 @@ Refer to [this document](https://download.microsoft.com/download/7/4/d/74d689aa-
 ### UserErrorMissingNetworkSecurityPermissions
 
 Establish network line of sight by enabling the **Allow access to Azure services** flag in the server view. In the server view, under the **Connection security** pane, set the **Allow access to Azure services** flag to **Yes**.
+
+>[!Note]
+>Before you enable this flag, ensure that you set the **Deny public network access** flag to **No**.
 
 ![Allow access to Azure services](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 

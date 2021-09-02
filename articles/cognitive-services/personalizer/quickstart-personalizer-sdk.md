@@ -1,6 +1,9 @@
 ---
 title: "Quickstart: Create and use learning loop with SDK - Personalizer"
 description: This quickstart shows you how to create and manage your knowledge base using the Personalizer client library.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart

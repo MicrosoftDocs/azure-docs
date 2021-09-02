@@ -31,13 +31,16 @@ To ingest SAP logs into Azure Sentinel, you must have the Azure Sentinel SAP dat
 
 After the SAP data connector is deployed, deploy the  SAP solution security content to smoothly gain insight into your organization's SAP environment and improve any related security operation capabilities.
 
-In this tutorial, you learn:
+In this article, you learn:
 
 > [!div class="checklist"]
 > * How to prepare your SAP system for the SAP data connector deployment
 > * How to use a Docker container and an Azure VM to deploy the SAP data connector
 > * How to deploy the SAP solution security content in Azure Sentinel
 
+> [!NOTE]
+> Extra steps are required to deploy your SAP data connector over a secure SNC connection. For more information, see [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md).
+>
 ## Prerequisites
 
 In order to deploy the Azure Sentinel SAP data connector and security content as described in this tutorial, you must have the following prerequisites:
@@ -79,7 +82,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
     |- 700 to 702<br>- 710 to 711, 730, 731, and 740<br>- 750 to 752     | 2502336: CD (Change Document): RSSCD100 - read only from archive, not from database        |
     |     |         |
 
-    Later versions do not require the additional notes. For more information, see the [SAP support Launchpad site](https://support.sap.com/en/index.html), logging in with a SAP user account.
+    Later versions do not require the extra notes. For more information, see the [SAP support Launchpad site](https://support.sap.com/en/index.html), logging in with an SAP user account.
 
 1. Download and install one of the following SAP change requests from the Azure Sentinel GitHub repository, at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR:
 
@@ -346,7 +349,8 @@ If you have SAP HANA database audit logs configured with Syslog, you'll need als
 
 Learn more about the Azure Sentinel SAP solutions:
 
-- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
+- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
+- [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: built-in security content](sap-solution-security-content.md)

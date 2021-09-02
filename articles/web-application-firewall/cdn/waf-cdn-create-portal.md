@@ -34,8 +34,8 @@ First, create a basic WAF policy with a managed Default Rule Set (DRS) using the
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Policy For            |Select Azure CDN (Preview).|
-    | Subscription            |Select your Front Door subscription name.|
-    | Resource group          |Select your Front Door resource group name.|
+    | Subscription            |Select your CDN Profile subscription name.|
+    | Resource group          |Select your CDN Profile resource group name.|
     | Policy name             |Enter a unique name for your WAF policy.|
 
    :::image type="content" source="../media/waf-cdn-create-portal/basic.png" alt-text="Screenshot of the Create a W A F policy page, with a Review + create button and values entered for various settings." border="false":::
