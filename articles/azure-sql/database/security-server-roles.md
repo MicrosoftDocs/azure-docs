@@ -38,7 +38,7 @@ You can add server-level SQL Logins as members to server-level roles.
 |------------------------------|-----------------|  
 |**##MS_DefinitionReader##**|Members of the **##MS_DefinitionReader##** fixed server role can read all catalogue views that are covered by **VIEW ANY DEFINITION**, respectively **VIEW DEFINITION** on any database on which the member of this role has a User-account.|  
 |**##MS_ServerStateReader##**|Members of the **##MS_ServerStateReader##** fixed server role can read all dynamic management views (DMVs) and functions that are covered by **VIEW SERVER STATE**, respectively **VIEW DATABASE STATE** on any database on which the member of this role has a User-account.|
-|**##MS_ServerStateManager##**|Members of the **##MS_ServerStateManager##** fixed server has the same permissions as the **##MS_ServerStateReader##** role. In addition to that it holds the **ALTER SERVER STATE**-permission which allows access to several management operations, such as: DBCC FREEPROCCACHE, DBCC FREESYSTEMCACHE ('ALL'), DBCC SQLPERF(); |  
+|**##MS_ServerStateManager##**|Members of the **##MS_ServerStateManager##** fixed server has the same permissions as the **##MS_ServerStateReader##** role. In addition to that it holds the **ALTER SERVER STATE**-permission which allows access to several management operations, such as: `DBCC FREEPROCCACHE`, `DBCC FREESYSTEMCACHE ('ALL')`, `DBCC SQLPERF()`; |  
 
 
 ## Permissions of Fixed Server Roles  
@@ -95,7 +95,7 @@ GO
 
 ## Current limitations of Server-Level Roles
 Role assignments may take up to 5 minutes to become effective. In addition, for existing sessions, changes to server role assignments do not take effect until the connection is closed and re-opened. This is due to distributed architecture between the master database and other databases on the same logical server.</br>
-Partial workaround: to reduce the up to 5-minute waiting period and ensure that server role assignments are current in a database, a Server Admin/AAD Admin can run DBCC FLUSHAUTHCACHE in the user database(s) on which the login has access. Currently logged on users still have to reconnect after this for the membership-changes to take effect on them.
+Partial workaround: to reduce the up to 5-minute waiting period and ensure that server role assignments are current in a database, a Server Admin/AAD Admin can run `DBCC FLUSHAUTHCACHE` in the user database(s) on which the login has access. Currently logged on users still have to reconnect after this for the membership-changes to take effect on them.
 
 Server-roles in Azure SQL Database can be assigned to SQL Logins only – AAD Logins are not yet supported.
 
@@ -105,3 +105,5 @@ Server-roles in Azure SQL Database can be assigned to SQL Logins only – AAD Lo
  [Security Catalog Views &#40;Transact-SQL&#41;](../../../relational-databases/system-catalog-views/security-catalog-views-transact-sql.md)   
  [Security Functions &#40;Transact-SQL&#41;](../../../t-sql/functions/security-functions-transact-sql.md)   
 [Permissions &#40;Database Engine&#41;](../../../relational-databases/security/permissions-database-engine.md)
+[DBCC FLUSHAUTHCACHE (Transact-SQL) - SQL Server | Microsoft Docs
+https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?view=azuresqldb-current
