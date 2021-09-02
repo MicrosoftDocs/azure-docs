@@ -28,19 +28,17 @@ landingContent:
             url: ip-services-overview.md
       - linkListType: concept
         links:
-          - text: Designing virtual networks with NAT gateway resources
-            url: nat-gateway-resource.md
+          - text: 
+            url: 
 
   # Card (optional)
   - title: Get started
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create and validate NAT gateway
-            url: tutorial-create-nat-gateway-portal.md    
+          - text: 
+            url: 
       - linkListType: tutorial
         links:
-          - text: Integrate NAT gateway with a public load balancer
-            url: tutorial-nat-gateway-load-balancer-public-portal.md
-          - text: Integrate NAT gateway with a internal load balancer
-            url: tutorial-nat-gateway-load-balancer-internal-portal.md
+          - text:
+            url: 

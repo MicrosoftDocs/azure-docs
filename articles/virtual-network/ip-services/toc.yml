@@ -3,30 +3,24 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Virtual Network NAT?
-    href: nat-overview.md
+  - name: What is Virtual Network IP Services?
+    href: ip-services-overview.md
 - name: Quickstarts
   items:
-  - name: 
-    href: 
-- name: Tutorials
-  items:
-  - name: Create and validate NAT gateway - Azure portal
-    href: tutorial-create-nat-gateway-portal.md
+  - name: Create public IP address - Azure portal
+    href: create-public-ip-portal.md
 - name: Concepts
   items:
-  - name: Resource
-    href: nat-gateway-resource.md
   - name: Security
     items:
-    - name: Public IP address security baseline
-      href: nat-security-baseline.md
+    - name: Public IP security baseline
+    href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
 - name: How-to
   items:
-  - name: Troubleshoot
+  - name: Resource management
     items:
-    - name: Troubleshoot NAT gateway
-      href: troubleshoot-nat.md
+    - name: Load balancer
+      href: configure-public-ip-load-balancer.md
 - name: Reference
   items:
   - name: Azure CLI
