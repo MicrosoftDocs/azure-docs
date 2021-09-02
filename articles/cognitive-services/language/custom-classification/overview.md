@@ -49,4 +49,4 @@ Follow these steps to get the most out of your model:
 
 ## Next steps
 
-Use the [quickstart article](quickstart/using-language-studio.md) to start sending requests to the API.  
+Use the [quickstart article](quickstart/using-language-studio.md) to start sending requests using Language Studio.  

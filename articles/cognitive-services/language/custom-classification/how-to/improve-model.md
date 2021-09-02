@@ -31,7 +31,7 @@ After you've trained your model you reviewed its evaluation details, you can sta
 
 Using Language Studio, you can review how your model performs vs how you expected it to perform. You can review predicted and tagged classes side by side for each model you have trained.
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customTextNext/projects/classification).
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
 
 2. Select **Improve model** from the left side menu.
 
@@ -55,7 +55,7 @@ In the [evaluation metrics](../concepts/evaluation.md), when a class is over rep
 
 To examine data distribution in your dataset:
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customTextNext/projects/classification).
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
 
 2. Select **Improve model** from the left side menu.
 

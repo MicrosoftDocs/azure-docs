@@ -1,5 +1,5 @@
 ---
-title: How to run a custom text classification job
+title: How to submit custom classification tasks
 titleSuffix: Azure Cognitive Services
 description: Learn about sending a request for custom text classification.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# Run Custom text classification job
+# Submit text classification tasks
 
-After deploying your model it is ready to be used via the Analyze API. 
+After deploying your model it is ready for you to send text classification tasks to it. 
 
 >[!IMPORTANT]
 > You can create a text classification job using Language Studio, but you will only be able to retrieve and view it programmatically. 
@@ -34,7 +34,7 @@ After deploying your model it is ready to be used via the Analyze API.
 
 ### Using Language studio
 
-1. Go to your project in [Language Studio](https://language.azure.com/customTextNext/projects/classification).
+1. Go to your project in [Language Studio](https://language.azure.com/customText/projects/classification).
 
 2. Select **Deploy model** from the left side menu.
 
@@ -62,7 +62,7 @@ After deploying your model it is ready to be used via the Analyze API.
 
 You will get the `model id` from the get train results request you submitted earlier. Or you can get the `model id` directly from the Language studio portal.
 
-1. Go to your project in [Language Studio](https://language.azure.com/customTextNext/projects/classification).
+1. Go to your project in [Language Studio](https://language.azure.com/customText/projects/classification).
 
 2. Select **Deploy model** from the left side menu.
 
@@ -226,25 +226,3 @@ The response will be a JSON document with the following parameters
         }
     }
 ```
-
-## Clean up resources
-
-# [Using Language Studio](#tab/language-studio)
-
-When no longer needed, delete the project. To do so, go to your projects page in [Language Studio](https://language.azure.com/customTextNext/projects/classification), select the project you want to delete and select **Delete**.
-
-:::image type="content" source="../media/delete-project.png" alt-text="Delete the project" lightbox="../media/delete-project.png":::
-
-# [Using the API](#tab/api)
-
-Use the following **DELETE** request to delete your project: 
-
-`{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}`
-
-Replace `{YOUR-ENDPOINT}` with the endpoint of your resource and `{projectName}` with name of the project you want to delete.
-
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
