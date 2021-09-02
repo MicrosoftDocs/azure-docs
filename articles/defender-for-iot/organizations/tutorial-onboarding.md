@@ -287,7 +287,7 @@ Before starting you will need to:
 
 1. In the Virtual Switches list, select **New virtual network switch** > **External** as the dedicated spanned network adapter type.
 
-    :::image type="content" source="organizations/media/how-to-configure-hyperv/new-virtual-network.png" alt-text="Select, new virtual network and external before creating the virtual switch.":::
+    :::image type="content" source="media/tutorial-onboarding/new-virtual-network.png" alt-text="Select, new virtual network and external before creating the virtual switch.":::
 
 1. Select **Create Virtual Switch**.
 
@@ -295,11 +295,11 @@ Before starting you will need to:
 
 1. Ensure the checkbox for **Allow management operating system to share this network adapter** is checked.
 
-   :::image type="content" source="organizations/media/how-to-configure-hyperv/external-network.png" alt-text="Select external network, and allow the management operating system to share the network adapter.":::
+   :::image type="content" source="media/tutorial-onboarding/external-network.png" alt-text="Select external network, and allow the management operating system to share the network adapter.":::
 
 1. Select **OK**.
 
-## Attach a ClearPass SPAN Virtual Interface to the virtual switch
+#### Attach a ClearPass SPAN Virtual Interface to the virtual switch
 
 You are able to attach a ClearPass SPAN Virtual Interface to the Virtual Switch through Windows PowerShell, or through Hyper-V Manager.
 
@@ -333,17 +333,17 @@ These commands set the name of the newly added adapter hardware to be `Monitor`.
 
 1. In the Virtual Switch field, select **vSwitch_Span**.
 
-    :::image type="content" source="organizations/media/how-to-configure-hyperv/vswitch-span.png" alt-text="Select the following options on the virtual switch screen.":::
+    :::image type="content" source="media/tutorial-onboarding/vswitch-span.png" alt-text="Select the following options on the virtual switch screen.":::
 
 1. In the Hardware list, under the Network Adapter drop-down list, select **Advanced Features**.
 
 1. In the Port Mirroring section, select **Destination** as the mirroring mode for the new virtual interface.
 
-    :::image type="content" source="organizations/media/how-to-configure-hyperv/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
+    :::image type="content" source="media/tutorial-onboarding/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
 
 1. Select **OK**.
 
-## Enable Microsoft NDIS Capture Extensions for the Virtual Switch
+#### Enable Microsoft NDIS Capture Extensions for the Virtual Switch
 
 Microsoft NDIS Capture Extensions will need to be enabled for the new virtual switch.
 
@@ -355,11 +355,11 @@ Microsoft NDIS Capture Extensions will need to be enabled for the new virtual sw
 
 1. In the Switch Extensions field, select **Microsoft NDIS Capture**.
 
-    :::image type="content" source="organizations/media/how-to-configure-hyperv/microsoft-ndis.png" alt-text="enable the Microsoft NDIS by selecting it from the switch extensions menu.":::
+    :::image type="content" source="media/tutorial-onboarding/microsoft-ndis.png" alt-text="Enable the Microsoft NDIS by selecting it from the switch extensions menu.":::
 
 1. Select **OK**.
 
-## Set the Mirroring Mode on the external port
+#### Set the Mirroring Mode on the external port
 
 Mirroring mode will need to be set on the external port of the new virtual switch to be the source.
 
@@ -385,6 +385,7 @@ Use the following PowerShell command to verify the monitoring mode status:
 ```bash
 Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings" -SwitchName vSwitch_Span -ExternalPort | select -ExpandProperty SettingData
 ```
+
 | Parameter | Description |
 |--|--|
 | vSwitch_Span | Newly added SPAN virtual switch name |
