@@ -22369,21 +22369,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
-      "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-specifications-live-timed-metadata.md",
-      "redirect_url": "/azure/media-services/media-services-specifications-live-timed-metadata",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-specifications-ms-sstr-amendment-hevc.md",
-      "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/media-services/media-services-dotnet-connect-programmatically.md",
       "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
       "redirect_document_id": false
