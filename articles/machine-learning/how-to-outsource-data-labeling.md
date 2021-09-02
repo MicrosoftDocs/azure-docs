@@ -61,11 +61,11 @@ Microsoft periodically reviews the list of potential labeling service providers 
 
 You can engage multiple vendor labeling companies for various labeling project needs. Each project will be linked to one vendor labeling company.
 
-Below are vendor labeling companies who might help in getting your data labeled using Azure Machine Learning data labeling services. View the [listing of vendor companies](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services?page=1&search=AzureMLVend).
+Below are vendor labeling companies who might help in getting your data labeled using Azure Machine Learning data labeling services. View the [listing of vendor companies](https://azuremarketplace.microsoft.com/marketplace/consulting-services?page=1&search=AzureMLVend).
 
 * [iSoftStone](https://azuremarketplace.microsoft.com/marketplace/consulting-services/isoftstoneinc1614950352893.20210527) 
 
-* [Quadrant Resource](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/quadrantresourcellc1587325810226.quadrant_resource_data_labeling)
+* [Quadrant Resource](https://azuremarketplace.microsoft.com/marketplace/consulting-services/quadrantresourcellc1587325810226.quadrant_resource_data_labeling)
 
 ## Enter into a contract 
 
@@ -75,7 +75,7 @@ If you enable ML Assisted labeling in a labeling project, Microsoft will charge 
 
 ## Enable access
 
-In order for the vendor labeling company to have access into your projects, you'll enable access to them via [Azure Role Based Access (RBAC) ](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-assign-roles#manage-workspace-access) at the workspace level.  If you are planning to use multiple vendor labeling companies for different labeling projects, we recommend you create separate workspaces for each company.
+In order for the vendor labeling company to have access into your projects, you'll enable access to them via [Azure Role Based Access (RBAC) ](how-to-assign-roles.md#manage-workspace-access) at the workspace level.  If you are planning to use multiple vendor labeling companies for different labeling projects, we recommend you create separate workspaces for each company.
 
 > [!IMPORTANT]
 > You, and not Microsoft, are responsible for all aspects of your engagement with a labeling company, including but not limited to issues relating to scope, quality, schedule, and pricing.
