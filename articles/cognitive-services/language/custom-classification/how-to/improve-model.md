@@ -23,7 +23,7 @@ After you've trained your model you reviewed its evaluation details, you can sta
 * Viewed [model evaluation details](view-model-evaluation.md).
 
 > [!NOTE]
-> This guide focuses on data from the [validation set](train-model.md#data-groups) that was created during training.
+> This guide focuses on data from the [validation set](train-model.md#data-splits) that was created during training.
 
 # [Using Language Studio](#tab/language-studio)
 
