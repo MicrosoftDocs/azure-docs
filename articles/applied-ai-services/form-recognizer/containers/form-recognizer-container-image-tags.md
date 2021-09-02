@@ -16,7 +16,7 @@ keywords: Docker, container, images
 
 > [!IMPORTANT]
 >
-> * **Form Recognizer v2.1 containers** are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+> * **Form Recognizer v2.1 containers** are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval. 
 >
 > * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
 
@@ -34,7 +34,7 @@ Form Recognizer features are supported by seven containers:
 
 Form Recognizer container images can be found on the Microsoft Container Registry **mcr.microsoft.** **<span></span>com** container registry syndicate, the primary registry for all Microsoft Published Docker images.
 
-* The discovery experience for MCR is provided through [dockerhub](https://hub.docker.com/publishers/microsoftowner).
+* The discovery experience for MCR is provided through [docker hub](https://hub.docker.com/publishers/microsoftowner).
 
 * You can also query [the list of repositories within mcr](https://mcr.microsoft.com/v2/_catalog).
 
