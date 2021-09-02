@@ -13,7 +13,7 @@ manager: nirb
 # Remediate noncompliant Azure Automation State Configuration servers
 
 When servers are registered with Azure Automation State Configuration,
-the configuration mode is set to `ApplyOnly`, `ApplyandMonitor`, or `ApplyAndAutoCorrect`. If the mode isn't set to `ApplyAndAutoCorrect`,
+the configuration mode is set to `ApplyOnly`, `ApplyAndMonitor`, or `ApplyAndAutoCorrect`. If the mode isn't set to `ApplyAndAutoCorrect`,
 servers that drift from a compliant state for any reason
 remain noncompliant until they're manually corrected.
 
