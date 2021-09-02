@@ -799,7 +799,7 @@
     - name: Share a gallery
       href: share-gallery.md
     - name: Capture a VM in the portal
-      href: ./linux/capture-image.md
+      href: capture-image-portal.md
     - name: Create an image
       displayName: VM, image, VHD, storage account
       href: image-version.md
