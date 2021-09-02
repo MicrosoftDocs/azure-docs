@@ -176,6 +176,7 @@ az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSClu
 
 > [!NOTE]
 > When you enable pod-managed identity on your AKS cluster, an AzurePodIdentityException named *aks-addon-exception* is added to the *kube-system* namespace. An AzurePodIdentityException allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the node-managed identity (NMI) server. The *aks-addon-exception* allows AKS first-party addons, such as AAD pod-managed identity, to operate without having to manually configure an AzurePodIdentityException. Optionally, you can add, remove, and update an AzurePodIdentityException using `az aks pod-identity exception add`, `az aks pod-identity exception delete`, `az aks pod-identity exception update`, or `kubectl`.
+> The "POD_IDENTITY_NAME" has to be a valid [DNS subdomain name] as defined in [RFC 1123]. 
 
 > [!NOTE]
 > When you assign the pod identity by using `pod-identity add`, the Azure CLI attempts to grant the Managed Identity Operator role over the pod identity (*IDENTITY_RESOURCE_ID*) to the cluster identity.
@@ -380,3 +381,5 @@ For more information on managed identities, see [Managed identities for Azure re
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[RFC 1123]: https://tools.ietf.org/html/rfc1123
+[DNS subdomain name]: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names

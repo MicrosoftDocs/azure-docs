@@ -133,18 +133,20 @@ When connecting to a private link resource using a fully qualified domain name (
 The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses given for a private link resource. 
 
 For complete detailed information about recommendations to configure DNS for Private Endpoints, see [Private Endpoint DNS configuration](private-endpoint-dns.md).
-
-
-
  
 ## Limitations
  
 The following table includes a list of known limitations when using private endpoints: 
 
+| Limitation | Description |Mitigation |
+| --------- | --------- | --------- |
+| Traffic destined to a private endpoint using a user defined route may be asymmetric. | Return traffic from a private endpoint bypasses an NVA and attempts to return to the source VM. | For all traffic destined to a private endpoint by way of a UDR, it's recommended to SNAT traffic at the NVA to ensure symmetric routing.  |
 
-|Limitation |Description |Mitigation  |
-|---------|---------|---------|
-|Network Security Group (NSG) rules and User-Defined Routes don't apply to Private Endpoint    | NSG isn't supported on private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules won't be effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet. Routes on any client subnet will be using an /32 prefix, changing the default routing behavior requires a similar UDR  | Control the traffic by using NSG rules for outbound traffic on source clients. Deploy individual routes with /32 prefix to override private endpoint routes. NSG Flow logs and monitoring information for outbound connections are still supported and can be used        |
+> [!IMPORTANT]
+> NSG and UDR support for private endpoints is in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 
 ## Next steps

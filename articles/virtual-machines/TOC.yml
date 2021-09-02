@@ -356,15 +356,9 @@
     - name: Overview
       displayName: Dedicated hosts, ADH
       href: dedicated-hosts.md
-    - name: CLI
-      displayName: Dedicated hosts, ADH
-      href: ./linux/dedicated-hosts-cli.md
-    - name: Portal
-      displayName: Dedicated hosts, ADH
-      href: dedicated-hosts-portal.md
-    - name: PowerShell
-      displayName: Dedicated hosts, ADH
-      href: ./windows/dedicated-hosts-powershell.md
+    - name: How-to
+      displayName: dedicated adh 
+      href: dedicated-hosts-how-to.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview
@@ -407,6 +401,32 @@
     - name: VM instance size flexibility
       displayName: Reserved Instances, RI, prepay
       href: reserved-vm-instance-size-flexibility.md
+  - name: Capacity reservation (preview)
+    items:
+    - name: Overview (preview)
+      displayName: on-demand capacity reservation 
+      href: capacity-reservation-overview.md
+    - name: Create a capacity reservation (preview)
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-create.md
+    - name: Overallocating capacity reservation (preview)
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-overallocate.md
+    - name: Modify a capacity reservation (preview)
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-modify.md
+    - name: Associate a VM (preview)
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-associate-vm.md
+    - name: Remove a VM (preview)
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-remove-vm.md
+    - name: Associate a VM scale set (preview)
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-associate-virtual-machine-scale-set.md
+    - name: Remove a VM scale set (preview)
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-remove-virtual-machine-scale-set.md
   - name: Create Virtual Machines
     items:
     - name: Linux
@@ -522,7 +542,7 @@
       - name: Windows
         displayName: Azure Key Vault, key vault, encryption
         href: ./extensions/key-vault-windows.md
-    - name: Azure Policy Guest Configuration
+    - name: Azure Policy guest configuration
       href: ./extensions/guest-configuration.md
     - name: Custom Script
       items:
@@ -1242,7 +1262,7 @@
         href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
       - name: Restore disks with Azure Disk Backup
         href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
-    - name: Backup and disaster recovery for disks
+    - name: Backup and disaster recovery for managed disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Snapshot a disk - CLI
       href: ./linux/snapshot-copy-managed-disk.md
@@ -1250,6 +1270,8 @@
       href: ./windows/snapshot-copy-managed-disk.md
     - name: Backup unmanaged disks
       href: ./linux/incremental-snapshots.md
+    - name: Backup and disaster recovery for unmanaged disks
+      href: page-blobs-backup-and-disaster-recovery.md
   - name: Ephemeral OS disks
     href: ephemeral-os-disks.md
   - name: Migration and conversion
