@@ -283,7 +283,7 @@ If there are issues with the starting/stopping/maintenance/upgrade of your Azure
 
 ### Monitor the Azure-SSIS integration runtime with Azure Monitor
 
-To monitor your Azure-SSIS IR with Azure Monitor, see [Monitoring SSIS operations with Azure Monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor).
+To monitor your Azure-SSIS IR with Azure Monitor, see [Monitoring SSIS operations with Azure Monitor](./monitor-adf-sis.md).
 
 ### More info about the Azure-SSIS integration runtime
 

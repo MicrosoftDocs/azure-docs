@@ -23,11 +23,11 @@ Now with [Azure Monitor](../azure-monitor/data-platform.md) integration, you can
 
 ## Configure diagnostic settings and workspace for SSIS operations
 
-To send all metrics and logs generated from SSIS IR operations and SSIS package executions to Azure Monitor, you need to [configure diagnostics settings and workspace for your ADF](#configure-diagnostic-settings-and-workspace).
+To send all metrics and logs generated from SSIS IR operations and SSIS package executions to Azure Monitor, you need to [configure diagnostics settings and workspace for your ADF](monitor-configure-diagnostics.md).
 
 ## SSIS operational metrics
 
-SSIS operational [metrics](../azure-monitor/essentials/data-platform-metrics.md) are performance counters or numerical values that describe the status of SSIS IR start and stop operations, as well as SSIS package executions at a particular point in time. They're part of [ADF metrics in Azure Monitor](#data-factory-metrics).
+SSIS operational [metrics](../azure-monitor/essentials/data-platform-metrics.md) are performance counters or numerical values that describe the status of SSIS IR start and stop operations, as well as SSIS package executions at a particular point in time. They're part of [ADF metrics in Azure Monitor](monitor-adf-metrics-and-alerts.md).
 
 When you configure diagnostic settings and workspace for your ADF on Azure Monitor, selecting the _AllMetrics_ check box will make SSIS operational metrics available for [interactive analysis using Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md), [presentation on Azure dashboard](../azure-monitor/app/tutorial-app-dashboards.md), and [near-real time alerts](../azure-monitor/alerts/alerts-metric.md).
 
@@ -39,7 +39,7 @@ To raise alerts on SSIS operational metrics from ADF portal, [select the **Alert
 
 ![Raising SSIS operational alerts from ADF portal](media/data-factory-monitor-oms/data-factory-monitor-alerts-ssis.png)
 
-To raise alerts on SSIS operational metrics from Azure portal, [select the **Alerts** page of Azure **Monitor** hub and follow the step-by-step instructions provided](#data-factory-alerts).
+To raise alerts on SSIS operational metrics from Azure portal, [select the **Alerts** page of Azure **Monitor** hub and follow the step-by-step instructions provided](monitor-adf-metrics-and-alerts.md).
 
 ![Raising SSIS operational alerts from Azure portal](media/data-factory-monitor-oms/azure-monitor-alerts-ssis.png)
 
@@ -62,7 +62,7 @@ The schemas and content of SSIS package execution logs in Azure Monitor and Log 
 | `SSISPackageExecutionComponentPhases` | `ADFSSISPackageExecutionComponentPhases` | `[internal].[execution_component_phases]` |
 | `SSISPackageExecutionDataStatistics`  | `ADFSSISPackageExecutionDataStatistics`  | `[internal].[execution_data_statistics]`  |
 
-For more info on SSIS operational log attributes/properties, see [Azure Monitor and Log Analytics schemas for ADF](#schema-of-logs-and-events).
+For more info on SSIS operational log attributes/properties, see [Azure Monitor and Log Analytics schemas for ADF](monitor-schema-logs-and-events.md).
 
 Your selected SSIS package execution logs are always sent to Log Analytics regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SSDT, via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
 
