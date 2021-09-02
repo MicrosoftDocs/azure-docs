@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 09/02/2021
 ms.author: jeedes
 
 ---
@@ -33,8 +33,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-
-* vonage supports **SP and IDP** initiated SSO
+* vonage supports **SP and IDP** initiated SSO.
+* vonage supports [Automated user provisioning](vonage-provisioning-tutorial.md).
 
 ## Adding vonage from the gallery
 
@@ -46,7 +46,6 @@ To configure the integration of vonage into Azure AD, you need to add vonage fro
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **vonage** in the search box.
 1. Select **vonage** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for vonage
 
@@ -67,13 +66,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **vonage** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a value using the following pattern:
     `wso2is-<ENVIRONMENT>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
@@ -94,6 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up vonage** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -142,11 +142,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to the **Phone System > Users > Add New**.
 
-    ![add user page](./media/vonage-tutorial/add-user.png)
+    ![Add user page](./media/vonage-tutorial/add-user.png)
 
 1. Add the required fields in the following page and click on **Save**.
 
-    ![add user form page](./media/vonage-tutorial/add-user-2.png)
+    ![Add user form page](./media/vonage-tutorial/add-user-2.png)
+
+> [!NOTE]
+> vonage also supports automatic user provisioning, you can find more details [here](./vonage-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
