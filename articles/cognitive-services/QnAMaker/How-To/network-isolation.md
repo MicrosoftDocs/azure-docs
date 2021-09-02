@@ -94,7 +94,7 @@ The Cognitive Search instance can be isolated via a private endpoint after the Q
     > [ ![Screenshot of networking UI with public/private toggle button]( ../media/network-isolation/private.png) ](  ../media/network-isolation/private.png#lightbox)
 
 4. Once the Search resource is switched to private, select add **private endpoint**.
-    - **Basic tab**: make sure you are creating your endpoint in the same region as search resource.
+    - **Basics tab**: make sure you are creating your endpoint in the same region as search resource.
     - **Resource tab**: select the required search resource of type `Microsoft.Search/searchServices`.
 
     > [!div class="mx-imgBorder"]
@@ -105,9 +105,9 @@ The Cognitive Search instance can be isolated via a private endpoint after the Q
      > [!div class="mx-imgBorder"]
      > [ ![Screenshot of create private endpoint UI window with subnet field populated]( ../media/network-isolation/subnet.png) ](  ../media/network-isolation/subnet.png#lightbox)
 
-    5. Enable VNET integration for the regular App Service. You can skip this step for ASE, as that already has access to the VNET.
-        - Go to App Service **Networking** section, and open **VNet Integration**.
-        - Link to the dedicated App Service VNet, Subnet (appservicevnet) created in step 2.
+5. Enable VNET integration for the regular App Service. You can skip this step for ASE, as that already has access to the VNET.
+	- Go to App Service **Networking** section, and open **VNet Integration**.
+	- Link to the dedicated App Service VNet, Subnet (appservicevnet) created in step 2.
     
      > [!div class="mx-imgBorder"]
      > [ ![Screenshot of VNET integration UI]( ../media/network-isolation/integration.png) ](  ../media/network-isolation/integration.png#lightbox)
