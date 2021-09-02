@@ -39,7 +39,7 @@
         displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate 
         href: how-to-identify-required-appliances.md
       - name: Set up your network
-        displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, tunnel, monitoring, tuning, QOS, QoS, Quality of Service
+        displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning, QOS, QoS, Quality of Service, LDAP, tunnel
         href: how-to-set-up-your-network.md
       - name: Deploy certificates
         displayName: SSL, TLS, PKI, Locally-signed, CA-signed
@@ -74,7 +74,7 @@
   - name: Manage users and user access
     items:
     - name: Create and manage users
-      displayName: Active Directory, roles, permissions, password
+      displayName: Active Directory, roles, permissions, password, LDAP
       href: how-to-create-and-manage-users.md
     - name: Define global user access control
       href: how-to-define-global-user-access-control.md
