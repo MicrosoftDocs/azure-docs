@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/11/2021
+ms.date: 09/02/2021
 ms.author: jeedes
 
 ---
@@ -36,6 +36,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * TravelPerk supports **SP** initiated SSO.
 
 * TravelPerk supports **Just In Time** user provisioning.
+
+* TravelPerk supports [Automated user provisioning](travelperk-provisioning-tutorial.md).
 
 ## Add TravelPerk from the gallery
 
@@ -128,6 +130,8 @@ To configure single sign-on on **TravelPerk** side, you need to send the downloa
 ### Create TravelPerk test user
 
 In this section, a user called B.Simon is created in TravelPerk. TravelPerk supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in TravelPerk, a new one is created when you attempt to access TravelPerk.
+
+TravelPerk also supports automatic user provisioning, you can find more details [here](./travelperk-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
