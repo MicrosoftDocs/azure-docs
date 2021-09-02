@@ -222,7 +222,7 @@ For steps to create a compute instance, see [Create and manage an Azure Machine 
 
 When you enable **No public IP**, your compute instance doesn't use a public IP for communication with any dependencies. Instead, it communicates solely within the virtual network using Azure Private Link ecosystem as well as service/private endpoints, eliminating the need for a public IP entirely. **No public IP** instances are dependent on [Azure Private Link](how-to-configure-private-link.md) for Azure Machine Learning workspace. Compute instances will also do packet filtering to reject any traffic from outside virtual network.
 
-You need to set up a gateway and route traffic to the gateway for outbound connections to work. For instance, you can use a firewall set up with [outbound configuration](how-to-access-azureml-behind-firewall.md) and route traffic there by defining a route table on the subnet in which the compute instance is deployed. The route table entry can set up the next hop of the private IP address of the gateway with the address prefix of 0.0.0.0/0.
+For outbound connections to work, you need to set up a virtual network NAT gateway and route traffic to the gateway. For instance, you can use a firewall set up with [outbound configuration](how-to-access-azureml-behind-firewall.md) and route traffic there by defining a route table on the subnet in which the compute instance is deployed. The route table entry can set up the next hop of the private IP address of the gateway with the address prefix of 0.0.0.0/0.
 
 A compute instance with **No public IP** enabled has fewer inbound NSG rule requirements compared to those for public IP compute instance. Specifically, neither inbound rule (`BatchNodeManagement`, `AzureMachineLearning`) is required.
 
