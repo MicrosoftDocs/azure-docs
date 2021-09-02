@@ -12,7 +12,57 @@ services: iot-central
 
 # Azure IoT Central architecture
 
-This article provides an overview of the key concepts in the Azure IoT Central architecture.
+This article provides an overview of the key concepts in the Azure IoT Central solution architecture.
+
+:::image type="content" source="media/concepts-architecture/architecture.png" alt-text="High-level architecture of an IoT Central solution" border="false":::
+
+## IoT Central
+
+IoT Central is an IoT application platform hosted in the cloud. It's primary interface is a web UI. In addition, there's a [REST API](#rest-api) that lets you interact with your application programmatically.
+
+This section describes the key capabilities of an IoT Central application.
+
+### Manage devices
+
+IoT Central lets you manage the fleet of [IoT devices](#devices) that are sending data to your application. For example, you can:
+
+- Control which devices can connect to your application and how they authenticate.
+- Use device templates to define the types of device that can connect to your application.
+- Manage devices by setting properties or calling commands on connected devices. For example, set a target temperature property for a thermostat device or call a command to trigger a device to update its firmware. You can do this:
+  - On individual devices through a customizable web UI.
+  - With scheduled or on-demand jobs that update multiple devices.
+
+### View and analyze data
+
+In an IoT Central application, you can view and analyze data for individual devices or for aggregated data from multiple devices:
+
+- Use device templates to define custom views for individual devices of a specific types. For example, you can view a plot of temperature over time for an individual thermostat or the live location of a delivery truck.
+- Use analytics to view aggregate data for multiple devices. For example, you an see the total occupancy across multiple retail stores as well as which stores have the highest or lowest occupancy rates.
+
+### Secure your solution
+
+
+
+### REST API
+
+## Devices
+
+## Gateways
+
+## Data export
+
+### Storage and analysis
+
+### Business automation
+
+### Additional computation
+
+## Next steps
+
+
+
+
+
 
 ## Devices
 
