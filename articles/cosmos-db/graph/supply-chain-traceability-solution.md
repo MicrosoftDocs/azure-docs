@@ -43,7 +43,7 @@ Microsoft Azure offers rich services that can be leveraged for traceability use 
 
 Infosys’s traceability solution provides a pre-baked solution that you can leverage to improve track and trace capability. The following image explains the architecture used for this traceability solution:
 
-:::image type="content" source="./media/supply-chain-traceability-solution/solution-architecture.png" alt-text="Supply chain traceability solution architecture" border="false":::
+:::image type="content" source="./media/supply-chain-traceability-solution/solution-architecture.png" alt-text="Supply chain traceability solution architecture" lightbox="./media/supply-chain-traceability-solution/solution-architecture.png" border="false":::
 
 Different Azure services used in this architecture help with the following tasks:
 
@@ -60,37 +60,37 @@ Different Azure services used in this architecture help with the following tasks
 
 The production and distribution of goods require maintaining a very complex and dynamic set of relationships.  An adaptive data model of our traceability graph allows storing such relationships starting from the receipt of raw material, manufacturing the finished goods in a factory, transferring to different warehouses during supply chain, and finally transferring to the customer warehouse. A high-level visualisation of the process looks like the following image:
 
-:::image type="content" source="./media/supply-chain-traceability-solution/data-design-visualization.png" alt-text="Supply chain data design visualization" border="true":::
+:::image type="content" source="./media/supply-chain-traceability-solution/data-design-visualization.png" alt-text="Supply chain data design visualization" lightbox="./media/supply-chain-traceability-solution/data-design-visualization.png" border="true":::
 
 The above diagram shows a high level and simplified view of a very complex supply chain process. However, getting the vital stock movement information from the factories and warehouses in real-time makes it possible to create an elaborate graph that connects all these disparate pieces of information.
 
 The traceability process starts when the supplier sends raw materials to the factories, and the initial nodes (vertices) of the graph and relationships (edges) gets created:
 
-:::image type="content" source="./media/supply-chain-traceability-solution/supplier-factory-relationship.png" alt-text="Supplier and factory relationship" border="true":::
+:::image type="content" source="./media/supply-chain-traceability-solution/supplier-factory-relationship.png" alt-text="Supplier and factory relationship" lightbox="./media/supply-chain-traceability-solution/supplier-factory-relationship.png" border="true":::
 
 The finished goods (Items) are produced from raw materials and packed into pallets, and the factory contains those pallets initially (edge not shown):
 
-:::image type="content" source="./media/supply-chain-traceability-solution/raw-material-factory-relationship.png" alt-text="Raw material anf factory relationship" border="true":::
+:::image type="content" source="./media/supply-chain-traceability-solution/raw-material-factory-relationship.png" alt-text="Raw material anf factory relationship" lightbox="./media/supply-chain-traceability-solution/raw-material-factory-relationship.png" border="true":::
 
 Pallets then moved to factory warehouses or the market warehouses as per customer demands/orders. The below example shows two pallets are sent (Good Issued event) to two different warehouses, and the warehouses receive them after some time (Good Receipt Event). The system also stores various other attributes:
 
-:::image type="content" source="./media/supply-chain-traceability-solution/factory-pallet-relationship.png" alt-text="Factory and pallet relationship" border="true":::
+:::image type="content" source="./media/supply-chain-traceability-solution/factory-pallet-relationship.png" alt-text="Factory and pallet relationship" lightbox="./media/supply-chain-traceability-solution/factory-pallet-relationship.png" border="true":::
 
 The warehouse could be of company’s owned or 3PL (3rd Party Logistic Providers). The pallets are then shipped to various other warehouses as per customer orders. One example is the creation of child and child of child pallets below. Sometimes, a whole new item is created by mixing multiple items (For example, in a co-pack scenario that produces a variety pack). Sometimes, the same item gets repacked to smaller or larger quantities to a different pallet as part of a customer order.
 
-:::image type="content" source="./media/supply-chain-traceability-solution/pallet-relationship.png" alt-text="Pallet relationship in supply chain" border="true":::
+:::image type="content" source="./media/supply-chain-traceability-solution/pallet-relationship.png" alt-text="Pallet relationship in supply chain" lightbox="./media/supply-chain-traceability-solution/pallet-relationship.png" border="true":::
 
 Pallets then travel through the supply chain network and eventually reach the customer warehouse. During that process, the pallets can be further broken down or combine with other pallets to produce new pallets to fulfil customer orders.
 
-:::image type="content" source="./media/supply-chain-traceability-solution/pallet-warehouse-relationship.png" alt-text="Pallet and warehouse relationship" border="true":::
+:::image type="content" source="./media/supply-chain-traceability-solution/pallet-warehouse-relationship.png" alt-text="Pallet and warehouse relationship" lightbox="./media/supply-chain-traceability-solution/pallet-warehouse-relationship.png" border="true":::
 
 Eventually, the system creates a complex graph that holds vital relationship information for quality incident management, which we will discuss shortly.
 
-:::image type="content" source="./media/supply-chain-traceability-solution/supply-chain-object-relationship.png" alt-text="Supply chain object relationship complete architecture" border="true":::
+:::image type="content" source="./media/supply-chain-traceability-solution/supply-chain-object-relationship.png" alt-text="Supply chain object relationship complete architecture" lightbox="./media/supply-chain-traceability-solution/supply-chain-object-relationship.png" border="true":::
 
 These intricate relationships are vital in a quality incident where the system can track and trace pallets across the supply chain. Graph and its traversals provide the required information for this. For example, if there is an issue with one raw material, the graph can show the impacted pallets, current location.  The diagram below shows the impacted and non-impacted pallets and areas due to that raw material incident:
 
-:::image type="content" source="./media/supply-chain-traceability-solution/supply-chain-impacted-objects.png" alt-text="Impacted object in supply chain" border="true":::
+:::image type="content" source="./media/supply-chain-traceability-solution/supply-chain-impacted-objects.png" alt-text="Impacted object in supply chain" lightbox="./media/supply-chain-traceability-solution/supply-chain-impacted-objects.png" border="true":::
 
 How Infosys and Microsoft can help:
 
