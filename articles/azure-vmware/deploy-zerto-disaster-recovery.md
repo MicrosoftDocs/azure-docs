@@ -106,7 +106,6 @@ To request IA support for Zerto on Azure VMware Solution, send an email request 
 
 To configure Zerto for the On-premise VMware to Azure VMware Solution DR and Azure VMware Solution to Azure VMware Solution Cloud DR scenarios, see the [Zerto Virtual Manager Administration Guide vSphere Environment](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/Zerto%20Virtual%20Manager%20vSphere%20Administration%20Guide.pdf?cb=1629311409).
 
-To configure the Azure VMware Solution to Azure Iaas VMs cloud DR scenario, see [tbd]().
 
 For more information, see the [Zerto technical documentation](https://www.zerto.com/myzerto/technical-documentation/). Alternatively, you can download all the Zerto guides part of the [v8.5 Search Tool for Zerto Software PDFs documentation bundle](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/SEARCH_TOOL.zip?cb=1629311409).
 
