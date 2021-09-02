@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 07/28/2021
+ms.date: 09/02/2021
 ms.author: rolyon
-ms.reviewer: vincesm
+ms.reviewer: abhijeetsinha
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
@@ -73,15 +73,19 @@ A role definition, or role, is a collection of permissions. A role definition li
 
 ### Scope
 
-A scope is a way to limit the permitted actions to a particular set of resources as part of a role assignment. For example, if you want to assign a custom role to a developer, but only to manage a specific application registration, you can include the specific application registration as a scope in the role assignment. When you assign a role, you can specify one of the following levels of scope:
+A scope is a way to limit the permitted actions to a particular set of resources as part of a role assignment. For example, if you want to assign a custom role to a developer, but only to manage a specific application registration, you can include the specific application registration as a scope in the role assignment.
 
-A scope is the restriction of permitted actions to a particular Azure AD resource as part of a role assignment. When you assign a role, you can specify a scope that limits the administrator's access to a specific resource. For example, if you want to assign a developer a custom role, but only to manage a specific application registration, you can include the specific application registration as a scope in the role assignment.
-
-When you assign a role, you can specify one of the following levels of scope:
+When you assign a role, you specify one of the following types of scope:
 
 - Tenant
-- Administrative unit
+- [Administrative unit](administrative-units.md)
 - Azure AD resource
+
+If you specify an Azure AD resource as a scope, it can be one of the following:
+
+- Azure AD group
+- Enterprise application
+- Device
 
 ## License requirements
 
