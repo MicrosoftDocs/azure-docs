@@ -25,7 +25,7 @@ sections:
 
       - question: What features does Application Gateway support?
         answer: |
-          Application Gateway supports autoscaling, TLS offloading, and end-to-end TLS, a web application firewall (WAF), cookie-based session affinity, URL path-based routing, multisite hosting, and other features. For a full list of supported features, see [Introduction to Application Gateway](./overview.md).
+          Application Gateway supports autoscaling, TLS offloading, and end-to-end TLS, a web application firewall (WAF), cookie-based session affinity, URL path-based routing, multisite hosting, OCSP stapling, and other features. For a full list of supported features, see [Introduction to Application Gateway](./overview.md).
           
       - question: How do Application Gateway and Azure Load Balancer differ?
         answer: Application Gateway is a layer 7 load balancer, which means it works only with web traffic (HTTP, HTTPS, WebSocket, and HTTP/2). It supports capabilities such as TLS termination, cookie-based session affinity, and round robin for load-balancing traffic. Load Balancer load-balances traffic at layer 4 (TCP or UDP).
