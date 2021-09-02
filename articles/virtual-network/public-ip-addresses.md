@@ -110,11 +110,7 @@ Basic public IPv4 and IPv6 addresses support a **dynamic** assignment.  The IP a
 
 ## DNS Name Label
 
-Select this option to specify a DNS label for a public IP resource. This functionality works for both IPv4 addresses (32-bit A records) and IPv6 addresses (128-bit AAAA records).
-
-### DNS hostname resolution
-
-This selection creates a mapping for **domainnamelabel**.**location**.cloudapp.azure.com to the public IP in the Azure-managed DNS. 
+Select this option to specify a DNS label for a public IP resource. This functionality works for both IPv4 addresses (32-bit A records) and IPv6 addresses (128-bit AAAA records).  This selection creates a mapping for **domainnamelabel**.**location**.cloudapp.azure.com to the public IP in the Azure-managed DNS. 
 
 For instance, creation of a public IP with:
 
@@ -126,11 +122,7 @@ The fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** res
 > [!IMPORTANT]
 > Each domain name label created must be unique within its Azure location.  
 
-### DNS Recommendations
-
-You can't migrate the FQDN of your public IP between regions. Use the FQDN to create a custom CNAME record pointing to the public IP address. If a move to a different public IP is required, update the CNAME record.
-
-You can use [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
+If a custom domain is desired for services that use a Public IP, you can use [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
 
 ## Other public IP address features
 
