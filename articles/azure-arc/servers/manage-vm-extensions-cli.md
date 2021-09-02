@@ -67,7 +67,7 @@ The following example shows the partial JSON output from the `az connectedmachin
     "id": "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/SVR01/extensions/DependencyAgentWindows",
     "location": "eastus",
     "name": "DependencyAgentWindows",
-    "namePropertiesInstanceViewName": "DependencyAgentWindows",
+    "namePropertiesInstanceViewName": "DependencyAgentWindows"
 ```
 
 ## Remove an installed extension
