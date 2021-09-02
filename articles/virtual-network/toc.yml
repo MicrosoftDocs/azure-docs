@@ -90,9 +90,7 @@
     - name: Routing preference
       href: routing-preference-overview.md
     - name: Routing preference Unmetered
-      href: routing-preference-unmetered.md   
-    - name: Public IP security baseline
-      href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
+      href: routing-preference-unmetered.md
   - name: Security
     items:
     - name: Virtual network security baseline
