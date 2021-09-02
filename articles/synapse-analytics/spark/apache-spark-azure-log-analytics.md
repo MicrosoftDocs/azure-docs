@@ -240,11 +240,11 @@ Users can query to evaluate metrics and logs at a set frequency, and fire an ale
 
 After the Synapse workspace is created with [data exfiltration protection](../security/workspace-data-exfiltration-protection.md) enabled.
 
-when you want to enabled this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (AMPLS)](../../azure-monitor/logs/private-link-security) in the workspace’s approved Azure AD tenants.
+when you want to enabled this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (AMPLS)](../../azure-monitor/logs/private-link-security.md) in the workspace’s approved Azure AD tenants.
 
 You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (AMPLS):
 
-1. If there is no existing AMPLS, please follow [Azure Monitor Private Link connection setup](../../azure-monitor/logs/private-link-security) to create one.
+1. If there is no existing AMPLS, please follow [Azure Monitor Private Link connection setup](../../azure-monitor/logs/private-link-security.md) to create one.
 2. Navigate to your AMPLS in Azure portal, on the **Azure Monitor Resources** page, click **Add** to add connection to your Azure Log Analytics workspace.
 3. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Monitor Private Link Scopes** and **continue**.
    > [!div class="mx-imgBorder"]
@@ -256,7 +256,7 @@ You can follow below steps to create a managed private endpoint connection to Az
 6. Navigate to your AMPLS in Azure portal again, on the **Private Endpoint connections** page, select the connection just provisioned and **Approve**.
 
 > [!NOTE] 
->  - The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](../../azure-monitor/logs/private-link-security) for a deeper review of these limits. 
+>  - The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](../../azure-monitor/logs/private-link-security.md) for a deeper review of these limits. 
 >  - Check if you have [right permission](../security/synapse-workspace-access-control-overview.md) to create managed private endpoint.
 
 ## Next steps
