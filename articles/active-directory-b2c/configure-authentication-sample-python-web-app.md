@@ -147,7 +147,7 @@ CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder - for use ONLY during t
     ```
 
  
-1. To view the web application running on your local machine, go to [http://localhost:5000](http://localhost:5000). 
+1. To view the web application running on your local machine, go to `http://localhost:5000`. 
 
 1. Select **Sign In**.
 
