@@ -9,6 +9,11 @@
         "source_path_from_root": "/articles/purview/powershell-register-scan-power-bi.md",
         "redirect_url": "/azure/purview/register-scan-power-bi-tenant",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-detect-deleted-assets.md",
+        "redirect_url": "/azure/purview/concept-scans-and-ingestion",
+        "redirect_document_id": true
       }
 ]
 }

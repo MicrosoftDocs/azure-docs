@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # Microsoft Enterprise SSO plug-in for Apple devices (preview)

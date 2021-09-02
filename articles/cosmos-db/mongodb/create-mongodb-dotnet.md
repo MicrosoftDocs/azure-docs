@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-mongo
 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 8/13/2021
+ms.date: 8/26/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -151,7 +151,7 @@ The following snippets are from the *Services/ProductService.cs* file.
 
 From the Azure portal, copy the connection string information:
 
-1. In the [Azure portal](https://portal.azure.com/), select your Cosmos DB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the primary connection string into the appsettings.json file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), select your Cosmos DB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the primary connection string into the *appsettings.json* file in the next step.
 
 2. Open the *appsettings.json* file.
 
@@ -178,13 +178,13 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --db cosmicworks --
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Cosmos DB API for MongoDB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. 
 
-1. Copy the **HOST** value from the portal (using the copy button) and enter it in place of **<HOST>**.
+1. Copy the **HOST** value from the portal (using the copy button) and enter it in place of **\<HOST\>**.
 
-1. Copy the **PORT** value from the portal (using the copy button) and enter it in place of **<PORT>**.
+1. Copy the **PORT** value from the portal (using the copy button) and enter it in place of **\<PORT\>**.
 
-1. Copy the **USERNAME** value from the portal (using the copy button) and enter it in place of **<USERNAME>**.
+1. Copy the **USERNAME** value from the portal (using the copy button) and enter it in place of **\<USERNAME\>**.
 
-1. Copy the **PASSWORD** value from the portal (using the copy button) and enter it in place of **<PASSWORD>**.
+1. Copy the **PASSWORD** value from the portal (using the copy button) and enter it in place of **\<PASSWORD\>**.
 
 1. Review the **database name** value and update it if you created something other than `cosmicworks`.
 
@@ -203,11 +203,11 @@ If you prefer the CLI, run the following command in a command window to start th
 dotnet run
 ```
 
-After the application is running, navigate to [https://localhost:5001/swagger/index.html](https://localhost:5001/swagger/index.html) to see the [swagger documentation](https://swagger.io/) for the web api and to submit sample requests.
+After the application is running, navigate to `https://localhost:5001/swagger/index.html` to see the [swagger documentation](https://swagger.io/) for the web api and to submit sample requests.
 
 Select the API you would like to test and select "Try it out".
 
-:::image type="content" source="./media/create-mongodb-dotnet/try-swagger.png" alt-text="Try API endpoints with Swagger":::
+:::image type="content" source="./media/create-mongodb-dotnet/try-swagger.png" alt-text="Screenshot of the web API Swagger UI Try API endpoints page.":::
 
 Enter any necessary parameters and select "Execute."
 
@@ -218,6 +218,10 @@ Enter any necessary parameters and select "Execute."
 ## Next steps
 
 In this quickstart, you've learned how to create an API for MongoDB account, create a database and a collection with code, and run a web API app. You can now import additional data to your database. 
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

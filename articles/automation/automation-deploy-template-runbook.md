@@ -83,9 +83,9 @@ In a text editor, copy the following text:
 
 Save the file locally as **TemplateTest.json**.
 
-## Save the Resource Manager template in Azure Storage
+## Save the Resource Manager template in Azure Files
 
-Now we use PowerShell to create an Azure Storage file share and upload the **TemplateTest.json** file. For instructions on how to create a file share and upload a file in the Azure portal, see [Get started with Azure File storage on Windows](../storage/files/storage-dotnet-how-to-use-files.md).
+Now we use PowerShell to create an Azure file share and upload the **TemplateTest.json** file. For instructions on how to create a file share and upload a file in the Azure portal, see [Get started with Azure Files on Windows](../storage/files/storage-files-quick-create-use-windows.md).
 
 Launch PowerShell on your local machine, and run the following commands to create a file share and upload the Resource Manager template to that file share.
 

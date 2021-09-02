@@ -1,7 +1,7 @@
 ---
-title: 'Create a skillset in the Azure portal'
+title: "Quickstart: Create a skillset in the Azure portal"
 titleSuffix: Azure Cognitive Search
-description: In this portal quickstart, learn how to use the Import Data wizard to add cognitive skills to an indexing pipeline in Azure Cognitive Search. Skills include Optical Character Recognition (OCR) and natural language processing.
+description: In this portal quickstart, use the Import Data wizard to add cognitive skills to an indexing pipeline in Azure Cognitive Search. Skills include Optical Character Recognition (OCR) and natural language processing.
 
 manager: nitinme
 author: HeidiSteen
