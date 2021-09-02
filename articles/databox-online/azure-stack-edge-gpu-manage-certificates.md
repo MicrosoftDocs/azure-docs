@@ -103,9 +103,11 @@ THe Kubernetes certificates can be for Edge Container Registry or for Kubernetes
         ```          
 1. Upload the Kubernetes certificate and the corresponding key file that you generated earlier.
     
-    ![Add Kubernetes dashboard certificate and key file 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)      
+    - For Edge Container Registry
+        ![Add Kubernetes dashboard certificate and key file 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)      
 
-
+    - For Kubernetes dashboard 
+    
 ## Import certificates on the client accessing the device
 
 You can use the device-generated certificates or bring your own certificates. When using device-generated certificates, you must download the certificates on your client before you can import those into the appropriate certificate store. See [Download certificates to your client accessing the device](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates).
