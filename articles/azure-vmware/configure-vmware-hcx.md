@@ -2,7 +2,7 @@
 title: Configure VMware HCX in Azure VMware Solution
 description: Configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. 
 ms.topic: tutorial
-ms.date: 07/30/2021
+ms.date: 09/3/2021
 ---
 
 # Configure on-premises VMware HCX Connector
@@ -221,7 +221,14 @@ This is an optional step to extend any networks from your on-premises environmen
 
    :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="Screenshot that shows the status of Extension complete.":::
 
-For an end-to-end overview of this procedure, view the [Azure VMware Solution: Network Extension](https://www.youtube.com/embed/gYR0nftKui0) video.
+  
+1. <a name="enable-hcx-mon"></a>(Optional) [Enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-73125E78-3428-4B7B-BACD-6332444A5D6B.html) to ensure that local and remote data centers traffic uses an optimal path to reach its destination while all flows remain symmetric. Without MON, HCX-NE expands the on-premises broadcast domain to the Azure VMware Solution private cloud while the first-hop routing function remains at the source. 
+
+
+
+
+
+
 
 ## Next steps
 
