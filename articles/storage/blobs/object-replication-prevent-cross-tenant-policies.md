@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -139,8 +139,7 @@ az storage account update \
     --allow-cross-tenant-replication false
 ```
 
-If the storage account is currently participating in one or more cross-tenant replication policies, you will not be able to disallow cross-tenant object replication until you delete those policies. PowerShell provides an error indicating that the operation failed due to existing cross-tenant replication policies.
-
+If the storage account is currently participating in one or more cross-tenant replication policies, you will not be able to disallow cross-tenant object replication until you delete those policies. Azure CLI provides an error indicating that the operation failed due to existing cross-tenant replication policies.
 
 ---
 
