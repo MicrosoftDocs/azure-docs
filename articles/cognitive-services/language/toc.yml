@@ -85,7 +85,7 @@ items:
       - name: Tag utterances
         href: custom-language-understanding/how-to/tag-utterances.md
       - name: View model evaluation and scoring
-        href: custom-extraction/how-to/view-model-evaluation.md
+        href: custom-named-entity-recognition/how-to/view-model-evaluation.md
       - name: Improve your model
         href: custom-language-understanding/how-to/improve-model.md
       - name: Query the runtime
