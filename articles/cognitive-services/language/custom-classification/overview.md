@@ -18,7 +18,7 @@ Custom text classification is one of the features offered by Azure Cognitive Ser
 
 Your data can be previously annotated documents, or ones that you upload and tag within the [Language Studio](https://language.azure.com). By building a custom classification model, you can predict the class or classes that 
  your data belongs to. Custom text classification supports two types of projects:
-* **Single label classification**: You can only assign one class for each file of your dataset. For example, if it is a movie script, your file can only be `Action`, `Thriller` or `Romance`.
+* **Single label classification**: You can only assign one class for each file of your dataset. For example, if a file is a movie script, it could only classified as "*Action*", "*Thriller*" or "*Romance*".
 
 * **Multiple label classification**: You can assign *multiple* classes for each file of your dataset. For example, if a file is a movie script, it could be classified as  "*Action*" or "*Action*" and "*Thriller*".
 
