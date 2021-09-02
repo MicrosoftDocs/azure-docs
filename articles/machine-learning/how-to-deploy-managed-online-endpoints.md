@@ -88,21 +88,20 @@ The reference for the endpoint YAML format is described in the following table. 
 | `$schema`    | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding example in a browser.|
 | `name`       | The name of the endpoint. It must be unique in the Azure region.|
 | `traffic` | The percentage of traffic from the endpoint to divert to each deployment. The sum of traffic values must be 100. |
-| `auth_mode` | Use `key` for key-based authentication or use `aml_token` for Azure Machine Learning token-based authentication. `key` doesn't expire, but `aml_token` does expire. (Get the most recent token by using the `az ml online-endpoint get-credentials` command.) |
+| `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. `key` doesn't expire, but `aml_token` does expire. (Get the most recent token by using the `az ml online-endpoint get-credentials` command.) |
 
-Specific inputs are required to deploy a model on an online endpoint. All required files are part of the example - nothing needs to be added.
+The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:
 
 - Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
 - The code that's required to score the model. In this case, we have a *score.py* file.
 - An environment in which your model runs. As you'll see, the environment might be a Docker image with Conda dependencies, or it might be a Dockerfile.
 - Settings to specify the instance type and scaling capacity.
 
-The following snippet shows the *endpoints/online/managed/saferollout/blue-deployment.yml* file, which captures all the required inputs: 
-test:
+The following snippet shows the *endpoints/online/managed/saferollout/blue-deployment.yml* file, with all the required inputs: 
 
 :::code language="yaml" source="~/azureml-examples-puprefresh/cli/endpoints/online/managed/saferollout/blue-deployment.yml":::
 
-The table describes the attributes of `deployment`:
+The table describes the attributes of a `deployment`:
 
 | Key | Description |
 | --- | --- |
@@ -207,7 +206,7 @@ To create the endpoint in the cloud, run the following code:
 
 ::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
 
-To create the deployment named blue under endpoint, run the following code:
+To create the deployment named `blue` under the endpoint, run the following code:
 
 ::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
 
