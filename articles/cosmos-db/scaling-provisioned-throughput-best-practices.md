@@ -15,7 +15,7 @@ ms.reviewer: sngun
 
 This article describes best practices and strategies for scaling the throughput (RU/s) of your database or container (collection, table, or graph). The concepts apply when you're increasing either the provisioned manual RU/s or the autoscale max RU/s of any resource for any of the Azure Cosmos DB APIs. 
  
-## Pre-requisites
+## Prerequisites
 - If you're new to partitioning and scaling in Azure Cosmos DB, it's recommended to first read the article [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview.md).
 - If you're planning to scale your RU/s due to 429 exceptions, review the guidance in [Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions](troubleshoot-request-rate-too-large.md). Before increasing RU/s, identify the root cause of the issue and whether increasing RU/s is the right solution.
  
@@ -55,7 +55,7 @@ Suppose we have an existing container with five physical partitions and 30,000 R
 > [!TIP]
 > If you are scaling up RU/s to respond to request rate too large exceptions (429s), it's recommended to first increase RU/s to the highest RU/s that are supported by your current physical partition layout and assess if the new RU/s is sufficient before increasing further.
  
-## How to ensure even physical partition distribution post scale-up (asynchronous scaling)
+## How to ensure even data distribution post scale-up (asynchronous scaling)
 
 ### Background
 
@@ -89,7 +89,7 @@ In the following diagram, we see that Partitions 3 and 4 (the children partition
 
 :::image type="content" source="media/scaling-provisioned-throughput-best-practices/Diagram_2_uneven_partition_split.png" alt-text="After the split, there are 3 PartitionKeyRangeIds, each with 10,000 RU/s. However, one of the PartitionKeyRangeIds has 50% of the total keyspace (40 GB), while two of the PartitionKeyRangeIds have 25% of the total keyspace (20 GB)":::
 
-To maintain an even storage distribution, we can first scale up our RU/s to ensure every partition splits. Then, we can lower our RU/s back down to the desired state. 
+To maintain an even storage distribution, we can first scale up our RU/s to ensure every partition splits. Then, we can lower our RU/s back down to the desired state.
 
 So, if we start with two physical partitions, to guarantee that the partitions are even post-split, we need to set RU/s such that we'll end up with four physical partitions. To achieve this, we'll first set RU/s = 4 * 10,000 RU/s per partition = 40,000 RU/s. Then, after the split completes, we can lower our RU/s to 30,000 RU/s. 
 
@@ -114,7 +114,7 @@ For example, suppose we have five physical partitions, 50,000 RU/s and want to s
 
 When we scaled up to 200,000 RU/s, the lowest manual RU/s we can now set in the future is 2000 RU/s. The [lowest autoscale max RU/s](autoscale-faq.yml#lowering-the-max-ru-s) we can set is 20,000 RU/s (scales between 2000 - 20,000 RU/s). Since our target RU/s is 150,000 RU/s, we are not affected by the minimum RU/s.
 
-## How to optimize RU/s of your container for migrations or large data ingestion
+## How to optimize RU/s for large data ingestion
  
 When you plan to migrate or ingest a large amount of data into Azure Cosmos DB, it's recommended to set the RU/s of the container so that Azure Cosmos DB pre-provisions the physical partitions needed to store the total amount of data you plan to ingest upfront. Otherwise, during ingestion, Azure Cosmos DB may have to split partitions, which adds more time to the data ingestion. 
  
