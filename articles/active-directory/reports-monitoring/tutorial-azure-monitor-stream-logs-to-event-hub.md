@@ -14,14 +14,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/19/2021
+ms.date: 09/02/2021
 ms.author: markvi
 ms.reviewer: besiler
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an event hub so I can integrate it with my third party SIEM system.
 ms.collection: M365-identity-device-management
 ---
-
 # Tutorial: Stream Azure Active Directory logs to an Azure event hub
 
 In this tutorial, you learn how to set up Azure Monitor diagnostics settings to stream Azure Active Directory (Azure AD) logs to an Azure event hub. Use this mechanism to integrate your logs with third-party Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
@@ -39,16 +38,16 @@ To use this feature, you need:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-2. Select **Azure Active Directory** > **Monitoring** > **Audit logs**. 
+2. Select **Azure Active Directory** > **Audit logs**. 
 
-3. Select **Export Settings**.  
+3. Select **Export Data Settings**.  
     
 4. In the **Diagnostics settings** pane, do either of the following:
     * To change existing settings, select **Edit setting**.
     * To add new settings, select **Add diagnostics setting**.  
       You can have up to three settings.
 
-      ![Export settings](./media/quickstart-azure-monitor-stream-logs-to-event-hub/ExportSettings.png)
+      [ ![Export settings](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png) ](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png)
 
 5. Select the **Stream to an event hub** check box, and then select **Event Hub/Configure**.
 
@@ -65,15 +64,17 @@ To use this feature, you need:
     - To send managed identity sign-in logs to the event hub, select the **ManagedIdentitySignInLogs** check box.
     - To send provisioning logs to the event hub, select the **ProvisioningLogs** check box.
     - To send sign-ins sent to Azure AD by an AD FS Connect Health agent, select the **ADFSSignInLogs** check box.
+    - To send risky users information select the **RiskyUsers** check box.
+    - To send user risk events information select the **UserRiskEvents** check box. 
 
-    >[!Note]
-    >Some sign-in categories contain large amounts of log data depending on your tenant’s configuration. In general, the non-interactive user sign-ins and service principal sign-ins can be 5 to 10 times larger than the interactive user sign-ins.
+    > [!NOTE]
+    > Some sign-in categories contain large amounts of log data depending on your tenant’s configuration. In general, the non-interactive user sign-ins and service principal sign-ins can be 5 to 10 times larger than the interactive user sign-ins.
 
 9. Select **Save** to save the setting.
 
 10. After about 15 minutes, verify that events are displayed in your event hub. To do so, go to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
 
-    ![Audit logs](./media/quickstart-azure-monitor-stream-logs-to-event-hub/InsightsLogsAudit.png)
+    [ ![Audit logs](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png)](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png)
 
 ## Access data from your event hub
 
@@ -90,7 +91,6 @@ After data is displayed in the event hub, you can access and read the data in tw
     * **Sumo Logic**: To set up Sumo Logic to consume data from an event hub, see [Install the Azure AD app and view the dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
 
 * **Set up custom tooling**. If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up custom tooling by using the Event Hubs API. To learn more, see the [Getting started receiving messages from an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
-
 
 ## Next steps
 
