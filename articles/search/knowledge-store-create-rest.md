@@ -108,7 +108,7 @@ The variables you set up earlier are used in the headers and URL. The following 
 
 ## Create an Azure Cognitive Search index
 
-Use the [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) to create a search index on the search service. A search index is unrelated to a knowledge store, but the indexer requires that you create one. The search index will contain the same content as the knowledge store. If you want an alternative approach for exploring your content, you can query this index by sending query requests to your search service. 
+Use the [Create Index (REST API)](/rest/api/searchservice/create-index) to create a search index on the search service. A search index is unrelated to a knowledge store, but the indexer requires that you create one. The search index will contain the same content as the knowledge store. If you want an alternative approach for exploring your content, you can query this index by sending query requests to your search service. 
 
 Create the index by issuing a PUT request to `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. The index schema is provided in the body of the quest.
 
@@ -141,7 +141,7 @@ At this point, the index is created but not loaded. Importing documents occurs l
 
 ## Create the data source
 
-Next, connect Azure Cognitive Search to the hotel data you stored in Blob storage. To create the data source, send a [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. 
+Next, connect Azure Cognitive Search to the hotel data you stored in Blob storage. To create the data source, send a [Create Data Source](/rest/api/searchservice/create-data-source) POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. 
 
 In Postman, go to the **Create Datasource** request, and then to the **Body** pane. You should see the following code:
 
@@ -159,13 +159,15 @@ Select **Send** to issue the POST request.
 
 ## Create the skillset 
 
-The next step creates the skillset, which specifies both the enhancements to be applied and the knowledge store where the results will be stored. This request sends a [Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) PUT request to `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`.
+The next step creates the skillset, which specifies both the enhancements to be applied and the knowledge store where the results will be stored. This request sends a [Create Skillset](/rest/api/searchservice/create-skillset) PUT request to `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`.
 
 There are two large top-level objects: `skills` and `knowledgeStore`:
 
 + "skills" is the skillset. Each object inside the `skills` object is an enrichment service. Each enrichment service has `inputs` and `outputs`. The `LanguageDetectionSkill` has an output `targetName` of `Language`. The value of this node is used by most of the other skills as an input. The source is `document/Language`. The capability of using the output of one node as the input to another is even more evident in `ShaperSkill`, which specifies how the data flows into the tables of the knowledge store.
 
-+ "knowledgeStore" includes the connection string to the storage account and a series of projections. Each projection creates a table in Azure Storage. Columns in the table include generated columns used for cross-linking and content fields. The content fields can be specified through a data shape (through a Shaper skill) or through inline shapes in the projection itself. 
++ "knowledgeStore" includes the connection string to the storage account and a series of projections. Each projection item in the projections array results in a table in Azure Storage. Columns in the table will include generated columns used for cross-linking and content fields. They will also include content fields created during enrichment.
+
+  Projections accept data shapes as input. You can provide the shapes through a Shaper skill, mapping the skill output to a projection, or you can define inline shapes in each projection item. 
 
 To generate the skillset, select the **Send** button in Postman to PUT the request:
 
@@ -322,13 +324,13 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
 
 ## Create the indexer
 
-The final step is to create the indexer. The indexer reads the data and activates the skillset. The definition of the indexer refers to several other resources that you already created: the datasource, the index, and the skillset. 
+The final step is the [Create Indexer](/rest/api/searchservice/create-indexer) request. The indexer reads the data and activates the skillset. The definition of the indexer refers to several other resources that you already created: the datasource, the index, and the skillset. 
 
 + The `parameters/configuration` object controls how the indexer ingests the data. In this case, the input data is in a single CSV file that has a header line and comma-separated values. 
 
 + Field mappings create "AzureSearch_DocumentKey" is a unique identifier for each document that's generated by the blob indexer (based on metadata storage path). 
 
-+ Output field mappings specify how enriched fields are mapped to fields in a search index (output field mappings are not used in knowledge stores).
++ Output field mappings specify how enriched fields are mapped to fields in a search index. Output field mappings are not used in knowledge stores (knowledge stores use shapes and projections to express the physical data structures).
 
 Select **Send** in Postman to create and run the indexer. Data import, skillset execution, and knowledge store creation occur in this step.
 
@@ -374,15 +376,15 @@ In the Azure portal, switch to your Azure Storage account and use **Storage Expl
 | Table | Description |
 |-------|-------------|
 | hotelReviews1Document | Contains fields carried forward from the CSV, such as reviews_date and reviews_text. |
-| hotelReviews2Pages | Contains enriched fields created by the skillset, such as sentiment score and key phrases. |
+| hotelReviews2Pages | Contains enriched fields created by the skillset, such as sentiment score and translated text. |
 | hotelReviews3KeyPhrases | Contains a long list of just the key phrases. |
-| hotelReviews4InlineProjectionDocument | Alternative to the first table, using inline shaping instead of the Shaper skill to create a data shape used in the projection. |
+| hotelReviews4InlineProjectionDocument | Alternative to the first table, using inline shaping instead of the Shaper skill to shape data for the projection. |
 | hotelReviews5InlineProjectionPages | Alternative to the second table, using inline shaping. |
 | hotelreviews6InlineProjectionKeyPhrases | Alternative to the third table, using inline shaping. |
 
 Each table is generated with the IDs necessary for cross-linking the tables in queries for table  projections that are in the same projection group.
 
-Scroll to the right to view the content fields:
+When you open a table, scroll to the right to view the content fields:
 
    :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
 

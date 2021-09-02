@@ -169,7 +169,7 @@ In the Azure portal, switch to your Azure Storage account and use **Storage Expl
 
 Each table is generated with the IDs necessary for cross-linking the tables in queries for table  projections that are in the same projection group.
 
-Scroll to the right to view the content fields:
+When you open a table, scroll to the right to view the content fields:
 
    :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
 
