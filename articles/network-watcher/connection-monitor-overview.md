@@ -89,6 +89,8 @@ The script creates registry keys required by the solution. It also creates Windo
 
 The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
+Note : The LA Windows agent can be multihomed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send to only a single destination, either a workspace or management group.
+
 #### Enable Network Performance Monitor Solution for on-premise machines 
 
 Follow the following steps to enable Network Performance Monitor Solution for on-premise machines 
@@ -102,6 +104,7 @@ Follow the following steps to enable Network Performance Monitor Solution for on
 
 :::image type="content" source="./media/connection-monitor/npm-solution-enable.png" alt-text="Screenshot showing how to Add NPM Solution in Connection Monitor" lightbox="./media/connection-monitor/npm-solution-enable.png":::
 
+Note : Unlike LA agents, NPM Solution can only be configured to send data to a single LA workspace. 
 
 ## Enable Network Watcher on your subscription
 
