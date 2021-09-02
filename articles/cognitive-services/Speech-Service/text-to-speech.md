@@ -79,7 +79,7 @@ For detailed information, see [Pricing](https://azure.microsoft.com/pricing/deta
 
 ## Migrate to Neural Voice
 
-We are retiring the standard voices on **31st August 2024** and they will no longer be supported after that date.  The announcement has been sent out to all existing Speech subscriptions before **31st August 2021**. During the retiring period (**31st August 2021- 31st August 2024**), existing users can continue to use their standard voices, all new users/new speech resources should move to the neural voices.
+We are retiring the standard voices on **31st August 2024** and they will no longer be supported after that date.  The announcement has been sent out to all existing Speech subscriptions before **31st August 2021**. During the retiring period (**31st August 2021- 31st August 2024**), existing standard voice users can continue to use their standard voices, all new users/new speech resources should move to the neural voices.
 
 **Action required**
 
