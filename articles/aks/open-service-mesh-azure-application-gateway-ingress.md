@@ -24,7 +24,7 @@ In this tutorial, you will:
 
 ## Before you begin
 
-The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, review the article [Deploy the OSM AKS add-on](./open-service-mesh-deploy-addon.md) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
+The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, review the article [Deploy the OSM AKS add-on](./open-service-mesh-deploy-add-on.md) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
 
 You must have the following resources installed:
 
@@ -132,7 +132,7 @@ Namespace [bookthief] successfully added to mesh [osm]
 Namespace [bookwarehouse] successfully added to mesh [osm]
 ```
 
-## Deploy the Bookstore application to the AKS cluster
+## Deploy the Bookstore application
 
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.9/docs/example/manifests/apps/bookbuyer.yaml
@@ -192,7 +192,7 @@ spec:
 EOF
 ```
 
-## Verify the Bookstore application running inside the AKS cluster
+## Verify the Bookstore application
 
 As of now we have deployed the bookstore multi-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the application outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
 
@@ -226,7 +226,7 @@ While the port forwarding session is in place, navigate to the following url fro
 
 ![OSM bookbuyer app for App Gateway UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
-## Create an Azure Application Gateway to expose the bookbuyer application outside the AKS cluster
+## Create an Azure Application Gateway to expose the bookbuyer application 
 
 > [!NOTE]
 > The following directions will create a new instance of the Azure Application Gateway to be used for ingress. If you have an existing Azure Application Gateway you wish to use, skip to the section for enabling the Application Gateway Ingress Controller add-on.

@@ -360,10 +360,10 @@
           href: servicemesh-about.md
         - name: Open Service Mesh AKS add-on (preview)
           items:
-          - name: OSM Overview
+          - name: OSM overview
             href: open-service-mesh-about.md
           - name: Deploy the OSM AKS add-on
-            href: open-service-mesh-deploy-addon.md
+            href: open-service-mesh-deploy-add-on.md
           - name: Download the OSM client binary
             href: open-service-mesh-binary.md
           - name: OSM Tutorials
@@ -381,9 +381,9 @@
           - name: Configure Azure Monitor 
             href: open-service-mesh-azure-monitor.md
           - name: Troubleshoot OSM
-            href: open-service-mesh-troubleshooting.md
+            href: open-service-mesh-troubleshoot.md
           - name: Disable OSM
-            href: open-service-mesh-disable-addon.md
+            href: open-service-mesh-disable-add-on.md
     - name: DevOps
       items:
         - name: Use Ansible to create AKS clusters
