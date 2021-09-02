@@ -16,7 +16,6 @@ Zerto is a disaster recovery solution designed to minimize downtime of the VMs i
 
 ## Core components of the Zerto platform
 
-
 | Component | Description |
 | --- | --- |
 | **Zerto Virtual Manager (ZVM)**   | Management application for Zerto implemented as a Windows service installed on a Windows VM. The private cloud administrator installs and manages the Windows VM. The ZVM enables Day 0 and Day 2 DR configuration. For example, configuring primary and disaster recovery sites, protecting VMs, recovering VMs, and so on. However, it doesn't handle the replication data of the protected customer VMs.     |
@@ -56,7 +55,6 @@ In this scenario, the primary site is an Azure VMware Solution Private Cloud in 
 
 
 
-
 ## Prerequisites
 
 ### On-premises VMware to Azure VMware Solution DR
@@ -64,7 +62,6 @@ In this scenario, the primary site is an Azure VMware Solution Private Cloud in 
 - Azure VMware Solution private cloud deployed as a secondary region.
 
 - VPN or ExpressRoute connectivity between on-premises and Azure VMware Solution.
-
 
 
 
@@ -86,8 +83,6 @@ In this scenario, the primary site is an Azure VMware Solution Private Cloud in 
 
 
 
-
-
 ## Install Zerto on Azure VMware Solution
 
 Currently, Zerto Disaster Recovery on Azure VMware Solution is in Initial Availability (IA) phase. In the IA phase, you must contact Microsoft to request and qualify for IA support.
@@ -98,17 +93,12 @@ To request IA support for Zerto on Azure VMware Solution, send an email request 
 >General Availability of Azure VMware Solution will enable self-service installation and Day 2 operations of Zerto on Azure VMware Solution.
 
 
-
-
 ## Configure Zerto for disaster recovery
 
 To configure Zerto for the On-premise VMware to Azure VMware Solution DR and Azure VMware Solution to Azure VMware Solution Cloud DR scenarios, see the [Zerto Virtual Manager Administration Guide vSphere Environment](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/Zerto%20Virtual%20Manager%20vSphere%20Administration%20Guide.pdf?cb=1629311409).
 
-To configure the Azure VMware Solution to Azure Iaas VMs cloud DR scenario, see [tbd]().
 
 For more information, see the [Zerto technical documentation](https://www.zerto.com/myzerto/technical-documentation/). Alternatively, you can download all the Zerto guides part of the [v8.5 Search Tool for Zerto Software PDFs documentation bundle](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/SEARCH_TOOL.zip?cb=1629311409).
-
-
 
 
 
@@ -125,13 +115,9 @@ For more information, see the [Zerto technical documentation](https://www.zerto.
 
 ## FAQs
 
-### What's the SLA impact of Zerto on Azure VMware Solution?
-
-Supporting Zerto on Azure VMware Solution requires running Zerto software on ESXi hosts and on the vCenter appliance. While Azure VMware Solution and Zerto perform testing to ensure Zerto doesn't affect Azure VMware Solution private cloud operations, Zerto software can potentially affect the private cloud reliability and availability. Make sure to read and acknowledge the updated [Azure VMware Solution SLA](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) terms before you install Zerto on Azure VMware Solution private clouds. 
-
 ### Can I use a pre-existing Zerto product license on Azure VMware Solution?
 
-You can reuse pre-existing Zerto product licenses for Azure VMware Solution environments. If you need new Zerto licenses, work with [Zerto sales](link to their sales email) to acquire new Zerto licenses. 
+You can reuse pre-existing Zerto product licenses for Azure VMware Solution environments. If you need new Zerto licenses, work with **info@zerto.com** to acquire new Zerto licenses. 
 
 ### How is Zerto supported?
 
