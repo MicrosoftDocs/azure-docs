@@ -163,8 +163,6 @@
   items:
   - name: Azure service updates
     href: https://azure.microsoft.com/updates/
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/video-analyzer/
   - name: Available regions
