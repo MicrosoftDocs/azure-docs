@@ -214,9 +214,9 @@ sections:
           | Custom containers | You have full control over the container. | App Service has no control about which port your container listens on. What it does need is to know which port to forward requests to. If your container listens to port 80 or 8080, App Service is able to automatically detect it. If it listens to any other port, you need to set the WEBSITES_PORT app setting to the port number, and App Service forwards requests to that port in the container. The WEBSITES_PORT app setting does not have any effect within the container, and you can’t access it as an environment variable within the container. |
 
       - question: |
-          Can I use a file based database (like SQLight) with my Linux Webapp?
+          Can I use a file based database (like SQLite) with my Linux Webapp?
         answer: |
-          The file system of your application is a mounted network share. This is what allows for scale out scenarios where your code needs to be executed across multiple hosts. Unfortunately this blocks the use of file Based database providers like SQLite since it's not possible to acquirer exclusive locks on the database file. We recommend to use one of the fully managed database service in azure: [Azure SQL](https://azure.microsoft.com/products/azure-sql/), [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) or [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/)
+          The file system of your application is a mounted network share. This enables scale out scenarios where your code needs to be executed across multiple hosts. Unfortunately this blocks the use of file-based database providers like SQLite since it's not possible to acquire exclusive locks on the database file. We recommend a managed database service: [Azure SQL](https://azure.microsoft.com/products/azure-sql/), [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) or [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/)
       - question: |
           What are the supported characters in application settings names?
         answer: |
