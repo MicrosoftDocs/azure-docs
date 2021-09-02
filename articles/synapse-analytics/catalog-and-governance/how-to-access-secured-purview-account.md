@@ -39,7 +39,7 @@ To create managed private endpoints for Purview on Synapse Studio:
 
 3. Click **+ Create all** button to batch create the needed Purview private endpoints, including the ***account*** private endpoint as well as the ***ingestion*** private endpoints for the Purview managed resources - Blob storage, Queue storage and Event Hubs namespace. You need to have at least **Reader** role on your Purview account for Synapse to retrieve the Purview managed resources' information.
 
-   :::image type="content" source="./media/create-all-purview-managed-private-endpoints.png" alt-text="Create managed private endpoint for your connected Purview account.":::
+   :::image type="content" source="./media/purview-create-all-managed-private-endpoints.png" alt-text="Create managed private endpoint for your connected Purview account.":::
 
 4. In the next page, specify a name for the private endpoint. It will be used to generate names for the ingestion private endpoints as well with additional suffix.
 
