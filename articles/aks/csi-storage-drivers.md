@@ -19,7 +19,7 @@ The CSI storage driver support on AKS allows you to natively use:
 > [!IMPORTANT]
 > Starting in Kubernetes version 1.21, Kubernetes will use CSI drivers only and by default. These drivers are the future of storage support in Kubernetes.
 > 
-> Please remove manual installed Azure Disk and Azure File CSI drivers before upgrading to AKS 1.21.
+> Please remove manual installed open source Azure Disk and Azure File CSI drivers before upgrading to AKS 1.21.
 > 
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
