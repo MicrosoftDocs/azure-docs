@@ -71,7 +71,7 @@ To help with resizing the VHD and converting to a VHDX, you can also use the fol
     Use the Azure portal's **Size+Performance** tab for the managed disk to change your disk size. As mentioned before, the size must *not* be greater than 128 GB.
 
 1. In a shared image gallery, create an image definition and version:
-    1. [Create an image definition](../virtual-machines/image-version.md#create-an-image-definition):
+    1. [Create an image definition](../virtual-machines/image-version.md):
         - Choose **Gen 1** for the **VM generation**.
         - Choose **Linux** for the **Operating system**.
         - Choose **generalized** for the **Operating system state**.
