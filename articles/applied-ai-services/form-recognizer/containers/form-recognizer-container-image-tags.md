@@ -42,9 +42,7 @@ The following tags are available for Form Recognizer:
 
 ### [Latest version](#tab/current)
 
-Release notes for `v2.1`:
-
-Form Recognizer containers are currently in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu) and receive approval.
+Release notes for `v2.1` (gated preview):
 
 | Container | Tags |
 |------------|:------|
