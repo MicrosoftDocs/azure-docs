@@ -306,9 +306,14 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 To specify the number of seconds between retry attempts, you can add the `Retry-After` header to the HTTP action response. For example, if the target endpoint returns the `429 - Too many requests` status code, you can specify a longer interval between retries. The `Retry-After` header also works with the `202 - Accepted` status code.
 
+Here is the same example that shows the HTTP action response that contains `Retry-After`
+
 ```json
 {
-  "Retry-After": "300"
+    "statusCode": 429,
+    "headers": {
+        "Retry-After": "300"
+    }
 }
 ```
 
