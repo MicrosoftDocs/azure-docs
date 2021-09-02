@@ -31,7 +31,9 @@ To apply a policy definition or initiative, use the Azure portal.
 1. Select the **Parameters** page and update the **Effect** from `audit` to `deny` to block new deployments violating the baseline initiative. You can also add additional namespaces to exclude from evaluation. For this example, keep the default values.
 1. Select **Review + create** then **Create** to submit the policy assignment.
 
-## Create and assign a custom policy definitions and constraint templates
+## Create and assign a custom policy definitions and constraint templates (preview)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 Custom policies allow you to define rules for using Azure. For example, you can enforce:
 - Security practices
