@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/17/2021
+ms.custom: references_regions
 ms.author: aahi
 ---
 
