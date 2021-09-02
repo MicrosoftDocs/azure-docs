@@ -181,7 +181,7 @@ Enter the following text, replacing **\<proxy URL>** with your proxy server addr
 
 ```ini
 [Service]
-Environment="https_proxy=<proxy URL>"
+Environment=https_proxy=<proxy URL>
 ```
 
 Refresh the service manager to pick up the new configurations.
