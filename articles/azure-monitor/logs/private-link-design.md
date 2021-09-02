@@ -62,8 +62,8 @@ Choosing the proper access mode has detrimental effects on your network traffic.
 ![Diagram of AMPLS Open access mode](./media/private-link-security/ampls-open-access-mode.png)
 Access modes are set separately for ingestion and queries. For example, you can set the Private Only mode for ingestion and the Open mode for queries.
 
-> [!NOTE]
-> Apply caution when selecting your access mode: Using the Private Only access mode will block traffic to resources not in the AMPLS across all networks that share the same DNS, regardless of subscription or tenant. If you can't add all Azure Monitor resources to the AMPLS, we recommend that you use the Open mode and add select resources to your AMPLS. Only after adding all Azure Monitor resources to your AMPLS, switch to the Private Only mode for maximum security.
+
+Apply caution when selecting your access mode. Using the Private Only access mode will block traffic to resources not in the AMPLS across all networks that share the same DNS, regardless of subscription or tenant (with the exception of Log Analytics ingestion requests, as explained below). If you can't add all Azure Monitor resources to the AMPLS, start with by adding select resources and applying the Open access mode. Only after adding *all* Azure Monitor resources to your AMPLS, switch to the 'Private Only' mode for maximum security.
 
 > [!NOTE]
 > Log Analytics ingestion uses resource-specific endpoints. As such, it doesn’t adhere to AMPLS access modes. Ingestion to workspaces in the AMPLS is sent through the private link, while ingestion to workspaces not in the AMPLS uses the default public endpoints. To assure ingestion requests can’t access resources out of the AMPLS, block the network’s access to public endpoints.
