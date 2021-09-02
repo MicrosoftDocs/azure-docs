@@ -40,7 +40,6 @@ Connect-AzContainerRegistry -Name myregistry
 ```
 
 ---
-
 You can also log in with [docker login](https://docs.docker.com/engine/reference/commandline/login/). For example, you might have [assigned a service principal](container-registry-authentication.md#service-principal) to your registry for an automation scenario. When you run the following command, interactively provide the service principal appID (username) and password when prompted. For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference:
 
 ```
@@ -48,6 +47,9 @@ docker login myregistry.azurecr.io
 ```
 
 Both commands return `Login Succeeded` once completed.
+> [!NOTE]
+>* Please make sure the GNUGP encryption tool installed and the pass packages configured in your host machine for docker-credential-pass to work properly.
+
 > [!NOTE]
 >* You might want to use Visual Studio Code with Docker extension for a faster and more convenient login.
 
