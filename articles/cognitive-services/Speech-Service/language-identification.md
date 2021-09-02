@@ -25,9 +25,9 @@ This article assumes you have an Azure subscription and speech resource, and als
 
 ## Standalone language identification
 
-::: zone pivot="programming-language-csharp"
-
 In uses cases where you only want to detect the source language being spoken, you can use standalone language identification as shown in the following code sample. `SourceLanguageRecognizer` can also be used in continuous recognition scenarios.
+
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -58,8 +58,6 @@ See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-s
 
 ::: zone pivot="programming-language-cpp"
 
-In uses cases where you only want to detect the source language being spoken, you can use standalone language identification as shown in the following code sample. `SourceLanguageRecognizer` can also be used in continuous recognition scenarios.
-
 ```cpp
 using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
@@ -86,6 +84,32 @@ See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-s
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-> [!IMPORTANT]
-> This feature is currently only supported in C#, C++, and Python.
+
+```python
+import azure.cognitiveservices.speech as speechsdk
+
+speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+    
+speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Accuracy')
+
+speech_language_detection = speechsdk.SourceLanguageRecognizer(speech_config=speech_config, auto_detect_source_language_config=auto_detect_source_language_config)
+
+result = speech_language_detection.recognize_once()
+
+# Check the result
+if result.reason == speechsdk.ResultReason.RecognizedSpeech:
+    print("RECOGNIZED: {}".format(result))
+    detectedSrcLang = result.properties[speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult]
+    print("Detected Language: {}".format(detectedSrcLang))
+elif result.reason == speechsdk.ResultReason.NoMatch:
+    print("No speech could be recognized")
+elif result.reason == speechsdk.ResultReason.Canceled:
+    cancellation_details = result.cancellation_details
+    print("Speech Recognition canceled: {}".format(cancellation_details.reason))
+    if cancellation_details.reason == speechsdk.CancellationReason.Error:
+        print("Error details: {}".format(cancellation_details.error_details))
+```
+
+See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_language_detection_sample.py) for more examples of standalone language identification, including an example of continuous identification.
+
 ::: zone-end
