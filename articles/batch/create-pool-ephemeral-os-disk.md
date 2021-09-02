@@ -7,7 +7,7 @@ ms.date: 09/03/2021
 
 # Use ephemeral OS disk nodes for Azure Batch pools
 
-Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure managed disks](virtual-machines/managed-disks-overview.md) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
+Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure managed disks](../virtual-machines/managed-disks-overview.md) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
 
 For Batch workloads, the main benefits of using ephemeral OS disks are reduced costs associated with pools, the potential for faster node start time, and improved application performance due to better OS disk performance. When choosing whether ephemeral OS disks should be used for your workload, consider the following:
 
@@ -19,11 +19,11 @@ For Batch workloads, the main benefits of using ephemeral OS disks are reduced c
 - The use of an ephemeral OS disk is not currently supported by all Azure VM series. If a VM size doesn't support an ephemeral OS disk, a managed OS disk must be used.
 
 > [!NOTE]
-> Ephemeral OS disk configuration is only applicable to 'virtualMachineConfiguration' pools that use managed OS disks by default, and aren't supported by 'cloudServiceConfiguration’ pools. While you can currently create pools using either configuration, we recommend using 'virtualMachineConfiguration, as 'cloudServiceConfiguration' pools do not support all features and no new capabilities are planned. You won't be able to create new 'cloudServiceConfiguration' pools or add new nodes to existing pools [after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). For more information, see [Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+> Ephemeral OS disk configuration is only applicable to 'virtualMachineConfiguration' pools, and aren't supported by 'cloudServiceConfiguration’ pools. We recommend using 'virtualMachineConfiguration for your Batch pools, as 'cloudServiceConfiguration' pools do not support all features and no new capabilities are planned. You won't be able to create new 'cloudServiceConfiguration' pools or add new nodes to existing pools [after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). For more information, see [Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 ## VM series support
 
-To determine whether a VM series supports ephemeral OS disks, check the documentation for each VM instance. For example, [Ddsv4-series](../virtual-machines/ddv4-ddsv4-series.md) supports ephemeral OS disks.
+To determine whether a VM series supports ephemeral OS disks, check the documentation for each VM instance. For example, the [Ddv4 and Ddsv4-series](../virtual-machines/ddv4-ddsv4-series.md) supports ephemeral OS disks.
 
 Alternately, you can programmatically query to check the 'EphemeralOSDiskSupported' capability. An example PowerShell cmdlet to query this capability is provided in the [ephemeral OS disk frequently asked questions](/virtual-machines/ephemeral-os-disks.md#frequently-asked-questions).
 
