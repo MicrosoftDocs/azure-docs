@@ -1,3 +1,5 @@
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
+
 ### Additional Prerequisites for Push Notifications
 
 A Firebase account set up with Cloud Messaging (FCM) enabled and with your Firebase Cloud Messaging service connected to an Azure Notification Hub instance. See [Communication Services notifications](../../../../concepts/notifications.md) for more information.
