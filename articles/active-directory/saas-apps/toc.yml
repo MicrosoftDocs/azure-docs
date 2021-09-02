@@ -510,11 +510,13 @@
       - name: Creatio
         href: bpmonline-tutorial.md
       - name: Create!Webフロー
-        href: createweb-tutorial.md  
+        href: createweb-tutorial.md
       - name: Crises Control
         href: crises-control-tutorial.md
       - name: CrossKnowledge Learning Suite
         href: crossknowledge-learning-suite-tutorial.md
+      - name: CrowdStrike Falcon Platform
+        href: crowdstrike-falcon-platform-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
       - name: Curricula SAML
