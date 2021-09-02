@@ -137,9 +137,9 @@ The full resource ID is in the following format:
 /subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-The policy definition file previously required only the account name, instead of the full resource ID for the storage account. With the introduction of the **AllowCrossTenantReplication** security property, described in [Prevent replication across Azure AD tenants](#prevent-replication-across-azure-ad-tenants), you must now provide the full resource ID for any object replication policies that are created when cross-tenant replication is disallowed for a storage account that participates in the replication policy. Azure Storage uses the full resource ID to verify whether the source and destination accounts reside within the same tenant.
+The policy definition file previously required only the account name, instead of the full resource ID for the storage account. With the introduction of the **AllowCrossTenantReplication** security property in version 2021-02-01 of the Azure Storage resource provider REST API, you must now provide the full resource ID for any object replication policies that are created when cross-tenant replication is disallowed for a storage account that participates in the replication policy. Azure Storage uses the full resource ID to verify whether the source and destination accounts reside within the same tenant. To learn more about disallowing cross-tenant replication policies, see [Prevent replication across Azure AD tenants](#prevent-replication-across-azure-ad-tenants).
 
-While providing only the account name is still supported when cross-tenant replication is allowed for a storage account, Microsoft recommends always providing the full resource ID as a best practice.
+While providing only the account name is still supported when cross-tenant replication is allowed for a storage account, Microsoft recommends always providing the full resource ID as a best practice. All previous versions of the Azure Storage resource provider REST API support using the full resource ID path in object replication policies.
 
 The following table describes what happens when you create a replication policy with the full resource ID specified, versus the account name, in the scenarios where cross-tenant replication is allowed or disallowed for the storage account.
 
@@ -167,9 +167,9 @@ To disallow cross-tenant object replication for a storage account, set the **All
 
 If the storage account currently does participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* is not permitted. You must delete the existing cross-tenant policies before you can disallow cross-tenant replication.
 
-You can use Azure Policy to audit a set of storage accounts to ensure that the **AllowCrossTenantReplication** property is set to prevent cross-tenant object replication. You can also use Azure Policy to enforce governance for a set of storage accounts. For example, you can create a policy with the deny effect to prevent a user from creating a storage account where the **AllowCrossTenantReplication** property is set to *true*, or from modifying an existing storage account to change the property value to *true*.
+By default, the **AllowCrossTenantReplication** property is not set for a storage account, and its value is *null*, which is equivalent to *true*. When the value of the **AllowCrossTenantReplication** property for a storage account is *null* or *true*, then authorized users can configure cross-tenant object replication policies with this account as the source or destination. For more information about how to configure cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
 
-Setting the **AllowCrossTenantReplication** property for a storage account to *true* permits authorized users to configure cross-tenant object replication policies with this account as the source or destination. For more information about how to configure cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
+You can use Azure Policy to audit a set of storage accounts to ensure that the **AllowCrossTenantReplication** property is set to prevent cross-tenant object replication. You can also use Azure Policy to enforce governance for a set of storage accounts. For example, you can create a policy with the deny effect to prevent a user from creating a storage account where the **AllowCrossTenantReplication** property is set to *true*, or from modifying an existing storage account to change the property value to *true*.
 
 ## Replication status
 
