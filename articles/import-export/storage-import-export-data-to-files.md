@@ -102,8 +102,7 @@ Do the following steps to prepare the drives.
 6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files aren't processed.
 
     > [!IMPORTANT]
-    > - Do not modify the data on the disk drives or the journal file after completing disk preparation.
-    > - [!INCLUDE [storage-import-export-format-disk-note](../../includes/storage-import-export-format-disk-note.md)]
+    > - Do not modify the data on the disk drives the journal file or reformat any of the disks after completing disk preparation.
 
 For additional samples, go to [Samples for journal files](#samples-for-journal-files).
 

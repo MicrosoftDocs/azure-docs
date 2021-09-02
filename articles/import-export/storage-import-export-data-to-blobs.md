@@ -91,8 +91,8 @@ Perform the following steps to prepare the drives.
    Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of the journal file when creating a job if the journal file is too big.
 
 > [!IMPORTANT]
+> * Do not modify the data on the disk drives the journal file or reformat any of the disks after completing disk preparation.
 > * The maximum size of the journal file that the portal allows is 2 MB. If the journal file exceeds that limit, an error is returned.
-> * [!INCLUDE [storage-import-export-format-disk-note](../../includes/storage-import-export-format-disk-note.md)]
 
 ## Step 2: Create an import job
 
