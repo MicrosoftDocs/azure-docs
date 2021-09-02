@@ -41,7 +41,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
 5. Under Manage, select **Access reviews**, and then select **New** to create a new access review.
 
-    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/access-reviews.png}" alt-text="Azure AD roles - Access reviews list showing the status of all reviews screenshot.":::
+    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/access-reviews.png" alt-text="Azure AD roles - Access reviews list showing the status of all reviews screenshot.":::
  
 6. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
 
