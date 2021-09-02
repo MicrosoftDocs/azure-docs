@@ -41,7 +41,7 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
 1. You are almost done with this resource, but before you leave these pages, select **Access Keys** on the left navigation pane to get a connection string so that you can retrieve this data using the indexer.
 
-1. Select **Show Keys** at the top of the page, and then copy the connection string for either key1 or key2.
+1. In **Access Keys**, select **Show Keys** at the top of the page to unhide the connection strings, and then copy the connection string for either key1 or key2.
 
    A connection string has the following format: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
@@ -371,13 +371,11 @@ In the Azure portal, go to the Azure Cognitive Search service's **Overview** pag
 
 In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see six tables.
 
-When you open a table, scroll to the right to view the content fields:
+Each table is generated with the IDs necessary for cross-linking the tables in queries. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 
    :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
 
-Each table is generated with the IDs necessary for cross-linking the tables in queries for table projections that are in the same projection group.
-
-The knowledge store in this walkthrough consists of a various tables that show different ways of shaping and structuring a table.
+In this walkthrough, the knowledge store is composed of a various tables showing different ways of shaping and structuring a table. The first three rely on a Shaper skill to provide the columns and data values.
 
 | Table | Description |
 |-------|-------------|
@@ -387,7 +385,6 @@ The knowledge store in this walkthrough consists of a various tables that show d
 | hotelReviews4InlineProjectionDocument | Alternative to the first table, using inline shaping instead of the Shaper skill to shape data for the projection. |
 | hotelReviews5InlineProjectionPages | Alternative to the second table, using inline shaping. |
 | hotelreviews6InlineProjectionKeyPhrases | Alternative to the third table, using inline shaping. |
-
 
 ## Clean up
 

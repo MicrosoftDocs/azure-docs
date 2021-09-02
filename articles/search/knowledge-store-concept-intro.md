@@ -30,9 +30,9 @@ The primary benefits of a knowledge store are two-fold: flexible access to conte
 
 Unlike a search index that can only be accessed through queries in Cognitive Search, a knowledge store can be accessed by any tool, app, or process that supports connections to Azure Storage. This flexibility opens up new scenarios for consuming the analyzed and enriched content produced by an enrichment pipeline.
 
-The same skillset that enriches data can also be used to shape data. Some tools like Power BI work better with tables, whereas a data science workload might want a complex data structure in a blob format. Adding a [Shaper skill](cognitive-search-skill-shaper.md) to a skillset gives you full control over the shape of your data. You can then pass these shapes to projections, either tables or blobs, to create physical data structures that align with the data's intended use.
+The same skillset that enriches data can also be used to shape data. Some tools like Power BI work better with tables, whereas a data science workload might require a complex data structure in a blob format. Adding a [Shaper skill](cognitive-search-skill-shaper.md) to a skillset gives you control over the shape of your data. You can then pass these shapes to projections, either tables or blobs, to create physical data structures that align with the data's intended use.
 
-The following video explains these benefits, and more, in detail.
+The following video explains both of these benefits and more.
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3]
 
@@ -58,13 +58,13 @@ The type of projection you specify in this structure determines the type of stor
 
 + `objects` project JSON document into Blob storage. The physical representation of an `object` is a hierarchical JSON structure that represents an enriched document.
 
-+ `files` project image files into Blob storage. A `file` is an image extracted from a document, transferred intact to Blob storage.
++ `files` project image files into Blob storage. A `file` is an image extracted from a document, transferred intact to Blob storage. Although it is named "files", it shows up in Blob Storage, not file storage.
 
 ## Create a knowledge store
 
 To create knowledge store, use the portal or an API. You will need [Azure Storage](../storage/index.yml), a [skillset](cognitive-search-working-with-skillsets.md), and an [indexer](search-indexer-overview.md). Because indexers require a search index, you will also need to provide an index definition.
 
-Go with the portal approach for the fastest route to a finished knowledge store. Alternatively, choose the REST API for a deeper understanding of how objects are defined and related.
+Go with the portal approach for the fastest route to a finished knowledge store. Or, choose the REST API for a deeper understanding of how objects are defined and related.
 
 ### [**Azure portal**](#tab/kstore-portal)
 

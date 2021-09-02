@@ -8,7 +8,7 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 08/31/2021
+ms.date: 09/02/2021
 ---
 
 # Quickstart: Create a knowledge store in the Azure portal
@@ -20,7 +20,7 @@ An enrichment pipeline accepts unstructured text and image content, applies AI-p
 In this quickstart, you'll set up your data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, and text translation of non-English customer comments.
 
 > [!NOTE]
-> This quickstart is the fastest route to a finished knowledge store in Azure Storage. For more detailed descriptions, see [Create a knowledge store in REST](knowledge-store-create-rest.md).
+> This quickstart is the fastest route to a finished knowledge store in Azure Storage. For more detailed coverage, see [Create a knowledge store in REST](knowledge-store-create-rest.md) instead.
 
 ## Prerequisites
 
@@ -32,8 +32,7 @@ This quickstart uses the following services:
 
 + An Azure Storage account with [Blob Storage](../storage/blobs/index.yml).
 
-> [!NOTE]
-> This quickstart also uses [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an additional Cognitive Services resource.
+This quickstart also uses [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an additional Cognitive Services resource.
 
 ## Set up your data
 
@@ -53,13 +52,13 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
 1. You are almost done with this resource, but before you leave these pages, select **Access Keys** on the left navigation pane to get a connection string so that you can retrieve this data using the indexer.
 
-1. Select **Show Keys** at the top of the page, and then copy the connection string for either key1 or key2.
+1. In **Access Keys**, select **Show Keys** at the top of the page to unhide the connection strings, and then copy the connection string for either key1 or key2.
 
    A connection string has the following format: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
 You are now ready to move on the **Import data** wizard.
 
-## Run the Import data wizard
+## Start the wizard
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
@@ -87,7 +86,7 @@ Because the data is multiple rows in one CSV file, set the *parsing mode* to get
 
 1. Continue to the next page.
 
-### Step 2: Add cognitive skills
+### Step 2: Add skills
 
 In this wizard step, add skills for AI enrichment. The source data consists of customer reviews in English and French. Skills that are relevant for this data set include key phrase extraction, sentiment detection, and text translation. In a later step, these enrichments will be "projected" into a knowledge store as Azure tables.
 
@@ -118,7 +117,7 @@ In this wizard step, add skills for AI enrichment. The source data consists of c
 
 1. Enter the **Storage account Connection String** that you saved in a previous step.
 
-   :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ss.png" alt-text="Screenshot of the knowledge store definition" border="true":::
+   :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ks.png" alt-text="Screenshot of the knowledge store definition" border="true":::
 
 1. Continue to the next page.
 
@@ -136,7 +135,7 @@ In this wizard step, configure an index for optional full-text search queries. T
 
 1. Continue to the next page.
 
-### Step 4: Configure the indexer
+### Step 4: Configure and run the indexer
 
 In this wizard step, configure an indexer that will pull together the data source, skillset, and the index you defined in the previous wizard steps.
 
@@ -148,21 +147,17 @@ In this wizard step, configure an indexer that will pull together the data sourc
 
 ## Check indexer status
 
-After you send each request, the search service should respond with a 201 success message. If you get errors, re-check your variables and make sure that the search service has room for the new index, indexer, data source, and skillset (the free tier is limited to three of each).
-
-In the Azure portal, go to the Azure Cognitive Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
+In the **Overview** page, open the **Indexers** tab in the middle of the page, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
 ## Check tables in Azure Storage
 
 In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see six tables.
 
-When you open a table, scroll to the right to view the content fields:
+Each table is generated with the IDs necessary for cross-linking the tables in queries. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 
    :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
 
-Each table is generated with the IDs necessary for cross-linking the tables in queries for table projections that are in the same projection group.
-
-The knowledge store in this walkthrough consists of a various tables that show different ways of shaping and structuring a table.
+In this walkthrough, the knowledge store is composed of a various tables showing different ways of shaping and structuring a table. The first three rely on a Shaper skill to provide the columns and data values.
 
 | Table | Description |
 |-------|-------------|
