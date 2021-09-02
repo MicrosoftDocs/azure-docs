@@ -56,7 +56,7 @@ To use this feature, you need:
 
 7. Select **OK** to exit the event hub configuration.
 
-8. Do any combination of the following:
+8. Select any combination of the following items:
     - To send audit logs to the event hub, select the **AuditLogs** check box. 
     - To send interactive user sign-in logs to the event hub, select the **SignInLogs** check box.
     - To send non-interactive user sign-in logs to the event hub, select the **NonInteractiveUserSignInLogs** check box. 
@@ -64,8 +64,8 @@ To use this feature, you need:
     - To send managed identity sign-in logs to the event hub, select the **ManagedIdentitySignInLogs** check box.
     - To send provisioning logs to the event hub, select the **ProvisioningLogs** check box.
     - To send sign-ins sent to Azure AD by an AD FS Connect Health agent, select the **ADFSSignInLogs** check box.
-    - To send risky users information select the **RiskyUsers** check box.
-    - To send user risk events information select the **UserRiskEvents** check box. 
+    - To send risky user information, select the **RiskyUsers** check box.
+    - To send user risk events information, select the **UserRiskEvents** check box. 
 
     > [!NOTE]
     > Some sign-in categories contain large amounts of log data depending on your tenant’s configuration. In general, the non-interactive user sign-ins and service principal sign-ins can be 5 to 10 times larger than the interactive user sign-ins.
@@ -80,7 +80,7 @@ To use this feature, you need:
 
 After data is displayed in the event hub, you can access and read the data in two ways:
 
-* **Configure a supported SIEM tool**. To read data from the event hub, most tools require the event hub connection string and certain permissions to your Azure subscription. Third-party tools with Azure Monitor integration include, but are not limited to:
+* **Configure a supported SIEM tool**. To read data from the event hub, most tools require the event hub connection string and certain permissions to your Azure subscription. Third-party tools with Azure Monitor integration include, but aren't limited to:
     
     * **ArcSight**: For more information about integrating Azure AD logs with ArcSight, see [Integrate Azure Active Directory logs with ArcSight using Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
     
