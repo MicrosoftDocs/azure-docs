@@ -23,15 +23,9 @@ landingContent:
   - title: About Virtual Network IP Services
     linkLists:
       - linkListType: overview
-        links:
       - linkListType: concept
-        links:
 
   # Card (optional)
   - title: Get started
     linkLists:
       - linkListType: tutorial
-        links:
-      - linkListType: tutorial
-        links:
-
