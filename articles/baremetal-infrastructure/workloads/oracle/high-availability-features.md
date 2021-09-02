@@ -50,9 +50,9 @@ Data Guard offers advantages over storage-level replication:
 - Prevents logical intra-block corruptions and lost-write corruptions. It also eliminates the risk of mistakes made by storage administrators from replicating to the standby.
 Redo can be delayed for a pre-determined period, so user errors aren't immediately replicated to the standby.
 
-## Azure NetApp Files snapshots
+## BareMetal snapshot recovery
 
-The NetApp Files storage solution used in BareMetal allows you to create snapshots of volumes. Snapshots allow you to revert a file system to a specific point in time quickly. Snapshot technologies allow recovery time objective (RTO) times that are a fraction of the time needed to restore a database backup.
+The BareMetal storage solution using NetApp that's offered in the Infrastructure allows you to create snapshots of volumes. Snapshots allow you to revert a file system to a specific point in time quickly. Snapshot technologies allow recovery time objective (RTO) times that are a fraction of the time needed to restore a database backup.
 
 Snapshot functionality for Oracle databases is available through Azure NetApp SnapCenter. SnapCenter enables snapshots for backup, SnapVault gives you offline vaulting, and Snap Clone enables self-service restore and other operations. For more information, see [SnapCenter integration for Oracle on BareMetal Infrastructure](netapp-snapcenter-integration-oracle-baremetal.md).
 

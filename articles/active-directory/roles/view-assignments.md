@@ -32,8 +32,10 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 This procedure describes how to list role assignments with organization-wide scope.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
-1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to open it and view its properties.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Roles and administrators** and then select a role to open it and view its properties.
+
 1. Select **Assignments** to list the role assignments.
 
     ![List role assignments and permissions when you open a role from the list](./media/view-assignments/role-assignments.png)
@@ -52,8 +54,9 @@ To download all assignments for a specific role, on the **Roles and administrato
 
 This section describes how to list role assignments with single-application scope. This feature is currently in public preview.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
-1. Select **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 
     ![Create or edit app registrations from the App registrations page](./media/view-assignments/app-reg-all-apps.png)
 

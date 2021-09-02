@@ -38,9 +38,9 @@ You can assign users to administrative units individually or as a bulk operation
 
 - Assign individual users from a user profile:
 
-   1. Sign in to the [Azure AD admin center](https://portal.azure.com).
+   1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-   1. Select **Users** and then, to open the user's profile, select the user to be assigned to an administrative unit.
+   1. Select **Azure Active Directory** > **Users** and then, to open the user's profile, select the user to be assigned to an administrative unit.
    
    1. Select **Administrative units**. 
    
@@ -50,17 +50,19 @@ You can assign users to administrative units individually or as a bulk operation
 
 - Assign individual users from an administrative unit:
 
-   1. Sign in to the [Azure AD admin center](https://portal.azure.com).
-   1. Select **Administrative units**, and then select the administrative unit where the user is to be assigned.
+   1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+   1. Select **Azure Active Directory** > **Administrative units**, and then select the administrative unit where the user is to be assigned.
+
    1. Select **All users**, select **Add member** and then, on the **Add member** pane, select one or more users that you want to assign to the administrative unit.
 
         ![Screenshot of the administrative unit "Users" pane for assigning a user to an administrative unit.](./media/admin-units-add-manage-users/assign-to-admin-unit.png)
 
 - Assign users as a bulk operation:
 
-   1. Sign in to the [Azure AD admin center](https://portal.azure.com).
+   1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-   1. Select **Administrative units**.
+   1. Select **Azure Active Directory** > **Administrative units**.
 
    1. Select the administrative unit to which you want to add users.
 

@@ -34,6 +34,8 @@ The batch kit container is available for free on [GitHub](https://github.com/mic
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download the latest batch kit container.
 
+[!INCLUDE [pull-image-include](../../../includes/pull-image-include.md)]
+
 ```bash
 docker pull docker.io/batchkit/speech-batch-kit:latest
 ```

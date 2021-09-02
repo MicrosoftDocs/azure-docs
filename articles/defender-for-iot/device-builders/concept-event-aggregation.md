@@ -1,7 +1,7 @@
 ---
 title: Micro agent event collection (Preview)
 description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
-ms.date: 06/29/2021
+ms.date: 07/15/2021
 ms.topic: conceptual
 ---
 
@@ -53,7 +53,7 @@ The data collected for each event:
 
 - **hit_count** - The aggregate count. The number of executions of the same process, during the same time frame, until the events are sent to the cloud. 
 
-## Network Connection events (event based)
+## Network Connection events (event based collector)
 
 Network Connection events are considered identical when the local port, remote port, transport protocol, local address, and remote address are identical.
 

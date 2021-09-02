@@ -136,7 +136,7 @@ A notification lets you know that the backup jobs have been stopped.
 To stop protection and delete data of a VM:
 
 >[!Note]
->For recovery points in archive that haven't stayed for a duration of 180 days in Archive Tier, deletion of those recovery points lead to early deletion cost. [Learn more](/azure/storage/blobs/storage-blob-storage-tiers#cool-and-archive-early-deletion).
+>For recovery points in archive that haven't stayed for a duration of 180 days in Archive Tier, deletion of those recovery points lead to early deletion cost. [Learn more](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion).
 
 
 1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Stop backup**.

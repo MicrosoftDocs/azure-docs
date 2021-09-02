@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -13,6 +13,7 @@ Resource Manager provides the following functions for getting resource values in
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [pickZones](#pickzones)
+* [providers (deprecated)](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -24,7 +25,7 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 
 ## extensionResourceId
 
-`extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
+`extensionResourceId(baseResourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the resource ID for an [extension resource](../management/extension-resource-types.md), which is a resource type that is applied to another resource to add to its capabilities.
 
@@ -32,9 +33,9 @@ Returns the resource ID for an [extension resource](../management/extension-reso
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceId |Yes |string |The resource ID for the resource that the extension resource is applied to. |
-| resourceType |Yes |string |Type of resource including resource provider namespace. |
-| resourceName1 |Yes |string |Name of resource. |
+| baseResourceId |Yes |string |The resource ID for the resource that the extension resource is applied to. |
+| resourceType |Yes |string |Type of the extension resource including resource provider namespace. |
+| resourceName1 |Yes |string |Name of the extension resource. |
 | resourceName2 |No |string |Next resource name segment, if needed. |
 
 Continue adding resource names as parameters when the resource type includes more segments.
@@ -47,7 +48,7 @@ The basic format of the resource ID returned by this function is:
 {scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-The scope segment varies by the resource being extended.
+The scope segment varies by the base resource being extended. For example, the ID for a subscription has different segments than the ID for a resource group.
 
 When the extension resource is applied to a **resource**, the resource ID is returned in the following format:
 
@@ -55,23 +56,27 @@ When the extension resource is applied to a **resource**, the resource ID is ret
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-When the extension resource is applied to a **resource group**, the format is:
+When the extension resource is applied to a **resource group**, the returned format is:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-When the extension resource is applied to a **subscription**, the format is:
+An example of using this function with a resource group is shown in the next section.
+
+When the extension resource is applied to a **subscription**, the returned format is:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-When the extension resource is applied to a **management group**, the format is:
+When the extension resource is applied to a **management group**, the returned format is:
 
 ```json
 /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
+
+An example of using this function with a management group is shown in the next section.
 
 ### extensionResourceId example
 
@@ -337,7 +342,7 @@ The next example shows a list function that takes a parameter. In this case, the
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for a region.
+Determines whether a resource type supports zones for the specified location or region.  This function only supports zonal resources, zone redundant services will return an empty array.  For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).  To use the pickZones function with zone redundant services, see the examples below.
 
 ### Parameters
 
@@ -369,12 +374,18 @@ When the `numberOfZones` parameter is set to 3, it returns:
 ]
 ```
 
-When the resource type or region doesn't support zones, an empty array is returned.
+When the resource type or region doesn't support zones, an empty array is returned.  An empty array is also returned for zone redundant services.
 
 ```json
 [
 ]
 ```
+
+### Remarks
+
+There are different categories for Azure Availability Zones - zonal and zone-redundant.  The pickZones function can be used to return an availability zone number or numbers for a zonal resource.  For zone redundant services (ZRS), the function will return an empty array.  Zonal resources can typically be identified by the use of a `zones` property on the resource header.  Zone redundant services have different ways for identifying and using availability zones per resource, use the documentation for a specific service to determine the category of support for availability zones.  For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
+
+To determine if a given Azure region or location supports availability zones, call the pickZones() function with a zonal resource type, for example `Microsoft.Storage/storageAccounts`.  If the response is non-empty, the region supports availability zones.
 
 ### pickZones example
 
@@ -420,6 +431,41 @@ You can use the response from pickZones to determine whether to provide null for
   "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
 },
 ```
+
+The following example shows how to use the pickZones function to enable zone redundancy for Cosmos DB.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.DocumentDB/databaseAccounts",
+    "apiVersion": "2021-04-15",
+    "name": "[variables('accountName_var')]",
+    "location": "[parameters('location')]",
+    "kind": "GlobalDocumentDB",
+    "properties": {
+      "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+      "locations": [
+      {
+        "locationName": "[parameters('primaryRegion')]",
+        "failoverPriority": 0,
+        "isZoneRedundant": "[if(empty(pickZones('Microsoft.Storage', 'storageAccounts', parameters('primaryRegion'))), bool('false'), bool('true'))]",
+      },
+      {
+        "locationName": "[parameters('secondaryRegion')]",
+        "failoverPriority": 1,
+        "isZoneRedundant": "[if(empty(pickZones('Microsoft.Storage', 'storageAccounts', parameters('secondaryRegion'))), bool('false'), bool('true'))]",
+      }
+    ],
+      "databaseAccountOfferType": "Standard",
+      "enableAutomaticFailover": "[parameters('automaticFailover')]"
+    }
+  }
+]
+```
+
+## providers
+
+**The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
 
 ## reference
 
@@ -535,7 +581,7 @@ To simplify the creation of any resource ID, use the `resourceId()` functions de
 
 The pattern is:
 
-`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>), <API-version>, 'Full').Identity.propertyName]"`
 
 For example, to get the principal ID for a managed identity that is applied to a virtual machine, use:
 

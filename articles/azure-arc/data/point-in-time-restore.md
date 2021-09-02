@@ -7,13 +7,12 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
 #  Perform a Point in Time Restore
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 Azure Arc-enabled SQL Managed Instance comes built in with many PaaS like capabilities. One such capability is the ability to restore a database to a point-in-time, within the pre-configured retention settings. This article describes how to do a point-in-time restore of a database in Azure Arc-enabled SQL managed instance.
 

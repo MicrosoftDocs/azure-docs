@@ -1,8 +1,11 @@
 ---
 title: Fault tolerance of copy activity in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'Learn about how to add fault tolerance to copy activity in Azure Data Factory by skipping the incompatible data.'
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
@@ -82,12 +85,12 @@ path | The path of the log files. | Specify the path that you use to store the l
 > The followings are the prerequisites of enabling fault tolerance in copy activity when copying binary files.
 > For skipping particular files when they are being deleted from source store:
 > - The source dataset and sink dataset have to be binary format, and the compression type cannot be specified. 
-> - The supported data store types are Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, File System, FTP, SFTP, Amazon S3, Google Cloud Storage and HDFS.
+> - The supported data store types are Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Files, File System, FTP, SFTP, Amazon S3, Google Cloud Storage and HDFS.
 > - Only if when you specify multiple files in source dataset, which can be a folder, wildcard or a list of files, copy activity can skip the particular error files. If a single file is specified in source dataset to be copied to the destination, copy activity will fail if any error occurred.
 >
 > For skipping particular files when their access are forbidden from source store:
 > - The source dataset and sink dataset have to be binary format, and the compression type cannot be specified. 
-> - The supported data store types are Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 and HDFS.
+> - The supported data store types are Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Files, SFTP, Amazon S3 and HDFS.
 > - Only if when you specify multiple files in source dataset, which can be a folder, wildcard or a list of files, copy activity can skip the particular error files. If a single file is specified in source dataset to be copied to the destination, copy activity will fail if any error occurred.
 >
 > For skipping particular files when they are verified to be inconsistent between source and destination store:

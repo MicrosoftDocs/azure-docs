@@ -4,12 +4,14 @@ description: Describes the functions to use in a Bicep file to determine logical
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/29/2021
 ---
 
 # Logical functions for Bicep
 
-Resource Manager provides a `bool` function for Bicep. Some of the Azure Resource Manager JSON logical functions are replaced with [Bicep logical operators](./operators-logical.md).
+Resource Manager provides a `bool` function for Bicep. 
+
+Most of the logical functions in Azure Resource Manager templates are replaced with [logical operators](./operators-logical.md) in Bicep.
 
 ## bool
 
@@ -49,4 +51,5 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
+* For most logical operations, see [Bicep logical operators](./operators-logical.md).
 * For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).

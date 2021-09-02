@@ -1,12 +1,14 @@
 ---
 title: Copy data from Oracle Responsys (Preview)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Oracle Responsys to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 08/01/2019
+ms.custom: synapse
+ms.date: 08/30/2021
 ---
 
 # Copy data from Oracle Responsys using Azure Data Factory (Preview)
@@ -31,6 +33,31 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 ## Getting started
 
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+## Create a linked service to Oracle Responsys using UI
+
+Use the following steps to create a linked service to Oracle Responsys in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Oracle and select the Oracle Responsys connector.
+
+   :::image type="content" source="media/connector-oracle-responsys/oracle-responsys-connector.png" alt-text="Screenshot of the Oracle Responsys connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-oracle-responsys/configure-oracle-responsys-linked-service.png" alt-text="Screenshot of linked service configuration for Oracle Responsys.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Oracle Responsys connector.
 
