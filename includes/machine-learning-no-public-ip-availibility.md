@@ -7,4 +7,4 @@ ms.author: sgilley
 ---
 
 > [!NOTE]
-> Support for compute instances without public IP addresses is currently available and in public preview for the following regions: Australia East, Brazil South, Central India, Central US, East Asia, East US, France Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, Southeast Asia, UK South, West Central US, West US, West US 2.
+> Support for compute instances without public IP addresses is currently available and in public preview for the following regions: Australia East, Brazil South, Central India, Central US, East Asia, East US, France Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, Southeast Asia, UK South, Us Gov Arizona, US Gov Virginia, West Central US, West US, West US 2.
