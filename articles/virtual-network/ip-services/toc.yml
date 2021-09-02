@@ -1,6 +1,4 @@
 items:
-- name: Virtual Network IP Services documentation
-  href: index.yml
 - name: Overview
 - name: Quickstarts
 - name: Concepts
