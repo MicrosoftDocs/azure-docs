@@ -1,9 +1,9 @@
 ---
-title: Create an HDInsight cluster that uses Availability Zones
+title: Create an Azure HDInsight cluster that uses Availability Zones
 description: Learn how to create an Azure HDInsight cluster that uses Availability Zones.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: 
+ms.custom: references_regions
 ms.date: 09/01/2021
 --- 
 
@@ -59,7 +59,7 @@ Using Availability zones with HDInsight cluster in this manner can provide both 
 If your application requires high availability across multiple Availability zones, you can create one primary HDInsight cluster in one Availability zone and create a secondary HDInsight cluster in a different Availability zone with minimum size to save cost. With this design, if one of the other Availability zones goes down, this HDInsight cluster won’t be impacted. If this Availability zone goes down, customers need to switch the secondary clusters in a different Availability zone to the primary, route the workload to this new primary cluster and quickly scale up the cluster size to pick up the data processing.   
 
 ## Create an HDInsight cluster using availability zone
-You can use ARM template to launch an HDInsight cluster into a specified Availability zone. 
+You can use Azure Resource Manager (ARM) template to launch an HDInsight cluster into a specified Availability zone. 
 
 In the resources section, you need to add a section of ‘zones’ and provide which Availability zone you want this cluster to be deployed into. 
 
@@ -78,7 +78,7 @@ In the resources section, you need to add a section of ‘zones’ and provide w
 ## Verify nodes within one Availability Zone across zones
 When the HDInsight cluster is ready, you can check the location to see which availability zone they're deployed in.
 
-:::image type="content" source="./media/hdinsight-use-availability-zones/cluster-availability-zone-info.png" alt-text="Check availability zone info in cluster overview" border="false":::
+:::image type="content" source="./media/hdinsight-use-availability-zones/cluster-availability-zone-info.png" alt-text="Screenshot sthat hows availability zone info in cluster overview" border="true":::
 
 **Get API response**: 
 
@@ -98,7 +98,7 @@ You can scale up an HDInsight cluster with more worker nodes. The newly added wo
 
  - Availability zone feature in HDInsight does not support clusters that require managed disks (Kafka cluster and Accelerated write feature enabled HBase cluster) 
 
-## Best Practices
+## Best practices
 
  - Regularly back up the configurations in Ambari DB. 
  - Implement logic to easily route workload to secondary cluster.
