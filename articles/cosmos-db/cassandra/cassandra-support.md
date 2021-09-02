@@ -189,7 +189,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | UPDATE conditions | No |
 
 > [!NOTE]
-> LWT currently isn't supported for accounts that have multi-region writes enabled.
+> Lightweight transactions currently aren't supported for accounts that have multi-region writes enabled.
 
 ## CQL Shell commands
 
