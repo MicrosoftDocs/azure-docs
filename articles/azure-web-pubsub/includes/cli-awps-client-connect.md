@@ -17,6 +17,7 @@ Use the Azure CLI [az webpubsub client](/cli/azure/webpubsub/client) command to 
 
 - Hub name: **myHub1**.
 - Resource group name: **myResourceGroup**.
+- User ID: **user1**.
 
 ```azurecli-interactive
 az webpubsub client start --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --hub-name myHub1
