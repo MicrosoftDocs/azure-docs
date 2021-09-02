@@ -18,7 +18,7 @@ ms.date: 05/10/2021
 Guest users in Azure Active Directory (Azure AD) are users that have been imported into the current Azure AD from other Azure Active Directories, or outside of it. For example, guest users can include users from other Azure Active Directories, or from accounts like *\@outlook.com*, *\@hotmail.com*, 
 *\@live.com*, or *\@gmail.com*. 
 
-This article demonstrates how to create an Azure AD guest user and set that user as an Azure AD admin for the SQL Managed Instance or the [logical server in Azure](logical-servers.md) used by Azure SQL Database and Azure Synapse Analytics, without having to add the guest user to a group inside Azure AD.
+This article demonstrates how to create an Azure AD guest user and set that user as an Azure AD admin for Azure SQL Managed Instance or the [logical server in Azure](logical-servers.md) used by Azure SQL Database and Azure Synapse Analytics, without having to add the guest user to a group inside Azure AD.
 
 ## Feature description
 
