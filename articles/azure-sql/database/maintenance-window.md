@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 07/22/2021
+ms.date: 09/01/2021
 ---
 
 # Maintenance window (Preview)
@@ -71,32 +71,34 @@ Choosing a maintenance window other than the default is available on all SLOs **
 
 Choosing a maintenance window other than the default is currently available in the following regions:
 
-- Australia East
-- Australia SouthEast
-- Brazil South
-- Canada Central
-- Canada East
-- Central India
-- Central US
-- East US
-- East US2
-- East Asia
-- France South
-- Germany West Central
-- Japan East
-- Korea Central*
-- NorthCentral US
-- North Europe
-- SouthCentral US
-- SouthEast Asia
-- UK South
-- UK West
-- West Central US
-- West Europe
-- West US
-- West US2
-
-*Available only for Azure SQL Managed Instance
+| Azure Region | SQL Managed Instance | Azure SQL Database | SQL Database in an [Azure Availability Zone](high-availability-sla.md) | 
+|:---|:---|:---|:---|
+| Australia East | Yes | Yes | Yes |
+| Australia SouthEast | Yes | Yes | |
+| Brazil South | Yes | Yes | Yes |
+| Canada Central | Yes | Yes | Yes |
+| Canada East | Yes | Yes | |
+| Central India | Yes | Yes | |
+| Central US | Yes | Yes | Yes |
+| East US | Yes | Yes | Yes |
+| East US2 | Yes | Yes | Yes |
+| East Asia | Yes | Yes | |
+| France Central |  |  | Yes |
+| France South | Yes | Yes | |
+| Germany West Central | Yes | Yes | Yes |
+| Japan East | Yes | Yes | Yes |
+| Korea Central |  | Yes | |
+| North Central US | Yes | Yes | |
+| North Europe | Yes | Yes | Yes |
+| South Central US | Yes | Yes | Yes |
+| Southeast Asia | Yes | Yes | Yes |
+| UK South | Yes | Yes | Yes |
+| UK West | Yes | Yes | |
+| West Central US | Yes | Yes | |
+| West Europe | Yes | Yes | Yes |
+| West US | Yes | Yes | Yes |
+| West US2 | Yes | Yes | |
+| | | | | 
 
 ## Gateway maintenance for Azure SQL Database
 
