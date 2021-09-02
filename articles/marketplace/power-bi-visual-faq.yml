@@ -5,13 +5,13 @@ metadata:
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: conceptual
-  ms.date: 09/01/2021
+  ms.date: 09/03/2021
   author: posurnis
   ms.author: pooja.surnis
   ms.reviewer: pooja.surnis
     
 title: Power BI visuals FAQs
-summary: Power BI visual offers are now part of the commercial marketplace and managed within Partner Center to streamline the offer management experience. All existing and new Power BI visual offers will be accessible in the commercial marketplace after the move by Microsoft. This article addresses frequently asked questions about the move and enhancements to the offer setup process.
+summary: Power BI visual offers are now part of the commercial marketplace and managed within Partner Center to streamline the offer management experience. All existing and new Power BI visual offers will be accessible in the commercial marketplace after the move by Microsoft in September 2021. This article addresses frequently asked questions about the move and enhancements to the offer management experience.
 
 
 sections:
@@ -22,11 +22,11 @@ sections:
         answer: |
           | Area | Changes |
           | --- | --- |
-          | Account | You are required to be enrolled in the commercial marketplace to manage existing and new Power BI visual offers. You need to sign the publishing agreement for the commercial marketplace program and enroll using your company/work email address. Learn more at [Manage your commercial marketplace account in Partner Center](https://docs.microsoft.com/en-us/azure/marketplace/manage-account). |
-          | Offer publishing and offer management experience | We will move your offer from the Office Store to the commercial marketplace near the end of September, 2021. After the move, you will manage your offers using Partner Center (instead of Office Store in Partner Center), which offers an improved user experience and a simplified package submission process. Learn how to [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/en-us/azure/marketplace/update-existing-offer). |
+          | Account | You are required to be enrolled in the commercial marketplace to manage existing and new Power BI visual offers. If you are not yet enrolled, you'll need to sign the publishing agreement for the commercial marketplace program and enroll using your company/work email address. Learn more at [Manage your commercial marketplace account in Partner Center](manage-account.md). |
+          | Offer publishing and offer management experience | We will move your offer from the Office Store to the commercial marketplace in September 2021. After the move, you will manage your offers using Partner Center (instead of the Office Store in Partner Center), which offers an improved user experience and a simplified package submission process. Learn how to [Update existing offers in the commercial marketplace](update-existing-offer.md). |
           | Availability of your offers in Partner Center | No changes. If your offer is in draft or published state in the Office Store, it will continue to be in same state after the move to the commercial marketplace. |
           | Acquisitions and deployments | No changes. Your customers can continue discovering, downloading, and deploying your offers with no interruptions. |
-          | Analytics | You can continue to monitor sales, evaluate performance, and optimize your offers in the commercial marketplace by viewing analytics in Partner Center. There are differences between how analytics reports display in CPP and Partner Center. For example, **Seller Insights** in CPP has an  **Orders & Usage** tab that displays data for usage-based offers and non-usage-based offers, while in Partner Center the **Orders** page has a separate tab for SaaS Offers. Learn more at [Access analytic reports for the commercial marketplace in Partner Center](https://docs.microsoft.com/en-us/azure/marketplace/analytics). |
+          | Analytics | The **Marketplace insights** dashboard in Partner Center will be enhanced to show information on consent clicks and platform (website and client) for your Power BI visual offers. Use this information to understand sources driving traffic, clicks, and conversions for your offers. |
           |
           
           
@@ -35,11 +35,11 @@ sections:
         answer: |
           If your same account from the Office Store is enrolled in the commercial marketplace, no further action is required. After the move is complete, sign in to Partner Center using the same account and you will see your Power BI visuals.
 
-          If your Office Store account is not enrolled in the commercial marketplace, do this now using the same Seller ID for your Office Store account. Learn more about finding your Seller ID here: [Manage your commercial marketplace account in Partner Center | Microsoft Docs](https://docs.microsoft.com/azure/marketplace/manage-account).
+          If your Office Store account is not enrolled in the commercial marketplace, contact the owner of the account to enroll it in the commercial marketplace. Learn more about finding your Seller ID at [Manage your commercial marketplace account in Partner Center](manage-account.md).
 
           If your Office Store account is not enrolled in the commercial marketplace, but your organization is enrolled in the commercial marketplace with a different Seller ID, we still encourage you to enroll in the commercial marketplace using the same account with Office Store enrollment.
 
-          If you create a new account enrolled in the commercial marketplace with a different Seller ID from the Office Store, your Power BI visual offers will not automatically move to the commercial marketplace. Contact [support](https://partner.microsoft.com/en-US/support/?stage=2&topicid=dfd204c3-8357-c8d6-4dff-186bd183058c) and provide the new Seller ID. We will map your existing Power BI visual offer to the new account after the move is complete, and our engineering team will move your Power BI visual offer to the new Seller ID.
+          If you create a new account enrolled in the commercial marketplace with a different Seller ID from the Office Store, your Power BI visual offers will not automatically move to the commercial marketplace. Contact [support](https://partner.microsoft.com/support/?stage=2&topicid=dfd204c3-8357-c8d6-4dff-186bd183058c) and provide the new Seller ID. We will map your existing Power BI visual offer to the new account after the move is complete, and our engineering team will move your Power BI visual offer to the new Seller ID.
 
 
       - question: |
@@ -58,23 +58,11 @@ sections:
           | Product management | Offer management |
           |
 
-          For analytics, the following table shows the correlation between the retired Cloud Partner Portal payout report and the new one in Partner Center.
-
-          | Page name in CPP | Page name in Partner Center |
-          | --- | --- |
-          |  |  |
-          |  |  |
-          |  |  |
-          |  |  |
-          |  |  |
-          |  |  |
-          |  |  |
-          |
 
       - question: |
           What about offers I published in the Office Store?
         answer: |
-          Offers moved to the commercial marketplace will be accessible when you sign in to Partner Center. If your offer was published and live in the Office store, it will continue to be live and your customers will continue to be able to discover, acquire, and download it without interruption.
+          Power BI visual offers moved to the commercial marketplace will be accessible when you sign in to Partner Center. If your offer was published and live in the Office Store, it will continue to be live and your customers will continue to be able to discover, acquire, and download it without interruption.
 
 
       - question: |
@@ -90,16 +78,18 @@ sections:
         answer: |
           After we move your offers to the commercial marketplace, you will not be able to access your offers from the Office Store. What you see in Partner Center depends on the programs you are enrolled in, the accounts you belong to, and the user roles and permissions you have been assigned. There are many Partner Center programs available and you may be enrolled in multiple programs. You may also have access to multiple accounts with the same user credentials.
 
-          The offers you created in the Office Store will be available in Partner Center with the same account used to create the offers. To ensure you are viewing the right program and the right account, follow the steps below. For other troubleshooting tips, see [Manage your Partner Center account](https://docs.microsoft.com/partner-center/partner-center-account-setup).
+          The Power BI visual offers you created in the Office Store will be available in Partner Center with the same account used to create the offers. To ensure you are viewing the right program and the right account, follow the steps below. For other troubleshooting tips, see [Manage your Partner Center account](https://docs.microsoft.com/partner-center/partner-center-account-setup).
           
           **Access the right program in Partner Center**
 
           1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) with the same credentials as before. The navigation menu on the left (left-nav menu) displays options associated with the programs you are enrolled in, such as the MPN program, the Office Store, and the commercial marketplace.
 
-          1. Select **Commercial Marketplace** > **Overview** to access your offers (if you don’t see the commercial marketplace in the left-nav menu, you may be in the wrong account; follow the steps in the next section to access the right account):
+          1. Select **Commercial Marketplace** > **Overview** to access your offers (if you don’t see the commercial marketplace in the left-nav menu, you may be in the wrong account:
 
              :::image type="content" source="media/power-bi-visual/overview-tab.png" alt-text="Shows the Overview tab in Partner Center.":::
 
+          **Access the right account in Partner Center**
+          
           If you have multiple accounts, Partner center displays an account picker button in the lef-nav menu. Select this to view the accounts you belong to. Select an account to switch to it and see all the programs and information pertaining to that account. If you don’t see an account picker button in the navigation menu, you only have one account.
 
           :::image type="content" source="media/power-bi-visual/account-picker.png" alt-text="Shows the account picker button in the left-nav menu in Partner Center.":::
@@ -114,7 +104,7 @@ sections:
       - question: |
           What are the publishing and offer management differences?
         answer: |
-          Here are the key differences between publishing a Power BI visual offer in Office Store vs. in Partner Center:
+          These are the key differences between publishing a Power BI visual offer in Office Store vs. in Partner Center:
 
           1. **Simplified package submission process**
 
@@ -134,11 +124,25 @@ sections:
 
              :::image type="content" source="media/power-bi-visual/branding-navigation.png" alt-text="Shows the offer Overview page in Partner Center.":::
       
+
+          1. **Analytics**
+          
+          The **Marketplace Insights** dashboard in Partner Center includes the following enhancements:
+
+          - Call to actions trend
+            - Addition of Consent clicks analytics. Consent clicks represents the count of all consent clicks completed on the offer listing page. They appear after a user has clicked on a **Call to action** button: *Get it Now*, *Free Trial*, *Contact Me*, or *Test Drive*.
+          - Page Visits and Calls to Action
+          - Tabular data is modified:
+            - Addition of **Consent clicks** column. Use this information to understand conversion rates for your offers.
+            - Addition of **Platform** column in view by Referral Domain. Use this information to understand how page views, calls-to-action, and consent clicks for your offers vary across website and embedded client platforms.
+            - Addition of **Funnel view** to show conversion rates from page views to consent clicks
+
+
 additionalContent: |
 
   ## Next steps
 
-  - ???
+  - For additional help, contact [support](https://partner.microsoft.com/support/?stage=2&topicid=dfd204c3-8357-c8d6-4dff-186bd183058c)
   
   <!--
   - [Create a Power BI visual offer in Partner Center](marketplace-power-bi-visual.md) -->
