@@ -94,7 +94,7 @@ To request IA support for Zerto on Azure VMware Solution, send an email request 
 
 ## Configure Zerto for disaster recovery
 
-To configure Zerto for the On-premise VMware to Azure VMware Solution DR and Azure VMware Solution to Azure VMware Solution Cloud DR scenarios, see the [Zerto Virtual Manager Administration Guide vSphere Environment](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/Zerto%20Virtual%20Manager%20vSphere%20Administration%20Guide.pdf?cb=1629311409).
+To configure Zerto for the on-premises VMware to Azure VMware Solution DR and Azure VMware Solution to Azure VMware Solution Cloud DR scenarios, see the [Zerto Virtual Manager Administration Guide vSphere Environment](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/Zerto%20Virtual%20Manager%20vSphere%20Administration%20Guide.pdf?cb=1629311409).
 
 
 For more information, see the [Zerto technical documentation](https://www.zerto.com/myzerto/technical-documentation/). Alternatively, you can download all the Zerto guides part of the [v8.5 Search Tool for Zerto Software PDFs documentation bundle](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/SEARCH_TOOL.zip?cb=1629311409).
@@ -107,7 +107,7 @@ For more information, see the [Zerto technical documentation](https://www.zerto.
 
    :::image type="content" source="media/zerto-disaster-recovery/support-request-zerto-disaster-recovery.png" alt-text="Screenshot showing the support request for Day 2 Zerto DR configurations.":::
 
-- Due to the nature of Zerto-vSphere integration (using vSphere DRS hard affinity), cluster scale-down operations are expected to fail. Azure VMware Solution SRE teams will remediate these failures offline in the IA phase.
+- Because of the nature of Zerto-vSphere integration (using vSphere DRS hard affinity), cluster scale-down operations are expected to fail. Azure VMware Solution SRE teams will remediate these failures offline in the IA phase.
 
 - In the GA phase, all the above operations will be enabled in an automated self-service fashion.
 
