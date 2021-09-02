@@ -13,6 +13,8 @@ ms.reviewer: "vanto"
 
 # Azure SQL Database server roles for permission management
 
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
 In Azure SQL Database, the server is a logical concept and permissions cannot be granted on a server level. To simplify permission management, Azure SQL Database provides a set of fixed server-level roles to help you manage the permissions on a [logical server](logical-servers.md). Roles are security principals that group logins.
 
 > [!NOTE]
