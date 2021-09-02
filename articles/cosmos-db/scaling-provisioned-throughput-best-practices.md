@@ -31,7 +31,7 @@ When you send a request to increase the RU/s of your database or container, depe
  
 Each physical partition can support a maximum of 10,000 RU/s (applies to all APIs) of throughput and 50 GB of storage (applies to all APIs, except Cassandra, which has 30 GB of storage). 
 
-## How to scale-up RU/s without changing partition layout (instant scaling)
+## How to scale-up RU/s without changing partition layout
 
 ### Step 1: Find the current number of physical partitions. 
 
@@ -55,7 +55,7 @@ Suppose we have an existing container with five physical partitions and 30,000 R
 > [!TIP]
 > If you are scaling up RU/s to respond to request rate too large exceptions (429s), it's recommended to first increase RU/s to the highest RU/s that are supported by your current physical partition layout and assess if the new RU/s is sufficient before increasing further.
  
-## How to ensure even data distribution post scale-up (asynchronous scaling)
+## How to ensure even data distribution during asynchronous scaling
 
 ### Background
 
