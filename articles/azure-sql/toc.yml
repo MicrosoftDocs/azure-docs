@@ -503,6 +503,8 @@
           href: database/private-endpoint-overview.md
         - name: VNet endpoints
           href: database/vnet-service-endpoint-rule-overview.md
+        - name: Server roles
+          href: database/security-server-roles.md
 
     - name: Database sharding
       items:
