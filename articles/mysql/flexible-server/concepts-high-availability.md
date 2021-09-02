@@ -35,7 +35,7 @@ The data and log files are hosted in [zone-redundant storage (ZRS)](../../storag
 - The standby replica is activated. 
 - The binary log files of the primary server continue to apply to the standby server to bring it online to the last committed transaction on the primary. 
 
-Logs in ZRS are accessible even when the primary server is unavailable. This availability helps to ensure there's no loss of data. After the standby replica is activated and binary logs are applied, the current standby replica server takes the roles of the primary server. DNS is updated so that client connections are directed to the new primary when the client reconnects. The failover is fully transparent from the client application and doesn't require any action from you. The high availability solution then brings back the old primary server when possible and places it as a standby.
+Logs in ZRS are accessible even when the primary server is unavailable. This availability helps to ensure there's no loss of data. After the standby replica is activated and binary logs are applied, the current standby replica server takes the role of the primary server. DNS is updated so that client connections are directed to the new primary when the client reconnects. The failover is fully transparent from the client application and doesn't require any action from you. The high availability solution then brings back the old primary server when possible and places it as a standby.
  
 The database server name is used to connect applications to the primary server. Standby replica information isn't exposed for direct access. Commits and writes are acknowledged after the log files are flushed at the primary server's ZRS. Because of the sync replication technology used in ZRS storage, you can expect 5-10 percent increased latency for application writes and commits.
  
@@ -57,7 +57,7 @@ If there's a failover:
 - The standby replica is activated. 
 - The binary log files of the primary server continue to apply to the standby server to bring it online to the last committed transaction on the primary. 
 
-Logs in LRS are accessible even when the primary server is unavailable. This availability helps to ensure there's no loss of data. After the standby replica is activated and binary logs are applied, the current standby replica takes the roles of the primary server. DNS is updated to redirect connections to the new primary when the client reconnects. The failover is fully transparent from the client application and doesn't require any action from you. The high availability solution then brings back the old primary server when possible and places it as a standby.
+Logs in LRS are accessible even when the primary server is unavailable. This availability helps to ensure there's no loss of data. After the standby replica is activated and binary logs are applied, the current standby replica takes the role of the primary server. DNS is updated to redirect connections to the new primary when the client reconnects. The failover is fully transparent from the client application and doesn't require any action from you. The high availability solution then brings back the old primary server when possible and places it as a standby.
  
 The database server name is used to connect applications to the primary server. Standby replica information isn't exposed for direct access. Commits and writes are acknowledged after the log files are flushed at the primary server's LRS. Because the primary and the standby replica are in the same zone, there's less replication lag and lower latency between the application server and the database server. The same-zone setup doesn't provide high availability when dependent infrastructures are down for the specific availability zone. There will be downtime until all dependent services are back online for that availability zone.
  
@@ -105,7 +105,7 @@ Here are some considerations to keep in mind when you use high availability:
 **Can I use the standby replica for read or write operations?** </br>
 The standby server isn't available for read or write operations. It's a passive standby to enable fast failover.</br>
 **Will I have data loss when failover happens?**</br>
-Logs in ZRS are accessible even when the primary server is unavailable. This availability helps to ensure there's no loss of data. After the standby replica is activated and binary logs are applied, it takes the roles of the primary server. </br>
+Logs in ZRS are accessible even when the primary server is unavailable. This availability helps to ensure there's no loss of data. After the standby replica is activated and binary logs are applied, it takes the role of the primary server. </br>
 **Do I need to take any action after a failover?**</br>
 Failovers are fully transparent from the client application. You don't need to take any action. Applications should just use the retry logic for their connections. </br>
 **What happens when I don’t choose a specific zone for my standby replica? Can I change the zone later?**</br>
