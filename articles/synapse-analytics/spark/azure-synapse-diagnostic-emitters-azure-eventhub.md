@@ -93,16 +93,16 @@ Azure Synapse Analytics workspaces support enabling data exfiltration protection
 
 ## Next steps
 
-[Create a storage account](../../storage/common/storage-account-create.md)
-[Create a storage account to use with Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md)
-[Create, develop, and maintain Synapse notebooks in Azure Synapse Analytics](../../synapse-analytics/spark/apache-spark-development-using-notebooks.md)
-[Spark session config magic command](../../synapse-analytics/spark/apache-spark-development-using-notebooks.md#spark-session-config-magic-command)
-[Manage storage account access keys](../../storage/common/storage-account-keys-manage.md)
-[Grant limited access to Azure Storage resources using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md)
-[Key Vault](https://azure.microsoft.com/services/key-vault/)
-[Spark Metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics)
-[Synapse Spark Diagnostic Emitter Configuration Samples](https://go.microsoft.com/fwlink/?linkid=2169375)
-[Synapse Managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
+- [Create a storage account](../../storage/common/storage-account-create.md)
+- [Create a storage account to use with Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md)
+- [Create, develop, and maintain Synapse notebooks in Azure Synapse Analytics](../../synapse-analytics/spark/apache-spark-development-using-notebooks.md)
+- [Spark session config magic command](../../synapse-analytics/spark/apache-spark-development-using-notebooks.md#spark-session-config-magic-command)
+- [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md)
+- [Key Vault](https://azure.microsoft.com/services/key-vault/)
+- [Spark Metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics)
+- [Synapse Spark Diagnostic Emitter Configuration Samples](https://go.microsoft.com/fwlink/?linkid=2169375)
+- [Synapse Managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
 
 
 
