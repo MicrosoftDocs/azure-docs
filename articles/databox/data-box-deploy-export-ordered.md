@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 09/02/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -381,7 +381,7 @@ The following table shows examples of valid blob paths:
 
 ### Examples of valid blob prefix paths<!-- Why is the heading "blob prefix path" when the tag is BlobPathPrefix?-->
 
-The following table has examples of valid paths for the <BlobPathPrefix> tag.
+The following table has examples of valid paths for the &lt;BlobPathPrefix&gt; tag.
 
 |Path                    |Description                                                                         |
 |------------------------|------------------------------------------------------------------------------------|
@@ -393,7 +393,7 @@ The following table has examples of valid paths for the <BlobPathPrefix> tag.
 
 ### Examples of valid file prefix paths<!-- Why is the heading "blob prefix path" when the tag is BlobPathPrefix?-->
 
-The following table has examples of valid paths for the <FilePathPrefix> tag.
+The following table has examples of valid paths for the &lt;FilePathPrefix&gt; tag.
 
 |Path                    |Description                                                                                          |
 |------------------------|-----------------------------------------------------------------------------------------------------|
