@@ -154,7 +154,7 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 ### Authenticating with Azure Active Directory (Azure AD)
 
-Translator v3.0 supports Azure AD authentication, Microsoft’s cloud-based identity and access management solution. Azure AD provides an access token as proof of authentication. The token is then sent to Translator service in the REST API  request authorization header allowing it to validate the client and complete the request.
+Translator v3.0 supports Azure AD authentication, Microsoft’s cloud-based identity and access management solution. Azure AD provides an access token as proof of authentication. The token is sent to Translator service in the REST API request authorization header allowing it to validate the client and complete the request.
 
 |Headers|Value|
 |:-----|:----|
@@ -165,12 +165,14 @@ Translator v3.0 supports Azure AD authentication, Microsoft’s cloud-based iden
 Here's an example request using cURL:
 
 ```curl
-curl -X  POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es" \
-       -H  "Authorization: Bearer <Base64-access_token>"\
-       -H  "Ocp-Apim-Subscription-Key: <your-subscription-key>" \
-       -H "Ocp-Apim-Subscription-Region: <your-region>" \
-       -H "Content-Type: application/json" \
-       -data-raw '[{"Text":"Hello" }]'
+// Pass bearer token, subscription key, and region using headers
+
+curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translator/text/v3.0/translate?api-version=3.0&to=es" \
+     -H  "Authorization: Bearer <Base64-access_token>"\
+     -H  "Ocp-Apim-Subscription-Key: <your-subscription-key>" \
+     -H "Ocp-Apim-Subscription-Region: <your-region>" \
+     -H "Content-Type: application/json" \
+     -data-raw '[{'Text":"Hello, friend.'}]"
 ```
 
 ## Virtual Network support
