@@ -22,21 +22,23 @@ After model training is completed, you can view the model details and see how we
 
 * Completed [model training](train-model.md) successfully.
 
-## View the model details
+# [Using Language Studio](#tab/language-studio)
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customTextNext/projects/classification).
+## View the model details using Language Studio
+
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
 
 2. Select **View model details** from the left side menu.
 
 3. View your model training status in the **Status** column, and the F1 score for the model in the **F1 score** column.
 
-:::image type="content" source="../media/model-details-1.png" alt-text="View model details button" lightbox="../media/model-details-1.png":::
+    :::image type="content" source="../media/model-details-1.png" alt-text="View model details button" lightbox="../media/model-details-1.png":::
 
 1. Click on the model name for more details.
 
 2. You can find the **model-level** evaluation metrics under the **Overview** section and the **class-level** evaluation metrics  under the **Class performance metrics** section. See [Evaluation metrics](../concepts/evaluation.md#model-level-and-class-level-evaluation-metrics) for more information.
 
-:::image type="content" source="../media/model-details-2.png" alt-text="Model performance metrics" lightbox="../media/model-details-2.png":::
+    :::image type="content" source="../media/model-details-2.png" alt-text="Model performance metrics" lightbox="../media/model-details-2.png":::
 
 > [!NOTE]
 > If you don't find all the classes displayed here, it is because there were no tagged files of this class in the test set.
@@ -51,6 +53,8 @@ Under the **Test set confusion matrix**, you can find the confusion matrix for t
 
 :::image type="content" source="../media/conf-matrix-multi.png" alt-text="Confusion matrix for multiple class classification" lightbox="../media/conf-matrix-multi.png":::
 
+# [Using APIs](#tab/api)
+
 ## View evaluation details using APIs
 
 ### Get your resource keys endpoint
@@ -59,7 +63,7 @@ Under the **Test set confusion matrix**, you can find the confusion matrix for t
 
 2. From the menu on the left side, select **Keys and Endpoint**. Use the endpoint for the API requests. You will need the key for `Ocp-Apim-Subscription-Key` header.
 
-:::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
+    :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
 
 ### Get evaluation details
 
@@ -116,6 +120,8 @@ Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName
 |classes|[]| list of all classes with their class-level evaluation metrics. |
 |`microF1`, `microPrecision`, `microRecall`|0.33, 0.28, 0.4| These are model-level evaluation metrics. |
 |`macroF1`, `macroPrecision`, `macroRecall`|0.26, 0.2, 0.4|These are model-level evaluation metrics. Macro metrics are calculated as the average of class-level metrics for all classes.|
+
+---
 
 ## Next steps
 

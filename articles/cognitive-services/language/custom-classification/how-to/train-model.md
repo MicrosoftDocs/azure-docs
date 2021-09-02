@@ -44,7 +44,7 @@ Before starting the training process, files in your dataset are divided into thr
 
 ## Train model in Language studio
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customTextNext/projects/classification).
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
 
 2. Select **Train** from the left side menu.
 
