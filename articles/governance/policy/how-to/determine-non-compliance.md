@@ -164,10 +164,10 @@ _Non-compliant_ **Component** and **Component ID**.
 
 ## Compliance details for guest configuration
 
-For _auditIfNotExists_ policies in the _Guest Configuration_ category, there could be multiple
+For policy definitions in the _Guest Configuration_ category, there could be multiple
 settings evaluated inside the virtual machine and you'll need to view per-setting details. For
-example, if you're auditing for a list of password policies and only one of them has status
-_Non-compliant_, you'll need to know which specific password policies are out of compliance and why.
+example, if you're auditing for a list of security settings and only one of them has status
+_Non-compliant_, you'll need to know which specific settings are out of compliance and why.
 
 You also might not have access to sign in to the virtual machine directly but you need to report on
 why the virtual machine is _Non-compliant_.
@@ -187,6 +187,20 @@ password policies, the **Reason** column would display text including the curren
 setting.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot of the Guest Assignment compliance details." border="false":::
+
+### View configuration assignment details at scale
+
+The guest configuration feature can be used outside of Azure Policy assignments.
+For example,
+[Azure AutoManage](../../../automanage/automanage-virtual-machines.md)
+creates guest configuration assignments, or you might
+[assign configurations when you deploy machines](guest-configuration-create-assignment.md).
+
+To view all guest configuration assignments across your tenant, from the Azure
+portal open the **Guest Assignments** page. To view detailed compliance
+information, select each assignment using the link in the column "Name".
+
+:::image type="content" source="../media/determine-non-compliance/guest-config-assignment-view.png" alt-text="Screenshot of the Guest Assignment page." border="true":::
 
 ## <a name="change-history"></a>Change history (Preview)
 
