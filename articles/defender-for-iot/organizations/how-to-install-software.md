@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 08/30/2021
+ms.date: 09/02/2021
 ms.topic: how-to
 ---
 
@@ -171,11 +171,11 @@ To establish the communication between the Dell appliance and the management com
 
 When the connection is established, the BIOS is configurable.
 
-To configure Dell BIOS:
+**To configure Dell BIOS**:
 
 1. [Configure the iDRAC IP address](#configure-idrac-ip-address)
 
-1. [Import the BIOS configuration file](#import-the-bios-configuration-file)
+1. [Configure the BIOS](#configuring-bios)
 
 #### Configure iDRAC IP address
 
@@ -198,55 +198,9 @@ To configure Dell BIOS:
 
 1. Select **Back** > **Finish**.
 
-#### Import the BIOS configuration file
+#### Configuring the BIOS
 
-This section describes how to configure the BIOS by using the configuration file.
-
-1. Plug in a PC with a static preconfigured IP address **10.100.100.200** to the **iDRAC** port.
-
-   :::image type="content" source="media/tutorial-install-components/idrac-port.png" alt-text="Screenshot of the preconfigured IP address port.":::
-
-1. Open a browser and enter **10.100.100.250** to connect to iDRAC web interface.
-
-1. Sign in with Dell default administrator privileges:
-
-   - Username: **root**
-
-   - Password: **calvin**
-
-1. The appliance's credentials are:
-
-   - Username: **XXX**
-
-   - Password: **XXX**
-
-     The import server profile operation is initiated.
-
-     > [!NOTE]
-     > Before you import the file, make sure:
-     > - You're the only user who is currently connected to iDRAC.
-     > - The system is not in the BIOS menu.
-
-1. Go to **Configuration** > **Server Configuration Profile**. Set the following parameters:
-
-   :::image type="content" source="media/tutorial-install-components/configuration-screen.png" alt-text="Screenshot that shows the configuration of your server profile.":::
-
-   | Parameter | Configuration |
-   |--|--|
-   | Location Type | Select **Local**. |
-   | File Path | Select **Choose File** and add the configuration XML file. |
-   | Import Components | Select **BIOS, NIC, RAID**. |
-   | Maximum wait time | Select **20 minutes**. |
-
-1. Select **Import**.
-
-1. To monitor the process, go to **Maintenance** > **Job Queue**.
-
-   :::image type="content" source="media/tutorial-install-components/view-the-job-queue.png" alt-text="Screenshot that shows Job Queue.":::
-
-#### Manually configuring BIOS
-
-You need to manually configure the appliance BIOS if:
+You need to configure the appliance BIOS if:
 
 - You did not purchase your appliance from Arrow.
 
@@ -254,9 +208,9 @@ You need to manually configure the appliance BIOS if:
 
 After you access the BIOS, go to **Device Settings**.
 
-To manually configure:
+**To configure the BIOS**:
 
-1. Access the appliance BIOS directly by using a keyboard and screen, or use iDRAC.
+1. Access the appliance's BIOS directly by using a keyboard and screen, or use iDRAC.
 
    - If the appliance is not a Defender for IoT appliance, open a browser and go to the IP address that was configured before. Sign in with the Dell default administrator privileges. Use **root** for the username and **calvin** for the password.
 
@@ -397,7 +351,7 @@ To enable and update the password:
 
 The following procedure describes how to configure the HPE BIOS for the enterprise and SMB appliances.
 
-To configure the HPE BIOS:
+**To configure the HPE BIOS**:
 
 1. Select **System Utilities** > **System Configuration** > **BIOS/Platform Configuration (RBSU)**.
 
@@ -597,7 +551,7 @@ To install:
 
 The following procedure describes how to configure the BIOS for HP EL300 appliance.
 
-To configure the BIOS:
+**To configure the BIOS**:
 
 1. Turn on the appliance and push **F9** to enter the BIOS.
 
@@ -791,7 +745,7 @@ Before installing the software on the appliance, you need to adjust the applianc
 
 ### BIOS configuration
 
-To configure the BIOS for your appliance:
+**To configure the BIOS for your appliance**:
 
 1. [Enable remote access and update the password](#enable-remote-access-and-update-the-password).
 
