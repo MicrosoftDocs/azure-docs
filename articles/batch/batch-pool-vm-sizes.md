@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 # Choose a VM size and image for compute nodes in an Azure Batch pool
 
-When you select a node size for an Azure Batch pool, you can choose from among almost all the VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads.
+When you select a node size for an Azure Batch pool, you can choose from almost all the VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads.
 
 ## Supported VM series and sizes
 

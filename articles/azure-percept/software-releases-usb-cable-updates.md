@@ -1,15 +1,15 @@
 ---
-title: Azure Percept DK software releases for update over USB cable
+title: Software releases for Azure Percept DK USB cable updates
 description: Information and download links for the USB cable update package of Azure Percept DK 
 author: EthanChangAED
-ms.author: hschang
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
 ---
 
-# Azure Percept DK software releases for updating over USB
+# Software releases for USB cable updates
 
 This page provides information and download links for all the dev kit OS/firmware image releases. For detail of changes/fixes in each version, refer to the release notes:
 
