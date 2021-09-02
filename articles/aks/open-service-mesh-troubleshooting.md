@@ -208,35 +208,35 @@ A sample error when the CA Bundle is incorrect:
 
 - An attempt to change the osm-config ConfigMap:
 
-```azurecli-interactive
-kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
-```
+  ```azurecli-interactive
+  kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
+  ```
 
 - Error:
 
-```
-Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.kube-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
-```
+  ```
+  Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.kube-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
+  ```
 
 Work around for when the **Validating** Webhook Configuration has a bad certificate:
 
 - Option 1 - Restart OSM Controller - this will restart the OSM Controller. On start, it will overwrite the CA Bundle of both the Mutating and Validating webhooks.
 
-```azurecli-interactive
-kubectl rollout restart deployment -n kube-system osm-controller
-```
+  ```azurecli-interactive
+  kubectl rollout restart deployment -n kube-system osm-controller
+  ```
 
 - Option 2 - Option 2. Delete the Validating Webhook - removing the Validating Webhook makes mutations of the `osm-config` ConfigMap no longer validated. Any patch will go through. The AKS Reconciler will at some point ensure the Validating Webhook exists and will recreate it. The OSM Controller may have to be restarted to quickly rewrite the CA Bundle.
 
-```azurecli-interactive
-kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm
-```
+  ```azurecli-interactive
+  kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm
+  ```
 
 - Option 3 - Delete and Patch: The following command will delete the validating webhook, allowing us to add any values, and will immediately try to apply a patch. Most likely the AKS Reconciler will not have enough time to reconcile and restore the Validating Webhook giving us the opportunity to apply a change as a last resort:
 
-```azurecli-interactive
-kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm; kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
-```
+  ```azurecli-interactive
+  kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm; kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
+  ```
 
 ### Check the `osm-mesh-config` resource
 
@@ -356,7 +356,8 @@ The following label must be present:
 
 If a namespace is not annotated with `"openservicemesh.io/sidecar-injection": "enabled"` or not labeled with `"openservicemesh.io/monitored-by": "osm"` the OSM Injector will not add Envoy sidecars.
 
-> Note: After `osm namespace add` is called only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment ...`
+> [!NOTE]
+> After `osm namespace add` is called only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment ...`
 
 ### Verify the SMI CRDs:
 

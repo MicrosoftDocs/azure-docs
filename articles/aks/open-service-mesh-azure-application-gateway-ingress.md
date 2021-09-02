@@ -22,7 +22,7 @@ In this tutorial, you will:
 > - Create an Azure Application Gateway to be used as the ingress controller for the application
 > - Expose a service via the Azure Application Gateway ingress to the internet
 
-### Before you begin
+## Before you begin
 
 The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, review the article [Deploy the OSM AKS add-on](./servicemesh-osm-deploy-addon.md) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
 
@@ -35,7 +35,7 @@ You must have the following resources installed:
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### View and verify the current OSM cluster configuration
+## View and verify the current OSM cluster configuration
 
 Once the OSM add-on for AKS has been enabled on the AKS cluster, you can view the current configuration parameters in the osm-mesh-config resource. Run the following command to view the properties:
 
@@ -91,7 +91,7 @@ spec:
 
 Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
-### Create namespaces for the application
+## Create namespaces for the application
 
 In this tutorial we will be using the OSM bookstore application that has the following application components:
 
@@ -115,7 +115,7 @@ namespace/bookthief created
 namespace/bookwarehouse created
 ```
 
-### Onboard the namespaces to be managed by OSM
+## Onboard the namespaces to be managed by OSM
 
 When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
 
@@ -132,7 +132,7 @@ Namespace [bookthief] successfully added to mesh [osm]
 Namespace [bookwarehouse] successfully added to mesh [osm]
 ```
 
-### Deploy the Bookstore application to the AKS cluster
+## Deploy the Bookstore application to the AKS cluster
 
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.9/docs/example/manifests/apps/bookbuyer.yaml
@@ -170,7 +170,7 @@ service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
-### Update the Bookbuyer Service
+## Update the Bookbuyer Service
 
 Update the bookbuyer service to the correct inbound port configuration with the following service manifest.
 
@@ -192,7 +192,7 @@ spec:
 EOF
 ```
 
-### Verify the Bookstore application running inside the AKS cluster
+## Verify the Bookstore application running inside the AKS cluster
 
 As of now we have deployed the bookstore multi-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the application outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
 
@@ -226,12 +226,12 @@ While the port forwarding session is in place, navigate to the following url fro
 
 ![OSM bookbuyer app for App Gateway UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
-### Create an Azure Application Gateway to expose the bookbuyer application outside the AKS cluster
+## Create an Azure Application Gateway to expose the bookbuyer application outside the AKS cluster
 
 > [!NOTE]
 > The following directions will create a new instance of the Azure Application Gateway to be used for ingress. If you have an existing Azure Application Gateway you wish to use, skip to the section for enabling the Application Gateway Ingress Controller add-on.
 
-#### Deploy a new Application Gateway
+### Deploy a new Application Gateway
 
 > [!NOTE]
 > We are referencing existing documentation for enabling the Application Gateway Ingress Controller add-on for an existing AKS cluster. Some modifications have been made to suit the OSM materials. More detailed documentation on the subject can be found [here](../application-gateway/tutorial-ingress-controller-add-on-existing.md).
@@ -250,7 +250,7 @@ az network application-gateway create -n myApplicationGateway -l eastus2 -g myRe
 > [!NOTE]
 > Application Gateway Ingress Controller (AGIC) add-on **only** supports Application Gateway v2 SKUs (Standard and WAF), and **not** the Application Gateway v1 SKUs.
 
-#### Enable the AGIC add-on for an existing AKS cluster through Azure CLI
+### Enable the AGIC add-on for an existing AKS cluster through Azure CLI
 
 If you'd like to continue using Azure CLI, you can continue to enable the AGIC add-on in the AKS cluster you created, _myCluster_, and specify the AGIC add-on to use the existing Application Gateway you created, _myApplicationGateway_.
 
@@ -267,7 +267,7 @@ az aks list -g osm-aks-rg -o json | jq -r .[].addonProfiles.ingressApplicationGa
 
 This command should show the output as `true`.
 
-#### Peer the two virtual networks together
+### Peer the two virtual networks together
 
 Since we deployed the AKS cluster in its own virtual network and the Application Gateway in another virtual network, you'll need to peer the two virtual networks together in order for traffic to flow from the Application Gateway to the pods in the cluster. Peering the two virtual networks requires running the Azure CLI command two separate times, to ensure that the connection is bi-directional. The first command will create a peering connection from the Application Gateway virtual network to the AKS virtual network; the second command will create a peering connection in the other direction.
 
@@ -282,7 +282,7 @@ appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "
 az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $appGWVnetId --allow-vnet-access
 ```
 
-### Expose the bookbuyer service to the internet
+## Expose the bookbuyer service to the internet
 
 Apply the following ingress manifest to the AKS cluster to expose the bookbuyer service to the internet via the Azure Application Gateway.
 
@@ -389,7 +389,7 @@ You should see the following output
 </html>
 ```
 
-### Troubleshooting
+## Troubleshooting
 
 - [AGIC Troubleshooting Documentation](../application-gateway/ingress-controller-troubleshoot.md)
 - [Additional troubleshooting tools are available on AGIC's GitHub repo](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/docs/troubleshootings/troubleshooting-installing-a-simple-application.md)
