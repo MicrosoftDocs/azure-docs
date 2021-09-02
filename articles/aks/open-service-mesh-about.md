@@ -8,7 +8,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-# Open Service Mesh AKS Add-On (Preview)
+# Open Service Mesh AKS add-on (preview)
 
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments. 
 
@@ -18,7 +18,7 @@ The OSM project was originated by Microsoft and has since been donated and is go
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## Capabilities and Features
+## Capabilities and features
 
 OSM provides the following set of capabilities and features to provide a cloud native service mesh for your Azure Kubernetes Service (AKS) clusters:
 
@@ -48,7 +48,7 @@ OSM can assist your AKS deployments with the following scenarios:
 
 - Collection and viewing of KPIs from application traffic
 
-## OSM Service Quotas and Limits (Preview)
+## OSM service quotas and limits (preview)
 
 OSM preview limitations for service quotas and limits can be found on the AKS [Quotas and regional limits page](./quotas-skus-regions.md).
 
