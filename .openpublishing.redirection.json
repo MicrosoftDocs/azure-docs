@@ -5394,6 +5394,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-graphical.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-powershell.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-python2.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking",
       "redirect_document_id": false
