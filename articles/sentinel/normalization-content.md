@@ -146,6 +146,29 @@ InfobloxNIOS
 The following code is the source-agnostic version, which uses normalization to provide the same detection for any source providing DNS query events:
 
 ```kusto
+imDns(responsecodename='NXDOMAIN')
+| summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
+| where count_ > threshold
+| join kind=inner (imDns(responsecodename='NXDOMAIN')) on SrcIpAddr
+| extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr```
+```
+
+The normalized, source-agnostic version has the following differences:
+
+- The `imDns`normalized parser is used instead of the Infoblox Parser.
+
+- `imDns` fetches only DNS query events, so there is no need for checking the event type, as performed by the `where ProcessName =~ "named" and Log_Type =~ "client"` in the Infoblox version.
+
+- The `SrcIpAddr` field is used instead of `Client_IP`.
+ 
+- Parser parameter filtering is used for ResponseCodeName, eliminating the need for explicit where clauses.
+
+
+Apart from supporting any normalized DNS source, the normalized version is shorter and easier to understand. 
+
+If the schema or parsers do not support filtering parameters, the changes are similar, excluding the last one. Instead the filtering conditions are kept from the original query as seen below:
+
+```kusto
 let threshold = 200;
 imDns
 | where isnotempty(ResponseCodeName)
@@ -158,14 +181,6 @@ imDns
     ) on SrcIpAddr
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
 ```
-
-The normalized, source-agnostic version has the following differences:
-
-- The `imDns`normalized parser is used instead of the Infoblox Parser.
-
-- `imDns` fetches only DNS query events, so there is no need for checking the event type, as performed by the `where ProcessName =~ "named" and Log_Type =~ "client"` in the Infoblox version.
-
-- The `ResponseCodeName` and `SrcIpAddr` fields are used instead of `ResponseCode`, and `Client_IP`, respectively.
 
 ## Next steps
 
