@@ -24,8 +24,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Virtual Network IP Services
-            url: ip-services-overview.md
+          - text: 
+            url: 
       - linkListType: concept
         links:
           - text: 
