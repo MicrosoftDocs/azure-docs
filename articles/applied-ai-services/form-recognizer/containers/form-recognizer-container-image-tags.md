@@ -62,3 +62,9 @@ Form Recognizer containers are currently in gated preview. To use them, you must
 > The Form Recognizer v1.0 container has been retired.
 
 ---
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Install and run Form Recognizer containers](form-recognizer-container-install-run.md)
+>
