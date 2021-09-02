@@ -195,6 +195,8 @@ To validate that the Azure Storage is mounted successfully for the app:
     tcpping Storageaccount.file.core.windows.net 
     ```
 
+::: zone-end
+
 ## Best practices
 
 - To avoid potential issues related to latency, place the app and the Azure Storage account in the same Azure region. Note, however, if the app and Azure Storage account are in same Azure region, and if you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../storage/common/storage-network-security.md), then these IP restrictions are not honored.
