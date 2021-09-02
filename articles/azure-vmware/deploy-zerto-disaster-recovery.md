@@ -8,7 +8,7 @@ ms.date: 09/03/2021
 
 # Deploy Zerto Disaster Recovery on Azure VMware Solution (Initial Availability)
 
-This article explains how to implement disaster recovery (DR) for on-premises VMware or Azure VMware Solution-based virtual machines (VMs). The solution in this article uses [Zerto Disaster Recovery](https://www.zerto.com/solutions/use-cases/disaster-recovery/). Instances of Zerto are deployed at both the protected and the recovery sites. 
+This article explains how to implement disaster recovery (DR) for on-premises VMware or Azure VMware Solution-based virtual machines (VMs). The solution in this article uses [Zerto Disaster Recovery](https://www.zerto.com/solutions/use-cases/disaster-recovery/). Instances of Zerto are deployed at both the protected site and the recovery site. 
 
 Zerto is a disaster recovery solution designed to minimize downtime of the VMs if there was a disaster. Zerto's platform is built on the foundation of Continuous Data Protection (CDP), which enables minimal or close to no data loss. It provides the level of protection wanted for many business-critical and mission-critical enterprise applications. Zerto also automates and orchestrates failover and failback, ensuring minimal downtime in a disaster. Overall, Zerto simplifies management through automation and ensures fast and highly predictable recovery times.
 
