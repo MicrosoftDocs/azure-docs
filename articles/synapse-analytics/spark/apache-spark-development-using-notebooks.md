@@ -59,7 +59,7 @@ We provide rich operations to develop notebooks:
 + [IDE-style IntelliSense](#ide-style-intellisense)
 + [Code Snippets](#code-snippets)
 + [Format text cell with toolbar buttons](#format-text-cell-with-toolbar-buttons)
-+ [Undo cell operation](#undo-cell-operation)
++ [Undo/Redo cell operation](#undo-redo-cell-operation)
 + [Code cell commenting](#Code-cell-commenting)
 + [Move a cell](#move-a-cell)
 + [Delete a cell](#delete-a-cell)
@@ -86,13 +86,10 @@ There are multiple ways to add a new cell to your notebook.
 
 # [Preview Notebook](#tab/preview)
 
-1. Expand the upper left **+ Cell** button, and select **code cell** or **Markdown cell**.
+1. Hover over the space between two cells and select **Code** or **Markdown**.
     ![Screenshot of add-azure-notebook-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
-2. Select the plus sign at the beginning of a cell and select **Code cell** or **Markdown cell**.
 
-    ![Screenshot of add-azure-notebook-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-2.png)
-
-3. Use [aznb Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
+2. Use [aznb Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
 
 ---
 
@@ -161,8 +158,8 @@ The IntelliSense features are at different levels of maturity for different lang
 |Languages| Syntax Highlight | Syntax Error Marker  | Syntax Code Completion | Variable Code Completion| System Function Code Completion| User Function Code Completion| Smart Indent | Code Folding|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Spark (Scala)|Yes|Yes|Yes|Yes|-|-|-|Yes|
-|SparkSQL|Yes|Yes|-|-|-|-|-|-|
+|Spark (Scala)|Yes|Yes|Yes|Yes|Yes|Yes|-|Yes|
+|SparkSQL|Yes|Yes|Yes|Yes|Yes|-|-|-|
 |.NET for Spark (C#)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 
 >[!Note]
@@ -191,7 +188,7 @@ Format button toolbar is not available for the preview notebook experience yet.
 
 ---
 
-<h3 id="undo-cell-operation">Undo cell operation</h3>
+<h3 id="undo-redo-cell-operation">Undo/Redo cell operation</h3>
 
 # [Classical Notebook](#tab/classical)
 
