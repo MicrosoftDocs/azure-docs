@@ -28,7 +28,7 @@ Version 3 of the Translator provides a modern JSON-based Web API. It improves us
 
 Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 10 [Azure geographies](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Americas:** East US, South Central US, West Central US, and West US 2 
+* **Americas:** East US, South Central US, West Central US, and West US 2
 * **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
 * **Europe:** North Europe, West Europe
 
@@ -56,7 +56,7 @@ curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translat
 
 ## Authentication
 
-Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate. 
+Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate.
 
 There are three headers that you can use to authenticate your subscription. This table describes how each is used:
 
@@ -110,7 +110,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 #### Authenticating with a Multi-service resource
 
-When you use a Cognitive Service’s multi-service resource. This allows you to use a single secret key to authenticate requests for multiple services. 
+When you use a Cognitive Service’s multi-service resource. This allows you to use a single secret key to authenticate requests for multiple services.
 
 When you use a multi-service secret key, you must include two authentication headers with your request. There are two headers that you need to call the Translator.
 
@@ -177,7 +177,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
 
 ## Virtual Network support
 
-The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal). 
+The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
 
@@ -260,7 +260,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 | 503000| Service is temporarily unavailable. Retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 
-## Metrics 
+## Metrics
 Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](../../../azure-monitor/essentials/data-platform-metrics.md).
 
 ![Translator Metrics](../media/translatormetrics.png)
