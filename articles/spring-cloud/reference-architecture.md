@@ -173,7 +173,7 @@ By building on top of a well-defined hub and spoke design, the foundation of thi
 
 ### Security
 
-The security of this architecture is addressed by its adherence to industry-defined controls and benchmarks. In this context, "control" means a concise and well defined best practice, such as "Employ the least privilege principle when implementing information system access. IAM-05" The controls in this architecture are from the [Cloud Control Matrix][19] (CCM) by the [Cloud Security Alliance][18] (CSA) and the [Microsoft Azure Foundations Benchmark][20] (MAFB) by the [Center for Internet Security][21] (CIS). In the applied controls, the focus is on the primary security design principles of governance, networking, and application security. It is your responsibility to handle the design principles of Identity, Access Management, and Storage as they relate to your target infrastructure.
+The security of this architecture is addressed by its adherence to industry-defined controls and benchmarks. In this context, "control" means a concise and well-defined best practice, such as "Employ the least privilege principle when implementing information system access. IAM-05" The controls in this architecture are from the [Cloud Control Matrix][19] (CCM) by the [Cloud Security Alliance][18] (CSA) and the [Microsoft Azure Foundations Benchmark][20] (MAFB) by the [Center for Internet Security][21] (CIS). In the applied controls, the focus is on the primary security design principles of governance, networking, and application security. It is your responsibility to handle the design principles of Identity, Access Management, and Storage as they relate to your target infrastructure.
 
 #### Governance
 
