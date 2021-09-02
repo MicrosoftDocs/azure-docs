@@ -503,7 +503,6 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | Not available | Not available | Not available |
 | User assigned | ![Available][check] | Not available | Not available | Not available |
 
-
 > [!NOTE]
 > You can use Managed Identities to authenticate an [Azure Stream analytics job to Power BI](../../stream-analytics/powerbi-output-managed-identity.md).
 
