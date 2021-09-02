@@ -307,7 +307,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 1. In Event Viewer, open the **User Device Registration** event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**.
 1. Look for eventID 204.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Screenshot of Event Viewer, with eventID 204 selected and its the error code, H T T P status, and message highlighted." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Screenshot of Event Viewer, with eventID 204 selected and its error code, H T T P status, and message highlighted." border="false":::
 
 **HTTP errors returned from DRS server**:
 
@@ -334,7 +334,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **WININET_E_TIMEOUT** (0x80072ee2/-2147012894) | General network time out trying to register the device at DRS. | Check network connectivity to `https://enterpriseregistration.windows.net`. |
+| **WININET_E_TIMEOUT** (0x80072ee2/-2147012894) | General network time-out trying to register the device at DRS. | Check network connectivity to `https://enterpriseregistration.windows.net`. |
 | **WININET_E_NAME_NOT_RESOLVED** (0x80072ee7/-2147012889) | The server name or address couldn't be resolved. | Check network connectivity to `https://enterpriseregistration.windows.net`. |
 | **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866) | The connection with the server was terminated abnormally. | Retry the join after a while, or try joining from another stable network location. |
 | | |
