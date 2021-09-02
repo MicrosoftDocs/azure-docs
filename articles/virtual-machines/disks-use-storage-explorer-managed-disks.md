@@ -34,45 +34,47 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If your Storage Explorer isn't connected to Azure, you can't use it to manage resources. Follow the steps in this section to connect Storage Explorer to your Azure account. Afterward, you can use it to manage your disks.
 
-1. Open Azure Storage Explorer and select the **connect** icon on the left.
+1. Open Azure Storage Explorer and select the **Connect** icon in the toolbar.
 
-    [![Click the connect icon](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon-lrg.png#lightbox)
+    [![Screenshot of Azure Storage Explorer showing the location of the Connect icon.](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon-lrg.png#lightbox)
 
 1. In the **Connect to Azure Storage** dialog box, select **Subscription**.
 
-    [![Add an Azure Account](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure-lrg.png#lightbox)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Subscription option.](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure-lrg.png#lightbox)
 
 1. Select the appropriate environment and select **Next**. You can also select **Manage custom environments** to configure and add a custom environment.
 
-    [![Select your environment type](media/disks-upload-vhd-to-managed-disk-storage-explorer/choose-environment-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/choose-environment-lrg.png#lightbox)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Azure Environment option.](media/disks-upload-vhd-to-managed-disk-storage-explorer/choose-environment-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/choose-environment-lrg.png#lightbox)
 
 1. In the **Sign in** dialog box, enter your Azure credentials.
 
-    ![Azure sign in dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/sign-in.png)
+    ![Screenshot of the sign-in dialog box.](media/disks-upload-vhd-to-managed-disk-storage-explorer/sign-in.png)
 
 1. Select your subscription from the list and then select **Open Explorer**.
 
-    [![Select your subscription](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription-lrg.png#lightbox)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Open Explorer button.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription-lrg.png#lightbox)
 
-## Upload a managed disk from an on-premises virtual hard disk
+## Upload an on-premises virtual disk
+
+You can upload an on-premises virtual hard disk (VHD) file to Azure and use it to create an image. Follow the steps in this section to upload your source file.
 
 1. In the **Explorer** pane, expand **Disks** and select the resource group to which you'll upload your disk.
 
-    [![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-lrg.png#lightbox)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Disks node.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-lrg.png#lightbox)
 
 1. In the resource group details pane, select **Upload**.
 
-    [![Select upload](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button-lrg.png#lightbox)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Upload button.](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button-lrg.png#lightbox)
 
-1. In the **Upload VHD** dialog box, specify your virtual hard disk (VHD) source file, the name of the disk, the operating system type, the region to which you want to upload the disk, and the account type. If the region supports availability zones, you can select a zone of your choice. Select **Create** to begin uploading your disk.
+1. In the **Upload VHD** dialog box, specify your VHD source file, the name of the disk, the operating system type, the region to which you want to upload the disk, and the account type. If the region supports availability zones, you can select a zone of your choice. Select **Create** to begin uploading your disk.
 
-    [![Upload vhd dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog-lrg.png#lightbox)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Upload button.](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog-lrg.png#lightbox)
 
 1. The status of the upload will now display in **Activities**.
 
-    [![Upload status](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-lrg.png#lightbox)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Activities pane.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-lrg.png#lightbox)
 
-If the upload has finished and you don't see the disk in the right pane, select **Refresh**.
+If the upload has finished and you don't see the disk in the **Activities** pane, select **Refresh**.
 
 ## Download a managed disk
 
@@ -80,62 +82,62 @@ Follow the steps in this section to download a managed disk to an on-premises VH
 
 1. In the **Explorer** pane, expand **Disks** and select the resource group from which you'll download your disk.
 
-    [![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-dl-lrg.png#snapshot)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Disks node.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-dl-lrg.png#lightbox)
 
 1. In the resource group details pane, select the disk you want to download.
 1. Select **Download** and then choose where you would like to save the disk.
 
-    [![Download a managed disk](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button-lrg.png#lightbox)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Download button.](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button-lrg.png#lightbox)
 
 1. Select **Save** the begin the download. The download status will display in **Activities**.
 
-    ![Download status](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading.png)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Activities pane.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading-lrg.png#lightbox)
 
 ## Copy a managed disk
 
 With Storage Explorer, you can copy a manged disk within or across regions. To copy a disk:
 
-1. From the **Disks** dropdown on the left, select the resource group that contains the disk you want to copy.
+1. In the **Explorer** pane, expand the **Disks** dropdown and select the resource group that contains the disk you want to copy.
 
-    ![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Disks node.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-lrg.png#lightbox)
 
-1. In the right pane, select the disk you'd like to copy and select **Copy**.
+1. In the resource group details pane, select the disk you'd like to copy and select **Copy**.
 
-    ![Copy a managed disk](media/disks-upload-vhd-to-managed-disk-storage-explorer/copy-button.png)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Copy button.](media/disks-upload-vhd-to-managed-disk-storage-explorer/copy-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/copy-button-lrg.png#lightbox)
 
-1. In the left pane, select the resource group in which you'd like to paste the disk.
+1. In the **Explorer** pane, expand **Disks** and select the resource group in which you'd like to paste the disk.
 
-    ![Select resource group 2](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg2.png)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Disks node.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg2-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg2-lrg.png#lightbox)
 
-1. Select **Paste** on the right pane.
+1. Select **Paste** in the resource group details pane.
 
-    ![Paste a managed disk](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-button.png)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Paste button.](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-button-lrg.png#lightbox)
 
 1. In the **Paste Disk** dialog box, fill in the values. You can also specify an availability zone in supported regions.
 
-    ![Paste disk dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-disk-dialog.png)
+    [![Screenshot of Azure Storage Explorer's Paste Disk form.](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-disk-dialog-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-disk-dialog-lrg.png#lightbox)
 
 1. Select **Paste** to begin the disk copy. The status is displayed in **Activities**.
 
-    ![Copy paste status](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying.png)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Activities pane.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying-lrg.png#lightbox)
 
 ## Create a snapshot
 
-1. From the **Disks** dropdown on the left, select the resource group that contains the disk you want to snapshot.
+1. In the **Explorer** pane, expand **Disks** and select the resource group that contains the disk you want to snapshot.
 
-    ![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Disks node.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-dl-lrg.png#lightbox)
 
-1. On the right, select the disk you'd like to snapshot and select **Create Snapshot**.
+1. In the resource group details pane, select the disk you'd like to snapshot and select **Create Snapshot**.
 
-    ![Create a snapshot](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button.png)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Create SNapshot button.](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button-lrg.png#lightbox)
 
 1. In **Create Snapshot**, specify the name of the snapshot and the resource group in which you'll create it. Select **Create**.
 
-    ![Create snapshot dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog.png)
+    [![Create snapshot dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog-lrg.png#lightbox)
 
 1. After the snapshot has been created, you can select **Open in Portal** in **Activities** to view the snapshot in the Azure portal.
 
-    ![Open snapshot in portal](media/disks-upload-vhd-to-managed-disk-storage-explorer/open-in-portal.png)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the link in the Activities pane.](media/disks-upload-vhd-to-managed-disk-storage-explorer/open-in-portal-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/open-in-portal-lrg.png#lightbox)
 
 ## Next steps
 
