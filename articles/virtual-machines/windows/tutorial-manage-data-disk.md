@@ -8,33 +8,39 @@ ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/29/2018
+ms.date: 08/23/2021
 ms.custom: mvc, devx-track-azurepowershell
-
+ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Windows VMs in Azure.
 ---
 
-# Tutorial - Manage Azure disks with Azure PowerShell
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+# Tutorial: Manage Azure disks with Azure PowerShell
 
-Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM, it's important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. You learn about:
+Azure virtual machines (VMs) use disks to store their operating systems (OS), applications, and data. When creating a VM, it's important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deployment and management of VM disks. 
+
+In this tutorial, you learn about:
 
 > [!div class="checklist"]
+
 > * OS disks and temporary disks
 > * Data disks
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
 
+## Prerequisites
+
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
 ## Default Azure disks
 
-When an Azure virtual machine is created, two disks are automatically attached to the virtual machine. 
+When an Azure virtual machine is created, two disks are automatically attached to the virtual machine.
 
 **Operating system disk** - Operating system disks can be sized up to 4 terabytes, and hosts the VMs operating system. If you create a new virtual machine (VM) from an [Azure Marketplace](https://azure.microsoft.com/marketplace/) image, the typically 127 GB (but some images have smaller OS disk sizes). The OS disk is assigned a drive letter of *C:* by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, use a data disk, which is detailed later in this article.
 
@@ -126,7 +132,7 @@ Once a disk has been attached to the virtual machine, the operating system needs
 
 ### Manual configuration
 
-Create an RDP connection with the virtual machine. Open up PowerShell and run this script.
+Create a remote desktop protocol (RDP) connection with the virtual machine. Open PowerShell and run this script.
 
 ```azurepowershell
 Get-Disk | Where partitionstyle -eq 'raw' |
