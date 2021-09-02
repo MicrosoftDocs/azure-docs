@@ -311,7 +311,7 @@ Once the certificate is uploaded, copy the certificate thumbprint and see [Make 
 
 ## Renew an expiring certificate
 
-Before a certificate expires, you should add the renewed certificate into App Service and update any [TLS/SSL binding](configure-ssl-certificate.md). The process depends on the certificate type. For example, a [certificate imported from Key Vault](#import-a-certificate-from-key-vault), including an [App Service certificate](#import-an-app-service-certificate), automatically syncs with App Service and updates the TLS/SSL binding when you renew the certificate. For an [uploaded certificate](#upload-a-private-certificate), there's no automatic binding update. See one of the following sections depending on your scenario:
+Before a certificate expires, you should add the renewed certificate into App Service and update any [TLS/SSL binding](configure-ssl-certificate.md). The process depends on the certificate type. For example, a [certificate imported from Key Vault](#import-a-certificate-from-key-vault), including an [App Service certificate](#import-an-app-service-certificate), automatically syncs to App Service every 24 hours and updates the TLS/SSL binding when you renew the certificate. For an [uploaded certificate](#upload-a-private-certificate), there's no automatic binding update. See one of the following sections depending on your scenario:
 
 - [Renew an uploaded certificate](#renew-an-uploaded-certificate)
 - [Renew an App Service certificate](#renew-an-app-service-certificate)
