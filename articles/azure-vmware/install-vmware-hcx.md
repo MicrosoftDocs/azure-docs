@@ -2,7 +2,7 @@
 title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 09/03/2021
+ms.date: 08/12/2021
 ---
 
 # Install and activate VMware HCX in Azure VMware Solution
@@ -30,14 +30,6 @@ After you're finished, follow the recommended next steps at the end to continue 
 - [Prepare for HCX installations](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-A631101E-8564-4173-8442-1D294B731CEB.html)
 
 - [VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)
-
-- If you plan to [enable VMware HCX MON](configure-vmware-hcx.md#enable-hcx-mon), make sure you have:  
-
-   - NSX-T or VDS on-premises for HCX Network Extension (no standard switch)
-
-   - HCX Enterprise Edition enabled through a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) – free 12-month trial in Azure VMware Solution
-
-   - One or more active stretched network segment
 
 
 ## Install VMware HCX Advanced
