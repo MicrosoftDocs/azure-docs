@@ -1,7 +1,7 @@
 ---
-title: How to send a Dialog Understanding job
+title: How to send a Custom Language Understanding job
 titleSuffix: Azure Cognitive Services
-description: Learn about sending a request for Dialog Understanding.
+description: Learn about sending a request for Custom Language Understanding.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 08/16/2021
 ms.author: aahi
 ---
 
-# Deploy your model and send a Dialog Understanding request
+# Deploy your model and send a Custom Language Understanding request
 
 After you have [trained a model](../quickstart.md#deploy-your-model) on your dataset, you're ready to deploy it. After deploying your model, you'll be able to send queries to it. 
 
@@ -36,7 +36,7 @@ No configurations are required for custom question answering and CLU connections
 
 :::image type="content" source="../media/deploy-connected-services.png" alt-text="A screenshot showing the deployment screen for orchestration workflow projects." lightbox="../media/deploy-connected-services.png":::
 
-## Send a Dialog Understanding request
+## Send a Custom Language Understanding request
 
 Once your model is deployed, you can begin using the deployed model for predictions. Outside of the test panel, you can begin calling your deployed model via API requests to your provided custom endpoint. This endpoint request obtains the intent and entity predictions defined within the model.
 
@@ -68,4 +68,4 @@ Within the request, you can specify additional parameters for each connected ser
 
 ## Next steps
 
-[Dialog understanding overview](../overview.md)
+[Custom Language Understanding overview](../overview.md)

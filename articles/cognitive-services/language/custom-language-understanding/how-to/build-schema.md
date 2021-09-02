@@ -1,7 +1,7 @@
 ---
-title: How to build a Dialog Understanding project schema 
+title: How to build a Custom Language Understanding project schema 
 titleSuffix: Azure Cognitive Services
-description: Use this article to start building a Dialog Understanding project schema
+description: Use this article to start building a Custom Language Understanding project schema
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: aahi
 
 # How to build your project schema
  
-In Dialog Understanding, the *schema* is defined as the combination of intents and entities within your project. Schema design is a crucial part of your project's success. When creating a schema, you want think about which intents and entities should be included in your project.
+In Custom Language Understanding, the *schema* is defined as the combination of intents and entities within your project. Schema design is a crucial part of your project's success. When creating a schema, you want think about which intents and entities should be included in your project.
 
 ## Guidelines and recommendations
 
@@ -61,7 +61,7 @@ To build a project schema for conversation projects:
 To build a project schema for orchestration workflow projects: 
 
 1. Select **Add** in the **Build Schema** page. You will be prompted for a name and to define a connection for the intent, if any. If you would like to connect an intent you must provide:
-    1. **Service Type**: LUIS, Custom Question Answering, or Dialog Understanding.
+    1. **Service Type**: LUIS, Custom Question Answering, or Custom Language Understanding.
     2. **Project Name**: The project you want the intent to connect to.
     3. **Version for utterances** (Only for LUIS): which LUIS version should be used to train the orchestrator classification model.
 
@@ -69,7 +69,7 @@ Clicking on the intent will take you to the [tag utterances](tag-utterances.md) 
 
 > [!IMPORTANT]
 > * Connected intents cannot be selecated because you cannot add training examples to a connected intent, as it already uses the target project's data to train its intent classification.
-> * You will only be able to connect to target services that are owned by the same resource. If you want to connect to a LUIS application, see [LUIS application backwards compatibility](../concepts/backwards-compatibility.md#create-or-import-a-luis-application-that-can-be-used-in-dialog-understanding).
+> * You will only be able to connect to target services that are owned by the same resource. If you want to connect to a LUIS application, see [LUIS application backwards compatibility](../concepts/backwards-compatibility.md).
 
 ## Next Steps
 * [Tag utterances](tag-utterances.md)
