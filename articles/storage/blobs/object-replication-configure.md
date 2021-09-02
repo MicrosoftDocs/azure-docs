@@ -29,10 +29,6 @@ Object replication requires that blob versioning is enabled for both the source 
 
 To configure an object replication policy for a storage account, you must be assigned the Azure Resource Manager **Contributor** role, scoped to the level of the storage account or higher. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
 
-## About the object replication policy ID
-
-When you configure object replication, you create a replication policy on the destination account via the Azure Storage resource provider. After the replication policy is created, Azure Storage assigns it a policy ID. You must then associate that replication policy with the source account by using the policy ID. The policy ID on the source and destination accounts must be the same in order for replication to take place.
-
 ## Configure object replication with access to both storage accounts
 
 If you have access to both the source and destination storage accounts, then you can configure the object replication policy on both accounts. The following examples show how to configure object replication with the Azure portal, PowerShell, or Azure CLI.
@@ -123,7 +119,7 @@ $rule1 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainer
     -PrefixMatch b
 $rule2 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainerName2 `
     -DestinationContainer $destContainerName2  `
-    -MinCreationTime 2020-05-10T00:00:00Z
+    -MinCreationTime 2021-09-01T00:00:00Z
 
 # Create the replication policy on the destination account.
 $destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
@@ -177,7 +173,7 @@ az storage container create \
     --auth-mode login
 az storage container create \
     --account-name <dest-storage-account> \
-    --name dest-container-1 \
+    --name dest-container-2 \
     --auth-mode login
 ```
 
@@ -191,7 +187,7 @@ az storage account or-policy create \
     --destination-account <dest-storage-account> \
     --source-container source-container-1 \
     --destination-container dest-container-1 \
-    --min-creation-time '2020-09-10T00:00:00Z' \
+    --min-creation-time '2021-09-01T00:00:00Z' \
     --prefix-match a
 
 ```
@@ -228,65 +224,6 @@ If you do not have permissions to the source storage account, then you can confi
 
 > [!NOTE]
 > Cross-tenant object replication is permitted by default for a storage account. To prevent replication across tenants, you can set the **AllowCrossTenantReplication** property to disallow cross-tenant object replication for your storage accounts. For more information, see [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md).
-
-### Sample JSON file
-
-The following example defines a replication policy on the destination account with a single rule that matches the prefix *b* and sets the minimum creation time for blobs that are to be replicated. Remember to replace values in angle brackets with your own values:
-
-```json
-{
-  "properties": {
-    "policyId": "default",
-    "sourceAccount": "/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
-    "destinationAccount": "/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
-    "rules": [
-      {
-        "ruleId": "",
-        "sourceContainer": "<source-container>",
-        "destinationContainer": "<destination-container>",
-        "filters": {
-          "prefixMatch": [
-            "b"
-          ],
-          "minCreationTime": "2021-08-028T00:00:00Z"
-        }
-      }
-    ]
-  }
-}
-```
-
-### Use full resource IDs for the source and destination accounts
-
-When you create the JSON file, specify the full Azure Resource Manager resource IDs for the **sourceAccount** and **destinationAccount** entries in the JSON file, as shown in the example in the previous section. To learn how to locate the resource ID for a storage account, see [Get the resource ID for a storage account](../common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account).
-
-The full resource ID is in the following format:
-
-```http
-/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
-```
-
-The JSON file that defines an object replication policy previously required only the account name, instead of the full resource ID for the storage account. With the introduction of the **AllowCrossTenantReplication** property, you must now provide the full resource ID for any object replication policies that are created when cross-tenant replication is disallowed for a storage account that participates in the replication policy. Azure Storage uses the full resource ID to verify whether the source and destination accounts reside within the same tenant.
-
-While providing only the account name is still supported when cross-tenant replication is allowed for a storage account, Microsoft recommends always providing the full resource ID as a best practice.
-
-The following table describes the behavior that occurs when you create a replication policy with the full resource ID specified, versus the account name.
-
-| Storage account identifier specified in JSON file | Cross-tenant replication allowed | Cross-tenant replication disallowed |
-|--|--|--|
-| Full resource ID | Same-tenant policies can be created.<br /><br /> Cross-tenant policies can be created. | Same-tenant policies can be created.<br /><br /> Cross-tenant policies cannot be created. |
-| Account name only | Same-tenant policies can be created.<br /><br /> Cross-tenant policies can be created. | Neither same-tenant nor cross-tenant policies can be created. An error occurs, because Azure Storage cannot verify that source and destination accounts are in the same tenant. The error indicates that you must specify the full resource ID for the **sourceAccount** and **destinationAccount** entries in the JSON file. |
-
-### Specify the policy and rule IDs
-
-The following table summarizes which values to use for the **policyId** and **ruleId** entries in the JSON file in each scenario.
-
-| When you are creating the JSON file for this account... | Set the policy ID to this value | Set rule IDs to this value |
-|-|-|-|
-| Destination account | The string value *default*. Azure Storage will create the policy ID value for you. | An empty string. Azure Storage will create the rule ID values for you. |
-| Source account | The value of the policy ID returned when you download the policy defined on the destination account as a JSON file. | The values of the rule IDs returned when you download the policy defined on the destination account as a JSON file. |
-
-### Configure the policy on the destination account and get the policy's JSON file
 
 The examples in this section show how to configure the object replication policy on the destination account, and then get the JSON file for that policy that another user can use to configure the policy on the source account.
 
