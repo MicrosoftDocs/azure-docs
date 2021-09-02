@@ -36,21 +36,3 @@ const tokenCredential = new AzureCommunicationTokenCredential(userToken);
 const callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'optional ACS user name'});
 const deviceManager = await callClient.getDeviceManager()
 ```
-
-### Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
-
-| Name                                | Description                                                                                                                              |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                        | The main entry point to the Calling SDK.                                                                                                 |
-| `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`.                                       |
-| `CallAgent`                         | Used to start and manage calls.                                                                                                          |
-| `DeviceManager`                     | Used to manage media devices.                                                                                                            |
-| `Call`                              | Used for representing a Call                                                                                                              |
-| `LocalVideoStream`                  | Used for creating a local video stream for a camera device on the local system.                                                          |
-| `RemoteParticipant`                 | Used for representing a remote participant in the Call                                                                                   |
-| `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant.                                                                  |
-
-> [!NOTE]
-> The Calling SDK object instances shouldn't be considered to be a plain JavaScript objects. These are actual instances of various classes and therefore can't be serialized.

@@ -1,3 +1,5 @@
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
+
 > [!WARNING]
 > Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the ACS Calling iOS SDK has the `isTranscriptionActive` as part of the `Call` object and `didChangeTranscriptionState` is part of `CallDelegate` delegate. For new beta releases, those APIs have been moved as an extended feature of `Call` just like described below.
 > [!NOTE]

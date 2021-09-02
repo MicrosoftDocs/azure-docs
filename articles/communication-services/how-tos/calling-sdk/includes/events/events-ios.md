@@ -1,3 +1,5 @@
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
+
 With our iOS SDK, You can subscribe to most of the properties and collections to be notified when values change.
 
 ## Properties

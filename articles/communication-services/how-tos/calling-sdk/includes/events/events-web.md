@@ -1,3 +1,5 @@
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
+
 Each object in the JavaScript calling sdk has properties and collections. Their values change throughout the lifetime of the object.
 Use the `on()` method to subscribe to objects' events, and use the `off()` method to unsubscribe from objects' events.
 

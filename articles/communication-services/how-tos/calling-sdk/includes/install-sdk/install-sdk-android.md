@@ -56,14 +56,3 @@ callAgentOptions.setDisplayName("Alice Bob");
 DeviceManager deviceManager = callClient.getDeviceManager(appContext).get();
 CallAgent callAgent = callClient.createCallAgent(appContext, tokenCredential, callAgentOptions).get();
 ```
-
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
-
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| The CallClient is the main entry point to the Calling SDK.|
-| CallAgent | The CallAgent is used to start and manage calls. |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
-| CommunicationIdentifier | The CommunicationIdentifier is used as different type of participant that would could be part of a call.|

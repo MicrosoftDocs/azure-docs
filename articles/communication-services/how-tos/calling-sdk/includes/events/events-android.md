@@ -1,3 +1,5 @@
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
+
 With our Android SDK, you can subscribe to most of the properties and collections to be notified when values change.
 
 ## Properties

@@ -89,7 +89,7 @@ The following code should be added inside `CallHandler`.
 
 ```csharp
 CallClient client = new CallClient();
-CommunicationTokenCredential creds;
+CommunicationTokenCredential credentials;
 
 CallAgentOptions callAgentOptions = new CallAgentOptions
 {
@@ -98,7 +98,7 @@ CallAgentOptions callAgentOptions = new CallAgentOptions
 
 try
 {
-    creds = new CommunicationTokenCredential("<CREDENTIAL TOKEN>");
+    credentials = new CommunicationTokenCredential("<CREDENTIAL TOKEN>");
 }
 catch (Exception)
 {

@@ -86,14 +86,3 @@ self.callClient!.createCallAgent(userCredential: userCredential!,
         }
 })
 ```
-
-## Learn the object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK for iOS.
-
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| `CallClient` | `CallClient` is the main entry point to the Calling SDK.|
-| `CallAgent` | `CallAgent` is used to start and manage calls. |
-| `CommunicationTokenCredential` | `CommunicationTokenCredential` is used as the token credential to instantiate `CallAgent`.| 
-| `CommunicationIdentifier` | `CommunicationIdentifier` is used to represent the identity of the user. The identity can be `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, or `CallingApplication`. |
