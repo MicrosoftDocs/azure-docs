@@ -4,7 +4,7 @@ description: Learn how to restore your app from a snapshot. Recover from unexpec
 
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 09/02/2021
 ms.reviewer: nicking
 ms.custom: seodec18
 
@@ -26,7 +26,7 @@ up your app, see [Scale up an app in Azure](manage-scale-up.md).
 
 - Currently available as public preview for Windows apps only. Linux apps and custom container apps are not supported.
 - Maximum supported size for snapshot restore is 30GB. Snapshot restore fails if your storage size is greater than 30GB. To reduce your storage size, consider moving files like logs, images, audios, and videos to [Azure Storage](/azure/storage/), for example.
-- Any connected database that [standard backup](manage-backup.md#what-gets-backed-up) supports or [mounted Azure storage](configure-connect-to-azure-storage?pivots=container-windows) is *not* included in the snapshot. Consider using the native backup capabilities of the connected Azure service (for example, [SQL Database](../azure-sql/database/automated-backups-overview.md) and [Azure Files](../storage/files/storage-snapshots-files.md)).
+- Any connected database that [standard backup](manage-backup.md#what-gets-backed-up) supports or [mounted Azure storage](configure-connect-to-azure-storage.md?pivots=container-windows) is *not* included in the snapshot. Consider using the native backup capabilities of the connected Azure service (for example, [SQL Database](../azure-sql/database/automated-backups-overview.md) and [Azure Files](../storage/files/storage-snapshots-files.md)).
 - App Service stops the target app or target slot while restoring a snapshot. To minimize downtime for the production app, restore the snapshot to a [staging slot](deploy-staging-slots.md) first, then swap into production.
 - Snapshots for the last 30 days are available. The retention period and snapshot frequency are not configurable.
 - App Services running on an App Service environment do not support snapshots.
