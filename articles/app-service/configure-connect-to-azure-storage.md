@@ -100,8 +100,11 @@ The following features are supported for Linux containers:
 ::: zone-end
 
 ::: zone pivot="container-windows"
-
 ## Mount storage to Windows container
+::: zone-end
+::: zone pivot="container-linux"
+## Mount storage to Linux container
+::: zone-end
 
 # [Azure portal](#tab/portal)
 
@@ -109,6 +112,7 @@ The following features are supported for Linux containers:
 1. From the left navigation, click **Configuration** > **Path Mappings** > **New Azure Storage Mount**. 
 1. Configure the storage mount according to the following table. When finished, click **OK**.
 
+    ::: zone pivot="container-windows"
     | Setting | Description |
     |-|-|
     | **Name** | Name of the mount configuration. Spaces are not allowed. |
@@ -117,46 +121,8 @@ The following features are supported for Linux containers:
     | **Share name** | Files share to mount. |
     | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
     | **Mount path** | Directory inside the Windows container to mount to Azure Storage. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`).|
-
-    > [!CAUTION]
-    > The directory specified in **Mount path** in the container should be empty. Any content stored in this directory is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
-    >
-    
-# [Azure CLI](#tab/cli)
-
-Use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) command. For example:
-
-```azurecli
-az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory>
-```
-
-- `--storage-type` must be `AzureFiles` for Windows containers. 
-- `mount-path-directory` must be in the form `/path/to/dir` or `[C-Z]:\path\to\dir` with no drive letter. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`).
-
-> [!CAUTION]
-> The directory specified in `--mount-path` in the container should be empty. Any content stored in this directory is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
->
-
-Verify your configuration by running the following command:
-
-```azurecli
-az webapp config storage-account list --resource-group <resource-group> --name <app-name>
-```
-
----
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-## Mount storage to Linux container
-
-# [Azure portal](#tab/portal)
-
-1. In the [Azure portal](https://portal.azure.com), navigate to the app.
-1. From the left navigation, click **Configuration** > **Path Mappings** > **New Azure Storage Mount**. 
-1. Configure the storage mount according to the following table. When finished, click **OK**.
-
+    ::: zone-end
+    ::: zone pivot="container-linux"
     | Setting | Description |
     |-|-|
     | **Name** | Name of the mount configuration. Spaces are not allowed. |
@@ -180,8 +146,20 @@ Use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storag
 az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory>
 ```
 
+::: zone pivot="container-windows"
+- `--storage-type` must be `AzureFiles` for Windows containers. 
+- `mount-path-directory` must be in the form `/path/to/dir` or `[C-Z]:\path\to\dir` with no drive letter. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`).
+::: zone-end
+::: zone pivot="container-linux"
 - `--storage-type` can be `AzureBlob` or `AzureFiles`. `AzureBlob` is read-only.
 - `--mount-path` is the directory inside the Linux container to mount to Azure Storage. Do not use `/` (the root directory).
+::: zone-end
+
+Verify your storage is mounted by running the following command:
+
+```azurecli
+az webapp config storage-account list --resource-group <resource-group> --name <app-name>
+```
 
 > [!CAUTION]
 > The directory specified in `--mount-path` in the container should be empty. Any content stored in this directory is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
@@ -194,8 +172,6 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 ```
 
 ---
-
-::: zone-end
 
 > [!NOTE]
 > Adding, editing, or deleting a storage mount causes the app to be restarted. 
@@ -218,8 +194,6 @@ To validate that the Azure Storage is mounted successfully for the app:
     ```bash
     tcpping Storageaccount.file.core.windows.net 
     ```
-
-::: zone-end
 
 ## Best practices
 
