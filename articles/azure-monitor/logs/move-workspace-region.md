@@ -312,7 +312,7 @@ If you want to discard the source workspace, delete the exported resources or th
 1. Select the target resource group in the Azure portal.
 1. On the **Overview** page:
    
-   - If you created a new resource group for this deployment, select **Delete resource group** on the toolbar to delete the resoure group.
+   - If you created a new resource group for this deployment, select **Delete resource group** on the toolbar to delete the resource group.
    - If the template was deployed to an existing resource group, select the resources that were deployed with the template, and then select **Delete** on the toolbar to delete selected resources.
 
 ## Clean up
