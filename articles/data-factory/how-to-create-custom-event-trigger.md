@@ -116,7 +116,7 @@ Additionally, custom event triggers obey the [same limitations as event grid](..
 
 * 5 advanced filters and 25 filter values across all the filters per custom event trigger
 * 512 characters per string value
-* Five values for in and not in operators
+* 5 values for in and not in operators
 * keys cannot have `.` (dot) character in them, for example, `john.doe@contoso.com`. Currently, there's no support for escape characters in keys.
 * The same key can be used in more than one filter.
 
@@ -130,7 +130,7 @@ The following table provides an overview of the schema elements that are related
 |---|----------------------------|---|---|---|
 | `scope` | The Azure Resource Manager resource ID of the event grid topic. | String | Azure Resource Manager ID | Yes |
 | `events` | The type of events that cause this trigger to fire. | Array of strings    |  | Yes, at least one value is expected. |
-| `subjectBeginsWith` | The `subject` field must begin with the provided pattern for the trigger to fire. For example, *factories only fire the trigger for event subjects that start with *factories*. | String   | | No |
+| `subjectBeginsWith` | The `subject` field must begin with the provided pattern for the trigger to fire. For example, _factories_ only fire the trigger for event subjects that start with *factories*. | String   | | No |
 | `subjectEndsWith` | The `subject` field must end with the provided pattern for the trigger to fire. | String   | | No |
 | `advancedFilters` | List of JSON blobs, each specifying a filter condition. Each blob specifies `key`, `operatorType`, and `values`. | List of JSON blob | | No |
 

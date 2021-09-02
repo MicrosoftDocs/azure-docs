@@ -124,7 +124,7 @@ Clusters support System-assigned managed identity and identity `type` property s
   }
   ```
 
-Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#creating-a-cluster). 
+Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#create-a-dedicated-cluster). 
 
 ## Grant Key Vault permissions
 
@@ -179,7 +179,7 @@ Content-type: application/json
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
-      "kyName": "key-name",
+      "keyName": "key-name",
       "keyVersion": "current-version"
   },
   "sku": {
@@ -211,7 +211,7 @@ A response to GET request should look like this when the key update is complete:
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
-      "kyName": "key-name",
+      "keyName": "key-name",
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
@@ -242,7 +242,7 @@ A response to GET request should look like this when the key update is complete:
 
 You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
 
-Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#link-a-workspace-to-cluster).
+Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 
 ## Key revocation
 

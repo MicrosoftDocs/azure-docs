@@ -224,4 +224,4 @@ After completing above pre-requisite installation, create a provider for each cl
 Learn more about Azure Monitor for SAP Solutions.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor for SAP Solutions](azure-monitor-overview.md)
+> [Monitor SAP on Azure](monitor-sap-on-azure.md)

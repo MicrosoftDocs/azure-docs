@@ -1,5 +1,5 @@
 ---
-title: Overview of immutability storage for Blob Storage
+title: Overview of immutable storage for blob data
 titleSuffix: Azure Storage
 description: Azure Storage offers WORM (Write Once, Read Many) support for Blob Storage that enables users to store data in a non-erasable, non-modifiable state. Time-based retention policies store blob data in a WORM state for a specified interval, while legal holds remain in effect until explicitly cleared.
 services: storage
@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
@@ -54,9 +54,9 @@ Immutability policies can be scoped to a blob version (preview) or to a containe
 
 You can configure both a time-based retention policy and a legal hold for a resource (container or blob version), depending on the scope. The following table summarizes which immutability policies are supported for each resource scope:
 
-| Scope | Container is configured to support version-level immutability policies | Container is not configured to support version-level immutability policies |
+| Scope | Container supports version-level immutability policies | Container does not support version-level immutability policies |
 |--|--|--|
-| Container | Supports one default version-level immutability policy. Does not support legal hold. | Supports one container-level immutability policy and one legal hold. |
+| Container | Supports one default version-level immutability policy. The default policy applies to any new versions created in the container after it is configured.<br /><br /> Does not support legal hold. | Supports one container-level immutability policy and one legal hold. A policy on a blob version can override a default policy specified on the container. |
 | Blob version | Supports one version-level immutability policy and one legal hold. | N/A |
 
 ### About the preview
@@ -161,6 +161,8 @@ If you fail to pay your bill and your account has an active time-based retention
 
 ## Next steps
 
+- [Data protection overview](data-protection-overview.md)
 - [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md)
 - [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
-- [Data protection overview](data-protection-overview.md)
+- [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md)
+- [Configure immutability policies for containers](immutable-policy-configure-container-scope.md)

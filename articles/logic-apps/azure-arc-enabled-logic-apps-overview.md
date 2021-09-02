@@ -16,7 +16,7 @@ ms.date: 05/25/2021
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With Azure Arc enabled Logic Apps, you can develop and run single-tenant based logic apps anywhere that Kubernetes can run. For example, you can run your logic app workflows on Azure, Azure Kubernetes Service, on premises, and even other cloud providers. This offering provides a centralized single pane-of-glass management platform through Azure Arc and the Azure portal for the following capabilities: 
+With Azure Arc enabled Logic Apps, you can develop and run single-tenant based logic apps anywhere that Kubernetes can run. For example, you can run your logic app workflows on Azure, Azure Kubernetes Service, on premises, and even other cloud providers. This offering provides a centralized single pane-of-glass management platform through Azure Arc and the Azure portal for the following capabilities:
 
 - Use Azure Logic Apps as your integration platform.
 - Connect your workflows to all your services no matter where they're hosted.

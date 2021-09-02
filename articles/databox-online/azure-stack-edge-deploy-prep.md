@@ -75,7 +75,7 @@ Before you begin, make sure that:
 
 * You have your Microsoft Azure storage account with access credentials.
 
-* You are not blocked by any Azure policy set up by your system administrator. For more information about policies, see [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
+* You are not blocked by any Azure Policy assignment set up by your system administrator. For more information about Azure Policy, see [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
 
 
 ### For the Azure Stack Edge Pro FPGA device
