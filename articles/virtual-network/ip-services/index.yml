@@ -24,21 +24,14 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: 
-            url: 
       - linkListType: concept
         links:
-          - text: 
-            url: 
 
   # Card (optional)
   - title: Get started
     linkLists:
       - linkListType: tutorial
         links:
-          - text: 
-            url: 
       - linkListType: tutorial
         links:
-          - text:
-            url: 
+
