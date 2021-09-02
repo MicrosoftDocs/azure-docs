@@ -71,7 +71,7 @@ Choosing a maintenance window other than the default is available on all SLOs **
 
 Choosing a maintenance window other than the default is currently available in the following regions:
 
-| Azure Region | SQL Managed Instance | Azure SQL Database | SQL Database in an [Azure Availability Zone](high-availability-sla.md) | 
+| Azure Region | SQL Managed Instance | SQL Database | SQL Database in an [Azure Availability Zone](high-availability-sla.md) | 
 |:---|:---|:---|:---|
 | Australia East | Yes | Yes | Yes |
 | Australia SouthEast | Yes | Yes | |
