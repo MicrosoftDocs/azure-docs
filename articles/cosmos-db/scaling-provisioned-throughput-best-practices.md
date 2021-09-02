@@ -38,7 +38,7 @@ Each physical partition can support a maximum of 10,000 RU/s (applies to all API
 Navigate to
 **Insights** > **Throughput** > **Normalized RU Consumption (%) By PartitionKeyRangeID**. Count the distinct number of PartitionKeyRangeIds. 
 
-:::image type="content" source="media/scaling-provisioned-throughput-best-practices/NumberOfPhysicalPartitions.png" alt-text="Count the distinct number of PartitionKeyRangeIds in the Normalized RU Consumption (%) by PartitionKeyRangeID chart":::
+:::image type="content" source="media/scaling-provisioned-throughput-best-practices/number-of-physical-partitions.png" alt-text="Count the distinct number of PartitionKeyRangeIds in the Normalized RU Consumption (%) by PartitionKeyRangeID chart":::
 
 > [!NOTE]
 > The chart will only show a maximum of 50 PartitionKeyRangeIds. If your resource has more than 50, you can use the [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/cosmos-db/get-partition-key-ranges#example) to count the total number of partitions. 
@@ -75,7 +75,7 @@ Thanks to choosing a good partition key with high cardinality, the data is rough
 In addition, Azure Cosmos DB distributes RU/s evenly across all physical partitions. As a result, each physical partition has 10,000 RU/s and 50% (40 GB) of the total data. 
 The following diagram shows our current state. 
 
-:::image type="content" source="media/scaling-provisioned-throughput-best-practices/Diagram_1_baseline.png" alt-text="Two PartitionKeyRangeIds, each with 10,000 RU/s, 40 GB, and 50% of the total keyspace":::
+:::image type="content" source="media/scaling-provisioned-throughput-best-practices/diagram-1-baseline.png" alt-text="Two PartitionKeyRangeIds, each with 10,000 RU/s, 40 GB, and 50% of the total keyspace":::
 
 Now, suppose we want to increase our RU/s from 20,000 RU/s to 30,000 RU/s. 
  
@@ -87,7 +87,7 @@ Because Azure Cosmos DB distributes RU/s evenly across all physical partitions, 
 
 In the following diagram, we see that Partitions 3 and 4 (the children partitions of Partition 2) each have 10,000 RU/s to serve requests for 20 GB of data, while Partition 1 has 10,000 RU/s to serve requests for twice the amount of data (40 GB).
 
-:::image type="content" source="media/scaling-provisioned-throughput-best-practices/Diagram_2_uneven_partition_split.png" alt-text="After the split, there are 3 PartitionKeyRangeIds, each with 10,000 RU/s. However, one of the PartitionKeyRangeIds has 50% of the total keyspace (40 GB), while two of the PartitionKeyRangeIds have 25% of the total keyspace (20 GB)":::
+:::image type="content" source="media/scaling-provisioned-throughput-best-practices/diagram-2-uneven-partition-split.png" alt-text="After the split, there are 3 PartitionKeyRangeIds, each with 10,000 RU/s. However, one of the PartitionKeyRangeIds has 50% of the total keyspace (40 GB), while two of the PartitionKeyRangeIds have 25% of the total keyspace (20 GB)":::
 
 To maintain an even storage distribution, we can first scale up our RU/s to ensure every partition splits. Then, we can lower our RU/s back down to the desired state.
 
@@ -95,7 +95,7 @@ So, if we start with two physical partitions, to guarantee that the partitions a
 
 As a result, we see in the following diagram that each physical partition gets 30,000 RU/s / 4 = 7500 RU/s to serve requests for 20 GB of data. Overall, we maintain even storage and request distribution across partitions. 
 
-:::image type="content" source="media/scaling-provisioned-throughput-best-practices/Diagram_3_even_partition_split.png" alt-text="After the split completes and the RU/s has been lowered from 40,000 RU/s to 30,000 RU/s, there are 4 PartitionKeyRangeIds, each with 7500 RU/s and 25% of the total keyspace (20 GB)":::
+:::image type="content" source="media/scaling-provisioned-throughput-best-practices/diagram-3-even-partition-split.png" alt-text="After the split completes and the RU/s has been lowered from 40,000 RU/s to 30,000 RU/s, there are 4 PartitionKeyRangeIds, each with 7500 RU/s and 25% of the total keyspace (20 GB)":::
 
 ### General formula
 
