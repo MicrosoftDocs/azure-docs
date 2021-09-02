@@ -125,5 +125,6 @@ Object replication incurs additional costs on read and write transactions agains
 ## Next steps
 
 - [Configure object replication](object-replication-configure.md)
+- [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md)
+- [Blob versioning](versioning-overview.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
-- [Enable and manage blob versioning](versioning-enable.md)

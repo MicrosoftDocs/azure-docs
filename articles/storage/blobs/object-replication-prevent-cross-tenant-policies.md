@@ -19,7 +19,7 @@ Object replication asynchronously copies block blobs from a container in one sto
 
 By default, an authorized user is permitted to configure an object replication policy where the source account is in one Azure Active Directory (Azure AD) tenant, and the destination account is in a different tenant. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow the creation of policies where the source and destination accounts are in different tenants. By default, cross-tenant object replication is enabled for a storage account unless you explicitly disallow it.
 
-This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage whether cross-tenant object replication is permitted for your storage accounts.
+This article describes how to remediate cross-tenant object replication for your storage accounts. It also describes how to create policies to enforce a prohibition on cross-tenant object replication for new and existing storage accounts.
 
 For more information on how to configure object replication policies, including cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
 
@@ -33,7 +33,7 @@ The **AllowCrossTenantReplication** property is not set by default for a new or 
 
 To disallow cross-tenant replication for a new storage account, use the Azure portal, PowerShell, or Azure CLI.
 
-#### [Portal](#tab/azure-portal)
+#### [Portal](#tab/portal)
 
 To disallow cross-tenant object replication for a new storage account, follow these steps:
 
@@ -138,13 +138,9 @@ az storage account update \
 
 ---
 
-After you disallow cross-tenant replication, attempting to configure a cross-tenant policy with the storage account as the source or destination will fail with error code 403 (Forbidden). Azure Storage an returns error indicating that cross-tenant object replication is not permitted for the storage account.
+After you disallow cross-tenant replication, attempting to configure a cross-tenant policy with the storage account as the source or destination will fail with error code 403 (Forbidden) ???is this the right error - need to verify???. Azure Storage an returns error indicating that cross-tenant object replication is not permitted for the storage account.
 
 The **AllowCrossTenantReplication** property is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](../common/storage-account-overview.md#types-of-storage-accounts).
-
-### Verify that cross-tenant policies are not allowed
-
-???
 
 ### Check the cross-tenant replication setting for multiple accounts
 
