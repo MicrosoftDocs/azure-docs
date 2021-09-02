@@ -121,7 +121,7 @@ You can reuse pre-existing Zerto product licenses for Azure VMware Solution envi
 
 ### How is Zerto supported?
 
-Zerto Disaster Recovery is a solution that is sold and supported by Zerto. For any support issue with Zerto Disaster Recovery, always contact Zerto support.
+Zerto Disaster Recovery is a solution that is sold and supported by Zerto. For any support issue with Zerto Disaster Recovery, always contact [Zerto support](https://www.zerto.com/company/support-and-service/support/).
 
 Zerto and Microsoft support teams will engage each other as needed to troubleshoot Zerto Disaster Recovery issues on Azure VMware Solution.
 
