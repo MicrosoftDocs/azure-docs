@@ -312,9 +312,9 @@ its read-only attribute set.
 **--help**  help for copy.
 
 **--include-after** string   Include only those files modified on or after the given date/time. The value should be in ISO8601 format. If no timezone 
-is specified, the value is assumed to be in the local timezone of the machine running AzCopy. for example, `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As at AzCopy 10.5, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-smb-permissions`.
+is specified, the value is assumed to be in the local timezone of the machine running AzCopy. for example, `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As at AzCopy 10.5, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-permissions`.
 
- **--include-before** string  Include only those files modified before or on the given date/time. The value should be in ISO8601 format. If no timezone is specified, the value is assumed to be in the local timezone of the machine running AzCopy. E.g. `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As of AzCopy 10.7, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-smb-permissions`.
+ **--include-before** string  Include only those files modified before or on the given date/time. The value should be in ISO8601 format. If no timezone is specified, the value is assumed to be in the local timezone of the machine running AzCopy. E.g. `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As of AzCopy 10.7, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-permissions`.
 
 **--include-attributes** string   (Windows only) Includes files whose attributes match the attribute list. For example: A;S;R
 
@@ -340,7 +340,7 @@ is specified, the value is assumed to be in the local timezone of the machine ru
 
 **--preserve-last-modified-time**  Only available when destination is file system.
 
-**--preserve-owner**    Only has an effect in downloads, and only when `--preserve-smb-permissions` is used. If true (the default), the file Owner and Group are preserved in downloads. If set to false,`--preserve-smb-permissions` will still preserve ACLs but Owner and Group will be based on the user running AzCopy (default true)
+**--preserve-owner**    Only has an effect in downloads, and only when `--preserve-permissions` is used. If true (the default), the file Owner and Group are preserved in downloads. If set to false,`--preserve-permissions` will still preserve ACLs but Owner and Group will be based on the user running AzCopy (default true)
 
 **--preserve-smb-info**   True by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files will be transferred; any others will be ignored. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that is never preserved for folders.
 
