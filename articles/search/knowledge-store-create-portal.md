@@ -100,15 +100,18 @@ In this wizard step, add skills for AI enrichment. The source data consists of c
 
 1. For **Enrichment granularity level**, select **Pages (5000 characters chunks)**.
 
-1. Select these cognitive skills:
+1. For **Text Cognitive Skills**, select the following skills:
+
     + **Extract key phrases**
     + **Translate text**
     + **Language detection**
     + **Detect sentiment**
 
+   Your page should look like the following screenshot:
+
    :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ss.png" alt-text="Screenshot of the skillset definition" border="true":::
 
-1. Expand **Save enrichments to knowledge store**.
+1. Scroll down and expand **Save enrichments to knowledge store**.
 
 1. Select these **Azure table projections**:
     + **Documents**

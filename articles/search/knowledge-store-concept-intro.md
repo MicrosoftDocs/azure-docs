@@ -38,7 +38,13 @@ The following video explains both of these benefits and more.
 
 ## Knowledge store definition
 
-A knowledge store is defined inside a skillset definition and it has two components: a connection string to Azure Storage, and [projections](knowledge-store-projection-overview.md) that determine whether the knowledge store consists of tables, objects or files. The projections element is an array. You can create multiple sets of table-object-file combinations within one knowledge store.
+A knowledge store is defined inside a skillset definition and it has two components: 
+
++ a connection string to Azure Storage
+
++ [**Projections**](knowledge-store-projection-overview.md) that determine whether the knowledge store consists of tables, objects or files. 
+
+The projections element is an array. You can create multiple sets of table-object-file combinations within one knowledge store.
 
 ```json
 "knowledgeStore":{
@@ -68,7 +74,7 @@ Go with the portal approach for the fastest route to a finished knowledge store.
 
 ### [**Azure portal**](#tab/kstore-portal)
 
-[Create your first knowledge store in four steps](knowledge-store-create-portal.md) using the **Import data** wizard.
+[**Create your first knowledge store in four steps**](knowledge-store-create-portal.md) using the **Import data** wizard.
 
 1. Define your data source
 
@@ -82,7 +88,7 @@ The wizard automates tasks that you would otherwise have to be handled manually.
 
 ### [**REST**](#tab/kstore-rest)
 
-[Create your first knowledge store using Postman](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store).
+[**Create your first knowledge store using Postman**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store).
 
 REST API version `2020-06-30` can be used to create a knowledge store through additions to a skillset.
 
