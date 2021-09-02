@@ -58,7 +58,7 @@ ENV['WEBSITE_SITE_NAME']
 
 ## Customize deployment
 
-When you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation), the deployment engine (Kudu) automatically runs the following post-deployment steps by default:
+When you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the deployment engine (Kudu) automatically runs the following post-deployment steps by default:
 
 1. Check if a *Gemfile* exists.
 1. Run `bundle clean`. 

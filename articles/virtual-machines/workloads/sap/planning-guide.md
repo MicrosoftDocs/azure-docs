@@ -1621,7 +1621,7 @@ Setting up your on-premises TCP/IP based network printers in an Azure VM is over
 > ![Linux logo.][Logo_Linux] Linux
 >
 > * like for Windows just follow the standard procedure to install a network printer
-> * just follow the public Linux guides for [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) or [Red Hat and Oracle Linux](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) on how to add a printer.
+> * just follow the public Linux guides for [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) or [Red Hat and Oracle Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) on how to add a printer.
 >
 >
 
