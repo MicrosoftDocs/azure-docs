@@ -84,6 +84,8 @@ If you modify or delete Azure-created tags and other resource properties in the 
 
 However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
 
+Note:the tag name "Owner" is reserved for AKS to manage the public IP that is assigned on front end IP of the loadbalancer. having azure policies to apply this tag name on all resources may break the AKS cluster deployment or any update operation. 
+
 ## What Kubernetes admission controllers does AKS support? Can admission controllers be added or removed?
 
 AKS supports the following [admission controllers][admission-controllers]:
