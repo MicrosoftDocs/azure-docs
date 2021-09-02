@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 08/26/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
 ---
 
@@ -44,7 +44,7 @@ Pool lifetime can vary depending upon the method of allocation and options appli
 
 - **Pool efficiency and billing:** Batch itself incurs no extra charges, but you do incur charges for the compute resources used. You're billed for every compute node in the pool, regardless of the state it's in. This includes any charges required for the node to run, such as storage and networking costs. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
 
-- **Ephemeral OS disks:** Virtual Machine Configuration pools can use [ephemeral OS disks](..//virtual-machines/ephemeral-os-disks.md), which create the OS disk on the VM cache or temporary SSD, to avoid extra costs associated with managed disks.
+- **Ephemeral OS disks:** Virtual Machine Configuration pools can use [ephemeral OS disks](create-pool-ephemeral-os-disk.md), which create the OS disk on the VM cache or temporary SSD, to avoid extra costs associated with managed disks.
 
 ### Pool allocation failures
 

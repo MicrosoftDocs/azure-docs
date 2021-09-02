@@ -2,7 +2,7 @@
 title: Get cost analysis and set budgets for Azure Batch
 description: Learn how to get a cost analysis, set a budget, and reduce costs for the underlying compute resources and software licenses used to run your Batch workloads.
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 09/03/2021
 ---
 
 # Get cost analysis and set budgets for Azure Batch
@@ -75,7 +75,7 @@ Depending on your scenario, you may want to reduce costs as much as possible. Co
 
 ### Use ephemeral OS disks
 
-Virtual Machine Configuration pools can use [ephemeral OS disks](..//virtual-machines/ephemeral-os-disks.md), which create the OS disk on the VM cache or temporary SSD, to avoid extra costs associated with managed disks.
+Virtual Machine Configuration pools can use [ephemeral OS disks](create-pool-ephemeral-os-disk.md), which create the OS disk on the VM cache or temporary SSD, to avoid extra costs associated with managed disks.
 
 ### Purchase reservations for virtual machine instances
 
