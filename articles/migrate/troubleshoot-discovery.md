@@ -20,7 +20,7 @@ You get this error when you don't yet see the servers in the portal, and the dis
 
 If the servers don't appear in the portal, wait for a few minutes because it takes around 15 minutes for discovery of servers running on a vCenter server. It takes 2 minutes for each Hyper-V host added on the appliance for discovery of servers running on the host and 1 minute for discovery of each server added on the physical appliance.
 
-If the state still doesn't change, do as follows:
+If the state still doesn't change:
 
 - Select **Refresh** on the **Servers** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Azure Migrate: Server migration.
 
@@ -35,12 +35,12 @@ You get this error if the discovered servers don't appear in the portal or if th
 
 ### Remediation
 
-Wait for a few minutes because it takes up to 30 minutes for changes in discovered server configuration data to appear in the portal and a few hours for changes in software inventory data to appear. If there's no data after this time, refresh and do as follows:
+Wait for a few minutes because it takes up to 30 minutes for changes in discovered server configuration data to appear in the portal and a few hours for changes in software inventory data to appear. If there's no data after this time, refresh and follow these steps:
 
 1. In **Windows, Linux, and SQL Servers** > **Azure Migrate: Discovery and assessment**, select **Overview**.
 1. Under **Manage**, select **Appliances**.
 1. Select **Refresh services**.
-Wait for the refresh operation to complete. You should now see up-to-date information.
+Wait for the refresh operation to finish. You should now see up-to-date information.
 
 ## Deleted servers appear in the portal
 
@@ -48,12 +48,12 @@ You get this error when the deleted servers continue to appear in the portal.
 
 ### Remediation
 
-If the data continues to appear, wait for 30 minutes and do as follows:
+If the data continues to appear, wait for 30 minutes and follow these steps:
 
 1. In **Windows, Linux, and SQL Servers** > **Azure Migrate: Discovery and assessment**, select **Overview**.
 1. Under **Manage**, select **Appliances**.
 1. Select **Refresh services**.
-Wait for the refresh operation to complete. You should now see up-to-date information.
+Wait for the refresh operation to finish. You should now see up-to-date information.
 
 ## You imported a CSV but see "Discovery is in progress"
 
@@ -74,7 +74,7 @@ The software inventory discovery runs once every 24 hours. This process might ta
 1. In **Windows, Linux, and SQL Servers** > **Azure Migrate: Discovery and assessment**, select **Overview**.
 1. Under **Manage**, select **Appliances**.
 1. Select **Refresh services**.
-Wait for the refresh operation to complete. You should now see up-to-date information.
+Wait for the refresh operation to finish. You should now see up-to-date information.
 
 ## Unable to export software inventory
 
@@ -104,7 +104,7 @@ The list of software inventory errors is summarized in the following table.
 | **9006**: The URL needed to download the discovery metadata file from the server is empty. | This issue could be transient because the discovery agent on the appliance isn't working as expected. | The issue should automatically resolve in the next cycle within 24 hours. If the issue persists, submit a Microsoft support case. |
 | **9007**: The process that runs the script to collect the metadata isn't found in the server. | This issue could be transient because the discovery agent on the appliance isn't working as expected. | The issue should automatically resolve in the next cycle within 24 hours. If the issue persists, submit a Microsoft support case. |
 | **9008**: The status of the process running on the server to collect the metadata can't be retrieved. | This issue could be transient because of an internal error. | The issue should automatically resolve in the next cycle within 24 hours. If the issue persists, submit a Microsoft support case. |
-| **9009**: Windows User Account Control (UAC) is preventing the execution of discovery operations on the server. | Windows UAC settings are restricting the discovery of installed applications from the server. | On the affected server, lower the level of the **User Account Control** settings on the Control Panel. |
+| **9009**: Windows User Account Control (UAC) is preventing the execution of discovery operations on the server. | Windows UAC settings are restricting the discovery of installed applications from the server. | On the affected server, lower the level of the **User Account Control** settings in Control Panel. |
 | **9010**: The server is powered off. | The server is in a powered-off state. | Ensure that the server is in a powered-on state. |
 | **9011**: The file containing the discovered metadata can't be found on the server. | This issue could be transient because of an internal error. | The issue should automatically resolve in the next cycle within 24 hours. If the issue persists, submit a Microsoft support case. |
 | **9012**: The file containing the discovered metadata on the server is empty. | This issue could be transient because of an internal error. | The issue should automatically resolve in the next cycle within 24 hours. If the issue persists, submit a Microsoft support case. |
@@ -153,11 +153,11 @@ The list of software inventory errors is summarized in the following table.
 The issue happens when the VMware discovery agent in the appliance tries to download the output file containing dependency data from the server file system through the ESXi host on which the server is hosted.
 
 ### Remediation
-- You can test TCP connectivity to the ESXi host _(name provided in the error message)_ on port 443 (required to be open on ESXi hosts to pull dependency data) from the appliance by opening PowerShell on the appliance server and executing the following command:
-- 
-    ````
-    Test -NetConnection -ComputeName <Ip address of the ESXi host> -Port 443
-    ````
+- You can test TCP connectivity to the ESXi host _(name provided in the error message)_ on port 443 (required to be open on ESXi hosts to pull dependency data) from the appliance by opening PowerShell on the appliance server and running the following command:
+ 
+   ````
+   Test -NetConnection -ComputeName <Ip address of the ESXi host> -Port 443
+   ````
 
 - If the command returns successful connectivity, go to the **Azure Migrate project** > **Discovery and assessment** > **Overview** > **Manage** > **Appliances**, select the appliance name, and select **Refresh services**.
 
@@ -323,7 +323,7 @@ Typical SQL discovery errors are summarized in the following table.
 |**30010**: No databases found.|Unable to find any databases from the selected server instance.|Grant the sysadmin role to the credentials/ account provided on the appliance for discovering SQL databases.| - |
 |**30011**: An internal error occurred while assessing a SQL instance or database.|An internal error occurred while performing assessment.|Contact Microsoft support if the issue persists.| - |
 |**30012**: SQL connection failed.|1. The firewall on the server has refused the connection.<br/>2. The SQL Server Browser service (sqlbrowser) isn't started.<br/>3. SQL Server didn't respond to the client request because the server probably isn't started.<br/>4. The SQL Server client can't connect to the server. This error could occur because the server isn't configured to accept remote connections.<br/>5. The SQL Server client can't connect to the server. This error could occur because either the client can't resolve the name of the server or the name of the server is incorrect.<br/>6. The TCP or named pipe protocols aren't enabled.<br/>7. The specified SQL Server instance name isn't valid.|Use [this interactive user guide](https://go.microsoft.com/fwlink/?linkid=2153317) to troubleshoot the connectivity issue. Wait for 24 hours after following the guide for the data to update in the service. If the issue persists, contact Microsoft support.| [View](https://go.microsoft.com/fwlink/?linkid=2153317) |
-|**30013**: An error occurred while establishing a connection to the SQL Server instance.|1. SQL Server's name can't be resolved from the appliance.<br/>2. SQL Server doesn't allow remote connections.|If you can ping SQL Server from the appliance, wait 24 hours to check if this issue autoresolves. If it doesn't, contact Microsoft support. [Learn more](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error).| [View](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error) |
+|**30013**: An error occurred while establishing a connection to the SQL Server instance.|1. The SQL Server name can't be resolved from the appliance.<br/>2. SQL Server doesn't allow remote connections.|If you can ping SQL Server from the appliance, wait 24 hours to check if this issue autoresolves. If it doesn't, contact Microsoft support. [Learn more](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error).| [View](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error) |
 |**30014**: Username or password is invalid.| This error could occur because of an authentication failure that involves a bad password or username.|Provide a credential with a valid username and password. [Learn more](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error).| [View](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error) |
 |**30015**: An internal error occurred while discovering the SQL Server instance.|An internal error occurred while discovering the SQL Server instance.|Contact Microsoft support if the issue persists.| - |
 |**30016**: Connection to instance '%instance;' failed because of a timeout.| This problem could occur if the firewall on the server refuses the connection.|Verify whether the firewall on the SQL server is configured to accept connections. If the error persists, contact Microsoft support. [Learn more](/sql/relational-databases/errors-events/mssqlserver-neg2-database-engine-error).| [View](/sql/relational-databases/errors-events/mssqlserver-neg2-database-engine-error) |
