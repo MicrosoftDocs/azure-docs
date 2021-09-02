@@ -392,11 +392,11 @@
         href: faq-configuration-and-management.yml
       - name: App Service on Linux
         href: faq-app-service-linux.yml        
-  - name: IP address change
-    items:
-    - name: Inbound IP address
-      href: ip-address-change-inbound.md
-    - name: Outbound IP address
-      href: ip-address-change-outbound.md
-    - name: TLS/SSL address
-      href: ip-address-change-ssl.md
+    - name: IP address change
+      items:
+      - name: Inbound IP address
+        href: ip-address-change-inbound.md
+      - name: Outbound IP address
+        href: ip-address-change-outbound.md
+      - name: TLS/SSL address
+        href: ip-address-change-ssl.md
