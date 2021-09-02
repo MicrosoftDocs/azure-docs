@@ -32,13 +32,13 @@ After model training is completed, you can view the model details and see how we
 
 3. View your model training status in the **Status** column, and the F1 score for the model in the **F1 score** column.
 
-:::image type="content" source="../media/model-details-1.png" alt-text="View model details button" lightbox="../media/model-details-1.png":::
+    :::image type="content" source="../media/model-details-1.png" alt-text="View model details button" lightbox="../media/model-details-1.png":::
 
 1. Click on the model name for more details.
 
 2. You can find the **model-level** evaluation metrics under the **Overview** section and the **class-level** evaluation metrics  under the **Class performance metrics** section. See [Evaluation metrics](../concepts/evaluation.md#model-level-and-class-level-evaluation-metrics) for more information.
 
-:::image type="content" source="../media/model-details-2.png" alt-text="Model performance metrics" lightbox="../media/model-details-2.png":::
+    :::image type="content" source="../media/model-details-2.png" alt-text="Model performance metrics" lightbox="../media/model-details-2.png":::
 
 > [!NOTE]
 > If you don't find all the classes displayed here, it is because there were no tagged files of this class in the test set.
@@ -63,7 +63,7 @@ Under the **Test set confusion matrix**, you can find the confusion matrix for t
 
 2. From the menu on the left side, select **Keys and Endpoint**. Use the endpoint for the API requests. You will need the key for `Ocp-Apim-Subscription-Key` header.
 
-:::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
+    :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
 
 ### Get evaluation details
 

@@ -58,7 +58,7 @@ Typically, you would import your data and begin [tagging the intents](../how-to/
 
 1. [Download the data file](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
 
-2. TBD
+2. Select the **Import** button on your project in Language Studio.
 
 ## Train your model
 

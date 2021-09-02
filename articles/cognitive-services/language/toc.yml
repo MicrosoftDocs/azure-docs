@@ -35,7 +35,7 @@ items:
   - name: Concepts
     items:
     - name: Using Azure resources
-      href: custom-classification/concepts/using-azure-resources.md
+      href: custom-classification/concepts/use-azure-resources.md
     - name: Recommended practices
       href: custom-classification/concepts/recommended-practices.md
     - name: Definitions
