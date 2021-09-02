@@ -4,7 +4,6 @@ description: Learn how to implement Zerto Disaster Recovery for on-premises VMwa
 ms.topic: how-to 
 ms.date: 09/03/2021
 
-
 ---
 
 # Deploy Zerto Disaster Recovery on Azure VMware Solution (Initial Availability)
@@ -19,7 +18,7 @@ Zerto is a disaster recovery solution designed to minimize downtime of the VMs i
 | Component | Description |
 | --- | --- |
 | **Zerto Virtual Manager (ZVM)**   | Management application for Zerto implemented as a Windows service installed on a Windows VM. The private cloud administrator installs and manages the Windows VM. The ZVM enables Day 0 and Day 2 DR configuration. For example, configuring primary and disaster recovery sites, protecting VMs, recovering VMs, and so on. However, it doesn't handle the replication data of the protected customer VMs.     |
-| **Virtual Replication appliance (vRA)**   | Linux VM to handle data replication from the source to the replication target. One instance of vRA is installed per ESXi host, delivering a true scale architecture that grows and shrinks along with the Private Cloud's hosts. The VRA manages data replication to and from protected VMs to its local or remote target, storing the data in the journal.    |
+| **Virtual Replication appliance (vRA)**   | Linux VM to handle data replication from the source to the replication target. One instance of vRA is installed per ESXi host, delivering a true scale architecture that grows and shrinks along with the private cloud's hosts. The VRA manages data replication to and from protected VMs to its local or remote target, storing the data in the journal.    |
 | **Zerto ESXi host driver**   | Installed on each VMware ESXi host configured for Zerto DR. The host driver intercepts a vSphere VM's IO and sends the replication data to the chosen vRA for that host. The vRA is then responsible for replicating the VM's data to one or more DR targets.    |
 | **Zerto Cloud Appliance (ZCA)**   | Windows VM only used when Zerto is used to recover vSphere VMs as Azure Native IaaS VMs. The ZCA is composed of:<ul><li>**ZVM:** A Windows service that hosts the UI and integrates with the native APIs of Azure for management and orchestration.</li><li>**VRA:** A Windows service that replicates the data from or to Azure.</li></ul>The ZCA integrates natively with the platform it's deployed on, allowing you to use Azure Blob storage within a storage account on Microsoft Azure. As a result, it ensures the most cost-efficient deployment on each of these platforms.   |
 | **Virtual Protection Group (VPG)**   | Logical group of VMs created on the ZVM. Zerto allows configuring DR, Backup, and Mobility policies on a VPG. This mechanism enables a consistent set of policies to be applied to a group of VMs.  |
@@ -34,7 +33,7 @@ You can use Zerto with Azure VMware Solution for the following three scenarios.
 
 ### Scenario 1: On-premises VMware to Azure VMware Solution DR
 
-In this scenario, the primary site is an on-premises vSphere-based environment. And the Disaster Recovery site is an Azure VMware Solution Private Cloud. 
+In this scenario, the primary site is an on-premises vSphere-based environment. And the Disaster Recovery site is an Azure VMware Solution private cloud. 
 
 :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-1.png" alt-text="Diagram showing Scenario 1 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
 
@@ -42,14 +41,14 @@ In this scenario, the primary site is an on-premises vSphere-based environment. 
 
 ### Scenario 2: Azure VMware Solution to Azure VMware Solution cloud DR
 
-In this scenario, the primary site is an Azure VMware Solution Private Cloud in one Azure Region. And the Disaster Recovery site is an Azure VMware Solution Private Cloud in a different Azure Region.
+In this scenario, the primary site is an Azure VMware Solution private cloud in one Azure Region. And the Disaster Recovery site is an Azure VMware Solution private cloud in a different Azure Region.
 
 :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2.png" alt-text="Diagram showing scenario 2 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
 
 
 ### Scenario 3: Azure VMware Solution to IaaS VMs cloud DR
 
-In this scenario, the primary site is an Azure VMware Solution Private Cloud in one Azure Region. And Azure Blobs and Azure IaaS (Hyper-V based) VMs are used in times of Disaster.
+In this scenario, the primary site is an Azure VMware Solution private cloud in one Azure Region. And Azure Blobs and Azure IaaS (Hyper-V based) VMs are used in times of Disaster.
 
 :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3.png" alt-text="Diagram showing Scenario 3 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
 
