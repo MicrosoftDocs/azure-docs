@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 08/18/2021
 ---
 
 # Edit host and app settings for logic apps in single-tenant Azure Logic Apps
@@ -290,6 +290,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
+| `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` | `00:01:00` <br>(1 min) | Sets the timeout for sending messages with the built-in Service Bus operation. |
 | `Runtime.ServiceProviders.ServiceBus.MessageSenderPoolSizePerProcessorCount` | `64` message senders | Sets the number of Azure Service Bus message senders per processor core to use in the message sender pool. |
 ||||
 

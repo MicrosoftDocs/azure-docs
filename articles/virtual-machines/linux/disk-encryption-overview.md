@@ -12,7 +12,9 @@ ms.custom: seodec18
 
 ---
 
-# Azure Disk Encryption for Linux VMs 
+# Azure Disk Encryption for Linux VMs
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments. It uses the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and data disks of Azure virtual machines (VMs), and is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk encryption keys and secrets.
 

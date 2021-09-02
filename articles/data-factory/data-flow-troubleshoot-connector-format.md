@@ -5,7 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: troubleshooting 
-ms.date: 06/24/2021
+ms.date: 08/17/2021
 ---
 
 
@@ -760,12 +760,62 @@ If you meet up error with the Snowflake query, check whether some identifiers (t
     
 1. After the SQL query of Snowflake is tested and validated, you can use it in the data flow Snowflake source directly.
 
+### The expression type does not match the column data type, expecting VARIANT but got VARCHAR 
+
+#### Symptoms
+
+When you try to write data into the Snowflake table, you may meet the following error:
+
+`java.sql.BatchUpdateException: SQL compilation error: Expression type does not match column data type, expecting VARIANT but got VARCHAR`
+
+#### Cause
+
+The column type of input data is string, which is different from the VARIANT type of the related column in the Snowflake sink.
+
+When you store data with complex schemas (array/map/struct) in a new Snowflake table, the data flow type will be automatically converted into its physical type VARIANT.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/physical-type-variant.png" alt-text="Screenshot that shows the VARIANT type in a table."::: 
+
+The related values are stored as JSON strings, showing in the picture below.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-string.png" alt-text="Screenshot that shows the stored JSON string."::: 
+
+#### Recommendation
+
+For the Snowflake VARIANT, it can only accept the data flow value that is struct or map or array type. If the value of your input data column is JSON or XML or other strings, use one of the following options to solve this issue:
+
+- **Option-1**: Use [parse transformation](./data-flow-parse.md) before using Snowflake as a sink to covert the input data column value into struct or map or array type, for example:
+
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/parse-transformation.png" alt-text="Screenshot that shows the parse transformation."::: 
+
+    > [!Note]
+    > The value of the Snowflake column with VARIANT type is read as string in Spark by default.
+
+- **Option-2**: Log in your Snowflake server (`https://{accountName}.azure.snowflakecomputing.com/`, replace {accountName} with your account name) to change the schema of your Snowflake target table. Apply the following steps by running the query under each step.
+    1. Create one new column with VARCHAR to store the values. <br/>
+        ```SQL
+        alter table tablename add newcolumnname varchar;
+        ```    
+    1. Copy the value of VARIANT into the new column. <br/>
+    
+        ```SQL
+        update tablename t1 set newcolumnname = t1."details"
+        ```
+    1. Delete the unused VARIANT column. <br/>
+        ```SQL
+        alter table tablename drop column "details";
+        ```
+    1. Rename the new column to the old name. <br/>
+        ```SQL
+        alter table tablename rename column newcolumnname to "details";
+        ```
+
 ## Next steps
 For more help with troubleshooting, see these resources:
 
 *  [Troubleshoot mapping data flows in Azure Data Factory](data-flow-troubleshoot-guide.md)
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)

@@ -28,6 +28,46 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
+## September 2021
+
+- [New in docs: scaling data connector documentation](#new-in-docs-scaling-data-connector-documentation)
+- [Azure Storage account connector changes](#azure-storage-account-connector-changes)
+
+### New in docs: scaling data connector documentation
+
+As we continue to add more and more built-in data connectors for Azure Sentinel, we've reorganized our data connector documentation to reflect this scaling.
+
+For most data connectors, we've replaced full articles that describe an individual connector with a series of generic procedures and a full reference of all currently supported connectors.
+
+Check the [Azure Sentinel data connectors reference](data-connectors-reference.md) for details about your connector, including references to the relevant generic procedure, as well as extra information and configurations required.
+
+For more information, see:
+
+- **Conceptual information**: [Connect data sources](connect-data-sources.md)
+
+- **Generic how-to articles**:
+
+   - [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
+   - [Connect your data source to Azure Sentinel's Data Collector API to ingest data](connect-rest-api-template.md)
+   - [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md)
+   - [Collect data from Linux-based sources using Syslog](connect-syslog.md)
+   - [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md)
+   - [Use Azure Functions to connect your data source to Azure Sentinel](connect-azure-functions-template.md)
+   - [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md)
+
+### Azure Storage account connector changes
+
+Due to some changes made within the Azure Storage account resource configuration itself, the connector also needs to be reconfigured.
+The storage account (parent) resource has within it other (child) resources for each type of storage: files, tables, queues, and blobs.
+
+When configuring diagnostics for a storage account, you must select and configure, in turn:
+- The parent account resource, exporting the **Transaction** metric.
+- Each of the child storage-type resources, exporting all the logs and metrics (see the table above).
+
+You will only see the storage types that you actually have defined resources for.
+
+:::image type="content" source="media/whats-new/storage-diagnostics.png" alt-text="Screenshot of Azure Storage diagnostics configuration.":::
+
 ## August 2021
 
 - [Codeless data connectors (Public preview)](#codeless-data-connectors-public-preview)
@@ -442,7 +482,7 @@ The new detections include:
 - [Known IRIDIUM IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
 - [Known Phosphorus group domains/IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
 - [THALLIUM domains included in DCU takedown](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
-- [Known ZINC related maldoc hash](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+- [Known ZINC related malware hash](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 - [Known STRONTIUM group domains](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
 - [NOBELIUM - Domain and IP IOCs - March 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
 

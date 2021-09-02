@@ -27,7 +27,11 @@ Site deployment tasks include:
 
 - [Prepare a configuration workstation](#prepare-a-configuration-workstation)
 
-- [Planning rack installation](#planning-rack-installation)
+- [Set up Certificates](#set-up-certificates)
+
+- [Prepare a configuration workstation](#prepare-a-configuration-workstation)
+
+- [Plan rack installation](#plan-rack-installation)
 
 ### Collect site information
 
@@ -85,6 +89,10 @@ The following browsers are supported for the sensors and on-premises management 
 
 For more information on supported browsers, see [Recommended browsers](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
+### Set up certificates
+
+Following sensor and on-premises management console installation, a local self-signed certificate is generated and used to access the sensor web application. When signing in to Defender for IoT for the first time, Administrator users are prompted to provide an SSL/TLS certificate. In addition, an option to validate to this certificate  as well other system certificates is automatically is enabled. See [About Certificates](how-to-deploy-certificates.md) for details.
+
 ### Network access requirements
 
 Verify that your organizational security policy allows access to the following:
@@ -106,7 +114,7 @@ Verify that your organizational security policy allows access to the following:
 | Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the on-premises management console. <br /><br />- Port 22 from sensor to the on-premises management console  | monitoring | Tunneling | Sensor | On-premises management console |
 | HTTP| TCP | OUT | 80 | Certificate validation  | Download CRL file | Sensor | CRL server |
 
-### Planning rack installation
+### Plan rack installation
 
 To plan your rack installation:
 

@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 08/16/2021
 ms.author: cavoeg
 ---
 
@@ -83,4 +83,4 @@ Now that you've registered your application, you must select which API permissio
 In this article, you were guided through the steps of how to register a confidential client application in the Azure AD. You were also guided through the steps of how to add API permissions to the Azure Healthcare API. Lastly, you were shown how to create an application secret. Furthermore, you can learn how to access your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
->[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)
+>[Access the FHIR service using Postman](../fhir/using-postman.md)
