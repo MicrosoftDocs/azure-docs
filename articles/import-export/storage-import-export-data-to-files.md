@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 09/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -98,15 +98,16 @@ Do the following steps to prepare the drives.
     ```cmd
     .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
     ```
-    > [!NOTE]
-    > [!INCLUDE [storage-import-export-format-disk-note](../../includes/storage-import-export-format-disk-note.md)]
-
 6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files aren't processed.
 
     > [!IMPORTANT]
     > - Do not modify the data on the disk drives or the journal file after completing disk preparation.
 
 For additional samples, go to [Samples for journal files](#samples-for-journal-files).
+
+> [!IMPORTANT]
+> [!INCLUDE [storage-import-export-format-disk-note](../../includes/storage-import-export-format-disk-note.md)]
+
 
 ## Step 2: Create an import job
 
