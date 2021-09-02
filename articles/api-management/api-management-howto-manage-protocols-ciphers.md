@@ -35,7 +35,7 @@ This guide shows you how to manage protocols and ciphers configuration for an Az
 4. Click **Save**. Changes will be applied within an hour.  
 
 > [!NOTE]
-> Some protocols or cipher suites (like backend-side TLS 1.1 and TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST call. Use the `properties.customProperties` structure in the Create/Update API Management Service REST API.
+> Some protocols or cipher suites (like backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST call. Use the `properties.customProperties` structure in the Create/Update API Management Service REST API.
 
 ## Next steps
 
