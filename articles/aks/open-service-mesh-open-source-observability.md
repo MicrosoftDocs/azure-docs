@@ -29,7 +29,7 @@ In this tutorial, you will:
 >
 > - Create and deploy a Prometheus instance
 > - Configure OSM to allow Prometheus scraping
-> - Update the Prometheus Configmap
+> - Update the Prometheus `Configmap`
 > - Create and deploy a Grafana instance
 > - Configure Grafana with the Prometheus datasource
 > - Import OSM dashboard for Grafana
@@ -114,7 +114,7 @@ kubectl get configmap -n kube-system osm-config -o json | jq '.data.prometheus_s
 The output of the previous command should return `true` if OSM is configured for Prometheus scraping. If the returned value is `false`, we will need to update the configuration to be `true`. Run the following command to turn **on** OSM Prometheus scraping:
 
 ```azurecli-interactive
-kubectl patch ConfigMap -n kube-system osm-config --type merge --patch '{"data":{"prometheus_scraping":"true"}}'
+kubectl patch configmap -n kube-system osm-config --type merge --patch '{"data":{"prometheus_scraping":"true"}}'
 ```
 
 You should see the following output.
@@ -125,7 +125,7 @@ configmap/osm-config patched
 
 ### Update the Prometheus Configmap
 
-The default installation of Prometheus will contain two Kubernetes configmaps. You can view the list of Prometheus configmaps with the following command.
+The default installation of Prometheus will contain two Kubernetes `configmaps`. You can view the list of Prometheus `configmaps` with the following command.
 
 ```azurecli-interactive
 kubectl get configmap | grep prometheus
@@ -136,7 +136,7 @@ stable-prometheus-alertmanager   1      4h34m
 stable-prometheus-server         5      4h34m
 ```
 
-We will need to replace the prometheus.yml configuration located in the **stable-prometheus-server** configmap with the following OSM configuration. There are several file editing techniques to accomplish this task. A simple and safe way is to export the configmap, create a copy of it for backup, then edit it with an editor such as Visual Studio code.
+We will need to replace the prometheus.yml configuration located in the **stable-prometheus-server** `configmap` with the following OSM configuration. There are several file editing techniques to accomplish this task. A simple and safe way is to export the `configmap`, create a copy of it for backup, then edit it with an editor such as Visual Studio code.
 
 > [!NOTE]
 > If you do not have Visual Studio Code installed you can go download and install it [here](https://code.visualstudio.com/Download).
@@ -154,7 +154,7 @@ Next let's open the file using Visual Studio Code to edit.
 code cm-stable-prometheus-server.yml
 ```
 
-Once you have the configmap opened in the Visual Studio Code editor, replace the prometheus.yml file with the OSM configuration below and save the file.
+Once you have the `configmap` opened in the Visual Studio Code editor, replace the prometheus.yml file with the OSM configuration below and save the file.
 
 > [!WARNING]
 > It is extremely important that you ensure you keep the indention structure of the yaml file. Any changes to the yaml file structure could result in the configmap not being able to be re-applied.
@@ -384,7 +384,7 @@ prometheus.yml: |
           replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
 ```
 
-Apply the updated configmap yaml file with the following command.
+Apply the updated `configmap` yaml file with the following command.
 
 ```azurecli-interactive
 kubectl apply -f cm-stable-prometheus-server.yml
@@ -562,11 +562,11 @@ kubectl port-forward -n jaeger $JAEGER_POD  16686:16686
 http://localhost:16686/
 ```
 
-In the browser, you should see a Service dropdown, which allows you to select from the various applications deployed by the bookstore demo. Select a service to view all spans from it. For example, if you select bookbuyer with a Lookback of one hour, you can see its interactions with bookstore-v1 and bookstore-v2 sorted by time.
+In the browser, you should see a Service dropdown, which allows you to select from the various applications deployed by the bookstore demo. Select a service to view all spans from it. For example, if you select `bookbuyer` with a Lookback of one hour, you can see its interactions with bookstore-v1 and bookstore-v2 sorted by time.
 
 ![OSM Jaeger Tracing Page UI image](./media/aks-osm-addon/osm-jaeger-trace-view-ui.png)
 
-Select any item to view it in further detail. Select multiple items to compare traces. For example, you can compare the bookbuyer's interactions with bookstore and bookstore-v2 at a particular moment in time.
+Select any item to view it in further detail. Select multiple items to compare traces. For example, you can compare the `bookbuyer`'s interactions with bookstore and bookstore-v2 at a particular moment in time.
 
 You can also select the System Architecture tab to view a graph of how the various applications have been interacting/communicating. This provides an idea of how traffic is flowing between the applications.
 
