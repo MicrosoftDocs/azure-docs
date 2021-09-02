@@ -30,8 +30,21 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## September 2021
 
+- [Data connector health enhancements (Public preview)](#data-connector-health-enhancements-public-preview)
+
 - [New in docs: scaling data connector documentation](#new-in-docs-scaling-data-connector-documentation)
 - [Azure Storage account connector changes](#azure-storage-account-connector-changes)
+
+### Data connector health enhancements (Public preview)
+
+Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you've [turned on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-azure-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event that's generated.
+
+For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
+
+> [!NOTE]
+> The *SentinelHealth* data table is currently supported only for selected data connectors. For more information, see [Supported data connectors](monitor-data-connector-health.md#supported-data-connectors).
+>
+
 
 ### New in docs: scaling data connector documentation
 
@@ -67,20 +80,6 @@ When configuring diagnostics for a storage account, you must select and configur
 You will only see the storage types that you actually have defined resources for.
 
 :::image type="content" source="media/whats-new/storage-diagnostics.png" alt-text="Screenshot of Azure Storage diagnostics configuration.":::
-
-## September 2021
-
-- [Data connector health enhancements (Public preview)](#data-connector-health-enhancements-public-preview)
-
-### Data connector health enhancements (Public preview)
-
-Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you've [turned on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-azure-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event that's generated.
-
-For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
-
-> [!NOTE]
-> The *SentinelHealth* data table is currently supported only for selected data connectors. For more information, see [Supported data connectors](monitor-data-connector-health.md#supported-data-connectors).
->
 
 ## August 2021
 
