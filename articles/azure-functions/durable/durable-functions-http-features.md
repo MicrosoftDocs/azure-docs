@@ -273,7 +273,7 @@ The "call HTTP" API can automatically implement the client side of the polling c
 
 > [!NOTE]
 > 1. Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
-> 2. Due to a temporary limitation, the built-in HTTP polling pattern is not currently available in JavaScript/TypeScript and Python; it is actively being developed at the moment.
+> 2. Due to a temporary limitation, the built-in HTTP polling pattern is not currently available in JavaScript/TypeScript and Python.
 
 ### Managed identities
 
