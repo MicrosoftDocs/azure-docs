@@ -183,6 +183,12 @@ items:
       href: apply-classifications.md
     - name: Automatically label your content
       href: create-sensitivity-label.md
+  - name: Label
+    items:
+      - name: How to automatically label your content
+        href: how-to-automatically-label-your-content.md
+      - name: Sensitivity labels in Azure Purview FAQs
+        href: sensitivity-labels-FAQ.md
   - name: Search & browse
     items:
     - name: Browse Data Catalog
