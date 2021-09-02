@@ -34,7 +34,7 @@
     - name: Frequently asked questions
       displayName: cost, region, monitor, backup
       href: faq.md  
-    - name: Managed instance Vs Azure Cosmos DB Cassandra API
+    - name: Managed instance vs. Azure Cosmos DB Cassandra API
       href: compare-cosmosdb-managed-instance.md                
 - name: How-to guides
   items:   
