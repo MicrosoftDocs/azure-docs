@@ -20,7 +20,7 @@ Your data can be previously annotated documents, or ones that you upload and tag
  your data belongs to. Custom text classification supports two types of projects:
 * **Single label classification**: You can only assign one class for each file of your dataset. For example, if it is a movie script, your file can only be `Action`, `Thriller` or `Romance`.
 
-* **Multiple label classification**: You can assign **multiple** classes for each file of your dataset. For example, if it is a movie script, your file can be `Action` or `Action` and `Thriller` or `Romance`.
+* **Multiple label classification**: You can assign *multiple* classes for each file of your dataset. For example, if a file is a movie script, it could be classified as  "*Action*" or "*Action*" and "*Thriller*".
 
 ## Custom text Classification
 
