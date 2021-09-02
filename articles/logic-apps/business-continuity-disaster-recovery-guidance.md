@@ -355,7 +355,7 @@ You can set up logging for your logic app runs and send the resulting diagnostic
 
 ## Next steps
 
-* [Resiliency overview for Azure](/azure/architecture/framework/resiliency/overview)
+* [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
 * [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service)
 * [Data management for resiliency in Azure](/azure/architecture/framework/resiliency/data-management)
 * [Backup and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)

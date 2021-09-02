@@ -7,41 +7,41 @@ ms.subservice: azure-arc-data
 author: dinethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 # Create custom configuration templates
 
 This article explains how to create a custom configuration template for Azure Arc-enabled data controller. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-One of required parameters during deployment of a data controller, whether in direct mode or indirect mode, is the `--profile-name` parameter. Currently, the available list of built-in profiles can be found via running the query:
+One of required parameters during deployment of a data controller in indirectly connected mode, is the `az arcdata dc create --profile-name` parameter. Currently, the available list of built-in profiles can be found via running the query:
 
 ```azurecli
-azdata arc dc config list
+az arcdata dc config list
 ```
 These profiles are template JSON files that have various settings for the Azure Arc-enabled data controller such as docker registry and repository settings, storage classes for data and logs, storage size for data and logs, security, service type etc. and can be customized to your environment. 
 
+However, in some cases, you may want to customize those configuration templates to meet your requirements and pass the customized configuration template using the `--path` parameter to the `az arcdata dc create` command rather than pass a preconfigured configuration template using the `--profile-name` parameter.
+
 ## Create custom.json file
 
-Run `azdata arc dc  config init` to initiate a control.json file with pre-defined settings based on your distribution of Kubernetes cluster.
-For instance, a template control.json file for a Kubernetes cluster based on upstream kubeadm can be created as follows:
+Run `az arcdata dc config init` to initiate a control.json file with pre-defined settings based on your distribution of Kubernetes cluster.
+For instance, a template control.json file for a Kubernetes cluster based on the `azure-arc-kubeadm` template in a subdirectory called `custom` in the current working directory can be created as follows:
 
 ```azurecli
-azdata arc dc  config init --source azure-arc-kubeadm --path custom
+az arcdata dc config init --source azure-arc-kubeadm --path custom
 ```
 The created control.json file can be edited in any editor such as Visual Studio Code to customize the settings appropriate for your environment.
 
-## Use custom control.json file to deploy Azure Arc-enabled data controller using azdata CLI
+## Use custom control.json file to deploy Azure Arc-enabled data controller using Azure CLI (az)
 
-Once the template file is updated, the file can be applied during Azure Arc-enabled data controller create as follows:
+Once the template file is created, the file can be applied during Azure Arc-enabled data controller create command as follows:
 
 ```azurecli
-azdata arc dc  create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect  --k8s-namespace <namespace> --use-k8s
 
 #Example:
-#azdata arc dc  create --path ./custom --namespace arc --name arc --subscription <subscription ID> --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription ID> --resource-group my-resource-group --location eastus --connectivity-mode indirect --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Use custom control.json file for deploying Azure Arc data controller using Azure portal

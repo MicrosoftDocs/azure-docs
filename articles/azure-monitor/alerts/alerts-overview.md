@@ -176,26 +176,22 @@ The consumption and management of alert instances requires the user to have the 
 
 You might want to query programmatically for alerts generated against your subscription. Queries might be to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
 
-You can query for alerts generated against your subscriptions either by using the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) or by using the [Azure Resource Graph](../../governance/resource-graph/overview.md) and the [REST API for Resources](/rest/api/azureresourcegraph/resourcegraph(2020-04-01-preview)/resources/resources).
+It is recommended you that you use [Azure Resource Graph](../../governance/resource-graph/overview.md) with the `AlertsManagementResources` schema for querying fired alerts. Resource Graph is recommended when you have to manage alerts generated across multiple subscriptions.
 
-The Resource Graph REST API for Resources allows you to query for alert instances at scale. Resource Graph is recommended when you have to manage alerts generated across many subscriptions. 
-
-The following sample request to the Resource Graph REST API returns the count of alerts within one subscription:
+The following sample request to the Resource Graph REST API returns alerts within one subscription in the last day:
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
+  "query": "alertsmanagementresources | where properties.essentials.lastModifiedDateTime > ago(1d) | project alertInstanceId = id, parentRuleId = tolower(tostring(properties['essentials']['alertRule'])), sourceId = properties['essentials']['sourceCreatedId'], alertName = name, severity = properties.essentials.severity, status = properties.essentials.monitorCondition, state = properties.essentials.alertState, affectedResource = properties.essentials.targetResourceName, monitorService = properties.essentials.monitorService, signalType = properties.essentials.signalType, firedTime = properties['essentials']['startDateTime'], lastModifiedDate = properties.essentials.lastModifiedDateTime, lastModifiedBy = properties.essentials.lastModifiedUserName"
 }
 ```
 
-You can also see the result of this Resource Graph query in the portal with Azure Resource Graph Explorer: [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
+You can also see the result of this Resource Graph query in the portal with Azure Resource Graph Explorer: [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0A%7C%20where%20properties.essentials.lastModifiedDateTime%20%3E%20ago(1d)%0A%7C%20project%20alertInstanceId%20%3D%20id%2C%20parentRuleId%20%3D%20tolower(tostring(properties%5B'essentials'%5D%5B'alertRule'%5D))%2C%20sourceId%20%3D%20properties%5B'essentials'%5D%5B'sourceCreatedId'%5D%2C%20alertName%20%3D%20name%2C%20severity%20%3D%20properties.essentials.severity%2C%20status%20%3D%20properties.essentials.monitorCondition%2C%20state%20%3D%20properties.essentials.alertState%2C%20affectedResource%20%3D%20properties.essentials.targetResourceName%2C%20monitorService%20%3D%20properties.essentials.monitorService%2C%20signalType%20%3D%20properties.essentials.signalType%2C%20firedTime%20%3D%20properties%5B'essentials'%5D%5B'startDateTime'%5D%2C%20lastModifiedDate%20%3D%20properties.essentials.lastModifiedDateTime%2C%20lastModifiedBy%20%3D%20properties.essentials.lastModifiedUserName)
 
-You can query the alerts for their [essential](../alerts/alerts-common-schema-definitions.md#essentials) fields.
-
-Use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) to get more information about specific alerts, including their [alert context](../alerts/alerts-common-schema-definitions.md#alert-context) fields.
+You can also use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) in lower scale querying scenarios or to update fired alerts.
 
 ## Smart groups
 

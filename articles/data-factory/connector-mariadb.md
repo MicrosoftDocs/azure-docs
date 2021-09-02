@@ -1,10 +1,13 @@
 ---
 title: Copy data from MariaDB using Azure Data Factory  
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from MariaDB to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/30/2021
 ms.author: jianleishen
 ---
 # Copy data from MariaDB using Azure Data Factory
@@ -32,6 +35,31 @@ This connector currently supports MariaDB of version 10.0 to 10.2.
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to MariaDB using UI
+
+Use the following steps to create a linked service to MariaDB in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Maria and select the MariaDB connector.
+
+   :::image type="content" source="media/connector-mariadb/mariadb-connector.png" alt-text="Screenshot of the MariaDB connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-mariadb/configure-mariadb-linked-service.png" alt-text="Screenshot of linked service configuration for MariaDB.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to MariaDB connector.
 

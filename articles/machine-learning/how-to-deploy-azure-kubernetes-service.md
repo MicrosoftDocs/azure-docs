@@ -56,6 +56,9 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 
     - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
 
+> [!IMPORTANT]
+> Currently, Azure machine learning does not support deploying models to AKS version **1.21.x**
+
 ## Understand the deployment processes
 
 The word "deployment" is used in both Kubernetes and Azure Machine Learning. "Deployment" has different meanings in these two contexts. In Kubernetes, a `Deployment` is a concrete entity, specified with a declarative YAML file. A Kubernetes `Deployment` has a defined lifecycle and concrete relationships to other Kubernetes entities such as `Pods` and `ReplicaSets`. You can learn about Kubernetes from docs and videos at [What is Kubernetes?](https://aka.ms/k8slearning).
@@ -89,6 +92,8 @@ Azureml-fe scales both up (vertically) to use more cores, and out (horizontally)
 
 When scaling down and in, CPU usage is used. If the CPU usage threshold is met, the front end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens. Scaling up and out will only occur if there are enough cluster resources available.
 
+<a id="connectivity"></a>
+
 ## Understand connectivity requirements for AKS inferencing cluster
 
 When Azure Machine Learning creates or attaches an AKS cluster, AKS cluster is deployed with one of the following two network models:
@@ -100,6 +105,8 @@ For Kubenet networking, the network is created and configured properly for Azure
 The following diagram shows the connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names. You may need to add entries for these hosts to your firewall or to your custom DNS server.
 
  ![Connectivity Requirements for AKS Inferencing](./media/how-to-deploy-aks/aks-network.png)
+
+For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
 ### Overall DNS resolution requirements
 
@@ -157,6 +164,7 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
 from azureml.core.model import Model
+from azureml.core.compute import AksCompute
 
 aks_target = AksCompute(ws,"myaks")
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough

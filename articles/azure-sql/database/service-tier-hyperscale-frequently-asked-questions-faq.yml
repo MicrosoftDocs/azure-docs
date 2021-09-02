@@ -11,7 +11,7 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: mathoma
-  ms.date: 03/31/2021
+  ms.date: 07/27/2021
     
 title: Azure SQL Database Hyperscale FAQ
 summary: |
@@ -418,41 +418,44 @@ sections:
   - name: Read scale-out questions
     questions:
       - question: |
-          How many secondary compute replicas can I provision?
+          What kinds of secondary (read scale-out) replicas are available in Hyperscale?
         answer: |
-          We create one secondary replica for Hyperscale databases by default. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate). For more information on replica types, see [Hyperscale Replicas](service-tier-hyperscale-replicas.md).
+          Hyperscale supports High Availability (HA) replicas, named replicas, and geo-replicas. See [Hyperscale secondary replicas](service-tier-hyperscale-replicas.md) for details.
+
+      - question: |
+          How many secondary HA replicas can I provision?
+        answer: |
+          We create one secondary HA replica for Hyperscale databases by default. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate).
           
       - question: |
-          How do I connect to these secondary compute replicas?
+          How do I connect to secondary HA replicas?
         answer: |
-          You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument on your connection string to `ReadOnly`. Any connections marked with `ReadOnly` are automatically routed to one of the additional read-only compute replicas. For details, see [Use read-only replicas to offload read-only query workloads](read-scale-out.md).
+          You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument in your connection string to `ReadOnly`. Any connections marked with `ReadOnly` are automatically routed to one of the secondary HA replicas, if they were added for your database. For details, see [Use read-only replicas to offload read-only query workloads](read-scale-out.md).
           
       - question: |
           How do I validate if I have successfully connected to secondary compute replica using SSMS or other client tools?
         answer: |
-          You can execute the following T-SQL query:
-          `SELECT DATABASEPROPERTYEX ('<database_name>', 'Updateability')`.
-          The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. Note that the database context must be set to the name of the Hyperscale database, not to the `master` database.
+          You can execute the following T-SQL query: `SELECT DATABASEPROPERTYEX ('<database_name>', 'Updateability')`. The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. Note that the database context must be set to the name of the Hyperscale database, not to the `master` database.
           
       - question: |
-          Can I create a dedicated endpoint for a Read Scale-out replica?
+          Can I create a dedicated endpoint for a secondary HA replica?
         answer: |
-          No. You can only connect to Read Scale-out replicas by specifying `ApplicationIntent=ReadOnly`.
+          No. You can only connect to HA replicas by specifying `ApplicationIntent=ReadOnly`. However, you can use dedicated endpoints for [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview). 
 
       - question: |
-          Does the system do intelligent load balancing of the read workload?
+          Does the system do intelligent load balancing of the read workload on HA replicas?
         answer: |
-          No. A new connection with read-only intent is redirected to an arbitrary Read Scale-out replica.
+          No. A new connection with read-only intent is redirected to an arbitrary HA replica.
 
       - question: |
-          Can I scale up/down the secondary compute replicas independently of the primary replica?
+          Can I scale up/down HA replicas independently of the primary replica?
         answer: |
-          No. The secondary compute replica are also used as high availability failover targets, so they need to have the same configuration as the primary to provide expected performance after failover.
+          No. HA replicas are used as high availability failover targets, so they need to have the same configuration as the primary to provide expected performance after failover. [Named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview) provide the ability to scale each replica independently.
 
       - question: |
-          Do I get different `tempdb` sizing for my primary compute and my additional secondary compute replicas?
+          Do I get different `tempdb` sizing for my primary compute and my HA replicas?
         answer: |
-          No. Your `tempdb` database is configured based on the compute size provisioning, your secondary compute replicas are the same size as the primary compute.
+          No. Your `tempdb` database is configured based on the provisioned compute size, your HA replicas are the same size, including `tempdb`, as the primary compute. On [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview), `tempdb` is sized according to the compute size of the replica, thus it can be smaller or larger than `tempdb` on the primary.
 
       - question: |
           Can I add indexes and views on my secondary compute replicas?
