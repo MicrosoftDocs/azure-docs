@@ -22,22 +22,8 @@ If you encounter any of the following errors when attempting to deploy your Azur
 
 - `Server quota limit has been reached for this location. Please select a different location with lower server count.`
 - `Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of xx.`
-- During a scale operation, you may see the following error: `Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of xx. `. 
-
-
-```
-Server quota limit has been reached for this location. Please select a different location with lower server count.
-```
-
-```
-Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of xx.
-```
-
-During a scale operation, you may see the following error: 
-
-```
-Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of xx. 
-```
+- During a scale operation, you may see the following error:    
+  `Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of xx. `. 
 
 ## Subscription access
 
@@ -48,18 +34,6 @@ Your subscription may not have access to create a server in the selected region 
 - `Location 'region name' is not accepting creation of new Windows Azure SQL Database servers for the subscription 'subscription id' at this time`
 
 
-```
-Your subscription does not have access to create a server in the selected region.
-```
-
-```
-Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits' 
-```
-
-```
-Location 'region name' is not accepting creation of new Windows Azure SQL Database servers for the subscription 'subscription id' at this time
-```
-
 ## Enable region 
 
 Your subscription may not have access to create a server in the selected region if that region has not been enabled. To resolve this, file a [support request to enable a specific region](database/quota-increase-request.md#region) for your subscription. 
@@ -68,22 +42,7 @@ If you see the below errors, file a support ticket to enable a specific region:
 - `Your subscription does not have access to create a server in the selected region.`
 - `Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits' `
 - `Location 'region name' is not accepting creation of new Windows Azure SQL Database servers for the subscription 'subscription id' at this time`
--
 
-If you see the below error, file a support ticket to enable a specific region: 
-
-```
-Your subscription does not have access to create a server in the selected region.
-```
-
-```
-Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits' 
-```
-
-```
-OR
-Location 'region name' is not accepting creation of new Windows Azure SQL Database servers for the subscription 'subscription id' at this time
-```
 
 
 ## Register with SQL RP
