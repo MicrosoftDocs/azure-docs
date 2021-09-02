@@ -15,7 +15,7 @@ An app lives in an App Service plan (ASP), and the App Service plan exists in a 
 
 ## Requirements
 
-Zone redundancy, is a property of the App Service plan. The following are the current requirements/limitations for enabling zone redundancy:
+Zone redundancy is a property of the App Service plan. The following are the current requirements/limitations for enabling zone redundancy:
 
 - Both Windows and Linux are supported
 - Requires either **Premium v2** or **Premium v3** App Service plans
@@ -45,6 +45,7 @@ Zone redundancy, is a property of the App Service plan. The following are the cu
     - Create a new resource group in a region that is supported
         - This ensures the App Service control plane can find a scale unit in the selected region that supports zone redundancy
     - Create a new App Service plan (and app) in a region of your choice using the **new** resource group
+    - Ensure the zoneRedundant property (described below) is set to true when creating the new App Service plan
 - Must be created using [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md)
 
 In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances. If you also have autoscale configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances (autoscale behavior is independent of App Service platform behavior). It's important to note there's no guarantee that requests for additional instances in a zone-down scenario will succeed since back filling lost instances occurs on a best-effort basis. The recommended solution is to provision your App Service plans to account for losing a zone as described previously in the next section this article.
