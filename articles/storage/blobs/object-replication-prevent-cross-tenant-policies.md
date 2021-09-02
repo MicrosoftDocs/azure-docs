@@ -139,23 +139,9 @@ az storage account update \
 
 ---
 
-After you disallow cross-tenant replication, attempting to configure a cross-tenant policy with the storage account as the source or destination will fail with error code 403 (Forbidden) ???is this the right error - need to verify???. Azure Storage an returns error indicating that cross-tenant object replication is not permitted for the storage account.
+After you disallow cross-tenant replication, attempting to configure a cross-tenant policy with the storage account as the source or destination fails. Azure Storage an returns error indicating that cross-tenant object replication is not permitted for the storage account.
 
 The **AllowCrossTenantReplication** property is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](../common/storage-account-overview.md#types-of-storage-accounts).
-
-### Check the cross-tenant replication setting for multiple accounts
-
-To check whether cross-tenant replication is permitted for a set of storage accounts, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
-
-Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays the cross-tenant replication setting for each account:
-
-```kusto
-resources
-| where type =~ 'Microsoft.Storage/storageAccounts'
-| extend allowCrossTenantReplication = parse_json(properties).allowCrossTenantReplication
-| project subscriptionId, resourceGroup, name, allowCrossTenantReplication
-| sort by name asc
-```
 
 ## Permissions for allowing or disallowing cross-tenant replication
 
