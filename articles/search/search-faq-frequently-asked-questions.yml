@@ -67,7 +67,7 @@ sections:
       - question: |
           Can I restrict search index access by user identity?
         answer: |
-          You can implement [security filters](./search-security-trimming-for-azure-search.md) with `search.in()` filter. The filter composes well with [identity management services like Azure Active Directory(AAD)](./search-security-trimming-for-azure-search-with-aad.md) to trim search results based on defined user group membership. You can also sign up for [role-based access](search-rbac.md), currently in public preview.
+          You can implement [security filters](./search-security-trimming-for-azure-search.md) with `search.in()` filter. The filter composes well with [identity management services like Azure Active Directory(AAD)](./search-security-trimming-for-azure-search-with-aad.md) to trim search results based on defined user group membership. You can also sign up for [role-based access](search-security-rbac.md), currently in public preview.
           
       - question: |
           Why are there zero matches on terms I know to be valid?
