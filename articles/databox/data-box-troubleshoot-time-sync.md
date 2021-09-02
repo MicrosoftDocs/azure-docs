@@ -30,36 +30,32 @@ If you see any time difference between the time on Data Box and other local devi
 
 To troubleshoot time sync issues, you'll first need to connect to the PowerShell interface of your device.
 
-!INCLUDE[data-box-connect-powershell-interface](../../includes/data-box-review-nonretryable-errors.md)
+!INCLUDE[data-box-connect-powershell-interface](../../includes/data-box-connect-powershell-interface.md)
 
 
 ### Change device time
 
 To change the device time, follow these steps.
 
-Use the Get-Date cmdlet to view the date and time on your Data Box
+1. Use the Get-Date cmdlet to view the date and time on your Data Box.
 
     `Get-Date`
 
-Use the Set-Date cmdlet to change the time on your Data Box.
+1. Use the Set-Date cmdlet to change the time on your Data Box.
 
-    `Set-Date -Adjust <time change in hours:mins:secs format> -DisplayHint Time
+    ```powershell
+    Set-Date -Adjust <time change in hours:mins:secs format> -DisplayHint Time
+    ```
 
-Here is an example output:
-
-```powershell
-PS C:\WINDOWS\system32> Get-Date
-Wednesday, August 18, 2021 4:32:42 PM
-PS C:\WINDOWS\system32> Set-Date -Adjust 0:2:0 -DisplayHint Time
-4:35:09 PM
-PS C:\WINDOWS\system32>
-```
-
-
-> [!NOTE]
-> The **Follow-up** sections in the error descriptions describe how to update your data configuration before you place a new import order or perform a network transfer. You can't fix these errors in the current upload.
-
-
+    Here is an example output:
+    
+    ```powershell
+    PS C:\WINDOWS\system32> Get-Date
+    Wednesday, August 18, 2021 4:32:42 PM
+    PS C:\WINDOWS\system32> Set-Date -Adjust 0:2:0 -DisplayHint Time
+    4:35:09 PM
+    PS C:\WINDOWS\system32>
+    ```
 
 
 ## Next steps
