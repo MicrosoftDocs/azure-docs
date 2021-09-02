@@ -104,7 +104,7 @@ Get-AzProviderOperation -OperationSearchString Microsoft.ContainerRegistry/*
 To define a custom role, see [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 > [!NOTE]
-> In tenants configured with [Azure Resource Manager private link](../azure-resource-manager/management/create-private-link-access-portal.md), Azure Container Registry supports wildcard actions such as `Microsoft.ContainerRegistry/*/read` or `Microsoft.ContainerRegistry/registries/*/write` in custom roles, granting access to all matching actions.ry/registries/*/write` in custom roles, granting access to all matching actions. In a tenant without an ARM private link, specify all required registry actions individually in a custom role.
+> In tenants configured with [Azure Resource Manager private link](../azure-resource-manager/management/create-private-link-access-portal.md), Azure Container Registry supports wildcard actions such as `Microsoft.ContainerRegistry/*/read` or `Microsoft.ContainerRegistry/registries/*/write` in custom roles, granting access to all matching actions. In a tenant without an ARM private link, specify all required registry actions individually in a custom role.
 
 ---
 
