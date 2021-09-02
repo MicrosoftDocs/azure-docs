@@ -21,7 +21,7 @@ By default, Azure Front Door will respond to all user requests regardless of the
 
 A WAF policy contains a set of custom rules. The rule consists of match conditions, an action, and a priority. In a match condition, you define a match variable, operator, and match value. For a geo filtering rule, a match variable is REMOTE_ADDR, the operator is GeoMatch, and the value is a two letter country/region code of interest. "ZZ" country code or "Unknown" country captures IP addresses that are not yet mapped to a country in our dataset. You may add ZZ to your match condition to avoid false positives. You can combine a GeoMatch condition and a REQUEST_URI string match condition to create a path-based geo-filtering rule.
 
-You can configure a geo-filtering policy for your Front Door by using the [Azure portal](../../web-application-firewall/afds/waf-front-door-create-portal) or by using a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-geo-filtering).
+You can configure a geo-filtering policy for your Front Door by using the [Azure portal](../../web-application-firewall/afds/waf-front-door-create-portal.md) or by using a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-geo-filtering).
 
 > [!IMPORTANT]
 > Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country) captures IP addresses that are not yet mapped to a country in our dataset. This avoids false positives.
@@ -212,4 +212,4 @@ You can configure a geo-filtering policy for your Front Door by using the [Azure
 ## Next steps
 
 - Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
-- Learn how to [set up a geo-filtering WAF policy](../../web-application-firewall/afds/waf-front-door-create-portal).
+- Learn how to [set up a geo-filtering WAF policy](../../web-application-firewall/afds/waf-front-door-create-portal.md).
