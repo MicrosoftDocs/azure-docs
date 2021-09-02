@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2021
+ms.date: 09/02/2021
 ms.author: bagol
 
 ---
@@ -76,9 +76,9 @@ volume measures, EPS rates and time last log received.
 
 ## Use the SentinelHealth data table (Public preview)
 
-To get data connector health data from the *SentinelHealth* data table, you must first turn on the <name tbd> feature for your workspace.
+To get data connector health data from the *SentinelHealth* data table, you must first [turn on the Azure Sentinel health feature](#turn-on-azure-sentinel-health-for-your-workspace) for your workspace.
 
-Once the <name tbd> feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
+Once the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
 
 > [!TIP]
 > To configure the retention time for your health events, see the [Log Analytics retention configuration documentation](/azure/azure-monitor/logs/manage-cost-storage).
@@ -101,9 +101,22 @@ The *SentinelHealth* data table is currently supported only for the following da
 - [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
 
-### Turn on <name tbd> for your workspace
+### Turn on Azure Sentinel health for your workspace
 
-TBD
+1. In Azure Sentinel, under the **Configuration** menu on the left, select **Settings** and expand the **Health** section.
+
+1. Select **Configure Diagnostic Settings** and create a new diagnostic setting.
+
+    - In the **Diagnostic setting name** field, enter a meaningful name for your setting.
+
+    - In the **Category details** column, select **DataConnectors**.
+
+    - Under **Destination details**, select **Send to Log Analytics workspace**, and select your subscription and workspace from the dropdown menus.
+
+1. Select **Save** to save your new setting.
+
+The *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
+
 
 ### Access the *SentinelHealth* table
 
