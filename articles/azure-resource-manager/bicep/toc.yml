@@ -22,13 +22,10 @@
   - name: Microsoft Learn - Bicep
     href: learn-bicep.md
 - name: How to
-  expanded: true
   items:
   - name: Author
-    expanded: true
     items:
     - name: Resources
-      expanded: true
       items:
       - name: Resource declaration
         href: resource-declaration.md
@@ -58,6 +55,9 @@
       - name: Resources
         displayName: iteration,copy,multiple,batches,child,condition,filter
         href: loop-resources.md
+      - name: Modules
+        displayName: iteration,copy,multiple,batches,condition,filter
+        href: loop-modules.md
       - name: Properties
         displayName: iteration,copy,multiple
         href: loop-properties.md

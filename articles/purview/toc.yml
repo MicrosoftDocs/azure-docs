@@ -8,20 +8,18 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Purview account - Azure portal
-    href: create-catalog-portal.md
+  - name: Create Purview account
+    items:
+    - name: Create a Purview account - Azure portal
+      href: create-catalog-portal.md
+    - name: Create a Purview account - Azure PowerShell
+      href: create-catalog-powershell.md
+    - name: Create a Purview account - .NET SDK
+      href: create-purview-dotnet.md
+    - name: Create a Purview account - Python
+      href: create-purview-python.md
   - name: Create a collection - Azure Purview Studio
     href: quickstart-create-collection.md
-  - name: Create a Purview account - Azure PowerShell
-    href: create-catalog-powershell.md
-  - name: Create a Purview account - .NET SDK
-    href: create-purview-dotnet.md
-  - name: Create a Purview account - Python
-    href: create-purview-python.md
-  - name: Create a Purview account - Azure portal FAQs
-    href: create-purview-portal-faq.md
-  - name: Manage Kafka notifications - .NET
-    href: manage-kafka-dotnet.md
 - name: Tutorials
   items:
   - name: Onboarding Azure data sources at scale
@@ -239,28 +237,40 @@ items:
       href: sensitivity-insights.md
     - name: View file extension insights
       href: file-extension-insights.md
-  - name: Security & Networking
+  - name: Networking & Security
     items:
-    - name: Azure Purview private endpoints overview
-      href: catalog-private-link.md
-    - name: Connect privately and securely to your Purview account
-      href: catalog-private-link-account-portal.md
-    - name: Scan your data sources privately and securely
-      href: catalog-private-link-ingestion.md
-    - name: Connect to your Azure Purview and scan data sources privately and securely
-      href: catalog-private-link-end-to-end.md
-    - name: Azure Purview private endpoints DNS configuration
-      href: catalog-private-link-name-resolution.md
-    - name: Azure Purview private endpoints troubleshooting guide
-      href: catalog-private-link-troubleshoot.md                     
-    - name: Azure Purview Private endpoints FAQs
-      href: catalog-private-link-faqs.md
+    - name: Private endpoints
+      items:
+      - name: Private endpoints overview
+        href: catalog-private-link.md
+      - name: Isolate network for Purview account and portal
+        href: catalog-private-link-account-portal.md
+      - name: Isolate network for scans
+        href: catalog-private-link-ingestion.md
+      - name: End-to-end network isolation
+        href: catalog-private-link-end-to-end.md
+      - name: Configure DNS for private endpoint
+        href: catalog-private-link-name-resolution.md
+      - name: Troubleshoot private endpoints
+        href: catalog-private-link-troubleshoot.md                     
+      - name: Private endpoint FAQ
+        href: catalog-private-link-faqs.md
+    - name: Azure policy exceptions
+      href: create-purview-portal-faq.md
+  - name: Manage Kafka notifications - .NET
+    href: manage-kafka-dotnet.md
   - name: Disaster recovery
-    items:
-    - name: Disaster recovery
-      href: disaster-recovery.md
+    href: disaster-recovery.md
 - name: Reference
   items:
+    - name: Java
+      href: /samples/browse/?products=azure&languages=java&terms=purview
+    - name: .NET
+      href: /dotnet/api/overview/azure/purviewresourceprovider
+    - name: Python
+      href: /python/api/azure-mgmt-purview/
+    - name: REST
+      href: /rest/api/purview/
     - name: Supported classifications
       href: supported-classifications.md
     - name: Azure Purview product glossary
@@ -269,8 +279,6 @@ items:
       href: abap-functions-deployment-guide.md
 - name: Resources
   items:
-    - name: Feature feedback (User voice)
-      href: https://feedback.azure.com/forums/932437-azure-purview
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/details/azure-purview/
     - name: Microsoft Q&A forum

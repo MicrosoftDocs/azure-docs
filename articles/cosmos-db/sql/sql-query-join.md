@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 08/27/2021
 ms.author: tisande
 
 ---
@@ -250,7 +250,40 @@ The results are:
     ]
 ```
 
-If your query has a JOIN and filters, you can rewrite part of the query as a [subquery](sql-query-subquery.md#optimize-join-expressions) to improve performance.
+## Subqueries instead of JOINs
+
+If your query has a JOIN and filters, you can rewrite part of the query as a [subquery](sql-query-subquery.md#optimize-join-expressions) to improve performance. In some cases, you may be able to use a subquery or [ARRAY_CONTAINS](sql-query-array-contains.md) to avoid the need for JOIN altogether and improve query performance.
+
+For example, consider the earlier query that projected the familyName, child's givenName, children's firstName, and pet's givenName. If this query just needed to filter on the pet's name and didn't need to return it, you could use `ARRAY_CONTAINS` or a [subquery](sql-query-subquery.md) to check for pets where `givenName = "Shadow"`.
+
+### Query rewritten with ARRAY_CONTAINS
+
+```sql
+    SELECT 
+        f.id AS familyName,
+        c.givenName AS childGivenName,
+        c.firstName AS childFirstName
+    FROM Families f
+    JOIN c IN f.children
+    WHERE ARRAY_CONTAINS(c.pets, {givenName: 'Shadow'})
+```
+
+### Query rewritten with subquery
+
+```sql
+    SELECT 
+        f.id AS familyName,
+        c.givenName AS childGivenName,
+        c.firstName AS childFirstName
+    FROM Families f
+    JOIN c IN f.children
+    WHERE EXISTS (
+    SELECT VALUE n
+    FROM n IN c.pets
+    WHERE n.givenName = "Shadow"
+    )
+```
+
 
 ## Next steps
 
