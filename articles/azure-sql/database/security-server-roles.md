@@ -59,8 +59,8 @@ You can add server-level SQL Logins as members to server-level roles.
 |[IS_SRVROLEMEMBER &#40;Transact-SQL&#41;](../../../t-sql/functions/is-srvrolemember-transact-sql.md)|Metadata|Indicates whether a [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] login is a member of the specified server-level role.|  
 |[sys.server_role_members &#40;Transact-SQL&#41;](../../../relational-databases/system-catalog-views/sys-server-role-members-transact-sql.md)|Metadata|Returns one row for each member of each server-level role.|
 |[sys.sql_logins &#40;Transact-SQL&#41;](../../../relational-databases/system-catalog-views/sys-sql-logins-transact-sql.md)|Metadata|Returns one row for each SQL login.|
-|[ALTER SERVER ROLE &#40;Transact-SQL&#41;](../../../t-sql/statements/alter-server-role-transact-sql.md)|Command|Changes the membership of a server role.|  
-|[IS_SRVROLEMEMBER &#40;Transact-SQL&#41;](../../../t-sql/functions/is-srvrolemember-transact-sql.md)|Function|Determines membership of server role.|  
+|[ALTER SERVER ROLE &#40;Transact-SQL&#41;](../../../t-sql/statements/alter-server-role-transact-sql.md)|Command|Changes the membership of a server role.| 
+
   
 #  <a name="_examples"></a> Examples  
  The examples in this section show how to work with server-level roles.  
@@ -72,7 +72,7 @@ You can add server-level SQL Logins as members to server-level roles.
 ```sql  
 ALTER SERVER ROLE ##MS_ServerStateReader##
 	ADD MEMBER Jiao;  
-GO    
+GO
 ```  
 
 ### B. Listing all principals (SQL Auth) which are members of a server-role  
@@ -98,6 +98,8 @@ Role assignments may take up to 5 minutes to become effective. In addition, for 
 Partial workaround: to reduce the up to 5-minute waiting period and ensure that server role assignments are current in a database, a Server Admin/AAD Admin can run `DBCC FLUSHAUTHCACHE` in the user database(s) on which the login has access. Currently logged on users still have to reconnect after this for the membership-changes to take effect on them.
 
 Server-roles in Azure SQL Database can be assigned to SQL Logins only – AAD Logins are not yet supported.
+
+`IS_SRVROLEMEMBER()` is not supported in the master-database
 
 
 ## See Also  
