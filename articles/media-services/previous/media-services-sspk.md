@@ -84,6 +84,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * MediaTek Inc.
 * Montage LZ Technologies Hong Kong Limited
 * Panasonic Corporation
+* Socionext Inc.
 * Synamedia Limited
 * Tatung Technology Inc.
 * Top Victory Investments, Ltd.
