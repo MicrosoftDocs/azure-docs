@@ -10,7 +10,7 @@ ms.date: 09/03/2021
 
 This article explains how to implement disaster recovery (DR) for on-premises VMware or Azure VMware Solution-based virtual machines (VMs). The solution in this article uses [Zerto Disaster Recovery](https://www.zerto.com/solutions/use-cases/disaster-recovery/). Instances of Zerto are deployed at both the protected site and the recovery site. 
 
-Zerto is a disaster recovery solution designed to minimize downtime of the VMs if there was a disaster. Zerto's platform is built on the foundation of Continuous Data Protection (CDP), which enables minimal or close to no data loss. It provides the level of protection wanted for many business-critical and mission-critical enterprise applications. Zerto also automates and orchestrates failover and failback, ensuring minimal downtime in a disaster. Overall, Zerto simplifies management through automation and ensures fast and highly predictable recovery times.
+Zerto is designed to minimize downtime of the VMs if there was a disaster. Zerto's platform is built on the foundation of Continuous Data Protection (CDP), which enables minimal or close to no data loss. It provides the level of protection wanted for many business-critical and mission-critical enterprise applications. Zerto also automates and orchestrates failover and failback, ensuring minimal downtime in a disaster. Overall, Zerto simplifies management through automation and ensures fast and highly predictable recovery times.
 
 
 ## Core components of the Zerto platform
@@ -103,7 +103,7 @@ For more information, see the [Zerto technical documentation](https://www.zerto.
 
 ## Ongoing management of Zerto
 
-- As you scale your Azure VMware Solution private cloud operations, you might need to add new Azure VMware Solution hosts for Zerto protection or configure Zerto DR to new Azure VMware Solution vSphere Clusters. In both these scenarios, you'll be required to open a Support Request with the Azure VMware Solution team in the Initial Availability phase. You can open the [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for these Day 2 configurations. 
+- As you scale your Azure VMware Solution private cloud operations, you might need to add new Azure VMware Solution hosts for Zerto protection or configure Zerto DR to new Azure VMware Solution vSphere Clusters. In both these scenarios, to add Zerto vRAs for your new hosts, you'll be required to open a support request with the Azure VMware Solution team in the Initial Availability phase. You can open the [support request](https://rc.portal.azure.com/#create/Microsoft.Support) for these Day 2 configurations from the Azure Portal.   
 
    :::image type="content" source="media/zerto-disaster-recovery/support-request-zerto-disaster-recovery.png" alt-text="Screenshot showing the support request for Day 2 Zerto DR configurations.":::
 
@@ -120,7 +120,7 @@ You can reuse pre-existing Zerto product licenses for Azure VMware Solution envi
 
 ### How is Zerto supported?
 
-Zerto DR is a solution that is sold and supported by Zerto. For any support issue with Zerto DR, always contact [Zerto support](https://www.zerto.com/company/support-and-service/support/).
+Zerto Disaster Recovery is a solution that is sold and supported by Zerto. For any support issue with Zerto, always contact [Zerto support](https://www.zerto.com/company/support-and-service/support/).
 
-Zerto and Microsoft support teams will engage each other as needed to troubleshoot Zerto DR issues on Azure VMware Solution.
+Zerto and Microsoft support teams will engage each other as needed to troubleshoot Zerto issues on Azure VMware Solution.
 
