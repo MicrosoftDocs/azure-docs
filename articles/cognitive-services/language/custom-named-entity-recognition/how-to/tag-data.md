@@ -1,7 +1,7 @@
 ---
-title: How to tag your data for custom extraction
+title: How to tag your data for Custom Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Learn about how to tag your data for use with custom text extraction.
+description: Learn about how to tag your data for use with Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# Tag your data for custom NER in language studio
+# Tag your data for Custom Named Entity Recognition (NER) in language studio
 
 Before building your custom entity extraction models, you need to have tagged data. If your data is not tagged already, you can tag it in the language studio.
 

@@ -1,7 +1,7 @@
 ---
-title: Definitions and terms used for custom extraction
+title: Definitions and terms used for Custom Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Learn about some of the definitions and terms you may encounter when using custom extraction
+description: Learn about some of the definitions and terms you may encounter when using Custom Named Entity Recognition (NER)
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 08/17/2021
 ms.author: aahi
 ---
 
-# Custom entity recognition
+# Custom Named Entity Recognition (NER) definitions and terms
 
-Use this article to learn about some of the definitions and terms you may encounter when using custom extraction.
+Use this article to learn about some of the definitions and terms you may encounter when using custom NER.
 
 ## Project
 
@@ -40,7 +40,7 @@ A model is an object that has been trained to do a certain task, in our case cus
 
 ## Entity
 
-An entity is a span of text that indicates a certain type of information. The text span can consist of one or more words (or tokens). In custom text extraction, entities represent the information that you want to extract from the text. 
+An entity is a span of text that indicates a certain type of information. The text span can consist of one or more words (or tokens). In Custom Named Entity Recognition (NER), entities represent the information that you want to extract from the text. 
 
 For example, in the sentence "*John borrowed 25,000 USD from Fred.*" the entities might be: 
 
@@ -54,4 +54,4 @@ For example, in the sentence "*John borrowed 25,000 USD from Fred.*" the entitie
 
 * [Data and service limits](limits.md).
 * [Recommended practices](recommended-practices.md)
-* [Custom extraction overview](../overview.md).
+* [Custom NER overview](../overview.md).

@@ -43,7 +43,7 @@ Use this article to learn about the data and rate limits when using custom entit
 
 * You can have up to 500 projects per resource.
 
-* Project names have to be unique within the same resource, across both the custom extraction and custom classification features.
+* Project names have to be unique within the same resource, across both the custom Named Entity Recognition (NER) and custom classification features.
 
 ## Project limits
 
