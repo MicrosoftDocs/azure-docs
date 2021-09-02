@@ -35,10 +35,10 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 |**Metric**|**Category**|**Dimension(s)**|**Feature(s)**|
 | --- | --- | --- | --- |
-|ARP Availability|Availability|<ul><li>Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type (Private/Public/Microsoft)</ul></li>|ExpressRoute|
-|BGP Availability|Availability|<ul><li> Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type</ul></li>|ExpressRoute|
-|BitsInPerSecond|Traffic|<ul><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct</li><ui><li>ExpressRoute Gateway Connection</ul></li>|
-|BitsOutPerSecond|Traffic| <ul><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li><ui><li>ExpressRoute Gateway Connection</ul></li>|
+|ARP Availability|Availability|<ul><li>Peer (Primary/Secondary ExpressRoute router)</ul></li><ul><li> Peering Type (Private/Public/Microsoft)</ul></li>|ExpressRoute|
+|BGP Availability|Availability|<ul><li> Peer (Primary/Secondary ExpressRoute router)</ul></li><ul><li> Peering Type</ul></li>|ExpressRoute|
+|BitsInPerSecond|Traffic|<ul><li> Peering Type (ExpressRoute)</ul></li><ul><li>Link (ExpressRoute Direct)</ul></li>|<li>ExpressRoute</li><li>ExpressRoute Direct</li><ul><li>ExpressRoute Gateway Connection</ul></li>|
+|BitsOutPerSecond|Traffic| <ul><li>Peering Type (ExpressRoute)</ul></li><ul><li> Link (ExpressRoute Direct) |<ul><li>ExpressRoute<ul><li>ExpressRoute Direct</ul></li><ul><li>ExpressRoute Gateway Connection</ul></li>|
 |CPU Utilization|Performance| <ul><li>Instance</ul></li>|ExpressRoute Virtual Network Gateway|
 |Packets per Second|Performance| <ul><li>Instance</ul></li>|ExpressRoute Virtual Network Gateway|
 |Count of Routes Advertised to Peer |Availability| <ul><li>Instance</ul></li>|ExpressRoute Virtual Network Gateway|
@@ -49,8 +49,8 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 |GlobalReachBitsOutPerSecond|Traffic|<ul><li>Peered Circuit Skey (Service Key)</ul></li>|Global Reach|
 |AdminState|Physical Connectivity|Link|ExpressRoute Direct|
 |LineProtocol|Physical Connectivity|Link|ExpressRoute Direct|
-|RxLightLevel|Physical Connectivity|<ul><li>Link</ui></li><ui><li>Lane</ul></li>|ExpressRoute Direct|
-|TxLightLevel|Physical Connectivity|<ul><li>Link</ui></li><ui><li>Lane</ul></li>|ExpressRoute Direct|
+|RxLightLevel|Physical Connectivity|<ul><li>Link</ul></li><ul><li>Lane</ul></li>|ExpressRoute Direct|
+|TxLightLevel|Physical Connectivity|<ul><li>Link</ul></li><ul><li>Lane</ul></li>|ExpressRoute Direct|
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
 >
