@@ -322,7 +322,7 @@ Invoke-Command `
 ```
 
 ## Rotate VPN Root Certificate
-If a root certificate needs to be rotated due to expiration or new requirements, you can add a new root certificate to the existing Virtual Network Gateway without the need for redeploying the Virtual Network Gateway.  Once the root certificate is added using the example below, you will need to re-create the VPN client certificate as shown in the earlier section.
+If a root certificate needs to be rotated due to expiration or new requirements, you can add a new root certificate to the existing virtual network gateway without the need for redeploying the virtual network gateway.  Once the root certificate is added using the following sample script, you will need to re-create [VPN client certificate](#create-client-certificate).
 
 ```PowerShell
 #Creating the new Root Certificate
