@@ -32,7 +32,7 @@ Once the review has been created, follow the steps in this article to complete t
 
 3. Select the access review that you want to manage. Below is a sample screenshot of the **Access Reviews** overview for both **Azure resources** and **Azure AD roles**.
 
-:::image type="content" source="{media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-azure-ad-roles-home-list.png}" alt-text="{Azure AD roles - Access reviews list showing role, owner, start date, end date, and status screenshot.}":::
+    :::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-azure-ad-roles-home-list-inline.png" alt-text="Azure AD roles - Access reviews list showing role, owner, start date, end date, and status screenshot." lightbox="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-azure-ad-roles-home-list-expanded.png":::
 
 On the detail page, the following options are available for managing the review of **Azure resources** and **Azure AD roles**:
 
@@ -61,12 +61,12 @@ If you are not interested in the review any further, delete it. To remove the ac
 
 On the **Results** page, you may view and download a list of your review results.
 
-:::image type="content" source="{media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-ad-results.png)}" alt-text="{Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure AD roles screenshot.}":::
+:::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-ad-results.png" alt-text="Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure AD roles screenshot.":::
 
 > [!Note]
 > **Azure AD roles** have a concept of role-assignable groups, where a group can be assigned to the role. When this happens, the group will show up in the review instead of expanding the members of the group, and a reviewer will either approve or deny the entire group.
 
-:::image type="content" source="{media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-results.png}" alt-text="{Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure resource roles screenshot.}":::
+:::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-results.png" alt-text="Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure resource roles screenshot.":::
 
 > [!Note]
 >If a group is assigned to **Azure resource roles**, the reviewer of the Azure resource role will see the expanded list of the users in a nested group. Should a reviewer deny a member of a nested group, that deny result will not be applied successfully because the user will not be removed from the nested group.
