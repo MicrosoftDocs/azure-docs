@@ -1187,13 +1187,6 @@ productDirectory:
         - media
       url: media-services/latest/stream-live-tutorial-with-api.md
     # Card
-    - title: Azure Video Analyzer (preview)
-      summary: Build intelligent video-based applications using the AI of your choice
-      imageSrc: ./media/index/video-analyzer.svg
-      azureCategories:
-        - media
-      url: azure-video-analyzer/video-analyzer-docs/overview.md
-    # Card
     - title: Media Services
       summary: Encode, store, and stream video and audio at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
