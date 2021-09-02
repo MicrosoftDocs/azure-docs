@@ -1267,6 +1267,8 @@ items:
       href: ./catalog-and-governance/quickstart-connect-azure-purview.md
   - name: How-to guides
     items:
+    - name: Access a secured Azure Purview account
+      href: ./how-to-access-secured-purview-account.md
     - name: Discover, connect and explore data in Synapse using Azure Purview
       href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
 - name: How-to
