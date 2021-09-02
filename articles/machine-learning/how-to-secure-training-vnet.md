@@ -216,7 +216,7 @@ When the creation process finishes, you train your model by using the cluster in
 
 ## Compute instance
 
-For steps to create a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) .  In studio, specify **No public IP** to create a private IP address for the instance (a preview feature).  You can also enable no public IP in an ARM template.
+For steps on how to create a compute instance deployed in a virtual network, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) . To create a no public IP address compute instance (a preview feature) in studio, set **No public IP** checkbox in the virtual network section.   You can also create no public IP compute instance through an ARM template.
 
 ### <a name="no-public-ip"></a>No public IP for compute instances (preview)
 
