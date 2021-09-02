@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/13/2021
+ms.date: 08/18/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -126,24 +126,24 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 
 GZRS and RA-GZRS are supported in the following regions:
 
-- (Africa) South Africa North
-- (Asia Pacific) Southeast Asia
+- (Asia Pacific) Asia East
+- (Asia Pacific) Asia Southeast
 - (Asia Pacific) Australia East
-- (Asia Pacific) Central India
 - (Asia Pacific) Japan East
-- (Asia Pacific) Korea Central
 - (Canada) Canada Central
 - (Europe) North Europe
 - (Europe) West Europe
 - (Europe) France Central
-- (Europe) Germany West Central
+- (Europe) Norway East
 - (Europe) UK South
 - (South America) Brazil South
-- (US) Central US
-- (US) East US
-- (US) East US 2
-- (US) South Central US
-- (US) West US 2
+- (US) US Central
+- (US) US East
+- (US) US East 2
+- (US) US Government East
+- (US) US South Central
+- (US) US West 2
+- (US) US West 3
 
 For information on pricing, see pricing details for [Blobs](https://azure.microsoft.com/pricing/details/storage/blobs), [Files](https://azure.microsoft.com/pricing/details/storage/files/), [Queues](https://azure.microsoft.com/pricing/details/storage/queues/), and [Tables](https://azure.microsoft.com/pricing/details/storage/tables/).
 

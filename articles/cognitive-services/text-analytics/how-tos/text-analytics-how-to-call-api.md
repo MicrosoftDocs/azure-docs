@@ -78,6 +78,8 @@ See the table below to see which features can be used asynchronously. Note that 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
+[!INCLUDE [text-analytics-character-limits](../includes/character-limits.md)]
+
 <a name="json-schema"></a>
 
 ## API request formats
