@@ -36,7 +36,7 @@ To create a snapshot using the Azure portal, complete these steps.
 1. For **Source subscription**, select the subscription that contains the managed disk to be backed up.
 1. For **Source disk**, select the managed disk to snapshot.
 1. For **Storage type**, select **Standard HDD**, unless you require zone-redundant storage or high-performance storage for your snapshot.
-1. If needed, configure settings on the **Encryption**, **Networking**, and **Tags** tabs. Otherwise, default settings will be used for your snapshot.
+1. If needed, configure settings on the **Encryption**, **Networking**, and **Tags** tabs. Otherwise, default settings are used for your snapshot.
 1. Select **Review + create**.
 
 # [PowerShell](#tab/powershell)
@@ -71,8 +71,7 @@ First, you'll use the [New-AzSnapshotConfig](/powershell/module/az.compute/new-a
        -CreateOption copy
    ```
 
-   > [!NOTE]
-   > If you want to store your snapshot in zone-resilient storage, you must create the snapshot in a region that supports [availability zones](../availability-zones/az-overview.md) and include the '-SkuName Standard_ZRS' parameter. For a list of regions that support availability zones, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
+   If you want to store your snapshot in zone-resilient storage, you must create the snapshot in a region that supports [availability zones](../availability-zones/az-overview.md) and include the `-SkuName Standard_ZRS` parameter. For a list of regions that support availability zones, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 1. Take the snapshot.
 
@@ -91,7 +90,7 @@ First, you'll use the [New-AzSnapshotConfig](/powershell/module/az.compute/new-a
 
 # [Azure CLI](#tab/cli)
 
-This example requires that you use [Cloud Shell](https://shell.azure.com/bash) or have the [Azure CLI][/cli/azure/] installed.
+This example requires that you use [Cloud Shell](https://shell.azure.com/bash) or have the [Azure CLI](/cli/azure/) installed.
 
 Use these steps to take a snapshot with the **az snapshot create** command and the **--source-disk** parameter. This example assumes that you have a VM called *myVM* in the *myResourceGroup* resource group. The code sample provided will create a snapshot in the same resource group and within the same region as your source VM.
 
