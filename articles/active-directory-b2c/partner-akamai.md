@@ -78,8 +78,8 @@ Akamai WAF integration includes the following components:
 |:-----------|:-----------|
 | Origin type | Your origin |
 | Origin server hostname | yourafddomain.azurefd.net |
-| Forward host header | Origin hostname |
-| Cache key hostname| Origin hostname |
+| Forward host header | Incomming Host Header |
+| Cache key hostname| Incomming Host Header  |
 
 ### Configure DNS
 
