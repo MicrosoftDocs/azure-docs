@@ -56,7 +56,7 @@ For more description of the parameters, please refer to [Azure EventHub configur
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.secretName` | Required if `.secret.keyVault` is specified. The Azure Key vault secret name where the secret (connection string) is stored.                                                                         |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.eventName.match`     | Optional. The comma-separated spark event names, you can specify which events to collect. For example: `SparkListenerApplicationStart,SparkListenerApplicationEnd` |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.loggerName.match`    | Optional. The comma-separated log4j logger names, you can specify which logs to collect. For example: `org.apache.spark.SparkContext,org.example.Logger` |
-| `spark.synapse.diagnostic.emitter.<destination>.filter.metricName.match`    | Optional. The comma-separated spark metric name suffixies, you can specify which metrics to collect. For example: `jvm.heap.used` |
+| `spark.synapse.diagnostic.emitter.<destination>.filter.metricName.match`    | Optional. The comma-separated spark metric name suffixes, you can specify which metrics to collect. For example: `jvm.heap.used` |
 
 
 > NOTE: The Azure Eventhub instance connection string should always contains the `EntityPath`, which is the name of the Azure Event Hubs instance.
@@ -91,18 +91,6 @@ Here is a sample log record in JSON format:
 
 Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, the logs and metrics can not be sent out to the destination endpoints directly. You can create corresponding [managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md) for different destination endpoints or [create IP firewall rules](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) in this scenario.
 
-## Next steps
-
-- [Create a storage account](../../storage/common/storage-account-create.md)
-- [Create a storage account to use with Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md)
-- [Create, develop, and maintain Synapse notebooks in Azure Synapse Analytics](../../synapse-analytics/spark/apache-spark-development-using-notebooks.md)
-- [Spark session config magic command](../../synapse-analytics/spark/apache-spark-development-using-notebooks.md#spark-session-config-magic-command)
-- [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md)
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md)
-- [Key Vault](https://azure.microsoft.com/services/key-vault/)
-- [Spark Metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics)
-- [Synapse Spark Diagnostic Emitter Configuration Samples](https://go.microsoft.com/fwlink/?linkid=2169375)
-- [Synapse Managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
 
 
 
