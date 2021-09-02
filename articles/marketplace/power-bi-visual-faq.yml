@@ -31,7 +31,7 @@ sections:
           
           
       - question: |
-          Do I need to create a new account to manage my offers in the commercial marketplace in Partner Center?
+          Do I need to create a new account to manage my offers in Partner Center?
         answer: |
           If your same account from the Office Store is enrolled in the commercial marketplace, no further action is required. After the move is complete, sign in to Partner Center using the same account and you will see your Power BI visuals.
 
@@ -127,15 +127,15 @@ sections:
 
           1. **Analytics**
           
-          The **Marketplace Insights** dashboard in Partner Center includes the following enhancements:
+             The **Marketplace Insights** dashboard in Partner Center will receive the following enhancements:
 
-          - Call to actions trend
-            - Addition of Consent clicks analytics. Consent clicks represents the count of all consent clicks completed on the offer listing page. They appear after a user has clicked on a **Call to action** button: *Get it Now*, *Free Trial*, *Contact Me*, or *Test Drive*.
-          - Page Visits and Calls to Action
-          - Tabular data is modified:
-            - Addition of **Consent clicks** column. Use this information to understand conversion rates for your offers.
-            - Addition of **Platform** column in view by Referral Domain. Use this information to understand how page views, calls-to-action, and consent clicks for your offers vary across website and embedded client platforms.
-            - Addition of **Funnel view** to show conversion rates from page views to consent clicks
+             - Calls to Action trend
+               - Addition of Consent clicks analytics. Consent clicks represents the count of all consent clicks completed on the offer listing page. They appear after a user has clicked on a **Call to action** button: *Get it Now*, *Free Trial*, *Contact Me*, or *Test Drive*.
+             - Page Visits and Calls to Action
+             - Tabular data is modified
+               - Addition of **Consent clicks** column. Use this information to understand conversion rates for your offers.
+               - Addition of **Platform** column in view by Referral Domain. Use this information to understand how page views, calls-to-action, and consent clicks for your offers vary across website and embedded client platforms.
+               - Addition of **Funnel view** to show conversion rates from page views to consent clicks
 
 
 additionalContent: |
