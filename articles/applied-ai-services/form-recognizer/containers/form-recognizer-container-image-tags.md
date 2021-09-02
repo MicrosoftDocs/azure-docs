@@ -20,6 +20,8 @@ keywords: Docker, container, images
 >
 > * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
 
+## Feature containers
+
 Form Recognizer features are supported by seven containers:
 
 | Container name | Fully qualified image name |
@@ -32,11 +34,15 @@ Form Recognizer features are supported by seven containers:
 | **Custom API** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api |
 | **Custom Supervised** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised |
 
+## Microsoft container registry
+
 Form Recognizer container images can be found on the Microsoft Container Registry **mcr.microsoft.** **<span></span>com** container registry syndicate, the primary registry for all Microsoft Published Docker images.
 
 * The discovery experience for MCR is provided through [docker hub](https://hub.docker.com/publishers/microsoftowner).
 
 * You can also query [the list of repositories within mcr](https://mcr.microsoft.com/v2/_catalog).
+
+## Form Recognizer tags
 
 The following tags are available for Form Recognizer:
 
