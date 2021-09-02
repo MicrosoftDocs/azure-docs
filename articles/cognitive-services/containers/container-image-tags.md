@@ -1959,7 +1959,7 @@ This container image has the following tags available. You can also find a full 
 # [Latest version](#tab/current)
 
 * Release notes for version `1.3.0`:
-    * Support for standalone language IDs with `SingleLanguage` and contiuous mode.
+    * Support for standalone language IDs with `SingleLanguage` and continuous mode.
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
