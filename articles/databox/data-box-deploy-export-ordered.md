@@ -301,6 +301,29 @@ To delete a canceled order, go to **Overview** and select **Delete** from the co
 
 The following xml shows an example of blob names, blob prefixes, and Azure Files contained in the xml format that the export order uses when you select the **use XML file** option:
 
+*New xml sample: Adds explanation per line*
+
+```xml
+<<?xml version="1.0" encoding="utf-8"?>
+   <!-- BlobList/prefix/Container list for Blob storage for export -->
+   <BlobList>
+      <BlobPath>/8tbpageblob/blob.txt</BlobPath> <!-- Exports the blob /8tbpageblob/blob.txt. -->
+      <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix> <!-- Exports every blob in blockblobdot75tbdata. -->
+      <BlobPathPrefix>/1tbfilepageblob</BlobPathPrefix> <!-- Exports all containers that begin with prefix "1tbfilepageblob". -->
+      <BlobPathPrefix>/1tbfile/</BlobPathPrefix> <!-- Exports all blobs in the 1tbfile container. -->
+	  <BlobPathPrefix>/1tbfile/file</BlobPathPrefix> <!-- Exports all blobs in the 1tbfile container with prefix "file". -->
+   </BlobList>
+   <!-- FileList/prefix/Share list for Azure File storage for export -->
+   <AzureFileList>
+	  <FilePath>/fileshare1/file.txt</FilePath> <!-- Exports /fileshare1/file.txt. -->
+      <FilePathPrefix>/64mbfiles/</FilePathPrefix> <!-- Exports all directories and files in 64mbfiles/. -->
+      <FilePathPrefix>/fileshare2/file</FilePathPrefix> <!-- Exports all directories and files in fileshare2 with prefix "file". -->
+      <FilePathPrefix>/dir</FilePathPrefix> <!-- Exports all directories and files with prefix "dir". -->
+   </AzureFileList>
+```
+
+*Replaces this xml sample:*
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
    <!-- BlobList/prefix/Container list for Blob storage for export  -->
@@ -320,14 +343,28 @@ The following xml shows an example of blob names, blob prefixes, and Azure Files
    </AzureFileList>
 ```
 
+## Tag usage
+
+The following xml tags are used in the XML file attached to a Data Box export order.
+
+| xml tag           |Description |
+|-------------------|------------|
+|`<BlobList>`       |xxx         |
+|`<BlobPath>`       |xxx         |
+|`BlobPathPrefix`   |xxx         |
+|`<AzureFileList>`  |xxx         |
+|`<FilePathPrefix>` |xxx         |  
+
 Some important points in respect to xml files:
 
-* Xml tags are case sensitive and need to match exactly as specified in the above sample.
+* xml tags are case sensitive and need to match the tags in the above table exactly.
 * Opening and closing tags must match.
 * Incorrect xml tags or formatting may lead to data export failure.
-* No data will be exported if blob and/or file prefix are invalid.
+* No data will be exported if the blob prefix or file prefix is invalid.
 
 ### Examples of valid blob paths
+
+*To be replaced by the BlobPathPrefix and FilePathPrefix sections?*
 
 The following table shows examples of valid blob paths:
 
@@ -340,6 +377,31 @@ The following table shows examples of valid blob paths:
    | Starts with |/container-name/prefix |Exports all blobs in container **container-name** that begin with prefix **prefix** |
    | Equal to |$root/logo.bmp |Exports blob **logo.bmp** in the root container |
    | Equal to |8tbpageblob/mydata.txt |Exports blob **mydata.txt** in container **8tbpageblob** |
+
+
+### Examples of valid blob prefix paths<!-- Why is the heading "blob prefix path" when the tag is BlobPathPrefix?-->
+
+The following table has examples of valid paths for the <BlobPathPrefix> tag.
+
+|Path                    |Description                                                                         |
+|------------------------|------------------------------------------------------------------------------------|
+|/	                     |Exports all blobs in the storage account.                                           |
+|/$root/	               |Exports all blobs in the root container.                                            |
+|/containers	           |Exports all blobs in any container that begins with prefix **containers**.          |
+|/container-name/        |Exports all blobs in container **container-name**.                                  |
+|/container-name/prefix  |Exports all blobs in container **container-name** that begin with prefix **prefix**.|
+
+### Examples of valid file prefix paths<!-- Why is the heading "blob prefix path" when the tag is BlobPathPrefix?-->
+
+The following table has examples of valid paths for the <FilePathPrefix> tag.
+
+|Path                    |Description                                                                                          |
+|------------------------|-----------------------------------------------------------------------------------------------------|
+|/	                     |Exports all files and directories in the storage account.                                            |
+|/fileshare/	           |Exports all files and directories in any file share that begins with prefix **fileshare**.           |
+|/fileshare1/	           |Exports all files and directories in **fileshare1**.                                                 |
+|/fileshare-name/prefix  |Exports all files and directories in fileshare **fileshare-name** that begin with prefix **prefix**. |
+
 
 ## Sample log files
 
