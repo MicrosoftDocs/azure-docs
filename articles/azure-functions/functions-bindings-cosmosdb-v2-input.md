@@ -357,7 +357,7 @@ namespace CosmosDBSamplesV2
 
 ### HTTP trigger, get multiple docs, using CosmosClient
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `CosmosClient` instance provided by the Azure Cosmos DB binding, available in [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4.x-and-higher), to read a list of documents. The `CosmosClient` instance could also be used for write operations.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `CosmosClient` instance provided by the Azure Cosmos DB binding, available in [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), to read a list of documents. The `CosmosClient` instance could also be used for write operations.
 
 ```csharp
 using System.Linq;
@@ -1678,7 +1678,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute.
 
-The attribute's constructor takes the database name and collection name. In [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4.x-and-higher) some settings and properties have been removed or renamed. For information about settings and other properties that you can configure for all versions, see [the following configuration section](#configuration).
+The attribute's constructor takes the database name and collection name. In [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) some settings and properties have been removed or renamed. For information about settings and other properties that you can configure for all versions, see [the following configuration section](#configuration).
 
 # [C# Script](#tab/csharp-script)
 
@@ -1712,10 +1712,10 @@ The following table explains the binding configuration properties that you set i
 |**direction**     | n/a | Must be set to `in`.         |
 |**name**     | n/a | Name of the binding parameter that represents the document in the function.  |
 |**databaseName** |**DatabaseName** |The database containing the document.        |
-|**collectionName** |**CollectionName** | The name of the collection that contains the document. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4.x-and-higher) this property is called `ContainerName`. |
+|**collectionName** |**CollectionName** | The name of the collection that contains the document. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `ContainerName`. |
 |**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](./functions-bindings-expressions-patterns.md). Don't set both the `id` and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
 |**sqlQuery**  |**SqlQuery**  | An Azure Cosmos DB SQL query used for retrieving multiple documents. The property supports runtime bindings, as in this example: `SELECT * FROM c where c.departmentId = {departmentId}`. Don't set both the `id` and `sqlQuery` properties. If you don't set either one, the entire collection is retrieved.|
-|**connectionStringSetting**     |**ConnectionStringSetting**|The name of the app setting containing your Azure Cosmos DB connection string. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4.x-and-higher) this property is called `Connection`. The value is the name of an app setting that either contains the connection string or a configuration section which defines the connection. See [Connections](./functions-reference.md#connections). |
+|**connectionStringSetting**     |**ConnectionStringSetting**|The name of the app setting containing your Azure Cosmos DB connection string. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `Connection`. The value is the name of an app setting that either contains the connection string or a configuration section which defines the connection. See [Connections](./functions-reference.md#connections). |
 |**partitionKey**|**PartitionKey**|Specifies the partition key value for the lookup. May include binding parameters. It is required for lookups in [partitioned](../cosmos-db/partitioning-overview.md#logical-partitions) collections.|
 |**preferredLocations**| **PreferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
 
