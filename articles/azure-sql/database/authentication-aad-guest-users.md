@@ -16,19 +16,21 @@ ms.date: 05/10/2021
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Guest users in Azure Active Directory (Azure AD) are users that have been imported into the current Azure AD from other Azure Active Directories, or outside of it. For example, guest users can include users from other Azure Active Directories, or from accounts like *\@outlook.com*, *\@hotmail.com*, 
-*\@live.com*, or *\@gmail.com*. This article demonstrates how to create an Azure AD guest user, and set that user as an Azure AD admin for the Azure SQL logical server, without needing to have that guest user be part of a group inside Azure AD.
+*\@live.com*, or *\@gmail.com*. 
+
+This article demonstrates how to create an Azure AD guest user and set that user as an Azure AD admin for the a SQL Managed Instance or the [logical server](logical-servers.md) in Azure used by Azure SQL Database and Azure Synapse Analytics, without having to add the guest user to a group inside Azure AD.
 
 ## Feature description
 
 This feature lifts the current limitation that only allows guest users to connect to Azure SQL Database, SQL Managed Instance, or Azure Synapse Analytics when they're members of a group created in Azure AD. The group needed to be mapped to a user manually using the [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) statement in a given database. Once a database user has been created for the Azure AD group containing the guest user, the guest user can sign into the database using Azure Active Directory with MFA authentication. Guest users can be created and connect directly to SQL Database, SQL Managed Instance, or Azure Synapse without the requirement of adding them to an Azure AD group first, and then creating a database user for that Azure AD group.
 
-As part of this feature, you also have the ability to set the Azure AD guest user directly as an AD admin for the [logical server in Azure](logical-servers.md) or for a SQL Managed Instance. The existing functionality (which allows the guest user to be part of an Azure AD group that can then be set as the Azure AD admin for the logical server or managed instance) is *not* impacted. Guest users in the database that are a part of an Azure AD group are also not impacted by this change.
+As part of this feature, you also have the ability to set the Azure AD guest user directly as an AD admin for the logical server or for a SQL Managed Instance. The existing functionality (which allows the guest user to be part of an Azure AD group that can then be set as the Azure AD admin for the logical server or managed instance) is *not* impacted. Guest users in the database that are a part of an Azure AD group are also not impacted by this change.
 
 For more information about existing support for guest users using Azure AD groups, see [Using multi-factor Azure Active Directory authentication](authentication-mfa-ssms-overview.md).
 
 ## Prerequisite
 
-- [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) module or higher is needed when using PowerShell to set a guest user as an Azure AD admin for the Azure SQL logical server.
+- [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) module or higher is needed when using PowerShell to set a guest user as an Azure AD admin for the logical server or SQL Managed Instance.
 
 ## Create database user for Azure AD guest user 
 
@@ -108,17 +110,17 @@ To setup an Azure AD guest user for a logical server, follow these steps:
 
 1. Ensure that the guest user (for example, `user1@gmail.com`) is already added into your Azure AD.
 
-1. Run the following PowerShell command to add the guest user as the Azure AD admin for your Azure SQL logical server:
+1. Run the following PowerShell command to add the guest user as the Azure AD admin for your logical server:
 
-    - Replace `<ResourceGroupName>` with your Azure Resource Group name that contains the Azure SQL logical server.
-    - Replace `<ServerName>` with your Azure SQL logical server name. If your server name is `myserver.database.windows.net`, replace `<Server Name>` with `myserver`.
+    - Replace `<ResourceGroupName>` with your Azure Resource Group name that contains the logical server.
+    - Replace `<ServerName>` with your logical server name. If your server name is `myserver.database.windows.net`, replace `<Server Name>` with `myserver`.
     - Replace `<DisplayNameOfGuestUser>` with your guest user name.
 
     ```powershell
     Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -ServerName <ServerName> -DisplayName <DisplayNameOfGuestUser>
     ```
 
-You can also use the Azure CLI command [az sql server ad-admin](/cli/azure/sql/server/ad-admin) to set the guest user as an Azure AD admin for your Azure SQL logical server.
+You can also use the Azure CLI command [az sql server ad-admin](/cli/azure/sql/server/ad-admin) to set the guest user as an Azure AD admin for your logical server.
 
 ### Azure PowerShell (SQL Managed Instance)
 
