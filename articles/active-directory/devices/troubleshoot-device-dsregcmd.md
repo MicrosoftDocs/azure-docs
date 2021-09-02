@@ -241,7 +241,7 @@ The diagnostics information fields are same as **AcquirePrtDiagnostics**
 
 This diagnostics section is displayed only if the device is domain-joined and unable to hybrid Azure AD-join.
 
-This section performs various tests to help diagnose join failures. This information includes the error phase, error code, server request ID, server response http status, and server response error message.
+This section performs various tests to help diagnose join failures. The information includes the error phase, the error code, the server request ID, the server response http status, and the server response error message.
 
 - **User Context**: The context in which the diagnostics are run. Possible values: SYSTEM, UN-ELEVATED User, ELEVATED User.
 
