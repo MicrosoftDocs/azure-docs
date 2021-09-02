@@ -8,13 +8,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 09/02/2021
 ---
 # Create a knowledge store using REST and Postman
 
 Knowledge store is a feature of Azure Cognitive Search that sends skillset output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) to Azure Storage for subsequent knowledge mining, data analysis, or downstream processing. After the knowledge store is populated, you can use tools like [Storage Explorer](knowledge-store-view-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md) to explore the content.
 
-In this article, you'll use the REST API to ingest, enrich, and explore a set of customer reviews of hotel stays in a knowledge store in Azure Storage. The end result is a knowledge store that contains original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, and language detection and text translation of non-English customer comments.
+In this article, you'll use the REST API to ingest, enrich, and explore a set of customer reviews of hotel stays in a knowledge store in Azure Storage. The end result is a knowledge store that contains original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, language detection, and text translation of non-English customer comments.
 
 To make the initial data set available, the hotel reviews are first imported into Azure Blob Storage. Post-processing, the results are saved as a knowledge store in Azure Table Storage.
 
@@ -55,7 +55,7 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
 1. Select the **Collections** tab, and then select the **...** (ellipsis) button.
 
-1. Select **Edit**. 
+1. Select **Edit**.
 
    ![Postman app showing navigation](media/knowledge-store-create-rest/postman-edit-menu.png "Go to the Edit menu in Postman")
 
@@ -116,44 +116,32 @@ Create the index by issuing a PUT request to `https://{{search-service-name}}.se
 {
     "name": "{{index-name}}",
     "fields": [
-        { "name": "address", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
-        { "name": "categories", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
-        { "name": "city", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
-        { "name": "country", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
-        { "name": "latitude", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
-        { "name": "longitude", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
         { "name": "name", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
-        { "name": "postalCode", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
-        { "name": "province", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
         { "name": "reviews_date", "type": "Edm.DateTimeOffset", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
-        { "name": "reviews_dateAdded", "type": "Edm.DateTimeOffset", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
         { "name": "reviews_rating", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
         { "name": "reviews_text", "type": "Edm.String", "filterable": false,  "sortable": false, "facetable": false },
         { "name": "reviews_title", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
         { "name": "reviews_username", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
         { "name": "AzureSearch_DocumentKey", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false, "key": true },
-        { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
-        { "name": "metadata_storage_size", "type": "Edm.Int64", "searchable": false, "filterable": false, "sortable": false, "facetable": false},
-        { "name": "metadata_storage_last_modified", "type": "Edm.DateTimeOffset", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
-        { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
-        { "name": "metadata_storage_path", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false },
-        { "name": "Sentiment", "type": "Collection(Edm.Double)", "searchable": false, "filterable": true, "retrievable": true, "sortable": false, "facetable": true },
-        { "name": "Language", "type": "Edm.String", "filterable": true, "sortable": false, "facetable": true },
-        { "name": "Keyphrases", "type": "Collection(Edm.String)", "filterable": true, "sortable": false, "facetable": true }
+        { "name": "language", "type": "Edm.String", "filterable": true, "sortable": false, "facetable": true },
+        { "name": "translated_text", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
+        { "name": "sentiment", "type": "Collection(Edm.Double)", "searchable": false, "filterable": true, "retrievable": true, "sortable": false, "facetable": true },
+        { "name": "keyphrases", "type": "Collection(Edm.String)", "filterable": true, "sortable": false, "facetable": true }
     ]
 }
-
 ```
 
-This index definition is a combination of data that you'd like to present to the user (the name of the hotel, review content, the date), search metadata, and AI enhancement data (Sentiment, Key Phrases, and Language).
+This index definition is a combination of data that you'd like to present to the user. It includes fields mapped directly to the CSV (name of the hotel, review date, and so forth) and fields created by the skillset (sentiment, key phrases, language, and translated text).
 
-Select **Send** to issue the PUT request. You should see the status `201 - Created`. If you see a different status, in the **Body** pane, look for a JSON response that contains an error message. 
+Select **Send** to issue the PUT request.
 
-The index is created but not loaded. Importing documents occurs later when you run the indexer. 
+You should see the status `201 - Created`. If you see a different status, in the **Body** pane, look for a JSON response that contains an error message. If you are using a free search service, make sure you have room for the new objects (the free service has a maximum of three).
 
-## Create the datasource
+At this point, the index is created but not loaded. Importing documents occurs later when you run the indexer. 
 
-Next, connect Azure Cognitive Search to the hotel data you stored in Blob storage. To create the datasource, send a POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. You must set the `api-key` and `Content-Type` headers as discussed earlier. 
+## Create the data source
+
+Next, connect Azure Cognitive Search to the hotel data you stored in Blob storage. To create the data source, send a [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. 
 
 In Postman, go to the **Create Datasource** request, and then to the **Body** pane. You should see the following code:
 
@@ -171,25 +159,26 @@ Select **Send** to issue the POST request.
 
 ## Create the skillset 
 
-The next step is to specify the skillset, which specifies both the enhancements to be applied and the knowledge store where the results will be stored. In Postman, select the **Create the Skillset** tab. This request sends a PUT to `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`. Set the `api-key` and `Content-type` headers as you did earlier. 
+The next step creates the skillset, which specifies both the enhancements to be applied and the knowledge store where the results will be stored. This request sends a [Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) PUT request to `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`.
 
-There are two large top-level objects: `skills` and `knowledgeStore`. Each object inside the `skills` object is an enrichment service. Each enrichment service has `inputs` and `outputs`. The `LanguageDetectionSkill` has an output `targetName` of `Language`. The value of this node is used by most of the other skills as an input. The source is `document/Language`. The capability of using the output of one node as the input to another is even more evident in `ShaperSkill`, which specifies how the data flows into the tables of the knowledge store.
+There are two large top-level objects: `skills` and `knowledgeStore`:
 
-The `knowledge_store` object connects to the storage account via the `{{storage-connection-string}}` Postman variable. `knowledge_store` contains a set of mappings between the enhanced document and tables and columns in the knowledge store. 
++ "skills" is the skillset. Each object inside the `skills` object is an enrichment service. Each enrichment service has `inputs` and `outputs`. The `LanguageDetectionSkill` has an output `targetName` of `Language`. The value of this node is used by most of the other skills as an input. The source is `document/Language`. The capability of using the output of one node as the input to another is even more evident in `ShaperSkill`, which specifies how the data flows into the tables of the knowledge store.
+
++ "knowledgeStore" includes the connection string to the storage account and a series of projections. Each projection creates a table in Azure Storage. Columns in the table include generated columns used for cross-linking and content fields. The content fields can be specified through a data shape (through a Shaper skill) or through inline shapes in the projection itself. 
 
 To generate the skillset, select the **Send** button in Postman to PUT the request:
 
 ```json
 {
     "name": "{{skillset-name}}",
-    "description": "Skillset to detect language, extract key phrases, and detect sentiment",
+    "description": "Skillset to detect language, translate text, extract key phrases, and score sentiment",
     "skills": [ 
-    	{
+        {
             "@odata.type": "#Microsoft.Skills.Text.SplitSkill", 
             "context": "/document/reviews_text", "textSplitMode": "pages", "maximumPageLength": 5000,
             "inputs": [ 
-                { "name": "text", "source": "/document/reviews_text" },
-                { "name": "languageCode", "source": "/document/Language" }
+                { "name": "text", "source": "/document/reviews_text" }
             ],
             "outputs": [
                 { "name": "textItems", "targetName": "pages" }
@@ -200,10 +189,10 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
             "context": "/document/reviews_text/pages/*",
             "inputs": [
                 { "name": "text", "source": "/document/reviews_text/pages/*" },
-                { "name": "languageCode", "source": "/document/Language" }
+                { "name": "languageCode", "source": "/document/language" }
             ],
             "outputs": [
-                { "name": "score", "targetName": "Sentiment" }
+                { "name": "score", "targetName": "sentiment" }
             ]
         },
         {
@@ -213,7 +202,19 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                 { "name": "text", "source": "/document/reviews_text" }
             ],
             "outputs": [
-                { "name": "languageCode", "targetName": "Language" }
+                { "name": "languageCode", "targetName": "language" }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Skills.Text.TranslationSkill",
+            "context": "/document/reviews_text/pages/*",
+            "defaultFromLanguageCode": null,
+            "defaultToLanguageCode": "en",
+            "inputs": [
+                { "name": "text", "source": "/document/reviews_text/pages/*" }
+            ],
+            "outputs": [
+                { "name": "translatedText", "targetName": "translated_text" }
             ]
         },
         {
@@ -221,10 +222,10 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
             "context": "/document/reviews_text/pages/*",
             "inputs": [
                 { "name": "text",  "source": "/document/reviews_text/pages/*" },
-                { "name": "languageCode",  "source": "/document/Language" }
+                { "name": "languageCode",  "source": "/document/language" }
             ],
             "outputs": [
-                { "name": "keyPhrases" , "targetName": "Keyphrases" }
+                { "name": "keyPhrases" , "targetName": "keyphrases" }
             ]
         },
         {
@@ -236,21 +237,33 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                 { "name": "reviews_rating",  "source": "/document/reviews_rating" },
                 { "name": "reviews_text",  "source": "/document/reviews_text" },
                 { "name": "reviews_title",  "source": "/document/reviews_title" },
+                { "name": "reviews_username",  "source": "/document/reviews_username" },
                 { "name": "AzureSearch_DocumentKey",  "source": "/document/AzureSearch_DocumentKey" },
-                { 
-                    "name": "pages",
-                    "sourceContext": "/document/reviews_text/pages/*",
-                    "inputs": [
-                        { "name": "SentimentScore", "source": "/document/reviews_text/pages/*/Sentiment" },
-                        { "name": "LanguageCode", "source": "/document/Language" },
-                        { "name": "Page", "source": "/document/reviews_text/pages/*" },
-                        { 
-                            "name": "keyphrase", "sourceContext": "/document/reviews_text/pages/*/Keyphrases/*",
-                            "inputs": [
-                                { "name": "Keyphrases", "source": "/document/reviews_text/pages/*/Keyphrases/*" }
-                            ]
-                        }
-                    ]
+                {
+                "name": "pages",
+                "sourceContext": "/document/reviews_text/pages/*",
+                "inputs": [
+                    {
+                    "name": "languageCode",
+                    "source": "/document/language"
+                    },
+                    {
+                    "name": "translatedText",
+                    "source": "/document/reviews_text/pages/*/translated_text"
+                    },
+                    { 
+                    "name": "sentimentScore",
+                    "source": "/document/reviews_text/pages/*/sentiment"
+                    },
+                    {
+                    "name": "keyPhrases",
+                    "source": "/document/reviews_text/pages/*/keyphrases/*"
+                    },
+                    {
+                    "name": "Page",
+                    "source": "/document/reviews_text/pages/*"
+                    }
+                ]
                 }
             ],
             "outputs": [
@@ -263,38 +276,40 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
         "projections": [
             {
                 "tables": [
-                    { "tableName": "hotelReviewsDocument", "generatedKeyName": "Documentid", "source": "/document/tableprojection" },
-                    { "tableName": "hotelReviewsPages", "generatedKeyName": "Pagesid", "source": "/document/tableprojection/pages/*" },
-                    { "tableName": "hotelReviewsKeyPhrases", "generatedKeyName": "KeyPhrasesid", "source": "/document/tableprojection/pages/*/keyphrase/*" },
-                    { "tableName": "hotelReviewsSentiment", "generatedKeyName": "Sentimentid", "source": "/document/tableprojection/pages/*/sentiment/*" }
+                    { "tableName": "hotelReviews1Document", "generatedKeyName": "Documentid", "source": "/document/tableprojection" },
+                    { "tableName": "hotelReviews2Pages", "generatedKeyName": "Pagesid", "source": "/document/tableprojection/pages/*" },
+                    { "tableName": "hotelReviews3KeyPhrases", "generatedKeyName": "KeyPhrasesid", "source": "/document/tableprojection/pages/*/keyPhrases/*" }
                 ],
                 "objects": []
             },
             {
                 "tables": [
                     { 
-                        "tableName": "hotelReviewsInlineDocument", "generatedKeyName": "Documentid", "sourceContext": "/document",
+                        "tableName": "hotelReviews4InlineProjectionDocument", "generatedKeyName": "Documentid", "sourceContext": "/document",
                         "inputs": [
                             { "name": "name", "source": "/document/name"},
                             { "name": "reviews_date", "source": "/document/reviews_date"},
                             { "name": "reviews_rating", "source": "/document/reviews_rating"},
-                            { "name": "reviews_text", "source": "/document/reviews_text"},
+                            { "name": "reviews_username", "source": "/document/reviews_username"},
                             { "name": "reviews_title", "source": "/document/reviews_title"},
+                            { "name": "reviews_text", "source": "/document/reviews_text"},
                             { "name": "AzureSearch_DocumentKey", "source": "/document/AzureSearch_DocumentKey" }
                         ]
                     },
                     { 
-                        "tableName": "hotelReviewsInlinePages", "generatedKeyName": "Pagesid", "sourceContext": "/document/reviews_text/pages/*",
+                        "tableName": "hotelReviews5InlineProjectionPages", "generatedKeyName": "Pagesid", "sourceContext": "/document/reviews_text/pages/*",
                         "inputs": [
-                            { "name": "SentimentScore", "source": "/document/reviews_text/pages/*/Sentiment"},
-                            { "name": "LanguageCode", "source": "/document/Language"},
+                            { "name": "SentimentScore", "source": "/document/reviews_text/pages/*/sentiment"},
+                            { "name": "LanguageCode", "source": "/document/language"},
+                            { "name": "Keyphrases", "source": "/document/reviews_text/pages/*/keyphrases"},
+                            { "name": "TranslatedText", "source": "/document/reviews_text/pages/*/translated_text"},
                             { "name": "Page", "source": "/document/reviews_text/pages/*" }
                         ]
                     },
                     { 
-                        "tableName": "hotelReviewsInlineKeyPhrases", "generatedKeyName": "kpidv2", "sourceContext": "/document/reviews_text/pages/*/Keyphrases/*",
+                        "tableName": "hotelReviews6InlineProjectionKeyPhrases", "generatedKeyName": "kpidv2", "sourceContext": "/document/reviews_text/pages/*/keyphrases/*",
                         "inputs": [
-                            { "name": "Keyphrases", "source": "/document/reviews_text/pages/*/Keyphrases/*" }
+                            { "name": "Keyphrases", "source": "/document/reviews_text/pages/*/keyphrases/*" }
                         ]
                     }
                 ],
@@ -307,11 +322,15 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
 
 ## Create the indexer
 
-The final step is to create the indexer. The indexer reads the data and activates the skillset. In Postman, select the **Create Indexer** request, and then review the body. The definition of the indexer refers to several other resources that you already created: the datasource, the index, and the skillset. 
+The final step is to create the indexer. The indexer reads the data and activates the skillset. The definition of the indexer refers to several other resources that you already created: the datasource, the index, and the skillset. 
 
-The `parameters/configuration` object controls how the indexer ingests the data. In this case, the input data is in a single CSV file that has a header line and comma-separated values. The document key is a unique identifier for the document. Before encoding, the document key is the URL of the source document. Finally, the skillset output values, like language code, sentiment, and key phrases, are mapped to their locations in the document. Although there's a single value for `Language`, `Sentiment` is applied to each element in the array of `pages`. `Keyphrases` is an array that's also applied to each element in the `pages` array.
++ The `parameters/configuration` object controls how the indexer ingests the data. In this case, the input data is in a single CSV file that has a header line and comma-separated values. 
 
-After you set the `api-key` and `Content-type` headers and confirm that the body of the request is similar to the following source code, select **Send** in Postman. Postman sends a PUT request to `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Azure Cognitive Search creates and runs the indexer. 
++ Field mappings create "AzureSearch_DocumentKey" is a unique identifier for each document that's generated by the blob indexer (based on metadata storage path). 
+
++ Output field mappings specify how enriched fields are mapped to fields in a search index (output field mappings are not used in knowledge stores).
+
+Select **Send** in Postman to create and run the indexer. Data import, skillset execution, and knowledge store creation occur in this step.
 
 ```json
 {
@@ -342,11 +361,30 @@ After you set the `api-key` and `Content-type` headers and confirm that the body
 }
 ```
 
-## Run the indexer
+## Check indexer status
 
-<!-- 1. Still in the portal, switch to Azure Cognitive Search. [Create a new service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this exercise. -->
+After you send each request, the search service should respond with a 201 success message. If you get errors, re-check your variables and make sure that the search service has room for the new index, indexer, data source, and skillset (the free tier is limited to three of each).
 
-In the Azure portal, go to the Azure Cognitive Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. If the indexer hasn't already run, select **Run**. The indexing task might raise some warnings related to language recognition. The data includes some reviews that are written in languages that aren't yet supported by the cognitive skills. 
+In the Azure portal, go to the Azure Cognitive Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
+
+## Check tables in Azure Storage
+
+In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see six tables.
+
+| Table | Description |
+|-------|-------------|
+| hotelReviews1Document | Contains fields carried forward from the CSV, such as reviews_date and reviews_text. |
+| hotelReviews2Pages | Contains enriched fields created by the skillset, such as sentiment score and key phrases. |
+| hotelReviews3KeyPhrases | Contains a long list of just the key phrases. |
+| hotelReviews4InlineProjectionDocument | Alternative to the first table, using inline shaping instead of the Shaper skill to create a data shape used in the projection. |
+| hotelReviews5InlineProjectionPages | Alternative to the second table, using inline shaping. |
+| hotelreviews6InlineProjectionKeyPhrases | Alternative to the third table, using inline shaping. |
+
+Each table is generated with the IDs necessary for cross-linking the tables in queries for table  projections that are in the same projection group.
+
+Scroll to the right to view the content fields:
+
+   :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
 
 ## Clean up
 
@@ -356,18 +394,14 @@ You can find and manage resources in the portal, using the **All resources** or 
 
 If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
+> [!TIP]
+> If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the **hotel-reviews-idxr** indexer and the related objects to recreate them. Deleting the indexer resets the free daily transaction counter to zero.
+
 ## Next steps
 
-Now that you've enriched your data by using Cognitive Services and projected the results to a knowledge store, you can use Storage Explorer or Power BI to explore your enriched data set.
+Now that you've enriched your data by using Cognitive Services and projected the results to a knowledge store, you can use Storage Explorer or other apps to explore your enriched data set.
 
 To learn how to explore this knowledge store by using Storage Explorer, see this walkthrough:
 
 > [!div class="nextstepaction"]
 > [View with Storage Explorer](knowledge-store-view-storage-explorer.md)
-
-To learn how to connect this knowledge store to Power BI, see this walkthrough:
-
-> [!div class="nextstepaction"]
-> [Connect with Power BI](knowledge-store-connect-power-bi.md)
-
-If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the **hotel-reviews-idxr** indexer. Deleting the indexer resets the free daily transaction counter to zero.

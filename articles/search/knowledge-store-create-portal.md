@@ -106,6 +106,7 @@ In this wizard step, add skills for AI enrichment. The source data consists of c
 1. Select these cognitive skills:
     + **Extract key phrases**
     + **Translate text**
+    + **Language detection**
     + **Detect sentiment**
 
    :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ss.png" alt-text="Screenshot of the skillset definition" border="true":::
@@ -120,8 +121,6 @@ In this wizard step, add skills for AI enrichment. The source data consists of c
 1. Enter the **Storage account Connection String** that you saved in a previous step.
 
    :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ss.png" alt-text="Screenshot of the knowledge store definition" border="true":::
-
-1. Optionally, download a Power BI template. When you access the template from the wizard, the local .pbit file is adapted to reflect the shape of your data.
 
 1. Continue to the next page.
 
@@ -149,21 +148,47 @@ In this wizard step, configure an indexer that will pull together the data sourc
 
 1. Click **Submit** to run the indexer. Data extraction, indexing, application of cognitive skills all happen in this step.
 
-## Monitor status
+## Check indexer status
 
-Cognitive skill indexing takes longer to complete than typical text-based indexing. To check indexer progress, go to the Overview page and click **Indexers**.
+After you send each request, the search service should respond with a 201 success message. If you get errors, re-check your variables and make sure that the search service has room for the new index, indexer, data source, and skillset (the free tier is limited to three of each).
 
-In the Azure portal, you can also monitor the Notifications activity log for a clickable **Azure Cognitive Search notification** status link. Execution may take several minutes to complete.
+In the Azure portal, go to the Azure Cognitive Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
+
+## Check tables in Azure Storage
+
+In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see six tables.
+
+| Table | Description |
+|-------|-------------|
+| hotelReviews1Document | Contains fields carried forward from the CSV, such as reviews_date and reviews_text. |
+| hotelReviews2Pages | Contains enriched fields created by the skillset, such as sentiment score and key phrases. |
+| hotelReviews3KeyPhrases | Contains a long list of just the key phrases. |
+| hotelReviews4InlineProjectionDocument | Alternative to the first table, using inline shaping instead of the Shaper skill to create a data shape used in the projection. |
+| hotelReviews5InlineProjectionPages | Alternative to the second table, using inline shaping. |
+| hotelreviews6InlineProjectionKeyPhrases | Alternative to the third table, using inline shaping. |
+
+Each table is generated with the IDs necessary for cross-linking the tables in queries for table  projections that are in the same projection group.
+
+Scroll to the right to view the content fields:
+
+   :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
+
+## Clean up
+
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
+
+> [!TIP]
+> If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the **hotel-reviews-idxr** indexer and the related objects to recreate them. Deleting the indexer resets the free daily transaction counter to zero.
 
 ## Next steps
 
-Now that you have enriched your data using Cognitive Services and projected the results into a knowledge store, you can use Storage Explorer or Power BI to explore your enriched data set.
+Now that you've enriched your data by using Cognitive Services and projected the results to a knowledge store, you can use Storage Explorer or other apps to explore your enriched data set.
 
-You can view content in Storage Explorer, or take it a step further with Power BI to gain insights through visualization.
+To learn how to explore this knowledge store by using Storage Explorer, see this walkthrough:
 
-+ [View with Storage Explorer](knowledge-store-view-storage-explorer.md)
-
-+ [Connect with Power BI](knowledge-store-connect-power-bi.md)
-
-> [!Tip]
-> If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idxr* indexer. Deleting the indexer resets the free daily transaction counter back to zero for Cognitive Services processing.
+> [!div class="nextstepaction"]
+> [View with Storage Explorer](knowledge-store-view-storage-explorer.md)
