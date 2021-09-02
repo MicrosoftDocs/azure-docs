@@ -32,7 +32,7 @@ Before using ExpressRoute Direct, you must first enroll your subscription. To en
     ```
 
 1. Register your subscription for Public Preview using the following command:
-1. 
+
     ```azurepowershell-interactive
     Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
     ```
