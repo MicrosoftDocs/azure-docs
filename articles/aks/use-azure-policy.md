@@ -3,7 +3,7 @@ title: Use Azure Policy to secure your cluster
 description: Use Azure Policy to secure an Azure Kubernetes Service (AKS) cluster.
 ms.service: container-service
 ms.topic: how-to 
-ms.date: 02/17/2021
+ms.date: 09/01/2021
 ms.custom: template-how-to
 ---
 
@@ -169,6 +169,6 @@ For more information about how Azure Policy works:
 [azure-policy]: ../governance/policy/overview.md
 [azure-policy-addon]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
 [azure-policy-addon-remove]: ../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on-from-aks
-[azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition
+[azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
