@@ -400,7 +400,6 @@ This *optional* step helps you determine the number of drives required for the e
     |--------------------------|-----------------|
     |**/logdir:**|Optional. The log directory. Verbose log files are written to this directory. If not specified, the current directory is used as the log directory.|
     |**/sn:**|Required. The name of the storage account for the export job.|
-    |**/csas:**|Required only if a storage account key is not specified.<!--How does removal of /sk affect this?--> The container SAS for listing the blobs to be exported in the export job.|
     |**/ExportBlobListFile:**|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs) operation of the Import/Export service REST API.|
     |**/DriveSize:**|Required. The size of drives to use for an export job, *for example*, 500 GB, 1.5 TB.|
 
