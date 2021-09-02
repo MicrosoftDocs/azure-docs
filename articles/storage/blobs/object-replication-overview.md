@@ -143,7 +143,7 @@ While providing only the account name is still supported when cross-tenant repli
 
 The following table describes what happens when you create a replication policy with the full resource ID specified, versus the account name, in the scenarios where cross-tenant replication is allowed or disallowed for the storage account.
 
-| Storage account identifier specified in policy definition file | Cross-tenant replication allowed | Cross-tenant replication disallowed |
+| Storage account identifier in policy definition | Cross-tenant replication allowed | Cross-tenant replication disallowed |
 |--|--|--|
 | Full resource ID | Same-tenant policies can be created.<br /><br /> Cross-tenant policies can be created. | Same-tenant policies can be created.<br /><br /> Cross-tenant policies cannot be created. |
 | Account name only | Same-tenant policies can be created.<br /><br /> Cross-tenant policies can be created. | Neither same-tenant nor cross-tenant policies can be created. An error occurs, because Azure Storage cannot verify that source and destination accounts are in the same tenant. The error indicates that you must specify the full resource ID for the **sourceAccount** and **destinationAccount** entries in the policy definition file. |
