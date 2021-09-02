@@ -11,7 +11,7 @@ VMware HCX Advanced and its associated Cloud Manager are no longer pre-deployed 
 
 HCX Advanced supports up to three site connections (on-premises to cloud or cloud to cloud). If you need more than three site connections, use HCX Enterprise Edition. To activate HCX Enterprise Edition, which is currently in public preview on Azure VMware Solution, open a support request to have it enabled. Once the service is generally available, you'll have 30 days to decide on your next steps. You can also turn off or opt-out of the HCX Enterprise Edition service but keep HCX Advanced as it's part of the node cost.
 
-Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. First, ensure you’ve reverted to an HCX Advanced configuration state and not using the Enterprise features. If you plan to downgrade, ensure that no scheduled migrations, features like RAV and [HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) aren't in use, and site pairings are three or fewer.
+Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. First, ensure you’ve reverted to an HCX Advanced configuration state and not using the Enterprise features. If you plan to downgrade, ensure that no scheduled migrations, features like RAV and [HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) aren't in use, and site pairings are three or fewer.
 
 >[!TIP]
 >You can also [uninstall HCX Advanced](#uninstall-hcx-advanced) through the portal. When you uninstall HCX Advanced, make sure you don't have any active migrations in progress. Removing HCX Advanced returns the resources to your private cloud occupied by the HCX virtual appliances.
@@ -35,7 +35,7 @@ After you're finished, follow the recommended next steps at the end to continue 
 
    - NSX-T or VDS on-premises for HCX Network Extension (no standard switch)
 
-   - HCX Enterprise Edition – free 12-month trial in Azure VMware Solution (open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to have it enabled)
+   - HCX Enterprise Edition enabled through a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) – free 12-month trial in Azure VMware Solution
 
    - One or more active stretched network segment
 

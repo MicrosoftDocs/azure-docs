@@ -221,8 +221,8 @@ This is an optional step to extend any networks from your on-premises environmen
 
    :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="Screenshot that shows the status of Extension complete.":::
 
-  
-1. <a name="enable-hcx-mon"></a>(Optional) [Enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-73125E78-3428-4B7B-BACD-6332444A5D6B.html) to ensure that local and remote data centers traffic uses an optimal path to reach its destination while all flows remain symmetric. Without MON, HCX-NE expands the on-premises broadcast domain to the Azure VMware Solution private cloud while the first-hop routing function remains at the source. 
+  <a name="enable-hcx-mon"></a>
+1. (Optional) [Enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-73125E78-3428-4B7B-BACD-6332444A5D6B.html) to ensure that local and remote data centers traffic uses an optimal path to reach its destination while all flows remain symmetric. Without MON, HCX-NE expands the on-premises broadcast domain to the Azure VMware Solution private cloud while the first-hop routing function remains at the source. 
 
 
 
