@@ -118,7 +118,7 @@ Here are some of the limits and constraints for a custom security attributes.
 > | Custom security attribute set name | 32 characters long including Unicode characters |
 > | Custom security attribute set description | 128 characters |
 > | Maximum number of custom security attributes in a custom security attribute set | 500 |
-> | Custom security attribute name | 32 characters long including Unicode characters |
+> | Custom security attribute name | 32 characters long including Unicode characters<br/>Cannot include spaces |
 > | Custom security attribute description | 128 characters |
 > | Maximum number of predefined values per custom security attribute | 100 |
 > | Maximum number of custom security attribute values that can assigned per security principal (values can be distributed across single and multi-valued custom security attributes) | 50 |
@@ -137,6 +137,17 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 
 > [!IMPORTANT]
 > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+
+## Known issues
+
+Here are some of the known issues with custom security attributes:
+
+- You can only add the predefined values after you add the custom security attribute by using the Edit attribute page.
+- Users with attribute set-level role assignments can see other attribute sets and custom security attribute definitions.
+- Global Administrators can read audit logs for custom security attribute definitions and assignments.
+- You can't add a role assignment at an attribute set scope using Azure AD Privileged Identity Management (PIM).
+- Principal does not appear in Attribute source when adding a condition using PIM.
+- Directory synced users from an on-premises Active Directory can't be assigned custom security attributes.
 
 ## License requirements
 

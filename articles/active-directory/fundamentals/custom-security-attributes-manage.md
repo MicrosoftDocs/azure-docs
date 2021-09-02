@@ -67,6 +67,9 @@ The following are example scenarios to read, manage, and assign custom security 
     - Attribute Definition Administrator
     - Attribute Definition Reader
 
+> [!NOTE]
+> Users with attribute set-level role assignments currently can see other attribute sets and custom security attribute definitions.
+
 ## Grant access at the tenant scope
 
 1. Sign in to the Azure portal.

@@ -73,7 +73,7 @@ To add or deactivate custom security attributes, you must have:
 
     Select Yes to require that this custom security attribute be assigned values from a predefined values list. Select No to allow this custom security attribute to be assigned user-defined values or potentially predefined values.
 
-    You add predefined values after you add the attribute. For more information, see [Edit a custom security attribute](#edit-a-custom-security-attribute).
+    You can only add the predefined values after you add the custom security attribute by using the Edit attribute page. For more information, see [Edit a custom security attribute](#edit-a-custom-security-attribute).
 
 1. When finished, click Add.
 
