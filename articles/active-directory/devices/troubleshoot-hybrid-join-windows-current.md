@@ -124,11 +124,11 @@ The "Error Phase" field denotes the phase of the join failure, and "Client Error
 Use Event Viewer logs to locate the phase and error code for the join failures.
 
 1. In Event Viewer, open the **User Device Registration** event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**.
-1. Look for events with the following eventIDs: 304, 305, and 307.
+1. Look for events with the following event IDs: 304, 305, and 307.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Screenshot of Event Viewer, with eventID 304 selected, its information displayed, and its error code and phase highlighted." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Screenshot of Event Viewer, with event ID 304 selected, its information displayed, and its error code and phase highlighted." border="false":::
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Screenshot of Event Viewer, with eventID 305 selected, its information displayed, and its error code highlighted." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Screenshot of Event Viewer, with event ID 305 selected, its information displayed, and its error code highlighted." border="false":::
 
 ### Step 4: Check for possible causes and resolutions
 
@@ -194,9 +194,9 @@ Look for "DRS Discovery Test" in the "Diagnostic Data" section of the join statu
 Use Event Viewer logs to look for the phase and error code for the join failures.
 
 1. In Event Viewer, open the **User Device Registration** event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**.
-1. Look for eventID 201.
+1. Look for event ID 201.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Screenshot of Event Viewer, with eventID 201 selected, its information displayed, and its error code highlighted." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Screenshot of Event Viewer, with event ID 201 selected, its information displayed, and its error code highlighted." border="false":::
 
 **Network errors**:
 
@@ -239,9 +239,9 @@ Reasons for failure:
 Use Event Viewer logs to locate the error code, sub-error code, server error code, and server error message.
 
 1. In Event Viewer, open the **User Device Registration** event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**.
-1. Look for eventID 305.
+1. Look for event ID 305.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Screenshot of Event Viewer, with eventID 305 selected, its information displayed, and the A D A L error codes and status highlighted." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Screenshot of Event Viewer, with event ID 305 selected, its information displayed, and the A D A L error codes and status highlighted." border="false":::
 
 **Configuration errors**:
 
@@ -305,9 +305,9 @@ The "Registration Type" field denotes the type of join that's performed.
 Use Event Viewer logs to locate the phase and error code for the join failures.
 
 1. In Event Viewer, open the **User Device Registration** event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**.
-1. Look for eventID 204.
+1. Look for event ID 204.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Screenshot of Event Viewer, with eventID 204 selected and its error code, H T T P status, and message highlighted." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Screenshot of Event Viewer, with event ID 204 selected and its error code, H T T P status, and message highlighted." border="false":::
 
 **HTTP errors returned from DRS server**:
 
@@ -344,7 +344,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611) | EventID 220 is present in User Device Registration event logs. Windows can't access the computer object in Active Directory. A Windows error code might be included in the event. Error codes ERROR_NO_SUCH_LOGON_SESSION (1312) and ERROR_NO_SUCH_USER (1317) are related to replication issues in on-premises Active Directory. | Troubleshoot replication issues in Active Directory. These replication issues might be transient, and they might go away after a while. |
+| **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611) | Event ID 220 is present in User Device Registration event logs. Windows can't access the computer object in Active Directory. A Windows error code might be included in the event. Error codes ERROR_NO_SUCH_LOGON_SESSION (1312) and ERROR_NO_SUCH_USER (1317) are related to replication issues in on-premises Active Directory. | Troubleshoot replication issues in Active Directory. These replication issues might be transient, and they might go away after a while. |
 | | |
 
 
@@ -451,7 +451,7 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 
 1. Event 1007 logs the final error code.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/event-viewer-prt-acquire.png" alt-text="Screenshot of Event Viewer, with eventIDs 1006 and 1007 selected and the final error code highlighted." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/event-viewer-prt-acquire.png" alt-text="Screenshot of Event Viewer, with event IDs 1006 and 1007 selected and the final error code highlighted." border="false":::
 
 ### Step 3: Troubleshoot further, based on the found error code
 
