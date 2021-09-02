@@ -127,7 +127,6 @@ For more information, see the [Zerto technical documentation](https://www.zerto.
 ## FAQs
 
 
-Supporting Zerto on Azure VMware Solution requires running Zerto software on ESXi hosts and on the vCenter appliance. While Azure VMware Solution and Zerto perform testing to ensure Zerto doesn't affect Azure VMware Solution private cloud operations, Zerto software can potentially affect the private cloud reliability and availability. Make sure to read and acknowledge the updated [Azure VMware Solution SLA](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) terms before you install Zerto on Azure VMware Solution private clouds. 
 
 ### Can I use a pre-existing Zerto product license on Azure VMware Solution?
 
