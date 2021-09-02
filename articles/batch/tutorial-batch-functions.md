@@ -65,7 +65,7 @@ Here you'll create blob containers that will store your input and output files f
 
 In this section you'll create the Azure Function that triggers the OCR Batch job whenever a file is uploaded to your input container.
 
-1. Follow the steps in [Create a function triggered by Azure Blob storage](../azure-functions/functions-create-storage-blob-triggered-function) to create a function.
+1. Follow the steps in [Create a function triggered by Azure Blob storage](../azure-functions/functions-create-storage-blob-triggered-function.md) to create a function.
 	1. For **runtime stack**, choose .NET. We'll write our function in C# to leverage the Batch .NET SDK.
 	1. When prompted for a storage account under **Hosting**, use the same storage account that you linked to your Batch account.
 	1. While creating the Azure Blob storage account trigger, be sure to set the path as `input/{name}` (to match the name of your input container).
