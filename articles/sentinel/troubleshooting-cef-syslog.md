@@ -296,7 +296,7 @@ The Syslog server, either rsyslog or syslog-ng, forwards any data defined in the
 
 Make sure to add details about the facilities and severity log levels that you want to be ingested into Azure Sentinel. The configuration process may take about 20 minutes.
 
-For more information, see [Deployment script explained](connect-cef-agent.md#deployment-script-explained) and [Configure Syslog in the Azure portal](/azure/azure-monitor/agents/data-sources-syslog.md).
+For more information, see [Deployment script explained](connect-cef-agent.md#deployment-script-explained) and [Configure Syslog in the Azure portal](/azure/azure-monitor/agents/data-sources-syslog).
 
 
 **For example, for an rsyslog server**, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:

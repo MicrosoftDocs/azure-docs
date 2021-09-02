@@ -99,6 +99,9 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 > [!NOTE]
 > You can scope the vCenter Server account to limit discovery to specific vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers. Learn how to [scope the vCenter Server user account](set-discovery-scope.md).
 
+> [!NOTE]
+> vCenter assets connected via Linked-Mode to the vCenter server specified for discovery will not be discovered by Azure Migrate. An Azure Migrate Appliance should be deployed for each vCenter environment you wish to discover.
+
 ### Create an account to access servers
 
 Your user account on your servers must have the required permissions to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
@@ -133,7 +136,8 @@ To set up a new project:
 The Azure Migrate: Discovery and assessment tool uses a lightweight Azure Migrate appliance. The appliance completes server discovery and sends server configuration and performance metadata to Azure Migrate. Set up the appliance by deploying an OVA template that can be downloaded from the project.
 
 > [!NOTE]
-> If you can't set up the appliance by using the OVA template, you can set it up by running a PowerShell script on an existing server running Windows Server 2016. Learn how to [use PowerShell to set up an Azure Migrate appliance](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
+> If you can't set up the appliance by using the OVA template, you can set it up by running a PowerShell script on an existing server running Windows Server 2016. Learn how to [use PowerShell to set up an Azure Migrate appliance](deploy-appliance-script.md#set-up-the-appliance-for-vmware). <br/>
+> The option to deploy an appliance using an OVA template isn't supported in Azure Government cloud. [Learn more](/azure/migrate/deploy-appliance-script-government) on how to deploy an appliance for Azure Government cloud.
 
 ### Deploy by using an OVA template
 
