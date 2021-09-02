@@ -4,8 +4,6 @@
 >[!IMPORTANT]
 > The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability.
 
-This article provides guidance on the prerequisites that are needed for using the Azure Active Directory (Azure AD) ECMA Connector Host.
-
 
 ### On-premises prerequisites
 
@@ -75,31 +73,33 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
 
 ## Download and install the Azure AD Connect Provisioning Agent Package
 
- 1. Sign in to the server you'll use with enterprise admin permissions.
- 1. Sign in to the Azure portal, and then go to **Azure Active Directory**.
- 1. On the menu on the left, select **Azure AD Connect**.
- 1. Select **Manage cloud sync** > **Review all agents**.
- 1. Download the Azure AD Connect Provisioning Agent Package from the Azure portal.
- 1. Accept the terms and select **Download**.
- 1. Run the Azure AD Connect provisioning installer AADConnectProvisioningAgentSetup.msi.
- 1. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Install**.
+ 1. Sign in to the Azure portal.
+ 1. Go to **Enterprise applications** > **Add a new application**.
+ 1. Search for the **On-premises provisioning** application, and add it to your tenant image.
+ 1. Go to the **Provisioning** pane.
+ 1. Select **On-premises connectivity**.
+ 1. Download the agent installer.
+ 1. Run the Azure AD Connect provisioning installer **AADConnectProvisioningAgentSetup.msi**.
+ 1. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms, and select **Install**.
  
-    ![Screenshot that shows the Microsoft Azure AD Connect Provisioning Agent Package screen.](media/active-directory-app-provisioning-sql/install-1.png)</br>
+    ![Microsoft Azure AD Connect Provisioning Agent Package screen.](media/active-directory-app-provisioning-sql/install-1.png)</br>
  1. After this operation finishes, the configuration wizard starts. Select **Next**.
  
     ![Screenshot that shows the Welcome screen.](media/active-directory-app-provisioning-sql/install-2.png)</br>
- 1. On the **Select Extension** screen, select **On-premises application provisioning (Azure AD to application)** and select **Next**. 
+
+ 1. On the **Select Extension** screen, select **On-premises application provisioning (Azure AD to application)**. Select **Next**. 
  
-    ![Screenshot that shows the Select Extension screen.](media/active-directory-app-provisioning-sql/install-3.png)</br>
- 1. Use your global administrator account and sign in to Azure AD.
+    ![Screenshot that shows Select extension.](media/active-directory-app-provisioning-sql/install-3.png)</br>
+ 1. Use your global administrator account to sign in to Azure AD.
  
-     ![Screenshot that shows the Azure sign-in screen.](media/active-directory-app-provisioning-sql/install-4.png)</br>
+     ![Screenshot that shows Azure sign-in.](media/active-directory-app-provisioning-sql/install-4.png)</br>
  1. On the **Agent configuration** screen, select **Confirm**.
  
-     ![Screenshot that shows confirming the installation.](media/active-directory-app-provisioning-sql/install-5.png)</br>
+     ![Screenshot that shows Confirm installation.](media/active-directory-app-provisioning-sql/install-5.png)</br>
  1. After the installation is complete, you should see a message at the bottom of the wizard. Select **Exit**.
  
-     ![Screenshot that shows the Exit button.](media/active-directory-app-provisioning-sql/install-6.png)</br>
+     ![Screenshot that shows finishing.](media/active-directory-app-provisioning-sql/install-6.png)</br>
+ 
  
 ## Configure the Azure AD ECMA Connector Host
 1. On the desktop, select the ECMA shortcut.
