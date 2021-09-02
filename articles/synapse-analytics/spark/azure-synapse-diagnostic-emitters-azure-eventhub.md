@@ -102,5 +102,7 @@ Azure Synapse Analytics workspaces support enabling data exfiltration protection
 [Key Vault](https://azure.microsoft.com/services/key-vault/)
 [Spark Metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics)
 [Synapse Spark Diagnostic Emitter Configuration Samples](https://go.microsoft.com/fwlink/?linkid=2169375)
-[Understanding block blobs, append blobs, and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 [Synapse Managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
+
+
+
