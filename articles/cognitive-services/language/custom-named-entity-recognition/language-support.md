@@ -1,7 +1,7 @@
 ---
-title: Language and region support for custom text extraction
+title: Language and region support for Custom Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Learn about the languages and regions supported by custom text extraction.
+description: Learn about the languages and regions supported by Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 08/17/2021
 ms.author: aahi
 ---
 
-# Language support for custom text extraction
+# Language support for Custom Named Entity Recognition (NER)
 
-Use this article to learn about the languages and regions currently supported by custom text extraction.
+Use this article to learn about the languages and regions currently supported by Custom Named Entity Recognition (NER).
 
 ## Language support
 
-Custom text extraction supports `.txt` files in the following languages:
+Custom NER supports `.txt` files in the following languages:
 
 | Language | Locale |  
 |--|--|
@@ -46,4 +46,4 @@ Custom entity extraction is only available in the following regions:
 
 ## Next steps
 
-[Custom text extraction overview](overview.md)
+[Custom NER overview](overview.md)

@@ -1,7 +1,7 @@
 ---
-title: What is custom extraction in Language Services - Azure Cognitive Services
+title: What is Custom Named Entity Recognition (NER) in Language Services - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Learn how use custom text extraction with the Language Services API.
+description: Learn how use Custom Named Entity Recognition (NER) with the Language Services API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# Custom text extraction
+# What is Custom Named Entity Recognition (NER)?
 
-Custom text extraction is a cloud-based API service that is built using transformer-based models from [Microsoft Turing](https://msturing.org/about) to extract information from unstructured documents.
+Custom NER is a cloud-based API service that is built using transformer-based models from [Microsoft Turing](https://msturing.org/about) to extract information from unstructured documents.
 
 This API is similar to the [Named Entity Recognition API](../named-entity-recognition/overview.md), but lets you extract specific entities that are more relevant to your needs. 
 
@@ -32,7 +32,7 @@ This documentation contains the following article types:
 
 ## Development life cycle
 
-Using the custom extraction API typically involves several different steps. 
+Using Custom NER typically involves several different steps. 
 
 :::image type="content" source="../custom-classification/media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="../custom-classification/media/development-lifecycle.png":::
 

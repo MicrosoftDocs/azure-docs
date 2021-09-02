@@ -1,7 +1,7 @@
 ---
-title: Recommended practices for custom entity extraction
+title: Recommended practices for Custom Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Learn about recommended practices when using the custom text extraction API.
+description: Learn about recommended practices when using Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# Recommended practices for custom entity extraction
+# Recommended practices for Custom Named Entity Recognition (NER)
 
 Follow the recommended development life cycle for best results:
 
