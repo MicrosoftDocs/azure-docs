@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: devices
   ms.topic: troubleshooting
-  ms.date: 06/28/2019
+  ms.date: 09/02/2021
   ms.author: joflore
   author: MicrosoftGuyJFlo
   manager: daveba
@@ -123,21 +123,6 @@ sections:
           
           >[!NOTE] 
           >For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](/mem/intune/user-help/use-managed-devices-to-get-work-done). 
-          
-          
-          
-      - question: Why are there devices marked as "Pending" under the REGISTERED column in the Azure portal?
-        answer: |
-          Pending indicates that the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from an on-premises AD and is ready for device registration. These devices have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
-          
-          >[!NOTE]
-          >A device can also change from having a registered state to "Pending"
-          >* If a device is deleted from Azure AD first and re-synchronized from an on-premises AD.
-          >* If a device is removed from a sync scope on Azure AD Connect and added back.
-          >
-          >In both cases, you must re-register the device manually on each of these devices. To review whether the device was previously registered, you can [troubleshoot devices using the dsregcmd command](troubleshoot-device-dsregcmd.md).
-          
-          
           
       - question: I cannot add more than 3 Azure AD user accounts under the same user session on a Windows 10 device, why?
         answer: |
