@@ -7,14 +7,16 @@ ms.topic: article
 ms.date: 09/01/2021
 ms.author: qpetraroia
 author: qpetraroia
-
 ---
 
-# Use Scale-down Mode to delete/deallocate your nodes in Azure Kubernetes Service (AKS) (preview)
+# Use Scale-down Mode to delete/deallocate nodes in Azure Kubernetes Service (AKS) (preview)
 
 By default, scale-up operations performed manually or by the cluster autoscaler require the allocation and provisioning of new nodes, and scale-down operations delete nodes. Scale-down Mode allows you to decide whether you would like to delete or deallocate the nodes in your Azure Kubernetes Service (AKS) cluster upon scaling down. 
 
 When an Azure VM is in the `Stopped` (deallocated) state, you will not be charged for the VM compute resources. However, you will still need to pay for any OS and data storage disks attached to the VM. This also means that the container images will be preserved on those nodes. For more information, see [States and billing of Azure Virtual Machines][state-billing-azure-vm]. This behavior allows for faster operation speeds, as your deployment leverages cached images. Scale-down Mode allows you to no longer have to pre-provision nodes and pre-pull container images, saving you compute cost.
+
+> [!WARNING]
+> In order to preserve any deallocated VMs, you must set Scale-down Mode to Deallocate. That includes VMs that have been deallocated using IaaS APIs (Virtual Machine Scale Set APIs). Setting Scale-down Mode to Delete will remove any deallocate VMs.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
