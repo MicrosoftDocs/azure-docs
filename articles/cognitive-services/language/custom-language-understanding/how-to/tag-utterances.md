@@ -1,7 +1,7 @@
 ---
-title: How to tag utterances in Dialog Understanding 
+title: How to tag utterances in Custom Language Understanding 
 titleSuffix: Azure Cognitive Services
-description: Use this article to tag your utterances in Dialog Understanding projects
+description: Use this article to tag your utterances in Custom Language Understanding projects
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -20,7 +20,7 @@ Tagging is the process of assigning your utterances to intents, and labeling the
 
 There's also a close relationship between intents and entities. The entities that are labeled within utterances assigned to specific intents create a connection between the intent and the entity. The intent is better predicted when the entity is predicted, and the entity is better predicted when the intent is predicted - similar to a feedback loop. You will want to make sure you label entities in every intent where you expect the entity to be present. 
 
-When you enable multiple languages in your project, you must also specify the language of the utterance you are adding. As part of the multilingual capabilities of Dialog Understanding, you can train your project in a dominant language, and then predict in the other available languages. Adding examples to other languages increases the model's performance in these languages if you determine it isn't doing well, but avoid duplicating your data across all the languages you would like to support. 
+When you enable multiple languages in your project, you must also specify the language of the utterance you are adding. As part of the multilingual capabilities of Custom Language Understanding, you can train your project in a dominant language, and then predict in the other available languages. Adding examples to other languages increases the model's performance in these languages if you determine it isn't doing well, but avoid duplicating your data across all the languages you would like to support. 
 
 For example, to improve a calender bot's performance with users, a developer might add examples mostly in English, and a few in Spanish or French as well. They might add utterances such as:
 
@@ -28,7 +28,7 @@ For example, to improve a calender bot's performance with users, a developer mig
 * "_Reply as **tentative** to the **weekly update** meeting._" (english)
 * "_Cancelar mi **próxima** reunión_." (Spanish)
 
-In Orchestration Workflow projects, the data used to train connected intents isn't provided within the project. Instead, the project pulls the populated data from the connected service (such as connected LUIS applications, Dialog Understanding projects, or Custom Question Answering knowledge bases) during training. However, if you create intents that are not connected to any service, you still need to add utterances to those intents.
+In Orchestration Workflow projects, the data used to train connected intents isn't provided within the project. Instead, the project pulls the populated data from the connected service (such as connected LUIS applications, Custom Language Understanding projects, or Custom Question Answering knowledge bases) during training. However, if you create intents that are not connected to any service, you still need to add utterances to those intents.
 
 For example, a developer might create an intent for each of their skills, and connect it to a respective calendar project, email project, and company FAQ knowledge base. 
 
@@ -54,5 +54,5 @@ When clicking on an intent or entity in the [build schema](./build-schema.md) pa
 
 ## Next Steps
 <!-- * [Train Model](./how-to-train-model.md) -->
-[Dialog Understanding overview](../overview.md)
+[Custom Language Understanding overview](../overview.md)
 
