@@ -117,7 +117,7 @@ For more information, see the [Zerto technical documentation](https://www.zerto.
 
 ### Can I use a pre-existing Zerto product license on Azure VMware Solution?
 
-You can reuse pre-existing Zerto product licenses for Azure VMware Solution environments. If you need new Zerto licenses, work with **info@zerto.com** to acquire new Zerto licenses. 
+You can reuse pre-existing Zerto product licenses for Azure VMware Solution environments. If you need new Zerto licenses, email Zerto (info@zerto.com) to acquire new licenses. 
 
 ### How is Zerto supported?
 
