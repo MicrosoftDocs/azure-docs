@@ -51,7 +51,7 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 * If you haven't already set the environment variable $ENDPOINT_NAME, do so now:
 
-:::code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
+:::code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
 
 * (Recommended) Clone the samples repository and switch to the repository's `cli/` directory: 
 
