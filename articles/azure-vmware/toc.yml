@@ -16,8 +16,12 @@
     href: tutorial-expressroute-global-reach-private-cloud.md
   - name: 4 - Install the VMware HCX Connector
     href: install-vmware-hcx.md
-  - name: 5 - Configure on-premises VMware HCX Connector
+  - name: 5 - Configure on-premises HCX Connector
     href: configure-vmware-hcx.md
+  - name: 6 - Configure network extension
+    href: 
+  - name: 7 - Configure HCX MON 
+    href: 
 - name: Tutorials
   items:
   - name: 1 - Network planning checklist

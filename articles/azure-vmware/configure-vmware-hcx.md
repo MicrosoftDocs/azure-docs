@@ -207,28 +207,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Service Mesh](https://www.youtube.com/embed/COY3oIws108) video.
 
-## Create a network extension
 
-This is an optional step to extend any networks from your on-premises environment to Azure VMware Solution.
-
-1. Under **Services**, select **Network Extension** > **Create a Network Extension**.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="Screenshot that shows selections for starting to create a network extension." lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
-
-1. Select each of the networks you want to extend to Azure VMware Solution, and then select **Next**.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/select-extend-networks.png" alt-text="Screenshot that shows the selection of a network.":::
-
-1. Enter the on-premises gateway IP for each of the networks you're extending, and then select **Submit**.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-gateway.png" alt-text="Screenshot that shows the entry of a gateway IP address.":::
-
-   It takes a few minutes for the network extension to finish. When it does, you see the status change to **Extension complete**.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="Screenshot that shows the status of Extension complete.":::
-
-  <a name="enable-hcx-mon"></a>
-1. (Optional) [Enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-73125E78-3428-4B7B-BACD-6332444A5D6B.html) to ensure that local and remote data centers traffic uses an optimal path to reach its destination while all flows remain symmetric. Without MON, HCX-NE expands the on-premises broadcast domain to the Azure VMware Solution private cloud while the first-hop routing function remains at the source. 
 
 
 
