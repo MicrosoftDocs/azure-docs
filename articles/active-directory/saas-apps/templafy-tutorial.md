@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 09/02/2021
 ms.author: jeedes
 ---
 
@@ -34,6 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Templafy SAML2 supports **SP** initiated SSO.
 * Templafy SAML2 supports **Just In Time** user provisioning.
+* Templafy SAML2 supports [Automated user provisioning](templafy-saml-2-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -139,6 +140,8 @@ To configure single sign-on on **Templafy SAML2** side, you need to send the **A
 ### Create Templafy SAML2 test user
 
 In this section, a user called B.Simon is created in Templafy SAML2. Templafy SAML2 supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Templafy SAML2, a new one is created after authentication.
+
+Templafy SAML2 also supports automatic user provisioning, you can find more details [here](./templafy-saml-2-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

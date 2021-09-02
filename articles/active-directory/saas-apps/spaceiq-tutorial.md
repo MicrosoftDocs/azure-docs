@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 09/02/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SpaceIQ
@@ -32,6 +32,7 @@ To configure Azure AD integration with SpaceIQ, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * SpaceIQ supports **IDP** initiated SSO.
+* SpaceIQ supports [Automated user provisioning](spaceiq-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -142,6 +143,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create SpaceIQ test user
 
 In this section, you create a user called Britta Simon in SpaceIQ. Work [SpaceIQ support team](mailto:eng@spaceiq.com) to add the users in the SpaceIQ platform. Users must be created and activated before you use single sign-on.
+
+SpaceIQ also supports automatic user provisioning, you can find more details [here](./spaceiq-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
