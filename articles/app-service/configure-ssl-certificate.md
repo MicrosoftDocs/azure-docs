@@ -345,7 +345,7 @@ Once the renew operation is complete, click **Sync**. The sync operation automat
 
 ### Renew a certificate imported from Key Vault
 
-To renew a certificate you imported into App Service from Key Vault, see [Renew your Azure Key Vault certificate](../key-vault/certificates/overview-renew-certificate).
+To renew a certificate you imported into App Service from Key Vault, see [Renew your Azure Key Vault certificate](../key-vault/certificates/overview-renew-certificate.md).
 
 Once the certificate is renewed in your key vault, App Service automatically syncs the new certificate and updates any applicable TLS/SSL binding within 24 hours. To sync manually:
 
