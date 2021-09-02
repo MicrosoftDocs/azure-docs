@@ -157,7 +157,7 @@ The following table summarizes which values to use for the **policyId** and **ru
 | Destination account | The string value *default*. Azure Storage will create the policy ID value for you. | An empty string. Azure Storage will create the rule ID values for you. |
 | Source account | The value of the policy ID returned when you download the policy definition file for the destination account. | The values of the rule IDs returned when you download the policy definition file for the destination account. |
 
-## Prevent replication across Azure AD tenants (preview)
+## Prevent replication across Azure AD tenants
 
 An Azure Active Directory (Azure AD) tenant is a dedicated instance of Azure AD that represents an organization for the purpose of identity and access management. Each Azure subscription has a trust relationship with a single Azure AD tenant. All resources in a subscription, including storage accounts, are associated with the same Azure AD tenant. For more information, see [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
