@@ -14,8 +14,6 @@
   items:
     - name: Create Automation account - Azure portal
       href: quickstarts/create-account-portal.md
-    - name: Create a PowerShell runbook
-      href: quickstarts/create-powershell-runbook.md
     - name: Enable Desired State Configuration for a machine
       href: quickstarts/dsc-configuration.md
 - name: Tutorials
