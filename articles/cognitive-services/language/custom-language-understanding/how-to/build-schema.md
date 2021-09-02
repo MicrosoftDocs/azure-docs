@@ -69,7 +69,7 @@ Clicking on the intent will take you to the [tag utterances](tag-utterances.md) 
 
 > [!IMPORTANT]
 > * Connected intents cannot be selecated because you cannot add training examples to a connected intent, as it already uses the target project's data to train its intent classification.
-> * You will only be able to connect to target services that are owned by the same resource. If you want to connect to a LUIS application, see [LUIS application backwards compatibility](../concepts/backwards-compatibility.md#create-or-import-a-luis-application-that-can-be-used-in-dialog-understanding).
+> * You will only be able to connect to target services that are owned by the same resource. If you want to connect to a LUIS application, see [LUIS application backwards compatibility](../concepts/backwards-compatibility.md).
 
 ## Next Steps
 * [Tag utterances](tag-utterances.md)
