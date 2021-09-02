@@ -10,9 +10,9 @@ ms.custom: seodec18
 
 ---
 # Restore an app in Azure from a snapshot
-This article shows you how to restore an app in [Azure App Service](../app-service/overview.md) from a snapshot. You can restore your app to a previous state, based on one of your app's snapshots. You do not need to enable snapshots backup, the platform automatically saves a snapshot of all apps for data recovery purposes.
+This article shows you how to restore an app in [Azure App Service](../app-service/overview.md) from a snapshot. You can restore your app to a previous state, based on one of your app's snapshots. You do not need to enable snapshots, the platform automatically saves a snapshot of all apps for data recovery purposes.
 
-Snapshots are incremental shadow copies of your App Service app. When your app is in Premium tier or higher, App Service takes periodic snapshots of both the app's content and its configuration. They offer several advantages over regular [backups](manage-backup.md):
+Snapshots are incremental shadow copies of your App Service app. When your app is in Premium tier or higher, App Service takes periodic snapshots of both the app's content and its configuration. They offer several advantages over [standard backups](manage-backup.md):
 
 - No file copy errors due to file locks.
 - Higher maximum snapshot size (30GB).
@@ -30,13 +30,12 @@ up your app, see [Scale up an app in Azure](manage-scale-up.md).
 - App Service stops the target app or target slot while restoring a snapshot. To minimize downtime for the production app, restore the snapshot to a [staging slot](deploy-staging-slots.md) first, then swap into production.
 - Snapshots for the last 30 days are available. The retention period and snapshot frequency are not configurable.
 - App Services running on an App Service environment do not support snapshots.
- 
 
 ## Restore an app from a snapshot
 
 1. On the **Settings** page of your app in the [Azure portal](https://portal.azure.com), click **Backups** to display the **Backups** page. Then click **Restore** under the **Snapshot(Preview)** section.
    
-    ![Screenshot that shows how to restore an app from a snapshot backup.](./media/app-service-web-restore-snapshots/1.png)
+    ![Screenshot that shows how to restore an app from a snapshot.](./media/app-service-web-restore-snapshots/1.png)
 
 2. In the **Restore** page, select the snapshot to restore.
    
