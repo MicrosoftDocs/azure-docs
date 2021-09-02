@@ -52,7 +52,7 @@ To test Private Links locally without affecting other clients on your network, m
 That approach isn't recommended for production environments.
 
 ## Control how Private Links apply to your networks
-Private Link access modes (introduced on August 2021) allow you to control how Private Links affect your network traffic. These settings can apply to your AMPLS object (to affect all connected networks) or to specific networks connected to it.
+Private Link access modes (introduced on September 2021) allow you to control how Private Links affect your network traffic. These settings can apply to your AMPLS object (to affect all connected networks) or to specific networks connected to it.
 
 Choosing the proper access mode has detrimental effects on your network traffic. Each of these modes can be set for ingestion and queries, separately:
 
