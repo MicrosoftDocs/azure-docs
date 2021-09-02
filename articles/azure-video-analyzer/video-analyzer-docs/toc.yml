@@ -161,6 +161,8 @@
     href: visual-studio-code-extension.md
 - name: Resources
   items:
+  - name: Azure service updates
+    href: https://azure.microsoft.com/updates/
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
