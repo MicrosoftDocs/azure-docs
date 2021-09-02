@@ -284,7 +284,7 @@ The following procedures show how to prepare the workspace and resources for the
    - *Install solutions*: Some solutions, such as [Azure Sentinel](../../sentinel/quickstart-onboard.md), require certain onboarding procedures and weren't included in the template. You should onboard them separately to the new workspace.
    - *Configure the Data Collector API*: Configure Data Collector API instances to send data to the target workspace.
    - *Configure alert rules*: When alerts aren't exported in the template, you need to configure them manually in the target workspace.
-1. Very that new data isn't ingested to the original workspace. Run the following query in your original workspace, and observe that there's no ingestion after the migration:
+1. Verify that new data isn't ingested to the original workspace. Run the following query in your original workspace, and observe that there's no ingestion after the migration:
 
     ```kusto
     search *
