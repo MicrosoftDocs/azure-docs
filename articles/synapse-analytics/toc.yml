@@ -585,14 +585,12 @@ items:
       href: data-explorer/data-explorer-monitor-pools.md
   - name: Kusto Query Language
     href: data-explorer/kusto-query-language/toc.yml
-  - name: Reference
-    items:
-    - name: Management
-      href: data-explorer/management/toc.yml
-    - name: API
-      href: data-explorer/api/toc.yml
-    - name: Functions library
-      href: data-explorer/functions-library/toc.yml
+  - name: Functions library
+    href: data-explorer/functions-library/toc.yml
+  - name: Management commands
+    href: data-explorer/management/toc.yml
+  - name: API
+    href: data-explorer/api/toc.yml
 - name: Apache Spark
   items:
   - name: Overview

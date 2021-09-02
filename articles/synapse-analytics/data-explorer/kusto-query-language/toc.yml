@@ -1,16 +1,14 @@
 items:
-- name: Getting started with Kusto
-  href: /azure/data-explorer/kusto/concepts/index?context=/azure/synapse-analytics/context/context
+- name: Kusto query overview
+  href: /azure/data-explorer/kusto/query/index?context=/azure/synapse-analytics/context/context
+- name: Quick reference guide
+  href: /azure/data-explorer/kql-quick-reference?context=/azure/synapse-analytics/context/context
 - name: Tutorial
-  href: /azure/data-explorer/kusto/query/tutorial?context=/azure/synapse-analytics/context/context
+  href: /azure/data-explorer/kusto/query/tutorial?context=/azure/synapse-analytics/context/context&pivots=synapse
 - name: Samples
-  href: /azure/data-explorer/kusto/query/samples?context=/azure/synapse-analytics/context/context
-- name: Queries
-  items:
-  - name: Overview of queries
-    href: /azure/data-explorer/kusto/query/index?context=/azure/synapse-analytics/context/context
-  - name: Query best practices
-    href: /azure/data-explorer/kusto/query/best-practices?context=/azure/synapse-analytics/context/context
+  href: /azure/data-explorer/kusto/query/samples?context=/azure/synapse-analytics/context/context&pivots=synapse
+- name: Query best practices
+  href: /azure/data-explorer/kusto/query/best-practices?context=/azure/synapse-analytics/context/context
 - name: Cross-cluster queries
   items:
   - name: Cross-cluster queries and schema changes
