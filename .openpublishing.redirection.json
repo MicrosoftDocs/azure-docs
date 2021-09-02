@@ -4379,6 +4379,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/view-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/export-template-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/management/azure-resource-manager-security-controls.md",
       "redirect_url": "/azure/azure-resource-manager/management/security-baseline",
       "redirect_document_id": false
@@ -5371,6 +5376,21 @@
     {
       "source_path_from_root": "/articles/virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md",
       "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/automation-quickstart-create-account.md",
+      "redirect_url": "/azure/automation/quickstarts/create-account-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/automation-quickstart-create-runbook.md",
+      "redirect_url": "/azure/automation/quickstarts/create-powershell-runbook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/automation-quickstart-dsc-configuration.md",
+      "redirect_url": "/azure/automation/quickstarts/dsc-configuration",
       "redirect_document_id": false
     },
     {
@@ -22347,21 +22367,6 @@
       "source_path_from_root": "/articles/media-services/live-video-analytics-edge/http-data-contract.md",
       "redirect_url": "/azure/media-services/live-video-analytics-edge/http-extension-protocol",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
-      "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-specifications-live-timed-metadata.md",
-      "redirect_url": "/azure/media-services/media-services-specifications-live-timed-metadata",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-specifications-ms-sstr-amendment-hevc.md",
-      "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/media-services/media-services-dotnet-connect-programmatically.md",
