@@ -117,11 +117,11 @@ For more information, see the [Zerto technical documentation](https://www.zerto.
 
 ### Can I use a pre-existing Zerto product license on Azure VMware Solution?
 
-You can reuse pre-existing Zerto product licenses for Azure VMware Solution environments. If you need new Zerto licenses, [contact Zerto](https://www.zerto.com/company/support-and-service/support/) to acquire new Zerto licenses. 
+You can reuse pre-existing Zerto product licenses for Azure VMware Solution environments. If you need new Zerto licenses, email Zerto at **info@zerto.com** to acquire new licenses. 
 
 ### How is Zerto supported?
 
-Zerto Disaster Recovery is a solution that is sold and supported by Zerto. For any support issue with Zerto Disaster Recovery, always contact Zerto support.
+Zerto Disaster Recovery is a solution that is sold and supported by Zerto. For any support issue with Zerto Disaster Recovery, always contact [Zerto support](https://www.zerto.com/company/support-and-service/support/).
 
 Zerto and Microsoft support teams will engage each other as needed to troubleshoot Zerto Disaster Recovery issues on Azure VMware Solution.
 
