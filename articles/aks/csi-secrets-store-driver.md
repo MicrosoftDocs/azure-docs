@@ -19,6 +19,10 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure 
 
 - Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
 
+### Supported Kubernetes versions
+
+The minimum recommended Kubernetes version for this feature is 1.18. 
+
 ## Features
 
 - Mount secrets, keys, and/or certs to a pod using a CSI volume
