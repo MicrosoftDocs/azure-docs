@@ -16,7 +16,7 @@ ms.reviewer: ylunagaria
 You can blah blah by using the SFTP protocol. This article provides step-by-step guidance. To learn more about SFTP protocol support in Blob storage, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 > [!IMPORTANT]
-> SFTP protocol support is currently in PREVIEW.
+> SFTP protocol support is currently in PREVIEW and is available in the blah, blah, and blah regions. Need region info.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Register the SFTP feature
