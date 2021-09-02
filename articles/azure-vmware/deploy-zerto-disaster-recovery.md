@@ -2,7 +2,7 @@
 title: Deploy Zerto Disaster Recovery on Azure VMware Solution (Initial Availability)
 description: Learn how to implement Zerto Disaster Recovery for on-premises VMware or Azure VMware Solution virtual machines. 
 ms.topic: how-to 
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 
 
 ---
@@ -58,9 +58,6 @@ In this scenario, the primary site is an Azure VMware Solution Private Cloud in 
 
 
 ## Prerequisites
-
-For all scenarios, you must read and acknowledge the updated [Azure VMware Solution SLA](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) terms before installing Zerto on Azure VMware Solution. 
-
 
 ### On-premises VMware to Azure VMware Solution DR
 
