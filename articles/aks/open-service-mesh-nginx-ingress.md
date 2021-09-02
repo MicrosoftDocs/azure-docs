@@ -95,7 +95,7 @@ Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Perm
 
 ## Create namespaces for the application
 
-In this tutorial we will be using the OSM bookstore application that has the following application components:
+In this tutorial we will be using the OSM `bookstore` application that has the following application components:
 
 - `bookbuyer`
 - `bookthief`
