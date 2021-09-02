@@ -33,7 +33,7 @@ You can use Zerto with Azure VMware Solution for the following three scenarios.
 
 ### Scenario 1: On-premises VMware to Azure VMware Solution DR
 
-In this scenario, the primary site is an on-premises vSphere-based environment. And the Disaster Recovery site is an Azure VMware Solution private cloud. 
+In this scenario, the primary site is an on-premises vSphere-based environment. And the disaster recovery site is an Azure VMware Solution private cloud. 
 
 :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-1.png" alt-text="Diagram showing Scenario 1 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
 
@@ -41,16 +41,16 @@ In this scenario, the primary site is an on-premises vSphere-based environment. 
 
 ### Scenario 2: Azure VMware Solution to Azure VMware Solution cloud DR
 
-In this scenario, the primary site is an Azure VMware Solution private cloud in one Azure Region. And the Disaster Recovery site is an Azure VMware Solution private cloud in a different Azure Region.
+In this scenario, the primary site is an Azure VMware Solution private cloud in one Azure Region. White the disaster recovery site is an Azure VMware Solution private cloud in a different Azure Region.
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2.png" alt-text="Diagram showing scenario 2 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2.png" alt-text="Diagram showing scenario 2 for the Zerto DR solution on Azure VMware Solution." border="false":::
 
 
 ### Scenario 3: Azure VMware Solution to IaaS VMs cloud DR
 
 In this scenario, the primary site is an Azure VMware Solution private cloud in one Azure Region. And Azure Blobs and Azure IaaS (Hyper-V based) VMs are used in times of Disaster.
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3.png" alt-text="Diagram showing Scenario 3 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3.png" alt-text="Diagram showing Scenario 3 for the Zerto DR solution on Azure VMware Solution." border="false":::
 
 
 
@@ -68,7 +68,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 - Azure VMware Solution private cloud must be deployed in the primary and secondary region.
 
-   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2a-prerequisite.png" alt-text="Diagram showing the first prerequisite for Scenario 2 of the Zerto disaster recovery solution on Azure VMware Solution.":::
+   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2a-prerequisite.png" alt-text="Diagram showing the first prerequisite for Scenario 2 of the Zerto DR solution on Azure VMware Solution.":::
  
 - Connectivity, like ExpressRoute Global Reach, between the source and target Azure VMware Solution private cloud.
 
@@ -76,7 +76,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 ### Azure VMware Solution IaaS VMs cloud DR
 
-- Network connectivity, ExpressRoute based, from Azure VMware Solution to the vNET used for Disaster Recovery.   
+- Network connectivity, ExpressRoute based, from Azure VMware Solution to the vNET used for disaster recovery.   
 
 - Follow the [Zerto Virtual Replication Azure Enterprise Guidelines](http://s3.amazonaws.com/zertodownload_docs/Latest/Zerto%20Virtual%20Replication%20Azure%20Enterprise%20Guidelines.pdf) for the rest of the prerequisites.
 
@@ -84,7 +84,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 ## Install Zerto on Azure VMware Solution
 
-Currently, Zerto Disaster Recovery on Azure VMware Solution is in Initial Availability (IA) phase. In the IA phase, you must contact Microsoft to request and qualify for IA support.
+Currently, Zerto DR on Azure VMware Solution is in Initial Availability (IA) phase. In the IA phase, you must contact Microsoft to request and qualify for IA support.
 
 To request IA support for Zerto on Azure VMware Solution, send an email request to zertoonavs@microsoft.com. In the IA phase, Azure VMware Solution only supports manual installation and onboarding of Zerto. However, Microsoft will work with you to ensure that you can manually install Zerto on your private cloud.
 
@@ -120,7 +120,7 @@ You can reuse pre-existing Zerto product licenses for Azure VMware Solution envi
 
 ### How is Zerto supported?
 
-Zerto Disaster Recovery is a solution that is sold and supported by Zerto. For any support issue with Zerto Disaster Recovery, always contact [Zerto support](https://www.zerto.com/company/support-and-service/support/).
+Zerto DR is a solution that is sold and supported by Zerto. For any support issue with Zerto DR, always contact [Zerto support](https://www.zerto.com/company/support-and-service/support/).
 
-Zerto and Microsoft support teams will engage each other as needed to troubleshoot Zerto Disaster Recovery issues on Azure VMware Solution.
+Zerto and Microsoft support teams will engage each other as needed to troubleshoot Zerto DR issues on Azure VMware Solution.
 
