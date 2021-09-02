@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory or Azure Synapse Analytics
@@ -54,13 +54,11 @@ Use the following steps to create an Azure Blob Storage linked service in the Az
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
-
----
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 2. Search for blob and select the Azure Blob Storage connector.
 
@@ -68,7 +66,7 @@ Use the following steps to create an Azure Blob Storage linked service in the Az
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Configure Azure Blob Storage linked service.":::
+    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Screenshot of configuration for Azure Blob Storage linked service.":::
 
 ## Connector configuration details
 

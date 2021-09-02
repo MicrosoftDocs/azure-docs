@@ -122,7 +122,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-storage-blob</artifactId>
-    <version>12.6.0</version>
+    <version>12.13.0</version>
 </dependency>
 ```
 

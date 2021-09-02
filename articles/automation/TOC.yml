@@ -6,18 +6,18 @@
     href: automation-intro.md
   - name: FAQ
     href: automation-faq.md
-  - name: What's new
+  - name: What's new?
     href: whats-new.md
   - name: Archive for What's new
     href: whats-new-archive.md
 - name: Quickstarts
   items:
-    - name: Create Automation account - Portal
-      href: automation-quickstart-create-account.md
+    - name: Create Automation account - Azure portal
+      href: quickstarts/create-account-portal.md
     - name: Create a PowerShell runbook
-      href: automation-quickstart-create-runbook.md
+      href: quickstarts/create-powershell-runbook.md
     - name: Enable Desired State Configuration for a machine
-      href: automation-quickstart-dsc-configuration.md
+      href: quickstarts/dsc-configuration.md
 - name: Tutorials
   items:
     - name: Create a graphical runbook
@@ -187,6 +187,8 @@
           items:
             - name: Overview
               href: automation-dsc-overview.md
+            - name: Configure Linux desired state - PowerShell
+              href: dsc-linux-powershell.md
             - name: Get started with State Configuration
               href: automation-dsc-getting-started.md
             - name: Enable State Configuration
