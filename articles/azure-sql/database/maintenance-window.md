@@ -87,7 +87,7 @@ Choosing a maintenance window other than the default is currently available in t
 | France South | Yes | Yes | |
 | Germany West Central | Yes | Yes | Yes |
 | Japan East | Yes | Yes | Yes |
-| Korea Central |  | Yes | |
+| Korea Central | Yes | | |
 | North Central US | Yes | Yes | |
 | North Europe | Yes | Yes | Yes |
 | South Central US | Yes | Yes | Yes |
