@@ -1,6 +1,6 @@
 ---
-title: Share Hive Metastore with Synapse Spark Pool
-description: Learn how to share existing HDInsight external Hive Metastore with Azure Synapse Spark Pool.
+title: Share Hive Metastore with Azure Synapse Spark Pool
+description: Learn how to share existing Azure HDInsight external Hive Metastore with Azure Synapse Spark Pool.
 keywords: external Hive metastore,share,Synapse
 ms.service: hdinsight
 ms.topic: how-to
@@ -74,8 +74,8 @@ Here are the configurations and descriptions:
 
 |Spark config|Description|
 |--|--|
-|`spark.sql.hive.metastore.version`|Supported versions: <br />1.2 <br />2.1 <br />3.1 <br /> Make sure you use the first 2 parts without the 3rd part|
-|`spark.sql.hive.metastore.jars`|- Version 1.2: `/opt/hive-metastore/lib-1.2/*:/usr/hdp/current/hadoop-client/lib/*` <br />- Version 2.1: `/opt/hive-metastore/lib-2.1/*:/usr/hdp/current/hadoop-client/lib/*` <br /> - Version 3.1: `/opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/*` |
+|`spark.sql.hive.metastore.version`|Supported versions: <ul><li>`1.2`</li><li>`2.1`</li><li>`3.1`</li></ul> Make sure you use the first 2 parts without the 3rd part|
+|`spark.sql.hive.metastore.jars`|<ul><li>Version 1.2: `/opt/hive-metastore/lib-1.2/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 2.1: `/opt/hive-metastore/lib-2.1/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 3.1: `/opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/*`</li></ul>|
 |`spark.hadoop.hive.synapse.externalmetastore.linkedservice.name`|Name of your linked service created to the Azure SQL Database.|
 
 ### Configure Spark pool 
@@ -209,10 +209,10 @@ spark.hadoop.hive.metastore.schema.verification false
 spark.hadoop.hive.synapse.externalmetastore.schema.usedefault false
 ```
 
-If you need to migrate your HMS version, we recommend using [hive schema tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool). And if the HMS has been used by HDInsight clusters, we suggest using [HDI provided version](/interactive-query/apache-hive-migrate-workloads.md). 
+If you need to migrate your HMS version, we recommend using [hive schema tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool). And if the HMS has been used by HDInsight clusters, we suggest using [HDI provided version](./interactive-query/apache-hive-migrate-workloads.md). 
 
 ### When sharing the metastore with HDInsight 4.0 Spark clusters, I cannot see the tables
 If you want to share the Hive catalog with a spark cluster in HDInsight 4.0, please ensure your property `spark.hadoop.metastore.catalog.default` in Synapse spark aligns with the value in HDInsight spark. The default value is `Spark`.
 
 ### When sharing the Hive metastore with HDInsight 4.0 Hive clusters, I can list the tables successfully, but only get empty result when I query the table
-As mentioned in the limitations, Synapse Spark pool only supports external hive tables and non-transitional/ACID managed tables, it doesn’t support Hive ACID/transactional tables currently. By default in HDInsight 4.0 Hive clusters, all managed tables are created as ACID/transactional tables by default, that’s why you get empty results when querying those tables. The support for ACID/transactional tables in Spark is in our roadmap.
+As mentioned in the limitations, Synapse Spark pool only supports external hive tables and non-transitional/ACID managed tables, it doesn’t support Hive ACID/transactional tables currently. By default in HDInsight 4.0 Hive clusters, all managed tables are created as ACID/transactional tables by default, that’s why you get empty results when querying those tables. 
