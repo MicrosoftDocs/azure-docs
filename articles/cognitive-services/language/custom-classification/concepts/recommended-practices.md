@@ -61,9 +61,9 @@ Include less frequent classes in your data, if the model was not exposed a certa
 
 * The number of tags you need depends on your data. Consider starting with 20 tags per class. This is highly dependent on your schema and class ambiguity; with ambiguous classes you need more tags. This also depends on the quality of your tagging.
 
-* [View model evaluation details](../how-to/view-model-evaluation.md) after training is completed. The model is evaluated against the [test set](../how-to/train-model.md#data-groups), which is a set that was not introduced to the model during training. By doing this you get sense of how the model performs in real scenarios.
+* [View model evaluation details](../how-to/view-model-evaluation.md) after training is completed. The model is evaluated against the [test set](../how-to/train-model.md#data-splits), which is a set that was not introduced to the model during training. By doing this you get sense of how the model performs in real scenarios.
 
-* [Improve your model](../how-to/improve-model.md). View the incorrect predictions your model made against the [validation set](../how-to/train-model.md#data-groups) to determine how you can tag your data better. Examine the data distribution to make sure each class is well represented in your dataset.
+* [Improve your model](../how-to/improve-model.md). View the incorrect predictions your model made against the [validation set](../how-to/train-model.md#data-splits) to determine how you can tag your data better. Examine the data distribution to make sure each class is well represented in your dataset.
 
 ## Next steps
 

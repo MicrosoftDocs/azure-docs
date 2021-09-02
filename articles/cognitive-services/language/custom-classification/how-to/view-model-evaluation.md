@@ -14,7 +14,7 @@ ms.author: aahi
 
 # View the model evaluation
 
-After model training is completed, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-groups). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset.
+After model training is completed, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-splits). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ Under the **Test set confusion matrix**, you can find the confusion matrix for t
 ### Get evaluation details
 
 Use this [**GET**] request to get you model evaluation results `{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/evaluation`.
-Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName}` with your project name. Pass `trainingModelName` as a parameter and for the value indicate the model name you are requesting evaluation for (model name is case-sensitive). For your request to be successful, make sure that the model has completed training successfully on more than 10 files to be able to query evaluation results. Evaluation is performed only on the [test set](train-model.md#data-groups).
+Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName}` with your project name. Pass `trainingModelName` as a parameter and for the value indicate the model name you are requesting evaluation for (model name is case-sensitive). For your request to be successful, make sure that the model has completed training successfully on more than 10 files to be able to query evaluation results. Evaluation is performed only on the [test set](train-model.md#data-splits).
 
 #### Headers
 
