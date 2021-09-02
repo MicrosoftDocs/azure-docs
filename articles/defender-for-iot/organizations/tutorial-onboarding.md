@@ -243,7 +243,7 @@ For post-installation validation, you must test to ensure the system is running,
 
 A vSwitch does not have mirroring capabilities, but you can use a workaround to implement a SPAN port. This can be accomplished with either ESXi or Hyper-V
 
-### Configure a SPAN port with ESXi
+### Configure a SPAN port (ESXi)
 
 **To configure a SPAN port with ESXi**:
 
@@ -271,7 +271,7 @@ A vSwitch does not have mirroring capabilities, but you can use a workaround to 
 
 1. Connect to the sensor and verify that mirroring works.
 
-### Configure a SPAN port with Hyper-V
+### Configure a SPAN port (Hyper-V)
 
 Before starting you will need to:
 
