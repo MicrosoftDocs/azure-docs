@@ -1,89 +1,134 @@
 ---
-title: Quickstart - create a Custom Language Understanding project using Language Studio
+title: Quickstart - create a Conversations project in Language Studio
 titleSuffix: Azure Cognitive Services
-description: Use this article to quickly get started with Custom Language Understanding.
+description: Use this article to quickly get started with Conversational Language Understanding
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/19/2021
+ms.date: 08/31/2021
 ms.author: aahi
 ---
 
-# Quickstart: Create a Custom Language Understanding conversation project
+# Quickstart: Build a conversations project in Language Studio
 
-In this article, we use the Language studio to demonstrate key concepts of Custom Language Understanding.
+In this quickstart, create a conversations project in Conversational Language Understanding (CLU), using Language Studio. Use this article to learn how to:
+* Create a project
+* Add intents, entities, and examples to your project
+* Train and deploy your project's model
+* Use your deployed model's endpoint. 
 
-## Prerequisites
+## Sign in to Language Studio
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+1. Go to the [Language Studio](https://language.azure.com/) and sign in with your Azure account. 
 
-### Create new resource from Azure portal
+2. In the **Choose a language resource** window that appears, find your Azure subscription, and choose your Language resource. If you don't have a resource, you can create a new one.
+quickstart-language-resource
 
-Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call Custom Language Understanding.  
+> [!NOTE]
+> Currently only resources with the standard (**S**) pricing tier can be used with the Conversational Language Understanding service.
 
-|Requirement  |Required value  |
+:::image type="content" source="media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="media/quickstart-language-resource.png":::
+
+## Create a conversation project
+
+Once you have a Language resource associated with your account, create a Conversational Language Understanding project. In this quickstart you'll create a project that can identify commands for email, such as reading emails by certain people, deleting emails, and attaching a document to an email.
+
+1. In [Language Studio](https://language.azure.com/), scroll down and click on **Custom conversational LU**. This will bring you to the **Conversations project** page. 
+ 
+    
+    :::image type="content" source="media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="media/projects-page.png":::
+
+2. Click on **Create new project**. Select **Conversation project**, then click **Next**.
+
+You then need to provide the following details:
+
+|Value  | Description  |
 |---------|---------|
-|Location | "West US 2" or "West Europe"         |
-|Pricing tier     | Standard (**S**) pricing tier        |
+|Name     | A name for your project.        |
+|Description    | Optional project description.        |
+|Text primary language     | The primary language of your project. Your training data should primarily be in this language. For this quickstart, choose **English**.        |
+|Enable multiple languages     |  Whether you would like to enable your project to support multiple languages at once. For this quickstart, enable this option.       |
 
-## Create a Custom Language Understanding project
+Once you're done, click **Next**, review the details, and click **create project** to complete the process. You should now see the **Build Schema** screen in your project.
 
-You can create two types of projects in Custom Language Understanding: Conversation projects and Orchestration projects. 
+## Build schema
 
-* Conversation projects let you to create custom language models for intent classification and entity extraction.
-* Orchestration Workflow projects let you to connect several other services (for example conversation projects, Question Answering knowledge bases) to one project.
+1. Select the Intents or Entities tab in the **Build Schema** page, and click on **Add**. You will be prompted for a name before completing the creation of the intent or entity.
 
-In this quickstart, you will be creating a conversation project. 
+2. Create three intents with the following names:
+    - **Read**
+    - **Delete**
+    - **Attach**
 
-1. Login through the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
+3. Create three entities with the following names:
+    - **Sender**
+    - **FileName**
+    - **FileType**
 
-2. Scroll down until you see **Custom Language Understanding** from the available services, and select it.
 
-3. Select **Create new project** from the top menu in your projects page. Creating a project will let you add data, train, evaluate, improve, and deploy your models. 
+Clicking on the intent will take you to the [tag utterances](how-to/tag-utterances.md) page, where you can add examples for intents and label them with entities.
 
-4. In the **Choose project type** screen, select **Conversation project**.
 
-5. Enter the project information, including a name, description and the language of the files in your project. You will not be able to change the name of your project later. For this quickstart project, don't enable multiple languages.
-
-## Build project a schema 
-
-When you build a project schema, you define the intents and entities that the AI model will interpret and understand. 
-
-TBD
+:::image type="content" source="media/quickstart-intents.png" alt-text="A screenshot showing the schema page in Language studio." lightbox="media/quickstart-intents.png":::
 
 ## Tag utterances
 
-TBD
+In the tag utterances page, let's add a few examples to the intents. Select the **Read** intent from the drop-down box that says **Select Intent**.
 
-## Train your model
+In the text box that says **Write your example utterance and press enter**, write the sentence "*read the email from Carol*" and press enter to add it as an example utterance.
 
-After you have completed tagging your utterances, you can train your model. Training is the act of using the training data that you've tagged to create a machine-learning model that can be used for predictions. Every time you train, you have to name your training instance.
+Drag your cursor over the word "*Carol*" and select the **Sender** entity, to label "*Carol*" as the entity.
 
-1. Click **Train model** in the left menu.
-2. Enter a new model name, and set **Run evaluation with training** to on. After the quickstart, you can see how the model was evaluated and scored.  
-3. Click the **Train** button and wait for training to complete. You will see the training status of your model as a Notification.
+Add the rest of these utterances with the following intents and entities.
+
+|Utterance|Intent|Entities|
+|--|--|--|
+|*Read John's email for me*|**Read**|"John": **Sender**|
+|*What did the email from Matt say*|**Read**|"Matt": **Sender**|
+|*Delete my last email from Martha*|**Delete**|"Martha": **Sender**|
+|*Delete this*|**Delete**|_No entities_|
+|*Remove this one*|**Delete**|_No entities_|
+|*Move this to the deleted folder*|**Delete**|_No entities_|
+|*Attach the excel file called reports q1*|**Attach**|"excel": **FileType**, <br> "reports q1" -> **FileName**|
+|*Attach the PowerPoint file*|**Attach**|"PowerPoint": **FileType**|
+|*Add the PDF file with the name signed contract* |**Attach**|"PDF": **FileType**, <br> "signed contract": **FileName**|
+
+
+When you're done, click on **Save Changes** to save the utterances and labels to the project. The icon next to the button will turn green when the changes are saved. Next, go to the **Train Model** page.
+
+:::image type="content" source="media/quickstart-utterances.png" alt-text="A screenshot showing the intents tagging screen in Language Studio." lightbox="media/quickstart-utterances.png":::
+
+## Train your model and view its details
+
+Click on **train model** on the left of the screen. To train your model, you need to provide a name for the model. Write a name like "*v0.1*" and press the enter key. 
+
+Turn off **Run evaluation with training** before clicking on **Train**. 
+
+You should see the **View model details** page. Wait until training completes, which may take about 5 minutes. When training succeeds, Select **Deploy Model** on the left of the screen.
 
 ## Deploy your model
 
-Deploying a model makes it available to test the model from Language Studio, and available to call using the API.
-
-1. Select **Deploy model** from the left menu.
-2. A small window will appear to confirm deployment. Select **Deploy**.
+From the **Deploy model** page on the left of the screen, select the trained model and click on the **Deploy model** button. In the screen that appears, click on **Deploy**.
 
 ## Test your model
 
-Once your model is deployed, you can test it out. Testing allows you to query the model with example text, and get predictions for it.
+Click on **Test model** on the left of the screen, and select the model link. Write the utterance "*trash this one*", and click **Run the test**. 
 
-1. Click **Test model** from the left menu.
+You now see the top intent as **Delete** with no entities.
 
-2. Entering some text you want to query the model with, and click on **Run the test** to observe the results. 
+You can test other utterances such as:
+* "*attach my docx file*", 
+* "*read the email by jason*", 
+* "*attach the json file named CLU demo*".
 
-You can see the top intent in the first card under **Intents**, along with the entities under **Entities** You can also see the original text with the predicted entities under **Original text**. You can also see the JSON response by clicking on the JSON tab.
+You can also test out utterances in other languages such as the following phrases:
+
+* "*Joindre le fichier pdf*" (in French: "*Attach the pdf file*"), 
+* "*lesen sie die e-mail von Macy*" (in German: "*Read Macy's e-mail*")
 
 ## Next steps
 
-Read about [creating a schema](how-to/build-schema.md) for your Custom Language Understanding projects.  
-<!--After you have trained, deployed, and tested your model, you can view its [evaluation details and scoring](how-to/view-evaluation.md)--> 
+* [Improve your model](how-to/improve-model.md)
