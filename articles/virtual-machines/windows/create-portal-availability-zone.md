@@ -13,6 +13,8 @@ ms.custom:
 
 # Create a virtual machine in an availability zone using the Azure portal
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 This article steps through using the Azure portal to create a virtual machine in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
 To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-region.md).
@@ -23,7 +25,7 @@ To use an availability zone, create your virtual machine in a [supported Azure r
 
 1. Click **Create a resource** > **Compute** > **Virtual machine**. 
 
-3. Enter the virtual machine information. The user name and password is used to sign in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm). 
+3. Enter the virtual machine information. The user name and password is used to sign in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-). 
 
 4. Choose a region such as East US 2 that supports availability zones. 
 

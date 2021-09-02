@@ -3,13 +3,15 @@ title: Optimize costs for Azure Disk Storage with reservations
 description: Learn about purchasing Azure Disk Storage reservations to save costs on premium SSD managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 01/30/2020
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ---
 
 # Reduce costs with Azure Disks Reservation
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Save on your Azure Disk Storage usage with reserved capacity. Azure Disk Storage reservations combined with Azure Reserved Virtual Machine Instances let you lower your total virtual machine (VM) costs. The reservation discount is applied automatically to the matching disks in the selected reservation scope. Because of this automatic application, you don't need to assign a reservation to a managed disk to get the discounts.
 

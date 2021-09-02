@@ -40,7 +40,7 @@ The last successful sign-in provides potential insights into a user's continued 
     
 ## How to detect inactive user accounts
 
-You detect inactive accounts by evaluating the **lastSignInDateTime** property exposed by the **signInActivity** resource type of the **Microsoft Graph** API. Using this property, you can implement a solution for the following scenarios:
+You detect inactive accounts by evaluating the **lastSignInDateTime** property exposed by the **signInActivity** resource type of the **Microsoft Graph** API. The **lastSignInDateTime** property shows the last time a user made a successful interactive sign-in to Azure AD. Using this property, you can implement a solution for the following scenarios:
 
 - **Users by name**: In this scenario, you search for a specific user by name, which enables you to evaluate the lastSignInDateTime: `https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
 
@@ -58,6 +58,9 @@ This section lists what you need to know about the lastSignInDateTime property.
 
 The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) of the [Microsoft Graph REST API](/graph/overview#whats-in-microsoft-graph).   
 
+> [!NOTE]
+> The signInActivity Graph API endpoint is not yet supported in US Government GCC High environments.
+
 ### Is the lastSignInDateTime property available through the Get-AzureAdUser cmdlet?
 
 No.
@@ -71,7 +74,7 @@ To access this property, you need an Azure Active Directory Premium edition.
 To read this property, you need to grant the following rights: 
 
 - AuditLogs.Read.All
-- Organisation.Read.All  
+- Organization.Read.All  
 
 
 ### When does Azure AD update the property?
@@ -91,3 +94,4 @@ To generate a lastSignInDateTime timestamp, you need a successful sign-in. Becau
 * [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
 * [Audit API reference](/graph/api/resources/directoryaudit) 
 * [Sign-in activity report API reference](/graph/api/resources/signin)
+

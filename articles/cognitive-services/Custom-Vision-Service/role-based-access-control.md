@@ -24,13 +24,12 @@ Azure RBAC can be assigned to a Custom Vision resource. To grant access to an Az
    > [!NOTE]
    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item (for example, selecting **Resource groups** and then clicking through to your wanted resource group).
 1. Select **Access control (IAM)** on the left navigation pane.
-1. Select the **Role assignments** tab to view the role assignments for this scope.
 1. Select **Add** -> **Add role assignment**.
-1. In the **Role** drop-down list, select a role you want to add.
-1. In the **Select** list, select a user, group, service principal, or managed identity. If you don't see the security principal in the list, you can type the Select box to search the directory for display names, email addresses, and object identifiers.
-1. Select **Save** to assign the role.
+1. On the **Role** tab on the next screen, select a role you want to add.
+1. On the **Members** tab, select a user, group, service principal, or managed identity.
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-Within a few minutes, the target will be assigned the selected role at the selected scope.
+Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 ## Custom Vision role types
 

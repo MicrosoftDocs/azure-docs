@@ -6,7 +6,8 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Resource logs for Azure Web Application Firewall
@@ -295,7 +296,7 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 #### Analyzing Access logs through GoAccess
 
-We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://aka.ms/appgwgoaccessreadme).
+We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
 
 ## Next steps
 

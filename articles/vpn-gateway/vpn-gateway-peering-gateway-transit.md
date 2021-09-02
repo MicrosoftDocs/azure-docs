@@ -8,7 +8,8 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/28/2021
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configure VPN gateway transit for virtual network peering
@@ -17,7 +18,7 @@ This article helps you configure gateway transit for virtual network peering. [V
 
 ![Gateway transit diagram](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
 
-In the diagram, gateway transit allows the peered virtual networks to use the Azure VPN gateway in Hub-RM. Connectivity available on the VPN gateway, including S2S, P2S, and VNet-to-VNet connections, applies to all three virtual networks. The transit option is available for peering between the same, or different deployment models. If you are configuring transit between different deployment models, the hub virtual network and virtual network gateway must be in the Resource Manager deployment model, not the classic deployment model.
+In the diagram, gateway transit allows the peered virtual networks to use the Azure VPN gateway in Hub-RM. Connectivity available on the VPN gateway, including S2S, P2S, and VNet-to-VNet connections, applies to all three virtual networks. The transit option is available for peering between the same, or different deployment models. If you are configuring transit between different deployment models, the hub virtual network and virtual network gateway must be in the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md), not the classic deployment model.
 >
 
 In hub-and-spoke network architecture, gateway transit allows spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. Routes to the gateway-connected virtual networks or on-premises networks will propagate to the routing tables for the peered virtual networks using gateway transit. You can disable the automatic route propagation from the VPN gateway. Create a routing table with the "**Disable BGP route propagation**" option, and associate the routing table to the subnets to prevent the route distribution to those subnets. For more information, see [Virtual network routing table](../virtual-network/manage-route-table.md).

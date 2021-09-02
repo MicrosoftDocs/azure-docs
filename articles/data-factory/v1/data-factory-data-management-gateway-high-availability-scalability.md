@@ -93,7 +93,7 @@ This section assumes that you have gone through the following two articles or fa
         ![Data Management Gateway - installation successful](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
-        > If you are provisioning the gateway on an Azure VM, you can use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). This script creates a logical gateway, sets up VMs with Data Management Gateway software installed, and registers them with the logical gateway. 
+        > If you are provisioning the gateway on an Azure VM, you can use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/mutiple-vms-with-data-management-gateway). This script creates a logical gateway, sets up VMs with Data Management Gateway software installed, and registers them with the logical gateway. 
 6. In Azure portal, launch the **Gateway** page: 
     1. On the data factory home page in the portal, click **Linked Services**.
     

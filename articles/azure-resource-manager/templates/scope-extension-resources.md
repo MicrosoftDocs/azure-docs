@@ -81,6 +81,6 @@ The following example creates a storage account and applies a role to it.
 
 ## Next steps
 
-* To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
 * For information about deploying a template that requires a SAS token, see [Deploy private ARM template with SAS token](secure-template-with-sas-token.md).

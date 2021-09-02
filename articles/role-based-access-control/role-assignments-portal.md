@@ -7,7 +7,7 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2021
+ms.date: 06/25/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 ---
@@ -37,8 +37,6 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the Search box at the top, search for the scope you want to grant access to. For example, search for **Management groups**, **Subscriptions**, **Resource groups**, or a specific resource.
-
-    ![Screenshot of Azure portal search for resource group.](./media/shared/rg-portal-search.png)
 
 1. Click the specific resource for that scope.
 
@@ -119,8 +117,6 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 1. In the Search box at the top, search for the scope you want to grant access to. For example, search for **Management groups**, **Subscriptions**, **Resource groups**, or a specific resource.
 
-    ![Screenshot of Azure portal search for resource group for preview experience.](./media/shared/rg-portal-search.png)
-
 1. Click the specific resource for that scope.
 
     The following shows an example resource group.
@@ -139,13 +135,13 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 1. Click the **Role assignments** tab to view the role assignments at this scope.
 
-1. Click **Add** > **Add role assignment (preview)**.
+1. Click **Add** > **Add role assignment (Preview)**.
 
     If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
     ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
 
-    The Assign a role page opens.
+    The Add role assignment page opens.
 
 ## Step 3: Select the appropriate role (preview)
 
@@ -153,7 +149,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     You can search for a role by name or by description. You can also filter roles by type and category.
 
-   ![Screenshot of Add role assignment page with Select role tab for preview experience.](./media/role-assignments-portal/roles.png)
+   ![Screenshot of Add role assignment page with Roles tab for preview experience.](./media/shared/roles.png)
 
 1. In the **Details** column, click **View** to get more details about a role.
 
@@ -165,21 +161,21 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Azure AD users, groups, or service principals (applications).
 
-   ![Screenshot of Add role assignment page with Add members tab for preview experience.](./media/role-assignments-portal/members.png)
+   ![Screenshot of Add role assignment page with Members tab for preview experience.](./media/shared/members.png)
 
-1. Click **Add members**.
+1. Click **Select members**.
 
 1. Find and select the users, groups, or service principals.
 
-    You can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
+    You can type in the **Select** box to search the directory for display name or email address.
 
-   ![Screenshot of Add members using Select members pane for preview experience.](./media/role-assignments-portal/select-principal.png)
+   ![Screenshot of Select members pane for preview experience.](./media/shared/select-members.png)
 
 1. Click **Save** to add the users, groups, or service principals to the Members list.
 
 1. To assign the selected role to one or more managed identities, select **Managed identity**.
 
-1. Click **Add members**.
+1. Click **Select members**.
 
 1. In the **Select managed identities** pane, select whether the type is [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) or [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 

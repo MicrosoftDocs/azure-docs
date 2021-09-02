@@ -1,7 +1,7 @@
 ---
-title: Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)
+title: Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM
 titleSuffix: Azure Storage
-description: Learn how to configure Azure Storage encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview) by using Azure CLI.
+description: Learn how to configure Azure Storage encryption with customer-managed keys stored in Azure Key Vault Managed HSM by using Azure CLI.
 services: storage
 author: tamram
 
@@ -14,16 +14,13 @@ ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)
+# Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM
 
-Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can manage your own keys. Customer-managed keys must be stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM) (preview). An Azure Key Vault Managed HSM is an FIPS 140-2 Level 3 validated HSM.
+Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can manage your own keys. Customer-managed keys must be stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM). An Azure Key Vault Managed HSM is an FIPS 140-2 Level 3 validated HSM.
 
 This article shows how to configure encryption with customer-managed keys stored in a managed HSM by using Azure CLI. To learn how to configure encryption with customer-managed keys stored in a key vault, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md).
 
-> [!IMPORTANT]
->
-> Encryption with customer-managed keys stored in Azure Key Vault Managed HSM is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
+> [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration.
 
 ## Assign an identity to the storage account
@@ -41,7 +38,7 @@ az storage account update \
 
 ## Assign a role to the storage account for access to the managed HSM
 
-Next, assign the **Managed HSM Crypto Service Encryption** role to the storage account's managed identity so that the storage account has permissions to the managed HSM. Microsoft recommends that you scope the role assignment to the level of the individual key in order to grant the fewest possible privileges to the managed identity.
+Next, assign the **Managed HSM Crypto Service Encryption User** role to the storage account's managed identity so that the storage account has permissions to the managed HSM. Microsoft recommends that you scope the role assignment to the level of the individual key in order to grant the fewest possible privileges to the managed identity.
 
 To create the role assignment for storage account, call [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create). Remember to replace the placeholder values in brackets with your own values.
   
@@ -54,7 +51,7 @@ storage_account_principal = $(az storage account show \
 
 az keyvault role assignment create \
     --hsm-name <hsm-name> \
-    --role "Managed HSM Crypto Service Encryption" \
+    --role "Managed HSM Crypto Service Encryption User" \
     --assignee $storage_account_principal \
     --scope /keys/<key-name>
 ```

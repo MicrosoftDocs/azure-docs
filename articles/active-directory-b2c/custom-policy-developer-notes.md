@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/04/2021
+ms.date: 06/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -22,7 +22,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 ## Terms for features in public preview
 
 - We encourage you to use public preview features for evaluation purposes only.
-- Service level agreements (SLAs) don't apply to public preview features.
+- [Service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/active-directory-b2c) don't apply to public preview features.
 - Support requests for public preview features can be submitted through regular support channels.
 
 ## User flows
@@ -33,8 +33,9 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with username and password.| GA | GA | |
 | [Profile editing flow](add-profile-editing-policy.md) | GA | GA | |
 | [Self-Service password reset](add-password-reset-policy.md) | GA| GA| |
-| [Force password reset](force-password-reset.md) | Preview | NA | |
+| [Force password reset](force-password-reset.md) | GA | NA | |
 | [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
+| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications |
 
 ## OAuth 2.0 application authorization flows
 
@@ -69,7 +70,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 [SP initiated](saml-service-provider.md) | NA | GA | POST and Redirect bindings. |
-[IDP initiated](saml-service-provider-options.md#identity-provider-initiated-flow) | NA | GA | Where the initiating identity provider is Azure AD B2C.  |
+[IDP initiated](saml-service-provider-options.md#configure-idp-initiated-flow) | NA | GA | Where the initiating identity provider is Azure AD B2C.  |
 
 ## User experience customization
 
@@ -79,6 +80,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | [Custom email verification](custom-email-mailjet.md) | NA | GA| |
 | [Customize the user interface with built-in templates](customize-ui.md) | GA| GA| |
 | [Customize the user interface with custom templates](customize-ui-with-html.md) | GA| GA| By using HTML templates. |
+| [Page layout version](page-layout.md) | GA | GA | |
 | [JavaScript](javascript-and-page-layout.md) | GA | GA | |
 | [Embedded sign-in experience](embedded-login.md) | NA |  Preview| By using the inline frame element `<iframe>`. |
 | [Password complexity](password-complexity.md) | GA | GA | |
@@ -117,7 +119,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |[OAuth2](oauth2-technical-profile.md) | NA | GA | For example, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md), and [Facebook](identity-provider-facebook.md).|
 |[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [Twitter](identity-provider-twitter.md). |
 |[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Azure AD](identity-provider-azure-ad-single-tenant.md).  |
-|[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS].(identity-provider-adfs.md) |
+|[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS](identity-provider-adfs.md). |
 | WSFED | NA | NA | |
 
 ### API connectors
@@ -179,5 +181,5 @@ Developers consuming the custom policy feature set should adhere to the followin
 
 ## Next steps
 
-- Check the [Microsoft Graph operations available for Azure AD B2C](microsoft-graph-operations.md)
+- Check the [Microsoft Graph operations available for Azure AD B2C](microsoft-graph-operations.md).
 - Learn more about [custom policies and the differences with user flows](custom-policy-overview.md).

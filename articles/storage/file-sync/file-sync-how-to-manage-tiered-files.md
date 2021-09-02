@@ -58,11 +58,15 @@ There are several ways to check whether a file has been tiered to your Azure fil
 
 ## How to exclude applications from cloud tiering last access time tracking
 
-With Azure File Sync agent version 11.1, you can now exclude applications from last access tracking. When an application accesses a file, the last access time for the file is updated in the cloud tiering database. Applications that scan the file system like anti-virus cause all files to have the same last access time, which impacts when files are tiered.
+When an application accesses a file, the last access time for the file is updated in the cloud tiering database. Applications that scan the file system like anti-virus cause all files to have the same last access time, which impacts when files are tiered.
 
-To exclude applications from last access time tracking, add the process name to the HeatTrackingProcessNameExclusionList registry setting that is located under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
+To exclude applications from last access time tracking, add the process name to the appropriate registry setting that is located under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
 
+For v11 and v12 release, add the process exclusions to the HeatTrackingProcessNameExclusionList registry setting.
 Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
+
+For v13 release and newer, add the process exclusions to the HeatTrackingProcessNamesExclusionList registry setting.
+Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe,AnotherApp.exe" /f
 
 > [!NOTE]
 > Data Deduplication and File Server Resource Manager (FSRM) processes are excluded by default. Changes to the process exclusion list are honored by the system every 5 minutes.

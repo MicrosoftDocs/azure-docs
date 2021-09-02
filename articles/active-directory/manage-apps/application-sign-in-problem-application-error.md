@@ -2,15 +2,15 @@
 title: Error message appears on app page after you sign in | Microsoft Docs
 description: How to resolve issues with Azure AD sign in when the app returns an error message.
 services: active-directory
-author: iantheninja
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: iangithinji
-ms.reviewer: asteen
+ms.author: davidmu
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ---
 
@@ -20,11 +20,11 @@ In this scenario, Azure Active Directory (Azure AD) signs the user in. But the a
 
 There are several possible reasons why the app didn't accept the response from Azure AD. If the error message doesn't clearly identify what's missing from the response, try the following:
 
--   If the app is the Azure AD gallery, verify that you followed the steps in [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).
+- If the app is the Azure AD gallery, verify that you followed the steps in [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).
 
--   Use a tool like [Fiddler](https://www.telerik.com/fiddler) to capture the SAML request, response, and token.
+- Use a tool like [Fiddler](https://www.telerik.com/fiddler) to capture the SAML request, response, and token.
 
--   Send the SAML response to the app vendor and ask them what's missing.
+- Send the SAML response to the app vendor and ask them what's missing.
 
 ## Attributes are missing from the SAML response
 
@@ -53,7 +53,7 @@ To add an attribute in the Azure AD configuration that will be sent in the Azure
 
    1. Select **Add attribute**. Enter the **Name**, and select the **Value** from the drop-down list.
 
-   1.  Select **Save**. You'll see the new attribute in the table.
+   1. Select **Save**. You'll see the new attribute in the table.
 
 9. Save the configuration.
 
@@ -119,9 +119,9 @@ To change which parts of the SAML token are digitally signed by Azure AD, follow
 
 9. Select the **Signing Option** that the app expects from among these options:
 
-   * **Sign SAML response**
-   * **Sign SAML response and assertion**
-   * **Sign SAML assertion**
+   - **Sign SAML response**
+   - **Sign SAML response and assertion**
+   - **Sign SAML assertion**
 
    The next time that the user signs in to the app, Azure AD will sign the part of the SAML response that you selected.
 
@@ -155,4 +155,5 @@ To change the signing algorithm, follow these steps:
    The next time that the user signs in to the app, Azure AD will sign the SAML token by using the SHA-1 algorithm.
 
 ## Next steps
+
 [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).

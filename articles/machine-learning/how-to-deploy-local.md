@@ -96,7 +96,7 @@ The following code shows these steps:
 
 ```python
 from azureml.core.webservice import Webservice
-from azure.core.model import InferenceConfig
+from azureml.core.model import InferenceConfig
 from azureml.core.environment import Environment
 from azureml.core import Workspace
 from azureml.core.model import Model

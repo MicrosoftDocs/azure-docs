@@ -8,7 +8,8 @@ ms.subservice: common
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta 
-ms.reviewer: dineshm
+ms.reviewer: dineshm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Move an Azure Storage account to another region
@@ -233,7 +234,7 @@ You can also use Azure Data Factory to move your data over. It provides an intui
 
   - [Copy data to or from Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
   - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
-  - [Copy data from or to Azure File Storage by using Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
+  - [Copy data from or to Azure Files by using Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
   - [Copy data to and from Azure Table storage by using Azure Data Factory](/azure/data-factory/connector-azure-table-storage)
 
 ---

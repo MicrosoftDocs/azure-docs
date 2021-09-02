@@ -40,7 +40,9 @@ The Logstash engine is comprised of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Azure Sentinel supports its own provided output plugin only. The current version of this plugin is v1.0.0, released 2020-08-25. It does not support third-party output plugins for Azure Sentinel, or any other Logstash plugin of any type.
+> - Microsoft supports only the Azure Sentinel-provided Logstash output plugin discussed here. The current version of this plugin is v1.0.0, released 2020-08-25. You can [open a support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
+>
+> - Microsoft does not support third-party Logstash output plugins for Azure Sentinel, or any other Logstash plugin or component of any type.
 >
 > - Azure Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.9**.
 
@@ -175,5 +177,5 @@ If you are not seeing any data in this log file, generate and send some events l
 ## Next steps
 
 In this document, you learned how to use Logstash to connect external data sources to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started detecting threats with Azure Sentinel, using [built-in](tutorial-detect-threats-built-in.md) or [custom](tutorial-detect-threats-custom.md) rules.
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started detecting threats with Azure Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.

@@ -13,6 +13,7 @@ ms.date: 03/22/2019
 ---
 # Predict an answer with a simple model
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 ## Video 4: Data Science for Beginners series
 Learn how to create a simple regression model to predict the price of a diamond in Data Science for Beginners video 4. We'll draw a regression model with target data.
@@ -120,8 +121,8 @@ Also, if instead of just a handful of diamonds, we had two thousand or two milli
 
 Today, we've talked about how to do linear regression, and we made a prediction using data.
 
-Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning Studio (classic).
+Be sure to check out the other videos in "Data Science for Beginners" from Machine Learning Studio (classic).
 
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Get an introduction to Azure Machine Learning](../overview-what-is-azure-machine-learning.md)

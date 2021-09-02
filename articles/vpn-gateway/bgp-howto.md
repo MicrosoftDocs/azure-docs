@@ -7,7 +7,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 07/26/2021
 ms.author: yushwang 
 
 
@@ -87,7 +87,7 @@ In this step, you create a VPN gateway with the corresponding BGP parameters.
    > * When APIPA addresses are used on Azure VPN gateways, the gateways do not initiate BGP peering sessions with APIPA source IP addresses. The on-premises VPN device must initiate BGP peering connections.
    >
 
-1. Select **Review + create** to run validation. Once validation passes, select **Create** to deploy the VPN gateway. A gateway can take up to 45 minutes to fully create and deploy. You can see the deployment status on the Overview page for your gateway.
+1. Select **Review + create** to run validation. Once validation passes, select **Create** to deploy the VPN gateway. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. You can see the deployment status on the Overview page for your gateway.
 
 ### 3. Obtain the Azure BGP Peer IP addresses
 

@@ -9,7 +9,8 @@ ms.date: 09/21/2020
 ---
 
 # Troubleshoot database corruption in Azure Database for MySQL
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Database corruption can cause downtime for your application. It's also critical to resolve corruption problems in time to avoid data loss. When database corruption occurs, you'll see this error in your server logs: `InnoDB: Database page corruption on disk or a failed.`
 

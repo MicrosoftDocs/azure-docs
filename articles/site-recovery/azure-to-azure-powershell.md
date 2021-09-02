@@ -6,7 +6,8 @@ author: sujayt
 manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sutalasi
+ms.author: sutalasi 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Set up disaster recovery for Azure virtual machines using Azure PowerShell

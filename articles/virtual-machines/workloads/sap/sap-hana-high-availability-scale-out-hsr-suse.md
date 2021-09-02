@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/12/2021
+ms.date: 05/26/2021
 ms.author: radeltch
 
 ---
@@ -24,7 +24,7 @@ ms.author: radeltch
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:../../../azure-netapp-files/index.yml
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
@@ -271,6 +271,49 @@ Configure and prepare your OS by doing the following steps:
      10.23.1.200     hana-s2-db2-hsr
      10.23.1.201     hana-s2-db3-hsr
     ```
+
+3. **[A]** Prepare the OS for running SAP HANA on NetApp Systems with NFS, as described in [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]. Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+
+    <pre><code>
+    vi /etc/sysctl.d/netapp-hana.conf
+    # Add the following entries in the configuration file
+    net.core.rmem_max = 16777216
+    net.core.wmem_max = 16777216
+    net.core.rmem_default = 16777216
+    net.core.wmem_default = 16777216
+    net.core.optmem_max = 16777216
+    net.ipv4.tcp_rmem = 65536 16777216 16777216
+    net.ipv4.tcp_wmem = 65536 16777216 16777216
+    net.core.netdev_max_backlog = 300000
+    net.ipv4.tcp_slow_start_after_idle=0
+    net.ipv4.tcp_no_metrics_save = 1
+    net.ipv4.tcp_moderate_rcvbuf = 1
+    net.ipv4.tcp_window_scaling = 1
+    net.ipv4.tcp_sack = 1
+    </code></pre>
+
+4. **[A]** Create configuration file */etc/sysctl.d/ms-az.conf* with Microsoft for Azure configuration settings.  
+
+    <pre><code>
+    vi /etc/sysctl.d/ms-az.conf
+    # Add the following entries in the configuration file
+    net.ipv6.conf.all.disable_ipv6 = 1
+    net.ipv4.tcp_max_syn_backlog = 16348
+    net.ipv4.conf.all.rp_filter = 0
+    sunrpc.tcp_slot_table_entries = 128
+    vm.swappiness=10
+    </code></pre>
+
+    > [!TIP]
+    > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+
+4. **[A]** Adjust the sunrpc settings, as recommended in the [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].  
+
+    <pre><code>
+    vi /etc/modprobe.d/sunrpc.conf
+    # Insert the following line
+    options sunrpc tcp_max_slot_table_entries=128
+    </code></pre>
 
 2. **[A]** SUSE delivers special resource agents for SAP HANA and by default agents for SAP HANA ScaleUp are installed. Uninstall the packages for ScaleUp, if installed and install the packages for scenario SAP HANAScaleOut. The step needs to be performed on all cluster VMs, including the majority maker.   
 

@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 06/23/2020
  ms.author: rogarana
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 ```PowerShell
 $ResourceGroupName="yourResourceGroupName"

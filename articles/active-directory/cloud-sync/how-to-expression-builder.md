@@ -1,5 +1,5 @@
 ---
-title: 'How to use expression builder with Azure AD Connect cloud sync'
+title: 'Use the expression builder with Azure AD Connect cloud sync'
 description: This article describes how to use the expression builder with cloud sync.
 services: active-directory
 author: billmath
@@ -14,69 +14,69 @@ ms.collection: M365-identity-device-management
 ---
 
 # Expression builder with cloud sync
-The expression builder is a new blade in Azure located under cloud sync.  It helps in building complex expressions and allows you to test these expressions before you apply them to your cloud sync environment.
+The expression builder is a new function in Azure located under cloud sync. It helps you build complex expressions. You can use it to test these expressions before you apply them to your cloud sync environment.
 
 ## Use the expression builder
-To access the expression builder, use the following steps.
+To access the expression builder:
 
- 1. In the Azure portal, select **Azure Active Directory**
- 2. Select **Azure AD Connect**.
- 3. Select **Manage cloud sync**.
- 4. Under **Configuration**, select your configuration.
- 5. Under **Manage attributes**, select **Click to edit mappings**.
- 6. On the **Edit attribute mappings** blade, click **Add attribute mapping**.
- 7. Under **Mapping type**, select **Expression**.
- 8. Select **Try the expression builder (Preview)**.
- ![Use expression builder](media/how-to-expression-builder/expression-1.png)
+ 1. In the Azure portal, select **Azure Active Directory**.
+ 1. Select **Azure AD Connect**.
+ 1. Select **Manage cloud sync**.
+ 1. Under **Configuration**, select your configuration.
+ 1. Under **Manage attributes**, select **Click to edit mappings**.
+ 1. On the **Edit attribute mappings** pane, select **Add attribute mapping**.
+ 1. Under **Mapping type**, select **Expression**.
+ 1. Select **Try the expression builder (Preview)**.
+ 
+    ![Screenshot that shows using expression builder.](media/how-to-expression-builder/expression-1.png)
 
 ## Build an expression
-This section allows you to use the drop-down to select from a list of supported functions.  Then it provides additional fields for you to fill in, depending on the function selected.  Once you select **Apply expression**, the syntax will appear in the **Expression input** box.
+In this section, you use the dropdown list to select from supported functions. Then you fill in more boxes, depending on the function selected. After you select **Apply expression**, the syntax appears in the **Expression input** box.
 
-For example, by selecting **Replace** from the drop-down, additional boxes are provided.  The syntax for the function is displayed in the light blue box.  The boxes that are displayed correspond to the syntax of the function you selected.  Replace works differently depending on the parameters provided.  For our example we will use:
+For example, by selecting **Replace** from the dropdown list, more boxes are provided. The syntax for the function is displayed in the light blue box. The boxes that are displayed correspond to the syntax of the function you selected. Replace works differently depending on the parameters provided.
 
-- When oldValue and replacementValue are provided:
-    - Replaces all occurrences of oldValue in the source with replacementValue
+For this example, when **oldValue** and **replacementValue** are provided, all occurrences of **oldValue** are replaced in the source with **replacementValue**.
 
-For more information, see [Replace](reference-expressions.md#replace)
+For more information, see [Replace](reference-expressions.md#replace).
 
-The first thing we need to do is select the attribute that is the source for the replace function. In our example, we selected the **mail** attribute. 
+The first thing you need to do is select the attribute that's the source for the replace function. In this example, the **mail** attribute is selected.
 
-Next, we fill in the value for oldValue.  This oldValue will be **@fabrikam.com**.  Finally, in the box for replacementValue, we will fill in the value **@contoso.com**.
+Next, find the box for **oldValue** and enter **@fabrikam.com**. Finally, in the box for **replacementValue**, fill in the value **@contoso.com**.
 
-So our expression, basically says, replace the mail attribute on user objects that have a value of @fabrikam.com with the @contoso.com value.  By clicking the **Add expression** button, we can see the syntax in the **Expression input**
-
+The expression basically says, replace the mail attribute on user objects that have a value of @fabrikam.com with the @contoso.com value. When you select **Add expression**, you can see the syntax in the **Expression input** box.
 
 >[!NOTE]
->Be sure to place the values in the boxes that would correspond with oldValue and replacementValue based on the syntax that occurs when you have selected Replace.
+>Be sure to place the values in the boxes that would correspond with **oldValue** and **replacementValue** based on the syntax that occurs when you've selected **Replace**.
 
-For more information on supported expressions, see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md)
+For more information on supported expressions, see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md).
 
 ### Information on expression builder input boxes
-Depending on which function you have selected, the boxes provided by expression builder, will accept multiple values.  For example, the JOIN function will accept strings or the value that is associated with a given attribute.  For example, we can use the value contained in the attribute value of [givenName] and join this with a string value of "@contoso.com" to create an email address.
+Depending on which function you selected, the boxes provided by the expression builder will accept multiple values. For example, the JOIN function will accept strings or the value that's associated with a given attribute. For example, we can use the value contained in the attribute value of **[givenName]** and join it with a string value of **@contoso.com** to create an email address.
 
-  ![Input box values](media/how-to-expression-builder/expression-8.png)
+  ![Screenshot that shows input box values.](media/how-to-expression-builder/expression-8.png)
 
 For more information on acceptable values and how to write expressions, see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md).
 
 ## Test an expression
-In this section, you can test your expressions.  From the drop-down, select the **mail** attribute.  Fill in the value with **@fabrikam.com** and now click **Test expression**.  
+In this section, you can test your expressions. From the dropdown list, select the **mail** attribute. Fill in the value with **@fabrikam.com**, and select **Test expression**.
 
-You will see the value of **@contoso.com** displayed in the **View expression output** box.
+The value **@contoso.com** appears in the **View expression output** box.
 
- ![Test your expression](media/how-to-expression-builder/expression-4.png)
+ ![Screenshot that shows testing your expression.](media/how-to-expression-builder/expression-4.png)
 
 ## Deploy the expression
-Once you are satisfied with the expression, simply click the **Apply expression** button.
-![Add your expression](media/how-to-expression-builder/expression-5.png)
+After you're satisfied with the expression, select **Apply expression**.
 
-This will add the expression to the agent configuration.
-![Agent configuration](media/how-to-expression-builder/expression-6.png)
+![Screenshot that shows adding your expression.](media/how-to-expression-builder/expression-5.png)
 
-## Setting a NULL value on an expression
-To set an attributes value to NULL.  You can use an expression with the value of `""`.  This will flow the NULL value to the target attribute.
+This action adds the expression to the agent configuration.
 
-![NULL value](media/how-to-expression-builder/expression-7.png)
+![Screenshot that shows agent configuration.](media/how-to-expression-builder/expression-6.png)
 
+## Set a NULL value on an expression
+To set an attribute's value to NULL, use an expression with the value of `""`. This expression will flow the NULL value to the target attribute.
+
+![Screenshot that shows a NULL value.](media/how-to-expression-builder/expression-7.png)
 
 
 ## Next steps 

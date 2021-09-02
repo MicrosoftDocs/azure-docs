@@ -24,6 +24,8 @@
     href: role-management.md
   - name: Secure access to your Managed HSM
     href: secure-your-managed-hsm.md
+  - name: Use private endpoints
+    href: private-link.md
   - name: Set up logging for managed HSM
     href: logging.md
   - name: Disaster recovery
@@ -32,6 +34,10 @@
     href: hsm-protected-keys-byok.md
   - name: Backup and restore
     href: backup-restore.md
+  - name: Recovery management with soft-delete and purge protection
+    href: recovery.md
+
+
 - name: Concepts 
   items:
   - name: Security domain
@@ -42,6 +48,8 @@
     href: access-control.md
   - name: Local RBAC built-in roles
     href: built-in-roles.md
+  - name: Managed HSM Soft-delete 
+    href: soft-delete-overview.md
 
 - name: Reference
   items:
@@ -65,14 +73,16 @@
 
 - name: Resources
   items:
+  - name: Third party solutions
+    href: third-party-solutions.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-key-vault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all
   - name: Service Level Agreement (SLA)
-    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+    href: https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/
   - name: Service limits
     href: ../general/service-limits.md
   - name: Service status

@@ -3,7 +3,7 @@ title: Troubleshoot Start/Stop VMs (preview)
 description: This article tells how to troubleshoot issues encountered with the Start/Stop VMs (preview) feature for your Azure VMs.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/31/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
 ---
 
@@ -27,7 +27,7 @@ Depending on which Logic Apps you have enabled to support your start/stop scenar
 
 You can review the details for the operations performed on the VMs that are written to the table **requestsstoretable** in the Azure storage account used for Start/Stop VMs v2 (preview). Perform the following steps to view those records.
 
-1. Navigate to the storage account in the Azure portal and in the account select **Storage Explorer (preview) from the left-hand pane.
+1. Navigate to the storage account in the Azure portal and in the account select **Storage Explorer (preview)** from the left-hand pane.
 1. Select **TABLES** and then select **requeststoretable**.
 1. Each record in the table represents the start/stop action performed against an Azure VM based on the target scope defined in the logic app scenario. You can filter the results by any one of the record properties (for example, TIMESTAMP, ACTION, or TARGETTOPLEVELRESOURCENAME).
 
@@ -60,3 +60,5 @@ Learn more about monitoring Azure Functions and logic apps:
 * [How to configure monitoring for Azure Functions](../../azure-functions/configure-monitoring.md).
 
 * [Monitor logic apps](../../logic-apps/monitor-logic-apps.md).
+
+* If you run into problems during deployment, you encounter an issue when using Start/Stop VMs v2 (preview), or if you have a related question, you can submit an issue on [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Filing an Azure support incident from the [Azure support site](https://azure.microsoft.com/support/options/) is not available for this preview version. 

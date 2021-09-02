@@ -1,13 +1,13 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
 
-To configure Speech SDK to accept compressed audio input, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream. Find related sample code snippets in [About the Speech SDK audio input stream API](/azure/cognitive-services/speech-service/how-to-use-audio-input-streams).
+To configure Speech SDK to accept compressed audio input, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream. Find related sample code snippets in [About the Speech SDK audio input stream API](../../../../how-to-use-audio-input-streams.md).
 
 Let's assume that you have an input stream class called `pushStream` and are using OPUS/OGG. Your code may look like this:
 

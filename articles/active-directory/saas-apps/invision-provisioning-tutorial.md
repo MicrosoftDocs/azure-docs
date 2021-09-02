@@ -3,8 +3,8 @@ title: 'Tutorial: Configure InVision for automatic user provisioning with Azure 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to InVision.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 72518dda-d485-45c8-849e-6b27ee09d9a8
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure InVision for automatic user provisioning

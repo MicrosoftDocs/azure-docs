@@ -1,5 +1,5 @@
 ---
-title: Register Oracle source and setup scans (preview) in Azure Purview
+title: Register Oracle source and setup scans in Azure Purview
 description: This article outlines how to register Oracle source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ---
-# Register and Scan Oracle source (preview)
+# Register and Scan Oracle source
 
 This article outlines how to register an Oracle data base in Purview and set up a scan.
 
@@ -65,6 +65,7 @@ The user should have permission to create a session as well as role SELECT\_CATA
         grant select on dba\_arguments to \[user\];\
         grant select on dba\_sequences to \[user\];\
         grant select on dba\_dependencies to \[user\];\
+        grant select on dba\_type\_attrs to \[user\];\
         grant select on V\_\$INSTANCE to \[user\];\
         grant select on v\_\$database to \[user\];
     
@@ -77,7 +78,7 @@ The only supported authentication for an Oracle source is **Basic authentication
 To register a new Oracle source in your data catalog, do the following:
 
 1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 3.  Select **Register**
 4.  On Register sources, select **Oracle**. Select **Continue**.
 
@@ -147,10 +148,15 @@ To create and run a new scan, do the following:
 6.  **Driver location**: Specify the path to the JDBC driver location in
     your VM where self-host integration runtime is running. This should
     be the path to valid JAR folder location.
+    > [!Note]
+    > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
 7.  **Maximum memory available**: Maximum memory (in GB) available on
     customer's VM to be used by scanning processes. This is dependent on
     the size of SAP S/4HANA source to be scanned.
+
+    > [!Note] 
+    > As a thumb rule, please provide 1GB memory for every 1000 tables
 
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 

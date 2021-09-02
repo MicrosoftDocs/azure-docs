@@ -41,7 +41,7 @@ The policy you create applies to all Azure management endpoints, including the f
 - Azure Data Factory portal
 - Azure Event Hubs
 - Azure Service Bus
-- [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/conditional-access-configure)
+- [Azure SQL Database](../azure-sql/database/conditional-access-configure.md)
 - SQL Managed Instance
 - Azure Synapse
 

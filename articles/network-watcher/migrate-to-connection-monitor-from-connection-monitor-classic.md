@@ -62,8 +62,23 @@ After the migration begins, the following changes take place:
 * The migrated connection monitors are no longer displayed as the older connection monitor solution. They're now available for use only in Connection Monitor.
 * Any external integrations, such as dashboards in Power BI and Grafana, and integrations with Security Information and Event Management (SIEM) systems, must be migrated manually. This is the only manual step you need to perform to migrate your setup.
 
+## Common Errors Encountered
+
+Below are some common errors faced during the migration : 
+
+| Error  |    Reason   |
+|---|---|
+|Following Connection monitors cannot be imported as one or more Subscription/Region combination don't have network watcher enabled. Enable network watcher and click refresh to import them. List of Connection monitor - {0}   |  This error occurs when User is migrating tests from CM(classic) to Connection Monitor and Network Watcher Extension is not enabled not enabled in one or more subscriptions and regions of CM (classic). User needs to enable NW Extension in the subscription and refresh to import them before migrating again   |
+|Connection monitors having following tests cannot be imported as one or more azure virtual machines don't have network watcher extension installed. Install network watcher extension and click refresh to import them. List of tests - {0} |    This error occurs when User is migrating tests from CM(classic) to Connection Monitor and Network Watcher Extension is not installed in one or more Azure VMs of CM (classic). User needs to install NW Extension in the Azure VM and refresh before migrating again |
+|No rows to display   |  This error occurs when User is trying to migrate subscriptions from CM (Classic) to CM but no CM (classic) is created in the subscriptions |
+
 ## Next steps
 
 To learn more about Connection Monitor, see:
 * [Migrate from Network Performance Monitor to Connection Monitor](./migrate-to-connection-monitor-from-network-performance-monitor.md)
 * [Create Connection Monitor by using the Azure portal](./connection-monitor-create-using-portal.md)
+
+
+	
+ 
+	

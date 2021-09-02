@@ -2,12 +2,12 @@
 title: Create task dependencies to run tasks
 description: Create tasks that depend on the completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 06/29/2021
 ms.custom: "H1Hack27Feb2017, devx-track-csharp"
 ---
 # Create task dependencies to run tasks that depend on other tasks
 
-With Batch task dependencies, you create tasks that are scheduled for execution on compute nodes after the completion of one or more parent tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all frames have been successfully rendered.
+With Batch task dependencies, you create tasks that are scheduled for execution on compute nodes after the completion of one or more parent tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task merges the rendered frames into the complete movie only after all frames have been successfully rendered. In other words, the final task is dependent on the previous parent tasks.
 
 Some scenarios where task dependencies are useful include:
 
@@ -16,9 +16,7 @@ Some scenarios where task dependencies are useful include:
 - Pre-rendering and post-rendering processes, where each task must complete before the next task can begin.
 - Any other job in which downstream tasks depend on the output of upstream tasks.
 
-By default, dependent tasks are scheduled for execution only after the parent task has completed successfully. You can optionally specify a [dependency action](#dependency-actions)  to override the default behavior and run tasks when the parent task fails.
-
-## Task dependencies with Batch .NET
+By default, dependent tasks are scheduled for execution only after the parent task has completed successfully. You can optionally specify a [dependency action](#dependency-actions) to override the default behavior and run the dependent task even if the parent task fails.
 
 In this article, we discuss how to configure task dependencies by using the [Batch .NET](/dotnet/api/microsoft.azure.batch) library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, and then demonstrate how to [configure a task with dependencies](#create-dependent-tasks). We also describe how to specify a dependency action to run dependent tasks if the parent fails. Finally, we discuss the [dependency scenarios](#dependency-scenarios) that Batch supports.
 
@@ -67,7 +65,7 @@ There are three basic task dependency scenarios that you can use in Azure Batch:
 > [!TIP]
 > You can create **many-to-many** relationships, such as where tasks C, D, E, and F each depend on tasks A and B. This is useful, for example, in parallelized preprocessing scenarios where your downstream tasks depend on the output of multiple upstream tasks.
 > 
-> In the examples in this section, a dependent task runs only after the parent tasks complete successfully. This behavior is the default behavior for a dependent task. You can run a dependent task after a parent task fails by specifying a [dependency action](#dependency-actions)  to override the default behavior.
+> In the examples in this section, a dependent task runs only after the parent tasks complete successfully. This behavior is the default behavior for a dependent task. You can run a dependent task after a parent task fails by specifying a [dependency action](#dependency-actions) to override the default behavior.
 
 ### One-to-one
 
@@ -86,7 +84,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 
 ### One-to-many
 
-In a one-to-many relationship, a task depends on the completion of multiple parent tasks. To create the dependency, provide a collection of task IDs to the [TaskDependencies.OnIds](/dotnet/api/microsoft.azure.batch.taskdependencies.onids) static method when you populate the [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) property.
+In a one-to-many relationship, a task depends on the completion of multiple parent tasks. To create the dependency, provide a collection of specific task IDs to the [TaskDependencies.OnIds](/dotnet/api/microsoft.azure.batch.taskdependencies.onids) static method when you populate the [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) property.
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -101,17 +99,21 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ```
 
+> [!IMPORTANT]
+> Your dependent task creation will fail if the combined length of parent task IDs is greater than 64000 characters. To specify a large number of parent tasks, consider using a Task ID range instead.
+
 ### Task ID range
 
-In a dependency on a range of parent tasks, a task depends on the completion of tasks whose IDs lie within a range.
-To create the dependency, provide the first and last task IDs in the range to the [TaskDependencies](/dotnet/api/microsoft.azure.batch.taskdependencies.onidrange) static method when you populate the [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) property.
+In a dependency on a range of parent tasks, a task depends on the completion of tasks whose IDs lie within a range that you specify.
+
+To create the dependency, provide the first and last task IDs in the range to the [TaskDependencies.OnIdRange](/dotnet/api/microsoft.azure.batch.taskdependencies.onidrange) static method when you populate the [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) property.
 
 > [!IMPORTANT]
 > When you use task ID ranges for your dependencies, only tasks with IDs representing integer values will be selected by the range. For example, the range `1..10` will select tasks `3` and `7`, but not `5flamingoes`.
 >
-> Leading zeroes are not significant when evaluating range dependencies, so tasks with string identifiers `4`, `04` and `004` will all be *within* the range and they will all be treated as task `4`, so the first one to complete will satisfy the dependency.
+> Leading zeroes are not significant when evaluating range dependencies, so tasks with string identifiers `4`, `04` and `004` will all be *within* the range, Since they will all be treated as task `4`, the first one to complete will satisfy the dependency.
 >
-> Every task in the range must satisfy the dependency, either by completing successfully or by completing with a failure that is mapped to a [dependency action](#dependency-actions) set to **Satisfy**.
+> For the dependent task to run, every task in the range must satisfy the dependency, either by completing successfully or by completing with a failure that is mapped to a [dependency action](#dependency-actions) set to **Satisfy**.
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because
@@ -133,9 +135,9 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 ## Dependency actions
 
-By default, a dependent task or set of tasks runs only after a parent task has completed successfully. In some scenarios, you may want to run dependent tasks even if the parent task fails. You can override the default behavior by specifying a dependency action.
+By default, a dependent task or set of tasks runs only after a parent task has completed successfully. In some scenarios, you may want to run dependent tasks even if the parent task fails. You can override the default behavior by specifying a *dependency action* that indicates whether a dependent task is eligible to run.
 
-A dependency action specifies whether a dependent task is eligible to run, based on the success or failure of the parent task. For example, suppose that a dependent task is awaiting data from the completion of the upstream task. If the upstream task fails, the dependent task may still be able to run using older data. In this case, a dependency action can specify that the dependent task is eligible to run despite the failure of the parent task.
+For example, suppose that a dependent task is awaiting data from the completion of the upstream task. If the upstream task fails, the dependent task may still be able to run using older data. In this case, a dependency action can specify that the dependent task is eligible to run despite the failure of the parent task.
 
 A dependency action is based on an exit condition for the parent task. You can specify a dependency action for any of the following exit conditions:
 
@@ -145,9 +147,9 @@ A dependency action is based on an exit condition for the parent task. You can s
 - When the task exits with an exit code that falls within a range specified by the **ExitCodeRanges** property.
 - The default case, if the task exits with an exit code not defined by **ExitCodes** or **ExitCodeRanges**, or if the task exits with a pre-processing error and the **PreProcessingError** property is not set, or if the task fails with a file upload error and the **FileUploadError** property is not set. 
 
-For .NET, see the [ExitConditions](/dotnet/api/microsoft.azure.batch.exitconditions) class for more details on these conditions.
+For .NET, these conditions are defined as properties of the [ExitConditions](/dotnet/api/microsoft.azure.batch.exitconditions) class.
 
-To specify a dependency action in .NET, set the [ExitOptions.DependencyAction](/dotnet/api/microsoft.azure.batch.exitoptions.dependencyaction) property for the exit condition to one of the following:
+To specify a dependency action, set the [ExitOptions.DependencyAction](/dotnet/api/microsoft.azure.batch.exitoptions.dependencyaction) property for the exit condition to one of the following:
 
 - **Satisfy**: Indicates that dependent tasks are eligible to run if the parent task exits with a specified error.
 - **Block**: Indicates that dependent tasks are not eligible to run.

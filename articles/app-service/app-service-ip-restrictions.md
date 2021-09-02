@@ -91,7 +91,7 @@ You can't use service endpoints to restrict access to apps that run in an App Se
 With service endpoints, you can configure your app with application gateways or other web application firewall (WAF) devices. You can also configure multi-tier applications with secure back ends. For more information, see [Networking features and App Service](networking-features.md) and [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
-> - Service endpoints aren't currently supported for web apps that use IP Secure Sockets Layer (SSL) virtual IP (VIP).
+> - Service endpoints aren't currently supported for web apps that use IP-based TLS/SSL bindings with a virtual IP (VIP).
 >
 #### Set a service tag-based rule
 
@@ -141,11 +141,11 @@ As part of any rule, you can add additional http header filters. The following h
 * X-Azure-FDID
 * X-FD-HealthProbe
 
-For each header name you can add up to 8 values separated by comma. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+For each header name, you can add up to eight values separated by comma. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
 
 ### Multi-source rules
 
-Multi-source rules allow you to combine up to 8 IP ranges or 8 Service Tags in a single rule. You might use this if you have more than 512 IP ranges or you want to create logical rules where multiple IP ranges are combined with a single http header filter.
+Multi-source rules allow you to combine up to eight IP ranges or eight Service Tags in a single rule. You might use this if you have more than 512 IP ranges or you want to create logical rules where multiple IP ranges are combined with a single http header filter.
 
 Multi-source rules are defined the same way you define single-source rules, but with each range separated with comma.
 
@@ -196,6 +196,9 @@ You can add access restrictions programmatically by doing either of the followin
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
+   > [!NOTE]
+   > Working with service tags, http headers or multi-source rules in Azure CLI requires at least version 2.23.0. You can verify the version of the installed module with: ```az version```
+
 * Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). For example:
 
 
@@ -204,7 +207,7 @@ You can add access restrictions programmatically by doing either of the followin
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > Working with service tags, http headers or multi-source rules requires at least version 5.7.0. You can verify the version of the installed module with: **Get-InstalledModule -Name Az**
+   > Working with service tags, http headers or multi-source rules in Azure PowerShell requires at least version 5.7.0. You can verify the version of the installed module with: ```Get-InstalledModule -Name Az```
 
 You can also set values manually by doing either of the following:
 

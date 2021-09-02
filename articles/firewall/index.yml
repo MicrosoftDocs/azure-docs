@@ -32,25 +32,30 @@ landingContent:
             url: rule-processing.md
           - text: Frequently asked questions
             url: firewall-faq.yml
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Firewall
+            url: /learn/modules/introduction-azure-firewall/
       - linkListType: whats-new
         links:
           - text: What's new
             url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
 
+
   # Card
-  - title: Learn about Azure Firewall Premium Preview
+  - title: Learn about Azure Firewall Premium
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Firewall Premium Preview features 
+          - text: Azure Firewall Premium features 
             url: premium-features.md
       - linkListType: concept
         links:
-          - text: Azure Firewall Premium Preview certificates
+          - text: Azure Firewall Premium certificates
             url: premium-certificates.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy and configure Azure Firewall Premium Preview
+          - text: Deploy and configure Azure Firewall Premium
             url: premium-deploy.md
 
 

@@ -2,14 +2,16 @@
 title: 'Azure Premium Storage: Design for high performance'
 description: Design high-performance applications using Azure premium SSD managed disks. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
 
 # Azure premium storage: design for high performance
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 This article provides guidelines for building high performance applications using Azure Premium Storage. You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we have used SQL Server running on Premium Storage as an example throughout this document.
 
@@ -225,7 +227,7 @@ Table below summarizes the cost breakdown of this scenario for Standard and Prem
 
 *Linux Distros*  
 
-With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros, and you can see the complete list [here](linux/endorsed-distros.md). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
+With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros. For more information, see [Linux distributions endorsed on Azure](linux/endorsed-distros.md). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
 
 When running Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 

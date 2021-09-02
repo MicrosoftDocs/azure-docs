@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 08/27/2021
 ms.author: rolyon
 ---
 
@@ -60,13 +60,13 @@ Azure has thousands of permissions that you can potentially include in your cust
 
     When you create a custom role using the Azure portal, you can also determine the resource providers by searching for keywords. This search functionality is described in [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md#step-4-permissions).
 
-    ![Add permissions pane with resource provider](./media/custom-roles-portal/add-permissions-provider.png)
+    ![Add permissions pane with resource provider](./media/shared/add-permissions-provider.png)
 
 - Search the [available permissions](resource-provider-operations.md) to find permissions you want to include.
 
     When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. You can also download all of the permissions as a CSV file and then search this file. This search functionality is described in [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md#step-4-permissions).
 
-    ![Add permissions list](./media/custom-roles-portal/add-permissions-list.png)
+    ![Add permissions list](./media/shared/add-permissions-list.png)
 
 ## Custom role example
 
@@ -142,10 +142,6 @@ The following shows the same custom role as displayed using Azure CLI.
 ]
 ```
 
-When you create a custom role, it appears in the Azure portal with an orange resource icon.
-
-![Custom role icon](./media/custom-roles/roles-custom-role-icon.png)
-
 ## Custom role properties
 
 The following table describes what the custom role properties mean.
@@ -161,6 +157,8 @@ The following table describes what the custom role properties mean.
 | `DataActions`</br>`dataActions` | No | String[] | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role cannot be assigned at the management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions`</br>`notDataActions` | No | String[] | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. For more information, see [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes`</br>`assignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
+
+Permission strings are case-insensitive. When you create your custom roles, the convention is to match the case that you see for permissions in [Azure resource provider operations](resource-provider-operations.md).
 
 ## Wildcard permissions
 
@@ -178,12 +176,6 @@ Instead of adding all of these strings, you could just add a wildcard string. Fo
 
 ```
 Microsoft.CostManagement/exports/*
-```
-
-You can also have multiple wildcards in a string. For example, the following string represents all query permissions for Cost Management.
-
-```
-Microsoft.CostManagement/*/query/*
 ```
 
 ## Who can create, delete, update, or view a custom role
@@ -205,10 +197,11 @@ The following list describes the limits for custom roles.
 - You cannot set `AssignableScopes` to the root scope (`"/"`).
 - You cannot use wildcards (`*`) in `AssignableScopes`. This wildcard restriction helps ensure a user can't potentially obtain access to a scope by updating the role definition.
 - You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
+- You can have only one wildcard in an action string.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.
 
-For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
+For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
 ## Input and output formats
 

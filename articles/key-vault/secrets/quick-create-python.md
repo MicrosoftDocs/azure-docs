@@ -130,7 +130,7 @@ python kv_secrets.py
 ```
 
 - If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#grant-access-to-your-key-vault).
-- Re-running the code with the same secrete name may produce the error, "(Conflict) Secret <name> is currently in a deleted but recoverable state." Use a different secret name.
+- Re-running the code with the same secret name may produce the error, "(Conflict) Secret <name> is currently in a deleted but recoverable state." Use a different secret name.
 
 ## Code details
 

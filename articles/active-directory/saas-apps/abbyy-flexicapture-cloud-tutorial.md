@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 06/09/2021
 ms.author: jeedes
 
 ---
@@ -33,10 +33,10 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* ABBYY FlexiCapture Cloud supports **SP and IDP** initiated SSO
-* ABBYY FlexiCapture Cloud supports **Just In Time** user provisioning
+* ABBYY FlexiCapture Cloud supports **SP and IDP** initiated SSO.
+* ABBYY FlexiCapture Cloud supports **Just In Time** user provisioning.
 
-## Adding ABBYY FlexiCapture Cloud from the gallery
+## Add ABBYY FlexiCapture Cloud from the gallery
 
 To configure the integration of ABBYY FlexiCapture Cloud into Azure AD, you need to add ABBYY FlexiCapture Cloud from the gallery to your list of managed SaaS apps.
 
@@ -46,7 +46,6 @@ To configure the integration of ABBYY FlexiCapture Cloud into Azure AD, you need
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **ABBYY FlexiCapture Cloud** in the search box.
 1. Select **ABBYY FlexiCapture Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for ABBYY FlexiCapture Cloud
 
@@ -67,11 +66,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **ABBYY FlexiCapture Cloud** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.flexicapture.com/FlexiCapture12/Login/<TENANT_NAME>/AccessToken/Saml`
@@ -94,6 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up ABBYY FlexiCapture Cloud** section, copy the appropriate URL(s) based on your requirement.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -138,9 +138,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the ABBYY FlexiCapture Cloud for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the ABBYY FlexiCapture Cloud for which you set up the SSO. 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the ABBYY FlexiCapture Cloud tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the ABBYY FlexiCapture Cloud for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the ABBYY FlexiCapture Cloud tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the ABBYY FlexiCapture Cloud for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

@@ -2,54 +2,16 @@
 title: Azure Event Grid delivery and retry
 description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 07/27/2021
 ---
 
 # Event Grid message delivery and retry
-
-This article describes how Azure Event Grid handles events when delivery isn't acknowledged.
-
-Event Grid provides durable delivery. It delivers each message **at least once** for each subscription. Events are sent to the registered endpoint of each subscription immediately. If an endpoint doesn't acknowledge receipt of an event, Event Grid retries delivery of the event.
+Event Grid provides durable delivery. It tries to deliver each message **at least once** for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed [retry schedule](#retry-schedule) and [retry policy](#retry-policy). By default, the Event Grid module delivers one event at a time to the subscriber. The payload is however an array with a single event.
 
 > [!NOTE]
 > Event Grid doesn't guarantee order for event delivery, so subscribers may receive them out of order. 
 
-## Batched event delivery
-
-Event Grid defaults to sending each event individually to subscribers. The subscriber receives an array with a single event. You can configure Event Grid to batch events for delivery for improved HTTP performance in high-throughput scenarios.
-
-Batched delivery has two settings:
-
-* **Max events per batch** - Maximum number of events Event Grid will deliver per batch. This number will never be exceeded, however fewer events may be delivered if no other events are available at the time of publish. Event Grid doesn't delay events to create a batch if fewer events are available. Must be between 1 and 5,000.
-* **Preferred batch size in kilobytes** - Target ceiling for batch size in kilobytes. Similar to max events, the batch size may be smaller if more events aren't available at the time of publish. It's possible that a batch is larger than the preferred batch size *if* a single event is larger than the preferred size. For example, if the preferred size is 4 KB and a 10-KB event is pushed to Event Grid, the 10-KB event will still be delivered in its own batch rather than being dropped.
-
-Batched delivery in configured on a per-event subscription basis via the portal, CLI, PowerShell, or SDKs.
-
-### Azure portal: 
-![Batch delivery settings](./media/delivery-and-retry/batch-settings.png)
-
-### Azure CLI
-When creating an event subscription, use the following parameters: 
-
-- **max-events-per-batch** - Maximum number of events in a batch. Must be a number between 1 and 5000.
-- **preferred-batch-size-in-kilobytes** - Preferred batch size in kilobytes. Must be a number between 1 and 1024.
-
-```azurecli
-storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
-endpoint=https://$sitename.azurewebsites.net/api/updates
-
-az eventgrid event-subscription create \
-  --resource-id $storageid \
-  --name <event_subscription_name> \
-  --endpoint $endpoint \
-  --max-events-per-batch 1000 \
-  --preferred-batch-size-in-kilobytes 512
-```
-
-For more information on using Azure CLI with Event Grid, see [Route storage events to web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
-
-## Retry schedule and duration
-
+## Retry schedule
 When EventGrid receives an error for an event delivery attempt, EventGrid decides whether it should retry the delivery, dead-letter the event, or drop the event based on the type of the error. 
 
 If the error returned by the subscribed endpoint is a configuration-related error that can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead-lettering on the event or drop the event if dead-letter isn't configured.
@@ -84,12 +46,68 @@ If the endpoint responds within 3 minutes, Event Grid will attempt to remove the
 
 Event Grid adds a small randomization to all retry steps and may opportunistically skip certain retries if an endpoint is consistently unhealthy, down for a long period, or appears to be overwhelmed.
 
-For deterministic behavior, set the event time-to-live and max delivery attempts in the [subscription retry policies](manage-event-delivery.md).
+## Retry policy
+You can customize the retry policy when creating an event subscription by using the following two configurations. An event will be dropped if either of the limits of the retry policy is reached. 
 
-By default, Event Grid expires all events that aren't delivered within 24 hours. You can [customize the retry policy](manage-event-delivery.md) when creating an event subscription. You provide the maximum number of delivery attempts (default is 30) and the event time-to-live (default is 1440 minutes).
+- **Maximum number of attempts** - The value must be an integer between 1 and 30. The default value is 30.
+- **Event time-to-live (TTL)** -  The value must be an integer between 1 and 1440. The default value is 1440 minutes
+
+For sample CLI and PowerShell command to configure these settings, see [Set retry policy](manage-event-delivery.md#set-retry-policy).
+
+## Output batching 
+Event Grid defaults to sending each event individually to subscribers. The subscriber receives an array with a single event. You can configure Event Grid to batch events for delivery for improved HTTP performance in high-throughput scenarios. Batching is turned off by default and can be turned on per-subscription.
+
+### Batching policy
+Batched delivery has two settings:
+
+* **Max events per batch** - Maximum number of events Event Grid will deliver per batch. This number will never be exceeded, however fewer events may be delivered if no other events are available at the time of publish. Event Grid doesn't delay events to create a batch if fewer events are available. Must be between 1 and 5,000.
+* **Preferred batch size in kilobytes** - Target ceiling for batch size in kilobytes. Similar to max events, the batch size may be smaller if more events aren't available at the time of publish. It's possible that a batch is larger than the preferred batch size *if* a single event is larger than the preferred size. For example, if the preferred size is 4 KB and a 10-KB event is pushed to Event Grid, the 10-KB event will still be delivered in its own batch rather than being dropped.
+
+Batched delivery in configured on a per-event subscription basis via the portal, CLI, PowerShell, or SDKs.
+
+### Batching behavior
+
+* All or none
+
+  Event Grid operates with all-or-none semantics. It doesn't support partial success of a batch delivery. Subscribers should be careful to only ask for as many events per batch as they can reasonably handle in 60 seconds.
+
+* Optimistic batching
+
+  The batching policy settings aren't strict bounds on the batching behavior, and are respected on a best-effort basis. At low event rates, you'll often observe the batch size being less than the requested maximum events per batch.
+
+* Default is set to OFF
+
+  By default, Event Grid only adds one event to each delivery request. The way to turn on batching is to set either one of the settings mentioned earlier in the article in the event subscription JSON.
+
+* Default values
+
+  It isn't necessary to specify both the settings (Maximum events per batch and Approximate batch size in kilo bytes) when creating an event subscription. If only one setting is set, Event Grid uses (configurable) default values. See the following sections for the default values, and how to override them.
+
+### Azure portal: 
+![Batch delivery settings](./media/delivery-and-retry/batch-settings.png)
+
+### Azure CLI
+When creating an event subscription, use the following parameters: 
+
+- **max-events-per-batch** - Maximum number of events in a batch. Must be a number between 1 and 5000.
+- **preferred-batch-size-in-kilobytes** - Preferred batch size in kilobytes. Must be a number between 1 and 1024.
+
+```azurecli
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+endpoint=https://$sitename.azurewebsites.net/api/updates
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint $endpoint \
+  --max-events-per-batch 1000 \
+  --preferred-batch-size-in-kilobytes 512
+```
+
+For more information on using Azure CLI with Event Grid, see [Route storage events to web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
+
 
 ## Delayed Delivery
-
 As an endpoint experiences delivery failures, Event Grid will begin to delay the delivery and retry of events to that endpoint. For example, if the first 10 events published to an endpoint fail, Event Grid will assume that the endpoint is experiencing issues and will delay all subsequent retries *and new* deliveries for some time - in some cases up to several hours.
 
 The functional purpose of delayed delivery is to protect unhealthy endpoints and the Event Grid system. Without back-off and delay of delivery to unhealthy endpoints, Event Grid's retry policy and volume capabilities can easily overwhelm a system.

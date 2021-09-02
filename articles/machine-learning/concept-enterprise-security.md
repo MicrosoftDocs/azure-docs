@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: aashishb
+ms.author: jmartens
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/20/2020
+ms.date: 06/02/2021
 ---
 
 # Enterprise security and governance for Azure Machine Learning
@@ -34,7 +34,7 @@ Here's the authentication process for Azure Machine Learning using multi-factor 
 
 [![Authentication in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
-Each workspace has an associated system-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) that has the same name as the workspace. This managed identity is used to securely access resources used by the workspace. It has the following Azure RBAC permissions on attached resources:
+Each workspace has an associated system-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) that has the same name as the workspace. This managed identity is used to securely access resources used by the workspace. It has the following Azure RBAC permissions on associated resources:
 
 | Resource | Permissions |
 | ----- | ----- |
@@ -43,13 +43,24 @@ Each workspace has an associated system-assigned [managed identity](../active-di
 | Key vault | Access to all keys, secrets, certificates |
 | Azure Container Registry | Contributor |
 | Resource group that contains the workspace | Contributor |
-| Resource group that contains the key vault (if different from the one that contains the workspace) | Contributor |
+
+The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. The identity token is not accessible to users and cannot be used by them to gain access to these resources. Users can only access the resources through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
+
+The managed identity needs Contributor permissions on the resource group containing the workspace in order to provision the associated resources, 
+and to [deploy Azure Container Instances for web service endpoints](how-to-deploy-azure-container-instance.md).
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
-Azure Machine Learning also creates an additional application (the name starts with `aml-` or `Microsoft-AzureML-Support-App-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and one in North Europe in the same subscription, you'll see two of these applications. These applications enable Azure Machine Learning to help you manage compute resources.
+> [!NOTE]
+> If your Azure Machine Learning workspaces has compute targets (compute cluster, compute instance, Azure Kubernetes Service, etc.) that were created __before May 14th, 2021__, you may also have an additional Azure Active Directory account. The account name starts with `Microsoft-AzureML-Support-App-` and has contributor-level access to your subscription for every workspace region.
+> 
+> If your workspace does not have an Azure Kubernetes Service (AKS) attached, you can safely delete this Azure AD account. 
+> 
+> If your workspace has attached AKS clusters, _and they were created before May 14th, 2021_, __do not delete this Azure AD account__. In this scenario, you must first delete and recreate the AKS cluster before you can delete the Azure AD account.
 
-You can also configure your own managed identities for use with Azure Virtual Machines and Azure Machine Learning compute cluster. With a VM, the managed identity can be used to access your workspace from the SDK, instead of the individual user's Azure AD account. With a compute cluster, the managed identity is used to access resources such as secured datastores that the user running the training job may not have access to. For more information, see [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md).
+You can provision the workspace to use user-assigned managed identity, and grant the managed identity additional roles, for example to access your own Azure Container Registry for base Docker images. For more information, see [Use managed identities for access control](how-to-use-managed-identities.md).
+
+You can also configure managed identities for use with Azure Machine Learning compute cluster. This managed identity is independent of workspace managed identity. With a compute cluster, the managed identity is used to access resources such as secured datastores that the user running the training job may not have access to. For more information, see [Identity-based data access to storage services on Azure](how-to-identity-based-data-access.md).
 
 > [!TIP]
 > There are some exceptions to the use of Azure AD and Azure RBAC within Azure Machine Learning:

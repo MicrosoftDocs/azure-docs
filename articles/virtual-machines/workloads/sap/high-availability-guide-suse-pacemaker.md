@@ -12,7 +12,8 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/13/2021
+ms.custom: subject-rbac-steps
+ms.date: 07/26/2021
 ms.author: radeltch
 
 ---
@@ -589,24 +590,21 @@ The Service Principal doesn't have permissions to access your Azure resources by
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
 ```json
-{
-    "properties": {
-        "roleName": "Linux Fence Agent Role",
-        "description": "Allows to power-off and start virtual machines",
-        "assignableScopes": [
-            "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-            "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Compute/*/read",
-                    "Microsoft.Compute/virtualMachines/powerOff/action",
-                    "Microsoft.Compute/virtualMachines/start/action"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
+       {
+         "Name": "Linux Fence Agent Role - Test",
+         "description": "Allows to power-off and start virtual machines",
+         "assignableScopes": [
+         "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+         "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+         ],
+         "actions": [
+         "Microsoft.Compute/*/read",
+         "Microsoft.Compute/virtualMachines/powerOff/action",
+         "Microsoft.Compute/virtualMachines/start/action"
+            ],
+         "notActions": [],
+         "dataActions": [],
+         "notDataActions": []
             }
         ]
     }
@@ -615,18 +613,8 @@ Use the following content for the input file. You need to adapt the content to y
 
 ### **[A]** Assign the custom role to the Service Principal
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Don't use the Owner role anymore!
-
-1. Go to [https://portal.azure.com](https://portal.azure.com)
-1. Open the All resources blade
-1. Select the virtual machine of the first cluster node
-1. Click Access control (IAM)
-1. Click Add role assignment
-1. Select the role "Linux Fence Agent Role"
-1. Enter the name of the application you created above
-1. Click Save
-
-Repeat the steps above for the second cluster node.
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
+Make sure to assign the role for both cluster nodes.    
 
 ### **[1]** Create the STONITH devices
 

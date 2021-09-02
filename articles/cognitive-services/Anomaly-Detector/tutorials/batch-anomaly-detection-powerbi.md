@@ -12,7 +12,7 @@ ms.date: 09/10/2020
 ms.author: mbullwin
 ---
 
-# Tutorial: Visualize anomalies using batch detection and Power BI
+# Tutorial: Visualize anomalies using batch detection and Power BI (univariate)
 
 Use this tutorial to find anomalies within a time series data set as a batch. Using Power BI desktop, you will take an Excel file, prepare the data for the Anomaly Detector API, and visualize statistical anomalies throughout it.
 
@@ -166,8 +166,3 @@ After clicking **Ok**, you will have a `Value for True` field, at the bottom of 
 Apply colors to your chart by clicking on the **Format** tool and **Data colors**. Your chart should look something like the following:
 
 ![An image of the final chart](../media/tutorials/final-chart.png)
-
-## Next steps
-
-> [!div class="nextstepaction"]
->[Streaming anomaly detection with Azure Databricks](../overview.md)

@@ -58,8 +58,8 @@ Although this application is written in Java, the API is a RESTful Web service c
 
       static String subscriptionKey = "ENTER KEY HERE";
     
-    	static String host = "https://api.cognitive.microsoft.com";
-    	static String path = "/bing/v7.0/entities";
+    	static String host = "https://api.bing.microsoft.com";
+    	static String path = "/v7.0/search";
     
     	static String mkt = "en-US";
     	static String query = "italian restaurant near me";

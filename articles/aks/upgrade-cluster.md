@@ -62,7 +62,7 @@ AKS accepts both integer values and a percentage value for max surge. An integer
 During an upgrade, the max surge value can be a minimum of 1 and a maximum value equal to the number of nodes in your node pool. You can set larger values, but the maximum number of nodes used for max surge won't be higher than the number of nodes in the pool at the time of upgrade.
 
 > [!Important]
-> The max surge setting on a node pool is permanent.  Subsequent Kubernetes upgrades or node version upgrades will use this setting. You may change the max surge value for your node pools at any time. For production node pools, we recommend a max-surge setting of 33%.
+> The max surge setting on a node pool is persistent.  Subsequent Kubernetes upgrades or node version upgrades will use this setting. You may change the max surge value for your node pools at any time. For production node pools, we recommend a max-surge setting of 33%.
 
 Use the following commands to set max surge values for new or existing node pools.
 
@@ -133,6 +133,12 @@ The cluster auto-upgrade for AKS clusters is a preview feature.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+Add the following extension, for `az cli`.
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
+
 Register the `AutoUpgradePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
@@ -163,6 +169,10 @@ To set the auto-upgrade channel on existing cluster, update the *auto-upgrade-ch
 az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
+## Using Cluster Auto-Upgrade with Planned Maintenance
+
+If you are using Planned Maintenance as well as Auto-Upgrade, your upgrade will start during your specified maintenance window. For more details on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)][planned-maintenance].
+
 ## Next steps
 
 This article showed you how to upgrade an existing AKS cluster. To learn more about deploying and managing AKS clusters, see the set of tutorials.
@@ -186,3 +196,4 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
+[planned-maintenance]: planned-maintenance.md

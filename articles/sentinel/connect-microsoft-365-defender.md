@@ -27,6 +27,8 @@ ms.author: yelevin
 >
 > You may see the old names still in use for a period of time.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 ## Background
 
 Azure Sentinel's [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) connector with incident integration allows you to stream all M365D incidents and alerts into Azure Sentinel, and keeps the incidents synchronized between both portals. M365D incidents include all their alerts, entities, and other relevant information, and they are enriched by and group together alerts from M365D's component services **Microsoft Defender for Endpoint**, **Microsoft Defender for Identity**, **Microsoft Defender for Office 365**, and **Microsoft Cloud App Security**.
@@ -49,7 +51,7 @@ For more information about incident integration and advanced hunting event colle
 
 1. In Azure Sentinel, select **Data connectors**, select **Microsoft 365 Defender (Preview)** from the gallery and select **Open connector page**.
 
-1. Under **Configuration** in the **Connect incidents & alerts** section, click the **Connect incidents & alerts** button.
+1. Under **Configuration** in the **Connect incidents & alerts** section, select the **Connect incidents & alerts** button.
 
 1. To avoid duplication of incidents, it is recommended to mark the check box labeled **Turn off all Microsoft incident creation rules for these products.**
 
@@ -127,5 +129,5 @@ In the **Next steps** tab, you’ll find some useful workbooks, sample queries, 
 
 In this document, you learned how to integrate Microsoft 365 Defender incidents, and advanced hunting event data from Microsoft Defender for Endpoint, into Azure Sentinel, using the Microsoft 365 Defender connector. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

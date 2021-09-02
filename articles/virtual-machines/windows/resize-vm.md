@@ -6,10 +6,13 @@ ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Resize a virtual machine using the Azure portal or PowerShell
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 This article shows you how to move a VM to a different [VM size](../sizes.md).
 
@@ -36,7 +39,7 @@ $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 ```
 
-List the VM sizes that are available on the hardware cluster where the VM is hosted. 
+List the VM sizes that are available in the region where the VM is hosted. 
    
 ```powershell
 Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 

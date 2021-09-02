@@ -15,6 +15,13 @@ Before you begin this article, make sure you completed the previous article, [As
 
 After you assign share-level permissions with Azure RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. Think of the Azure RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Azure RBAC permissions
 
 The following table contains the Azure RBAC permissions related to this configuration:
@@ -29,7 +36,7 @@ The following table contains the Azure RBAC permissions related to this configur
 |     |  Read & execute |  Read & execute |
 |     |  Read           |  Read    |
 |     |  Write          |  Write   |
-|Storage File Data SMB Share Elevated Contributor | Full control  |  Modify, Read, Write, Edit, Execute |
+|Storage File Data SMB Share Elevated Contributor | Full control  |  Modify, Read, Write, Edit (Change permissions), Execute |
 |     |  Modify          |  Modify |
 |     |  Read & execute  |  Read & execute |
 |     |  Read            |  Read   |
@@ -56,10 +63,10 @@ The following permissions are included on the root directory of a file share:
 |Users|Definition|
 |---|---|
 |BUILTIN\Administrators|All users who are domain administrators of the on-prem AD DS environment.
-|BUILTIN\Users|Built-in security group in AD. It includes NT AUTHORITY\Authenticated Users by default. For a traditional file server, you can configure the membership definition per server. For Azure Files, there isn’t a hosting server, hence BUILTIN\Users includes the same set of users as NT AUTHORITY\Authenticated Users.|
-|NT AUTHORITY\SYSTEM|The service account of the operating system of the file server. Such service account doesn’t apply in Azure Files context. It is included in the root directory to be consistent with Windows Files Server experience for hybrid scenarios.|
+|BUILTIN\Users|Built-in security group in AD. It includes NT AUTHORITY\Authenticated Users by default. For a traditional file server, you can configure the membership definition per server. For Azure Files, there isn't a hosting server, hence BUILTIN\Users includes the same set of users as NT AUTHORITY\Authenticated Users.|
+|NT AUTHORITY\SYSTEM|The service account of the operating system of the file server. Such service account doesn't apply in Azure Files context. It is included in the root directory to be consistent with Windows Files Server experience for hybrid scenarios.|
 |NT AUTHORITY\Authenticated Users|All users in AD that can get a valid Kerberos token.|
-|CREATOR OWNER|Each object either directory or file has an owner for that object. If there are ACLs assigned to “CREATOR OWNER” on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
+|CREATOR OWNER|Each object either directory or file has an owner for that object. If there are ACLs assigned to "CREATOR OWNER" on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
 
 
 

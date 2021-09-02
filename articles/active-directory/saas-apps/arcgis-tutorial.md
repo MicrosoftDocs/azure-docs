@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 06/18/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with ArcGIS Online
@@ -119,29 +119,29 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. If you want to setup ArcGIS Online manually, open a new web browser window and log into your ArcGIS company site as an administrator and perform the following steps:
 
-2. Click **EDIT SETTINGS**.
+2. Go to the **Organization** -> **Settings**. 
 
     ![Edit Settings](./media/arcgis-tutorial/settings.png "Edit Settings")
 
-3. Click **Security**.
+3. In the left menu, click **Security** and select **New SAML login** in the Logins tab.
 
-    ![Security](./media/arcgis-tutorial/secure.png "Security")
+    ![screenshot for Security](./media/arcgis-tutorial/security.png)
 
-4. Under **Enterprise Logins**, click **SET IDENTITY PROVIDER**.
+4. In the **Set SAML login** window, choose the configuration as **One identity provider** and click **Next**.
 
-    ![Enterprise Logins](./media/arcgis-tutorial/enterprise.png "Enterprise Logins")
+    ![Enterprise Logins](./media/arcgis-tutorial/identity-provider.png "Enterprise Logins")
 
-5. On the **Set Identity Provider** configuration page, perform the following steps:
+5. On the **Specify properties** tab, perform the following steps:
 
-    ![Set Identity Provider](./media/arcgis-tutorial/identity-provider.png "Set Identity Provider")
+    ![Set Identity Provider](./media/arcgis-tutorial/set-saml-login.png "Set Identity Provider")
 
     a. In the **Name** textbox, type your organization’s name.
 
-    b. For **Metadata for the Enterprise Identity Provider will be supplied using**, select **A File**.
+    b. For **Metadata source for Enterprise Identity Provider**, select **File**.
 
-    c. To upload your downloaded metadata file, click **Choose file**.
+    c. Click on **Choose File** to upload the **Federation Metadata XML** file, which you have downloaded from Azure portal.
 
-    d. Click **SET IDENTITY PROVIDER**.
+    d. Click **Save**.
 
 ### Create ArcGIS Online test user
 
@@ -152,22 +152,25 @@ In the case of ArcGIS Online, provisioning is a manual task.
 
 1. Log in to your **ArcGIS** tenant.
 
-2. Click **INVITE MEMBERS**.
+2. Go to the **Organization** -> **Members** and click **Invite members**.
 
     ![Invite Members](./media/arcgis-tutorial/invite.png "Invite Members")
 
-3. Select **Add members automatically without sending an email**, and then click **NEXT**.
+3. Select **Add members without sending invitations** method, and then click **Next**.
 
-    ![Add Members Automatically](./media/arcgis-tutorial/members.png "Add Members Automatically")
+    ![Add Members Automatically](./media/arcgis-tutorial/add-members.png "Add Members Automatically")
 
-4. On the **Members** dialog page, perform the following steps:
+1. In the **Compile member list**, select **New member** and click **Next**.
+
+4. Fill the required fields in the following page and click **Next**.
 
     ![Add and review](./media/arcgis-tutorial/review.png "Add and review")
 
-     a. Enter the **Email**, **First Name**, and **Last Name** of a valid Azure AD account you want to provision.
+5. In the next page, select the member you want to add and click **Next**. 
 
-     b. Click **ADD AND REVIEW**.
-5. Review the data you have entered, and then click **ADD MEMBERS**.
+1. Set the required member properties in the next page and click **Next**.
+
+1. In the **Confirm and complete** tab, click **Add members** .
 
     ![Add member](./media/arcgis-tutorial/add.png "Add member")
 

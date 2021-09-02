@@ -89,13 +89,13 @@ Each key in the `measurements` object must match the name of a telemetry type in
 
 You can include a `timestamp` field in the body to specify the UTC date and time of the message. This field must be in ISO 8601 format. For example, `2020-06-08T20:16:54.602Z`. If you don't include a timestamp, the current date and time is used.
 
-You can include a `modelId` field in the body. Use this field to associate the device with a device template during provisioning. This functionality is only supported by [V3 applications](howto-get-app-info.md).
+You can include a `modelId` field in the body. Use this field to associate the device with a device template during provisioning. This functionality is only supported by [V3 applications](howto-faq.yml#how-do-i-get-information-about-my-application-).
 
 The `deviceId` must be alphanumeric, lowercase, and may contain hyphens.
 
-If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassociated device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices.md).
+If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassociated device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
 
-In [V2 applications](howto-get-app-info.md), the new device appears on the **Device Explorer > Unassociated devices** page. Select **Associate** and choose a device template to start receiving incoming telemetry from the device.
+In [V2 applications](howto-faq.yml#how-do-i-get-information-about-my-application-), the new device appears on the **Device Explorer > Unassociated devices** page. Select **Associate** and choose a device template to start receiving incoming telemetry from the device.
 
 > [!NOTE]
 > Until the device is associated to a template, all HTTP calls to the function return a 403 error status.
@@ -281,4 +281,4 @@ The device bridge only forwards messages to IoT Central, and doesn't send messag
 Now that you've learned how to deploy the IoT Central device bridge, here's the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Manage your devices](howto-manage-devices.md)
+> [Manage your devices](howto-manage-devices-individually.md)

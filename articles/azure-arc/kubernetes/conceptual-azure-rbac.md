@@ -23,7 +23,7 @@ In order to route all authorization access checks to the authorization service i
 
 The `apiserver` of the cluster is configured to use [webhook token authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication) and [webhook authorization](https://kubernetes.io/docs/reference/access-authn-authz/webhook/) so that `TokenAccessReview` and `SubjectAccessReview` requests are routed to the guard webhook server. The `TokenAccessReview` and `SubjectAccessReview` requests are triggered by requests for Kubernetes resources sent to the `apiserver`.
 
-Guard then makes a `checkAccess` call on the authorization service in  Azure to see if the requesting Azure AD entity has access to the resource of concern. 
+Guard then makes a `checkAccess` call on the authorization service in Azure to see if the requesting Azure AD entity has access to the resource of concern. 
 
 If a role in assignment that permits this access exists, then an `allowed` response is sent from the authorization service guard. Guard, in turn, sends an `allowed` response to the `apiserver`, enabling the calling entity to access the requested Kubernetes resource.
 

@@ -2,36 +2,37 @@
 title: How to configure self-service application assignment | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
-author: iantheninja
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: iangithinji
+ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: phsignor
 ---
 
 # How to configure self-service application assignment
 
-Before your users can self-discover applications from their My Apps, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to. This functionality is available for applications that were added from the [Azure AD Gallery](./add-application-portal.md), [Azure AD Application Proxy](../app-proxy/application-proxy.md) or were added via [user or admin consent](../develop/application-consent-experience.md). 
+Before your users can self-discover applications from their My Apps, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to. This functionality is available for applications that were added from the [Azure AD Gallery](./add-application-portal.md), [Azure AD Application Proxy](../app-proxy/application-proxy.md) or were added via [user or admin consent](../develop/application-consent-experience.md).
 
 This feature is a great way for you to save time and money as an IT group, and is highly recommended as part of a modern applications deployment with Azure Active Directory.
 
 Using this feature, you can:
 
--   Let users self-discover applications from the [My Apps](https://myapps.microsoft.com/) without bothering the IT group.
+- Let users self-discover applications from the [My Apps](https://myapps.microsoft.com/) without bothering the IT group.
 
--   Add those users to a pre-configured group so you can see who has requested access, remove access, and manage the roles assigned to them.
+- Add those users to a pre-configured group so you can see who has requested access, remove access, and manage the roles assigned to them.
 
--   Optionally allow a business approver to approve application access requests so the IT group doesn’t have to.
+- Optionally allow a business approver to approve application access requests so the IT group doesn’t have to.
 
--   Optionally configure up to 10 individuals who may approve access to this application.
+- Optionally configure up to 10 individuals who may approve access to this application.
 
--   Optionally allow a business approver to set the passwords those users can use to sign in to the application, right from the business approver’s [My Apps](https://myapps.microsoft.com/).
+- Optionally allow a business approver to set the passwords those users can use to sign in to the application, right from the business approver’s [My Apps](https://myapps.microsoft.com/).
 
--   Optionally automatically assign self-service assigned users to an application role directly.
+- Optionally automatically assign self-service assigned users to an application role directly.
 
 > [!NOTE]
 > An Azure Active Directory Premium (P1 or P2) license is required for users to request to join a self-service app and for owners to approve or deny requests. Without an Azure Active Directory Premium license, users cannot add self-service apps.
@@ -73,4 +74,5 @@ To enable self-service application access to an application, follow the steps be
 Once you complete Self-service application configuration, users can navigate to their [My Apps](https://myapps.microsoft.com/) and click the **Add self-service apps** button to find the apps that are enable with self-service access. Business approvers also see a notification in their [My Apps](https://myapps.microsoft.com/). You can enable an email notifying them when a user has requested access to an application that requires their approval.
 
 ## Next steps
+
 [Setting up Azure Active Directory for self-service group management](../enterprise-users/groups-self-service-management.md)

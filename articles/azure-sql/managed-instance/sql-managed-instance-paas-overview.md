@@ -3,13 +3,13 @@ title: What is Azure SQL Managed Instance?
 description: Learn about how Azure SQL Managed Instance provides near 100% compatibility with the latest SQL Server (Enterprise Edition) database engine
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: overview
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, vanto
+ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
 ---
 
@@ -150,7 +150,7 @@ Azure SQL Managed Instance provides a set of advanced security features that can
 - [Row-level security](/sql/relational-databases/security/row-level-security) (RLS) enables you to control access to rows in a database table based on the characteristics of the user executing a query (such as by group membership or execution context). RLS simplifies the design and coding of security in your application. RLS enables you to implement restrictions on data row access. For example, ensuring that workers can access only the data rows that are pertinent to their department, or restricting a data access to only the relevant data.
 - [Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) encrypts SQL Managed Instance data files, known as encrypting data at rest. TDE performs real-time I/O encryption and decryption of the data and log files. The encryption uses a database encryption key (DEK), which is stored in the database boot record for availability during recovery. You can protect all your databases in a managed instance with transparent data encryption. TDE is proven encryption-at-rest technology in SQL Server that is required by many compliance standards to protect against theft of storage media.
 
-Migration of an encrypted database to SQL Managed Instance is supported via Azure Database Migration Service or native restore. If you plan to migrate an encrypted database using native restore, migration of the existing TDE certificate from the SQL Server instance to SQL Managed Instance is a required step. For more information about migration options, see [SQL Server migration to SQL Managed Instance](migrate-to-instance-from-sql-server.md).
+Migration of an encrypted database to SQL Managed Instance is supported via Azure Database Migration Service or native restore. If you plan to migrate an encrypted database using native restore, migration of the existing TDE certificate from the SQL Server instance to SQL Managed Instance is a required step. For more information about migration options, see [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
 ## Azure Active Directory integration
 

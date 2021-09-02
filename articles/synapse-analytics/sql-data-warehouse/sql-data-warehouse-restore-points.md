@@ -2,15 +2,15 @@
 title: User-defined restore points 
 description: How to create a restore point for dedicated SQL pool (formerly SQL DW).
 services: synapse-analytics
-author: anumjs
+author: rothja
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 07/03/2019
-ms.author: anjangsh
+ms.author: jroth
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
 # User-defined restore points for a dedicated SQL pool (formerly SQL DW)
@@ -37,7 +37,7 @@ $Label = "<YourRestorePointLabel>"
 
 Connect-AzAccount
 Get-AzSubscription
-Select-AzSubscription -SubscriptionName $SubscriptionName
+Set-AzContext -SubscriptionName $SubscriptionName
 
 # Create a restore point of the original database
 New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -RestorePointLabel $Label

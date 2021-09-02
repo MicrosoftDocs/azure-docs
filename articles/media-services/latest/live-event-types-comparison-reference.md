@@ -41,7 +41,7 @@ The following table compares features of the Live Event types. The types are set
 | Maximum aggregate bandwidth of contribution feed|60 Mbps|N/A|
 | Maximum bitrate for a single layer in the contribution |20 Mbps|20 Mbps|
 | Support for multiple language audio tracks|Yes|No|
-| Supported input video codecs |H.264/AVC and H.265/HEVC|H.264/AVC|
+| Supported input video codecs |H.264/AVC (RTMP and Smooth), or H.265/HEVC (Smooth Streaming ingest only)|H.264/AVC (RTMP and Smooth Streaming ingest)|
 | Supported output video codecs|Same as input|H.264/AVC|
 | Supported video bit depth, input, and output|Up to 10-bit including HDR 10/HLG|8-bit|
 | Supported input audio codecs|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|

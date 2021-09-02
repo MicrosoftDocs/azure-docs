@@ -150,7 +150,7 @@ To configure environment variables, such as `JEKYLL_ENV`, add an `env` section t
       # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
       app_location: "/" # App source code path
       api_location: "" # Api source code path - optional
-      output_location: "_site_" # Built app content directory - optional
+      output_location: "_site" # Built app content directory - optional
       ###### End of Repository/Build Configurations ######
    env:
       JEKYLL_ENV: production

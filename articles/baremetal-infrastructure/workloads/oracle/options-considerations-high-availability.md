@@ -2,7 +2,7 @@
 title: Options or Oracle BareMetal Infrastructure servers
 description: Learn about the options and considerations for Oracle BareMetal Infrastructure servers.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/15/2021
 ---
 

@@ -45,6 +45,8 @@ For this example, provide values for the following template parameters:
 
 Deploy the template with the [az deployment group create][az-deployment-group-create] command. This example builds and pushes the *helloworld-node:testrun* image to a registry named *mycontainerregistry*.
 
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
+
 ```azurecli
 az deployment group create \
   --resource-group myResourceGroup \

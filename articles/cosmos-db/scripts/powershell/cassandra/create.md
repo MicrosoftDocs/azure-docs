@@ -6,7 +6,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/13/2020
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a keyspace and table for Azure Cosmos DB - Cassandra API

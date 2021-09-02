@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure App Service by usi
 ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
-ms.date: 01/01/2021
+ms.date: 06/23/2021
 ---
 
 
@@ -23,25 +23,33 @@ ms.date: 01/01/2021
 
 This article describes how you plan for and manage costs for Azure App Service. First, you use the Azure pricing calculator to help plan for App Service costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. After you've started using App Service resources, use [Cost Management](../cost-management-billing/index.yml?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure App Service are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for App Service, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
-## Relevant costs for App Service
+## Understand the full billing model for Azure App Service
 
-App Service runs on Azure infrastructure that accrues cost. It's important to understand that additional infrastructure might accrue cost. You must manage that cost when you make changes to deployed resources.
+Azure App Service runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
 
-### Costs that accrue with Azure App Service
+### How you're charged for Azure App Service
 
-Depending on which feature you use in App Service, the following cost-accruing resources may be created:
+When you create or use App Service resources, you're charged for the following meters:
 
-- **App Service plan**  Required to host an App Service app.
-- **Isolated tier**  A [Virtual Network](../virtual-network/index.yml) is required for an App Service environment.
-- **Backup**  A [Storage account](../storage/index.yml) is required to make backups.
-- **Diagnostic logs**  You can select [Storage account](../storage/index.yml) as the logging option, or integrate with [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
-- **App Service certificates**  Certificates you purchase in Azure must be maintained in [Azure Key Vault](../key-vault/index.yml).
+- You're charged an hourly rate based on the pricing tier of your App Service plan, prorated to the second.
+- The charge is applied to each scaled-out instance in your plan, based on the amount of time that the VM instance is allocated. 
 
 Other cost resources for App Service are (see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/) for details):
 
 - [App Service domains](manage-custom-dns-buy-domain.md)  Your subscription is charged for the domain registration on a yearly basis, if you enable automatic renewal.
 - [App Service certificates](configure-ssl-certificate.md#import-an-app-service-certificate)  One-time charge at the time of purchase. If you have multiple subdomains to secure, you can reduce cost by purchasing one wildcard certificate instead of multiple standard certificates.
 - [IP-based certificate bindings](configure-ssl-bindings.md#create-binding)  The binding is configured on a certificate at the app level. Costs are accrued for each binding. For **Standard** tier and above, the first IP-based binding is not charged.
+
+At the end of your billing cycle, the charges for each VM instance. Your bill or invoice shows a section for all App Service costs. There's a separate line item for each meter.
+
+### Other costs that might accrue with Azure App Service
+
+Depending on which feature you use in App Service, the following cost-accruing resources may be created:
+
+- **Isolated tier**  A [Virtual Network](../virtual-network/index.yml) is required for an App Service environment and is charged separately.
+- **Backup**  A [Storage account](../storage/index.yml) is required to make backups and is charged separately.
+- **Diagnostic logs**  You can select [Storage account](../storage/index.yml) as the logging option, or integrate with [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md). These services are charged separately.
+- **App Service certificates**  Certificates you purchase in Azure must be maintained in [Azure Key Vault](../key-vault/index.yml), which is charged separately.
 
 ### Costs that might accrue after resource deletion
 
@@ -55,9 +63,9 @@ After you delete Azure App Service resources, resources from related Azure servi
 - Log Analytic namespaces you created to ship diagnostic logs
 - [Instance or stamp reservations](#azure-reservations) for App Service that haven't expired yet
 
-### Using Monetary Credit with Azure App Service
+### Using Azure Prepayment with Azure App Service
 
-You can pay for Azure App Service charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services, including those from the Azure Marketplace.
+You can pay for Azure App Service charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services, including those from the Azure Marketplace.
 
 ## Estimate costs
 

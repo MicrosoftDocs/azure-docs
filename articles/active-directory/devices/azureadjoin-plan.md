@@ -163,7 +163,10 @@ If you use AD FS, see [Verify and manage single sign-on with AD FS](/previous-ve
 
 Users get SSO from Azure AD joined devices if the device has access to a domain controller. 
 
-**Recommendation:** Deploy [Azure AD App proxy](../manage-apps/application-proxy.md) to enable secure access for these applications.
+> [!NOTE]
+> Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+
+**Recommendation:** Deploy [Azure AD App proxy](../app-proxy/application-proxy.md) to enable secure access for these applications.
 
 ### On-premises network shares
 
@@ -239,7 +242,7 @@ Choose **Selected** and selects the users you want to add to the local administr
 
 ### Require multi-factor authentication (MFA) to join devices
 
-Select **“Yes** if you require users to perform MFA while joining devices to Azure AD. For the users joining devices to Azure AD using MFA, the device itself becomes a 2nd factor.
+Select **“Yes** if you require users to perform MFA while joining devices to Azure AD.
 
 ![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
 

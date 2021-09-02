@@ -26,7 +26,7 @@ The **Networking** features of Security Center include:
 
 From the [asset inventory page](asset-inventory.md), use the resource type filter to select the networking resources that you want to investigate:
 
-:::image type="content" source="./media/security-center-network-recommendations/network-filters-inventory.png" alt-text="Asset inventory network resource types" lightbox="./media/security-center-network-recommendations/network-filters-inventory.png":::
+:::image type="content" source="./media/security-center-network-recommendations/network-filters-inventory.png" alt-text="Asset inventory network resource types." lightbox="./media/security-center-network-recommendations/network-filters-inventory.png":::
 
 
 ## Network map
@@ -37,7 +37,7 @@ To open the Network map:
 
 1. From Security Center's menu, open the Azure Defender dashboard and select **Network map**.
 
-    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Opening the network map from the Azure Defender dashboard" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Opening the network map from the Azure Defender dashboard." lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
 1. Select the **Layers** menu choose **Topology**.
  
@@ -50,7 +50,7 @@ The default view of the topology map displays:
 - Internet facing resources
 - The map is optimized for the subscriptions you selected in Azure. If you modify your selection, the map is recalculated and re-optimized based on your new settings.  
 
-[![Networking topology map](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
+[![Networking topology map.](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
 ## Understanding the network map
 
@@ -102,7 +102,7 @@ To drill down into a resource:
 
 **This data is based on analysis of the Network Security Groups as well as advanced machine learning algorithms that analyze multiple rules to understand their crossovers and interactions.** 
 
-[![Networking traffic map](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+[![Networking traffic map.](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
 ## Next steps

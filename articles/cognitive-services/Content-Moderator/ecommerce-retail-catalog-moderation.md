@@ -18,6 +18,8 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Moderate e-commerce product images with Azure Content Moderator
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 In this tutorial, you'll learn how to use Azure Cognitive Services, including Content Moderator, to classify and moderate product images for an e-commerce scenario. You'll use Computer Vision and Custom Vision to apply tags (labels) to images, and then you'll create a team review, which combines Content Moderator's machine-learning-based technologies with human review teams to provide an intelligent moderation system.
 
 This tutorial shows you how to:

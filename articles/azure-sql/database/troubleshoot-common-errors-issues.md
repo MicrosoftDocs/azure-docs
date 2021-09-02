@@ -3,13 +3,13 @@ title: Troubleshoot common connection issues to Azure SQL Database
 description: Provides steps to troubleshoot Azure SQL Database connection issues and resolve other Azure SQL Database or Azure SQL Managed Instance specific issues
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: development
+ms.subservice: connect
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
-ms.reviewer: sstein,vanto
-ms.date: 01/14/2021
+ms.reviewer: mathoma,vanto
+ms.date: 08/20/2021
 ---
 
 # Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance
@@ -25,6 +25,7 @@ The Azure infrastructure has the ability to dynamically reconfigure servers when
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
+| 926 |14 |Database 'replicatedmaster' cannot be opened. It has been marked SUSPECT by recovery. See the SQL Server errorlog for more information.<br/><br/>This error may be logged on SQL Managed Instance errorlog, for a short period of time, during the last stage of a reconfiguration, while the old primary is shutting down its log.<br/>Other, non-transient scenarios involving this error message are described in the [MSSQL Errors documentation](/sql/relational-databases/errors-events/mssqlserver-926-database-engine-error).|
 | 4060 |16 |Cannot open database "%.&#x2a;ls" requested by the login. The login failed. For more information, see [Errors 4000 to 4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |The service has encountered an error processing your request. Please try again. Error code %d.<br/><br/>You receive this error when the service is down due to software or hardware upgrades, hardware failures, or any other failover problems. The error code (%d) embedded within the message of error 40197 provides additional information about the kind of failure or failover that occurred. Some examples of the error codes are embedded within the message of error 40197 are 40020, 40143, 40166, and 40540.<br/><br/>Reconnecting automatically connects you to a healthy copy of your database. Your application must catch error 40197, log the embedded error code (%d) within the message for troubleshooting, and try reconnecting to SQL Database until the resources are available, and your connection is established again. For more information, see [Transient errors](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d. For more information, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md).|
@@ -38,7 +39,7 @@ The Azure infrastructure has the ability to dynamically reconfigure servers when
 
 1. Check the [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) for any known outages that occurred during the time during which the errors were reported by the application.
 2. Applications that connect to a cloud service such as Azure SQL Database should expect periodic reconfiguration events and implement retry logic to handle these errors instead of surfacing application errors to users.
-3. As a database approaches its resource limits, it can seem to be a transient connectivity issue. See [Resource limits](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
+3. As a database approaches its resource limits, it can seem to be a transient connectivity issue. See [Resource limits](resource-limits-logical-server.md#what-happens-when-resource-limits-are-reached).
 4. If connectivity problems continue, or if the duration for which your application encounters the error exceeds 60 seconds or if you see multiple occurrences of the error in a given day, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/support/options) site.
 
 #### Implementing Retry Logic
@@ -122,12 +123,12 @@ Typically, the service administrator can use the following steps to add the logi
 5. In SSMS Object Explorer, expand **Databases**.
 6. Select the database that you want to grant the user permission to.
 7. Right-click **Security**, and then select **New**, **User**.
-8. In the generated script with placeholders, edit and run the following SQL query:
+8. In the generated script with placeholders (sample shown below), replace template parameters by following the steps [here](/sql/ssms/template/replace-template-parameters) and execute it:
 
    ```sql
-   CREATE USER <user_name, sysname, user_name>
-   FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
+   CREATE USER [<user_name, sysname, user_name>]
+   FOR LOGIN [<login_name, sysname, login_name>]
+   WITH DEFAULT_SCHEMA = [<default_schema, sysname, dbo>];
    GO
 
    -- Add user to the database owner role
@@ -243,13 +244,13 @@ The following steps can either help you work around the problem or provide you w
 
 If you repeatedly encounter this error, try to resolve the issue by following these steps:
 
-1. Check the sys.dm_exec_requests view to see any open sessions that have a high value for the total_elapsed_time column. Perform this check by running the following SQL script:
+1. Check the `sys.dm_exec_requests` view to see any open sessions that have a high value for the `total_elapsed_time` column. Perform this check by running the following SQL script:
 
    ```sql
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Determine the **input buffer** for the head blocker using the [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) dynamic management function, and the session_id of the offending query, for example:
+2. Determine the input buffer for the head blocker using the [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) dynamic management function, and the `session_id` of the offending query, for example:
 
    ```sql 
    SELECT * FROM sys.dm_exec_input_buffer (100,0);
@@ -257,7 +258,7 @@ If you repeatedly encounter this error, try to resolve the issue by following th
 
 3. Tune the query.
 
-    > [!Note]
+    > [!NOTE]
     > For more information on troubleshooting blocking in Azure SQL Database, see [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md).
 
 Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).
@@ -284,6 +285,10 @@ Try to reduce the number of rows that are operated on immediately by implementin
 
   > [!NOTE]
   > For an index rebuild, the average size of the field that's updated should be substituted by the average index size.
+
+  > [!NOTE]
+  > For more information on troubleshooting a full transaction log in Azure SQL Database and Azure SQL Managed Instance, see [Troubleshooting transaction log errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-transaction-log-errors-issues.md).
+
 
 ### Error 40553: The session has been terminated because of excessive memory usage
 
@@ -391,3 +396,8 @@ For more information about how to enable logging, see [Enable diagnostics loggin
 
 - [Azure SQL Database connectivity architecture](./connectivity-architecture.md)
 - [Azure SQL Database and Azure Synapse Analytics network access controls](./network-access-controls-overview.md)
+
+## See also
+
+- [Troubleshooting transaction log errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-transaction-log-errors-issues.md)
+- [Troubleshoot transient connection errors in SQL Database and SQL Managed Instance](troubleshoot-common-connectivity-issues.md)

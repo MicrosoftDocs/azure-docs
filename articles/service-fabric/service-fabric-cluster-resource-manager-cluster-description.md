@@ -345,7 +345,7 @@ Service Fabric expects that in some cases, particular workloads might need to ru
 * A workload must be run on specific hardware for performance, scale, or security isolation reasons.
 * A workload should be isolated from other workloads for policy or resource consumption reasons.
 
-To support these sorts of configurations, Service Fabric includes tags that you can apply to nodes. These tags are called *node properties*. *Placement constraints* are the statements attached to individual services that you select for one or more node properties. Placement constraints define where services should run. The set of constraints is extensible. Any key/value pair can work.
+To support these sorts of configurations, Service Fabric includes tags that you can apply to nodes. These tags are called *node properties*. *Placement constraints* are the statements attached to individual services that you select for one or more node properties. Placement constraints define where services should run. The set of constraints is extensible. Any key/value pair can work. Starting with Service Fabric 8.1, node properties can be updated dynamically, with no disruption to running workloads.
 
 ![Different workloads for a cluster layout][Image5]
 
@@ -469,7 +469,7 @@ Just like for placement constraints and node properties, Service Fabric Cluster 
 
 ## Capacity
 
-If you turned off all resource *balancing*, Service Fabric Cluster Resource Manager would still ensure that no node goes over its capacity. Managing capacity overruns is possible unless the cluster is too full or the workload is larger than any node. Capacity is another *constraint* that Cluster Resource Manager uses to understand how much of a resource a node has. Remaining capacity is also tracked for the cluster as a whole.
+If you turned off all resource *balancing*, Service Fabric Cluster Resource Manager would still ensure that no node goes over its capacity. Managing capacity overruns is possible unless the cluster is too full or the workload is larger than any node. Capacity is another *constraint* that Cluster Resource Manager uses to understand how much of a resource a node has. Remaining capacity is also tracked for the cluster as a whole. Starting with Service Fabric 8.1, node capacities can be updated dynamically, with no disruption to running workloads.
 
 Both the capacity and the consumption at the service level are expressed in terms of metrics. For example, the metric might be "ClientConnections" and a node might have a capacity for "ClientConnections" of 32,768. Other nodes can have other limits. A service running on that node can say it's currently consuming 32,256 of the metric "ClientConnections."
 

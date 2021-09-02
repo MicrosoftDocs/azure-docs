@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 08/30/2021
 ---
 
 # Move operation support for resources
@@ -906,7 +906,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | controllers | Yes | Yes | No |
-> | AKS cluster | **pending** | **pending** | No<br/><br/> [Learn more](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) about moving to another region.
+> | AKS cluster | **pending** | **pending** | No<br/><br/> [Learn more](/previous-versions/azure/dev-spaces/) about moving to another region.
 
 ## Microsoft.DevTestLab
 
@@ -1099,7 +1099,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | Yes | Yes | No. [Learn more](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
+> | accounts | Yes | Yes | No. [Learn more](../../azure-monitor/faq.yml#how-do-i-move-an-application-insights-resource-to-a-new-region-). |
 > | actiongroups | Yes | Yes | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | Yes | Yes | No |
@@ -1593,8 +1593,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.RecoveryServices
 
-> [!IMPORTANT]
-> See [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+>[!IMPORTANT]
+>- See [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+>- See [Continue backups in Recovery Services vault after moving resources across regions](../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -2017,6 +2018,7 @@ Jump to a resource provider namespace:
 > | availablestacks | No | No | No |
 > | billingmeters | No | No | No |
 > | certificates | No | Yes | No |
+> | certificates (managed) | No | No | No |
 > | connectiongateways | Yes | Yes | No |
 > | connections | Yes | Yes | No |
 > | customapis | Yes | Yes | No |
@@ -2077,4 +2079,4 @@ Third-party services currently don't support the move operation.
 
 - For commands to move resources, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 - [Learn more](../../resource-mover/overview.md) about the Resource Mover service.
-- To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
+- To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) for resource group and subscription move support. If you want those properties and region move support, download [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).

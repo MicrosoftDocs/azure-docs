@@ -23,6 +23,14 @@ There are two levels of support:
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
+### Language major version support
+
+Azure Functions provides a guarantee of support for the major versions of supported programming languages. For most languages, there are minor or patch versions released to update a supported major version. Examples of minor or patch versions include such as Python 3.9.1 and Node 14.17. After new minor versions of supported languages become available, the minor versions used by your functions apps are automatically upgraded to these newer minor or patch versions. 
+
+> [!NOTE]
+>Because Azure Functions can remove the support of older minor versions at any time after a new minor version is available, you shouldn't pin your function apps to a specific minor/patch version of a programming language.  
+>
+
 ## Custom handlers
 
 Custom handlers are lightweight web servers that receive events from the Azure Functions host. Any language that supports HTTP primitives can implement a custom handler. This means that custom handlers can be used to create functions in languages that aren't officially supported. To learn more, see [Azure Functions custom handlers](functions-custom-handlers.md).

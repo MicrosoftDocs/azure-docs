@@ -7,7 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 # Reset an Azure Cloud Service (extended support) 
 These samples cover various ways to reset an existing Azure Cloud Service (extended support) deployment.

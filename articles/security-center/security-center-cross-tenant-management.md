@@ -35,7 +35,7 @@ You are able to review and manage subscriptions across multiple tenants in the s
 
 From the top menu bar, click the filter icon, and select the subscriptions, from each tenant's directory, you'd like to view.
 
-  ![Filter tenants](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
+  ![Filter tenants.](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
 The views and actions are basically the same. Here are some examples:
 

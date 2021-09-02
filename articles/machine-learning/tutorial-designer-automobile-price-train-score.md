@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Predict car prices with the designer'
+title: 'Tutorial: Designer - train a no-code regression model'
 titleSuffix: Azure Machine Learning
-description: Train machine learning model to predict automobile prices using linear regression. This tutorial is part one of a two-part series.
+description: Train a regression model that predicts car prices using the Azure Machine Learning designer.
 
 author: peterclu
 ms.author: peterlu
@@ -9,16 +9,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.custom: designer
+ms.date: 06/11/2021
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Tutorial: Predict automobile price with the designer
+# Tutorial: Designer - train a no-code regression model
 
+Train a linear regression model that predicts car prices using the Azure Machine Learning designer. This tutorial is part one of a two-part series.
 
-In this two-part tutorial, you learn how to use the Azure Machine Learning designer to train and deploy a machine learning model that predicts the price of any car. The designer is a drag-and-drop tool that lets you create machine learning models without a single line of code.
+This tutorial uses the Azure Machine Learning designer, for more information see [What is Azure Machine Learning designer](concept-designer.md).
 
-In part one of the tutorial, you'll learn how to:
+In part one of the tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a new pipeline.
@@ -27,7 +28,7 @@ In part one of the tutorial, you'll learn how to:
 > * Train a machine learning model.
 > * Evaluate a machine learning model.
 
-In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you'll deploy your model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
+In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you deploy your model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
 
 > [!NOTE]
 >A completed version of this tutorial is available as a sample pipeline.
@@ -191,7 +192,7 @@ Splitting data is a common task in machine learning. You will split your data in
 1. Connect the left port of the **Clean Missing Data** module to the **Split Data** module.
 
     > [!IMPORTANT]
-    > Be sure that the left output ports of **Clean Missing Data** connects to **Split Data**. The left port contains the the cleaned data. The right port contains the discarted data.
+    > Be sure that the left output ports of **Clean Missing Data** connects to **Split Data**. The left port contains the the cleaned data. The right port contains the discarded data.
 
 1. Select the **Split Data** module.
 

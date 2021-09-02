@@ -5,7 +5,8 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/23/2021
-ms.author: thweiss
+ms.author: thweiss 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault
@@ -295,7 +296,7 @@ Rotating the customer-managed key used by your Azure Cosmos account can be done 
     $account | Set-AzResource -Force
     ```
 
-The previous key or key version can be disabled after 24 hours, or after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that key or key version anymore.
+The previous key or key version can be disabled after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that key or key version anymore. No more activity should take place on the previous key or key version after 24 hours of key rotation.
     
 ## Error handling
 
@@ -335,7 +336,7 @@ This feature is currently available only for new accounts.
 
 ### Is it possible to use customer-managed keys in conjunction with the Azure Cosmos DB [analytical store](analytical-store-introduction.md)?
 
-Yes, but you must [use your Azure Cosmos DB account's managed identity](#using-managed-identity) in your Azure Key Vault access policy before enabling the analytical store.
+Yes, Azure Synapse Link only supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You must [use your Azure Cosmos DB account's managed identity](#using-managed-identity) in your Azure Key Vault access policy before [enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account.
 
 ### Is there a plan to support finer granularity than account-level keys?
 

@@ -15,7 +15,7 @@ services: iot-central
 
 Currently, when you create a new IoT Central application, it's a V3 application. If you previously created an application, then depending on when you created it, it may be V2. This article describes how to migrate a V2 to a V3 application to be sure you're using the latest IoT Central features.
 
-To learn how to identify the version of an IoT Central application, see [About your application](howto-get-app-info.md).
+To learn how to identify the version of an IoT Central application, see [How do I get information about my application?](howto-faq.yml#how-do-i-get-information-about-my-application-).
 
 The steps to migrate an application from V2 to V3 are:
 
@@ -69,7 +69,7 @@ After your new V3 application is created, make any configuration changes before 
 
 Here are some recommended configuration steps to consider:
 
-- [Configure dashboards](howto-add-tiles-to-your-dashboard.md)
+- [Configure dashboards](howto-manage-dashboards.md)
 - [Configure data export](howto-export-data.md)
 - [Configure rules and actions](quick-configure-rules.md)
 - [Customize the application UI](howto-customize-ui.md)

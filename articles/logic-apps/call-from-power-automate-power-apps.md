@@ -24,7 +24,7 @@ If you want to migrate your flow from Power Automate or Power to Logic Apps inst
 > [Power Automate connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
 > * To find which Logic Apps connectors don't have Power Automate equivalents, see 
-> [Logic Apps connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> [Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## Prerequisites
 

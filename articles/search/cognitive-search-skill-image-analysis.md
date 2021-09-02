@@ -3,24 +3,30 @@ title: Image Analysis cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract semantic text through image analysis using the Image Analysis cognitive skill in an AI enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 08/12/2021
 ---
 # Image Analysis cognitive skill
 
 The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) in Cognitive Services. 
 
+**Image Analysis** works on images that meet the following requirements:
+
++ The image must be presented in JPEG, PNG, GIF, or BMP format
++ The file size of the image must be less than 4 megabytes (MB)
++ The dimensions of the image must be greater than 50 x 50 pixels
+
 > [!NOTE]
-> Small volumes (under 20 transactions) can be executed for free in Azure Cognitive Search, but larger workloads require [attaching a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
+> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> 
+> In addition, image extraction is [billable by Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
+## @odata.type 
 
-## @odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
 
 ## Skill parameters
@@ -38,8 +44,6 @@ Parameters are case-sensitive.
 | Input name	  | Description                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. See the [sample](#sample-output) for more information.|
-
-
 
 ##	Sample skill definition
 
@@ -81,7 +85,9 @@ Parameters are case-sensitive.
             ]
         }
 ```
+
 ### Sample index (for only the categories, description, faces and tags fields)
+
 ```json
 {
     "fields": [
@@ -293,7 +299,9 @@ Parameters are case-sensitive.
 }
 
 ```
+
 ### Sample output field mapping (for the above index)
+
 ```json
     "outputFieldMappings": [
         {
@@ -317,6 +325,7 @@ Parameters are case-sensitive.
             "targetFieldName": "brands"
         }
 ```
+
 ### Variation on output field mappings (nested properties)
 
 You can define output field mappings to lower-level properties, such as just landmarks or celebrities. In this case, make sure your index schema has a field to contain landmarks specifically.
@@ -328,6 +337,7 @@ You can define output field mappings to lower-level properties, such as just lan
             "targetFieldName": "celebrities"
         }
 ```
+
 ##	Sample input
 
 ```json
@@ -535,6 +545,7 @@ If you get the error similar to `"One or more skills are invalid. Details: Error
 
 ## See also
 
++ [What is Image Analysis?](../cognitive-services/computer-vision/overview-image-analysis.md)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Indexer (REST)](/rest/api/searchservice/create-indexer)

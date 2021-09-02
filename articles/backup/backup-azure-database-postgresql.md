@@ -2,7 +2,7 @@
 title: Backup Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention (preview)
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 09/01/2021
 ms.custom: references_regions , devx-track-azurecli
 ---
 
@@ -37,6 +37,12 @@ You may use this solution independently or in addition to the native backup solu
 - Cross-region backup isn't supported. This means you can't back up an Azure PostgreSQL server to a vault in another region. Similarly, you can only restore a backup to a server within the same region as the vault.
 - Only the data is recovered at the time of restore. "Roles" aren't restored.
 - In preview, we recommend that you run the solution only on your test environment.
+
+## Prerequisite permissions for configure backup and restore
+
+Azure Backup follows strict security guidelines. Even though it's a native Azure service, permissions on the resource aren't assumed, and need to be explicitly given by the user.  Similarly, credentials to connect to the database aren't stored. This is important to safeguard your data. Instead, we use Azure Active Directory authentication.
+
+[Download this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) to get an automated script and related instructions. It will grant an appropriate set of permissions to an Azure PostgreSQL server, for backup and restore.
 
 ## Backup process
 
@@ -207,11 +213,7 @@ Follow this step-by-step guide to trigger a restore:
 >[!NOTE]
 >Archive support for Azure Database for PostgreSQL is in limited public preview.
 
-## Prerequisite permissions for configure backup and restore
 
-Azure Backup follows strict security guidelines. Even though it's a native Azure service, permissions on the resource aren't assumed, and need to be explicitly given by the user.  Similarly, credentials to connect to the database aren't stored. This is important to safeguard your data. Instead, we use Azure Active Directory authentication.
-
-[Download this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) to get an automated script and related instructions. It will grant an appropriate set of permissions to an Azure PostgreSQL server, for backup and restore.
 
 ## Manage the backed-up Azure PostgreSQL databases
 
@@ -299,6 +301,9 @@ Refer to [this document](https://download.microsoft.com/download/7/4/d/74d689aa-
 ### UserErrorMissingNetworkSecurityPermissions
 
 Establish network line of sight by enabling the **Allow access to Azure services** flag in the server view. In the server view, under the **Connection security** pane, set the **Allow access to Azure services** flag to **Yes**.
+
+>[!Note]
+>Before you enable this flag, ensure that you set the **Deny public network access** flag to **No**.
 
 ![Allow access to Azure services](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 

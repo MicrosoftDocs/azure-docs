@@ -278,6 +278,10 @@ switch($azureEnvironment) {
 
     "AzureUSGovernment" {
         $storageSyncSuffix = "afs.azure.us"
+    }    
+
+   "AzureChinaCloud" {
+        $storageSyncSuffix = "afs.azure.cn"
     }
     
     default {

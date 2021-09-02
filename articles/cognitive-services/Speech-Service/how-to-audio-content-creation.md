@@ -3,13 +3,13 @@ title: Audio Content Creation - Speech service
 titleSuffix: Azure Cognitive Services
 description: Audio Content Creation is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.author: trbye
+ms.author: lajanuar
 ---
 
 # Improve synthesis with the Audio Content Creation tool
@@ -45,9 +45,9 @@ It takes a few moments to deploy your new Speech resource. Once the deployment i
 
 1. After getting the Azure account and the Speech resource, you can log into [Audio Content Creation](https://aka.ms/audiocontentcreation) by clicking **Get started**.
 2. The home page lists all the products under Speech Studio. Click **Audio Content Creation** to start.
-3. The **Welcome to Speech Studio** page will be shown to you to set up the speech service. Select the Azure subscription and the Speech resource you want to work on. Click **Use resource** to complete the settings. When you log into the Audio Content Creation tool for the Next time, we will link you directly to the audio work files under the current speech resource. You can check your Azure subscriptions details and status in [Azure portal](https://portal.azure.com/). If you do not have available speech resource and you are the owner or admin of an Azure subscription, you can also create a new Speech resource in Speech Studio by clicking **Create a new resource**. If you are a user role for a certain Azure subscription, you may not have the permission to create a new speech resource. Please contact your admin to get the speech resource access. 
+3. The **Welcome to Speech Studio** page will appear to you to set up the speech service. Select the Azure subscription and the Speech resource you want to work on. Click **Use resource** to complete the settings. When you log into the Audio Content Creation tool for the Next time, we will link you directly to the audio work files under the current speech resource. You can check your Azure subscriptions details and status in [Azure portal](https://portal.azure.com/). If you do not have available speech resource and you are the owner or admin of an Azure subscription, you can also create a new Speech resource in Speech Studio by clicking **Create a new resource**. If you are a user role for a certain Azure subscription, you may not have the permission to create a new speech resource. Please contact your admin to get the speech resource access. 
 4. You can modify your Speech resource at any time with the **Settings** option, located in the top nav.
-5. If you want to swith directory, please go the **Settings** or your profile to operate. 
+5. If you want to switch directory, please go the **Settings** or your profile to operate. 
 
 ## How to use the tool?
 
@@ -61,7 +61,7 @@ This diagram shows the steps it takes to fine-tune text-to-speech outputs. Use t
    > [!NOTE]
    > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](./text-to-speech.md).
 
-4. Select the content you want to preview and click the **play** icon (a triangle) to preview the default synthesis output. Please note that if you make any changes on teh text, you need to click the **Stop** icon and then click **play** icon again to re-generate the audio with changed scripts. 
+4. Select the content you want to preview and click the **play** icon (a triangle) to preview the default synthesis output. Please note that if you make any changes on the text, you need to click the **Stop** icon and then click **play** icon again to re-generate the audio with changed scripts. 
 5. Improve the output by adjusting pronunciation, break, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md). Here is a [video](https://youtu.be/ygApYuOOG6w) to show how to fine-tune speech output with Audio Content Creation.
 6. Save and [export your tuned audio](#export-tuned-audio). When you save the tuning track in the system, you can continue to work and iterate on the output. When you're satisfied with the output, you can create an audio creation task with the export feature. You can observe the status of the export task and download the output for use with your apps and products.
 
@@ -98,7 +98,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)">
     Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
     </voice>
 </speak>
@@ -136,9 +136,10 @@ Follow these steps to add a user to a speech resource so they can use Audio Cont
 2. Click **Access control (IAM)**. Click the **Role assignments** tab to view all the role assignments for this subscription.
     :::image type="content" source="media/audio-content-creation/access-control-roles.png" alt-text="Role assignment tab":::
 3. Click **Add** > **Add role assignment** to open the Add role assignment pane. In the Role drop-down list, select the **Cognitive Service User** role. If you want to give the user ownership of this speech resource, you can select the **Owner** role.
-4. In the list, select a user. If you do not see the user in the list, you can type in the Select box to search the directory for display names and email addresses. If the user is not in this directory, you can input the user's [Microsoft account](https://account.microsoft.com/account) (which is trusted by Azure active directory).
-5. Click **Save** to assign the role. The user will receive an email invitation. Accept the invitation by clicking **Accept invitation** > **Accept to join Azure** in the email. Then the user will be redirected to the Azure portal. The user do not need to take further action in the Azure portal.
-6. After a few moments, the user is assigned the Cognitive Service User role at the speech resource scope. User can visit or refresh the [Audio Content Creation](https://aka.ms/audiocontentcreation) page, and choose the speech resource to get started. 
+4. Type in user's email address and select the user in the directory. The email address must be a **Microsoft account**, which is trusted by Azure active directory. Users can easily sign up a [Microsoft account](https://account.microsoft.com/account) using a personal email address. 
+5. Click **Save** to assign the role. 
+6. The user will receive an email invitation. Accept the invitation by clicking **Accept invitation** > **Accept to join Azure** in the email. Then the user will be redirected to the Azure portal. The user does not need to take further action in the Azure portal. After a few moments, the user is assigned the role at the speech resource scope, and will have the access to this speech resource. If the user didn't receive the invitation email, you can search the user's account under "Role assignments" and go inside the user's profile. Find "Identity" -> "Invitation accepted", and click **(manage)** to resend the email invitation. You can also copy the invitation link to the users. 
+7. The user now visits or refreshes the [Audio Content Creation](https://aka.ms/audiocontentcreation) product page, and sign in with the user's Microsoft account. Select **Audio Content Creation** block among all speech products. Choose the speech resource in the pop-up window or in the settings at the upper right of the page. If the user cannot find available speech resource, check if you are in the right directory. To check the right directory, click the account profile in the upper right corner, and click **Switch** besides the "Current directory". If there are more than one directory available, it means you have access to multiple directories. Switch to different directories and go to settings to see if the right speech resource is available. 
 
     :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Add role dialog":::
 
@@ -157,9 +158,9 @@ Users who are in the same speech resource will see each other's work in Audio Co
 If you want one of the users to give access to other users, you need to give the user the owner role for the speech resource and set the user as the Azure directory reader.
 1. Add the user as the owner of the speech resource. See [how to add users to a speech resource](#add-users-to-a-speech-resource).
     :::image type="content" source="media/audio-content-creation/add-role.png" alt-text="Role Owner field":::
-1. In the [Azure portal](https://portal.azure.com/), select the collapsed menu in the upper left. Click **Azure Active Directory**, and then Click **Users**.
-1. Search the user's Microsoft account, and go to the user's detail page. Click **Assigned roles**.
-1. Click **Add assignments** -> **Directory Readers**.
+2. In the [Azure portal](https://portal.azure.com/), select the collapsed menu in the upper left. Click **Azure Active Directory**, and then Click **Users**.
+3. Search the user's Microsoft account, and go to the user's detail page. Click **Assigned roles**.
+4. Click **Add assignments** -> **Directory Readers**. If the button "Add assignments" is grayed out, it means that you do not have the access. Only the global administrator of this directory can add assignment to users.
 
 ## See also
 

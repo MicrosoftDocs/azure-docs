@@ -549,8 +549,8 @@ Here's the *function.json* file:
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{id}",
-      "PartitionKey": "{partitionKeyValue}"
+      "id": "{id}",
+      "partitionKey": "{partitionKeyValue}"
     }
   ],
   "disabled": false

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -84,6 +84,16 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
 
 <sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Should not be used with Azure AD B2C
+
+## Required attributes
+
+To create a user account in the Azure AD B2C directory, provide the following required attributes: 
+
+- [Display name](#display-name-attribute)
+
+- [Identities](#display-name-attribute) - With at least one entity (a local or a federated account).
+
+- [Password profile](#password-policy-attribute)- If you create a local account, provide the password profile.
 
 ## Display name attribute
 

@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Explore resource sets, details, schemas, and classifications in Azure Purview (preview)'
 description: This tutorial describes how to use resource sets, asset details, schemas, and classifications. 
-author: animukherjee
-ms.author: anmuk
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial

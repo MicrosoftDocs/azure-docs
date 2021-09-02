@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/31/2021
+ms.date: 05/20/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
@@ -40,13 +40,13 @@ Account Administrator, Service Administrator, and Co-Administrator are the three
 
 | Classic subscription administrator | Limit | Permissions | Notes |
 | --- | --- | --- | --- |
-| Account Administrator | 1 per Azure account | <ul><li>Manage billing in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)</li><li>Manage all subscriptions in an account</li><li>Create new subscriptions</li><li>Cancel subscriptions</li><li>Change the billing for a subscription</li><li>Change the Service Administrator</li></ul> | Conceptually, the billing owner of the subscription. |
+| Account Administrator | 1 per Azure account | <ul><li>Can access the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and manage billing</li><li>Manage billing for all subscriptions in the account</li><li>Create new subscriptions</li><li>Cancel subscriptions</li><li>Change the billing for a subscription</li><li>Change the Service Administrator</li><li>Can't cancel subscriptions unless they have the Service Administrator or subscription Owner role</li></ul> | Conceptually, the billing owner of the subscription. |
 | Service Administrator | 1 per Azure subscription | <ul><li>Manage services in the [Azure portal](https://portal.azure.com)</li><li>Cancel the subscription</li><li>Assign users to the Co-Administrator role</li></ul> | By default, for a new subscription, the Account Administrator is also the Service Administrator.<br>The Service Administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope.<br>The Service Administrator has full access to the Azure portal. |
 | Co-Administrator | 200 per subscription | <ul><li>Same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories</li><li>Assign users to the Co-Administrator role, but cannot change the Service Administrator</li></ul> | The Co-Administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope. |
 
 In the Azure portal, you can manage Co-Administrators or view the Service Administrator by using the **Classic administrators** tab.
 
-![Azure classic subscription administrators in the Azure portal](./media/rbac-and-directory-admin-roles/subscription-view-classic-administrators.png)
+![Azure classic subscription administrators in the Azure portal](./media/shared/classic-administrators.png)
 
 In the Azure portal, you can view or change the Service Administrator or view the Account Administrator on the properties blade of your subscription.
 
@@ -81,11 +81,11 @@ Only the Azure portal and the Azure Resource Manager APIs support Azure RBAC. Us
 
 In the Azure portal, role assignments using Azure RBAC appear on the **Access control (IAM)** blade. This blade can be found throughout the portal, such as management groups, subscriptions, resource groups, and various resources.
 
-![Access control (IAM) blade in the Azure portal](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
+![Access control (IAM) blade in the Azure portal](./media/shared/sub-role-assignments.png)
 
 When you click the **Roles** tab, you will see the list of built-in and custom roles.
 
-![Built-in roles in the Azure portal](./media/rbac-and-directory-admin-roles/roles-list.png)
+![Built-in roles in the Azure portal](./media/shared/roles-list.png)
 
 For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
