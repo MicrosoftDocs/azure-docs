@@ -61,11 +61,49 @@ To upload the root and endpoint certificates on the device, use the **+ Add cert
 
 #### Upload Kubernetes certificates
 
-Upload Edge container registry certificate
-Upload Kubernetes dashboard certificate
+THe Kubernetes certificates can be for Edge Container Registry or for Kubernetes dashboard. In each case, a certificate and a key file need to be uploaded. Follow these steps to create and upload Kubernetes certificates:
 
-#### Upload IoT Edge certificates
 
+1. You'll use `openssl` to create the Kubernetes dashboard certificate or Edge Container Registry. Make sure to install openssl on the system you would use to create the certificates. On a Windows system, you can use Chocolatey to install `openssl`. After you've installed Chocolatey, open PowerShell and type:
+    
+        ```powershell
+        choco install openssl
+        ```
+1. Use `openssl` to create these certificates. A `cert.pem` certificate file and `key.pem` key file are created.  
+
+    - For Edge Container Registry, use the following command:
+    
+        ```powershell
+        openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=<ecr.endpoint-suffix>"
+        ``` 
+        Here is an example output: 
+
+        ```powershell
+        PS C:\WINDOWS\system32> openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=ecr.dbe-1d6phq2.microsoftdatabox.com"
+        Generating a RSA private key
+        .....................++++....++++
+        writing new private key to 'key.pem'
+        -----
+        PS C:\WINDOWS\system32>
+        ```    
+    - For Kubernetes dashboard certificate, use the following command:  
+     
+        ```powershell
+        openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=<<kubernetes-dashboard.endpoint-suffix> OR <endpoint-suffix>>"
+        ```
+        Here is an example output: 
+
+        ```powershell
+        PS C:\WINDOWS\system32> openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=kubernetes-dashboard.dbe-1d8phq2.microsoftdatabox.com"
+        Generating a RSA private key
+        .....................++++....++++
+        writing new private key to 'key.pem'
+        -----
+        PS C:\WINDOWS\system32>
+        ```          
+1. Upload the Kubernetes certificate and the corresponding key file that you generated earlier.
+    
+    ![Add Kubernetes dashboard certificate and key file 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)      
 
 
 ## Import certificates on the client accessing the device
