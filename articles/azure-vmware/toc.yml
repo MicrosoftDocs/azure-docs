@@ -124,6 +124,8 @@
     items:
     - name: Deploy JetStream DR
       href: deploy-disaster-recovery-using-jetstream.md
+    - name: Deploy Zerto DR
+      href: deploy-zerto-disaster-recovery.md 
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
