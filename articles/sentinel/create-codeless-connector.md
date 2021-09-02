@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/02/2021
 ---
 
 # Create a codeless connector for Azure Sentinel (Public preview)
@@ -476,7 +476,6 @@ The `pollingConfig` section includes the following properties:
 |**request**     |  Describes the request payload for polling the data, such as the API endpoint.       | Mandatory, nested JSON. For more information, see [request configuration](#request-configuration).         |
 |**response**     |  Describes the response object and nested message returned from the API when polling the data.      |    Mandatory, nested JSON. For more information, see [response configuration](#response-configuration).     |
 |**paging**     |  Describe tha pagination payload when polling the data.       | Optional, nested JSON. For more information, see [paging configuration](#paging-configuration).         |
-|**TargetExtra**     |   Data enrichments for polled data, as relevant.       | Optional, nested JSON. For more information, see [targetExtra configuration](#targetextra-configuration).        |
 |     |         |         |
 
 For more information, see [Sample pollingConfig code](#sample-pollingconfig-code).
@@ -584,16 +583,6 @@ The `paging` section of the [pollingConfig](#polling-configuration) configuratio
 | **searchTheLatestTimeStampFromEventsList**    |   Determines whether to search for the latest time stamp in the events list   | Optional, boolean        |
 |  **pageSizeParaName**   |    Defines the name of the page size parameter     |   Optional, string      |
 | **PageSize**    |     Defines the paging size    | Optional, integer        |
-|     |         |         |
-
-
-### targetExtra configuration
-
-The `targetExtra` section of the `[pollingConfig](#polling-configuration)` configuration includes the following parameters:
-
-|Name  |Description  |Options  |
-|---------|---------|---------|
-| **metadata**    |  A stamp of static attributes defined in the target/metadata section for each event before publishing to Log Analytics      | Optional, string in the following syntax: `{<attr_name>: <val>}`        |
 |     |         |         |
 
 
