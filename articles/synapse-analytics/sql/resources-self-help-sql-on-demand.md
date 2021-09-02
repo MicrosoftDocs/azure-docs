@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/15/2020
+ms.date: 8/31/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ---
