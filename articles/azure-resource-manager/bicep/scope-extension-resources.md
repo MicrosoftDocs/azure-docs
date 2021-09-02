@@ -18,7 +18,9 @@ This article shows how to set the scope for an extension resource type when depl
 > [!NOTE]
 > The scope property is only available to extension resource types. To specify a different scope for a resource type that isn't an extension type, use a [module](modules.md).
 
-To learn more about extension resources, and for hands-on guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on Microsoft Learn.
+### Microsoft Learn
+
+To learn more about extension resources, and for hands-on guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
 
 ## Apply at deployment scope
 

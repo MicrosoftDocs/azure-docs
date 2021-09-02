@@ -16,6 +16,10 @@ You can also use a loop with [modules](loop-modules.md), [properties](loop-prope
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
+### Microsoft Learn
+
+To learn more about loops, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
+
 ## Syntax
 
 Loops can be used declare multiple resources by:
