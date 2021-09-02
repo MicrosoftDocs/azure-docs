@@ -19,7 +19,7 @@ An enrichment pipeline accepts unstructured text and image content, applies AI-p
 
 In this quickstart, you'll set up your data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, and text translation of non-English customer comments.
 
-> [NOTE]
+> [!NOTE]
 > This quickstart is the fastest route to a finished knowledge store in Azure Storage. For more detailed descriptions, see [Create a knowledge store in REST](knowledge-store-create-rest.md).
 
 ## Prerequisites
@@ -45,13 +45,11 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
    Choose the **StorageV2 (general purpose V2)** account type.
 
-1. Open the Blob services pages.
+1. In the Azure Storage resource, use **Storage Explorer** to create a blob container named **hotel-reviews**.
 
-1. Create a blob container named **hotel-reviews**.
+1. Select **Upload** at the top of the page to load the **HotelReviews-Free.csv** file you downloaded from the previous step.
 
-1. Select **Upload** at the top of the page.
-
-1. Select the **HotelReviews-Free.csv** file you downloaded in the first step and then upload it.
+   :::image type="content" source="media/knowledge-store-create-portal/blob-container-storage-explorer.png" alt-text="Screenshot of Storage Explorer with uploaded file and left nav pane" border="true":::
 
 1. You are almost done with this resource, but before you leave these pages, select **Access Keys** on the left navigation pane to get a connection string so that you can retrieve this data using the indexer.
 
@@ -158,20 +156,22 @@ In the Azure portal, go to the Azure Cognitive Search service's **Overview** pag
 
 In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see six tables.
 
-| Table | Description |
-|-------|-------------|
-| hotelReviews1Document | Contains fields carried forward from the CSV, such as reviews_date and reviews_text. |
-| hotelReviews2Pages | Contains enriched fields created by the skillset, such as sentiment score and key phrases. |
-| hotelReviews3KeyPhrases | Contains a long list of just the key phrases. |
-| hotelReviews4InlineProjectionDocument | Alternative to the first table, using inline shaping instead of the Shaper skill to create a data shape used in the projection. |
-| hotelReviews5InlineProjectionPages | Alternative to the second table, using inline shaping. |
-| hotelreviews6InlineProjectionKeyPhrases | Alternative to the third table, using inline shaping. |
-
-Each table is generated with the IDs necessary for cross-linking the tables in queries for table  projections that are in the same projection group.
-
 When you open a table, scroll to the right to view the content fields:
 
    :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
+
+Each table is generated with the IDs necessary for cross-linking the tables in queries for table projections that are in the same projection group.
+
+The knowledge store in this walkthrough consists of a various tables that show different ways of shaping and structuring a table.
+
+| Table | Description |
+|-------|-------------|
+| hotelReviews1Document | Contains fields carried forward from the CSV, such as reviews_date and reviews_text. |
+| hotelReviews2Pages | Contains enriched fields created by the skillset, such as sentiment score and translated text. |
+| hotelReviews3KeyPhrases | Contains a long list of just the key phrases. |
+| hotelReviews4InlineProjectionDocument | Alternative to the first table, using inline shaping instead of the Shaper skill to shape data for the projection. |
+| hotelReviews5InlineProjectionPages | Alternative to the second table, using inline shaping. |
+| hotelreviews6InlineProjectionKeyPhrases | Alternative to the third table, using inline shaping. |
 
 ## Clean up
 

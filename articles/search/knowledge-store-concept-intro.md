@@ -68,7 +68,7 @@ Go with the portal approach for the fastest route to a finished knowledge store.
 
 ### [**Azure portal**](#tab/kstore-portal)
 
-[Create your first knowledge store in four steps](knowledge-store-connect-power-bi.md) using the **Import data** wizard.
+[Create your first knowledge store in four steps](knowledge-store-create-portal.md) using the **Import data** wizard.
 
 1. Define your data source
 
@@ -82,6 +82,8 @@ The wizard automates tasks that you would otherwise have to be handled manually.
 
 ### [**REST**](#tab/kstore-rest)
 
+[Create your first knowledge store using Postman](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store).
+
 REST API version `2020-06-30` can be used to create a knowledge store through additions to a skillset.
 
 + [Create Skillset (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
@@ -92,8 +94,6 @@ Within the skillset:
 + Specify the projections that you want built in Azure Storage (tables, objects, files)
 + Include a Shaper skill in your skillset to determine the schema and contents of the projection
 + Assign the named shape to a projection
-
-An easy way to explore is to [create your first knowledge store using Postman](knowledge-store-create-rest.md).
 
 ### [**.NET SDK**](#tab/kstore-dotnet)
 
