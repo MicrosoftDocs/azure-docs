@@ -20,14 +20,8 @@
       href: quickstarts/dsc-configuration.md
 - name: Tutorials
   items:
-    - name: Create a graphical runbook
-      href: learn/automation-tutorial-runbook-graphical.md
-    - name: Create a PowerShell runbook
-      href: learn/automation-tutorial-runbook-textual-powershell.md
     - name: Create a PowerShell Workflow runbook
       href: learn/automation-tutorial-runbook-textual.md
-    - name: Create a Python runbook
-      href: learn/automation-tutorial-runbook-textual-python2.md
     - name: Create a Python 3 runbook
       href: learn/automation-tutorial-runbook-textual-python-3.md
     - name: Use managed identity with PowerShell runbook
