@@ -16,7 +16,7 @@ This article describes how to access a secured Azure Purview account from Azure 
 
 ## Azure Purview private endpoint deployment scenarios
 
-You can use [Azure private endpoints](../../private-link/private-endpoint-overview) for your Azure Purview accounts to allow secure access from a virtual network (VNet) to the catalog over a Private Link. Purview provides different types of private points for various access need: *account* private endpoint, *portal* private endpoint, and *ingestion* private endpoints. Learn more from [Purview private endpoints conceptual overview](../../purview/catalog-private-link.md#conceptual-overview). 
+You can use [Azure private endpoints](../../private-link/private-endpoint-overview.md) for your Azure Purview accounts to allow secure access from a virtual network (VNet) to the catalog over a Private Link. Purview provides different types of private points for various access need: *account* private endpoint, *portal* private endpoint, and *ingestion* private endpoints. Learn more from [Purview private endpoints conceptual overview](../../purview/catalog-private-link.md#conceptual-overview). 
 
 If your Purview account is protected by firewall and denies public access, make sure you follow below checklist to set up the private endpoints so Synapse can successfully connect to Purview. 
 
@@ -27,7 +27,7 @@ If your Purview account is protected by firewall and denies public access, make 
 
 ## Managed private endpoints for Purview
 
-[Managed private endpoints](synapse-workspace-managed-private-endpoints.md) are private endpoints created a Managed Virtual Network associated with your Azure Synapse workspace. When you run pipeline and report lineage to a firewall protected Azure Purview account, make sure your Synapse workspace is created with "Managed virtual network" option enabled, then create the Purview ***account*** and ***ingestion*** managed private endpoints as follows.
+[Managed private endpoints](../security/synapse-workspace-managed-private-endpoints.md) are private endpoints created a Managed Virtual Network associated with your Azure Synapse workspace. When you run pipeline and report lineage to a firewall protected Azure Purview account, make sure your Synapse workspace is created with "Managed virtual network" option enabled, then create the Purview ***account*** and ***ingestion*** managed private endpoints as follows.
 
 ### Create managed private endpoints
 
@@ -37,13 +37,13 @@ To create managed private endpoints for Purview on Synapse Studio:
 
 2. Select **Yes** for **Create managed private endpoints**. You need to have "**workspaces/managedPrivateEndpoint/write**" permission, e.g. Synapse Administrator or Synapse Linked Data Manager role.
 
-3. Click **+ Create all** button to batch create the needed Purview private endpoints, including the ***account*** private endpoint as well as the ***ingestion*** private endpoints for the Purview managed resources - Blob storage, Queue storage and Event Hub namespace. You need to have at least **Reader** role on your Purview account for Synapse to retrieve the Purview managed resources' information.
+3. Click **+ Create all** button to batch create the needed Purview private endpoints, including the ***account*** private endpoint as well as the ***ingestion*** private endpoints for the Purview managed resources - Blob storage, Queue storage and Event Hubs namespace. You need to have at least **Reader** role on your Purview account for Synapse to retrieve the Purview managed resources' information.
 
-   :::image type="content" source="./media/how-to-access-secured-purview-account/create-all-Purview-managed-private-endpoints.png" alt-text="Create managed private endpoint for your connected Purview account.":::
+   :::image type="content" source="./media/create-all-purview-managed-private-endpoints.png" alt-text="Create managed private endpoint for your connected Purview account.":::
 
 4. In the next page, specify a name for the private endpoint. It will be used to generate names for the ingestion private endpoints as well with additional suffix.
 
-   :::image type="content" source="./media/how-to-access-secured-purview-account/name-purview-private-endpoints.png" alt-text="Name the managed private endpoints for your connected Purview account.":::
+   :::image type="content" source="./media/name-purview-private-endpoints.png" alt-text="Name the managed private endpoints for your connected Purview account.":::
 
 5. Click **Create** to create the private endpoints. After creation, 4 private endpoint requests will be generated that must [get approved by an owner of Purview](#approve-managed-private-endpoints).
 
@@ -64,7 +64,7 @@ If you have permission to approve the Purview private endpoint connection, from 
 If you don't have permission to approve the Purview private endpoint connection, ask the Purview account owner to do as follows.
 
 - For *account* private endpoint, go to Azure portal -> your Purview account -> Networking -> Private endpoint connection to approve.
-- For *ingestion* private endpoints, go to Azure portal -> your Purview account -> Managed resources, click into the Storage account and Event Hub namespace respectively, and approve the private endpoint connection in Networking -> Private endpoint connection page.
+- For *ingestion* private endpoints, go to Azure portal -> your Purview account -> Managed resources, click into the Storage account and Event Hubs namespace respectively, and approve the private endpoint connection in Networking -> Private endpoint connection page.
 
 ### Monitor managed private endpoints
 
@@ -75,6 +75,6 @@ You can monitor the created managed private endpoints for Purview at two places:
 
 ## Next steps 
 
-- [Connect Synapse workspace to Azure Purview](quickstart-connect-to-azure-purview.md)
+- [Connect Synapse workspace to Azure Purview](quickstart-connect-azure-purview.md)
 - [Metadata and lineage from Azure Synapse Analytics](../../purview/how-to-lineage-azure-synapse-analytics.md)
 - [Discover, connect and explore data in Synapse using Azure Purview](how-to-discover-connect-analyze-azure-purview.md)

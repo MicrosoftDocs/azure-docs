@@ -4,7 +4,7 @@ description: Learn about how to push Data Factory lineage data to Azure Purview
 ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
-ms.subservice: purview
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: [seo-lt-2019, references_regions]
 ms.date: 08/10/2021

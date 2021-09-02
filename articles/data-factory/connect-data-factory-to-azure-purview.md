@@ -4,7 +4,6 @@ description: Learn about how to connect a Data Factory to Azure Purview
 ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
-ms.subservice: purview
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
 ms.date: 08/24/2021

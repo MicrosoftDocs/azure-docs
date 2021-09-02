@@ -4,7 +4,6 @@ description: Learn about how to access a firewall protected Azure Purview accoun
 ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
-ms.subservice: purview
 ms.topic: conceptual
 ms.custom: [seo-lt-2019, references_regions]
 ms.date: 09/02/2021
@@ -16,7 +15,7 @@ This article describes how to access a secured Azure Purview account from Azure 
 
 ## Azure Purview private endpoint deployment scenarios
 
-You can use [Azure private endpoints](../private-link/private-endpoint-overview) for your Azure Purview accounts to allow secure access from a virtual network (VNet) to the catalog over a Private Link. Purview provides different types of private points for various access need: *account* private endpoint, *portal* private endpoint, and *ingestion* private endpoints. Learn more from [Purview private endpoints conceptual overview](../purview/catalog-private-link.md#conceptual-overview). 
+You can use [Azure private endpoints](../private-link/private-endpoint-overview.md) for your Azure Purview accounts to allow secure access from a virtual network (VNet) to the catalog over a Private Link. Purview provides different types of private points for various access need: *account* private endpoint, *portal* private endpoint, and *ingestion* private endpoints. Learn more from [Purview private endpoints conceptual overview](../purview/catalog-private-link.md#conceptual-overview). 
 
 If your Purview account is protected by firewall and denies public access, make sure you follow below checklist to set up the private endpoints so Data Factory can successfully connect to Purview. 
 
@@ -37,7 +36,7 @@ To create managed private endpoints for Purview on Data Factory authoring UI:
 
 2. Select **Yes** for **Create managed private endpoints**. You need to have at least one Azure Integration Runtime with "Virtual network configuration" option enabled in the data factory to see this option.
 
-3. Click **+ Create all** button to batch create the needed Purview private endpoints, including the ***account*** private endpoint as well as the ***ingestion*** private endpoints for the Purview managed resources - Blob storage, Queue storage and Event Hub namespace. You need to have at least **Reader** role on your Purview account for Data Factory to retrieve the Purview managed resources' information.
+3. Click **+ Create all** button to batch create the needed Purview private endpoints, including the ***account*** private endpoint as well as the ***ingestion*** private endpoints for the Purview managed resources - Blob storage, Queue storage and Event Hubs namespace. You need to have at least **Reader** role on your Purview account for Data Factory to retrieve the Purview managed resources' information.
 
    :::image type="content" source="./media/how-to-access-secured-purview-account/create-all-Purview-managed-private-endpoints.png" alt-text="Create managed private endpoint for your connected Purview account.":::
 
@@ -64,7 +63,7 @@ If you have permission to approve the Purview private endpoint connection, from 
 If you don't have permission to approve the Purview private endpoint connection, ask the Purview account owner to do as follows.
 
 - For *account* private endpoint, go to Azure portal -> your Purview account -> Networking -> Private endpoint connection to approve.
-- For *ingestion* private endpoints, go to Azure portal -> your Purview account -> Managed resources, click into the Storage account and Event Hub namespace respectively, and approve the private endpoint connection in Networking -> Private endpoint connection page.
+- For *ingestion* private endpoints, go to Azure portal -> your Purview account -> Managed resources, click into the Storage account and Event Hubs namespace respectively, and approve the private endpoint connection in Networking -> Private endpoint connection page.
 
 ### Monitor managed private endpoints
 

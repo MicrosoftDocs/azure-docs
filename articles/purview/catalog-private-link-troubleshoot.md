@@ -84,7 +84,7 @@ This guide summarizes known limitations related to using private endpoints for A
    
 6. From self-hosted integration runtime VM, test network connectivity and name resolution to Purview endpoint.
 
-7. From self-hosted integration runtime, test network connectivity and name resolution to Azure Purview managed resources such as blob queue and event hub through port 443 and private IP addresses. (Replace the managed storage account and Eventhub namespace with corresponding managed resource name assigned to your Azure Purview account).
+7. From self-hosted integration runtime, test network connectivity and name resolution to Azure Purview managed resources such as blob queue and event hub through port 443 and private IP addresses. (Replace the managed storage account and Event Hubs namespace with corresponding managed resource name assigned to your Azure Purview account).
 
     ```powershell
     Test-NetConnection -ComputerName `scansoutdeastasiaocvseab`.blob.core.windows.net -Port 443
