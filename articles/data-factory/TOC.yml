@@ -691,8 +691,6 @@ items:
       items:
       - name: Overview
         href: monitor-using-azure-monitor.md
-      - name: Keeping metrics and pipeline-run data
-        href: monitor-keeping-metrics-and-pipeline-run-data.md
       - name: Configure diagnostics settings and workspace
         href: monitor-configure-diagnostics.md
       - name: Install Azure Data Factory Analytics solution from Azure Marketplace
