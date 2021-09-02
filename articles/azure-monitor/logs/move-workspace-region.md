@@ -27,7 +27,8 @@ A workspace environment can be complex and include connected sources, managed so
     ```
   - *Diagnostic settings*: Resources can send logs to Azure Diagnostics or dedicated tables in your workspace. Enter **Logs** in your workspace, and run this query for resources that send data to the `AzureDiagnostics` table:
 
-    ```AzureDiagnostics
+    ```kusto
+    AzureDiagnostics
     | where TimeGenerated > ago(12h)
     | summarize by  ResourceProvider , ResourceType, Resource
     | sort by ResourceProvider, ResourceType
@@ -35,7 +36,8 @@ A workspace environment can be complex and include connected sources, managed so
 
     Run this query for resources that send data to dedicated tables:
 
-    ```search *
+    ```kusto
+    search *
     | where TimeGenerated > ago(12h)
     | where isnotnull(_ResourceId)
     | extend ResourceProvider = split(_ResourceId, '/')[6]
@@ -284,7 +286,8 @@ The following procedures show how to prepare the workspace and resources for the
    - *Configure alert rules*: When alerts aren't exported in the template, you need to configure them manually in the target workspace.
 1. Very that new data isn't ingested to the original workspace. Run the following query in your original workspace, and observe that there's no ingestion after the migration:
 
-    ```search *
+    ```kusto
+    search *
     | where TimeGenerated > ago(12h)
     | summarize max(TimeGenerated) by Type
     ```
