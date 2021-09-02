@@ -78,7 +78,7 @@ On the **Reviewers** page, you may view and add reviewers to your existing acces
 > [!Note]
 > If the reviewer type selected is user or group, you can add more users or groups as the primary reviewers at any point. You can also remove primary reviewers at any point. If the reviewer type is manager, you can add users or groups as the fallback reviewers to complete reviews on users who do not have managers. Fallback reviewers cannot be removed.
 
-:::image type="content" source="{media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-reviewers.png}" alt-text="{Reviewers page listing name and user principal name for Azure resource roles screenshot.}":::
+:::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-reviewers.png" alt-text="Reviewers page listing name and user principal name for Azure resource roles screenshot.":::
 
 ## Next steps
 
