@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Troubleshoot devices by using the dsregcmd command
 
-This article covers how to use the output from the `dsregcmd` command to understand the state of devices in Azure AD. The `dsregcmd /status` utility must be run as a domain user account.
+This article covers how to use the output from the `dsregcmd` command to understand the state of devices in Azure Active Directory (Azure AD). The `dsregcmd /status` utility must be run as a domain user account.
 
 ## Device state
 
@@ -34,7 +34,7 @@ This section lists the device join state parameters. The criteria that are requi
 > [!NOTE]
 > The Workplace Joined (Azure AD registered) state is displayed in the ["User state"](#user-state) section.
 
-- **AzureAdJoined**: Set the state to *YES* if the device is joined to Azure AD. Otherwise, set the state to "NO".
+- **AzureAdJoined**: Set the state to *YES* if the device is joined to Azure AD. Otherwise, set the state to *NO*.
 - **EnterpriseJoined**: Set the state to *YES* if the device is joined to an on-premises data replication service (DRS). A device can't be both EnterpriseJoined and AzureAdJoined.
 - **DomainJoined**: Set the state to *YES* if the device is joined to a domain (Active Directory).
 - **DomainName**: Set the state to the name of the domain if the device is joined to a domain.
@@ -175,10 +175,10 @@ You can ignore this section for Azure AD registered devices.
 - **AzureAdPrtExpiryTime**: Set the state to the time, in UTC, when the PRT is going to expire if it isn't renewed.
 - **AzureAdPrtAuthority**: The Azure AD authority URL
 - **EnterprisePrt**: Set the state to *YES* if the device has a PRT from on-premises 
-Active Directory Federation Services (ADFS). For hybrid Azure AD-joined devices, the device could have a PRT from both Azure AD and on-premises Active Directory simultaneously. On-premises joined devices will have only an Enterprise PRT.
+Active Directory Federation Services (AD FS). For hybrid Azure AD-joined devices, the device could have a PRT from both Azure AD and on-premises Active Directory simultaneously. On-premises joined devices will have only an Enterprise PRT.
 - **EnterprisePrtUpdateTime**: Set the state to the time, in UTC, when the Enterprise PRT was last updated.
 - **EnterprisePrtExpiryTime**: Set the state to the time, in UTC, when the PRT is going to expire if it isn't renewed.
-- **EnterprisePrtAuthority**: The ADFS authority URL
+- **EnterprisePrtAuthority**: The AD FS authority URL
 
 >[!NOTE]
 > The following PRT diagnostics fields were added in the Windows 10 May 2021 update (version 21H1).
@@ -271,7 +271,7 @@ This section performs various tests to help diagnose join failures. The informat
 - **Server ErrorCode**: The server error code that's displayed if a request was sent to the server and the server responded with an error code.
 - **Server Message**: The server message that's returned along with the error code.
 - **Https Status**: The HTTP status that's returned by the server.
-- **Request ID**: The client requestId that's sent to the server. The requestID is useful to correlate with server-side logs.
+- **Request ID**: The client requestId that's sent to the server. The request ID is useful to correlate with server-side logs.
 
 ### Sample pre-join diagnostics output
 
@@ -359,13 +359,13 @@ This diagnostics section performs the prerequisites check for setting up Windows
 - **IsDeviceJoined**: Set the state to *YES* if the device is joined to Azure AD.
 - **IsUserAzureAD**: Set the state to *YES* if the logged-in user is present in Azure AD.
 - **PolicyEnabled**: Set the state to *YES* if the WHFB policy is enabled on the device.
-- **PostLogonEnabled**: Set the state to *YES* if WHFB enrollment is triggered natively by the platform. If the state is set to "NO", it indicates that Windows Hello for Business enrollment is triggered by a custom mechanism.
+- **PostLogonEnabled**: Set the state to *YES* if WHFB enrollment is triggered natively by the platform. If the state is set to *NO*, it indicates that Windows Hello for Business enrollment is triggered by a custom mechanism.
 - **DeviceEligible**: Set the state to *YES* if the device meets the hardware requirement for enrolling with WHFB.
 - **SessionIsNotRemote**: Set the state to *YES* if the current user is logged in directly to the device and not remotely.
 - **CertEnrollment**: This setting is specific to WHFB Certificate Trust deployment, indicating the certificate enrollment authority for WHFB. Set the state to *enrollment authority* if the source of the WHFB policy is Group Policy, or set it to *mobile device management* if the source is MDM. If neither source applies, set the state to *none*.
 - **AdfsRefreshToken**: This setting is specific to WHFB Certificate Trust deployment and present only if the CertEnrollment state is *enrollment authority*. The setting indicates whether the device has an enterprise PRT for the user.
-- **AdfsRaIsReady**: This setting is specific to WHFB Certificate Trust deployment and present only if the CertEnrollment state is *enrollment authority*. Set the state to *YES* if ADFS indicates in discovery metadata that it supports WHFB *and* the logon certificate template is available.
-- **LogonCertTemplateReady**: This setting is specific to WHFB Certificate Trust deployment and present only if the CertEnrollment state is *enrollment authority*. Set the state to *YES* if the state of the login certificate template is valid and helps troubleshoot the ADFS Registration Authority (RA).
+- **AdfsRaIsReady**: This setting is specific to WHFB Certificate Trust deployment and present only if the CertEnrollment state is *enrollment authority*. Set the state to *YES* if AD FS indicates in discovery metadata that it supports WHFB *and* the logon certificate template is available.
+- **LogonCertTemplateReady**: This setting is specific to WHFB Certificate Trust deployment and present only if the CertEnrollment state is *enrollment authority*. Set the state to *YES* if the state of the login certificate template is valid and helps troubleshoot the AD FS Registration Authority (RA).
 - **PreReqResult**: Provides the result of all WHFB prerequisites evaluation. Set the state to *Will Provision* if WHFB enrollment would be launched as a post-login task when the user signs in next time.
 
 ### Sample NGC prerequisites check output
