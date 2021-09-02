@@ -32,7 +32,7 @@ Azure SQL Database currently provides three fixed server roles. The permissions 
 > [!IMPORTANT]
 > Each member of a fixed server role can add other logins to that same role.
 
-For more information on Azure SQL Database logins and users, see [Authorize database access to SQL Database, SQL Managed Instance, and Azure Synapse Analytics](logins-create-manage.md)
+For more information on Azure SQL Database logins and users, see [Authorize database access to SQL Database, SQL Managed Instance, and Azure Synapse Analytics](logins-create-manage.md).
   
 ## Built-in server-level roles
 
