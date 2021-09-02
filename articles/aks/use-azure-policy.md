@@ -194,3 +194,4 @@ For more information about how Azure Policy works:
 [custom-policy-tutorial-create]: ../governance/policy/tutorials/create-custom-policy-definition.md
 [custom-policy-tutorial-assign]: https://docs.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
 [azure-policy-samples]: ../governance/policy/samples.md
+[azure-policy-definition-structure]: ../governance/policy/concepts/definition-structure.md
