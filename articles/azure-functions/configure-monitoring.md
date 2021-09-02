@@ -278,7 +278,7 @@ To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For
 
 ## Solutions with high volume of telemetry 
 
-Your function apps can by an essential part of solutions which by nature cause high volumes of telemetry (IoT solutions, event driven based solutions, high load finacial or integration systems). In this case, you might require extra caution in how they are configured. To avoid elevated costs or reaching the Application Insights daily cap, the volume of logs needs to be carefully controlled while balancing cost.
+Your function apps can by an essential part of solutions which by nature cause high volumes of telemetry (IoT solutions, event driven based solutions, high load financial or integration systems). In this case, you might require extra caution in how they are configured. To avoid elevated costs or reaching the Application Insights daily cap, the volume of logs needs to be carefully controlled while balancing cost.
 
 Depending on how you are going to consume the telemetry generated (real-time dashboards, alerting, detailed diagnostics, etc.), you will need to define a strategy to reduce the volume of data generated which allows you to proper monitor, operate and diagnose your function apps in production. You can consider:
 
