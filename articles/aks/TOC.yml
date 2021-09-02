@@ -376,7 +376,7 @@
                 href: open-service-mesh-azure-application-gateway-ingress.md
               - name: Using NGINX Ingress
                 href: open-service-mesh-nginx-ingress.md
-              - name: Configure observabilty using Prometheus, Grafana, and Jaeger
+              - name: Configure observability using Prometheus, Grafana, and Jaeger
                 href: open-service-mesh-open-source-observability.md
           - name: Configure Azure Monitor 
             href: open-service-mesh-azure-monitor.md
