@@ -1,6 +1,6 @@
 ---
 
-title: Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
+title: Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
 description: How to interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
 services: synapse-analytics 
 author: Rodrigossz
@@ -13,9 +13,12 @@ ms.reviewer: jrasnick
 ms.custom: cosmos-db
 ---
 
-# Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
+# Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
 
-In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md).
+> [!NOTE]
+> For Synapse Link for Cosmos DB using Spark 3, refer to this article [Azure Synapse Link for Azure Cosmos DB on Spark 3](how-to-query-analytical-store-spark-3.md)
+
+In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark 2. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md).
 
 The following capabilities are supported while interacting with Azure Cosmos DB:
 * Synapse Apache Spark allows you to analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link in near real-time without impacting the performance of your transactional workloads. The following two options are available to query the Azure Cosmos DB [analytical store](../../cosmos-db/analytical-store-introduction.md) from Spark:
@@ -44,6 +47,9 @@ Thus, you can choose between loading to Spark DataFrame and creating a Spark tab
 
 > [!NOTE]
 > To query the Azure Cosmos DB API of Mongo DB accounts, learn more about the [full fidelity schema representation](../../cosmos-db/analytical-store-introduction.md#analytical-schema) in the analytical store and the extended property names to be used.
+
+> [!NOTE]
+> Please note that all `options` in the commands below are case sensitive. For example, you must use `Gateway` while `gateway` will return an error.
 
 ### Load to Spark DataFrame
 
@@ -178,7 +184,7 @@ streamQuery = dfStream\
         .option("checkpointLocation", "/localWriteCheckpointFolder")\
         .option("spark.synapse.linkedService", "<enter linked service name>")\
         .option("spark.cosmos.container", "<enter container name>")\
-        .option("spark.cosmos.connection.mode", "gateway")\
+        .option("spark.cosmos.connection.mode", "Gateway")\
         .start()
 
 streamQuery.awaitTermination()
@@ -197,7 +203,7 @@ val query = dfStream.
             option("checkpointLocation", "/localWriteCheckpointFolder").
             option("spark.synapse.linkedService", "<enter linked service name>").
             option("spark.cosmos.container", "<enter container name>").
-            option("spark.cosmos.connection.mode", "gateway").
+            option("spark.cosmos.connection.mode", "Gateway").
             start()
 
 query.awaitTermination()

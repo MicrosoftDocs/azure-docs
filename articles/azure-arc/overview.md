@@ -25,7 +25,7 @@ Today, Azure Arc allows you to manage the following resource types hosted outsid
 * Servers - both physical and virtual machines running Windows or Linux.
 * Kubernetes clusters - supporting multiple Kubernetes distributions.
 * Azure data services - Azure SQL Managed Instance and PostgreSQL Hyperscale services.
-* SQL Server - enroll instances from any location.
+* SQL Server - enroll instances from any location with [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview).
 
 ## What does Azure Arc deliver?
 
@@ -53,27 +53,27 @@ The following are pricing details for the features available today with Azure Ar
 
 ### Azure Arc-enabled servers
 
-The following Azure Arc control plane functionality is offered at no extra cost:
+The following Azure Arc control plane functionality is offered at no extra cost:
 
-* Resource organization through Azure management groups and tags.
+* Resource organization through Azure management groups and tags.
 
-* Searching and indexing through Azure Resource Graph.
+* Searching and indexing through Azure Resource Graph.
 
-* Access and security through Azure RBAC and subscriptions.
+* Access and security through Azure RBAC and subscriptions.
 
-* Environments and automation through templates and extensions.
+* Environments and automation through templates and extensions.
 
-* Update management.
+* Update management.
 
-Any Azure service that is used on Azure Arc-enabled servers, for example Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
+Any Azure service that is used on Azure Arc-enabled servers, such as Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
 
 ### Azure Arc-enabled Kubernetes
 
-Any Azure service that is used on Azure Arc-enabled Kubernetes, for example Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information on pricing for configurations on top of Azure Arc-enabled Kubernetes, see [Azure pricing page](https://azure.microsoft.com/pricing/).
+Any Azure service that is used on Azure Arc-enabled Kubernetes, such as Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information on pricing for configurations on top of Azure Arc-enabled Kubernetes, see [Azure pricing page](https://azure.microsoft.com/pricing/).
 
 ### Azure Arc-enabled data services
 
-In the current preview phase, Azure Arc-enabled data services are offered at no extra cost.
+For information, see [Azure pricing page](https://azure.microsoft.com/pricing/).
 
 ## Next steps
 
@@ -82,5 +82,7 @@ In the current preview phase, Azure Arc-enabled data services are offered at no 
 * To learn more about Azure Arc-enabled Kubernetes, see the following [overview](./kubernetes/overview.md)
 
 * To learn more about Azure Arc-enabled data services, see the following [overview](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/)
+
+* To learn more about SQL Server on Azure Arc-enabled servers, see the following [overview](/sql/sql-server/azure-arc/overview)
 
 * Experience Azure Arc-enabled services from the [Jumpstart proof of concept](https://azurearcjumpstart.io/azure_arc_jumpstart/)

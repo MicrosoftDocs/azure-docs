@@ -177,7 +177,7 @@ Make sure that you migrate only the data that represents your current key use ca
 
     - Use **[Syslog](connect-data-sources.md#syslog), [Common Event Format (CEF)](connect-data-sources.md#common-event-format-cef), or [REST APIs](connect-data-sources.md#rest-api-integration)** to connect other data sources.
 
-        For more information, see [Azure Sentinel partner data connectors](partner-data-connectors.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
+        For more information, see [Azure Sentinel data connectors reference](data-connectors-reference.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
 > [!TIP]
 > - Limiting yourself to only free data sources may limit your ability to test with data that's important to you. When testing, consider limited data ingestion from both free and paid data connectors to get the most out of your test results.
@@ -265,7 +265,7 @@ Use the following checklist to make sure that you're fully migrated to Azure Sen
 |Readiness area  |Details  |
 |---------|---------|
 |**Technology readiness**     | **Check critical data**: Make sure all sources and alerts are available in Azure Sentinel. <br><br>**Archive all records**: Save critical past incident and case records, raw data optional, to retain institutional history.   |
-|**Process readiness**     |  **Playbooks**: Update [investigation and hunting processes](investigate-cases.md) to Azure Sentinel.<br><br>**Metrics**: Ensure that you can get all key metrics from Azure Sentinel.<br><br>**Workbooks**: Create [custom workbooks](tutorial-monitor-your-data.md) or use built-in workbook templates to quickly gain insights as soon as you [connect to data sources](connect-data-sources.md).<br><br>**Incidents**: Make sure to transfer all current incidents to the new system, including required source data.        |
+|**Process readiness**     |  **Playbooks**: Update [investigation and hunting processes](investigate-cases.md) to Azure Sentinel.<br><br>**Metrics**: Ensure that you can get all key metrics from Azure Sentinel.<br><br>**Workbooks**: Create [custom workbooks](monitor-your-data.md) or use built-in workbook templates to quickly gain insights as soon as you [connect to data sources](connect-data-sources.md).<br><br>**Incidents**: Make sure to transfer all current incidents to the new system, including required source data.        |
 |**People readiness**     |  **SOC analysts**: Make sure everyone on your team is trained on Azure Sentinel and is comfortable leaving the legacy SIEM.   |
 |     |         |
 ## Next steps

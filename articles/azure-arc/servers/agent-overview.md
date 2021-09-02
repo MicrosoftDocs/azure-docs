@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 07/16/2021
+ms.date: 09/01/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -9,9 +9,6 @@ ms.custom: devx-track-azurepowershell
 # Overview of Azure Arc-enabled servers agent
 
 The Azure Arc-enabled servers Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
-
->[!NOTE]
->Starting with the general release of Azure Arc-enabled servers in September 2020, all pre-release versions of the Azure Connected Machine agent (agents with versions less than 1.0) are being **deprecated** by **February 2, 2021**.  This time frame allows you to upgrade to version 1.0 or higher before the pre-released agents are no longer able to communicate with the Azure Arc-enabled servers service.
 
 >[!NOTE]
 > The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA) does not replace the Connected Machine agent. The Azure Monitor agent will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines. Review the Azure Monitor documentation about the new agent for more details.
@@ -24,11 +21,11 @@ The Azure Connected Machine agent package contains several logical components, w
 
 * The Hybrid Instance Metadata service (HIMDS) manages the connection to Azure and the connected machine's Azure identity.
 
-* The Guest Configuration agent provides In-Guest Policy and Guest Configuration functionality, such as assessing whether the machine complies with required policies.
+* The guest configuration agent provides functionality such as assessing whether the machine complies with required policies and enforcing compliance.
 
-    Note the following behavior with Azure Policy [Guest Configuration](../../governance/policy/concepts/guest-configuration.md) for a disconnected machine:
+    Note the following behavior with Azure Policy [guest configuration](../../governance/policy/concepts/guest-configuration.md) for a disconnected machine:
 
-    * A Guest Configuration policy assignment that targets disconnected machines is unaffected.
+    * An Azure Policy assignment that targets disconnected machines is unaffected.
     * Guest assignment is stored locally for 14 days. Within the 14-day period, if the Connected Machine agent reconnects to the service, policy assignments are reapplied.
     * Assignments are deleted after 14 days, and are not reassigned to the machine after the 14-day period.
 
@@ -42,13 +39,14 @@ Metadata information about the connected machine is collected after the Connecte
 * Computer name
 * Computer manufacturer and model
 * Computer fully qualified domain name (FQDN)
+* Domain name (if joined to an Active Directory domain)
 * Connected Machine agent version
 * Active Directory and DNS fully qualified domain name (FQDN)
 * UUID (BIOS ID)
 * Connected Machine agent heartbeat
 * Connected Machine agent version
 * Public key for managed identity
-* Policy compliance status and details (if using Azure Policy Guest Configuration policies)
+* Policy compliance status and details (if using guest configuration policies)
 * SQL Server installed (Boolean value)
 * Cluster resource ID (for Azure Stack HCI nodes) 
 
@@ -75,13 +73,13 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 ### Supported environments
 
-Azure Arc-enabled servers support the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. This includes virtual machines running on platforms like VMware, Azure Stack HCI, and other cloud environments. Azure Arc-enabled servers do not support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as they are already modeled as Azure VMs.
+Azure Arc-enabled servers support the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. Including virtual machines running on platforms like VMware, Azure Stack HCI, and other cloud environments. Azure Arc-enabled servers do not support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as they are already modeled as Azure VMs.
 
 ### Supported operating systems
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
-- Windows Server 2008 R2 SP1, Windows Server 2012 R2 and higher (including Server Core)
+- Windows Server 2008 R2 SP1, Windows Server 2012 R2, 2016, 2019, and 2022 (including Server Core)
 - Ubuntu 16.04, 18.04, and 20.04 LTS (x64)
 - CentOS Linux 7 and 8  (x64)
 - SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
@@ -128,7 +126,7 @@ To ensure the security of data in transit to Azure, we strongly encourage you to
 
 ### Networking configuration
 
-The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine connects through a firewall or proxy server to communicate over the Internet, review the following to understand the network configuration requirements.
+The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine needs to connect through a firewall or proxy server to communicate over the internet, the agent communicates outbound instead using the HTTP protocol. Proxy servers don't make the Connected Machine agent more secure because the traffic is already encrypted.
 
 > [!NOTE]
 > Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
@@ -152,7 +150,7 @@ URLs:
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`*.guestconfiguration.azure.com` |Guest Configuration|
+|`*.guestconfiguration.azure.com` |Guest configuration|
 |`*.his.arc.azure.com`|Hybrid Identity Service|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
 
@@ -160,8 +158,8 @@ Preview agents (version 0.11 and lower) also require access to the following URL
 
 | Agent resource | Description |
 |---------|---------|
-|`agentserviceapi.azure-automation.net`|Guest Configuration|
-|`*-agentservice-prod-1.azure-automation.net`|Guest Configuration|
+|`agentserviceapi.azure-automation.net`|Guest configuration|
+|`*-agentservice-prod-1.azure-automation.net`|Guest configuration|
 
 For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
@@ -169,7 +167,7 @@ For more information, review [Service tags overview](../../virtual-network/servi
 
 ### Register Azure resource providers
 
-Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service:
+Azure Arc-enabled servers depend on the following Azure resource providers in your subscription in order to use this service:
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -228,7 +226,7 @@ After installing the Connected Machine agent for Windows, the following system-w
     |%ProgramData%\AzureConnectedMachineAgent |Contains the agent configuration files.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contains the acquired tokens.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contains the agent configuration file `agentconfig.json` recording its registration information with the service.|
-    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Installation path containing the Guest Configuration agent files. |
+    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Installation path containing the guest configuration agent files. |
     |%ProgramData%\GuestConfig |Contains the (applied) policies from Azure.|
     |%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | Extensions are downloaded from Azure and copied here.|
 
@@ -237,8 +235,8 @@ After installing the Connected Machine agent for Windows, the following system-w
     |Service name |Display name |Process name |Description |
     |-------------|-------------|-------------|------------|
     |himds |Azure Hybrid Instance Metadata Service |himds |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
-    |GCArcService |Guest Configuration Arc Service |gc_service |Monitors the desired state configuration of the machine.|
-    |ExtensionService |Guest Configuration Extension Service | gc_service |Installs the required extensions targeting the machine.|
+    |GCArcService |Guest configuration Arc Service |gc_service |Monitors the desired state configuration of the machine.|
+    |ExtensionService |Guest configuration Extension Service | gc_service |Installs the required extensions targeting the machine.|
 
 * The following environmental variables are created during agent installation.
 
@@ -278,7 +276,7 @@ After installing the Connected Machine agent for Linux, the following system-wid
     |-------|------------|
     |/var/opt/azcmagent/ |Default installation path containing the agent support files.|
     |/opt/azcmagent/ |
-    |/opt/GC_Ext | Installation path containing the Guest Configuration agent files.|
+    |/opt/GC_Ext | Installation path containing the guest configuration agent files.|
     |/opt/DSC/ |
     |/var/opt/azcmagent/tokens |Contains the acquired tokens.|
     |/var/lib/GuestConfig |Contains the (applied) policies from Azure.|

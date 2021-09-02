@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot issues with Azure Percept DK
+title: Troubleshoot the Azure Percept DK device
 description: Get troubleshooting tips for some of the more common issues with Azure Percept DK and IoT Edge
-author: mimcco
-ms.author: mimcco
+author: juniem
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 08/10/2021
 ms.custom: template-how-to 
 ---
 
-# Azure Percept DK troubleshooting
+# Troubleshoot the Azure Percept DK device
 
 The purpose of this troubleshooting article is to help Azure Percept DK users to quickly resolve common issues with their dev kits. It also provides guidance on collecting logs for when extra support is needed.
 
@@ -42,7 +42,6 @@ In this section, you'll get guidance on which logs to collect and how to collect
 |*OOBE logs* - records details about the setup experience.|Collect when you find issues during the setup experience.|```sudo journalctl -u oobe -b```|
 |*edgeAgent logs* - records the version numbers of all modules running on your device.|Collect when one or more modules aren't working.|```sudo iotedge logs edgeAgent```|
 |*Module container logs* - records details about specific IoT Edge module containers|Collect when you find issues with a module|```sudo iotedge logs [container name]```|
-|*Wi-Fi access point logs* - records details about the connection to the dev kit's Wi-Fi access point.|Collect when you find issues when connecting to the dev kit's Wi-Fi access point.|```sudo journalctl -u hostapd.service```|
 |*Network logs* - a set of logs covering Wi-Fi services and the network stack.|Collect when you find Wi-Fi or network issues.|```sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd > network_log.txt```<br><br>```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version && rpm -q ztpd > system_ver.txt```<br><br>Run both commands. Each command collects multiple logs and puts them into a single output.|
 
 ## Troubleshooting commands
@@ -52,7 +51,7 @@ For more information on the Azure IoT Edge commands, see the [Azure IoT Edge dev
 
 |Function         |When to use                    |Command                 |
 |------------------|----------------------------|---------------------------|
-|Checks the software version on the dev kit.|Use anytime you need confirm which software version is on your dev kit.|```cat /etc/adu-version```|
+|Checks the software version on the dev kit.|Use anytime you need confirm which software version is on your dev kit.|```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version```|
 |Checks the temperature of the dev kit|Use in cases where you think the dev kit might be overheating.|```cat /sys/class/thermal/thermal_zone0/temp```|
 |Checks the dev kit's telemetry ID|Use in cases where you need to know the dev kits unique telemetry identifier.|```sudo azure-device-health-id```|
 |Checks the status of IoT Edge|Use whenever there are issues with IoT Edge modules connecting to the cloud.|```sudo iotedge check```|

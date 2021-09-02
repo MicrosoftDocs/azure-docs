@@ -47,8 +47,8 @@ For more information about supported network security mechanisms on data stores 
     |                              | Azure Data Explorer                                 | -                | -                   | Yes*            | Yes*         | -                    |
     |                              | Azure Data Lake Gen1                                | -                | -                   | Yes             | -            | Yes                  |
     |                              | Azure Database for MariaDB, MySQL, PostgreSQL       | -                | -                   | Yes             | -            | Yes                  |
-    |                              | Azure File Storage                                  | Yes              | -                   | Yes             | -            | .                    |
-    |                              | Azure Storage (Blob, ADLS Gen2)                     | Yes              | Yes (MSI auth only) | Yes             | -            | .                    |
+    |                              | Azure Files                                  | Yes              | -                   | Yes             | -            | .                    |
+    |                              | Azure Blob storage and ADLS Gen2                     | Yes              | Yes (MSI auth only) | Yes             | -            | .                    |
     |                              | Azure SQL DB,  Azure Synapse Analytics), SQL   Ml  | Yes (only Azure SQL DB/DW)        | -                   | Yes             | -            | Yes                  |
     |                              | Azure Key Vault (for fetching secrets/   connection string) | yes      | Yes                 | Yes             | -            | -                    |
     | Other PaaS/ SaaS Data stores | AWS   S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Yes             | -            | -                    |
@@ -65,8 +65,8 @@ For more information about supported network security mechanisms on data stores 
     |                                | Azure Data Explorer                                           | -         | -                   |
     |                                | Azure Data Lake Gen1                                          | Yes       | -                   |
     |                                | Azure Database for   MariaDB, MySQL, PostgreSQL               | Yes       | -                   |
-    |                                | Azure File Storage                                            | Yes       | -                   |
-    |                                | Azure Storage (Blog,   ADLS Gen2)                             | Yes       | Yes (MSI auth only) |
+    |                                | Azure Files                                            | Yes       | -                   |
+    |                                | Azure Blob storage and ADLS Gen2                             | Yes       | Yes (MSI auth only) |
     |                                | Azure SQL DB, Azure Synapse Analytics), SQL   Ml          | Yes       | -                   |
     |                                | Azure Key Vault (for   fetching secrets/   connection string) | Yes       | Yes                 |
     | Other PaaS/   SaaS Data stores | AWS   S3, SalesForce, Google Cloud Storage, etc.              | Yes       | -                   |

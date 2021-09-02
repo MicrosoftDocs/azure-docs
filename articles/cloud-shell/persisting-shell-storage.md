@@ -18,7 +18,7 @@ ms.author: damaerte
 ---
 
 # Persist files in Azure Cloud Shell
-Cloud Shell utilizes Azure File storage to persist files across sessions. On initial start, Cloud Shell prompts you to associate a new or existing file share to persist files across sessions.
+Cloud Shell utilizes Azure Files to persist files across sessions. On initial start, Cloud Shell prompts you to associate a new or existing file share to persist files across sessions.
 
 > [!NOTE]
 > Bash and PowerShell share the same file share. Only one file share can be associated with automatic mounting in Cloud Shell.

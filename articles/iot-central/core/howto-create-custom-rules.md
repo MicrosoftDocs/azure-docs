@@ -1,8 +1,8 @@
 ---
 title: Extend Azure IoT Central with custom rules and notifications | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to send email notifications when a device stops sending telemetry. This solution uses Azure Stream Analytics, Azure Functions, and SendGrid.
-author: philmea
-ms.author: philmea
+author: dominicbetts 
+ms.author: dobett 
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: iot-central

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/10/2021
+ms.date: 08/24/2021
 ms.author: alkohli
 ---
 
@@ -28,6 +28,9 @@ The following table gives a summary of each step in processing an import order a
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
 This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy import order. The information in this article applies to both, Data Box and Data Box Heavy import orders. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
+
+> [!NOTE]
+> [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
 
 ## Set up access control on the order
 
@@ -75,7 +78,7 @@ During the data copy to Data Box or Data Box Heavy, an error file is generated i
 Make sure that the copy jobs have finished with no errors. If there are errors during the copy process, download the logs from the **Connect and copy** page.
 
 - If you copied a file that is not 512 bytes aligned to a managed disk folder on your Data Box, the file isn't uploaded as a page blob to your staging storage account. You will see an error in the logs. Remove the file, and copy a file that is 512 bytes aligned.
-- If you copied a VHDX, or a dynamic VHD, or a differencing VHD (these file types are not supported), you will see an error in the logs.
+- If you copied a VHDX, or a dynamic VHD, or a differencing VHD, you will see an error in the logs. Those file types are not supported.
 
 Here is a sample of the *error.xml* for different errors when copying to managed disks.
 
@@ -206,6 +209,9 @@ By default, logs are written to a container named `copylog`. The logs are stored
 The copy log path is also displayed on the **Overview** blade for the portal.
 
 ![Path to copy log in Overview blade when completed](media/data-box-logs/copy-log-path-1.png)
+
+> [!NOTE]
+> [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
 
 ### Upload completed successfully
 

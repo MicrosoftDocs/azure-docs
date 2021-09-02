@@ -44,7 +44,7 @@ For an offer to achieve co-sell ready status, you must meet the following requir
 
 **Business Applications ISVs**:
 
-- Dynamics 365 & PowerApps (except Dynamics 365 Business Central) solutions require ISV Connect enrollment.
+- Dynamics 365 & Power Apps (except Dynamics 365 Business Central) solutions require ISV Connect enrollment.
 
 ### Complete the Co-sell with Microsoft tab
 

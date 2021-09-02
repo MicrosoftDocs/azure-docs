@@ -1,7 +1,7 @@
 ---
 title: How to evaluate Azure Arc-enabled servers with an Azure VM
 description: Learn how to evaluate Azure Arc-enabled servers using an Azure virtual machine.
-ms.date: 07/16/2021
+ms.date: 09/02/2021
 ms.topic: conceptual
 ---
 
@@ -74,10 +74,7 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
    sudo ufw --force enable
    sudo ufw deny out from any to 169.254.169.254
    sudo ufw default allow incoming
-   sudo apt-get update
    ```
-
-
    To configure a generic iptables configuration, run the following command:
 
    ```bash
@@ -86,6 +83,13 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
 
    > [!NOTE]
    > This configuration needs to be set after every reboot unless a persistent iptables solution is used.
+
+   If your Azure VM is running CentOS, Red Hat, or SUSE Linux Enterprise Server (SLES), perform the following steps to configure firewalld:
+
+   ```bash
+   firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 1 -p tcp -d 169.254.169.254 -j DROP
+   firewall-cmd --reload
+   ```
 
 4. Install and configure the Azure Arc-enabled servers agent.
 

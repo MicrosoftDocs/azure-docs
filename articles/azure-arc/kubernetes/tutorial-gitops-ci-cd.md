@@ -10,7 +10,6 @@ ms.custom: template-tutorial, devx-track-azurecli
 ---
 # Tutorial: Implement CI/CD with GitOps using Azure Arc-enabled Kubernetes clusters
 
-
 In this tutorial, you'll set up a CI/CD solution using GitOps with Azure Arc-enabled Kubernetes clusters. Using the sample Azure Vote app, you'll:
 
 > [!div class="checklist"]
@@ -41,13 +40,13 @@ This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, 
 
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8sconfiguration
+  az extension add --name k8s-configuration
   ```
   * To update these extensions to the latest version, run the following commands:
 
     ```azurecli
     az extension update --name connectedk8s
-    az extension update --name k8sconfiguration
+    az extension update --name k8s-configuration
     ```
 
 ## Import application and GitOps repos into Azure Repos
@@ -83,13 +82,13 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 1. [Create a new GitOps connection](./tutorial-use-gitops-connected-cluster.md) to your newly imported **arc-cicd-demo-gitops** repo in Azure Repos.
 
    ```azurecli
-   az k8sconfiguration create \
+   az k8s-configuration create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
       --resource-group myResourceGroup \
       --operator-instance-name cluster-config \
       --operator-namespace cluster-config \
-      --repository-url https://dev.azure.com/<Your organization>/arc-cicd-demo-gitops \
+      --repository-url https://dev.azure.com/<Your organization>/<Your project>/_git/arc-cicd-demo-gitops \
       --https-user <Azure Repos username> \
       --https-key <Azure Repos PAT token> \
       --scope cluster \
@@ -102,7 +101,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
    `--git-path=arc-cicd-cluster/manifests`
 
    > [!NOTE]
-   > If you are using an HTTPS connection string and are having connection problems, ensure you omit the username prefix in the URL. For example, `https://alice@dev.azure.com/contoso/arc-cicd-demo-gitops` must have `alice@` removed. The `--https-user` specifies the user instead, for example `--https-user alice`.
+   > If you are using an HTTPS connection string and are having connection problems, ensure you omit the username prefix in the URL. For example, `https://alice@dev.azure.com/contoso/project/_git/arc-cicd-demo-gitops` must have `alice@` removed. The `--https-user` specifies the user instead, for example `--https-user alice`.
 
 1. Check the state of the deployment in Azure portal.
    * If successful, you'll see both `dev` and `stage` namespaces created in your cluster.
@@ -175,7 +174,7 @@ To avoid having to set an imagePullSecret for every Pod, consider adding the ima
 | ENVIRONMENT_NAME | Dev |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_FOLDER | `azure-vote-manifests` |
-| MANIFESTS_REPO | `azure-cicd-demo-gitops` |
+| MANIFESTS_REPO | `arc-cicd-demo-gitops` |
 | ORGANIZATION_NAME | Name of Azure DevOps organization |
 | PROJECT_NAME | Name of GitOps project in Azure DevOps |
 | REPO_URL | Full URL for GitOps repo |
@@ -328,7 +327,7 @@ If you're not going to continue to use this application, delete any resources wi
 
 1. Delete the Azure Arc GitOps configuration connection:
    ```azurecli
-   az k8sconfiguration delete \
+   az k8s-configuration delete \
    --name cluster-config \
    --cluster-name arc-cicd-cluster \
    --resource-group myResourceGroup \

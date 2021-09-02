@@ -15,7 +15,7 @@ Dashboards are an insightful way to monitor your business and view all your most
 ## Suggested pre-reading
 
 - Azure Video Analyzer [player widget](player-widget.md)
-- Introduction to [Power BI dashboards](https://docs.microsoft.com/power-bi/create-reports/service-dashboards)
+- Introduction to [Power BI dashboards](/power-bi/create-reports/service-dashboards)
 
 ## Prerequisites
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
 ms.date: 10/08/2020
 ---
@@ -14,10 +14,10 @@ ms.date: 10/08/2020
 
 > [!IMPORTANT]
 > The original AS2 connector is being deprecated, so unless you need tracking capabilities, use the **AS2 (v2)** connector instead. 
-> Except for tracking, the v2 connector provides the same capabilities as the original version, is native to the Logic Apps runtime, 
-> and has significant performance improvements in message size, throughput, and latency. Also, the v2 connector doesn't require that 
-> you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your 
-> integration account to the logic app where you plan to use the connector.
+> Except for tracking, the v2 connector provides better performance, the same capabilities as the original version, is native to the 
+> Azure Logic Apps runtime, and has significant performance improvements in message size, throughput, and latency. Also, the v2 connector 
+> doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you 
+> link your integration account to the logic app where you plan to use the connector.
 
 To work with AS2 messages in Azure Logic Apps, you can use the AS2 connector, which provides triggers and actions that support and manage AS2 (version 1.2) communication. For example, to establish security and reliability when transmitting messages, you can use these actions:
 

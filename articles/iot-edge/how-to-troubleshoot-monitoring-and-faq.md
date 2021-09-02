@@ -99,7 +99,7 @@ If you aren't able to find the problem, create a [technical support incident](ht
 
 ## My device isn't showing up in the monitoring workbook
 
-The workbook relies on device metrics being linked to the correct IoT hub using *ResourceId*. Confirm that the metrics-collector is [configured](how-to-collect-and-transport-metrics.md#metrics-collector-configuration) with the correct *ResourceId*.
+The workbook relies on device metrics being linked to the correct IoT hub or IoT Central application using *ResourceId*. Confirm that the metrics-collector is [configured](how-to-collect-and-transport-metrics.md#metrics-collector-configuration) with the correct *ResourceId*.
 
 Using metrics-collector module logs, confirm that the device sent metrics during the selected time range.
 
@@ -113,7 +113,7 @@ The template for the workbooks is [publicly available on GitHub](https://github.
 
 ## I cannot see the workbooks in the public templates
 
-Ensure that you're looking at the **Workbooks** page in your IoT hub page in the portal, not in your Log Analytics workspace.
+Ensure that you're looking at the **Workbooks** page in your IoT hub or IoT Central application page in the portal, not in your Log Analytics workspace.
 
 If you still can't see the workbooks, try using the pre-production Azure portal environment: [`https://ms.portal.azure.com`](https://ms.portal.azure.com). Sometimes workbook updates take additional time to show up in the production environment, but will be available in pre-production.
 

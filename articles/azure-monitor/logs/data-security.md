@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Logs data security | Microsoft Docs
-description: Learn about how [Azure Monitor Logs protects your privacy and secures your data.
+description: Learn about how Azure Monitor Logs protects your privacy and secures your data.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -8,7 +8,7 @@ ms.date: 11/11/2020
 
 ---
 
-# [Azure Monitor Logs data security
+# Azure Monitor Logs data security
 This document is intended to provide information specific to [Azure Monitor Logs](../logs/data-platform-logs.md) to supplement the information on [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
 This article explains how log data is collected, processed, and secured by Azure Monitor. You can use agents to connect to the web service, use System Center Operations Manager to collect operational data, or retrieve data from Azure diagnostics for use by Azure Monitor. 
@@ -36,7 +36,7 @@ To ensure the security of data in transit to Azure Monitor, we strongly encourag
 
 The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has set a [deadline of June 30th, 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) to disable older versions of TLS/SSL and upgrade to more secure protocols. Once Azure drops legacy support, if your agents cannot communicate over at least TLS 1.2 you would not be able to send data to Azure Monitor Logs. 
 
-We do not recommend explicitly setting your agent to only use TLS 1.2 unless absolutely necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3. 
+We recommend you do NOT explicit set your agent to only use TLS 1.2 unless absolutely necessary. Allowing the agent to automatically detect, negotiate, and take advantage of future security standards is preferable. Otherwise you may miss the added security of the newer standards and possibly experience problems if TLS 1.2 is ever deprecated in favor of those newer standards.    
 
 ### Platform-specific guidance
 
