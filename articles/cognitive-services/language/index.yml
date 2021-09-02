@@ -1,36 +1,113 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
-title: Language Services documentation
-summary: 'Language Services is a cloud-based service that provides advanced natural language processing over raw text, and includes several main functions.'
+title: Language service documentation
+summary: Learn how to integrate AI that works on written text into your applications.
+brand: azure
 
 metadata:
-  title: Language Services documentation - Tutorials, API reference | Microsoft Docs
+  title: Language service documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  description: 'Language Services is a cloud-based service that provides advanced natural language processing over raw text, and includes several main functions. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.'
+  description: Learn how to integrate AI that works on written text into your applications.
   author: aahill
   manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: text-analytics
-  ms.topic: landing-page
-  ms.date: 07/20/2021
+  ms.service: speech-service
+  ms.topic: hub-page
+  ms.date: 08/02/2021
   ms.author: aahi
 
-landingContent:
-- title: About Language Services
-  linkLists:
-    - linkListType: overview
-      links:
-        - text: What is Language Services
-          url: overview.md
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What are Language Services?
+      itemType: overview
+      url: overview.md
 
-- title: Sentiment analysis   
-  linkLists:
-    - linkListType: how-to-guide
+conceptualContent:
+  items:
+    - title: Extract information
       links:
-        - text: Sentiment analysis
-          url: sentiment-opinion-mining/how-to/call-api.md
-    - linkListType: concept
+        - itemType: overview
+          text: Extract key phrases
+          url:  key-phrase-extraction/overview.md
+        - itemType: overview
+          text: Find linked entities
+          url:  entity-linking/overview.md 
+        - itemType: overview
+          text: Extract entities (NER) and sensitive information (PII)
+          url:  named-entity-recognition/overview.md
+        - itemType: overview
+          text: Custom text extraction
+          url:  custom-named-entity-recognition/overview.md
+
+    - title: Classify Text
       links:
-        - text: Multilingual and emoji support
-          url: concepts/multilingual-emoji-support.md
+        - itemType: overview
+          text: Analyze sentiment and mine opinions
+          url: sentiment-opinion-mining/overview.md
+        - itemType: overview
+          text: Detect Language
+          url: language-detection/overview.md       
+        - itemType: overview
+          text: Custom classification
+          url: custom-classification/overview.md    
+
+
+    - title: Understand conversational language
+      links:
+        - itemType: overview
+          text: Custom language understanding
+          url: custom-language-understanding/overview.md 
+
+    - title: Answer questions
+      links:
+        - itemType: overview
+          text: Question answering
+          url: question-answering/overview.md 
+        - itemType: overview
+          text: Custom question answering
+          url: custom-question-answering/overview.md 
+
+    - title: Translate text
+      links:
+        - itemType: overview
+          text: Translate text
+          url: ../translator/translator-overview.md
+        - itemType: overview
+          text: Custom translation
+          url: ../translator/custom-translator/overview.md
+      
+tools:
+  title: Software Development Kits (SDKs)
+  summary: Get started with the Language Services SDK in your favorite programming language.
+  items:
+  - title: C#
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+    url: /dotnet/api/microsoft.cognitiveservices.speech
+  - title: Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: /java/api/com.microsoft.cognitiveservices.speech
+  - title: JavaScript
+    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+    url: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+  - title: Python
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+    url: /python/api/azure-cognitiveservices-speech/
+
+additionalContent:
+  sections:
+    - items:
+      - title: Resources
+        links:
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+        - text: Regions
+          url: regions.md
+        - text: Learn
+          url: /learn/browse/?products=azure-cognitive-services&term=Speech
+      - title: Support
+        links:
+        - text: Support and help
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
+        - text: GitHub issues
+          url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
