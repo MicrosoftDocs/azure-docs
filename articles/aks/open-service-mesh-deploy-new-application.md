@@ -186,7 +186,7 @@ You should see output similar to the following.
 meshconfig.config.openservicemesh.io/osm-mesh-config patched
 ```
 
-To verify permissive traffic mode has been disabled, port forward back into either the `bookbuyer` or `bookthief` pod to view their UI in the browser and see if the books bought or books stolen is no longer incrementing. Ensure to refresh the browser. If the incrementing has stopped, the policy was applied correctly. You have successfully stopped the `bookthief` from stealing books, but neither the `bookbuyer` can purchase from the `bookstore` nor the `bookstore` can retrieve books from the `bookwarehouse`. Next we will implement [SMI](https://smi-spec.io/) policies to allow only the services in the mesh you'd like to communicate to do so.
+To verify permissive traffic mode has been disabled, port forward back into either the `bookbuyer` or `bookthief` pod to view their UI in the browser and see if the books bought or books stolen is no longer incrementing. Ensure to refresh the browser. If the incrementing has stopped, the policy was applied correctly. You have successfully stopped the `bookthief` from stealing books, but neither the `bookbuyer` can purchase from the `bookstore` nor the `bookstore` can retrieve books from the `bookwarehouse`. Next we will implement [SMI](https://smi-spec.io/) policies to allow only the services in the mesh you'd like to communicate to do so. For more detailed information about permissive traffic mode, please visit and read the [Permissive Traffic Policy Mode](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) article.
 
 ## Apply Service Mesh Interface (SMI) traffic access policies
 

@@ -71,7 +71,7 @@ az group create --name <my-osm-aks-cluster-rg> --location <azure-region>
 You'll now deploy a new AKS cluster with the OSM add-on enabled.
 
 > [!NOTE]
-> Please be aware the following AKS deployment command utilizes OS ephemeral disks. You can find more information here about [Ephemeral OS disks for AKS](./cluster-configuration.md#ephemeral-os)
+> Please be aware the following AKS deployment command utilizes OS ephemeral disks for an example AKS deployment. You can find more information here about [Ephemeral OS disks for AKS](./cluster-configuration.md#ephemeral-os)
 
 ```azurecli-interactive
 az aks create -n <my-osm-aks-cluster-name> -g <my-osm-aks-cluster-rg> --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
@@ -187,7 +187,7 @@ spec:
     useHTTPSIngress: false
 ```
 
-Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services. For more detailed information, please visit and read the [Permissive Traffic Policy Mode](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) article. 
+Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services. For more detailed information about permissive traffic mode, please visit and read the [Permissive Traffic Policy Mode](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) article. 
 
 > [!WARNING]
 > Before proceeding please verify that your permissive traffic policy mode is set to true, if not please change it to **true** using the command below

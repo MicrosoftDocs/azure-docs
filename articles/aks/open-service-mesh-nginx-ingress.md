@@ -91,16 +91,16 @@ spec:
     useHTTPSIngress: false
 ```
 
-Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services. For more detailed information about permissive traffic mode, please visit and read the [Permissive Traffic Policy Mode](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) article.
 
 ## Create namespaces for the application
 
 In this tutorial we will be using the OSM bookstore application that has the following application components:
 
-- bookbuyer
-- bookthief
-- bookstore
-- bookwarehouse
+- `bookbuyer`
+- `bookthief`
+- `bookstore`
+- `bookwarehouse`
 
 Create namespaces for each of these application components.
 
@@ -119,7 +119,7 @@ namespace/bookwarehouse created
 
 ## Onboard the namespaces to be managed by OSM
 
-Adding the namespaces to the OSM mesh will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
+Adding the namespaces to the OSM mesh will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM `bookstore` application namespaces.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -174,7 +174,7 @@ deployment.apps/bookwarehouse created
 
 ## Update the Bookbuyer Service
 
-Update the bookbuyer service to the correct inbound port configuration with the following service manifest.
+Update the `bookbuyer` service to the correct inbound port configuration with the following service manifest.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -196,15 +196,15 @@ EOF
 
 ## Verify the Bookstore application running inside the AKS cluster
 
-As of now we have deployed the bookstore mulit-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the application outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
+As of now we have deployed the `bookstore` mulit-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the application outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the `bookbuyer` component UI.
 
-First let's get the bookbuyer pod's name
+First let's get the `bookbuyer` pod's name
 
 ```azurecli-interactive
 kubectl get pod -n bookbuyer
 ```
 
-You should see output similar to the following. Your bookbuyer pod will have a unique name appended.
+You should see output similar to the following. Your `bookbuyer` pod will have a unique name appended.
 
 ```Output
 NAME                         READY   STATUS    RESTARTS   AGE
@@ -224,7 +224,7 @@ Forwarding from 127.0.0.1:8080 -> 14001
 Forwarding from [::1]:8080 -> 14001
 ```
 
-While the port forwarding session is in place, navigate to the following url from a browser `http://localhost:8080`. You should now be able to see the bookbuyer application UI in the browser similar to the image below.
+While the port forwarding session is in place, navigate to the following url from a browser `http://localhost:8080`. You should now be able to see the `bookbuyer` application UI in the browser similar to the image below.
 
 ![OSM bookbuyer app for NGINX UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
@@ -234,7 +234,7 @@ An ingress controller is a piece of software that provides reverse proxy, config
 
 We will utilize the ingress controller to expose the application managed by OSM to the internet. To create the ingress controller, use Helm to install nginx-ingress. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
-The ingress controller needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
+The ingress controller will be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
 
 > [!TIP]
 > The following example creates a Kubernetes namespace for the ingress resources named _ingress-basic_. Specify a namespace for your own environment as needed.
@@ -336,7 +336,7 @@ nginx-ingress-ingress-nginx-controller             LoadBalancer   10.0.100.23   
 nginx-ingress-ingress-nginx-controller-admission   ClusterIP      10.0.163.98   <none>        443/TCP                      4m15s
 ```
 
-Since the host name in the ingress manifest is a psuedo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the NGINX public IP address and receive a 200 code successfully connecting us to the bookbuyer service.
+Since the host name in the ingress manifest is a pseudo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the NGINX public IP address and receive a 200 code successfully connecting us to the bookbuyer service.
 
 ```azurecli-interactive
 curl -H 'Host: bookbuyer.contoso.com' http://EXTERNAL-IP/

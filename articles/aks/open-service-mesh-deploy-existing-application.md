@@ -79,7 +79,7 @@ spec:
     useHTTPSIngress: false
 ```
 
-If the **enablePermissiveTrafficPolicyMode** is configured to **true**, you can safely onboard your namespaces without any disruption to your service-to-service communications. If the **enablePermissiveTrafficPolicyMode** is configured to **false**, You will need to ensure you have the correct [SMI](https://smi-spec.io/) traffic access policy manifests deployed as well as ensuring you have a service account representing each service deployed in the namespace. 
+If the **enablePermissiveTrafficPolicyMode** is configured to **true**, you can safely onboard your namespaces without any disruption to your service-to-service communications. If the **enablePermissiveTrafficPolicyMode** is configured to **false**, You will need to ensure you have the correct [SMI](https://smi-spec.io/) traffic access policy manifests deployed as well as ensuring you have a service account representing each service deployed in the namespace. For more detailed information about permissive traffic mode, please visit and read the [Permissive Traffic Policy Mode](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) article.
 
 ## Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as True
 
