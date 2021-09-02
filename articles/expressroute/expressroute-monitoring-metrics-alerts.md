@@ -35,22 +35,22 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 |**Metric**|**Category**|**Dimension(s)**|**Feature(s)**|
 | --- | --- | --- | --- |
-|ARP Availability|Availability|<ul><li>Peer (Primary/Secondary ExpressRoute router)</ul></li><ul><li> Peering Type (Private/Public/Microsoft)</ul></li>|ExpressRoute|
-|BGP Availability|Availability|<ul><li> Peer (Primary/Secondary ExpressRoute router)</ul></li><ul><li> Peering Type</ul></li>|ExpressRoute|
-|BitsInPerSecond|Traffic|<ul><li> Peering Type (ExpressRoute)</ul></li><ul><li>Link (ExpressRoute Direct)</ul></li>|<li>ExpressRoute</li><li>ExpressRoute Direct</li><ul><li>ExpressRoute Gateway Connection</ul></li>|
-|BitsOutPerSecond|Traffic| <ul><li>Peering Type (ExpressRoute)</ul></li><ul><li> Link (ExpressRoute Direct) |<ul><li>ExpressRoute<ul><li>ExpressRoute Direct</ul></li><ul><li>ExpressRoute Gateway Connection</ul></li>|
-|CPU Utilization|Performance| <ul><li>Instance</ul></li>|ExpressRoute Virtual Network Gateway|
-|Packets per Second|Performance| <ul><li>Instance</ul></li>|ExpressRoute Virtual Network Gateway|
-|Count of Routes Advertised to Peer |Availability| <ul><li>Instance</ul></li>|ExpressRoute Virtual Network Gateway|
-|Count of Routes Learned from Peer |Availability| <ul><li>Instance</ul></li>|ExpressRoute Virtual Network Gateway|
-|Frequency of Routes change |Availability| <ul><li>Instance</ul></li>|ExpressRoute Virtual Network Gateway|
+|ARP Availability|Availability|<ul><li>Peer (Primary/Secondary ExpressRoute router)</li><li> Peering Type (Private/Public/Microsoft)</li></ul>|ExpressRoute|
+|BGP Availability|Availability|<ul><li> Peer (Primary/Secondary ExpressRoute router)</li><li> Peering Type</li></ul>|ExpressRoute|
+|BitsInPerSecond|Traffic|<ul><li> Peering Type (ExpressRoute)</li><li>Link (ExpressRoute Direct)</li></ul>|<li>ExpressRoute</li><li>ExpressRoute Direct</li><ul><li>ExpressRoute Gateway Connection</li></ul>|
+|BitsOutPerSecond|Traffic| <ul><li>Peering Type (ExpressRoute)</li><li> Link (ExpressRoute Direct) |<ul><li>ExpressRoute<ul><li>ExpressRoute Direct</li><li>ExpressRoute Gateway Connection</li></ul>|
+|CPU Utilization|Performance| <ul><li>Instance</li></ul>|ExpressRoute Virtual Network Gateway|
+|Packets per Second|Performance| <ul><li>Instance</li></ul>|ExpressRoute Virtual Network Gateway|
+|Count of Routes Advertised to Peer |Availability| <ul><li>Instance</li></ul>|ExpressRoute Virtual Network Gateway|
+|Count of Routes Learned from Peer |Availability| <ul><li>Instance</li></ul>|ExpressRoute Virtual Network Gateway|
+|Frequency of Routes change |Availability| <ul><li>Instance</li></ul>|ExpressRoute Virtual Network Gateway|
 |Number of VMs in the Virtual Network |Availability| N/A |ExpressRoute Virtual Network Gateway|
-|GlobalReachBitsInPerSecond|Traffic|<ul><li>Peered Circuit Skey (Service Key)</ul></li>|Global Reach|
-|GlobalReachBitsOutPerSecond|Traffic|<ul><li>Peered Circuit Skey (Service Key)</ul></li>|Global Reach|
+|GlobalReachBitsInPerSecond|Traffic|<ul><li>Peered Circuit Skey (Service Key)</li></ul>|Global Reach|
+|GlobalReachBitsOutPerSecond|Traffic|<ul><li>Peered Circuit Skey (Service Key)</li></ul>|Global Reach|
 |AdminState|Physical Connectivity|Link|ExpressRoute Direct|
 |LineProtocol|Physical Connectivity|Link|ExpressRoute Direct|
-|RxLightLevel|Physical Connectivity|<ul><li>Link</ul></li><ul><li>Lane</ul></li>|ExpressRoute Direct|
-|TxLightLevel|Physical Connectivity|<ul><li>Link</ul></li><ul><li>Lane</ul></li>|ExpressRoute Direct|
+|RxLightLevel|Physical Connectivity|<ul><li>Link</li><li>Lane</li></ul>|ExpressRoute Direct|
+|TxLightLevel|Physical Connectivity|<ul><li>Link</li><li>Lane</li></ul>|ExpressRoute Direct|
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
 >
