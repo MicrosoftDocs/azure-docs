@@ -17,7 +17,10 @@ ms.author: apimpm
 
 # Manage protocols and ciphers in Azure API Management
 
-Azure API Management supports multiple versions of TLS protocol for both client and backend sides as well as the 3DES cipher.
+Azure API Management supports multiple versions of Transport Layer Security (TLS) protocol for:
+* Client side
+* Backend side
+* The 3DES cipher
 
 This guide shows you how to manage protocols and ciphers configuration for an Azure API Management instance.
 
@@ -39,5 +42,5 @@ This guide shows you how to manage protocols and ciphers configuration for an Az
 
 ## Next steps
 
-* Learn more about [TLS (Transport Layer Security)](/dotnet/framework/network-programming/tls).
+* Learn more about [TLS](/dotnet/framework/network-programming/tls).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
