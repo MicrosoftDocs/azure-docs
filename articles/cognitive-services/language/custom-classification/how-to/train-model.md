@@ -15,7 +15,7 @@ ms.author: aahi
 # How to train your model
 
 
-Training is the process where the model learns from your [tagged](tag-data.md data. Training uses deep learning technology built on top of [Microsoft Turing](https://msturing.org/about). After training is completed you can [view model evaluation](../how-to/view-model-evaluation.md), and [Improve your model](../how-to/improve-model.md). 
+Training is the process where the model learns from your [tagged data](tag-data.md). Training uses deep learning technology built on top of [Microsoft Turing](https://msturing.org/about). After training is completed you can [view model evaluation](../how-to/view-model-evaluation.md), and [Improve your model](../how-to/improve-model.md). 
 
 > [!NOTE]
 > * You must have a minimum of 10 documents in your project for the evaluation process to be successful. While training may run with less than 10 tagged files there will be no evaluation data for the model. 
