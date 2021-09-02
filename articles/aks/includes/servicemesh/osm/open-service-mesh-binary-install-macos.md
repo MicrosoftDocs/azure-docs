@@ -6,7 +6,7 @@ ms.date: 03/15/2021
 ms.author: phillipgibson
 ---
 
-## Download and install the OSM client binary
+## Download and install the Open Service Mesh (OSM) client binary
 
 In a bash-based shell, use `curl` to download the OSM release and then extract with `tar` as follows:
 
