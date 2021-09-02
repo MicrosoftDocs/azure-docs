@@ -61,12 +61,12 @@ If you are not interested in the review any further, delete it. To remove the ac
 
 On the **Results** page, you may view and download a list of your review results.
 
-:::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-ad-results.png" alt-text="Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure AD roles screenshot.":::
+:::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-ad-results.png" alt-text="Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure AD roles screenshot." lightbox="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-ad-results.png":::
 
 > [!Note]
 > **Azure AD roles** have a concept of role-assignable groups, where a group can be assigned to the role. When this happens, the group will show up in the review instead of expanding the members of the group, and a reviewer will either approve or deny the entire group.
 
-:::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-results.png" alt-text="Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure resource roles screenshot.":::
+:::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-results.png" alt-text="Results page listing users, outcome, reason, reviewed by, applied by, and apply result for Azure resource roles screenshot." lightbox="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-results.png":::
 
 > [!Note]
 >If a group is assigned to **Azure resource roles**, the reviewer of the Azure resource role will see the expanded list of the users in a nested group. Should a reviewer deny a member of a nested group, that deny result will not be applied successfully because the user will not be removed from the nested group.
@@ -78,7 +78,7 @@ On the **Reviewers** page, you may view and add reviewers to your existing acces
 > [!Note]
 > If the reviewer type selected is user or group, you can add more users or groups as the primary reviewers at any point. You can also remove primary reviewers at any point. If the reviewer type is manager, you can add users or groups as the fallback reviewers to complete reviews on users who do not have managers. Fallback reviewers cannot be removed.
 
-:::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-reviewers.png" alt-text="Reviewers page listing name and user principal name for Azure resource roles screenshot.":::
+:::image type="content" source="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-reviewers.png" alt-text="Reviewers page listing name and user principal name for Azure resource roles screenshot." lightbox="media/pim-complete-azure-ad-roles-and-resource-roles-review/rbac-access-review-azure-resource-reviewers.png":::
 
 ## Next steps
 

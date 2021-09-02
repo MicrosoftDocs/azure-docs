@@ -34,7 +34,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
  
 3. For **Azure AD roles**, select **Azure AD roles** under **Privileged Identity Management**. For **Azure resources**, select **Azure resources** under **Privileged Identity Management**.
 
-    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in Azure Portal screenshot."::: 
+    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in Azure Portal screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
  
 4. For **Azure AD roles**, select **Azure AD roles** again under **Manage**. For **Azure resources**, select the resource you want to manage, such as a subscription.
 
@@ -123,7 +123,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
 You can track the progress as the reviewers complete their reviews on the **Overview** page of the access review. No access rights are changed in the directory until the review is completed. Below is a screenshot showing the overview page for **Azure resources** and **Azure AD roles** access reviews.
 
-:::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/access-review-overview.png" alt-text="{Access reviews overview page showing the details of the access review for Azure AD roles screenshot.}":::
+:::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/access-review-overview.png" alt-text="Access reviews overview page showing the details of the access review for Azure AD roles screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/access-review-overview.png":::
 
 If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of Azure resource and Azure AD roles](pim-complete-azure-ad-roles-and-resource-roles-review.md) to see and apply the results.  
 
@@ -145,11 +145,11 @@ After one or more access reviews have been started, you may want to modify or up
 
 - **Reminding the reviewers** - When updating access reviews, you may choose to enable the reminder option under Advanced Settings. Once enabled, users will receive an email notification at the midpoint of the review period, regardless of whether they have completed the review or not. 
 
-    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/reminder-setting.png" alt-text="{Screenshot of the reminder option under access reviews settings.}":::
+    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/reminder-setting.png" alt-text="Screenshot of the reminder option under access reviews settings.":::
 
 - **Updating the settings** - If an access review is recurring, there are separate settings under "Current" versus under "Series". Updating the settings under "Current" will only apply changes to the current access review while updating the settings under "Series" will update the setting for all future recurrences.
 
-    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/current-v-series-setting.png" alt-text="{Screenshot of the settings page under access reviews.}":::
+    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/current-v-series-setting.png" alt-text="Screenshot of the settings page under access reviews." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/current-v-series-setting.png":::
     
 ## Next steps
 
