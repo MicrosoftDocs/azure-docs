@@ -11,16 +11,9 @@ ms.subservice: files
 
 # StorSimple 8100 and 8600 migration to Azure File Sync
 
-The StorSimple 8000 series is represented by either the 8100 or the 8600 physical, on-premises appliances and their cloud service components. It's possible to migrate the data from either of these appliances to an Azure File Sync environment. Azure File Sync is the default and strategic long-term Azure service that StorSimple appliances can be migrated to.
+The StorSimple 8000 series is represented by either the 8100 or the 8600 physical, on-premises appliances and their cloud service components. StorSimple 8010 and 8020 virtual appliances are also covered in this migration guide. It's possible to migrate the data from either of these appliances to Azure file shares with optional Azure File Sync. Azure File Sync is the default and strategic long-term Azure service that replaces the StorSimple on-premises functionality.
 
 The StorSimple 8000 series will reach its [end of life](/lifecycle/products/azure-storsimple-8000-series) in December 2022. It's important to begin planning your migration as soon as possible. This article provides the necessary background knowledge and migration steps for a successful migration to Azure File Sync.
-
-## Applies to
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Phase 1: Prepare for migration
 
@@ -267,7 +260,7 @@ This section describes how to set up a migration job and carefully map the direc
 
 There are important aspects around choosing backups that need to be migrated:
 
-- Your migration jobs can only move backups, not data from a live volume. So the most recent backup is closest to the live data and should always be on the list of backups moved in a migration.
+- Your migration jobs can only move backups, not data from a live volume. So the most recent backup is closest to the live data and should always be on the list of backups moved in a migration. When you open the Backup selection dialog, it is selected by default.
 - Make sure your latest backup is recent to keep the delta to the live share as small as possible. It could be worth manually triggering and completing another volume backup before creating a migration job. A small delta to the live share will improve your migration experience. If this delta can be zero = no more changes to the StorSimple volume happened after the newest backup was taken in your list - then Phase 5: User cut-over will be drastically simplified and sped up.
 - Backups must be played back into the Azure file share **from oldest to newest**. An older backup cannot be "sorted into" the list of backups on the Azure file share after a migration job has run. Therefore you must ensure that your list of backups is complete *before* you create a job. 
 - This list of backups in a job cannot be modified once the job is created - even if the job never ran. 
@@ -295,7 +288,7 @@ There are important aspects around choosing backups that need to be migrated:
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time.png" alt-text="A screenshot showing the selection of a time range of the backup selection blade." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time-expanded.png":::
     :::column-end:::
     :::column:::
-        By default, the list is filtered to show the StorSimple volume backups within the past seven days to make it easy to select the most recent backup. For backups further in the past, use the time range filter at the top of the blade. You can either select from an existing filter or set a custom time range to filter for only the backups taken during this period.
+        By default, the list is filtered to show the StorSimple volume backups within the past seven days. The most recent backup is already selected by default, even if it did not occur in the past 7 days. For backups further in the past, use the time range filter at the top of the blade. You can either select from an existing filter or set a custom time range to filter for only the backups taken during this period.
     :::column-end:::
 :::row-end:::
 
