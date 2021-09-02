@@ -198,25 +198,11 @@ For example, to see charts of your daily costs for a certain time frame:
 
 The Azure Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
 
-For more information, see [Other ways to manage and reduce Azure Sentinel costs](#other-ways-to-manage-and-reduce-azure-sentinel-costs).
+For more information, see [Create budgets](#create-budgets) and [Other ways to manage and reduce Azure Sentinel costs](#other-ways-to-manage-and-reduce-azure-sentinel-costs).
 
 ### Using Azure Prepayment with Azure Sentinel
 
 You can pay for Azure Sentinel charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay bills to third party organizations for their products and services, or for products from the Azure Marketplace.
-
-### Define a data volume cap in Log Analytics
-
-In Log Analytics, you can enable a daily volume cap that limits the daily ingestion for your workspace. The daily cap can help you manage unexpected increases in data volume, stay within your limit, and limit unplanned charges.
-
-To define a daily volume cap, select **Usage and estimated costs** in the left navigation of your Log Analytics workspace, and then select **Daily cap**. Select **On**, enter a daily volume cap amount, and then select **OK**.
-
-
-![Screenshot showing the Usage and estimated costs screen and the Daily cap window.](media/billing/daily-cap.png)
-
-The **Usage and estimated costs** screen also shows your ingested data volume trend in the past 31 days, and the total retained data volume.
-
-> [!IMPORTANT]
-> The daily cap doesn't limit collection of all data types. For more information about managing the daily cap in Log Analytics, see [Manage your maximum daily data volume](../azure-monitor/logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 ### Run queries to understand your data ingestion
 
