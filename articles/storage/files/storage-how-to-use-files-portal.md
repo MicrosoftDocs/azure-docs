@@ -4,7 +4,7 @@ description: See how to create and manage Azure file shares in the Azure portal.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/15/2021
+ms.date: 09/01/2021
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -146,16 +146,133 @@ $storageAcct = New-AzStorageAccount `
 
 # [Azure CLI](#tab/azure-cli)
 
+## Create a resource group
+A resource group is a logical container in which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can use the [az group create](/cli/azure/group) command to create one. 
+
+The following example creates a resource group named *myResourceGroup* in the *West US 2* location:
+
+```azurecli-interactive 
+export resourceGroupName="myResourceGroup"
+region="westus2"
+
+az group create \
+    --name $resourceGroupName \
+    --location $region \
+    --output none
+```
+
+## Create a storage account
+A storage account is a shared pool of storage in which you can deploy Azure file shares or other storage resources, such as blobs or queues. A storage account can contain an unlimited number of file shares. A share can store an unlimited number of files, up to the capacity limits of the storage account.
+
+The following example creates a storage account using the [az storage account create](/cli/azure/storage/account) command. Storage account names must be unique, so use `$RANDOM` to append a number to the name to make it unique.
+
+```azurecli-interactive 
+export storageAccountName="mystorageacct$RANDOM"
+
+az storage account create \
+    --resource-group $resourceGroupName \
+    --name $storageAccountName \
+    --location $region \
+    --kind StorageV2 \
+    --sku Standard_LRS \
+    --enable-large-file-share \
+    --output none
+```
 
 ---
 
-## Use your Azure file share
-Azure Files provides three methods of working with files and folders within your Azure file share: the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview), the Network File System (NFS) protocol (preview), and the [File REST protocol](/rest/api/storageservices/file-service-rest-api). 
+#### Create a directory
 
-To mount a file share with SMB, see the following document based on your OS:
-- [Windows](storage-how-to-use-files-windows.md)
-- [Linux](storage-how-to-use-files-linux.md)
-- [macOS](storage-how-to-use-files-mac.md)
+# [Portal](#tab/azure-portal)
+
+To create a new directory named *myDirectory* at the root of your Azure file share:
+
+1. On the **File Service** page, select the **myshare** file share. The page for your file share opens.
+1. On the menu at the top of the page, select **+ Add directory**. The **New directory** page drops down.
+1. Type *myDirectory* and then click **OK**.
+
+# [PowerShell](#tab/azure-powershell)
+
+Now you can create your first Azure file share. You can create a file share using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named `myshare`.
+
+```azurepowershell-interactive
+$shareName = "myshare"
+
+New-AzRmStorageShare `
+    -StorageAccount $storageAcct `
+    -Name $shareName `
+    -EnabledProtocol SMB `
+    -QuotaGiB 1024 | Out-Null
+```
+
+Share names need to be all lower-case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+
+# [Azure CLI](#tab/azure-cli)
+
+Now, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=false#az_storage_share_rm_create) command. This example creates an Azure file share named *myshare*: 
+
+```azurecli-interactive
+shareName="myshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --quota 1024 \
+    --enabled-protocols SMB \
+    --output none
+```
+
+Share names can contain only lowercase letters, numbers, and single hyphens (but they can't start with a hyphen). For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+
+---
+
+
+#### Upload a file 
+# [Portal](#tab/azure-portal)
+
+
+To demonstrate uploading a file, you first need to create or select a file to be uploaded. You may do this by whatever means you see fit. Once you've selected the file you would like to upload:
+
+1. Click on the **myDirectory** directory. The **myDirectory** panel opens.
+1. In the menu at the top, select **Upload**. The **Upload files** panel opens.  
+	
+    ![A screenshot of the upload files panel](media/storage-how-to-use-files-portal/upload-file-1.png)
+
+1. Click on the folder icon to open a window to browse your local files. 
+1. Select a file and then click **Open**. 
+1. In the **Upload files** page, verify the file name and then click **Upload**.
+1. When finished, the file should appear in the list on the **myDirectory** page.
+
+# [PowerShell](#tab/azure-powershell)
+
+# [Azure CLI](#tab/azure-cli)
+
+---
+
+#### Download a file
+# [Portal](#tab/azure-portal)
+
+You can download a copy of the file you uploaded by right-clicking on the file. After clicking the download button, the exact experience will depend on the operating system and browser you're using.
+
+
+# [PowerShell](#tab/azure-powershell)
+
+# [Azure CLI](#tab/azure-cli)
+
+---
+
+## Clean up resources
+# [Portal](#tab/azure-portal)
+
+[!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
+
+# [PowerShell](#tab/azure-powershell)
+
+
+# [Azure CLI](#tab/azure-cli)
+
+---
 
 ### Using an Azure file share from the Azure portal
 All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access. It is possible to work directly with the File REST protocol (that is, handcrafting REST HTTP calls yourself), but the most common way (beyond using the Azure portal) to use the File REST protocol is to use the [Azure PowerShell module](storage-how-to-use-files-powershell.md), the [Azure CLI](storage-how-to-use-files-cli.md), or an Azure Storage SDK, all of which provide a nice wrapper around the File REST protocol in the scripting/programming language of your choice. 
@@ -169,32 +286,6 @@ We expect most users of Azure Files will want to work with their Azure file shar
 The following examples show how to use the Azure portal to manipulate your Azure file share with the File REST protocol. 
 
 Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can work with your Azure file share with the Azure portal. 
-
-#### Create a directory
-To create a new directory named *myDirectory* at the root of your Azure file share:
-
-1. On the **File Service** page, select the **myshare** file share. The page for your file share opens.
-1. On the menu at the top of the page, select **+ Add directory**. The **New directory** page drops down.
-1. Type *myDirectory* and then click **OK**.
-
-#### Upload a file 
-To demonstrate uploading a file, you first need to create or select a file to be uploaded. You may do this by whatever means you see fit. Once you've selected the file you would like to upload:
-
-1. Click on the **myDirectory** directory. The **myDirectory** panel opens.
-1. In the menu at the top, select **Upload**. The **Upload files** panel opens.  
-	
-    ![A screenshot of the upload files panel](media/storage-how-to-use-files-portal/upload-file-1.png)
-
-1. Click on the folder icon to open a window to browse your local files. 
-1. Select a file and then click **Open**. 
-1. In the **Upload files** page, verify the file name and then click **Upload**.
-1. When finished, the file should appear in the list on the **myDirectory** page.
-
-#### Download a file
-You can download a copy of the file you uploaded by right-clicking on the file. After clicking the download button, the exact experience will depend on the operating system and browser you're using.
-
-## Clean up resources
-[!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## Next steps
 
