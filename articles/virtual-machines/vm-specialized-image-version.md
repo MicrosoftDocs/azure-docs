@@ -37,7 +37,6 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
 
 
-## Create a VM
 ### [CLI](#tab/cli)
 
 List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
