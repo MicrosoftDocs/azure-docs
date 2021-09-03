@@ -102,18 +102,13 @@ Columnstore indexes require large amounts of memory to compress data into high-q
 - To ensure the loading user has enough memory to achieve maximum compression rates, use loading users that are a member of a medium or large resource class.
 - Load enough rows to completely fill new rowgroups. During a bulk-load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
 
-<!-- ## Increase batch size when using SQLBulkCopy API or BCP
+## Increase batch size when using SQLBulkCopy API or BCP
 
-As mentioned before, loading with PolyBase 
-(should this be PolyBase or COPY) 
-will provide the highest throughput with dedicated SQL pool. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP), you should consider increasing batch size for better throughput - a good rule of thumb is a batch size between 100K to 1M rows.
-
-or 
 
 Loading with the COPY statement will provide the highest throughput with dedicated SQL pools. If you cannot use the COPY to load and must use the [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), you should consider increasing batch size for better throughput.
 
 > [!TIP]
-> A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity. -->
+> A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity. 
 
 ## Manage loading failures
 
