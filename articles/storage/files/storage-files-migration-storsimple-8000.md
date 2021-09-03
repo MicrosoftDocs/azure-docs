@@ -361,40 +361,80 @@ Sorts multiple source locations into a new directory structure:
 Your migration jobs are listed under *Job definitions* in the Data Manager resource you've deployed to a resource group.
 From the list of job definitions, select the job you want to run.
 
-In the job blade that opens, you can see your job runs in the lower list. Initially, this list will be empty. At the top of the blade, there is a command called *Run job*. This command will not immediately run the job, it opens the **Job run** blade:
+In the job blade that opens, you can see your job's current status and a list of backups you've selected. They have been placed in the order of oldest backup to newest backup, and they will be processed (migrated) to your Azure file share in this order.  
+
+:::row:::
+    :::column:::        
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-neverran-focused.png" alt-text="An image showing the migration job blade with a highlight around the command to start the job. It also displays the selected backups scheduled for migration." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-neverran.png":::
+    :::column-end:::
+    :::column:::
+        Initially, the migration job will have the status: **Never ran**. </br>When you are ready, you can start this migration job. (Click on the image for a version with higher resolution.) </br> When a backup was successfully migrated, an automatic Azure file share snapshot will be taken. The original backup date of your StorSimple backup will be placed in the *Comments* section of the Azure file share snapshot. Utilizing this field will allow you to see when the data was originally backed up as compared to the time the file share snapshot was taken.
+        </br></br>
+        > [!CAUTION]
+        > Backups must be processed oldest to newest. Once a migration job is created, you cannot change the list of selected StorSimple volume backups. Don't start the job, if the list of Backups is incorrect or incomplete. Rather delete the job and make a new one with the correct backups selected.
+    :::column-end:::
+:::row-end:::
+
+### Per-item errors
+
+The migration jobs have two columns in the list of backups that report on any issues that may have occurred during the copy:
+
+* **Copy errors** </br> This column reports on files or folders that should have been copied but weren't. These errors are generally recoverable. When a backup lists item issues in this column, review the copy logs and if you need to migrate these files, then it's a good idea to choose *Retry backup*. This option will become available once the backup finished processing. The following section: "[Managing a migration job](#managing-a-migration-job)" explains your options in more detail.
+* **Unsupported files** </br> This column reports on files or folders that cannot be migrated. Azure Storage has limitations in file names, path lengths, and file types that currently or logically can't be stored in an Azure file share. A migration job will not pause for errors in this category. Retrying to migrate the backup will not change the outcome. When a backup lists item issues in this column, review the copy logs and take note. If such issues arise in your last backup and you found in the copy log that the failure was due to a file name, path length or other issue you have influence over, you may want to remedy the issue in the live StorSImple volume, take one more StorSimple volume backup and create a new migration job with just that backup. You will then migrate this "remedied" namespace and it will become the most recent / live version of the Azure file share. This is a highly manual and time consuming remediation. Review the copy logs carefully to see if this effort is worth it.
+
+These copy logs are *\*.csv* files listing namespace items succeeded and items that failed to get copied. The errors are further split into the previously discussed categories.
+Once you access the location of the log files, you can locate the logs for failed files by filtering the list with the search term "failed". The result will be a set of logs for files that failed to copy. Then sort them by size. There may be extra logs produced at 17 Bytes in size. They are empty and can be ignored. With a sort, you can easily focus on the logs with content.
+
+The same process applies for log files recording successful copies.
+
+### Managing a migration job
+
+A migration job be in one of several different states:
+* **Never ran** </br>A new job, that has been defined but never ran before.
+* **Waiting** </br>A job takes on this state, when it is waiting for resources to be provisioned in the migration service. It will automatically switch to a different state when ready.
+* **Failed** </br>A failed job hit a fatal error that prevents it from processing more backups. A job is generally not expected to enter this state. A support request is the best course of action.
+* **Canceled** / **Canceling**</br>Either and entire migration job or individual backups within the job can be canceled. Canceled backups will not be processed, a canceled migration job will stop processing more backups. Expect that cancelling a job will take a long time. This does not prevent you from creating a new job. THe best course of action is patience to let a job fully arrive in the Canceled state. You can either ignore failed / canceled jobs or delete them at a later time. You will not have to delete jobs before you can delete the *Data Manager* resource at the end of your StorSimple migration.
+
+The following job states 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-run-job.png" alt-text="An image showing the job run blade with a dropdown control opened, displaying the selected backups to be migrated. The oldest backup is highlighted, it needs to be selected first." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-run-job-expanded.png":::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-running-focused.png" alt-text="An image showing the migration job blade with a large status icon on the top in the running state." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-running.png":::
     :::column-end:::
     :::column:::
-        In this release, each job must be run several times. </br></br>**You must start with the oldest backup from your list of backups you wish to migrate.** (highlighted in the image)</br></br>You run the job again, as many times as you have backups selected, each time against a progressively newer backup.
-        </br></br>
-        > [!CAUTION]
-        > It is imperative that you run the migration job with the oldest backup selected first and then again, each time with a progressively newer backup. You always must maintain the order of your backups manually - from oldest to newest.
+        **Running** </br></br>A running job is currently processing a backup. Refer to the table on the bottom half of the blade to see which backup is currently being processed and which ones might have been migrated already. </br>Already migrated backups have a column with a link to a copy log. If there are any errors reported for a backup, you should review its copy log.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-paused-focused.png" alt-text="An image showing the migration job blade with a large status icon on the top in the running state." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-paused.png":::
+    :::column-end:::
+    :::column:::
+        **Paused** </br></br>A migration job is paused when there is a decision needed. Migration jobs pause after a backup has finished processing. Usually execution is paused when a backup ran into issues. This condition enables additional command buttons on the top of the blade. These commands enable you to either retry processing this current backup or skip to the next backup. You also have the option to cancel any further processing of backups by canceling the migration job. </br></br>You should choose *Retry backup* when the backup shows files that were supposed to move but didn't (*Copy error* column). You should skip a backup if it is listed as *Failed*. Open the line item on the blade representing the attempt to migrate the backup to further investigate. If for instance a StorSimple backup retention policy deleted the backup between the time you created the job and the backup was actually up for processing, then this isn't a recoverable situation. Choosing to *Skip backup* is the best course of action in this situation. </br></br>When you skip or retry the current backup, the migration service will create a snapshot in your Azure file share. How useful this snapshot is, is something for you to decide. For instance, if you retry the current backup, it might be best to delete the snapshot of your first attempt, such that at the end of your migration you only have one snapshot representing this specific backup. Keep in mind that snapshots for a particular backup get created when the next backup is being processed. So the last backup in your list will not get an Azure file share snapshot, it is the most recent, live data. In subsequent steps of this migration guide, you will find instructions for how to do a catch-up copy from your local StorSImple volume for the case that you did not elect to stop all changes on the volume since the most recent backup was taken that you migrated.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-success-focused.png" alt-text="An image showing the migration job blade with a large status icon on the top in the running state." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-success.png":::
+    :::column-end:::
+    :::column:::
+        **Complete** and **Complete with warnings**</br></br>A migration job is listed as **Complete** when all backups in the job have been successfully processed. </br>**Complete with warnings** is a state that occurs when: <ul><li>A backup ran into a recoverable issue. This backup is marked as *partial success* or *failed*.</li><li>You decided to continue on the paused job by skipping the backup with said issues. (You chose *Skip backup* instead of *Retry backup*)</li></ul> If the migration job completes with warnings, you should always review the copy log for the relevant backups.
     :::column-end:::
 :::row-end:::
 
 #### Run jobs in parallel
 
-You will likely have multiple StorSimple locations that each need to be copied to a different Azure file share. For a single StorSimple appliance, you can run up to four migration jobs in parallel if they target each a different Azure file share. 
+You will likely have multiple StorSimple volumes, each with their own shares that each need to be migrated to an Azure file share. It is important that you understand how much you can do in parallel. There are limitations that are not enforced in the user experience and will either degrade or inhibit a complete migration if jobs are executed at the same time.
 
-Each job goes through several phases. Starting another job is only possible, when the previous job has entered the file copy phase. Typically within 25 to 35 Minutes after the job was started, another job can be started, up to four in parallel. Jobs targeting the same file share (for subsequent backups) need to be copied one backup after the other.
+There are no limits in defining migration jobs. You can define the same StorSimple source volume, the same Azure file share, across the same or different StorSimple appliances. However, running them has limitations:
 
-> [!CAUTION]
-> Start only one migration job at a time for any data going to the same Azure file share.
-
-#### Interpret the log files
-
-A finished migration job displays a link to the copy logs. These logs are *\*.csv* files listing namespace items succeeded and items that failed to get copied.
-
-Once you access the location of the log files, you can locate the logs for failed files by filtering the list with the search term "failed". The result will be a set of logs for files that failed to copy. Then sort them by size. There may be extra logs produced at 17 Bytes in size. They are empty and can be ignored. With a sort, you can easily focus on the logs with content.
-
-The same process applies for log files recording successful copies.
+* Only one migration job with the same StorSimple source volume may run at the same time.
+* Only one migration job with the same target Azure file share may run at the same time.
+* You can run up to four migration jobs in parallel per StorSimple appliance as long as you also abide by the previous rules. 
 
 ### Phase 3 summary
 
-At the end of Phase 3, you'll have run at least one of your migration jobs from StorSimple volumes into Azure file share(s). You will have run the same migration job several times, from oldest to newest backups that must be migrated. You can now focus on either setting up Azure File Sync for the share (once migration jobs for a share have completed) or directing share access for your information workers and apps to the Azure file share.
+At the end of Phase 3, you'll have run at least one of your migration jobs from StorSimple volumes into Azure file share(s). With your run, you will have brought your backups and turned them into Azure file share snapshots. You can now focus on either setting up Azure File Sync for the share (once migration jobs for a share have completed) or direct-share-access for your information workers and apps to the Azure file share.
 
 ## Phase 4: Access your Azure file shares
 
@@ -471,7 +511,7 @@ Your registered on-premises Windows Server instance must be ready and connected 
 
 ### Phase 4 summary
 
-In this phase, you've created and run multiple migration jobs in your StorSimple Data Manager. Those jobs have migrated your files and folders to Azure file shares. You've also deployed Azure File Sync or prepared your network and storage accounts for direct-share-access.
+At the end of this phase, you've created and run multiple migration jobs in your StorSimple Data Manager. Those jobs have migrated your files and folders and their backups to Azure file shares. You've also deployed Azure File Sync or prepared your network and storage accounts for direct-share-access.
 
 ## Phase 5: User cut-over
 
@@ -479,7 +519,7 @@ This phase is all about wrapping up your migration:
 
 * Plan your downtime.
 * Catch up with any changes your users and apps produced on the StorSimple side while the migration jobs in Phase 3 have been running.
-* Fail your users over to the new Windows Server instance with Azure File Sync or the Azure file shares via direct-share-access.
+* Fail-over your users to the new Windows Server instance with Azure File Sync or to the Azure file shares via direct-share-access.
 
 ### Plan your downtime
 
@@ -488,6 +528,8 @@ This migration approach requires some downtime for your users and apps. The goal
 * Keep your StorSimple volumes available while running your migration jobs.
 * When you've finished running your data migration jobs for a share, it's time to remove user access (at least write access) from the StorSimple volumes or shares. A final RoboCopy will catch up your Azure file share. Then you can cut over your users. Where you run RoboCopy depends on whether you chose to use Azure File Sync or direct-share-access. The upcoming section on RoboCopy covers that subject.
 * After you've completed the RoboCopy catch-up, you're ready to expose the new location to your users by either the Azure file share directly or an SMB share on a Windows Server instance with Azure File Sync. Often a DFS-N deployment will help accomplish a cut-over quickly and efficiently. It will keep your existing share addresses consistent and repoint to a new location that contains your migrated files and folders.
+
+For archival data, it is a fully viable approach to take downtime on your StorSimple volume (or sub-folder), take one more StorSImple volume backup, migrate and then open up the migration destination for access by users and apps. This will spare you the need for a catch-up RoboCopy as described in this section. However, this approach comes at the cost of a prolonged downtime window that might stretch to several days or longer depending on the number of files and backups you need to migrate. This is likely only an option for archival workloads that can do w/o write access for prolonged periods of time.
 
 ### Determine when your namespace has fully synced to your server
 
