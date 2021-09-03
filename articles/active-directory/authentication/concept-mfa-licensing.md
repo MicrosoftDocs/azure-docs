@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 09/03/2021
 
 ms.author: justinha
 author: justinha
@@ -53,6 +53,30 @@ The following table provides a list of the features that are available in the va
 | Trusted IPs | | | | ● |
 | Remember MFA for trusted devices | | ● | ● | ● |
 | MFA for on-premises applications | | | | ● |
+
+## Compare configuration options
+
+The following table compares which features are available for different MFA configuration methods.
+
+| Feature | Security defaults | Conditional Access | Per-user MFA |
+| --- |:---:|:---:|:---:|
+| **Management** | | | |
+| Standard set of security rules to keep your company safe | ● |  |  |
+| One-click on/off | ● |  |  |
+| Included in Office 365 licensing | ● |  | ● |
+| Pre-configured templates in wizard | | ● |  |
+| Configuration flexibility | | ● |  |
+| **Functionality** | | |
+| Exempt users | | ● | ● |
+| Authenticate by phone call, SMS, or email | ● | ● | ● |
+| Authenticate by Microsoft Authenticator | ● | ● | ● |
+| Blocks legacy authentication protocols | ● | ● | ● |
+| New employees are automatically protected | | ● | |
+| Dynamic MFA triggers based on risk events | ● | ● |  |
+| Authentication and authorization policies | | ● | |
+| Configurable based on location and device state | | ● | |
+| Support for "report only" mode | | ● | |
+| Ability to completely block users/services | | ● | |
 
 ## Purchase and enable Azure AD Multi-Factor Authentication
 
