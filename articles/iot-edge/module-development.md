@@ -72,12 +72,12 @@ When writing a module, you can connect to the IoT Edge hub and use IoT Hub primi
 
 An IoT Edge module can send messages to the cloud via the IoT Edge hub that acts as a local broker and propagates messages to the cloud. To enable complex processing of device-to-cloud messages, an IoT Edge module can also intercept and process messages sent by other modules or devices to its local IoT Edge hub and send new messages with processed data. Chains of IoT Edge modules can thus be created to build local processing pipelines.
 
-To send device-to-cloud telemetry messages using routing, use the the ModuleClient of the Azure IoT SDK. With the Azure IoT SDK, each module has the concept of module *input* and *output* endpoints, which map to special MQTT topics. Use the `ModuleClient.sendMessageAsync` method and it will send messages on the output endpoint of your module. Then configure a route in edgeHub to send this output endpoint to IoT Hub.
+To send device-to-cloud telemetry messages using routing, use the ModuleClient of the Azure IoT SDK. With the Azure IoT SDK, each module has the concept of module *input* and *output* endpoints, which map to special MQTT topics. Use the `ModuleClient.sendMessageAsync` method and it will send messages on the output endpoint of your module. Then configure a route in edgeHub to send this output endpoint to IoT Hub.
 
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-Sending device-to-cloud telemetry messages with the MQTT broker is similar to publishing messages on user-defined topics, but using the following IoT Hub special topic for your module: `devices/<device_name>/<module_name>/messages/events`. Authorizations must be setup appropriately. The MQTT bridge must also be configured to forward the messages on this topic to the cloud.
+Sending device-to-cloud telemetry messages with the MQTT broker is similar to publishing messages on user-defined topics, but using the following IoT Hub special topic for your module: `devices/<device_name>/<module_name>/messages/events`. Authorizations must be set up appropriately. The MQTT bridge must also be configured to forward the messages on this topic to the cloud.
 
 ::: moniker-end
 
@@ -86,20 +86,20 @@ To process messages using routing, first set up a route to send messages coming 
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-Processing messages using the MQTT broker is similar to subscribing to messages on user-defined topics, but using the IoT Edge special topics of your module's output queue: `devices/<device_name>/<module_name>/messages/events`. Authorizations must be setup appropriately. Optionally you can send new messages on the topics of your choice.
+Processing messages using the MQTT broker is similar to subscribing to messages on user-defined topics, but using the IoT Edge special topics of your module's output queue: `devices/<device_name>/<module_name>/messages/events`. Authorizations must be set up appropriately. Optionally you can send new messages on the topics of your choice.
 
 ::: moniker-end
 
 #### Twins
 
-Twins are one of the primitives provided by IoT Hub. There are JSON documents that store state information including metadata, configurations and conditions. Each module or device has its own twin.
+Twins are one of the primitives provided by IoT Hub. There are JSON documents that store state information including metadata, configurations, and conditions. Each module or device has its own twin.
 
 To get a module twin with the Azure IoT SDK, call the `ModuleClient.getTwin` method.
 
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-To get a module twin with any MQTT client, a little bit more work is involved since getting a twin is not a typical MQTT pattern. The module must first subscribe to IoT Hub special topic `$iothub/twin/res/#`. This topic name is inherited from IoT Hub, and all devices/modules need to subscribe to the same topic. It does not mean that devices receive the twin of each other. IoT Hub and edgeHub knows which twin should be delivered where, even if all devices listen to the same topic name. Once the subscription is made, the module needs to ask for the twin by publishing a message to the following IoT Hub special topic with a request ID `$iothub/twin/GET/?$rid=1234`. This request ID is an arbitrary ID (that is, a GUID), which will be sent back by IoT Hub along with the requested data. This is how a client can pair its requests with the responses. The result code is a HTTP-like status code, where successful is encoded as 200.
+To get a module twin with any MQTT client, slightly more work is involved since getting a twin is not a typical MQTT pattern. The module must first subscribe to IoT Hub special topic `$iothub/twin/res/#`. This topic name is inherited from IoT Hub, and all devices/modules need to subscribe to the same topic. It does not mean that devices receive the twin of each other. IoT Hub and edgeHub knows which twin should be delivered where, even if all devices listen to the same topic name. Once the subscription is made, the module needs to ask for the twin by publishing a message to the following IoT Hub special topic with a request ID `$iothub/twin/GET/?$rid=1234`. This request ID is an arbitrary ID (that is, a GUID), which will be sent back by IoT Hub along with the requested data. This is how a client can pair its requests with the responses. The result code is a HTTP-like status code, where successful is encoded as 200.
 
 ::: moniker-end
 
@@ -166,7 +166,7 @@ For information about developing with Windows containers, refer to the [IoT Edge
 <!-- end 1.2 -->
 
 <!--1.2-->
-:::moniker range="iotedge-2018-06"
+:::moniker range="iotedge-2020-11"
 
 ## Module security
 
@@ -183,7 +183,7 @@ In the config.toml file on an IoT Edge device, there's a parameter called `allow
 
 ### Enable CAP_CHOWN and CAP_SETUID
 
-The Docker capabilities **CAP_CHOWN** and **CAP_SETUID** are disabled by default. These capabilities can be used to write to secure files on the host device and potentiall gain root access.
+The Docker capabilities **CAP_CHOWN** and **CAP_SETUID** are disabled by default. These capabilities can be used to write to secure files on the host device and potentially gain root access.
 
 If you need these capabilities, you can manually re-enable them using CapADD in the container create options.
 
