@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 09/03/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -299,9 +299,11 @@ To delete a canceled order, go to **Overview** and select **Delete** from the co
 
 ## Sample XML file
 
+XXX You can use an XML file can be used to list containers, individual blobs, and sets of blobs within a container for export. XXX OR FILES.
+
 The following xml shows an example of blob names, blob prefixes, and Azure Files contained in the xml format that the export order uses when you select the **use XML file** option:
 
-*New xml sample: Adds explanation per line*
+<!--09/02 decision: Move descriptions from code sample to table.-->
 
 ```xml
 <<?xml version="1.0" encoding="utf-8"?>
@@ -322,38 +324,17 @@ The following xml shows an example of blob names, blob prefixes, and Azure Files
    </AzureFileList>
 ```
 
-*Replaces this xml sample:*
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-   <!-- BlobList/prefix/Container list for Blob storage for export  -->
-   <BlobList>
-      <BlobPath>/8tbpageblob/8tbpageblob/8tbpageblob</BlobPath>
-      <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix>
-      <BlobPathPrefix>/1tbfilepageblob</BlobPathPrefix>
-      <BlobPathPrefix>/1tbfile/</BlobPathPrefix>
-      <BlobPathPrefix>/8mbfiles/</BlobPathPrefix>
-      <BlobPathPrefix>/64mbfiles/</BlobPathPrefix>
-   </BlobList>
-   <!-- FileList/prefix/Share list for Azure Files for export  -->
-   <AzureFileList>
-      <FilePathPrefix>/64mbfiles/</FilePathPrefix>
-      <FilePathPrefix>/4mbfiles/prefix2/subprefix</FilePathPrefix>
-      <FilePathPrefix>/1tbfile/prefix</FilePathPrefix>
-   </AzureFileList>
-```
-
 ## Tag usage
 
 The following xml tags are used in the XML file attached to a Data Box export order.
 
-| xml tag           |Description |
-|-------------------|------------|
-|`<BlobList>`       |xxx         |
-|`<BlobPath>`       |xxx         |
-|`BlobPathPrefix`   |xxx         |
-|`<AzureFileList>`  |xxx         |
-|`<FilePathPrefix>` |xxx         |  
+| xml tag           |Description | Example |
+|-------------------|------------|---------|
+|`<BlobList>`       |xxx         |         |
+|`<BlobPath>`       |xxx         |         |
+|`BlobPathPrefix`   |xxx         |         |
+|`<AzureFileList>`  |xxx         |         |
+|`<FilePathPrefix>` |xxx         |         |
 
 Some important points in respect to xml files:
 
