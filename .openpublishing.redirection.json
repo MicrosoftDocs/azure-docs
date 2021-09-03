@@ -1,6 +1,36 @@
 {
   "redirections": [
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-start-security-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-perform-security-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-complete-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/authentication/howto-mfaserver-adfs-2012.md",
       "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-adfs-windows-server",
       "redirect_document_id": false
@@ -5391,6 +5421,26 @@
     {
       "source_path_from_root": "/articles/automation/automation-quickstart-dsc-configuration.md",
       "redirect_url": "/azure/automation/quickstarts/dsc-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-graphical.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-powershell.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-python2.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-python-3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/quickstarts/create-powershell-runbook.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
       "redirect_document_id": false
     },
     {
