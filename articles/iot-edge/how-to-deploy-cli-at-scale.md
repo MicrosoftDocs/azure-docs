@@ -152,9 +152,9 @@ Here's a basic layered deployment manifest with one module as an example:
 ```
 >[!NOTE]
 > Take note that this layered deployment manifest has a slightly different format than a standard deployment manifest. The desired properties of the runtime modules are collapsed using dot notation. This formatting is required for the Azure portal to recognize a layered deployment. For example:
-
-  - `properties.desired.modules.<module_name>`
-  - `properties.desired.routes.<route_name>`
+>
+>  - `properties.desired.modules.<module_name>`
+>  - `properties.desired.routes.<route_name>`
 
 The previous example showed a layered deployment setting the `properties.desired` for a module. If this layered deployment targeted a device where the same module was already applied, it would overwrite any existing desired properties. In order to update, instead of overwrite, desired properties, you can define a new subsection. For example:
 
