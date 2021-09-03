@@ -752,7 +752,6 @@ sections:
       - question: |
           Why is Microsoft / Azure Monitor Application Insights investing in OpenTelemetry?
         answer: |
-          
           Among the major cloud services providers, Microsoft is the [largest contributor to OpenTelemetry](https://opentelemetry.devstats.cncf.io/d/5/companies-table?orgId=1).
           
           The key value propositions of OpenTelemetry are that it's vender-neutral and provides consistent APIs/SDKs across langauges.
