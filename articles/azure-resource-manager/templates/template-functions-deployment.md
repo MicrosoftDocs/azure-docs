@@ -178,6 +178,8 @@ The preceding example returns the following object:
 }
 ```
 
+For a subscription deployment, this [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json) returns the deployment object.
+
 ## environment
 
 `environment()`
