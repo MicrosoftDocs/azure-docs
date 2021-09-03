@@ -59,7 +59,7 @@ az ml online-deployment create --file <DEPLOYMENT-YAML-SPECIFICATION-FILE> --loc
 ```
 
 > [!IMPORTANT]
-> On Windows Subsystem for Linux (WSL), you'll need to update your PATH environment variable to include the path to the VS Code executable or use WSL interop. For more information, see [Windows interoperability with Linux](/windows/wsl/interop).
+> On Windows Subsystem for Linux (WSL), you'll need to update your PATH environment variable to include the path to the VS Code executable or use WSL interop. For more information, see [Windows interoperability with Linux](https://docs.microsoft.com/windows/wsl/interop).
 
 A Docker image is built locally. Any environment configuration or model file errors are surfaced at this stage of the process.
 
