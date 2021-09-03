@@ -19,8 +19,6 @@ Object replication asynchronously copies block blobs between a source storage ac
 
 This article describes how to configure an object replication policy by using the Azure portal, PowerShell, or Azure CLI. You can also use one of the Azure Storage resource provider client libraries to configure object replication.
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
 ## Prerequisites
 
 Before you configure object replication, create the source and destination storage accounts if they do not already exist. The source and destination accounts can be either general-purpose v2 storage accounts or premium block blob accounts (preview). For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
