@@ -24,12 +24,12 @@ This article explains how to set up VNET connectivity for your API Management in
 
 ## Prerequisites
 
-Some prerequisites differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
+Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
 
 > [!TIP]
-> When you use the portal to create or update your API Management instance, the instance is hosted on the Stv2 compute platform.
+> When you use the portal to create or update the network configuration of your API Management instance, the instance is hosted on the stv2 compute platform.
 
-### [Stv2](#tab/Stv2)
+### [stv2](#tab/stv2)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
@@ -37,7 +37,7 @@ Some prerequisites differ depending on the version (Stv2 or Stv1) of the [comput
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
-### [Stv1](#tab/Stv1)
+### [stv1](#tab/stv1)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
@@ -49,7 +49,7 @@ Some prerequisites differ depending on the version (Stv2 or Stv1) of the [comput
 
 ## Enable VNET connection
 
-### Enable VNET connectivity using the Azure portal (Stv2 compute platform)
+### Enable VNET connectivity using the Azure portal (stv2 compute platform)
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 1. Choose your API Management instance.
@@ -75,9 +75,9 @@ Some prerequisites differ depending on the version (Stv2 or Stv1) of the [comput
 
 ### Enable connectivity using a Resource Manager template
 
-Use the following templates to deploy an  API Management instance and connect to a VNET. The templates differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance
+Use the following templates to deploy an  API Management instance and connect to a VNET. The templates differ depending on the version (`stv2` or `stv1`) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance
 
-### [Stv2](#tab/Stv2)
+### [stv2](#tab/stv2)
 
 #### API version 2021-01-01-preview 
 
@@ -85,7 +85,7 @@ Use the following templates to deploy an  API Management instance and connect to
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
 
-### [Stv1](#tab/Stv1)
+### [stv1](#tab/stv1)
 
 #### API version 2020-12-01
 
@@ -121,12 +121,12 @@ In external VNET mode, Azure manages the DNS by default.The API Management servi
 
 You can control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups]. If any of the following ports are unavailable, API Management may not operate properly and may become inaccessible. 
 
-When an API Management service instance is hosted in a VNET, the ports in the following table are used. Some requirements differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
+When an API Management service instance is hosted in a VNET, the ports in the following table are used. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
 
 >[!IMPORTANT]
 > Bold items in the *Purpose* column are required for API Management service to be deployed successfully. Blocking the other ports, however, will cause **degradation** in the ability to use and **monitor the running service and provide the committed SLA**.
 
-#### [Stv2](#tab/Stv2)
+#### [stv2](#tab/stv2)
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose (\*)                                                 | VNET type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
@@ -145,7 +145,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 4290              | Inbound & Outbound | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines         | External & Internal  |
 | * / 6390                       | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
 
-#### [Stv1](#tab/Stv1)
+#### [stv1](#tab/stv1)
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose (\*)                                                 | VNET type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
@@ -317,7 +317,7 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
     * Azure Key Vault (for an API Management instance hosted on the [v2 platform](hosting-infrastructure.md))
 
   > [!IMPORTANT]
-  > After validating the connectivity, remove all the resources in the subnet before deploying API Management into the subnet (required when API Management is hosted on the v1 platform).
+  > After validating the connectivity, remove all the resources in the subnet before deploying API Management into the subnet (required when API Management is hosted on the `stv1` platform).
 
 * **Verify network connectivity status**  
   * After deploying API Management into the subnet, use the portal to check the connectivity of your instance to dependencies, such as Azure Storage. 
@@ -336,7 +336,7 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
   When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
 
 * **Resource navigation links**  
-  An APIM instance hosted on the [Stv1 compute platform](hosting-infrastructure.md), when deployed into a Resource Manager VNET subnet, reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
+  An APIM instance hosted on the [`stv1` compute platform](hosting-infrastructure.md), when deployed into a Resource Manager VNET subnet, reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
 
 ## Next steps
 

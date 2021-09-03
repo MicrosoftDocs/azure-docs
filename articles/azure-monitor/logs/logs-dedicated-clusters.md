@@ -19,9 +19,8 @@ The capabilities that require dedicated clusters are:
 - **[Customer-managed Keys](../logs/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Control Microsoft support engineers access requests to your data.
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** - Protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data.
-- **[Availability Zones](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures with Availability Zones on dedicated cluster. Availability zones are datacenters in separate physical locations and equipped with independent power, cooling, and networking. This independent infrastructure and physical separation of zones makes an incident far less likely since the workspace can rely on the resources from any of the zones.
+- **[Availability Zones](./availability-zones.md)** - Protect your data from datacenter failures with Availability Zones on dedicated cluster. Availability zones are datacenters in separate physical locations and equipped with independent power, cooling, and networking. This independent infrastructure and physical separation of zones makes an incident far less likely since the workspace can rely on the resources from any of the zones.
 - **[Multi-workspace](../logs/cross-workspace-query.md)** - If a customer is using more than one workspace for production it might make sense to use dedicated cluster. Cross-workspace queries will run faster if all workspaces are on the same cluster. It might also be more cost effective to use dedicated cluster as the assigned commitment tier takes into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for commitment tier discount.
-
 
 
 ## Management 
@@ -88,10 +87,18 @@ You can have up to 2 active clusters per subscription per region. If the cluster
 
 The user account that creates the clusters must have the standard Azure resource creation permission: `Microsoft.Resources/deployments/*` and cluster write permission `Microsoft.OperationalInsights/clusters/write` by having in their role assignments this specific action or `Microsoft.OperationalInsights/*` or `*/write`.
 
+**CLI**
+```azurecli
+az monitor log-analytics cluster create --no-wait --resource-group "resource-group-name" --name "cluster-name" --location "region-name" --sku-capacity "daily-ingestion-gigabyte"
+
+# Wait for job completion
+az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.operationalinsights/clusters/cluster-name --include-response-body true
+```
+
 **PowerShell**
 
 ```powershell
-New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} -AsJob
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" -AsJob
 
 # Check when the job is done
 Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
@@ -125,28 +132,28 @@ Content-type: application/json
 
 Should be 202 (Accepted) and a header.
 
-
-
 ### Check cluster provisioning status
 
-The provisioning of the Log Analytics cluster takes a while to complete. Use one of the following methods to check the provisioning state:
+The provisioning of the Log Analytics cluster takes a while to complete. Use one of the following methods to check the *ProvisioningState* property. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
+
+**CLI**
+
+```azurecli
+az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
+```
 
 **PowerShell**
 
-Run *Get-AzOperationalInsightsCluster* with the resource group name and check the *ProvisioningState* property. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed. Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
-
-
-  ```powershell
-  Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
-  ```
-
+```powershell
+Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+```
  
 **REST API**
 
 Send a GET request on the cluster resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
   ```rest
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
   Authorization: Bearer <token>
   ```
 
@@ -188,7 +195,6 @@ The *principalId* GUID is generated by the managed identity service at cluster c
 ---
 
 
-
 ## Link a workspace to a cluster
 
 When a Log Analytics workspace is linked to a dedicated cluster, new data that is ingested into the workspace is routed to the new cluster while existing data remains on the existing cluster. If the dedicated cluster is encrypted using customer-managed keys (CMK), only new data is encrypted with the key. The system abstracts this difference, so you can query the workspace as usual while the system performs cross-cluster queries in the background.
@@ -209,17 +215,27 @@ Linking a workspace can be performed only after the completion of the Log Analyt
 > [!WARNING]
 > Linking a workspace to a cluster requires syncing multiple backend components and assuring cache hydration. Since this operation may take up to two hours to complete, you should you run it asynchronously.
 
+Use the following commands to link a workspace to a cluster:
+
+**CLI**
+```azurecli
+# Find cluster resource ID
+$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")]" --query [].id --output table
+
+az monitor log-analytics workspace linked-service create --no-wait --name cluster --resource-group "resource-group-name" --workspace-name "workspace-name" --write-access-resource-id $clusterResourceId
+
+# Wait for job completion
+az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.operationalinsights/clusters/cluster-name --include-response-body true
+```
 
 **PowerShell**
 
-Use the following PowerShell command to link to a cluster:
-
 ```powershell
 # Find cluster resource ID
-$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
+$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name").id
 
 # Link the workspace to the cluster
-Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
+Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
 
 # Check when the job is done
 Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
@@ -260,6 +276,7 @@ When a cluster is configured with customer-managed keys, data ingested to the wo
 ```azurecli
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
+
 **PowerShell**
 
 ```powershell
@@ -334,6 +351,7 @@ After you create your cluster resource and it is fully provisioned, you can edit
 ```azurecli
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
+
 **PowerShell**
 
 ```powershell
@@ -425,9 +443,8 @@ When the data volume to your linked workspaces change over time and you want to 
 
 **CLI**
 
-
 ```azurecli
-az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 500
+az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
 
 ### PowerShell
@@ -454,7 +471,6 @@ Content-type: application/json
 ```
 
 ---
-
 
 
 ### Update billingType in cluster
@@ -485,7 +501,9 @@ You can unlink a workspace from a cluster. After unlinking a workspace from the 
 Old data of the unlinked workspace might be left on the cluster. If this data is encrypted using customer-managed keys (CMK), the Key Vault secrets are kept. The system is abstracts this change from Log Analytics users. Users can just query the workspace as usual. The system performs cross-cluster queries on the backend as needed with no indication to users.  
 
 > [!WARNING] 
-> There is a limit of two linking operations for a specific workspace within a month. Take time to consider and plan unlinking actions accordingly.
+> There is a limit of two link operations for a specific workspace within a month. Take time to consider and plan unlinking actions accordingly.
+
+Use the following commands to unlink a workspace from cluster:
 
 **CLI**
 
@@ -495,16 +513,12 @@ az monitor log-analytics workspace linked-service delete --resource-group "resou
 
 **PowerShell**
 
-Use the following PowerShell command to unlink a workspace from cluster:
-
 ```powershell
 # Unlink a workspace from cluster
-Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster
+Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName {workspace-name} -LinkedServiceName cluster
 ```
 
 ---
-
-
 
 
 ## Delete cluster
@@ -520,9 +534,14 @@ Within the 14 days after deletion, the cluster resource name is reserved and can
 > [!WARNING] 
 > There is a limit of three clusters per subscription. Both active and soft-deleted clusters are counted as part of this. Customers should not create recurrent procedures that create and delete clusters. It has a significant impact on Log Analytics backend systems.
 
-**PowerShell**
+Use the following commands to delete a cluster:
 
-Use the following PowerShell command to delete a cluster:
+**CLI**
+```azurecli
+az monitor log-analytics cluster delete --resource-group "resource-group-name" --name $clusterName
+```
+
+**PowerShell**
 
 ```powershell
 Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"

@@ -36,12 +36,12 @@ Use API Management in internal mode to:
 
 ## Prerequisites
 
-Some prerequisites differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) for your API Management instance. 
+Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [hosting platform](hosting-infrastructure.md) for your API Management instance. 
 
 > [!TIP]
-> When you use the portal to create or update your API Management instance, the instance is hosted on the Stv2 compute platform.
+> When you use the portal to create or update the network configuration of your API Management instance, the instance is hosted on then `stv2` compute platform.
 
-### [v1](#tab/v1)
+### [stv1](#tab/stv1)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
@@ -50,9 +50,9 @@ Some prerequisites differ depending on the version (v1 or v2) of the [hosting pl
     The subnet must be dedicated to API Management instances. Attempting to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources will cause the deployment to fail.
 
    > [!NOTE]
-   > When you deploy an API Management service in an internal virtual network on the v1 platform, it's hosted behind an internal load balancer in the [Basic SKU](../load-balancer/skus.md).
+   > When you deploy an API Management service in an internal virtual network on the `stv1` platform, it's hosted behind an internal load balancer in the [Basic SKU](../load-balancer/skus.md).
 
-### [v2](#tab/v2)
+### [stv2](#tab/stv2)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
@@ -61,13 +61,13 @@ Some prerequisites differ depending on the version (v1 or v2) of the [hosting pl
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
    > [!NOTE]
-   > When you deploy an API Management service in an internal virtual network on the v2 platform, it's hosted behind an internal load balancer in the [Standard SKU](../load-balancer/skus.md), using the public IP address resource.
+   > When you deploy an API Management service in an internal virtual network on the `stv2` platform, it's hosted behind an internal load balancer in the [Standard SKU](../load-balancer/skus.md), using the public IP address resource.
 
 ---
 
 ## Enable VNET connection
 
-### Enable VNET connectivity using the Azure portal (v2 platform)
+### Enable VNET connectivity using the Azure portal (`stv2` platform)
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 1. Choose your API Management instance.
@@ -93,19 +93,19 @@ After successful deployment, you should see your API Management service's **priv
 
 ### Enable connectivity using a Resource Manager template
 
-#### API version 2021-01-01-preview (v2 platform)
+#### API version 2021-01-01-preview (`stv2` platform)
 
 * Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-publicip)
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-internal-vnet-publicip%2Fazuredeploy.json)
 
-#### API version 2020-12-01 (v1 platform)
+#### API version 2020-12-01 (`stv1` platform)
 
 * Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet)
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-internal-vnet%2Fazuredeploy.json)
 
-### Enable connectivity using Azure PowerShell cmdlets (v1 platform)
+### Enable connectivity using Azure PowerShell cmdlets (`stv1` platform)
 
 [Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a VNET.
 

@@ -29,7 +29,7 @@ We've minimized impacts of this upgrade on your operation of your API Management
 
 ### Developer, Basic, Standard, and Premium tiers
 
-* Instances created or updated using the Azure portal after **April 2021**, or using the API Management REST API version **2021-01-01-preview** or later, are hosted on the **stv2** platform
+* Instances with virtual network connections created or updated using the Azure portal after **April 2021**, or using the API Management REST API version **2021-01-01-preview** or later, are hosted on the **stv2** platform
 * If you enabled [zone redundancy](zone-redundancy.md) in your Premium tier instance, it's hosted on the **stv2** platform
 * Otherwise, the instance is hosted on the **stv1** platform
 
@@ -40,11 +40,11 @@ We've minimized impacts of this upgrade on your operation of your API Management
 
 * All instances are hosted on the **mtv1** platform
 
-## How do I upgrade to the stv2 platform? 
+## How do I upgrade to the x`stv2 platform? 
 
 Update is only possible for an instance in the Developer, Basic, Standard, or  Premium tier. 
 
-Create an API Management instance, or update an existing instance, using:
+Create or update the virtual network connection, or availability zone configuration, in an API Management instance using:
 
 * [Azure portal](https://portal.azure.com)
 * Azure REST API, or ARM template, specifying API version **2021-01-01-preview** or later
