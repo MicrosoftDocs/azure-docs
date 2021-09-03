@@ -2,8 +2,8 @@
 title: Redirect URI (reply URL) restrictions | Azure AD
 titleSuffix: Microsoft identity platform
 description: A description of the restrictions and limitations on redirect URI (reply URL) format enforced by the Microsoft identity platform.
-author: SureshJa
-ms.author: sureshja
+author: madansr7
+ms.author: madansr7
 manager: CelesteDG
 ms.date: 08/06/2021
 ms.topic: conceptual
@@ -64,6 +64,10 @@ You can use a maximum of 256 characters for each redirect URI you add to an app 
 | `http://contoso.com/abc/response-oidc`  | Invalid  |
 | `http://localhost`                      | Valid    |
 | `http://localhost/abc`                  | Valid    |
+
+### Redirect URIs in application vs. service principal objects
+
+Redirect URIs must be added to the application object. Any values added to the service principal are not persistent and could be removed if the service principal object syncs with application object. This could happen due to any update operation which triggers a sync between the two objects.
 
 ### Localhost exceptions
 
