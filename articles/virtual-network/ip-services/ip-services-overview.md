@@ -78,9 +78,9 @@ Azure routing preference enables you to choose how your traffic routes between A
 
 Routing preference choices include:
 
-* Microsoft Network - Both ingress and egress traffic stays bulk of the travel on the Microsoft global network. This routing is also known as *cold potato* routing.
+* **Microsoft Network** - Both ingress and egress traffic stays bulk of the travel on the Microsoft global network. This routing is also known as *cold potato* routing.
 
-* Public Internet (ISP network) - The new routing choice Internet routing minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This routing is also now as *hot potato* routing.
+* **Public Internet (ISP network)** - The new routing choice Internet routing minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This routing is also known as *hot potato* routing.
 
 For more information about routing preference, see [What is routing preference?](../../virtual-network/routing-preference-overview.md).
 

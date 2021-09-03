@@ -1,5 +1,8 @@
 items:
 - name: Overview
+  items:
+  - name: What is Azure Virtual Network IP Services?
+    href: ip-services-overview.md
 - name: Quickstarts
 - name: Concepts
   items:
