@@ -97,7 +97,7 @@ Once your new cache in the targeted region is populated with all necessary data,
 
 1. To remove the link between two caches and stop geo-replication, click **Unlink caches** from the **Geo-replication** on the left .
 
-    :::image type="content" source="media/media/cache-how-to-geo-replication/cache-geo-location-unlink.png" alt-text="Unlink caches":::
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-unlink.png" alt-text="Unlink caches":::
 
     When the unlinking process completes, the secondary cache is available for both reads and writes.
 
