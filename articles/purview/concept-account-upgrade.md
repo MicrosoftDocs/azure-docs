@@ -34,7 +34,7 @@ When your account is upgraded, you won't need to make any changes to use the ela
 
 Collections exist in legacy Purview accounts, but have new functionality and are managed in a different way in upgraded Purview accounts.
 
-Legacy collections were a way to organize data sources and artifacts in your Purview account. Collections are still used to customize your Purview data map to match your business landscape, but they now also include access control. Rather than controlling access at a high level outside your data, through collections your access management experience will match your data map.
+Legacy collections were a way to organize data sources and artifacts in your Purview account. Collections are still used to customize your Purview data map to match your business landscape, but they now also include access control. Rather than controlling access at a high level outside your data map, through collections your access management experience will match your data map.
 
 Collections give you fine-grained control over your data sources, but also over discoverability. Users will only see assets in collections that they have access to, and so will only see the information they need.
 
