@@ -2,7 +2,7 @@
 title: Quickstart - Create an Azure Automation account using the portal
 description: This quickstart helps you get started creating an Azure Automation account using the portal
 services: automation
-ms.date: 09/02/2021
+ms.date: 09/07/2021
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
@@ -11,7 +11,7 @@ ms.custom: mvc
 
 # Quickstart: Create an Automation account using the Azure portal
 
-You can create an Azure Automation account using the Azure portal, a browser-based user interface allowing access to a number of resources. One Automation account can manage resources across all regions and subscriptions for a given tenant. This quickstart guides you in creating an Automation account.
+You can create an Azure [Automation account](../automation-security-overview.md) using the Azure portal, a browser-based user interface allowing access to a number of resources. One Automation account can manage resources across all regions and subscriptions for a given tenant. This Quickstart guides you in creating an Automation account.
 
 ## Prerequisites
 
@@ -39,25 +39,22 @@ An Azure account with an active subscription. [Create an account for free](https
 
    :::image type="content" source="./media/create-account-portal/add-automation-account-portal.png" alt-text="Required fields for adding the Automation account":::
 
-1. Select **Create** to start the Automation account deployment.
+1. Select **Create** to start the Automation account deployment. The creation completes in about a minute.
 
-1. When the deployment has completed, click **All Services**.
+1. You will receive a notification when the deployment has completed. Select **Go to resource** in the notification to open the **Automation Account** page.
 
-1. Select **Automation Accounts** and then choose the Automation account you've created.
+1. Review your new Automation account.
 
-    ![Automation account overview](./media/create-account-portal/automation-account-overview.png)
-
-
-
+   :::image type="content" source="./media/create-account-portal/automation-account-overview.png" alt-text="Automation account overview page":::
 
 ## Clean up resources
 
-If you're not going to continue to use the Automation account, delete it with the following steps:
+If you're not going to continue to use the Automation account, select **Delete** from the **Overview** page, and then select **Yes** when prompted.
 
 ## Next steps
 
-In this quickstart, you’ve deployed an Automation account, started a runbook job, and viewed the job results. To learn more about Azure Automation, continue to the quickstart for creating your first PowerShell runbook.
+In this Quickstart, you created an Automation account. To use managed identities with your Automation account, continue to the next Quickstart:
 
 > [!div class="nextstepaction"]
-> [Quickstart - Create an Azure Automation PowerShell runbook](../learn/powershell-runbook-managed-identity.md)
+> [Quickstart - Enable managed identities](enable-managed-identity.md)
 
