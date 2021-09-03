@@ -100,7 +100,7 @@ Follow the following steps to enable Network Performance Monitor Solution for on
 3. On the Portal you will see  a list of Workspaces with NPM Solution enabled, filtered by Subscriptions 
 4. To add NPM solution in a New Workspace , click on "+ Add NPM " on the top left of the Portal 
 5. Select the Subscription and Workspace in which you wish to enable the solution and click on Create
-6. The Workspace will take a couple of minutes to show up on the Portal after enabling the solution
+6. The Workspace will take a couple of minutes to show up on the Portal after enabling the solution.
 
 :::image type="content" source="./media/connection-monitor/npm-solution-enable.png" alt-text="Screenshot showing how to Add NPM Solution in Connection Monitor" lightbox="./media/connection-monitor/npm-solution-enable.png":::
 
