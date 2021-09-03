@@ -48,6 +48,14 @@ The following are example scenarios to read, manage, and assign custom security 
 | Assign custom security attributes to users, service principals, and devices from a particular attribute set | Attribute set | Attribute Assignment Administrator |
 | Assign all custom security attributes to users, service principals, and devices | Tenant | Attribute Assignment Administrator |
 
+## Manage attributes without delegation
+
+![Managing custom security attributes without delegation.](./media/custom-security-attributes-manage/delegate-attributes-none.png)
+
+## Manage attributes with delegation
+
+![Managing custom security attributes without delegation.](./media/custom-security-attributes-manage/delegate-attributes.png)
+
 ## Grant access at the attribute set scope
 
 1. Sign in to the Azure portal.
