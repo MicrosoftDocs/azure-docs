@@ -128,24 +128,22 @@ To view and copy storage access keys for the Azure Storage Account created in [p
 Next, set the cluster quorum.
 
 1. Connect to the first SQL Server VM **SQL-VM-1** with remote desktop.
+2. Open **Windows Powershell** in Administrator mode.
+3. Run the powershell script to set TLS (Transport Layer Security) value for the connection to 1.2
 
-2. In **Failover Cluster Manager**, right-click the cluster, point to **More Actions**, and select **Configure Cluster Quorum Settings...**.
+    ```powershell
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    ```
+    
+4. Set the cluster quorum to use cloud witness. Replace the values for storage account name and access key with your specific information.  
 
-   ![Select configure cluster quorum settings](./media/availability-group-manually-configure-tutorial-multi-subnet/06-configurequorum.png)
+    ```powershell
+    Set-ClusterQuorum -CloudWitness -AccountName "Storage_Account_Name" -AccessKey "Storage_Account_Access_Key"
+    ```
+    
+5. You should following output with the quorum set to cloud witness. 
 
-3. In **Configure Cluster Quorum Wizard**, select **Next**.
-
-4. In **Select Quorum Configuration Option**, choose **Select the quorum witness**, and select **Next**.
-
-5. On **Select Quorum Witness**, select **Configure a cloud witness**.
-  
-6. On **Configure cloud Witness**, type the **Azure storage account name** and the **Azure storage account key** you copied earlier. Select **Next**.
-
-7. Verify the settings on **Confirmation**. Select **Next**.
-
-8. Select **Finish**.
-
-RSETLEM - Had to set minimum TLS version for the storage account to 1.0. Need to review this
+    ![Select configure cluster quorum settings](./media/availability-group-manually-configure-tutorial-multi-subnet/06-configurequorum.png)
 
 The cluster core resources are configured with a cloud witness.
 
