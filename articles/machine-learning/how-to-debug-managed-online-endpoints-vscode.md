@@ -55,7 +55,7 @@ Azure Machine Learning local endpoints use Docker and VS Code development contai
 To debug managed online endpoints locally in VS Code, use the `--vscode-debug` flag when creating or updating and Azure Machine Learning online deployment.
 
 ```azurecli
-az ml online-deployment create --file <DEPLOYMENT-FILE> --local --vscode-debug
+az ml online-deployment create --file <DEPLOYMENT-YAML-SPECIFICATION-FILE> --local --vscode-debug
 ```
 
 > [!IMPORTANT]
@@ -165,7 +165,7 @@ To apply changes to your code:
 For more extensive changes involving updates to your environment and endpoint configuration, use the `ml` extension `update` command. Doing so will trigger a full image rebuild with your changes.
 
 ```azurecli
-az ml online-deployment update --file $DEPLOYMENT_FILE --local --vscode-debug
+az ml online-deployment update --file <DEPLOYMENT-YAML-SPECIFICATION-FILE> --local --vscode-debug
 ```
 
 Once the updated image is built and your development container launches, use the VS Code debugger to test and troubleshoot your updated endpoint.
