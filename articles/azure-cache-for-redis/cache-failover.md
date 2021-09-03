@@ -93,7 +93,7 @@ Many popular Redis client libraries support subscribing to pub/sub channels. Rec
 
 Once your application is subscribed to `AzureRedisEvents`, it receives a notification 30 seconds before any node is affected by a maintenance event. The notification includes details about the upcoming event and indicates whether it affects a primary or replica node.
 
-Another notification is sent minutes later when the maintenance operation is complete and the node has rejoined the cache.
+Another notification is sent minutes later when the maintenance operation is complete.
 
 Your application uses the content in the notification to take action to avoid using the cache while the maintenance is done. A cache might implement a circuit breaker pattern where traffic is routed away from the cache during the maintenance operation. Instead, traffic is sent directly to a persistent store. The notification is not intended to allow time for a person to be alerted and take manual action.
 
@@ -120,8 +120,6 @@ Such changes can cause a connectivity issue that lasts less than one minute. You
 
 You can't avoid failovers completely. Instead, write your client applications to be resilient to connection breaks and failed requests. Most client libraries automatically reconnect to the cache endpoint, but few of them attempt to retry failed requests. Depending on the application scenario, it might make sense to use retry logic with backoff.
 
-For more information, see [Connection resilience](cache-best-practices-connection.md).
-
 ### How do I make my application resilient?
 
 Refer to these design patterns to build resilient clients, especially the circuit breaker and retry patterns:
@@ -133,6 +131,8 @@ Refer to these design patterns to build resilient clients, especially the circui
 To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks.
 
 Additionally, we recommend that you [schedule updates](cache-administration.md#schedule-updates) on a cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents.
+
+For more information, see [Connection resilience](cache-best-practices-connection.md).
 
 ## Next steps
 
