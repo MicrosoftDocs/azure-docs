@@ -2,7 +2,7 @@
 title: Backup Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention (preview)
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 09/03/2021
 ms.custom: references_regions , devx-track-azurecli
 ---
 
@@ -227,12 +227,6 @@ Choose from the list of retention rules that were defined in the associated Back
 ![Trigger backup now](./media/backup-azure-database-postgresql/backup-now.png)
 
 ![Choose from list of retention rules](./media/backup-azure-database-postgresql/retention-rules.png)
-
-### Stop protection
-
-You can stop protection on a backup item. This will also delete the associated recovery points for that backup item. If recovery points are not in the archive tier for a minimum of six months, deletion of those recovery points will incur early deletion cost. We don't yet provide the option of stop protection while retaining the existing recovery points.
-
-![Stop protection](./media/backup-azure-database-postgresql/stop-protection.png)
 
 ### Change policy
 
