@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: luisquintanilla
 ms.author:  luquinta
-ms.date: 09/02/2021
+ms.date: 09/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
 #Customer intent: As a machine learning engineer, I want to test and debug managed online endpoints locally using Visual Studio Code before deploying them Azure.
@@ -57,6 +57,9 @@ To debug managed online endpoints locally in VS Code, use the `--vscode-debug` f
 ```azurecli
 az ml online-deployment create --file <DEPLOYMENT-FILE> --local --vscode-debug
 ```
+
+> [!IMPORTANT]
+> On Windows Subsystem for Linux (WSL), you'll need to update your PATH environment variable to include the path to the VS Code executable or use WSL interop. For more information, see [Windows interoperability with Linux](/windows/wsl/interop).
 
 A Docker image is built locally. Any environment configuration or model file errors are surfaced at this stage of the process.
 
@@ -147,19 +150,14 @@ In this case, `<REQUEST-FILE>` is a JSON file that contains input data samples f
 
 At this point, any breakpoints in your `run` function are caught. Use the debug actions to step through your code. For more information on debug actions, see the [debug actions guide](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
 
-## Stop debug session
-
-To stop your debug session, use the stop icon in the debug actions bar.
-
 ## Edit your endpoint
 
 As you debug and troubleshoot your application, there are scenarios where you need to update your scoring script and configurations.
 
 To apply changes to your code:
 
-1. Stop your debug session
 1. Update your code
-1. Restart your debug session
+1. Restart your debug session using the `Developer: Reload Window` command in the command palette. For more information, see the [command palette documentation](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 
 > [!NOTE]
 > Since the directory containing your code and endpoint assets is mounted onto the dev container, any changes you make in the dev container are synced with your local file system.
@@ -169,6 +167,8 @@ For more extensive changes involving updates to your environment and endpoint co
 ```azurecli
 az ml online-deployment update --file $DEPLOYMENT_FILE --local --vscode-debug
 ```
+
+Once the updated image is built and your development container launches, use the VS Code debugger to test and troubleshoot your updated endpoint.
 
 ## Next steps
 
