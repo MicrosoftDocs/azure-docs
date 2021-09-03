@@ -15,6 +15,8 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version.md). 
 
+## Create a VM
+
 ### [Portal](#tab/portal)
 
 Now you can create one or more new VMs. This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
@@ -384,6 +386,6 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ---
 
-**Next steps**
+## Next steps
 
 [Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md).
