@@ -16,7 +16,7 @@ ms.custom: devx-track-python
 
 A Synapse notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
 
-With a Synapse notebook, you can:
+With a Synapse notebook, you can: 
 
 * Get started with zero setup effort.
 * Keep data secure with built-in enterprise security features.
