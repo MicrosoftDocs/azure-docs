@@ -10,9 +10,9 @@ ms.custom: template-overview
 
 # What is Azure Virtual Network IP Services?
 
-IP services is a collection of IP address related services that facilitate communication in an Azure Virtual Network. Public and private IP addresses are used in Azure for communication between resources. The communication with resources can occur in a private Azure Virtual Network and the public Internet.
+IP services are a collection of IP address related services that enable communication in an Azure Virtual Network. Public and private IP addresses are used in Azure for communication between resources. The communication with resources can occur in a private Azure Virtual Network and the public Internet.
 
-IP services consists of:
+IP services consist of:
 
 * Public IP addresses
 
@@ -22,13 +22,13 @@ IP services consists of:
 
 * Routing preference
 
-* Routing preference un-metered
+* Routing preference unmetered
 
 ## Public IP addresses
 
-Public IP addressees are used by internet resources to communicate inbound to resources in Azure. Public IP addresses can be created with an IPv4 or IPv6 address. You may be given the option to create a dual-stack deployment with a IPv4 and IPv6 address. Public IP addresses are available in **Standard** and **Basic** SKUs. Public IP addresses can be static or dynamically assigned.
+Public IPs are used by internet resources to communicate inbound to resources in Azure. Public IP addresses can be created with an IPv4 or IPv6 address. You may be given the option to create a dual-stack deployment with a IPv4 and IPv6 address. Public IP addresses are available in **Standard** and **Basic** SKUs. Public IP addresses can be static or dynamically assigned.
 
-A public IP address is a resource with it's own properties. Some of the resources that you can associate with an public IP address are:
+A public IP address is a resource with its own properties. Some of the resources that you can associate with a public IP address are:
 
 * Virtual machine network interfaces
 * Internet-facing load balancers
@@ -59,7 +59,7 @@ For more information about public IP address prefixes, see [Public IP address pr
 
 ## Private IP addresses
 
-Private IPs allow communication between resources in Azure. Azure assigns private IP addresses to resources from the address range of the virtual network subnet where the resource is. Private IP addresses in Azure can by static or dynamically assigned.
+Private IPs allow communication between resources in Azure. Azure assigns private IP addresses to resources from the address range of the virtual network subnet where the resource is. Private IP addresses in Azure are static or dynamically assigned.
 
 Some of the resources that you can associate a private IP address with are:
 
@@ -76,23 +76,23 @@ Azure routing preference enables you to choose how your traffic routes between A
 
 Routing preference choices include:
 
-* Microsoft Network - Both ingress and egress traffic stays bulk of the travel on the Microsoft global network. This is also known as *cold potato* routing.
+* Microsoft Network - Both ingress and egress traffic stays bulk of the travel on the Microsoft global network. This routing is also known as *cold potato* routing.
 
-* Public Internet (ISP network) - The new routing choice Internet routing minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This is also know as *hot potato* routing.
+* Public Internet (ISP network) - The new routing choice Internet routing minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This routing is also now as *hot potato* routing.
 
 For more information about routing preference, see [What is routing preference?](./virtual-network/routing-preference-overview.md).
 
-## Routing preference un-metered
+## Routing preference unmetered
 
-Routing Preference un-metered is available for Content Delivery Network (CDN) providers with customers hosted their origin contents in Azure. The service allows CDN providers to establish direct peering connection with Microsoft global network edge routers at various locations.
+Routing Preference unmetered is available for Content Delivery Network (CDN) providers whose customers host their origin contents in Azure. The service allows CDN providers to establish direct peering connection with Microsoft global network edge routers at various locations.
 
 Your network traffic egressing from origin in Azure destined to CDN provider benefits from the direct connectivity.
 
-* Data transfer bill for traffic egressing from your Azure resources that are routed through these direct links is free.
+* Data transfer bill for traffic egressing from your Azure resources that are routed through these direct links are free.
 
-* Direct connect between CDN provider and origin in Azure provides optimal performance as there are no hops in between. This benefits the CDN workload that frequently fetch data from the origin.
+* Direct connect between CDN provider and origin in Azure provides optimal performance as there are no hops in between. This connection benefits the CDN workload that frequently fetches data from the origin.
 
-For more information about routing preference un-metered, see [What is Routing Preference Unmetered?](./virtual-network/routing-preference-unmetered.md).
+For more information about routing preference unmetered, see [What is Routing Preference Unmetered?](./virtual-network/routing-preference-unmetered.md).
 
 ## Next steps
 
