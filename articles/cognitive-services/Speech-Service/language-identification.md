@@ -17,7 +17,9 @@ zone_pivot_groups: programming-languages-cs-cpp-py
 
 Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages. 
 
-Language identification can also be used while doing [speech translation](./get-started-speech-translation.md#multi-lingual-translation-with-language-identification), or by doing [language identification during speech recognition](/azure/cognitive-services/speech-service/how-to-automatic-language-detection). To see which languages are available, see [Language support](language-support.md).
+Language identification can also be used while doing [speech translation](./get-started-speech-translation.md#multi-lingual-translation-with-language-identification), or by doing [language identification during speech recognition](/azure/cognitive-services/speech-service/how-to-automatic-language-detection). 
+
+To see which languages are available, see [Language support](language-support.md).
 
 ## Prerequisites
 
