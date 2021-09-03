@@ -7,7 +7,7 @@ author: mikebudzynski
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 09/03/2021
 ms.author: apimpm 
 ms.custom: devx-track-azurepowershell
 ---
@@ -281,12 +281,19 @@ Restore is a long-running operation that may take up to 30 or more minutes to co
 -   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 -   **Changes** made to the service configuration (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
-- If the storage account is **[firewall][azure-storage-ip-firewall] enabled** and a storage key is used for access, then the customer must **Allow** the set of [Azure API Management control plane IP addresses][control-plane-ip-address] on their storage account for backup or restore to work. The storage account can be in any Azure region except the one where the API Management service is located. For example, if the API Management service is in West US, then the Azure Storage account can be in West US 2 and the customer needs to open the control plane IP 13.64.39.16 (API Management control plane IP of West US) in the firewall. This is because the requests to Azure Storage are not SNATed to a public IP from compute (Azure API Management control plane) in the same Azure region. Cross-region storage requests will be SNATed to the public IP address.
-
-    If an API Management system-assigned managed identity is used to access a firewall-enabled storage account, ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
 -   [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) should **not** be enabled on the Blob Service in the Azure Storage Account.
 -   **The SKU** of the service being restored into **must match** the SKU of the backed-up service being restored.
+
+## Storage networking constraints
+
+### Access using storage access key
+
+If the storage account is **[firewall][azure-storage-ip-firewall] enabled** and a storage key is used for access, then the customer must **Allow** the set of [Azure API Management control plane IP addresses][control-plane-ip-address] on their storage account for backup or restore to work. The storage account can be in any Azure region except the one where the API Management service is located. For example, if the API Management service is in West US, then the Azure Storage account can be in West US 2 and the customer needs to open the control plane IP 13.64.39.16 (API Management control plane IP of West US) in the firewall. This is because the requests to Azure Storage are not SNATed to a public IP from compute (Azure API Management control plane) in the same Azure region. Cross-region storage requests will be SNATed to the public IP address.
+
+### Access using managed identity
+
+If an API Management system-assigned managed identity is used to access a firewall-enabled storage account, ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
 ## What is not backed up
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
@@ -302,10 +309,12 @@ The frequency with which you perform service backups affect your recovery point 
 
 ## Next steps
 
-Check out the following related resources for the backup/restore process.
+Check out the following related resources for the backup/restore process:
 
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
 - [How to move Azure API Management across regions](api-management-howto-migrate.md)
+
+API Management **Premium** tier also supports [zone redundancy](zone-redundancy.md), which provides resiliency and high availability to a service instance in a specific Azure region (location).
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2
