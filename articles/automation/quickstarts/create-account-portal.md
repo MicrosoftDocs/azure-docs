@@ -65,5 +65,5 @@ Run one of the tutorial runbooks.
 In this quickstart, you’ve deployed an Automation account, started a runbook job, and viewed the job results. To learn more about Azure Automation, continue to the quickstart for creating your first PowerShell runbook.
 
 > [!div class="nextstepaction"]
-> [Quickstart - Create an Azure Automation PowerShell runbook](create-powershell-runbook.md)
+> [Quickstart - Create an Azure Automation PowerShell runbook](../learn/powershell-runbook-managed-identity.md)
 
