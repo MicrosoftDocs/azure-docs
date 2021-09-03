@@ -17,7 +17,7 @@ Knowledge store is a feature of Azure Cognitive Search that sends output from an
 
 An enrichment pipeline accepts unstructured text and image content, applies AI-powered processing by Cognitive Services, and outputs new structures and information that didn't previously exist. One of the physical data structures created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through any tool, app, or process that connects to Azure Storage.
 
-In this quickstart, you'll set up your data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, and text translation of non-English customer comments.
+In this quickstart, you'll set up your data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source, plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
 
 > [!NOTE]
 > This quickstart is the fastest route to a finished knowledge store in Azure Storage. For more detailed coverage, see [Create a knowledge store in REST](knowledge-store-create-rest.md) instead.
@@ -162,7 +162,7 @@ Each table is generated with the IDs necessary for cross-linking the tables in q
 | Table | Description |
 |-------|-------------|
 | hotelReviewssDocument | Contains fields carried forward from the CSV, such as reviews_date and reviews_text. |
-| hotelReviewssPages | Contains enriched fields created by the skillset, such as sentiment score and translated text. |
+| hotelReviewssPages | Contains enriched fields created by the skillset, such as sentiment label and translated text. |
 | hotelReviewssKeyPhrases | Contains a long list of just the key phrases. |
 
 Your table should look similar to the following screenshot:
