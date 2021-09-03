@@ -71,7 +71,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -105,7 +105,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -141,7 +141,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -175,7 +175,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -211,7 +211,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -245,7 +245,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -279,7 +279,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -319,7 +319,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -354,7 +354,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -391,7 +391,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -426,7 +426,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -463,7 +463,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -497,7 +497,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
@@ -532,7 +532,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Read Scale-out|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations. For example, a non-zero minimum vCore per database limits the maximum number of databases allowed per pool. A six vCore instance with a minimum vCore per database of 0.5 will support a maximum of 12 databases in the elastic pool, as each database needs a fixed minimum of 0.5 vCores that is not shared between databases.
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
