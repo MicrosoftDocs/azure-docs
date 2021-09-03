@@ -99,8 +99,7 @@ Repair a Drive:
 
 Preview an Export Job:  
     WAImportExport.exe PreviewExport  
-        [/logdir:<LogDirectory>]     
-        /ExportBlobListFile:<ExportBlobListFile> /DriveSize:<DriveSize>  
+        [/logdir:<LogDirectory>] /ExportBlobListFile:<ExportBlobListFile> /DriveSize:<DriveSize>  
 
 Parameters:  
 
@@ -214,7 +213,7 @@ Examples:
         /ExportBlobListFile:C:\temp\myexportbloblist.xml  
         /DriveSize:1.5TB  
 
-    Repair an finished import job:  
+    Repair a finished import job:  
     WAImportExport.exe RepairImport  
         /r:9WM35C2V.rep /d:X:\ /bk:442926-020713-108086-436744-137335-435358-242242-2795  
         98 /CopyLogFile:C:\temp\9WM35C2V_error.log
