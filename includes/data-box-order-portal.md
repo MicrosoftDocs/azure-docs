@@ -122,7 +122,7 @@ Do the following steps in the Azure portal to order a device:
 
       ![Screenshot of the "Create a Key" screen in Azure Key Vault with a key name entered. The Name field and the Create button are highlighted.](./media/data-box-order-portal/customer-managed-key-08.png)
 
-      You'll be notified when the key has been created in your key vault. Your new key wil be selected and displayed on the **Select a key** blade.
+      You'll be notified when the key has been created in your key vault. Your new key will be selected and displayed on the **Select a key** blade.
 
 13. Select the **Version** of the key to use, and then choose **Select**.
 
