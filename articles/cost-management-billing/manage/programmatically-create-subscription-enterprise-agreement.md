@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 09/01/2021
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -162,6 +162,13 @@ The values for a billing scope and `id` are the same thing. The `id` for your en
 ## Create subscriptions under a specific enrollment account
 
 The following example creates a subscription named *Dev Team Subscription* in the enrollment account selected in the previous step. 
+
+Using one of the following methods, you'll create a subscription alias name. We recommend that when you create the alias name, you:
+
+- Use alphanumeric characters and hyphens
+- Start with a letter and end with an alphanumeric character
+- Don't use periods
+
 
 ### [REST](#tab/rest)
 

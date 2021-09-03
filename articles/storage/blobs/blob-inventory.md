@@ -1,11 +1,11 @@
 ---
-title: Azure Storage blob inventory (preview)
+title: Azure Storage blob inventory
 description: Azure Storage inventory is a tool to help get an overview of all your blob data within a storage account.
 services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 06/18/2021
+ms.date: 08/16/2021
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
@@ -13,21 +13,9 @@ ms.subservice: blobs
 ms.custom: references_regions
 ---
 
-# Azure Storage blob inventory (preview)
+# Azure Storage blob inventory
 
-The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements. 
-
-## Availability
-
-Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the [hierarchical namespace](data-lake-storage-namespace.md) feature enabled on the account.
-
-> [!IMPORTANT]
-> Azure Storage Blob inventory is currently in PREVIEW and is available on storage accounts in all public regions.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-## Pricing and billing
-
-The fee for inventory reports isn't charged during the preview period. Pricing will be determined when this feature is generally available. 
+The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements.
 
 ## Inventory features
 
@@ -35,7 +23,7 @@ The following list describes features and capabilities that are available in the
 
 - **Inventory reports for blobs and containers**
 
-  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status. 
+  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status.
 
 - **Custom Schema**
 
@@ -43,7 +31,7 @@ The following list describes features and capabilities that are available in the
 
 - **CSV and Apache Parquet output format**
 
-  You can generate an inventory report in either CSV or Apache Parquet output format. 
+  You can generate an inventory report in either CSV or Apache Parquet output format.
 
 - **Manifest file and Azure Event Grid event per inventory report**
 
@@ -51,7 +39,7 @@ The following list describes features and capabilities that are available in the
 
 ## Enabling inventory reports
 
-Enable blob inventory reports by adding a policy with one or more rules to your storage account. For guidance, see [Enable Azure Storage blob inventory reports (preview)](blob-inventory-how-to.md).
+Enable blob inventory reports by adding a policy with one or more rules to your storage account. For guidance, see [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md).
 
 ## Upgrading an inventory policy 
 
@@ -59,7 +47,7 @@ If you are an existing Azure Storage blob inventory user who has configured inve
 
 - A destination container is now supported for every rule instead of just being supported for the policy.
 
-- A manifest file and Azure Event Grid event are now generated per rule instead of per policy. 
+- A manifest file and Azure Event Grid event are now generated per rule instead of per policy.
 
 ## Inventory policy
 
@@ -86,10 +74,10 @@ An inventory policy is a collection of rules in a JSON document.
 
 View the JSON for an inventory policy by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal.
 
-| Parameter name | Parameter type        | Notes | Required? |
-|----------------|-----------------------|-------|-----------|
-| enabled        | boolean               | Used to disable the entire policy. When set to **true**, the rule level enabled field overrides this parameter. When disabled, inventory for all rules will be disabled. | Yes |
-| rules          | Array of rule objects | At least one rule is required in a policy. Up to 10 rules are supported. | Yes |
+| Parameter name | Parameter type | Notes | Required? |
+|--|--|--|--|
+| enabled | boolean | Used to disable the entire policy. When set to **true**, the rule level enabled field overrides this parameter. When disabled, inventory for all rules will be disabled. | Yes |
+| rules | Array of rule objects | At least one rule is required in a policy. Up to 100 rules are supported per policy. | Yes |
 
 ## Inventory rules
 
@@ -97,12 +85,12 @@ A rule captures the filtering conditions and output parameters for generating an
 
 Each rule within the policy has several parameters:
 
-| Parameter name | Parameter type                 | Notes | Required? |
-|----------------|--------------------------------|-------|-----------|
-| name           | string                         | A rule name can include up to 256 case-sensitive alphanumeric characters. The name must be unique within a policy. | Yes |
-| enabled        | boolean                        | A flag allowing a rule to be enabled or disabled. The default value is **true**. | Yes |
-| definition     | JSON inventory rule definition | Each definition is made up of a rule filter set. | Yes |
-| destination    | string                | The destination container where all inventory files will be generated. The destination container must already exist.|
+| Parameter name | Parameter type | Notes | Required? |
+|--|--|--|--|
+| name | string | A rule name can include up to 256 case-sensitive alphanumeric characters. The name must be unique within a policy. | Yes |
+| enabled | boolean | A flag allowing a rule to be enabled or disabled. The default value is **true**. | Yes |
+| definition | JSON inventory rule definition | Each definition is made up of a rule filter set. | Yes |
+| destination | string | The destination container where all inventory files will be generated. The destination container must already exist. |
 
 The global **Blob inventory enabled** flag takes precedence over the *enabled* parameter in a rule.
 
@@ -113,18 +101,19 @@ The global **Blob inventory enabled** flag takes precedence over the *enabled* p
 | filters | json | Filters decide whether a blob or container is part of inventory or not. | Yes |
 | format | string | Determines the output of the inventory file. Valid values are `csv` (For CSV format) and `parquet` (For Apache Parquet format).| Yes |
 | objectType | string | Denotes whether this is an inventory rule for blobs or containers. Valid values are `blob` and `container`. |Yes |
+| schedule | string | Schedule on which to run this rule. Valid values are `daily` and `weekly`. | Yes |
 | schemaFields | Json array | List of Schema fields to be part of inventory. | Yes |
 
 ### Rule filters
 
 Several filters are available for customizing a blob inventory report:
 
-| Filter name         | Filter type                     | Notes | Required? |
-|---------------------|---------------------------------|-------|-----------|
-| blobTypes           | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType: `container`). | Yes |
-| prefixMatch         | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container`, `container1/foo`.| No |
-| includeSnapshots    | boolean                         | Specifies whether the inventory should include snapshots. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`).| No |
-| includeBlobVersions | boolean                         | Specifies whether the inventory should include blob versions. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`).| No |
+| Filter name | Filter type | Notes | Required? |
+|--|--|--|--|
+| blobTypes | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType: `container`). | Yes |
+| prefixMatch | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container`, `container1/foo`. | No |
+| includeSnapshots | boolean | Specifies whether the inventory should include snapshots. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`). | No |
+| includeBlobVersions | boolean | Specifies whether the inventory should include blob versions. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`). | No |
 
 View the JSON for inventory rules by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal. Filters are specified within a rule definition.
 
@@ -179,7 +168,6 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - BlobType
 - AccessTier
 - AccessTierChangeTime
-- AccessTierInferred
 - Expiry-Time
 - hdi_isfolder
 - Owner
@@ -190,7 +178,6 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - VersionId (Available and required when you choose to include blob versions in your report)
 - IsCurrentVersion (Available and required when you choose to include blob versions in your report)
 - Metadata
-- Tags
 - LastAccessTime
 
 
@@ -322,6 +309,20 @@ Each inventory run for a rule generates the following files:
 	} 
    ```
 
+## Pricing and billing
+
+Pricing for inventory is based on the number of blobs and containers that are scanned during the billing period. As an example, suppose an account contains one million blobs, and blob inventory is set to run once per week. After four weeks, four million blob entries will have been scanned.
+
+Billing for blob inventory begins on October 1, 2021. Regional pricing will be published at that time. The baseline price without regional adjustment is approximately $0.0025 USD per million entries scanned for blob storage and $0.0035 USD if Data Lake Storage Gen2 is enabled. After inventory files are created, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory-generated files in the account.
+
+After an inventory report is complete, additional standard data storage and operations charges are incurred for storing, reading, and writing the inventory report in the storage account.
+
+If a rule contains a prefix that overlaps with a prefix of any other rule, then the same blob can appear in more than one inventory report. In this case, you are billed for both instances. For example, assume that the `prefixMatch` element of one rule is set to `["inventory-blob-1", "inventory-blob-2"]`, and the `prefixMatch` element of another rule is set to `["inventory-blob-10", "inventory-blob-20"]`. An object named `inventory-blob-200` appears in both inventory reports.
+
+Snapshots and versions of a blob also count towards billing even if you've set `includeSnapshots` and `includeVersions` filters to `false`. Those filter values don't affect billing. You can use them only to filter what appears in the report.
+
+For more information about pricing for Azure Storage blob inventory, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
 ## Known issues
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
@@ -336,6 +337,6 @@ An object replication policy can prevent an inventory job from writing inventory
 
 ## Next steps
 
-- [Enable Azure Storage blob inventory reports (preview)](blob-inventory-how-to.md)
+- [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
 - [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)

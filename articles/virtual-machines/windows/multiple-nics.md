@@ -12,6 +12,9 @@ ms.custom: devx-track-azurepowershell
 
 ---
 # Create and manage a Windows virtual machine that has multiple NICs
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 Virtual machines (VMs) in Azure can have multiple virtual network interface cards (NICs) attached to them. A common scenario is to have different subnets for front-end and back-end connectivity. You can associate multiple NICs on a VM to multiple subnets, but those subnets must all reside in the same virtual network (vNet). This article details how to create a VM that has multiple NICs attached to it. You also learn how to add or remove NICs from an existing VM. Different [VM sizes](../sizes.md) support a varying number of NICs, so size your VM accordingly.
 
 ## Prerequisites

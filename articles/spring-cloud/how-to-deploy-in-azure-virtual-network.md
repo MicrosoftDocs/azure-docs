@@ -96,7 +96,7 @@ Select the virtual network **azure-spring-cloud-vnet** you previously created.
     You can also do this step by running the following Azure CLI command:
 
     ```azurecli
-        VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+    VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
         --name ${NAME_OF_VIRTUAL_NETWORK} \
         --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
         --query "id" \
