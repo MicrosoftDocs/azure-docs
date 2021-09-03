@@ -515,7 +515,10 @@
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
-      displayName: logical decoding
+  - name: Troubleshooting
+    items:  
+    - name: Troubleshoot CLI errors
+      href: flexible-server/how-to-troubleshoot-cli-errors.md    
   - name: How-to guides
     items:
     - name: Manage a server
