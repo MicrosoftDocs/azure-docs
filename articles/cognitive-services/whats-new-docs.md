@@ -71,7 +71,7 @@ Welcome to what's new in the Cognitive Services docs from May 1, 2021 through Ma
 
 The following people contributed to the Cognitive Services docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
 
-- [enzocanoo](https://github.com/enzocanoo) - Enzo Cano (2)
+- [enzocanoo](https://github.com/enzocano) - Enzo Cano (2)
 - [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (2)
 - [sassdawe](https://github.com/sassdawe) - DavidSass (1)
 - [SzymonSel](https://github.com/SzymonSel) - Szymon Seliga (1)
