@@ -269,7 +269,7 @@ After you create the policy with the Deny effect and assign it to a scope, a use
 
 The following image shows the error that occurs if you try to create a storage account that allows cross-tenant object replication (the default for a new account) when a policy with a Deny effect requires that cross-tenant object replication is disallowed.
 
-:::image type="content" source="media/object-replication-prevent-cross-tenant-policies/disllow-cross-tenant-replication-deny-policy-error-portal.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
+:::image type="content" source="media/object-replication-prevent-cross-tenant-policies/disallow-cross-tenant-replication-deny-policy-error-portal.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
 
 ## See also
 
