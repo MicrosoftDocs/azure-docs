@@ -33,15 +33,15 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 | ---| --- |
 | [16 TB support for SQL Managed Instance General Purpose](resource-limits.md)| Support for allocation up to 16 TB of space on SQL Managed Instance General Purpose |
 | [Azure Active Directory-only authentication for Azure SQL](../database/authentication-azure-ad-only-authentication.md) |  It's now possible to restrict authentication to your Azure SQL Managed Instance to Azure Active Directory users only. |
-| [Elastic transactions](./elastic-transactions-overview.md) | Elastic transactions let you execute distributed transactions across cloud databases in Azure SQL Database and Azure SQL Managed Instance. |
-| [Instance pools](../managed-instance/instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL Server instances to the cloud. |
-| [Migration with Log Replay Service](../managed-instance/log-replay-service-migrate.md) | Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service. |
-| [Maintenance window](./maintenance-window.md)| The maintenance window feature allows you to configure maintenance schedule. |
+| [Elastic transactions](../database/elastic-transactions-overview.md) | Elastic transactions let you execute distributed transactions across cloud databases in Azure SQL Database and Azure SQL Managed Instance. |
+| [Instance pools](instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL Server instances to the cloud. |
+| [Migration with Log Replay Service](log-replay-service-migrate.md) | Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service. |
+| [Maintenance window](../database/maintenance-window.md)| The maintenance window feature allows you to configure maintenance schedule. |
 | [Long-term backup retention](long-term-backup-retention-configure.md) | Support for Long-term backup retention up to 10 years on Azure SQL Managed Instance. |
 | [Service Broker cross-instance message exchange](/sql/database-engine/configure-windows/sql-server-service-broker?view=sql-server-ver15) | Support for cross-instance message exchange using Service Broker on Azure SQL Managed Instance. |
 | [SQL insights](../../azure-monitor/insights/sql-insights-overview.md) | SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. |
-| [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
-| [Threat detection](../managed-instance/threat-detection-configure.md) | Threat detection notifies you of security threats detected to your database. |
+| [Transactional Replication](replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](replication-between-two-instances-configure-tutorial.md). |
+| [Threat detection](threat-detection-configure.md) | Threat detection notifies you of security threats detected to your database. |
 | [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true) | Use query hints to optimize your query execution via the OPTION clause. |
 |||
 
@@ -131,8 +131,8 @@ The following changes were added to the product and the documentation in 2019:
 | **Dynamics 365 Business Central support** | Support has been added for deploying your managed instance with Dynamics 365 Business Central. To learn more, see [SQL Managed Instance and Dynamics 365 Business central](/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance). |
 | **Instance level collation & time zone** | It's now possible to create a managed instance with <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">instance-level collation</a> and a <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">time zone</a> of your choice.|
 | **Built-in firewall** | You can now protect your SQL Managed Instance with a [built-in firewall](management-endpoint-verify-built-in-firewall.md).|
-| **Public endpoint & proxy override** | Configure SQL Managed Instance to use [public endpoints](public-endpoint-configure.md), [Proxy override](connectivity-architecture.md#connection-policy) connection to get better network performance. |
-| **Backup improvements** | <a href="/azure/azure-sql/database/automated-backups-overview">Configure backup retention up to 35 days</a> for point-in-time restore. [Long-term backup retention](long-term-retention-overview.md) (up to 10 years) is currently in public preview.  | 
+| **Public endpoint & proxy override** | Configure SQL Managed Instance to use [public endpoints](public-endpoint-configure.md), [Proxy override](../database/connectivity-architecture.md#connection-policy) connection to get better network performance. |
+| **Backup improvements** | <a href="/azure/azure-sql/database/automated-backups-overview">Configure backup retention up to 35 days</a> for point-in-time restore. [Long-term backup retention](../database/long-term-retention-overview.md) (up to 10 years) is currently in public preview.  | 
 | **Geo-restore** | It's now possible to restore your database to a new region. To learn more, see [geo-restore](../database/recovery-using-backups.md#geo-restore) |
 | **Database rename** | It's now possible to rename your database for your SQL Managed Instance. To learn more, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) and [sp_rename](/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql).|
 | **Delete virtual cluster** | It's now possible to delete your virtual cluster. To learn more, see [delete virtual cluster](virtual-cluster-delete.md). | 
@@ -143,7 +143,7 @@ The following changes were added to the product and the documentation in 2019:
 
 ## Known issues
 
-The known issues content has moved to a dedicated [known issues in SQL Managed Instance](doc-changes-updates-known-issues) article. 
+The known issues content has moved to a dedicated [known issues in SQL Managed Instance](doc-changes-updates-known-issues.md) article. 
 
 
 ## Contribute to content
