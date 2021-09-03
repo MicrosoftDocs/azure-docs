@@ -21,6 +21,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-data-management.md",
+            "redirect_url": "articles/synapse-analytics/partner/data-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md",
             "redirect_url": "articles/synapse-analytics/partner/machine-learning-ai",
             "redirect_document_id": false
