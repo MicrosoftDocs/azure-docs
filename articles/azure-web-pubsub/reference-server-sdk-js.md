@@ -17,7 +17,6 @@ There are two libraries offered for JavaScript: the service client library and e
 ## Azure Web PubSub service client library for JavaScript
 
 You can use this library to:
-
 - Send messages to hubs and groups. 
 - Send messages to particular users and connections.
 - Organize users and connections into groups.

@@ -12,7 +12,7 @@ ms.date: 08/26/2021
 
 In [Build a chat app](./tutorial-build-chat.md), you learned how to use WebSocket APIs to send and receive data with Azure Web PubSub. You might have noticed that, for simplicity, it doesn't require any authentication. Though Azure Web PubSub requires an access token to be connected, the `negotiate` API used in the tutorial to generate the access token doesn't need authentication. Anyone can call this API to get an access token.
 
-In a real world application, you typically want the user to sign in first, before they can use your application. In this tutorial, you learn how to integrate Web PubSub with the authentication and authorization system of your application, to make it more secure.
+In a real-world application, you typically want the user to sign in first, before they can use your application. In this tutorial, you learn how to integrate Web PubSub with the authentication and authorization system of your application, to make it more secure.
 
 You can find the complete code sample of this tutorial on [GitHub][code].
 
