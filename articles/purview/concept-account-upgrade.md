@@ -44,7 +44,7 @@ When your Purview account is upgraded, your collections will be updated as well.
 
 To find your new collections, we'll start in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com) and selecting the **Open Purview Studio** tile on the overview page.
 
-Select Data Map > Collections from the left pane to open collection management page.
+Select Data Map > Collections from the left pane to open the collection management page.
 
 :::image type="content" source="./media/concept-account-upgrade/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
 
@@ -52,7 +52,7 @@ There you'll see the root collection, as well as all your existing collections. 
 
 :::image type="content" source="./media/concept-account-upgrade/select-root-collection.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
 
-All your existing collections have been added to this root collections, and they can be managed from this page.
+All your existing collections have been added to this root collection, and they can be managed from this page.
 To create a new collection select **+ Add a Collection**.
 
 :::image type="content" source="./media/concept-account-upgrade/select-add-a-collection.png" alt-text="Screenshot of Purview studio window, showing the new collection window, with the add a collection buttons highlighted." border="true":::
