@@ -8,14 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-<<<<<<< HEAD
 ms.date: 09/01/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-=======
-ms.date: 08/31/2021
-ms.author: lajanuar
->>>>>>> 075f0780b959bb261e657428b2071c53840280b8
 keywords: text to speech
 ---
 
