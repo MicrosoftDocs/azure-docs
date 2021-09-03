@@ -67,7 +67,7 @@ To submit a support ticket related to metered billing anomalies:
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
 1. On the Home page, select the **Help + support** tile.
 
-    :::image type="content" source="../media/workspaces/partner-center-help-support-tile.png" alt-text="Illustrates the Help and Support tile on the Partner Center home page.":::
+    [ ![Illustrates the Help and Support tile on the Partner Center home page.](../media/workspaces/partner-center-help-support-tile.png) ](../media/workspaces/partner-center-help-support-tile.png#lightbox)
 
 1. Under **My support requests**, select **+ New request**.
 1. In the **Problem summary** box, enter **metered billing**.

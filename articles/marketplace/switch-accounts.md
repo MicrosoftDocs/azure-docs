@@ -25,7 +25,7 @@ You can be part of more than one account. This article describes how to see if y
 
 #### [Preview interface](#tab/new-web-form)
 
-You can check to see if you are part of multiple accounts by the presence of the *account picker*. In the top-right, select the your account icon as seen highlighted in the following screenshot.
+You can check to see if you are part of multiple accounts by the presence of the _account picker_. In the top-right, select the your account icon as seen highlighted in the following screenshot.
 
 [ ![Illustrates the account picker in Partner Center.](./media/manage-accounts/account-picker-workspaces.png) ](./media/manage-accounts/account-picker-workspaces.png#lightbox)
 

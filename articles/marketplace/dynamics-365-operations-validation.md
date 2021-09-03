@@ -69,7 +69,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
     1. Create a text document that includes the demo video address and screenshots, or save the screenshots as separate JPG files.
     2. Add the text and images to a .zip file in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) on the offer's **Supplemental content** tab.
 
-    :::image type="content" source="./media//dynamics-365-operations/supplemental-content-workspaces.png" alt-text="Illustrates a zip file uploaded to the Supplemental content page.":::
+    [ ![Illustrates a zip file uploaded to the Supplemental content page.](./media//dynamics-365-operations/supplemental-content-workspaces.png) ](./media//dynamics-365-operations/supplemental-content-workspaces.png#lightbox)
 
 #### [Current interface](#tab/old-web-form)
 

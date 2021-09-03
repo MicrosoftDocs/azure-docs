@@ -27,7 +27,7 @@ This article explains how to use Partner Center to submit your SaaS offer for pu
 
 1. On the Home page, select the **Marketplace offers** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. On the Marketplace offers page, select the offer you want to publish.
 1. In the upper-right corner of the portal, select **Review and publish**.
@@ -68,7 +68,7 @@ When the offer is ready for your sign off, we’ll send you an email to request 
 
 The following screenshot shows the **Offer overview** page for a SaaS offer, with two preview links under the **Go live** button. The validation steps you’ll see on this page vary depending on the selections you made when you created the offer.
 
-:::image type="content" source="./media/review-publish-offer/publish-status-saas.png" alt-text="Illustrates the Publish status for an offer in Partner Center. The Go live button is shown. The View validation report link is also shown under Automated validation.":::
+[ ![Illustrates the Publish status for an offer in Partner Center. The Go live button is shown. The View validation report link is also shown under Automated validation.](./media/review-publish-offer/publish-status-saas.png) ](./media/review-publish-offer/publish-status-saas.png#lightbox)
 
 Use the following steps to preview your offer.
 

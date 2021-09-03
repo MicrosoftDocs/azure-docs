@@ -30,11 +30,11 @@ If you have not already done so, you (or your organization's administrator) shou
 
 1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
 
-    :::image type="content" source="./media/manage-accounts/settings-account-workspaces.png" alt-text="Screenshot of the account settings menu in Partner Center.":::
+    [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
 1. Under **Account settings** select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
 
-    :::image type="content" source="./media/manage-accounts/developer-tab-workspaces.png" alt-text="Screenshot of the developer tab on the legal page in Account settings.":::
+    [ ![Screenshot of the developer tab on the legal page in Account settings.](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
 
 #### [Current interface](#tab/old-web-form)
 
@@ -143,11 +143,11 @@ A payout profile is the bank account to which proceeds are sent from your sales.
 
 1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
 
-    :::image type="content" source="./media/manage-accounts/settings-account-workspaces.png" alt-text="Screenshot of the account settings menu in Partner Center.":::
+    [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
 1. In the left menu, under **Payout and tax**, select **Payout and tax profile assignment**.
 
-    :::image type="content" source="./media/manage-accounts/payout-and-tax-profile-assignment.png" alt-text="Illustrates Payout and tax profile assignment page.":::
+    [ ![Illustrates Payout and tax profile assignment page.](./media/manage-accounts/payout-and-tax-profile-assignment.png) ](./media/manage-accounts/payout-and-tax-profile-assignment.png#lightbox)
 
     > [!NOTE]
     > In you don't see the **Payout and tax** section in the left menu, contact your global admin or account admin for permissions.

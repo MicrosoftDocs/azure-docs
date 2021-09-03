@@ -29,11 +29,11 @@ If you haven't done so yet, review [Plan a virtual machine offer](marketplace-vi
 
 1. On the Home page, select the **Marketplace offers** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. On the Marketplace offers page, select **+ New offer** > **Azure Virtual Machine**.
 
-    ![Screenshot showing the left pane menu options and the "New offer" button.](./media/create-vm/new-offer-azure-virtual-machine-workspaces.png)
+    [ ![Screenshot showing the left pane menu options and the "New offer" button.](./media/create-vm/new-offer-azure-virtual-machine-workspaces.png) ](./media/create-vm/new-offer-azure-virtual-machine-workspaces.png#lightbox)
 
 > [!NOTE]
 > After an offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after making changes to it.

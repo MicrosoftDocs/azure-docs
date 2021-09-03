@@ -25,7 +25,7 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 1. On the Home page, select the **Help + support** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-help-support-tile.png" alt-text="Illustrates the Partner Center Home page with the Help + support tile highlighted.":::
+     [ ![Illustrates the Partner Center Home page with the Help + support tile highlighted.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
 
 1. Under **My support requests**, select **+ New request**.
 
@@ -46,7 +46,7 @@ The following options are shown:
 - To select a different topic, click **Select a different issue**.
 - To help solve the issue, review the recommended steps and documents, if available.
 
-    ![Recommended solutions](./media/support/recommended-solutions.png)
+    [ ![Illustrates the Recommended solutions page.](./media/support/recommended-solutions.png) ](./media/support/recommended-solutions.png#lightbox)
 
 If you cannot find your answer in the self help, select **Provide issue details**. Complete all required fields to speed up the resolution process, then select **Submit**.
 
@@ -97,7 +97,7 @@ If you cannot find your answer in the self help, select **Provide issue details*
 
 1. On the Home page, select the **Help + support** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-help-support-tile.png" alt-text="Illustrates the Partner Center Home page with the Help + support tile highlighted.":::
+    [ ![Illustrates the Partner Center Home page with the Help + support tile highlighted.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
 
 #### [Current interface](#tab/old-web-form)
 

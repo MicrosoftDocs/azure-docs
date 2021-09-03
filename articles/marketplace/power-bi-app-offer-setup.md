@@ -29,11 +29,11 @@ Review [Plan a Power BI offer](marketplace-power-bi.md). It will explain the tec
 
 1. On the Home page, select the **Marketplace offers** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. On the Marketplace offers page, select **+ New offer** > **Power BI app**.
 
-    :::image type="content" source="./media/power-bi/new-offer-power-bi-app-workspaces.png" alt-text="Illustrates the Power BI app option and the New offer button.":::
+    [ ![Illustrates the Power BI app offer type available from the New offer button.](./media/power-bi/new-offer-power-bi-app-workspaces.png) ](./media/power-bi/new-offer-power-bi-app-workspaces.png#lightbox)
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.

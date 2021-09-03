@@ -22,7 +22,7 @@ This article explains how to use Partner Center to submit your Azure Application
 
 1. On the Home page, select the **Marketplace offers** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. On the Marketplace offers page, select the offer you want to publish.
 1. In the upper-right corner of the portal, select **Review and publish**.

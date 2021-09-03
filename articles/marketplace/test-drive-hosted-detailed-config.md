@@ -24,7 +24,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 3. Find an existing **Dynamics 365 for Customer Engagement & Power Apps** offer or create a new **Dynamics 365 for Customer Engagement & Power Apps** offer.
 4. On the **Offer setup** page, select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save draft**.
 
-    :::image type="content" source="./media/test-drive/enable-test-drive-check-box-workspaces.png" alt-text="Illustrates selecting the 'Enable a test drive' check box.":::
+    [ ![Illustrates selecting the 'Enable a test drive' check box.](./media/test-drive/enable-test-drive-check-box-workspaces.png) ](./media/test-drive/enable-test-drive-check-box-workspaces.png#lightbox)
 
     - **Type of test drive** – Choose **Microsoft Hosted (Dynamics 365 for Customer Engagement & PowerApps)**. This indicates that Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
 
@@ -52,7 +52,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 7. Complete the fields on the **Test drive marketplace listing** page.
 
-    :::image type="content" source="./media/test-drive/marketplace-listing-details-workspaces.png" alt-text="Illustrates Marketplace listing details page.":::
+    [ ![Illustrates Marketplace listing details page.](./media/test-drive/marketplace-listing-details-workspaces.png) ](./media/test-drive/marketplace-listing-details-workspaces.png#lightbox)
 
     - **Description** – An overview of your test drive. This text will be shown to the user while the test drive is being provisioned. This field supports HTML if you want to provide formatted content (required).
     - **User manual** – A PDF user manual that helps test drive users understand how to use your app (required).
@@ -84,7 +84,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
             4. Select **Details**.
             5. Copy the **Web link** from the **Details** tab:
 
-                :::image type="content" source="./media/test-drive/testdrive-canvas-app.png" alt-text="Shows the TestDrive Canvas App window.":::
+                [ ![Shows the TestDrive Canvas App window.](./media/test-drive/testdrive-canvas-app.png) ](./media/test-drive/testdrive-canvas-app.png#lightbox)
 
 	- **Instance web API URL**
         - *Customer Engagement* – The Web API URL for your Dynamics 365 Instance. Retrieve this value by signing into your Microsoft Dynamics 365 instance, selecting **Setting** > **Customization** > **Developer Resources** > **Instance Web API**, and copying the address (URL). Example value:
@@ -107,7 +107,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 7. Provide the marketplace listing details. Select **Language** to see further required fields.
 
-    :::image type="content" source="./media/test-drive/marketplace-listing-details-workspaces.png" alt-text="Illustrates Marketplace listing details page.":::
+    [ ![Illustrates Marketplace listing details page.](./media/test-drive/marketplace-listing-details-workspaces.png) ](./media/test-drive/marketplace-listing-details-workspaces.png#lightbox)
 
     - **Description** – An overview of your test drive. This text will be shown to the user while the test drive is being provisioned. This field supports HTML if you want to provide formatted content (required).
     - **User manual** – A PDF user manual that helps test drive users understand how to use your app (required).
@@ -133,7 +133,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). In this step, you will generate the **Azure AD App ID** and **Azure AD App Key** values mentioned below.
 6. Complete these fields on the **Test drive** >  **Technical configuration** page.
 
-    :::image type="content" source="./media/test-drive/technical-config-details-operations-workspaces.png" alt-text="Illustrates the Marketplace technical configuration page..":::
+    [ ![Illustrates the Marketplace technical configuration page.](./media/test-drive/technical-config-details-operations-workspaces.png) ](./media/test-drive/technical-config-details-operations-workspaces.png#lightbox)
 
     - **Max concurrent test drives** – The number of concurrent users that can have an active test drive running at the same time. Each user will consume a Dynamics license while their test drive is active, so ensure you have at least this many Dynamics licenses available for test drive users. We recommended 3 to 5.
 	- **Test drive duration** – The number of hours the user's test drive will be active. After the time has expired, the user will be deprovisioned from your tenant. We recommended 2-24 hours depending on the complexity of your app. The user can always request another test drive if they run out of time and want to access the test drive again.

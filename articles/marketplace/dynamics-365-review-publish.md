@@ -48,7 +48,7 @@ After all pages are complete and you have entered applicable testing notes, sele
 1. Return to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 1. On the Home page, select the **Marketplace offers** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. On the Marketplace offers page, select the offer.
 1. Select **Review and publish**.

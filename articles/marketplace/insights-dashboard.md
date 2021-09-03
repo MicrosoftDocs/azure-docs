@@ -40,7 +40,7 @@ The Marketplace Insights dashboard provides clickstream data, which shouldn't be
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center Home page.":::
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
 1. In the left menu, select **Marketplace insights**.
 
@@ -108,7 +108,7 @@ This number represents the count of **Call to Action** button clicks completed o
 
 For the selected computation period, the heatmap displays the count of page visits, unique visitors, and calls to action (CTA). The light to dark color on the map represents the low to high value of the unique visitors. Select a record in the table to zoom in on a country/region.
 
-:::image type="content" source="./media/insights-dashboard/geographical-spread.png" alt-text="Illustrates the geographical spread chart on the Marketplace Insights dashboard.":::
+[ ![Illustrates the geographical spread chart on the Marketplace Insights dashboard.](./media/insights-dashboard/geographical-spread.png) ](./media/insights-dashboard/geographical-spread.png#lightbox)
 
 Note the following:
 

@@ -97,13 +97,13 @@ If you do not have an offer already in the commercial marketplace to merge a sol
 
    1. On the commercial marketplace Overview page, select **+ New Offer**, and then select the offer type you want.
 
-        :::image type="content" source="media/co-sell-migrate/new-offer-workspaces.png" alt-text="New Offer display":::
+        [ ![Screenshot of the New Offer button on the Marketplace offers page.](media/co-sell-migrate/new-offer-workspaces.png) ](media/co-sell-migrate/new-offer-workspaces.png#lightbox)
 
    2. Complete the required information in each tab.
       - The **Learn more** links and tooltips will guide you through the requirements and details.
       - Optionally, complete the **Resell through CSPs** page (in the left-nav menu below) to resell through the Cloud Solution Provider (CSP) program.
 
-        :::image type="content" source="media/co-sell-migrate/offer-setup-nav-workspaces.png" alt-text="Displays the Offer Setup page with overview options highlighted.":::
+        [ ![Displays the Offer Setup page with overview options highlighted.](media/co-sell-migrate/offer-setup-nav-workspaces.png) ](media/co-sell-migrate/offer-setup-nav-workspaces.png#lightbox)
 
    3. Select **Save Draft**.
         - For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](./publisher-guide-by-offer-type.md).
@@ -117,15 +117,15 @@ If you do not have an offer already in the commercial marketplace to merge a sol
     After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed. For more information, see [Configure co-sell for a commercial marketplace offer](./co-sell-configure.md).
 1. When complete, select **Review and publish**.
 
-     :::image type="content" source="media/co-sell-migrate/co-sell-with-ms-workspaces.png" alt-text="Co-Sell with Microsoft page is displayed with options highlighted":::
+    [ ![Co-Sell with Microsoft page is displayed with options highlighted.](media/co-sell-migrate/co-sell-with-ms-workspaces.png) ](media/co-sell-migrate/co-sell-with-ms-workspaces.png#lightbox)
 
 1. After reviewing all submitted information, select **Publish** to submit your draft offer for certification review. [Learn more about the certification phase](./review-publish-offer.md).
 
-    :::image type="content" source="media/co-sell-migrate/review-and-publish-workspaces.png" alt-text="Displays the Review and Publish page.":::
+    [ ![Displays the Review and Publish page.](media/co-sell-migrate/review-and-publish-workspaces.png) ](media/co-sell-migrate/review-and-publish-workspaces.png#lightbox)
 
 1. Track the status of your submission on the Overview tab.
 
-    :::image type="content" source="./media/review-publish-offer/publish-status-saas.png" alt-text="Illustrates the Publish status for an offer in Partner Center. The Go live button is shown. The View validation report link is also shown under Automated validation.":::
+    [ ![Illustrates the Publish status for an offer in Partner Center. The Go live button is shown. The View validation report link is also shown under Automated validation.](./media/review-publish-offer/publish-status-saas.png) ](./media/review-publish-offer/publish-status-saas.png#lightbox)
 
 1. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
 

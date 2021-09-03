@@ -42,7 +42,7 @@ The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displ
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center Home page.":::
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
 1. In the left menu, select **Customers**.
 
@@ -104,7 +104,7 @@ In this section, you will find trend and count of all customers, including new, 
 
 The **Customers by orders/usage** chart has three tabs: Orders, Normalized usage, and Raw usage. Select the **Orders** tab to show order details.
 
-:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="Illustrates the Orders tab of the Customers by orders and usage widget on the Customers page.":::
+[ ![Illustrates the Orders tab of the Customers by orders and usage widget on the Customers page.](./media/customer-dashboard/customers-by-orders-usage.png) ](./media/customer-dashboard/customers-by-orders-usage.png#lightbox)
 
 Note the following:
 

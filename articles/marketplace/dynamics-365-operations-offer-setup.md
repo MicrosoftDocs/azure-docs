@@ -29,11 +29,11 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 
 1. On the Home page, select the **Marketplace offers** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. On the Marketplace offers page, select **+ New offer** > **Dynamics 365 for operations**.
 
-    :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png" alt-text="The left pane menu options and the 'New offer' button.":::
+    [ ![Screenshot of the 'New offer' button on the Marketplace offers page, highlighting the Dynamics 365 for Operations offer type.](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png) ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png#lightbox)
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.

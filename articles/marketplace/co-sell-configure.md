@@ -38,7 +38,7 @@ The Co-sell option is available for the following offer types.
 
 1. On the Home page, select the **Marketplace offers** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+     [ ![Illustrates the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
     > [!TIP]
     > If you don’t see the **Marketplace offers** tile, [create a commercial marketplace account in Partner Center](create-account.md) and make sure your account is enrolled in the commercial marketplace program.
@@ -50,7 +50,7 @@ The Co-sell option is available for the following offer types.
 
 1. In the menu on the left, select **Co-sell with Microsoft**.
 
-    :::image type="content" source="./media/co-sell/co-sell-with-microsoft-tab-workspaces.png" alt-text="Illustrates the Co-sell with Microsoft page.":::
+    [ ![Illustrates the Co-sell with Microsoft page.](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png) ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png#lightbox)
 
 #### [Current interface](#tab/old-web-form)
 

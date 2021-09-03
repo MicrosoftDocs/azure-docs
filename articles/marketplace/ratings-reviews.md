@@ -29,7 +29,7 @@ This article provides information on the Ratings & Reviews dashboard in Partner 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center Home page.":::
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
 1. In the left menu, select **Ratings & reviews**.
 
@@ -73,7 +73,7 @@ To respond to a review, follow these steps:
 
 1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
 
-    :::image type="content" source="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png" alt-text="Illustrates the ratings and review page":::
+    [ ![Illustrates the ratings and review page.](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png) ](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png#lightbox)
 
 1. Select the **Reply** link for the review you wish to respond, type your reply on the **text box**, then select **Send reply**.
 

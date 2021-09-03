@@ -151,7 +151,7 @@ When the offer is ready for you to review and be signed off, we’ll send you an
 
 The following screenshot shows the **Offer overview** page in the commercial marketplace program in Partner Center. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer. The certification phase can happen during submission to preview or submission to live, depending on the offer type.
 
-![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png)
+[ ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png) ](./media/publish-status-publisher-signoff.png#lightbox)
 
 ### Previewing and approving your offer
 
@@ -207,7 +207,7 @@ To view the history of your offer:
 
 1. On the Home page, select the **Marketplace offers** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. On the Marketplace offers page, select your offer.
 1. Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:

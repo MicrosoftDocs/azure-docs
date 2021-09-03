@@ -30,7 +30,7 @@ To help ensure that your customers are billed correctly, use the **Anomaly detec
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
-    :::image type="content" source="./media/workspaces/partner-center-insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center Home page.":::
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
 1. In the left menu, select **Usage**.
 1. Select the **Metered usage anomalies** tab.
@@ -55,7 +55,7 @@ To help ensure that your customers are billed correctly, use the **Anomaly detec
 
     By default, flagged anomalies that have an estimated financial impact greater than 100 USD are shown in Partner Center. However, you can select **All** from the **Estimated financial impact of anomaly** list to see all flagged anomalies.
 
-    :::image type="content" source="./media/anomaly-detection/all-anomalies.png" alt-text="Screenshot of all metered usage anomalies for the selected offer.":::
+    [ ![Screenshot of all metered usage anomalies for the selected offer.](./media/anomaly-detection/all-anomalies.png) ](./media/anomaly-detection/all-anomalies.png#lightbox)
 
 1. You would also see an anomaly action log that shows the actions you took on the overage usages. In the action log, you will be able to see which overage usage events were marked as genuine or false.
 
@@ -64,7 +64,7 @@ To help ensure that your customers are billed correctly, use the **Anomaly detec
 
 1. Partner Center analytics will not support restatement of overage usage events in the export reports. Partner Center lets you enter the corrected overage usage for an anomaly and the details are passed on to Microsoft teams for investigation. Based on the investigation, Microsoft will issue credit refunds to the overcharged customer, as appropriate. When you select any of the flagged anomalies, you can select **Mark as anomaly** to mark the usage overage anomaly as genuine.
 
-   [![Illustrates the Mark as an anomaly dialog box.](./media/anomaly-detection/new-reported-usage.png)](./media/anomaly-detection/new-reported-usage.png#lightbox)<br>
+   [![Illustrates the Mark as an anomaly dialog box.](./media/anomaly-detection/mark-as-anomaly-workspaces.png)](./media/anomaly-detection/mark-as-anomaly-workspaces.png#lightbox)<br>
    ***Figure: 6: Mark as anomaly dialog box***
 
 #### [Current interface](#tab/old-web-form)
