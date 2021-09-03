@@ -37,8 +37,8 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 | --- | --- | --- | --- |
 |ARP Availability|Availability|<ul><li>Peer (Primary/Secondary ExpressRoute router)</li><li> Peering Type (Private/Public/Microsoft)</li></ul>|ExpressRoute|
 |BGP Availability|Availability|<ul><li> Peer (Primary/Secondary ExpressRoute router)</li><li> Peering Type</li></ul>|ExpressRoute|
-|BitsInPerSecond|Traffic|<ul><li> Peering Type (ExpressRoute)</li><li>Link (ExpressRoute Direct)</li></ul>|<li>ExpressRoute</li><li>ExpressRoute Direct</li><ul><li>ExpressRoute Gateway Connection</li></ul>|
-|BitsOutPerSecond|Traffic| <ul><li>Peering Type (ExpressRoute)</li><li> Link (ExpressRoute Direct) |<ul><li>ExpressRoute<ul><li>ExpressRoute Direct</li><li>ExpressRoute Gateway Connection</li></ul>|
+|BitsInPerSecond|Traffic|<ul><li> Peering Type (ExpressRoute)</li><li>Link (ExpressRoute Direct)</li></ul>|<ul><li>ExpressRoute</li><li>ExpressRoute Direct</li><li>ExpressRoute Gateway Connection</li></ul>|
+|BitsOutPerSecond|Traffic| <ul><li>Peering Type (ExpressRoute)</li><li> Link (ExpressRoute Direct)</li></ul> |<ul><li>ExpressRoute</li><li>ExpressRoute Direct</li><li>ExpressRoute Gateway Connection</li></ul>|
 |CPU Utilization|Performance| <ul><li>Instance</li></ul>|ExpressRoute Virtual Network Gateway|
 |Packets per Second|Performance| <ul><li>Instance</li></ul>|ExpressRoute Virtual Network Gateway|
 |Count of Routes Advertised to Peer |Availability| <ul><li>Instance</li></ul>|ExpressRoute Virtual Network Gateway|
