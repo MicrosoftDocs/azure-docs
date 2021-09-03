@@ -447,5 +447,3 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 ::: zone pivot="programming-language-objectivec"
 * See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L525) on GitHub for language identification
 ::: zone-end
-
-* [Speech SDK reference documentation](speech-sdk.md)
