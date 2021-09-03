@@ -36,8 +36,8 @@ Some features aren't supported with geo-replication:
 - Zone Redundancy isn't supported with geo-replication.
 - Persistence isn't supported with geo-replication.
 - Clustering is supported if both caches have clustering enabled and have the same number of shards.
-- Caches in the same VNET are supported.
-- Caches in different VNETs are supported with caveats. See [Can I use geo-replication with my caches in a VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) for more information.
+- Caches in the same Virtual Network (VNet) are supported.
+- Caches in different VNets are supported with caveats. See [Can I use geo-replication with my caches in a VNet?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) for more information.
 
 After geo-replication is configured, the following restrictions apply to your linked cache pair:
 
@@ -105,7 +105,7 @@ After geo-replication is configured, the following restrictions apply to your li
 - [Can I link two caches from different Azure subscriptions?](#can-i-link-two-caches-from-different-azure-subscriptions)
 - [Can I link two caches with different sizes?](#can-i-link-two-caches-with-different-sizes)
 - [Can I use geo-replication with clustering enabled?](#can-i-use-geo-replication-with-clustering-enabled)
-- [Can I use geo-replication with my caches in a VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [Can I use geo-replication with my caches in a VNet?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
 - [What is the replication schedule for Redis geo-replication?](#what-is-the-replication-schedule-for-redis-geo-replication)
 - [How long does geo-replication replication take?](#how-long-does-geo-replication-replication-take)
 - [Is the replication recovery point guaranteed?](#is-the-replication-recovery-point-guaranteed)
@@ -142,24 +142,24 @@ Yes, as long as the secondary linked cache is larger than the primary linked cac
 
 Yes, as long as both caches have the same number of shards.
 
-### Can I use geo-replication with my caches in a VNET?
+### Can I use geo-replication with my caches in a VNet?
 
-Yes, geo-replication of caches in VNETs is supported with caveats:
+Yes, geo-replication of caches in VNets is supported with caveats:
 
-- Geo-replication between caches in the same VNET is supported.
-- Geo-replication between caches in different VNETs is also supported.
-  - If the VNETs are in the same region, you can connect them using [VNET peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN Gateway VNET-to-VNET connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-  - If the VNETs are in different regions, geo-replication using VNET peering is supported, but a client VM in VNET 1 (region 1) will not be able to access the cache in VNET 2 (region 2) via it's DNS name because of a constraint with Basic internal load balancers. For more information about VNET peering constraints, see [Virtual Network - Peering - Requirements and constraints](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). The recommended solution is to use a VPN Gateway VNET-to-VNET connection.
+- Geo-replication between caches in the same VNet is supported.
+- Geo-replication between caches in different VNets is also supported.
+  - If the VNets are in the same region, you can connect them using [VNet peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN Gateway VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+  - If the VNets are in different regions, geo-replication using VNet peering is supported, but a client VM in VNet 1 (region 1) is not able to access the cache in VNet 2 (region 2) using it's DNS name because of a constraint with Basic internal load balancers. For more information about VNet peering constraints, see [Virtual Network - Peering - Requirements and constraints](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). We recommend to use a VPN Gateway VNet-to-VNet connection.
   
-Using [this Azure template](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/), you can quickly deploy two geo-replicated caches into a VNET connected with a VPN Gateway VNET-to-VNET connection.
+Using [this Azure template](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/), you can quickly deploy two geo-replicated caches into a VNet connected with a VPN Gateway VNet-to-VNet connection.
 
 ### What is the replication schedule for Redis geo-replication?
 
-Replication is continuous and asynchronous and doesn't happen on a specific schedule. All the writes done to the primary are instantaneously and asynchronously replicated on the secondary.
+Replication is continuous and asynchronous. It doesn't happen on a specific schedule. All the writes done to the primary are instantaneously and asynchronously replicated on the secondary.
 
 ### How long does geo-replication replication take?
 
-Replication is incremental, asynchronous, and continuous and the time taken isn't much different from the latency across regions. Under certain circumstances, the secondary cache may be required to do a full sync of the data from the primary. The replication time in this case is dependent on number of factors like: load on the primary cache, available network bandwidth, and inter-region latency. We have found replication time for a full 53-GB geo-replicated pair can be anywhere between 5 to 10 minutes.
+Replication is incremental, asynchronous, and continuous and the time taken isn't much different from the latency across regions. Under certain circumstances, the secondary cache can be required to do a full sync of the data from the primary. The replication time in this case is depends on a number of factors like: load on the primary cache, available network bandwidth, and inter-region latency. We have found replication time for a full 53-GB geo-replicated pair can be anywhere between 5 to 10 minutes.
 
 ### Is the replication recovery point guaranteed?
 
@@ -185,7 +185,9 @@ In general, it's recommended for your cache to exist in the same Azure region as
 
 ### How does failing over to the secondary linked cache work?
 
-Automatic failover across Azure regions isn't supported for geo-replicated caches. In a disaster-recovery scenario, customers should bring up the entire application stack in a coordinated manner in their backup region. Letting individual application components decide when to switch to their backups on their own can negatively impact performance. One of the key benefits of Redis is that it's a very low-latency store. If the customer's main application is in a different region than its cache, the added round-trip time would have a noticeable impact on performance. For this reason, we avoid failing over automatically because of transient availability issues.
+Automatic failover across Azure regions isn't supported for geo-replicated caches. In a disaster-recovery scenario, customers should bring up the entire application stack in a coordinated manner in their backup region. Letting individual application components decide when to switch to their backups on their own can negatively impact performance. 
+
+One of the key benefits of Redis is that it's a very low-latency store. If the customer's main application is in a different region than its cache, the added round-trip time would have a noticeable impact on performance. For this reason, we avoid failing over automatically because of transient availability issues.
 
 To start a customer-initiated failover, first unlink the caches. Then, change your Redis client to use the connection endpoint of the (formerly linked) secondary cache. When the two caches are unlinked, the secondary cache becomes a regular read-write cache again and accepts requests directly from Redis clients.
 

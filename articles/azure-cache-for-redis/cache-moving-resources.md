@@ -12,7 +12,11 @@ ms.date: 8/27/2021
 
 # Move Azure Cache for Redis instances to different regions
 
-In this article, you will learn how to move Azure Cache for Redis instances to a different Azure region. You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+In this article, you will learn how to move Azure Cache for Redis instances to a different Azure region. You might move your resources to another region for a number of reasons:
+- To take advantage of a new Azure region
+- To deploy features or services available in specific regions only
+- To meet internal policy and governance requirements
+- In response to capacity planning requirements
 
 ## Prerequisites 
 
@@ -28,28 +32,30 @@ To configure geo-replication between two caches, the following prerequisites mus
 To move your cache instance to another region, you'll need to [create a second premium cache instance](quickstart-create-redis.md) in the desired region. Once both caches are in a running state, you can set up geo-replication between the two cache instances. 
 
 > [!NOTE]
-> Data transfer between Azure regions will be charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
+> Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 Some features aren't supported with geo-replication:
 
 - Zone Redundancy isn't supported with geo-replication.
 - Persistence isn't supported with geo-replication.
 - Clustering is supported if both caches have clustering enabled and have the same number of shards.
-- Caches in the same VNET are supported.
-- Caches in different VNETs are supported with caveats. See [Can I use geo-replication with my caches in a VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) for more information.
+- Caches in the same Virtual Network (VNet) are supported.
+- Caches in different VNets are supported with caveats. See [Can I use geo-replication with my caches in a VNet?](cache-how-to-geo-replication.md#can-i-use-geo-replication-with-my-caches-in-a-vnet) for more information.
 
 After geo-replication is configured, the following restrictions apply to your linked cache pair:
 
-- The secondary linked cache is read-only; you can read from it, but you can't write any data to it. If you choose to read from the Geo-Secondary instance, it is important to note that whenever a full data sync is happening between the Geo-Primary and the Geo-Secondary (happens when either Geo-Primary or Geo-Secondary is updated and on some reboot scenarios as well), the Geo-Secondary instance will throw errors (stating that a full data sync is in progress) on any Redis operation against it until the full data sync between Geo-Primary and Geo-Secondary is complete. Applications reading from Geo-Secondary should be built to fall back to the Geo-Primary whenever the Geo-Secondary is throwing such errors.
+- The secondary linked cache is read-only. You can read from it, but you can't write any data to it. 
+    - If you choose to read from the Geo-Secondary instance, note that whenever a full data sync is happening between the Geo-Primary and the Geo-Secondary (happens when either Geo-Primary or Geo-Secondary is updated and on some reboot scenarios as well), the Geo-Secondary instance throws errors (stating that a full data sync is in progress) on any Redis operation against it until the full data sync between Geo-Primary and Geo-Secondary is complete. 
+    - Applications reading from Geo-Secondary should be built to fall back to the Geo-Primary whenever the Geo-Secondary is throwing such errors.
 - Any data that was in the secondary linked cache before the link was added is removed. If the geo-replication is later removed however, the replicated data remains in the secondary linked cache.
 - You can't [scale](cache-how-to-scale.md) either cache while the caches are linked.
 - You can't [change the number of shards](cache-how-to-premium-clustering.md) if the cache has clustering enabled.
 - You can't enable persistence on either cache.
 - You can [Export](cache-how-to-import-export-data.md#export) from either cache.
 - You can't [Import](cache-how-to-import-export-data.md#import) into the secondary linked cache.
-- You can't delete either linked cache, or the resource group that contains them, until you unlink the caches. For more information, see [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- If the caches are in different regions, network egress costs apply to the data moved across regions. For more information, see [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- Automatic failover doesn't occur between the primary and secondary linked cache. For more information and information on how to failover a client application, see [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- You can't delete either linked cache, or the resource group that contains them, until you unlink the caches. For more information, see [Why did the operation fail when I tried to delete my linked cache?](cache-how-to-geo-replication.md#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- If the caches are in different regions, network egress costs apply to the data moved across regions. For more information, see [How much does it cost to replicate my data across Azure regions?](cache-how-to-geo-replication.md#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- Automatic failover doesn't occur between the primary and secondary linked cache. For more information and information on how to failover a client application, see [How does failing over to the secondary linked cache work?](cache-how-to-geo-replication.md#how-does-failing-over-to-the-secondary-linked-cache-work)
 
 ## Move
 
@@ -102,106 +108,11 @@ Once your new cache in the targeted region is populated with all necessary data,
 
 1. Delete the original instance.
 
-## Geo-replication FAQ
-
-- [Can I use geo-replication with a Standard or Basic tier cache?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
-- [Is my cache available for use during the linking or unlinking process?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
-- [Can I link more than two caches together?](#can-i-link-more-than-two-caches-together)
-- [Can I link two caches from different Azure subscriptions?](#can-i-link-two-caches-from-different-azure-subscriptions)
-- [Can I link two caches with different sizes?](#can-i-link-two-caches-with-different-sizes)
-- [Can I use geo-replication with clustering enabled?](#can-i-use-geo-replication-with-clustering-enabled)
-- [Can I use geo-replication with my caches in a VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
-- [What is the replication schedule for Redis geo-replication?](#what-is-the-replication-schedule-for-redis-geo-replication)
-- [How long does geo-replication replication take?](#how-long-does-geo-replication-replication-take)
-- [Is the replication recovery point guaranteed?](#is-the-replication-recovery-point-guaranteed)
-- [Can I use PowerShell or Azure CLI to manage geo-replication?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
-- [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- [What region should I use for my secondary linked cache?](#what-region-should-i-use-for-my-secondary-linked-cache)
-- [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
-- [Can I configure Firewall with geo-replication?](#can-i-configure-a-firewall-with-geo-replication)
-
-### Can I use geo-replication with a Standard or Basic tier cache?
-
-No, geo-replication is only available for Premium tier caches.
-
-### Is my cache available for use during the linking or unlinking process?
-
-- When linking, the primary linked cache remains available while the linking process completes.
-- When linking, the secondary linked cache isn't available until the linking process completes.
-- When unlinking, both caches remain available while the unlinking process completes.
-
-### Can I link more than two caches together?
-
-No, you can only link two caches together.
-
-### Can I link two caches from different Azure subscriptions?
-
-No, both caches must be in the same Azure subscription.
-
-### Can I link two caches with different sizes?
-
-Yes, as long as the secondary linked cache is larger than the primary linked cache.
-
-### Can I use geo-replication with clustering enabled?
-
-Yes, as long as both caches have the same number of shards.
-
-### Can I use geo-replication with my caches in a VNET?
-
-Yes, geo-replication of caches in VNETs is supported with caveats:
-
-- Geo-replication between caches in the same VNET is supported.
-- Geo-replication between caches in different VNETs is also supported.
-  - If the VNETs are in the same region, you can connect them using [VNET peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN Gateway VNET-to-VNET connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-  - If the VNETs are in different regions, geo-replication using VNET peering is supported, but a client VM in VNET 1 (region 1) will not be able to access the cache in VNET 2 (region 2) via it's DNS name because of a constraint with Basic internal load balancers. For more information about VNET peering constraints, see [Virtual Network - Peering - Requirements and constraints](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). The recommended solution is to use a VPN Gateway VNET-to-VNET connection.
-  
-Using [this Azure template](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/), you can quickly deploy two geo-replicated caches into a VNET connected with a VPN Gateway VNET-to-VNET connection.
-
-### What is the replication schedule for Redis geo-replication?
-
-Replication is continuous and asynchronous and doesn't happen on a specific schedule. All the writes done to the primary are instantaneously and asynchronously replicated on the secondary.
-
-### How long does geo-replication replication take?
-
-Replication is incremental, asynchronous, and continuous and the time taken isn't much different from the latency across regions. Under certain circumstances, the secondary cache may be required to do a full sync of the data from the primary. The replication time in this case is dependent on number of factors like: load on the primary cache, available network bandwidth, and inter-region latency. We have found replication time for a full 53-GB geo-replicated pair can be anywhere between 5 to 10 minutes.
-
-### Is the replication recovery point guaranteed?
-
-For caches in a geo-replicated mode, persistence is disabled. If a geo-replicated pair is unlinked, such as a customer-initiated failover, the secondary linked cache keeps its synced data up to that point of time. No recovery point is guaranteed in such situations.
-
-To obtain a recovery point, [Export](cache-how-to-import-export-data.md#export) from either cache. You can later [Import](cache-how-to-import-export-data.md#import) into the primary linked cache.
-
-### Can I use PowerShell or Azure CLI to manage geo-replication?
-
-Yes, geo-replication can be managed using the Azure portal, PowerShell, or Azure CLI. For more information, see the [PowerShell docs](/powershell/module/az.rediscache/#redis_cache) or [Azure CLI docs](/cli/azure/redis/server-link).
-
-### How much does it cost to replicate my data across Azure regions?
-
-When using geo-replication, data from the primary linked cache is replicated to the secondary linked cache. There's no charge for the data transfer if the two linked caches are in the same region. If the two linked caches are in different regions, the data transfer charge is the network egress cost of data moving across either region. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
-
-### Why did the operation fail when I tried to delete my linked cache?
-
-Geo-replicated caches and their resource groups can't be deleted while linked until you remove the geo-replication link. If you attempt to delete the resource group that contains one or both of the linked caches, the other resources in the resource group are deleted, but the resource group stays in the `deleting` state and any linked caches in the resource group remain in the `running` state. To completely delete the resource group and the linked caches within it, unlink the caches as described in [Remove a geo-replication link](#clean-up-source-resources). 
-
-### What region should I use for my secondary linked cache?
-
-In general, it's recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, it's recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../best-practices-availability-paired-regions.md).
-
-### How does failing over to the secondary linked cache work?
-
-Automatic failover across Azure regions isn't supported for geo-replicated caches. In a disaster-recovery scenario, customers should bring up the entire application stack in a coordinated manner in their backup region. Letting individual application components decide when to switch to their backups on their own can negatively impact performance. One of the key benefits of Redis is that it's a very low-latency store. If the customer's main application is in a different region than its cache, the added round-trip time would have a noticeable impact on performance. For this reason, we avoid failing over automatically because of transient availability issues.
-
-To start a customer-initiated failover, first unlink the caches. Then, change your Redis client to use the connection endpoint of the (formerly linked) secondary cache. When the two caches are unlinked, the secondary cache becomes a regular read-write cache again and accepts requests directly from Redis clients.
-
-### Can I configure a firewall with geo-replication?
-
-Yes, you can configure a [firewall](./cache-configure.md#firewall) with geo-replication. For geo-replication to function alongside a firewall, ensure that the secondary cache's IP address is added to the primary cache's firewall rules.
 
 ## Next steps
 
 Learn more about Azure Cache for Redis features.
-
+- [Geo-replication FAQ](cache-how-to-geo-replication.md#geo-replication-faq)
 - [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
 - [High availability for Azure Cache for Redis](cache-high-availability.md)
 
