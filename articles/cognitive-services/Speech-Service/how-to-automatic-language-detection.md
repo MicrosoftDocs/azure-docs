@@ -17,7 +17,9 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages. The value returned by language identification is then used to select the language model for speech to text, providing you with a more accurate transcription. 
 
-Language identification can also be used while doing [speech translation](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall#multi-lingual-translation-with-language-identification), or by doing [standalone identification](/azure/cognitive-services/speech-service/language-identification). To see which languages are available, see [Language support](language-support.md).
+Language identification can also be used while doing [speech translation](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall#multi-lingual-translation-with-language-identification), or by doing [standalone identification](/azure/cognitive-services/speech-service/language-identification). 
+
+To see which languages are available, see [Language support](language-support.md).
 
 ## Prerequisites
 
@@ -445,5 +447,3 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 ::: zone pivot="programming-language-objectivec"
 * See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L525) on GitHub for language identification
 ::: zone-end
-
-* [Speech SDK reference documentation](speech-sdk.md)
