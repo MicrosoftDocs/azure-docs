@@ -65,9 +65,6 @@ Standard SKU public IP addresses:
 > [!NOTE]
 > Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](./network-security-groups-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
 
-> [!NOTE]
-> Diagnostic settings don't appear under the resource blade when using a Standard SKU public IP address. To enable logging on your Standard Public IP address resource, navigate to diagnostic settings under the Azure Monitor blade and select your IP address resource.
-
 ### Basic
 
 Basic SKU addresses:
