@@ -4,6 +4,7 @@ description: Describes the roles and permissions required to create Data Factori
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
+ms.subservice: security
 author: nabhishek
 ms.author: abnarain
 ---
@@ -17,7 +18,7 @@ This article describes the roles required to create and manage Azure Data Factor
 
 ## Roles and requirements
 
-To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* role, the *owner* role, or an *administrator* of the Azure subscription. To view the permissions that you have in the subscription, in the Azure portal, select your username in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. 
+To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* role, the *owner* role, or an *administrator* of the Azure subscription. To view the permissions that you have in the subscription, in the Azure portal, select your username in the upper-right corner, and then select **My permissions**. If you have access to multiple subscriptions, select the appropriate subscription. 
 
 To create and manage child resources for Data Factory - including datasets, linked services, pipelines, triggers, and integration runtimes - the following requirements are applicable:
 - To create and manage child resources in the Azure portal, you must belong to the **Data Factory Contributor** role at the **Resource Group** level or above.

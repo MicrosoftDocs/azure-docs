@@ -58,7 +58,7 @@ Each time you publish on Microsoft AppSource or Azure Marketplace, you will have
 
 The table below summarizes the eligibility requirements for list, trial, and consulting offers:
 
-![Go-To-Market benefits](./media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)
+[![Go-To-Market benefits](media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)](media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png#lightbox)
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
@@ -75,15 +75,15 @@ All partners who have a live transactable offer get to work with a dedicated eng
 
 ### Marketing benefits for transact offers
 
-![Marketing benefits](./media/marketplace-publishers-guide/marketing-benefit.png)
+[![Marketing benefits](media/marketplace-publishers-guide/marketing-benefit.png)](media/marketplace-publishers-guide/marketing-benefit.png#lightbox)
 
 ### Sales benefits for transact offers
 
-![Sales benefits](./media/marketplace-publishers-guide/sales-benefit.png)
+[![Sales benefits](media/marketplace-publishers-guide/sales-benefit.png)](media/marketplace-publishers-guide/sales-benefit.png#lightbox)
 
 ### Technical benefits for transact offers
 
-![Technical benefits](./media/marketplace-publishers-guide/technical-benefit.png)
+[![Technical benefits](media/marketplace-publishers-guide/technical-benefit.png)](media/marketplace-publishers-guide/technical-benefit.png#lightbox)
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 

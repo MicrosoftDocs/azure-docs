@@ -106,9 +106,6 @@ s
 Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-> [!IMPORTANT]
-> If the extension is not already installed, installing it restarts SQL Server.
-
 Based on this example, the following table describes the practical effect on the target Azure VM:
 
 | Parameter | Effect |

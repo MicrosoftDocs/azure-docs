@@ -27,7 +27,11 @@ In Azure Machine Learning, data-scaling and normalization techniques are applied
 
 ## Prerequisites
 
-This article assumes that you already know how to configure an automated ML experiment. For information about configuration, see the following articles:
+This article assumes that you already know how to configure an automated ML experiment. 
+
+[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+
+For information about configuration, see the following articles:
 
 - For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train.md).
 - For a low-code or no-code experience: [Create, review, and deploy automated machine learning models by using the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
@@ -251,16 +255,19 @@ def print_model(model, prefix=""):
     for step in model.steps:
         print(prefix + step[0])
         if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
-            pprint({'estimators': list(
-                e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
             print()
             for estimator in step[1].estimators:
-                print_model(estimator[1], estimator[0] + ' - ')
+                print_model(estimator[1], estimator[0]+ ' - ')
+        elif hasattr(step[1], '_base_learners') and hasattr(step[1], '_meta_learner'):
+            print("\nMeta Learner")
+            pprint(step[1]._meta_learner)
+            print()
+            for estimator in step[1]._base_learners:
+                print_model(estimator[1], estimator[0]+ ' - ')
         else:
             pprint(step[1].get_params())
-            print()
-
-print_model(model)
+            print()   
 ```
 
 This helper function returns the following output for a particular run using `LogisticRegression with RobustScalar` as the specific algorithm.

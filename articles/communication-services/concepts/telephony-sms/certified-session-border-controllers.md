@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: bobazile
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # List of Session Border Controllers certified for Azure Communication Services direct routing
@@ -33,8 +33,8 @@ If you have any questions about the SBC certification program for Communication 
 
 |Vendor|Product|Software version|
 |:--- |:--- |:--- 
+|AudioCodes|Mediant SBC|7.40A
 |Metaswitch|Perimeta SBC|4.9|
-
 
 Note the certification granted to a major version. That means that firmware with any number in the SBC firmware following the major version is supported.
 
@@ -43,7 +43,7 @@ Note the certification granted to a major version. That means that firmware with
 ### Conceptual documentation
 
 - [Phone number types in Azure Communication Services](./plan-solution.md)
-- [Plan for Azure direct routing](./sip-interface-infrastructure.md)
+- [Plan for Azure direct routing](./direct-routing-infrastructure.md)
 - [Pair the Session Border Controller and configure voice routing](./direct-routing-provisioning.md)
 - [Pricing](../pricing.md)
 
