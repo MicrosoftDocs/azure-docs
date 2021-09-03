@@ -745,24 +745,26 @@ sections:
   - name: OpenTelemetry
     questions:
       - question: |
-          What is OpenTelemetry
+          What is OpenTelemetry?
         answer: |
           A new open-source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
           
       - question: |
-          Why is Microsoft / Azure Monitor investing in OpenTelemetry?
+          Why is Microsoft / Azure Monitor Application Insights investing in OpenTelemetry?
         answer: |
-          We believe it better serves our customers for three reasons:
-             1. Enable support for more customer scenarios.
-             2. Instrument without fear of vendor lock-in.
-             3. Increase customer transparency and engagement.
           
-          It also aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
+          Among the major cloud services providers, Microsoft is the [largest contributor to OpenTelemetry](https://opentelemetry.devstats.cncf.io/d/5/companies-table?orgId=1).
+          
+          The key value propositions of OpenTelemetry are that it's vender-neutral and provides consistent APIs/SDKs across langauges.
+          
+          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported langauges](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to cusotmers. In particular, the OpenTelemetry .NET SDK is more performant at scale than it's predecessor the Application Insights SDK.
+          
+          Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
           
       - question: |
-          What additional value does OpenTelemetry give me?
+          What is the status of OpenTelemetry?
         answer: |
-          In addition to the reasons above, OpenTelemetry is more efficient at-scale and provides consistent design/configurations across languages.
+          Initially the OpenTelemetry community took on [Distributed Traces](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978). [Metrics](https://medium.com/opentelemetry/opentelemetry-metrics-roadmap-f4276fd070cf) and [Logs](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/overview.md) are still in progress. A complete observability story includes all three pillars. Azure Monitor is working on an OpenTelemetry-based supported offering that includes Distributed Traces only with plans to add the other pillars as they mature in the OpenTelemetry community.
 
       - question: |
           How can I test out OpenTelemetry?
