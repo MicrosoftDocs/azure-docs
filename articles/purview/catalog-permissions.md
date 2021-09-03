@@ -16,7 +16,7 @@ Azure Purview uses **Collections** to organize and manage access across its sour
 > [!NOTE]
 > At this time, this information only applies for Purview accounts created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on access control for a Purview instance created before August 18, see our [**legacy permission guide**](#legacy-permission-guide) at the bottom of the page.
 >
-> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. When the account is upgraded, all assigned permissions will be automatically redeployed to the root collection. At that time, permissions should be managed through collections, not Access Control (IAM). IAM permissions will no longer apply to Purview artifacts.
+> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. For information about what will change when your account is upgraded, see our [upgraded accounts guide](concept-account-upgrade.md).
 
 ## Collections
 

@@ -251,7 +251,11 @@ Remove-AzRoleAssignment `
 
 ## Next steps
 
-In this tutorial, you created a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that used [managed identities](../automation-security-overview.md#managed-identities-preview), rather than the Run As account to interact with resources. For more information about managed identities, see:
+In this tutorial, you created a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that used [managed identities](../automation-security-overview.md#managed-identities-preview), rather than the Run As account to interact with resources. For a look at PowerShell workflow runbooks, see:
 
 > [!div class="nextstepaction"]
-> [Using a user-assigned managed identity for an Azure Automation account](../add-user-assigned-identity.md)
+> [Tutorial: Create a PowerShell Workflow runbook](automation-tutorial-runbook-textual.md)
+
+
+
+
