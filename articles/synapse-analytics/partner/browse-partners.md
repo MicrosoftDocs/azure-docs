@@ -22,18 +22,18 @@ The following table lists partner solutions that are currently supported. Make s
 
 | Partner | Solution name |
 | ------- | ------------- |
-| ![Incorta](./media/sql-data-warehouse-partner-data-integration/incorta-logo.png) | Incorta Intelligent Ingest for Azure Synapse |
-| ![Informatica](./media/sql-data-warehouse-partner-data-integration/informatica_logo.png) | Informatica Intelligent Data Management Cloud |
-| ![Qlik Data Integration (formerly Attunity)](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) | Qlik Data Integration (formerly Attunity) |
+| ![Incorta](./media/data-integration/incorta-logo.png) | Incorta Intelligent Ingest for Azure Synapse |
+| ![Informatica](./media/data-integration/informatica_logo.png) | Informatica Intelligent Data Management Cloud |
+| ![Qlik Data Integration (formerly Attunity)](./media/business-intelligence/qlik_logo.png) | Qlik Data Integration (formerly Attunity) |
 
 ## Requirements
 When you chose a partner application, Azure Synapse Studio provisions a sandbox environment you can use for this trial, ensuring you can experiment with partner solutions quickly before you decide to use it with your production data. The following objects are created: 
 
 |  Object  |    Details    |
 | -------- | ------------- |
-| A [dedicated SQL pool](./sql-data-warehouse-overview-what-is.md) named **Partner_[PartnerName]_pool** | DW100c performance level. |
+| A [dedicated SQL pool](../overview-what-is.md) named **Partner_[PartnerName]_pool** | DW100c performance level. |
 | A [SQL login](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) named **Partner_[PartnerName]_login** | Created on your `master` database. The password for this SQL login is specified by you at the creation of your trial.|
-| A [database user](../../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) | A new database user, mapped to the new SQL login. This user is added to the db_owner role for the newly created database. |
+| A [database user](../../azure-sql/database/logins-create-manage.md) | A new database user, mapped to the new SQL login. This user is added to the db_owner role for the newly created database. |
 
 In all cases, **[PartnerName]** is the name of the third-party ISV who offers the trial. 
 
@@ -66,4 +66,4 @@ The required objects will be created for your partner trial. You'll then be forw
 
 ## Next steps
 
-To learn more about some of our other partners, see [Data Integration partners](sql-data-warehouse-partner-data-integration.md), [Data Management partners](sql-data-warehouse-partner-data-management.md), and [Machine Learning and AI partners](sql-data-warehouse-partner-machine-learning-ai.md).
+To learn more about some of our other partners, see [Data integration partners](data-integration.md), [Data management partners](data-management.md), and [Machine Learning and AI partners](machine-learning-ai.md).
