@@ -35,7 +35,7 @@ An Azure account with an active subscription. [Create an account for free](https
    |Subscription| From the drop-down list, select the Azure subscription for the account.|
    |Resource group|From the drop-down list, select your existing resource group, or select **Create new**.|
    |Location| From the drop-down list, select a location for the account. For an updated list of locations that you can deploy an Automation account to, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all)|
-   |Create Azure Run As account| Select **No**.  An Azure Run As account in the Automation account is useful for authenticating with Azure; however, managed identities in Automation is now available. [Managed identities](../active-directory/managed-identities-azure-resources/overview.md) provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. |
+   |Create Azure Run As account| Select **No**.  An Azure Run As account in the Automation account is useful for authenticating with Azure; however, managed identities in Automation is now available. [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. |
 
    :::image type="content" source="./media/create-account-portal/add-automation-account-portal.png" alt-text="Required fields for adding the Automation account":::
 
