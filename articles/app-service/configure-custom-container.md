@@ -402,7 +402,7 @@ The following lists show supported and unsupported Docker Compose configuration 
 #### Unsupported options
 
 - build (not allowed)
-- depends_on (ignored)
+- [depends_on](faq-app-service-linux.md#depends_on) (ignored)
 - networks (ignored)
 - secrets (ignored)
 - ports other than 80 and 8080 (ignored)
