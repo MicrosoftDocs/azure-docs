@@ -8,7 +8,8 @@ ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: mathoma
-ms.date: 08/09/2021
+ms.date: 09/03/2021
+ms.custom: references_regions
 ---
 
 # Resolve capacity errors with Azure SQL Database or Azure SQL Managed Instance
