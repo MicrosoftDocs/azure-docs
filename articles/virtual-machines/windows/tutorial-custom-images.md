@@ -41,7 +41,7 @@ The Shared Image Gallery lets you share your custom VM images with others. Choos
 
 The Shared Image Gallery feature has multiple resource types:
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## Launch Azure Cloud Shell

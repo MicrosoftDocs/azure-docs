@@ -23,7 +23,7 @@ Blob storage features such as [diagnostic logging](../common/storage-analytics-l
 > [!NOTE]
 > Multi-protocol access on Data Lake Storage is generally available and is available in all regions. Some Azure services or Blob storage features enabled by multi-protocol access remain in preview.  These articles summarize the current support for Blob storage features and Azure service integrations. 
 >
-> [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+> [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md)
 >
 >[Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 
@@ -37,7 +37,7 @@ Existing tools and applications that use the Blob API gain these benefits automa
 
 ## See also
 
-- [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+- [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md)
 - [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 - [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
 - [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
