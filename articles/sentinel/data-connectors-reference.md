@@ -964,6 +964,18 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | [Juniper Networks](https://support.juniper.net/support/) |
 | | |
 
+## Lookout Mobile Threat Defense (Preview)
+
+The Lookout data connector provides a feed of Lookout security events to Azure Sentinel. This enables you to create workbooks and analytics rules to quickly visualize and operationalize the Lookout data for real-time remediation of threats from a single dashboard.
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | Lookout_CL |
+| **API credentials** | <li>Lookout Application Key |
+| **Vendor documentation/<br>installation instructions** | <li>[Installation Guide](https://esupport.lookout.com/s/article/Lookout-with-Azure-Sentinel) (login required)<li>[API Documentation](https://esupport.lookout.com/s/article/Mobile-Risk-API-Guide) (login required)<li>[Lookout Mobile Endpoint Security](https://www.lookout.com/products/mobile-endpoint-security) |
+| **Supported by** | [Lookout](https://www.lookout.com/support) |
+| | |
 
 ## Microsoft 365 Defender
 
