@@ -43,7 +43,7 @@ Once the contract with the vendor labeling company is in place:
     > [!NOTE]
     > The vendor labeling company name cannot be changed after you create the labeling project.
 
-1. Whether the company is listed in Azure Marketplace or not, enable access (`labeler` role, `techlead` role) to the vendor labeling company using Azure Role Based Access (RBAC). These roles will allow the vendor labeling company to access resources to annotate your data.
+1. For any provider, whether found through Azure Marketplace or elsewhere, enable access (`labeler` role, `techlead` role) to the vendor labeling company using Azure Role Based Access (RBAC). These roles will allow the company to access resources to annotate your data.
 
 ## <a name="review"></a> Select a company
 
