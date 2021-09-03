@@ -12,19 +12,17 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: View your apps
-      href: view-applications-portal.md
-    - name: Add an app
+    - name: Add an application
       href: add-application-portal.md
-    - name: Configure an app
-      href: add-application-portal-configure.md
-    - name: Assign users to an app
+    - name: Assign a user
       href: add-application-portal-assign-users.md
-    - name: Set up SAML-based single sign-on
+    - name: Enable single sign-on
       href: add-application-portal-setup-sso.md
-    - name: Set up OIDC-based single sign-on
-      href: add-application-portal-setup-oidc-sso.md
-    - name: Delete an app
+    - name: Configure properties
+      href: add-application-portal-configure.md
+    - name: View applications
+      href: view-applications-portal.md
+    - name: Delete applications
       href: delete-application-portal.md
   - name: Tutorials
     items:
@@ -94,6 +92,8 @@
     items:
     - name: Assign users and manage access to apps
       items:
+      - name: Configure OIDC-based single sign-on
+        href: add-application-portal-setup-oidc-sso.md
       - name: Consent and permissions
         items:
         - name: Configure user consent
