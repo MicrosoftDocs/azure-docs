@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Custom extraction
+title: Quickstart - Custom Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Use this article to quickly get started using custom extraction with Language Studio
+description: Use this article to quickly get started using Custom Named Entity Recognition (NER) with Language Studio
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 08/13/2021
 ms.author: aahi
 ---
 
-# Quickstart: Custom extraction
+# Quickstart: Custom Named Entity Recognition (NER)
 
-In this article, we use the Language  studio to demonstrate key concepts of custom entity recognition. As an example we will build a custom extraction model to extract relevant entities from loan agreements.
+In this article, we use the Language  studio to demonstrate key concepts of custom entity recognition. As an example we will build a custom NER model to extract relevant entities from loan agreements.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ In this article, we use the Language  studio to demonstrate key concepts of cust
 
 ### Create new resource from Azure portal
 
-Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call the custom text extraction API.  
+Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call the custom NER API.  
 
 |Requirement  |Required value  |
 |---------|---------|
@@ -31,13 +31,13 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 |Pricing tier     | Standard (**S**) pricing tier        |
 
 > [!IMPORTANT]
-> In the **Custom Extraction & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use custom text extraction. While you can specify a storage account later, it's easier to do it now. 
+> In the **Custom NER & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use Custom NER. While you can specify a storage account later, it's easier to do it now. 
 
-## Create a custom extraction project
+## Create a custom named entity recognition project
 
 1. Sign into the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
-2. Scroll down until you see **Custom extraction** from the available services, and select it.
+2. Scroll down until you see **Custom named entity recognition** from the available services, and select it.
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
@@ -98,7 +98,7 @@ Generally after training a model you would review its evaluation details and mad
 
 ## Clean up resources
 
-When you don't need your project anymore, you can delete your project using [Language Studio](https://language.azure.com/customTextNext/projects/extraction). Select **Custom text extraction** in the left navigation menu, select project you want to delete and click on **Delete**.
+When you don't need your project anymore, you can delete your project using [Language Studio](https://language.azure.com/customTextNext/projects/extraction). Select **Custom Named Entity Recognition (NER)** in the left navigation menu, select project you want to delete and click on **Delete**.
 
 ## Next steps
 

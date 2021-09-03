@@ -1,7 +1,7 @@
 ---
-title: Custom text extraction data limits
+title: Custom Named Entity Recognition (NER) data limits
 titleSuffix: Azure Cognitive Services
-description: Learn about the data and service limits when using custom text extraction.
+description: Learn about the data and service limits when using Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 08/17/2021
 ms.author: aahi
 ---
 
-# Custom text extraction limits
+# Custom Named Entity Recognition (NER) data limits
 
-Use this article to learn about the data and service limits when using custom text extraction.
+Use this article to learn about the data and service limits when using Custom NER.
 
 ## File limits
 
@@ -39,7 +39,7 @@ Use this article to learn about the data and service limits when using custom te
 
 * You can have up to 500 projects per resource.
 
-* Project names have to be unique within the same resource across both custom extraction and [custom classification](../../custom-classification/overview.md).
+* Project names have to be unique within the same resource across both custom NER and [custom classification](../../custom-classification/overview.md).
 
 ## Project
 
@@ -74,4 +74,4 @@ Use this article to learn about the data and service limits when using custom te
 
 ## Next steps
 
-[Custom text extraction overview](../overview.md)
+[Custom NER overview](../overview.md)

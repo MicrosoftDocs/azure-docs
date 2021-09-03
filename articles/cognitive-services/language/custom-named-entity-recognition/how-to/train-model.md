@@ -1,7 +1,7 @@
 ---
-title: How to train your custom extraction model
+title: How to train your Custom Named Entity Recognition (NER) model
 titleSuffix: Azure Cognitive Services
-description: Learn about how to train your model for custom text extraction.
+description: Learn about how to train your model for Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# Train your custom text extraction model
+# Train your Custom Named Entity Recognition (NER) model
 
 After you have completed tagging your data, you can start training your model. You can create and train multiple models within the same project]. However, if you retrain a specific model, it will overwrite its previous version.
 
@@ -33,7 +33,7 @@ You must have minimum of 10 docs in your project for the [evaluation](view-model
 
 ## Prerequisites
 
-* A [custom extraction project](../quickstart.md)
+* A [custom NER project](../quickstart.md)
 
 * Completed [data tagging](tag-data.md).
 

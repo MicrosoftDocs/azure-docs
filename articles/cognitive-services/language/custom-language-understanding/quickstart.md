@@ -1,7 +1,7 @@
 ---
-title: Quickstart - create a Dialog Understanding project using Language Studio
+title: Quickstart - create a Custom Language Understanding project using Language Studio
 titleSuffix: Azure Cognitive Services
-description: Use this article to quickly get started with Dialog Understanding.
+description: Use this article to quickly get started with Custom Language Understanding.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 08/19/2021
 ms.author: aahi
 ---
 
-# Quickstart: Create a Dialog Understanding conversation project
+# Quickstart: Create a Custom Language Understanding conversation project
 
-In this article, we use the Language studio to demonstrate key concepts of Dialog Understanding.
+In this article, we use the Language studio to demonstrate key concepts of Custom Language Understanding.
 
 ## Prerequisites
 
@@ -22,16 +22,16 @@ In this article, we use the Language studio to demonstrate key concepts of Dialo
 
 ### Create new resource from Azure portal
 
-Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call Dialog Understanding.  
+Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call Custom Language Understanding.  
 
 |Requirement  |Required value  |
 |---------|---------|
 |Location | "West US 2" or "West Europe"         |
 |Pricing tier     | Standard (**S**) pricing tier        |
 
-## Create a Dialog Understanding project
+## Create a Custom Language Understanding project
 
-You can create two types of projects in Dialog Understanding: Conversation projects and Orchestration projects. 
+You can create two types of projects in Custom Language Understanding: Conversation projects and Orchestration projects. 
 
 * Conversation projects let you to create custom language models for intent classification and entity extraction.
 * Orchestration Workflow projects let you to connect several other services (for example conversation projects, Question Answering knowledge bases) to one project.
@@ -40,7 +40,7 @@ In this quickstart, you will be creating a conversation project.
 
 1. Login through the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
-2. Scroll down until you see **Dialog Understanding** from the available services, and select it.
+2. Scroll down until you see **Custom Language Understanding** from the available services, and select it.
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you add data, train, evaluate, improve, and deploy your models. 
 
@@ -85,5 +85,5 @@ You can see the top intent in the first card under **Intents**, along with the e
 
 ## Next steps
 
-Read about [creating a schema](how-to/build-schema.md) for your Dialog Understanding projects.  
+Read about [creating a schema](how-to/build-schema.md) for your Custom Language Understanding projects.  
 <!--After you have trained, deployed, and tested your model, you can view its [evaluation details and scoring](how-to/view-evaluation.md)--> 

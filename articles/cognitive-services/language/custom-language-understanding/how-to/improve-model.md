@@ -1,7 +1,7 @@
 ---
 title: How to improve your model
 titleSuffix: Azure Cognitive Services
-description: Use this article to learn how to improve your Dialog Understanding model
+description: Use this article to learn how to improve your Custom Language Understanding model
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: aahi
 
 # How to improve your model
 
-After you've trained your model and reviewed its evaluation details, you can begin improving its performance. In Dialog Understanding, you can review inconsistencies between predicted and intended intents and entities from the model. Then examine the data distribution within your model. 
+After you've trained your model and reviewed its evaluation details, you can begin improving its performance. In Custom Language Understanding, you can review inconsistencies between predicted and intended intents and entities from the model. Then examine the data distribution within your model. 
 
 ## Review predictions
 

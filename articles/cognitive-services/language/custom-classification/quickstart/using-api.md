@@ -187,7 +187,7 @@ Use the following [**GET**] request to query the status of the training process.
 
 ## View the model evaluation
 
-After model training is completed, you can view model details and see how well does it perform against the test set. The [test set](../how-to/train-model.md#data-groups) is composed of 10% of your data, this split is done at random before training. The test set is a blind set that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset.
+After model training is completed, you can view model details and see how well does it perform against the test set. The [test set](../how-to/train-model.md#data-splits) is composed of 10% of your data, this split is done at random before training. The test set is a blind set that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset.
 
 ### Get evaluation details
 
@@ -195,7 +195,7 @@ Use this `GET` request to get you model evaluation results:
 
 `{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/evaluation`.
 
-Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName}` with your project name. Pass `trainingModelName` as a parameter and for the value indicate the model name you are requesting evaluation for (model name is case-sensitive). For your request to be successful, make sure that the model has completed training successfully on more than 10 files to be able to query evaluation results. Evaluation is performed only on the [test set](../how-to/train-model.md#data-groups).
+Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName}` with your project name. Pass `trainingModelName` as a parameter and for the value indicate the model name you are requesting evaluation for (model name is case-sensitive). For your request to be successful, make sure that the model has completed training successfully on more than 10 files to be able to query evaluation results. Evaluation is performed only on the [test set](../how-to/train-model.md#data-splits).
 
 #### Headers
 
@@ -255,7 +255,7 @@ After the training is completed and you have reviewed model evaluation details, 
 ### Review validation set
 
 Use this [**GET**] request to get you model evaluation results `{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/validation`.
-Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName}` with your project name. Pass `trainingModelName` as a parameter and for the value indicate the model name you are requesting validation data for (model name is case-sensitive). For your request to be successful make sure that the model has completed training successfully on more than 10 files to be able to query validation results. You can learn more about the validation set [here](../how-to/train-model.md#data-groups).
+Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName}` with your project name. Pass `trainingModelName` as a parameter and for the value indicate the model name you are requesting validation data for (model name is case-sensitive). For your request to be successful make sure that the model has completed training successfully on more than 10 files to be able to query validation results. You can learn more about the validation set [here](../how-to/train-model.md#data-splits).
 
 #### Headers
 

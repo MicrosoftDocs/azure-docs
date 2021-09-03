@@ -1,7 +1,7 @@
 ---
-title: How to tag your data for custom extraction
+title: How to tag your data for Custom Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Learn about how to tag your data for use with custom text extraction.
+description: Learn about how to tag your data for use with Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# Tag your data for custom extraction in language studio
+# Tag your data for Custom Named Entity Recognition (NER) in language studio
 
 Before building your custom entity extraction models, you need to have tagged data. If your data is not tagged already, you can tag it in the language studio.
 
@@ -111,7 +111,7 @@ The following list describes the various JSON properties of the sample above.
 
 * `entityNames`: An array of entity names. Index of the entity within the array is used as its ID.
 * `documents`: An array of tagged documents.
-  * `location`: The path of the document relative to the JSON file. For example, docs on the same level as the tags file `file.txt`, for docs inside one directory level `dir1/file.txt`, for docs one level outside `../file.txt`.
+  * `location`: The path of the document relative to the JSON file. For example, docs on the same level as the tags file `file.txt`, for docs inside one directory level `dir1/file.txt`.
   * `culture`: culture/language of the document. <!-- See [language support](../language-support.md) for more information. -->
   * `entities`: Specifies the entity recognition tags.
     * `regionStart`: The inclusive character position of the start of the text.

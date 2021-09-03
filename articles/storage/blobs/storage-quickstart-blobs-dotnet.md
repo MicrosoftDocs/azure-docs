@@ -30,7 +30,6 @@ Additional resources:
 * [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
 * [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Prerequisites
 

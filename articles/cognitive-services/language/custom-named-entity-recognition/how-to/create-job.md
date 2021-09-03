@@ -1,7 +1,7 @@
 ---
-title: How to send a custom text classification job
+title: How to send a Custom Named Entity Recognition (NER) job
 titleSuffix: Azure Cognitive Services
-description: Learn about sending a request for custom text extraction.
+description: Learn about sending a request for Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 08/16/2021
 ms.author: aahi
 ---
 
-# Run a custom entity extraction task
+# Run a Custom Named Entity Recognition (NER) task
 
-After deploying your model, it is ready to be used. You can only send entity extraction tasks through the API, not from Language Studio.
+After deploying your model, it is ready to be used. You can only send entity recognition tasks through the API, not from Language Studio.
 
 ## Prerequisites
 
-* A [Custom extraction project](../quickstart.md) with:
+* A [Custom NER project](../quickstart.md) with:
     * [Tagged data](tag-data.md)
     * A successfully trained and deployed model 
 * [cURL](https://curl.haxx.se/) installed
