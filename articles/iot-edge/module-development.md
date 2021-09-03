@@ -99,7 +99,7 @@ To get a module twin with the Azure IoT SDK, call the `ModuleClient.getTwin` met
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-To get a module twin with any MQTT client, slightly more work is involved since getting a twin is not a typical MQTT pattern. The module must first subscribe to IoT Hub special topic `$iothub/twin/res/#`. This topic name is inherited from IoT Hub, and all devices/modules need to subscribe to the same topic. It does not mean that devices receive the twin of each other. IoT Hub and edgeHub knows which twin should be delivered where, even if all devices listen to the same topic name. Once the subscription is made, the module needs to ask for the twin by publishing a message to the following IoT Hub special topic with a request ID `$iothub/twin/GET/?$rid=1234`. This request ID is an arbitrary ID (that is, a GUID), which will be sent back by IoT Hub along with the requested data. This is how a client can pair its requests with the responses. The result code is a HTTP-like status code, where successful is encoded as 200.
+To get a module twin with any MQTT client, slightly more work is involved since getting a twin is not a typical MQTT pattern. The module must first subscribe to IoT Hub special topic `$iothub/twin/res/#`. This topic name is inherited from IoT Hub, and all devices/modules need to subscribe to the same topic. It does not mean that devices receive the twin of each other. IoT Hub and edgeHub know which twin should be delivered where, even if all devices listen to the same topic name. Once the subscription is made, the module needs to ask for the twin by publishing a message to the following IoT Hub special topic with a request ID `$iothub/twin/GET/?$rid=1234`. This request ID is an arbitrary ID (that is, a GUID), which will be sent back by IoT Hub along with the requested data. This is how a client can pair its requests with the responses. The result code is a HTTP-like status code, where successful is encoded as 200.
 
 ::: moniker-end
 
@@ -108,7 +108,7 @@ To receive a module twin patch with the Azure IoT SDK, implement a callback func
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-To receive a module twin patch with any MQTT client, the process is very similar to receiving full twins: a client needs to subscribe to special IoT Hub topic `$iothub/twin/PATCH/properties/desired/#`. After the subscription is made, when IoT Hub sends a change of the desired section of the twin, the client receives it.
+To receive a module twin patch with any MQTT client, the process is similar to receiving full twins: a client needs to subscribe to special IoT Hub topic `$iothub/twin/PATCH/properties/desired/#`. After the subscription is made, when IoT Hub sends a change of the desired section of the twin, the client receives it.
 
 ::: moniker-end
 
@@ -179,7 +179,7 @@ To help improve module security, IoT Edge disables some container features by de
 In the config.toml file on an IoT Edge device, there's a parameter called `allow_elevated_docker_permissions`. When set to **true**, this flag allows the `--privileged` flag as well as any additional capabilities that you define in the `CapAdd` field of the Docker HostConfig in the [container create options](how-to-use-create-options.md).
 
 >[!NOTE]
->This flag is currently set to **true** by default, but in the future it will be **false** by default.
+>Currently, this flag is commented out by default and you need to enable it yourself. In the future, this flag will be enabled and set to **false** by default.
 
 ### Enable CAP_CHOWN and CAP_SETUID
 
