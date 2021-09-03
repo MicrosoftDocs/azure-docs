@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 09/03/2021
 
 ---
 
