@@ -153,7 +153,7 @@ New-AzVM `
 
 ---
 
-## Next steps
+**Next steps**
 
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
