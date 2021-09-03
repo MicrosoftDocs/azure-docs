@@ -76,6 +76,8 @@ items:
     href: concept-asset-normalization.md
   - name: Frequently asked questions
     href: ./frequently-asked-questions.yml
+  - name: Upgraded Purview accounts
+    href: concept-account-upgrade.md
 - name: How-to guides
   items:
   - name: Create and manage collections
@@ -241,19 +243,19 @@ items:
     items:
     - name: Private endpoints
       items:
-      - name: Azure Purview private endpoints overview
+      - name: Private endpoints overview
         href: catalog-private-link.md
-      - name: Connect privately and securely to your Purview account
+      - name: Isolate network for Purview account and portal
         href: catalog-private-link-account-portal.md
-      - name: Scan your data sources privately and securely
+      - name: Isolate network for scans
         href: catalog-private-link-ingestion.md
-      - name: Connect to your Azure Purview and scan data sources privately and securely
+      - name: End-to-end network isolation
         href: catalog-private-link-end-to-end.md
-      - name: Azure Purview private endpoints DNS configuration
+      - name: Configure DNS for private endpoint
         href: catalog-private-link-name-resolution.md
-      - name: Azure Purview private endpoints troubleshooting guide
+      - name: Troubleshoot private endpoints
         href: catalog-private-link-troubleshoot.md                     
-      - name: Azure Purview Private endpoints FAQs
+      - name: Private endpoint FAQ
         href: catalog-private-link-faqs.md
     - name: Azure policy exceptions
       href: create-purview-portal-faq.md
