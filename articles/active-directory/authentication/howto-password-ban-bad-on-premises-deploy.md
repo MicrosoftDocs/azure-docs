@@ -93,6 +93,9 @@ The following core requirements apply:
     |`https://login.microsoftonline.com`|Authentication requests|
     |`https://enterpriseregistration.windows.net`|Azure AD Password Protection functionality|
 
+> [!NOTE]
+> Some of endpoints such as CRL endpoint are not listed above. Please see [Microsoft 365 URL](https://docs.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#microsoft-365-common-and-office-online).
+
 ### Azure AD Password Protection DC agent
 
 The following requirements apply to the Azure AD Password Protection DC agent:
