@@ -35,13 +35,13 @@ Using an authentication broker such as WAM has numerous benefits.
 - Enhanced security (your app does not have to manage the powerful refresh token)
 - Better support for Windows Hello, Conditional Access and FIDO keys
 - Integration with Windows' "Email and Accounts" view
-- Better Single Sing-On (users don't have to re-enter passwords)
+- Better Single Sing-On (users don't have to reenter passwords)
 - Most bug fixes and enhancements will be shipped with Windows
 
 ## WAM limitations
 
-- B2C authorities are not supported
-- Available on Win10, Win Server 2016, Win Server 2019 (on Mac, Linux and earlier Windows MSAL will fallback to a browser)
+- B2C authorities are not supported.
+- Available on Win10, Win Server 2016, Win Server 2019. On Mac, Linux and earlier Windows, MSAL will fallback to a browser.
 
 ## WAM calling pattern
 
@@ -120,7 +120,8 @@ In addition to this, WAM can list the OS-wide Work and School accounts configure
 })
 ```
 
-Note: Microsoft (i.e. outlook.com etc.) accounts will not be listed in Win32 nor UWP for privacy reasons.
+>[!NOTE]
+> Microsoft (i.e. outlook.com etc.) accounts will not be listed in Win32 nor UWP for privacy reasons.
 
 Applications cannot remove accounts from Windows! 
 
@@ -129,7 +130,8 @@ Applications cannot remove accounts from Windows!
 - Removes all account information from MSAL's token cache (this includes MSA - i.e. personal accounts - account info and other account information copied by MSAL into its cache).
 - Removes app-only (not OS-wide) accounts.
 
-Note: Apps cannot remove OS accounts. Only users can do that. If an OS account is passed into `RemoveAsync`, and then `GetAccounts` is called with `ListWindowsWorkAndSchoolAccounts` enabled - the same OS account will still be returned.
+>[!NOTE]
+> Apps cannot remove OS accounts. Only users can do that. If an OS account is passed into `RemoveAsync`, and then `GetAccounts` is called with `ListWindowsWorkAndSchoolAccounts` enabled - the same OS account will still be returned.
 
 ## Other considerations
 

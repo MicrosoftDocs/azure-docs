@@ -27,7 +27,7 @@ The Microsoft Authentication Library (MSAL) supports several authentication flow
 | [Device code](#device-code) | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. | [Desktop/mobile apps](scenario-desktop-acquire-token-device-code-flow.md) |
 | [Implicit grant](#implicit-grant) | Allows the app to get tokens without performing a back-end server credential exchange. Enables the app to sign in the user, maintain session, and get tokens to other web APIs, all within the client JavaScript code. | [Single-page applications (SPA)](scenario-spa-overview.md) |
 | [On-behalf-of](#on-behalf-of) | An application invokes a service or web API, which in turn needs to call another service or web API. The idea is to propagate the delegated user identity and permissions through the request chain. | [Web APIs](scenario-web-api-call-api-overview.md) |
-| [Username/password](#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow isn't recommended. | [Desktop/mobile apps](scenario-desktop-acquire-token-usernamepassword.md) |
+| [Username/password](#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow isn't recommended. | [Desktop/mobile apps](scenario-desktop-acquire-token-username-password.md) |
 | [Integrated Windows Authentication](#integrated-windows-authentication) | Allows applications on domain or Azure Active Directory (Azure AD) joined computers to acquire a token silently (without any UI interaction from the user). | [Desktop/mobile apps](scenario-desktop-acquire-token-iwa.md) |
 
 ## How each flow emits tokens and codes

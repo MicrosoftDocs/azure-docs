@@ -266,7 +266,7 @@
         - name: Integrated Windows Auth
           href: scenario-desktop-acquire-token-iwa.md
         - name: Username Password
-          href: scenario-desktop-acquire-token-usernamepassword.md
+          href: scenario-desktop-acquire-token-username-password.md
         - name: Device code flow
           href: scenario-desktop-acquire-token-device-code-flow.md
       - name: Call a web API
