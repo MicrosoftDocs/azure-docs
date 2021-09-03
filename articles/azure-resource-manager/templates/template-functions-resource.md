@@ -793,6 +793,8 @@ The preceding example returns an object in the following format:
 }
 ```
 
+This [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceGroupName.json) outputs a specific resource group property.
+
 ## resourceId
 
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
