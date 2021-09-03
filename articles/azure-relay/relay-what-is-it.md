@@ -42,8 +42,8 @@ For details on the Hybrid Connection protocol, see [Hybrid Connections protocol 
 
 To get started with using Hybrid Connections in Azure Relay, see the following quick starts: 
 
-- [Hybrid Connections - .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
-- [Hybrid Connections - Node Websockets](relay-hybrid-connections-node-get-started.md)
+- [Hybrid Connections - .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
+- [Hybrid Connections - Node WebSockets](relay-hybrid-connections-node-get-started.md)
 - [Hybrid Connections - .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 - [Hybrid Connections - Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 
@@ -91,8 +91,8 @@ The following diagram shows you how incoming relay requests are handled by the A
 Follow one or more of the following quick starts, or see [Azure Relay samples on GitHub](https://github.com/Azure/azure-relay/tree/master/samples).
 
 - Hybrid Connections
-    - [Hybrid Connections - .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
-    - [Hybrid Connections - Node Websockets](relay-hybrid-connections-node-get-started.md)
+    - [Hybrid Connections - .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
+    - [Hybrid Connections - Node WebSockets](relay-hybrid-connections-node-get-started.md)
     - [Hybrid Connections - .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
     - [Hybrid Connections - Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 - WCF Relay
