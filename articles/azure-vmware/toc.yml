@@ -128,6 +128,8 @@
     items:
     - name: Deploy JetStream DR
       href: deploy-disaster-recovery-using-jetstream.md
+    - name: Deploy Zerto DR
+      href: deploy-zerto-disaster-recovery.md 
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
@@ -160,9 +162,9 @@
       href: deploy-vm-content-library.md
     - name: Disaster recovery
       items:
-      - name: Deploy disaster recovery using VMware SRM
+      - name: VMware SRM for disaster recovery
         href: disaster-recovery-using-vmware-site-recovery-manager.md
-      - name: Deploy disaster recovery using VMware HCX
+      - name: VMware HCX for disaster recovery
         href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Upgrade the VMware HCX appliance
       href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
