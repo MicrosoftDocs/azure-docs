@@ -122,7 +122,7 @@ To stop protection, navigate to Backup center and select the **Backup Instances*
 
 There are scenarios when you might want to stop backup for a backup instance, such as when the underlying resource being backed up doesn’t exist anymore.
 
-To trigger an on-demand backup, navigate to Backup center and select the **Backup Instances** menu item. Select this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Stop Backup** option to stop backup for the backup instance.
+To stop protection, navigate to Backup center and select the **Backup Instances** menu item. Select this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Stop Backup** option to stop backup for the backup instance.
 
 ![Stop protection](./media/backup-center-actions/backup-center-stop-protection.png)
 

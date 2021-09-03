@@ -240,6 +240,13 @@ You can change the associated policy with a backup instance.
 
     ![Reassign policy](./media/backup-azure-database-postgresql/reassign-policy.png)
 
+### Resume backup
+
+You can resume protection for your workloads if you have retained data during **Stop Protection**.
+
+- [Learn more](manage-azure-database-postgresql.md#resume-protection) about resuming protection for your disk.
+- [Learn more](manage-azure-managed-disks.md#resume-protection) about resuming protection for Azure Database for PostGreSQL Server.
+
 ## Troubleshooting
 
 This section provides troubleshooting information for backing up Azure PostgreSQL databases with Azure Backup.
