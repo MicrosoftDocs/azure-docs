@@ -27,7 +27,7 @@ After you've trained your model you reviewed its evaluation details, you can sta
 After you have reviewed your [model's evaluation](view-model-evaluation.md), you'll have formed an idea on what's wrong with your model's prediction. 
 
 > [!NOTE]
-> This guide focuses on data from the [validation set](train-model.md#data-groups) that was created during training.
+> This guide focuses on data from the [validation set](train-model.md#data-split) that was created during training.
 
 ### Review validation set
 

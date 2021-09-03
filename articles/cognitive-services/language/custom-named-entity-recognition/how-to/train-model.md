@@ -18,7 +18,7 @@ After you have completed tagging your data, you can start training your model. Y
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
-## Data groups
+## Data split
 
 Before starting the training process, files in your dataset are divided into three groups at random: 
 
