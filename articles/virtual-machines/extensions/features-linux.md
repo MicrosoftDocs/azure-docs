@@ -78,11 +78,11 @@ The following methods can be used to run an extension against an existing VM.
 Azure VM extensions can be run against an existing VM with the [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*. Replace the example resource group name, VM name and script to run (https:\//raw.githubusercontent.com/me/project/hello.sh) with your own information. 
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name customScript `
-  --publisher Microsoft.Azure.Extensions `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
   --settings '{"fileUris": ["https://raw.githubusercontent.com/me/project/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
