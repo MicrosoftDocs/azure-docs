@@ -1,17 +1,16 @@
 ---
 title: 'Quickstart: Table API with .NET - Azure Cosmos DB'
-description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and .NET 
-author: SnehaGunda
+description: This quickstart shows how to access the Azure Cosmos DB Table API from a .NET application using the Azure.Data.Tables SDK
+author: DavidCBerry13
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 08/25/2021
-ms.author: sngun
+ms.author: daberry
 ms.custom: devx-track-csharp
-
-
 ---
+
 # Quickstart: Build a Table API app with .NET SDK and Azure Cosmos DB
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -28,10 +27,10 @@ The sample application is written in [.NET Core 3.1](https://dotnet.microsoft.co
 
 ## Sample application
 
-The sample application for this tutorial may be cloned or downloaded from the repository [https://github.com/Azure-Samples/msdocs-azure-tables-sdk-dotnet](https://github.com/Azure-Samples/msdocs-azure-tables-sdk-dotnet).  Both a starter and completed app are included in the sample repository.
+The sample application for this tutorial may be cloned or downloaded from the repository [https://github.com/Azure-Samples/msdocs-azure-data-tables-sdk-dotnet](https://github.com/Azure-Samples/msdocs-azure-data-tables-sdk-dotnet).  Both a starter and completed app are included in the sample repository.
 
 ```bash
-git clone https://github.com/Azure-Samples/msdocs-azure-tables-sdk-dotnet.git
+git clone https://github.com/Azure-Samples/msdocs-azure-data-tables-sdk-dotnet
 ```
 
 The sample application uses weather data as an example to demonstrate the capabilities of the Table API. Objects representing weather observations are stored and retrieved using the Table API, including storing objects with additional properties to demonstrate the schemaless capabilities of the Table API.
@@ -40,7 +39,7 @@ The sample application uses weather data as an example to demonstrate the capabi
 
 ## 1 - Create an Azure Cosmos DB account
 
-You first need to create an Cosmos DB account that will contain the table(s) used in your application.  This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
+You first need to create a Cosmos DB Tables API account that will contain the table(s) used in your application.  This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -111,7 +110,7 @@ New-AzCosmosDBAccount `
 
 ## 2 - Create a table
 
-Next, you need to create a table within your Cosmos DB account for your application to use.  Unlike a traditional SQL database, you only need to specify the name of the table, not the properties (columns) in the table.  As data is loaded into your table, the properties (columns) will be automatically created as needed.
+Next, you need to create a table within your Cosmos DB account for your application to use.  Unlike a traditional database, you only need to specify the name of the table, not the properties (columns) in the table.  As data is loaded into your table, the properties (columns) will be automatically created as needed.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -467,92 +466,6 @@ public void UpsertTableEntity(WeatherInputModel model)
 }
 ```
 
-### Insert or Upsert a custom entity that extends ITableEntity
-
-The `AddEntity` and `UpsertEntity` methods may be used to insert any object that implements the [ITableEntity](/dotnet/api/azure.data.tables.itableentity) interface. This allows you to build custom entities that better represent your business domain and insert them using the Table API.  
-
-To create a custom entity that can be inserted or upserted using the Table API, first have your class implement the [ITableEntity](/dotnet/api/azure.data.tables.itableentity) interface. Implementing this interface requires your class to implement four properties: [PartionKey](/dotnet/api/azure.data.tables.itableentity.partitionkey#Azure_Data_Tables_ITableEntity_PartitionKey), [RowKey](/dotnet/api/azure.data.tables.itableentity.rowkey#Azure_Data_Tables_ITableEntity_RowKey), [Timestamp](/dotnet/api/azure.data.tables.itableentity.timestamp#Azure_Data_Tables_ITableEntity_Timestamp) and [Etag](/dotnet/api/azure.data.tables.itableentity.etag#Azure_Data_Tables_ITableEntity_ETag).
-
-In the example application, the `PartitionKey` and `RowKey` properties are mapped to the `StationName` and `ObservationDate` properties on the object respectively.  This allows the application to interact with the object with property names that make sense in a business context while still supporting the requirements to insert or upsert this object using the Table API.
-
-If you are following along with the starter application, copy the following code into the `WeatherDataEntity` class located in the `Entities` directory of the application.
-
-```csharp
-public class WeatherDataEntity : ITableEntity
-{
-    public string PartitionKey 
-    { 
-        get => StationName; 
-        set => StationName = value; 
-    } 
-
-    public string RowKey 
-    { 
-        get => ObservationDate; 
-        set => ObservationDate = value; 
-    }
-
-    public DateTimeOffset? Timestamp { get; set; }
-    public ETag ETag { get; set; }
-
-    public string StationName { get; set; }
-    public string ObservationDate { get; set; }
-    public double Temperature { get; set; }
-    public double Humidity { get; set; }
-    public double Barometer { get; set; }
-    public string WindDirection { get; set; }
-    public double WindSpeed { get; set; }
-    public double Precipitation { get; set; }
-}
- 
-```
-
-To insert or update a custom entity object, the `PartitionKey` and `RowKey` values must be populated.  The `Timestamp` and `Etag` properties do not.
-
-In the example application, the `InsertCustomEntity` and `UpsertCustomEntity` methods both map the data from a `WeatherInputModel` object into a `WeatherDataEntity` custom entity.  Then, either [AddEntity](/dotnet/api/azure.data.tables.tableclient.addentity) or [UpsertEntity](/dotnet/api/azure.data.tables.tableclient.upsertentity) can be called using the `WeatehrDataEntity` object.  
-
-This is the code for the completed `InsertCustomEntity` method.  
-
-```csharp
-public void InsertCustomEntity(WeatherInputModel model)
-{
-    // Map data from the model object to the custom entity
-    WeatherDataEntity customEntity = new WeatherDataEntity();
-    customEntity.StationName = model.StationName;
-    customEntity.ObservationDate = $"{model.ObservationDate} {model.ObservationTime}";
-    customEntity.Temperature = model.Temperature;
-    customEntity.Humidity = model.Humidity;
-    customEntity.Barometer = model.Barometer;
-    customEntity.WindDirection = model.WindDirection;
-    customEntity.WindSpeed = model.WindSpeed;
-    customEntity.Precipitation = model.Precipitation;
-
-    // Upsert the data
-    _tableClient.AddEntity(customEntity);
-}
-```
-
-This is the code for the completed `UpsertCustomEntity` method.
-
-```csharp
-public void UpsertCustomEntity(WeatherInputModel model)
-{
-    // Map data from the model object to the custom entity
-    WeatherDataEntity customEntity = new WeatherDataEntity();
-    customEntity.StationName = model.StationName;
-    customEntity.ObservationDate = $"{model.ObservationDate} {model.ObservationTime}";
-    customEntity.Temperature = model.Temperature;
-    customEntity.Humidity = model.Humidity;
-    customEntity.Barometer = model.Barometer;
-    customEntity.WindDirection = model.WindDirection;
-    customEntity.WindSpeed = model.WindSpeed;
-    customEntity.Precipitation = model.Precipitation;
-
-    // Upsert the data
-    _tableClient.UpsertEntity(customEntity);
-}
-```
-
 ### Insert or upsert data with variable properties
 
 One of the advantages of using the Cosmos DB Table API is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Cosmos DB.  There is no need to run DDL statements like ALTER TABLE to add columns as in a traditional database.
@@ -674,37 +587,6 @@ To remove an entity from a table, call the [DeleteEntity](/dotnet/api/azure.data
 public void RemoveEntity(string partitionKey, string rowKey)
 {
     _tableClient.DeleteEntity(partitionKey, rowKey);           
-}
-```
-
-### Bulk insert entities
-
-For situations when bulk edits are required to data in a table, the [SubmitTransaction](/dotnet/api/azure.data.tables.tableclient.submittransaction) on the [TableClient](/dotnet/api/azure.data.tables.tableclient) class is used. The [SubmitTransaction](/dotnet/api/azure.data.tables.tableclient.submittransaction) method takes an IEnumerable of [TableTransactionAction](/dotnet/api/azure.data.tables.tabletransactionaction) objects.  A [TableTransactionAction](/dotnet/api/azure.data.tables.tabletransactionaction) object encapsulates a TableEntity object along with [TableTransactionActionType](/dotnet/api/azure.data.tables.tabletransactionactiontype) object that represents the operation to be performed on the table entity (add, delete, upsert replace, upsert merge, update replace, or update merge).  This collection of objects is then operated on as a transaction, meaning all operations either succeed of fail.
-
-In the sample application, modify the `InsertBulkData` method of the `TableService` class to match the following definition.  This code converts the incoming model objects to `TableEntity` objects.  It then creates an `IEnumerable\<TableTransactionAction\>` by using a LINQ query which can be passed to the `SubmitTransaction` method.
-
-```csharp
-public void InsertBulkData(IEnumerable<WeatherInputModel> items)
-{
-    // First convert the incoming objects to TableEntities
-    IEnumerable<TableEntity> entities = items.Select(item =>
-    {
-        var entity = new TableEntity(item.StationName, item.ObservationDate);
-        entity["Temperature"] = item.Temperature;
-        entity["Humidity"] = item.Humidity;
-        entity["Barometer"] = item.Barometer;
-        entity["WindDirection"] = item.WindDirection;
-        entity["WindSpeed"] = item.WindSpeed;
-        entity["Precipitation"] = item.Precipitation;
-
-        return entity;
-    });
-            
-    // Now wrap each TableEntity in a TableTransactionAction object
-    var transactionActions = entities.Select(entity => 
-        new TableTransactionAction(TableTransactionActionType.Add, entity));
-
-    _tableClient.SubmitTransaction(transactionActions);
 }
 ```
 
