@@ -24,7 +24,7 @@ This document covers the changes you'll see when your account is upgraded, and a
 Upgraded Azure Purview accounts use a new data map system that scales dynamically based on use: the elastic data map. Elastic data maps start at one capacity unit, and will add and reduce capacity units as needed.
 This new feature doesn't affect how you interact with Purview directly, but does affect billing. It scales to the size you need to manage your data landscape, and you're only billed for what you use.
 
-For more information about the new elastic data map and how it's billed, see our [elastic data map page](concept-elastic-data-map).
+For more information about the new elastic data map and how it's billed, see our [elastic data map page](concept-elastic-data-map.md).
 
 For billing details for all of Purview, see the [pricing calculator](https://azure.microsoft.com/pricing/details/azure-purview/).
 
