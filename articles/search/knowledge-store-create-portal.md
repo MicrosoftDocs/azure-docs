@@ -167,7 +167,7 @@ Each table is generated with the IDs necessary for cross-linking the tables in q
 
 Your table should look similar to the following screenshot:
 
-   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Screenshot of the index definition" border="true":::
+   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Screenshot of the generated tables in Storage Explorer" border="true":::
 
 ## Clean up
 
