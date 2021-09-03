@@ -6054,6 +6054,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-supported-blob-storage-features.md",
+      "redirect_url": "/azure/storage/blobs/storage-feature-support-in-storage-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
       "redirect_url": "/azure/azure-functions/app-service-export-api-to-powerapps-and-flow",
       "redirect_document_id": false
