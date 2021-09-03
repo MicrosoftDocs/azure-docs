@@ -638,6 +638,8 @@ items:
         href: ../common/storage-explorer-direct-link.md
       - name: Storage Explorer security
         href: ../common/storage-explorer-security.md
+      - name: Storage Explorer soft delete
+        href: ../common/storage-explorer-soft-delete.md
       - name: Storage Explorer blob versioning
         href: ../common/storage-explorer-blob-versioning.md
       - name: Storage Explorer manage Azure Blob storage
