@@ -124,7 +124,7 @@ To plan your rack installation:
 
 1. Have AC power available for the appliance.
 1. Prepare the LAN cable for connecting the management to the network switch.
-1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance. 
+1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance.
 1. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
 1. Connect the configured SPAN port to a computer running Wireshark and verify that the port is configured correctly.
 1. Open all the relevant firewall ports.
@@ -141,7 +141,7 @@ The following sections describe Purdue levels.
 
 :::image type="content" source="media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagram of the Purdue model.":::
 
-####  Level 0: Cell and area  
+#### Level 0: Cell and area  
 
 Level 0 consists of a wide variety of sensors, actuators, and devices involved in the basic manufacturing process. These devices perform the basic functions of the industrial automation and control system, such as:
 
@@ -237,7 +237,7 @@ Here are some recommendations for deploying multiple sensors:
 
 #### Traffic mirroring  
 
-To see only relevant information for traffic analysis, you need to connect the Defender for IoT platform to a mirroring port on a switch or a TAP that includes only industrial ICS and SCADA traffic. 
+To see only relevant information for traffic analysis, you need to connect the Defender for IoT platform to a mirroring port on a switch or a TAP that includes only industrial ICS and SCADA traffic.
 
 :::image type="content" source="media/how-to-set-up-your-network/switch.jpg" alt-text="Use this switch for your setup.":::
 

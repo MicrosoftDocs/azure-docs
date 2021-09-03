@@ -22,14 +22,12 @@ The feature works with both Spark 2.4 and Spark 3.0. The following table shows t
 
 > [!NOTE]
 > You can use the existing external Hive metastore from HDInsight clusters, both 3.6 and 4.0 clusters. See [use external metadata stores in Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
-
 Follow below steps to set up a linked service to the external Hive metastore and underlying catalog storage in Synapse workspace, and configure Spark pool to use the linked external Hive metastore.
 
 ## Set up Hive metastore linked service
 
 > [!NOTE]
 > Only Azure SQL Database is supported as an external Hive metastore.
-
 Follow below steps to set up a linked service to the external Hive metastore in Synapse workspace.
 1.	Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
 
@@ -147,11 +145,9 @@ If the underlying data of your Hive tables are stored in Azure Blob storage acco
 blob_account_name = "<your blob storage account name>"
 blob_container_name = "<your container name>"
 from pyspark.sql import SparkSession
-
 sc = SparkSession.builder.getOrCreate()
 token_library = sc._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
 blob_sas_token = token_library.getConnectionString("<blob storage linked service name>")
-
 spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name), blob_sas_token)
 ```
 
@@ -178,11 +174,9 @@ When use key authentication to your storage account via linked service, you need
 blob_account_name = "<your blob storage account name>"
 blob_container_name = "<your container name>"
 from pyspark.sql import SparkSession
-
 sc = SparkSession.builder.getOrCreate()
 token_library = sc._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
 blob_sas_token = token_library.getConnectionString("<blob storage linked service name>")
-
 spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name), blob_sas_token)
 ```
 
