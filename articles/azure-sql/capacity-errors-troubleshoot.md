@@ -3,7 +3,7 @@ title: Resolve capacity errors with Azure SQL resources
 description: Learn how to resolve possible capacity errors when attempting to deploy or scale Azure SQL Database or Azure SQL Managed Instance resources. 
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: deployment-configuration
+ms.subservice: problem-resolution
 ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
@@ -88,6 +88,8 @@ To register your subscription using [Azure PowerShell](/powershell/azure/install
 # Register the SQL resource provider to your subscription
 Register-AzResourceProvider -ProviderNamespace Microsoft.Sql
 ```
+
+---
 
 
 
