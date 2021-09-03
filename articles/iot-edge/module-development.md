@@ -4,7 +4,7 @@ description: Develop custom modules for Azure IoT Edge that can communicate with
 author: kgremban
 
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -161,6 +161,31 @@ For all languages in the following table, IoT Edge supports development for AMD6
 IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported.
 
 For information about developing with Windows containers, refer to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+<!--1.2-->
+:::moniker range="iotedge-2018-06"
+
+## Module security
+
+You should develop your modules with security in mind. To learn more about securing your modules, see [Docker security](https://docs.docker.com/engine/security/).
+
+To help improve module security, IoT Edge disables some container features by default. You can override the defaults to provide privileged capabilities to your modules if necessary.
+
+### Allow elevated Docker permissions
+
+In the config.toml file on an IoT Edge device, there's a parameter called `allow_elevated_docker_permissions`. When set to **true**, this flag allows the `--privileged` flag as well as any additional capabilities that you define in the `CapAdd` field of the Docker HostConfig in the [container create options](how-to-use-create-options.md).
+
+>[!NOTE]
+>This flag is currently set to **true** by default, but in the future it will be **false** by default.
+
+### Enable CAP_CHOWN and CAP_SETUID
+
+The Docker capabilities **CAP_CHOWN** and **CAP_SETUID** are disabled by default. These capabilities can be used to write to secure files on the host device and potentiall gain root access.
+
+If you need these capabilities, you can manually re-enable them using CapADD in the container create options.
 
 :::moniker-end
 <!-- end 1.2 -->
