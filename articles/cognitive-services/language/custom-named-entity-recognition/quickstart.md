@@ -104,7 +104,7 @@ Generally after training a model you would review its [evaluation details](../cu
 
     :::image type="content" source="media/test-model-results.png" alt-text="View the test results" lightbox="media/test-model-results.png":::
 
-After you've tested your model, you can begin [improving the model's performance](how-to/improve-model.md), and [sending NER requests](how-to/create-job.md).
+After you've tested your model, you can begin [improving the model's performance](how-to/improve-model.md), and [sending NER requests](how-to/submit-task.md).
 
 ## Clean up resources
 
