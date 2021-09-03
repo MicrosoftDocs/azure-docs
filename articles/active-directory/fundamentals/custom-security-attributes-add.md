@@ -30,7 +30,9 @@ To add or deactivate custom security attributes, you must have:
 
     > [!IMPORTANT]
     > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
-    
+- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using PowerShell
+
+  
 ## Add a new custom security attribute
 
 1. Sign in to the Azure portal.

@@ -98,14 +98,16 @@ To assign or remove custom security attributes for an application in your Azure 
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use PowerShell. The following commands can be used to manage assignments.
 
-### List custom security attribute assignments for an application/service principal
+### List custom security attribute assignments for an application (service principal)
 
 ```powershell
 Get-AzureADMSServicePrincipal -Select CustomSecurityAttributes
 Get-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20  -Select "CustomSecurityAttributes, Id"
 ```
 
-### Assign a custom security attribute with a multi-string value to an application/service principal
+### Assign a custom security attribute with a multi-string value to an application (service principal)
+
+For this example, the attribute set name is `testAttributeSet1` and the custom security attribute name is `testAttribute`.
 
 ```powershell
 $attributes = @{
@@ -118,7 +120,9 @@ $attributes = @{
 Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSecurityAttributes $attributes
 ```
 
-### Update a custom security attribute with a multi-string value for an application/service principal
+### Update a custom security attribute with a multi-string value for an application (service principal)
+
+For this example, the attribute set name is `testAttributeSet1` and the custom security attribute name is `testAttribute`.
 
 ```powershell
 $attributesUpdate = @{

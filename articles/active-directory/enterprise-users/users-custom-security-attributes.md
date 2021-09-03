@@ -123,6 +123,8 @@ $user1.CustomSecurityAttributes
 
 ### Assign a custom security attribute with a multi-string value to a user
 
+For this example, the attribute set name is `Storage` and the custom security attribute name is `Project`.
+
 ```powershell
 $attributes = @{
     Storage = @{
@@ -135,6 +137,8 @@ Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttrib
 ```
 
 ### Update a custom security attribute with a multi-string value for a user
+
+For this example, the attribute set name is `Storage` and the custom security attribute name is `Project`.
 
 ```powershell
 $attributesUpdate = @{
