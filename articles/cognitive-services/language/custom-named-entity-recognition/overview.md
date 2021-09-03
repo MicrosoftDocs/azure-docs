@@ -16,10 +16,9 @@ ms.author: aahi
 
 Custom NER is a cloud-based API service that is built using transformer-based models from [Microsoft Turing](https://msturing.org/about) to extract information from unstructured documents.
 
-This API is similar to the [Named Entity Recognition API](../named-entity-recognition/overview.md), but lets you extract specific entities that are more relevant to your needs. 
+Language servies offers a prebuilt [Named Entity Recognition API](../named-entity-recognition/overview.md) for common named entity types, but custom NER lets you extract specific entities that are more relevant to your needs. 
 
-Building custom models can be a complex process that requires AI expertise; Custom Text analytics abstracts you from the need of in house AI expertise, you bring the data and we take care of the rest. Your data can be previously tagged or you can tag it within the [Language Studio](https://language.azure.com).
-
+Building custom models can be a complex process that requires AI expertise; Custom NER abstracts you from the need of in house AI expertise, you bring the data and we take care of the rest. Your data can be previously tagged or you can tag it within the [Language Studio](https://language.azure.com).
 
 This documentation contains the following article types:
 
@@ -52,3 +51,5 @@ Using Custom NER typically involves several different steps.
 6. **Deploy model**: Deploying a model is to make it available for use.
 
 7. **Extract entities**: Use your custom modeled for entity extraction tasks.
+
+

@@ -54,20 +54,22 @@ items:
     href: custom-named-entity-recognition/language-support.md
   - name: How-to guides
     items:
-    - name: Improve a model
-      href: custom-named-entity-recognition/how-to/improve-model.md
-    - name: Create a text extraction job
-      href: custom-named-entity-recognition/how-to/create-job.md
     - name: Tag data
       href: custom-named-entity-recognition/how-to/tag-data.md
     - name: Train a model
-      href: custom-named-entity-recognition/how-to/train-model.md 
+      href: custom-named-entity-recognition/how-to/train-model.md
     - name: View model evaluation
-      href: custom-named-entity-recognition/how-to/view-model-evaluation.md
+      href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
+    - name: Improve a model
+      href: custom-named-entity-recognition/how-to/improve-model.md
+    - name: Submit a Custom NER task
+      href: custom-named-entity-recognition/how-to/submit-task.md
   - name: Concepts
     items:
       - name: Recommended practices
         href: custom-named-entity-recognition/concepts/recommended-practices.md
+      - name: Using Azure resources
+        href: custom-classification/concepts/use-azure-resources.md
       - name: Definitions
         href: custom-named-entity-recognition/concepts/definitions.md
       - name: Data limits

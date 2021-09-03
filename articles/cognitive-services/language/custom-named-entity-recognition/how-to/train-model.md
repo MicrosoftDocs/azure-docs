@@ -43,7 +43,7 @@ You must have minimum of 10 docs in your project for the [evaluation](view-model
 > * You can only have up to 10 models per project.
 > * Training can take up to few hours.
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customTextNext/projects/extraction).
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
 
 2. Select **Train** from the left side menu.
 

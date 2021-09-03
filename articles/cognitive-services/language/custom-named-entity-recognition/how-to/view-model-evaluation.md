@@ -24,7 +24,7 @@ After your model has finished training, you can view the model details and see h
 
 ## View the model's evaluation details
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customTextNext/projects/extraction).
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
 
 2. Select **View model details** from the menu on the left side of the screen.
 

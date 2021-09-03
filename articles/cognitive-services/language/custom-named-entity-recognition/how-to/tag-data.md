@@ -22,7 +22,7 @@ Before building your custom entity extraction models, you need to have tagged da
 
 ## Tag your data
 
-1. Go to the projects page in [Language Studio](https://language.azure.com/customTextNext/projects/extraction) and select your project.
+1. Go to the projects page in [Language Studio](https://language.azure.com/customText/projects/extraction) and select your project.
 
 2. From the left side menu, select **Tag data**
 
