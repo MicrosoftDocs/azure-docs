@@ -5,7 +5,7 @@ author: Jejiang
 ms.service: synapse-analytics
 ms.subservice: purview
 ms.topic: quickstart
-ms.date: 08/24/2021
+ms.date: 09/02/2021
 ms.author: jejiang
 ms.reviewer: jrasnick
 ---
@@ -38,6 +38,8 @@ Follow the steps to connect an Azure Purview account:
 3. You can choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to.
 4. Once connected, you can see the name of the Purview account in the tab **Azure Purview account**. 
 
+If your Purview account is protected by firewall, create the managed private endpoints for Purview. Learn more about how to let Azure Synapse [access a secured Purview account](how-to-access-secured-purview-account.md). You can either do it during the initial connection or edit an existing connection later.
+
 The Purview connection information is stored in the Synapse workspace resource like the following. To establish the connection programmatically, you can update the Synapse workspace and add the `purviewConfiguration` settings.
 
 ```json
@@ -62,7 +64,7 @@ Synapse workspace's managed identity is used to authenticate lineage push operat
 
 - For Purview account created **on or after August 18, 2021**, grant the Synapse workspace's managed identity **Data Curator** role on your Purview **root collection**. Learn more about [Access control in Azure Purview](../../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    When connecting Synapse workspace to Purview in Synapse Studio, Synapse tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection, this operation is done successfully.
+    When connecting Synapse workspace to Purview in Synapse Studio, Synapse tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection and have access to Purview account from your network, this operation is done successfully.
 
 - For Purview account created **before August 18, 2021**, grant the Synapse workspace's managed identity Azure built-in [**Purview Data Curator**](../../role-based-access-control/built-in-roles.md#purview-data-curator) role on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../../purview/catalog-permissions.md#legacy-permission-guide).
 
@@ -85,6 +87,8 @@ Once you connect the Synapse workspace to a Purview account, you can use the sea
 [Discover, connect and explore data in Synapse using Azure Purview](how-to-discover-connect-analyze-azure-purview.md)
 
 [Metadata and lineage from Azure Synapse Analytics](../../purview/how-to-lineage-azure-synapse-analytics.md)
+
+[Access a secured Purview account](how-to-access-secured-purview-account.md)
 
 [Register and scan Azure Synapse assets in Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 

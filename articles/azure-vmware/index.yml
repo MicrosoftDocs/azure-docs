@@ -83,6 +83,8 @@ landingContent:
         links:
         - text: Deploy JetStream DR
           url: deploy-disaster-recovery-using-jetstream.md
+        - text: Deploy Zerto DR
+          url: deploy-zerto-disaster-recovery.md
         - text: Deploy VMware HCX for disaster recovery
           url: deploy-disaster-recovery-using-vmware-hcx.md
         - text: Deploy VMware SRM for disaster recovery
