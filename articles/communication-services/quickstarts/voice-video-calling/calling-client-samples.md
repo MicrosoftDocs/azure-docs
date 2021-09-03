@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: arturk
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android-windows
 ---

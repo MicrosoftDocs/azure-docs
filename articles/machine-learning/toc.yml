@@ -359,7 +359,7 @@
           displayName: github gitlab
           href: concept-train-model-git-integration.md
         - name: How to troubleshoot environments
-          displayName: troubleshoot, envrionment, debug, image
+          displayName: troubleshoot, environment, debug, image
           href: how-to-troubleshoot-environments.md          
     - name: Work with data
       items: 
@@ -486,10 +486,10 @@
           displayName: interpretability
           items: 
             - name: Interpret ML models
-              displayName: SDK, interpret, explain, explanability, interpretability
+              displayName: SDK, interpret, explain, explainability, interpretability
               href: how-to-machine-learning-interpretability-aml.md
             - name: Explain automated ML models
-              displayName: SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml
+              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
               href: how-to-machine-learning-interpretability-automl.md
         - name: Assess and mitigate model fairness
           href: how-to-machine-learning-fairness-aml.md              
@@ -536,10 +536,12 @@
               href: how-to-safely-rollout-managed-endpoints.md
             - name: Use managed online endpoints in studio
               href: how-to-use-managed-online-endpoint-studio.md
-            - name: Viewing managed online endpoint costs
-              href: how-to-view-online-endpoints-costs.md
             - name: Use REST to deploy a model as a managed online endpoint
               href: how-to-deploy-with-rest.md
+            - name: Deploy an AutoML model with a managed online endpoint
+              href: how-to-deploy-automl-endpoint.md
+            - name: Viewing managed online endpoint costs
+              href: how-to-view-online-endpoints-costs.md
             - name: Managed online endpoints VM SKU list
               href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Monitoring managed online endpoints
@@ -612,7 +614,7 @@
       - name: High-performance serving with Triton
         href: how-to-deploy-with-triton.md
       - name: Deploy encrypted inferencing service
-        displayName: homomorhic,encryption,deployment
+        displayName: homomorphic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
       - name: Profile models
         displayName: profile resource requirement
