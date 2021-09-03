@@ -1,31 +1,122 @@
 ---
-title: Language Studio Overview
+title: Language Studio
 titleSuffix: Azure Cognitive Services
 description: Language Studio Overview
 author: skandil
 ms.author: sarakandil
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: < let the content writers fill this in >
-ms.date: 01/08/2021
-ms.topic: article
+ms.subservice: text-analytics
+ms.date: 09/03/2021
+ms.topic: conceptual
 ---
 
 ## What is Language Studio?
 
-[Language Studio](https://language.azure.com/) is a set of UI-based tools that allows users to explore, build and integrate features from Azure Language service in your applications.
-The Studio provides you with a platform to try out the service's prebuilt offerings and see what each returns in code and visual format. It also provides you with a simple experience to create custom projects for all custom capabilities that are offered by the service. It allows you this using a no-code approach, and then reference the assets you create in your applications using the [Language SDK](ww), [Language CLI](ww), or various [REST APIs](ww).
+[Language Studio](https://language.azure.com/) is a set of UI-based tools that lets you to explore, build and integrate features from Azure Cognitive Service for language into your applications.
+
+Language Studio provides you with a platform to try several service features, and see what they returns in a visual manner. It also provides you with an easy-to-use experience to create custom projects and models to work on your data. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
 
 ## Set up your Azure account
 
-You need to have an Azure account and a Language service resource before you can use Language Studio. If you don't have an account or resource, try the [Language service for free](SimilarToWhatSpeechHas<https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/overview#try-the-speech-service-for-free>).
+Before you can use Language Studio, you need to have an Azure account. You can [create one for free](https://azure.microsoft.com/free/ai/). Once you have an Azure account: 
 
+1. [Log into Language Studio](https://language.azure.com/).
+1. 
+
+> [!TIP]
+> * Azure Cognitive Service for language has [two pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/): free (F0) and paid (S), which have different limitations. 
+> * If you use the free pricing tier, you can keep using the Language service even after your free trial or service credit expires. 
+
+<!--
 After you create an Azure account and a Language service resource:
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure account.
 2. Select the Language service resource you need to get started. You can also create a new Language se (You can change the resources anytime in "Settings" in the top menu.)
 
 > [!NOTE]
 > You can create a new Language resource from the Studio after you sign in. [Learn more](LinkToCreateNewResourceFromStudio)
+-->
+
+## Try the Speech service for free
+
+For the following steps, you need both a Microsoft account and an Azure account. If you do not have a Microsoft account, you can sign up for one free of charge at the [Microsoft account portal](https://account.microsoft.com/account). Select **Sign in with Microsoft** and then, when asked to sign in, select **Create a Microsoft account**. Follow the steps to create and verify your new Microsoft account.
+
+Once you have a Microsoft account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), select **Start free**, and create a new Azure account using a Microsoft account. Here is a video of [how to sign up for Azure free account](https://www.youtube.com/watch?v=GWT2R1C_uUU).
+
+> [!NOTE]
+> When you sign up for a free Azure account, it comes with $200 in service credit that you can apply toward a paid Speech service subscription, valid for up to 30 days. Your Azure services are disabled when your credit runs out or expires at the end of the 30 days. To continue using Azure services, you must upgrade your account. For more information, see [How to upgrade your Azure free account](../../cost-management-billing/manage/upgrade-azure-subscription.md). 
+>
+> The Speech service has two service tiers: free(f0) and subscription(s0), which have different limitations and benefits. If you use the free, low-volume Speech service tier you can keep this free subscription even after your free trial or service credit expires. For more information, see [Cognitive Services pricing - Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+### Create the Azure resource
+
+To add a Speech service resource (free or paid tier) to your Azure account:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
+
+1. Select **Create a resource** at the top left of the portal. If you do not see **Create a resource**, you can always find it by selecting the collapsed menu in the upper left corner of the screen.
+
+1. In the **New** window, type "speech" in the search box and press ENTER.
+
+1. In the search results, select **Speech**.
+   
+   :::image type="content" source="media/index/speech-search.png" alt-text="Create Speech resource in Azure portal.":::
+
+1. Select **Create**,  then:
+
+   - Give a unique name for your new resource. The name helps you distinguish among multiple subscriptions tied to the same service.
+   - Choose the Azure subscription that the new resource is associated with to determine how the fees are billed. Here is the introduction for [how to create an Azure subscription](../../cost-management-billing/manage/create-subscription.md#create-a-subscription-in-the-azure-portal) in the Azure portal.
+   - Choose the [region](regions.md) where the resource will be used. Azure is a global cloud platform that is generally available in many regions worldwide. To get the best performance, select a region that’s closest to you or where your application runs. The Speech service availabilities vary from different regions. Make sure that you create your resource in a supported region. See [region support for Speech services](./regions.md#speech-to-text-text-to-speech-and-translation).
+   - Choose either a free (F0) or paid (S0) pricing tier. For complete information about pricing and usage quotas for each tier, select **View full pricing details** or see [speech services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). For limits on resources, see [Azure Cognitive Services Limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
+   - Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
+   - Select **Create**. This will take you to the deployment overview and display deployment progress messages.  
+<!--
+> [!NOTE]
+> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
+-->
+It takes a few moments to deploy your new Speech resource. 
+
+### Find keys and location/region
+
+To find the keys and location/region of a completed deployment, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
+
+2. Select **All resources**, and select the name of your Cognitive Services resource.
+
+3. On the left pane, under **RESOURCE MANAGEMENT**, select **Keys and Endpoint**.
+
+Each subscription has two keys; you can use either key in your application. To copy/paste a key to your code editor or other location, select the copy button next to each key, switch windows to paste the clipboard contents to the desired location.
+
+Additionally, copy the `LOCATION` value, which is your region ID (ex. `westus`, `westeurope`) for SDK calls.
+
+> [!IMPORTANT]
+> These subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely– for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Language Studio capabilities
 
