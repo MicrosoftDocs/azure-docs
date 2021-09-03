@@ -292,7 +292,7 @@ Depending on how you are going to consume the telemetry generated (real-time das
 ![Host.Aggregator telemetry in portal and Application Insights customMetrics](media/configure-monitoring/host-aggregator-metrics-portal-logs.png)
 
 * **Host.Results category**: as described in [Configure categories](#configure-categories), this category provides the runtime-generated logs indicating success of failure of a function. The information from this category is gathered in the Application Insights `requests` table, and it is shown in the function monitor dashboard, as well as in different Application Insights dashboards (Performance, Failures, etc.). If you set this category to other value different than `Information`, you will stop gathering the data in the `requests` table and will not be displayed it the mentioned dashboards.
-![Host.Aggregator telemetry in portal and Application Insights customMetrics](media\configure-monitoring\host-result-metrics-portal-logs.png)
+![Host.Aggregator telemetry in portal and Application Insights customMetrics](media/configure-monitoring/host-result-metrics-portal-logs.png)
 
 * **Host.Aggregator vs Host.Results**: both categories provide good insights regarding function executions, if needed, you can remove the detailed information from one of these categories, so your monitoring and alerting will be based in the other.
 
