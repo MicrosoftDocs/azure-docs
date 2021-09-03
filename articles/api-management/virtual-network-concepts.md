@@ -45,7 +45,7 @@ By default, an API Management instance must be accessible from the internet. Usi
 
 ## Network resource requirements
 
-The following are virtual network resource requirements for API Management. Some requirements differ depending on the version (stv2 or stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
+The following are virtual network resource requirements for API Management. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
 
 ### [stv2](#tab/stv2)
 
@@ -97,7 +97,7 @@ For more information, see:
 
 ## Limitations
 
-Some limitations differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
+Some limitations differ depending on the version (`stv2` or `stv1`) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
 
 ### [stv2](#tab/stv2)
 

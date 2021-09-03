@@ -20,27 +20,27 @@ We've minimized impacts of this upgrade on your operation of your API Management
 
 | Version | Description | Architecture | API Management tiers |
 | -------| ----------| ----------- | ------- |
-| **stv2** | Single-tenant v2 | [Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Developer, Basic, Standard, and Premium |
-| **stv1** |  Single-tenant v1 | [Cloud Service (classic)](../cloud-services/cloud-services-choose-me.md) | Developer, Basic, Standard, and Premium |
-| **mtv1** | Multi-tenant v1 |  [App service](../app-service/overview.md) | Consumption |
+| `stv2` | Single-tenant v2 | [Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Developer, Basic, Standard, and Premium |
+| `stv1` |  Single-tenant v1 | [Cloud Service (classic)](../cloud-services/cloud-services-choose-me.md) | Developer, Basic, Standard, and Premium |
+| `mtv1` | Multi-tenant v1 |  [App service](../app-service/overview.md) | Consumption |
 
 
 ## How do I know which platform hosts my API Management instance?
 
 ### Developer, Basic, Standard, and Premium tiers
 
-* Instances with virtual network connections created or updated using the Azure portal after **April 2021**, or using the API Management REST API version **2021-01-01-preview** or later, are hosted on the **stv2** platform
-* If you enabled [zone redundancy](zone-redundancy.md) in your Premium tier instance, it's hosted on the **stv2** platform
-* Otherwise, the instance is hosted on the **stv1** platform
+* Instances with virtual network connections created or updated using the Azure portal after **April 2021**, or using the API Management REST API version **2021-01-01-preview** or later, are hosted on the `stv2` platform
+* If you enabled [zone redundancy](zone-redundancy.md) in your Premium tier instance, it's hosted on the `stv2` platform
+* Otherwise, the instance is hosted on the `stv1` platform
 
 > [!TIP]
 > Starting with API version `2021-04-01-preview`, the API Management instance has a read-only `PlatformVersion` property that shows this platform information. 
 
 ### Consumption tier
 
-* All instances are hosted on the **mtv1** platform
+* All instances are hosted on the `mtv1` platform
 
-## How do I upgrade to the x`stv2 platform? 
+## How do I upgrade to the `stv2` platform? 
 
 Update is only possible for an instance in the Developer, Basic, Standard, or  Premium tier. 
 

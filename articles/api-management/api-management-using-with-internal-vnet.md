@@ -41,17 +41,6 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [ho
 > [!TIP]
 > When you use the portal to create or update the network configuration of your API Management instance, the instance is hosted on then `stv2` compute platform.
 
-### [stv1](#tab/stv1)
-
-+ **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
-
-* **A virtual network and subnet** in the same region and subscription as your API Management instance.
-
-    The subnet must be dedicated to API Management instances. Attempting to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources will cause the deployment to fail.
-
-   > [!NOTE]
-   > When you deploy an API Management service in an internal virtual network on the `stv1` platform, it's hosted behind an internal load balancer in the [Basic SKU](../load-balancer/skus.md).
-
 ### [stv2](#tab/stv2)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
@@ -62,6 +51,17 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [ho
 
    > [!NOTE]
    > When you deploy an API Management service in an internal virtual network on the `stv2` platform, it's hosted behind an internal load balancer in the [Standard SKU](../load-balancer/skus.md), using the public IP address resource.
+
+### [stv1](#tab/stv1)
+
++ **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
+
+* **A virtual network and subnet** in the same region and subscription as your API Management instance.
+
+    The subnet must be dedicated to API Management instances. Attempting to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources will cause the deployment to fail.
+
+   > [!NOTE]
+   > When you deploy an API Management service in an internal virtual network on the `stv1` platform, it's hosted behind an internal load balancer in the [Basic SKU](../load-balancer/skus.md).
 
 ---
 
