@@ -13,9 +13,9 @@ ms.date: 09/02/2021
 
 # Quickstart: Create a knowledge store in the Azure portal
 
-Knowledge store is a feature of Azure Cognitive Search that sends skillset output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) to Azure Storage for subsequent analysis or downstream processing.
+Knowledge store is a feature of Azure Cognitive Search that sends output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) to Azure Storage for subsequent analysis or downstream processing.
 
-An enrichment pipeline accepts unstructured text and image content, applies AI-powered processing by Cognitive Services, and outputs new structures and information that didn't previously exist. One of the physical data structures created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through tools that analyze and explore content in Azure Storage such as [Storage Explorer](knowledge-store-view-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md).
+An enrichment pipeline accepts unstructured text and image content, applies AI-powered processing by Cognitive Services, and outputs new structures and information that didn't previously exist. One of the physical data structures created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through any tool, app, or process that connects to Azure Storage.
 
 In this quickstart, you'll set up your data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, and text translation of non-English customer comments.
 
@@ -113,14 +113,15 @@ In this wizard step, add skills for AI enrichment. The source data consists of c
 
 1. Scroll down and expand **Save enrichments to knowledge store**.
 
-1. Select these **Azure table projections**:
+1. Select the following **Azure table projections**. The wizard always offers the **Documents** projection. Other projections will be offered depending on the skills you select (such as **Key phrases**), or the enrichment granularity (**Pages**):
+
     + **Documents**
     + **Pages**
     + **Key phrases**
 
-1. Enter the **Storage account Connection String** that you saved in a previous step.
-
    :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ks.png" alt-text="Screenshot of the knowledge store definition" border="true":::
+
+1. Enter the **Storage account Connection String** that you saved in a previous step.
 
 1. Continue to the next page.
 
@@ -154,22 +155,19 @@ In the **Overview** page, open the **Indexers** tab in the middle of the page, a
 
 ## Check tables in Azure Storage
 
-In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see six tables.
+In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
 
 Each table is generated with the IDs necessary for cross-linking the tables in queries. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 
-   :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
-
-In this walkthrough, the knowledge store is composed of a various tables showing different ways of shaping and structuring a table. The first three rely on a Shaper skill to provide the columns and data values.
-
 | Table | Description |
 |-------|-------------|
-| hotelReviews1Document | Contains fields carried forward from the CSV, such as reviews_date and reviews_text. |
-| hotelReviews2Pages | Contains enriched fields created by the skillset, such as sentiment score and translated text. |
-| hotelReviews3KeyPhrases | Contains a long list of just the key phrases. |
-| hotelReviews4InlineProjectionDocument | Alternative to the first table, using inline shaping instead of the Shaper skill to shape data for the projection. |
-| hotelReviews5InlineProjectionPages | Alternative to the second table, using inline shaping. |
-| hotelreviews6InlineProjectionKeyPhrases | Alternative to the third table, using inline shaping. |
+| hotelReviewssDocument | Contains fields carried forward from the CSV, such as reviews_date and reviews_text. |
+| hotelReviewssPages | Contains enriched fields created by the skillset, such as sentiment score and translated text. |
+| hotelReviewssKeyPhrases | Contains a long list of just the key phrases. |
+
+Your table should look similar to the following screenshot:
+
+   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Screenshot of the index definition" border="true":::
 
 ## Clean up
 
@@ -184,9 +182,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-Now that you've enriched your data by using Cognitive Services and projected the results to a knowledge store, you can use Storage Explorer or other apps to explore your enriched data set.
-
-To learn how to explore this knowledge store by using Storage Explorer, see this walkthrough:
+Now that you've been introduced to a knowledge store, take a closer look at each step by switching over to the REST API walkthrough. Tasks that the wizard handled internally are explained in the REST walkthrough.
 
 > [!div class="nextstepaction"]
-> [View with Storage Explorer](knowledge-store-view-storage-explorer.md)
+> [Create a knowledge store using REST and Postman](knowledge-store-create-rest.md)
