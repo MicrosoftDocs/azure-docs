@@ -90,3 +90,18 @@ landingContent:
             url: /learn/modules/build-app-with-scale-sets/
           - text:  Create a Windows virtual machine in Azure
             url: /learn/modules/create-windows-virtual-machine-in-azure/
+
+
+# Card
+  - title: Flexible orchestration for scale sets
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Flexible orchestration mode
+            url: ../virtual-machines/flexible-virtual-machine-scale-sets.md
+          - text: Get started with CLI
+            url: ../virtual-machines/flexible-virtual-machine-scale-sets-cli.md
+          - text: Get started with Portal 
+            url: ../virtual-machines/flexible-virtual-machine-scale-sets-portal.md
+          - text: Virtual Machine Scale Sets Orchestration modes 
+            url: virtual-machine-scale-sets-orchestration-modes.md

@@ -43,8 +43,6 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 > * Content Moderator
 > * Custom Vision
 > * Face
-> * Form Recognizer
-> * Immersive Reader
 > * Language Understanding (LUIS)
 > * Personalizer
 > * Speech Services

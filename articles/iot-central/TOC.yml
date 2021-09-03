@@ -208,8 +208,6 @@
           href: core/howto-create-custom-rules.md
         - name: Create custom analytics with Databricks
           href: core/howto-create-custom-analytics.md
-        - name: Visualize your data in Power BI
-          href: core/howto-connect-powerbi.md
         - name: Connect other IoT clouds
           href: core/howto-build-iotc-device-bridge.md
     - name: Use the REST API

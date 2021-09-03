@@ -19,7 +19,7 @@ VM insights relies on the following components to deliver its experience:
 * A Log Analytics workspace, which stores monitoring data from VMs and other sources.
 * A collection of performance counters configured in the workspace. The collection updates the monitoring configuration on all VMs connected to the workspace.
 * `VMInsights`, which is a monitoring solution configured in the workspace. This solution updates the monitoring configuration on all VMs connected to the workspace.
-* `MicrosoftMonitoringAgent` and `DependencyAgent`, which are Azure VM extensions. These extensions collect and send data to the workspace.
+* `MicrosoftMonitoringAgent` (for Windows) or `OmsAgentForLinux` (for Linux), and `DependencyAgent`, which are Azure VM extensions. These extensions collect and send data to the workspace.
 
 As you prepare to disable monitoring of your VMs, keep these considerations in mind:
 

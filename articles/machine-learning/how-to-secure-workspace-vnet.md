@@ -64,6 +64,10 @@ In this article you learn how to enable the following workspaces resources in a 
 
 ## Limitations
 
+### Azure Storage Account
+
+If both the Azure Machine Learning workspace and the Azure Storage Account use a private endpoint to connect to the VNet, both must be within the same subnet.
+
 ### Azure Container Registry
 
 When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
@@ -160,7 +164,7 @@ Azure key vault can be configured to use either service endpoints or private end
 > [!TIP]
 > If you did not use an existing Azure Container Registry when creating the workspace, one may not exist. By default, the workspace will not create an ACR instance until it needs one. To force the creation of one, train or deploy a model using your workspace before using the steps in this section.
 
-Azure Container Registry can configured to use either service endpoints or private endpoints. Use the following steps to configure your workspace to use ACR when it is in the virtual network:
+Azure Container Registry can be configured to use either service endpoints or private endpoints. Use the following steps to configure your workspace to use ACR when it is in the virtual network:
 
 1. Find the name of the Azure Container Registry for your workspace, using one of the following methods:
 
@@ -268,6 +272,10 @@ The following methods can be used to connect to the secure workspace:
 
 > [!IMPORTANT]
 > When using a __VPN gateway__ or __ExpressRoute__, you will need to plan how name resolution works between your on-premises resources and those in the VNet. For more information, see [Use a custom DNS server](how-to-custom-dns.md).
+
+## Workspace diagnostics
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ## Next steps
 

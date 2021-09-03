@@ -1,14 +1,14 @@
 ---
 title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government)
 description: Details of the CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 08/13/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
 ---
 # Details of the CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government) Regulatory Compliance built-in initiative
 
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
-definition maps to **compliance domains** and **controls** in CIS Microsoft Azure Foundations Benchmark 1.1.0.
+definition maps to **compliance domains** and **controls** in CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government).
 For more information about this compliance standard, see
 [CIS Microsoft Azure Foundations Benchmark 1.1.0](https://www.cisecurity.org/benchmark/azure/). To understand
 _Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
@@ -22,7 +22,7 @@ Then, find and select the **CIS Microsoft Azure Foundations Benchmark v1.1.0** R
 initiative definition.
 
 This built-in initiative is deployed as part of the
-[CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government) blueprint sample](../../blueprints/samples/cis-azure-1-1-0.md).
+[CIS Microsoft Azure Foundations Benchmark 1.1.0 blueprint sample](../../blueprints/samples/cis-azure-1-1-0.md).
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
@@ -126,7 +126,7 @@ This built-in initiative is deployed as part of the
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Servers without an installed Endpoint Protection agent will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
+|[Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Servers without an installed Endpoint Protection agent will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
 ### Ensure ASC Default policy setting "Monitor Disk Encryption" is not "Disabled"
 
@@ -580,7 +580,7 @@ This built-in initiative is deployed as part of the
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Servers without an installed Endpoint Protection agent will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
+|[Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Servers without an installed Endpoint Protection agent will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
 ## Other Security Considerations
 

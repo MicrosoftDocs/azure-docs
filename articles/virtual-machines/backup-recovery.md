@@ -12,6 +12,8 @@ ms.author: cynthn
 
 # Backup and restore options for virtual machines in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
 You can protect your data by taking backups at regular intervals. There are several backup options available for VMs, depending on your use-case.
 
 ## Azure Backup
