@@ -22,9 +22,9 @@ The following table lists partner solutions that are currently supported. Make s
 
 | Partner | Solution name |
 | ------- | ------------- |
-| ![Incorta](./media/sql-data-warehouse-partner-data-integration/incorta-logo.png) | Incorta Intelligent Ingest for Azure Synapse |
-| ![Informatica](./media/sql-data-warehouse-partner-data-integration/informatica_logo.png) | Informatica Intelligent Data Management Cloud |
-| ![Qlik Data Integration (formerly Attunity)](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) | Qlik Data Integration (formerly Attunity) |
+| ![Incorta](./media/data-integration/incorta-logo.png) | Incorta Intelligent Ingest for Azure Synapse |
+| ![Informatica](./media/data-integration/informatica_logo.png) | Informatica Intelligent Data Management Cloud |
+| ![Qlik Data Integration (formerly Attunity)](./media/business-intelligence/qlik_logo.png) | Qlik Data Integration (formerly Attunity) |
 
 ## Requirements
 When you chose a partner application, Azure Synapse Studio provisions a sandbox environment you can use for this trial, ensuring you can experiment with partner solutions quickly before you decide to use it with your production data. The following objects are created: 
@@ -66,4 +66,4 @@ The required objects will be created for your partner trial. You'll then be forw
 
 ## Next steps
 
-To learn more about some of our other partners, see [Data Integration partners](sql-data-warehouse-partner-data-integration.md), [Data Management partners](sql-data-warehouse-partner-data-management.md), and [Machine Learning and AI partners](sql-data-warehouse-partner-machine-learning-ai.md).
+To learn more about some of our other partners, see [Data Integration partners](data-integration.md), [Data Management partners](data-management.md), and [Machine Learning and AI partners](machine-learning-ai.md).

@@ -1341,7 +1341,7 @@ items:
     - name: Data management
       href: ./partner/data-management.md
     - name: Machine learning and AI
-      href: ./partnermachine-learning-ai.md
+      href: ./partner/machine-learning-ai.md
     - name: System integration
       href: ./partner/system-integration.md
     - name: Compatibility issues with third-party applications
