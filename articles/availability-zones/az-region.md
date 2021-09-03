@@ -115,6 +115,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 |     Products                                                    | Resiliency             |
 |-----------------------------------------------------------------|:----------------------------:|
+|     [App Service](../app-service/how-to-zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [App Service Environments](../app-service/environment/zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)                      | :large_blue_diamond:  |
 |     [Azure API Management](../api-management/zone-redundancy.md)                      | :large_blue_diamond:  |
