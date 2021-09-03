@@ -18,6 +18,8 @@ ms.date: 09/01/2021
 This article summarizes the documentation changes associated with new features and improvements in the recent releases of [Azure SQL Managed Instance](https://azure.microsoft.com/updates/?product=sql-database&query=sql%20managed%20instance). To learn more about Azure SQL Managed Instance, see the [overview](sql-managed-instance-paas-overview.md).
 
 
+For Azure SQL Database, see [What's new](../database/doc-changes-updates-release-notes-whats-new.md).
+
 ## Feature availability
 
 The following two sections list the features of Azure SQL Managed Instance that are currently in public preview or in general availability. To provide feedback directly to the product group, see [https://aka.ms/sqlfeedback]. 
@@ -41,7 +43,7 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | [Threat detection](../managed-instance/threat-detection-configure.md) | Threat detection notifies you of security threats detected to your database. |
 | [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true) | Use query hints to optimize your query execution via the OPTION clause. |
-|   |
+|||
 
 ### General availability (GA)
 
@@ -54,14 +56,14 @@ The following table lists the features of Azure SQL Managed Instance that have g
 | [Machine Learning Service](machine-learning-services-overview.md) | March 2021 | Machine Learning Services is a feature of Azure SQL Managed Instance that provides in-database machine learning, supporting both Python and R scripts. The feature includes Microsoft Python and R packages for high-performance predictive analytics and machine learning. |
 | [Granular permissions for dynamic data masking](../database/dynamic-data-masking-overview.md)| March 2021 | Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. It's now possible to assign granular permissions for data that's been dynamically masked. To learn more, see [Dynamic data masking](../database/dynamic-data-masking-overview.md#permissions). |
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
-|   |  | 
+||| 
 
 ## July 2021
 
 | Changes | Details |
 | --- | --- |
 | **Maintenance window** | The maintenance window feature allows you to configure a maintenance schedule for your Azure SQL Managed Instance, currently in Public Preview. To learn more, see [maintenance window](/database/maintenance-window.md).|
-
+||| 
 
 ## June 2021
 
@@ -93,7 +95,7 @@ The following table lists the features of Azure SQL Managed Instance that have g
 | **Long-term backup retention** | Support for Long-term backup retention up to 10 years on Azure SQL Managed Instance. To learn more, see [Long-term backup retention](long-term-backup-retention-configure.md)|
 | **Audit management operations** | The ability to audit SQL Managed Instance operations is now generally available (GA). | 
 | **SQL insights** | SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. To learn more, see [SQL insights](../../azure-monitor/insights/sql-insights-overview.md). | 
-
+||| 
 
 ## 2020
 

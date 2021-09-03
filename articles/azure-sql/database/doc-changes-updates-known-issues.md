@@ -16,7 +16,9 @@ ms.date: 09/01/2021
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb.md)]
 
 
-This article lists the known issues with [Azure SQL Database](https://azure.microsoft.com/updates/?product=sql-database), as well as their resolution date or possible workaround. To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md), and [what's new](doc-changes-updates-release-notes-whats-new.md)
+This article lists the known issues with [Azure SQL Database](https://azure.microsoft.com/updates/?product=sql-database), as well as their resolution date or possible workaround. To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md), and [what's new](doc-changes-updates-release-notes-whats-new.md).
+
+For Azure SQL Managed Instance, see [Known issues](../managed-instance/doc-changes-updates-known-issues.md).
 
 
 ## Known issues
