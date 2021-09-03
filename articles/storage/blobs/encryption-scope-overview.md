@@ -18,8 +18,6 @@ Encryption scopes enable you to manage encryption with a key that is scoped to a
 
 For more information about working with encryption scopes, see [Create and manage encryption scopes](encryption-scope-manage.md).
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
 ## How encryption scopes work
 
 By default, a storage account is encrypted with a key that is scoped to the entire storage account. When you define an encryption scope, you specify a key that may be scoped to a container or an individual blob. When the encryption scope is applied to a blob, the blob is encrypted with that key. When the encryption scope is applied to a container, it serves as the default scope for blobs in that container, so that all blobs that are uploaded to that container may be encrypted with the same key. The container can be configured to enforce the default encryption scope for all blobs in the container, or to permit an individual blob to be uploaded to the container with an encryption scope other than the default.
@@ -78,7 +76,16 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 > [!IMPORTANT]
 > It is not possible to delete an encryption scope.
 
+## Feature support
 
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
 
 ## Next steps
 
