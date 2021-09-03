@@ -31,7 +31,7 @@ When you chose a partner application, Azure Synapse Studio provisions a sandbox 
 
 |  Object  |    Details    |
 | -------- | ------------- |
-| A [dedicated SQL pool](./sql-data-warehouse-overview-what-is.md) named **Partner_[PartnerName]_pool** | DW100c performance level. |
+| A [dedicated SQL pool](../overview-what-is.md) named **Partner_[PartnerName]_pool** | DW100c performance level. |
 | A [SQL login](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) named **Partner_[PartnerName]_login** | Created on your `master` database. The password for this SQL login is specified by you at the creation of your trial.|
 | A [database user](../../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) | A new database user, mapped to the new SQL login. This user is added to the db_owner role for the newly created database. |
 
@@ -66,4 +66,4 @@ The required objects will be created for your partner trial. You'll then be forw
 
 ## Next steps
 
-To learn more about some of our other partners, see [Data Integration partners](data-integration.md), [Data Management partners](data-management.md), and [Machine Learning and AI partners](machine-learning-ai.md).
+To learn more about some of our other partners, see [Data integration partners](data-integration.md), [Data management partners](data-management.md), and [Machine Learning and AI partners](machine-learning-ai.md).
