@@ -4,10 +4,9 @@ description: Learn about how to connect a Data Factory to Azure Purview
 ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
-ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 08/24/2021
+ms.date: 09/02/2021
 ---
 
 # Connect Data Factory to Azure Purview (Preview)
@@ -37,6 +36,8 @@ To establish the connection on Data Factory authoring UI:
 
 3. Once connected, you can see the name of the Purview account in the tab **Purview account**.
 
+If your Purview account is protected by firewall, create the managed private endpoints for Purview. Learn more about how to let Data Factory [access a secured Purview account](how-to-access-secured-purview-account.md). You can either do it during the initial connection or edit an existing connection later.
+
 The Purview connection information is stored in the data factory resource like the following. To establish the connection programmatically, you can update the data factory and add the `purviewConfiguration` settings.
 
 ```json
@@ -65,7 +66,7 @@ Data factory's managed identity is used to authenticate lineage push operations 
 
 - For Purview account created **on or after August 18, 2021**, grant the data factory's managed identity **Data Curator** role on your Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection, this operation is done successfully.
+    When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection and have access to Purview account from your network, this operation is done successfully.
 
 - For Purview account created **before August 18, 2021**, grant the data factory's managed identity Azure built-in [**Purview Data Curator**](../role-based-access-control/built-in-roles.md#purview-data-curator) role on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../purview/catalog-permissions.md#legacy-permission-guide).
 
@@ -89,4 +90,4 @@ Once you connect the data factory to a Purview account, you can use the search b
 
 [Discover and explore data in ADF using Purview](how-to-discover-explore-purview-data.md)
 
-[Azure Purview Data Catalog lineage user guide](../purview/catalog-lineage-user-guide.md)
+[Access a secured Purview account](how-to-access-secured-purview-account.md)
