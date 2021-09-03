@@ -56,14 +56,17 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
    
    | **Field** | **Value** |
    | --- | --- |
-   | **Retain up to**  |Retention period of the cmdlet output. The default value is 60.   |
+   | **Retain up to**  |Retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | Alphanumeric name, for example, **getExternalIdentity**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
-1. Check **Notifications** to see the progress.
+1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
 
 ## Add Active Directory over LDAP
+
+>[!NOTE]
+> This is not recommended. We suggest using LDAPS as in the cmdlet in the following section.
 
 You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter. 
 
@@ -86,7 +89,7 @@ You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an exte
    | **Specify name for execution**  | Alphanumeric name, for example, **addexternalIdentity**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
-1. Check **Notifications** to see the progress.
+1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
 
 
@@ -94,9 +97,9 @@ You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an exte
 
 You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter. 
 
-1. Download the certificate for AD authentication and upload it to an Azure Storage account as blob storage.  
+1. Download the certificate for AD authentication and upload it to an Azure Storage account as blob storage. If multiple certificates are required, upload each certificate individually.
 
-1. [Grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
+1. For each certificate, [Grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md). These SAS strings will be supplied to the cmdlet in the following steps as a parameter. Make sure to copy each SAS string, as once you leave this page, they will no longer be available.
    
 1. Select **Run command** > **Packages** > **New-AvsLDAPSIdentitySource**.
 
@@ -112,13 +115,13 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
    | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
    | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |
    | **Credential**  | The username and password used for authentication with the AD source (not cloudadmin).  |
-   | **CertificateSAS** | Path to SAS strings with the certificates for authentication to the AD source.  |
-   | **GroupName**  | Group to give cloud admin access in your external identity source, for example, **avs-admins**.  |
-   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.   |
+   | **CertificateSAS** | Path to SAS strings with the certificates for authentication to the AD source. If using mutliple certificates, separate each SAS string with a comma, like pathtocert1,pathtocert2  |
+   | **GroupName**  | Group to give cloud admin access in your external identity source, for example, **avs-admins**. This is a group that exists in the external identity source  |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | Alphanumeric name, for example, **addexternalIdentity**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
-1. Check **Notifications** to see the progress.
+1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
 
 
