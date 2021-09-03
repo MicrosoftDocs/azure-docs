@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 09/03/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"

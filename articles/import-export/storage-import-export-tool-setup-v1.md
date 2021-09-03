@@ -93,15 +93,13 @@ Copy a File:
 Repair a Drive:  
     WAImportExport.exe RepairImport | RepairExport  
         /r:<RepairFile> [/logdir:<LogDirectory>]  
-        [/d:<TargetDirectories>] [/bk:<BitLockerKey>]  
-        /sn:<StorageAccountName> [/CopyLogFile:<DriveCopyLogFile>] 
+        [/d:<TargetDirectories>] [/bk:<BitLockerKey>]   
         [/ManifestFile:<DriveManifestFile>]  
         [/PathMapFile:<DrivePathMapFile>]  
 
 Preview an Export Job:  
     WAImportExport.exe PreviewExport  
-        [/logdir:<LogDirectory>]  
-        /sn:<StorageAccountName>   
+        [/logdir:<LogDirectory>]     
         /ExportBlobListFile:<ExportBlobListFile> /DriveSize:<DriveSize>  
 
 Parameters:  
@@ -125,9 +123,6 @@ Parameters:
     /abortsession  
         - Optional. If the last copy session was terminated abnormally, this parameter  
           can be specified to abort the session.  
-    /sn:<StorageAccountName>  
-        - Required. Only applicable for RepairImport and RepairExport. The name of  
-          the storage account.
     /t:<TargetDriveLetter>  
         - Required. Drive letter of the target drive.  
     /r:<RepairFile>  
@@ -216,13 +211,13 @@ Examples:
 
     Preview how many 1.5 TB drives are needed for an export job:  
     WAImportExport.exe PreviewExport  
-        /sn:mytestaccount /ExportBlobListFile:C:\temp\myexportbloblist.xml  
+        /ExportBlobListFile:C:\temp\myexportbloblist.xml  
         /DriveSize:1.5TB  
 
     Repair an finished import job:  
     WAImportExport.exe RepairImport  
         /r:9WM35C2V.rep /d:X:\ /bk:442926-020713-108086-436744-137335-435358-242242-2795  
-        98 /sn:mytestaccount /CopyLogFile:C:\temp\9WM35C2V_error.log
+        98 /CopyLogFile:C:\temp\9WM35C2V_error.log
 
     Skip write process, inplace data drive preparation:
     WAImportExport.exe PrepImport
