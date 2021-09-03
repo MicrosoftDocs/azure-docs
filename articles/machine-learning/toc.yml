@@ -547,7 +547,7 @@
             - name: Monitoring managed online endpoints
               href: how-to-monitor-online-endpoints.md
             - name: Debug managed online endpoints locally VS Code
-              href: how-to-debug-managed-online-endpoints-vscode.md
+              href: how-to-debug-managed-online-endpoints-visual-studio-code.md
             - name: Troubleshoot managed online endpoints
               href: how-to-troubleshoot-managed-online-endpoints.md
           - name: Batch
