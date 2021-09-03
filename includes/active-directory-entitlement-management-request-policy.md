@@ -213,7 +213,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     ![Access package - Policy- Enable Requestor information setting](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. If you would like to localize question and answer options, click **add localization**.
+1. If you would like to add your own localization options, click **add localization**.
     1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you are localizing the question.
     1. In the language you configured, type the question in the **Localized Text** box.
     1. Once you have added all the localizations needed, click **Save**.
@@ -225,15 +225,18 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
     ![Access package - Policy- Select view and edit multiple choice answer format](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
 1. If selecting multiple choice, click on the **edit and localize** button to configure the answer options.
-    1. After selecting edit and localize the **Edit/localize question** pane will open.
+    1. After selecting edit and localize the **View/edit question** pane will open.
     1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
-    1. Type in as many responses as you need.
-    1. If you would like to add your own localization for the multiple choice options, select the **Optional language code** for the language in which you want to localize a specific option.
-    1. In the language you configured, type the option in the Localized text box.
-    1. Once you have added all of the localizations needed for each multiple choice option, click **Save**.
+    1. Select the language the for the response option. You can localize response options if you choose additional languages.
+    1. Type in as many responses as you need then click **Save**.
     
     ![Access package - Policy- Enter multiple choice options](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
 1. To require requestors to answer this question when requesting access to an access package, click the check box under **Required**.
 
-1. Click Next
+1. Click on the **Attributes (Preview)** sub tab to view attributes associated with resources added to the access package.
+
+    > [!NOTE]
+    > To add or update attributes for an access package's resources, go to **Catalogs** and find the catalog associated with the access package. Read [Add resource-attributes (preview) in the catalog](../articles/active-directory/governance/entitlement-management-catalog-create.md#add-resource-attributes-preview-in-the-catalog) to learn more about how to edit the attributes list for a specific catalog resource and the prerequisite roles. 
+
+1. Click **Next**

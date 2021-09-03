@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 08/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -125,12 +125,12 @@ $blob.BlobClient.SetAccessTier("Hot", $null, "High")
 To change a blob's tier from archive to hot or cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
-az storage blob set-tier /
-    --container-name <container> /
-    --name <archived-blob> /
-    --tier Hot /
-    --account-name <account-name> /
-    --rehydrate-priority High /
+az storage blob set-tier \
+    --container-name <container> \
+    --name <archived-blob> \
+    --tier Hot \
+    --account-name <account-name> \
+    --rehydrate-priority High \
     --auth-mode login
 ```
 
@@ -138,7 +138,7 @@ az storage blob set-tier /
 
 ## Rehydrate a large number of blobs
 
-To rehydrate a large number of blobs at one time, call the [Blob Batch](/rest/api/storageservices/blob-batch) operation to call [Set Blob Tier] as a bulk operation. For a code example that shows how to perform the batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
+To rehydrate a large number of blobs at one time, call the [Blob Batch](/rest/api/storageservices/blob-batch) operation to call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) as a bulk operation. For a code example that shows how to perform the batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
 
 ## Check the status of a rehydration operation
 
