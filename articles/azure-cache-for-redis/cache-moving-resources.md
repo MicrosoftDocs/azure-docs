@@ -13,10 +13,10 @@ ms.date: 8/27/2021
 # Move Azure Cache for Redis instances to different regions
 
 In this article, you will learn how to move Azure Cache for Redis instances to a different Azure region. You might move your resources to another region for a number of reasons:
-- To take advantage of a new Azure region
-- To deploy features or services available in specific regions only
-- To meet internal policy and governance requirements
-- In response to capacity planning requirements
+- To take advantage of a new Azure region.
+- To deploy features or services available in specific regions only.
+- To meet internal policy and governance requirements.
+- In response to capacity planning requirements.
 
 ## Prerequisites 
 
@@ -106,7 +106,7 @@ Once your new cache in the targeted region is populated with all necessary data,
 >
 >
 
-1. Delete the original instance.
+2. Delete the original instance.
 
 
 ## Next steps
