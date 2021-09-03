@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: sgilley
 author: kvijaykannan
 ms.author: vkann
-ms.date: 07/21/2021
+ms.date: 09/03/2021
 ms.topic: how-to
 # As a project manager, I want to hire a company to label the data in my data labeling project
 # Keywords: data labeling companies, volume 170.  No other keywords found. 
@@ -29,11 +29,11 @@ Before you create your data labeling project:
 
 1. Select a labeling service provider.  To find a provider on Azure Marketplace:
     1. Review the [listing details of these vendor labeling companies](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services?page=1&search=AzureMLVend).
-    1. If the vendor labeling company meets your requirements, choose the **Contact Me** option in Azure Marketplace. Azure Marketplace will route your inquiry to the vendor labeling company. You can reach to multiple vendor labeling companies before choosing the final company.
+    1. If the vendor labeling company meets your requirements, choose the **Contact Me** option in Azure Marketplace. Azure Marketplace will route your inquiry to the vendor labeling company. You may contact multiple vendor labeling companies before choosing the final company.
 
 1. Contact and enter into a contract with the labeling service provider.
 
-Wait until the contract has been agreed and signed between you and the vendor labeling labeling company before you create your labeling project.  Once the contract has been signed:
+Once the contract with the vendor labeling company is in place:
 
 1. Create the labeling project in [Azure Machine Learning studio](https://ml.azure.com). For more details on creating a project, see [Create a data labeling project and export labels](how-to-create-labeling-projects.md).
 1. You're not limited to using a data labeling provider from Azure Marketplace.  But if you do use a provider from Azure Marketplace:
@@ -43,11 +43,11 @@ Wait until the contract has been agreed and signed between you and the vendor la
     > [!NOTE]
     > The vendor labeling company name cannot be changed after you create the labeling project.
 
-1. Enable access (`labeler` role, `techlead` role) to the vendor labeling labeling company using Azure Role Based Access (RBAC). This access will allow the vendor labeling company resources to annotate your labeling assets.
+1. Whether the company is listed in Azure Marketplace or not, enable access (`labeler` role, `techlead` role) to the vendor labeling company using Azure Role Based Access (RBAC). These roles will allow the vendor labeling company to access resources to annotate your data.
 
 ## <a name="review"></a> Select a company
 
-Microsoft has identified some labeling service providers with knowledge and experience who may be able to meet your needs. You can learn about the labeling service providers and choose a provider, taking into account the needs and requirements of their project(s).
+Microsoft has identified some labeling service providers with knowledge and experience who may be able to meet your needs. You can learn about the labeling service providers and choose a provider, taking into account the needs and requirements of your project(s) in their listing pages in [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services?page=1&search=AzureMLVend).
 
 > [!IMPORTANT]
 > You can learn more about these companies and the labeling services they provide in their listing pages in Azure Marketplace. You are responsible for any decision to use a labeling company that offers services through Azure Marketplace, and you should independently assess whether a labeling company and its experience, services, staffing, terms, etc. will meet your project requirements. You may contact a labeling company that offers services through Azure Marketplace using the **Contact me** option in Azure Marketplace, and you can expect to hear from a contacted company within three business days. You will contract with and make payment to the labeling company directly.
@@ -56,7 +56,7 @@ Microsoft periodically reviews the list of potential labeling service providers 
 
 * If a provider is removed, it won't affect any existing projects, or that company's access to those projects.
 * If you use a provider who is no longer listed in Azure Marketplace, don't select the **Use a vendor labeling company from Azure Marketplace** option in your new project.
-* A removed provider will no longer be available through Azure Marketplace.
+* A removed provider will no longer have a listing in Azure Marketplace.
 * A removed provider will no longer be able to be contacted through Azure Marketplace.
 
 You can engage multiple vendor labeling companies for various labeling project needs. Each project will be linked to one vendor labeling company.
