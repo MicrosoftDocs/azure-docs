@@ -52,7 +52,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
     
     1. Select **Create new**, and enter the name of a new resource group.
 
-    Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
+    To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
 
 1. For **Region**, select the location for the data factory.
 
@@ -66,9 +66,11 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
 1. For **Version**, select **V2**.
 
+1. Select **Next: Git configuration**, and then select **Configure Git later** check box.
+
 1. Select **Review + create**, and select **Create** after the validation is passed. 
 
-1. After the creation is complete, you see the **Data factory** page. Select the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
+1. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. Select the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application on a separate browser tab.
 
     :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot showing the home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
@@ -110,7 +112,7 @@ In this section, you author a Databricks linked service. This linked service con
     
     1.  Select **Create**.
 
-        ![Screenshot showing the configuration of the new Databricks linked service.](media/transform-data-using-databricks-notebook/new-databricks-linked-service.png)
+        ![Screenshot showing the configuration of the new Azure Databricks linked service.](media/transform-data-using-databricks-notebook/new-databricks-linked-service.png)
 
 ## Create a pipeline
 
@@ -167,7 +169,7 @@ In this section, you author a Databricks linked service. This linked service con
 
 1.  Switch back to the **Data Factory UI authoring tool**. Navigate to **Settings** Tab under the **Notebook1** activity.
 
-    a.  Add a parameter to the Notebook activity. You use the same parameter that you added earlier to the **Pipeline**.
+    a.  Add a **parameter** to the Notebook activity. You use the same parameter that you added earlier to the **Pipeline**.
 
        ![Screenshot showing how to add a parameter.](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
@@ -185,7 +187,7 @@ In this section, you author a Databricks linked service. This linked service con
 
 Select **Add trigger** on the toolbar, and then select **Trigger now**.
 
-![Screenshot showing how to select the Trigger Now command.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-20.png)
+![Screenshot showing how to select the 'Trigger now' command.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-20.png)
 
 The **Pipeline run** dialog box asks for the **name** parameter. Use **/path/filename** as the parameter here. Select **OK**.
 
