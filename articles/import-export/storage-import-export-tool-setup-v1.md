@@ -94,7 +94,7 @@ Repair a Drive:
     WAImportExport.exe RepairImport | RepairExport  
         /r:<RepairFile> [/logdir:<LogDirectory>]  
         [/d:<TargetDirectories>] [/bk:<BitLockerKey>]   
-        [/ManifestFile:<DriveManifestFile>]  
+        [/CopyLogFile:<DriveCopyLogFile>] [/ManifestFile:<DriveManifestFile>]  
         [/PathMapFile:<DrivePathMapFile>]  
 
 Preview an Export Job:  
