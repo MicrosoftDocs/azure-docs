@@ -52,7 +52,10 @@ In this tutorial, you learn how to:
 
 * A [virtual machine](https://azure.microsoft.com/services/virtual-machines) that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the [Create a VM tutorial](../virtual-machines/windows/quick-create-portal.md). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).
 
-## Create blank logic app
+> [!NOTE]
+> The below  trigger isn't supported for function apps running in a Consumption plan.
+
+## Create blank logic app (Multi-tenant)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
