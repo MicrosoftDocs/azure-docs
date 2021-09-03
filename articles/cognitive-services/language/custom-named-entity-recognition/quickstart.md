@@ -18,8 +18,7 @@ In this article, we use the Language  studio to demonstrate key concepts of cust
 
 ## Prerequisites
 
-* The data file for this quickstart, available [on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files).
-
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
 ### Create new resource from Azure portal
 
@@ -41,18 +40,27 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you set the [required permissions](#prerequisites). When you are done, select **Next**. 
- 
+4.  In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. 
+
     >[!NOTE]
     > * You only need to do this step once for each new resource you use. 
     > * This process is irreversible, if you connect a storage account to your resource you cannot disconnect it later.
     > * You can only connect your resource to one storage account.
     > * If you've already connected a storage account, you will see a **Select project type** screen instead. See the next step.
 
+<!--If you're using a preexisting resource, see [creating Azure resources](../concepts/use-azure-resources.md). When you are done, select **Next**.--> 
+
 5. Enter the project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later. 
 
 6. Review the data you entered and select **Create Project**.
 
+## Import the example tagged data
+
+Typically, you would import your data and begin [tagging the entities](how-to/tag-data.md) within it to train the NER model. For this quickstart you will use an example file that already contains tagged data. 
+
+1. [Download the data file](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
+
+2. Select the **Import** button on your project in Language Studio.
 
 ## Train your model
 
@@ -73,7 +81,7 @@ To start training your model:
 
 ## Deploy model
 
-Generally after training a model you would review its evaluation details and made adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
+Generally after training a model you would review its [evaluation details](../custom-classification/how-to/view-model-evaluation.md) and make adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
 
 >[!NOTE]
 >You can only have one deployed model per project. Deploying a new model replaces any existing deployed model.
@@ -96,9 +104,11 @@ Generally after training a model you would review its evaluation details and mad
 
     :::image type="content" source="media/test-model-results.png" alt-text="View the test results" lightbox="media/test-model-results.png":::
 
+After you've tested your model, you can begin [improving the model's performance](how-to/improve-model.md), and [sending NER requests](how-to/submit-task.md).
+
 ## Clean up resources
 
-When you don't need your project anymore, you can delete your project using [Language Studio](https://language.azure.com/customTextNext/projects/extraction). Select **Custom Named Entity Recognition (NER)** in the left navigation menu, select project you want to delete and click on **Delete**.
+When you don't need your project anymore, you can delete your project using [Language Studio](https://language.azure.com/customText/projects/extraction). Select **Custom Named Entity Recognition (NER)** in the left navigation menu, select project you want to delete and click on **Delete**.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: How to send a Custom Named Entity Recognition (NER) job
+title: Submit a Custom Named Entity Recognition (NER) task
 titleSuffix: Azure Cognitive Services
 description: Learn about sending a request for Custom Named Entity Recognition (NER).
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 08/16/2021
 ms.author: aahi
 ---
 
-# Run a Custom Named Entity Recognition (NER) task
+# Submit a Custom Named Entity Recognition (NER) task
 
 After deploying your model, it is ready to be used. You can only send entity recognition tasks through the API, not from Language Studio.
 
@@ -25,7 +25,7 @@ After deploying your model, it is ready to be used. You can only send entity rec
 
 ## Submit a job to the API
 
-1. Go to your project in [Language Studio](https://language.azure.com/customTextNext/projects/extraction).
+1. Go to your project in [Language Studio](https://language.azure.com/customText/projects/extraction).
 
 2. Select **Deploy model** from the left side menu.
 
