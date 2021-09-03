@@ -772,26 +772,34 @@ sections:
           Sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel).
           
       - question: |
-          What does GA mean in the context of OpenTelemetry?
+          How do I determine if OpenTelemetry is right for me?
         answer: |
-          The OpenTelemetry community defines Generally Available (GA) [here](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302). However, OpenTelemetry "GA" does not mean feature parity with the existing Application Insights SDKs. Azure Monitor will continue to recommend our current Application Insights SDKs for customers requiring features such as [pre-aggregated metrics](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), [live metrics](app/live-stream.md), [adaptive sampling](app/sampling.md#adaptive-sampling), [profiler](app/profiler-overview.md), and [snapshot debugger](app/snapshot-debugger.md) until the OpenTelemetry SDKs reach feature maturity.
+          The OpenTelemetry community uses [stable or experimental](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/versioning-and-stability.md) to signal the maturity of an offering. Separately, Azure Monitor uses "Public Preview" and "GA" to signal stability and support committment.
           
+          If you are an existing Azure Monitor Application Insights customer, we **don’t** recommend that you migrate to OpenTelemetry yet (except for Java applications where we recommend our [OpenTelemetry-based offering](./app/java-in-process-agent.md) for everyone which [GA’d in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/)).
+          
+          The current Application Insights SDKs for C# ([ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)) and [Javascript (Node.js)](https://docs.microsoft.com/azure/azure-monitor/app/nodejs) or [Python-OpenCensus](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opencensus-python) offer the most feature-rich experience in Application Insights.
+      
       - question: |
           Can I use Preview builds in production environments?
         answer: |
           It's not recommended. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information.
           
       - question: |
-          What's the difference between OpenTelemetry SDK and auto-instrumentation?
+          What's the difference between manual and auto-instrumentation?
         answer: |
-          The OpenTelemetry specification defines [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk). In short, "SDK" is a language-specific package that collects telemetry data across the various components of your application and sends the data to Azure Monitor via an exporter.
+          Manual instrumentation is coding against the OpenTelemetry API and typically consists of installing a language-specific SDK in an application.
           
-          The concept of auto-instrumentation (sometimes referred to as bytecode injection, codeless, or agent-based) refers to the capability to instrument your application without changing your code. For example, check out the [OpenTelemetry Java Auto-instrumentation Readme](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md) for more information.
+          Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
+          
+          OpenTelemetry auto-instrumentation efforts include a [Java 1.X Offering](https://github.com/open-telemetry/opentelemetry-java-instrumentation), which Microsoft supports via a distro called [Java 3.X](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). [Python](https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-instrumentation) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft does not currently support. All other OpenTelemetry langauges are focused on Manual Instrumentation only.
           
       - question: |
-          What's the OpenTelemetry Collector?
+          Can I use the OpenTelemetry-Collector?
         answer: |
-          The OpenTelemetry Collector is described in its [GitHub readme](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector). Currently Microsoft does not utilize the OpenTelemetry Collector and depends on direct exporters that send to Azure Monitor's Application Insights.
+          Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative even though Microsoft doesn’t officially support an agent-based approach for application monitoring yet. In the meantime, the open source community has contributed an [OpenTelemetry-Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
+          
+          We plan to support an agent-based approach in the future, though the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry supported language to send to Azure Monitor via [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will enable customers to observe applications written in languages beyond our [supported languages](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms). 
           
       - question: |
           What's the difference between OpenCensus and OpenTelemetry?
