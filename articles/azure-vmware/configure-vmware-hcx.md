@@ -2,7 +2,7 @@
 title: Configure VMware HCX in Azure VMware Solution
 description: Configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. 
 ms.topic: tutorial
-ms.date: 09/3/2021
+ms.date: 09/03/2021
 ---
 
 # Configure on-premises VMware HCX Connector
@@ -29,7 +29,7 @@ After you complete these steps, you'll have a production-ready environment for c
 
    - One or more active stretched network segment
 
-- [Software version requirements](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html) have been met.
+- [VMware software version requirements](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html) have been met.
 
 - Your on-premises vSphere environment (source environment) meets the [minimum requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
 
@@ -205,17 +205,18 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
    >
    >:::image type="content" source="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png" alt-text="Screenshot showing the HCX service mesh datastore and host." lightbox="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png":::
 
+The HCX interconnect tunnel status should indicate **UP** and in green. You're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations (with or without a network extension). So you can still migrate workloads in your vSphere environment, along with on-premises creation of networks and deployment of VMs onto those networks. For more information, see the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html). 
+
+
+
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Service Mesh](https://www.youtube.com/embed/COY3oIws108) video.
-
-
-
-
-
-
-
 
 
 ## Next steps
 
-If the HCX interconnect tunnel status is **UP** and green, you're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations (with or without a network extension). You can still migrate workloads in your vSphere environment, along with on-premises creation of networks and deployment of VMs onto those networks. For more information, see the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html).
+Now that you've configure the HCX Connector, you can also:
+
+- [Create a network extension](configure-network-extension.md)
+
+- [Configure VMware HCX Mobility Optimized Networking (MON)](configure-vmware-hcx-mon.md)
 

@@ -21,13 +21,15 @@ In this how-to, you'll:
 * Install HCX Advanced through the Azure portal
 * Download and deploy the VMware HCX Connector OVA
 * Activate HCX Advanced with a license key
-* Uninstall HCX Advanced
+
 
 After you're finished, follow the recommended next steps at the end to continue with the steps of this getting started guide.
 
 ## Prerequisites
 
 - [Prepare for HCX installations](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-A631101E-8564-4173-8442-1D294B731CEB.html)
+
+- If you plan to use VMware HCX Enterprise, make sure you've enabled the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on through a [support request](https://portal.azure.com/#create/Microsoft.Support). It's a free 12-month trial in Azure VMware Solution.
 
 - [VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)
 
