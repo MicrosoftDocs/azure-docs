@@ -3,7 +3,7 @@ title: Guidance for developing Azure Functions
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
-ms.date: 10/12/2017
+ms.date: 9/02/2021
 
 ---
 # Azure Functions developer guide
@@ -106,17 +106,18 @@ For example, the `connection` property for a Azure Blob trigger definition might
 
 Some connections in Azure Functions are configured to use an identity instead of a secret. Support depends on the extension using the connection. In some cases, a connection string may still be required in Functions even though the service to which you are connecting supports identity-based connections.
 
-Identity-based connections are supported by the following trigger and binding extensions in all plans:
+Identity-based connections are supported by the following trigger and binding extensions:
 
 > [!NOTE]
 > Identity-based connections are not supported with Durable Functions.
 
-| Extension name | Extension version                                                                                     |
-|----------------|-------------------------------------------------------------------------------------------------------|
-| Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  |
-| Azure Queue    | [Version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) |
-| Azure Event Hubs    | [Version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) |
-| Azure Service Bus    | [Version 5.0.0-beta2 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) |
+| Extension name | Extension version                                                                                     | Plans supported     |
+|----------------|-------------------------------------------------------------------------------------------------------|---------------------|
+| Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | All                 |
+| Azure Queue    | [Version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | All                 |
+| Azure Event Hubs    | [Version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | All            |
+| Azure Service Bus    | [Version 5.0.0-beta2 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | All         |
+| Azure Cosmos DB   | [Version 4.0.0-preview1 or later](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) | Elastic Premium |
 
 
 The storage connections used by the Functions runtime (`AzureWebJobsStorage`) may also be configured using an identity-based connection. See [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity) below.
@@ -137,6 +138,7 @@ The following roles cover the primary permissions needed for each extension in n
 | Azure Queues | [Storage Queue Data Reader](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Storage Queue Data Message Processor](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Storage Queue Data Message Sender](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Storage Queue Data Contributor](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
 | Event Hubs   |    [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
 | Service Bus | [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
+| Azure Cosmos DB | [Cosmos DB Built-in Data Reader](../cosmos-db/how-to-setup-rbac#built-in-role-definitions.md#built-in-role-definitions), [Cosmos DB Built-in Data Contributor](../cosmos-db/how-to-setup-rbac#built-in-role-definitions.md#built-in-role-definitions) |
 
 #### Connection properties
 

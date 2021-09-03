@@ -50,9 +50,27 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) or higher will have different attribute properties which are shown below. JSON documents are deserialized directly as POCO objects so `input[0].Id` will only be available if there is an `Id` property in class `T`.
+Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) or higher will have different attribute properties which are shown below. This example refers to a simple `ToDoItem` type.
 
 ```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
+
+```cs
+using System.Collections.Generic;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
+
+namespace CosmosDBSamplesV2
+{
     public static class CosmosTrigger
     {
         [FunctionName("CosmosTrigger")]
@@ -61,7 +79,7 @@ Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md
             containerName: "containerName",
             Connection = "CosmosDBConnectionSetting",
             LeaseContainerName = "leases",
-            CreateLeaseContainerIfNotExists = true)]IReadOnlyList<T> input, ILogger log)
+            CreateLeaseContainerIfNotExists = true)]IReadOnlyList<ToDoItem> input, ILogger log)
         {
             if (input != null && input.Count > 0)
             {
@@ -70,6 +88,7 @@ Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md
             }
         }
     }
+}
 ```
 
 # [C# Script](#tab/csharp-script)
@@ -234,12 +253,23 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
-In [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) some settings and properties have been removed or renamed. For detailed information about the changes, see [Trigger - configuration](#configuration). Here's a `CosmosDBTrigger` attribute example in a method signature:
+In [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) some settings and properties have been removed or renamed. For detailed information about the changes, see [Trigger - configuration](#configuration). Here's a `CosmosDBTrigger` attribute example in a method signature which refers to a simple `ToDoItem` type:
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
 
 ```csharp
     [FunctionName("DocumentUpdates")]
     public static void Run([CosmosDBTrigger("database", "container", Connection = "CosmosDBConnectionSetting")]
-        IReadOnlyList<T> documents,
+        IReadOnlyList<ToDoItem> documents,  
         ILogger log)
     {
         ...
