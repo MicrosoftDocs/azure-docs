@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
 ms.reviewer: laobri
-author: ssambare
+author: shivanissambare
 ms.date: 09/10/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
