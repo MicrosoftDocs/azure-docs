@@ -28,14 +28,11 @@ Each prebuilt capability has a demo-like experience inside Language Studio that 
 
 * A section for entering text, uploading a file, or choosing a text sample to demonstrate how the capability works. To try the demo, you will need to choose a resource and acknowledge it will incur usage according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). 
 
-> [!div class="mx-imgBorder"]
-> ![Data processing diagram](../Media/studio-try-ux-first.png)  
-
+:::image type="content" source="../media/language-studio-feature.png" alt-text="A screenshot showing a feature in Language Studio" lightbox="../media/language-studio-feature.png":::
 
 After sending text, you'll be able to see a visualization, along with the JSON response. At the bottom of the page, you'll see next steps and the cURL command for the API request you just sent.
 
-> [!div class="mx-imgBorder"]
-> ![Data processing diagram](../Media/studio-try-ux-second.png)  
+:::image type="content" source="../media/language-studio-feature-result.png" alt-text="A screenshot showing the result of a feature in Language Studio" lightbox="../media/language-studio-feature-result.png":::
 
 
 ## Custom features
