@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 08/06/2021
+ms.date: 09/03/2021
 ms.author: lagayhar
 author: lgayhardt
 services: azure-monitor
@@ -17,7 +17,4 @@ Application Insights collects telemetry for those requests which made it to the 
 
 The duration for `serverresponsetime` calculated by Application Insights is not necessarily matching the server response time observed by Web Apps. This is because Application Insights only counts the duration when the request actual reaches user application. If the request is stuck/queued in WebServer, that waiting time will be included in the Web App metrics, but not in Application Insights metrics.
 
-## Release notes
-
-For the latest updates and bug fixes [consult the release notes](../articles/azure-monitor/app//web-app-extension-release-notes.md).
 

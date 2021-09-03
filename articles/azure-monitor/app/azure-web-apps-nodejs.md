@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance Node.js | Microsoft Docs
 description: Application performance monitoring for Azure app services using Node.js. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 09/03/2021
 ms.custom: "devx-track-js"
 ---
 
@@ -17,20 +17,22 @@ Enabling monitoring on your Node.js based web applications running on [Azure App
 
 You can monitor your Node.js apps running in Azure App Service without any code change, just with a couple of simple steps. Application insights for Node.js applications is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps. The integration is in public preview. The integration adds Node.js SDK, which is in GA. 
 
-1. **Select Application Insights** in the Azure control panel for your app service.
+1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Under Settings, choose Application Insights.](./media/azure-web-apps/ai-enable.png)
-   * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
+    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Under Settings, choose Application Insights then enable."::: 
+
+2. Choose to create a new resource, or select an existing Application Insights resource for this application.
 
      > [!NOTE]
      > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
-    ![Instrument your web app.](./media/azure-web-apps/create-resource-01.png)
+    
+    :::image type="content"source="./media/azure-web-apps/change-resource.png" alt-text="Screenshot of Change your resource dropdown."::: 
+    
+3. Once you have specified which resource to use, you are all set to go. 
 
-2. Once you have specified which resource to use, you are all set to go. 
 
-    > [!div class="mx-imgBorder"]
-    > ![Choose options per platform.](./media/azure-web-apps/app-service-node.png)
+    :::image type="content"source="./media/azure-web-apps-nodejs/app-service-node.png" alt-text="Screenshot of instrument your application."::: 
+
 
 ## Enable client-side monitoring
 
@@ -40,7 +42,8 @@ To enable client-side monitoring for your Node.js application, you need to [manu
 
 In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings-nodejs.png)
+:::image type="content"source="./media/azure-web-apps-nodejs/application-settings-nodejs.png" alt-text="App Service Application Settings with available Application Insights settings."::: 
+
 
 ### Application settings definitions
 
@@ -62,7 +65,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
 2. Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.  
 
-    ![Screenshot of https://yoursitename.scm.azurewebsites/applicationinsights results page](./media/azure-web-apps/app-insights-sdk-status.png)
+    :::image type="content"source="./media/azure-web-apps/app-insights-sdk-status.png" alt-text="Screenshot of the link above results page."border ="false"::: 
 
     - Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.` 
 
@@ -125,8 +128,12 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
+## Release notes
+
+For the latest updates and bug fixes [consult the release notes](../articles/azure-monitor/app//web-app-extension-release-notes.md).
+
 ## Next steps
-* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
+* [Monitor Azure Functions with Application Insights](monitor-functions.md).
 * [Enable Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
 * [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.

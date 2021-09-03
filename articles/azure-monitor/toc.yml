@@ -742,7 +742,7 @@
           href: app/azure-web-apps.md
         - name: ASP.NET Core
           href: app/azure-web-apps-netcore.md
-        - name: .NET 
+        - name: ASP.NET 
           href: app/azure-web-apps-net.md
         - name: Java 
           href: app/azure-web-apps-java.md

@@ -2,11 +2,11 @@
 title: Monitor Azure app services performance .NET Core | Microsoft Docs
 description: Application performance monitoring for Azure app services using ASP .NET Core. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 09/03/2021
 ms.custom: "devx-track-js, devx-track-dotnet, devx-track-azurepowershell"
 ---
 
-# Application Monitoring for Azure App Service and ASP .NET Core 
+# Application Monitoring for Azure App Service and ASP.NET Core 
 
 Enabling monitoring on your ASP.NET Core based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. This article will walk you through enabling Azure Monitor application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
@@ -15,11 +15,11 @@ Enabling monitoring on your ASP.NET Core based web applications running on [Azur
 # [Windows](#tab/Windows)
 
 > [!IMPORTANT]
-> The following versions of ASP.NET Core are supported for auto-instrumentation on windows: ASP.NET Core 3.1, and 5.0. Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
+> The following versions of ASP.NET Core are supported for auto-instrumentation on windows: ASP.NET Core 2.1, 3.1, and 5.0. Versions 2.0, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
 
 Targeting the full framework from ASP.NET Core is **not supported** in Windows. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
-In Windows, only Framework dependent deployment is supported.
+In Windows, only [Framework dependent deployment](/dotnet/core/deploying/#publish-framework-dependent) is supported and [self-contained deployment](/dotnet/core/deploying/#publish-self-contained) is not supported.
 
 See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
 
@@ -31,9 +31,7 @@ See the [enable monitoring section](#enable-monitoring ) below to begin setting 
 > [!NOTE]
 > Linux auto-instrumentation App Services portal enablement is in Public Preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
 
-Targeting the full framework from ASP.NET Core is **not supported** in Linux. Use [manual instrumentation](./asp-net-core.md) via code instead.
-
- In Linux, Framework-dependent deployment and self-contained deployment are supported. 
+ In Linux, [Framework-dependent deployment](/dotnet/core/deploying/#publish-framework-dependent) and [self-contained deployment](/dotnet/core/deploying/#publish-self-contained) are supported. 
 
 See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
 
@@ -42,21 +40,20 @@ See the [enable monitoring section](#enable-monitoring ) below to begin setting 
 
 ### Enable monitoring 
 
-1. **Select Application Insights** in the Azure control panel for your app service.
+1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
-    ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
+    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Under Settings, choose Application Insights then enable."::: 
 
-   * Choose to create a new resource, or select an existing Application Insights resource for this application.
+2. Choose to create a new resource, or select an existing Application Insights resource for this application.
 
     > [!NOTE]
     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
-    >[!div class="mx-imgBorder"]
-    >![Instrument your web app](./media/azure-web-apps/ai-create-new.png)
+    :::image type="content"source="./media/azure-web-apps/change-resource.png" alt-text="Screenshot of Change your resource dropdown."::: 
 
 2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled**.
 
-    ![Choose options per platform.](./media/azure-web-apps/choose-options-new-net-core.png)
+    :::image type="content"source="./media/azure-web-apps-netcore/instrument-net-core.png" alt-text="Choose options per platform."::: 
 
 
 ## Enable client-side monitoring
@@ -79,37 +76,20 @@ If for some reason you would like to disable client-side monitoring:
 
 In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-   ![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings.png)
+:::image type="content"source="./media/azure-web-apps-netcore/application-settings-net-core.png" alt-text="App Service Application Settings with available Application Insights settings."::: 
+
 
 ### Application settings definitions
 
 |App setting name |  Definition | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` for Windows or `~3` for Linux |
-|XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled in order to insure optimal performance. | `default` or `recommended`. |
-|InstrumentationEngine_EXTENSION_VERSION | Controls if the binary-rewrite engine `InstrumentationEngine` will be turned on. This setting has performance implications and impacts cold start/startup time. | `~1` |
-|XDT_MicrosoftApplicationInsights_BaseExtensions | Controls if SQL & Azure table text will be captured along with the dependency calls. Performance warning: application cold start up time will be affected. This setting requires the `InstrumentationEngine`. | `~1` |
+|XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled in order to insure optimal performance. | `disabled` or `recommended`. |
 |XDT_MicrosoftApplicationInsights_PreemptSdk | For ASP.NET Core apps only. Enables Interop (interoperation) with Application Insights SDK. Loads the extension side-by-side with the SDK and uses it to send telemetry (disables the Application Insights SDK). |`1`|
 
 
 [!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
 
-
-### Enabling through PowerShell
-
-In order to enable the application monitoring through PowerShell, only the underlying application settings need to be changed. Below is a sample, which enables application monitoring for a website called "AppMonitoredSite" in the resource group "AppMonitoredRG", and configures data to be sent to the "012345678-abcd-ef01-2345-6789abcd" instrumentation key.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-```powershell
-$app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
-$newAppSettings = @{} # case-insensitive hash map
-$app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} # preserve non Application Insights application settings.
-$newAppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"] = "012345678-abcd-ef01-2345-6789abcd"; # set the Application Insights instrumentation key
-$newAppSettings["APPLICATIONINSIGHTS_CONNECTION_STRING"] = "InstrumentationKey=012345678-abcd-ef01-2345-6789abcd"; # set the Application Insights connection string
-$newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable the ApplicationInsightsAgent
-$app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
-```
 
 ## Upgrade monitoring extension/agent - .NET 
 
@@ -119,7 +99,7 @@ Upgrading from version 2.8.9 happens automatically, without any additional actio
 
 To check which version of the extension you're running, go to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
 
-![Screenshot of the U R L path to check the version of the extension you are running](./media/azure-web-apps/extension-version.png)
+:::image type="content"source="./media/azure-web-apps/extension-version.png" alt-text="Screenshot of the URL path to check the version of the extension you are running." border="false"::: 
 
 ### Upgrade from versions 1.0.0 - 2.6.5
 
@@ -143,7 +123,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
 2. Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.  
 
-    ![Screenshot of https://yoursitename.scm.azurewebsites/applicationinsights results page](./media/azure-web-apps/app-insights-sdk-status.png)
+    :::image type="content"source="./media/azure-web-apps/app-insights-sdk-status.png" alt-text="Screenshot of the link above results page."border ="false"::: 
     
     - Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.` 
     
@@ -157,11 +137,12 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
         If it is `false`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey guid to your application settings.
 
     -  In case your application refers to any Application Insights packages, for example if you have previously instrumented (or attempted to instrument) your app with the [ASP.NET Core SDK](./asp-net-core.md), enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you will start seeing the data in Application Insights. 
+    - 
         > [!IMPORTANT]
         > This functionality is in preview 
 
-        ![Enable the setting the existing app](./media/azure-web-apps/netcore-sdk-interop.png)
-
+        :::image type="content"source="./media/azure-web-apps-netcore/interop.png" alt-text="Enable the setting the existing app"::: 
+        
         The data is now going to be sent using codeless approach even if Application Insights SDK was originally used or attempted to be used.
 
         > [!IMPORTANT]
@@ -257,6 +238,7 @@ When you create a web app with the `ASP.NET Core` runtimes in Azure App Services
 
 If you wish to test out codeless server and client-side monitoring for ASP.NET Core in a Azure App Services web app we recommend following the official guides for [creating a ASP.NET Core web app](../../app-service/quickstart-dotnetcore.md) then use the instructions in the current article to enable monitoring.
 
+[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
 ### PHP and WordPress are not supported
 
@@ -264,30 +246,20 @@ PHP and WordPress sites are not supported. There is currently no officially supp
 
 The table below provides a more detailed explanation of what these values mean, their underlying causes, and recommended fixes:
 
-|Problem Value|Explanation|Fix
+|Problem Value |Explanation |Fix |
 |---- |----|---|
-| `AppAlreadyInstrumented:true` | This value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off. It can be due to a reference to `Microsoft.ApplicationInsights.AspNetCore`, or `Microsoft.ApplicationInsights`  | Remove the references. Some of these references are added by default from certain Visual Studio templates, and older versions of Visual Studio may add references to `Microsoft.ApplicationInsights`.
+| `AppAlreadyInstrumented:true` | This value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off. It can be due to a reference to `Microsoft.ApplicationInsights.AspNetCore`, or `Microsoft.ApplicationInsights`  | Remove the references. Some of these references are added by default from certain Visual Studio templates, and older versions of Visual Studio may add references to `Microsoft.ApplicationInsights`. |
 |`AppAlreadyInstrumented:true` | If the application is targeting ASP.NET Core 2.1 or 2.2, this value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off | Customers on .NET Core 2.1,2.2 are [recommended](https://github.com/aspnet/Announcements/issues/287) to use Microsoft.AspNetCore.App meta-package instead. In addition, turn on "Interop with Application Insights SDK" in portal (see the instructions above).|
-|`AppAlreadyInstrumented:true` | This value can also be caused by the presence of Microsoft.ApplicationsInsights dll in the app folder from a previous deployment. | Clean the app folder to ensure that these dlls are removed. Check both your local app's bin directory, and the wwwroot directory on the App Service. (To check the wwwroot directory of your App Service web app: Advanced Tools (Kudu) > Debug console > CMD > home\site\wwwroot).
-|`AppContainsAspNetTelemetryCorrelationAssembly: true` | This value indicates that extension detected references to `Microsoft.AspNet.TelemetryCorrelation` in the application, and will back-off. | Remove the reference.
-|`AppContainsDiagnosticSourceAssembly**:true`|This value indicates that extension detected references to `System.Diagnostics.DiagnosticSource` in the application, and will back-off.| For ASP.NET remove the reference. 
-|`IKeyExists:false`|This value indicates that the instrumentation key is not present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings.
+|`AppAlreadyInstrumented:true` | This value can also be caused by the presence of Microsoft.ApplicationsInsights dll in the app folder from a previous deployment. | Clean the app folder to ensure that these dlls are removed. Check both your local app's bin directory, and the wwwroot directory on the App Service. (To check the wwwroot directory of your App Service web app: Advanced Tools (Kudu) > Debug console > CMD > home\site\wwwroot). |
+|`IKeyExists:false`|This value indicates that the instrumentation key is not present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings. |
 
-### APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported
+## Release notes
 
-If you use APPINSIGHTS_JAVASCRIPT_ENABLED=true in cases where content is encoded, you might get errors like: 
-
-- 500 URL rewrite error
-- 500.53 URL rewrite module error with message Outbound rewrite rules cannot be applied when the content of the HTTP response is encoded ('gzip'). 
-
-This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set to true and content-encoding being present at the same time. This scenario is not supported yet. The workaround is to remove APPINSIGHTS_JAVASCRIPT_ENABLED from your application settings. Unfortunately this means that if client/browser-side JavaScript instrumentation is still required, manual SDK references are needed for your webpages. Follow the [instructions](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) for manual instrumentation with the JavaScript SDK.
-
-
-[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+For the latest updates and bug fixes [consult the release notes](../articles/azure-monitor/app//web-app-extension-release-notes.md).
 
 ## Next steps
 * [Run the profiler on your live app](./profiler.md).
-* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
+* [Monitor Azure Functions with Application Insights](monitor-functions.md).
 * [Enable Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
 * [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
