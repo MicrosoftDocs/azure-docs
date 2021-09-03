@@ -58,7 +58,7 @@ Next, create a C# .NET console application in Visual Studio:
     ```
 	
 	```cmd
-    Install-Package Azure.Messaging.EventHubs.Processor
+    Install-Package Azure.Messaging.EventHubs.Producer
     ```    
 
 ### Write code to send messages to the event hub
