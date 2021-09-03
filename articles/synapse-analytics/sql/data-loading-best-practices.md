@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Best practices for loading data into a dedicated SQL pool Azure Synapse Analytics
+# Best practices for loading data into a dedicated SQL pool in Azure Synapse Analytics
 
 In this article, you'll find recommendations and performance optimizations for loading data.
 
