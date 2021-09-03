@@ -34,7 +34,7 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
 
 3. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
-    :::image type="content"source="./media/azure-web-apps-net/instrument-net.png)" alt-text="Screenshot shows the Application Insights site extensions page with Create new resource selected."::: 
+    :::image type="content"source="./media/azure-web-apps-net/instrument-net.png" alt-text="Screenshot shows the Application Insights site extensions page with Create new resource selected."::: 
  
  Below is a summary of data collected for each route:
         
@@ -170,7 +170,7 @@ The table below provides a more detailed explanation of what these values mean, 
 
 ## Release notes
 
-For the latest updates and bug fixes [consult the release notes](../articles/azure-monitor/app//web-app-extension-release-notes.md).
+For the latest updates and bug fixes [consult the release notes](web-app-extension-release-notes.md).
 
 ## Next steps
 
