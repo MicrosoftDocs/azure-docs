@@ -205,9 +205,6 @@ For the following services, Microsoft engineers will not access any customer dat
 * Content Moderator
 * Personalizer
 
-> [!IMPORTANT]
-> For **Form Recognizer**, Microsoft engineers will not access any customer data in resources created after July 10, 2020.
-
 To request the ability to use the E0 SKU, fill out and submit this [request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using the E0 SKU with LUIS, you'll need to create a new resource from the Azure portal and select E0 as the Pricing Tier. Users won't be able to upgrade from the F0 to the new E0 SKU.
 
 The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using bring your own storage (BYOS), allowing you to achieve similar data controls to Customer Lockbox. Keep in mind that Speech service data stays and is processed in the region where the Speech resource was created. This applies to any data at rest and data in transit. When using customization features, like Custom Speech and Custom Voice, all customer data is transferred, stored, and processed in the same region where your BYOS (if used) and Speech service resource reside.
