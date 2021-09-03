@@ -59,12 +59,14 @@ The following table lists the features of Azure SQL Database that have gone from
 | Changes | Details |
 | --- | --- |
 | **Azure AD-only authentication** | It's now possible to restrict authentication to your Azure SQL Database to Azure Active Directory users only. This feature is currently in public preview. To learn more, see [Azure AD-only authentication](authentication-azure-ad-only-authentication.md). | 
+|||
 
 ## June 2021
 
 | Changes | Details |
 | --- | --- |
 | **Query store hints** | It's now possible to use query hints to optimize your query execution via the OPTION clause. This feature is currently in public preview. To learn more, see [Query store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-current&preserve-view=true). | 
+|||
 
 ## May 2021
 

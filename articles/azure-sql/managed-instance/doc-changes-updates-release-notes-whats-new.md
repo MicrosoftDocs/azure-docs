@@ -22,7 +22,7 @@ For Azure SQL Database, see [What's new](../database/doc-changes-updates-release
 
 ## Feature availability
 
-The following two sections list the features of Azure SQL Managed Instance that are currently in public preview or in general availability. To provide feedback directly to the product group, see [https://aka.ms/sqlfeedback]. 
+The following two sections list the features of Azure SQL Managed Instance that are currently in public preview or in general availability. To provide feedback directly to the product group, see [https://aka.ms/sqlfeedback](https://aka.ms/sqlfeedback). 
 
 ### Public preview
 
