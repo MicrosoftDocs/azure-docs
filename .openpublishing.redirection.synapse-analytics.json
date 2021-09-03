@@ -36,7 +36,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/synapse-analytics/sql-data-warehouse/guidance-for-loading-data.md",
+            "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/guidance-for-loading-data.md",
             "redirect_url": "/azure/synapse-analytics/sql/data-loading-best-practices",
             "redirect_document_id": false
         }
