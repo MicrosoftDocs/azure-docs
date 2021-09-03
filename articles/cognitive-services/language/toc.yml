@@ -212,6 +212,8 @@ items:
     href: concepts/asynchronous-use.md
   - name: Model and endpoint lifecycle
     href: concepts/model-endpoint-lifecycle.md
+  - name: Language Studio
+    href: concepts/language-studio.md
 - name: Enterprise readiness
   items:
     - name: Region support
