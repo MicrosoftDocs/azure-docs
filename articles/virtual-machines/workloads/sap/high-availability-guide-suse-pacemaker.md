@@ -562,7 +562,7 @@ sudo crm resource stop stonith-sbd
 sudo crm configure delete <b>stonith-sbd</b>
 sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    params pcmk_delay_max="15" \
-   op monitor interval="15" timeout="15"
+   op monitor interval="3600" timeout="20"
 </code></pre>
 
 ## Create Azure Fence agent STONITH device
