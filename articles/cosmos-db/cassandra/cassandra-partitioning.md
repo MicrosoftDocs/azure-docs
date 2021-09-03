@@ -86,6 +86,9 @@ With data modeled in this way, multiple records can be assigned to each partitio
 
 :::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Diagram that shows how multiple records can be assigned to each partition, grouped by user." border="false":::
 
+> [!WARNING]
+> When querying data, if you want to filter *only* on the partition key value element of a compound primary key, please ensure that you *explicitly add a secondary index on the partition key*. Azure Cosmos DB Cassandra API does not apply indexes to partition keys by default, and the index in this scenario may significantly improve query performance. Review our article on [secondary indexing](secondary-indexing.md) for more information.
+
 
 ## Composite partition key
 
