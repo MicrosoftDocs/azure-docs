@@ -22,8 +22,8 @@ landingContent:
             url: cache-overview.md
       - linkListType: video
         links:
-          - text: Best practices
-            url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
+         # - text: Best practices
+         #   url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
           - text: Improve performance
             url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
           - text: Security caching

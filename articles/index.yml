@@ -1426,7 +1426,7 @@ productDirectory:
       url: virtual-machines/managed-disks-overview.md
     # Card
     - title: Azure Files
-      summary: File shares that use the standard SMB 3.0 protocol
+      summary: Simple, secure and serverless enterprise-grade cloud file shares
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-azure-files.svg
       azureCategories:
         - storage

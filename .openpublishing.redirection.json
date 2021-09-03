@@ -1,6 +1,36 @@
 {
   "redirections": [
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-start-security-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-perform-security-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-complete-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/authentication/howto-mfaserver-adfs-2012.md",
       "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-adfs-windows-server",
       "redirect_document_id": false
@@ -4379,6 +4409,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/view-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/export-template-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/management/azure-resource-manager-security-controls.md",
       "redirect_url": "/azure/azure-resource-manager/management/security-baseline",
       "redirect_document_id": false
@@ -5374,6 +5409,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/automation-quickstart-create-account.md",
+      "redirect_url": "/azure/automation/quickstarts/create-account-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/automation-quickstart-create-runbook.md",
+      "redirect_url": "/azure/automation/quickstarts/create-powershell-runbook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/automation-quickstart-dsc-configuration.md",
+      "redirect_url": "/azure/automation/quickstarts/dsc-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-graphical.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-powershell.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-python2.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-python-3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/quickstarts/create-powershell-runbook.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking",
       "redirect_document_id": false
@@ -5981,6 +6051,11 @@
     {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
       "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-supported-blob-storage-features.md",
+      "redirect_url": "/azure/storage/blobs/storage-feature-support-in-storage-accounts",
       "redirect_document_id": false
     },
     {
@@ -22347,21 +22422,6 @@
       "source_path_from_root": "/articles/media-services/live-video-analytics-edge/http-data-contract.md",
       "redirect_url": "/azure/media-services/live-video-analytics-edge/http-extension-protocol",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
-      "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-specifications-live-timed-metadata.md",
-      "redirect_url": "/azure/media-services/media-services-specifications-live-timed-metadata",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-specifications-ms-sstr-amendment-hevc.md",
-      "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/media-services/media-services-dotnet-connect-programmatically.md",
@@ -54931,6 +54991,11 @@
     {
       "source_path_from_root": "/articles/azure-monitor/containers/container-insights-log-search.md",
       "redirect_url": "/azure/azure-monitor/containers/container-insights-log-query",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/logs/quick-create-workspace-cli.md",
+      "redirect_url": "/azure/azure-monitor/logs/resource-manager-workspace",
       "redirect_document_id": false
     },
     {
