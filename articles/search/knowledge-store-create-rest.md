@@ -155,7 +155,7 @@ In Postman, go to the **Create Datasource** request, and then to the **Body** pa
 
 Select **Send** to issue the POST request. 
 
-## Create the skillset 
+## Create the skillset
 
 The next step creates the skillset, which specifies both the enhancements to be applied and the knowledge store where the results will be stored. This request sends a [Create Skillset](/rest/api/searchservice/create-skillset) PUT request to `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`.
 
@@ -192,7 +192,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                 { "name": "languageCode", "source": "/document/language" }
             ],
             "outputs": [
-                { "name": "score", "targetName": "sentiment" }
+                { "name": "sentiment", "targetName": "sentiment" }
             ]
         },
         {
@@ -252,7 +252,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                     "source": "/document/reviews_text/pages/*/translated_text"
                     },
                     { 
-                    "name": "sentimentScore",
+                    "name": "sentiment",
                     "source": "/document/reviews_text/pages/*/sentiment"
                     },
                     {
@@ -299,7 +299,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                     { 
                         "tableName": "hotelReviews5InlineProjectionPages", "generatedKeyName": "Pagesid", "sourceContext": "/document/reviews_text/pages/*",
                         "inputs": [
-                            { "name": "SentimentScore", "source": "/document/reviews_text/pages/*/sentiment"},
+                            { "name": "Sentiment", "source": "/document/reviews_text/pages/*/sentiment"},
                             { "name": "LanguageCode", "source": "/document/language"},
                             { "name": "Keyphrases", "source": "/document/reviews_text/pages/*/keyphrases"},
                             { "name": "TranslatedText", "source": "/document/reviews_text/pages/*/translated_text"},
