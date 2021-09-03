@@ -1,37 +1,37 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-browse-partners.md",
+            "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-browse-partners.md",
             "redirect_url": "articles/synapse-analytics/partner/browse-partners",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md",
+            "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md",
             "redirect_url": "articles/synapse-analytics/partner/business-intelligence",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md",
+            "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md",
             "redirect_url": "articles/synapse-analytics/partner/compatibility-issues",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-data-integration.md",
+            "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-data-integration.md",
             "redirect_url": "articles/synapse-analytics/partner/data-integration",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-data-management.md",
+            "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-data-management.md",
             "redirect_url": "articles/synapse-analytics/partner/data-management",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md",
+            "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md",
             "redirect_url": "articles/synapse-analytics/partner/machine-learning-ai",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-system-integration.md",
+            "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-system-integration.md",
             "redirect_url": "articles/synapse-analytics/partner/system-integration",
             "redirect_document_id": false
         }
