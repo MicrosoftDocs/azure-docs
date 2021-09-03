@@ -36,9 +36,6 @@ Additional resources:
     * [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
     * [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Object model
 
 Blob storage offers three types of resources:
@@ -91,7 +88,7 @@ The shared access signature (SAS) is used by code running in the browser to auth
 Follow these steps to get the Blob service SAS URL:
 
 1. In the Azure portal, select your storage account.
-2. Navigate to the **Settings** section and select **Shared access signature**.
+2. Navigate to the **Security + networking** section and select **Shared access signature**.
 3. Scroll down and click the **Generate SAS and connection string** button.
 4. Scroll down further and locate the **Blob service SAS URL** field
 5. Click the **Copy to clipboard** button at the far-right end of the **Blob service SAS URL** field.

@@ -268,6 +268,17 @@ groups:
     title: JavaScript
   - id: programming-language-curl
     title: REST
+- id: programming-languages-cs-cpp-py
+# Owner: lajanuar
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-python
+    title: Python
 # To be enabled later.
 #  - id: programmer-tool-spx
 #    title: CLI
@@ -1261,6 +1272,19 @@ groups:
   pivots:
   - id: programming-language-ansi-c
     title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+- id: iot-hub-set1
+# Owner: philmea
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-nodejs

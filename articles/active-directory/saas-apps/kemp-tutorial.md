@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 07/30/2021
 ms.author: jeedes
 ---
 
@@ -28,11 +28,14 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Kemp LoadMaster Azure AD integration single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Kemp LoadMaster Azure AD integration supports **IDP** initiated SSO
+* Kemp LoadMaster Azure AD integration supports **IDP** initiated SSO.
 
 ## Add Kemp LoadMaster Azure AD integration from the gallery
 
@@ -206,7 +209,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
 ### Import IdP certificate
 
-Go to Kemp LoadMaster Azure AD integration Web Console 
+Go to Kemp LoadMaster Azure AD integration Web Console. 
 
 1. Click Intermediate Certificates under Certificates and Authority.
 
@@ -248,7 +251,7 @@ Go to Manage SSO under Virtual Services.
 
 ### Set Authentication  
  
-On Kemp LoadMaster Azure AD integration Web Console
+On Kemp LoadMaster Azure AD integration Web Console.
 
 1. Click on Virtual Services.
 
@@ -270,7 +273,7 @@ On Kemp LoadMaster Azure AD integration Web Console
 
 ### Verify the changes 
  
-Browse to the application URL 
+Browse to the application URL. 
 
 You should see your tenanted login page instead of unauthenticated access previously. 
 

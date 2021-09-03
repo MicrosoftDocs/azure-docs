@@ -4,7 +4,7 @@ metadata:
   description: This article answers frequently asked questions about Azure Video Analyzer.
   ms.service: azure-video-analyzer
   ms.topic: conceptual
-  ms.date: 07/19/2021
+  ms.date: 06/01/2021
     
 title: FAQ about Azure Video Analyzer
 summary: This article answers commonly asked questions about Azure Video Analyzer.
@@ -37,6 +37,10 @@ sections:
           
           Yes. For more information, see [Linux containers on Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
           
+          **I am using a virtual machine as simulated edge device. Can I resize the VM config after deployment?**
+          
+          Yes, you can [scale a VM up or down to a different size](../../virtual-machines/windows/resize-vm.md) after edge modules such as Azure Video Analyzer have been deployed to it. You may need to restart the IoT Edge module on your virtual machine. For a Linux VM, use command `sudo systemctl restart iotedge`. If live pipelines had been running, they should resume after the restart completes. You would see interrruptions in the output from the pipeline (example: inference events, video recording) during the restart.
+   
       - question: Capture from IP camera and RTSP settings
         answer: |
           **Do I need to use a special SDK on my device to send in a video stream?**
@@ -105,7 +109,7 @@ sections:
           
            First, be sure that your server can either handle more than one request at a time or work in parallel threads. 
           
-          For example, a default number of parallel channels has been set in the following [Azure Video Analyzer gRPC sample](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/analyze-live-video-use-your-model-grpc): 
+          For example, a default number of parallel channels has been set in the following [Azure Video Analyzer gRPC sample](./analyze-live-video-use-your-model-grpc.md): 
           
           ```
           server = grpc.server(futures.ThreadPoolExecutor(max_workers=3)) 

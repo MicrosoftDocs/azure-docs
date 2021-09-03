@@ -4,9 +4,9 @@ description: Use Azure Data Factory and Copy Activity to copy data from a source
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.workload: data-services 
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 07/06/2021
 ---
 

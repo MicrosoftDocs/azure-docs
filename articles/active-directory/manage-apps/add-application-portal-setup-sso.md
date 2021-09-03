@@ -17,9 +17,7 @@ ms.reviewer: ergleenl
 
 # Quickstart: Enable single sign-on
 
-In this quickstart you use the Azure Active Directory Admin Center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. 
-
-Azure AD has a gallery that contains thousands of pre-integrated applications that use SSO. This quickstart uses an enterprise application named **Azure AD SAML Toolkit** as an example, but the concepts apply for most pre-configured [enterprise applications in the gallery](../saas-apps/tutorial-list.md).
+In this quickstart you use the Azure Active Directory Admin Center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. Azure AD has a gallery that contains thousands of pre-integrated applications that use SSO. This quickstart uses an enterprise application named **Azure AD SAML Toolkit** as an example, but the concepts apply for most pre-configured [enterprise applications in the gallery](../saas-apps/tutorial-list.md).
 
 It is recommended that you use a non-production environment to test the steps in this quickstart.
 

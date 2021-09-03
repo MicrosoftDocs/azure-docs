@@ -3,7 +3,7 @@ title: Deploy modules at scale using Azure CLI - Azure IoT Edge
 description: Use the IoT extension for Azure CLI to create automatic deployments for groups of IoT Edge devices
 keywords: 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 10/13/2020
 ms.topic: conceptual
@@ -150,6 +150,11 @@ Here's a basic layered deployment manifest with one module as an example:
   }
 }
 ```
+>[!NOTE]
+> Take note that this layered deployment manifest has a slightly different format than a standard deployment manifest. The desired properties of the runtime modules are collapsed using dot notation. This formatting is required for the Azure portal to recognize a layered deployment. For example:
+>
+>  - `properties.desired.modules.<module_name>`
+>  - `properties.desired.routes.<route_name>`
 
 The previous example showed a layered deployment setting the `properties.desired` for a module. If this layered deployment targeted a device where the same module was already applied, it would overwrite any existing desired properties. In order to update, instead of overwrite, desired properties, you can define a new subsection. For example:
 
@@ -161,6 +166,24 @@ The previous example showed a layered deployment setting the `properties.desired
   }
 }
 ```
+
+The same can also be expressed with:
+
+```json
+"SimulatedTEmperatureSensor": {
+  "properties.desired.layeredProperties.SendData" : true,
+  "properties.desired.layeredProperties.SendInterval": 5
+}
+```
+
+>[!NOTE]
+>Currently, all layered deployments must include an edgeAgent object to be considered valid. Even if a layered deployment only updates module properties, include an empty object. For example, `"$edgeAgent":{}`. A layered deployment with an empty edgeAgent object will be shown as **targeted** in the edgeAgent module twin, not **applied**.
+
+In summary, to create a layered deployment:
+
+- Must add the `--layered` flag to the Azure CLI create command
+- It may not contain system modules
+- Must use full 'dot notation' under `$edgeAgent` and `$edgeHub`
 
 For more information about configuring module twins in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment)
 

@@ -133,6 +133,10 @@ Use the What-If tool to simulate a login from the user to the target application
 
 To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see the article [Plan a Conditional Access deployment](plan-conditional-access.md).
 
+## Known issues
+- If you configure sign-in frequency for mobile devices, authentication after each sign-in frequency internal would be slow (can take 30 seconds on average). Also, it could happen across various apps at the same time. 
+- In iOS devices, if an app configures certificates as the first authentication factor and the app has both Sign-in frequency and [Intune mobile application management](/mem/intune/apps/app-lifecycle) policies applied, the end-users will be blocked from signing in to the app when the policy is triggered.
+
 ## Next steps
 
 * If you are ready to configure Conditional Access policies for your environment, see the article [Plan a Conditional Access deployment](plan-conditional-access.md).

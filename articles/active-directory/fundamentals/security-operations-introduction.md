@@ -139,7 +139,7 @@ For the best results, we recommend that you monitor your domain controllers usin
 
 * [Connect Microsoft Defender for Identity to Active Directory quickstart](/defender-for-identity/install-step2)
 
-If you do not plan to use Microsoft Defender for identity, you can monitor your domain controllers either by event log messages or by running PowerShell cmdlets. 
+If you do not plan to use Microsoft Defender for identity, you can [monitor your domain controllers either by event log messages](/windows-server/identity/ad-ds/plan/security-best-practices/monitoring-active-directory-for-signs-of-compromise) or by [running PowerShell cmdlets](/windows-server/identity/ad-ds/deploy/troubleshooting-domain-controller-deployment). 
 
 ## Components of hybrid authentication
 

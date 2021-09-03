@@ -3,11 +3,9 @@
   - name: Azure Resiliency feature page
     href: https://azure.microsoft.com/features/resiliency
   - name: Design resilient applications for Azure
-    href: /azure/architecture/resiliency/
+    href: /azure/architecture/framework/resiliency/app-design
 - name: High Availability
   items:
-  - name: High availability for Azure applications
-    href: /azure/architecture/resiliency/high-availability-azure-applications
   - name: Regions and Availability Zones
     href: az-overview.md
   - name: Availability Zones Documentation

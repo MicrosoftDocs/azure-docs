@@ -2,13 +2,12 @@
 title: Offline Backup with Azure Data Box for DPM and MABS
 description: You can use Azure Data Box to seed initial Backup data offline from DPM and MABS.
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 07/29/2021
 ---
-# Offline seeding using Azure Data Box for DPM and MABS (Preview)
+# Offline seeding using Azure Data Box for DPM and MABS
 
 > [!NOTE]
-> This feature is applicable for Data Protection Manager (DPM) 2019 UR2 and later.<br><br>
-> This feature is currently in preview for Microsoft Azure Backup Server (MABS). If you're interested in using Azure Data Box for offline seeding with MABS, reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
+> This feature is applicable for Data Protection Manager (DPM) 2019 UR2 (and later) and MABS v3 UR2 (and later).
 
 This article explains how you can use Azure Data Box to seed initial backup data offline from DPM and MABS to an Azure Recovery Services vault.
 
@@ -211,9 +210,15 @@ To ensure that the failure is due to the [Issue](#issue) above, perform one of t
 
 #### Step 1
 
-Check if you see the following error message in the DPM/MABS console at the time of configuring offline backup:
+Check if you see one of the following error messages in the DPM/MABS console at the time of configuring offline backup:
 
-![Azure recovery services agent](./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png)
+**Unable to create Offline Backup policy for the current Azure account as this server’s authentication information could not be uploaded to Azure. (ID: 100242)**
+
+:::image type="content" source="./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png" alt-text="Azure recovery services agent.":::
+
+**Unable to make service calls to Azure that are required for querying Import Job status and moving backup data into the recovery Services Vault. (ID:100230)**
+
+:::image type="content" source="./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent-error-screen.png" alt-text="Screenshot of error screen for Azure recovery services agent.":::
 
 #### Step 2
 

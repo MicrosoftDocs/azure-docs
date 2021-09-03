@@ -3,8 +3,8 @@ title: 'Tutorial: Query from Power Apps'
 titleSuffix: Azure Cognitive Search
 description: Step-by-step guidance on how to build a Power App that connects to an Azure Cognitive Search index, sends queries, and renders results.
 
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/17/2020
@@ -259,4 +259,4 @@ If you are using a free service, remember that you are limited to three indexes,
 Power Apps enables the rapid application development of custom apps. Now that you know how to connect to a search index, learn more about creating a rich visualize experience in a custom Power App.
 
 > [!div class="nextstepaction"]
-> [Power Apps Learning Catalog](/powerapps/learning-catalog/get-started)
+> [Power Apps Learning Catalog](/powerapps/learning-catalog/bdm#get-started)

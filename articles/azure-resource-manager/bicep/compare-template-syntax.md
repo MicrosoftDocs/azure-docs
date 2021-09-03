@@ -4,7 +4,7 @@ description: Compares Azure Resource Manager templates developed with JSON and B
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/30/2021
 ---
 # Comparing JSON and Bicep for templates
 
