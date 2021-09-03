@@ -592,7 +592,7 @@ public void RemoveEntity(string partitionKey, string rowKey)
 
 ## 7 - Run the code
 
-Run the sample application to interact with the Cosmos DB Table API.  The first time you run the application, there will be no data because the table is empty.  Use any of the four buttons at the top of application to add data to the table.
+Run the sample application to interact with the Cosmos DB Table API.  The first time you run the application, there will be no data because the table is empty.  Use any of the buttons at the top of application to add data to the table.
 
 :::image type="content" source="./media/create-table-dotnet/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Cosmos DB using the Table API" lightbox="./media/create-table-dotnet/table-api-app-data-insert-buttons.png":::
 
@@ -600,15 +600,15 @@ Selecting the **Insert using Table Entity** button opens a dialog allowing you t
 
 :::image type="content" source="./media/create-table-dotnet/table-api-app-insert-table-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using a TableEntity object" lightbox="./media/create-table-dotnet/table-api-app-insert-table-entity.png":::
 
-Selecting the *Insert using Expandable Data* button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Cosmos DB Table API automatically adds properties (columns) to the table when needed.  Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
+Selecting the **Insert using Expandable Data** button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Cosmos DB Table API automatically adds properties (columns) to the table when needed.  Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
 
 :::image type="content" source="./media/create-table-dotnet/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields" lightbox="./media/create-table-dotnet/table-api-app-insert-expandable-entity.png":::
 
-Use the *Insert Bulk Data* button to demonstrate the bulk load capability of the API.  This is also a good way to insert some sample data into your database to work with.
+Use the **Insert Sample Data** button to load some sample data into your Cosmos DB Table.
 
-:::image type="content" source="./media/create-table-dotnet/table-api-app-bulk-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the bulk insert button used to bulk insert sample data" lightbox="./media/create-table-dotnet/table-api-app-bulk-data-insert.png":::
+:::image type="content" source="./media/create-table-dotnet/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button" lightbox="./media/create-table-dotnet/table-api-app-sample-data-insert.png":::
 
-Select the *Filter Results* item in the top menu to be taken to the Filter Results page.  On this page, fill out the filter criteria to demonstrate how a filter clause can be built and passed to the Cosmos DB Table API.
+Select the **Filter Results** item in the top menu to be taken to the Filter Results page.  On this page, fill out the filter criteria to demonstrate how a filter clause can be built and passed to the Cosmos DB Table API.
 
 :::image type="content" source="./media/create-table-dotnet/table-api-app-filter-data-480px.png" alt-text="A screenshot of the application showing filter results page and highlighting the menu item used to navigate to the page" lightbox="./media/create-table-dotnet/table-api-app-filter-data.png":::
 
