@@ -13,7 +13,7 @@ ms.custom: ['Role: Cloud Development']
 
 # Control access to IoT Hub by using Azure Active Directory
 
-You can use Azure Active Directory (Azure AD) to authenticate requests to Azure IoT Hub service APIs, like create device identity and invoke direct method. You can also use Azure role-based access control (Azure RBAC) to authorize those same service APIs. By using these technologies together, you can grant permissions to access IoT Hub service APIs to an Azure AD security principal, which could be a user, group, or application service principal.
+You can use Azure Active Directory (Azure AD) to authenticate requests to Azure IoT Hub service APIs, like create device identity and invoke direct method. You can also use Azure role-based access control (Azure RBAC) to authorize those same service APIs. By using these technologies together, you can grant permissions to access IoT Hub service APIs to an Azure AD security principal. This security principal could be a user, group, or application service principal.
 
 Authenticating access by using Azure AD and controlling permissions by using Azure RBAC provides improved security and ease of use over [security tokens](iot-hub-dev-guide-sas.md). To minimize potential security issues inherent in security tokens, we recommend [using Azure AD with your IoT hub whenever possible](#azure-ad-access-and-shared-access-policies). 
 
@@ -63,25 +63,25 @@ The following table describes the permissions available for IoT Hub service API 
 
 | RBAC action | Description |
 |-|-|
-| Microsoft.Devices/IotHubs/devices/read | Read any device or module identity |
-| Microsoft.Devices/IotHubs/devices/write  | Create or update any device or module identity  |
-| Microsoft.Devices/IotHubs/devices/delete | Delete any device or module identity |
-| Microsoft.Devices/IotHubs/twins/read | Read any device or module twin |
-| Microsoft.Devices/IotHubs/twins/write | Write any device or module twin |
-| Microsoft.Devices/IotHubs/jobs/read | Return a list of jobs |
-| Microsoft.Devices/IotHubs/jobs/write | Create or update any job |
-| Microsoft.Devices/IotHubs/jobs/delete | Delete any job |
-| Microsoft.Devices/IotHubs/cloudToDeviceMessages/send/action | Send a cloud-to-device message to any device  |
-| Microsoft.Devices/IotHubs/cloudToDeviceMessages/feedback/action | Receive, complete, or abandon a cloud-to-device message feedback notification |
-| Microsoft.Devices/IotHubs/cloudToDeviceMessages/queue/purge/action | Delete all the pending commands for a device  |
-| Microsoft.Devices/IotHubs/directMethods/invoke/action | Invoke a direct method on any device or module |
-| Microsoft.Devices/IotHubs/fileUpload/notifications/action  | Receive, complete, or abandon file upload notifications |
-| Microsoft.Devices/IotHubs/statistics/read | Read device and service statistics |
-| Microsoft.Devices/IotHubs/configurations/read | Read device management configurations |
-| Microsoft.Devices/IotHubs/configurations/write | Create or update device management configurations |
-| Microsoft.Devices/IotHubs/configurations/delete | Delete any device management configuration |
-| Microsoft.Devices/IotHubs/configurations/applyToEdgeDevice/action  | Apply the configuration content to an edge device |
-| Microsoft.Devices/IotHubs/configurations/testQueries/action | Validate the target condition and custom metric queries for a configuration |
+| `Microsoft.Devices/IotHubs/devices/read` | Read any device or module identity |
+| `Microsoft.Devices/IotHubs/devices/write`  | Create or update any device or module identity  |
+| `Microsoft.Devices/IotHubs/devices/delete` | Delete any device or module identity |
+| `Microsoft.Devices/IotHubs/twins/read` | Read any device or module twin |
+| `Microsoft.Devices/IotHubs/twins/write` | Write any device or module twin |
+| `Microsoft.Devices/IotHubs/jobs/read` | Return a list of jobs |
+| `Microsoft.Devices/IotHubs/jobs/write` | Create or update any job |
+| `Microsoft.Devices/IotHubs/jobs/delete` | Delete any job |
+| `Microsoft.Devices/IotHubs/cloudToDeviceMessages/send/action` | Send a cloud-to-device message to any device  |
+| `Microsoft.Devices/IotHubs/cloudToDeviceMessages/feedback/action` | Receive, complete, or abandon a cloud-to-device message feedback notification |
+| `Microsoft.Devices/IotHubs/cloudToDeviceMessages/queue/purge/action` | Delete all the pending commands for a device  |
+| `Microsoft.Devices/IotHubs/directMethods/invoke/action` | Invoke a direct method on any device or module |
+| `Microsoft.Devices/IotHubs/fileUpload/notifications/action`  | Receive, complete, or abandon file upload notifications |
+| `Microsoft.Devices/IotHubs/statistics/read` | Read device and service statistics |
+| `Microsoft.Devices/IotHubs/configurations/read` | Read device management configurations |
+| `Microsoft.Devices/IotHubs/configurations/write` | Create or update device management configurations |
+| `Microsoft.Devices/IotHubs/configurations/delete` | Delete any device management configuration |
+| `Microsoft.Devices/IotHubs/configurations/applyToEdgeDevice/action`  | Apply the configuration content to an edge device |
+| `Microsoft.Devices/IotHubs/configurations/testQueries/action` | Validate the target condition and custom metric queries for a configuration |
 
 > [!TIP]
 > - The [Bulk Registry Update](/rest/api/iothub/service/bulkregistry/updateregistry) operation requires both `Microsoft.Devices/IotHubs/devices/write` and `Microsoft.Devices/IotHubs/devices/delete`.
@@ -94,40 +94,40 @@ The following table describes the permissions available for IoT Hub service API 
 
 ## Azure AD access and shared access policies
 
-By default, IoT Hub supports service API access through both Azure AD as well as [shared access policies and security tokens](iot-hub-dev-guide-sas.md). To minimize potential security vulnerabilities inherent in security tokens, disable access with shared access policies: 
+By default, IoT Hub supports service API access through both Azure AD and [shared access policies and security tokens](iot-hub-dev-guide-sas.md). To minimize potential security vulnerabilities inherent in security tokens, disable access with shared access policies: 
 
-1. Ensure that your service clients and users have [sufficient access](#manage-access-to-iot-hub-using-azure-rbac-role-assignment) to your IoT hub following [principle of least privilege](../security/fundamentals/identity-management-best-practices.md).
+1. Ensure that your service clients and users have [sufficient access](#manage-access-to-iot-hub-using-azure-rbac-role-assignment) to your IoT hub. Follow the [principle of least privilege](../security/fundamentals/identity-management-best-practices.md).
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
-1. On the left, select **Shared access policies**.
+1. In the left pane, select **Shared access policies**.
 1. Under **Connect using shared access policies**, select **Deny**.
-    :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot of Azure portal showing how to turn off IoT Hub shared access policies":::
-1. Review the warning, then select **Save**.
+    :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot that shows how to turn off IoT Hub shared access policies.":::
+1. Review the warning, and then select **Save**.
 
-Your IoT hub service APIs can now only be access using Azure AD and RBAC.
+Your IoT Hub service APIs can now be accessed only through Azure AD and RBAC.
 
 ## Azure AD access from the Azure portal
 
-When you try to access IoT Hub, the Azure portal first checks whether you've been assigned an Azure role with **Microsoft.Devices/iotHubs/listkeys/action**. If so, then the Azure portal uses the keys from shared access policies for accessing IoT Hub. If not, the Azure portal tries to access data using your Azure AD account. 
+When you try to access IoT Hub, the Azure portal first checks whether you've been assigned an Azure role with `Microsoft.Devices/iotHubs/listkeys/action`. If you have, the Azure portal uses the keys from shared access policies to access IoT Hub. If not, the Azure portal tries to access data by using your Azure AD account. 
 
-To access IoT Hub from the Azure portal using your Azure AD account, you need permissions to access the IoT hub data resources (like devices and twins), and you also need permissions to navigate to the IoT hub resource in the Azure portal. The built-in roles provided by IoT Hub grant access to resources like devices and twin, but they don't grant access to the IoT Hub resource. So, access to the portal also requires assignment of an Azure Resource Manager (ARM) role like [Reader](../role-based-access-control/built-in-roles.md#reader). The Reader role is a good choice because it's the most restricted role that lets you navigate the portal, and it doesn't include the **Microsoft.Devices/iotHubs/listkeys/action** permission (which gives access to all IoT Hub data resources via shared access policies). 
+To access IoT Hub from the Azure portal by using your Azure AD account, you need permissions to access IoT Hub data resources (like devices and twins). You also need permissions to go to the IoT Hub resource in the Azure portal. The built-in roles provided by IoT Hub grant access to resources like devices and twin. But they don't grant access to the IoT Hub resource. So access to the portal also requires the assignment of an Azure Resource Manager (ARM) role like [Reader](../role-based-access-control/built-in-roles.md#reader). The Reader role is a good choice because it's the most restricted role that lets you navigate the portal. It doesn't include the `Microsoft.Devices/iotHubs/listkeys/action` permission (which provides access to all IoT Hub data resources via shared access policies). 
 
-To ensure an account doesn't have access outside of assigned permissions, *don't* include the **Microsoft.Devices/iotHubs/listkeys/action** permission when creating a custom role. For example, to create a custom role that could read device identities, but cannot create or delete devices, create a custom role that:
-- Has the **Microsoft.Devices/IotHubs/devices/read** data action
-- Doesn't have the **Microsoft.Devices/IotHubs/devices/write** data action
-- Doesn't have the **Microsoft.Devices/IotHubs/devices/delete** data action
-- Doesn't have the **Microsoft.Devices/iotHubs/listkeys/action** action
+To ensure an account doesn't have access outside of the assigned permissions, don't include the `Microsoft.Devices/iotHubs/listkeys/action` permission when you create a custom role. For example, to create a custom role that can read device identities but can't create or delete devices, create a custom role that:
+- Has the `Microsoft.Devices/IotHubs/devices/read` data action.
+- Doesn't have the `Microsoft.Devices/IotHubs/devices/write` data action.
+- Doesn't have the `Microsoft.Devices/IotHubs/devices/delete` data action.
+- Doesn't have the `Microsoft.Devices/iotHubs/listkeys/action` action.
 
-Then, make sure the account doesn't have any other roles that have the **Microsoft.Devices/iotHubs/listkeys/action** permission - such as [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). To let the account have resource access and can navigate the portal, assign [Reader](../role-based-access-control/built-in-roles.md#reader).
+Then, make sure the account doesn't have any other roles that have the `Microsoft.Devices/iotHubs/listkeys/action` permission, like [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). To allow the account to have resource access and navigate the portal, assign [Reader](../role-based-access-control/built-in-roles.md#reader).
 
 ## Azure IoT extension for Azure CLI
 
-Most commands against IoT Hub support Azure AD authentication. The type of auth used to execute commands can be controlled with the `--auth-type` parameter which accepts the values key or login. The value of `key` is set by default.
+Most commands against IoT Hub support Azure AD authentication. You can control the type of authentication used to run commands by using the `--auth-type` parameter, which accepts `key` or `login` values. The `key` value is the default.
 
-- When `--auth-type` has the value of `key`, like before the CLI automatically discovers a suitable policy when interacting with IoT Hub.
+- When `--auth-type` has the `key` value, as before, the CLI automatically discovers a suitable policy when it interacts with IoT Hub.
 
-- When `--auth-type` has the value `login`, an access token from the Azure CLI logged in the principal is used for the operation.
+- When `--auth-type` has the `login` value, an access token from the Azure CLI logged in the principal is used for the operation.
 
-To learn more, see the [Azure IoT extension for Azure CLI release page](https://github.com/Azure/azure-iot-cli-extension/releases/tag/v0.10.12)
+For more information, see the [Azure IoT extension for Azure CLI release page](https://github.com/Azure/azure-iot-cli-extension/releases/tag/v0.10.12).
 
 ## SDK samples
 
