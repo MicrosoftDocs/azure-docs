@@ -107,8 +107,6 @@ GO
 - Role assignments may take up to 5 minutes to become effective. Also for existing sessions, changes to server role assignments don't take effect until the connection is closed and reopened. This is due to the distributed architecture between the *master* database and other databases on the same logical server.
   - Partial workaround: to reduce the waiting period and ensure that server role assignments are current in a database, a server administrator, or an Azure AD administrator can run `DBCC FLUSHAUTHCACHE` in the user database(s) on which the login has access. Current logged on users still have to reconnect after running `DBCC FLUSHAUTHCACHE` for the membership changes to take effect on them.
 
-- Server-level roles in Azure SQL Database can be assigned to SQL logins only. Azure AD logins aren't supported.
-
 - `IS_SRVROLEMEMBER()` isn't supported in the *master* database.
 
 
