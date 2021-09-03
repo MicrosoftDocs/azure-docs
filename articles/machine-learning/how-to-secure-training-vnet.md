@@ -90,7 +90,7 @@ In this article you learn how to secure the following training compute resources
 
     * For compute clusters, one public IP address. If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute will fail.
 
-    * For compute instance, it is now possible to remove the public IP address (a preview feature). If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute will succeed.
+    * For compute instance, it is now possible to remove the public IP address (a preview feature). If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute instance will succeed.
 
     * One load balancer
 
