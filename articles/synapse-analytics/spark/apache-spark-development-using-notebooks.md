@@ -97,10 +97,10 @@ There are multiple ways to add a new cell to your notebook.
 
 Synapse notebooks support four Apache Spark languages:
 
-* pySpark (Python)
+* PySpark (Python)
 * Spark (Scala)
-* SparkSQL
-* .NET for Apache Spark (C#)
+* Spark SQL
+* .NET Spark (C#)
 
 You can set the primary language for new added cells from the dropdown list in the top command bar.
 
