@@ -1,22 +1,71 @@
 ---
-title: Create a VM from a specialized image 
-description: Create a VM using a specialized image in a Shared Image Gallery.
+title: Create a VM from a specialized image version
+description: Create a VM using a specialized image version in a Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 08/05/2021
 ms.author: cynthn
-ms.reviewer: akjosh 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Create a VM using a specialized image 
+# Create a VM using a specialized image version 
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 
-Create a VM from a specialized image version stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM using a generalized image](vm-generalized-image-version-powershell.md).
+Create a VM from a [specialized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM from a generalized image version](vm-generalized-image-version.md).
+
+Replace resource names as needed in these examples. 
+
+### [Portal](#tab/portal)
+
+Now you can create one or more new VMs. This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
+
+1. Go to your image definition. You can use the resource filter to show all image definitions available.
+1. On the page for your image definition, select **Create VM** from the menu at the top of the page.
+1. For **Resource group**, select **Create new** and type *myResourceGroup* for the name.
+1. In **Virtual machine name**, type *myVM*.
+1. For **Region**, select *East US*.
+1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
+1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
+1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
+1. Under **Administrator account**, the username will be greyed out because the username and credentials from the source VM are used.
+1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
+1. When you are finished, select the **Review + create** button at the bottom of the page.
+1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
+
+
+### [CLI](#tab/cli)
+
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
+
+```azurecli-interactive 
+resourceGroup=myGalleryRG
+gallery=myGallery
+az sig image-definition list \
+   --resource-group $resourceGroup \
+   --gallery-name $gallery \
+   --query "[].[name, id]" \
+   --output tsv
+```
+
+Create the VM using [az vm create](/cli/azure/vm#az_vm_create) using the --specialized parameter to indicate the the image is a specialized image. 
+
+Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`. 
+
+In this example, we are creating a VM from the latest version of the *myImageDefinition* image.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
+    --specialized
+```
+
+### [PowerShell](#tab/powershell)
 
 Once you have a specialized image version, you can create one or more new VMs using the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. 
 
@@ -101,33 +150,12 @@ New-AzVM `
 
 ```
 
-## Attach the data disk
-If your image contained a data disk, you need to attach the data disk to the VM.
+---
 
-```azurepowershell-interactive
-
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $resourceGroup 
-
-$lun = $imageVersion.StorageProfile.DataDiskImages.Lun
-
-Add-AzVMDataDisk `
-   -CreateOption FromImage `
-   -SourceImageUri $imageversion.Id `
-   -Lun $lun `
-   -Caching $imageVersion.StorageProfile.DataDiskImages.HostCaching `
-   -DiskSizeInGB $imageVersion.StorageProfile.DataDiskImages.SizeInGB `
-   -VM $vm
-
-```
-
-
-## Next steps
-[Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
+**Next steps**
 
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
 - [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-
-For more information about Shared Image Galleries, see the [Overview](./shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).
