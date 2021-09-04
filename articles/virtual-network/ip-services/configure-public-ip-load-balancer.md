@@ -35,7 +35,7 @@ Finally, the article reviews unique aspects of using public IPs and public IP pr
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](../../virtual-network/create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
-- A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](../../create-public-ip-prefix-portal.md).
+- A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](../../virtual-network/create-public-ip-prefix-portal.md).
     - For the purposes of the example in this article, name the new public IP prefix **myPublicIPPrefixOutbound**.
 
 ## Create load balancer existing public IP
