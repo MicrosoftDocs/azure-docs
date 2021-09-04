@@ -11,6 +11,11 @@ items:
     - name: Public IP security baseline
     href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
 - name: How-to
+  items:
+    - name: Resource management
+      items:
+      - name: Load balancer
+        href: configure-public-ip-load-balancer.md
 - name: Reference
   items:
   - name: Azure CLI
