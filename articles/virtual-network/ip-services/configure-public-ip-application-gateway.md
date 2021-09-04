@@ -92,7 +92,7 @@ In this section, you'll create an Application Gateway resource. You'll select th
 15. Select **Create**.
 
 > [!NOTE]
-> This is a simple deployment of a Application Gateway. For advanced configuration and setup, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](../application-gateway/quick-create-portal.md)
+> This is a simple deployment of a Application Gateway. For advanced configuration and setup, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](../../application-gateway/quick-create-portal.md)
 >
 > For more information on Azure Application Gateway, see [What is Azure Application Gateway?](../../application-gateway/overview.md)
 

@@ -61,7 +61,7 @@ In this section, you'll create an Azure Bastion host. You'll select the IP addre
 7. Select **Create**.
 
 > [!NOTE]
-> For more information on Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
+> For more information on Azure Bastion, see [What is Azure Bastion?](../../bastion/bastion-overview.md)
 
 ## Change or remove public IP address
 
