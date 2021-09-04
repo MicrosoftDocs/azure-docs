@@ -16,7 +16,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
-| Offers | Setup and maintenance of Power BI Visuals is migrating from the Office Store to Partner Center this month. [This FAQ](/azure/marketplace/power-bi-visual-faq) provides a summary of improvements to the offer submission process. | 2021-09-07 |
+| Offers | Setup and maintenance of Power BI Visuals is migrating from the Office Store to the commercial marketplace this month. [This FAQ](/azure/marketplace/power-bi-visual-faq) provides a summary of improvements to the offer submission process. | 2021-09-07 |
 | Offers | Additional properties at the plan level are now available for Azure Virtual Machine offers. See the [virtual machine technical configuration properties](azure-vm-create-plans.md#properties) article for more information. | 2021-07-26 |
 | Fees | Microsoft has changed its fees for certain services. See [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md#examples-of-pricing-and-store-fees) and Common questions about payouts and taxes, "[How do I find the current Store Service Fee and the payout rate?](/partner-center/payout-faq)". | 2021-07-14 |
 | Offers | Publishers can publish a virtual machine (VM) that they have built on premises. To learn more, see [Create a virtual machine using your own image](./azure-vm-create-using-own-image.md). | 2021-06-23 |
