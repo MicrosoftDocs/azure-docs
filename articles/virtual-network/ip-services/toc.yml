@@ -20,6 +20,14 @@ items:
         href: configure-public-ip-nat-gateway.md
       - name: Virtual machine
         href: configure-public-ip-vm.md
+      - name: Firewall
+        href: configure-public-ip-firewall.md
+      - name: VPN gateway
+        href: configure-public-ip-vpn-gateway.md
+      - name: Application gateway
+        href: configure-public-ip-application-gateway.md
+      - name: Bastion
+        href: configure-public-ip-bastion.md
 - name: Reference
   items:
   - name: Azure CLI

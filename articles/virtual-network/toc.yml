@@ -202,16 +202,6 @@
       href: deploy-container-networking.md
   - name: IP services
     items:
-    - name: Resource management
-      items:
-      - name: Firewall
-        href: configure-public-ip-firewall.md
-      - name: VPN gateway
-        href: configure-public-ip-vpn-gateway.md
-      - name: Application gateway
-        href: configure-public-ip-application-gateway.md
-      - name: Bastion
-        href: configure-public-ip-bastion.md
     - name: Create public IP address
       items:
       - name: Create public IP address - Portal
