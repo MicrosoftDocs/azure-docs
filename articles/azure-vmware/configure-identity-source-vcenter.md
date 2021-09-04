@@ -80,7 +80,7 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Name**  | User-friendly name of the external identity source ,for example, **avslap.local**.  |
+   | **Name**  | User-friendly name of the external identity source, for example, **avslap.local**.  |
    | **DomainName**  | The FQDN of the domain.   |
    | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source if you're using SSPI authentications.     |
    | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldap://yourserver:389**.  |
