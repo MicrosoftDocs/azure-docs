@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 08/05/2021
+ms.date: 09/03/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---
@@ -170,6 +170,9 @@ az ml endpoint create --local -n $ENDPOINT_NAME -f endpoints/online/managed/simp
 > If you use a Windows operating system, use `%ENDPOINT_NAME%` instead of `$ENDPOINT_NAME` here and in subsequent commands
 
 The `--local` flag directs the CLI to deploy the endpoint in the Docker environment.
+
+> [!TIP]
+> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug managed online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 ### Verify the local deployment succeeded
 

@@ -8,7 +8,7 @@ ms.subservice: core
 author: petrodeg
 ms.author:  petrodeg
 ms.reviewer: laobri
-ms.date: 05/13/2021
+ms.date: 09/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
 #Customer intent: As a data scientist, I want to figure out why my managed online endpoint deployment failed so that I can fix it.
@@ -38,11 +38,15 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 
 Local deployment is deploying a model to a local Docker environment. Local deployment is useful for testing and debugging before to deployment to the cloud.
 
+> [!TIP]
+> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug managed online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+
 Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. To use local deployment, add `--local` to the appropriate CLI command:
 
 ```azurecli
 az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
+
 As a part of local deployment the following steps take place:
 
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
