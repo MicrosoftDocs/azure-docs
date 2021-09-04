@@ -48,13 +48,13 @@ You can use JetStream DR with Azure VMware Solution for the 
 
 In this scenario, the primary site is your on-premises VMware environment and the DR site is an Azure VMware Solution private cloud.
 
-:::image type="content" source="media/jetstream-disaster-recovery/jetstream-on-premises-to-cloud-diagram.png" alt-text="Diagram showing the on-premises to Azure VMware Solution private cloud JetStream deployment." border="false":::
+:::image type="content" source="media/jetstream-disaster-recovery/jetstream-on-premises-to-cloud-diagram.png" alt-text="Diagram showing the on-premises to Azure VMware Solution private cloud JetStream deployment." border="false" lightbox="media/jetstream-disaster-recovery/jetstream-on-premises-to-cloud-diagram.png":::
 
 ### Scenario 2: Azure VMware Solution to Azure VMware Solution DR
 
 In this scenario, the primary site is an Azure VMware Solution private cloud in one Azure region. The disaster recovery site is an Azure VMware Solution private cloud in a different Azure region. 
 
-:::image type="content" source="media/jetstream-disaster-recovery/jetstream-cloud-to-cloud-diagram.png" alt-text="Diagram showing the Azure VMware Solution private cloud to private cloud JetStream deployment." border="false":::
+:::image type="content" source="media/jetstream-disaster-recovery/jetstream-cloud-to-cloud-diagram.png" alt-text="Diagram showing the Azure VMware Solution private cloud to private cloud JetStream deployment." border="false" lightbox="media/jetstream-disaster-recovery/jetstream-cloud-to-cloud-diagram.png":::
 
 
 ## Prerequisites
