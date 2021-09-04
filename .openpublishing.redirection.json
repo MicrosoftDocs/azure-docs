@@ -5424,6 +5424,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-graphical.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-powershell.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-python2.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-python-3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/quickstarts/create-powershell-runbook.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking",
       "redirect_document_id": false
@@ -6031,6 +6051,11 @@
     {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
       "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-supported-blob-storage-features.md",
+      "redirect_url": "/azure/storage/blobs/storage-feature-support-in-storage-accounts",
       "redirect_document_id": false
     },
     {
