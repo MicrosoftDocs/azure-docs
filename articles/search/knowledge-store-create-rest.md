@@ -123,7 +123,7 @@ Create the index by issuing a PUT request to `https://{{search-service-name}}.se
         { "name": "AzureSearch_DocumentKey", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false, "facetable": false, "key": true },
         { "name": "language", "type": "Edm.String", "filterable": true, "sortable": false, "facetable": true },
         { "name": "translated_text", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
-        { "name": "sentiment", "type": "Collection(Edm.Double)", "searchable": false, "filterable": true, "retrievable": true, "sortable": false, "facetable": true },
+        { "name": "sentiment", "type": "Collection(Edm.String)", "searchable": false, "filterable": true, "retrievable": true, "sortable": false, "facetable": true },
         { "name": "keyphrases", "type": "Collection(Edm.String)", "filterable": true, "sortable": false, "facetable": true }
     ]
 }
@@ -185,7 +185,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
             ]
         },
         {
-            "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
+            "@odata.type": "#Microsoft.Skills.Text.V3.SentimentSkill",
             "context": "/document/reviews_text/pages/*",
             "inputs": [
                 { "name": "text", "source": "/document/reviews_text/pages/*" },
