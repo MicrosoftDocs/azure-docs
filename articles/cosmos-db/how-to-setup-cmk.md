@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 09/03/2021
 ms.author: thweiss 
 ms.custom: devx-track-azurepowershell
 ---
@@ -233,37 +233,73 @@ This access policy ensures that your encryption keys can be accessed by your Azu
 - Azure Cosmos DB's first-party identity can be used to grant access to the Azure Cosmos DB service.
 - Your Azure Cosmos DB account's [managed identity](how-to-setup-managed-identity.md) can be used to grant access to your account specifically.
 
+### To use a system-assigned managed identity
+
 Because a system-assigned managed identity can only be retrieved after the creation of your account, you still need to initially create your account using the first-party identity, as described [above](#add-access-policy). Then:
 
-1. If this wasn't done during account creation, [enable a system-assigned managed identity](how-to-setup-managed-identity.md) on your account and copy the `principalId` that got assigned.
+1.	If this wasn't done during account creation, [enable a system-assigned managed identity](./how-to-setup-managed-identity.md#add-system) on your account and copy the `principalId` that got assigned.
+1.	Add a new access policy to your Azure Key Vault account just as described [above](#add-access-policy), but using the `principalId` you copied at the previous step instead of Azure Cosmos DB's first-party identity.
+1.	Update your Azure Cosmos DB account to specify that you want to use the system-assigned managed identity when accessing your encryption keys in Azure Key Vault. You can do this:
 
-1. Add a new access policy to your Azure Key Vault account, just as described [above](#add-access-policy), but using the `principalId` you copied at the previous step instead of Azure Cosmos DB's first-party identity.
+  - by specifying this property in your account's Azure Resource Manager template:
+  ```json
+  {
+      "type": " Microsoft.DocumentDB/databaseAccounts",
+      "properties": {
+          "defaultIdentity": "SystemAssignedIdentity",
+          // ...
+      },
+      // ...
+  }
+  ```
 
-1. Update your Azure Cosmos DB account to specify that you want to use the system-assigned managed identity when accessing your encryption keys in Azure Key Vault. You can do this:
+  -by updating your account with the Azure CLI:
+  ```azurecli
+      resourceGroupName='myResourceGroup'
+      accountName='mycosmosaccount'
 
-   - by specifying this property in your account's Azure Resource Manager template:
+      az cosmosdb update --resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
+  ```
+  
+1.	Optionally, you can then remove the Azure Cosmos DB first-party identity from your Azure Key Vault access policy.
 
-     ```json
-     {
-         "type": " Microsoft.DocumentDB/databaseAccounts",
-         "properties": {
-             "defaultIdentity": "SystemAssignedIdentity",
-             // ...
-         },
-         // ...
-     }
-     ```
+### To use a user-assigned managed identity
 
-   - by updating your account with the Azure CLI:
+1.	When creating the new access policy in your Azure Key Vault account as described [above](#add-access-policy), use the `Object ID` of the managed identity you wish to use instead of Azure Cosmos DB's first-party identity.
+1.	When creating your Azure Cosmos DB account, you must enable the user-assigned managed identity and specify that you want to use this identity when accessing your encryption keys in Azure Key Vault. You can do this:
 
-     ```azurecli
-     resourceGroupName='myResourceGroup'
-     accountName='mycosmosaccount'
-     
-     az cosmosdb update --resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
-     ```
+  - in an Azure Resource Manager template:
+  ```json
+  {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "identity": {
+          "type": "UserAssigned",
+          "userAssignedIdentities": {
+              "<identity-resource-id>": {}
+          }
+      },
+      // ...
+      "properties": {
+          "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
+          "keyVaultKeyUri": "<key-vault-key-uri>"
+          // ...
+      }
+  }
+  ```
 
-1. Optionally, you can then remove the Azure Cosmos DB first-party identity from your Azure Key Vault access policy.
+  - with the Azure CLI:
+  ```azurecli
+  resourceGroupName='myResourceGroup'
+  accountName='mycosmosaccount'
+  keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+
+  az cosmosdb create \
+      -n $accountName \
+      -g $resourceGroupName \
+      --key-uri $keyVaultKeyUri
+      --assign-identity <identity-resource-id>
+      --default-identity "UserAssignedIdentity=<identity-resource-id>"  
+  ```
 
 ## Key rotation
 
