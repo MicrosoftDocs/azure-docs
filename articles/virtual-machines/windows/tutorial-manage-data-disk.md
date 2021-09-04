@@ -7,10 +7,8 @@ ms.service: storage
 ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 08/23/2021
-ms.custom: mvc, devx-track-azurepowershell
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Windows VMs in Azure.
 ---
 
@@ -27,6 +25,18 @@ This tutorial seems as though it's primarily a primer on disks. Background info 
 Most tutorials in this series (creating, configuring, managing VMs) do not have this amount of content prior to the procedural portion. The exception is "Create VM images", which has a separate "Overview" section at the top of the doc. While this seems appropriate, it appears to go against the tutorial guidance (intro, pre-reqs, free trial offer, and the PowerShell include come before the first H2). 
 
 Beyond that, this tutorial has detailed steps to create a VM in the "Create and attach" section, which is handled differently in the other tutorials. 
+
+-->
+
+<!--
+
+To do:
+
+Remove excessive content
+Add step: Create a VM
+Move "Verify data disk" to before "prepare data disks"
+Change "prepare data disks" to "Initialize data disks"
+Add link to "Initialize..." to show how to do the portal
 
 -->
 
@@ -47,9 +57,10 @@ In this tutorial, you learn about:
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An existing virtual machine. If needed, you can follow the [PowerShell quickstart](quick-create-powershell.md) to create a VM to use for this tutorial. When working through the tutorial, replace the resource names where needed.
 
 ## Launch Azure Cloud Shell
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
@@ -159,6 +170,7 @@ Get-Disk | Where partitionstyle -eq 'raw' |
     New-Partition -AssignDriveLetter -UseMaximumSize |
     Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
+
 
 ### Scripted configuration
 
