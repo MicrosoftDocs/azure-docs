@@ -53,8 +53,8 @@ If you would like to install and use the PowerShell locally, this guide requires
 # [PowerShell](#tab/azure-powershell)
 
 
-## Create a resource group
-A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. 
+### PowerShell - Create a resource group
+A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. You need a resource group to create a storage account.
 
 The following example creates a resource group named *myResourceGroup* in the West US 2 region:
 
@@ -67,9 +67,9 @@ New-AzResourceGroup `
     -Location $region | Out-Null
 ```
 
-## Create a storage account
+### PowerShell - Create a storage account
 
-A storage account is a shared pool of storage you can use to deploy Azure file shares. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. This example creates a general purpose version 2 (GPv2 storage account), which can storage standard Azure file shares or other storage resources such as blobs or queues, on hard-disk drive (HDD) rotational media. Azure Files also supports premium solid-state disk drives (SSDs); premium Azure file shares can be created in FileStorage storage accounts.
+A storage account is a shared pool of storage you can use to deploy Azure file shares.
 
 This example creates a storage account using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet. The storage account is named *mystorageaccount\<random number>* and a reference to that storage account is stored in the variable **$storageAcct**. Storage account names must be unique, so use `Get-Random` to append a number to the name to make it unique. 
 
@@ -87,8 +87,8 @@ $storageAcct = New-AzStorageAccount `
 
 # [Azure CLI](#tab/azure-cli)
 
-## Create a resource group
-A resource group is a logical container in which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can use the [az group create](/cli/azure/group) command to create one. 
+### CLI - Create a resource group
+A resource group is a logical container in which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can use the [az group create](/cli/azure/group) command to create one. You need a resource group to create a storage account.
 
 The following example creates a resource group named *myResourceGroup* in the *West US 2* location:
 
@@ -102,8 +102,8 @@ az group create \
     --output none
 ```
 
-## Create a storage account
-A storage account is a shared pool of storage in which you can deploy Azure file shares or other storage resources, such as blobs or queues. A storage account can contain an unlimited number of file shares. A share can store an unlimited number of files, up to the capacity limits of the storage account.
+### CLI - Create a storage account
+A storage account is a shared pool of storage in which you can deploy Azure file shares.
 
 The following example creates a storage account using the [az storage account create](/cli/azure/storage/account) command. Storage account names must be unique, so use `$RANDOM` to append a number to the name to make it unique.
 
