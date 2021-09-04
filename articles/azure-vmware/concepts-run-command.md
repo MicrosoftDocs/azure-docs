@@ -68,7 +68,7 @@ You can view the status of any executed run command, including the output, error
 
 This method attempts to cancel the execution, and then deletes it upon completion.
 
->[!NOTE]
+>[!IMPORTANT]
 >Method 1 is irreversible.
 
 1. Select **Run command** > **Run execution status** and then select the job you want to cancel.
