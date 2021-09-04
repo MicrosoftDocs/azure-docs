@@ -12,7 +12,7 @@ In Azure VMware Solution, vCenter has a built-in local user called *cloudadmin* 
 
 Azure VMware Solution supports the following operations:
 
-- [Install and uninstall JetStream DR solution](deploy-disaster-recovery-using-jetstream.md)
+- [Install and uninstall the JetStream DR solution](deploy-disaster-recovery-using-jetstream.md)
 
 - [Configure an external identity source](configure-identity-source-vcenter.md)
 
