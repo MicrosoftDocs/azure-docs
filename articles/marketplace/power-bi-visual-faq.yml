@@ -149,6 +149,7 @@ sections:
              - Analytics in Office Store Page
 
                - Analytics in the Office store will show acquisition telemetry for the in-client store only. Analytics for the web store will be shown in the Marketplace Insights report in the commercial marketplace after the offers are migrated.
+               
 
 
 additionalContent: |
