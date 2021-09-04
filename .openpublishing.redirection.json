@@ -56752,6 +56752,16 @@
       "source_path_from_root": "/articles/virtual-network/configure-public-ip-load-balancer.md",
       "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-load-balancer",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/configure-public-ip-nat-gateway.md",
+      "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-nat-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/configure-public-ip-vm.md",
+      "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-vm",
+      "redirect_document_id": false
     }
   ]
 }
