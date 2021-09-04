@@ -56762,6 +56762,26 @@
       "source_path_from_root": "/articles/virtual-network/configure-public-ip-vm.md",
       "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-vm",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/configure-public-ip-firewall.md",
+      "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/configure-public-ip-vpn-gateway.md",
+      "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-vpn-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/configure-public-ip-application-gateway.md",
+      "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-application-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/configure-public-ip-bastion.md",
+      "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-bastion",
+      "redirect_document_id": false
     }
   ]
 }
