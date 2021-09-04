@@ -101,8 +101,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 - A DNS server configured on both the primary and DR sites to resolve the IP addresses of Azure VMware Solution vCenter, Azure VMware Solution ESXi hosts, Azure Storage account, and the JetStream Marketplace service for the JetStream virtual appliances. 
 
 
-For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/pre-installation-guidelines/
-).
+For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/pre-installation-guidelines/).
 
 
 
