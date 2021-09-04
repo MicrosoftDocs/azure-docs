@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 09/03/2021
 ms.author: duau
 ---
 
@@ -116,11 +116,18 @@ The following request headers won't be forwarded to a backend when using caching
 - Content-Length
 - Transfer-Encoding
 
-## Cache duration
+## Cache behavior and duration
 
-Cache duration can be configured in both the Front Door Designer and in Rules Engine. The cache duration set in the Front Door designer is the minimum cache duration. This override won't work if the cache control header from the origin has greater TTL than override value. 
+Cache behavior and duration can be configured in both the Front Door designer routing rule and in Rules Engine.  Rules Engine caching configuration always override the Front Door designer routing rule configuration.
 
-The cache duration set via Rules Engine is a true cache override, meaning that it will use the override value no matter what the origin response header is.
+* When *caching* is **disabled**, Front Door doesn’t cache the response contents, irrespective of origin response directives.
+
+* When *caching* is **enabled**, the cache behavior is different for different values of *Use cache default duration*.
+    * When *Use cache default duration* is set to **Yes**, Front Doors always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days.
+    * When *Use cache default duration* is set to **No**, Front Door always override with the *cache duration* (required fields), meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. 
+
+> [!NOTE]
+> The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override won't work if the cache control header from the origin has greater TTL than override value.
 
 ## Next steps
 
