@@ -78,7 +78,7 @@ sections:
         answer: |
           After we move your offers to the commercial marketplace, you will not be able to access your offers from the Office Store. What you see in Partner Center depends on the programs you are enrolled in, the accounts you belong to, and the user roles and permissions you have been assigned. There are many Partner Center programs available and you may be enrolled in multiple programs. You may also have access to multiple accounts with the same user credentials.
 
-          The Power BI visual offers you created in the Office Store will be available in the commercial marketplace with the same account used to create the original offers. To ensure you are viewing the right program and the right account, follow the steps below. For other troubleshooting tips, see [Manage your Partner Center account](https://docs.microsoft.com/partner-center/partner-center-account-setup).
+          The Power BI visual offers you created in the Office Store will be available in the commercial marketplace with the same account used to create the original offers. To ensure you are viewing the right program and the right account, follow the steps below. For other troubleshooting tips, see [Manage your Partner Center account](/partner-center/partner-center-account-setup).
           
           **Access the right program in Partner Center**
 
@@ -114,7 +114,7 @@ sections:
 
           1. **Enhanced preview options**
 
-             The commercial marketplace provides a compare feature with improved filtering options that allow you to see the changes before publishing your offer and compare it with what is already in preview or available to customers. The updates you don’t publish are saved as drafts. Learn more about the **Compare** feature at [Update existing offers in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/update-existing-offer#compare-changes-to-your-offer)
+             The commercial marketplace provides a compare feature with improved filtering options that allow you to see the changes before publishing your offer and compare it with what is already in preview or available to customers. The updates you don’t publish are saved as drafts. Learn more about the **Compare** feature at [Update existing offers in the commercial marketplace](update-existing-offer.md#compare-changes-to-your-offer)
 
              :::image type="content" source="media/power-bi-visual/enhanced-preview.png" lightbox="media/power-bi-visual/enhanced-preview.png" alt-text="Shows the offer compare page in Partner Center.":::
 
@@ -146,7 +146,7 @@ sections:
 
                    :::image type="content" source="media/power-bi-visual/funnel-view.png" alt-text="Shows the funnel view analytics graph in Partner Center.":::
 
-             - Analytics in Office Store Page
+             - Analytics in the Office Store page
 
                - Analytics in the Office store will show acquisition telemetry for the in-client store only. Analytics for the web store will be shown in the Marketplace Insights report in the commercial marketplace after the offers are migrated.
                
