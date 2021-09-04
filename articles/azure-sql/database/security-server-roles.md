@@ -75,8 +75,7 @@ The examples in this section show how to work with server-level roles in Azure S
 
 ### A. Adding a SQL login to a server-level role
 
-The following example adds the SQL login 'Jiao' to the server-level role ##MS_ServerStateReader##. 
-This statement has to be run in the virtual master database.
+The following example adds the SQL login 'Jiao' to the server-level role ##MS_ServerStateReader##. This statement has to be run in the virtual master database.
   
 ```sql  
 ALTER SERVER ROLE ##MS_ServerStateReader##
@@ -86,8 +85,7 @@ GO
 
 ### B. Listing all principals (SQL authentication) which are members of a server-level role
 
-The following statement returns all members of any fixed server-level role using the `sys.server_role_members` and `sys.sql_logins` catalog views. 
-This statement has to be run in the virtual master database.
+The following statement returns all members of any fixed server-level role using the `sys.server_role_members` and `sys.sql_logins` catalog views. This statement has to be run in the virtual master database.
   
 ```sql  
 SELECT
@@ -103,10 +101,12 @@ INNER JOIN sys.sql_logins AS sql_logins
 ;  
 GO  
 ```  
-### C. Complete example: Adding a Login to a server-role, retrieving metadata for role-membership and permissions, and running a test-query
+### C. Complete example: Adding a login to a server-level role, retrieving metadata for role membership and permissions, and running a test query
 
-Part 1: Preparing role-membership and User-account
-Run this from the virtual master database
+#### Part 1: Preparing role membership and user account
+
+Run this command from the virtual master database.
+
 ```sql  
 ALTER SERVER ROLE ##MS_ServerStateReader##
 	ADD MEMBER Jiao
@@ -129,7 +129,7 @@ INNER JOIN sys.sql_logins AS sql_logins
 GO  
 ``` 
 
-[!INCLUDE[ssResult](../../includes/ssresult-md.md)]
+Here is the result set.
   
 ```
 MemberPrincipalID MemberPrincipalName RolePrincipalID RolePrincipalName        
@@ -137,7 +137,8 @@ MemberPrincipalID MemberPrincipalName RolePrincipalID RolePrincipalName
 6         Jiao      11            ##MS_ServerStateReader##   
 ```  
 
-Run this from a user-database
+Run this command from a user database.
+
 ```sql  
 -- Creating a database-User for 'Jiao'
 CREATE USER Jiao
@@ -146,8 +147,10 @@ CREATE USER Jiao
 GO  
 ``` 
 
-Part 2: Testing role-membership
-Log in as Login Jiao and connect to the user-database used in the example
+#### Part 2: Testing role membership
+
+Log in as login `Jiao` and connect to the user database used in the example.
+
 ```sql  
 -- retrieve server-level permissions of currently logged on User
 SELECT * FROM sys.fn_my_permissions(NULL, 'Server')
