@@ -94,7 +94,7 @@ Your network traffic egressing from origin in Azure destined to CDN provider ben
 
 * Direct connect between CDN provider and origin in Azure provides optimal performance as there are no hops in between. This connection benefits the CDN workload that frequently fetches data from the origin.
 
-For more information about routing preference unmetered, see [What is Routing Preference Unmetered?](../../virtual-network/routing-preference-unmetered.md).
+For more information about routing preference unmetered, see [What is Routing Preference Unmetered?](../../virtual-network/routing-preference-unmetered.md)
 
 ## Next steps
 
