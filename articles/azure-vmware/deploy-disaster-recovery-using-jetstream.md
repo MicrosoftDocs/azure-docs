@@ -238,7 +238,7 @@ For remaining configuration steps for JetStream DR, such as creating a failover 
  
 ## Disable JetStream DR on an Azure VMware Solution cluster  
  
-The `Disable-JetDRForCluster` disables JetStream DR only on one of the clusters and doesn't completely uninstall JetStream DR. 
+This cmdlet disables JetStream DR only on one of the clusters and doesn't completely uninstall JetStream DR. 
 
 1. Select **Run command** > **Packages** > **Disable-JetDRForCluster**.
 
