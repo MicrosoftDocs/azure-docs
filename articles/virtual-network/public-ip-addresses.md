@@ -63,13 +63,7 @@ Standard SKU public IP addresses:
 - Can be used as anycast frontend IPs for [cross-region load balancers](../load-balancer/cross-region-overview.md) (preview functionality).
  
 > [!NOTE]
-> Inbound communication with a standard SKU resource fails until you create and associate a [network security group](./network-security-groups-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
-
-> [!NOTE]
-> Only public IP addresses with basic SKU are available when using [instance metadata service IMDS](../virtual-machines/windows/instance-metadata-service.md). Standard SKU is not supported.
-
-> [!NOTE]
-> Diagnostic settings don't appear under the resource blade when using a standard SKU public IP address. To enable logging on your standard public IP address resource, navigate to diagnostic settings under the Azure Monitor blade and select your IP address resource.
+> Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](./network-security-groups-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
 
 ### Basic
 
@@ -82,10 +76,10 @@ Basic SKU addresses:
 - Don't support [routing preference](routing-preference-overview.md) or [cross-region load balancers](../load-balancer/cross-region-overview.md) functionality.
 
 > [!NOTE]
-> Basic SKU IPv4 addresses can be upgraded after creation to standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](./public-ip-upgrade-portal.md).
+> Basic SKU IPv4 addresses can be upgraded after creation to Standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](./public-ip-upgrade-portal.md).
 
 >[!IMPORTANT]
-> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
+> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of Basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
 
 ## IP address assignment
 
