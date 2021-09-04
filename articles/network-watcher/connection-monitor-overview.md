@@ -89,7 +89,7 @@ The script creates registry keys required by the solution. It also creates Windo
 
 The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
-Note : The LA Windows agent can be multihomed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send to only a single destination, either a workspace or management group.
+The LA Windows agent can be multihomed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send to only a single destination, either a workspace or management group.
 
 #### Enable Network Performance Monitor Solution for on-premise machines 
 
@@ -102,9 +102,9 @@ Follow the following steps to enable Network Performance Monitor Solution for on
 5. Select the Subscription and Workspace in which you wish to enable the solution and click on Create
 6. The Workspace will take a couple of minutes to show up on the Portal after enabling the solution.
 
-:::image type="content" source="./media/connection-monitor/npm-solution-enable.png" alt-text="Screenshot showing how to Add NPM Solution in Connection Monitor" lightbox="./media/connection-monitor/npm-solution-enable.png":::
+:::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Screenshot showing how to Add NPM Solution in Connection Monitor" lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
 
-Note : Unlike LA agents, NPM Solution can only be configured to send data to a single LA workspace. 
+Unlike LA agents, NPM Solution can only be configured to send data to a single LA workspace
 
 ## Enable Network Watcher on your subscription
 
@@ -390,7 +390,7 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 * BGP isn't enabled on the gateway connection.
 * The DIP probe is down at the load balancer.
 
-## Comparision between Azure's Connectivity Monitoring Support 
+## Comparison between Azure's Connectivity Monitoring Support 
 
 You can migrate tests from Network Performance Monitor and Connection Monitor (Classic) to New, Improved Connection Monitor with a single click and with zero downtime.
  
