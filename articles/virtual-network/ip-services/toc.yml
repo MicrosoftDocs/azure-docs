@@ -16,6 +16,10 @@ items:
       items:
       - name: Load balancer
         href: configure-public-ip-load-balancer.md
+      - name: NAT gateway
+        href: configure-public-ip-nat-gateway.md
+      - name: Virtual machine
+        href: configure-public-ip-vm.md
 - name: Reference
   items:
   - name: Azure CLI
