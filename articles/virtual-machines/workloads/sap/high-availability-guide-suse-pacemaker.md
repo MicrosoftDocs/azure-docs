@@ -294,10 +294,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>[...]
    <b>SBD_DEVICE="/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf"</b>
    [...]
-   <b>SBD_PACEMAKER="yes"</b>
+   <b>SBD_PACEMAKER=yes</b>
    [...]
-   <b>SBD_STARTMODE="always"</b>
+   <b>SBD_STARTMODE=always</b>
    [...]
+   <b>SBD_DELAY_START=yes
    </code></pre>
 
    Create the `softdog` configuration file
