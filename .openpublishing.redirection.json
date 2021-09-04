@@ -56747,6 +56747,11 @@
       "source_path_from_root": "/articles/azure-cache-for-redis/cache-best-practices.md",
       "redirect_url": "/azure/azure-cache-for-redis/index",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/configure-public-ip-load-balancer.md",
+      "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-load-balancer",
+      "redirect_document_id": false
     }
   ]
 }
