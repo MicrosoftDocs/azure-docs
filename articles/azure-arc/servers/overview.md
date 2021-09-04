@@ -1,7 +1,7 @@
 ---
 title: Azure Arc-enabled servers Overview
 description: Learn how to use Azure Arc-enabled servers to manage servers hosted outside of Azure like an Azure resource.
-ms.date: 08/18/2021
+ms.date: 08/27/2021
 ms.topic: overview
 ---
 
@@ -39,6 +39,10 @@ When you connect your machine to Azure Arc-enabled servers, it enables the abili
 Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID, to support [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) log access.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+
+To learn more about how Arc-enabled servers can be used to implement Azure monitoring, security, and update services across hybrid and multicloud environments, see the following video.
+
+> [!VIDEO https://www.youtube.com/embed/mJnmXBrU1ao]
 
 ## Supported regions
 

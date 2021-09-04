@@ -4,7 +4,7 @@ description: This article tracks FedRAMP and DoD compliance scope for Azure, Dyn
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
-ms.date: 08/24/2021
+ms.date: 08/27/2021
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -137,11 +137,11 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | |
 | [Azure Scheduler](../../scheduler/scheduler-intro.md) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; | |
 | [Azure Security Center](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | |
-| [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | |
-| [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
-| [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | |
 | [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (incl. [UEBA](../../sentinel/identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba)) | &#x2705; | &#x2705; | |
+| [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
+| [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | |
+| [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | |
 | [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) | &#x2705; | &#x2705; | |
 | [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | &#x2705; | &#x2705; | |
 | [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) | &#x2705; | &#x2705; | |
@@ -188,7 +188,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | &#x2705; | &#x2705; | |
 | [GitHub AE](https://docs.github.com/github-ae@latest/admin/overview/about-github-ae) | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
-| [GitHub Codespaces](https://visualstudio.microsoft.com/services/github-codespaces/) (formerly Visual Studio Codespaces) | &#x2705; | &#x2705; | |
 | [Import/Export](https://azure.microsoft.com/services/storage/import-export/) | &#x2705; | &#x2705; | |
 | [Key Vault](https://azure.microsoft.com/services/key-vault/) | &#x2705; | &#x2705; | |
 | [Load Balancer](https://azure.microsoft.com/services/load-balancer/) | &#x2705; | &#x2705; | |
@@ -203,8 +202,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Intune](/mem/intune/fundamentals/) | &#x2705; | &#x2705; | |
 | [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; | |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)  | &#x2705; | &#x2705; | |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; | |
 | [Power AI Builder](/ai-builder/overview) | &#x2705; | &#x2705; | |
@@ -219,8 +218,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates) | &#x2705; | &#x2705; | |
 | [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/) | &#x2705; | &#x2705; | |
 | [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Storage: Data Movement)](../../storage/common/storage-use-data-movement-library.md) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](../../virtual-machines/managed-disks-overview.md)) | &#x2705; | &#x2705; | |
 | [Storage: Files](https://azure.microsoft.com/services/storage/files/) | &#x2705; | &#x2705; | |
 | [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | &#x2705; | &#x2705; | |

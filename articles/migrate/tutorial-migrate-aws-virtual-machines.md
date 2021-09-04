@@ -351,13 +351,11 @@ After you've verified that the test migration works as expected, you can migrate
     - Stops replication for the AWS VM.
     - Removes the AWS VM from the **Replicating servers** count in Azure Migrate: Server Migration.
     - Cleans up replication state information for the VM.
-2. Install the [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines. Azure VM Windows agent is pre-installed during the migration process.
-3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
-4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
-5. Cut over traffic to the migrated Azure VM instance.
-6. Update any internal documentation to show the new location and IP address of the Azure VMs.
-
-
+1. Verify and [troubleshoot any Windows activation issues on the Azure VM.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
+1. Perform any post-migration app tweaks, such as updating host names, database connection strings, and web server configurations.
+1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
+1. Cut over traffic to the migrated Azure VM instance.
+1. Update any internal documentation to show the new location and IP address of the Azure VMs.
 
 
 ## Post-migration best practices

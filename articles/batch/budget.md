@@ -2,7 +2,7 @@
 title: Get cost analysis and set budgets for Azure Batch
 description: Learn how to get a cost analysis, set a budget, and reduce costs for the underlying compute resources and software licenses used to run your Batch workloads.
 ms.topic: how-to
-ms.date: 01/29/2021
+ms.date: 09/03/2021
 ---
 
 # Get cost analysis and set budgets for Azure Batch
@@ -73,11 +73,9 @@ Depending on your scenario, you may want to reduce costs as much as possible. Co
 
 [Low-priority VMs](batch-low-pri-vms.md) reduce the cost of Batch workloads by taking advantage of surplus computing capacity in Azure. When you specify low-priority VMs in your pools, Batch uses this surplus to run your workload. There can be substantial cost savings when you use low-priority VMs instead of dedicated VMs.
 
-### Select a standard virtual machine OS disk type
+### Use ephemeral OS disks
 
-Azure offers multiple [VM OS disk types](../virtual-machines/disks-types.md). Most VM-series have sizes that support both premium and standard storage. When an 's' VM size is selected for a pool, Batch configures premium SSD OS disks. When the 'non-s' VM size is selected, then the cheaper, standard HDD disk type is used. For example, premium SSD OS disks are used for `Standard_D2s_v3` and standard HDD OS disks are used for `Standard_D2_v3`.
-
-Premium SSD OS disks are more expensive, but have higher performance. VMs with premium disks can start slightly quicker than VMs with standard HDD OS disks. With Batch, the OS disk is often not used much, since the applications and task files are located on the VM's temporary SSD disk. Because of this, you can often select the 'non-s' VM size to avoid paying the increased cost for the premium SSD that is provisioned when an 's' VM size is specified.
+Virtual Machine Configuration pools can use [ephemeral OS disks](create-pool-ephemeral-os-disk.md), which create the OS disk on the VM cache or temporary SSD, to avoid extra costs associated with managed disks.
 
 ### Purchase reservations for virtual machine instances
 
