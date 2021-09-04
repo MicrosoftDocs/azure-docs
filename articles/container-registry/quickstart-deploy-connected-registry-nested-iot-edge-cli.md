@@ -2,7 +2,7 @@
 title: Quickstart - Deploy a connected registry to a nested IoT Edge device
 description: Use Azure Container Registry CLI commands and Azure portal to deploy a connected registry to a nested Azure IoT Edge device.
 ms.topic: quickstart
-ms.date: 08/25/2021
+ms.date: 09/01/2021
 ms.author: memladen
 author: toddysm
 ms.custom:
@@ -12,29 +12,26 @@ ms.custom:
 
 In this quickstart, you use Azure CLI commands to deploy a [connected registry](intro-connected-registry.md) to a nested Azure IoT Edge device.
  
-For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edige.md).
+For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edge.md).
 
-[!INCLUDE [quickstarts](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux?view=iotedge-2018-06)]
+[!INCLUDE [quickstarts](../iot-edge/quickstart-linux.md?view=iotedge-2018-06)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
-## Before you begin
-
-This tutorial also requires that you have the knowledge about set up a connected registry on a IoT Edge device by following the [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md). 
-
-Also, make sure that you have created the connected registry resource in Azure as described in the [Create connected registry using the CLI][quickstart-connected-registry-cli] quickstart guide. Only `mirror` mode will work for this scenario.
+[!INCLUDE [Prepare Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
+* Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli]. A connected registry must be in `mirror` mode for this scenario.
+* Connected registry instance deployed on an IoT Edge device. For deployment steps, see [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md).
 
 ## Retrieve connected registry configuration information
 
-Before deploying the connected registry to the nested IoT Edge device, you will need to retrieve the configuration from the connected registry resource in Azure. Use the [az acr connected-registry install][az-acr-connected-registry-install] command to retrieve the configuration.
+Before deploying the connected registry to the nested IoT Edge device, you will need to retrieve the configuration from the connected registry resource in Azure. Use the [az acr connected-registry install renew-credentials][az-acr-connected-registry-install-renew-credentials] command to retrieve the configuration.
 
 ```azurecli
+# Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the registry
 az acr connected-registry install renew-credentials \
-  --registry mycontainerregistry001 \
+  --registry $REGISTRY_NAME \
   --name myconnectedmirror \
 ```
 
-This will return the connection string for the connected registry including the newly generated passwords.
+This command returns the connection string for the connected registry, including a newly generated password for the sync token.
 
 ```json
 {
@@ -43,22 +40,22 @@ This will return the connection string for the connected registry including the 
 }
 ```
 
-The JSON above lists the environment variables that need to be passed to the connected registry container at run time. The following environment variables are optional:
+The JSON above lists the environment variables that need to be passed to the connected registry container at runtime. The following environment variables are optional:
 
 - `ACR_REGISTRY_LOGIN_SERVER` - this is the hostname or FQDN of the IoT Edge device that hosts the connected registry.
 
 You will need the information for the IoT Edge manifest below.
 
-  > [!IMPORTANT]
-  > Make sure that you save the generated connection string. The connection string contains one-time password that cannot be retrieved. If you issue the command again, new passwords will be generated. You can generate new passwords using the [az acr token credential generate][az-acr-token-credential-generate] command.
+> [!IMPORTANT]
+> Make sure that you save the generated connection string. The connection string contains a one-time password that cannot be retrieved. If you issue the command again, a new password will be generated.
 
 ## Configure a deployment manifest for the nested IoT Edge
 
-A deployment manifest is a JSON document that describes which modules to deploy to the IoT Edge device. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](https://docs.microsoft.com/en-us/azure/iot-edge/module-composition?view=iotedge-2020-11#:~:text=The%20IoT%20Edge%20agent%20module,should%20be%20created%20and%20managed.).
+A deployment manifest is a JSON document that describes which modules to deploy to the IoT Edge device. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](../iot-edge/module-composition.md).
 
-To deploy the connected registry module using the Azure CLI, save the following deployment manifest locally as a `.json` file. 
+To deploy the connected registry module using the Azure CLI, save the following deployment manifest locally as a `manifest.json` file. Use the information from the previous sections to update the relevant JSON values.
 
-[!IMPORTANT] In the following deployment manifest, $upstream will be used as the IP or FQDN of the device hosting parent connected registry. However $upstream is not supported in env variable. The connected registry need read env variable ACR_PARENT_GATEWAY_ENDPOINT to get the parent gateway endpoint. Instead of using $upstream, connected registry supports dynamically resolving the IP or FQDN from another env variable. On the nested IoT, there's env variable $IOTEDGE_PARENTHOSTNAME on lower level that is equal to IP or FQDN of the parent device. We can pass this env variable as the value of ACR_PARENT_GATEWAY_ENDPOINT to avoid hardcode the parent IP or FQDN.
+[!IMPORTANT] In the following deployment manifest, $upstream will be used as the IP or FQDN of the device hosting parent connected registry. However $upstream is not supported in env variable. The connected registry needs to read env variable ACR_PARENT_GATEWAY_ENDPOINT to get the parent gateway endpoint. Instead of using $upstream, connected registry supports dynamically resolving the IP or FQDN from another env variable. On the nested IoT, there's env variable $IOTEDGE_PARENTHOSTNAME on lower level that is equal to IP or FQDN of the parent device. We can pass this env variable as the value of ACR_PARENT_GATEWAY_ENDPOINT to avoid hardcode the parent IP or FQDN.
 
 ```json
 {
@@ -74,7 +71,7 @@ To deploy the connected registry module using the Azure CLI, save the following 
                         "type": "docker",
                         "env": {
                             "ACR_REGISTRY_CONNECTION_STRING": {
-                                "value": "ConnectedRegistryName=myconnectedmirror;SyncTokenName=myconnectedmirror-sync-token;SyncTokenPassword=s0meCoMPL3xP4$$W0rd001!@#;ParentGatewayEndpoint=$IOTEDGE_PARENTHOSTNAME;ParentEndpointProtocol=https"
+                                "value": "ConnectedRegistryName=myconnectedmirror;SyncTokenName=myconnectedmirror-sync-token;SyncTokenPassword=sxxxxxxxxxxxxxxxx;ParentGatewayEndpoint=$IOTEDGE_PARENTHOSTNAME;ParentEndpointProtocol=https"
                             }
                         },
                         "status": "running",
@@ -113,7 +110,7 @@ To deploy the connected registry module using the Azure CLI, save the following 
                         "registryCredentials": {
                             "tsmregistry": {
                                 "address": "$upstream",
-                                "password": "$$$0meCoMPL3xP4$$W0rd001!@#$$",
+                                "password": "xxxxxxxxxxxxxxxx",
                                 "username": "myconnectedmirror-sync-token"
                             }
                         }
@@ -209,11 +206,11 @@ Based on the tutorial, it overall includes the following steps:
     ## Hierarchy of IoT Edge devices to create
     edgedevices:
     device_id: top-layerx
-    edge_agent: "mycontainerregistry001.azurecr.io/azureiotedge-agent:20210609.5" ## Optional. If not provided, default_edge_agent will be used
+    edge_agent: "$REGISTRY_NAME.azurecr.io/azureiotedge-agent:20210609.5" ## Optional. If not provided, default_edge_agent will be used
     deployment: "./templates/tutorial/deploymentTopLayer.json" ## Optional. If provided, the given deployment file will be applied to the newly created device
     # hostname: "FQDN or IP" ## Optional. If provided, install.sh will not prompt user for this value nor the parent_hostname value
     container_auth: // The token used to pull the image from cloud registry
-        serveraddress: "mycontainerregistry001.azurecr.io"
+        serveraddress: "$REGISTRY_NAME.azurecr.io"
         username: "crimagepulltokentop"
         password: "HwBU+ZhB+X9AOmeAq6ZG2G/y2QD=8sfT"
     child:
@@ -284,7 +281,7 @@ To check the status of the connected registry, use the following CLI command:
 
 ```azurecli
 az acr connected-registry show \
-  --registry mycontainerregistry001 \
+  --registry $REGISTRY_NAME \
   --name myconnectedmirror \
   --output table
 ```
@@ -304,7 +301,7 @@ In this quickstart, you learned how to deploy a connected registry to an IoT Edg
 > [Quickstart: Pull images from a connected registry][quickstart-pull-images-from-connected-registry]
 
 <!-- LINKS - internal -->
-[az-acr-connected-registry-install]: /cli/azure/acr#az-acr-connected-registry-install
+[az-acr-connected-registry-install-renew-credentials]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_install_renew_credentials
 [az-acr-import]: /cli/azure/acr#az-acr-import
 [az-acr-token-credential-generate]: /cli/azure/acr/credential#az-acr-token-credential-generate
 [container-registry-intro]: container-registry-intro.md

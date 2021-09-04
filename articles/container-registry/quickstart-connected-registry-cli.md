@@ -2,7 +2,7 @@
 title: Quickstart - Create connected registry using the CLI
 description: Use Azure Container Registry CLI commands to create a connected registry resource.
 ms.topic: quickstart
-ms.date: 08/26/2021
+ms.date: 09/01/2021
 ms.author: memladen
 author: toddysm
 ms.custom:
@@ -10,20 +10,20 @@ ms.custom:
 
 # Quickstart: Create a connected registry using Azure Container Registry CLI commands
 
-In this quickstart, you use the Azure CLI to create a [connected registry](intro-connected-registry.md) resource in Azure. The connected registry feature of Azure Container Registry allows you to deploy a registry on your premises and synchronize images between the cloud and your premises. It brings the container images and OCI artifacts closer to your container workloads on-premises and speed up access to registry artifacts.
+In this quickstart, you use the Azure CLI to create a [connected registry](intro-connected-registry.md) resource in Azure. The connected registry feature of Azure Container Registry allows you to deploy a registry on your premises and synchronize images and other artifiacts between the cloud and your premises. 
 
-In this quickstart, you will create two connected registry resources for an Azure container registry: one connected registry allows artifact pull and push functionality and one allows only artifact pull functionality.
+In this quickstart, you create two connected registry resources for an Azure container registry: one connected registry allows artifact pull and push functionality and one allows only artifact pull functionality. After creating a connected registry, you can follow other quickstart guides to deploy and use a connected registry on your on-premises infrastructure.
 
 [!INCLUDE [Prepare Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
 
-* **Container registry** - f you don't already have a container registry, [create one](container-registry-get-started-azure-cli.md) (Premium tier required). In the command examples in this article, this registry is named *$REGISTRY_NAME*.
+* **Container registry** - f you don't already have a container registry, [create one](container-registry-get-started-azure-cli.md) (Premium tier required). 
 
 ## Enable the dedicated data endpoint for the cloud registry
 
 For the connected registries to communicate with the cloud registry, the dedicated data endpoint for the Azure Container Registry in the cloud should be enabled by using the [az acr update][az-acr-update] command.
 
 ```azurecli
-# Use the following variable in Azure CLI commands
+# Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the registry
 REGISTRY_NAME=<container-registry-name>
 
 az acr update --name $REGISTRY_NAME \
@@ -32,8 +32,9 @@ az acr update --name $REGISTRY_NAME \
 
 ## Import images into the container registry
 
-This and subsequent quickstart guides use two repositories in the registry:
+This and subsequent quickstart guides use images in the following repositories in the registry:
 - `acr/connected-registry` - Images used to deploy the connected registry on your premises. This repository will also be synchronized to the connected registry in case you want to implement a nested registries scenario.
+- `azureiotedge-agent`,`azureiotedge-hub`, and `azureiotedge-api-proxy` - Images used to deploy the connected registry to an IoT Edge device.
 - `hello-world` - Sample image that will be synchronized to the connected registry and pulled by the connected registry clients.
 
 The easiest way to populate those repositories is to use the [az acr import][az-acr-import] command as follows:
@@ -53,7 +54,7 @@ az acr import --name $REGISTRY_NAME \
 
 ## Create a connected registry resource for pull and push functionality
 
-Create a connected registry using the [az acr connected-registry create][az-acr-connected-registry-create] command. Name must start with a letter and contain only alphanumeric characters. It must be 5 to 40 characters long and unique in the hierarchy for this Azure container registry.
+Create a connected registry using the [az acr connected-registry create][az-acr-connected-registry-create] command. The name must start with a letter and contain only alphanumeric characters. It must be 5 to 40 characters long and unique in the hierarchy for this Azure container registry.
 
 ```azurecli
 az acr connected-registry create --registry $REGISTRY_NAME \
@@ -62,16 +63,16 @@ az acr connected-registry create --registry $REGISTRY_NAME \
 ```
 
 This command creates a connected registry resource in Azure and links it to the *$REGISTRY_NAME* cloud registry. 
-* The *hello-world* and *acr/connected-registry* repositories will be synchronized between the cloud ACR and the registry on-premises. 
+* The specified repositories will be synchronized between the cloud ACR and the registry on-premises. 
 * Because no `--mode` option is specified for the connected registry, it allows both pull and push functionality by default. 
-* Because there is no synchronization schedule defined for this connected registry, both repositories will be synchronized between the cloud registry and the connected registry without interruptions.
+* Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 
   > [!IMPORTANT]
   > To support nested scenarios where lower layers have no Internet access, you must always allow synchronization of the `acr/connected-registry` repository. This repository contains the image for the connected registry runtime.
 
 ## Create a connected registry resource for pull-only functionality
 
-You can use the connected registry [az acr connected-registry create][az-acr-connected-registry-create] command to create a connected registry with _pull_-only functionality. 
+You can use the [az acr connected-registry create][az-acr-connected-registry-create] command to create a connected registry with _pull_-only functionality. 
 
 ```azurecli
 az acr connected-registry create --registry $REGISTRY_NAME \
@@ -82,9 +83,9 @@ az acr connected-registry create --registry $REGISTRY_NAME \
 ```
 
 This command creates a connected registry resource in Azure and links it to the *$REGISTRY_NAME* cloud registry. 
-* The *hello-world* repository will be synchronized between the cloud ACR and the registry on-premises.
+* The specified repositories will be synchronized between the cloud ACR and the registry on-premises.
 * This resource will be enabled for pull-only functionality once deployed. 
-* Because there is no synchronization schedule defined for this connected registry, both repositories will be synchronized between the cloud registry and the connected registry without interruptions.
+* Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 
 ## Verify that the resources are created
 
@@ -107,9 +108,7 @@ myconnectedmirror    Mirror    Offline             myconnectedregistry
 
 ## Next steps
 
-In this quickstart, you used the Azure CLI to create two connected registry resources in Azure. Those new connected registry resources are tied to your cloud registry and allow synchronization of artifacts between the cloud registry and the on-premises registry. Continue to the connected registry deployment guides to learn how to deploy and use a 
-
-connected registry on your on-premises infrastructure.
+In this quickstart, you used the Azure CLI to create two connected registry resources in Azure. Those new connected registry resources are tied to your cloud registry and allow synchronization of artifacts between the cloud registry and the on-premises registry. Continue to the connected registry deployment guides to learn how to deploy and use a connected registry on your on-premises infrastructure.
 
 > [Quickstart: Deploy connected registry on IoT Edge][quickstart-deploy-connected-registry-iot-edge-cli]
 
