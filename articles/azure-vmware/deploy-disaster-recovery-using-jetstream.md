@@ -65,7 +65,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 - Azure VMware Solution private cloud deployed with a minimum of three nodes in the target DR region.  
 
 
-   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2a-prerequisite.png" alt-text="Diagram showing the first prerequisite for Scenario 2 of the Zerto DR solution on Azure VMware Solution.":::
+   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2a-prerequisite.png" alt-text="Diagram showing the first prerequisite for Scenario 2 of the Zerto DR solution on Azure VMware Solution." lightbox="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2a-prerequisite.png":::
 
 
 - Network connectivity configured between the primary site JetStream appliances and the Azure Storage blob instance. 
