@@ -11,15 +11,15 @@ ms.date: 08/23/2021
 
 # Tutorial: Configure notebooks with MSTICPy
 
-This tutorial describes how to run the **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup activities with notebooks and basic queries.
+This tutorial describes how to run the **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup activities with Azure Sentinel notebooks and basic queries.
 
-The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook uses MSTICPy, a Python library built by Microsoft for Cybersecurity tools, which provides threat hunting and investigation functionality.
+The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook uses MSTICPy, a Python library of Cybersecurity tools built by Microsoft, which provides threat hunting and investigation functionality.
 
 MSTICPy reduces the amount of code that customers need to write for Azure Sentinel, and provides:
 
 - Data query capabilities, against Azure Sentinel tables, Microsoft Defender for Endpoint, Splunk, and other data sources.
 - Threat intelligence lookups with TI providers, such as VirusTotal and AlienVault OTX.
-- Enrichment functions like GeoIP, IoC extraction, and WhoIs.
+- Enrichment functions like geolocation of IP addresses, Indicator of Compromise (IoC) extraction, and WhoIs lookups.
 - Visualization tools using event timelines, process trees, and geo mapping.
 - Advanced analyses, such as time series decomposition, anomaly detection, and clustering.
 
@@ -27,38 +27,31 @@ The steps in this tutorial describe how to run the **Getting Started Guide for A
 
 For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations) and [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
+> [!NOTE]
+> Several Azure Sentinel notebooks do not use MSTICPy, such as the **Credential Scanner** notebooks, or the PowerShell and C# examples. Notebooks that do not use MSTICpy do not need the MSTICPy configuration described in this article.
+> 
 ## Prerequisites
 
 - To use notebooks in Azure Sentinel, make sure that you have required permissions. For more information, see [Manage access to Azure Sentinel notebooks](notebooks.md#manage-access-to-azure-sentinel-notebooks).
 
-- To perform the steps in this tutorial, you'll need the either the Python 3.8 kernel (recommended) or the Python 3.6 kernel.
+- To perform the steps in this tutorial, you'll need Python 3.6 or later. In Azure ML you can use either a Python 3.8 kernel (recommended) or a Python 3.6 kernel.
 
-- This notebook uses [VirusTotal](https://www.virustotal.com) (VT) as a threat intelligence source. To use a VirusTotal threat intelligence lookup, you'll need a VirusTotal account and API key.
+- This notebook uses [VirusTotal](https://www.virustotal.com) (VT) as a threat intelligence source. To use VirusTotal threat intelligence lookup, you'll need a VirusTotal account and API key.
 
     You can sign up for a free VT account at the [VirusTotal getting started page](https://developers.virustotal.com/v3.0/reference#getting-started). If you're already a VirusTotal user, you can use your existing key.
 
     > [!WARNING]
     > If you're using a VT enterprise key, store it in Azure Key Vault instead of the **msticpyconfig.yaml** file. For more information, see [Specify secrets as Key Vault secrets](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html#specifying-secrets-as-key-vault-secrets) in the MSTICPY documentation.
     >
-    > In such cases, sign up for and use a free account until you can set up Key Vault storage.
+    > If you don’t want to set up an Azure Key Vault right now, sign up for and use a free account until you can set up Key Vault storage.
 
 - An account key for a geolocation lookup service for IP addresses, such as [MaxMind GeoLite2](https://www.maxmind.com) Sign up for a free account and key at the [Maxmind signup page](https://www.maxmind.com/en/geolite2/signup).
 
-> [!NOTE]
-> MSTICPy is only required for Azure Sentinel notebooks that use the MSTICPY library. Azure Sentinel provides other notebooks out of the box that do not use MSTICPy, such as TBD. For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
-> 
 
 ## Run and initialize the Getting Started Guide notebook
 
 This procedure describes how to launch your notebook and initialize MSTICpy.
 
-> [!NOTE]
-> Most Azure Sentinel notebooks start with a MSTICPy initialization cell. Initialization code:
->
-> - Defines the minimum versions for Python and MSTICPy the notebook requires.
-> - Ensures that the latest version of MSTICPy is installed.
-> - Imports and runs the `init_notebook` function.
->
 
 1. In Azure Sentinel, select **Notebooks** from the left.
 
@@ -72,7 +65,7 @@ This procedure describes how to launch your notebook and initialize MSTICpy.
     - Ensures that the latest version of MSTICPy is installed.
     - Imports and runs the `init_notebook` function.
 
-1. Run the following code cell:
+1. Run the following code cell, which includes initialization code:
 
     ```python
     # import some modules needed in this cell
@@ -94,48 +87,42 @@ This procedure describes how to launch your notebook and initialize MSTICpy.
     pd.set_option("display.html.table_schema", False)
     ```
 
-    The initialization status is shown in the output. A configuration warning like `Missing msticpyconfig.yaml` is expected, because you haven't configured anything yet.
+    The initialization status is shown in the output. Configuration warnings about missing settings in the `Missing msticpyconfig.yaml` file are expected because you haven't configured anything yet.
 
+> [!NOTE]
+> Most Azure Sentinel notebooks start with a MSTICpy initialization cell that:
+>
+> - Defines the minimum versions for Python and MSTICPy the notebook requires.
+> - Ensures that the latest version of MSTICPy is installed.
+> - Imports and runs the `init_notebook` function.
+>
 ## Configure the notebook
 
-After basic initialization, some notebook components need configuration to connect to the Azure Sentinel workspace and external services. For example, the **Getting Started Guide** notebook uses [VirusTotal](https://www.virustotal.com) (VT) as a threat intelligence source. To use VirusTotal threat intelligence lookup, you'll need a VirusTotal account and API key.
+After basic initialization, some notebook components need configuration to connect to the Azure Sentinel workspace and external services. For example, the **Getting Started Guide** notebook uses [VirusTotal](https://www.virustotal.com) (VT) as a threat intelligence source.
 
-We recommend that you manage configuration data in a file. By default, an **msticpyconfig.yaml** file is generated by the initialization function, and populated with Azure Sentinel workspace data. Azure Sentinel workspace data is stored in a **config.json** file, which is created when you launch your notebook.
+As many Azure Sentinel notebooks connect to external services such as VirusTotal to collect and enrich data, you must set and store configuration details for these external services, such as authentication tokens and workspace details. Rather than having to set these details each time you use a notebook, you can store them in a configuration file for easier management and re-use.
 
-Saving your configuration data in a file saves you from having to enter configuration details and keys each time you use the notebook.
+MSTICPy uses a **msticpyconfig.yaml** for storing a wide range of configuration details. When you run the notebook initialization steps, the **msticpyconfig.yaml** file is  created for you if it does not already exist in your Azure ML workspace. If you cloned the notebook from the Azure Sentinel portal, the **msticpyconfig.yaml** file is automatically populated with details of the Azure Sentinel workspace you cloned it from.
 
+The following sections describe how to add configuration details to the **msticpyconfig.yaml** file. For more information, see the [MISTICPy Package Configuration documentation](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html).
+
+> [!TIP]
+> At any point in time, select **Help** for more instructions and links to detailed documentation.
+> 
 ### Display the MSTICPy settings editor
 
-1. In a code cell, and and run the following code to import the `MpConfigEdit` tool and display a settings editor for your **msticpyconfig.yaml** file:
+1. In a code cell, run the following code to import the `MpConfigEdit` tool and display a settings editor for your **msticpyconfig.yaml** file:
 
     ```python
     from msticpy.config import MpConfigEdit
-    import os
-
-    mp_conf = "msticpyconfig.yaml"
-
-    # check if MSTICPYCONFIG is already an env variable
-    mp_env = os.environ.get("MSTICPYCONFIG")
-    mp_conf = mp_env if mp_env and Path(mp_env).is_file() else mp_conf
-
-    if not Path(mp_conf).is_file():
-        print(
-            "No msticpyconfig.yaml was found!",
-            "Please check that there is a config.json file in your workspace folder.",
-            "If this is not there, go back to the Azure Sentinel portal and launch",
-            "this notebook from there.",
-            sep="\n"
-        )
-    else:
         mpedit = MpConfigEdit(mp_conf)
         mpedit.set_tab("AzureSentinel")
         display(mpedit)
     ```
 
-    By default, the **msticpyconfig.yaml** settings an entry with your Azure Sentinel workspace name, and an entry named **Default**.
+    The automatically created **msticpyconfig.yaml** file contain an entry with details of the Azure Sentinel workspace that the notebook was cloned from, named **Default**.
 
-    MSTICPy allows you to store configurations for multiple Azure Sentinel workspaces and switch between them. The **Default** entry allows you to authenticate to a specific workspace by default, without having to name it explicitly.
-
+    MSTICPy allows you to store configurations for multiple Azure Sentinel workspaces and switch between them. The **Default** entry allows you to authenticate to a your "home" workspace by default, without having to name it explicitly.
 
     > [!NOTE]
     > In the Azure ML environment, the settings editor might take 10-20 seconds to appear.
@@ -148,7 +135,7 @@ Saving your configuration data in a file saves you from having to enter configur
 
 ### Add threat intelligence provider settings
 
-This procedure describes how to store your [VirusTotal API key](#prerequisites) in the **msticpyconfig.yaml** file, if you don't have them saved in an Azure Key Vault.
+This procedure describes how to store your [VirusTotal API key](#prerequisites) in the **msticpyconfig.yaml** file. You can opt to upload the API key to Azure Key Vault, but you must configure the Key Vault settings first. For more information, see [Key Vault configuration](#key-vault-configuration).
 
 **To add VirusTotal details in the MSTICPy settings editor**:
 
@@ -211,7 +198,7 @@ If you need to make any changes because of the validation, save your changes by 
 
 In the [Configure the notebook](#configure-the-notebook) procedure, you saved your settings to your local **msticpyconfig.yaml** file.
 
-However, MSTICPy doesn't automatically reload these settings. To force MSTICPy to reload from the new configuration file, enter the following code in the next code cell and run it:
+However, MSTICPy doesn't automatically reload these settings until you restart the kernel or run another notebook. To force MSTICPy to reload from the new configuration file, enter the following code in the next code cell and run it:
 
 ```python
 import msticpy
@@ -220,7 +207,7 @@ msticpy.settings.refresh_config()
 
 ## Test your notebook
 
-Now that you've initialized your environment and configured basic settings for your workspace, use the MSTICPy `QueryProvider` class to test the notebook, which queries a data source and makes it available to view and analyze in your notebook.
+Now that you've initialized your environment and configured basic settings for your workspace, use the MSTICPy `QueryProvider` class to test the notebook. `QueryProvider`  queries a data source, in this case your Azure Sentinel workspace, and makes the queried data available to view and analyze in your notebook.
 
 Use the following procedures to load the `QueryProvider` class, authenticate to Azure Sentinel from your notebook, and view and run queries with a variety of different parameter options.
 
@@ -232,8 +219,6 @@ To load the  `QueryProvider` for `AzureSentinel`, enter the following code in an
 # Initialize a QueryProvider for Azure Sentinel
 qry_prov = QueryProvider("AzureSentinel")
 ```
-
-The code passes the workspace details from the **msticpyconfig.yaml** file, and connects.
 
 > [!NOTE]
 > If you see a warning `Runtime dependency of PyGObject is missing` when loading the Azure Sentinel driver, see the [Error: *Runtime dependency of PyGObject is missing*](notebooks.md#error-runtime-dependency-of-pygobject-is-missing).
@@ -279,24 +264,21 @@ Device authorization adds another factor to the authentication by generating a o
 
    :::image type="content" source="media/notebook-get-started/authorization-complete.png" alt-text="Screenshot showing that the device authorization process is complete.":::
 
-> [!NOTE]
-> Once authenticated, you shouldn't need to re-authenticate if you restart the kernel. The Compute caches a *refresh token* that it can reuse until the token times out. You will need to re-authenticate if you restart your Compute instance or switch to a different instance.
+> [!TIP]
+> To avoid having to re-authenticate if you restart the kernel or run another notebooks, you can cache your sign-in token using Azure CLI. The Azure CLI component on the The Compute caches a *refresh token* that it can reuse until the token times out. MSTICPy automatically uses Azure CLI credentials, if they're available. You will need to re-authenticate if you restart your Compute instance or switch to a different instance. For more information, see [Caching credentials with Azure CLI](https://github.com/Azure/Azure-Sentinel-Notebooks/wiki/Caching-credentials-with-Azure-CLI) in the Azure Sentinel notebooks GitHub repository.
 
 ### View the Azure Sentinel workspace data schema and built-in MSTICPy queries
 
-Understand the types of data available to query by querying the Azure Sentinel workspace data schema.
+After you're connected to an Azure Sentinel QueryProvider, you can understand the types of data available to query, by querying the Azure Sentinel workspace data schema.
 
-The AzureSentinel QueryProvider has a `schema_tables` property that gives you a list of schema tables and the column names and data types for each table.
-
-MSTICPy also includes many built-in queries available for you to run. List available queries with `.list_queries()`, and get specific details about a query by calling it with `"?"` as a parameter.
+The AzureSentinel QueryProvider has a `schema_tables` property, which gives you a list of schema tables, and a `schema` property, which also includes the column names and data types for each table.
 
 **To view the first 10 tables in the Azure Sentinel schema**:
 
-Enter the following code in an empty code cell and run it:
+Enter the following code in an empty code cell and run it. You can omit the `[:10]` to list all tables in your workspace.
 
 ```python
 # Get list of tables in the Workspace with the 'schema_tables' property
-print("Sample of first 10 tables in the schema")
 qry_prov.schema_tables[:10]  # Output only a sample of tables for brevity
                              # Remove the "[:10]" to see the whole list
 ```
@@ -315,48 +297,53 @@ Sample of first 10 tables in the schema
      'AADManagedIdentitySignInLogs']
 ```
 
+MSTICPy also includes many built-in queries available for you to run. List available queries with `.list_queries()`, and get specific details about a query by calling it with a question mark (`?`) included as a parameter.
+
 **To view a sample of available queries**:
 
-Enter the following code in an empty code cell and run it:
+Enter the following code in an empty code cell and run it. You can omit the `[::5]` to list all queries.
 
 ```python
 # Get a sample of available queries
-print("Sample of queries")
-print("=================")
 print(qry_prov.list_queries()[::5])  # showing a sample - remove "[::5]" for whole list
+```
 
-# Get help about a query by passing "?" as a parameter
-print("\nHelp for 'list_all_signins_geo' query")
-print("=====================================")
+The following output appears:
+
+```output
+Sample of queries
+=================
+['Azure.get_vmcomputer_for_host', 'Azure.list_azure_activity_for_account', 'AzureNetwork.az_net_analytics', 'AzureNetwork.get_heartbeat_for_ip', 'AzureSentinel.get_bookmark_by_id', 'Heartbeat.get_heartbeat_for_host', 'LinuxSyslog.all_syslog', 'LinuxSyslog.list_logon_failures', 'LinuxSyslog.sudo_activity', 'MultiDataSource.get_timeseries_decompose', 'Network.get_host_for_ip', 'Office365.list_activity_for_ip', 'SecurityAlert.list_alerts_for_ip', 'ThreatIntelligence.list_indicators_by_filepath', 'WindowsSecurity.get_parent_process', 'WindowsSecurity.list_host_events', 'WindowsSecurity.list_hosts_matching_commandline', 'WindowsSecurity.list_other_events']
+```
+
+**To get help about a query by passing `?` as a parameter**:
+
+```python
 qry_prov.Azure.list_all_signins_geo("?")
 ```
 
 The following output appears:
 
 ```output
-    Sample of queries
-    =================
-    ['Azure.get_vmcomputer_for_host', 'Azure.list_azure_activity_for_account', 'AzureNetwork.az_net_analytics', 'AzureNetwork.get_heartbeat_for_ip', 'AzureSentinel.get_bookmark_by_id', 'Heartbeat.get_heartbeat_for_host', 'LinuxSyslog.all_syslog', 'LinuxSyslog.list_logon_failures', 'LinuxSyslog.sudo_activity', 'MultiDataSource.get_timeseries_decompose', 'Network.get_host_for_ip', 'Office365.list_activity_for_ip', 'SecurityAlert.list_alerts_for_ip', 'ThreatIntelligence.list_indicators_by_filepath', 'WindowsSecurity.get_parent_process', 'WindowsSecurity.list_host_events', 'WindowsSecurity.list_hosts_matching_commandline', 'WindowsSecurity.list_other_events']
+Help for 'list_all_signins_geo' query
+=====================================
+Query:  list_all_signins_geo
+Data source:  AzureSentinel
+Gets Signin data used by morph charts
 
-    Help for 'list_all_signins_geo' query
-    =====================================
-    Query:  list_all_signins_geo
-    Data source:  AzureSentinel
-    Gets Signin data used by morph charts
-
-    Parameters
-    ----------
-    add_query_items: str (optional)
-        Additional query clauses
-    end: datetime (optional)
-        Query end time
-    start: datetime (optional)
-        Query start time
-        (default value is: -5)
-    table: str (optional)
-        Table name
-        (default value is: SigninLogs)
-    Query:
+Parameters
+----------
+add_query_items: str (optional)
+    Additional query clauses
+end: datetime (optional)
+    Query end time
+start: datetime (optional)
+    Query start time
+    (default value is: -5)
+table: str (optional)
+    Table name
+    (default value is: SigninLogs)
+Query:
      {table} | where TimeGenerated >= datetime({start}) | where TimeGenerated <= datetime({end}) | extend Result = iif(ResultType==0, "Sucess", "Failed") | extend Latitude = tostring(parse_json(tostring(LocationDetails.geoCoordinates)).latitude) | extend Longitude = tostring(parse_json(tostring(LocationDetails.geoCoordinates)).longitude)
 ```
 
@@ -368,17 +355,17 @@ Enter the following code in an empty code cell and run it:
 qry_prov.browse_queries()
 ```
 
-For a selected query, all required and optional parameters are displayed, together with the full text of the query.
+For the selected query, all required and optional parameters are displayed, together with the full text of the query. For more details about parameters for built in queries see the [MSTICPy documentation](https://msticpy.readthedocs.io/en/latest/data_acquisition/DataProviders.html#running-a-pre-defined-query).
 
 > [!NOTE]
-> While you can't run queries from the browser, you can copy and paste the example at the end of each query to elsewhere in Azure Sentinel.
+> While you can't run queries from the browser, you can copy and paste the example at the end of each query to run elsewhere in the notebook.
 >
 
 ### Run queries with time parameters
 
 Most queries require time parameters, which are difficult to enter and keep track of.
 
-Use MSTICPy's `nbwidgets.QueryTime` class to define built-in `start` and `end` time parameters for queries. These start and end-time parameters are then used any time time parameters are called for and you don't supply them especially.
+Each query provider has default start and end time parameters for queries. These time parameters are used by default, whenever time parameters are called for. You can change the default time range by opening the `query_time` control, and the changes remain in effect until you change them again.
 
 Enter the following code in an empty code cell and run it:
 
@@ -389,19 +376,16 @@ qry_prov.query_time
 
 Define different `start` and `end` query parameters as needed.
 
-### Run a query using a specific time range
+### Run a query using the built-in time range
 
 Query results return as a [Pandas DataFrame](https://pandas.pydata.org). A dataframe is a tabular data structure like a spreadsheet or database table.
 
-The following code cell runs a query using the query provider time settings. If you change the settings, run the code cell again to apply the new settings.
+The following code cell runs a query using the query provider default time settings. If you change the settings, run the code cell again to apply the new settings.
 
 ```python
 # The time parameters are taken from the qry_prov time settings
 # but you can override this by supplying explict "start" and "end" datetimes
 signins_df = qry_prov.Azure.list_all_signins_geo()
-
-if signins_df.empty:
-    md("The query returned no rows for this time range. You might want to increase the time range")
 
 # display first 5 rows of any results
 # If there is no data, just the column headings display
@@ -410,13 +394,39 @@ signins_df.head()
 
 The output displays the first five rows of results. If there's no data, only the column headings display.
 
+### Run a query using a custom time range
+
+You can also create a new query time object and pass it to a query as a parameter:
+
+```python
+# Create and display a QueryTime control.
+time_range = nbwidgets.QueryTime()
+time_range
+```
+
+After you’ve set the desired time range, you can pass the time range to the query function, running the following code in a separate cell from the previous code:
+
+```python
+signins_df = qry_prov.Azure.list_all_signins_geo(time_range)
+signins_df.head()
+```
+
+You can also pass datetime values as Python datetimes or date-time strings using the “start” and “end” parameters:
+
+```python
+from datetime import datetime, timedelta
+q_end = datetime.utc.now()
+q_start = end – timedelta(5)
+signins_df = qry_prov.Azure.list_all_signins_geo(start=q_start, end=q_end)
+```
+
 ### Customize your queries
 
-Most built-in queries support the `add_query_items` parameter.  You can use this parameter to append filters or other operations to the queries.
+You can customize the built-in queries by adding additional query logic, or execute complete queries using the `exec_query` function.
 
 For example:
 
-1. Run the following code cell to add a data frame that summarizes the number of alerts by alert name. If this query returns too many or too few results, you can change the `28` to a smaller or larger number of days.
+1. Most built-in queries support the `add_query_items` parameter. You can use this parameter to append filters or other operations to the queries. Run the following code cell to add a data frame that summarizes the number of alerts by alert name:
 
     ```python
     from datetime import datetime, timedelta
@@ -428,7 +438,7 @@ For example:
     )
     ```
 
-1. Pass a full KQL query string to the query provider. The query runs against the connected workspace, and the data returns as a DataFrame. Run:
+1. Pass a full KQL query string to the query provider. The query runs against the connected workspace, and the data returns as a panda DataFrame. Run:
 
     ```python
     # Define your query
@@ -444,7 +454,7 @@ For example:
 
     ```
 
-For more information, see :
+For more information, see:
 
 - The [MSTICPy query reference](https://msticpy.readthedocs.io/en/latest/data_acquisition/DataQueries.html)
 - [Running MSTICPy pre-defined queries](https://msticpy.readthedocs.io/en/latest/data_acquisition/DataProviders.html#running-an-pre-defined-query)
@@ -455,14 +465,16 @@ Threat intelligence and IP location are two enrichments that are typically appli
 
 **To test threat intelligence lookup**:
 
-To run the VirusTotal provider with a known bad IP address, enter the following code in an empty code cell and run it:
+To use the threat intelligence feature to see if an IP address appears in VirusTotal data, enter the following code in an empty code cell and run it:
 
 ```python
-# Create your TI provider
+# Create your TI provider – Note that you can reuse the TILookup provider (‘ti’) for
+# subsequent queries - you don’t have to create it for each query
+
 ti = TILookup()
 
 # Look up an IP address
-ti_resp = ti.lookup_ioc("85.214.149.236", providers=["VirusTotal"])
+ti_resp = ti.lookup_ioc("85.214.149.236")
 
 ti_df = ti.result_to_df(ti_resp)
 ti.browse_results(ti_df, severities="all")
@@ -474,9 +486,11 @@ For more information, see [Threat Intel Lookups in MSTICPy](https://msticpy.read
 
 **To test geolocation IP lookup**:
 
-Enter the following code in an empty code cell and run it:
+To get geolocation details for an IP address using the MaxMind service, enter the following code in an empty code cell and run it:
 
 ```python
+# create an instance of the GeoLiteLookup provider – this
+# can be re-used for subsequent queries.
 geo_ip = GeoLiteLookup()
 raw_res, ip_entity = geo_ip.lookup_ip("85.214.149.236")
 display(ip_entity[0])
@@ -485,18 +499,71 @@ display(ip_entity[0])
 The output shows geolocation information for the IP address.
 
 > [!NOTE]
-> You might see the GeoLite driver downloading its database the first time you run this code.
+> You should see the GeoLite driver downloading its database the first time you run this code.
 >
 
 For more information, see [MSTICPy GeoIP Providers](https://msticpy.readthedocs.io/en/latest/data_acquisition/GeoIPLookups.html).
 
 ## Extra configurations
 
-Use the following procedures to configure additional settings for MTSICPy.
+Use the following procedures to configure additional settings for MSTICPy.
 
-### Define Azure authentication and Azure Sentinel APIs (optional)
+### Key Vault Configuration
 
-This procedure describes how to configure APIs for Azure Sentinel and other Azure resources in your **msticpyconfig.yaml** file.
+This section is relevant only when storing secrets in Azure Key Vault.
+
+When you store secrets in Azure Key Vault, you'll need to create the Key Vault first, in the [Azure global KeyVault management portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.KeyVault%2Fvaults).
+
+Required settings are all values that you get from the Vault properties, although some may have different names. For example:
+
+- **VaultName** is show at the top left of the Azure Key Vault **Properties** screen
+- **TenantId** is shown as **Directory ID**
+- **AzureRegion** is shown as **Location**
+- **Authority** is the cloud for your Azure service.
+
+Only **VaultName**, **TenantId**, and **Authority** values are required to retrieve secrets from the the Vault. The other values are needed if you opt to create a vault from MSTICPy. For more information, see [Specifying secrets as Key Vault secrets](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html#specifying-secrets-as-key-vault-secrets).
+
+The **Use KeyRing** option is selected by default, and lets you cache Key Vault credentials in a local KeyRing. For more information, see [KeyRing documentation](https://keyring.readthedocs.io/en/latest/index.html).
+
+> [!CAUTION]
+> Do not use the **Use KeyRing** option if you do not fully trust the host Compute that the notebook is running on. 
+>
+> In our case, the *hostcompute* is the Jupyter hub server, where the notebook kernel is running, not necessarily the machine that your browser is running on. If you are using Azure ML, your *hostcompute* will be the Azure ML Compute instance you have selected. Keyring does its caching on the host where the notebook kernel is running.
+>
+
+When you're done, select **Save** and then **Save Settings**.
+
+### Test Key Vault
+
+To test your key vault, check to see if you can connect and view your secrets. If you haven't added a secret, you won't see any details. If you need to, add a test secret from the Azure Key Vault portal to the vault, and check that it shows in Azure Sentinel.
+
+For example:
+
+```Python
+mpconfig = MpConfigFile()
+mpconfig.refresh_mp_config()
+mpconfig.show_kv_secrets()
+```
+
+> [!CAUTION]
+> Do not leave the output displayed in your saved notebook. If there are real secrets in the output, use the notebook's **Clear output** command before saving the notebook.
+>
+> Also, delete cached copies of the notebook. For example, look in the **.ipynb_checkpoints** sub-folder of your notebook directory, and delete any copies of this notebook found. Saving the notebook with a cleared output should overwrite the checkpoint copy.
+>
+>For example: `mpconfig.refresh_mp_config() mpconfig.show_kv_secrets()`
+>
+
+After you have Key Vault configured, you can use the **Upload to KV** button in the Data Providers and TI Providers sections to move the selected setting to the Vault. MSTICPy will generate a default name for the secret based on the path of the setting, such as `TIProviders-VirusTotal-Args-AuthKey`.
+
+If the value is successfully uploaded, the contents of the **Value** field in the settings editor is deleted and the underlying setting is replaced with a placeholder value. MSTICPy will use this to indicate that it should automatically generate the Key Vault path when trying to retrieve the key.
+
+If you already have the required secrets stored in a Key Vault you can enter the secret name in the **Value** field. If the secret is not stored in your default Vault (the values specified in the [Key Vault](https://msticpy.readthedocs.io/en/latest/getting_started/SettingsEditor.html#key-vault) section), you can specify a path of **VaultName/SecretName**.
+
+Fetching settings from a Vault in a different tenant is not currently supported. For more information, see [Specifying secrets as Key Vault secrets](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html#specifying-secrets-as-key-vault-secrets).
+
+### Specify authentication parameters for Azure and Azure Sentinel APIs (optional)
+
+This procedure describes how to configure authentication parameters for Azure Sentinel and other Azure API resources in your **msticpyconfig.yaml** file.
 
 **To add Azure authentication and Azure Sentinel API settings in the MSTICPy settings editor**:
 
@@ -522,7 +589,7 @@ This procedure describes how to configure APIs for Azure Sentinel and other Azur
 
 ### Define auto-loading query providers (optional)
 
-Define any query providers that you want to load in the MSTICPy editor automatically when you run the launch a Jupyter notebook, either using the Azure Sentinel UI or using the `nbinit.init_notebook` command.
+Define any query providers that you want to MSTICPy to load automatically when you run the `nbinit.init_notebook` function.
 
 When you frequently author new notebooks, auto-loading query providers can save you time by ensuring that required providers are loaded before other components, such as pivot functions and notebooklets.
 
@@ -544,20 +611,22 @@ When you frequently author new notebooks, auto-loading query providers can save 
 
    - **Auto-connect:** This option is defined as **True** by default, and MSTICPy tries to authenticate to the provider immediately after loading. MSTICPy assumes that you've configured credentials for the provider in your settings.
 
-   - **Alias:** When MSTICPy loads a provider, it assigns the provider to a Python variable name. By default, the variable name is **qryworkspace_name** for Azure Sentinel providers and **qryprovider_name** for other providers. Add an alias if you want to use something shorter or easier to type and remember. The variable name will be **qry_alias**.
+   - **Alias:** When MSTICPy loads a provider, it assigns the provider to a Python variable name. By default, the variable name is **qryworkspace_name** for Azure Sentinel providers and **qryprovider_name** for other providers.
 
-        Providers you load by this mechanism are added to the MSTICPy `current_providers` attriute, which is used for example in the following code:
+        For example, if you load a query provider for the *ContosoSOC* workspace, this query provider will be created in your notebook environment with the name `qry_ContosoSOC`. Add an alias if you want to use something shorter or easier to type and remember. The provider variable name will be `qry_<alias>`, where `<alias>` is replaced by the alias name that you provided.
+
+        Providers you load by this mechanism are also added to the MSTICPy `current_providers` attribute, which is used for example in the following code:
 
         ```python
         import msticpy
         msticpy.current_providers
         ```
 
-1. Select **Save File** to save your changes.
+1. Select **Save Settings** to save your changes.
 
 ### Define auto-loaded MSTICPy components (optional)
 
-This procedure describes how to define the components that are automatically loaded in the MSTICPy settings when you launch a Jupyter notebook.
+This procedure describes how to define other components that are automatically loaded by MSTICPy when you run the `nbinit.init_notebook` function.
 
 Supported components include, in the following order:
 
@@ -603,11 +672,11 @@ Supported components include, in the following order:
       providers=["LocalData","geolitelookup"]
       ```
 
-      For more information, see the [MSTICPy documentation](https://msticnb.readthedocs.io/en/latest/msticnb.html#msticnb.data_providers.init).
+      For more information, see the [MSTICNB (MSTIC Notebooklets) documentation](https://msticnb.readthedocs.io/en/latest/msticnb.html#msticnb.data_providers.init).
 
     Some components, like **TILookup** and **Pivot,** don't require any parameters.
 
-1. Select **Save File** to save your changes.
+1. Select **Save Settings** to save your changes.
 
 
 ### Switch between Python 3.6 and 3.8 kernels
@@ -639,6 +708,8 @@ We recommend that you don't use `!pip install...` to install packages in Azure M
 
 ### Set an environment variable for your msticpyconfig.yaml file (Optional)
 
+If you are running in Azure ML and have your **msticpyconfig.yaml** file in the root of your user folder, MSTICPy will automatically find these settings. However, if you are running the notebooks in another environment, follow the instructions in this section to set an environment variable that points to the location of your configuration file.
+
 Defining the path to your **msticpyconfig.yaml** file in an environment variable allows you to store your file in a known location and make sure that you always load the same settings.
 
 Use multiple configuration files, with multiple environment variables, if you want to use different settings for different notebooks.
@@ -655,8 +726,7 @@ Use multiple configuration files, with multiple environment variables, if you wa
 
 1. Set the **MSTICPYCONFIG** environment variable to point to that location.
 
-Use one of the following procedures to define the **MSTICPYCONFIG** environment variable:
-
+Use one of the following procedures to define the **MSTICPYCONFIG** environment variable.  
 # [Windows](#tab/windows)
 
 For example, to set the **MSTICPYCONFIG** environment variable on Windows systems:
@@ -706,67 +776,71 @@ This procedure describes how to update the **.bashrc** file to set the **MSTICPY
     - If you moved the **msticpyconfig.yaml** file, run `export MSTICPYCONFIG=~/msticpyconfig.yaml`.
     - If you didn't move the **msticpyconfig.yaml** file, run `export MSTICPYCONFIG=~/cloudfiles/code/Users/<YOURNAME>/msticpyconfig.yaml`.
 
-    > [!NOTE]
-    > If the Jupyter server had started before you connected, such as when you access the ML terminal from within Azure Sentinel, the Jupyter processes don't inherit any environment variables from your **.bashrc** file.
-    >
 
-1. Set the environment variable in one of following locations.
+# [Azure ML options](#tab/azure-ml)
 
-    - **An *nbuser_settings.py* file at the root of your user folder**.  While this process is simpler and less intrusive than editing the **kernel.json** file, it's only supported when you run the `check_versions` function at the start of your notebook code. While this is the default behavior, if you run the notebook code without first running `check_versions`, MSTICPy may not be able to find the configuration file.
+If you need to store your **msticpyconfig.yaml**  file somewhere other than your Azure ML user folder, use one of the following options:
 
-        1. In the Azure ML terminal, create the **nbuser_settings.py** file in the root of your user folder, which is the folder with your username.
-        1. In the **nbuser_settings.py** file, add the following lines:
+- **An *nbuser_settings.py* file at the root of your user folder**.  While this process is simpler and less intrusive than editing the **kernel.json** file, it's onlysupported when you run the `init_notebook` function at the start of your notebook code. While this is the default behavior, if you run the notebook code without first running `init_notebook`, MSTICPy may not be able to find the configuration file.
 
-            ```python
-              import os
-              os.environ["MSTICPYCONFIG"] = "~/msticpyconfig.yaml"
-            ```
+    1. In the Azure ML terminal, create the **nbuser_settings.py** file in the root of your user folder, which is the folder with your username.
+    1. In the **nbuser_settings.py** file, add the following lines:
+        ```python
+          import os
+          os.environ["MSTICPYCONFIG"] = "~/msticpyconfig.yaml"
+        ```
 
-    - **The *kernel.json* file for your Python kernel**. Use this procedure if you plan on running the notebook manually, and possibly without the `check_versions` function at the start.
+    This file is automatically imported by the `init_notebook` function, and sets the `MSTICPYCONFIG` environment variable for the current notebook.
 
-        There are kernels for Python 3.6 and Python 3.8. If you use both kernels, edit both files.
+- **The *kernel.json* file for your Python kernel**. Use this procedure if you plan on running the notebook manually, and possibly without calling the `init_notebook` function at the start.
 
-        - **Python 3.8 location**: */usr/local/share/jupyter/kernels/python38-azureml/kernel.json*
-        - **Python 3.6 location**: */usr/local/share/jupyter/kernels/python3-azureml/kernel.json*
+    There are kernels for Python 3.6 and Python 3.8. If you use both kernels, edit both files.
 
-        To set the environment variable in the **kernel.json** file:
+    - **Python 3.8 location**: */usr/local/share/jupyter/kernels/python38-azureml/kernel.json*
+    - **Python 3.6 location**: */usr/local/share/jupyter/kernels/python3-azureml/kernel.json*
 
-        1. Make a copy of the **kernel.json** file, and open the original in an editor. You might need to use `sudo` to overwrite the **kernel.json** file, and the file contents look similar to the following example:
+    To set the environment variable in the **kernel.json** file:
 
-             ```python
-             {
-                 "argv": [
-                 "/anaconda/envs/azureml_py38/bin/python",
-                 "-m",
-                 "ipykernel_launcher",
-                 "-f",
-                 "{connection_file}"
-                 ],
-                 "display_name": "Python 3.8 - AzureML",
-                 "language": "python"
-             }
-             ```
+    1. Make a copy of the **kernel.json** file, and open the original in an editor. You might need to use `sudo` to overwrite the **kernel.json** file, and the file contents look similar to the following example:
 
-        1. After the `"language"` item, add the following line: `"env": { "MSTICPYCONFIG": "~/msticpyconfig.yaml" }`
+         ```python
+         {
+             "argv": [
+             "/anaconda/envs/azureml_py38/bin/python",
+             "-m",
+             "ipykernel_launcher",
+             "-f",
+             "{connection_file}"
+             ],
+             "display_name": "Python 3.8 - AzureML",
+             "language": "python"
+         }
+         ```
 
-            Make sure to add the comma at the end of the `"language": "python"` line. For example:
+    1. After the `"language"` item, add the following line: `"env": { "MSTICPYCONFIG": "~/msticpyconfig.yaml" }`
 
-             ```python
-             {
-                 "argv": [
-                 "/anaconda/envs/azureml_py38/bin/python",
-                 "-m",
-                 "ipykernel_launcher",
-                 "-f",
-                 "{connection_file}"
-                 ],
-                 "display_name": "Python 3.8 - AzureML",
-                 "language": "python",
-                 "env": { "MSTICPYCONFIG": "~/msticpyconfig.yaml" }
-             }
-             ```
+        Make sure to add the comma at the end of the `"language": "python"` line. For example:
+
+         ```python
+         {
+             "argv": [
+             "/anaconda/envs/azureml_py38/bin/python",
+             "-m",
+             "ipykernel_launcher",
+             "-f",
+             "{connection_file}"
+             ],
+             "display_name": "Python 3.8 - AzureML",
+             "language": "python",
+             "env": { "MSTICPYCONFIG": "~/msticpyconfig.yaml" }
+         }
+         ```
 
 ---
+
+> [!NOTE]
+> For the Linux and Windows options, you'll need to restart your Jupyter server for it to pick up the environment variable that you defined.
+>
 
 ## Next steps
 
@@ -776,6 +850,7 @@ Try out other notebooks stored in the [Azure Sentinel Notebooks GitHub repositor
 
 - [Tour of the Cybersec features](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/9bba6bb9007212fca76169c3d9a29df2da95582d/A%20Tour%20of%20Cybersec%20notebook%20features.ipynb)
 - [Machine Learning examples](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/9bba6bb9007212fca76169c3d9a29df2da95582d/Machine%20Learning%20in%20Notebooks%20Examples.ipynb)
+- The [Entity Explorer series](https://github.com/Azure/Azure-Sentinel-Notebooks/) of notebooks, which allow for a deep drill-down into details about a host, account, IP address, and other entities.
 
 > [!TIP]
 > If you use the notebook described in this tutorial in another Jupyter environment, you can use any kernel that supports Python 3.6 or later.
