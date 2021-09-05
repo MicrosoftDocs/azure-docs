@@ -66,7 +66,9 @@ Here are some ways that custom security attributes compare with [directory schem
 
 1. Check permissions
 
-    Check that you are assigned the Attribute Definition Administrator or Attribute Assignment Administrator roles. By default, the Global Administrator and Privileged Role Administrator roles do not have permissions to read or add custom security attributes.
+    Check that you are assigned the Attribute Definition Administrator or Attribute Assignment Administrator roles. By default, the [Global Administrator](../roles/permissions-reference.md#global-administrator) and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) roles do not have permissions to read or add custom security attributes.
+
+    ![Check permissions to add custom security attributes in Azure AD.](./media/custom-security-attributes-overview/attributes-permissions.png)
 
 1. Add attribute sets
 

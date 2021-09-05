@@ -54,7 +54,7 @@ The following are example scenarios to read, manage, and assign custom security 
 
 ## Manage attributes with delegation
 
-![Managing custom security attributes without delegation.](./media/custom-security-attributes-manage/delegate-attributes.png)
+![Managing custom security attributes with delegation.](./media/custom-security-attributes-manage/delegate-attributes.png)
 
 ## Grant access at the attribute set scope
 
