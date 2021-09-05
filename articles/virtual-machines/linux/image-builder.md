@@ -66,10 +66,10 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Create a variable for your subscription ID. You can get this using `az account show -o json | grep id`.
+Create a variable for your subscription ID.
 
 ```azurecli-interactive
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 Create the resource group.
@@ -87,7 +87,7 @@ identityName=aibBuiUserId$(date +'%s')
 az identity create -g $sigResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName -o json | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName

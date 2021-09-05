@@ -106,15 +106,15 @@ Get started with Flexible orchestration mode for your scale sets through the [Az
 ## Add instances with autoscaling or manually
 Virtual machine scale sets with Flexible orchestration works as a thin orchestration layer to manage multiple VMs. There are several ways you can add VMs to be managed by the scale set:
 
-1. **Set instance count**
+- **Set instance count**
 
     When you create the scale set with Flexible orchestration, define a VM profile or template which describes the template to be used to scale out. You can then set the capacity parameter to increase or decrease the number of VM instances managed by the scale set. 
 
-1. **Autoscaling with Metrics or Schedule** 
+- **Autoscaling with Metrics or Schedule** 
 
     Alternatively, you can set up autoscale rules to increase or decrease the capacity based on metrics or a schedule. See [Virtual machine scale sets with Autoscaling](..\virtual-machine-scale-sets\virtual-machine-scale-sets-autoscale-overview.md). 
 
-1. **Specify a scale set when creating a VM**
+- **Specify a scale set when creating a VM**
 
     When you create a VM, you can optionally specify that it is added to a virtual machine scale set. A VM can only be added to a scale set at time of VM creation.
 
@@ -191,12 +191,12 @@ The following table lists the Flexible orchestration mode features and links to 
 | Feature | Supported by Flexible orchestration (Preview) |
 |-|-|
 | Virtual machine type | Standard Azure IaaS VM (Microsoft.compute /virtualmachines) |
-| Maximum Instance Count | 1000 |
+| Maximum Instance Count (with FD availability guarantee) | 1000 |
 | SKUs supported | D series, E series, F series, A series, B series, Intel, AMD |
 | Availability Zones | Optionally specify all instances land in   a single availability zone |
 | Fault Domain - Max spreading (Azure will maximally spread instances) | Yes |
 | Fault Domain - Fixed spreading | 2-3 FDs (depending on regional maximum FD Count), 1 FD for zonal deployments |
-| Update Domains | None (platform maintenance performed FD by FD) |
+| Update Domains | Deprecated, platform maintenance performed FD by FD |
 | Availability SLA | None (during preview) |
 | Full control over VM, NICs, Disks | Yes |
 | Assign VM to a Specific Fault Domain | Yes |
@@ -215,7 +215,7 @@ The following table lists the Flexible orchestration mode features and links to 
 | Automatic Scaling | Yes |
 | Remove NICs and Disks when deleting VM instances | Yes |
 | Upgrade Policy (VM scale sets) | No |
-| Automatic OS Updates (VM scale sets) | No |
+| Automatic image based OS Updates | No |
 | Infiniband  | No |
 | Write Accelerator  | No |
 | Azure Dedicated Hosts  | No |
@@ -225,7 +225,6 @@ The following table lists the Flexible orchestration mode features and links to 
 | Azure Alerts | No |
 | VM Insights | No |
 | Azure Site Recovery |  Yes, via PowerShell |
-| Add/remove existing VM to the group | No |
 | Service Fabric | No |
 | Azure Kubernetes Service (AKS) | No |
 | Trusted Virtual Machines (preview) | Yes |
@@ -235,7 +234,7 @@ The following table lists the Flexible orchestration mode features and links to 
 ### Unsupported parameters
 
 The following virtual machine scale set parameters are not currently supported during Virtual Machine Scale Set Flexible Orchestration Public Preview:
-- Single placement group - ou must choose `singlePlacementGroup=False`.
+- Single placement group - you must choose `singlePlacementGroup=False`.
 - Multi-zone deployment - deployments can either be regional or all VMs in a single zone
 - Deployment using Specialty SKUs: G, H, L, M, N series VM families
 - VMSS Overprovisioning
@@ -267,7 +266,7 @@ InvalidParameter. Parameter 'virtualMachineProfile' is not allowed.
 
 
 <!-- error -->
-### BadRequest. Creating a Virtual Machine with a Public IP Address via NetworkInterfaceConfigurations during the Public Preview of VM NetworkInterfaceConfigurations initially requires the feature 'Microsoft.Compute/SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview'.
+### BadRequest. Creating a Virtual Machine with a Public IP Address via NetworkInterfaceConfigurations
 
 ```
 BadRequest. Creating a Virtual Machine with a Public IP Address via NetworkInterfaceConfigurations during the Public Preview of VM NetworkInterfaceConfigurations initially requires the feature 'Microsoft.Compute/SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview'.

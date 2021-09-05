@@ -266,6 +266,9 @@ If the source is transformation, the **TransformationID** element must be includ
 
 The ID element identifies which property on the source provides the value for the claim. The following table lists the values of ID valid for each value of Source.
 
+> [!WARNING]
+> Currently, the only available multi-valued claim sources on a user object are multi-valued extension attributes which have been synced from AADConnect.  Other properties, such as OtherMails and tags, are multi-valued but only one value is emitted when selected as a source.
+
 #### Table 3: Valid ID values per source
 
 | Source | ID | Description |
