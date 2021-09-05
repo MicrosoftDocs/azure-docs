@@ -35,7 +35,9 @@ Stay current with critical security announcements in Azure by visiting [Azure Se
 
 New stable versions of supported language runtimes (major, minor, or patch) are periodically added to App Service instances. Some updates overwrite the existing installation, while others are installed side by side with existing versions. An overwrite installation means that your app automatically runs on the updated runtime. A side-by-side installation means you must manually migrate your app to take advantage of a new runtime version. For more information, see one of the subsections.
 
-Runtime updates and deprecations are announced here:
+Given the matrix of different runtimes we support across the App Service Platorm, our announcements correspond only to notable Runtime updates and deprecations. 
+
+They are announced here:
 
 - https://azure.microsoft.com/updates/?product=app-service 
 - https://github.com/Azure/app-service-announcements/issues
