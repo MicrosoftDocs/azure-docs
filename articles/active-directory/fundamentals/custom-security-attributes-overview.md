@@ -64,19 +64,37 @@ Here are some ways that custom security attributes compare with [directory schem
 
 ## Steps to use custom security attributes
 
-1. Define custom security attributes in Azure AD. You can specify whether values are predefined, free-form, single, or multiple.
+1. Check permissions
 
-    ![Custom security attributes in Azure AD.](./media/custom-security-attributes-overview/attributes-define.png)
+    Check that you are assigned the Attribute Definition Administrator or Attribute Assignment Administrator roles. By default, the Global Administrator and Privileged Role Administrator roles do not have permissions to read or add custom security attributes.
 
-1. Specify who can manage and assign attributes.
+1. Add attribute sets
 
-1. Assign attributes to users and other Azure AD objects for your business scenarios.
+    Add an attribute set to group and manage related custom security attributes.
 
-    ![Assign attributes on Azure AD objects.](./media/custom-security-attributes-overview/attributes-assign.png)
+    ![Add custom security attribute sets in Azure AD.](./media/custom-security-attributes-overview/attribute-sets-add.png)
 
-1. Choose how you want to use attributes.
+1. Manage attribute sets
 
-    This can include searching and filtering users or adding conditions to Azure role assignments for fine-grained access control.
+    Specify who can read, define, or assign custom security attributes in an attribute set.
+
+    ![Manage security attribute sets in Azure AD.](./media/custom-security-attributes-overview/attribute-sets-manage.png)
+
+1. Define attributes
+
+    Add your custom security attributes to your directory. You can specify whether values are predefined, free-form, single, or multiple.
+
+    ![Define custom security attributes in Azure AD.](./media/custom-security-attributes-overview/attributes-define.png)
+
+1. Assign attributes
+
+    Assign custom security attributes to Azure AD objects for your business scenarios.
+
+    ![Assign custom security attributes to Azure AD objects.](./media/custom-security-attributes-overview/attributes-assign.png)
+
+1. Use attributes
+
+    This can include searching and filtering users and applications or adding conditions to Azure role assignments for fine-grained access control.
 
 ## Terminology
 
