@@ -77,20 +77,22 @@ To configure Azure Purview to trust your new service principal:
 
 1. Navigate to your Purview account
 
-1. On the **Purview account** page, select the tab **Access control (IAM)**
+1. On the **Purview account** page, open the **Purview Studio**
 
-1. Click **+ Add**
+1. Select the **Data Map** in the left menu.
 
-1. Select **Add role assignment**
+1. Select **Collections**
 
-1. For the Role type in **Purview Data Curator**
+1. Select the root collection in the collections menu. This will be the top collection in the list, and will have the same name as your Purview account.
+
+1. Select the **Role assignments** tab.
+
+1. Scroll down to **Data curators** and select the **+** user button.
 
     > [!Note]
-    > For more information on Azure Purview Data Catalog permissions, see [Catalog permissions](catalog-permissions.md). For example, if you need permission to trigger scan, the Role type must be **Purview Data Source Administrator**.
+    > Only Collection Admins can edit permissions on a collection. If you are not a collection admin, contact one of the admins listed in the root collection. For more information, see the [Purview permissions page](catalog-permissions.md).
 
-1. For **Assign access to** leave the default, **User, group, or service principal**
-
-1. For **Select** enter the name of the previosly created service principal you wish to assign and then click on their name in the results pane.
+1. Search the name of the previosly created service principal you wish to assign and then click on their name in the results pane.
 
 1. Click on **Save**
 
