@@ -102,7 +102,7 @@ Generally after training a model you would review it's [evaluation details](../h
 
     :::image type="content" source="../media/test-model-results.png" alt-text="View the test results" lightbox="../media/test-model-results.png":::
 
-After you've tested your model, you can begin [improving the model's performance](../how-to/improve-model.md), and sending [text classification requests](../how-to/run-inference.md).
+After you've tested your model, you can start sending [text classification requests](../how-to/run-inference.md).
 
 ## Clean up resources
 
