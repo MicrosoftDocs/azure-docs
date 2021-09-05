@@ -72,7 +72,7 @@ Here are some ways that custom security attributes compare with [directory schem
 
 1. Add attribute sets
 
-    Add an attribute set to group and manage related custom security attributes.
+    Add attribute sets to group and manage related custom security attributes.
 
     ![Add custom security attribute sets in Azure AD.](./media/custom-security-attributes-overview/attribute-sets-add.png)
 
