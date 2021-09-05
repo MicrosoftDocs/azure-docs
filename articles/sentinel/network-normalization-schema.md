@@ -45,13 +45,10 @@ The network normalization schema can represent any IP network session, but is sp
 - Web servers
 - Web security gateways
 
-For these source types, the network normalization schema provides:
-
-- Extensions, which list fields used for these sources, including mandatory fields for each extension. For more information, see <!--? where?-->.
-- Extra guidance for using common event fields with these log sources.
-- Extra, source-agnostic parsers, which filter only relevant events for each source type, and are supported only using the relevant events for each use case. <!-- i think this is too vague - can we clarify this any better?>
-
-Use the steps described in the following tables to normalize specific sources and use them in queries.
+The following sections provide guidance on normalizing and using the schema for the different source types. Each source type may:
+- Support additional fields from the auxiliary field lists: [Intermediary device fields](#Intermediary), [HTTP Session fields](#HTTP), and [Inspection fields](#Inspection). Some fields might be mandatory only in the context of the specific source type.
+- Allow source type specific values to common event fields such as `EventType` and and `EventResult`.
+- Support, in addition to the `imNetworkSession` parser, also either the `imWebSession` or `imNotable` parser, or both.
 
 ### Netflow log sources
 
@@ -96,10 +93,6 @@ Use the steps described in the following tables to normalize specific sources an
 
 ## Using parsers
 
-Azure Sentinel provides the following built-in, product-specific Network Session parsers:
-
-TBD
-
 To use a source-agnostic parser that unifies all built-in parsers, and ensure that your analysis runs across all configured sources, use any of the following parsers:
 
 
@@ -123,7 +116,7 @@ Add your KQL function to the relevant source agnostic parsers as needed, dependi
 
 ## Schema details
 
-The Network Sessions information model is aligned is the [OSSEM Process entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/process.md).
+The Network Sessions information model is aligned is the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md).
 
 To conform with industry best practices, the Network Session schema uses the descriptors **Src** and **Dst** to identify the network session source and destination devices, without including the token **Dvc** in the field name.
 
@@ -156,13 +149,13 @@ Event fields are common to all schemas and describe the activity itself and the 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | **EventMessage** | Optional | String | A general message or description, either included in or generated from the record. |
-| **EventCount** | Mandatory | Integer | The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record may represent multiple events. <br><br>**Note**: Netflow sources support aggregation, and the **EventCount** field should be set to the value of the Netflow **FLOWS** field. <br>For other sources, set to `1`. |
-| **EventStartTime** | Mandatory | Date/time | If the source supports aggregation and the record represents multiple events, this field specifies the time the that first event was generated. <br>Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
+| **EventCount** | Mandatory | Integer | The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record may represent multiple events. <br><br>**Note**: Netflow sources support aggregation, and the **EventCount** field should be set to the value of the Netflow **FLOWS** field. For other sources, the value is typically set to `1`. |
+| **EventStartTime** | Mandatory | Date/time | If the source supports aggregation and the record represents multiple events, this field specifies the time the that first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
 | **EventEndTime** | Mandatory | Alias | Alias to the [TimeGenerated](#timegenerated) field. |
 | **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Sessions records, supported values include:<br>- `NetworkConnection`<br>- `NetworkSession`<br>- `HTTPsession` |
-| **EventSubType** | Optional | String | Additional description of the event type, if applicable |
-| **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. <!--this is unclear. what about 400 exactly? or isn't there? such thing?--> <br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
-| <a name="eventresultdetails"></a>**EventResultDetails** | Optional | Enumerated | One of the following values:<br>### (look at firewalls)<br><br>For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventResultOriginalDetails** field.<!--where is this field?--> |
+| **EventSubType** | Optional | String | Additional description of the event type, if applicable. br><br> For Network Sessions records, supported values include:<br>- `Start`<br>- `End` |
+| **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
+| <a name="eventresultdetails"></a>**EventResultDetails** | Optional | String | For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventResultOriginalDetails** field.<!--where is this field?--> |
 | **EventSeverity** | Mandatory | Enumerated | The severity of the event, if it represents a detected threat or an alert. Possible values include `Informational`, `Low`, `Medium`, and `High`. <br><br>If the event does not represent a threat, use the `Informational` value.<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [EventOriginalSeverity](#eventoriginalseverity) field. |
 | <a name="eventoriginalseverity"></a>**EventOriginalSeverity** | Optional | String | The original severity value provided in the source record. |
 | **EventOriginalUid** | Optional | String | A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b` |
@@ -170,6 +163,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | <a name="eventproduct"></a>**EventProduct** | Mandatory | String | The product generating the event.<br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser. |
 | **EventProductVersion** | Optional | String | The version of the product generating the event.<br><br>Example: `12.1` |
 | **EventVendor** | Mandatory | String | The vendor of the product generating the event.<br><br>Example: `Microsoft`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser. |
+| **EventSchema** | Mandatory | String | The name of the schema. The name of the schema documented here is `NetworkSession`. |
 | **EventSchemaVersion** | Mandatory | String | The version of the schema. The version of the schema documented here is `0.2`. |
 | **EventReportUrl** | Optional | String | A URL provided in the event for a resource that provides additional information about the event. |
 | **Dvc** | Alias | String | A unique identifier of the reporting or intermediary device.<br><br>Example: `ContosoDc.Contoso.Azure`<br><br>This field may alias the [DvcFQDN](#dvcfqdn), [DvcId](#dvcid), [DvcHostname](#dvchostname), or [DvcIpAddr](#dvcipaddr) fields. For cloud sources, for which there is not apparent device, use the same value as the [Event Product](#eventproduct) field. |
@@ -266,7 +260,7 @@ The following fields are common to all network session activity logging:
 | **SessionId** | Alias | String | Alias to [NetworkSessionId](#networksessionid) |
 | | | | |
 
-### Intermediary device fields
+###<a name="Intermediary"></a> Intermediary device fields
 
 The following fields are useful if the record includes information about an intermediary device, such as a Firewall or a Proxy, which relays the network session.
 
@@ -280,7 +274,7 @@ The following fields are useful if the record includes information about an inte
 | **DvcOutboundInterface** | Optional | String | If reported by an intermediary device, the network interface used by the NAT device for the connection to the destination device.<br><br>Example: `Ethernet adapter Ethernet 4e` |
 | | | | |
 
-### HTTP Session fields
+###<a name="HTTP"></a> HTTP Session fields
 
 An HTTP session is a network session that uses the HTTP protocol. Such sessions are often reported by web servers, web proxies, and web security gateways. The following are additional fields that are specific to HTTP sessions:
 
@@ -315,7 +309,7 @@ In addition, the following standard Networking Schema fields have additional gui
 - **EventResultDetails** should be set to the HTTP Status code.
 - **EventResult** should be &quot;Success&quot; for HTTP status codes lower than 400 and &quot;Failure&quot; otherwise.
 
-### Inspection fields
+###<a name="Inspection"></a> Inspection fields
 
 The following fields are used to represent that inspection which a security device such as a firewall, an IPS or a Web Security Gateway performed:
 
