@@ -51,7 +51,7 @@ Set up a new project in an Azure subscription.
 
      :::image type="content" source="./media/create-manage-projects/project-details.png" alt-text="Page to input project settings":::
 
-
+**update screenshot**
 Wait a few minutes for the project to deploy.
 
 ## Create a project in a specific region
