@@ -26,7 +26,7 @@ The Network Session normalization schema is used to describe an IP network activ
 For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> This article describes version 0.2 of the network normalization schema, where [version 0.1](normalization-schema-v1.md) was released before ASIM was available and does not align with ASIM in several places. For more information, see [Differences between network normalization schema versions](normalization-schema-v1.md#differences-between-network-normalization-schema-versions). 
+> This article describes version 0.2 of the network normalization schema, where [version 0.1](normalization-schema-v1.md) was released before ASIM was available and does not align with ASIM in several places. For more information, see [Differences between network normalization schema versions](normalization-schema-v1.md#changes). 
 >
 
 > [!IMPORTANT]
@@ -46,7 +46,7 @@ The network normalization schema can represent any IP network session, but is sp
 - Web security gateways
 
 The following sections provide guidance on normalizing and using the schema for the different source types. Each source type may:
-- Support additional fields from the auxiliary field lists: [Intermediary device fields](#Intermediary), [HTTP Session fields](#HTTP), and [Inspection fields](#Inspection). Some fields might be mandatory only in the context of the specific source type.
+- Support additional fields from the auxiliary field lists: [Intermediary device fields](#Intermediary), [HTTP Session fields](#http-session-fields), and [Inspection fields](#inspection-fields). Some fields might be mandatory only in the context of the specific source type.
 - Allow source type specific values to common event fields such as `EventType` and and `EventResult`.
 - Support, in addition to the `imNetworkSession` parser, also either the `imWebSession` or `imNotable` parser, or both.
 
@@ -155,7 +155,8 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Sessions records, supported values include:<br>- `NetworkConnection`<br>- `NetworkSession`<br>- `HTTPsession` |
 | **EventSubType** | Optional | String | Additional description of the event type, if applicable. br><br> For Network Sessions records, supported values include:<br>- `Start`<br>- `End` |
 | **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
-| <a name="eventresultdetails"></a>**EventResultDetails** | Optional | String | For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventResultOriginalDetails** field.<!--where is this field?--> |
+| <a name="eventresultdetails"></a>**EventResultDetails** | Optional | String | For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
+| **EventOriginalResultDetails**    | Optional    | String     |  The value provided in the original record for [EventResultDetails](#eventresultdetails), if provided by the source.|
 | **EventSeverity** | Mandatory | Enumerated | The severity of the event, if it represents a detected threat or an alert. Possible values include `Informational`, `Low`, `Medium`, and `High`. <br><br>If the event does not represent a threat, use the `Informational` value.<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [EventOriginalSeverity](#eventoriginalseverity) field. |
 | <a name="eventoriginalseverity"></a>**EventOriginalSeverity** | Optional | String | The original severity value provided in the source record. |
 | **EventOriginalUid** | Optional | String | A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b` |
@@ -171,9 +172,9 @@ Event fields are common to all schemas and describe the activity itself and the 
 | <a name="dvchostname"></a>**DvcHostname** | Mandatory | String | The hostname of the reporting or intermediary device, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D` |
 | <a name="dvcdomain"></a>**DvcDomain** | Recommended | String | The domain of the reporting or intermediary device.<br><br>Example: `Contoso` |
 | <a name="dvcdomaintype"></a>**DvcDomainType** | Recommended | Enumerated | The type of  [DvcDomain](#dvcdomain) , if known. Possible values include:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>**Note**: This field is required if the [DvcDomain](#dvcdomain) field is used. |
-| <a nam="dvcfqdn"></a>**DvcFQDN** | Optional | String | The hostname of the reporting or intermediary device, including domain information when available. <br><br> Example: `Contoso\DESKTOP-1282V4D`<br><br>**Note**: This field supports both both traditional FQDN format and Windows domain\hostname format. The  [DvcDomainType](#dvcdomaintype) field reflects the format used.  |
+| <a name="dvcfqdn"></a>**DvcFQDN** | Optional | String | The hostname of the reporting or intermediary device, including domain information when available. <br><br> Example: `Contoso\DESKTOP-1282V4D`<br><br>**Note**: This field supports both both traditional FQDN format and Windows domain\hostname format. The  [DvcDomainType](#dvcdomaintype) field reflects the format used.  |
 | <a name="dvcid"></a>**DvcId** | Optional | String | The ID of the reporting or intermediary device as reported in the record.<br><br>Example:  `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others in the following fields: **DvcAzureResourceId**, **DvcMDEid** respectively.<!--where are these fields?--><br><br>**Note**: This field is required if the [DvcId](#dvcid) field is used. |
+| **DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others using the field names  **DvcAzureResourceId** and **DvcMDEid** respectively.<br><br>**Note**: This field is required if the [DvcId](#dvcid) field is used. |
 | **AdditionalFields** | Optional | Dynamic | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic  **AdditionalFields**  field, and add to it the extra information as key/value pairs. |
 | | | | |
 
@@ -184,20 +185,20 @@ The following fields are common to all network session activity logging:
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 |<a name="dstipaddr"></a> **DstIpAddr** | Recommended | IP address | The IP address of the connection or session destination. <br><br>Example: `2001:db8::ff00:42:8329`<br><br>**Note**: This value is mandatory if [DstHostname](#dsthostname) is specified. |
-| **DstPortNumber** | Optional | Integer | The destination IP port.<br><br>Example: `443` |
+| <a name="dstportnumber"></a>**DstPortNumber** | Optional | Integer | The destination IP port.<br><br>Example: `443` |
 | <a name="dsthostname"></a>**DstHostname** | Recommended | String | The destination device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D`<br><br>**Note**: This value is mandatory if [DstIpAddr](#dstipaddr) is specified. |
 | **Hostname** | Alias | | Alias to [DstHostname](#dsthostname) |
-| **DstDomain** | Recommended | String | The domain of the destination device.<br><br>Example: `Contoso` |
-| **DstDomainType** | Recommended | Enumerated | The type of [DstDomain](#dstdomain), if known. Possible values include:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>Required if [DstDomain](#dstdomain) is used. |
+| <a name="dstdomain"></a>**DstDomain** | Recommended | String | The domain of the destination device.<br><br>Example: `Contoso` |
+| <a name="dstdomaintype"></a>**DstDomainType** | Recommended | Enumerated | The type of [DstDomain](#dstdomain), if known. Possible values include:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>Required if [DstDomain](#dstdomain) is used. |
 | **DstFQDN** | Optional | String | The destination device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [DstDomainType](#dstdomaintype) reflects the format used.   |
 | <a name="dstdvcid"></a>**DstDvcId** | Optional | String | The ID of the destination device as reported in the record.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the  **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used. <!--are we missing fields here?-->|
+| **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the  **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used.|
 | **DstDeviceType** | Optional | Enumerated | The type of the destination device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
 | <a name="dstuserid"></a>**DstUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the destination user. <br><br>Supported formats and types include:<br>- **SID**  (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>- **UID**  (Linux): `4578`<br>-  **AADID**  (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>Store the ID type in the [DstUserIdType](#dstuseridtype) field. If other IDs are available, we recommend that you normalize the field names to **DstUserSid**, **DstUserUid**, **DstUserAADID**, **DstUserOktaId** and **UserAwsId**, respectively. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `S-1-12` |
-| **DstUserIdType** | Optional | Enumerated | The type of the ID stored in the [DstUserId](#dstuserid) field. <br><br>Supported values are: `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
+| <a name="dstuseridtype"></a>**DstUserIdType** | Optional | Enumerated | The type of the ID stored in the [DstUserId](#dstuserid) field. <br><br>Supported values are: `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
 | <a name="dstusername"></a>**DstUsername** | Optional | String | The Destination username, including domain information when available. <br><br>Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information is not available.<br><br>Store the Username type in the [DstUsernameType](#dstusernametype) field. If other IDs are available, we recommend that you normalize the field names to **DstUserUpn**, **DstUserWindows** and **DstUserDn**.For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
 | **User** | Alias | | Alias to [DstUsername](#dstusername) |
-| **DstUsernameType** | Optional | Enumerated | Specifies the type of the username stored in the [DstUsername](#dstusername) field. Supported values include: `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
+| <a name="dstusernametype"></a>**DstUsernameType** | Optional | Enumerated | Specifies the type of the username stored in the [DstUsername](#dstusername) field. Supported values include: `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
 | **DstUserType** | Optional | Enumerated | The type of Actor. Supported values include:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [DstOriginalUserType](#dstoriginalusertype) field. |
 | <a name="dstoriginalusertype"></a>**DstOriginalUserType** | Optional | String | The original destination user type, if provided by the source. |
 | **DstUserDomain** | Optional | String | This field is kept for backward compatibility only. ASIM requires domain information, if available, to be part of the [DstUsername](#dstusername) field. |
@@ -221,13 +222,13 @@ The following fields are common to all network session activity logging:
 | <a name="srcdomaintype"></a>**SrcDomainType** | Recommended | Enumerated | The type of  [SrcDomain](#srcdomain), if known. Possible values include:<br>- `Windows` (such as: `contoso`)<br>- `FQDN` (such as: `microsoft.com`)<br><br>Required if [SrcDomain](#srcdomain) is used. |
 | **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
 | <a name="srcdvcid"></a>**SrcDvcId** | Optional | String | The ID of the source device as reported in the record.<br><br>For example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **SrcDvcIdType** | Optional | Enumerated | The type of [SrcDvcId](#srcdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the **SrcDvcAzureResourceId** and **SrcDvcMDEid**, respectively.<br><br>**Note**: This field is required if [SrcDeviceId](#srcdeviceid) is used. |
+| **SrcDvcIdType** | Optional | Enumerated | The type of [SrcDvcId](#srcdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the **SrcDvcAzureResourceId** and **SrcDvcMDEid**, respectively.<br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | Enumerated | The type of the source device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
 | <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. Format and supported types include:<br>-  **SID**  (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID**  (Linux): `4578`<br>-  **AADID**  (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>Store the ID type in the [SrcUserIdType](#srcuseridtype) field. If other IDs are available, we recommend that you normalize the field names to SrcUserSid, SrcUserUid, SrcUserAadId, SrcUserOktaId and UserAwsId, respectively.For more information, see The User entity.<br><br>Example: S-1-12 |
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Optional | Enumerated | The type of the ID stored in the [SrcUserId](#srcuserid) field. Supported values include: `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The Source username, including domain information when available. Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information is not available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other IDs are available, we recommend that you normalize the field names to **SrcUserUpn**, **SrcUserWindows** and **SrcUserDn**.<br><br>For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
 | **User** | Alias | | Alias to [SrcUsername](#srcusername) |
-| **SrcUsernameType** | Optional | Enumerated | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. Supported values are: `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
+| <a name="srcusernametype"></a>**SrcUsernameType** | Optional | Enumerated | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. Supported values are: `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
 | **SrcUserType** | Optional | Enumerated | The type of Actor. Allowed values are:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [EventOriginalSeverity](#eventoriginalseverity) field. |
 | **SrcOriginalUserType** | | | The original source user type, if provided by the source. |
 | **SrcUserDomain** | Optional | String | This field is kept for backward compatibility only. ASIM requires domain information, if available, to be part of the [SrcUsername](#srcusername) field. |
@@ -243,7 +244,7 @@ The following fields are common to all network session activity logging:
 | **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
 | **SrcGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the source IP address.<br><br>Example: `44.475833` |
 | **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
-| **NetworkApplicationProtocol** | Optional | String | The application layer protocol used by the connection or session. If the [DstIpPort](#dstipport) value is provided, we recommend that you include  **NetworkApplicationProtocol** too. If the value is not available from the source, derive the value from the [DstIpPort](#dstipport) value.<br><br>Example: `HTTP` |
+| **NetworkApplicationProtocol** | Optional | String | The application layer protocol used by the connection or session. If the [DstPortNumber](#dstportnumber) value is provided, we recommend that you include  **NetworkApplicationProtocol** too. If the value is not available from the source, derive the value from the [DstPortNumber](#dstportnumber) value.<br><br>Example: `HTTP` |
 | **NetworkProtocol** | Optional | Enumerated | The IP protocol used by the connection or session as listed in [IANA protocol assignment](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). Typically, `TCP`, `UDP` or `ICMP`.<br><br>Example: `TCP` |
 | **NetworkDirection** | Optional | Enumerated | The direction of the connection or session, into or out of the organization. Supported values include: `Inbound`, `Outbound`, `Listen`. `Listen` indicates that a device has started accepting network connections, but is not actually, neccesarily, connected.|
 | <a name="networkduration"></a>**NetworkDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of the network session or connection.<br><br>Example: `1500` |
@@ -260,7 +261,7 @@ The following fields are common to all network session activity logging:
 | **SessionId** | Alias | String | Alias to [NetworkSessionId](#networksessionid) |
 | | | | |
 
-###<a name="Intermediary"></a> Intermediary device fields
+### <a name="Intermediary"></a>Intermediary device fields
 
 The following fields are useful if the record includes information about an intermediary device, such as a Firewall or a Proxy, which relays the network session.
 
@@ -274,14 +275,14 @@ The following fields are useful if the record includes information about an inte
 | **DvcOutboundInterface** | Optional | String | If reported by an intermediary device, the network interface used by the NAT device for the connection to the destination device.<br><br>Example: `Ethernet adapter Ethernet 4e` |
 | | | | |
 
-###<a name="HTTP"></a> HTTP Session fields
+### <a name="http-session-fields"></a>HTTP Session fields
 
 An HTTP session is a network session that uses the HTTP protocol. Such sessions are often reported by web servers, web proxies, and web security gateways. The following are additional fields that are specific to HTTP sessions:
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
 | **Url** | Recommended | String | For HTTP/HTTPS network sessions, the full HTTP request URL, including parameters. This field is mandatory when the event represents an HTTP session.<br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
-| **UrlCategory** | Optional | String | The defined grouping of a URL or the domain part of the URL. The category is commonly provided by web security gateways and is based on the content of the site the URL points to. <!--this part is unclear, maybe you meant to remove? related to what it is (i.e.:, etc.).--><br><br>Example: search engines, adult, news, advertising, and parked domains. |
+| **UrlCategory** | Optional | String | The defined grouping of a URL or the domain part of the URL. The category is commonly provided by web security gateways and is based on the content of the site the URL points to.<br><br>Example: search engines, adult, news, advertising, and parked domains. |
 | **UrlOriginal** | Optional | String | The original value of the URL, when the URL was modified by the reporting device and both values are provided. |
 | **HttpVersion** | Optional | String | The HTTP Request Version for HTTP/HTTPS network connections.<br><br>Example: `2.0` |
 | **HttpRequestMethod** | Recommended | Enumerated | The HTTP Method for HTTP/HTTPS network sessions. The values are as defined in [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4) and [RFC 5789](https://datatracker.ietf.org/doc/html/rfc5789#section-2), and include `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, and `PATCH`.<br><br>Example: `GET` |
@@ -309,7 +310,7 @@ In addition, the following standard Networking Schema fields have additional gui
 - **EventResultDetails** should be set to the HTTP Status code.
 - **EventResult** should be &quot;Success&quot; for HTTP status codes lower than 400 and &quot;Failure&quot; otherwise.
 
-###<a name="Inspection"></a> Inspection fields
+### <a name="inspection-fields"></a>Inspection fields
 
 The following fields are used to represent that inspection which a security device such as a firewall, an IPS or a Web Security Gateway performed:
 
@@ -318,8 +319,8 @@ The following fields are used to represent that inspection which a security devi
 | **NetworkRuleName** | Optional | String | The name or ID of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |
 | **NetworkRuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br>Example: `23` |
 | **Rule** | Mandatory | String | Either `NetworkRuleName` or `NetworkRuleNumber` |
-| <a name="dvcaction"></a>**DvcAction** | Optional | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the [DvcActionOriginal](dvcactionoriginal) field.<br><br>Example: `drop` |
-| **DvcActionOriginal** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
+| <a name="dvcaction"></a>**DvcAction** | Optional | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](#dvcoriginalaction) field.<br><br>Example: `drop` |
+| **DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the network session.<br><br>Example: `Tr.124` |
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the network session.<br><br>Example: `EICAR Test File` |
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the network session.<br><br>Example: `Trojan` |
