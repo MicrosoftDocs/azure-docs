@@ -14,7 +14,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: System prerequisites
+  - name: System preequisites
     displayName: firewall, proxy, open ports
     href: quickstart-system-prerequisites.md
   - name: Get started with Azure Defender for IoT
@@ -39,8 +39,11 @@
         displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate 
         href: how-to-identify-required-appliances.md
       - name: Set up your network
-        displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, tunnel, monitoring, tuning, QOS, QoS, Quality of Service
+        displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning, QOS, QoS, Quality of Service, LDAP, tunnel
         href: how-to-set-up-your-network.md
+      - name: Deploy certificates
+        displayName: SSL, TLS, PKI, Locally-signed, CA-signed
+        href: how-to-deploy-certificates.md
       - name: Install software
         displayName: tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports
         href: how-to-install-software.md
@@ -71,7 +74,7 @@
   - name: Manage users and user access
     items:
     - name: Create and manage users
-      displayName: Active Directory, roles, permissions, password
+      displayName: Active Directory, roles, permissions, password, LDAP
       href: how-to-create-and-manage-users.md
     - name: Define global user access control
       href: how-to-define-global-user-access-control.md
