@@ -16,7 +16,7 @@ You can also use a loop with [resources](loop-resources.md), [properties](loop-p
 
 ### Microsoft Learn
 
-To learn more about loops, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](xref:learn.azure.bicep-conditions-loops) on **Microsoft Learn**.
+To learn more about loops, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
 
 ## Syntax
 
