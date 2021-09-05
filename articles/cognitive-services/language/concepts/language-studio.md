@@ -50,7 +50,7 @@ Before you can use Language Studio, you need to have an Azure account. You can [
 > [!IMPORTANT] 
 > If you want to use one of the custom features, we recommend following the associated quickstart article.The setup process and requirements for these features are different, and the articles linked above will help you get started more easily.  
 > * [Conversational Language Understanding](../custom-language-understanding/quickstart.md)
-> * [Custom Content Classification](../custom-classification/quickstart.md)
+> * [Custom Text Classification](../custom-classification/quickstart/using-language-studio.md)
 > * [Custom Named Entity Recognition (NER)](../custom-named-entity-recognition/quickstart.md) 
 > * [Custom Question Answering](../custom-question-answering/quickstart.md)
 > * [Custom Translator](../custom-translator/quickstart.md)
