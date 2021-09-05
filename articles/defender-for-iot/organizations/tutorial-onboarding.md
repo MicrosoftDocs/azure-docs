@@ -1,18 +1,18 @@
 ---
-title: Onboard a trial subscription of Azure Defender for IoT
-description: In this tutorial, learn how to onboard a sensor and management console to try out Defender for IoT for free.
+title: Azure Defender for IoT trial setup
+description: In this tutorial, learn how to onboard to Azure Defender for IoT with a virtual sensor, on a virtual machine, with a trial subscription of Azure Defender for IoT.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/02/2021
+ms.date: 09/05/2021
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Onboard a trial subscription of Azure Defender for IoT
+# Tutorial: Azure Defender for IoT trial setup
 
-This tutorial will help you learn how to onboard a trial subscription of Azure Defender for IoT by downloading
+This tutorial will help you learn how to onboard to Azure Defender for IoT with a virtual sensor, on a virtual machine, with a trial subscription of Azure Defender for IoT. This tutorial will show you the optimal setup for someone who wishes to test Azure Defender for IoT, prior to signing up, and incorporating it into their environment.
 
-Through the use of virtual environments along with the software needed to create a sensor, and a management console, Defender for IoT allows you to:
+By using virtual environments, along with the software needed to create a sensor, Defender for IoT allows you to:
 
 - Use passive, agentless network monitoring to gain a complete inventory of all your IoT, and OT devices, their details, and how they communicate, with zero impact on the IoT/OT network.
 
@@ -27,10 +27,10 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Onboard with Azure Defender for IoT
 > * Download the ISO for the virtual sensor
-> * Create the virtual sensor
-> * Install the virtual sensor software
+> * Create a virtual machine for the sensor
+> * Install the software for the virtual sensor
 > * Configure a SPAN port
-> * Setup the virtual sensor
+> * Onboard, and activate the virtual sensor
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 - Either VMware (ESXi 5.5 or later), or Hyper-V hypervisor (Windows 10 Pro or Enterprise) is installed and operational.
 
-- An Azure account. If you do not already have an Azure account you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Onboard with Azure Defender for IoT
 
@@ -58,7 +58,7 @@ To evaluate Defender for IoT, you can use a trial subscription. The trial is val
 
     :::image type="content" source="media/tutorial-onboarding/onboard-subscription.png" alt-text="Select the Onboard subscription button from the Getting started page.":::
 
-1. On the Pricing page select **Start with a trial**.
+1. On the Pricing page, select **Start with a trial**.
 
    :::image type="content" source="media/tutorial-onboarding/start-with-trial.png" alt-text="Select the Start with a trial button to open the trial window.":::
 
@@ -68,7 +68,7 @@ To evaluate Defender for IoT, you can use a trial subscription. The trial is val
 
 ## Download the ISO for the virtual sensor
 
-The virtual appliances have minimum specifications that are required for both the sensor and management console. The following table show the specifications needed for the sensor depending on you environment.
+The virtual appliances have minimum specifications that are required for both the sensor and management console. The following table shows the specifications needed for the sensor depending on your environment.
 
 ### Virtual sensor
 
@@ -90,7 +90,7 @@ The virtual appliances have minimum specifications that are required for both th
 
     :::image type="content" source="media/tutorial-onboarding/sensor-download.png" alt-text="Under the sensor tab, select download, to download the ISO file for the virtual sensor.":::
 
-## Create the virtual sensor
+## Create a virtual machine for the sensor
 
 The virtual sensor supports both VMware, and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
 
@@ -102,7 +102,7 @@ The virtual sensor supports both VMware, and Hyper-V deployment options. Before 
 
 - Make sure the hypervisor is running.
 
-### Create the virtual machine for the sensor (ESXi)
+### Create the virtual machine for the sensor with ESXi
 
 **To create the virtual machine for the sensor (ESXi)**:
 
@@ -134,11 +134,11 @@ The virtual sensor supports both VMware, and Hyper-V deployment options. Before 
 
 1. Power on the VM, and open a console.
 
-### Create the virtual machine for the sensor (Hyper-V)
+### Create a virtual machine for the sensor with Hyper-V
 
 This procedure describes how to create a virtual machine by using Hyper-V.
 
-**To create a virtual machine**:
+**To create a virtual machine with Hyper-V**:
 
 1. Create a virtual disk in Hyper-V Manager.
 
@@ -180,7 +180,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. On the **Actions** menu, select **Connect** to continue the software installation.
 
-## Install the virtual sensor software (ESXi and Hyper-V)
+## Install the software for the virtual sensor with ESXi or Hyper-V
 
 Either ESXi, or Hyper-V can be used to install the software for the virtual sensor.
 
@@ -203,7 +203,7 @@ Either ESXi, or Hyper-V can be used to install the software for the virtual sens
 
 1. Enter **Y** to accept the settings.
 
-1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required for sign-in, and administration. The username and password will not be presented again.
+1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required to sign-in, and manage your device. The username and password will not be presented again.
 
     - **Support**: The administrative user for user management.
 
@@ -215,7 +215,7 @@ Either ESXi, or Hyper-V can be used to install the software for the virtual sens
 
 ### Post-installation validation
 
-To validate the installation of a physical appliance, you need to perform many tests. The same validation process applies to all the appliance types.
+To validate the installation of a physical appliance, you need to perform many tests.
 
 The validation is available to both the **Support**, and **CyberX** user.
 
@@ -241,9 +241,9 @@ For post-installation validation, you must test to ensure the system is running,
 
 ## Configure a SPAN port
 
-A vSwitch does not have mirroring capabilities, but you can use a workaround to implement a SPAN port. This can be accomplished with either ESXi or Hyper-V
+A vSwitch does not have mirroring capabilities, but you can use a workaround to implement a SPAN port. You can implement the workaround with either ESXi, or Hyper-V.
 
-### Configure a SPAN port (ESXi)
+### Configure a SPAN port with ESXi
 
 **To configure a SPAN port with ESXi**:
 
@@ -271,9 +271,9 @@ A vSwitch does not have mirroring capabilities, but you can use a workaround to 
 
 1. Connect to the sensor and verify that mirroring works.
 
-### Configure a SPAN port (Hyper-V)
+### Configure a SPAN port with Hyper-V
 
-Before starting you will need to:
+Prior to starting you will need to:
 
 - Ensure that there is no instance of ClearPass VA running.
 
@@ -389,13 +389,13 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 | Parameter | Description |
 |--|--|
 | vSwitch_Span | Newly added SPAN virtual switch name |
-## Setup the virtual sensor
+## Onboard, and activate the virtual sensor
 
-Register the created virtual sensor with Azure Defender for IoT, and download the virtual sensor's activation file to activate the sensor.
+Before you can start using your Defender for IoT sensor, you will need to onboard the created virtual sensor to your Azure subscription, and download the virtual sensor's activation file to activate the sensor.
 
-### Register the virtual sensor
+### Onboard the virtual sensor
 
-**To register the virtual sensor:**
+**To onboard the virtual sensor:**
 
 1. Go to the **Welcome** page in the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -425,7 +425,7 @@ Register the created virtual sensor with Azure Defender for IoT, and download th
 
 ### Download the sensor activation file
 
-After registering the sensor you will be able to download an activation file. The sensor activation file contains instructions about the management mode of the sensor. The activation file you download, will be unique for each sensor that you deploy. The user who signs in to the sensor console for the first time, will uploads the activation file to the sensor.
+Once registration is complete for the sensor, you will be able to download an activation file for the sensor. The sensor activation file contains instructions about the management mode of the sensor. The activation file you download, will be unique for each sensor that you deploy. The user who signs in to the sensor console for the first time, will uploads the activation file to the sensor.
 
 **To download an activation file:**
 
@@ -457,7 +457,7 @@ After registering the sensor you will be able to download an activation file. Th
 
 1. Upload the CRT and key files.
 
-1. Enter a passphrase and upload a PEM file if required.
+1. Enter a passphrase and upload a PEM file if necessary.
 
 1. Select **Next**. The validation screen opens. By default, validation between the management console and connected sensors is enabled.
 
@@ -469,5 +469,5 @@ You might need to refresh your screen after uploading the CA-signed certificate.
 
 ## Next steps
 
-Learn how to setup a [additional appliances](how-to-install-software.md#about-defender-for-iot-appliances).
+Learn how to set up [additional appliances](how-to-install-software.md#about-defender-for-iot-appliances).
 Read about the [agentless architecture](architecture.md).
