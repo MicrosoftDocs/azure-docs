@@ -57002,6 +57002,11 @@
       "source_path_from_root": "/articles/azure-cache-for-redis/cache-best-practices.md",
       "redirect_url": "/azure/azure-cache-for-redis/index",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/normalization-schema.md ",
+      "redirect_url": "/azure/sentinel/network-normalization-schema.md",
+      "redirect_document_id": false
     }
   ]
 }
