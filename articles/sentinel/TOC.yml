@@ -284,10 +284,14 @@
         href: file-event-normalization-schema.md
       - name: Network normalization schema
         href: normalization-schema.md
+      - name: Network normalization schema
+        href: network-normalization-schema.md
       - name: Process event normalization schema
         href: process-events-normalization-schema.md
       - name: Registry event normalization schema
         href: registry-event-normalization-schema.md
+      - name: Legacy network normalization schema
+        href: normalization-schema-v1.md
   - name: Detection and analysis references
     items:
     - name: Top Azure Sentinel workbooks
