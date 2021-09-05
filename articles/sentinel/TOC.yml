@@ -283,8 +283,6 @@
       - name: File event normalization schema
         href: file-event-normalization-schema.md
       - name: Network normalization schema
-        href: normalization-schema.md
-      - name: Network normalization schema
         href: network-normalization-schema.md
       - name: Process event normalization schema
         href: process-events-normalization-schema.md
