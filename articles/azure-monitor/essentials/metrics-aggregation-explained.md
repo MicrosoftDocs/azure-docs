@@ -92,7 +92,7 @@ There are two types of collection periods.
 
 ### Granularity
 
-The minimum time interval is 1 minute, but the underlying system may capture data faster depending on the metric. For example, CPU percentage is tracked every 15 seconds at a regular interval. Because HTTP failures are tracked as transactions, they can easily exceed many more than one a minute. Other metrics such as SQL Storage are captured every 20 minutes. This choice is up to the individual resource provider and type. Most try to provide the smallest interval possible.
+The minimum time granularity is 1 minute, but the underlying system may capture data faster depending on the metric. For example, CPU percentage for an Azure VM is captured at a time interval of 15 seconds. Because HTTP failures are tracked as transactions, they can easily exceed many more than one a minute. Other metrics such as SQL Storage are captured at a time interval of every 20 minutes. This choice is up to the individual resource provider and type. Most try to provide the smallest time interval possible.
 
 ### Dimensions, splitting, and filtering
 

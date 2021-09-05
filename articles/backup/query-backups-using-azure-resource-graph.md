@@ -42,7 +42,7 @@ The following are some sample ARG queries on your backup data that you can use i
 
 ### List all Azure VMs that have been configured for backup
 
-```dotnetcli
+```kusto
 RecoveryServicesResources 
 | where type in~ ('Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems')
 | extend vaultName = case(type =~ 'microsoft.dataprotection/backupVaults/backupInstances',split(split(id, '/Microsoft.DataProtection/backupVaults/')[1],'/')[0],type =~ 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems',split(split(id, '/Microsoft.RecoveryServices/vaults/')[1],'/')[0],'--')
@@ -61,7 +61,7 @@ RecoveryServicesResources
 
 ### List all backup jobs on Azure Databases for PostgreSQL Servers in the last one week
 
-```dotnetcli
+```kusto
 RecoveryServicesResources 
 | where type in~ ('Microsoft.DataProtection/backupVaults/backupJobs')
 | extend vaultName = case(type =~ 'microsoft.dataprotection/backupVaults/backupJobs',properties.vaultName,type =~ 'Microsoft.RecoveryServices/vaults/backupJobs',split(split(id, '/Microsoft.RecoveryServices/vaults/')[1],'/')[0],'--')
@@ -81,7 +81,7 @@ RecoveryServicesResources
 
 ### List all Azure VMs that have not been configured for backup
 
-```dotnetcli
+```kusto
 Resources
 | where type in~ ('microsoft.compute/virtualmachines','microsoft.classiccompute/virtualmachines') 
 | extend resourceId=tolower(id) 
@@ -95,9 +95,20 @@ Resources
 
 ```
 
+### List all Backup policies used for Azure VMs
+
+```kusto
+RecoveryServicesResources
+| where type == 'microsoft.recoveryservices/vaults/backuppolicies'
+| extend vaultName = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', split(split(id, 'microsoft.recoveryservices/vaults/')[1],'/')[0],type == 'microsoft.recoveryservices/vaults/backuppolicies', split(split(id, 'microsoft.recoveryservices/vaults/')[1],'/')[0],'--')
+| extend datasourceType = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', properties.backupManagementType,type == 'microsoft.dataprotection/backupVaults/backupPolicies',properties.datasourceTypes[0],'--')
+| project id,name,vaultName,resourceGroup,properties,datasourceType
+| where datasourceType == 'AzureIaasVM'
+```
+
 ### List all Backup policies used for Azure Databases for PostgreSQL Servers
 
-```dotnetcli
+```kusto
 RecoveryServicesResources 
 | where type in~ ('Microsoft.DataProtection/BackupVaults/backupPolicies')
 | extend vaultName = case(type =~ 'microsoft.dataprotection/backupVaults/backupPolicies', split(split(id, '/Microsoft.DataProtection/backupVaults/')[1],'/')[0],type =~ 'microsoft.recoveryservices/vaults/backupPolicies', split(split(id, '/Microsoft.RecoveryServices/vaults/')[1],'/')[0],'--')

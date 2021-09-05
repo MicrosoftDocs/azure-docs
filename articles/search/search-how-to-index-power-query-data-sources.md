@@ -3,7 +3,6 @@ title: Index data using Power Query connectors (preview)
 titleSuffix: Azure Cognitive Search
 description: Import data from different data sources using the Power Query connectors.
 
-manager: luisca
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
@@ -60,7 +59,7 @@ Make sure your data source contains data. The Import data wizard reads metadata 
 ### Step 2 – Start Import data wizard
 After you're approved for the preview, the Azure Cognitive Search team will provide you with an Azure portal link that uses a feature flag so that you can access the  Power Query connectors. Open this page and start the start the wizard from the command bar in the Azure Cognitive Search service page by selecting **Import data**.
 
-![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
+:::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
 ### Step 3 – Select your data source
 There are a few data sources that you can pull data from using this preview. All data sources that use Power Query will include a "Powered By Power Query" on their tile. 

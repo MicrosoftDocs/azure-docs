@@ -3,7 +3,7 @@ title: Manage an Azure Automation Run As account
 description: This article tells how to manage your Azure Automation Run As account with PowerShell or from the Azure portal.
 services: automation
 ms.subservice:
-ms.date: 05/17/2021
+ms.date: 08/02/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,7 +18,7 @@ In this article we cover how to manage a Run as or Classic Run As account, inclu
    * How to renew a certificate from an enterprise or third-party certificate authority (CA)
    * Manage permissions for the Run As account
 
-To learn more about Azure Automation account authentication and guidance related to process automation scenarios, see [Automation Account authentication overview](automation-security-overview.md).
+To learn more about Azure Automation account authentication, permissions required to manage the Run as account, and guidance related to process automation scenarios, see [Automation Account authentication overview](automation-security-overview.md).
 
 ## <a name="cert-renewal"></a>Renew a self-signed certificate
 

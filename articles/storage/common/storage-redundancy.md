@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 08/18/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -126,24 +126,24 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 
 GZRS and RA-GZRS are supported in the following regions:
 
-- (Africa) South Africa North
-- (Asia Pacific) Southeast Asia
+- (Asia Pacific) Asia East
+- (Asia Pacific) Asia Southeast
 - (Asia Pacific) Australia East
-- (Asia Pacific) Central India
 - (Asia Pacific) Japan East
-- (Asia Pacific) Korea Central
 - (Canada) Canada Central
 - (Europe) North Europe
 - (Europe) West Europe
 - (Europe) France Central
-- (Europe) Germany West Central
+- (Europe) Norway East
 - (Europe) UK South
 - (South America) Brazil South
-- (US) Central US
-- (US) East US
-- (US) East US 2
-- (US) South Central US
-- (US) West US 2
+- (US) US Central
+- (US) US East
+- (US) US East 2
+- (US) US Government East
+- (US) US South Central
+- (US) US West 2
+- (US) US West 3
 
 For information on pricing, see pricing details for [Blobs](https://azure.microsoft.com/pricing/details/storage/blobs), [Files](https://azure.microsoft.com/pricing/details/storage/files/), [Queues](https://azure.microsoft.com/pricing/details/storage/queues/), and [Tables](https://azure.microsoft.com/pricing/details/storage/tables/).
 
@@ -206,7 +206,7 @@ The following table shows which redundancy options are supported by each Azure S
 |---|---|---|---|---|---|
 | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure managed disks | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1,</sup><sup>2</sup> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> |
 
-<sup>1</sup> Standard file shares are supported on LRS, ZRS, GRS, and GZRS.<br />
+<sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they are less than or equal to five TiB in size.<br />
 <sup>2</sup> Premium file shares are supported on LRS and ZRS.<br />
 
 ### Supported storage account types

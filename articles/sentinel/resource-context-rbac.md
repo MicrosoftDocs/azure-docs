@@ -148,6 +148,7 @@ When collecting using the [Log Analytics data collector API](../azure-monitor/lo
 If you are using resource-context RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#explicitly-configure-resource-context-rbac).
 
 
+
 ## Next steps
 
 For more information, see [Permissions in Azure Sentinel](roles.md).

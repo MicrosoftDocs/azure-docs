@@ -158,7 +158,7 @@ A port is reused for an unlimited number of connections. The port is only reused
 
 Each public IP assigned as a frontend IP of your load balancer is given 64,000 SNAT ports for its backend pool members. Ports can't be shared with backend pool members. A range of SNAT ports can only be used by a single backend instance to ensure return packets are routed correctly. 
 
-Should you use the automatic allocation of outbound SNAT through a load-balancing rule, the allocation table will define your port allocation.
+Should you use the automatic allocation of outbound SNAT through a load-balancing rule, the allocation table will define your port allocation for each IP.
 
 The following <a name="snatporttable"></a>table shows the SNAT port preallocations for tiers of backend pool sizes:
 

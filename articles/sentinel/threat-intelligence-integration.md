@@ -108,7 +108,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### ThreatQuotient Threat Intelligence Platform
 
-- See [Microsoft Sentinel Connector for ThreatQ integration](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=DetailsAndSupport) for support information and instructions to connect [ThreatQuotient TIP](https://www.threatq.com/) to Azure Sentinel.
+- See [Microsoft Sentinel Connector for ThreatQ integration](https://azuremarketplace.microsoft.com/marketplace/apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?tab=overview) for support information and instructions to connect [ThreatQuotient TIP](https://www.threatq.com/) to Azure Sentinel.
 
 ## Incident enrichment sources
 
@@ -144,5 +144,5 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 
 In this document, you learned how to connect your threat intelligence provider to Azure Sentinel. To learn more about Azure Sentinel, see the following articles.
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

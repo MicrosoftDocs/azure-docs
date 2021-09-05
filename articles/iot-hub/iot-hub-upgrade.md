@@ -2,7 +2,7 @@
 title: Upgrade Azure IoT Hub | Microsoft Docs
 description: Change the pricing and scale tier for IoT Hub to get more messaging and device management capabilities. 
 author: robinsh
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

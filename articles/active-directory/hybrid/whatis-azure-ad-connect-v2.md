@@ -7,10 +7,10 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/24/2021
+ms.date: 08/26/2021
 ms.subservice: hybrid
 ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management, has-adal-ref
 ---
 
 # Introduction to Azure AD Connect V2.0 
@@ -49,13 +49,13 @@ SQL Server 2019 requires Windows Server 2016 or newer as a server operating syst
 
 You cannot install this version on an older Windows Server version. We suggest you upgrade your Azure AD Connect server to Windows Server 2019, which is the most recent version of the Windows Server operating system. 
 
-This [article](https://docs.microsoft.com/windows-server/get-started-19/install-upgrade-migrate-19) describes the upgrade from older Windows Server versions to Windows Server 2019. 
+This [article](/windows-server/get-started-19/install-upgrade-migrate-19) describes the upgrade from older Windows Server versions to Windows Server 2019. 
 
 ### PowerShell 5.0 
 
 This release of Azure AD Connect contains several cmdlets that require PowerShell 5.0, so this requirement is a new prerequisite for Azure AD Connect.  
 
-More details about PowerShell prerequisites can be found [here](https://docs.microsoft.com/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements?view=powershell-7.1#windows-powershell-50).
+More details about PowerShell prerequisites can be found [here](/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements?view=powershell-7.1#windows-powershell-50).
 
  >[!NOTE]
  >PowerShell 5 is already part of Windows Server 2016 so you probably do not have to take action as long as you are on a recent Window Server version. 
@@ -81,10 +81,13 @@ Yes, you can do that, and it is a great way to migrate to Azure AD Connect V2.0 
 No – Azure AD Connect V2.0 will not be made available for auto upgrade at this time. 
 
 **I am not ready to upgrade yet – how much time do I have?** </br>
-You should upgrade to Azure AD Connect V2.0 as soon as you can. For the time being we will continue to support older versions of Azure AD Connect, but it may prove difficult to provide a good support experience if some of the components in Azure AD Connect have dropped out of support. This upgrade is particularly important for ADAL and TLS1.0/1.1 as these services might stop working unexpectedly after they are deprecated. 
+You should upgrade to Azure AD Connect V2.0 as soon as you can. **__All Azure AD Connect V1 versions will be retired on 31 August, 2022.__** For the time being we will continue to support older versions of Azure AD Connect, but it may prove difficult to provide a good support experience if some of the components in Azure AD Connect have dropped out of support. This upgrade is particularly important for ADAL and TLS1.0/1.1 as these services might stop working unexpectedly after they are deprecated. 
 
 **I use an external SQL database and do not use SQL 2012 LocalDb – do I still have to upgrade?** </br>
 Yes, you still need to upgrade to remain in a supported state even if you do not use SQL Server 2012, due to the TLS1.0/1.1 and ADAL deprecation. 
+
+**After the upgrade of my Azure AD Connect instance to V2.0, will the SQL 2012 components automatically get uninstalled?** </br>
+No, the upgrade to SQL 2019 does not remove any SQL 2012 components from your server. If you no longer need these components then you should follow [the SQL Server uninstallation instructions](https://docs.microsoft.com/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
 
 **What happens if I do not upgrade?** </br>
 Until one of the components that are being retired are actually deprecated, you will not see any impact. Azure AD Connect will keep on working. 
@@ -116,4 +119,4 @@ This is a known issue.  To resolve this, restart your PowerShell session after i
 - [Express settings](how-to-connect-install-express.md)
 - [Customized settings](how-to-connect-install-custom.md)
 
-This article describes the upgrade from older Windows Server versions to Windows Server 2019. 
+This article describes the upgrade from older Windows Server versions to Windows Server 2019.
