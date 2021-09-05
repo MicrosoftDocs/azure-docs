@@ -17,28 +17,6 @@ The following integration types are available:
 
 - Send recommendations for blocking to the central management system: Defender for IoT to Panorama integration.
 
-Defender for IoT, and Palo Alto Network's integration automatically creates new policies in the Palo Alto Network's NMS, and Panorama.
-
-This table shows the integration's intended incident use:
-
-| Incident type | Use case |
-|--|--|
-|**Unauthorized PLC changes** | An update to the ladder logic, or firmware of a device. This can represent legitimate activity, or an attempt to compromise the device. For example, malicious code, such as a Remote Access Trojan (RAT), or parameters that cause the physical process, such as a spinning turbine, to operate in an unsafe manner. |
-|**Protocol Violation** | A packet structure, or field value that violates the protocol specification. This can represent a misconfigured application, or a malicious attempt to compromise the device. For example, causing a buffer overﬂow condition in the target device. |
-|**PLC Stop** | A command that causes the device to stop functioning, thereby risking the physical process that is being controlled by the PLC. |
-|**Industrial malware found in the ICS network** | Malware that manipulates ICS devices using their native protocols, such as TRITON and Industroyer. Defender for IoT also detects IT malware that has moved laterally into the ICS, and SCADA environment. For example, Conficker, WannaCry, and NotPetya. |
-|**Scanning malware** | Reconnaissance tools that collect data about system configuration in a pre-attack phase. For example, the Havex Trojan scans industrial networks for devices using OPC, which is a standard protocol used by Windows-based SCADA systems to communicate with ICS devices. |
-
-When Defender for IoT detects a pre-configured use case, the **Block Source** button is added to the alert. Then, when the CyberX user selects the **Block Source** button, Defender for IoT creates policies on Panorama by sending the predefined forwarding rule.
-
-The policy is applied only when the Panorama administrator pushes it to the relevant NGFW in the network.
-
-In IT networks, there may be dynamic IP addresses. Therefore, for those subnets, the policy must be based on FQDN (DNS name) and not the IP address. Defender for IoT performs reverse lookup and matches devices with dynamic IP address to their FQDN (DNS name) every configured number of hours.
-
-In addition, Defender for IoT sends an email to the relevant Panorama user to notify that a new policy created by Defender for IoT is waiting for the approval. The figure below presents the Defender for IoT-Panorama Integration Architecture.
-
-:::image type="content" source="media/tutorial-palo-alto/structure.png" alt-text="CyberX-Panorama Integration Architecture":::
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -102,6 +80,28 @@ The suspicious source is now blocked by the Palo Alto firewall.
 
 ## Create Panorama blocking policies in Defender for IoT configuration
 
+Defender for IoT, and Palo Alto Network's integration automatically creates new policies in the Palo Alto Network's NMS, and Panorama.
+
+This table shows the which incidents this integration is intended for:
+
+| Incident type | Description |
+|--|--|
+|**Unauthorized PLC changes** | An update to the ladder logic, or firmware of a device. This can represent legitimate activity, or an attempt to compromise the device. For example, malicious code, such as a Remote Access Trojan (RAT), or parameters that cause the physical process, such as a spinning turbine, to operate in an unsafe manner. |
+|**Protocol Violation** | A packet structure, or field value that violates the protocol specification. This can represent a misconfigured application, or a malicious attempt to compromise the device. For example, causing a buffer overﬂow condition in the target device. |
+|**PLC Stop** | A command that causes the device to stop functioning, thereby risking the physical process that is being controlled by the PLC. |
+|**Industrial malware found in the ICS network** | Malware that manipulates ICS devices using their native protocols, such as TRITON and Industroyer. Defender for IoT also detects IT malware that has moved laterally into the ICS, and SCADA environment. For example, Conficker, WannaCry, and NotPetya. |
+|**Scanning malware** | Reconnaissance tools that collect data about system configuration in a pre-attack phase. For example, the Havex Trojan scans industrial networks for devices using OPC, which is a standard protocol used by Windows-based SCADA systems to communicate with ICS devices. |
+
+When Defender for IoT detects a pre-configured use case, the **Block Source** button is added to the alert. Then, when the CyberX user selects the **Block Source** button, Defender for IoT creates policies on Panorama by sending the predefined forwarding rule.
+
+The policy is applied only when the Panorama administrator pushes it to the relevant NGFW in the network.
+
+In IT networks, there may be dynamic IP addresses. Therefore, for those subnets, the policy must be based on FQDN (DNS name) and not the IP address. Defender for IoT performs reverse lookup and matches devices with dynamic IP address to their FQDN (DNS name) every configured number of hours.
+
+In addition, Defender for IoT sends an email to the relevant Panorama user to notify that a new policy created by Defender for IoT is waiting for the approval. The figure below presents the Defender for IoT-Panorama Integration Architecture.
+
+:::image type="content" source="media/tutorial-palo-alto/structure.png" alt-text="CyberX-Panorama Integration Architecture":::
+
 The first step in creating Panorama blocking policies in Defender for IoT is to configure DNS lookup.
 
 **To configure DNS lookup**:
@@ -126,7 +126,7 @@ The first step in creating Panorama blocking policies in Defender for IoT is to 
 
 1. Select **SAVE**.
 
-To ensure your DNS settings are correct, select **Lookup Test**. The test ensures that the DNS server IP address and DNS server port are set correctly.
+To ensure your DNS settings are correct, select **Lookup Test**. The test ensures that the DNS server IP address, and DNS server port are set correctly.
 
 ## Block suspicious traffic with the Palo Alto firewall
 
@@ -145,11 +145,17 @@ Suspicious traffic will need to be blocked with the Palo Alto firewall. You can 
    - **Host**: Enter the Panorama server IP address.
 
    - **Port**: Enter the Panorama server port.
+
    - **Username**: Enter the Panorama server username.
+
    - **Password**: Enter the Panorama server password.
+
    - **Report Address**: Define how the blocking is executed, as follows:
+
      - **By IP Address**: Always creates blocking policies on Panorama based on the IP address.
+
      - **By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if it exists, otherwise by the IP Address.
+
    - **Email**: Set the email address for the policy notification email
 
     > [!NOTE]

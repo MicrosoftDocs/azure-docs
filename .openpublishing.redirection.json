@@ -16619,6 +16619,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-palo-alto.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-palo-alto",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/ansible/index.yml",
       "redirect_url": "/azure/developer/ansible/",
       "redirect_document_id": false

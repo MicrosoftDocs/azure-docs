@@ -23,6 +23,8 @@
 - name: Tutorial
   expanded: false
   items:
+  - name: Integrate Palo Alto
+    href: tutorial-palo-alto.md
   - name: Integrate Splunk
     href: tutorial-splunk.md
   - name: Integrate ServiceNow
@@ -182,8 +184,6 @@
       href: integration-forescout.md
     - name: Fortinet integration
       href: integration-fortinet.md
-    - name: Palo Alto integration
-      href: integration-palo-alto.md
     - name: Qradar integration
       href: integration-qradar.md
 - name: Reference
