@@ -320,7 +320,7 @@ The following fields are used to represent that inspection which a security devi
 | **NetworkRuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br>Example: `23` |
 | **Rule** | Mandatory | String | Either `NetworkRuleName` or `NetworkRuleNumber` |
 | <a name="dvcaction"></a>**DvcAction** | Optional | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](#dvcoriginalaction) field.<br><br>Example: `drop` |
-| **DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
+| <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the network session.<br><br>Example: `Tr.124` |
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the network session.<br><br>Example: `EICAR Test File` |
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the network session.<br><br>Example: `Trojan` |
