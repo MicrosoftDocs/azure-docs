@@ -45,28 +45,6 @@ Using Language Studio, you can review how your model performs vs how you expecte
 
 6. If a file that should belong to class  `X` is constantly classified as class `Y`, it means that there is ambiguity between these classes and you need to reconsider your schema.
 
-### Examine data distribution
-
-By examining data distribution in your files, you can decide if any class is underrepresented. Data imbalance happens when the files used for training are not distributed equally among the classes and this introduces a risk to model performance. For example, if `class 1` has 50 tagged files while `class 2` has 10 tagged files only, this is a data imbalance where `class 1` is over represented and `class 2` is underrepresented. 
-
-In this case, the model is biased towards classifying your file as `class 1` and might overlook `class 2`. A more complex issue may arise from data imbalance if the schema is ambiguous. If the two classes don't have clear distinction between them and `class 2` is underrepresented the model most likely will classify the text as `class 1`.
-
-In the [evaluation metrics](../concepts/evaluation.md), when a class is over represented it tends to have a higher recall than other classes while under represented classes have lower recall.
-
-To examine data distribution in your dataset:
-
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
-
-2. Select **Improve model** from the left side menu.
-
-3. Select **Examine data distribution**
-
-    :::image type="content" source="../media/examine-data-distribution.png" alt-text="Examine the data distribution" lightbox="../media/examine-data-distribution.png":::
-
-4. Go back to the **Tag data** page, and make adjustments once you have formed an idea on how you should tag your data differently.
-
-You can [view recommended practices](../concepts/recommended-practices.md#data-tagging) for data tagging to help you improve your model.
-
 # [Using APIs](#tab/api)
 
 ## Review validation set using APIs
@@ -129,6 +107,28 @@ Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName
 |predictedClasses|[]| list of classes predicted for this file|
 
 ---
+
+### Examine data distribution from Language studio
+
+By examining data distribution in your files, you can decide if any class is underrepresented. Data imbalance happens when the files used for training are not distributed equally among the classes and this introduces a risk to model performance. For example, if `class 1` has 50 tagged files while `class 2` has 10 tagged files only, this is a data imbalance where `class 1` is over represented and `class 2` is underrepresented. 
+
+In this case, the model is biased towards classifying your file as `class 1` and might overlook `class 2`. A more complex issue may arise from data imbalance if the schema is ambiguous. If the two classes don't have clear distinction between them and `class 2` is underrepresented the model most likely will classify the text as `class 1`.
+
+In the [evaluation metrics](../concepts/evaluation.md), when a class is over represented it tends to have a higher recall than other classes while under represented classes have lower recall.
+
+To examine data distribution in your dataset:
+
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
+
+2. Select **Improve model** from the left side menu.
+
+3. Select **Examine data distribution**
+
+    :::image type="content" source="../media/examine-data-distribution.png" alt-text="Examine the data distribution" lightbox="../media/examine-data-distribution.png":::
+
+4. Go back to the **Tag data** page, and make adjustments once you have formed an idea on how you should tag your data differently.
+
+You can [view recommended practices](../concepts/recommended-practices.md#data-tagging) for data tagging to help you improve your model.
 
 ## Next steps
 
