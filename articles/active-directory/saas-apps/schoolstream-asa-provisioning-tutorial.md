@@ -89,7 +89,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. If you are configuring provisioning for the first time, select **Get started**.
 
-	![Provisioning tab](media/schoolstream-asa-provisioning-tutorial/provisioning-get-started.png)
+	![Provisioning get started](media/schoolstream-asa-provisioning-tutorial/provisioning-get-started.png)
 	
 1. Set the **Provisioning Mode** to **Automatic**.
 
