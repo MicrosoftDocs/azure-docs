@@ -13,7 +13,7 @@ ms.author: allensu
 
 # Public IP addresses
 
-Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. The address is dedicated to the resource, until it's unassigned by you. A resource without a public IP assigned can communicate outbound. Azure dynamically assigns an available IP address that isn't dedicated to the resource. For more information about outbound connections in Azure, see [Understand outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. The address is dedicated to the resource, until it's unassigned by you. A resource without a public IP assigned can communicate outbound. Azure dynamically assigns an available IP address that isn't dedicated to the resource. For more information about outbound connections in Azure, see [Understand outbound connections](../../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) address is a resource that has its own properties. Some of the resources you can associate a public IP address resource with:
 
@@ -57,16 +57,16 @@ Standard SKU public IP addresses:
 - Always use static allocation method.
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
 - Used with network interfaces, standard public load balancers, or Application Gateways.
-- Designed to align with the "secure by default" model and be closed to inbound traffic when used as a frontend.  Allowlisting data plane traffic with [network security group](./network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).
-- Can be zone-redundant (which is advertised from all three zones), zonal (which is guaranteed in a specific pre-selected availability zone), or "no-zone" (which isn't associated with a specific pre-selected availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where three availability zones](../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant.
+- Designed to align with the "secure by default" model and be closed to inbound traffic when used as a frontend.  Allowlisting data plane traffic with [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).
+- Can be zone-redundant (which is advertised from all three zones), zonal (which is guaranteed in a specific pre-selected availability zone), or "no-zone" (which isn't associated with a specific pre-selected availability zone). To learn more about availability zones, see [Availability zones overview](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where three availability zones](../../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant.
 - Can be utilized with the [routing preference](routing-preference-overview.md) to enable more granular control of how traffic is routed between Azure and the Internet.
-- Can be used as anycast frontend IPs for [cross-region load balancers](../load-balancer/cross-region-overview.md) (preview functionality).
+- Can be used as anycast frontend IPs for [cross-region load balancers](../../load-balancer/cross-region-overview.md) (preview functionality).
  
 > [!NOTE]
-> Inbound communication with a standard SKU resource fails until you create and associate a [network security group](./network-security-groups-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
+> Inbound communication with a standard SKU resource fails until you create and associate a [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
 
 > [!NOTE]
-> Only public IP addresses with basic SKU are available when using [instance metadata service IMDS](../virtual-machines/windows/instance-metadata-service.md). Standard SKU is not supported.
+> Only public IP addresses with basic SKU are available when using [instance metadata service IMDS](../../virtual-machines/windows/instance-metadata-service.md). Standard SKU is not supported.
 
 > [!NOTE]
 > Diagnostic settings don't appear under the resource blade when using a standard SKU public IP address. To enable logging on your standard public IP address resource, navigate to diagnostic settings under the Azure Monitor blade and select your IP address resource.
@@ -78,14 +78,14 @@ Basic SKU addresses:
 - For IPv4: Can be assigned using the dynamic or static allocation method.  For IPv6: Can only be assigned using the dynamic allocation method.
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
 - Are open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.
-- Don't support Availability Zone scenarios. Use standard SKU public IP for Availability Zone scenarios in applicable regions. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Don't support [routing preference](routing-preference-overview.md) or [cross-region load balancers](../load-balancer/cross-region-overview.md) functionality.
+- Don't support Availability Zone scenarios. Use standard SKU public IP for Availability Zone scenarios in applicable regions. To learn more about availability zones, see [Availability zones overview](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Don't support [routing preference](routing-preference-overview.md) or [cross-region load balancers](../../load-balancer/cross-region-overview.md) functionality.
 
 > [!NOTE]
-> Basic SKU IPv4 addresses can be upgraded after creation to standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](./public-ip-upgrade-portal.md).
+> Basic SKU IPv4 addresses can be upgraded after creation to standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](../../virtual-network/public-ip-upgrade-portal.md).
 
 >[!IMPORTANT]
-> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
+> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
 
 ## IP address assignment
 
@@ -135,11 +135,11 @@ There are other attributes that can be used for a public IP address.
 > At this time, both the **Tier** and **Routing Preference** feature are available for standard SKU IPv4 addresses only.  They also cannot be utilized on the same IP address concurrently.
 >
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Limits 
 
-The limits for IP addressing are listed in the full set of [limits for networking](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. The limits are per region and per subscription. [Contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase above the default limits based on your business needs.
+The limits for IP addressing are listed in the full set of [limits for networking](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. The limits are per region and per subscription. [Contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase above the default limits based on your business needs.
 
 ## Pricing
 
@@ -155,8 +155,8 @@ Public IP addresses have a nominal charge. To learn more about IP address pricin
 * Forward DNS for IPv6 is supported for Azure public DNS. Reverse DNS isn't supported.
 * Routing Preference and cross-region load-balancing isn't supported.
 
-For more information on IPv6 in Azure, see [here](./ipv6-overview.md).
+For more information on IPv6 in Azure, see [here](ipv6-overview.md).
 
 ## Next steps
 * Learn about [Private IP Addresses in Azure](private-ip-addresses.md)
-* [Deploy a VM with a static public IP using the Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
+* [Deploy a VM with a static public IP using the Azure portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md)
