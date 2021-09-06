@@ -72,21 +72,21 @@
   - name: Concepts
     items:
     - name: Pipeline
-      href: edge/pipeline.md
+      href: pipeline.md
     - name: Pipeline extension
-      href: edge/pipeline-extension.md
+      href: pipeline-extension.md
     - name: Video recording
-      href: edge/video-recording.md
+      href: video-recording.md
     - name: AI composition overview
-      href: edge/ai-composition-overview.md    
+      href: ai-composition-overview.md
     - name: Scenarios 
       items:
       - name: Event-based video recording
-        href: edge/event-based-video-recording-concept.md 
+        href: event-based-video-recording-concept.md 
       - name: Continuous video recording
-        href: edge/continuous-video-recording.md
+        href: continuous-video-recording.md
       - name: Analyze live videos without recording
-        href: edge/analyze-live-video-without-recording.md
+        href: analyze-live-video-without-recording.md
   - name: How-to guides
     items:
     - name: Setup

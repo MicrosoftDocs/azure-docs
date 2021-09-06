@@ -7,14 +7,12 @@ ms.date: 06/01/2021
 ---
 # Event-based video recording  
 
-[!INCLUDE [header](includes/edge-env.md)]
-
 Event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question could originate due to processing of the video signal itself (for example, when motion is detected) or could be from an independent source (for example, a door sensor signals that the door has been opened). A few use cases related to EVR are described in this article.
 
 ## Suggested pre-reading  
 
 * [Continuous video recording](continuous-video-recording.md)
-* [Playback of recorded content](playback-recordings-how-to.md)
+<!-- ???* [Playback of recorded content](playback-recordings-how-to.md)-->
 * [Pipeline concept](pipeline.md)
 
 ## Overview 

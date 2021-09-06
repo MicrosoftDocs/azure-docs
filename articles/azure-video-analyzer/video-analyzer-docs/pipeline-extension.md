@@ -9,8 +9,6 @@ ms.date: 06/01/2021
 
 # Pipeline extension
 
-[!INCLUDE [header](includes/edge-env.md)]
-
 Azure Video Analyzer allows you to extend the pipeline processing capabilities through a pipeline extension node. Your analytics extension plugin can make use of traditional image-processing techniques or computer vision AI models. Pipeline extensions are enabled by including an extension processor node in the pipeline flow. The extension processor node relays video frames to the configured endpoint and acts as the interface to your extension. The connection can be made to a local or remote endpoint and it can be secured by authentication and TLS encryption, if necessary. Additionally, the pipeline extension processor node allows for optional scaling and encoding of the video frames before they are submitted to your custom extension.
 
 Video Analyzer supports the following pipeline extension processors:
@@ -47,11 +45,11 @@ The gRPC extension processor can be used for sending properties along with excha
 
 ## Cognitive Services extension processor
 
-Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis]../../../cognitive-services/computer-vision/) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
+Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis]../../cognitive-services/computer-vision/) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
 
 Use Cognitive Services extension processor node when:
 
-* You want better interoperability with existing [Spatial Analysis operations](../../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md).
+* You want better interoperability with existing [Spatial Analysis operations](../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md).
 * Want to use all the benefits of gRPC protocol, accuracy, and performance of Microsoft built and supported AI.
 * Analyze multiple camera feeds at low latency and high throughput.
 
