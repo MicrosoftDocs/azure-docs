@@ -6,12 +6,12 @@ metadata:
   title: Conversation scenarios documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: laujan
+  author: PatrickFarley
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/16/2020
-  ms.author: lajanuar
+  ms.author: pafarley
 
 landingContent:
 - title: About Conversation Transcription (meeting scenario)

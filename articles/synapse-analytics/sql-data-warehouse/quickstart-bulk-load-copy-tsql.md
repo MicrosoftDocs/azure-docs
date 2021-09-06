@@ -133,5 +133,5 @@ GROUP BY r.[request_id]
 
 ## Next steps
 
-- For best practices on data loading, see [Best Practices for Loading Data](./guidance-for-loading-data.md).
+- For best practices on data loading, see [Best Practices for Loading Data](../sql/data-loading-best-practices.md).
 - For information on how to manage the resources for your data loads, see [Workload Isolation](./quickstart-configure-workload-isolation-tsql.md).

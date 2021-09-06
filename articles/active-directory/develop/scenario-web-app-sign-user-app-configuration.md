@@ -244,7 +244,7 @@ To add authentication with the Microsoft identity platform (formerly Azure AD v2
 > [!NOTE]
 > If you want to start directly with the new ASP.NET Core templates for Microsoft identity platform, that leverage Microsoft.Identity.Web, you can download a preview NuGet package containing project templates for .NET Core 3.1 and .NET 5.0. Then, once installed, you can directly instantiate ASP.NET Core web applications (MVC or Blazor). See [Microsoft.Identity.Web web app project templates](https://aka.ms/ms-id-web/webapp-project-templates) for details. This is the simplest approach as it will do all the steps below for you.
 >
-> If you prefer to start your project with the current default ASP.NET Core web project within Visual Studio or by using `dotnet new mvc --auth SingleAuth` or `dotnet new webapp --auth SingleAuth`, you'll see code like the following:
+> If you prefer to start your project with the current default ASP.NET Core web project within Visual Studio or by using `dotnet new mvc --auth SingleOrg` or `dotnet new webapp --auth SingleOrg`, you'll see code like the following:
 >
 >```c#
 >  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
