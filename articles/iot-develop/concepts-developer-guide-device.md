@@ -7,9 +7,9 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
-zone_pivot_groups: programming-languages-set-twenty-six
+zone_pivot_groups: programming-languages-set-twenty-seven
 
-#- id: programming-languages-set-twenty-six
+#- id: programming-languages-set-twenty-seven
 ## Owner: dobett
 #  title: Programming languages
 #  prompt: Choose a programming language
@@ -24,6 +24,8 @@ zone_pivot_groups: programming-languages-set-twenty-six
 #    title: JavaScript
 #  - id: programming-language-python
 #    title: Python
+#  - id: programming-language-embedded-c
+#    title: Embedded C
 ---
 
 # IoT Plug and Play device developer guide
@@ -46,6 +48,12 @@ Once your device or module implementation is ready, use the [Azure IoT explorer]
 :::zone pivot="programming-language-ansi-c"
 
 [!INCLUDE [iot-pnp-device-devguide-c](../../includes/iot-pnp-device-devguide-c.md)]
+
+:::zone-end
+
+:::zone pivot="programming-language-embedded-c"
+
+[!INCLUDE [iot-pnp-device-devguide-embedded-c](../../includes/iot-pnp-device-devguide-embedded-c.md)]
 
 :::zone-end
 
