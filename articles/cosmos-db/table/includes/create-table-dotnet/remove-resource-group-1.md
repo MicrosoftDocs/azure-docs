@@ -1,1 +1,1 @@
-Navigate to the resource group by typing the name of the resource group in the search bar at the top of the screen.  Then navigate to the resource group by selecting the name of the resource group under the *Resource Groups* tab.
+To go to the resource group, in the search bar, type the name of the resource group. Then on the **Resource Groups** tab, select the name of the resource group.
