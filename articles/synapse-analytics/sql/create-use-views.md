@@ -146,7 +146,7 @@ The `OPENJSON` function parses each line from the JSONL file containing one JSON
 
 ## CosmosDB view
 
-The views can be created on top of the Azure CosmosDB containers if the CosmosDB analytcal storage is enabled on the container. CosmosDB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped crednetial that the view references.
+The views can be created on top of the Azure CosmosDB containers if the CosmosDB analytical storage is enabled on the container. CosmosDB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
