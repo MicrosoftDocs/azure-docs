@@ -32,7 +32,6 @@ To view an individual device:
 
 1. In the right-hand pane of the **Devices** page, you see a list of devices accessible to your organization created from that device template. Choose an individual device to see the device details page for that device:
 
-    <!-- TODO update this screenshot to show organizations hierarchy -->
     :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot showing device list.":::
 
     > [!TIP]
