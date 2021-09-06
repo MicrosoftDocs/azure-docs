@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate CrowdStrike Falcon Platform with
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* CrowdStrike Falcon Platform single sign-on (SSO) enabled subscription.
+* A valid CrowdStrike Falcon subscription.
 
 ## Scenario description
 
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://falcon.crowdstrike.com/login` |
     | `https://falcon.us-2.crowdstrike.com/login` |
     | `https://falcon.eu-1.crowdstrike.com/login` |
-    | `https://falcon.laggar.gcw.crowdstrike.com/login/sso` |
+    | `https://falcon.laggar.gcw.crowdstrike.com/login` |
     |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
