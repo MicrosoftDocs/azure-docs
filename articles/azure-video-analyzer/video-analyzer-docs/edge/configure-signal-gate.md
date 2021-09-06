@@ -20,7 +20,7 @@ In this article, you'll learn how to configure a signal gate processor.
 ## Suggested prereading
 
 - [Pipeline topology](../pipeline.md)
-- [Event-based video recording](event-based-video-recording-concept.md)
+- [Event-based video recording](../event-based-video-recording-concept.md)
 
 ## Problem
 

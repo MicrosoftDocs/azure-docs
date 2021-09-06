@@ -21,7 +21,7 @@ After you complete the setup steps, you'll be able to run the simulated live vid
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 
-  [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](../../includes/note-account-storage-same-subscription.md)]
+  [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](../includes/note-account-storage-same-subscription.md)]
 
 - An IoT Edge device on which you have admin privileges:
   - [Deploy to an IoT Edge device](deploy-iot-edge-device.md)
@@ -53,7 +53,7 @@ The next step is to create the required Azure resources (Video Analyzer account,
 
 When you create an Azure Video Analyzer account, you have to associate an Azure storage account with it. If you use Video Analyzer to record the live video from a camera, that data is stored as blobs in a container in the storage account. You must use a managed identity to grant the Video Analyzer account the appropriate access to the storage account as follows.
 
-[!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](../../includes/note-account-storage-same-subscription.md)]
+[!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](../includes/note-account-storage-same-subscription.md)]
 
 ### Create a Video Analyzer account in the Azure portal
 

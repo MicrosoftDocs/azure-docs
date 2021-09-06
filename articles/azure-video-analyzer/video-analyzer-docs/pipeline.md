@@ -73,7 +73,7 @@ The HTTP extension processor node enables you to extend the pipeline to your own
 
 #### gRPC extension processor
 
-The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](../terminology.md#grpc) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Just like the HTTP extension process, this node also has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. Learn more about the [processor here](pipeline-extension.md#grpc-extension-processor).
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Just like the HTTP extension process, this node also has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. Learn more about the [processor here](pipeline-extension.md#grpc-extension-processor).
 
 #### Cognitive Services extension processor
 

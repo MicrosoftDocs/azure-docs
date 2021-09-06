@@ -9,7 +9,7 @@ ms.date: 06/01/2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
-In this tutorial, you'll learn how to use Azure Video Analyzer to selectively record portions of a live video source to Video Analyzer in the cloud. This use case is referred to as [event-based video recording](event-based-video-recording-concept.md) (EVR) in this tutorial. To record portions of a live video, you'll use an object detection AI model to look for objects in the video and record video clips only when a certain type of object is detected. You'll also learn about how to play back the recorded video clips by using Video Analyzer. This capability is useful for a variety of scenarios where there's a need to keep an archive of video clips of interest. 
+In this tutorial, you'll learn how to use Azure Video Analyzer to selectively record portions of a live video source to Video Analyzer in the cloud. This use case is referred to as [event-based video recording](../event-based-video-recording-concept.md) (EVR) in this tutorial. To record portions of a live video, you'll use an object detection AI model to look for objects in the video and record video clips only when a certain type of object is detected. You'll also learn about how to play back the recorded video clips by using Video Analyzer. This capability is useful for a variety of scenarios where there's a need to keep an archive of video clips of interest. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -20,7 +20,7 @@ Read these articles before you begin:
 * [Azure Video Analyzer overview](../overview.md)
 * [Azure Video Analyzer terminology](../terminology.md)
 * [Video Analyzer Pipeline concepts](../pipeline.md) 
-* [Event-based video recording](event-based-video-recording-concept.md)
+* [Event-based video recording](../event-based-video-recording-concept.md)
 * [Tutorial: Developing an IoT Edge module](../../../iot-edge/tutorial-develop-for-linux.md)
 * [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 * Section on [how to declare routes in IoT Edge deployment manifest](../../../iot-edge/module-composition.md#declare-routes)
