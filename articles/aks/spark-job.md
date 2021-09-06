@@ -21,8 +21,18 @@ In order to complete the steps within this article, you need the following.
 * Azure CLI [installed][azure-cli] on your development system.
 * [JDK 8][java-install] installed on your system.
 * [Apache Maven][maven-install] installed on your system.
-* SBT ([Scala Build Tool][sbt-install]) installed on your system.
 * Git command-line tools installed on your system.
+
+Check environment variables 
+```
+  # Ensure Java is valid and the version is greater than 8 
+  java -version
+  echo $JAVA_HOME
+
+  # Ensure MAVEN is valid
+  mvn -version
+  echo $MAVEN_HOME
+```
 
 ## Create an AKS cluster
 
@@ -56,14 +66,16 @@ az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 
 If you are using Azure Container Registry (ACR) to store container images, configure authentication between AKS and ACR. See the [ACR authentication documentation][acr-aks] for these steps.
 
-## Build the Spark source
+## Download Apache Spark
 
-Before running Spark jobs on an AKS cluster, you need to build the Spark source code and package it into a container image. The Spark source includes scripts that can be used to complete this process.
+Before running Spark jobs on an AKS cluster, you need to download the Spark source code and package it into a container image. The Spark source includes scripts that can be used to complete this process.
 
-Clone the Spark project repository to your development system.
+Download the [Spark Pre-built package][spark-pre-built-package] to your development system. You can download through the browser or use wget.
 
 ```bash
-git clone -b branch-2.4 https://github.com/apache/spark
+wget https://downloads.apache.org/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz
+tar -zxvf spark-3.1.2-bin-hadoop3.2.tgz
+ln -s spark-3.1.2-bin-hadoop3.2.tgz spark
 ```
 
 Change into the directory of the cloned repository and save the path of the Spark source to a variable.
@@ -73,24 +85,14 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-If you have multiple JDK versions installed, set `JAVA_HOME` to use version 8 for the current session.
-
-```bash
-export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
-```
-
-Run the following command to build the Spark source code with Kubernetes support.
-
-```bash
-./build/mvn -Pkubernetes -DskipTests clean package
-```
-
 The following commands create the Spark container image and push it to a container image registry. Replace `registry.example.com` with the name of your container registry and `v1` with the tag you prefer to use. If using Docker Hub, this value is the registry name. If using Azure Container Registry (ACR), this value is the ACR login server name.
 
 ```bash
 REGISTRY_NAME=registry.example.com
 REGISTRY_TAG=v1
 ```
+
+Build the container image.
 
 ```bash
 ./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
@@ -102,73 +104,7 @@ Push the container image to your container image registry.
 ./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG push
 ```
 
-## Prepare a Spark job
-
-Next, prepare a Spark job. A jar file is used to hold the Spark job and is needed when running the `spark-submit` command. The jar can be made accessible through a public URL or pre-packaged within a container image. In this example, a sample jar is created to calculate the value of Pi. This jar is then uploaded to Azure storage. If you have an existing jar, feel free to substitute
-
-Create a directory where you would like to create the project for a Spark job.
-
-```bash
-mkdir myprojects
-cd myprojects
-```
-
-Create a new Scala project from a template.
-
-```bash
-sbt new sbt/scala-seed.g8
-```
-
-When prompted, enter `SparkPi` for the project name.
-
-```bash
-name [Scala Seed Project]: SparkPi
-```
-
-Navigate to the newly created project directory.
-
-```bash
-cd sparkpi
-```
-
-Run the following commands to add an SBT plugin, which allows packaging the project as a jar file.
-
-```bash
-touch project/assembly.sbt
-echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")' >> project/assembly.sbt
-```
-
-Run these commands to copy the sample code into the newly created project and add all necessary dependencies.
-
-```bash
-EXAMPLESDIR="src/main/scala/org/apache/spark/examples"
-mkdir -p $EXAMPLESDIR
-cp $sparkdir/examples/$EXAMPLESDIR/SparkPi.scala $EXAMPLESDIR/SparkPi.scala
-
-cat <<EOT >> build.sbt
-// https://mvnrepository.com/artifact/org.apache.spark/spark-sql
-libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
-EOT
-
-sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11"/' build.sbt
-sed -ie 's/name.*/name := "SparkPi",/' build.sbt
-```
-
-To package the project into a jar, run the following command.
-
-```bash
-sbt assembly
-```
-
-After successful packaging, you should see output similar to the following.
-
-```bash
-[info] Packaging /Users/me/myprojects/sparkpi/target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar ...
-[info] Done packaging.
-[success] Total time: 10 s, completed Mar 6, 2018 11:07:54 AM
-```
-
-## Copy job to storage
+## Copy example job to storage
 
 Create an Azure storage account and container to hold the jar file.
 
@@ -184,8 +120,8 @@ Upload the jar file to the Azure storage account with the following commands.
 
 ```azurecli
 CONTAINER_NAME=jars
-BLOB_NAME=SparkPi-assembly-0.1.0-SNAPSHOT.jar
-FILE_TO_UPLOAD=target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar
+BLOB_NAME=spark-examples_2.12-3.1.2.jar
+FILE_TO_UPLOAD=examples/jars/spark-examples_2.12-3.1.2.jar
 
 echo "Creating the container..."
 az storage container create --name $CONTAINER_NAME
@@ -337,11 +273,10 @@ Check out Spark documentation for more details.
 [docker-hub]: https://docs.docker.com/docker-hub/
 [java-install]: /azure/developer/java/fundamentals/java-support-on-azure
 [maven-install]: https://maven.apache.org/install.html
-[sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [spark-kubernetes-earliest-version]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
-
+[spark-pre-built-package]: https://spark.apache.org/downloads.html
 
 <!-- LINKS - internal -->
 [acr-aks]: cluster-container-registry-integration.md
