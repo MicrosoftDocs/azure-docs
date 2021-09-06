@@ -79,18 +79,12 @@ landingContent:
         - text: Analyze live video with Custom Vision 
           url: edge/analyze-live-video-custom-vision.md 
 
-  - title: References
+  - title: Resources
     linkLists:
-    - linkListType: reference
+    - linkListType: concept
       links:
         - text: FAQs
-          url: faq-edge.yml 
-        - text: SDKs
-          url: edge/sdk.md
-        - text: Pipeline extension
-          url: edge/pipeline-extension.md
-        - text: Direct methods
-          url: edge/direct-methods.md
+          url: faq.yml 
         - text: Quotas and limitations
           url: quotas-limitations.md           
 
