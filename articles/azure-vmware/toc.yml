@@ -112,10 +112,12 @@
       href: configure-hcx-network-extension.md
     - name: Configure port mirroring
       href: configure-port-mirroring-azure-vmware-solution.md
-    - name: Enable public internet access
-      href: enable-public-internet-access.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
+    - name: Enable public internet access
+      href: enable-public-internet-access.md
+    - name: HCX Mobility Optimized Networking (MON) guidance 
+      href: vmware-hcx-mon-guidance.md  
   - name: Configure storage policies
     href: configure-storage-policy.md 
   - name: Configure Windows Server Failover Cluster
