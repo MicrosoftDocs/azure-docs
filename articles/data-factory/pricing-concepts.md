@@ -127,7 +127,7 @@ Azure-SSIS integration runtime (IR) is a specialized cluster of Azure virtual ma
 
 ![SSIS pricing example](media/pricing-concepts/ssis-pricing-example.png)
 
-In the above example, if you keep your Azure-SSIS IR running for 2 hours, you'll be charged: **2 (hours) x US$1.158/hour = US$2.316**
+In the above example, if you keep your Azure-SSIS IR running for 2 hours, you'll be charged: **2 (hours) x US$1.158/hour = US$2.316**.
 
 To manage your Azure-SSIS IR running cost, you can scale down your VM size, scale in your cluster size, bring your own SQL Server license via Azure Hybrid Benefit (AHB) option that offers significant savings, see [Azure-SSIS IR pricing](https://azure.microsoft.com/pricing/details/data-factory/ssis/), and or start & stop your Azure-SSIS IR whenever convenient/on demand/just in time to process your SSIS workloads, see [Reconfigure Azure-SSIS IR](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir) and [Schedule Azure-SSIS IR](how-to-schedule-azure-ssis-integration-runtime.md).
 
