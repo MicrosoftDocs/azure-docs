@@ -1,7 +1,7 @@
 ---
 title: Integrate Palo Alto
 description: Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
-ms.date: 09/05/2021
+ms.date: 09/06/2021
 ms.topic: tutorial
 ---
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Configure immediate blocking by a specified Palo Alto firewall
 
-In cases, such as malware-related alerts, you can enable automatic blocking. Defender for IoT forwarding rules are utilized to send a blocking command directly to a specific Palo Alto firewall.
+In cases, such as malware-related alerts, you can enable automatic blocking. Defenders for IoT forwarding rules are utilized to send a blocking command directly to a specific Palo Alto firewall.
 
 When Defender for IoT identifies a critical threat, it sends an alert that includes an option of blocking the infected source. Selecting **Block Source** in the alert’s details activates the forwarding rule, which sends the blocking command to the specified Palo Alto firewall.
 
@@ -68,7 +68,7 @@ You will then need to block any suspicious source.
 
 **To block a suspicious source**:
 
-1. Navigate to the In the **Alerts** pane, and select the alert related to the Palo Alto integration.
+1. Navigate to the **Alerts** pane, and select the alert related to the Palo Alto integration.
 
 1. To automatically block the suspicious source, select **Block Source**. The **Please Confirm** dialog box appears.
 
@@ -82,12 +82,12 @@ The suspicious source is now blocked by the Palo Alto firewall.
 
 Defender for IoT, and Palo Alto Network's integration automatically creates new policies in the Palo Alto Network's NMS, and Panorama.
 
-This table shows the which incidents this integration is intended for:
+This table shows which incidents this integration is intended for:
 
 | Incident type | Description |
 |--|--|
 |**Unauthorized PLC changes** | An update to the ladder logic, or firmware of a device. This can represent legitimate activity, or an attempt to compromise the device. For example, malicious code, such as a Remote Access Trojan (RAT), or parameters that cause the physical process, such as a spinning turbine, to operate in an unsafe manner. |
-|**Protocol Violation** | A packet structure, or field value that violates the protocol specification. This can represent a misconfigured application, or a malicious attempt to compromise the device. For example, causing a buffer overﬂow condition in the target device. |
+|**Protocol Violation** | A packet structure, or field value that violates the protocol specification. This can represent a misconfigured application, or a malicious attempt to compromise the device. For example, causing a buffer overflow condition in the target device. |
 |**PLC Stop** | A command that causes the device to stop functioning, thereby risking the physical process that is being controlled by the PLC. |
 |**Industrial malware found in the ICS network** | Malware that manipulates ICS devices using their native protocols, such as TRITON and Industroyer. Defender for IoT also detects IT malware that has moved laterally into the ICS, and SCADA environment. For example, Conficker, WannaCry, and NotPetya. |
 |**Scanning malware** | Reconnaissance tools that collect data about system configuration in a pre-attack phase. For example, the Havex Trojan scans industrial networks for devices using OPC, which is a standard protocol used by Windows-based SCADA systems to communicate with ICS devices. |
@@ -130,7 +130,7 @@ To ensure your DNS settings are correct, select **Lookup Test**. The test ensure
 
 ## Block suspicious traffic with the Palo Alto firewall
 
-Suspicious traffic will need to be blocked with the Palo Alto firewall. You can block suspicious traffic through the use forwarding rules in Defender for IoT .
+Suspicious traffic will need to be blocked with the Palo Alto firewall. You can block suspicious traffic through the use forwarding rules in Defender for IoT.
 
 **To block suspicious traffic with the Palo Alto firewall using a Defender for IoT forwarding rule**:
 
@@ -161,7 +161,7 @@ Suspicious traffic will need to be blocked with the Palo Alto firewall. You can 
     > [!NOTE]
     > Make sure you have configured a Mail Server in the Defender for IoT. If no email address is entered, Defender for IoT does not send a notification email.
 
-   - **Execute a DNS lookup upon alert detection (Checkbox)**: When the By FQDN, or IP Address option is set in the Report Address. This checkbox is selected by default. If only the IP address is set, this option is disabled.
+   - **Execute a DNS lookup upon alert detection (Checkbox)**: When the FQDN, or IP Address option is set in the Report Address. This checkbox is selected by default. If only the IP address is set, this option is disabled.
 
    - **Configure**: Set up the following options to allow blocking of the suspicious sources by the Palo Alto Panorama:
 
