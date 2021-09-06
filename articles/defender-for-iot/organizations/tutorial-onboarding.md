@@ -16,11 +16,11 @@ By using virtual environments, along with the software needed to create a sensor
 
 - Use passive, agentless network monitoring to gain a complete inventory of all your IoT, and OT devices, their details, and how they communicate, with zero effect on the IoT, and OT network.
 
-- Identify risks and vulnerabilities in your IoT/OT environment. For example, identify unpatched devices, open ports, unauthorized applications, and unauthorized connections. You can also identify changes to device configurations, PLC code, and firmware.
+- Identify risks and vulnerabilities in your IoT, and OT environment. For example, identify unpatched devices, open ports, unauthorized applications, and unauthorized connections. You can also identify changes to device configurations, PLC code, and firmware.
 
-- Detect anomalous or unauthorized activities with specialized IoT/OT-aware threat intelligence and behavioral analytics. You can even detect advanced threats missed by static IOCs, like zero-day malware, fileless malware, and living-off-the-land tactics.
+- Detect anomalous or unauthorized activities with specialized IoT, and OT-aware threat intelligence and behavioral analytics. You can even detect advanced threats missed by static IOCs, like zero-day malware, fileless malware, and living-off-the-land tactics.
 
-- Integrate into Azure Sentinel for a bird's-eye view of your entire organization. Implement unified IoT/OT security governance with integration into your existing workflows, including third-party tools like Splunk, IBM QRadar, and ServiceNow.
+- Integrate into Azure Sentinel for a bird's-eye view of your entire organization. Implement unified IoT, and OT security governance with integration into your existing workflows, including third-party tools like Splunk, IBM QRadar, and ServiceNow.
 
 In this tutorial, you learn how to:
 
