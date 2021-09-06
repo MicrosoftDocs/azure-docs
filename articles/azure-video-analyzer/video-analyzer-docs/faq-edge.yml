@@ -37,6 +37,10 @@ sections:
           
           Yes. For more information, see [Linux containers on Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
           
+          **I am using a virtual machine as simulated edge device. Can I resize the VM config after deployment?**
+          
+          Yes, you can [scale a VM up or down to a different size](../../virtual-machines/windows/resize-vm.md) after edge modules such as Azure Video Analyzer have been deployed to it. You may need to restart the IoT Edge module on your virtual machine. For a Linux VM, use command `sudo systemctl restart iotedge`. If live pipelines had been running, they should resume after the restart completes. You would see interrruptions in the output from the pipeline (example: inference events, video recording) during the restart.
+   
       - question: Capture from IP camera and RTSP settings
         answer: |
           **Do I need to use a special SDK on my device to send in a video stream?**

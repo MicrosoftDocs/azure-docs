@@ -541,7 +541,7 @@ Part 1: Install and Configure Fiddler
 14. Click "Copy to File…"
 15. In the export wizard choose the following options
     - Base-64 encoded X.509
-    - For file name, Browse… to C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs, and then you can save it as any file name
+    - For file name, Browse… to `C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs` and then you can save it as any file name
 16. Close the certificate window
 17. Start Storage Explorer
 18. Go to Edit > Configure Proxy

@@ -164,7 +164,7 @@ Azure key vault can be configured to use either service endpoints or private end
 > [!TIP]
 > If you did not use an existing Azure Container Registry when creating the workspace, one may not exist. By default, the workspace will not create an ACR instance until it needs one. To force the creation of one, train or deploy a model using your workspace before using the steps in this section.
 
-Azure Container Registry can configured to use either service endpoints or private endpoints. Use the following steps to configure your workspace to use ACR when it is in the virtual network:
+Azure Container Registry can be configured to use either service endpoints or private endpoints. Use the following steps to configure your workspace to use ACR when it is in the virtual network:
 
 1. Find the name of the Azure Container Registry for your workspace, using one of the following methods:
 
