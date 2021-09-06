@@ -243,7 +243,7 @@ dotnet add package Azure.Data.Tables
 
 The Azure SDK communicates with Azure using client objects to execute different operations against Azure.  The [TableClient](/dotnet/api/azure.data.tables.tableclient) object is the object used to communicate with the Cosmos DB Table API.
 
-An application will typically create a single [TableClient](/dotnet/api/azure.data.tables.tableclient) object per table to be used throughout the application.  It's recommended to use dependency injection (DI) and register the [TableClient](/dotnet/api/azure.data.tables.tableclient) object as a singleton to accomplish this.  For more information about using DI with the Azure SDK, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection.md).
+An application will typically create a single [TableClient](/dotnet/api/azure.data.tables.tableclient) object per table to be used throughout the application.  It's recommended to use dependency injection (DI) and register the [TableClient](/dotnet/api/azure.data.tables.tableclient) object as a singleton to accomplish this.  For more information about using DI with the Azure SDK, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
 
 In the `Startup.cs` file of the application, edit the ConfigureServices() method to match the following code snippet:
 
@@ -594,23 +594,23 @@ public void RemoveEntity(string partitionKey, string rowKey)
 
 Run the sample application to interact with the Cosmos DB Table API.  The first time you run the application, there will be no data because the table is empty.  Use any of the buttons at the top of application to add data to the table.
 
-:::image type="content" source="./media/create-table-dotnet/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Cosmos DB using the Table API" lightbox="./media/create-table-dotnet/table-api-app-data-insert-buttons.png":::
+:::image type="content" source="./media/create-table-dotnet/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Cosmos DB using the Table A P I." lightbox="./media/create-table-dotnet/table-api-app-data-insert-buttons.png":::
 
 Selecting the **Insert using Table Entity** button opens a dialog allowing you to insert or upsert a new row using a `TableEntity` object.
 
-:::image type="content" source="./media/create-table-dotnet/table-api-app-insert-table-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using a TableEntity object" lightbox="./media/create-table-dotnet/table-api-app-insert-table-entity.png":::
+:::image type="content" source="./media/create-table-dotnet/table-api-app-insert-table-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using a TableEntity object." lightbox="./media/create-table-dotnet/table-api-app-insert-table-entity.png":::
 
 Selecting the **Insert using Expandable Data** button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Cosmos DB Table API automatically adds properties (columns) to the table when needed.  Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
 
-:::image type="content" source="./media/create-table-dotnet/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields" lightbox="./media/create-table-dotnet/table-api-app-insert-expandable-entity.png":::
+:::image type="content" source="./media/create-table-dotnet/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields." lightbox="./media/create-table-dotnet/table-api-app-insert-expandable-entity.png":::
 
 Use the **Insert Sample Data** button to load some sample data into your Cosmos DB Table.
 
-:::image type="content" source="./media/create-table-dotnet/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button" lightbox="./media/create-table-dotnet/table-api-app-sample-data-insert.png":::
+:::image type="content" source="./media/create-table-dotnet/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/create-table-dotnet/table-api-app-sample-data-insert.png":::
 
 Select the **Filter Results** item in the top menu to be taken to the Filter Results page.  On this page, fill out the filter criteria to demonstrate how a filter clause can be built and passed to the Cosmos DB Table API.
 
-:::image type="content" source="./media/create-table-dotnet/table-api-app-filter-data-480px.png" alt-text="A screenshot of the application showing filter results page and highlighting the menu item used to navigate to the page" lightbox="./media/create-table-dotnet/table-api-app-filter-data.png":::
+:::image type="content" source="./media/create-table-dotnet/table-api-app-filter-data-480px.png" alt-text="A screenshot of the application showing filter results page and highlighting the menu item used to navigate to the page." lightbox="./media/create-table-dotnet/table-api-app-filter-data.png":::
 
 ## Clean up resources
 
@@ -622,9 +622,9 @@ A resource group can be deleted using the [Azure portal](https://portal.azure.co
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Delete resource group step 1](<./includes/create-table-dotnet/remove-resource-group-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for a resource group" lightbox="./media/create-table-dotnet/azportal-remove-resource-group-1.png"::: |
-| [!INCLUDE [Delete resource group step 2](<./includes/create-table-dotnet/remove-resource-group-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete resource group button" lightbox="./media/create-table-dotnet/azportal-remove-resource-group-2.png"::: |
-| [!INCLUDE [Delete resource group step 3](<./includes/create-table-dotnet/remove-resource-group-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-remove-resource-group-3-240px.png" alt-text="A screenshot showing the confirmation dialog for deleting a resource group" lightbox="./media/create-table-dotnet/azportal-remove-resource-group-3.png"::: |
+| [!INCLUDE [Delete resource group step 1](<./includes/create-table-dotnet/remove-resource-group-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for a resource group." lightbox="./media/create-table-dotnet/azportal-remove-resource-group-1.png"::: |
+| [!INCLUDE [Delete resource group step 2](<./includes/create-table-dotnet/remove-resource-group-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete resource group button." lightbox="./media/create-table-dotnet/azportal-remove-resource-group-2.png"::: |
+| [!INCLUDE [Delete resource group step 3](<./includes/create-table-dotnet/remove-resource-group-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-remove-resource-group-3-240px.png" alt-text="A screenshot showing the confirmation dialog for deleting a resource group." lightbox="./media/create-table-dotnet/azportal-remove-resource-group-3.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 

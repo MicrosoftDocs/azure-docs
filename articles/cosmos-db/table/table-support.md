@@ -20,7 +20,9 @@ Azure Cosmos DB Table API and Azure Table storage share the same table data mode
 
 [!INCLUDE [storage-table-cosmos-comparison](../../../includes/storage-table-cosmos-comparison.md)]
 
-## Azure SDKs compatible with both Azure Cosmos DB Table API and Azure Table storage
+## Azure SDKs
+
+### Current release
 
 The following SDK packages work with both the Azure Cosmos Table API and Azure Table storage.
 
@@ -32,9 +34,17 @@ The following SDK packages work with both the Azure Cosmos Table API and Azure T
 
 * **Java** - Use the [azure-data-tables](https://mvnrepository.com/artifact/com.azure/azure-data-tables/12.0.0) package available on Maven.
 
-## Azure SDKs compatible only with Azure Table storage
+### Prior releases
 
-The following SDK packages work only with Azure Table storage.
+The following SDK packages work only with Azure Cosmos DB Table API.
+
+* **.NET** - [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) available on NuGet.  This library works only with the Cosmos DB Table API.
+
+* **Python** - [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/) available from PyPi. This SDK connects with both Azure Table storage and Azure Cosmos DB Table API.
+
+* **JavaScript/TypeScript** - [azure-storage](https://www.npmjs.com/package/azure-storage) package available on npm.js. This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
+
+* **Java** - [Microsoft Azure Storage Client SDK for Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) on Maven. This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
 
 * **C++**  - [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/). This library enables you to build applications against Azure Storage.
 

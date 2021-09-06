@@ -3543,7 +3543,7 @@
   },   
   {
     "source_path_from_root": "/articles/cosmos-db/table/tutorial-develop-table-dotnet.md",
-    "redirect_url": "/articles/cosmos-db/table/create-table-dotnet",
+    "redirect_url": "/azure/cosmos-db/table/create-table-dotnet",
     "redirect_document_id": false
   }
     ]
