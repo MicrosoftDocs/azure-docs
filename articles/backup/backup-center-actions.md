@@ -2,7 +2,7 @@
 title: Perform actions using Backup center
 description: This article explains how to perform actions using Backup center
 ms.topic: conceptual
-ms.date: 09/03/2021
+ms.date: 09/06/2021
 ---
 # Perform actions using Backup center
 
@@ -126,11 +126,9 @@ To stop protection, navigate to Backup center and select the **Backup Instances*
 
 ![Stop protection](./media/backup-center-actions/backup-center-stop-protection.png)
 
-[Learn more about stopping backup for Azure Virtual Machines](backup-azure-manage-vms.md#stop-protecting-a-vm).
-
-[Learn more about stopping backup for a disk](manage-azure-managed-disks.md#stop-protection-preview)
-
-[Learn more about stopping backup for Azure Database for PostgreSQL Server](manage-azure-database-postgresql.md#stop-protection-preview)
+- [Learn more](backup-azure-manage-vms.md#stop-protecting-a-vm) about stopping backup for Azure Virtual Machines.
+- [Learn more](manage-azure-managed-disks.md#stop-protection-preview) about stopping backup for a disk.
+- [Learn more](manage-azure-database-postgresql.md#stop-protection-preview) about stopping backup for Azure Database for PostgreSQL Server.
 
 ## Next steps
 
