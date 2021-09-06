@@ -18,10 +18,6 @@
     href: install-vmware-hcx.md
   - name: 5 - Configure on-premises HCX Connector
     href: configure-vmware-hcx.md
-  - name: 6 - Configure network extension
-    href: 
-  - name: 7 - Configure HCX MON 
-    href: 
 - name: Tutorials
   items:
   - name: 1 - Network planning checklist
@@ -112,6 +108,8 @@
       href: configure-l2-stretched-vmware-hcx-networks.md
     - name: Configure DNS forwarder
       href: configure-dns-azure-vmware-solution.md
+    - name: Configure HCX network extension
+      href: configure-hcx-network-extension.md
     - name: Configure port mirroring
       href: configure-port-mirroring-azure-vmware-solution.md
     - name: Enable public internet access
@@ -166,6 +164,8 @@
         href: disaster-recovery-using-vmware-site-recovery-manager.md
       - name: VMware HCX for disaster recovery
         href: deploy-disaster-recovery-using-vmware-hcx.md
+    - name: HCX Mobility Optimized Networking (MON) guidance 
+      href: vmware-hcx-mon-guidance.md      
     - name: Upgrade the VMware HCX appliance
       href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
 - name: Resources

@@ -2,7 +2,7 @@
 title: Configure VMware HCX in Azure VMware Solution
 description: Configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. 
 ms.topic: tutorial
-ms.date: 09/03/2021
+ms.date: 09/07/2021
 ---
 
 # Configure on-premises VMware HCX Connector
@@ -214,9 +214,9 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: S
 
 ## Next steps
 
-Now that you've configure the HCX Connector, you can also:
+Now that you've configure the HCX Connector, you can also learn about:
 
-- [Create a network extension](configure-network-extension.md)
+- [Creating a network extension](configure-network-extension.md)
 
-- [Configure VMware HCX Mobility Optimized Networking (MON)](configure-vmware-hcx-mon.md)
+- [VMware HCX Mobility Optimized Networking (MON) guidance](vmware-hcx-mon-guidance.md)
 
