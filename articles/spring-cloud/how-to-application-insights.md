@@ -9,7 +9,10 @@ ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Application Insights Java In-Process Agent in Azure Spring Cloud (Preview)
+> [!NOTE]
+> Publish this doc around Sep 30th 2021 and remove this note.
+
+# Application Insights Java In-Process Agent in Azure Spring Cloud
 
 This article explains how to monitor apps and microservices by using the Application Insights Java agent in Azure Spring Cloud.
 
@@ -32,24 +35,25 @@ Application Insights provide many observable perspectives, including:
 * Availability
 
 > [!NOTE]
-> This preview feature is not supported in Mooncake and new regions like UAE yet.
+> This feature is now in GA status since Sep 30th, 2021.   
+> Enabling Application Insights will also enable Java In-Proccess Agent and vice versa.
 
 ## Enable Java In-Process Agent for Application Insights
 
-Enable Java In-Process Agent preview feature using the following procedure.
+Enable Java In-Process Agent using the following procedure.
 
 1. Go to service overview page of your service instance.
 2. Select **Application Insights** entry under monitoring blade.
-3. Select **Enable Application Insights** button to enable **Application Insights** integration.
+3. Select **Enable Application Insights** checkbox to enable **Application Insights** integration.
 4. Select an existing instance of Application Insights or create a new one.
-5. Select **Enable Java in-process agent** to enable preview Java in-process agent feature. Here you can also customize sampling rate from 0 to 100.
+5. Here you can also customize sampling rate from 0 to 100.
 6. Select **Save** to save the change.
 
 ## Portal
 
 1. Go to the **service | Overview** page and select **Application Insights** in the **Monitoring** section.
-2. Select **Enable Application Insights** to enable Application Insights in Azure Spring Cloud.
-3. Select **Enable Java in-process agent** to enable Java IPA preview feature. When an IPA preview feature is enabled, you can configure one optional sampling rate (default 10.0%).
+2. Select **Enable Application Insights** checkbox to enable Application Insights in Azure Spring Cloud.
+3. When **Application Insights** is enabled, you can configure one optional sampling rate (default 10.0%).
 
    [ ![IPA 0](media/spring-cloud-application-insights/insights-process-agent-0.png)](media/spring-cloud-application-insights/insights-process-agent-0.png)
 
@@ -85,7 +89,8 @@ In the left navigation pane, select **Application Insights** to jump to the **Ov
 
    [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
-## ARM Template
+## Automation
+### ARM Template
 
 To use the Azure Resource Manager template, copy following content to `azuredeploy.json`.
 
@@ -119,28 +124,69 @@ To use the Azure Resource Manager template, copy following content to `azuredepl
 }
 ```
 
+### Terraform
+To be added!
+
 ## CLI
 
 Apply ARM template with the CLI command:
 
+>Note
+In below CLI commands, `serviceName` refer to name of Azure Spring Cloud instance.
+
+* For configuring Application Insights when creating Azure Spring Cloud instance
+  * Enable with Application Insights name or resource id.
+   
+      ```azurecli
+      az spring-cloud create [--app-insights] "name or resourceId" \
+          [--sampling-rate] "samplingRate" \
+          --name "serviceName" --resource-group "resourceGroupName"
+      ```
+
+   * Enable with Application Insights Connection string (recommended) or Instrumentation key.
+   
+      ```azurecli
+      az spring-cloud create [--app-insights-key] "connectionString or instrumentationKey" \
+          [--sampling-rate] "samplingRate" \
+          --name "serviceName" --resource-group "resourceGroupName"
+      ```
+
+   * Disable Application Insights
+
+      ```azurecli
+      az spring-cloud create [--disable-app-insights] \
+          --name "serviceName" --resource-group "resourceGroupName"
+      ```
+
 * For an existing Azure Spring Cloud instance:
+   * Check Application Insights settings
 
-   ```azurecli
-   az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate]    "samplingRate" --name "assignedName" --resource-group "resourceGroupName"
-   ```
+      ```azurecli
+      az spring-cloud app-insights show --name "serviceName" --resource-group  "resourceGroupName"
+      ```
 
-* For a newly created Azure Spring Cloud instance:
+   * Enable Application Insights with Connection string (recommended) or Instrumentation key.
 
-   ```azurecli
-   az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName"    --disable-app-insights false --enable-java-agent true --name "assignedName" --resource-group    "resourceGroupName"
-   ```
+      ```azurecli
+      az spring-cloud app-insights update [--app-insights-key] "connectionString or instrumentationKey" \
+         [--sampling-rate] "samplingRate" \
+         --name "serviceName" --resource-group "resourceGroupName"
+      ```
 
-* To disable app-insight:
+   * Enable Application Insights with its name or resource id.
 
-   ```azurecli
-   az spring-cloud app-insights update --disable --name "assignedName" --resource-group "resourceGroupName"
-   ```
+      ```azurecli
+      az spring-cloud app-insights update [--app-insights] "name or resourceId" \
+         [--sampling-rate] "samplingRate" \
+         --name "serviceName" --resource-group "resourceGroupName"
+      ```
 
+   * Disable Application Insights
+
+      ```azurecli
+      az spring-cloud app-insights update --disable \
+         --name "serviceName" --resource-group "resourceGroupName"
+      ```
 ## Java agent update/upgrade
 
 The Java agent will be updated/upgraded regularly with the JDK, which may impact the following scenarios.
