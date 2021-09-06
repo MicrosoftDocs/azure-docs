@@ -74,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ## Configure Zero Networks SSO
 
-1. Log in to the Zero Networks Admin Portal as administrator.
+1. Log in to the Zero Networks Admin Portal as an administrator.
 
 1. Navigate to **Settings** > **Identity Providers**.
 
