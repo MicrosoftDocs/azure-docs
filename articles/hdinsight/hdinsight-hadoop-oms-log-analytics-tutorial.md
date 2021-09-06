@@ -312,7 +312,7 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 * `log_gateway_audit_CL` - this table provides audit logs from cluster gateway nodes that show successful and failed sign-in attempts.
 * `log_auth_CL` - this table provides SSH logs with successful and failed sign-in attempts.
 * `log_ambari_audit_CL` - this table provides audit logs from Ambari.
-* `log_ranger_audti_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
+* `log_ranger_audit_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
 
 ## Next steps
 
