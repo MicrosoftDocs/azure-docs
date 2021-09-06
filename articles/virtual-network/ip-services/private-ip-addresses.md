@@ -24,7 +24,7 @@ Resources can be:
     * Virtual machine network interfaces
     * Internal load balancers (ILBs)
     * Application gateways
-* In a [virtual network](virtual-networks-overview.md).
+* In a [virtual network](../../virtual-network/virtual-networks-overview.md).
 * On-premises network through a VPN gateway or ExpressRoute circuit.
 
 Private IPs allow communication to these resources without the use of a public IP address.
@@ -57,11 +57,11 @@ There are two methods in which a private IP address is given:
     
 ## Virtual machines
 
-One or more private IP addresses are assigned to one or more **network interfaces**. The network interfaces are assigned to a [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. You can specify the allocation method as either dynamic or static for each private IP address.
+One or more private IP addresses are assigned to one or more **network interfaces**. The network interfaces are assigned to a [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. You can specify the allocation method as either dynamic or static for each private IP address.
 
 ### Internal DNS hostname resolution (for virtual machines)
 
-Azure virtual machines are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default. You can explicitly configure custom DNS servers. These DNS servers provide internal name resolution for virtual machines that are within the same virtual network.
+Azure virtual machines are configured with [Azure-managed DNS servers](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default. You can explicitly configure custom DNS servers. These DNS servers provide internal name resolution for virtual machines that are within the same virtual network.
 
 A mapping for the hostname to a virtual machine's private IP address is added to the Azure-managed DNS servers. 
 
@@ -77,8 +77,8 @@ VMs configured with Azure-managed DNS resolve the hostnames within the same virt
 
 You can assign a private IP address to the **front-end** configuration of an:
 
-* [Azure internal load balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
-* [Azure Application Gateway](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+* [Azure internal load balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
+* [Azure Application Gateway](../../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 
 This private IP address serves as an internal endpoint. The internal endpoint is accessible only to the resources within its virtual network and the remote networks connected to it. A dynamic or static IP can be assigned.
 
@@ -97,8 +97,8 @@ The possible allocation methods that can be used are also displayed:
 | Application gateway |Front-end configuration |Yes |Yes |
 
 ## Limits
-The limits on IP addressing are found in the full set of [limits for networking](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. The limits are per region and per subscription. [Contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
+The limits on IP addressing are found in the full set of [limits for networking](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. The limits are per region and per subscription. [Contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
 
 ## Next steps
 Learn about [Public IP Addresses in Azure](public-ip-addresses.md)
-* [Deploy a VM with a static private IP address using the Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
+* [Deploy a VM with a static private IP address using the Azure portal](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
