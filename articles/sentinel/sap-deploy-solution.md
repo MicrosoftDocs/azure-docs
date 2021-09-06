@@ -168,12 +168,13 @@ This tutorial uses a newly created or dedicated [Azure Key Vault](../key-vault/i
     ```
 
 1. Assign an access policy, including GET, LIST, and SET permissions to the VM's managed identity.
-
+**Option1 : via Portal
     In Azure Key Vault, select to **Access Policies** > **Add Access Policy - Secret Permissions: Get, List, and Set** > **Select Principal**. Enter your [VM's name](#deploy-a-linux-vm-for-your-sap-data-connector), and then select **Add** > **Save**.
 
     For more information, see the [Key Vault documentation](../key-vault/general/assign-access-policy-portal.md).
-
-1. Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector), entering the name of your Azure resource group:
+    
+**Option2 : via CLI
+    Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector), entering the name of your Azure resource group:
 
     ```azurecli
     VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
@@ -181,7 +182,7 @@ This tutorial uses a newly created or dedicated [Azure Key Vault](../key-vault/i
 
     Your principal ID is displayed for you to use in the following step.
 
-1. Run the following command to assign the VM's access permissions to the Key Vault, entering the name of your resource group and the principal ID value returned from the previous step.
+    Run the following command to assign the VM's access permissions to the Key Vault, entering the name of your resource group and the principal ID value returned from the     previous step.
 
     ```azurecli
     az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
