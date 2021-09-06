@@ -122,7 +122,7 @@ The fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** res
 > [!IMPORTANT]
 > Each domain name label created must be unique within its Azure location.  
 
-If a custom domain is desired for services that use a Public IP, you can use [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
+If a custom domain is desired for services that use a Public IP, you can use [Azure DNS](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
 
 ## Other public IP address features
 

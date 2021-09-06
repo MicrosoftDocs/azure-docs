@@ -112,5 +112,5 @@ To manage public IP addresses, your account must be assigned to the [network con
 
 Public IP addresses have a nominal charge. To view the pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
 
-- Create a public IP address using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
+- Create a public IP address using [PowerShell](../../virtual-network/powershell-samples.md) or [Azure CLI](../../virtual-network/cli-samples.md) sample scripts, or using Azure [Resource Manager templates](../../virtual-network/template-samples.md)
 - Create and assign [Azure Policy definitions](../../virtual-network/policy-reference.md) for public IP addresses
