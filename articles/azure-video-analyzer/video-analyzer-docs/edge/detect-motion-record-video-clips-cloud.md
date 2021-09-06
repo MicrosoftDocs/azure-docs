@@ -1001,5 +1001,5 @@ You can examine the Video Analyzer video resource that was created by the live p
 
 ## Next steps
 
-* Learn how to [play back video recordings](playback-recordings-how-to.md)
+* Learn how to [play back video recordings](../playback-recordings-how-to.md)
 * Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md)

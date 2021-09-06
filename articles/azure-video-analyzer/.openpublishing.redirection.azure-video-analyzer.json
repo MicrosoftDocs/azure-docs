@@ -1,11 +1,6 @@
 {
   "redirections": [
     {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/sdk.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/sdk",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/direct-methods.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/direct-methods",
       "redirect_document_id": false
@@ -33,11 +28,6 @@
     {
       "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/production-readiness.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/production-readiness",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/visual-studio-code-extension.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/visual-studio-code-extension",
       "redirect_document_id": false
     },
     {

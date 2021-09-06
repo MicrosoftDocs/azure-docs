@@ -9,8 +9,6 @@ ms.date: 06/01/2021
 
 # Use Azure Video Analyzer Visual Studio Code extension
 
-[!INCLUDE [header](includes/edge-env.md)]
-
 Azure Video Analyzer is a platform to make building video analysis programs easier, and the associated Visual Studio Code extension is a tool to make learning that platform easier.  This article is a reference to the various pieces of functionality offered by the extension.  It covers the basics of:
 
 * Pipelines topologies – creation, editing, deletion, viewing the JSON
@@ -45,7 +43,7 @@ If you want to view the underlying JSON behind an existing live pipeline, on the
 
 ## Editing a topology 
 
-Pipeline topologies are constructed of a variety of pieces. You can learn about these pieces in the [Pipelines](./pipeline.md) concept doc. This section is about the portions of the interface to help you build or edit a topology.
+Pipeline topologies are constructed of a variety of pieces. You can learn about these pieces in the [Pipelines](pipeline.md) concept doc. This section is about the portions of the interface to help you build or edit a topology.
 
 ### Modules
 

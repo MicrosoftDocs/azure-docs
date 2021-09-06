@@ -16,7 +16,7 @@ This article provides guidance on how to configure and deploy the Azure Video An
 
 ## Creating the Video Analyzer account
 
-When youT [create](create-video-analyzer-account.md) a Video Analyzer account, the following is recommended:
+When youT [create](../create-video-analyzer-account.md) a Video Analyzer account, the following is recommended:
 
 1. The subscription owner should create a resource group under which all resources needed by Video Analyzer are to be created.
 1. Then, the owner should grant you [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) and [User Access Administrator](../../../role-based-access-control/built-in-roles.md#user-access-administrator) roles to that resource group.
@@ -67,7 +67,7 @@ Next, in the deployment manifest, you can set the LOCAL_USER_ID and LOCAL_GROUP_
 The Video Analyzer edge module requires the ability to write files to the local file system when:
 
 - Using a module twin property [`applicationDataDirectory`](module-twin-configuration-schema.md), where you should specify a directory on the local file system for storing configuration data.
-- Using a pipeline to record video to the cloud, the module requires the use of a directory on the edge device as a cache (see [Continuous video recording](continuous-video-recording.md) article for more information).
+- Using a pipeline to record video to the cloud, the module requires the use of a directory on the edge device as a cache (see [Continuous video recording](../continuous-video-recording.md) article for more information).
 - [Recording to a local file](../event-based-video-recording-concept.md), where you specify a file path for the recorded video.
 
 If you intend to make use of any of the above, you should ensure that the above user account has access to the relevant directory. Consider `applicationDataDirectory` for example. You can create a directory on the edge device and link device storage to module storage.

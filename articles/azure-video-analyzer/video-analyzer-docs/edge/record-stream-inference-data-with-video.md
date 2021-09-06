@@ -21,7 +21,7 @@ Read these articles before you begin:
 * [Azure Video Analyzer on IoT Edge overview](../overview.md)
 * [Azure Video Analyzer on IoT Edge terminology](../terminology.md)
 * [Video Analyzer Pipeline concepts](../pipeline.md) 
-* [Continuous video recording](continuous-video-recording.md)
+* [Continuous video recording](../continuous-video-recording.md)
 * [Quickstart: Analyze live video with your own model - HTTP](analyze-live-video-use-your-model-http.md)
 * [Quickstart: Track objects in a live video](track-objects-live-video.md)
 
