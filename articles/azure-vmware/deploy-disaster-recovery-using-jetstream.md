@@ -1,14 +1,17 @@
 ---
-title: Deploy disaster recovery using JetStream DR
+title: Deploy disaster recovery using JetStream DR (Preview)
 description: Learn how to implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads. 
 ms.topic: how-to
 ms.date: 09/07/2021
 
-#Customer intent: 
-
 ---
 
-# Deploy disaster recovery using JetStream DR
+# Deploy disaster recovery using JetStream DR (Preview)
+
+>[!IMPORTANT]
+>JetStream DR on Azure VMware Solution (Preview) is currently in public preview.
+>This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+>For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [JetStream DR](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is a cloud-native disaster recovery solution designed to minimize downtime of virtual machines (VMs) if there was a disaster. Instances of JetStream DR are deployed at both the protected and recovery sites. 
 
