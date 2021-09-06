@@ -89,6 +89,23 @@ The script creates registry keys required by the solution. It also creates Windo
 
 The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
+The LA Windows agent can be multihomed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send to only a single destination, either a workspace or management group.
+
+#### Enable Network Performance Monitor Solution for on-premise machines 
+
+Follow the following steps to enable Network Performance Monitor Solution for on-premise machines 
+
+1. On the Azure portal home page, go to Network Watcher
+2. On the left, in the Monitoring section, select Network Performance Monitor 
+3. On the Portal you will see  a list of Workspaces with NPM Solution enabled, filtered by Subscriptions 
+4. To add NPM solution in a New Workspace , click on "+ Add NPM " on the top left of the Portal 
+5. Select the Subscription and Workspace in which you wish to enable the solution and click on Create
+6. The Workspace will take a couple of minutes to show up on the Portal after enabling the solution.
+
+:::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Screenshot showing how to Add NPM Solution in Connection Monitor" lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
+
+Unlike LA agents, NPM Solution can only be configured to send data to a single LA workspace
+
 ## Enable Network Watcher on your subscription
 
 All subscriptions that have a virtual network are enabled with Network Watcher. When you create a virtual network in your subscription, Network Watcher is automatically enabled in the virtual network's region and subscription. This automatic enabling doesn't affect your resources or incur a charge. Ensure that Network Watcher isn't explicitly disabled on your subscription. 
@@ -373,7 +390,7 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 * BGP isn't enabled on the gateway connection.
 * The DIP probe is down at the load balancer.
 
-## Comparision between Azure's Connectivity Monitoring Support 
+## Comparison between Azure's Connectivity Monitoring Support 
 
 You can migrate tests from Network Performance Monitor and Connection Monitor (Classic) to New, Improved Connection Monitor with a single click and with zero downtime.
  
