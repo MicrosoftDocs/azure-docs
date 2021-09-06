@@ -119,7 +119,7 @@ The folder name in the `OPENROWSET` function (`yellow` in this example) that is 
 
 Delta Lake is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
-### JSON views
+## JSON views
 
 The views are the good choice if you need to do some additional processing on top of the result set that is fetched from the files. One example might be parsing JSON files where we need to apply the JSON functions to extract the values from the JSON documents:
 
@@ -143,6 +143,26 @@ from openrowset(
 ```
 
 The `OPENJSON` function parses each line from the JSONL file containing one JSON document per line in textual format.
+
+## CosmosDB view
+
+The views can be created on top of the Azure CosmosDB containers if the CosmosDB analytical storage is enabled on the container. CosmosDB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+GO
+CREATE OR ALTER VIEW Ecdc
+AS SELECT *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
+      CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+Find more details about [querying CosmosDB containers using Synapse Link here](query-cosmos-db-analytical-store.md).
 
 ## Use a view
 
