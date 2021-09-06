@@ -613,7 +613,7 @@ This condition allows read and write access to blobs if the user has a [custom s
  
 For example, if Brenda has the attribute `Project=Baker`, she can only read and write blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read and write blobs with `Project=Cascade`.
 
-![Diagram of example 9 condition showing read and write access to blobs based on tags and custom security attributes.](./media/storage-auth-abac-examples/condition-principal-attribute.png)
+![Diagram of example 9 condition showing read and write access to blobs based on tags and custom security attributes.](./media/storage-auth-abac-examples/condition-principal-attribute-example.png)
 
 ```
 (
@@ -671,7 +671,7 @@ This condition allows read access to blobs if the user has a [custom security at
  
 For example, if Chandra has the Project attribute with the values Baker and Cascade, she can only read blobs with the `Project=Baker` or `Project=Cascade` blob index tag.
 
-![Diagram of example 10 condition showing read access to blobs based on tags and multi-value custom security attributes.](./media/storage-auth-abac-examples/condition-principal-attribute-multi-value.png)
+![Diagram of example 10 condition showing read access to blobs based on tags and multi-value custom security attributes.](./media/storage-auth-abac-examples/condition-principal-attribute-multi-value-example.png)
 
 ```
 (
