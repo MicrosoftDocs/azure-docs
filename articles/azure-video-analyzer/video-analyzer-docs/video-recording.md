@@ -9,8 +9,6 @@ ms.date: 06/01/2021
 
 # Record video for playback
 
-[!INCLUDE [header](includes/edge-env.md)]
-
 In the context of a video management system for CCTV cameras, video recording refers to the process of capturing video from the cameras and recording it for subsequent viewing via mobile and browser apps. Video recording can be categorized as continuous video recording and event-based video recording.
 
 ## Continuous video recording

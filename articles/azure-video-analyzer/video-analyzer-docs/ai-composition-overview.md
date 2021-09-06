@@ -8,8 +8,6 @@ ms.date: 08/11/2021
 
 # AI composition
 
-[!INCLUDE [header](includes/edge-env.md)]
-
 This article gives a high-level overview of Azure Video Analyzer support for three kinds of AI composition. 
 
 * [Sequential](#sequential-ai-composition)

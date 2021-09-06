@@ -42,8 +42,8 @@
       items:
       - name: Get started 
         items:
-          name: Using portal
-          href: overview.md  
+          - name: Using portal
+            href: overview.md  
 - name: Tutorials
   items:
     - name: Edge module

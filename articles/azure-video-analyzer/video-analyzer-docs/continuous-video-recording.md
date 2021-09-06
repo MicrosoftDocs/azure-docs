@@ -9,12 +9,14 @@ ms.date: 06/01/2021
 
 # Continuous video recording    
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Azure Video Analyzer supports recording video continuously, on a 24x7 basis, from a CCTV camera via a video processing [pipeline topology](pipeline.md) consisting of an RTSP source node and a video sink node. The diagram below shows a graphical representation of such a pipeline. The JSON representation of the topology can be found in this [document](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json). You can use such a topology to create arbitrarily long recordings (years worth of content), which can be browsed based on UTC time.  
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Continuous video recording":::
 
-An instance of the pipeline topology depicted above can be run on an edge device, with the video sink recording to a Video Analyzer [video resource](../terminology.md#video). The video will be recorded for as long as the pipeline stays in the activated state. Since video is being recorded as a video resource, it can be played back using the streaming capabilities of Video Analyzer. See [Playback of video recordings](playback-recordings-how-to.md) for more details.
+An instance of the pipeline topology depicted above can be run on an edge device, with the video sink recording to a Video Analyzer [video resource](terminology.md#video). The video will be recorded for as long as the pipeline stays in the activated state. Since video is being recorded as a video resource, it can be played back using the streaming capabilities of Video Analyzer. See [Playback of video recordings](playback-recordings-how-to.md) for more details.
 
 ## Suggested pre-reading  
 
@@ -33,7 +35,7 @@ Video Analyzer supports operating under conditions where the edge device may occ
 "localMediaCachePath": "/var/lib/videoanalyzer/tmp/",
 ```
 
-The latter two properties are relevant to resilient recording (both are also required properties for a video sink node). The `localMediaCachePath` property tells the video sink to use that folder path to cache media data before uploading to the cloud. You can see [this](../../iot-edge/how-to-access-host-storage-from-module.md) article to understand how the edge module can make use of your device's local storage. The `localMediaCacheMaximumSizeMiB` property defines how much disk space the video sink can use as a cache (1 MiB = 1024 * 1024 bytes). 
+The latter two properties are relevant to resilient recording (both are also required properties for a video sink node). The `localMediaCachePath` property tells the video sink to use that folder path to cache media data before uploading to the cloud. You can see [this](../../../iot-edge/how-to-access-host-storage-from-module.md) article to understand how the edge module can make use of your device's local storage. The `localMediaCacheMaximumSizeMiB` property defines how much disk space the video sink can use as a cache (1 MiB = 1024 * 1024 bytes). 
 
 If your edge module loses connectivity for a long time and the content stored in the cache folder reaches the `localMediaCacheMaximumSizeMiB` value, the video sink will start discarding data from the cache, starting from the oldest data. For example, if the device lost connectivity at 10AM and the cache hits the maximum limit at 6PM, then the video sink starts to delete data recorded at 10AM. 
 
@@ -57,7 +59,7 @@ The `segmentLength` property ensures that the edge module will upload video at m
 
 ## Next steps
 
-[Tutorial: continuous video recording](use-continuous-video-recording.md) 
+[Tutorial: continuous video recording](edge/use-continuous-video-recording.md) 
 
 <!-- links 
 [pipeline-cvr-json]: https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset
