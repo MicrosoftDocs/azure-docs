@@ -9,8 +9,6 @@ ms.date: 06/01/2021
 
 # Use the Azure Video Analyzer player widget
 
-[!INCLUDE [header](includes/edge-env.md)]
-
 In this tutorial, you learn how to use a player widget within your application. This code is an easy-to-embed widget that allows your users to play video and browse through the portions of a segmented video file. To do this, you'll be generating a static HTML page with the widget embedded, and all the pieces to make it work.
 
 In this tutorial, you will:
@@ -18,7 +16,7 @@ In this tutorial, you will:
 > [!div class="checklist"]
 > * Create a token
 > * List videos
-> * Get the base URL for playing back a [video application resource](../terminology.md#video)
+> * Get the base URL for playing back a [video application resource](terminology.md#video)
 > * Create a page with the player
 > * Pass a streaming endpoint and a token to the player
 
@@ -205,7 +203,7 @@ Video name: <input type="text" id="videoName" /><br><br>
 
 ## Host the page
 
-You can test this page locally, but you might want to test a hosted version. In case you don't have a quick way to host a page, here are instructions on how to do so by using [static websites](../../../storage/blobs/storage-blob-static-website.md) with Azure Storage. The following steps are a condensed version of [these more complete instructions](../../../storage/blobs/storage-blob-static-website-how-to.md). The steps are updated for the files you're using in this tutorial.
+You can test this page locally, but you might want to test a hosted version. In case you don't have a quick way to host a page, here are instructions on how to do so by using [static websites](../../storage/blobs/storage-blob-static-website.md) with Azure Storage. The following steps are a condensed version of [these more complete instructions](../../storage/blobs/storage-blob-static-website-how-to.md). The steps are updated for the files you're using in this tutorial.
 
 1. Create a storage account.
 1. Under **Data management**, select **Static website**.

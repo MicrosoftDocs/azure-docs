@@ -76,21 +76,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/playback-recordings-how-to.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/playback-recordings-how-to",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/player-widget.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/player-widget",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/access-policies.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/access-policies",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/manage-recording-policy.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/manage-recording-policy",
       "redirect_document_id": false
@@ -118,11 +103,6 @@
     {
       "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/monitor-log-edge.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/monitor-log-edge",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/embed-player-in-power-bi.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/embed-player-in-power-bi",
       "redirect_document_id": false
     },
     {

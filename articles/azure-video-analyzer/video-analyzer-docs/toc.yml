@@ -124,23 +124,23 @@
   - name: Playback
     items:      
     - name: Playback a recording
-      href: edge/playback-recordings-how-to.md
+      href: playback-recordings-how-to.md
     - name: Using the Azure Video Analyzer player widget
-      href: edge/player-widget.md
+      href: player-widget.md
     - name: Use access policies for playback
-      href: edge/access-policies.md
+      href: access-policies.md
   - name: Record
     items:
     - name: Manage recording policy
       href: edge/manage-recording-policy.md
-    - name: Configure a signal gate
-      href: edge/configure-signal-gate.md
+    - name: Exporting a clip
+      href: overview.md
   - name: Apply AI on the edge
     items:      
+    - name: Configure a signal gate
+      href: edge/configure-signal-gate.md
     - name: Develop and deploy gRPC inference server
       href: edge/develop-deploy-grpc-inference-srv.md
-    - name: Analyze using AI composition
-      href: edge/analyze-ai-composition.md
   - name: Operate edge module
     items:
     - name: Invoke direct methods with the portal
@@ -151,12 +151,26 @@
       href: edge/monitor-log-edge.md 
     - name: Troubleshoot
       href: edge/troubleshoot.md
+  - name: Operate cloud pipeline
+    items:
+    - name: Develop IoT PnP app for a device
+      href: overview.md
+    - name: Use IoT PnP app on Axis cameras
+      href: overview.md
+    - name: Using AVA edge as a transparent gateway
+      href: overview.md
+    - name: Use Portal to manage cloud pipelines
+      href: overview.md
+    - name: Monitor and logging 
+      href: overview.md
+    - name: Troubleshoot
+      href: overview.md
   - name: Visualize
     items:
     - name: Embed player widget in a web app 
       href: overview.md
     - name: Embed player widget in Power BI
-      href: edge/embed-player-in-power-bi.md
+      href: embed-player-in-power-bi.md
 - name: Reference 
   items:
   - name: Access policies

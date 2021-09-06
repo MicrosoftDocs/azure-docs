@@ -8,8 +8,6 @@ ms.date: 06/01/2021
 
 # Access policies
 
-[!INCLUDE [header](includes/edge-env.md)]
-
 Access policies define the permissions and duration of access to a given Video Analyzer video resource. These access policies allow for greater control and flexibility by allowing 3rd party (Non AAD Clients) JWT tokens to provide authorization to client API’s that enable: 
 
 - access to Video Metadata. 
@@ -159,4 +157,4 @@ See Azure Resource Manager (ARM) API
 
 ## Next steps
 
-[Overview](../overview.md)
+[Overview](overview.md)
