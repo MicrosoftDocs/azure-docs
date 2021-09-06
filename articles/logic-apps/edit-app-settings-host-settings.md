@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/18/2021
+ms.custom: fasttrack-edit
 ---
 
 # Edit host and app settings for logic apps in single-tenant Azure Logic Apps
@@ -229,7 +230,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.DefaultAppendArrayItemsLimit` | `100000` <br>(100K array items) | Sets the maximum number of items in a variable with the Array type. |
-| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters <p><p>Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store. |
+| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters | Sets the maximum size in characters for the content that a variable can store for a Stateful workflow. |
+| `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store for a Stateless workflow. |
 ||||
 
 <a name="http-webhook"></a>
