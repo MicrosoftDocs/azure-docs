@@ -31,7 +31,7 @@ Read these articles before you begin:
 
 - [Video Analyzer overview](../overview.md)
 - [Video Analyzer terminology](../terminology.md)
-- [Pipeline concepts](pipeline.md)
+- [Pipeline concepts](../pipeline.md)
 - [Event-based video recording](record-event-based-live-video.md)
 - [Tutorial: Developing an IoT Edge module](../../../iot-edge/tutorial-develop-for-linux.md)
 
@@ -113,12 +113,12 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis/overview.png" alt-text="Spatial Analysis overview":::
 
-This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the `CognitiveServicesVisionProcessor` node.
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](../pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the `CognitiveServicesVisionProcessor` node.
 
 The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over **shared memory** to another edge module that runs AI operations behind a gRPC endpoint. In this example, that edge module is the spatial-analysis module. The `CognitiveServicesVisionProcessor` node does two things:
 
-- It gathers the results and publishes events to the [IoT Hub sink](pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
-- It also captures a 30 second video clip from the RTSP source using a [signal gate processor](pipeline.md#signal-gate-processor) and stores it as a Video file.
+- It gathers the results and publishes events to the [IoT Hub sink](../pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
+- It also captures a 30 second video clip from the RTSP source using a [signal gate processor](../pipeline.md#signal-gate-processor) and stores it as a Video file.
 
 ## Create the Computer Vision resource
 

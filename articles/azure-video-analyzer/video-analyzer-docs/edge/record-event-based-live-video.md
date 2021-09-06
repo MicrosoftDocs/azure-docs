@@ -19,7 +19,7 @@ Read these articles before you begin:
 
 * [Azure Video Analyzer overview](../overview.md)
 * [Azure Video Analyzer terminology](../terminology.md)
-* [Video Analyzer Pipeline concepts](pipeline.md) 
+* [Video Analyzer Pipeline concepts](../pipeline.md) 
 * [Event-based video recording](event-based-video-recording-concept.md)
 * [Tutorial: Developing an IoT Edge module](../../../iot-edge/tutorial-develop-for-linux.md)
 * [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
@@ -53,18 +53,18 @@ Alternatively, you can trigger recording only when an inferencing service detect
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording/overview.svg" alt-text="Pipeline":::
 
-The diagram is a pictorial representation of a [pipeline](pipeline.md) and additional modules that accomplish the desired scenario. Four IoT Edge modules are involved:
+The diagram is a pictorial representation of a [pipeline](../pipeline.md) and additional modules that accomplish the desired scenario. Four IoT Edge modules are involved:
 
 * Video Analyzer on an IoT Edge module.
 * An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects.
 * A custom module to count and filter objects, which is referred to as an Object Counter in the diagram. You'll build an Object Counter and deploy it in this tutorial.
 * An [RTSP simulator module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) to simulate an RTSP camera.
     
-As the diagram shows, you'll use an [RTSP source](pipeline.md#rtsp-source) node in the pipeline to capture the simulated live video of traffic on a highway and send that video to two paths:
+As the diagram shows, you'll use an [RTSP source](../pipeline.md#rtsp-source) node in the pipeline to capture the simulated live video of traffic on a highway and send that video to two paths:
 
 * The first path is to a HTTP extension node. The node samples the video frames to a value set by you using the `samplingOptions` field and then relays the frames, as images, to the AI module YOLOv3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
 
-* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the pipeline. Upon receiving such a message, the IoT Hub source node in the pipeline triggers the [signal gate processor](pipeline.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the video sink node for that duration. That portion of the live stream is then recorded via the [video sink](pipeline.md#video-sink) node to an [video](../terminology.md#video) in your  Video Analyzer account. The video that will be used in this tutorial is [a highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
+* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the pipeline. Upon receiving such a message, the IoT Hub source node in the pipeline triggers the [signal gate processor](../pipeline.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the video sink node for that duration. That portion of the live stream is then recorded via the [video sink](../pipeline.md#video-sink) node to an [video](../terminology.md#video) in your  Video Analyzer account. The video that will be used in this tutorial is [a highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 

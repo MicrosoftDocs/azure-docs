@@ -93,7 +93,7 @@ You can now analyze live video streams by invoking direct methods exposed by the
 
 ### Enumerate pipeline topologies
 
-This step enumerates all the [pipeline topologies](pipeline.md) in the module.
+This step enumerates all the [pipeline topologies](../pipeline.md) in the module.
 
 1. Right-click on "avaedge" module and select **Invoke Module Direct Method** from the context menu.
 1. You will see an edit box pop in the top-middle of Visual Studio Code window. Enter `pipelineTopologyList` in the edit box and press enter.
@@ -195,7 +195,7 @@ Using the same steps as above, you can invoke `pipelineTopologySet` to set a pip
 }
 ```
 
-This JSON payload creates a topology that defines three parameters, where two of them have default values. The topology has one source node ([RTSP source](pipeline.md#rtsp-source)), one processor node ([motion detection processor](pipeline.md#motion-detection-processor) and one sink node ([IoT Hub message sink](pipeline.md#iot-hub-message-sink)). The visual representation of the topology is shown above.
+This JSON payload creates a topology that defines three parameters, where two of them have default values. The topology has one source node ([RTSP source](../pipeline.md#rtsp-source)), one processor node ([motion detection processor](../pipeline.md#motion-detection-processor) and one sink node ([IoT Hub message sink](../pipeline.md#iot-hub-message-sink)). The visual representation of the topology is shown above.
 
 Within a few seconds, you see the following response in the **OUTPUT** window.
 
@@ -455,7 +455,7 @@ Within few seconds, you see the following response in the **OUTPUT** window:
 In the response payload, notice that:
 
 * Status code is 201, indicating a new live pipeline was created.
-* State is "Inactive", indicating that the live pipeline was created but not activated. For more information, see [pipeline states](pipeline.md#pipeline-states).
+* State is "Inactive", indicating that the live pipeline was created but not activated. For more information, see [pipeline states](../pipeline.md#pipeline-states).
 
 Try the following direct methods as next steps:
 
@@ -463,7 +463,7 @@ Try the following direct methods as next steps:
 * Invoke `livePipelineSet` again but with a different description and note the updated description in the response payload, indicating that the live pipeline was successfully updated.
 * Invoke `livePipelineSet`, but change the name to "mdpipeline2" and `rtspUrl` to "rtsp://rtspsim:554/media/lots_015.mkv". In the response payload, notice the newly created live pipeline (that is, status code 201).
     > [!NOTE]
-    > As explained in [Pipeline topologies](pipeline.md#pipeline-topologies), you can create multiple live pipelines, to analyze live video streams from many cameras using the same pipeline topology. If you do create additional live pipelines, take care to delete them during the cleanup step.
+    > As explained in [Pipeline topologies](../pipeline.md#pipeline-topologies), you can create multiple live pipelines, to analyze live video streams from many cameras using the same pipeline topology. If you do create additional live pipelines, take care to delete them during the cleanup step.
 
 ### Activate the live pipeline
 

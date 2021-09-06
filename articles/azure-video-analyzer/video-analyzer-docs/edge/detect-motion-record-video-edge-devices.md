@@ -203,7 +203,7 @@ In the preceding message:
 
 ### RecordingStopped and RecordingAvailable events
 
-If you examine the properties of the signal gate processor node in the [pipeline topology](pipeline.md), you see that the activation times are set to 5 seconds. So about 5 seconds after the **RecordingStarted** event is received, you get:
+If you examine the properties of the signal gate processor node in the [pipeline topology](../pipeline.md), you see that the activation times are set to 5 seconds. So about 5 seconds after the **RecordingStarted** event is received, you get:
 
 - A **RecordingStopped** event, indicating that the recording has stopped.
 - A **RecordingAvailable** event, indicating that the MP4 file can now be used for viewing.

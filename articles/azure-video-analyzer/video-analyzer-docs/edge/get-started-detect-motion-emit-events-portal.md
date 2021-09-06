@@ -21,7 +21,7 @@ After you complete the setup steps, you'll be able to run the simulated live vid
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 
-  [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
+  [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](../../includes/note-account-storage-same-subscription.md)]
 
 - An IoT Edge device on which you have admin privileges:
   - [Deploy to an IoT Edge device](deploy-iot-edge-device.md)
@@ -53,7 +53,7 @@ The next step is to create the required Azure resources (Video Analyzer account,
 
 When you create an Azure Video Analyzer account, you have to associate an Azure storage account with it. If you use Video Analyzer to record the live video from a camera, that data is stored as blobs in a container in the storage account. You must use a managed identity to grant the Video Analyzer account the appropriate access to the storage account as follows.
 
-[!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
+[!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](../../includes/note-account-storage-same-subscription.md)]
 
 ### Create a Video Analyzer account in the Azure portal
 
@@ -232,7 +232,7 @@ You can now analyze live video streams by invoking direct methods that the Video
 
 ### Enumerate pipeline topologies
 
-This step enumerates all the [pipeline topologies](pipeline.md) in the module.
+This step enumerates all the [pipeline topologies](../pipeline.md) in the module.
 
 1. Right-click the **avaedge** module and select **Invoke Module Direct Method** from the shortcut menu.
 1. Type **pipelineTopologyList** in the edit box and select the Enter key.
@@ -333,7 +333,7 @@ By using the same steps described earlier, you can invoke `pipelineTopologySet` 
 }
 ```
 
-This JSON payload creates a topology that defines three parameters, two of which have default values. The topology has one source node ([RTSP source](pipeline.md#rtsp-source)), one processor node ([motion detection processor](pipeline.md#motion-detection-processor), and one sink node ([IoT Hub message sink](pipeline.md#iot-hub-message-sink)). The payload shows the visual representation of the topology.
+This JSON payload creates a topology that defines three parameters, two of which have default values. The topology has one source node ([RTSP source](../pipeline.md#rtsp-source)), one processor node ([motion detection processor](../pipeline.md#motion-detection-processor), and one sink node ([IoT Hub message sink](../pipeline.md#iot-hub-message-sink)). The payload shows the visual representation of the topology.
 
 Within a few seconds, the following response appears in the **OUTPUT** window:
 
@@ -592,7 +592,7 @@ Within few seconds, the following response appears in the **OUTPUT** window:
 In the response payload, notice that:
 
 - The status code is 201, indicating a new live pipeline was created.
-- The state is `Inactive`, indicating that the live pipeline was created but not activated. For more information, see [Pipeline states](pipeline.md#pipeline-states).
+- The state is `Inactive`, indicating that the live pipeline was created but not activated. For more information, see [Pipeline states](../pipeline.md#pipeline-states).
 
 Try the following direct methods as next steps:
 
@@ -601,7 +601,7 @@ Try the following direct methods as next steps:
 - Invoke `livePipelineSet`, but change the name to `mdpipeline2` and change `rtspUrl` to `rtsp://rtspsim:554/media/lots_015.mkv`. In the response payload, note the newly created live pipeline (that is, status code 201).
 
   > [!NOTE]
-  > As explained in [Pipeline topologies](pipeline.md#pipeline-topologies), you can create multiple live pipelines, to analyze live video streams from many cameras by using the same pipeline topology. If you create more live pipelines, take care to delete them during the cleanup step.
+  > As explained in [Pipeline topologies](../pipeline.md#pipeline-topologies), you can create multiple live pipelines, to analyze live video streams from many cameras by using the same pipeline topology. If you create more live pipelines, take care to delete them during the cleanup step.
 
 ### Activate the live pipeline
 

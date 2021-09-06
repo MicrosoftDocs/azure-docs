@@ -253,7 +253,7 @@ It retrieves a pipeline topology with the specified name, if it exists.
 
 Deletes a single pipeline topology.
 
-* Note that there cannot be any live pipelines [referencing a pipeline topology being deleted](pipeline.md#pipeline-states). If there are such live pipelines you will receive a `TopologyInUse` error.
+* Note that there cannot be any live pipelines [referencing a pipeline topology being deleted](../pipeline.md#pipeline-states). If there are such live pipelines you will receive a `TopologyInUse` error.
 
 #### Request
 
@@ -501,7 +501,7 @@ Key aspects:
 * This method can be invoked as long as the live pipeline is not in the (transient) "Activating" state.
 * Pipeline goes into the "Deactivating" state while being deactivated.
     * A List/Set operation on the live pipeline would return the current state.
-    * Deactivation completes when all media has been uploaded to the cloud (if the pipeline has a [video sink](pipeline.md#video-sink) node).
+    * Deactivation completes when all media has been uploaded to the cloud (if the pipeline has a [video sink](../pipeline.md#video-sink) node).
 * Idempotency:
     * Calling `livePipelineDeactivate` on a live pipeline which is already in "Deactivating" state behaves the same way as if the live pipeline was in "Active" state.
     * Deactivating a pipeline which is in "Inactive" state returns a success code immediately.

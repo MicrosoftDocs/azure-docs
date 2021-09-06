@@ -98,7 +98,7 @@ You can now analyze live video streams by invoking direct methods exposed by the
 
 ### Enumerate pipeline topologies
 
-This step enumerates all the [pipeline topologies](pipeline.md) in the module.
+This step enumerates all the [pipeline topologies](../pipeline.md) in the module.
 
 1. Right-click on "avaedge" module and select **Invoke Module Direct Method** from the context menu.
 1. You will see an edit box pop in the top-middle of Visual Studio Code window. Enter "pipelineTopologyList" in the edit box and press enter.
@@ -266,7 +266,7 @@ Using the same steps as above, you can invoke `pipelineTopologySet` to set a pip
 }
 ```
 
-The above JSON payload results in the creation of a pipeline topology that defines five parameters (four of which have default values). The topology has one source node ([RTSP source](pipeline.md#rtsp-source)), two processor nodes ([motion detection processor](pipeline.md#motion-detection-processor) and [signal gate processor](pipeline.md#signal-gate-processor), and two sink nodes (IoT Hub sink and [video sink](pipeline.md#video-sink)). The visual representation of the topology is shown above.
+The above JSON payload results in the creation of a pipeline topology that defines five parameters (four of which have default values). The topology has one source node ([RTSP source](../pipeline.md#rtsp-source)), two processor nodes ([motion detection processor](../pipeline.md#motion-detection-processor) and [signal gate processor](../pipeline.md#signal-gate-processor), and two sink nodes (IoT Hub sink and [video sink](../pipeline.md#video-sink)). The visual representation of the topology is shown above.
 
 Within a few seconds, you will see the following response in the **OUTPUT** window.
 
@@ -642,7 +642,7 @@ Within few seconds, you will see the following response in the Output window:
 Note the following properties in the response payload:
 
 * Status code is 201, indicating a new live pipeline was created.
-* State is "Inactive", indicating that the live pipeline was created but not activated. For more information, see [pipeline states](pipeline.md#pipeline-states).
+* State is "Inactive", indicating that the live pipeline was created but not activated. For more information, see [pipeline states](../pipeline.md#pipeline-states).
 
 Try the following direct methods as next steps:
 
@@ -650,7 +650,7 @@ Try the following direct methods as next steps:
 * Invoke `livePipelineSet` again but with a different description and note the updated description in the response payload, indicating that the live pipeline was successfully updated.
 
     > [!NOTE]
-    > As explained in [Pipeline topologies](pipeline.md#pipeline-topologies), you can create multiple live pipelines, to analyze live video streams from many cameras using the same pipeline topology. However, this particular topology hard-codes the value of `videoName`. Since only one live video source should be recorded to a Video Analyzer video resource, you must not create additional live pipelines with this particular topology.
+    > As explained in [Pipeline topologies](../pipeline.md#pipeline-topologies), you can create multiple live pipelines, to analyze live video streams from many cameras using the same pipeline topology. However, this particular topology hard-codes the value of `videoName`. Since only one live video source should be recorded to a Video Analyzer video resource, you must not create additional live pipelines with this particular topology.
 
 ### Activate the live pipeline
 

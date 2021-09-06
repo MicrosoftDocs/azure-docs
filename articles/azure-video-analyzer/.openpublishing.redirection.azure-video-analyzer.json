@@ -41,21 +41,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/create-video-analyzer-account.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/create-video-analyzer-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/managed-identity.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/managed-identity",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/customer-managed-keys",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/faq-edge.yml",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/faq",
       "redirect_document_id": false

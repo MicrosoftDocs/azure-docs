@@ -16,7 +16,7 @@ In this article, you will learn how to invoke direct method calls on Video Analy
 ## Prerequisites
 
 * You have the Video Analyzer module running on your edge device, using either the methods described in [Quickstart: Video Analyzer](get-started-detect-motion-emit-events.md) or using the [portal.](./deploy-iot-edge-device.md)
-* You understand [Video Analyzer](../overview.md) and [the pipeline concept](pipeline.md).
+* You understand [Video Analyzer](../overview.md) and [the pipeline concept](../pipeline.md).
 
 ## Invoking direct methods via Azure portal
 

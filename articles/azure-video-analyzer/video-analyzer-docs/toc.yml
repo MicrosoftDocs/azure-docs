@@ -104,11 +104,11 @@
   - name: Setup
     items:
     - name: Create a new account
-      href: edge/create-video-analyzer-account.md
+      href: create-video-analyzer-account.md
     - name: Managed identity
-      href: edge/managed-identity.md
+      href: managed-identity.md
     - name: Customer managed keys
-      href: edge/customer-managed-keys.md
+      href: customer-managed-keys.md
   - name: Deploy to the edge
     items:  
     - name: Deploy to an IoT Edge device
