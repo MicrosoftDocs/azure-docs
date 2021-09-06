@@ -132,7 +132,7 @@
   - name: Record
     items:
     - name: Manage recording policy
-      href: edge/manage-recording-policy.md
+      href: manage-recording-policy.md
     - name: Exporting a clip
       href: overview.md
   - name: Apply AI on the edge

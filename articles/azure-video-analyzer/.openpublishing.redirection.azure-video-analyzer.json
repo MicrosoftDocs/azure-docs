@@ -76,11 +76,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/manage-recording-policy.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/manage-recording-policy",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/configure-signal-gate.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/configure-signal-gate",
       "redirect_document_id": false
