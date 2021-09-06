@@ -11329,6 +11329,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-signalr/authenticate-application.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-authorize-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-signalr/authenticate-managed-identity.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-authorize-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-signalr/authorize-access-azure-active-directory.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-authorize-azure-active-directory",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-signalr/signalr-authenticate-oauth.md",
       "redirect_url": "/azure/azure-signalr/signalr-concept-authenticate-oauth",
       "redirect_document_id": true
