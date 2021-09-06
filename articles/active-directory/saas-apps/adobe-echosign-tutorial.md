@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2021
+ms.date: 09/06/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Adobe Sign
@@ -31,7 +31,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Adobe Sign supports **SP** initiated SSO
+* Adobe Sign supports **SP** initiated SSO.
 
 ## Add Adobe Sign from the gallery
 
@@ -58,7 +58,7 @@ To configure and test Azure AD single sign-on with Adobe Sign, you need to perfo
     1. **[Create Adobe Sign test user](#create-adobe-sign-test-user)** - to have a counterpart of Britta Simon in Adobe Sign that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -115,7 +115,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Adobe Sign SSO
+## Configure Adobe Sign SSO
 
 1. Before configuration, contact the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to add your domain in the Adobe Sign allow list. Here's how to add the domain:
 
@@ -140,13 +140,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the SAML menu, select **Account Settings** > **SAML Settings**.
 
-    ![Screenshot of Adobe Sign SAML Settings page](./media/adobe-echosign-tutorial/settings.png "Account")
+    ![Screenshot of Adobe Sign SAML Settings page.](./media/adobe-echosign-tutorial/settings.png "Account")
 
 1. In the **SAML Settings** section, perform the following steps:
 
-    ![Screenshot that highlights the SAML settings, including SAML Mandatory.](./media/adobe-echosign-tutorial/saml1.png "SAML Settings")
+    ![Screenshot that highlights the SAML settings, including SAML Mandatory.](./media/adobe-echosign-tutorial/profile.png "SAML Settings")
 
-   ![Screenshot of SAML Settings](./media/adobe-echosign-tutorial/saml.png "SAML Settings")
+   ![Screenshot of SAML Settings.](./media/adobe-echosign-tutorial/certificate.png "SAML Settings")
 
    a. Under **SAML Mode**, select **SAML Mandatory**.
 
