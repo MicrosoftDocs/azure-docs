@@ -53,7 +53,7 @@ Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detecto
 
 6. Select **Update**
 
-7. Select **Next: Routes** to define your route. You define all messages from all modules to go to Azure IoT Hub.
+7. Select **Next: Routes** to define your route. You define all messages from all modules to go to Azure IoT Hub. Please refer to [Establish routes in IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/module-composition?view=iotedge-2020-11) on how to declare the desired route.
 
 8. Select **Next: Review + create**. You can preview the JSON file that defines all the modules that get deployed to your IoT Edge device.
     
