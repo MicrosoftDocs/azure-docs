@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Contact [SchoolStream support](mailto:support@rtresponse.com) to request SchoolStream ASA integration, you will need to provide your **Azure AD tenant Id** and your **SchoolStream Website URL**.
 
-1. You will get your **Secret Token** and SchoolStream ASA **Tenant URL** after SchoolStream has mapped your SchoolStream Website and Azure AD tenant Id.
+1. You will get your **Secret Token** and SchoolStream ASA **Tenant URL** after SchoolStream has mapped your SchoolStream Website and Azure AD tenant ID.
 
 ## Step 3. Add SchoolStream ASA from the Azure AD application gallery
 
@@ -111,15 +111,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. In the dialog **Edit Attribute**: 
 	
-* In the **Mapping type** field, select **Direct** from the dropdown,
-* In the **Source attribute** field, select **extensionAttribute1** from the dropdown,
-* Enter your **Azure AD tenant Id** in the field **Default value if null(optional)**,
-* In the **Target attribute** field, select **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization** from the dropdown, 
-* In the **Match objects using this attribute** field, select **No** from the dropdown,
-* In the **Apply this mapping** field, select **Always** from the dropdown,
-* Select **OK**.
+   * In the **Mapping type** field, select **Direct** from the dropdown,
+   * In the **Source attribute** field, select **extensionAttribute1** from the dropdown,
+   * Enter your **Azure AD tenant Id** in the field **Default value if null(optional)**,
+   * In the **Target attribute** field, select **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization** from the dropdown, 
+   * In the **Match objects using this attribute** field, select **No** from the dropdown,
+   * In the **Apply this mapping** field, select **Always** from the dropdown,
+   * Select **OK**.
 
-	![Edit Attribute](media/schoolstream-asa-provisioning-tutorial/add_mappings_attribute.png)
+	   ![Edit Attribute](media/schoolstream-asa-provisioning-tutorial/add-mappings-attribute.png)
 
 1. Review the user attributes that are synchronized from Azure AD to SchoolStream ASA in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in SchoolStream ASA for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the SchoolStream ASA API supports filtering users based on that attribute.
 
