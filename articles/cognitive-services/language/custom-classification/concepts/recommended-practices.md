@@ -30,6 +30,8 @@ The schema defines the classes that you need your model to classify your text in
     
     For example, if you are classifying food recipes, they are similar to an extent, so to differentiate between *dessert recipe* and *main dish recipe* you will need to add more examples to overcome ambiguity since both files are similar. Avoiding ambiguity saves time, effort, and yields better results.
     
+* If at runtime you expect files that doesn't belong to any your classes, consider adding a `None` class to your schema add some files to your dataset to be tagged as `None`. At runtime the model only gives predictions based on the classes it was trained for; so by adding the `None` class you train your model to recognize irrelevant files and predict their tags accordingly.
+    
 ## Data selection
 
 The quality of data you train your model with affects model performance greatly.
