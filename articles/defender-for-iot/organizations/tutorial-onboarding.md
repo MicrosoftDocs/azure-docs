@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Onboard with Azure Defender for IoT
 > * Download the ISO for the virtual sensor
 > * Create a virtual machine for the sensor
-> * Install the software for the virtual sensor
+> * Install the virtual sensor software
 > * Configure a SPAN port
 > * Onboard, and activate the virtual sensor
 
@@ -56,11 +56,11 @@ To evaluate Defender for IoT, you can use a trial subscription. The trial is val
 
 1. Select **Onboard subscription**.
 
-    :::image type="content" source="media/tutorial-onboarding/onboard-subscription.png" alt-text="Select the Onboard subscription button from the Getting started page.":::
+    :::image type="content" source="media/tutorial-onboarding/onboard-subscription.png" alt-text="Screenshot of the selecting the onboard subscription button from the Getting started page.":::
 
 1. On the Pricing page, select **Start with a trial**.
 
-   :::image type="content" source="media/tutorial-onboarding/start-with-trial.png" alt-text="Select the Start with a trial button to open the trial window.":::
+   :::image type="content" source="media/tutorial-onboarding/start-with-trial.png" alt-text="Screenshot of the start with a trial button to open the trial window.":::
 
 1. Select a subscription from the Onboard trial subscription pane and then select **Evaluate**.
 
@@ -88,7 +88,7 @@ The virtual appliances have minimum specifications that are required for both th
 
 1. Select **Download**.
 
-    :::image type="content" source="media/tutorial-onboarding/sensor-download.png" alt-text="Under the sensor tab, select download, to download the ISO file for the virtual sensor.":::
+    :::image type="content" source="media/tutorial-onboarding/sensor-download.png" alt-text="Screenshot of the sensor tab, select download, to download the ISO file for the virtual sensor.":::
 
 ## Create a virtual machine for the sensor
 
@@ -180,7 +180,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. On the **Actions** menu, select **Connect** to continue the software installation.
 
-## Install the software for the virtual sensor with ESXi or Hyper-V
+## Install the virtual sensor software with ESXi or Hyper-V
 
 Either ESXi, or Hyper-V can be used to install the software for the virtual sensor.
 
@@ -225,9 +225,9 @@ The validation is available to both the **Support**, and **CyberX** user.
 
 1. Select **System Settings** from the left side pane.
 
-1. Select the :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false"::: button.
+1. Select the :::image type="icon" source="media/tutorial-onboarding/system-statistics-icon.png" border="false"::: button.
 
-    :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
+    :::image type="content" source="media/tutorial-onboarding/system-health-check-screen.png" alt-text="Screenshot of the system health check." lightbox="media/tutorial-onboarding/system-health-check-screen-expanded.png":::
 
 For post-installation validation, you must test to ensure the system is running, that you have the right version, and to verify that all of the input interfaces that were configured during the installation process are running.
 
@@ -287,7 +287,7 @@ Prior to starting you will need to:
 
 1. In the Virtual Switches list, select **New virtual network switch** > **External** as the dedicated spanned network adapter type.
 
-    :::image type="content" source="media/tutorial-onboarding/new-virtual-network.png" alt-text="Select, new virtual network and external before creating the virtual switch.":::
+    :::image type="content" source="media/tutorial-onboarding/new-virtual-network.png" alt-text="Screenshot of selecting new virtual network and external before creating the virtual switch.":::
 
 1. Select **Create Virtual Switch**.
 
@@ -333,7 +333,7 @@ These commands set the name of the newly added adapter hardware to be `Monitor`.
 
 1. In the Virtual Switch field, select **vSwitch_Span**.
 
-    :::image type="content" source="media/tutorial-onboarding/vswitch-span.png" alt-text="Select the following options on the virtual switch screen.":::
+    :::image type="content" source="media/tutorial-onboarding/vswitch-span.png" alt-text="Screenshot of selecting the following options on the virtual switch screen.":::
 
 1. In the Hardware list, under the Network Adapter drop-down list, select **Advanced Features**.
 
@@ -355,7 +355,7 @@ Microsoft NDIS Capture Extensions will need to be enabled for the new virtual sw
 
 1. In the Switch Extensions field, select **Microsoft NDIS Capture**.
 
-    :::image type="content" source="media/tutorial-onboarding/microsoft-ndis.png" alt-text="Enable the Microsoft NDIS by selecting it from the switch extensions menu.":::
+    :::image type="content" source="media/tutorial-onboarding/microsoft-ndis.png" alt-text="Screenshot of enabling the Microsoft NDIS by selecting it from the switch extensions menu.":::
 
 1. Select **OK**.
 
@@ -401,7 +401,7 @@ Before you can start using your Defender for IoT sensor, you will need to onboar
 
 1. Select **Onboard sensor**.
 
-   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/onboard-a-sensor.png" alt-text="Select onboard sensor to start the onboarding process for your sensor.":::
+   :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of selecting to onboard the sensor to start the onboarding process for your sensor.":::
 
 1. Enter a name for the sensor.
 
@@ -409,7 +409,7 @@ Before you can start using your Defender for IoT sensor, you will need to onboar
 
 1. Select a subscription from the drop-down menu.
 
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/name-subscription.png" alt-text="Enter a meaningful name, and connect your sensor to a subscription.":::
+    :::image type="content" source="media/tutorial-onboarding/name-subscription.png" alt-text="Screenshot of entering a meaningful name, and connect your sensor to a subscription.":::
 
 1. Choose a sensor connection mode by using the **Cloud connected** toggle. If the toggle is on, the sensor is cloud connected. If the toggle is off, the sensor is locally managed.
 
@@ -441,13 +441,13 @@ Once registration is complete for the sensor, you will be able to download an ac
 
 1. Go to the sensor console from your browser by using the IP defined during the installation.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Azure Defender for IoT sensor.":::
+    :::image type="content" source="media/tutorial-onboarding/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Screenshot of the Azure Defender for IoT sensor.":::
 
 1. Enter the credentials defined during the sensor installation.
 
 1. After you sign in, the **Activation** dialog box opens. Select **Upload** and go to the activation file that you downloaded during the sensor onboarding.
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/activation-upload-screen-with-upload-button.png" alt-text="Select Upload and go to the activation file.":::
+   :::image type="content" source="media/tutorial-onboarding/activation-upload-screen-with-upload-button.png" alt-text="Screenshot of selecting to upload and go to the activation file.":::
 
 1. Accept the terms and conditions.
 
