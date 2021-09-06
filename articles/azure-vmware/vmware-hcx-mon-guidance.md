@@ -26,7 +26,7 @@ In this scenario, VM1 is migrated to the cloud using the NE, which provides opti
 >[!NOTE]
 >When you enable MON without migrating the VM gateway to the cloud side, it doesn't ensure an optimal path for traffic flow.  It also doesn't allow the evaluation of policy-based routes.
 
-:::image type="content" source="media/tutorial-vmware-hcx/hcx-mon-user-case-diagram-1.png" alt-text="Diagram showing the optimization for VM to VM L2 communication when using stretched networks.":::
+:::image type="content" source="media/tutorial-vmware-hcx/hcx-mon-user-case-diagram-1.png" alt-text="Diagram showing the optimization for VM to VM L2 communication when using stretched networks." border="false":::
 
 
 
@@ -48,7 +48,7 @@ Policy-based routes are evaluated only if the VM gateway is migrated to the clou
 >[!NOTE]
 >Special consideration for using MON in Azure VMware Solution is to give the /32 routes advertised over BGP to its peers; this includes on-premises and Azure over the ExpressRoute connection. For example, a VM in Azure learns the path to an Azure VMware Solution VM on an Azure VMware Solution MON enabled segment. Once the return traffic is sent back to the T0 as expected, if the return subnet is an RFC1918 match, traffic is forced over the NE instead of the T0.  Then egresses over the ExpressRoute back to Azure on the on-premises side.  This can cause confusion for stateful firewalls in the middle and asymmetric routing behavior. It's also a good idea to determine how VMs on NE MON segments will need to access the internet, either via the T0 in Azure VMware Solution or only through the NE back to on-premises.
 
-:::image type="content" source="media/tutorial-vmware-hcx/hcx-mon-user-case-diagram-3.png" alt-text="Diagram showing the RFC1918 egress and egress traffic flow.":::
+:::image type="content" source="media/tutorial-vmware-hcx/hcx-mon-user-case-diagram-3.png" alt-text="Diagram showing the RFC1918 egress and egress traffic flow." border="false":::
 
 As outlined in the above diagram, the importance is to match a policy-based route to each required subnet. Otherwise, the traffic gets routed over the T0 and not the NE.
 
