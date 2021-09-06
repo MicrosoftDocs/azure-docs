@@ -23,7 +23,7 @@ Azure routing preference enables you to choose how your traffic routes between A
 
 When you route your traffic via the *Microsoft global network*, traffic is delivered over one of the largest networks on the globe spanning over 160,000 miles of fiber with over 165 edge Point of Presence (POP). The network is well provisioned with multiple redundant fiber paths to ensure exceptionally high reliability and availability. The traffic engineering is managed by a software defined WAN controller that ensures low latency path selection for your traffic and offers the premium network performance.
 
-![Routing via Microsoft global network](media/routing-preference-overview/route-via-microsoft-global-network.png)
+![Routing via Microsoft global network](./media/routing-preference-overview/route-via-microsoft-global-network.png)
 
 **Ingress traffic:** The global BGP Anycast announcement ensures ingress traffic enters Microsoft network closest to the user. For example, if a user from Singapore accesses Azure resources hosted in Chicago, USA then traffic is entered into Microsoft global network in Singapore Edge POP and travels on Microsoft network to the service hosted in Chicago.
 
@@ -36,7 +36,7 @@ Both ingress and egress traffic stays bulk of the travel on the Microsoft global
 
 The new routing choice *Internet routing* minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This cost-optimized routing option offers network performance that is comparable to other cloud providers.
 
-![Routing over public Internet](media/routing-preference-overview/route-via-isp-network.png)
+![Routing over public Internet](./media/routing-preference-overview/route-via-isp-network.png)
 
 **Ingress traffic:** The ingress path uses *hot potato routing* which means that traffic enters the Microsoft network that is closest to the hosted service region. For example, if a user from Singapore accesses Azure resources hosted in Chicago then traffic travels over the public internet and enters the Microsoft global network in Chicago.
 
@@ -73,5 +73,5 @@ The price difference between both options is reflected in the internet egress da
 ## Next steps
 
 * [Learn more about how optimize connectivity to your Microsoft Azure services over the internet - Video](https://www.youtube.com/watch?v=j6A_Mbpuh6s&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=12) 
-* [Configure routing preference for a VM using the Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
-* [Configure routing preference for a VM using the Azure CLI](configure-routing-preference-virtual-machine-cli.md)
+* [Configure routing preference for a VM using the Azure PowerShell](../../virtual-network/configure-routing-preference-virtual-machine-powershell.md)
+* [Configure routing preference for a VM using the Azure CLI](../../virtual-network/configure-routing-preference-virtual-machine-cli.md)

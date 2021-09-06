@@ -71,26 +71,6 @@
       href: virtual-network-service-endpoints-overview.md
     - name: Service tags
       href: service-tags-overview.md
-  - name: IP services
-    items:
-    - name: Public IPs
-      href: public-ip-addresses.md
-    - name: Private IPs
-      href: private-ip-addresses.md
-    - name: Public IP prefix
-      href: public-ip-address-prefix.md
-    - name: Manage public IP addresses
-      href: virtual-network-public-ip-address.md
-    - name: Manage public IP prefix
-      href: manage-public-ip-address-prefix.md
-    - name: IPv6 for Azure VNet
-      href: ipv6-overview.md
-    - name: Default outbound access
-      href: default-outbound-access.md
-    - name: Routing preference
-      href: routing-preference-overview.md
-    - name: Routing preference Unmetered
-      href: routing-preference-unmetered.md
   - name: Security
     items:
     - name: Virtual network security baseline

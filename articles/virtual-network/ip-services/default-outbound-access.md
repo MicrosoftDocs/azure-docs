@@ -72,6 +72,6 @@ NAT gateway is the recommended approach to have explicit outbound connectivity. 
 
 For more information on outbound connections in Azure and Azure Virtual Network NAT (NAT gateway), see:
 
-* [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md).
+* [Source Network Address Translation (SNAT) for outbound connections](../../load-balancer/load-balancer-outbound-connections.md).
 
-* [What is Azure Virtual Network NAT?](./nat-gateway/nat-overview.md)
+* [What is Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)

@@ -56782,6 +56782,51 @@
       "source_path_from_root": "/articles/virtual-network/configure-public-ip-bastion.md",
       "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-bastion",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/public-ip-addresses.md",
+      "redirect_url": "/azure/virtual-network/ip-services/public-ip-addresses",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/private-ip-addresses.md",
+      "redirect_url": "/azure/virtual-network/ip-services/private-ip-addresses",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/public-ip-address-prefix.md",
+      "redirect_url": "/azure/virtual-network/ip-services/public-ip-address-prefix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-public-ip-address.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-network-public-ip-address",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/manage-public-ip-address-prefix.md",
+      "redirect_url": "/azure/virtual-network/ip-services/manage-public-ip-address-prefix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-overview.md",
+      "redirect_url": "/azure/virtual-network/ip-services/ipv6-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/default-outbound-access.md",
+      "redirect_url": "/azure/virtual-network/ip-services/default-outbound-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/routing-preference-overview.md",
+      "redirect_url": "/azure/virtual-network/ip-services/routing-preference-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/routing-preference-unmetered.md",
+      "redirect_url": "/azure/virtual-network/ip-services/routing-preference-unmetered",
+      "redirect_document_id": false
     }
   ]
 }
