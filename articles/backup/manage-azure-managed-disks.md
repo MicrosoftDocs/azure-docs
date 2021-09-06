@@ -25,7 +25,7 @@ There are three ways by which you can stop protecting an Azure Disk:
 
 1. Go to **Backup center** and select **Azure Disks**.
 
-1. From the list of backup instances, select the disk backup instance that you want to retain.
+1. From the list of disk backup instances, select the instance that you want to retain.
 
 1. Select **Stop Backup (Preview)**.
 
@@ -46,7 +46,7 @@ There are three ways by which you can stop protecting an Azure Disk:
 
 1. Go to **Backup center** and select **Azure Disks**.
 
-1. From the list of backup instances, select the disk backup instance that you want to delete.
+1. From the list of disk backup instances, select the instance that you want to delete.
 
 1. Click **Stop Backup (Preview)**.
 
@@ -66,7 +66,7 @@ Use the following steps:
 
 1. Go to **Backup center** and select **Azure Disks**.
 
-1. From the list of backup instances, select the disk backup instance that you want to resume.
+1. From the list of disk backup instances, select the instance that you want to resume.
 
 1. Select **Resume Protection (Preview)**.
 
