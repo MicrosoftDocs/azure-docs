@@ -216,7 +216,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: S
 
 Now that you've configure the HCX Connector, you can also learn about:
 
-- [Creating a network extension](configure-network-extension.md)
+- [Create a HCX network extension](configure-hcx-network-extension.md)
 
 - [VMware HCX Mobility Optimized Networking (MON) guidance](vmware-hcx-mon-guidance.md)
 
