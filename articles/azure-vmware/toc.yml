@@ -152,6 +152,8 @@
       href: ecosystem-migration-vms.md
   - name: VMware solutions
     items:
+    - name: Configure HCX network extension
+      href: configure-hcx-network-extension.md    
     - name: Configure vRealize Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
