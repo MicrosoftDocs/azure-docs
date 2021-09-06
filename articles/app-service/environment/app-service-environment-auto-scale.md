@@ -105,28 +105,28 @@ Understanding and calculating the *App Service plan inflation rate* is important
 
 The App Service plan inflation rate is calculated as follows:
 
-:::image type="content" source="./media/app-service-environment-auto-scale/asp-inflation-rate.png" alt-text="App Service plan inflation rate calculation.":::
+![App Service plan inflation rate calculation.][ASP-Inflation]
 
 Based on the Autoscale – Scale Up rule for the Weekday profile of the production App Service plan:
 
-:::image type="content" source="./media/app-service-environment-auto-scale/equation1.png" alt-text="App Service plan inflation rate for weekdays based on Autoscale – Scale Up rule.":::
+![App Service plan inflation rate for weekdays based on Autoscale – Scale Up rule.][Equation1]
 
 In the case of the Autoscale – Scale Up rule for the Weekend profile of the production
 App Service plan, the formula would resolve to:
 
-:::image type="content" source="./media/app-service-environment-auto-scale/equation2.png" alt-text="App Service plan inflation rate for weekends based on Autoscale – Scale Up rule.":::
+![App Service plan inflation rate for weekends based on Autoscale – Scale Up rule.][Equation2]
 
 This value can also be calculated for scale-down operations.
 
 Based on the Autoscale – Scale Down rule for the Weekday profile of the production
 App Service plan, this would look as follows:
 
-:::image type="content" source="./media/app-service-environment-auto-scale/equation3.png" alt-text="App Service plan inflation rate for weekdays based on Autoscale – Scale Down rule.":::
+![App Service plan inflation rate for weekdays based on Autoscale – Scale Down rule.][Equation3]
 
 In the case of the Autoscale – Scale Down rule for the Weekend profile of the production
 App Service plan, the formula would resolve to:  
 
-:::image type="content" source="./media/app-service-environment-auto-scale/equation4.png" alt-text="App Service plan inflation rate for weekends based on Autoscale – Scale Down rule.":::
+![App Service plan inflation rate for weekends based on Autoscale – Scale Down rule.][Equation4]
 
 The production App Service plan can grow at a maximum rate of eight instances/hour 
 during the week and four instances/hour during the weekend. It can release instances 
@@ -134,8 +134,7 @@ at a maximum rate of four instances/hour during the week and six instances/hour 
 
 If multiple App Service plans are being hosted in a worker pool, you have to calculate the *total inflation rate* as the sum of the inflation rate for all the App Service plans that are being hosting in that worker pool.
 
-
-:::image type="content" source="./media/app-service-environment-auto-scale/asp-total-inflation-rate.png" alt-text="Total inflation rate calculation for multiple App Service plans hosted in a worker pool.":::
+![Total inflation rate calculation for multiple App Service plans hosted in a worker pool.][ASP-Total-Inflation]
 
 ### Use the App Service plan inflation rate to define worker pool autoscale rules
 Worker pools that host App Service plans that are configured to autoscale need to
@@ -239,5 +238,11 @@ reach 80% CPU utilization and sets the autoscale rule to increase instances as f
 [scale-profile2]: ./media/app-service-environment-auto-scale/scale-profile-2.png
 [scale-rule]: ./media/app-service-environment-auto-scale/scale-rule.png
 [asp-scale]: ./media/app-service-environment-auto-scale/asp-scale.png
+[ASP-Inflation]: ./media/app-service-environment-auto-scale/asp-inflation-rate.png
+[Equation1]: ./media/app-service-environment-auto-scale/equation1.png
+[Equation2]: ./media/app-service-environment-auto-scale/equation2.png
+[Equation3]: ./media/app-service-environment-auto-scale/equation3.png
+[Equation4]: ./media/app-service-environment-auto-scale/equation4.png
+[ASP-Total-Inflation]: ./media/app-service-environment-auto-scale/asp-total-inflation-rate.png
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
