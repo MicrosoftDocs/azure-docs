@@ -117,7 +117,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Adobe Sign SSO
 
-1. Before configuration, contact the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to add your domain in the Adobe Sign allow list. Here's how to add the domain:
+1. Before configuration, contact the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to add your domain in the Adobe Sign allowlist. Here's how to add the domain:
 
     a. The [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) sends you a randomly generated token. For your domain, the token will be like the following: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 

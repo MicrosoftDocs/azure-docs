@@ -208,7 +208,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e. Select the **Advanced** tab and then, under **Allow List**, select **Add**.
 
-    ![Screenshot shows the Add button on the Advanced tab.](./media/paloaltoadmin-tutorial/allow-list.png)
+    ![Screenshot shows the Add button on the Advanced tab.](./media/paloaltoadmin-tutorial/allowlist.png)
 
     f. Select the **All** check box, or select the users and groups that can authenticate with this profile.  
     When a user authenticates, the firewall matches the associated username or group against the entries in this list. If you don’t add entries, no users can authenticate.
