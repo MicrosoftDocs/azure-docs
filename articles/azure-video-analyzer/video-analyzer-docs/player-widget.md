@@ -26,7 +26,7 @@ The following are required for this tutorial:
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 * [Visual Studio Code](https://code.visualstudio.com/), or another editor for the HTML file.
-* Either [Continuous video recording and playback](./use-continuous-video-recording.md) or [Detect motion and record video on edge devices](./detect-motion-record-video-clips-cloud.md).
+* Either [Continuous video recording and playback](../use-continuous-video-recording.md) or [Detect motion and record video on edge devices](./detect-motion-record-video-clips-cloud.md).
 
 Additionally, it's helpful to be familiar with the following resources:
 

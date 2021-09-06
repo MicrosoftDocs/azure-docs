@@ -113,7 +113,7 @@ The events emitted by the module are sent to the [IoT Edge hub](../../../iot-edg
 
 ### Events and video playback
 
-As indicated above, events generated as part of video analysis have an `eventTime` associated with them. If you [recorded the live video](../video-recording.md) as part of your pipeline topology, these help you locate where in the recorded video the particular event occurred. You can load the video recording in the [Video Analyzer player widget](../layer-widget.md), and use its controls to seek to the date and time of interest. If your pipeline involved the use of an AI model to generate inference results, then you should be recording the inference data along with the video. This will enable you to play back the inference metadata along with the video as shown in this [tutorial](record-stream-inference-data-with-video.md).
+As indicated above, events generated as part of video analysis have an `eventTime` associated with them. If you [recorded the live video](../video-recording.md) as part of your pipeline topology, these help you locate where in the recorded video the particular event occurred. You can load the video recording in the [Video Analyzer player widget](../player-widget.md), and use its controls to seek to the date and time of interest. If your pipeline involved the use of an AI model to generate inference results, then you should be recording the inference data along with the video. This will enable you to play back the inference metadata along with the video as shown in this [tutorial](record-stream-inference-data-with-video.md).
 
 
 ## Routing events
