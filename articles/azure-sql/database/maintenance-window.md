@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 09/01/2021
+ms.date: 09/07/2021
 ---
 
 # Maintenance window (Preview)
