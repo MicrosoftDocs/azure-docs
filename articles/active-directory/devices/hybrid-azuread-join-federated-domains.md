@@ -193,6 +193,8 @@ Here are 3 ways to locate and verify the device state:
 3. Verify that both **AzureAdJoined** and **DomainJoined** are set to **YES**.
 4. You can use the **DeviceId** and compare the status on the service using either the Azure portal or PowerShell.
 
+For downlevel devices see the article [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md#step-1-retrieve-the-registration-status)
+
 ### Using the Azure portal
 
 1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
