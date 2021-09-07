@@ -130,11 +130,11 @@ Deploy a virtual machine from a snapshot. Create a managed disk from a snapshot 
 
 # [Portal](#tab/portal)
 
-For more information, see the example in [Create a VM from a VHD by using the Azure portal](windows/create-vm-specialized-portal).
+For more information, see the example in [Create a VM from a VHD by using the Azure portal](/windows/create-vm-specialized-portal).
 
 # [PowerShell](#tab/powershell)
 
-For more information, see the example in [Create a Windows VM from a specialized disk by using PowerShell](windows/create-vm-specialized).
+For more information, see the example in [Create a Windows VM from a specialized disk by using PowerShell](/windows/create-vm-specialized).
 
 # [Azure CLI](#tab/cli)
 
