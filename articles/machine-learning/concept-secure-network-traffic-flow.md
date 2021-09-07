@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/27/2021
+ms.date: 09/07/2021
 ---
 
 # blah
@@ -58,7 +58,8 @@ When accessing your workspace from studio, the network traffic flows are as foll
 
 * To authenticate to resources, __Azure Active Directory__ is used.
 * For management and deployment operations, __Azure Resource Manager__ is used.
-* For Azure Machine Learning specific tasks, __Azure Machine Learning service__ and __Azure FrontDoor__ are used.
+* For Azure Machine Learning specific tasks, __Azure Machine Learning service__ is used
+* For access to Azure Machine Learning studio (https://ml.azure.com), __Azure FrontDoor__ is used.
 * For most storage operations, traffic flows through the private endpoint of the default storage for your workspace. Exceptions are discussed in the [Use AutoML, designer, dataset, and datastore](#scenario-use-automl-designer-dataset-and-datastore-from-studio) section.
 * You also need to configure a DNS solution that allows you to resolve the names of the resources within the VNet. For more information, see [Use your workspace with a custom DNS](how-to-custom-dns.md).
 
@@ -99,7 +100,10 @@ When you create a compute instance or compute cluster, the following resources a
 
 * A load balancer with a public IP.
 
-Also allow __outbound__ access to the `Storage.region` service tag (where `region` is the Azure region of your storage account). This outbound access is used to connect to the Azure Storage Account inside the Azure Batch service-managed VNet.
+Also allow __outbound__ access to the following service tags. For each tag, replace `region` with the Azure region of your compute instance/cluster:
+
+* `Storage.region` - This outbound access is used to connect to the Azure Storage Account inside the Azure Batch service-managed VNet.
+* `Keyvault.region` - This outbound access is used to connect to the Azure Key Vault account inside the Azure Batch service-managed VNet.
 
 Data access from your compute instance or cluster goes through the private endpoint of the Storage Account for your VNet.
 
