@@ -52,13 +52,13 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
    Provide the name of the backup instance, reason for deletion, and any other comments.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/delete-backup-data-and-provide-details-inlinw.png" alt-text="Screenshot showing the option to delete backup data and the detail required to be added." lightbox="./media/manage-azure-database-postgresql/delete-backup-data-and-provide-details-expanded.png":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/delete-backup-data-and-provide-details-inline.png" alt-text="Screenshot showing the option to delete backup data and the detail required to be added." lightbox="./media/manage-azure-database-postgresql/delete-backup-data-and-provide-details-expanded.png":::
 
 1. Select **Stop Backup**.
 
 1. Select **Confirm** to stop backup.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-inlinw.png" alt-text="Screenshot for the confirmation for stopping backup." lightbox="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-expanded.png":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-inline.png" alt-text="Screenshot for the confirmation for stopping backup." lightbox="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-expanded.png":::
 
 ## Resume Protection
 
