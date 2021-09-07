@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # Preview: Automatic VM guest patching for Azure VMs
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance.
 
 Automatic VM guest patching has the following characteristics:

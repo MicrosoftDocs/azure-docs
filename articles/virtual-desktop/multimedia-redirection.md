@@ -27,11 +27,9 @@ to do these things:
 
 1. [Install the Windows Desktop client](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client) on a Windows 10 or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2222 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 
-2. [Configure the client machine for the insider group](create-host-pools-azure-marketplace.md).
+2. [Create a host pool for your users](create-host-pools-azure-marketplace.md).
 
-3. Install [the Multimedia Redirector service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) and any required browser extensions on the virtual machine (VM).
-
-4. Configure the client machine to let your users access the Insiders program. To configure the client for the Insider group, set the following registry information:
+3. Configure the client machine to let your users access the Insiders program. To configure the client for the Insider group, set the following registry information:
 
    - **Key**: HKLM\\Software\\Microsoft\\MSRDC\\Policies
    - **Type**: REG_SZ
@@ -40,7 +38,7 @@ to do these things:
 
    To learn more about the Insiders program, see [Windows Desktop client for admins](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups).
 
-5. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) to install the multimedia redirection extensions for your internet browser on your Azure VM. Multimedia redirection for Azure Virtual Desktop currently only supports Microsoft Edge and Google Chrome.
+4. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) to install the multimedia redirection extensions for your internet browser on your Azure VM. Multimedia redirection for Azure Virtual Desktop currently only supports Microsoft Edge and Google Chrome.
 
 ## Managing group policies for the multimedia redirection browser extension
 
@@ -54,7 +52,7 @@ In some cases, you can change the group policy to manage the browser extensions 
 
 ### Configure Microsoft Edge group policies for multimedia redirection
 
-To configure the group policies, you'll need to edit the Microsoft Ege Administrative Template. You should see the extension configuration options under **Administrative Templates Microsoft Edge Extensions** > **Configure extension management settings**.
+To configure the group policies, you'll need to edit the Microsoft Edge Administrative Template. You should see the extension configuration options under **Administrative Templates Microsoft Edge Extensions** > **Configure extension management settings**.
 
 The following code is an example of a Microsoft Edge group policy that makes the browser install the multimedia redirection extension and only lets multimedia redirection load on YouTube:
 
@@ -98,13 +96,14 @@ To quickly tell if multimedia redirection is active in your browser, we've added
 
 | Icon State  | Definition  |
 |-----------------|-----------------|
-| [The default Azure Virtual Desktop program icon with no status applied.](/media/icon-default.png) | The default icon appearance with no status applied. |
-| [The Azure Virtual Desktop program icon with a red square with an x that indicates multimedia redirection isn't working.](/media/icon-disconnect.png) | The red square with an "X" inside of it means that the client couldn't connect to multimedia redirection. |
-| [The Azure Virtual Desktop program icon with a green square with a check mark inside of it, indicating that multimedia redirection is working.](/media/icon-connect.png) | The green square with a check mark inside of it means that the client successfully connected to multimedia redirection. |
+| ![The default Azure Virtual Desktop program icon with no status applied.](./media/icon-default.png) | The default icon appearance with no status applied. |
+| ![The Azure Virtual Desktop program icon with a red square with an x that indicates multimedia redirection isn't working.](./media/icon-disconnect.png) | The red square with an "X" inside of it means that the client couldn't connect to multimedia redirection. |
+| ![The Azure Virtual Desktop program icon with a green square with a check mark inside of it, indicating that multimedia redirection is working.](./media/icon-connect.png) | The green square with a check mark inside of it means that the client successfully connected to multimedia redirection. |
 
 Selecting the icon will display a pop-up menu that has a checkbox you can select to enable or disable multimedia redirection on all websites. It also lists the version numbers for each component of the service.
 
-## Send feedback during public preview
+## Support during public preview
+Microsoft Support is not handling issues for multimedia redirection during public preview.
 
 If you run into any issues, you can tell us in the feedback hub on both the client and VM host.
 

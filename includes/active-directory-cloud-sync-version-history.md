@@ -5,6 +5,14 @@ Microsoft provides direct support for the latest agent version and one version b
 ## Download link
 You can download the latest version of the agent using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
 
+## 1.1.584.0 
+
+August 20th, 2021 - released for download
+
+### Fixed issues
+
+- We fixed a bug where, when a domain is renamed, Password Hash Sync would fail with an error indicating "a specified cast is not valid" in the Event log. This is a regression from earlier builds.
+
 ## 1.1.582.0
 
 August 8th, 2021 - released for download
@@ -44,7 +52,7 @@ January 20, 2021: Released for download
 ### Fixed issues
 -	 Prevent quarantine when scoping group is out of scope
 -	when scoping filters are configured - PHS job now only operates for in-scope users
--	Agent would sometime hang during upgrade
+-	Agent would sometime stop responding during upgrade
 -	Initial Sync for objects in nested OUs when using OU scoping
 -	Make the Repair-AADCloudSyncToolsAccount more robust
 -	Reduce large memory usage of OU scoping filters
