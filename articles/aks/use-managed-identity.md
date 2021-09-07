@@ -89,6 +89,9 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 > After updating, your cluster's control plane and addon pods will switch to use managed identity, but kubelet will KEEP USING SERVICE PRINCIPAL until you upgrade your agentpool. Perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity. 
 
 
+> If your cluster was using --attach-acr to pull from image from ACR, after updating your cluster to Managed Identity, you need to rerun 'az aks update --attach-acr <ACR Resource ID>' to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise you will not be able to pull from ACR after the upgrade.
+
+
 ## Obtain and use the system-assigned managed identity for your AKS cluster
 
 Confirm your AKS cluster is using managed identity with the following CLI command:

@@ -144,6 +144,19 @@ The following table describes the expected behavior for delete and write operati
 |[Delete Blob](/rest/api/storageservices/delete-blob)|A soft deleted object is created. The soft deleted object is deleted after the retention period. Soft delete will not be supported for blobs with snapshots and snapshots.|
 |[Path - Create](/rest/api/storageservices/datalakestoragegen2/path/create) that renames a blob or directory | Existing destination blob or empty directory will get soft deleted and the source will replace it. The soft deleted object is deleted after the retention period.|
 
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![No](../media/icons/no-icon.png) | 
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+
+<sup>2</sup>    Feature is supported at the preview level.
+
 ## Pricing and billing
 
 All soft deleted data is billed at the same rate as active data. You will not be charged for data that is permanently deleted after the retention period elapses.

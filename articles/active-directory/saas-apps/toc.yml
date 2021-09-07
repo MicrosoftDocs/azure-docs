@@ -509,6 +509,8 @@
         href: cpqsync-by-cincom-tutorial.md
       - name: Creatio
         href: bpmonline-tutorial.md
+      - name: Create!Webフロー
+        href: createweb-tutorial.md  
       - name: Crises Control
         href: crises-control-tutorial.md
       - name: CrossKnowledge Learning Suite
@@ -2595,6 +2597,8 @@
         href: sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
       - name: SAP SuccessFactors Writeback
         href: sap-successfactors-writeback-tutorial.md
+      - name: SchoolStream ASA
+        href: schoolstream-asa-provisioning-tutorial.md
       - name: SECURE DELIVER
         href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin

@@ -4,8 +4,8 @@ description: Learn how to migrate to Azure Managed Instance for Apache Cassandra
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
-ms.topic: overview
-ms.date: 06/02/2021
+ms.topic: tutorial
+ms.date: 08/17/2021
 ---
 
 # Live migration to Azure Managed Instance for Apache Cassandra by using a dual-write proxy
@@ -17,7 +17,7 @@ ms.date: 06/02/2021
 
 Where possible, we recommend using the Apache Cassandra native capability to migrate data from your existing cluster into Azure Managed Instance for Apache Cassandra by configuring a [hybrid cluster](configure-hybrid-cluster.md). This capability uses Apache Cassandra's gossip protocol to replicate data from your source datacenter into your new managed-instance datacenter in a seamless way. However, there might be some scenarios where your source database version is not compatible, or a hybrid cluster setup is otherwise not feasible. 
 
-This article describes how to migrate data to Azure Managed Instance for Apache Cassandra in a live fashion by using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and Apache Spark. The benefits of this approach are:
+This tutorial describes how to migrate data to Azure Managed Instance for Apache Cassandra in a live fashion by using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and Apache Spark. The benefits of this approach are:
 
 - **Minimal application changes**. The proxy can accept connections from your application code with few or no configuration changes. It will route all requests to your source database and asynchronously route writes to a secondary target. 
 - **Client wire protocol dependency**. Because this approach is not dependent on back-end resources or internal protocols, it can be used with any source or target Cassandra system that implements the Apache Cassandra wire protocol.

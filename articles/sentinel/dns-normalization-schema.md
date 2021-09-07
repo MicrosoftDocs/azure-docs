@@ -53,15 +53,39 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 ## Parsers
 
+### Available parsers
+
 The KQL functions implementing the DNS information model have the following names:
 
 | Name | Description | Usage instructions |
 | --- | --- | --- |
 | **imDNS** | Aggregative parser that uses *union* to include normalized events from all DNS sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
-| **imDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *imDNSWindowsOMS*. |- Add a source-specific parser for a source when there is no built-in normalizing parser. Update the aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
+| **ASimDNS** | Similar to the `imDns` function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
+| **vimDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *imDNSWindowsOMS*. |- Add a source-specific parser for a source when there is no built-in normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
+| **ASimDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. Unlike the `vim*` functions, the `ASimDNS*` functions do not support parameters. |- Add a source-specific parser for a source when there is no built-in normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
 | | | |
 
-The parsers can be deployed from the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM).
+The parsers can be deployed from the [Azure Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
+
+### Filtering parser parameters
+
+The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimized-parsers). While these parsers are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only DNS queries that ran at or after this time. |
+| **endtime** | datetime | Filter only DNS queries that finished running at or before this time. |
+| **srcipaddr** | string | Filter only DNS queries from this source IP address. |
+| **domain_has_any**| dynamic | Filter only DNS queries where the `domain` (or `query`) has any of the listed domain names, including as part of the event domain.
+| **responsecodename** | string | Filter only DNS queries for which the response code name matches the provided value. For example: NXDOMAIN |
+| **response_has** | string | Filter only DNS queries in which the response field starts with the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. Results are not returned for sources that do not provide a response.|
+| **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field starts with any of the listed IP addresses or IP address prefixes. Use this parameter when you want to filter on a list of IP addresses or prefixes. Results are not returned for sources that do not provide a response. |
+| **eventtype**| string | Filter only DNQ queries of the specified type. If no value is specified, only lookup queries are returned. |
+||||
+
+To filter results using a parameter, you must specify the parameter in your parser. 
 
 ## Normalized content
 
