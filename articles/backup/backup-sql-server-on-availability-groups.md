@@ -4,7 +4,7 @@ description: In this article, learn how to back up SQL Server on availability gr
 ms.topic: conceptual
 ms.date: 08/20/2021
 ---
-# Backup SQL Server always on availability groups
+# Back up SQL Server always on availability groups
 
 Azure Backup offers an end-to-end support for backing up SQL Server always on availability groups (AG) if all nodes are in the same region and subscription as the Recovery Services vault. However, if the AG nodes are spread across regions/subscriptions/on-premises and Azure, there are a few considerations to keep in mind.
 
