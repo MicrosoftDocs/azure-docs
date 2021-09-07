@@ -84,7 +84,7 @@ Here are some ways that custom security attributes compare with [directory schem
 
 1. Define attributes
 
-    Add your custom security attributes to your directory. You can specify whether values are predefined, free-form, single, or multiple.
+    Add your custom security attributes to your directory. You can specify the date type (Boolean, integer, or string) and whether values are predefined, free-form, single, or multiple.
 
     ![Define custom security attributes in Azure AD.](./media/custom-security-attributes-overview/attributes-define.png)
 

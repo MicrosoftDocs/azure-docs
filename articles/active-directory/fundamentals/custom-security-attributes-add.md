@@ -35,31 +35,31 @@ To add or deactivate custom security attributes, you must have:
   
 ## Add a new custom security attribute
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Click Azure Active Directory.
+1. Click **Azure Active Directory**.
 
-1. In the left navigation menu, click Custom security attributes (Preview).
+1. In the left navigation menu, click **Custom security attributes (Preview)**.
 
     If Custom security attributes (Preview) is disabled, make sure you are assigned a custom security attributes role. For more information, see Troubleshoot custom security attributes.
 
-1. On the Custom security attributes page, find an existing custom security attribute set or click Add to add a new attribute set.
+1. On the Custom security attributes page, find an existing custom security attribute set or click **Add** to add a new attribute set.
 
     A custom security attribute set is a group of related attributes. All custom security attributes must be part of a custom security attribute set. Custom security attribute sets cannot be renamed or deleted.
 
 1. Click to open the selected custom security attribute set.
  
-1. Click New attribute to add a new attribute to the custom security attribute set.
+1. Click **New attribute** to add a new attribute to the custom security attribute set.
 
-1. In the Attribute name box, enter a custom security attribute name.
+1. In the **Attribute name** box, enter a custom security attribute name.
 
     A custom security attribute name can be 32 characters long and include spaces and special characters. Once you've specified a name for a custom security attribute, you can't rename it.
 
-1. In the Description box, enter an optional description.
+1. In the **Description** box, enter an optional description.
 
     A description can be 128 characters long. If necessary, you can later change the description.
 
-1. From the Data type list, select the data type for the custom security attribute.
+1. From the **Data type** list, select the data type for the custom security attribute.
 
     | Data type | Description |
     | --- | --- |
@@ -67,17 +67,17 @@ To add or deactivate custom security attributes, you must have:
     | Integer | A 32-bit integer. |
     | String | A string that can be X characters long. |
     
-1. For Allow multiple values to be assigned, select Yes or No.
+1. For **Allow multiple values to be assigned**, select **Yes** or **No**.
 
-    Select Yes to allow multiple values to be assigned to this custom security attribute. Select No to only allow a single value to be assigned to this custom security attribute.
+    Select **Yes** to allow multiple values to be assigned to this custom security attribute. Select **No** to only allow a single value to be assigned to this custom security attribute.
 
-1. For Only allow predefined values to be assigned, select Yes or No.
+1. For **Only allow predefined values to be assigned**, select **Yes** or **No**.
 
-    Select Yes to require that this custom security attribute be assigned values from a predefined values list. Select No to allow this custom security attribute to be assigned user-defined values or potentially predefined values.
+    Select **Yes** to require that this custom security attribute be assigned values from a predefined values list. Select **No** to allow this custom security attribute to be assigned user-defined values or potentially predefined values.
 
     You can only add the predefined values after you add the custom security attribute by using the Edit attribute page. For more information, see [Edit a custom security attribute](#edit-a-custom-security-attribute).
 
-1. When finished, click Add.
+1. When finished, click **Add**.
 
     The new custom security attribute appears in the list of custom security attributes.
 
@@ -87,19 +87,19 @@ To add or deactivate custom security attributes, you must have:
 
 Once you have added a new custom security attribute, you can later edit some of the properties. Some properties are immutable and cannot be changed.
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Click Azure Active Directory.
+1. Click **Azure Active Directory**.
 
-1. Click Custom security attributes (Preview).
+1. Click **Custom security attributes (Preview)**.
 
 1. Click the custom security attribute set that includes the custom security attribute you want to edit.
 
-1. In the list of custom security attributes, click the ellipsis for the custom security attribute you want to edit and then click Edit attribute.
+1. In the list of custom security attributes, click the ellipsis for the custom security attribute you want to edit and then click **Edit attribute**.
   
 1. Edit the properties that are enabled.
   
-1. If Only allow predefined values to be assigned is Yes, click Add value to add predefined values. Click an existing predefined value to change the Is active? setting.
+1. If **Only allow predefined values to be assigned** is **Yes**, click **Add value** to add predefined values. Click an existing predefined value to change the **Is active?** setting.
 
     An active value is available for assignment to objects. A value that is not active is defined, but not yet available for assignment.
   
@@ -107,19 +107,19 @@ Once you have added a new custom security attribute, you can later edit some of 
 
 Once you add a custom security attribute, you can't delete it. However, you can deactivate a custom security attribute.
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Click Azure Active Directory.
+1. Click **Azure Active Directory**.
 
-1. Click Custom security attributes (Preview).
+1. Click **Custom security attributes (Preview)**.
 
 1. Click the custom security attribute set that includes the custom security attribute you want to deactivate.
 
 1. In the list of custom security attributes, add a check mark next to the custom security attribute you want to deactivate.
 
-1. Click Deactivate attribute.
+1. Click **Deactivate attribute**.
   
-1. In the Deactivate attribute dialog that appears, click Yes.
+1. In the Deactivate attribute dialog that appears, click **Yes**.
 
     The custom security attribute is deactivated and moved to the Deactivated attributes list.
 

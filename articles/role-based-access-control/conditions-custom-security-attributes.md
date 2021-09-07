@@ -244,7 +244,11 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
 
     ```powershell
     Get-AzStorageBlob -Container <containerName> -Blob <blobNameBaker> -Context $bearerCtx
-    You should NOT be able to read the blob and an authorization failed message should be displayed.
+    ```
+
+    You should **NOT** be able to read the blob and an authorization failed message should be displayed.
+
+    ```powershell
     Get-AzStorageBlob : This request is not authorized to perform this operation using this permission. HTTP Status Code:
     403 - HTTP Error Message: This request is not authorized to perform this operation using this permission.
     ...
@@ -332,7 +336,11 @@ You can also use Azure CLI to add role assignments conditions. The following com
 
     ```azurecli
     az storage blob show --account-name <storageAccountName> --container-name <containerName> --name <blobNameBaker> --auth-mode login
-    You should NOT be able to read the blob and an authorization failed message should be displayed.
+    ```
+
+    You should **NOT** be able to read the blob and an authorization failed message should be displayed.
+
+    ```azurecli
     You do not have the required permissions needed to perform this operation.
     ...
     ```

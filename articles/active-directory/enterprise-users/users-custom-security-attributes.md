@@ -40,39 +40,39 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
     
 ## Assign custom security attributes to a user
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Make sure that you have defined custom security attributes. For more information, see Add or deactivate custom security attributes in Azure AD.
+1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md).
 
-1. Select Azure Active Directory and then select Users.
+1. Select **Azure Active Directory** and then select **Users**.
 
 1. Find and select the user you want to assign custom security attributes to.
 
-1. In the Manage section, select Custom attributes (preview).
+1. In the Manage section, select **Custom attributes (preview)**.
 
-1. Select Add assignment.
+1. Select **Add assignment**.
 
-1. In Attribute set, select a custom security attribute set from the list.
+1. In **Attribute set**, select a custom security attribute set from the list.
 
-1. In Attribute name, select a custom security attribute from the list.
+1. In **Attribute name**, select a custom security attribute from the list.
   
 1. Depending on the properties of the selected custom security attribute, you can enter a single value, select a value from a predefined list, or add multiple values.
 
-    - For freeform, single-valued custom security attributes, enter a value in the Assigned values box.
-    - For predefined custom security attribute values, select a value from the Assigned values list.
-    - For multi-valued custom security attributes, select Add values to open the Attribute values pane and add your values. When finished adding values, select Done.
+    - For freeform, single-valued custom security attributes, enter a value in the **Assigned values** box.
+    - For predefined custom security attribute values, select a value from the **Assigned values** list.
+    - For multi-valued custom security attributes, select **Add values** to open the **Attribute values** pane and add your values. When finished adding values, select **Done**.
       
-1. When finished adding all your custom security attributes and values, select Save to assign the custom security attributes to the user.
+1. When finished adding all your custom security attributes and values, select **Save** to assign the custom security attributes to the user.
 
 ## Update custom security attribute assignment values for a user
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select Azure Active Directory and then select Users.
+1. Select **Azure Active Directory** and then select **Users**.
 
 1. Find and select the user that has a custom security attribute assignment value you want to update.
 
-1. In the Manage section, select Custom attributes (preview).
+1. In the Manage section, select **Custom attributes (preview)**.
   
 1. Find the custom security attribute assignment value you want to update.
 
@@ -80,27 +80,27 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. Depending on the properties of the selected custom security attribute, you can update a single value, select a value from a predefined list, or update multiple values.
 
-    - For freeform, single-valued custom security attributes, update the value in the Assigned values box.
-    - For predefined custom security attribute values, select a value from the Assigned values list.
-    - For multi-valued custom security attributes, select &lt;number&gt; values to open the Attribute values pane and update your values. When finished updating values, select Done.
+    - For freeform, single-valued custom security attributes, update the value in the **Assigned values** box.
+    - For predefined custom security attribute values, select a value from the **Assigned values** list.
+    - For multi-valued custom security attributes, select &lt;number&gt; values to open the **Attribute values** pane and update your values. When finished updating values, select **Done**.
 
-1. When finished updating all your custom security attribute assignment values, select Save.
+1. When finished updating all your custom security attribute assignment values, select **Save**.
 
 ## Remove custom security attribute assignments from a user
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select Azure Active Directory and then select Users.
+1. Select **Azure Active Directory** and then select **Users**.
 
 1. Find and select the user that has the custom security attribute assignments you want to remove.
 
-1. In the Manage section, select Custom attributes (preview).
+1. In the Manage section, select **Custom attributes (preview)**.
 
 1. Add check marks next to all the custom security attribute assignments you want to remove.
 
-1. Select Remove assignment.
+1. Select **Remove assignment**.
   
-1. When finished removing custom security attribute assignments, select Save.
+1. When finished removing custom security attribute assignments, select **Save**.
 
 ## Search and filter custom security attribute assignments for a user
 
