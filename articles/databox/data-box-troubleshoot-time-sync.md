@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 09/03/2021
+ms.date: 09/07/2021
 ms.author: alkohli
 ---
 
@@ -27,7 +27,7 @@ If you see any time difference between the time on Data Box and other local devi
 
 To troubleshoot time sync issues, you'll first need to connect to the PowerShell interface of your device.
 
-!INCLUDE[data-box-connect-powershell-interface](../../includes/data-box-connect-powershell-interface.md)
+![INCLUDE[data-box-connect-powershell-interface](../../includes/data-box-connect-powershell-interface.md)]
 
 
 ### Change device time
@@ -64,7 +64,7 @@ To change the device time, follow these steps.
     Friday, September 3, 2021 2:23:42 PM
     [by506b4b5d0790.microsoftdatabox.com]: PS>
     ```
-    For more information, see [Set-Date API](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/set-date?view=powershell-7.1).
+    For more information, see [Set-Date API](/powershell/module/microsoft.powershell.utility/set-date?view=powershell-7.1&preserve-view=true).
 
 ## Next steps
 
