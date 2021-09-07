@@ -10,7 +10,7 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
-ms.date: 01/25/2019
+ms.date: 06/22/2021
 ---
 # How to use batching to improve Azure SQL Database and Azure SQL Managed Instance application performance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -596,7 +596,7 @@ This example demonstrates that even more complex database operations, such as ma
 
 ### UPSERT
 
-Another batching scenario involves simultaneously updating existing rows and inserting new rows. This operation is sometimes referred to as an "UPSERT" (update + insert) operation. Rather than making separate calls to INSERT and UPDATE, the MERGE statement is best suited to this task. The MERGE statement can perform both insert and update operations in a single call.
+Another batching scenario involves simultaneously updating existing rows and inserting new rows. This operation is sometimes referred to as an "UPSERT" (update + insert) operation. Rather than making separate calls to INSERT and UPDATE, the MERGE statement can be a suitable replacement. The MERGE statement can perform both insert and update operations in a single call. The MERGE statement locking mechanics work differently from separate INSERT and UPDATE statements. Test your specific workloads before deploying to production.
 
 Table-valued parameters can be used with the MERGE statement to perform updates and inserts. For example, consider a simplified Employee table that contains the following columns: EmployeeID, FirstName, LastName, SocialSecurityNumber:
 

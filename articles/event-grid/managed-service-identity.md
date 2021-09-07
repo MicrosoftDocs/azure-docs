@@ -11,7 +11,7 @@ This article describes how to use a [managed service identity](../active-directo
 
 
 ## Prerequisites
-1. Assign a system-assigned identity to a system topic, a custom topic, or a domain. 
+1. Assign a system-assigned identity or a user-assigned identity to a system topic, a custom topic, or a domain. 
     - For custom topics and domains, see [Enable managed identity for custom topics and domains](enable-identity-custom-topics-domains.md). 
     - For system topics, see [Enable managed identity for system topics](enable-identity-system-topics.md)
 1. Add the identity to an appropriate role (for example, Service Bus Data Sender) on the destination (for example, a Service Bus queue). For detailed steps, see [Add identity to Azure roles on destinations](add-identity-roles.md)
@@ -23,13 +23,24 @@ This article describes how to use a [managed service identity](../active-directo
 After you have an event grid custom topic or system topic or domain with a system-managed identity and have added the identity to the appropriate role on the destination, you're ready to create subscriptions that use the identity. 
 
 ### Use the Azure portal
-When you create an event subscription, you see an option to enable the use of a system-assigned identity for an endpoint in the **ENDPOINT DETAILS** section. 
+When you create an event subscription, you see an option to enable the use of a system-assigned identity or user-assigned identity for an endpoint in the **ENDPOINT DETAILS** section. 
+
+Here's an example of enabling system-assigned identity while creating an event subscription with a Service Bus queue as a destination. 
 
 ![Enable identity while creating an event subscription for a Service Bus queue](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
 
 You can also enable using a system-assigned identity to be used for dead-lettering on the **Additional Features** tab. 
 
 ![Enable system-assigned identity for dead-lettering](./media/managed-service-identity/enable-deadletter-identity.png)
+
+You can also enable a managed identity on an event subscription after it's created. On the **Event Subscription** page for the event subscription, switch to the **Additional Features** tab to see the option. 
+
+![Enable system-assigned identity on an existing event subscription](./media/managed-service-identity/event-subscription-additional-features.png)
+
+If you had enabled user-assigned identities for the topic, you will see user-assigned identity option enabled in the drop-down list for **Manged Identity Type**. If you select **User Assigned** for **Managed Identity Type**, you can then select the user-assigned identity that you want to use to deliver events. 
+
+![Enable user-assigned identity on an event subscription](./media/managed-service-identity/event-subscription-user-identity.png)
+
 
 ### Use the Azure CLI - Service Bus queue 
 In this section, you learn how to use the Azure CLI to enable the use of a system-assigned identity to deliver events to a Service Bus queue. The identity must be a member of the **Azure Service Bus Data Sender** role. It must also be a member of the **Storage Blob Data Contributor** role on the storage account that's used for dead-lettering. 

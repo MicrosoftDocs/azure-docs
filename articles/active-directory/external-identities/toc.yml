@@ -90,7 +90,7 @@
       items:
       - name: Azure Active Directory
         href: azure-ad-account.md
-      - name: Microsoft account (Preview)
+      - name: Microsoft account
         href: microsoft-account.md
       - name: Google federation
         href: google-federation.md

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use playbooks with automation rules in Azure Sentinel'
+title: Use playbooks with automation rules in Azure Sentinel
 description: Use this tutorial to help you use playbooks together with automation rules in Azure Sentinel to automate your incident response and remediate security threats.
 services: sentinel
 documentationcenter: na
@@ -29,6 +29,10 @@ This tutorial shows you how to use playbooks together with automation rules to a
 > * Create a playbook
 > * Add actions to a playbook
 > * Attach a playbook to an automation rule or an analytics rule to automate threat response
+
+> [!NOTE]
+> This tutorial provides basic guidance for a top customer task: creating automation to triage incidents. For more information, see our **How-to** section, such as [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md) and [Use triggers and actions in Azure Sentinel playbooks](playbook-triggers-actions.md).
+>
 
 ## What are automation rules and playbooks?
 
@@ -120,7 +124,7 @@ Every playbook must start with a trigger. The trigger defines the action that wi
    Choose the trigger that matches the type of playbook you are creating.
 
     > [!NOTE]
-    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](tutorial-detect-threats-custom.md#set-automated-responses-and-create-the-rule) and can also be run manually.
+    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule) and can also be run manually.
     > 
     > For more about which trigger to use, see [**Use triggers and actions in Azure Sentinel playbooks**](playbook-triggers-actions.md)
 
@@ -201,7 +205,7 @@ To create an automation rule:
 
 ### Respond to alerts
 
-You use a playbook to respond to an **alert** by creating an **analytics rule**, or editing an existing one, that runs when the alert is generated, and selecting your playbook as an automated response in the [analytics rule wizard](tutorial-detect-threats-custom.md).
+You use a playbook to respond to an **alert** by creating an **analytics rule**, or editing an existing one, that runs when the alert is generated, and selecting your playbook as an automated response in the [analytics rule wizard](detect-threats-custom.md).
 
 1. From the **Analytics** blade in the Azure Sentinel navigation menu, select the analytics rule for which you want to automate the response, and click **Edit** in the details pane.
 

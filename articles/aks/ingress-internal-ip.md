@@ -27,11 +27,13 @@ This article uses [Helm 3][helm] to install the NGINX ingress controller on a [s
 
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-In addition, this article assumes you have an existing AKS cluster with an integrated ACR. For more details on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr].
+In addition, this article assumes you have an existing AKS cluster with an [integrated ACR][aks-integrated-acr].
 
 ## Import the images used by the Helm chart into your ACR
 
-This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart], which relies on three container images. Use `az acr import` to import those images into your ACR.
+Often when using an AKS cluster with a private network, it is a requirement to manage the provenance of the container images used within the cluster. See [Best practices for container image management and security in Azure Kubernetes Service (AKS)][aks-container-best-practices] for more information.  To support this requirement, and for completeness, the examples in this article rely on importing the three container images used by the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart] into your ACR.
+
+Use `az acr import` to import these images into your ACR.
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
@@ -72,7 +74,7 @@ Now deploy the *nginx-ingress* chart with Helm. To use the manifest file created
 The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
 
 > [!TIP]
-> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed. If your AKS cluster is not Kubernetes RBAC enabled, add `--set rbac.create=false` to the Helm commands.
+> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic* and is intended to work within that namespace. Specify a namespace for your own environment as needed. If your AKS cluster is not Kubernetes RBAC enabled, add `--set rbac.create=false` to the Helm commands.
 
 > [!TIP]
 > If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
@@ -91,16 +93,16 @@ ACR_URL=<REGISTRY_URL>
 helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.image.registry=$ACR_URL \
     --set controller.image.image=$CONTROLLER_IMAGE \
     --set controller.image.tag=$CONTROLLER_TAG \
     --set controller.image.digest="" \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
     --set defaultBackend.image.registry=$ACR_URL \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
     --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
@@ -412,3 +414,4 @@ You can also:
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 [aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
+[aks-container-best-practices]: operator-best-practices-container-image-management.md

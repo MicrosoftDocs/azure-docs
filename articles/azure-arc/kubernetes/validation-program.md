@@ -1,5 +1,5 @@
 ---
-title: "Azure Arc enabled Kubernetes Validation Program"
+title: "Azure Arc enabled Kubernetes validation"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
@@ -10,7 +10,7 @@ description: "Describes Arc validation program for Kubernetes distributions"
 keywords: "Kubernetes, Arc, Azure, K8s, validation"
 ---
 
-# Azure Arc validation program
+# Azure Arc-enabled Kubernetes validation
 
 Azure Arc enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. The Azure Arc team has also worked with key industry Kubernetes offering providers to validate Azure Arc enabled Kubernetes with their Kubernetes distributions. Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc enabled Kubernetes.
 
@@ -27,11 +27,12 @@ The following providers and their corresponding Kubernetes distributions have su
 
 | Provider name | Distribution name | Version |
 | ------------ | ----------------- | ------- |
-| RedHat       | [OpenShift Container Platform](https://www.openshift.com/products/container-platform) | [4.5](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html), [4.6](https://docs.openshift.com/container-platform/4.6/release_notes/ocp-4-6-release-notes.html), [4.7](https://docs.openshift.com/container-platform/4.7/release_notes/ocp-4-7-release-notes.html) |
+| RedHat       | [OpenShift Container Platform](https://www.openshift.com/products/container-platform) | [4.5.41+](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html), [4.6.35+](https://docs.openshift.com/container-platform/4.6/release_notes/ocp-4-6-release-notes.html), [4.7.18+](https://docs.openshift.com/container-platform/4.7/release_notes/ocp-4-7-release-notes.html) |
 | VMware       | [Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid) | Kubernetes version: v1.17.5 |
 | Canonical    | [Charmed Kubernetes](https://ubuntu.com/kubernetes) | [1.19](https://ubuntu.com/kubernetes/docs/1.19/components) |
 | SUSE Rancher      | [Rancher Kubernetes Engine](https://rancher.com/products/rke/) | RKE CLI version: [v1.2.4](https://github.com/rancher/rke/releases/tag/v1.2.4); Kubernetes versions: [1.19.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.19.6)), [1.18.14](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.14)), [1.17.16](https://github.com/kubernetes/kubernetes/releases/tag/v1.17.16))  |
 | Nutanix      | [Karbon](https://www.nutanix.com/products/karbon)    | Version 2.2.1 |
+| Platform9      | [Platform9 Managed Kubernetes (PMK)](https://platform9.com/managed-kubernetes/)    | PMK Version [5.3.0](https://platform9.com/docs/kubernetes/release-notes#platform9-managed-kubernetes-version-53-release-notes); Kubernetes versions: v1.20.5, v1.19.6, v1.18.10 |
 
 The Azure Arc team also ran the conformance tests and validated Azure Arc enabled Kubernetes scenarios on the following public cloud providers:
 

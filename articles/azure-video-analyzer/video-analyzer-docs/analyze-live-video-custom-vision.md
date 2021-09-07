@@ -2,7 +2,7 @@
 title: Get started with Azure Video Analyzer
 description: This tutorial walks you through the steps to analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision.
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
 
 ---

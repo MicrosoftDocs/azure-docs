@@ -240,6 +240,12 @@ Find hotels where the terms "hotel" and "airport" are no more than five words ap
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
 ```
 
+Find documents that have a word that starts with the letters "lux" in the Description field. This query uses [prefix search](query-simple-syntax.md#prefix-queries) in combination with `search.ismatch`.
+
+```odata-filter-expr
+    $filter=search.ismatch('lux*', 'Description')
+```
+
 ## Next steps  
 
 - [Filters in Azure Cognitive Search](search-filters.md)

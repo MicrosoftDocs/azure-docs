@@ -13,7 +13,7 @@ ms.custom: deploy
 ms.reviewer: larryfr
 ---
 
-# (Preview) No-code model deployment
+# No-code model deployment (preview)
 
 No-code model deployment is currently in preview and supports the following machine learning frameworks:
 

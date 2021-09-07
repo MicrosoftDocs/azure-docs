@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/07/2021
 ms.author: davidmu
+ms.reviewer: ergreenl
 ---
 
 # Add an OpenID Connect based single sign-on application

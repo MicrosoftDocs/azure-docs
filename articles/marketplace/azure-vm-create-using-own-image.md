@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 06/23/2021
+ms.date: 07/22/2021
 ---
 
 # Create a virtual machine using your own image
@@ -55,7 +55,7 @@ Ask the owner to run either one of these commands (in either case, use the Susbs
 az login
 az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
 ```
- 
+
 ```powershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionId {subscriptionId}
@@ -63,7 +63,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
 > [!NOTE]
-> You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
+> You don’t need to generate SAS URIs as you can now publish a Shared image gallery (SIG) Image on Partner  Center, without using APIs. <br/> <br/>If you *are* publishing using APIs, you would need to generate SAS URIs instead of using a SIG, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
 
 ## Next steps
 

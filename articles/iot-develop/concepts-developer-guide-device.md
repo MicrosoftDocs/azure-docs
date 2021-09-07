@@ -28,9 +28,9 @@ zone_pivot_groups: programming-languages-set-twenty-six
 
 # IoT Plug and Play device developer guide
 
-IoT Plug and Play lets you build smart devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
+IoT Plug and Play lets you build IoT devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
-A smart device might be implemented directly, use [modules](../iot-hub/iot-hub-devguide-module-twins.md), or use [IoT Edge modules](../iot-edge/about-iot-edge.md).
+A IoT device might be implemented directly, use [modules](../iot-hub/iot-hub-devguide-module-twins.md), or use [IoT Edge modules](../iot-edge/about-iot-edge.md).
 
 This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](../iot-develop/concepts-convention.md).
 

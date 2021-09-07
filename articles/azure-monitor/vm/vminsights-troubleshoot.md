@@ -35,7 +35,7 @@ If you still see a message  that the virtual machine needs to be onboarded, it m
 | Operating system | Agents | 
 |:---|:---|
 | Windows | MicrosoftMonitoringAgent<br>Microsoft.Azure.Monitoring.DependencyAgent |
-| Linux | OMSAgentForLinux<br>DependencyAgentForLinux |
+| Linux | OMSAgentForLinux<br>DependencyAgentLinux |
 
 If you do not see the both extensions for your operating system in the list of installed extensions, then they need to be installed. If the extensions are listed but their status does not appear as *Provisioning succeeded*, then the extension should be removed and reinstalled.
 
@@ -57,17 +57,17 @@ If the agents appear to be installed correctly but you don't see any data in the
 ### Has your Log Analytics workspace reached its data limit?
 Check the [capacity reservations and the pricing for data ingestion](https://azure.microsoft.com/pricing/details/monitor/).
 
-### Is your virtual machine sending log and performance data to Azure Monitor Logs?
+### Is your virtual machine agent connected to Azure Monitor Logs?
 
 Open Log Analytics from **Logs** in the Azure Monitor menu in the Azure portal. Run the following query for your computer:
 
 ```kuso
-Usage 
-| where Computer == "my-computer" 
-| summarize sum(Quantity), any(QuantityUnit) by DataType
+Heartbeat
+| where Computer == "my-computer"
+| sort by TimeGenerated desc 
 ```
 
-If you don't see any data, then you may have problems with your agent. See the section above for agent troubleshooting information.
+If you don't see any data or if the computer hasn't sent a heartbeat recently, then you may have problems with your agent. See the section above for agent troubleshooting information.
 
 ## Virtual machine doesn't appear in map view
 

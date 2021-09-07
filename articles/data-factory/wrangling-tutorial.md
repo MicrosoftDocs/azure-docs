@@ -4,6 +4,7 @@ description: A tutorial on how to prepare data in Azure Data Factory using wrang
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 06/08/2021
 ---

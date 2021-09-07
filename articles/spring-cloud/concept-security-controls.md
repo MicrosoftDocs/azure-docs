@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 
 Security controls are built in into Azure Spring Cloud Service.
 
-A security control is a quality or feature of an Azure service that contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.  For each control, we use *Yes* or *No* to indicate whether it is currently in place for the service.  We use *N/A* for a control that is not applicable to the service. 
+A security control is a quality or feature of an Azure service that contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.  For each control, we use *Yes* or *No* to indicate whether it is currently in place for the service.  We use *N/A* for a control that is not applicable to the service.
 
 **Data protection security controls**
 

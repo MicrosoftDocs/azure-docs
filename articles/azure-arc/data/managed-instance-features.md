@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -21,19 +21,14 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 - Multi-model capabilities - [Graph processing](/sql/relational-databases/graphs/sql-graph-overview), [JSON data](/sql/relational-databases/json/json-data-sql-server), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](/sql/t-sql/statements/create-xml-index-transact-sql).
 
 
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-## Features of Azure Arc-enabled SQL Managed Instance
-
-###  <a name="RDBMSHA"></a> RDBMS High Availability  
+## <a name="RDBMSHA"></a> RDBMS High Availability  
   
 |Feature|Azure Arc-enabled SQL Managed Instance|
 |-------------|----------------|
-|Always On failover cluster instance<sup>1</sup>| Not Applicable. Similar capabilities available |
-|Always On availability groups<sup>2</sup>|HA capabilities are planned.|
-|Basic availability groups <sup>2</sup>|HA capabilities are planned.|
-|Minimum replica commit availability group <sup>2</sup>|HA capabilities are planned.|
+|Always On failover cluster instance<sup>1</sup>| Not Applicable. Similar capabilities available.|
+|Always On availability groups<sup>2</sup>|Business critical service tier. In preview.|
+|Basic availability groups <sup>2</sup>|Not Applicable. Similar capabilities available.|
+|Minimum replica commit availability group <sup>2</sup>|Business critical service tier. In preview.|
 |Clusterless availability group|Yes|
 |Backup database | Yes - `COPY_ONLY` See [BACKUP - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|
 |Backup compression|Yes|
@@ -43,18 +38,15 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 |Database snapshot|Yes|
 |Fast recovery|Yes|
 |Hot add memory and CPU|Yes|
-|Log shipping|Yes| 
+|Log shipping|Not currently available.|
 |Online page and file restore|Yes|
 |Online indexing|Yes|
 |Online schema change|Yes|
 |Resumable online index rebuilds|Yes|
 
-<sup>1</sup> In the scenario where there is pod failure, a new SQL Managed Instance will start up and re-attach to the persistent volume containing your data. [Learn more about Kubernetes persistent volumes here](https://kubernetes.io/docs/concepts/storage/persistent-volumes).
+<sup>1</sup> In the scenario where there is a pod failure, a new SQL Managed Instance will start up and re-attach to the persistent volume containing your data. [Learn more about Kubernetes persistent volumes here](https://kubernetes.io/docs/concepts/storage/persistent-volumes).
 
-<sup>2</sup> Future releases will provide AG capabilities. 
-
-
-###  <a name="RDBMSSP"></a> RDBMS Scalability and Performance  
+## <a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 
 | Feature | Azure Arc-enabled SQL Managed Instance |
 |--|--|
@@ -76,7 +68,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 | Interleaved Execution for Multi-Statement Table Valued Functions | Yes |
 | Bulk insert improvements | Yes |
 
-###  <a name="RDBMSS"></a> RDBMS Security
+## <a name="RDBMSS"></a> RDBMS Security
 
 | Feature | Azure Arc-enabled SQL Managed Instance |
 |--|--|
@@ -90,8 +82,11 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 | User-defined roles | Yes |
 | Contained databases | Yes |
 | Encryption for backups | Yes |
+| SQL Server Authentication | Yes |
+| Azure Active Directory Authentication | No |
+| Windows Authentication | No |
 
-###  <a name="RDBMSM"></a> RDBMS Manageability  
+## <a name="RDBMSM"></a> RDBMS Manageability  
 
 | Feature | Azure Arc-enabled SQL Managed Instance |
 |--|--|
@@ -132,14 +127,14 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 ### Tools
 
-Azure Arc-enabled SQL Managed Instance support various data tools that can help you manage your data.
+Azure Arc-enabled SQL Managed Instance supports various data tools that can help you manage your data.
 
 | **Tool** | Azure Arc-enabled SQL Managed Instance|
 | --- | --- | --- |
 | Azure portal <sup>1</sup> | No |
-| Azure CLI | No |
+| Azure CLI | Yes |
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Yes |
-| Azure PowerShell | Yes |
+| Azure PowerShell | No |
 | [BACPAC file (export)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes |
 | [BACPAC file (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes |
 | [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes |
@@ -147,8 +142,9 @@ Azure Arc-enabled SQL Managed Instance support various data tools that can help 
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Yes |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | Yes |
 
-<sup>1</sup> The Azure portal is only used to view Azure Arc-enabled SQL Managed Instances in read-only mode during preview.
+<sup>1</sup> The Azure portal can be used to create, view, and delete Azure Arc-enabled SQL Managed Instances.  Updates cannot be done through the Azure portal currently.
 
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ### <a name="Unsupported"></a> Unsupported Features & Services
 

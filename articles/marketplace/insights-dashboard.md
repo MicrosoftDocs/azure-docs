@@ -4,9 +4,10 @@ description: Access a summary of marketplace web analytics in Partner Center, wh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 03/23/2021
-author: sayantanroy83
-ms.author: sroy
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics

@@ -1,24 +1,15 @@
 ---
-title: Basic tier preview - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Basic tier - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: The single node basic tier for Azure Database for PostgreSQL - Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 08/03/2021
 ---
 
-# Basic tier (preview)
-
-> [!IMPORTANT]
-> The Hyperscale (Citus) basic tier is currently in preview.  This preview
-> version is provided without a service level agreement, and it's not
-> recommended for production workloads. Certain features might not be supported
-> or might have constrained capabilities.
->
-> You can see a complete list of other new features in [preview features for
-> Hyperscale (Citus)](hyperscale-preview-features.md).
+# Basic tier
 
 The basic tier in Azure Database for PostgreSQL - Hyperscale (Citus) is a
 simple way to create a small server group that you can scale later. While
@@ -38,9 +29,9 @@ applications with the basic tier and later [graduate to the standard
 tier](howto-hyperscale-scale-grow.md#add-worker-nodes) with confidence that the
 interface remains the same.
 
-The basic tier is also appropriate for smaller workloads in production (once it
-emerges from preview into general availability). There is room to scale
-vertically *within* the basic tier by increasing the number of server vCores.
+The basic tier is also appropriate for smaller workloads in production. There
+is room to scale vertically *within* the basic tier by increasing the number of
+server vCores.
 
 When greater scale is required right away, use the standard tier. Its smallest
 allowed server group has one coordinator node and two workers. You can choose

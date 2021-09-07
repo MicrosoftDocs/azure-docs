@@ -32,10 +32,10 @@ Public access to your data is always prohibited by default. There are two separa
 
 The following table summarizes how both settings together affect public access for a container.
 
-| Public access setting | Public access is disabled for a container (default setting) | Public access for a container is set to Container | Public access a container is set to Blob |
+|   | Public access level for the container is set to Private (default setting) | Public access level for the container is set to Container | Public access level for the container is set to Blob |
 |--|--|--|--|
-| Public access is disallowed for the storage account | No public access to any container in the storage account. | No public access to any container in the storage account. The storage account setting overrides the container setting. | No public access to any container in the storage account. The storage account setting overrides the container setting. |
-| Public access is allowed for the storage account (default setting) | No public access to this container (default configuration). | Public access is permitted to this container and its blobs. | Public access is permitted to blobs in this container, but not to the container itself. |
+| **Public access is disallowed for the storage account** | No public access to any container in the storage account. | No public access to any container in the storage account. The storage account setting overrides the container setting. | No public access to any container in the storage account. The storage account setting overrides the container setting. |
+| **Public access is allowed for the storage account (default setting)** | No public access to this container (default configuration). | Public access is permitted to this container and its blobs. | Public access is permitted to blobs in this container, but not to the container itself. |
 
 ## Allow or disallow public read access for a storage account
 
@@ -75,7 +75,7 @@ $location = "<location>"
 
 # Create a storage account with AllowBlobPublicAccess set to true (or null).
 New-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS
     -AllowBlobPublicAccess $false
@@ -85,7 +85,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Set AllowBlobPublicAccess set to false
 Set-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -AllowBlobPublicAccess $false
 
 # Read the AllowBlobPublicAccess property.
@@ -292,6 +292,17 @@ $ctx = $storageAccount.Context
 
 Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 ```
+
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | 
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
 
 ## Next steps
 

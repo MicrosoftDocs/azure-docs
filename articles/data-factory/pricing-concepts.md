@@ -5,6 +5,7 @@ author: shirleywangmsft
 ms.author: shwang
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 09/14/2020
 ---
