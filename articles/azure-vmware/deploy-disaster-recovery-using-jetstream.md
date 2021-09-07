@@ -284,6 +284,36 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
 
  1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
 
+
+## Region availability
+
+JetStream DR for Azure VMware Solutions is available in the following regions: 
+
+- East US 
+
+- East US 2 
+
+- North Europe 
+
+- US South 
+
+- West Europe 
+
+- Central US 
+
+- West US 
+
+- East Asia 
+
+- Japan East 
+
+- Brazil South 
+
+- Canada East 
+
+- UK West 
+
+
  
 ## Support  
  
