@@ -27,13 +27,13 @@ If you want to explore and deploy existing Azure Functions that use Azure Media 
 - If you are going to create Azure Functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](account-create-how-to.md).
 - Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-This article explains how to create a C# / .NET 5 function that communicates with Media Services. To create a function with another language, review this [article](../../azure-functions/functions-develop-vs-code).
+This article explains how to create a C# / .NET 5 function that communicates with Media Services. To create a function with another language, review this [article](../../azure-functions/functions-develop-vs-code.md).
 
 ### Run local requirements
 
 These prerequisites are only required to run and debug your functions locally. They aren't required to create or publish projects to Azure Functions.
 
-- The [Azure Functions Core Tools](../../azure-functions/functions-run-local#install-the-azure-functions-core-tools) version 3.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+- The [Azure Functions Core Tools](../../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 3.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
 + The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code. 
 
@@ -63,7 +63,7 @@ The Functions extension lets you create a function app project, along with your 
 
 1. Select the folder for your function app project, and then **Select C# for your function project** and **.NET 5 Isolated** for the runtime.
 
-1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
+1. Select the **HTTP trigger** function template.
 
     ![Choose the HTTP trigger template](./Media/integrate-azure-functions-dotnet-how-to/create-function-choose-template.png)
 
