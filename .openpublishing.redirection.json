@@ -56862,6 +56862,11 @@
       "source_path_from_root": "/articles/virtual-network/routing-preference-cli.md",
       "redirect_url": "/azure/virtual-network/ip-services/routing-preference-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/create-public-ip-portal.md",
+      "redirect_url": "/azure/virtual-network/ip-services/create-public-ip-portal",
+      "redirect_document_id": false
     }
   ]
 }

@@ -4,6 +4,21 @@ items:
   - name: What is Azure Virtual Network IP Services?
     href: ip-services-overview.md
 - name: Quickstarts
+  items:
+  - name: Create public IP address - Portal
+    href: create-public-ip-portal.md
+  - name: Create public IP address - PowerShell
+    href: create-public-ip-powershell.md
+  - name: Create public IP address - Azure CLI
+    href: create-public-ip-cli.md
+  - name: Create public IP address - ARM template
+    href: create-public-ip-template.md
+  - name: Create public IP prefix - Portal
+    href: create-public-ip-prefix-portal.md
+  - name: Create public IP prefix - PowerShell
+    href: create-public-ip-prefix-powershell.md
+  - name: Create public IP prefix - Azure CLI
+    href: create-public-ip-prefix-cli.md
 - name: Concepts
   items:
   - name: Public IPs
