@@ -74,30 +74,36 @@ Choosing a maintenance window other than the default is currently available in t
 | Azure Region | SQL Managed Instance | SQL Database | SQL Database in an [Azure Availability Zone](high-availability-sla.md) | 
 |:---|:---|:---|:---|
 | Australia East | Yes | Yes | Yes |
-| Australia SouthEast | Yes | Yes | |
+| Australia Southeast | Yes | Yes | |
 | Brazil South | Yes | Yes | Yes |
 | Canada Central | Yes | Yes | Yes |
 | Canada East | Yes | Yes | |
 | Central India | Yes | Yes | |
 | Central US | Yes | Yes | Yes |
+| China East 2 |Yes | Yes ||
+| China North 2 |Yes|Yes ||
 | East US | Yes | Yes | Yes |
-| East US2 | Yes | Yes | Yes |
+| East US 2 | Yes | Yes | Yes |
 | East Asia | Yes | Yes | |
 | France Central |  |  | Yes |
 | France South | Yes | Yes | |
 | Germany West Central | Yes | Yes | Yes |
 | Japan East | Yes | Yes | Yes |
+| Japan West | Yes | Yes | |
 | Korea Central | Yes | | |
+| Korea South | Yes | | |
 | North Central US | Yes | Yes | |
 | North Europe | Yes | Yes | Yes |
 | South Central US | Yes | Yes | Yes |
 | Southeast Asia | Yes | Yes | Yes |
+| Switzerland North | Yes | Yes | |
+| UAE Central | Yes | | |
 | UK South | Yes | Yes | Yes |
 | UK West | Yes | Yes | |
 | West Central US | Yes | Yes | |
 | West Europe | Yes | Yes | Yes |
 | West US | Yes | Yes | Yes |
-| West US2 | Yes | Yes | |
+| West US 2 | Yes | Yes | |
 | | | | | 
 
 ## Gateway maintenance for Azure SQL Database
