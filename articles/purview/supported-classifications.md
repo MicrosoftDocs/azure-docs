@@ -3679,12 +3679,12 @@ No
 
 #### Keywords_estonia_eu_passport_number
 
-eesti kodaniku pass
-passi number
-passinumbrid
-document number
-document no
-dokumendi nr
+- eesti kodaniku pass
+- passi number
+- passinumbrid
+- document number
+- document no
+- dokumendi nr
 
 #### Keywords_eu_passport_date
 
@@ -9988,10 +9988,10 @@ No
 
 #### Keywords_romania_eu_passport_number
 
-numărul pașaportului
-numarul pasaportului
-numerele pașaportului
-Pașaport nr
+- numărul pașaportului
+- numarul pasaportului
+- numerele pașaportului
+- Pașaport nr
 
 #### Keywords_eu_passport_date
 
@@ -11711,7 +11711,7 @@ Combination of 18 letters and digits in the specified format
 18 letters and digits:
 - Five letters (not case-sensitive) or the digit "9" in place of a letter.
 - One digit.
-- Five digits in the date format MMDDY for date of birth. The seventh character is incremented by 50 if driver is female; for exampe, 51 to 62 instead of 01 to 12.
+- Five digits in the date format MMDDY for date of birth. The seventh character is incremented by 50 if driver is female; for example, 51 to 62 instead of 01 to 12.
 - Two letters (not case-sensitive) or the digit "9" in place of a letter.
 - Five digits.
 
