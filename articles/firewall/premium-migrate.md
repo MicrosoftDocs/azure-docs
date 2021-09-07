@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/07/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -17,6 +17,8 @@ You can migrate Azure Firewall Standard to Azure Firewall Premium to take advant
 The following two examples show how to:
 - Migrate an existing standard policy using Azure PowerShell
 - Migrate an existing standard firewall (with classic rules) to Azure Firewall Premium  with a Premium policy.
+
+If you use Terraform to deploy the Azure Firewall, you can use Terraform to migrate to Azure Firewall Premium. For more information, see [Migrate Azure Firewall Standard to Premium using Terraform](/azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json).
 
 ## Performance considerations
 
