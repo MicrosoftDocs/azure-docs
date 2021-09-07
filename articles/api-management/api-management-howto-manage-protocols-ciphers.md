@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/02/2021
+ms.date: 09/07/2021
 ms.author: apimpm
 ---
 
@@ -33,12 +33,13 @@ This guide shows you how to manage protocols and ciphers configuration for an Az
 ## How to manage TLS protocols and 3DES cipher
 
 1. Navigate to your **API Management instance** in the Azure portal.
-2. Select **Protocol settings** from the menu.  
-3. Enable or disable desired protocols or ciphers.
-4. Click **Save**. Changes will be applied within an hour.  
+1. Scroll to the **Security** section in the side menu.
+1. Under the Security section, select **Protocols + ciphers**.  
+1. Enable or disable desired protocols or ciphers.
+1. Click **Save**. Changes will be applied within an hour.  
 
 > [!NOTE]
-> Some protocols or cipher suites (like backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST call. Use the `properties.customProperties` structure in the Create/Update API Management Service REST API.
+> Some protocols or cipher suites (like backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST call. Use the `properties.customProperties` structure in the [Create/Update API Management Service REST API](https://docs.microsoft.com/rest/api/apimanagement/2020-06-01-preview/api-management-service/create-or-update#request-body) article.
 
 ## Next steps
 
