@@ -1,4 +1,4 @@
-# How to monitor with AppDynamics Java agent (Preview)
+# How to monitor Azure Spring Cloud applications with AppDynamics Java agent (Preview)
 
 > [!Note]
 > This document is in progress and will undergo further editorial review.  
