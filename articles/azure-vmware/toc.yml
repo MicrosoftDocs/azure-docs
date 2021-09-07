@@ -148,6 +148,10 @@
       href: ecosystem-back-up-vms.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
+    - name: Bitnami virtual appliances
+      items:
+      - name: Bitnami appliance deployment
+        href: bitnami-appliances-deployment.md
   - name: VMware solutions
     items:
     - name: Configure HCX network extension
