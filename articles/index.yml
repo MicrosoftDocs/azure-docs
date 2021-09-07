@@ -273,6 +273,14 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/translator/index.yml
     # Card
+    - title: Azure Video Analyzer (preview)
+      summary: Build intelligent video-based applications using the AI of your choice
+      imageSrc: ./media/index/video-analyzer.svg
+      azureCategories:
+        - ai-machine-learning      
+        - media
+      url: azure-video-analyzer/video-analyzer-docs/overview.md      
+    # Card
     - title: Azure Video Analyzer for Media
       summary: Unlock video insights
       imageSrc: ./media/index/video-analyzer.svg
@@ -1172,13 +1180,6 @@ productDirectory:
         - media
       url: media-services/latest/stream-live-tutorial-with-api.md
     # Card
-    - title: Azure Video Analyzer (preview)
-      summary: Build intelligent video-based applications using the AI of your choice
-      imageSrc: ./media/index/video-analyzer.svg
-      azureCategories:
-        - media
-      url: azure-video-analyzer/video-analyzer-docs/overview.md
-    # Card
     - title: Media Services
       summary: Encode, store, and stream video and audio at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
@@ -1419,7 +1420,7 @@ productDirectory:
       url: virtual-machines/managed-disks-overview.md
     # Card
     - title: Azure Files
-      summary: File shares that use the standard SMB 3.0 protocol
+      summary: Simple, secure and serverless enterprise-grade cloud file shares
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-azure-files.svg
       azureCategories:
         - storage
