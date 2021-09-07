@@ -132,3 +132,4 @@ If you provide your own docker images, such as on an Azure Container Registry th
 :::image type="content" source="./media/concept-secure-network-traffic-flow/azure-machine-learning-docker-images.png" alt-text="Diagram of traffic flow when using provided Docker images":::
 ## Next steps
 
+Now that you've learned how network traffic flows in a secured configuration, learn more about securing Azure ML in a virtual network by reading the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
