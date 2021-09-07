@@ -200,6 +200,8 @@ Check the status of the endpoint with the following.
 
 If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
 
+---
+
 ## Give access permission to the managed identity
 
 >[!IMPORTANT] 
