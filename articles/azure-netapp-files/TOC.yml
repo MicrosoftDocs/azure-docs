@@ -91,7 +91,7 @@
     href: volume-hard-quota-guidelines.md
 - name: How-to guides
   items:
-  - name: Register for Azure NetApp Files
+  - name: Register for NetApp Resource Provider
     href: azure-netapp-files-register.md
   - name: Create a NetApp account
     href: azure-netapp-files-create-netapp-account.md

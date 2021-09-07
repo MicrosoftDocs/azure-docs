@@ -25,13 +25,13 @@ This article describes common Azure NetApp Files Resource Provider errors, their
 
 ***Creation of `netAppAccounts` has been restricted in this region.***
 
-This situation occurs when the subscription is waitlisted for Azure NetApp Files and the user attempts to create a NetApp account.
+This situation occurs when the user attempts to create a NetApp account.
 
 * Cause:   
 Azure Resource Provider for Azure NetApp Files is not registered successfully. 
  
 * Solution:   
-Complete all the steps described in [Azure NetApp resource provider registration](azure-netapp-files-register.md#resource-provider) after your subscription is waitlisted.
+Complete all the steps described in [Register the NetApp Resource Provider](azure-netapp-files-register.md).
 
 ***BareMetalTenantId cannot be changed.***  
 
