@@ -19,7 +19,7 @@ This article describes how to move Azure Notification Hubs resources to a differ
 
 ## Overview
 
-In some scenarios, you might need to move service resources between Azure regions for various business reasons. They might move to a newly available region, deploy features or services available only in a specific region, move due to internal policy or compliance requirements, or to solve capacity issues.
+In some scenarios, you might need to move service resources between Azure regions for various business reasons. They might move to a newly available region, you might want to deploy features or services available only in a specific region, move due to internal policy or compliance requirements, or to solve capacity issues.
 
 Azure Notification Hubs namespace names are unique, and registrations are per hub, so to perform such a move, you must create a new hub in the desired region, then move the registrations along with all other relevant data to the newly created namespace.
 
