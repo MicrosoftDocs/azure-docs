@@ -38,7 +38,7 @@ In this tutorial, you'll learn to:
 
 Enable **Diagnostic settings** in Azure AD within your Azure AD B2C tenant to define where logs and metrics for a resource should be sent.
 
-Then after, [configure Azure AD B2C to send logs to Azure Monitor](https://docs.microsoft.com/azure/active-directory-b2c/azure-monitor).
+Then after, [configure Azure AD B2C to send logs to Azure Monitor](./azure-monitor.md).
 
 ## Deploy an Azure Sentinel instance
 
