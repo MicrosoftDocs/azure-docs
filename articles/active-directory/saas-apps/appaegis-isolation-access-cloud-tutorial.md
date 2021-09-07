@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Appaegis Isolation Access Cloud | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Appaegis Isolation Access Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and Appaegis Isolation Access Cloud.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2021
+ms.date: 09/07/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Appaegis Isolation Access Cloud
+# Tutorial: Azure AD SSO integration with Appaegis Isolation Access Cloud
 
 In this tutorial, you'll learn how to integrate Appaegis Isolation Access Cloud with Azure Active Directory (Azure AD). When you integrate Appaegis Isolation Access Cloud with Azure AD, you can:
 
