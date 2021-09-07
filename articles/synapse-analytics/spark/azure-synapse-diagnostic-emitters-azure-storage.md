@@ -23,7 +23,7 @@ In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitt
 
 To collect diagnostic logs and metrics to storage account, you can use existing Azure Storage accounts. Or if you don't have one, you can [create an Azure blob storage account](../../storage/common/storage-account-create.md) or [create a storage account to use with Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
 
-### Step 2: Create a Apache Spark configuration file
+### Step 2: Create an Apache Spark configuration file
 
 Create a `diagnostic-emitter-azure-storage-conf.txt` and copy following contents to the file. Or download a [sample template file](https://go.microsoft.com/fwlink/?linkid=2169375) for Apache Spark pool configuration.
 
@@ -96,13 +96,13 @@ Here is a sample log record in JSON format:
 
 ## Synapse workspace with data exfiltration protection enabled
 
-Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, the logs and metrics can not be sent out to the destination endpoints directly. You can create corresponding [managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md) for different destination endpoints or [create IP firewall rules](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) in this scenario.
+Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, the logs and metrics cannot be sent out to the destination endpoints directly. You can create corresponding [managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md) for different destination endpoints or [create IP firewall rules](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) in this scenario.
 
 
-1. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Blob Stroage** or **Azure Data Lake Storage Gen2** and **continue**.
+1. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Blob Storage** or **Azure Data Lake Storage Gen2** and **continue**.
    > [!div class="mx-imgBorder"]
    > ![Create managed private endpoint 1](./media/azure-synapse-diagnostic-emitters-azure-storage/create-private-endpoint-1.png)
-2. Choose your Azure stroage account in the **Storage account name**, and click **Create** button.
+2. Choose your Azure Storage account in the **Storage account name**, and click **Create** button.
    > [!div class="mx-imgBorder"]
    > ![Create managed private endpoint 2](./media/azure-synapse-diagnostic-emitters-azure-storage/create-private-endpoint-2.png)
 3. Wait a few minutes for private endpoint provisioning.
