@@ -258,9 +258,9 @@ Output from the example:
 
 | Name | Type | Value |
 | ---- | ---- | ---- |
-| sameDefinition | bool | true |
-| assignDefinition | bool | true |
-| differentOrderDefinition | bool | false |
+| sameElements | bool | true |
+| assignArray | bool | true |
+| differentOrder | bool | false |
 
 When comparing objects, the property names and values must be the same. The properties don't need to be defined in the same order.
 
@@ -292,6 +292,15 @@ output differentPropertyOrder bool = object3 == object2 // returns true because 
 output assignObject bool = object4 == object1 // returns true because one object was defined as equal to the other object
 output differentValues bool = object5 == object1 // returns false because values are different
 ```
+
+Output from the example:
+
+| Name | Type | Value |
+| ---- | ---- | ---- |
+| sameObjects | bool | true |
+| differentPropertyOrder | bool | true |
+| assignObject | bool | true |
+| differentValues | bool | false |
 
 ## Not equal !=
 
