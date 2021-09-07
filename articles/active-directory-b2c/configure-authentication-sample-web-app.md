@@ -130,7 +130,7 @@ Your final configuration file should look like the following JSON:
 ## Step 5: Run the sample web app
 
 1. Build and run the project.
-1. Go to [https://localhost:5001](https://localhost:5001). 
+1. Go to `https://localhost:5001`. 
 1. Select **Sign Up/In**.
 
     ![Screenshot of the "Sign Up/In" button on the project Welcome page.](./media/configure-authentication-sample-web-app/web-app-sign-in.png)
