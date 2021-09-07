@@ -23,7 +23,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## September 2021
 
-* [**Administrators**](create-active-directory-connections.md#create-an-active-directory-connection) option in Active Directory configuration
+* [**Administrators**](create-active-directory-connections.md#create-an-active-directory-connection) option in Active Directory configurations
 
     The Active Directory configuration now includes an **Administrators** field. You can specify users or groups that will be given administrator privileges on the volume.
 
