@@ -100,15 +100,15 @@ Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn h
 
 #### Set up Pipeline to production
 
-1. Click on Pipelines blade and create a new pipeline with a Maven template.</li>
+1. Click on Pipelines blade and create a new pipeline with a Maven template.
 2. Edit yml file:
 
-> * Change mavenPomFile under Maven task to 'complete/pom.xml'</li>
-> * Click show assistance on the right side and choose Azure Spring Cloud template</li>
-> * Choose the service connection you just created for Azure Subscription. Choose your Spring Cloud Instance and App Instance. </li>
-> * Disable “Use Staging Deployment”</li>
-> * Change package or folder to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar</li>
-> * Add this task to your pipeline</li>
+> * Change mavenPomFile under Maven task to 'complete/pom.xml'.
+> * Click show assistance on the right side and choose Azure Spring Cloud template.
+> * Choose the service connection you just created for Azure Subscription. Choose your Spring Cloud Instance and App Instance. 
+> * Disable “Use Staging Deployment”.
+> * Change package or folder to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar.
+> * Add this task to your pipeline.
 
   
 > This Azure Spring Cloud task setting demo is displayed in the following image.
@@ -132,7 +132,7 @@ steps:
     Package: ./target/your-result-jar.jar
 ```
 
-3. Click save and run, and then wait for job to be done.</li>
+3. Click save and run, and then wait for job to be done.
 
 #### Blue-green deployments
 
