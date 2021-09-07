@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Cloud feature availability
 
-This topic covers Azure AD feature availabilityin Azure Government.
+This topic covers Azure AD feature availability in Azure Government.
 
 ## Feature availability
 
@@ -37,14 +37,14 @@ This topic covers Azure AD feature availabilityin Azure Government.
 | - Application Proxy for on-premises, header-based, and Integrated Windows Authentication | ● | 
 | - Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication) | ● | 
 | **Authorization and Conditional Access)** |   |
-| - Role-based access control (RBAC) |    ● | 
+| - Role-based access control (RBAC) | ● | 
 | - Conditional Access  | ● | 
 | - SharePoint limited access | ● | 
 | - Session lifetime management | ● | 
-| - Identity Protection (Risky sign-ins, risky users, risk-based conditional access) |  ● | 
+| - Identity Protection (Risky sign-ins, risky users, risk-based conditional access) | ● | 
 | **Administration and hybrid identity** |   |
 | - User and group management | ● | 
-| - Advanced group management (Dynamic groups, naming policies, expiration, default classification) |  ● | 
+| - Advanced group management (Dynamic groups, naming policies, expiration, default classification) | ● | 
 | - Directory synchronization—Azure AD Connect (sync and cloud sync) | ● | 
 | - Azure AD Connect Health reporting | ● | 
 | - Delegated administration—built-in roles  | ● | 
@@ -75,8 +75,8 @@ This topic covers Azure AD feature availabilityin Azure Government.
 | - Identity Protection: risk events investigation, SIEM connectivity |  ● |
 | **Frontline workers** |  |
 | - SMS sign-in | AGC: SMS/Voice/Push notification aren't available |
-| - Shared device sign-out |  ● |
-| - Delegated user management portal (My Staff) |  ● |
+| - Shared device sign-out | ● |
+| - Delegated user management portal (My Staff) | ● |
 
 
 
