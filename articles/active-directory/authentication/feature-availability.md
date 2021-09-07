@@ -30,9 +30,10 @@ Authentication, single sign-on and multifactor authentication (MFA)
 | Cloud authentication (Pass-through authentication, password hash synchronization) | ● |
 | Federated authentication (Active Directory Federation Services or federation with other identity providers) | ● |
 | Single sign-on (SSO) unlimited | ● | 
-| Multifactor authentication (MFA) | ● | 
-| Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | ● | 
-| Service-level agreement |  ● | 
+| Multifactor authentication (MFA) | SMS/Voice/Push notification aren't available due to lack of internet connectivity and third party provider are not available in air gapped. | 
+| Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | Gov (ARL): Authenticator app will only shows GUID and not UPN for compliance reason.
+<br>AGC: Microsoft Authenticator app, which relies on phones and 3rd party push notification services, is not available.  | 
+| Service-level agreement | ● | 
 | **Applications Access** |   |
 | SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | ● | 
 | Group assignment to applications | ● | 
@@ -77,7 +78,7 @@ Authentication, single sign-on and multifactor authentication (MFA)
 | Identity Protection: vulnerabilities and risky accounts |  ● |
 | Identity Protection: risk events investigation, SIEM connectivity |  ● |
 | **Frontline workers** |  |
-| SMS sign-in | ● |
+| SMS sign-in | SMS/Voice/Push notification aren't available |
 | Shared device sign-out |  ● |
 | Delegated user management portal (My Staff) |  ● |
 
