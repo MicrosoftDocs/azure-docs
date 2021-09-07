@@ -49,7 +49,7 @@ This section shows how to import and publish an OpenAPI Specification backend AP
 
    |Setting|Value|Description|
    |-------|-----|-----------|
-   |**OpenAPI specification**|*https:\//conferenceapi.azurewebsites.net?format=json*|The service implementing the API. API Management forwards requests to this address.|
+   |**OpenAPI specification**|*https:\//conferenceapi.azurewebsites.net?format=json*|The service implementing the API. API Management forwards requests to this address. The service must be hosted at a publicly accessible internet address. |
    |**Display name**|After you enter the preceding service URL, API Management fills out this field based on the JSON.|The name displayed in the [developer portal](api-management-howto-developer-portal.md).|
    |**Name**|After you enter the preceding service URL, API Management fills out this field based on the JSON.|A unique name for the API.|
    |**Description**|After you enter the preceding service URL, API Management fills out this field based on the JSON.|An optional description of the API.|
