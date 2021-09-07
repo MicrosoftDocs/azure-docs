@@ -6,7 +6,7 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 08/24/2021
+  ms.date: 09/07/2021
   ms.author: alkohli
   ms.subservice: common
     
@@ -95,11 +95,8 @@ sections:
       - question: |
           Do I have to ship my drives using FedEx or DHL?
         answer: |
-          You can ship drives to the Azure datacenter using any known carrier like FedEx, DHL, or UPS.
-
-          > [!NOTE]
-          > You should avoid shipping packages via the US Postal Service. The datacenter cannot accept the packages, which are too large for the mailbox. The packages eventually are re-routed to the nearest US Post Office, leading to delays.
-
+          You can ship drives to the Azure datacenter using any known carrier. We recommend that you use FedEx, DHL, or UPS. If you use the US Postal Service, be aware that the device is delivered to the nearest US Post Office instead of the datacenter, which can lead to significant delays.
+    
           For return shipment of drives to you from the datacenter, you must provide: 
           
           - A FedEx account number in the US and EU, or
