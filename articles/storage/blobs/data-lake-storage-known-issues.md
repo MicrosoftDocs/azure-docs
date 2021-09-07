@@ -15,7 +15,7 @@ This article describes limitations and known issues of Azure Data Lake Storage G
 
 ## Supported Blob storage features
 
-An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md).
 
 ## Supported Azure service integrations
 
@@ -103,4 +103,4 @@ For the time being (and most likely the foreseeable future), we won't support cu
 
 ## Soft delete for blobs capability (currently in preview)
 
-If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure Portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items. 
+If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure Portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items.
