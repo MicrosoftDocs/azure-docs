@@ -16,7 +16,7 @@
     href: tutorial-expressroute-global-reach-private-cloud.md
   - name: 4 - Install the VMware HCX Connector
     href: install-vmware-hcx.md
-  - name: 5 - Configure on-premises VMware HCX Connector
+  - name: 5 - Configure on-premises HCX Connector
     href: configure-vmware-hcx.md
 - name: Tutorials
   items:
@@ -108,12 +108,16 @@
       href: configure-l2-stretched-vmware-hcx-networks.md
     - name: Configure DNS forwarder
       href: configure-dns-azure-vmware-solution.md
+    - name: Configure HCX network extension
+      href: configure-hcx-network-extension.md
     - name: Configure port mirroring
       href: configure-port-mirroring-azure-vmware-solution.md
-    - name: Enable public internet access
-      href: enable-public-internet-access.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
+    - name: Enable public internet access
+      href: enable-public-internet-access.md
+    - name: HCX Mobility Optimized Networking (MON) guidance 
+      href: vmware-hcx-mon-guidance.md  
   - name: Configure storage policies
     href: configure-storage-policy.md 
   - name: Configure Windows Server Failover Cluster
@@ -148,6 +152,8 @@
       href: ecosystem-migration-vms.md
   - name: VMware solutions
     items:
+    - name: Configure HCX network extension
+      href: configure-hcx-network-extension.md    
     - name: Configure vRealize Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
