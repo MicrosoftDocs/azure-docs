@@ -25,7 +25,7 @@ The capabilities that require dedicated clusters:
 
 ## Management 
 
-Dedicated clusters are managed with an Azure resource that represents Azure Monitor Log clusters. Operations are performed programmatically using [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics/cluster?view=azure-cli-latest), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights) or the [REST](https://docs.microsoft.com/rest/api/loganalytics/clusters).
+Dedicated clusters are managed with an Azure resource that represents Azure Monitor Log clusters. Operations are performed programmatically using [CLI](/cli/azure/monitor/log-analytics/cluster?view=azure-cli-latest), [PowerShell](/powershell/module/az.operationalinsights) or the [REST](/rest/api/loganalytics/clusters).
 
 Once a cluster is created, workspaces can be linked to it and new ingested data to them is stored on the cluster. Workspaces can be unlinked from a cluster at any time and new data is stored in shared Log Analytics clusters. The link and unlink operation doesn’t affect your queries and the access to data before and after the operation with subjection to retention in workspaces. The Cluster and workspaces must be in the same region to allow linking.
 
