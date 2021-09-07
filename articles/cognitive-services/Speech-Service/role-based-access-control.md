@@ -1,7 +1,7 @@
 ---
 title: Role-based access control in Speech Studio - Speech service
 titleSuffix: Azure Cognitive Services
-description: 
+description: Learn how to assign access roles to the Speech service through Speech Studio.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
