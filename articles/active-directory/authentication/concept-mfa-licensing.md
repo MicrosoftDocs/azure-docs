@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/03/2021
+ms.date: 09/07/2021
 
 ms.author: justinha
 author: justinha
@@ -54,25 +54,26 @@ The following table provides a list of the features that are available in the va
 | Remember MFA for trusted devices | | ● | ● | ● |
 | MFA for on-premises applications | | | | ● |
 
-## Compare configuration options
+## Compare multi-factor authentication policies
 
-The following table compares which features are available for different MFA configuration methods.
+The following table provides license considerations for different MFA policies.
 
-| Feature | Security defaults | Conditional Access | Per-user MFA |
+| Policy | Security defaults | Conditional Access | Per-user MFA |
 | --- |:---:|:---:|:---:|
 | **Management** | | | |
 | Standard set of security rules to keep your company safe | ● |  |  |
 | One-click on/off | ● |  |  |
-| Included in Office 365 licensing | ● |  | ● |
-| Pre-configured templates in wizard | | ● |  |
+| Included in Office 365 licensing (See [license considerations](#available-versions-of-azure-ad-multi-factor-authentication)) | ● |  | ● |
+| Pre-configured templates in Microsoft 365 Admin Center wizard | ● | ● |  |
 | Configuration flexibility | | ● |  |
 | **Functionality** | | |
-| Exempt users | | ● | ● |
-| Authenticate by phone call, SMS, or email | ● | ● | ● |
-| Authenticate by Microsoft Authenticator | ● | ● | ● |
+| Exempt users from the policy | | ● | ● |
+| Authenticate by phone call or SMS | | ● | ● |
+| Authenticate by Microsoft Authenticator and Software tokens | ● | ● | ● |
+| Authenticate by FIDO2, Windows Hello for Business, and Hardware tokens | | ● | ● |
 | Blocks legacy authentication protocols | ● | ● | ● |
-| New employees are automatically protected | | ● | |
-| Dynamic MFA triggers based on risk events | ● | ● |  |
+| New employees are automatically protected | ● | ● | |
+| Dynamic MFA triggers based on risk events | | ● |  |
 | Authentication and authorization policies | | ● | |
 | Configurable based on location and device state | | ● | |
 | Support for "report only" mode | | ● | |
