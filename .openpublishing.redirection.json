@@ -56827,6 +56827,41 @@
       "source_path_from_root": "/articles/virtual-network/routing-preference-unmetered.md",
       "redirect_url": "/azure/virtual-network/ip-services/routing-preference-unmetered",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/public-ip-upgrade-portal.md",
+      "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/public-ip-upgrade-powershell.md",
+      "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/public-ip-upgrade-cli.md",
+      "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/public-ip-upgrade-classic.md",
+      "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/routing-preference-portal.md",
+      "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/routing-preference-powershell.md",
+      "redirect_url": "/azure/virtual-network/ip-services/routing-preference-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/routing-preference-cli.md",
+      "redirect_url": "/azure/virtual-network/ip-services/routing-preference-cli",
+      "redirect_document_id": false
     }
   ]
 }
