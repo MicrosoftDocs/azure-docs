@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Support 
+title: Azure Functions Availability Zone Support 
 description: Learn how to use Availability Zone Redundancy with Azure Functions for high-availability Function Applications. 
 ms.topic: conceptual
 ms.author: johnguo
