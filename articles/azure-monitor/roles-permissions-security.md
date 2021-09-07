@@ -159,8 +159,8 @@ A similar pattern can be followed with event hubs, but first you need to create 
    $role.Name = "Monitoring Event Hub Listener"
    $role.Description = "Can get the key to listen to an event hub streaming monitoring data."
    $role.Actions.Clear()
-   $role.Actions.Add("Microsoft.ServiceBus/namespaces/authorizationrules/listkeys/action")
-   $role.Actions.Add("Microsoft.ServiceBus/namespaces/Read")
+   $role.Actions.Add("Microsoft.EventHub/namespaces/authorizationrules/listkeys/action")
+   $role.Actions.Add("Microsoft.EventHub/namespaces/Read")
    $role.AssignableScopes.Clear()
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
    New-AzRoleDefinition -Role $role 
