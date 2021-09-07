@@ -147,15 +147,27 @@ In this wizard step, configure an indexer that will pull together the data sourc
 
 1. For **Schedule**, keep the default **Once**.
 
-1. Click **Submit** to run the indexer. Data extraction, indexing, application of cognitive skills all happen in this step.
+1. Select **Submit** to run the indexer. Data extraction, indexing, application of cognitive skills all happen in this step.
 
-## Check indexer status
+## Check status
 
 In the **Overview** page, open the **Indexers** tab in the middle of the page, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
-## Check tables in Azure Storage
+## Check tables in Storage Explorer
 
 In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
+
++ The document table contains all of the first-level nodes of a document's enrichment tree.
+
++ A pages table (or sentences table) is created if you specify "pages" or "sentences" level of granularity. Skills that execute at the pages or sentence level will have output projected to this table.
+
++ Skills that output collections (arrays), such as key phrases and entities, will have output in a standalone table.
+
+All tables within the same projection group contain cross-reference information to support table relationships in other tools and apps.
+
+In this quickstart, your table should look similar to the following screenshot:
+
+   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Screenshot of the generated tables in Storage Explorer" border="true":::
 
 Each table is generated with the IDs necessary for cross-linking the tables in queries. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 
@@ -164,10 +176,6 @@ Each table is generated with the IDs necessary for cross-linking the tables in q
 | hotelReviewssDocument | Contains fields carried forward from the CSV, such as reviews_date and reviews_text. |
 | hotelReviewssPages | Contains enriched fields created by the skillset, such as sentiment label and translated text. |
 | hotelReviewssKeyPhrases | Contains a long list of just the key phrases. |
-
-Your table should look similar to the following screenshot:
-
-   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Screenshot of the generated tables in Storage Explorer" border="true":::
 
 ## Clean up
 
