@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 08/17/2021
+ms.date: 09/03/2021
 ms.author: alkohli
 ---
 
@@ -75,14 +75,20 @@ For these versions of software, you must first install certificates on the host 
 Follow these steps if you'll use the default certificates (shipped with the device) on Data Box.
 
 1. In the Azure portal, go to your Data Box order resource. Go to **General > Device details**. On the **API access to the device** tab, select **Download**.
-1. Copy the certificate to the host connecting to your Data Box. If using a Windows host, open Explorer. Right-click the certificate file that you downloaded earlier and select **Install certificate**. 
-1. Complete the installation steps through the **Certificate Import Wizard**. For detailed steps, see [Download and import certificates](data-box-bring-your-own-certificates.md#import-certificates-to-client). 
+
+    ![Download certificate for Data Box in the Azure portal](media/data-box-connect-powershell-interface/download-certificate-data-box-portal.png)
+
+1. Copy the certificate to the host connecting to your Data Box. If using a Windows host, open Explorer. Right-click the certificate file that you copied to the host and select **Install certificate**. 
+
+1. Complete the installation steps through the **Certificate Import Wizard**. For detailed steps, see [Import certificate to the client](data-box-bring-your-own-certificates.md#import-certificates-to-client). 
+
 1. Add an entry to host file that maps the device IP address to the FQDN of the device. The format of the entry would be: 
 
     `<Device IP address>  <Device serial number>.microsoftdatabox.com`
 
-    Get the device serial number from the **Device details** blade in the Azure portal. 
+    Get the device serial number from **Device credentials > GUI access to device** in the right-pane of the **Device details** blade in the Azure portal. 
 
+    ![Get Data Box serial number in the Azure portal](media/data-box-connect-powershell-interface/download-certificate-data-box-portal.png)
  
 
 #### Use your own certificates 
@@ -96,7 +102,7 @@ Follow these steps if you'll bring your own certificates on Data Box.
     `<Device IP address>  <Name>.<DNS domain>` 
 
     To get the **Name** and **DNS domain** for your device, in the local UI, go to the **Certificates** page. 
-1. To upload the certificates, in the local UI, go to the **Certificates** page. Select **+ Add certificates** and provide your certificate.
+1. To upload the certificates, in the local UI, go to the **Certificates** page. Select **+ Add certificates** and provide your certificate. See [Upload certificates]().
  
 
 ### Step 2: Connect to the PowerShell interface
@@ -122,9 +128,23 @@ Follow these steps if you'll bring your own certificates on Data Box.
 1. Establish the connection.
 
     ```powershell
-    Enter-PSSession -Computer <IPv4_address of Data Box> -ConfigurationName Minishell -Credential $Cred -UseSSL  
+    Enter-PSSession -Computer <<Name>.<DNS domain>> -ConfigurationName Minishell -Credential $Cred -UseSSL  
     ```
+    Here is an example output:
 
+    ```powershell
+    PS C:\Users\Administrator> winrm quickconfig
+    WinRM service is already running on this machine.
+    WinRM is already set up for remote management on this computer.
+    PS C:\Users\Administrator> $Name = "by506b4b5d0790.microsoftdatabox.com"
+    PS C:\Users\Administrator> Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
+    PS C:\Users\Administrator> Enter-PSSession -ComputerName $Name -Credential ~\StorSimpleAdmin -ConfigurationName Minishell -UseSSL
+    WARNING: Please engage Microsoft Support if you need to access this interface
+    to troubleshoot any potential issues you may be experiencing.
+    Changes made through this interface without involving Microsoft
+    Support could result in an unsupported configuration.
+    [by506b4b5d0790.microsoftdatabox.com]: PS>
+    ```
 
 #### Skip certificate validation
 

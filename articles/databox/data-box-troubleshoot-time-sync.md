@@ -7,23 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/16/2021
+ms.date: 09/03/2021
 ms.author: alkohli
 ---
 
 # Troubleshoot time sync issues for Azure Data Box and Azure Data Box Heavy devices
 
-This article describes how to diagnose that your Data Box is out of sync and then change the time on your Data Box device. The information in this article applies to both Data Box and Data Box Heavy devices.
-
-> [!NOTE]
-> The information in this article applies to import orders only. <!-- verify this is actually the case-->
+This article describes how to diagnose that your Data Box is out of sync and then change the time on your Data Box device. The information in this article applies to import as well as export orders on both Data Box and Data Box Heavy devices.
 
 
 ## About synchronizing device time
 
 Data Box automatically synchronizes time when it is connected to the internet using the default Windows time server `time.windows.com`. However, if Data Box is not connected to the internet, the device time may be out of sync. This situation may affect the data copy from the source data to Data Box specifically if the copy is via the REST API or certain tools that have time constraints. 
 
-If you see any time difference between the time on Data Box and other local devices on your site, you can sync the time on your Data Box by accessing its PowerShell interface. 
+If you see any time difference between the time on Data Box and other local devices on your site, you can sync the time on your Data Box by accessing its PowerShell interface. The Set-Date API is used to modify the device time. 
 
 
 ## Connect to the PowerShell interface
@@ -43,22 +40,36 @@ To change the device time, follow these steps.
 
 1. Use the Set-Date cmdlet to change the time on your Data Box.
 
-    ```powershell
-    Set-Date -Adjust <time change in hours:mins:secs format> -DisplayHint Time
-    ```
+    - Set the time forward by 2 minutes.
+    
+        ```powershell
+        Set-Date -Adjust <time change in hours:mins:secs format> -DisplayHint Time
+        ```
+    - Set the time back by 2 minutes.
+
+        ```powershell
+        Set-Date -Adjust -<time change in hours:mins:secs format> -DisplayHint Time
+        ```    
 
     Here is an example output:
     
     ```powershell
-    PS C:\WINDOWS\system32> Get-Date
-    Wednesday, August 18, 2021 4:32:42 PM
-    PS C:\WINDOWS\system32> Set-Date -Adjust 0:2:0 -DisplayHint Time
-    4:35:09 PM
-    PS C:\WINDOWS\system32>
+    [by506b4b5d0790.microsoftdatabox.com]: PS>Get-date
+    Friday, September 3, 2021 2:22:50 PM
+    [by506b4b5d0790.microsoftdatabox.com]: PS>Set-Date -Adjust 00:02:00 -DisplayHint Time
+    2:25:18 PM
+    [by506b4b5d0790.microsoftdatabox.com]: PS>Set-Date -Adjust -00:02:00 -DisplayHint Time
+    2:23:28 PM
+    [by506b4b5d0790.microsoftdatabox.com]: PS>Get-date
+    Friday, September 3, 2021 2:23:42 PM
+    [by506b4b5d0790.microsoftdatabox.com]: PS>
     ```
-
+    For more information, see [Set-Date API](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/set-date?view=powershell-7.1).
 
 ## Next steps
 
-- [Review common REST API errors](/rest/api/storageservices/common-rest-api-error-codes).
-- [Verify a data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8)
+To troubleshoot other Data Box issues, see one of the following:
+
+- [Troubleshoot Data Box Blob storage errors](data-box-troubleshoot-rest.md).
+- [Troubleshoot Data Box data copy errors](data-box-troubleshoot.md).
+- [Troubleshoot Data Box data upload errors](data-box-troubleshoot-data-upload.md).
