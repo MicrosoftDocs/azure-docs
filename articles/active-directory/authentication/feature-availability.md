@@ -58,7 +58,7 @@ Authentication, single sign-on and multifactor authentication (MFA)
 | Application launch portal (My Apps) | ● | 
 | User application collections in My Apps | ● |
 | Self-service account management portal (My Account) | ● |
-| Self-service password change for cloud users |  ● |
+| Self-service password change for cloud users |  AGC: Only alternate email and security questions will be available for password reset as SMS/Voice/Push notification options aren't available in MFA |
 | Self-service password reset/change/unlock with on-premises write-back | ● |
 | Self-service sign-in activity search and reporting |  ● |
 | Self-service group management (My Groups) |  ● |
