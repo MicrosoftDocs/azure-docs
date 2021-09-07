@@ -72,7 +72,7 @@ You can upload an on-premises virtual hard disk (VHD) file to Azure and use it t
 
 1. The status of the upload will now display in **Activities**.
 
-    [![Screenshot of Azure Storage Explorer highlighting the location of the Activities pane with upload status messages.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-lrg.png#lightbox)
+    [![Screenshot of Azure Storage Explorer highlighting the location of the Activities pane containing upload status messages.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-lrg.png#lightbox)
 
 If the upload has finished and you don't see the disk in the **Activities** pane, select **Refresh**.
 
