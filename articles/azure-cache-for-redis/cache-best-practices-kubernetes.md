@@ -24,3 +24,5 @@ Ensure that the Kubernetes node that hosts the pod connecting to Redis server ha
 ## Noisy neighbor problem
 
 Beware of the *noisy neighbor* problem. A pod running the client can be affected by other pods running on the same node and throttle Redis connections or IO operations.
+
+## Next steps

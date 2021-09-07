@@ -61,3 +61,5 @@ Apply design patterns for resiliency. For more information, see [How do I make m
 ## Idle timeout
 
 Azure Cache for Redis currently has a 10-minute idle timeout for connections, so the idle timeout setting in your client application should be less than 10 minutes. Most common client libraries have a configuration setting that allows client libraries to send Redis `PING` commands to a Redis server automatically and periodically. However, when using client libraries without this type of setting, customer applications themselves are responsible for keeping the connection alive.
+
+## Next steps

@@ -52,3 +52,5 @@ Pipelined GET requests with 1k payload:
 ```dos
 redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
 ```
+
+## Next steps
