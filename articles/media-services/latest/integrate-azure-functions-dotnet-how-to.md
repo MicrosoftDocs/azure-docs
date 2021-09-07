@@ -617,7 +617,7 @@ JSON input body example :
 
 The function should return 200 OK with a output body containing the job and output asset names.
 
-![Postman](./Media/integrate-azure-functions-dotnet-how-to/postman.png)
+![Test the function with Postman](./Media/integrate-azure-functions-dotnet-how-to/postman.png)
 
 ## Next steps
 
