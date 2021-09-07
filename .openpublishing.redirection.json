@@ -56897,6 +56897,31 @@
       "source_path_from_root": "/articles/virtual-network/create-public-ip-prefix-cli.md",
       "redirect_url": "/azure/virtual-network/ip-services/create-public-ip-prefix-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-routing-preference-virtual-machine-portal.md",
+      "redirect_url": "/azure/virtual-network/ip-services/tutorial-routing-preference-virtual-machine-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/configure-routing-preference-virtual-machine-powershell.md",
+      "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/configure-routing-preference-virtual-machine-cli.md",
+      "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/routing-preference-mixed-network-adapter-portal.md",
+      "redirect_url": "/azure/virtual-network/ip-services/routing-preference-mixed-network-adapter-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/routing-preference-azure-kubernetes-service-cli.md",
+      "redirect_url": "/azure/virtual-network/ip-services/routing-preference-azure-kubernetes-service-cli",
+      "redirect_document_id": false
     }
   ]
 }
