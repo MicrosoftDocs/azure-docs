@@ -15,7 +15,7 @@ ms.author: allensu
 
 This article shows how to create a public IP address resource using the Azure portal. 
 
-For more information on resources this public IP can be associated to and the difference between the basic and standard SKUs, see [Public IP addresses](./public-ip-addresses.md). 
+For more information on resources this public IP can be associated to and the difference between the basic and standard SKUs, see [Public IP addresses](public-ip-addresses.md). 
 
 ## Create a standard SKU public IP address
 
@@ -54,7 +54,7 @@ Use the following steps to create a standard public IPv4 address named **myStand
 :::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Create standard IP address in Azure portal" border="false":::
 
 > [!NOTE]
-> In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+> In regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../../availability-zones/az-overview.md).
 
 > [!NOTE]
 > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
@@ -102,7 +102,7 @@ By default, the routing preference for public IP addresses is set to "Microsoft 
 
 The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate.  
 
-For more information on routing preference, see [What is routing preference (preview)?](./routing-preference-overview.md).
+For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md).
 
 :::image type="content" source="./media/create-public-ip-portal/routing-preference.png" alt-text="Configure routing preference in the Azure portal" border="false":::
 
@@ -110,15 +110,15 @@ For more information on routing preference, see [What is routing preference (pre
 
 Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions. **Global** tier is required for the frontends of cross-region load balancers.  
 
-For more information, see [Cross-region load balancer](../load-balancer/cross-region-overview.md).
+For more information, see [Cross-region load balancer](../../load-balancer/cross-region-overview.md).
 
 :::image type="content" source="./media/create-public-ip-portal/tier.png" alt-text="Configure tier in the Azure portal" border="false":::
 
 ## Additional information 
 
-For more information on the individual fields listed above, see [Manage public IP addresses](./virtual-network-public-ip-address.md#create-a-public-ip-address).
+For more information on the individual fields listed above, see [Manage public IP addresses](virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## Next steps
-- Associate a [public IP address to a Virtual Machine](./associate-public-ip-address-vm.md#azure-portal)
-- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
+- Associate a [public IP address to a Virtual Machine](../../virtual-network/associate-public-ip-address-vm.md#azure-portal)
+- Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
