@@ -113,7 +113,7 @@
     items:  
     - name: Deploy to an IoT Edge device
       href: edge/deploy-iot-edge-device.md
-    - name: Deploy to a Windows devide
+    - name: Deploy to a Windows device
       href: edge/deploy-iot-edge-linux-on-windows.md
     - name: Deploy on Azure Stack Edge
       href: edge/deploy-on-stack-edge.md
