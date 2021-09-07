@@ -39,6 +39,9 @@ Once the infrastructure is prepared, deploy Azure Arc-enabled data services in t
 1. Create an Azure Arc-enabled data controller on one of the validated distributions of a Kubernetes cluster
 1. Create an Azure Arc-enabled SQL managed instance and/or an Azure Arc-enabled PostgreSQL Hyperscale server group.
 
+> [!CAUTION]
+> Some of the data services tiers and modes are [generally available](release-notes.md) and some are in preview. We recommend that you don't mix GA and preview services on the same data controller. If you mix GA and preview services on the same data controller, you can't upgrade in place. In that scenario, when you want to upgrade, you must remove and re-create the data controller and data services.
+
 ## Overview: Create the Azure Arc-enabled data controller
 
 You can create Azure Arc-enabled data services on multiple different types of Kubernetes clusters and managed Kubernetes services using multiple different approaches.
