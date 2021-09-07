@@ -15,8 +15,6 @@ ms.date: 09/02/2021
 
 [Knowledge store](knowledge-store-concept-intro.md) is a feature of Azure Cognitive Search that sends output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) to Azure Storage. Enrichments created by the pipeline - such as translated text, OCR text, recognized entities, and other enrichments - are projected into tables or blobs, where they can be accessed by any app or workload that connects to Azure Storage.
 
-<!-- An enrichment pipeline accepts unstructured text and image content, applies AI-powered processing by Cognitive Services, and outputs new structures and information that didn't previously exist. One of the physical data structures created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through any tool, app, or process that connects to Azure Storage. -->
-
 In this quickstart, you'll set up your data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
 
 > [!NOTE]
@@ -157,13 +155,13 @@ In the **Overview** page, open the **Indexers** tab in the middle of the page, a
 
 In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
 
-+ `hotelReviewssDocument` contains all of the first-level nodes of a document's enrichment tree that are strings or numbers.
++ `hotelReviewssDocument` contains all of the first-level nodes of a document's enrichment tree that are not collections.
 
-+ `hotelReviewssPages` contains enriched fields created over each page that was split from the document. Page-level enrichments consist of a sentiment label and translated text. A pages table (or a sentences table if your specify that level of granularity) is created if you specify "pages" granularity in the skillset definition. Skills that execute at the pages or sentence level will have output projected to this table.
++ `hotelReviewssPages` contains enriched fields created over each page that was split from the document. Page-level enrichments consist of a sentiment label and translated text. A pages table (or a sentences table if your specify that particular level of granularity) is created when you choose "pages" granularity in the skillset definition. Skills that execute at the pages or sentence level will have output projected to this table.
 
 + `hotelReviewssKeyPhrases` contains a long list of just the key phrases extracted from all reviews. Skills that output collections (arrays), such as key phrases and entities, will have output sent to a standalone table.
 
-All of these tables contain cross-reference information (IDs) to support table relationships in other tools and apps. When you open a table, scroll past these fields to view the content fields added by the pipeline.
+All of these tables contain ID columns to support table relationships in other tools and apps. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 
 In this quickstart, your table should look similar to the following screenshot:
 
