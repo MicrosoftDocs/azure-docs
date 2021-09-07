@@ -157,17 +157,17 @@ The previous examples simply get the recognized text from `result.text`, but to 
 
 ```javascript
 switch (result.reason) {
-    case ResultReason.RecognizedSpeech:
+    case sdk.ResultReason.RecognizedSpeech:
         console.log(`RECOGNIZED: Text=${result.text}`);
         break;
-    case ResultReason.NoMatch:
+    case sdk.ResultReason.NoMatch:
         console.log("NOMATCH: Speech could not be recognized.");
         break;
-    case ResultReason.Canceled:
+    case sdk.ResultReason.Canceled:
         const cancellation = CancellationDetails.fromResult(result);
         console.log(`CANCELED: Reason=${cancellation.reason}`);
 
-        if (cancellation.reason == CancellationReason.Error) {
+        if (cancellation.reason == sdk.CancellationReason.Error) {
             console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
             console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
             console.log("CANCELED: Did you update the subscription info?");
@@ -201,10 +201,10 @@ recognizer.recognizing = (s, e) => {
 };
 
 recognizer.recognized = (s, e) => {
-    if (e.result.reason == ResultReason.RecognizedSpeech) {
+    if (e.result.reason == sdk.ResultReason.RecognizedSpeech) {
         console.log(`RECOGNIZED: Text=${e.result.text}`);
     }
-    else if (e.result.reason == ResultReason.NoMatch) {
+    else if (e.result.reason == sdk.ResultReason.NoMatch) {
         console.log("NOMATCH: Speech could not be recognized.");
     }
 };
@@ -212,7 +212,7 @@ recognizer.recognized = (s, e) => {
 recognizer.canceled = (s, e) => {
     console.log(`CANCELED: Reason=${e.reason}`);
 
-    if (e.reason == CancellationReason.Error) {
+    if (e.reason == sdk.CancellationReason.Error) {
         console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
         console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
         console.log("CANCELED: Did you update the subscription info?");
