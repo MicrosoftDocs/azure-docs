@@ -142,7 +142,7 @@ Follow these steps to enable Azure AD SSO in WEDO.
 
    c. Open the downloaded **Federation Metadata XML** from Azure portal into Notepad and copy the content of metadata XML and paste it into **X.509 Certificate** textbox.
 
-   d. Click on **Save**
+   d. Click **Save**.
 
 ### Create WEDO test user
 
