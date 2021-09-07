@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and configure a Route S
 services: route-server
 author: duongau
 ms.author: duau
-ms.date: 8/23/2021
+ms.date: 09/01/2021
 ms.topic: quickstart
 ms.service: route-server
 ms.custom: devx-track-azurepowershell
@@ -16,11 +16,6 @@ ms.custom: devx-track-azurepowershell
 This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server will learn routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." border="false":::
-
-> [!IMPORTANT]
-> Azure Route Server (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -92,7 +87,7 @@ $virtualnetwork | Set-AzVirtualNetwork
 
     ```azurepowershell-interactive
     $rs = @{
-        RouterServerName = 'myRouteServer'
+        RouteServerName = 'myRouteServer'
         ResourceGroupName = 'myRouteServerRG'
         Location = 'WestUS'
         HostedSubnet = $subnetConfig.Id
@@ -103,7 +98,7 @@ $virtualnetwork | Set-AzVirtualNetwork
 
 ## Create BGP peering with an NVA
 
-To establish BGP peering from the Route Server to your NVA use [New-AzRouteServerPeer](/powershell/module/az.network/new-azrouteserverpeer):
+To establish BGP peering from the Route Server to your NVA use [Add-AzRouteServerPeer](/powershell/module/az.network/add-azrouteserverpeer):
 
 The “your_nva_ip” is the virtual network IP assigned to the NVA. The “your_nva_asn” is the Autonomous System Number (ASN) configured in the NVA. The ASN can be any 16-bit number other than the ones in the range of 65515-65520. This range of ASNs are reserved by Microsoft.
 

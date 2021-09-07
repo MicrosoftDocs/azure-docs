@@ -66,7 +66,7 @@ When the copy activity performance doesn't meet your expectation, to troubleshoo
 
     - Check whether you can [copy files based on datetime partitioned file path or name](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Such way doesn't bring burden on listing source side.
 
-    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob/Azure File Storage and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
+    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob storage/Azure Files and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
 
     - Consider to split single large data set into several smaller data sets, and let those copy jobs run concurrently each tackles portion of data. You can do this with Lookup/GetMetadata + ForEach + Copy. Refer to [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md) or [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md) solution templates as general example.
 
@@ -120,7 +120,7 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
     - Check whether you can [copy files based on datetime partitioned file path or name](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Such way doesn't bring burden on listing source side.
 
-    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob/Azure File Storage and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
+    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob storage/Azure Files and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
 
     - Consider to split single large data set into several smaller data sets, and let those copy jobs run concurrently each tackles portion of data. You can do this with Lookup/GetMetadata + ForEach + Copy. Refer to [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md) or [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md) solution templates as general example.
 

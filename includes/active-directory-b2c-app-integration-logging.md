@@ -9,16 +9,13 @@ ms.author: mimart
 ---
 ## Configure logging
 
-The MSAL library generates log messages that can help you diagnose issues. The app can configure logging, and it can give you custom control over the level of detail and whether personal and organizational data is logged. 
+The MSAL library generates log messages that can help diagnose problems. The app can configure logging. The app can also give you custom control over the level of detail and whether personal and organizational data is logged. 
 
-We recommend that you create an MSAL logging callback and provide a way for users to submit logs when they have authentication issues. MSAL provides several levels of logging detail:
+We recommend that you create an MSAL logging callback and provide a way for users to submit logs when they have authentication problems. MSAL provides these levels of logging detail:
 
-- Error: Indicates something has gone wrong and an error was generated. Used for debugging and identifying problems.
-- Warning: There hasn't necessarily been an error or failure, but it's intended for diagnostics and to help pinpoint problems.
-- Info: MSAL logs events that are intended for informational purposes, and not necessarily for debugging.
-- Verbose: Default. MSAL logs the full details of library behavior.
+- **Error**: Something has gone wrong, and an error was generated. This level is used for debugging and identifying problems.
+- **Warning**: There hasn't necessarily been an error or failure, but the information is intended for diagnostics and pinpointing problems.
+- **Info**: MSAL logs events that are intended for informational purposes and not necessarily for debugging.
+- **Verbose**: This is the default level. MSAL logs the full details of library behavior.
 
-By default, the MSAL logger doesn't capture any personal or organizational data. The library gives you the option to enable logging personal and organizational data if you decide to do so.
-
-
-
+By default, the MSAL logger doesn't capture any personal or organizational data. The library gives you the option to enable logging of personal and organizational data if you decide to do so.

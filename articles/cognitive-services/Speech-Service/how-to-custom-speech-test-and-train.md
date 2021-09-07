@@ -3,13 +3,13 @@ title: "Prepare data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them."
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: lajanuar
+ms.author: pafarley
 ---
 
 # Prepare data for Custom Speech
@@ -144,6 +144,7 @@ Additionally, you'll want to account for the following restrictions:
 * Avoid repeating characters, words, or groups of words more than three times. For example: "aaaa", "yeah yeah yeah yeah", or "that's it that's it that's it that's it". The Speech service might drop lines with too many repetitions.
 * Don't use special characters or UTF-8 characters above `U+00A1`.
 * URIs will be rejected.
+* For some languages (for example Japanese or Korean), importing large amounts of text data can take very long or time out. Please consider to divide the uploaded data into text files of up to 20.000 lines each.
 
 ## Pronunciation data for training
 

@@ -21,4 +21,7 @@ Follow the tutorials listed below to start building your own application.
 > [Tutorial: Build serverless chat with Azure Functions and Web PubSub](./../quickstart-serverless.md)
 
 > [!div class="nextstepaction"]
+> [Play with Live Demos](https://aka.ms/awps/livedemos)
+
+> [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://aka.ms/awps/samples)

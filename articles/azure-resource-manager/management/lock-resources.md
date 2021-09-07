@@ -231,7 +231,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 
 When applying a lock to a **resource** within the resource group, add the scope property. Set scope to the name of the resource to lock.
 
-The following example shows a template that creates an app service plan, a website, and a lock on the website. The scope of the lock is set to the website.
+The following [example](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/lock.json) shows a template that creates an app service plan, a website, and a lock on the website. The scope of the lock is set to the website.
 
 # [JSON](#tab/json)
 

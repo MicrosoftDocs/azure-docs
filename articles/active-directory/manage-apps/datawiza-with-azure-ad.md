@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 8/30/2021
+ms.date: 8/27/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -82,22 +82,22 @@ Instead, if you want to use an existing web application in your Azure AD tenant,
 integration](https://docs.datawiza.com/step-by-step/step3.html). [Deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html). A sample docker image `docker-compose.yml` file is provided for you to download and use. [Log in to the container registry](https://docs.datawiza.com/step-by-step/step3.html#important-step) to download the images of DAB and the header-based application.
 
     ```YML
-    services:\
-      datawiza-access-broker:\
-      image: registry.gitlab.com/datawiza/access-broker\
-      container\_name: datawiza-access-broker\
-      restart: always\
-      ports:\
-      - \"9772:9772\"\
-      environment:\
-      PROVISIONING\_KEY: \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
-      PROVISIONING\_SECRET: \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
-      \
-      header-based-app:\
-      image: registry.gitlab.com/datawiza/header-based-app\
-      restart: always\
-     ports:\
-     - \"3001:3001\"
+    services:
+      datawiza-access-broker:
+      image: registry.gitlab.com/datawiza/access-broker
+      container_name: datawiza-access-broker
+      restart: always
+      ports:
+      - "9772:9772"
+      environment:
+      PROVISIONING_KEY: #############################################
+      PROVISIONING_SECRET: ##############################################
+      
+      header-based-app:
+      image: registry.gitlab.com/datawiza/header-based-app
+      restart: always
+     ports:
+     - "3001:3001"
    ```
 
 2. After executing `docker-compose -f docker-compose.yml up`, the

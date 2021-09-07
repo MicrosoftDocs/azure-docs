@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 08/30/2021
 ms.author: chez
 author: chez-charlie
 ---
@@ -35,6 +35,31 @@ Currently, Marketo instance which is integrated with external CRM is not support
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Marketo using UI
+
+Use the following steps to create a linked service to Marketo in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Marketo and select the Marketo connector.
+
+   :::image type="content" source="media/connector-marketo/marketo-connector.png" alt-text="Screenshot of the Marketo connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-marketo/configure-marketo-linked-service.png" alt-text="Screenshot of linked service configuration for Marketo.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Marketo connector.
 

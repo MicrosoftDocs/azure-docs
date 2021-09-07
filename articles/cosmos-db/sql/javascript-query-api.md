@@ -27,7 +27,7 @@ In addition to issuing queries using the SQL API in Azure Cosmos DB, the [Cosmos
 |`pluck([propertyName] [, options] [, callback])`|This function is a shortcut for a map that extracts the value of a single property from each input item.|
 |`sortBy([predicate] [, options] [, callback])`|Produces a new set of documents by sorting the documents in the input document stream in ascending order by using the given predicate. This function behaves similar to an ORDER BY clause in SQL.|
 |`sortByDescending([predicate] [, options] [, callback])`|Produces a new set of documents by sorting the documents in the input document stream in descending order using the given predicate. This function behaves similar to an ORDER BY x DESC clause in SQL.|
-|`unwind(collectionSelector, [resultSelector], [options], [callback])`|Performs a self-join with inner array and adds results from both sides as tuples to the result projection. For instance, joining a person document with person.pets would produce [person, pet] tuples. This is similar to SelectMany in .NET LINK.|
+|`unwind(collectionSelector, [resultSelector], [options], [callback])`|Performs a self-join with inner array and adds results from both sides as tuples to the result projection. For instance, joining a person document with person.pets would produce [person, pet] tuples. This is similar to SelectMany in .NET LINQ.|
 
 When included inside predicate and/or selector functions, the following JavaScript constructs get automatically optimized to run directly on Azure Cosmos DB indices:
 
