@@ -18,7 +18,7 @@
         items:
         - name: Using ARM template
           href: edge/get-started-detect-motion-emit-events.md
-        - name: Using Portal
+        - name: Using portal
           href: edge/get-started-detect-motion-emit-events-portal.md
       - name: Detect motion and emit events    
         href: edge/detect-motion-emit-events-quickstart.md
