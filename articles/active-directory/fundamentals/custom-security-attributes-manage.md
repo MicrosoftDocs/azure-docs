@@ -85,9 +85,12 @@ The following table lists which roles to assign and the scope to read, manage, a
     - Attribute Definition Administrator
     - Attribute Definition Reader
 
-> [!NOTE]
-> Users with attribute set-level role assignments currently can see other attribute sets and custom security attribute definitions.
-
+    > [!NOTE]
+    > If you are using Azure AD Privileged Identity Management (PIM), eligible role assignments at attribute set scope currently aren't supported. Permanent role assignments at attribute set scope are supported, but the **Assigned roles** page for a user doesn't list the role assignments.
+    
+    > [!NOTE]
+    > Users with attribute set-level role assignments currently can see other attribute sets and custom security attribute definitions.
+    
 ## Grant access at the tenant scope
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
