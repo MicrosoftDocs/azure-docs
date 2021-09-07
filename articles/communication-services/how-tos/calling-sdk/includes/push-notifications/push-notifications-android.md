@@ -13,8 +13,6 @@ A set of permissions is required for the Android application in order to be able
 <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 ```
 
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
-
 ## Overview
 Mobile push notifications are the pop-up notifications you see on mobile devices. For calling, we'll be focusing on VoIP (Voice over Internet Protocol) push notifications. We'll register for push notifications, handle push notifications, and then un-register push notifications.
 
