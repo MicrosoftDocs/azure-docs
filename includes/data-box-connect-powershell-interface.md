@@ -102,16 +102,23 @@ Follow these steps if you'll bring your own certificates on Data Box.
     `<Device IP address>  <Name>.<DNS domain>` 
 
     To get the **Name** and **DNS domain** for your device, in the local UI, go to the **Certificates** page. 
-1. To upload the certificates, in the local UI, go to the **Certificates** page. Select **+ Add certificates** and provide your certificate. See [Upload certificates]().
+1. To upload the certificates, in the local UI, go to the **Certificates** page. Select **+ Add certificates** and provide your certificate. See [Upload certificates](../articles/databox/data-box-bring-your-own-certificates.md#add-certificates-to-device).
  
 
 ### Step 2: Connect to the PowerShell interface
 
 
+1. Set `$Name` parameter.
+
+    ```powershell
+    $Name = <Name>.<DNS domain>
+    ```
+    Provide the **Name** and **DNS domain** for your device from the earlier steps.
+
 1. Add your Data Box to the `TrustedHosts` list using the IP address. Type:
  
     ```powershell
-    Set-Item wsman:\localhost\Client\TrustedHosts <IPv4_address for your Data Box> 
+    Set-Item wsman:\localhost\Client\TrustedHosts $Name 
     ```
 
 1. Get password for local UI from the Azure portal. Create a secure string containing the password.
@@ -119,16 +126,16 @@ Follow these steps if you'll bring your own certificates on Data Box.
     ```powershell
     $Pwd = ConvertTo-SecureString <Password from Azure portal> -AsPlainText -Force 
     ```
-1. Create a credential parameter and pass in the username as a string and have an interactive prompt for the password.
+<!--
 
     ```powershell
     $Cred = New-Object System.Management.Automation.PSCredential("<ipv4_address of databox>\StorSimpleAdmin",$Pwd) 
-    ```
+    ```-->
 
 1. Establish the connection.
 
     ```powershell
-    Enter-PSSession -Computer <<Name>.<DNS domain>> -ConfigurationName Minishell -Credential $Cred -UseSSL  
+    Enter-PSSession -ComputerName $Name -ConfigurationName Minishell -Credential ~\StorSimpleAdmin -UseSSL  
     ```
     Here is an example output:
 
@@ -148,8 +155,16 @@ Follow these steps if you'll bring your own certificates on Data Box.
 
 #### Skip certificate validation
 
-To skip certificate installation, you'll need to skip certificate validation as well. Follow these steps to skip certificate validation:
+If you are not using the certificates (we recommend that you use the certificates!), you can skip the certificate validation check by using the session options: `-SkipCACheck -SkipCNCheck -SkipRevocationCheck`.
 
+Follow these steps to skip certificate validation:
+
+1. Set `$Name` parameter.
+
+    ```powershell
+    $Name = <Name>.<DNS domain>
+    ```
+ 
 1. Use session options when opening a PowerShell session.
 
     ```powershell
@@ -158,7 +173,7 @@ To skip certificate installation, you'll need to skip certificate validation as 
 1. Establish the connection.
 
     ```powershell
-    Enter-PSSession -Computer <IPv4_address of Data Box> -ConfigurationName Minishell -Credential $Cred -UseSSL -SessionOption $sessOptions 
+    Enter-PSSession -ComputerName $Name -ConfigurationName Minishell -Credential ~\StorSimpleAdmin -UseSSL -SessionOption $sessOptions 
     ```
 
 
