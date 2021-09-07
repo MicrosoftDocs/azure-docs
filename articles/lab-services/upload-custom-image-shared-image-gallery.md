@@ -90,4 +90,4 @@ To help with resizing the VHD and converting to a VHDX, you can also use the fol
 
 - [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
 - [Attach or detach a shared image gallery](how-to-attach-detach-shared-image-gallery.md)
-- [How to use a shared image gallery](how-to-use-shared-image-gallery.md
+- [How to use a shared image gallery](how-to-use-shared-image-gallery.md)
