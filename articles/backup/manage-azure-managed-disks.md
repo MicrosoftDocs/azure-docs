@@ -3,7 +3,6 @@ title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: conceptual
 ms.date: 09/06/2021
-ms.custom: references_regions , devx-track-azurecli
 ---
 
 # Manage Azure Managed Disks
@@ -29,14 +28,14 @@ There are three ways by which you can stop protecting an Azure Disk:
 
 1. Select **Stop Backup (Preview)**.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop.png" alt-text="Screenshot showing the selection of the Azure disk backup instance to be stopped.":::
+   :::image type="content" source="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-inline.png" alt-text="Screenshot showing the selection of the Azure disk backup instance to be stopped." lightbox="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-expanded.png":::
  
 1. Select one of the following data retention options:
 
    1. Retain forever
    1. Retain as per policy
  
-   :::image type="content" source="./media/manage-azure-managed-disks/data-retention-options-for-disk.png" alt-text="Screenshot showing the options for disk backup instance retention to be selected.":::
+   :::image type="content" source="./media/manage-azure-managed-disks/data-retention-options-for-disk-inline.png" alt-text="Screenshot showing the options for disk backup instance retention to be selected." lightbox="./media/manage-azure-managed-disks/data-retention-options-for-disk-expanded.png":::
 
    You can also select the reason for stopping backups  from the drop-down list.
 
@@ -54,7 +53,7 @@ There are three ways by which you can stop protecting an Azure Disk:
 
    Provide the name of the backup instance, reason for deletion, and any other comments.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/confirmation-to-stop-disk-backup.png" alt-text="Screenshot for the confirmation for stopping disk backup.":::
+   :::image type="content" source="./media/manage-azure-managed-disks/confirmation-to-stop-disk-backup-inline.png" alt-text="Screenshot for the confirmation for stopping disk backup." lightbox="./media/manage-azure-managed-disks/confirmation-to-stop-disk-backup-expanded.png":::
 
 1. Select **Stop Backup**.
 
@@ -70,11 +69,11 @@ Use the following steps:
 
 1. Select **Resume Protection (Preview)**.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-protection.png" alt-text="Screenshot showing the option to resume protection of disk.":::
+   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-protection-inline.png" alt-text="Screenshot showing the option to resume protection of disk." lightbox="./media/manage-azure-managed-disks/resume-disk-protection-expanded.png":::
 
 1. Select **Resume backup**.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-backup.png" alt-text="Screenshot showing the option to resume disk backup.":::
+   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-backup-inline.png" alt-text="Screenshot showing the option to resume disk backup." lightbox="./media/manage-azure-managed-disks/resume-disk-backup-expanded.png":::
 
 
 ## Next steps

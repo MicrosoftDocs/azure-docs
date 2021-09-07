@@ -3,7 +3,6 @@ title: Manage Azure Database for PostgreSQL server
 description: Learn about managing Azure Database for PostgreSQL server.
 ms.topic: conceptual
 ms.date: 09/06/2021
-ms.custom: references_regions , devx-track-azurecli
 ---
 
 # Manage Azure Database for PostgreSQL server
@@ -28,14 +27,14 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
 1. Select **Stop Backup (Preview)**.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/select-postgresql-erver-backup-instance-to-delete.png" alt-text="Screenshot showing the selection of the Azure Database for PostgreSQL server backup instance to be stopped.":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/select-postgresql-server-backup-instance-to-delete-inline.png" alt-text="Screenshot showing the selection of the Azure Database for PostgreSQL server backup instance to be stopped." lightbox="./media/manage-azure-database-postgresql/select-postgresql-server-backup-instance-to-delete-expanded.png":::
 
-3. Select one of the following data retention options:
+1. Select one of the following data retention options:
 
    1. Retain forever
    1. Retain as per policy
    
-   :::image type="content" source="./media/manage-azure-database-postgresql/data-retention-options.png" alt-text="Screenshot showing the options for data retention to be selected.":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/data-retention-options-inline.png" alt-text="Screenshot showing the options for data retention to be selected." lightbox="./media/manage-azure-database-postgresql/data-retention-options-expanded.png":::
 
    You can also select the reason for stopping backups from the drop-down list.
 
@@ -53,13 +52,13 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
    Provide the name of the backup instance, reason for deletion, and any other comments.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/delete-backup-data-and-provide-details.png" alt-text="Screenshot showing the option to delete backup data and the detail required to be added.":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/delete-backup-data-and-provide-details-inlinw.png" alt-text="Screenshot showing the option to delete backup data and the detail required to be added." lightbox="./media/manage-azure-database-postgresql/delete-backup-data-and-provide-details-expanded.png":::
 
 1. Select **Stop Backup**.
 
 1. Select **Confirm** to stop backup.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup.png" alt-text="Screenshot for the confirmation for stopping backup.":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-inlinw.png" alt-text="Screenshot for the confirmation for stopping backup." lightbox="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-expanded.png":::
 
 ## Resume Protection
 
@@ -73,11 +72,11 @@ Use the following steps:
 
 1. Select **Resume Protection (Preview)**.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/resume-data-protection.png" alt-text="Screenshot showing the option to resume data protection.":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/resume-data-protection-inline.png" alt-text="Screenshot showing the option to resume data protection." lightbox="./media/manage-azure-database-postgresql/resume-data-protection-expanded.png":::
 
 1. Select **Resume backup**.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/resume-data-backup.png" alt-text="Screenshot showing the option to resume data backup.":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/resume-data-backup-inline.png" alt-text="Screenshot showing the option to resume data backup." lightbox="./media/manage-azure-database-postgresql/resume-data-backup-expanded.png":::
 
 ## Next steps
 
