@@ -16,7 +16,7 @@ This article provides guidance on how to configure and deploy the Azure Video An
 
 ## Creating the Video Analyzer account
 
-When youT [create](../create-video-analyzer-account.md) a Video Analyzer account, the following is recommended:
+When you [create](../create-video-analyzer-account.md) a Video Analyzer account, the following is recommended:
 
 1. The subscription owner should create a resource group under which all resources needed by Video Analyzer are to be created.
 1. Then, the owner should grant you [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) and [User Access Administrator](../../../role-based-access-control/built-in-roles.md#user-access-administrator) roles to that resource group.
