@@ -178,7 +178,7 @@ In this section, you create a user called Britta Simon in Signagelive. Work with
 
 In this section, you test your Azure AD single sign-on configuration by using the MyApps portal.
 
-When you select the **Signagelive** tile in the MyApps portal, you should be automatically signed in. For more information about the MyApps portal, see [What is the MyApps portal?](../user-help/my-apps-portal-end-user-access.md).
+When you select the **Signagelive** tile in the MyApps portal, you should be automatically signed in. For more information about the MyApps portal, see [What is the MyApps portal?](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
