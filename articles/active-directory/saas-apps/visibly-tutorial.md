@@ -124,13 +124,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Visibly SSO
 
-1. Login into Visibly using your credentials.
+1. Sign in to Visibly using your credentials.
 
-1. Navigate to the **settings** option from the navigation menu.
+1. Navigate to the **Settings** option from the navigation menu.
 
 	![Screenshot shows the settings option selected.](./media/visibly-tutorial/settings.png)
 
-1. Click on **Integrations** within Settings.
+1. Click **Integrations** within Settings.
 
 	![Screenshot shows Integrations selected from the Settings menu.](./media/visibly-tutorial/integrations.png)
 
@@ -144,13 +144,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. In the **Entity ID** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
 
-	b. In the **SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+	b. In the **SSO url** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
 	c. In the **SSO name** textbox, give any valid name.
 
 	d. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox or you can also upload the **Certificate** by selecting the **Upload Certificate**.
 
-	e. Click on **Save**
+	e. Click **Save**.
 
 ### Create Visibly test user
 
@@ -162,7 +162,7 @@ Visibly also supports automatic user provisioning, you can find more details [he
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Visibly Sign-on URL where you can initiate the login flow. 
+* Click **Test this application** in Azure portal. This will redirect to Visibly Sign-on URL where you can initiate the login flow. 
 
 * Go to Visibly Sign-on URL directly and initiate the login flow from there.
 
