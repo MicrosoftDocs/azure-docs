@@ -6,7 +6,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 09/15/2021
+ms.date: 08/10/2020
 ms.custom: devx-track-azurecli, subject-armqs
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
@@ -17,7 +17,7 @@ This article shows you how to quickly set up Azure NetApp Files and create an NF
 
 In this quickstart, you will set up the following items:
 
-- Registration for NetApp Resource Provider
+- Registration for Azure NetApp Files and NetApp Resource Provider
 - A NetApp account
 - A capacity pool
 - An NFS volume for Azure NetApp Files
@@ -25,6 +25,13 @@ In this quickstart, you will set up the following items:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 To see all features that you can enable for an NFS volume and relevant considerations, see [Create an NFS volume](azure-netapp-files-create-volumes.md). 
+
+## Before you begin
+
+> [!IMPORTANT]
+> You need to be granted access to the Azure NetApp Files service. To request access to the service, see the [Azure NetApp Files waitlist submission page](https://aka.ms/azurenetappfiles).  You must wait for an official confirmation email from the Azure NetApp Files team before continuing.
+
+---
 
 ## Register for Azure NetApp Files and NetApp Resource Provider
 
@@ -65,6 +72,8 @@ Prepare your environment for the Azure CLI.
 None.
 
 Use the Azure portal, PowerShell, or the Azure CLI to register for Azure NetApp Files and the NetApp Resource Provider.
+
+See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more information.
 
 ---
 
