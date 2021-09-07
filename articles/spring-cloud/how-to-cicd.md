@@ -120,7 +120,7 @@ DevOps provides you with convenient ways to deploy your app. The following displ
 steps:
 - task: Maven@3
   inputs:
-    mavenPomFile: 'pom.xml'
+    mavenPomFile: 'complete/pom.xml'
 - task: AzureSpringCloud@0
   inputs:
     azureSubscription: '<your service connection name>'
@@ -186,7 +186,7 @@ Click on save.
 
 4. Click on clone stage and modify this stage.
 Change action to “Set Production Deployment”. Fill blanks of this task.
-> [ ![Clone the stage](media/spring-cloud-how-to-cicd/Clone-the-stage.jpg)](media/spring-cloud-how-to-cicd/Clone-the-stage.jpg#lightbox)
+[ ![Clone the stage](media/spring-cloud-how-to-cicd/Clone-the-stage.jpg)](media/spring-cloud-how-to-cicd/Clone-the-stage.jpg#lightbox)
 
 5.	Click “create release”, the deployment will automatically start.
 
