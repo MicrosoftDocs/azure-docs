@@ -8,4 +8,3 @@ ms.author: juliako
 
 **Current environment**: ![cloud icon](../media/env-icon/icon.png). Check out [developing on the edge](../../edge/overview.md).
 
-<br/><hr color="#5ea0ef" size="10">
