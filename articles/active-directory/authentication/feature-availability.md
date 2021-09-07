@@ -30,27 +30,26 @@ Authentication, single sign-on and multifactor authentication (MFA)
 | Cloud authentication (Pass-through authentication, password hash synchronization) | ● |
 | Federated authentication (Active Directory Federation Services or federation with other identity providers) | ● |
 | Single sign-on (SSO) unlimited | ● | 
-| Multifactor authentication (MFA) | SMS/Voice/Push notification aren't available due to lack of internet connectivity and third party provider are not available in air gapped. | 
-| Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | Gov (ARL): Authenticator app will only shows GUID and not UPN for compliance reason.
-<br>AGC: Microsoft Authenticator app, which relies on phones and 3rd party push notification services, is not available.  | 
+| Multifactor authentication (MFA) | AGC: SMS/Voice/Push notification aren't available due to lack of internet connectivity and third party provider are not available in air gapped. | 
+| Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | Gov (ARL): Authenticator app will only shows GUID and not UPN for compliance reason.<br>AGC: Microsoft Authenticator app, which relies on phones and third party push notification services, is not available.  | 
 | Service-level agreement | ● | 
 | **Applications Access** |   |
 | SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | ● | 
 | Group assignment to applications | ● | 
-| Cloud app discovery (Microsoft Cloud App Security) |  ● | 
-| Application Proxy for on-premises, header-based, and Integrated Windows Authentication |  ● | 
-| Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication) |  ● | 
+| Cloud app discovery (Microsoft Cloud App Security) | ● | 
+| Application Proxy for on-premises, header-based, and Integrated Windows Authentication | ● | 
+| Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication) | ● | 
 | **Authorization and Conditional Access)** |   |
 | Role-based access control (RBAC) |    ● | 
 | Conditional Access  | ● | 
-| SharePoint limited access |  ● | 
+| SharePoint limited access | ● | 
 | Session lifetime management | ● | 
 | Identity Protection (Risky sign-ins, risky users, risk-based conditional access) |  ● | 
 | **Administration and hybrid identity** |   |
-| User and group management |  ● | 
+| User and group management | ● | 
 | Advanced group management (Dynamic groups, naming policies, expiration, default classification) |  ● | 
 | Directory synchronization—Azure AD Connect (sync and cloud sync) | ● | 
-| Azure AD Connect Health reporting |   ● | 
+| Azure AD Connect Health reporting | ● | 
 | Delegated administration—built-in roles  | ● | 
 | Global password protection and management – cloud-only users |  ● | 
 | Global password protection and management – custom banned passwords, users synchronized from on-premises Active Directory | ● | 
@@ -78,7 +77,7 @@ Authentication, single sign-on and multifactor authentication (MFA)
 | Identity Protection: vulnerabilities and risky accounts |  ● |
 | Identity Protection: risk events investigation, SIEM connectivity |  ● |
 | **Frontline workers** |  |
-| SMS sign-in | SMS/Voice/Push notification aren't available |
+| SMS sign-in | AGC: SMS/Voice/Push notification aren't available |
 | Shared device sign-out |  ● |
 | Delegated user management portal (My Staff) |  ● |
 
