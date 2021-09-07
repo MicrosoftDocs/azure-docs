@@ -32,8 +32,8 @@ In this tutorial, you will:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 - This tutorial is based on using [Line Crossing sample](use-line-crossing.md) to detect when objects cross a virtual line in a live video feed. You can choose to create visualization for other pipelines - **a pipeline with IoT Hub message sink is required**. Make sure to have the live pipeline created, but activate it only after creating a Stream Analytics job.
 
-> [!NOTE]
-> The [Line Crossing sample](use-line-crossing.md) uses a 5-minute video recording. For best results in visualization, use the 60-minute recording of vehicles on a freeway available in [Other dataset](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset). See in [FAQ](faq-edge.yml) Configuration and deployment section on how to add sample video files to rtsp simulator. Once added, edit your operations.json properties -> paramters -> value to `"value": "rtsp://rtspsim:554/media/camera-3600s.mkv"`
+    > [!NOTE]
+    > The [Line Crossing sample](use-line-crossing.md) uses a 5-minute video recording. For best results in visualization, use the 60-minute recording of vehicles on a freeway available in [Other dataset](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset). See in [FAQ](faq-edge.yml) Configuration and deployment section on how to add sample video files to rtsp simulator. Once added, edit your operations.json properties -> paramters -> value to `"value": "rtsp://rtspsim:554/media/camera-3600s.mkv"`
 
 - A [Power BI](https://powerbi.microsoft.com/) account.
 
@@ -46,13 +46,13 @@ In this tutorial, you will:
 1. In the [Azure portal](https://portal.azure.com/), select **Create a resource**. Type _Stream Analytics Job_ in the search box and select it from the drop-down list. On the **Stream Analytics job** overview page, select **Create**
 2. Enter the following information for the job:
 
-- **Job name**: The name of the job. The name must be globally unique.
-- **Subscription**: Choose the same subscription used for setting up the Line Crossing sample.
-- **Resource group**: Use the same resource group that your IoT edge hub uses as part of setting up the Line Crossing sample.
-- **Location**: Use the same location as your resource group.
+    - **Job name**: The name of the job. The name must be globally unique.
+    - **Subscription**: Choose the same subscription used for setting up the Line Crossing sample.
+    - **Resource group**: Use the same resource group that your IoT Edge hub uses as part of setting up the Line Crossing sample.
+    - **Location**: Use the same location as your resource group.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/create-asa-job.png" alt-text="Screenshot to create a new Stream Analytics Job.":::
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/power-bi/create-asa-job.png" alt-text="Screenshot to create a new Stream Analytics Job.":::
 
 3. Select **Create**.
 
@@ -62,12 +62,12 @@ In this tutorial, you will:
 2. Under Job topology, select **Inputs**.
 3. In the Inputs pane, select **Add stream input**, then select **IoT Hub** from the drop-down list. On the new input pane, enter the following information:
 
-- **Input alias**: Enter a unique alias for the input, such as "iothubinput".
-- **Select IoT Hub from your subscription**: Select this radio button.
-- **Subscription**: Select the Azure subscription you're using for this article.
-- **IoT Hub**: Select the IoT Hub used in setting up the Line Crossing sample.
-- **Shared access policy name**: Select the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this tutorial, you can select iothubowner. To learn more, see [Access control and permissions](../../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions).
-- **Shared access policy key**: This field is auto filled based on your selection for the shared access policy name.
+    - **Input alias**: Enter a unique alias for the input, such as "iothubinput".
+    - **Select IoT Hub from your subscription**: Select this radio button.
+    - **Subscription**: Select the Azure subscription you're using for this article.
+    - **IoT Hub**: Select the IoT Hub used in setting up the Line Crossing sample.
+    - **Shared access policy name**: Select the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this tutorial, you can select iothubowner. To learn more, see [Access control and permissions](../../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions).
+    - **Shared access policy key**: This field is auto filled based on your selection for the shared access policy name.
 
 Leave all other fields at their defaults.
 
@@ -82,29 +82,29 @@ Leave all other fields at their defaults.
 2. In the Outputs pane, select **Add**, and then select **Power BI** from the drop-down list.
 3. On the Power BI - New output pane:
 
-- **Output alias**: Enter a unique alias for the output, such as "powerbioutput".
-- **Group workspace**: Select your target group workspace.
-- **Authentication mode**: Leave the default “User token” for testing purposes.
+    - **Output alias**: Enter a unique alias for the output, such as "powerbioutput".
+    - **Group workspace**: Select your target group workspace.
+    - **Authentication mode**: Leave the default “User token” for testing purposes.
 
-> [!NOTE]
-> For production jobs, we recommend to [Use Managed Identity to authenticate your Stream Analytics job to Power BI](../../stream-analytics/powerbi-output-managed-identity.md).
+    > [!NOTE]
+    > For production jobs, we recommend to [Use Managed Identity to authenticate your Stream Analytics job to Power BI](../../stream-analytics/powerbi-output-managed-identity.md).
 
-- **Dataset name**: Enter a dataset name.
-- **Table name**: Enter a table name.
-- **Authorize**: Select Authorize and follow the prompts to sign into your Power BI account (the token is valid for 90 days).
+    - **Dataset name**: Enter a dataset name.
+    - **Table name**: Enter a table name.
+    - **Authorize**: Select Authorize and follow the prompts to sign into your Power BI account (the token is valid for 90 days).
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/add-pbi-output.png" alt-text="Screenshot to add Power BI output to Stream Analytics Job.":::
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/power-bi/add-pbi-output.png" alt-text="Screenshot to add Power BI output to Stream Analytics Job.":::
 
 4. Select **Save**.
 
-> [!NOTE]
-> For more information on using Power BI as output for a Stream Analytics job, click [here](../../stream-analytics/power-bi-output.md). Learn more about [renewing authentication](../../stream-analytics/stream-analytics-power-bi-dashboard.md#renew-authorization) for your Power BI account.
+    > [!NOTE]
+    > For more information on using Power BI as output for a Stream Analytics job, click [here](../../stream-analytics/power-bi-output.md). Learn more about [renewing authentication](../../stream-analytics/stream-analytics-power-bi-dashboard.md#renew-authorization) for your Power BI account.
 
 ### Configure the query for Stream Analytics job
 
 1. Under Job topology, select **Query**.
-1. Make the following changes to your query:
+2. Make the following changes to your query:
 
 ```SQL
 SELECT
@@ -121,14 +121,14 @@ WHERE InferenceRecords.ArrayValue.subType = 'lineCrossing'
 > The above query is customized to get AI inferences for [Line Crossing tutorial](use-line-crossing.md).  
 > If you are running another pipeline, ensure to customize the query according to the pipeline's AI inference schema. Learn more about [Parsing JSON in Stream Analytics job](../../stream-analytics/stream-analytics-parsing-json.md).
 
-1. Replace [YourOutputAlias] with the output alias used in the step to Add an output to the Stream Analytics job such as "powerbioutput". Note the right sequence of output and input aliases.
-1. Replace [YourInputAlias] with the input alias used in the step to Add an input to the Stream Analytics job such as "iothubinput".
-1. Your query should look similar to the following screenshot. Click on **Test query** to verify the Test results as a table of EventTotal and corresponding EventProcessedUtcTime values.
+3. Replace [YourOutputAlias] with the output alias used in the step to Add an output to the Stream Analytics job such as "powerbioutput". Note the right sequence of output and input aliases.
+4. Replace [YourInputAlias] with the input alias used in the step to Add an input to the Stream Analytics job such as "iothubinput".
+5. Your query should look similar to the following screenshot. Click on **Test query** to verify the Test results as a table of EventTotal and corresponding EventProcessedUtcTime values.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/asa-query.png" alt-text="Screenshot to test and save query in Stream Analytics Job.":::
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/power-bi/asa-query.png" alt-text="Screenshot to test and save query in Stream Analytics Job.":::
 
-1. Select **Save query**.
+6. Select **Save query**.
 
 ### Run the Stream Analytics job
 
@@ -151,39 +151,41 @@ In Power BI, you can visualize streaming data in 2 ways:
 1. Create reports from table created for streaming dataset and pin to dashboard
 2. A dashboard tile with custom streaming dataset
 
-> [!NOTE]
-> In this article, we will use the first method to create reports and then pin to dashboard. This method retains data on the visual for longer duration and aggregates automatically based on incoming data. To learn more about the second method, see [Setup your custom streaming dataset in Power BI](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
+    > [!NOTE]
+    > In this article, we will use the first method to create reports and then pin to dashboard. This method retains data on the visual for longer duration and aggregates automatically based on incoming data. To learn more about the second method, see [Setup your custom streaming dataset in Power BI](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
 
 ### Create and publish a Power BI report
 
 The following steps show you how to create and publish a report using the Power BI service.
 
 1. Make sure the sample pipeline is activated on your device (started in previous step to run a pipeline).
-1. Sign in to your [Power BI account](https://powerbi.microsoft.com/) and select **Power BI service** from the top menu.
-1. Select the workspace you used from the side menu.
-1. Under the **All** tab or the **Datasets + dataflows** tab, you should see the dataset that you specified in the step to _Add an output to the Stream Analytics job_.
-1. Hover over the dataset name you provided while creating Stream Analytics output, select **More options** menu (the three dots to the right of the dataset name), and then select **Create report**.
+2. Sign in to your [Power BI account](https://powerbi.microsoft.com/) and select **Power BI service** from the top menu.
+3. Select the workspace you used from the side menu.
+4. Under the **All** tab or the **Datasets + dataflows** tab, you should see the dataset that you specified in the step to _Add an output to the Stream Analytics job_.
+5. Hover over the dataset name you provided while creating Stream Analytics output, select **More options** menu (the three dots to the right of the dataset name), and then select **Create report**.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/create-report.png" alt-text="Screenshot to create report in Power BI.":::
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/power-bi/create-report.png" alt-text="Screenshot to create report in Power BI.":::
 
-1. Create a line chart to show line crossing events in real time.
-   a. On the **Visualizations** pane of the report creation page, select the **Line chart** icon to add a line chart.
-   b. On the **Fields** pane, expand the table that you specified when you created the output for the Stream Analytics job.
-   c. Drag **EventProcessedUtcTime** to **Axis** on the **Visualizations** pane.
-   d. Drag **EventTotal** to **Values**.
-   e. A line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays auto-summarized values for **Sum** of EventTotal from the live pipeline. Change the Values to **Maximum** of EventTotal to get the most recent value of EventTotal. You can change the aggregation function to show Average, Count (Distinct) etc.
+6. Create a line chart to show line crossing events in real time.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/powerbi-report.png" alt-text="Screenshot of line crossing report in Power BI.":::
+   - On the **Visualizations** pane of the report creation page, select the **Line chart** icon to add a line chart.
+   - On the **Fields** pane, expand the table that you specified when you created the output for the Stream Analytics job.
+   - Drag **EventProcessedUtcTime** to **Axis** on the **Visualizations** pane.
+   - Drag **EventTotal** to **Values**.
+   - A line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays auto-summarized values for **Sum** of EventTotal from the live pipeline. Change the Values to **Maximum** of EventTotal to get the most recent value of EventTotal. You can change the aggregation function to show Average, Count (Distinct) etc.
 
-1. Save the report by clicking **Save** at the top-right.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/power-bi/powerbi-report.png" alt-text="Screenshot of line crossing report in Power BI.":::
+
+7. Save the report by clicking **Save** at the top-right.
 
 ### Pin visual to a dashboard
 
 Click **Pin to a dashboard** at the top-right and select where you want to pin this visual – in an existing dashboard or a new dashboard, and then follow the prompts accordingly.
 
-**What does the dashboard represent?**
+##  Interpret the dashboard
+
 The line crossing processor node detects when an object crosses a line specified in the topology using lineCoordinates parameter. When objects cross these coordinates, an event is triggered with:
 
 - EventTotal: The total number of line crossings by any object in any direction (clockwise or counterclockwise) so far since beginning of the video. Learn more about [Line Crossing Event inferences](use-line-crossing.md#line-crossing-events)
