@@ -22,7 +22,7 @@ Currently, the following Azure Arc-enabled data services are available:
 - SQL Managed Instance
 - PostgreSQL Hyperscale (preview)
 
-For an introduction to how Azure Arc enabled data services supports your hybrid work environment, see this introductory video:
+For an introduction to how Azure Arc-enabled data services supports your hybrid work environment, see this introductory video:
 
 > [!VIDEO https://channel9.msdn.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
 
@@ -50,7 +50,7 @@ Many of the services such as self-service provisioning, automated backups/restor
 
 ## Supported regions
 
-The following table describes the scenarios that are currently supported for Arc enabled data services.
+The following table describes the scenarios that are currently supported for Azure Arc-enabled data services.
 
 |Azure Regions  |Direct connected mode  |Indirect connected mode  |
 |---------|---------|---------|

@@ -32,4 +32,4 @@ ms.subservice: azure-arc-data
 ### Commands
 | Command | Description|
 | --- | --- |
-[az postgres arc-server](reference-az-postgres-arc-server.md) | Manage Azure Arc enabled PostgreSQL Hyperscale server groups.
+[az postgres arc-server](reference-az-postgres-arc-server.md) | Manage Azure Arc-enabled PostgreSQL Hyperscale server groups.
