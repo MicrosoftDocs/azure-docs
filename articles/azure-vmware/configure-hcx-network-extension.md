@@ -1,7 +1,7 @@
 ---
 title: Create an HCX network extension
-description: Configure the  
-ms.topic: tutorial
+description: Learn how to extend any networks from your on-premises environment to Azure VMware Solution.
+ms.topic: how-to
 ms.date: 09/07/2021
 ---
 
