@@ -4,7 +4,7 @@ description: How to export data from your Azure IoT Central application to Azure
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 06/25/2020
+ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 ---

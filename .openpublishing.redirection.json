@@ -21,6 +21,261 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/articles/active-directory/user-help/active-directory-passwords-reset-register.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/active-directory-passwords-update-your-own-password.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/auth-app-android-china.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/authenticator-for-android-in-the-public-cloud-in-china-ebbef05c-a429-4236-8570-1bb1900fec35",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/cross-tenant-switcher.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/switch-organizations-in-your-work-or-school-account-portals-c54c32c9-2f62-4fad-8c23-2825ed49d146",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-change-sms-phone.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-app-passwords.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-first-time.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-manage-settings.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-signin.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method-c7293464-ef5e-4705-a24b-c4a3ec0d6cf9",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-setup-auth-app.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-an-authenticator-app-as-a-two-factor-verification-method-2db39828-15e1-4614-b825-6e2b524e7c95",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-setup-office-phone.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-an-office-phone-as-your-two-factor-verification-method-12751dfe-0d0d-420f-a521-b8cc7524647b",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-setup-phone-number.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-a-mobile-device-as-a-two-factor-verification-method-772f64a1-bf7e-483d-8b5c-1d3945494e83",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-change-password-page.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/change-your-work-or-school-account-password-from-the-change-password-page-97fced88-e0e7-4d7b-a9d3-936a3dcbd569",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-devices-page.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/manage-your-work-or-school-account-connected-devices-from-the-devices-page-6b5a735d-0a7f-4e94-8cfd-f5da6bc13d4e",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-organizations-page.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/manage-organizations-for-a-work-or-school-account-in-the-my-account-portal-a9b65a70-fec5-4a1a-8e00-09f99ebdea17",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-overview.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-privacy-page.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/view-how-your-organization-uses-your-privacy-related-data-32056182-6eb7-423b-af35-4cc8a192bde8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-settings.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/change-work-or-school-account-settings-in-the-my-account-portal-e50bfccb-58e9-4d42-939c-a60cb6d56ced",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-sign-ins-page.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/view-and-search-your-work-or-school-account-sign-in-activity-from-my-sign-ins-9e7d108c-8e3f-42aa-ac3a-bca892898972",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-applications-portal-permissions-saved-accounts.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/edit-or-revoke-application-permissions-in-the-my-apps-portal-169be2b4-ee26-4338-aea8-d19bb2f329ee",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-applications-portal-workspaces.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/organize-apps-using-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-access.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-access-reviews.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-groups.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/update-your-groups-info-in-the-my-apps-portal-bc0ca998-6d3a-42ac-acb8-e900fb1174a4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-troubleshoot.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/troubleshoot-problems-with-the-my-apps-portal-d228da80-fcb7-479c-b960-a1e2535cbdff",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-user-collections.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/organize-apps-using-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-staff-team-manager.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-app-passwords.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/create-app-passwords-from-the-security-info-preview-page-d8bc744a-ce3f-4d4d-89c9-eb38ab9d4137",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-auth-app.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-email.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-an-email-address-as-your-verification-method-250b91e4-7627-4b60-b861-f2276a9c0e39",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-phone-number.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-a-phone-call-as-your-verification-method-e54d955d-ac82-4741-91e3-dae6c8bb9d98",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-questions.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-security-questions-as-your-verification-method-3d74aedd-88a5-4932-a211-9f0bfbab5de8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-security-key.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-a-security-key-as-your-verification-method-2911cacd-efa5-4593-ae22-e09ae14c6698",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-signin.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-text-msg.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-text-messaging-as-your-verification-method-a61dcc0c-a003-424f-8a64-d92534ba0dad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/sms-sign-in-explainer.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-add-account-manual.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/manually-add-an-account-to-the-authenticator-app-3bcc3672-6241-48ab-926c-6a6139e5f670",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-add-non-ms-account.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/add-non-microsoft-accounts-to-the-microsoft-authenticator-app-7a92b5d4-d6e5-4474-9ac6-be0b6773f574",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-add-personal-ms-account.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/add-personal-microsoft-accounts-to-the-microsoft-authenticator-app-92544b53-7706-4581-a142-30344a2a2a57",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-add-work-school-account.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-backup-recovery.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/back-up-and-recover-account-credentials-in-the-authenticator-app-bb939936-7a8d-4e88-bc43-49bc1a700a40",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-download-install.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-faq.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-overview.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-sign-in.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-authenticator-app-import-passwords.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/import-passwords-into-the-authenticator-app-a167573a-fb3b-4248-91ea-ca9a814f4853",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-device-remediation.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/troubleshooting-the-you-can-t-get-there-from-here-error-message-479a9c42-d9d1-4e44-9e90-24bbad96c251",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-join-device-on-network.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-register-device-on-network.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-sign-in.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/sign-in-using-two-step-verification-or-security-info-1d8fd1e8-56a6-4e88-a06f-61a15824b604",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-complete-review.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review",
       "redirect_document_id": false
@@ -10200,7 +10455,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/template-functions-any.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/template-functions-any",
+      "redirect_url": "/azure/azure-resource-manager/bicep/bicep-functions-any",
       "redirect_document_id": false
     },
     {
@@ -49035,8 +49290,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-passwords-reset-register.md",
-      "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
-      "redirect_document_id": true
+      "redirect_url": "https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/user-help/user-help-password-reset-overview.md",

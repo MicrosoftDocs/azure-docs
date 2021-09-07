@@ -20,7 +20,7 @@ ms.author: sngun
 * Guaranteed high availability.
 * Automatic secondary indexing.
 
-Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has client SDKs available for .NET, Java, Python, and Node.js.
+[Azure Data Table SDKs](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-data-tables-libraries/) are available for .NET, Java, Python, Node.js, and Go. These SDKs can be used to target either Table Storage or Cosmos DB Tables. Applications written for Azure Table storage using the Azure Data Tables SDKs can be migrated to the Azure Cosmos DB Table API with no code changes to take advantage of premium capabilities.
 
 > [!NOTE]
 > The [serverless capacity mode](../serverless.md) is now available on Azure Cosmos DB's Table API.
