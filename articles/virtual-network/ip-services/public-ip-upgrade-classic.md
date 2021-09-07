@@ -20,7 +20,7 @@ In this article, you'll learn how to upgrade a classic reserved IP to a basic pu
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Your Azure subscription registered for migration. For more information, see [Migrate to Resource Manager with PowerShell](../virtual-machines/migration-classic-resource-manager-ps.md).
+* Your Azure subscription registered for migration. For more information, see [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md).
 * A classic deployment model reserved IP address.
 * Azure PowerShell Service Management module installed for PowerShell. For more information, see [Installing the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps).
 * Azure classic CLI installed for Azure CLI instructions. For more information, see [Install the Azure classic CLI](/cli/azure/install-classic-cli).
@@ -71,5 +71,5 @@ A new resource group in Azure Resource Manager is created using the name of the 
 For more information on public IP addresses in Azure, see:
 
 - [Public IP addresses in Azure](public-ip-addresses.md)
-- [Create a public IP - Azure portal](create-public-ip-portal.md)
+- [Create a public IP - Azure portal](../../virtual-network/create-public-ip-portal.md)
 
