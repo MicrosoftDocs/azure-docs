@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 09/07/2021
 ---
 
-# blah
+# Network traffic flow when using a secured workspace
 
 When your Azure Machine Learning workspace and associated resources are secured in an Azure Virtual Network, it changes the network traffic between resources. Without a virtual network, network traffic flows over the public internet or within an Azure data center. Once a virtual network (VNet) is introduced, you may also want to harden network security. For example, blocking inbound and outbound communications between the VNet and public internet. However, Azure Machine Learning requires access to some resources on the public internet. For example, Azure Resource Management is used for deployments and management operations.
 
