@@ -7,3 +7,4 @@ ms.author: juliako
 ---
 
 **Current environment**: ![edge icon](../media/env-icon/icon.png). Check out [developing in the cloud](../../overview.md).
+
