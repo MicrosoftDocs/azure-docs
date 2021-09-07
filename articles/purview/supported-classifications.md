@@ -4023,7 +4023,7 @@ These entities are in the EU Driver's License Number and are sensitive informati
 - [Bulgaria](#bulgaria-drivers-license-number)
 - [Croatia](#croatia-drivers-license-number)
 - [Cyprus](#cyprus-drivers-license-number)
-- [Czech](#czech-drivers-license-number)
+- [Czech](#czech-republic-drivers-license-number)
 - [Denmark](#denmark-drivers-license-number)
 - [Estonia](#estonia-drivers-license-number)
 - [Finland](#finland-drivers-license-number)
@@ -4057,7 +4057,7 @@ These entities are in the EU National Identification Number and are sensitive in
 - [Bulgaria](#bulgaria-uniform-civil-number)
 - [Croatia](#croatia-identity-card-number)
 - [Cyprus](#cyprus-identity-card)
-- [Czech](#czech-personal-identity-number)
+- [Czech](#czech-national-identity-card-number)
 - [Denmark](#denmark-personal-identification-number)
 - [Estonia](#estonia-personal-identification-code)
 - [Finland](#finland-national-id)
@@ -4122,7 +4122,7 @@ These entities that are in the EU Social Security Number or equivalent identific
 - [Austria](#austria-social-security-number)
 - [Belgium](#belgium-national-number)
 - [Croatia](#croatia-personal-identification-oib-number)
-- [Czech](#czech-personal-identity-number)
+- [Czech](#czech-national-identity-card-number)
 - [Denmark](#denmark-personal-identification-number)
 - [Finland](#finland-national-id)
 - [France](#france-social-security-number-insee)
@@ -4143,7 +4143,7 @@ These entities are in the EU Tax identification number sensitive information typ
 - [Bulgaria](#bulgaria-uniform-civil-number)
 - [Croatia](#croatia-identity-card-number)
 - [Cyprus](#cyprus-tax-identification-number)
-- [Czech](#czech-personal-identity-number)
+- [Czech](#czech-national-identity-card-number)
 - [Denmark](#denmark-personal-identification-number)
 - [Estonia](#estonia-personal-identification-code)
 - [Finland](#finland-national-id)
@@ -7347,7 +7347,7 @@ No
 - autovadītāja apliecības
 - vadītāja apliecība
 
-## Latvia Personal Code (Personas kods or PIC) 
+## Latvia Personal Code
 
 ### Format
 
@@ -7631,7 +7631,7 @@ No
 - vairuotojo pažymėjimo numeris
 - vairuotojo pažymėjimo numeriai
 
-## Lithuania Personal Code (Asmens kodas) 
+## Lithuania Personal Code
 This sensitive information type is only available for use in:
 - data loss prevention policies
 - communication compliance policies
@@ -7877,7 +7877,7 @@ No
 - fahrerlaubnis
 - Führerschäin
 
-## Luxemburg national identification number (natural persons)
+## Luxemburg national identification number natural persons
 This sensitive information type is only available for use in:
 - data loss prevention policies
 - communication compliance policies
@@ -7925,7 +7925,7 @@ yes
 - unique identity
 - uniqueidkey#
 
-## Luxemburg national identification number (non-natural persons)
+## Luxemburg national identification number non-natural persons
 
 ### Format
 
