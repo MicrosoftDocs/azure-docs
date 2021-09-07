@@ -333,7 +333,7 @@ if not result:
 ```
 
 ---
-## Next steps
+### Next steps
 
 Move on to the next article in this scenario,
 [Call a web API from the desktop app](scenario-desktop-call-api.md).
