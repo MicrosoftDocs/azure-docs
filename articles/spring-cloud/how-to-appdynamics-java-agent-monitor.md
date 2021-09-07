@@ -1,3 +1,13 @@
+---
+title:  "How to monitor Azure Spring Cloud applications with AppDynamics Java agent (Preview)"
+description: How to use AppDynamics Java agent to monitor Azure Spring Cloud applications
+author:  update.me
+ms.author: update.me
+ms.service: spring-cloud
+ms.topic: how-to
+ms.date: 09/07/2021
+ms.custom: devx-track-java
+---
 # How to monitor Azure Spring Cloud applications with AppDynamics Java agent (Preview)
 
 > [!Note]
@@ -22,7 +32,7 @@ The following video introduces AppDynamics Java In-Process Agent.
 ## Prerequisites
 To monitor your Spring Cloud workloads with AppDynamics, you **must** integrate Agent with your Azure Spring Cloud application. You will need the following to use these features:
 * AppDynamics account.
-* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Integrate with AppDynamics Java In-Process Agent
 
