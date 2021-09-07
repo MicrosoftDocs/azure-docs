@@ -49,9 +49,7 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 
 ### Azure portal
 
-During the Flexible orchestration mode for scale sets preview, use the *preview* Azure portal linked in the steps below. 
-
-1. Log into the Azure portal at https://preview.portal.azure.com.
+1. Log into the Azure portal at https://portal.azure.com.
 1. Go to your **Subscriptions**.
 1. Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode by selecting the name of the subscription.
 1. In the menu under **Settings**, select **Preview features**.
