@@ -136,4 +136,3 @@ After you've created the ExpressRoute Circuit, you can link your ExpressRoute Ci
 > [!div class="nextstepaction"]
 > [Link a Virtual Network to an ExpressRoute circuit](expressroute-howto-add-gateway-portal-resource-manager.md)
 > 
-For more information about ExpressRoute Direct, see the [Overview](expressroute-erdirect-about.md).
