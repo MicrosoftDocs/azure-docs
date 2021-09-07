@@ -8,22 +8,22 @@ ms.date: 03/15/2021
 ---
 
 # Monitor your SQL deployments with SQL insights (preview)
-SQL insights is a comprehensive solution for monitoring any product in the [Azure SQL family](../../azure-sql/index.yml). SQL insights uses [dynamic management views](../../azure-sql/database/monitoring-with-dmvs.md) to expose the data you need to monitor health, diagnose problems, and tune performance.  
+SQL insights is a comprehensive solution for monitoring any product in the [Azure SQL family](../../azure-sql/index.yml). SQL insights uses [dynamic management views](../../azure-sql/database/monitoring-with-dmvs.md) to expose the data that you need to monitor health, diagnose problems, and tune performance.  
 
-SQL insights performs all monitoring remotely. Monitoring agents on dedicated virtual machines connect to your SQL resources and remotely gather data. The gathered data is stored in [Azure Monitor Logs](../logs/data-platform-logs.md), enabling easy aggregation, filtering, and trend analysis. You can view the collected data from the SQL insights [workbook template](../visualize/workbooks-overview.md), or you can delve directly into the data using [log queries](../logs/get-started-queries.md).
+SQL insights performs all monitoring remotely. Monitoring agents on dedicated virtual machines connect to your SQL resources and remotely gather data. The gathered data is stored in [Azure Monitor Logs](../logs/data-platform-logs.md) to enable easy aggregation, filtering, and trend analysis. You can view the collected data from the SQL insights [workbook template](../visualize/workbooks-overview.md), or you can delve directly into the data by using [log queries](../logs/get-started-queries.md).
 
 ## Pricing
 There is no direct cost for SQL insights. All costs are incurred by the virtual machines that gather the data, the Log Analytics workspaces that store the data, and any alert rules configured on the data. 
 
-**Virtual machines**
+### Virtual machines
 
 For virtual machines, you're charged based on the pricing published on the [virtual machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). The number of virtual machines required will vary based on the number of connection strings you want to monitor. We recommend to allocate 1 virtual machine of size Standard_B2s for every 100 connection strings. See [Azure virtual machine requirements](sql-insights-enable.md#azure-virtual-machine-requirements) for more details.
 
-**Log Analytics workspaces**
+### Log Analytics workspaces
 
 For the Log Analytics workspaces, you're charged based on the pricing published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). The Log Analytics workspaces used by SQL insights will incur costs for data ingestion, data retention, and (optionally) data export. Exact charges will vary based on the amount of data ingested, retained, and exported. The amount of this data will subsequently vary based on your database activity and the collection settings defined in your [monitoring profiles](sql-insights-enable.md#create-sql-monitoring-profile).
 
-**Alert rules**
+### Alert rules
 
 For alert rules in Azure Monitor, you're charged based on the pricing published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). If you choose to [create alerts with SQL insights](sql-insights-alerts.md), you're charged for any alert rules created and any notifications sent.
 
@@ -37,24 +37,28 @@ SQL insights supports SQL Server running in the following environments:
 - SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
 - Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
 
-SQL insights has no support or limited support for the following:
-- **Non-Azure instances**: SQL Server running on virtual machines outside of Azure are not supported
-- **Azure SQL Database elastic pools**: Metrics cannot be gathered for elastic pools. Metrics cannot be gathered for databases within elastic pools.
-- **Azure SQL Database low service tiers**: Metrics cannot be gathered for databases on Basic, S0, S1, and S2 [service tiers](../../azure-sql/database/resource-limits-dtu-single-databases.md)
-- **Azure SQL Database serverless tier**: Metrics can be gathered for databases using the serverless compute tier. However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state
-- **Secondary replicas**: Metrics can only be gathered for a single secondary replica per-database. If a database has more than 1 secondary replica, only 1 can be monitored.
-- **Authentication with Azure Active Directory**: The only supported method of [authentication](../../azure-sql/database/logins-create-manage.md#authentication-and-authorization) for monitoring is SQL authentication. For SQL Server on Azure VM, authentication using Active Directory on a custom domain controller is not supported.  
+SQL insights has no support or has limited support for the following:
+- **Non-Azure instances**: SQL Server running on virtual machines outside Azure is not supported
+- **Azure SQL Database elastic pools**: Metrics can't be gathered for elastic pools or for databases within elastic pools.
+- **Azure SQL Database low service tiers**: Metrics can't be gathered for databases on Basic, S0, S1, and S2 [service tiers](../../azure-sql/database/resource-limits-dtu-single-databases.md).
+- **Azure SQL Database serverless tier**: Metrics can be gathered for databases through the serverless compute tier. However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state.
+- **Secondary replicas**: Metrics can be gathered for only a single secondary replica per-database. If a database has more than one secondary replica, only one can be monitored.
+- **Authentication with Azure Active Directory**: The only supported method of [authentication](../../azure-sql/database/logins-create-manage.md#authentication-and-authorization) for monitoring is SQL authentication. For SQL Server on Azure Virtual Machines, authentication through Active Directory on a custom domain controller is not supported.  
 
 ## Open SQL insights
-Open SQL insights by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click on a tile to load the experience for the type of SQL you are monitoring.
+To open SQL insights:
 
-:::image type="content" source="media/sql-insights/portal.png" alt-text="SQL insights in Azure portal.":::
+1. In the Azure portal, go to the **Azure Monitor** menu.
+1. In the **Insights** section, select **SQL (preview)**. 
+1. Select a tile to load the experience for the SQL resource that you're monitoring.
+
+:::image type="content" source="media/sql-insights/portal.png" alt-text="Screenshot that shows SQL insights in the Azure portal.":::
 
 ## Enable SQL insights 
-See [Enable SQL insights](sql-insights-enable.md) for instructions on enabling SQL insights.
+For instructions on enabling SQL insights, see [Enable SQL insights](sql-insights-enable.md).
 
 ## Troubleshoot SQL insights 
-See [Troubleshooting SQL insights](sql-insights-troubleshoot.md) for instructions on troubleshooting SQL insights.
+For instructions on troubleshooting SQL insights, see [Troubleshooting SQL insights](sql-insights-troubleshoot.md).
 
 ## Data collected by SQL insights
 SQL insights performs all monitoring remotely. We do not install any agents on the virtual machines running SQL Server. 
