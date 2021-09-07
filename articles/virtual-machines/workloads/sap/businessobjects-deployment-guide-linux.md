@@ -66,19 +66,15 @@ Azure NetApp Files is available in several [Azure regions](https://azure.microso
 
 Use [Azure NetApp Files availability by Azure Region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) to check the availability of Azure NetApp Files by region.
 
-Before you deploy Azure NetApp Files, see [Register for Azure NetApp Files instructions](../../../azure-netapp-files/azure-netapp-files-register.md).
-
 ### Deploy Azure NetApp Files resources
 
 The following instructions assume that you've already deployed your [Azure virtual network](../../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources, and the VMs where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
 
-1. If you haven't already deployed the resources, [register for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
+1. [Create an Azure NetApp Files account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md) in your selected Azure region.
 
-2. [Create an Azure NetApp Files account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md) in your selected Azure region.
+2. [Set up an Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md). The SAP BI platform architecture presented in this article uses a single Azure NetApp Files capacity pool at the Premium service level. For SAP BI File Repository Server on Azure, we recommend using an Azure NetApp Files Premium or Ultra [service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
-3. [Set up an Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md). The SAP BI platform architecture presented in this article uses a single Azure NetApp Files capacity pool at the Premium service level. For SAP BI File Repository Server on Azure, we recommend using an Azure NetApp Files Premium or Ultra [service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
-
-4. [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
+3. [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
 5. Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
 
