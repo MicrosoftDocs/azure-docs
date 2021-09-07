@@ -186,9 +186,9 @@
       items:
       - name: Back up multiple SQL Server VMs from the vault
         href: backup-sql-server-database-azure-vms.md
-      - name: SQL Availability Group backup
+      - name: Back up SQL Server Availability Group
         href: backup-sql-server-on-availability-groups.md
-      - name: Backup a SQL Server VM from the VM pane
+      - name: Back up a SQL Server VM from the VM pane
         href: backup-sql-server-vm-from-vm-pane.md
     - name: Restore
       href: restore-sql-database-azure-vm.md
@@ -198,6 +198,8 @@
     items:
     - name: Backup
       href: backup-azure-database-postgresql.md
+    - name: Manage
+      href: manage-azure-database-postgresql.md
   - name: Windows backup using MARS agent
     items:
     - name: Overview
@@ -236,6 +238,8 @@
         href: backup-managed-disks.md
       - name: Restore
         href: restore-managed-disks.md
+      - name: Manage
+        href: manage-azure-managed-disks.md
     - name: With PowerShell
       items:
       - name: Backup
@@ -549,15 +553,15 @@
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
     href: /cli/azure/backup
-  - name: Azure Dataprotection - CLI
+  - name: Azure Data Protection - CLI
     href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
-  - name: Azure Dataprotection - PowerShell
+  - name: Azure Data Protection - PowerShell
     href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
   - name: PowerShell – Azure Backup agent
     href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
-  - name: REST - Azure Dataprotection
+  - name: REST - Azure Data Protection
     href: /rest/api/dataprotection/
   - name: REST - Backup
     href: /rest/api/backup/
