@@ -94,6 +94,7 @@ Choosing a maintenance window other than the default is currently available in t
 | Korea South | Yes | | |
 | North Central US | Yes | Yes | |
 | North Europe | Yes | Yes | Yes |
+| South Africa North | Yes | | | 
 | South Central US | Yes | Yes | Yes |
 | Southeast Asia | Yes | Yes | Yes |
 | Switzerland North | Yes | Yes | |
