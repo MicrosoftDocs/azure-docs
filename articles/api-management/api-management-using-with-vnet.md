@@ -24,7 +24,7 @@ This article explains how to set up VNET connectivity for your API Management in
 
 ## Prerequisites
 
-Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
+Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
 
 > [!TIP]
 > When you use the portal to create or update the network configuration of your API Management instance, the instance is hosted on the `stv2` compute platform.
@@ -75,7 +75,7 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 ### Enable connectivity using a Resource Manager template
 
-Use the following templates to deploy an  API Management instance and connect to a VNET. The templates differ depending on the version (`stv2` or `stv1`) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance
+Use the following templates to deploy an  API Management instance and connect to a VNET. The templates differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance
 
 ### [stv2](#tab/stv2)
 
@@ -121,7 +121,7 @@ In external VNET mode, Azure manages the DNS by default.The API Management servi
 
 You can control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups]. If any of the following ports are unavailable, API Management may not operate properly and may become inaccessible. 
 
-When an API Management service instance is hosted in a VNET, the ports in the following table are used. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
+When an API Management service instance is hosted in a VNET, the ports in the following table are used. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
 
 >[!IMPORTANT]
 > Bold items in the *Purpose* column are required for API Management service to be deployed successfully. Blocking the other ports, however, will cause **degradation** in the ability to use and **monitor the running service and provide the committed SLA**.
@@ -314,7 +314,7 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
     * Azure Storage blob
     * Azure SQL Database
     * Azure Storage Table
-    * Azure Key Vault (for an API Management instance hosted on the [v2 platform](hosting-infrastructure.md))
+    * Azure Key Vault (for an API Management instance hosted on the [`stv2` platform](compute-infrastructure.md))
 
   > [!IMPORTANT]
   > After validating the connectivity, remove all the resources in the subnet before deploying API Management into the subnet (required when API Management is hosted on the `stv1` platform).
@@ -336,7 +336,7 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
   When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
 
 * **Resource navigation links**  
-  An APIM instance hosted on the [`stv1` compute platform](hosting-infrastructure.md), when deployed into a Resource Manager VNET subnet, reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
+  An APIM instance hosted on the [`stv1` compute platform](compute-infrastructure.md), when deployed into a Resource Manager VNET subnet, reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
 
 ## Next steps
 

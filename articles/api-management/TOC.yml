@@ -94,8 +94,8 @@
         href: devops-api-development-templates.md
       - name: Soft-delete
         href: soft-delete.md
-      - name: Hosting platform
-        href: hosting-infrastructure.md
+      - name: Compute platform
+        href: compute-infrastructure.md
 
 
 
