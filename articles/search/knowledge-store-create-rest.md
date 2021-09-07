@@ -192,7 +192,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                 { "name": "languageCode", "source": "/document/language" }
             ],
             "outputs": [
-                { "name": "score", "targetName": "sentiment" }
+                { "name": "sentiment", "targetName": "sentiment" }
             ]
         },
         {
@@ -252,7 +252,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                     "source": "/document/reviews_text/pages/*/translated_text"
                     },
                     { 
-                    "name": "sentimentScore",
+                    "name": "sentiment",
                     "source": "/document/reviews_text/pages/*/sentiment"
                     },
                     {
@@ -299,7 +299,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                     { 
                         "tableName": "hotelReviews5InlineProjectionPages", "generatedKeyName": "Pagesid", "sourceContext": "/document/reviews_text/pages/*",
                         "inputs": [
-                            { "name": "SentimentScore", "source": "/document/reviews_text/pages/*/sentiment"},
+                            { "name": "Sentiment", "source": "/document/reviews_text/pages/*/sentiment"},
                             { "name": "LanguageCode", "source": "/document/language"},
                             { "name": "Keyphrases", "source": "/document/reviews_text/pages/*/keyphrases"},
                             { "name": "TranslatedText", "source": "/document/reviews_text/pages/*/translated_text"},
