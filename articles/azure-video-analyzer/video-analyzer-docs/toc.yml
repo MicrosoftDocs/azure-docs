@@ -18,7 +18,7 @@
         items:
         - name: Using ARM template
           href: edge/get-started-detect-motion-emit-events.md
-        - name: Using Portal
+        - name: Using portal
           href: edge/get-started-detect-motion-emit-events-portal.md
       - name: Detect motion and emit events    
         href: edge/detect-motion-emit-events-quickstart.md
@@ -113,7 +113,7 @@
     items:  
     - name: Deploy to an IoT Edge device
       href: edge/deploy-iot-edge-device.md
-    - name: Deploy to a Windows devide
+    - name: Deploy to a Windows device
       href: edge/deploy-iot-edge-linux-on-windows.md
     - name: Deploy on Azure Stack Edge
       href: edge/deploy-on-stack-edge.md
