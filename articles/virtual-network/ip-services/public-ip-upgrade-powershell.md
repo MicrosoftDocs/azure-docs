@@ -19,7 +19,7 @@ In this article, you'll learn how to upgrade a static basic SKU public IP addres
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* A **static** basic SKU public IP address in your subscription. For more information, see [Create public IP address - Azure portal](create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
+* A **static** basic SKU public IP address in your subscription. For more information, see [Create public IP address - Azure portal](../../virtual-network/create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
 * Azure PowerShell installed locally or Azure Cloud Shell
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
@@ -45,7 +45,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pubIP
 > The basic public IP you are upgrading must have the static allocation type. You'll receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address.
 
 > [!WARNING]
-> Upgrading a basic public IP to standard SKU can't be reversed. Public IPs upgraded from basic to standard SKU continue to have no guaranteed [availability zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+> Upgrading a basic public IP to standard SKU can't be reversed. Public IPs upgraded from basic to standard SKU continue to have no guaranteed [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ## Verify upgrade
 
@@ -71,5 +71,5 @@ In this article, you upgraded a basic SKU public IP address to standard SKU.
 For more information on public IP addresses in Azure, see:
 
 - [Public IP addresses in Azure](public-ip-addresses.md)
-- [Create a public IP - Azure portal](create-public-ip-portal.md)
+- [Create a public IP - Azure portal](../../virtual-network/create-public-ip-portal.md)
 
