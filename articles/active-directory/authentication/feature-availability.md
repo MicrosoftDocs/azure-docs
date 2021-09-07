@@ -27,8 +27,8 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Cloud authentication (Pass-through authentication, password hash synchronization) | ● |
 | - Federated authentication (Active Directory Federation Services or federation with other identity providers) | ● |
 | - Single sign-on (SSO) unlimited | ● | 
-| - Multifactor authentication (MFA) | AGC: SMS/Voice/Push notification aren't available due to lack of internet connectivity and third party provider are not available in air gapped. | 
-| - Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | Gov (ARL): Authenticator app will only shows GUID and not UPN for compliance reason.<br>AGC: Microsoft Authenticator app, which relies on phones and third party push notification services, is not available.  | 
+| - Multifactor authentication (MFA) | AGC: SMS/Voice/Push notification aren't available due to lack of internet connectivity and third party providers are not available in air-gapped cloud. | 
+| - Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | Gov (ARL): Authenticator app only shows GUID and not UPN for compliance reason.<br>AGC: Microsoft Authenticator app, which relies on phones and third party push notification services, is not available.  | 
 | - Service-level agreement | ● | 
 | **Applications Access** |   |
 | - SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | ● | 
@@ -48,31 +48,31 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Directory synchronization—Azure AD Connect (sync and cloud sync) | ● | 
 | - Azure AD Connect Health reporting | ● | 
 | - Delegated administration—built-in roles  | ● | 
-| - Global password protection and management – cloud-only users |  ● | 
+| - Global password protection and management – cloud-only users | ● | 
 | - Global password protection and management – custom banned passwords, users synchronized from on-premises Active Directory | ● | 
-| - Microsoft Identity Manager user client access license (CAL) |  ● | 
+| - Microsoft Identity Manager user client access license (CAL) | ● | 
 | **End-user self-service** |  |
 | - Application launch portal (My Apps) | ● | 
 | - User application collections in My Apps | ● |
 | - Self-service account management portal (My Account) | ● |
-| - Self-service password change for cloud users |  AGC: Only alternate email and security questions will be available for password reset as SMS/Voice/Push notification options aren't available in MFA |
+| - Self-service password change for cloud users | AGC: Only alternate email and security questions will be available for password reset as SMS/Voice/Push notification options aren't available in MFA |
 | - Self-service password reset/change/unlock with on-premises write-back | ● |
 | - Self-service sign-in activity search and reporting |  ● |
-| - Self-service group management (My Groups) |  ● |
+| - Self-service group management (My Groups) | ● |
 | - Self-service entitlement management (My Access) | ● |
 | **Identity Governance** |  |
-| - Automated user provisioning to apps |  ● |
+| - Automated user provisioning to apps | ● |
 | - Automated group provisioning to apps | ● |
-| - HR-driven provisioning |  ● |
+| - HR-driven provisioning | ● |
 | - Terms of use attestation | ● |
-| - Access certifications and reviews |  ● |
-| - Entitlements management |  ● |
+| - Access certifications and reviews | ● |
+| - Entitlements management | ● |
 | - Privileged Identity Management (PIM), just-in-time access |  ● |
 | **Event logging and reporting**|   |
-| - Basic security and usage reports |  ● |
+| - Basic security and usage reports | ● |
 | - Advanced security and usage reports | ● |
-| - Identity Protection: vulnerabilities and risky accounts |  ● |
-| - Identity Protection: risk events investigation, SIEM connectivity |  ● |
+| - Identity Protection: vulnerabilities and risky accounts | ● |
+| - Identity Protection: risk events investigation, SIEM connectivity | ● |
 | **Frontline workers** |  |
 | - SMS sign-in | AGC: SMS/Voice/Push notification aren't available |
 | - Shared device sign-out | ● |
