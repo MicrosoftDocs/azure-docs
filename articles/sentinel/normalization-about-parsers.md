@@ -151,7 +151,7 @@ To ensure the performance of the parser, note the following filtering recommenda
 
 Filtering recommendations for performance may not always be trivial to follow. For example, using `has` is less accurate than `contains`. In other cases, matching the built-in field, such as `SyslogMessage`, is less accurate than comparing an extracted field, such as `DvcAction`. In such cases, we recommend that you still pre-filter using a performance-optimizing operator over a built-in field, and repeat the filter using more accurate conditions after parsing.
 
-For an example, see the following [Infoblox DNS](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM/Infoblox) parser snippet. The parser first checks that the SyslogMessage field `has` the word `client`. However, the term might be used in a different place in the message. Therefore, after parsing the `Log_Type` field, the parser checks again that the word `client` was indeed the field's value.
+For an example, see the following [Infoblox DNS](https://aka.ms/AzSentinelInfobloxParser) parser snippet. The parser first checks that the SyslogMessage field `has` the word `client`. However, the term might be used in a different place in the message. Therefore, after parsing the `Log_Type` field, the parser checks again that the word `client` was indeed the field's value.
 
 ```kusto
 Syslog | where ProcessName == "named" and SyslogMessage has "client"
@@ -235,7 +235,7 @@ When handling variants, use the following guidelines:
 |Scenario  |Handling  |
 |---------|---------|
 |The different variants represent *different* event types, commonly mapped to different schemas     |  Use separate parsers       |
-|The different variants represent the *same* event type but are structured differently.     |   If the variants are known, such as when there is a method to differentiate between the events before parsing, use the `case` operator to select the correct `extract_all` to run and field mapping, as demonstrated in the [Infoblox DNS parser](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM/Infoblox).      |
+|The different variants represent the *same* event type but are structured differently.     |   If the variants are known, such as when there is a method to differentiate between the events before parsing, use the `case` operator to select the correct `extract_all` to run and field mapping, as demonstrated in the [Infoblox DNS parser](https://aka.ms/AzSentinelInfobloxParser).      |
 |If `union` is unavoidable     |  When using `union` is unavoidable, make sure to use the following guidelines:<br><br>-	Pre-filter using built-in fields in each one of the subqueries. <br>-	Ensure that the filters are mutually exclusive. <br>-	Consider not parsing less critical information, reducing the number of subqueries.       |
 | | |
 
