@@ -331,7 +331,7 @@ The output from the preceding example is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | commonUp | array | [1, 2, 3] |
-| commonDown | array | 3, 2, 1] |
+| commonDown | array | [3, 2, 1] |
 
 ## last
 
