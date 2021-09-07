@@ -99,22 +99,22 @@ Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn h
 ### Deploy artifacts
 
 #### Set up Pipeline to production
-<ol>
-<li>Click on Pipelines blade and create a new pipeline with a Maven template.</li>
-<li>Edit yml file:
-<ul>
-  <li>Change mavenPomFile under Maven task to 'complete/pom.xml'</li>
-  <li>Click show assistance on the right side and choose Azure Spring Cloud template</li>
-  <li>Choose the service connection you just created for Azure Subscription. Choose your Spring Cloud Instance and App Instance. </li>
-  <li>Disable “Use Staging Deployment”</li>
-  <li>Change package or folder to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar</li>
-  <li>Add this task to your pipeline</li>
-</ul>
+
+1. Click on Pipelines blade and create a new pipeline with a Maven template.</li>
+2. Edit yml file:
+
+> * Change mavenPomFile under Maven task to 'complete/pom.xml'</li>
+> * Click show assistance on the right side and choose Azure Spring Cloud template</li>
+> * Choose the service connection you just created for Azure Subscription. Choose your Spring Cloud Instance and App Instance. </li>
+> * Disable “Use Staging Deployment”</li>
+> * Change package or folder to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar</li>
+> * Add this task to your pipeline</li>
+
   
-This Azure Spring Cloud task setting demo is displayed in the following image.
+> This Azure Spring Cloud task setting demo is displayed in the following image.
 [ ![pipeline setting](media/spring-cloud-how-to-cicd/pipeline-task-setting.jpg)](media/spring-cloud-how-to-cicd/pipeline-task-setting.jpg#lightbox)
 
-Or you can build and deploy your projects using following template. This snippet first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Cloud task for Azure Pipelines.
+> Or you can build and deploy your projects using following template. This snippet first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Cloud task for Azure Pipelines.
 
 ```yaml
 steps:
@@ -131,9 +131,8 @@ steps:
     DeploymentName: 'default'
     Package: ./target/your-result-jar.jar
 ```
-</li>
-<li>Click save and run, and then wait for job to be done.</li>
-</ol>
+
+3. Click save and run, and then wait for job to be done.</li>
 
 #### Blue-green deployments
 
