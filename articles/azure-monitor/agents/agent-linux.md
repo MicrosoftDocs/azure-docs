@@ -71,10 +71,11 @@ The OMS Agent has limited customization and hardening support for Linux.
 
 The following are currently supported: 
 - FIPs
+- SELINUX (Marketplace images for CENTOS and RHEL with their default settings)
 
 The following are not supported:
 - CIS
-- SELINUX
+- SELINUX (custom hardening like MLS)
 
 CIS and SELINUX hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent.  
 
