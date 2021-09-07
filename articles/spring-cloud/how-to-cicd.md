@@ -96,6 +96,8 @@ steps:
 Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn how to create an Azure Resource Manager service connection to your Azure DevOps project. Be sure to select the same subscription you are using for your Azure Spring Cloud service instance.
 
 ## Build and deploy apps
+DevOps provides you with convenient ways to deploy your app. The following displays three ways to do it.
+
 ### Deploy artifacts via pipeline
 
 1. Click on Pipelines blade and create a new pipeline with a Maven template.
