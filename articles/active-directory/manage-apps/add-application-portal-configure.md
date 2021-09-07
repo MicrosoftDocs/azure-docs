@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Configure enterprise application properties'
-titleSuffix: Azure Active Directory
+titleSuffix: Azure AD
 description: In this quickstart, you configure an enterprise application that has been added to your Azure Active Directory tenant using the Azure portal.
 services: active-directory
 author: davidmu1
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 09/07/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 # Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
@@ -46,7 +46,7 @@ To edit the application properties:
 1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use. For example, **Azure AD SAML Toolkit 1**.
 1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
-1. Select **Yes** or **No** to decide whether the application is enabled for users to sign-in.
+1. Select **Yes** or **No** to decide whether the application is enabled for users to sign in.
 1. Select **Yes** or **No** to decide whether only user accounts that have been assigned to the application can sign in.
 1. Select **Yes** or **No** to decide whether users assigned to an application can see it in My Apps and Microsoft 365 application launcher. 
 
@@ -66,7 +66,7 @@ The thumbnail for the logo doesn't update right away. You can close and reopen t
 
 ## Add notes
 
-You can use the notes field to add any information that is relevant for the management of the application in Azure AD. Notes is a free text field with a maximum size of 1024 characters.
+You can use the **Notes** property to add any information that is relevant for the management of the application in Azure AD. The **Notes** property is a free text field with a maximum size of 1024 characters.
 
 To enter notes for the application:
 
@@ -75,7 +75,7 @@ To enter notes for the application:
 
 ## Clean up resources
 
-If you are planning to complete the next quickstart, keep the enterprise application that you created. If you do not plan to continue using the application, then consider deleting it to clean up your test tenant. For more information, see [Delete an application](delete-application-portal.md).
+If you are planning to complete the next quickstart, keep the enterprise application that you created. Otherwise, you can consider deleting it to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
 
 ## Next steps
 

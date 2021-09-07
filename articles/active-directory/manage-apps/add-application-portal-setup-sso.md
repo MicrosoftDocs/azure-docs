@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 09/07/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
 # Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
@@ -17,7 +17,7 @@ ms.reviewer: ergleenl
 
 # Quickstart: Enable single sign-on
 
-In this quickstart you use the Azure Active Directory Admin Center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. 
+In this quickstart, you use the Azure Active Directory Admin Center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. 
 
 Azure AD has a gallery that contains thousands of pre-integrated applications that use SSO. This quickstart uses an enterprise application named **Azure AD SAML Toolkit** as an example, but the concepts apply for most pre-configured [enterprise applications in the gallery](../saas-apps/tutorial-list.md).
 
@@ -107,7 +107,7 @@ To test SSO:
 
 ## Clean up resources
 
-If you are planning to complete the next quickstart, keep the enterprise application that you created. If you do not plan to continue using the application, then consider deleting it to clean up your test tenant. For more information, see [Delete an application](delete-application-portal.md).
+If you are planning to complete the next quickstart, keep the enterprise application that you created. Otherwise, you can consider deleting it to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
 
 ## Next steps
 
