@@ -254,6 +254,7 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 
 - HTTPS probes do not support mutual authentication with a client certificate.
 - You should assume Health probes will fail when TCP timestamps are enabled.
+- A basic SKU load balancer health probe isn't supported with a virtual machine scale set.
 
 ## Next steps
 
