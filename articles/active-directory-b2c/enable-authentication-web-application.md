@@ -275,12 +275,11 @@ The required information is described in the [Configure authentication in a samp
 ## Step 7: Run your application
 
 1. Build and run the project.
-1. Go to [https://localhost:5001](https://localhost:5001). 
+1. Go to `https://localhost:5001`. 
 1. Select **Sign Up/In**.
 1. Complete the sign-up or sign-in process.
 
 After you're successfully authenticated, you'll see your display name in the navigation bar. To view the claims that the Azure AD B2C token returns to your app, select **Claims**.
 
 ## Next steps
-
 * Learn how to [customize and enhance the Azure AD B2C authentication experience for your web app](enable-authentication-web-application-options.md).
