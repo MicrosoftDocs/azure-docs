@@ -46,7 +46,7 @@ Create an empty standard HDD for uploading by specifying both the **-–for-uplo
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` with values of your choosing. The `--upload-size-bytes` parameter contains an example value of `34359738880`, replace it with a value appropriate for you.
 
 > [!TIP]
-> If you are creating an OS disk, add --hyper-v-generation <yourGeneration> to `az disk create`.
+> If you are creating an OS disk, add `--hyper-v-generation <yourGeneration>` and `--os-type <yourOSType>` (either Linux or Windows) to `az disk create`.
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -102,7 +102,7 @@ The follow script will do this for you, the process is similar to the steps desc
 Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
 
 > [!TIP]
-> If you are creating an OS disk, add --hyper-v-generation <yourGeneration> and --os-type <yourOSType> (either Linux or Windows) to `az disk create`.
+> If you are creating an OS disk, add `--hyper-v-generation <yourGeneration>` and `--os-type <yourOSType>` (either Linux or Windows) to `az disk create`.
 
 ```azurecli
 sourceDiskName=<sourceDiskNameHere>
