@@ -233,10 +233,10 @@
         items:
         - name: Azure portal
           href: logs/quick-create-workspace.md 
-        - name: Azure CLI
-          href: logs/quick-create-workspace-cli.md
         - name: PowerShell
           href: logs/powershell-workspace-configuration.md
+        - name: Resource Manager template
+          href: logs/resource-manager-workspace.md
       - name: Design a workspace deployment
         href: logs/design-logs-deployment.md
       - name: Monitor a workspace

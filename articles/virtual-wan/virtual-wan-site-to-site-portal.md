@@ -17,8 +17,8 @@ In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual WAN
-> * Create a hub
-> * Create a site-to-site VPN gateway
+> * Configure hub Basic settings
+> * Configure site-to-site VPN gateway settings
 > * Create a site
 > * Connect a site to a hub
 > * Connect a VPN site to a hub
@@ -42,7 +42,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-## <a name="hub"></a>Create hub
+## <a name="hub"></a>Configure hub settings
 
 A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab in the next section. Note that it is possible to create an empty hub (a hub that does not contain any gateways) and then add gateways (S2S, P2S, ExpressRoute, etc.) later. Once a hub is created, you'll be charged for the hub, even if you don't attach any sites or create any gateways within the hub.
 

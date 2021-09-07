@@ -136,7 +136,7 @@ New-AzResourceGroupDeployment `
   -Name linkedTemplateWithRelativePath `
   -ResourceGroupName "myResourceGroup" `
   -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
-  -QueryString $sasToken
+  -QueryString "$sasToken"
 ```
 
 For more information, see [Use relative path for linked templates](./linked-templates.md#linked-template).

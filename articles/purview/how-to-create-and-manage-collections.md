@@ -15,7 +15,7 @@ ms.custom: template-how-to
 > [!NOTE]
 > At this time, this guide only applies to Purview instances created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instances created before August 18, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
 >
-> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. When the account is upgraded, all assigned permissions will be automatically redeployed to the root collection.
+> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. For information about what will change when your account is upgraded, see our [upgraded accounts guide](concept-account-upgrade.md).
 
 Collections in Purview can be used to organize assets and sources by your business's flow, but they are also the tool used to manage access across Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
 
