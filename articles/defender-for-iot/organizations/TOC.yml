@@ -23,6 +23,8 @@
 - name: Tutorial
   expanded: false
   items:
+  - name: Azure Defender for IoT trial setup
+    href: tutorial-onboarding.md
   - name: Integrate Splunk
     href: tutorial-splunk.md
   - name: Integrate ServiceNow
