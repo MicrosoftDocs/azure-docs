@@ -822,6 +822,7 @@
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
+    ".openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.iot-hub.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",

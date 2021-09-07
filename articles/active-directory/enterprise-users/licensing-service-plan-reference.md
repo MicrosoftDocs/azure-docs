@@ -23,11 +23,11 @@ ms.collection: M365-identity-device-management
 
 # Product names and service plan identifiers for licensing
 
-When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or the [Microsoft 365 admin center](https://admin.microsoft.com), you see product names that look something like *Office 365 E3*. When you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 cmdlets or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The following table lists the most commonly used Microsoft online service products and provides their various ID values. These tables are for reference purposes and are accurate only as of the date when this article was last updated. Microsoft does not plan to update them for newly added services periodically.
+When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or the [Microsoft 365 admin center](https://admin.microsoft.com), you see product names that look something like *Office 365 E3*. When you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 cmdlets or [Microsoft Graph](/graph/api/resources/subscribedsku), the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The following table lists the most commonly used Microsoft online service products and provides their various ID values. These tables are for reference purposes and are accurate only as of the date when this article was last updated. Microsoft does not plan to update them for newly added services periodically.
 
 - **Product name**: Used in management portals
-- **String ID**: Used by PowerShell v1.0 cmdlets when performing operations on licenses
-- **GUID**: GUID used by the Microsoft Graph API
+- **String ID**: Used by PowerShell v1.0 cmdlets when performing operations on licenses or by the **skuPartNumber** property of the **subscribedSku** Microsoft Graph API
+- **GUID**: GUID used by the **skuId** property of the **subscribedSku** Microsoft Graph API
 - **Service plans included**: A list of service plans in the product that correspond to the string ID and GUID
 - **Service plans included (friendly names)**: A list of service plans (friendly names) in the product that correspond to the string ID and GUID
 
