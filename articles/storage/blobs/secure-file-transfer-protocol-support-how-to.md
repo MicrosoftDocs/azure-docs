@@ -1,23 +1,35 @@
 ---
-title: Mount Azure Blob Storage by using the SFTP protocol | Microsoft Docs
-description: Learn how to ..
+title: Connect to Azure Blob Storage using the SFTP protocol (preview) | Microsoft Docs
+description: Learn how to connect to an Azure Storage account by using an SFTP client.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 09/07/2021
 ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
 
-# Mount Blob storage by using the Secure File Transfer (SFTP) protocol
+# Connect to Azure Blob Storage by using the Secure File Transfer (SFTP) protocol (preview)
 
-You can blah blah by using the SFTP protocol. This article provides step-by-step guidance. To learn more about SFTP protocol support in Blob storage, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md).
+You can securely connect to an Azure Storage account by using an SFTP client, and then manage your objects by using file system semantics. This article provides step-by-step guidance that helps you use SFTP to interact with Azure Blob Storage. To learn more about SFTP protocol support in Azure Blob Storage, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 > [!IMPORTANT]
 > SFTP protocol support is currently in PREVIEW and is available in the blah, blah, and blah regions. Need region info.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> To enroll in the preview, see [this form](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
+
+## Prerequisites
+
+- A standard general-purpose v2 or premium block blob storage account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+
+- Account redundancy option of the storage account is set to either locally-redundant storage (LRS) or zone-redundant storage (ZRS).
+
+- The hierarchical namespace feature of the account must be enabled.
+
+- If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22. The SFTP protocol uses that port.
 
 ## Register the SFTP feature
 
@@ -104,33 +116,41 @@ az feature show --namespace Microsoft.Storage --name AllowSFTP
 
 ---
 
-## Create and configure a storage account
+## Enable SFTP support
 
-To mount a container by using SFTP, You must create a storage account. You can't enable existing accounts.
+### [Portal](#tab/azure-portal)
 
-SFTP protocol is supported for standard general-purpose v2 storage accounts and for premium block blob storage accounts. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+To enable SFTP support for your storage account by using the Azure portal, follow these steps:
 
-As you configure the account, choose these values:
+1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 
-Specify values required in a table.
+2. Put steps here.
 
-You can accept the default values for all other settings. 
+### [PowerShell](#tab/powershell)
 
-## Create a container
+To enable SFTP support with PowerShell, use the [Need command](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command.
 
-Create a container in your storage account by using any of these tools or SDKs:
+The following example enables SFTP support. Remember to replace the placeholder values in brackets with your own values:
 
-|Tools|SDKs|
-|---|---|
-|[Azure portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
-|[AzCopy](../common/storage-use-azcopy-v10.md#transfer-data)|[Java](data-lake-storage-directory-file-acl-java.md)|
-|[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
-|[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](/rest/api/storageservices/create-container)|
+```azurepowershell
+command-goes-here <parameter-goes-here>
+```
 
-## Mount the container
+### [Azure CLI](#tab/azure-cli)
 
-Put guidance here.
+To enable SFTP support with Azure CLI, use the [Need command](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command. 
+
+The following example enables SFTP support. Remember to replace the placeholder values in brackets with your own values:
+
+```azurecli
+command-goes-here --parameter-name-goes-here <parameter-value-goes-here>
+```
+
+---
+
+## Connect to Azure Blob Storage and transfer data
+
+Put any guidance here - if appropriate.
 
 ---
 
