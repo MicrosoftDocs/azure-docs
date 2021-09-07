@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/19/2020
+ms.date: 09/07/2021
 ---
 
 ## SDKs
@@ -38,6 +38,14 @@ status = nx_azure_iot_hub_client_model_id_set(iothub_client_ptr, (UCHAR *)SAMPLE
 
 Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload:
 
+```json
+{
+    "modelId" : "dtmi:com:example:Thermostat;1"
+}
+```
+
+The sample uses the following code to send this payload:
+
 ```c
 #include "nx_azure_iot_provisioning_client.h"
 
@@ -57,7 +65,7 @@ As described in [Understand components in IoT Plug and Play models](../articles/
 
 ## Telemetry
 
-A default component doesn't require any special property on a telemetry message.
+A default component doesn't require any special property added to the telemetry message.
 
 When using nested components, devices must set a message property with the component name. In the following snippet, `component_name_ptr` is the name of a component such as `thermostat1`. The helper function `nx_azure_iot_pnp_helper_telemetry_message_create` defined in *nx_azure_iot_pnp_helpers.h* adds the message property with the component name:
 
@@ -166,7 +174,7 @@ The device twin is updated with the following reported property:
 }
 ```
 
-When using nested components, properties must be created within the component name and include a marker. In the following snippet, `component_name_ptr` is the name of a component such as `thermostat1`. The helper function `nx_azure_iot_pnp_helper_build_reported_property` defined in *nx_azure_iot_pnp_helpers.h* creates the reported property in the correct format:
+When using nested components, properties must be created within the component name and include a marker and include a marker. In the following snippet, `component_name_ptr` is the name of a component such as `thermostat1`. The helper function `nx_azure_iot_pnp_helper_build_reported_property` defined in *nx_azure_iot_pnp_helpers.h* creates the reported property in the correct format:
 
 ```c
 #include "nx_azure_iot_pnp_helpers.h"
