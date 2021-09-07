@@ -30,15 +30,6 @@ To add an enterprise application to your Azure AD tenant, you need:
 
 ## Add an enterprise application
 
-1. In the [Azure portal](https://portal.azure.com), in the **Azure services** pane select **Enterprise applications**. The **All applications** pane opens and displays a random sample of the applications in your Azure AD tenant.
-2. In the **Enterprise applications** pane, select **New application**.
-3. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
-    ![Search for an app by name or category](media/add-application-portal/browse-gallery.png)
-4. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results.
-5. The next step depends on the way the developer of the application implemented single sign-on (SSO). Single sign-on can be implemented by app developers in four ways. The four ways are SAML, OpenID Connect, Password, and Linked. When you add an app, you can choose to filter and see only apps using a particular SSO implementation as shown in the screenshot. For example, a popular standard to implement SSO is called Security Assertion Markup Language (SAML). Another standard that is popular is called OpenId Connect (OIDC). The way you configure SSO with these standards is different so take note of the type of SSO that is implemented by the app that you are adding.
-
-You can choose from the many enterprise applications in the gallery to add one to your Azure AD tenant.
-
 To add an enterprise application to your tenant:
 
 1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
