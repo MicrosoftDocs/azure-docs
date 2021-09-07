@@ -59,7 +59,9 @@ For more description of the parameters, please refer to [Azure EventHub configur
 | `spark.synapse.diagnostic.emitter.<destination>.filter.metricName.match`    | Optional. The comma-separated spark metric name suffixes, you can specify which metrics to collect. For example: `jvm.heap.used` |
 
 
-> NOTE: The Azure Eventhub instance connection string should always contains the `EntityPath`, which is the name of the Azure Event Hubs instance.
+> [!NOTE]
+>
+> The Azure Eventhub instance connection string should always contains the `EntityPath`, which is the name of the Azure Event Hubs instance.
 
 ## Log data sample
 
