@@ -26,10 +26,10 @@ The Communication Services Web Calling SDK must be used through `https`. For loc
 ## Documentation support
 - [Release Notes](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md)
 - [Submit issues/bugs on github](https://github.com/Azure/Communication/issues)
-- [1:1 voice calling quickstart](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=platform-web)
-- [1:1 video calling quickstart](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling?pivots=platform-web)
-- [Sample Applications](https://docs.microsoft.com/en-us/azure/communication-services/samples/overview)
-- [API Reference](https://docs.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- [1:1 voice calling quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=platform-web)
+- [1:1 video calling quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling?pivots=platform-web)
+- [Sample Applications](https://docs.microsoft.com/azure/communication-services/samples/overview)
+- [API Reference](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js&preserve-view=true)
 
 ## Models
 ### Object model
