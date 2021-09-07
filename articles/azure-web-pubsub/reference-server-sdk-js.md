@@ -35,7 +35,7 @@ Use the library to:
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/web-pubsub/web-pubsub) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub) |
 [API reference documentation](/javascript/api/@azure/web-pubsub/) |
-[Product documentation](https://aka.ms/awps/doc) |
+[Product documentation](./index.yml) |
 [Samples][samples_ref]
 
 ### Getting started
@@ -133,7 +133,7 @@ Use the express library to:
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/web-pubsub/web-pubsub-express) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub-express) |
 [API reference documentation](/javascript/api/@azure/web-pubsub-express/) |
-[Product documentation](https://aka.ms/awps/doc) |
+[Product documentation](./index.yml) |
 [Samples][samples_ref]
 
 ### Getting started

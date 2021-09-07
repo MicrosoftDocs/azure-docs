@@ -146,7 +146,7 @@ In this tutorial, you learn how to:
     func new -n negotiate -t HttpTrigger
     ```
     > [!NOTE]
-    > In this sample, we use [AAD](/azure/app-service/configure-authentication-user-identities) user identity header `x-ms-client-principal-name` to retrieve `userId`. And this won't work in a local function. You can make it empty or change to other ways to get or generate `userId` when playing in local. For example, let client type a user name and pass it in query like `?user={$username}` when call `negotiate` function to get service connection url. And in the `negotiate` function, set `userId` with value `{query.user}`.
+    > In this sample, we use [AAD](../app-service/configure-authentication-user-identities.md) user identity header `x-ms-client-principal-name` to retrieve `userId`. And this won't work in a local function. You can make it empty or change to other ways to get or generate `userId` when playing in local. For example, let client type a user name and pass it in query like `?user={$username}` when call `negotiate` function to get service connection url. And in the `negotiate` function, set `userId` with value `{query.user}`.
     
     # [JavaScript](#tab/javascript)
    - Update `negotiate/function.json` and copy following json codes.
@@ -404,10 +404,10 @@ Go to **Azure portal** -> Find your Function App resource -> **Authentication**.
 
 Here we choose `Microsoft` as identify provider which will use `x-ms-client-principal-name` as `userId` in the `negotiate` function. Besides, You can configure other identity providers following below links, and don't forget update the `userId` value in `negotiate` function accordingly.
 
-* [Microsoft(Azure AD)](/azure/app-service/configure-authentication-provider-aad)
-* [Facebook](/azure/app-service/configure-authentication-provider-facebook)
-* [Google](/azure/app-service/configure-authentication-provider-google)
-* [Twitter](/azure/app-service/configure-authentication-provider-twitter)
+* [Microsoft(Azure AD)](../app-service/configure-authentication-provider-aad.md)
+* [Facebook](../app-service/configure-authentication-provider-facebook.md)
+* [Google](../app-service/configure-authentication-provider-google.md)
+* [Twitter](../app-service/configure-authentication-provider-twitter.md)
 
 ## Try the application
 

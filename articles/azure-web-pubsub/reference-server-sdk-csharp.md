@@ -21,7 +21,7 @@ This library can be used to do the following actions. Details about the terms us
 [Source code][code] |
 [Package][package] |
 [API reference documentation][api] |
-[Product documentation](https://aka.ms/awps/doc) |
+[Product documentation](./index.yml) |
 [Samples][samples_ref]
 
 ## Getting started
