@@ -1,6 +1,6 @@
 ---
 title: Develop Azure Functions with Media Services v3
-description: This topic shows how to start developing Azure Functions with Media Services v3 using the Azure portal.
+description: This article shows how to start developing Azure Functions with Media Services v3 using the Azure portal.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -39,7 +39,19 @@ These prerequisites are only required to run and debug your functions locally. T
 
 + [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).
 
-[!INCLUDE [functions-install-vs-code-extension](../../../includes/functions-install-vs-code-extension.md)]
+## Install the Azure Functions extension
+
+You can use the Azure Functions extension to create and test functions and deploy them to Azure.
+
+1. In Visual Studio Code, open **Extensions** and search for **azure functions**, or select this link in Visual Studio Code: `vscode:extension/ms-azuretools.vscode-azurefunctions`.
+
+1. Select **Install** to install the extension for Visual Studio Code:
+
+    ![Install the extension for Azure Functions](./Media/integrate-azure-functions-dotnet-how-to/vscode-install-extension.png)
+
+1. After installation, select the Azure icon on the Activity bar. You should see an Azure Functions area in the Side Bar.
+
+    ![Azure Functions area in the Side Bar](./Media/integrate-azure-functions-dotnet-how-to/azure-functions-window-vscode.png)
 
 ## Create an Azure Functions project
 
@@ -55,7 +67,7 @@ The Functions extension lets you create a function app project, along with your 
 
     ![Choose the HTTP trigger template](./Media/integrate-azure-functions-dotnet-how-to/create-function-choose-template.png)
 
-1. Type **HttpTriggerEncode** for the function name and select Enter, accept **Company.Function** for the namespaceand then select **Function** for the access rights. This authorization level requires you to provide a [function key](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
+1. Type **HttpTriggerEncode** for the function name and select Enter, accept **Company.Function** for the namespace then select **Function** for the access rights. This authorization level requires you to provide a [function key](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
 
     ![Select Function authorization](./Media/integrate-azure-functions-dotnet-how-to/create-function-auth.png)
 
@@ -67,9 +79,9 @@ The Functions extension lets you create a function app project, along with your 
 
 The project template creates a project in your chosen language and installs required dependencies. For any language, the new project has these files:
 
-* **host.json**: Lets you configure the Functions host. These settings apply when you're running functions locally and when you're running them in Azure. For more information, see [host.json reference](./../azure-functions/functions-host-json.md).
+* **host.json**: Lets you configure the Functions host. These settings apply when you're running functions locally and when you're running them in Azure. For more information, see [host.json reference](./../../azure-functions/functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when you're running functions locally. These settings are used only when you're running functions locally. For more information, see [Local settings file](#local-settings).
+* **local.settings.json**: Maintains settings used when you're running functions locally. These settings are used only when you're running functions locally.
 
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
@@ -91,9 +103,9 @@ dotnet add package Microsoft.AspNetCore.Mvc.Core
 
 ### HttpTriggerEncode.cs
 
-This is the C# code for your function. The function defined below takes a Media Services asset or a source URL and launches an encoding job with Media Services. It uses a Transform which is created if it does not exist. When it is created, it used the preset provided in the input body. 
+This is the C# code for your function. The function defined below takes a Media Services asset or a source URL and launches an encoding job with Media Services. It uses a Transform that is created if it does not exist. When it is created, it used the preset provided in the input body. 
 
-Replace the contents of the existing HttpTriggerEncode.cs file with the following code. Once you are done defining your function click **Save and Run**.
+Replace the content of the existing HttpTriggerEncode.cs file with the following code. Once you are done defining your function click **Save and Run**.
 
 ```csharp
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -609,6 +621,6 @@ The function should return 200 OK with a output body containing the job and outp
 
 ## Next steps
 
-At this point, you are ready to start developing functions leveraging Media Services.
+At this point, you are ready to start developing functions that call Media Services API.
 
-For more details and complete sample of using Azure Functions with Azure Media Services v3 to create custom content creation workflows, see the [Media Services v3 Azure Functions sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/Functions)
+For more details and a complete sample of using Azure Functions with Azure Media Services v3, see the [Media Services v3 Azure Functions sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/main/Functions)
