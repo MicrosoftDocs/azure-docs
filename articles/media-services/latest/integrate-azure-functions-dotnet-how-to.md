@@ -1,15 +1,14 @@
 ---
 title: Develop Azure Functions with Media Services v3
-description: This article shows how to start developing Azure Functions with Media Services v3 using the Azure portal.
+description: This article shows how to start developing Azure Functions with Media Services v3 using Visual Studio Code.
 services: media-services
-author: IngridAtMicrosoft
-manager: femila
+author: xpouyat
 ms.service: media-services
 ms.workload: media
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/09/2021
-ms.author: inhenkel
+ms.author: xpouyat
 ms.custom: devx-track-csharp
 ---
 
@@ -43,7 +42,7 @@ These prerequisites are only required to run and debug your functions locally. T
 
 You can use the Azure Functions extension to create and test functions and deploy them to Azure.
 
-1. In Visual Studio Code, open **Extensions** and search for **azure functions**, or select this link in Visual Studio Code: `vscode:extension/ms-azuretools.vscode-azurefunctions`.
+1. In Visual Studio Code, open **Extensions** and search for **Azure functions**, or select this link in Visual Studio Code: `vscode:extension/ms-azuretools.vscode-azurefunctions`.
 
 1. Select **Install** to install the extension for Visual Studio Code:
 
@@ -351,8 +350,6 @@ namespace Functions
         /// <returns></returns>
         private static async Task<ServiceClientCredentials> GetCredentialsAsync(ConfigWrapper config)
         {
-            // Use ConfidentialClientApplicationBuilder.AcquireTokenForClient to get a token using a service principal with symmetric key
-
             var scopes = new[] { config.ArmAadAudience + "/.default" };
 
             var app = ConfidentialClientApplicationBuilder.Create(config.AadClientId)
@@ -373,6 +370,7 @@ namespace Functions
         /// output is set to encode a video using a predefined preset.
         /// </summary>
         /// <param name="client">The Media Services client.</param>
+        /// <param name="log">Function logger.</param>
         /// <param name="resourceGroupName">The name of the resource group within the Azure subscription.</param>
         /// <param name="accountName"> The Media Services account name.</param>
         /// <param name="transformName">The transform name.</param>
@@ -387,12 +385,12 @@ namespace Functions
             if (transform == null)
             {
                 log.LogInformation($"Creating transform '{transformName}'...");
+
                 // Create a new Transform Outputs array - this defines the set of outputs for the Transform
                 TransformOutput[] outputs = new TransformOutput[]
                 {
                     // Create a new TransformOutput with a custom Standard Encoder Preset
                     // This demonstrates how to create custom codec and layer output settings
-
                   new TransformOutput(
                         new BuiltInStandardEncoderPreset()
                         {
@@ -421,6 +419,7 @@ namespace Functions
         /// Creates an output asset. The output from the encoding Job must be written to an Asset.
         /// </summary>
         /// <param name="client">The Media Services client.</param>
+        /// <param name="log">Function logger.</param>
         /// <param name="resourceGroupName">The name of the resource group within the Azure subscription.</param>
         /// <param name="accountName"> The Media Services account name.</param>
         /// <param name="assetName">The output asset name.</param>
@@ -492,7 +491,6 @@ namespace Functions
                              Input = jobInput,
                              Outputs = jobOutputs,
                          });
-
             }
             catch (Exception exception)
             {
