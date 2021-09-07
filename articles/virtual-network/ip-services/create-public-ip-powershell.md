@@ -14,7 +14,7 @@ ms.author: allensu
 
 This article shows you how to create a public IP address resource using Azure PowerShell. 
 
-For more information on resources that support public IPs, see [Public IP addresses](./public-ip-addresses.md).
+For more information on resources that support public IPs, see [Public IP addresses](public-ip-addresses.md).
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -82,14 +82,14 @@ $ip = @{
 New-AzPublicIpAddress @ip
 ```
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ## Create standard public IP without zones
 
 In this section, you'll create a non-zonal IP address.  
 
 >[!NOTE]
->The following command works for Az.Network module version 4.5.0 or later.  For more information about the Powershell modules currently being used, please refer to the [PowerShellGet documentation](/powershell/module/powershellget/).
+>The following command works for Az.Network module version 4.5.0 or later.  For more information about the PowerShell modules currently being used, please refer to the [PowerShellGet documentation](/powershell/module/powershellget/).
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP** in **myResourceGroup**. 
 
@@ -108,7 +108,7 @@ New-AzPublicIpAddress @ip
 ```
 The removal of the **zone** parameter in the command is valid in all regions.  
 
-The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ## Create a basic public IP
 
@@ -144,7 +144,7 @@ By default, the routing preference for public IP addresses is set to "Microsoft 
 
 The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate.  
 
-For more information on routing preference, see [What is routing preference (preview)?](./routing-preference-overview.md).
+For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md).
 
 The command creates a new standard zone-redundant public IPv4 address with a routing preference of type **Internet**:
 
@@ -173,7 +173,7 @@ New-AzPublicIpAddress @ip
 
 Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions. **Global** tier is required for the frontends of cross-region load balancers.  
 
-For more information, see [Cross-region load balancer](../load-balancer/cross-region-overview.md).
+For more information, see [Cross-region load balancer](../../load-balancer/cross-region-overview.md).
 
 The following command creates a global IPv4 address. This address can be associated with the frontend of a cross-region load balancer.
 
@@ -194,9 +194,9 @@ New-AzPublicIpAddress @ip
 
 ## Additional information 
 
-For more information on the individual parameters listed in this how-to, see [Manage public IP addresses](./virtual-network-public-ip-address.md#create-a-public-ip-address).
+For more information on the individual parameters listed in this how-to, see [Manage public IP addresses](virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## Next steps
-- Associate a [public IP address to a Virtual Machine](./associate-public-ip-address-vm.md#azure-portal)
-- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
+- Associate a [public IP address to a Virtual Machine](../../virtual-network/associate-public-ip-address-vm.md#azure-portal)
+- Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).

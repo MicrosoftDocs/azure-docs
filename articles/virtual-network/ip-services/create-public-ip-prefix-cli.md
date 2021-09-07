@@ -17,9 +17,9 @@ Learn about a public IP address prefix and how to create, change, and delete one
 
 When you create a public IP address resource, you can assign a static public IP address from the prefix and associate the address to virtual machines, load balancers, or other resources. For more information, see [Public IP address prefix overview](public-ip-address-prefix.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -78,7 +78,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **IpAddressVersion** pa
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ### Non-zonal IPv4 prefix
 
@@ -95,7 +95,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **IpAddressVersion** pa
 
 The removal of the **zone** parameter in the command is valid in all regions.  
 
-The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ### Zone redundant IPv6 prefix
 
@@ -126,7 +126,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **IpAddressVersion** pa
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ### Non-zonal IPv6 prefix
 
@@ -143,7 +143,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **IpAddressVersion** pa
 
 The removal of the **zone** parameter in the command is valid in all regions.  
 
-The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ## Create a static public IP address from a prefix
 
@@ -180,7 +180,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **IpAddressVersion** pa
 ```
 
 >[!NOTE]
->Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](./public-ip-addresses.md#public-ip-addresses).
+>Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](public-ip-addresses.md#public-ip-addresses).
 
 ## Delete a prefix
 

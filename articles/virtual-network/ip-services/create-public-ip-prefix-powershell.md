@@ -85,7 +85,7 @@ New-AzPublicIpPrefix @ipv4
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ### Non-zonal IPv4 prefix
 
@@ -104,7 +104,7 @@ New-AzPublicIpPrefix @ipv4
 
 The removal of the **zone** parameter in the command is valid in all regions.  
 
-The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ### Zone redundant IPv6 prefix
 
@@ -139,7 +139,7 @@ New-AzPublicIpPrefix @ipv6
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ### Non-zonal IPv6 prefix
 
@@ -158,7 +158,7 @@ New-AzPublicIpPrefix @ipv6
 
 The removal of the **zone** parameter in the command is valid in all regions.  
 
-The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ## Create a static public IP address from a prefix
 
@@ -214,7 +214,7 @@ New-AzPublicIpAddress @ipv6
 ```
 
 >[!NOTE]
->Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](./public-ip-addresses.md#public-ip-addresses).
+>Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](public-ip-addresses.md#public-ip-addresses).
 
 ## Delete a prefix
 
