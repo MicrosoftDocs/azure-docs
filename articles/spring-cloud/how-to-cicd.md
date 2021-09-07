@@ -96,7 +96,7 @@ steps:
 Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn how to create an Azure Resource Manager service connection to your Azure DevOps project. Be sure to select the same subscription you are using for your Azure Spring Cloud service instance.
 
 ## Build and deploy apps
-DevOps provides you with convenient ways to deploy your app. The following displays three ways to do it.
+DevOps provides you with convenient ways to deploy your app. The following displays how to do it.
 
 ### Deploy artifacts via pipeline
 
@@ -138,6 +138,7 @@ steps:
 
 The deployment shown in the previous section immediately receives application traffic upon deployment. Sometimes, developers want to test their applications in the production environment but before the application receives any customer traffic.
 
+#### Edit pipleline file
 The following snippet builds the application the same way as above and then deploys it to a staging deployment. In this example, the staging deployment must already exist. For an alternative approach, see [Blue-green deployment strategies](concepts-blue-green-deployment-strategies.md).
 
 ```yaml
@@ -161,6 +162,27 @@ steps:
     AppName: <app-name>
     UseStagingDeployment: true
 ```
+
+#### Use Release Blade
+The follow steps demonstrate how to enable blue-green deployment via Release Blade.
+
+1.	Click on Pipelines blade and create a new pipeline for Maven build and Publish artifact
+> *	Choose Maven template and change mavenPomFile to ‘complete/pom.xml’
+> *	Click on show assistance on the right side and choose publish build artifact template
+> *	Change Path to public to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar
+> *	Click on save and run
+2.	Go to Releases blade. Add a new pipeline, and choose an empty job to edit.
+> * Create a new job and search for “Azure Spring Cloud” template.
+> * Fill this task with your app's information. Change artifact's address later.
+> * Disable "use staging deployment". Click "create a new staging deployment" and enter deployment name.
+> * Click on save.
+3.  Click on the artifact and choose the pipeline that publish the artifact. Then, click on the task in the stage 1, and then change package or folder to the artifact address. Save changes.
+4. Click on clone stage and modify this stage
+> * Change action to “Set Production Deployment”
+> * Fill blanks of this task.
+5.	Click “create release”, the deployment will automatically start.
+
+Click “view release” to check current release status. Wait job to be done. Go to Azure portal and check your app status.
 
 ### Deploy from source
 
