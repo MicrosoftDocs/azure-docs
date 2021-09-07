@@ -112,7 +112,7 @@ Follow these steps to take a snapshot with the `az snapshot create` command and 
     	--name osDisk-backup
     ```
 
-If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](/azure/availability-zones/az-overview) and include the optional `--sku Standard_ZRS` parameter. A list of [availability zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones) can be found here.
+    If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](/azure/availability-zones/az-overview) and include the optional `--sku Standard_ZRS` parameter. A list of [availability zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones) can be found here.
     
 1. Use [az snapshot list](/cli/azure/snapshot#az_snapshot_list) to verify that your snapshot exists.
     
