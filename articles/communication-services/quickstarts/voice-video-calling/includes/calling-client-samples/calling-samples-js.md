@@ -1,9 +1,9 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: mikben
+ms.author: rifox
 ---
 
 ## Prerequisites
@@ -24,6 +24,7 @@ npm install @azure/communication-calling --save
 The Communication Services Web Calling SDK must be used through `https`. For local development, use `localhost` or local 'file:'
 
 ## Documentation support
+- [Release Notes](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md)
 - [Submit issues/bugs on github](https://github.com/Azure/Communication/issues)
 - [Sample Applications](../../../../samples/overview.md)
 - [API Reference](/javascript/api/azure-communication-services/@azure/communication-calling/?preserve-view=true&view=azure-communication-services-js)

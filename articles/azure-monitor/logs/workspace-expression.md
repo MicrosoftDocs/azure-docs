@@ -4,7 +4,7 @@ description: The workspace expression is used in an Azure Monitor log query to r
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/10/2018
+ms.date: 08/19/2021
 
 ---
 
@@ -23,7 +23,7 @@ The `workspace` expression is used in an Azure Monitor query to retrieve data fr
 
 | Identifier | Description | Example
 |:---|:---|:---|
-| Resource Name | Human readable name of the workspace (AKA "component name") | workspace("contosoretail") |
+| Resource Name | Human readable name of the workspace (also known as "component name") | workspace("contosoretail") |
 | Qualified Name | Full name of the workspace in the form: "subscriptionName/resourceGroup/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |
 | ID | GUID of the workspace | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
 | Azure Resource ID | Identifier for the Azure resource | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |

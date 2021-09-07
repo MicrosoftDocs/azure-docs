@@ -6,7 +6,7 @@ author: kromerm
 ms.service: synapse-analytics
 ms.subservice: pipeline 
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 08/25/2021
 ms.author: makromer
 ms.reviewer: jrasnick
 ---
@@ -32,7 +32,6 @@ Check below table for features availability:
 | **GIT Repository Integration** | GIT Integration | ✓ | ✓ |
 | **Monitoring**           | Monitoring of Spark Jobs for Data Flow | ✗ | ✓<br><small>*Leverage the Synapse Spark pools* |
 |                          | Integration with Azure Monitor | ✓ | ✗ |
-| **Lineage** | Supports publishing Pipeline lineage data to Purview  | ✓ | ✗ |  
 
 > [!Note]
 > **Time to Live** is an Azure Integration Runtime setting that enables the Spark cluster to *stay warm* for a period of time after an execution of data flow.

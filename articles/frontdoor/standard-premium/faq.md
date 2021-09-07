@@ -139,7 +139,7 @@ Yes, Azure Front Door supports the X-Forwarded-For, X-Forwarded-Host, and X-Forw
 Most Rules Engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
 
  > [!Note]  
-  > Most custom TLS/SSL certificate updates take about 30 minutes to be deployed globally.
+  > Most custom TLS/SSL certificate updates take from several minutes to an hour to be deployed globally.
 
 Any updates to routes or backend pools are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates won't cause any outage, unless you're switching from 'Azure Front Door Managed' to 'Use your own cert' or the other way around.
 

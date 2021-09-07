@@ -89,7 +89,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
-- Microsoft PowerApps
+- Microsoft Power Apps
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
@@ -137,6 +137,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
+- Microsoft Teams
 - Microsoft Word
 - MultiLine for Intune
 - Nine Mail - Email & Calendar

@@ -205,6 +205,8 @@
         href: logic-apps-enterprise-integration-as2.md
       - name: AS2 message settings
         href: logic-apps-enterprise-integration-as2-message-settings.md
+      - name: AS2 MDN acknowledgments
+        href: logic-apps-enterprise-integration-as2-mdn-acknowledgment.md
     - name: EDIFACT messaging
       items:
       - name: Exchange EDIFACT messages
@@ -329,7 +331,7 @@
       href: logic-apps-enterprise-integration-rosettanet.md
     - name: Salesforce
       href: ../connectors/connectors-create-api-salesforce.md
-    - name: SAP (New)
+    - name: SAP
       href: logic-apps-using-sap-connector.md
     - name: SendGrid
       href: ../connectors/connectors-create-api-sendgrid.md

@@ -173,7 +173,7 @@ You can configure a maximum of five policies, and only one instance of each Poli
 
 1. Under **Policy settings**, select the **+ Add policy (max 5)** link.
 1. In the **Name** box, enter the policy assignment name (limited to 50 characters).
-1. From the **Policies** list box, select the Azure policy that will be applied to resources created by the managed application in the customer subscription.
+1. From the **Policies** list box, select the Azure Policy definition that will be applied to resources created by the managed application in the customer subscription.
 1. In the **Policy parameters** box, provide the parameter on which the auditing and diagnostic settings policies should be applied.
 1. From the **Policy SKU** list box, select the policy SKU type.
 

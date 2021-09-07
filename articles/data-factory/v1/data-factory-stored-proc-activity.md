@@ -15,8 +15,8 @@ robots: noindex
 > * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 > * [Spark Activity](data-factory-spark.md)
-> * [Azure Machine Learning Studio (classic) Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (classic) Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [ML Studio (classic) Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [ML Studio (classic) Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
@@ -42,6 +42,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
 
 ## Walkthrough
 ### Sample table and stored procedure
+
 1. Create the following **table** in your Azure SQL Database using SQL Server Management Studio or any other tool you are comfortable with. The datetimestamp column is the date and time when the corresponding ID is generated.
 
     ```SQL
@@ -55,11 +56,12 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
     CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
     GO
     ```
-    Id is the unique identified and the datetimestamp column is the date and time when the corresponding ID is generated.
+    `Id` is the unique identifier, and the `datetimestamp` column is the date and time when the corresponding ID is generated.
     
     ![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
 
     In this sample, the stored procedure is in an Azure SQL Database. If the stored procedure is in Azure Synapse Analytics and SQL Server Database, the approach is similar. For a SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
+    
 2. Create the following **stored procedure** that inserts data in to the **sampletable**.
 
     ```SQL

@@ -39,6 +39,8 @@
       href: concept-rule-set-actions.md
     - name: URL redirect and URL rewrite
       href: concept-rule-set-url-redirect-and-rewrite.md
+  - name: Geo-filtering
+    href: geo-filtering.md
   - name: Health probes
     href: concept-health-probes.md
   - name: Private Link
@@ -89,6 +91,8 @@
       href: troubleshoot-compression.md
     - name: Cross origin resource sharing
       href: troubleshoot-cross-origin-resources.md
+    - name: Subscription offers and bandwidth throttling
+      href: subscription-offers.md
     - name: Allowed certificate authorities
       href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
 - name: Reference

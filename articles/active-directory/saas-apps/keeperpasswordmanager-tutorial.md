@@ -34,7 +34,7 @@ To configure Azure AD integration with Keeper Password Manager & Digital Vault, 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Keeper Password Manager & Digital Vault supports SP-initiated SSO.
-
+* Keeper Password Manager supports [**Automated** user provisioning and deprovisioning](keeper-password-manager-digitalvault-provisioning-tutorial.md) (recommended).
 * Keeper Password Manager & Digital Vault supports just-in-time user provisioning.
 
 ## Add Keeper Password Manager & Digital Vault from the gallery

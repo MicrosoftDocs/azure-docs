@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * OfficeSpace Software supports **SP** initiated SSO.
+* OfficeSpace Software supports [**automated user provisioning and deprovisioning**](officespace-software-provisioning-tutorial.md) (recommended).
 * OfficeSpace Software supports **Just In Time** user provisioning.
 
 ## Add OfficeSpace Software from the gallery

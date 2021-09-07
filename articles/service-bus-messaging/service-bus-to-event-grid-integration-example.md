@@ -4,7 +4,7 @@ description: This article provides steps for handling Service Bus events via Eve
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 08/13/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ---
@@ -39,7 +39,7 @@ In this step, you create an Azure logic app that receives Service Bus events via
     2. For **Resource Type**, select **Microsoft.ServiceBus.Namespaces**. 
     3. For **Resource Name**, select your Service Bus namespace. 
     4. Select **Add new parameter**, and select **Suffix Filter**. 
-    5. For **Suffix Filter**, enter the name of your second Service Bus topic subscription. 
+    5. For **Suffix Filter**, enter the name of your Service Bus topic subscription. 
         ![Logic Apps Designer - configure event](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Select **+ New Step** in the designer, and do the following steps:
     1. Search for **Service Bus**.
@@ -97,7 +97,7 @@ In this step, you'll add steps to send the received message in an email and then
     1. Select **Service Bus** in the **Recent** list.
     2. Select **Complete the message in a topic subscription** from the list of actions. 
     3. Select your Service Bus **topic**.
-    4. Select the second **subscription** to the topic.
+    4. Select a **subscription** to the topic.
     5. For **Lock token of the message**, select **Lock Token** from the **Dynamic content**. 
 
         ![Logic Apps Designer - complete the message](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)

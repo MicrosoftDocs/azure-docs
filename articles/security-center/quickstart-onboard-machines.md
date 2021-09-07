@@ -28,7 +28,7 @@ The preferred way of adding your non-Azure machines to Azure Security Center is 
 
 A machine with Azure Arc-enabled servers becomes an Azure resource and - when you've installed the Log Analytics agent on it - appears in Security Center with recommendations like your other Azure resources.
 
-In addition, Azure Arc-enabled servers provides enhanced capabilities such as the option to enable guest configuration policies on the machine, simplify deployment with other Azure services, and more. For an overview of the benefits, see [Supported scenarios](../azure-arc/servers/overview.md#supported-scenarios).
+In addition, Azure Arc-enabled servers provides enhanced capabilities such as the option to enable guest configuration policies on the machine, simplify deployment with other Azure services, and more. For an overview of the benefits, see [Supported cloud operations](../azure-arc/servers/overview.md#supported-cloud-operations).
 
 > [!NOTE]
 > Security Center's auto-deploy tools for deploying the Log Analytics agent don't support machines running Azure Arc. When you've connected your machines using Azure Arc, use the relevant Security Center recommendation to deploy the agent and benefit from the full range of protections offered by Security Center:
@@ -40,7 +40,11 @@ Learn more about [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
 
 **To deploy Azure Arc:**
 
+<<<<<<< HEAD
 - For one machine, follow the instructions in [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+=======
+- For one machine, follow the instructions in [Quickstart: Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+>>>>>>> master
 - To connect multiple machines at scale to Azure Arc-enabled servers, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]

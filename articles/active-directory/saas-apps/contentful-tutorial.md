@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 08/27/2021
 ms.author: jeedes
 ---
 
@@ -34,6 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Contentful supports **SP and IDP** initiated SSO.
 * Contentful supports **Just In Time** user provisioning.
+* Contentful supports [Automated user provisioning](contentful-provisioning-tutorial.md).
 
 > [!NOTE]
 > The identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -143,6 +144,8 @@ If that doesn't work, reach out to the [Contentful support team](mailto:support@
 ### Create Contentful test user
 
 In this section, a user called B.Simon is created in Contentful. Contentful supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Contentful, a new one is created after authentication.
+
+Contentful also supports automatic user provisioning, you can find more details [here](./contentful-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

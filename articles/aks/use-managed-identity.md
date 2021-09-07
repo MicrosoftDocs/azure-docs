@@ -39,7 +39,7 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | not visible | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, and Cluster Autoscaler operations | Contributor role for Node resource group | Supported
+| Control plane | AKS Cluster Name | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, Cluster Autoscaler, Azure Disk & File CSI drivers | Contributor role for Node resource group | Supported
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
@@ -87,7 +87,10 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
 > After updating, your cluster's control plane and addon pods will switch to use managed identity, but kubelet will KEEP USING SERVICE PRINCIPAL until you upgrade your agentpool. Perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity. 
-
+>
+> If your cluster was using --attach-acr to pull from image from Azure Container Registry, after updating your cluster to Managed Identity, you need to rerun 'az aks update --attach-acr <ACR Resource ID>' to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise you will not be able to pull from ACR after the upgrade.
+>
+> The Azure CLI will ensure your addon's permission is correctly set after migrating, if you're not using the Azure CLI to perform the migrating operation, you will need to handle the addon identity's permission by yourself. Here is one example using [ARM](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-template). 
 
 ## Obtain and use the system-assigned managed identity for your AKS cluster
 
@@ -204,7 +207,7 @@ A Kubelet identity enables access to be granted to the existing identity prior t
 ### Limitations
 
 - Only works with a User-Assigned Managed cluster.
-- Azure China 21Vianet isn't currently supported.
+- China East, China North in Azure China 21Vianet aren't currently supported.
 
 ### Create or obtain managed identities
 

@@ -206,8 +206,6 @@ The following operating systems support using Windows Defender Application Contr
 
 ## IP virtualization
 
-IP virtualization is supported on Windows Server 2016. 
-
 If you want to use IP virtualization on Windows Server 2019, please follow these steps:
 
 1. From an admin Windows PowerShell window, rename the following key: 

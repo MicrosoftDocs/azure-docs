@@ -64,7 +64,7 @@ To help with resizing the VHD and converting to a VHDX, you can also use the fol
     The Azure portal's **Size+Performance** tab for the managed disk allows you to change your disk size. As mentioned before, the size must *not* be greater than 128 GB.
 
 1. In a shared image gallery, create an image definition and version:
-    1. [Create an image definition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition).  
+    1. [Create an image definition](../virtual-machines/image-version.md).  
      - Choose **Gen 1** for the **VM generation**.
      - Choose whether you are creating a **specialized** or **generalized** image for the **Operating system state**.
      
@@ -72,7 +72,7 @@ To help with resizing the VHD and converting to a VHDX, you can also use the fol
     
     You can also choose to use an existing image definition and create a new version for your custom image.
     
-1. [Create an image version](../virtual-machines/windows/shared-images-portal.md#create-an-image-version).
+1. [Create an image version](../virtual-machines/image-version.md).
     - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*.   When you use Lab Services to create a lab and choose a custom image, the most recent version of the image is automatically used.  The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch.
     - For the **Source**, choose **Disks and/or snapshots** from the drop-down list.
     - For the **OS disk** property, choose the disk that you created in previous steps.

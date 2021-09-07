@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 08/23/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Druva supports **IDP** initiated SSO.
+* Druva supports [Automated user provisioning](druva-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -150,6 +151,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create Druva test user
 
 In this section, a user called B.Simon is created in Druva. Druva supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Druva, a new one is created after authentication.
+
+Druva also supports automatic user provisioning, you can find more details [here](./druva-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

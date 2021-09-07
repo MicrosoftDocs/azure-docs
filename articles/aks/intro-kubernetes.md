@@ -151,7 +151,7 @@ Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[compliance-doc]: https://azure.microsoft.com/en-us/overview/trusted-cloud/compliance/
+[compliance-doc]: https://azure.microsoft.com/overview/trusted-cloud/compliance/
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md

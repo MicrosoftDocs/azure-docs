@@ -46,11 +46,11 @@ If you're using a private endpoint to the Azure Files share, it's important to r
 Follow these steps to create a VM connected to an Azure file share.
 
 1. Create an [Azure Storage account](../storage/files/storage-how-to-create-file-share.md). On the **Connectivity method** page, choose **public endpoint** or **private endpoint**.
-2. If you've chosen the private method, create a [private endpoint](../private-link/tutorial-private-endpoint-storage-portal.md) in order for the file shares to be accessible from the virtual network. Create a [private DNS zone](../dns/private-dns-privatednszone.md), or use an existing one. Private Azure DNS zones provide name resolution within a virtual network.
-3. Create an [Azure file share](../storage/files/storage-how-to-create-file-share.md). The file share is reachable by the public host name of the storage account.
+2. If you've chosen the private method, create a [private endpoint](../private-link/tutorial-private-endpoint-storage-portal.md) in order for the file shares to be accessible from the virtual network.
+3. Create an [Azure file share](../storage/files/storage-how-to-create-file-share.md). The file share is reachable by the public host name of the storage account if using a public endpoint.  The file share is reachable by private IP address if using a private endpoint.  
 4. Mount the Azure file share in the template VM:
     - [Windows](../storage/files/storage-how-to-use-files-windows.md)
-    - [Linux](../storage/files/storage-how-to-use-files-linux.md). To avoid mounting issues on student VMs, see the next section.
+    - [Linux](../storage/files/storage-how-to-use-files-linux.md). To avoid mounting issues on student VMs, see the [use Azure Files with Linux](#use-azure-files-with-linux) section.
 5. [Publish](how-to-create-manage-template.md#publish-the-template-vm) the template VM.
 
 > [!IMPORTANT]
@@ -60,6 +60,7 @@ Follow these steps to create a VM connected to an Azure file share.
 
 If you use the default instructions to mount an Azure Files share, the file share will seem to disappear on student VMs after the template is published. The following modified script addresses this issue.  
 
+For file share with a public endpoint:
 ```bash
 #!/bin/bash
 
@@ -83,6 +84,34 @@ fi
 sudo chmod 600 /etc/smbcredentials/$storage_account_name.cred
 
 sudo bash -c "echo ""//$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
+sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name -o vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino
+```
+
+For file share with a private endpoint:
+```bash
+#!/bin/bash
+
+# Assign variables values for your storage account and file share
+storage_account_name=""
+storage_account_ip=""
+storage_account_key=""
+fileshare_name=""
+
+# Do not use 'mnt' for mount directory.
+# Using ‘mnt’ will cause issues on student VMs.
+mount_directory="prm-mnt" 
+
+sudo mkdir /$mount_directory/$fileshare_name
+if [ ! -d "/etc/smbcredentials" ]; then
+    sudo mkdir /etc/smbcredentials
+fi
+if [ ! -f "/etc/smbcredentials/$storage_account_name.cred" ]; then
+    sudo bash -c "echo ""username=$storage_account_name"" >> /etc/smbcredentials/$storage_account_name.cred"
+    sudo bash -c "echo ""password=$storage_account_key"" >> /etc/smbcredentials/$storage_account_name.cred"
+fi
+sudo chmod 600 /etc/smbcredentials/$storage_account_name.cred
+
+sudo bash -c "echo ""//$storage_account_ip/$fileshare_name /$mount_directory/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
 sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name -o vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino
 ```
 

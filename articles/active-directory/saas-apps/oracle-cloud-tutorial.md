@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Oracle Cloud Infrastructure Console supports **SP** initiated SSO.
+* Oracle Cloud Infrastructure Console supports [**Automated** user provisioning and deprovisioning](oracle-cloud-infrastructure-console-provisioning-tutorial.md) (recommended).
 
 ## Adding Oracle Cloud Infrastructure Console from the gallery
 

@@ -69,7 +69,7 @@ Prerequisites:
 #### [Service Binding](#tab/Service-Binding)
 Azure Cosmos DB has five different API types that support binding. The following procedure shows how to use them:
 
-1. Create an Azure Cosmos DB database. Refer to the quickstart on [creating a database](../cosmos-db/create-cosmosdb-resources-portal.md) for help. 
+1. Create an Azure Cosmos DB database. Refer to the quickstart on [creating a database](../cosmos-db/create-cosmosdb-resources-portal.md) for help.
 
 1. Record the name of your database. For this procedure, the database name is **testdb**.
 
@@ -88,7 +88,7 @@ Azure Cosmos DB has five different API types that support binding. The following
 
 1. To ensure the service is bound correctly, select the binding name and verify its details. The `property` field should be similar to this example:
 
-    ```
+    ```properties
     azure.cosmosdb.uri=https://<some account>.documents.azure.com:443
     azure.cosmosdb.key=abc******
     azure.cosmosdb.database=testdb
@@ -96,6 +96,7 @@ Azure Cosmos DB has five different API types that support binding. The following
 
 #### [Terraform](#tab/Terraform)
 The following Terraform script shows how to set up an Azure Spring Cloud app with Azure Cosmos DB MongoDB API.
+
 ```terraform
 provider "azurerm" {
   features {}
@@ -169,6 +170,7 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
   deployment_name     = azurerm_spring_cloud_java_deployment.example.name
 }
 ```
+
 ---
 
 ## Next steps

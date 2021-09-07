@@ -41,7 +41,7 @@ You can also monitor connected clusters with Azure Monitor, and [use Azure Polic
 ## Next steps
 
 - Explore the jumpstarts and samples in the [Azure Arc GitHub repository](https://github.com/microsoft/azure_arc).
-- Learn about [supported scenarios for Azure Arc-enabled servers](../../azure-arc/servers/overview.md#supported-scenarios).
+- Learn about [supported scenarios for Azure Arc-enabled servers](../../azure-arc/servers/overview.md#supported-cloud-operations).
 - Learn about [Kubernetes distributions supported by Azure Arc](../../azure-arc/kubernetes/overview.md#supported-kubernetes-distributions).
 - Learn how to [deploy a policy at scale](policy-at-scale.md).
 - Learn how to [use Azure Monitor Logs at scale](monitor-at-scale.md).
