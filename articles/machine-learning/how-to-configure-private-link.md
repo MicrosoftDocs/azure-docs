@@ -171,14 +171,9 @@ From the Azure Machine Learning workspace in the portal, select __Private endpoi
 
 ---
 
-## Using a workspace over a private endpoint
+## Securely connect to your workspace
 
-Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network.
-
-> [!IMPORTANT]
-> To avoid temporary disruption of connectivity, Microsoft recommends flushing the DNS cache on machines connecting to the workspace after enabling a private endpoint. 
-
-For information on Azure Virtual Machines, see the [Virtual Machines documentation](../virtual-machines/index.yml).
+[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
 
 ## Multiple private endpoints (preview)
 
