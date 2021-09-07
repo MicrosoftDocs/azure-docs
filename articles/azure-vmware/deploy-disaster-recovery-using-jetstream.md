@@ -197,7 +197,7 @@ This step also installs JetStream vSphere Installation Bundle (VIB) on the clust
 ## Add JetStream DR to new Azure VMware Solution clusters  
 
 
-1. Select **Run command** > **Packages** > **Install-Enable-JetDRForCluster**.
+1. Select **Run command** > **Packages** > **Enable-JetDRForCluster**.
 
 1. Provide the required values or change the default values, and then select **Run**.
 
