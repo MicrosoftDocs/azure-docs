@@ -16,7 +16,7 @@ In this tutorial, you will:
 > [!div class="checklist"]
 > * Create a token
 > * List videos
-> * Get the base URL for playing back a [video application resource](../terminology.md#video)
+> * Get the base URL for playing back a [video application resource](terminology.md#video)
 > * Create a page with the player
 > * Pass a streaming endpoint and a token to the player
 
@@ -26,7 +26,7 @@ The following are required for this tutorial:
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 * [Visual Studio Code](https://code.visualstudio.com/), or another editor for the HTML file.
-* Either [Continuous video recording and playback](./use-continuous-video-recording.md) or [Detect motion and record video on edge devices](./detect-motion-record-video-clips-cloud.md).
+* Either [Continuous video recording and playback](edge/use-continuous-video-recording.md) or [Detect motion and record video on edge devices](./detect-motion-record-video-clips-cloud.md).
 
 Additionally, it's helpful to be familiar with the following resources:
 
@@ -203,7 +203,7 @@ Video name: <input type="text" id="videoName" /><br><br>
 
 ## Host the page
 
-You can test this page locally, but you might want to test a hosted version. In case you don't have a quick way to host a page, here are instructions on how to do so by using [static websites](../../../storage/blobs/storage-blob-static-website.md) with Azure Storage. The following steps are a condensed version of [these more complete instructions](../../../storage/blobs/storage-blob-static-website-how-to.md). The steps are updated for the files you're using in this tutorial.
+You can test this page locally, but you might want to test a hosted version. In case you don't have a quick way to host a page, here are instructions on how to do so by using [static websites](../../storage/blobs/storage-blob-static-website.md) with Azure Storage. The following steps are a condensed version of [these more complete instructions](../../storage/blobs/storage-blob-static-website-how-to.md). The steps are updated for the files you're using in this tutorial.
 
 1. Create a storage account.
 1. Under **Data management**, select **Static website**.

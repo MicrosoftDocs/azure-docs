@@ -7,6 +7,7 @@ ms.date: 07/15/2021
 
 # Troubleshoot Azure Video Analyzer
 
+
 This article covers troubleshooting steps for Azure Video Analyzer (AVA).
 
 ## Troubleshoot deployment issues

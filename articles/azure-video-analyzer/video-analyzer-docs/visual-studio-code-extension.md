@@ -43,7 +43,7 @@ If you want to view the underlying JSON behind an existing live pipeline, on the
 
 ## Editing a topology 
 
-Pipeline topologies are constructed of a variety of pieces. You can learn about these pieces in the [Pipelines](./pipeline.md) concept doc. This section is about the portions of the interface to help you build or edit a topology.
+Pipeline topologies are constructed of a variety of pieces. You can learn about these pieces in the [Pipelines](pipeline.md) concept doc. This section is about the portions of the interface to help you build or edit a topology.
 
 ### Modules
 

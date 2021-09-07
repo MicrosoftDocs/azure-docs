@@ -8,6 +8,8 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 # Quickstart: Detect motion and emit events
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 This quickstart walks you through the steps to get started with Azure Video Analyzer. It uses an Azure VM as an IoT Edge device and a simulated live video stream. After completing the setup steps, you'll be able to run a simulated live video stream through a video pipeline that detects and reports any motion in that stream. The following diagram shows a graphical representation of that pipeline.
 
 > [!div class="mx-imgBorder"]
@@ -40,7 +42,7 @@ This quickstart walks you through the steps to get started with Azure Video Anal
 
 ![Azure Video Analyzer based on motion detection](./media/analyze-live-video/detect-motion.png)
 
-This diagram shows you how the signal flows in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. The motion detection processor node enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frame to the next node in the pipeline, and emits an event. Finally, any emitted events are sent to the IoT hub message sink where they are published to IoT Hub.
+This diagram shows you how the signal flows in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](../pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](../pipeline.md#motion-detection-processor) node. The motion detection processor node enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frame to the next node in the pipeline, and emits an event. Finally, any emitted events are sent to the IoT hub message sink where they are published to IoT Hub.
 
 ## Set up your development environment
 

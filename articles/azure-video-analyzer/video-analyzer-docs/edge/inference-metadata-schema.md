@@ -8,6 +8,8 @@ ms.date: 06/01/2021
 
 # Inference metadata schema 
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 In Azure Video Analyzer, each inference object regardless of using HTTP-based contract or gRPC based contract follows the object model described in this topic.
 
 ## Object model

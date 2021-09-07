@@ -9,7 +9,9 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 # Tutorial: Analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision
 
-In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](analyze-live-video-without-recording.md#analyzing-video-using-a-custom-vision-model) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
+[!INCLUDE [header](includes/edge-env.md)]
+
+In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](../analyze-live-video-without-recording.md#analyzing-video-using-a-custom-vision-model) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 
 We'll show you how to bring together the power of Custom Vision to build and train a computer vision model by uploading and labeling a few images. You don't need any knowledge of data science, machine learning, or AI. You'll also learn about the capabilities of Video Analyzer and how to easily deploy a custom model as a container on the edge and analyze a simulated live video feed.
 
@@ -38,8 +40,8 @@ Read through the following articles before you begin:
 - [Video Analyzer on IoT Edge overview](../overview.md)
 - [Azure Custom Vision overview](../../../cognitive-services/custom-vision-service/overview.md)
 - [Video Analyzer on IoT Edge terminology](../terminology.md)
-- [Pipeline concept](pipeline.md)
-- [Video Analyzer without video recording](analyze-live-video-without-recording.md)
+- [Pipeline concept](../pipeline.md)
+- [Video Analyzer without video recording](../analyze-live-video-without-recording.md)
 - [Tutorial: Developing an IoT Edge module](../../../iot-edge/tutorial-develop-for-linux.md)
 - [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
@@ -68,9 +70,9 @@ In this tutorial, you'll use Video Analyzer on IoT Edge to detect such toy truck
 
 ![Diagram that shows a Custom Vision overview.](./media/custom-vision/topology-custom-vision.svg)
 
-This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](../pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](../pipeline.md#http-extension-processor) node.
 
-The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub message sink](pipeline.md#iot-hub-message-sink) node, which sends those events to the [IoT Edge hub](../../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub message sink](../pipeline.md#iot-hub-message-sink) node, which sends those events to the [IoT Edge hub](../../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 ## Build and deploy a Custom Vision toy detection model
 

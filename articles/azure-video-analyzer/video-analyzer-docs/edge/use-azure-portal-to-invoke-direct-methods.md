@@ -7,6 +7,8 @@ ms.date: 06/01/2021
 
 # Use Azure portal to invoke direct methods for Azure Video Analyzer
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 IoT Hub gives you the ability to invoke [direct methods](../../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) on edge devices from the cloud. The Azure Video Analyzer (Video Analyzer) module exposes several [direct methods](./direct-methods.md) that can be used to define, deploy, and activate different pipelines for analyzing live video.
 
 In this article, you will learn how to invoke direct method calls on Video Analyzer module via the Azure portal.
@@ -14,7 +16,7 @@ In this article, you will learn how to invoke direct method calls on Video Analy
 ## Prerequisites
 
 * You have the Video Analyzer module running on your edge device, using either the methods described in [Quickstart: Video Analyzer](get-started-detect-motion-emit-events.md) or using the [portal.](./deploy-iot-edge-device.md)
-* You understand [Video Analyzer](../overview.md) and [the pipeline concept](pipeline.md).
+* You understand [Video Analyzer](../overview.md) and [the pipeline concept](../pipeline.md).
 
 ## Invoking direct methods via Azure portal
 

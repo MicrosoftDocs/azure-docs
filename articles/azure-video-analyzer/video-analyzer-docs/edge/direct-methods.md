@@ -7,6 +7,8 @@ ms.date: 06/01/2021
 ---
 # Azure Video Analyzer Direct methods
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 Azure Video Analyzer IoT edge module `avaedge` exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../../iot-hub/iot-hub-devguide-direct-methods.md).
 
 This topic describes these methods, conventions, and the schema of the methods.
@@ -251,7 +253,7 @@ It retrieves a pipeline topology with the specified name, if it exists.
 
 Deletes a single pipeline topology.
 
-* Note that there cannot be any live pipelines [referencing a pipeline topology being deleted](pipeline.md#pipeline-states). If there are such live pipelines you will receive a `TopologyInUse` error.
+* Note that there cannot be any live pipelines [referencing a pipeline topology being deleted](../pipeline.md#pipeline-states). If there are such live pipelines you will receive a `TopologyInUse` error.
 
 #### Request
 
@@ -499,7 +501,7 @@ Key aspects:
 * This method can be invoked as long as the live pipeline is not in the (transient) "Activating" state.
 * Pipeline goes into the "Deactivating" state while being deactivated.
     * A List/Set operation on the live pipeline would return the current state.
-    * Deactivation completes when all media has been uploaded to the cloud (if the pipeline has a [video sink](pipeline.md#video-sink) node).
+    * Deactivation completes when all media has been uploaded to the cloud (if the pipeline has a [video sink](../pipeline.md#video-sink) node).
 * Idempotency:
     * Calling `livePipelineDeactivate` on a live pipeline which is already in "Deactivating" state behaves the same way as if the live pipeline was in "Active" state.
     * Deactivating a pipeline which is in "Inactive" state returns a success code immediately.

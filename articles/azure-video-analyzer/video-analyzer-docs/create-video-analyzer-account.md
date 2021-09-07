@@ -12,7 +12,7 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
 
  You can use either the Azure portal or an [Azure Resource Manager (ARM) template][docs-arm-template] to create a Video Analyzer account. Choose the tab for the method you would like to use.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## [Portal](#tab/portal/)
 
@@ -29,7 +29,7 @@ To start using Azure Video Analyzer, you will need to create a Video Analyzer ac
     | Name | Description |
     | ---|---|
     |**Subscription**|If you have more than one subscription, select one from the list of Azure subscriptions that you have access to.|
-    |**Resource Group**|Select an existing resource or create a new one. A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../../../azure-resource-manager/management/overview.md#resource-groups).|
+    |**Resource Group**|Select an existing resource or create a new one. A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../../azure-resource-manager/management/overview.md#resource-groups).|
     |**Video Analyzer account name**|Enter the name of the new Video Analyzer account. A Video Analyzer account name is all lowercase letters or numbers with no spaces, and is 3 to 24 characters in length.|
     |**Location**|Select the geographic region that will be used to store the video and metadata records for your Video Analyzer account. Only the available Video Analyzer regions appear in the drop-down list box. |
     |**Storage account**|Select a storage account to provide blob storage of the video content for your Video Analyzer account. You can select an existing storage account in the same geographic region as your Video Analyzer account, or you can create a new storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Video Analyzer accounts.<br/>|
@@ -214,7 +214,7 @@ The following resources are defined in the template:
 
 1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure CLI, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../../../azure-resource-manager/templates/deploy-cli.md).
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure CLI, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### Review deployed resources
 
@@ -235,10 +235,10 @@ When no longer needed, delete the resource group, which deletes the account and 
 Learn how to [deploy Video Analyzer on an IoT Edge device][docs-deploy-on-edge].
 
 <!-- links -->
-[docs-uami]: ../../../active-directory/managed-identities-azure-resources/overview.md
-[docs-storage-access]: ../../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor
-[docs-role-reader]: ../../../role-based-access-control/built-in-roles.md#reader
-[docs-arm-template]: ../../../azure-resource-manager/templates/overview.md
+[docs-uami]: ../../active-directory/managed-identities-azure-resources/overview.md
+[docs-storage-access]: ../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor
+[docs-role-reader]: ../../role-based-access-control/built-in-roles.md#reader
+[docs-arm-template]: ../../azure-resource-manager/templates/overview.md
 [docs-deploy-on-edge]: deploy-iot-edge-device.md
 [click-to-deploy]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgist.githubusercontent.com%2Fbennage%2F58523b2e6a4d3bf213f16893d894dcaf%2Fraw%2Fazuredeploy.json
 <!-- TODO update the link above! -->

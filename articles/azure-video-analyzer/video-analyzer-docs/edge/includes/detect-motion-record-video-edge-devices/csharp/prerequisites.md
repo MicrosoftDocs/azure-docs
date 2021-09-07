@@ -27,9 +27,9 @@ ms.author: juliako
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./../../../media/detect-motion-record-video-edge-devices/overview.png" alt-text="Publish associated inference events to IoT Edge Hub":::
 
-The preceding diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera that hosts a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](./../../../pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](./../../../pipeline.md#motion-detection-processor)  node. The RTSP source sends the same video frames to a [signal gate processor](./../../../pipeline.md#signal-gate-processor) node, which remains closed until it's triggered by an event.
+The preceding diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera that hosts a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](./../../../../pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](./../../../../pipeline.md#motion-detection-processor)  node. The RTSP source sends the same video frames to a [signal gate processor](./../../../../pipeline.md#signal-gate-processor) node, which remains closed until it's triggered by an event.
 
-When the motion detection processor detects motion in the video, it sends an event to the signal gate processor node, triggering it. The gate opens for the configured duration of time, sending video frames to the [file sink](./../../../pipeline.md#file-sink) node. This sink node records the video as an MP4 file on the local file system of your edge device. The file is saved in the configured location.
+When the motion detection processor detects motion in the video, it sends an event to the signal gate processor node, triggering it. The gate opens for the configured duration of time, sending video frames to the [file sink](./../../../../pipeline.md#file-sink) node. This sink node records the video as an MP4 file on the local file system of your edge device. The file is saved in the configured location.
 
 In this quickstart, you will:
 

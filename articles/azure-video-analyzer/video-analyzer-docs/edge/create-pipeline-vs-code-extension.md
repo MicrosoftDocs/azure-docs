@@ -9,6 +9,8 @@ ms.date: 06/01/2021
 
 # Quickstart: Azure Video Analyzer Visual Studio Code extension
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 This quickstart is designed to show you how to set up and connect the Video Analyzer Visual Studio Code extension to your Video Analyzer edge module and deploy a sample pipeline topology.  It will use the same pipeline as the Get Started quickstart.  
 
 After completing the setup steps, you'll be able to run the simulated live video stream through a live pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.
@@ -52,7 +54,7 @@ Along the left, you will now see your connected device with the underlying modul
 
 ## Deploy a topology and live pipeline
 
-Pipeline topologies are the basic building block which Video Analyzer uses to define how work happens.  You can learn more about [pipeline topologies here](./pipeline.md).  In this section you will deploy a pipeline topology which is a template and then create an instance of the topology, or live pipeline. The live pipeline is connected to the actual video stream.
+Pipeline topologies are the basic building block which Video Analyzer uses to define how work happens.  You can learn more about [pipeline topologies here](../pipeline.md).  In this section you will deploy a pipeline topology which is a template and then create an instance of the topology, or live pipeline. The live pipeline is connected to the actual video stream.
 
 1.	On the left under `Modules`, right click on `Pipeline topologies` and select `Create pipeline topology`.
 1.	Along the top, under `Try sample topologies`, under `Motion Detection`, select `Publish motion events to IoT Hub`.  When prompted, click `Proceed`.
@@ -76,4 +78,4 @@ This gets a starting topology deployed and a live pipeline up and running on you
 
 ## Next steps
 
-Learn more about the various functions of the [Azure Video Analytics Visual Studio Code extension](./visual-studio-code-extension.md).
+Learn more about the various functions of the [Azure Video Analytics Visual Studio Code extension](../visual-studio-code-extension.md).

@@ -7,6 +7,8 @@ ms.date: 06/01/2021
 
 # Tutorial: Detect when objects cross a virtual line in a live video
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 This tutorial shows you how to use Azure Video Analyzer detect when objects cross a virtual line in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames and send the results to a line crossing node.
 
 The line crossing node enables you to detect when objects cross the virtual line. The events contain the direction (clockwise, counterclockwise) and a total counter per direction.  
@@ -28,9 +30,9 @@ This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated li
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/track-objects-live-video/line-crossing-tracker-topology.png" alt-text="Detect when objects cross a virtual line in live video.":::
 
-This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](../pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](../pipeline.md#http-extension-processor) node.
 
-The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub message sink node. This [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub message sink node. This [IoT Hub message sink](../pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
 
 The line crossing node will receive the results from the upstream object tracker node. The output of the object tracker node contains the coordinates of the detected objects. These coordinates are evaluated by the line crossing node against the line coordinates. When objects cross the line, the line crossing node will emit an event. The events are sent to the IoT Edge Hub message sink. 
 
@@ -248,7 +250,7 @@ In this message, notice these details:
 * The `direction` contains the direction for this event.
 
 > [!NOTE] 
-> If you deployed Azure resources using the one-click deployment for this tutorial, a Standard DS1 Virtual Machine is created. However, to get accurate results from resource-intensive AI models like YOLO, you may have to increase the VM size. [Resize the VM](../../virtual-machines/windows/resize-vm.md) to increase number of vcpus and memory based on your requirement. Then, reactivate the live pipeline to view inferences.
+> If you deployed Azure resources using the one-click deployment for this tutorial, a Standard DS1 Virtual Machine is created. However, to get accurate results from resource-intensive AI models like YOLO, you may have to increase the VM size. [Resize the VM](../../../virtual-machines/windows/resize-vm.md) to increase number of vcpus and memory based on your requirement. Then, reactivate the live pipeline to view inferences.
 
 ## Customize for your own environment
 

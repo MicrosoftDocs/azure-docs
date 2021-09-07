@@ -8,6 +8,8 @@ ms.date: 06/01/2021
 ---
 # Tutorial: Analyze live video with Intel OpenVINO™ DL Streamer – Edge AI Extension 
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to different models for detecting objects (a person, a vehicle, or a bike), object classification (vehicle attributions) and a model for object tracking (person, vehicle and bike). The integration with the gRPC module lets you send video frames to the AI inference server. The results are then sent to the IoT Edge Hub. When you run this inference service on the same compute node as Azure Video Analyzer, you can take advantage of sending video data via shared memory. This enables you to run inferencing at the frame rate of the live video feed (i.e. 30 frames/sec). 
 
 This tutorial uses an Azure VM as an simulated IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
@@ -39,9 +41,9 @@ In this tutorial, you'll use Video Analyzer along with the Intel OpenVINO™ DL 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/grpc-vas-extension-with-vino.png" alt-text="Overview of Azure Video Analyzer pipeline with Intel DL Streamer Edge AI module.":::
 
-This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](pipeline.md#grpc-extension-processor) node. 
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](../pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](../pipeline.md#grpc-extension-processor) node. 
 
-The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](../terminology.md#grpc) endpoint exposed by a gRPC Server. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the content into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats. Learn more about the processor [here](pipeline.md#grpc-extension-processor).
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](../terminology.md#grpc) endpoint exposed by a gRPC Server. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the content into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats. Learn more about the processor [here](../pipeline.md#grpc-extension-processor).
 
 ## About Intel OpenVINO™ DL Streamer – Edge AI Extension Module
 

@@ -27,7 +27,11 @@ landingContent:
           - text: About Azure Video Analyzer (preview)
             url: overview.md
           - text: About Azure Video Analyzer for Media
-            url: ../video-analyzer-for-media-docs/video-indexer-overview.md            
+            url: ../video-analyzer-for-media-docs/video-indexer-overview.md    
+          - text:  Cloud learning path
+            url: cloud/overview.md      
+          - text:  Edge learning path
+            url: overview.md      
       - linkListType: quickstart
         links:
           - text: Get started using an ARM template
@@ -35,7 +39,7 @@ landingContent:
           - text: Get started using the Portal
             url: get-started-detect-motion-emit-events-portal.md
         
-  - title: Record video based on events
+  - title: Record video based on events - edge
     linkLists:
     - linkListType: concept
       links:
@@ -44,15 +48,15 @@ landingContent:
     - linkListType: quickstart
       links:            
         - text: Detect motion, record video on edge devices
-          url: detect-motion-record-video-edge-devices.md
+          url: edge/detect-motion-record-video-edge-devices.md
         - text: Detect motion, record video in the cloud
-          url: detect-motion-record-video-clips-cloud.md
+          url: edge/detect-motion-record-video-clips-cloud.md
     - linkListType: tutorial
       links:            
         - text: Event-based video recording and playback
-          url: record-event-based-live-video.md    
+          url: edge/record-event-based-live-video.md    
 
-  - title: Analyzing live videos without recording
+  - title: Analyzing live videos without recording - edge
     linkLists:
     - linkListType: concept
       links:
@@ -61,32 +65,26 @@ landingContent:
     - linkListType: quickstart
       links:            
         - text: Detect motion and emit events    
-          url: detect-motion-emit-events-quickstart.md
+          url: edge/detect-motion-emit-events-quickstart.md
         - text: Track objects in live videos
-          url: track-objects-live-video.md
+          url: edge/track-objects-live-video.md
     - linkListType: tutorial
       links:     
         - text: Analyze live video with OVMS via HTTP extension
-          url: use-intel-openvino-tutorial.md
+          url: edge/use-intel-openvino-tutorial.md
         - text: Analyze live video with OV DL Streamer via gRPC extension
-          url: use-intel-grpc-video-analytics-serving-tutorial.md
+          url: edge/use-intel-grpc-video-analytics-serving-tutorial.md
         - text: Analyze live video with Spatial Analysis
-          url: computer-vision-for-spatial-analysis.md    
+          url: edge/computer-vision-for-spatial-analysis.md    
         - text: Analyze live video with Custom Vision 
-          url: analyze-live-video-custom-vision.md 
+          url: edge/analyze-live-video-custom-vision.md 
 
-  - title: References
+  - title: Resources
     linkLists:
-    - linkListType: reference
+    - linkListType: concept
       links:
         - text: FAQs
-          url: faq-edge.yml 
-        - text: SDKs
-          url: edge/sdk.md
-        - text: Pipeline extension
-          url: pipeline-extension.md
-        - text: Direct methods
-          url: edge/direct-methods.md
+          url: faq.yml 
         - text: Quotas and limitations
           url: quotas-limitations.md           
 

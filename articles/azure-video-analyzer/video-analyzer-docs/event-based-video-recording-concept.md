@@ -12,7 +12,7 @@ Event-based video recording (EVR) refers to the process of recording video trigg
 ## Suggested pre-reading  
 
 * [Continuous video recording](continuous-video-recording.md)
-* [Playback of recorded content](playback-recordings-how-to.md)
+<!-- ???* [Playback of recorded content](playback-recordings-how-to.md)-->
 * [Pipeline concept](pipeline.md)
 
 ## Overview 
@@ -30,7 +30,7 @@ In this use case, you can record video clips only when there is motion detected 
 The diagram below shows a graphical representation of a pipeline that addresses this use case. The JSON representation of the pipeline topology of such a pipeline can be found [here](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-video-sink/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/motion-detection.png" alt-text="Event-based recording of live video when motion is detected.":::
+> :::image type="content" source="./media/event-based-video-recording-concept/motion-detection.svg" alt-text="Event-based recording of live video when motion is detected.":::
 
 In the diagram, the RTSP source node captures the live video feed from the camera and delivers it to a [motion detection processor](pipeline.md#motion-detection-processor) node. Upon detecting motion in the live video, the motion detection processor node generates events, which goes to the [signal gate processor](pipeline.md#signal-gate-processor) node as well as to the IoT Hub message sink node. The latter node sends the events to the IoT Edge Hub, from where they can be routed to other destinations to trigger alerts. 
 
@@ -41,7 +41,7 @@ Events from the motion detector node also trigger the signal gate processor node
 In this use case, signals from another IoT sensor can be used to trigger recording of video. The diagram below shows a graphical representation of a pipeline that addresses this use case. The JSON representation of the pipeline topology of such a pipeline can be found [here](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-file-sink/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/other-sources.png" alt-text="Event-based recording of live video when signaled by an external source.":::
+> :::image type="content" source="./media/event-based-video-recording-concept/other-sources.svg" alt-text="Event-based recording of live video when signaled by an external source.":::
 
 In the diagram, the external sensor sends events to the IoT Edge Hub. The events are then routed to the signal gate processor node via the [IoT Hub message source](pipeline.md#iot-hub-message-source) node. The behavior of the signal gate processor node is the same as with the previous use case - when triggered by an event, it will open and let the live video feed flow through from the RTSP source node to the file sink node. A new MP4 file is written to the local storage of the IoT Edge device each time the gate opens.
 
@@ -50,7 +50,7 @@ In the diagram, the external sensor sends events to the IoT Edge Hub. The events
 In this use case, you can record video based on a signal from an external logic system. An example of such a use case could be recording video to the cloud only when a truck is detected in the video feed of traffic on a highway. The diagram below shows a graphical representation of a pipeline that addresses this use case. The JSON representation of the pipeline topology of such a pipeline [can be found here](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-video-sink/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.png" alt-text="Event-based recording of live video when signaled by an external inferencing module.":::
+> :::image type="content" source="./media/event-based-video-recording-concept/external-inferencing-module.svg" alt-text="Event-based recording of live video when signaled by an external inferencing module.":::
 
 In the diagram, the RTSP source node captures the live video feed from the camera and delivers it to two branches: one has a [signal gate processor](pipeline.md#signal-gate-processor) node, and the other uses an [HTTP extension](pipeline.md#http-extension-processor) node to send data to an external logic module. The HTTP extension node allows the pipeline to send image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. This signal path can typically only support low frame rates (<5fps). You can use the HTTP extension processor node to lower the frame rate of the video going to the external inferencing module.
 
