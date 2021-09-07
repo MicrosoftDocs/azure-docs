@@ -20,8 +20,8 @@ The following table describes the maximum limits for Azure VMware Solution.
 | hosts per private cloud | 96 |
 | vCenter per private cloud | 1  |
 | HCX site pairings | 25 (any edition) |
-| AVS ExpressRoute max linked private clouds | 4<br />The virtual network gateway used determines the actual max linked private clouds.  For more details, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
-| AVS ExpressRoute portspeed | 10 Gbps<br />The virtual network gateway used determines the actual bandwidth. For more details, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
+| Azure VMware Solution ExpressRoute max linked private clouds | 4<br />The virtual network gateway used determines the actual max linked private clouds.  For more details, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
+| Azure VMware Solution ExpressRoute port speed | 10 Gbps<br />The virtual network gateway used determines the actual bandwidth. For more details, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
 | Public IPs exposed via vWAN | 100 |
 | vSAN capacity limits | 75% of total usable (keep 25% available for SLA)  |
 

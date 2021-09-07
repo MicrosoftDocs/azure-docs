@@ -1521,6 +1521,16 @@
             "redirect_document_id": false
           },
           {
+            "source_path_from_root": "/articles/virtual-machines/linux/snapshot-copy-managed-disk.md",
+            "redirect_url": "/azure/virtual-machines/snapshot-copy-managed-disk",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/windows/snapshot-copy-managed-disk.md",
+            "redirect_url": "/azure/virtual-machines/snapshot-copy-managed-disk",
+            "redirect_document_id": true
+          },
+          {
             "source_path_from_root": "/articles/virtual-machines/linux/b-series-burstable.md",
             "redirect_url": "/azure/virtual-machines/sizes-b-series-burstable",
             "redirect_document_id": false

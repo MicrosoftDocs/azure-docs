@@ -94,11 +94,11 @@ az k8s-extension create -c "my-connected-cluster" -g "my-resource-group" --name 
 
 ### Verify the Arc data services extension is created
 
-You can verify if  the Arc enabled data services extension is created either from the portal or by connecting directly to the Arc enabled Kubernetes cluster. 
+You can verify if  the Azure Arc-enabled data services extension is created either from the portal or by connecting directly to the Azure Arc-enabled Kubernetes cluster. 
 
 #### Azure portal
 1. Login to the Azure portal and browse to the resource group where the Kubernetes connected cluster resource is located.
-1. Select the Arc enabled kubernetes cluster (Type = "Kubernetes - Azure Arc") where the extension was deployed.
+1. Select the Azure Arc-enabled kubernetes cluster (Type = "Kubernetes - Azure Arc") where the extension was deployed.
 1. In the navigation on the left side, under **Settings**, select "Extensions".
 1. You should see the extension that was just created earlier in an "Installed" state.
 

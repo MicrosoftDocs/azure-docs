@@ -87,10 +87,10 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
 > After updating, your cluster's control plane and addon pods will switch to use managed identity, but kubelet will KEEP USING SERVICE PRINCIPAL until you upgrade your agentpool. Perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity. 
-
-
-> If your cluster was using --attach-acr to pull from image from ACR, after updating your cluster to Managed Identity, you need to rerun 'az aks update --attach-acr <ACR Resource ID>' to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise you will not be able to pull from ACR after the upgrade.
-
+>
+> If your cluster was using --attach-acr to pull from image from Azure Container Registry, after updating your cluster to Managed Identity, you need to rerun 'az aks update --attach-acr <ACR Resource ID>' to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise you will not be able to pull from ACR after the upgrade.
+>
+> The Azure CLI will ensure your addon's permission is correctly set after migrating, if you're not using the Azure CLI to perform the migrating operation, you will need to handle the addon identity's permission by yourself. Here is one example using [ARM](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-template). 
 
 ## Obtain and use the system-assigned managed identity for your AKS cluster
 
