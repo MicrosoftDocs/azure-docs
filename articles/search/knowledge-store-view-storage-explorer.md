@@ -17,7 +17,7 @@ A [knowledge store](knowledge-store-concept-intro.md) is content created by an A
 
 ## Prerequisites
 
-+ An existing knowledge store created in the [Azure portal](knowledge-store-create-portal.md) or using the [REST APIs](knowledge-store-create-rest.md).
+Start with an existing knowledge store created in the [Azure portal](knowledge-store-create-portal.md) or using the [REST APIs](knowledge-store-create-rest.md). Both the portal and REST walkthroughs create a knowledge store in Azure Table Storage.
 
 ## Start Storage Explorer
 
@@ -25,9 +25,7 @@ A [knowledge store](knowledge-store-concept-intro.md) is content created by an A
 
 1. In the storage account's left navigation pane, select **Storage Explorer**.
 
-## View, edit, and query tables
-
-Both the portal and REST walkthroughs create a knowledge store in Azure Table Storage.
+## Edit and query tables
 
 1. Expand the **TABLES** list to show a list of Azure table projections that were created when you created the knowledge store. If you used the quickstart or REST article to create the knowledge store, the tables will contain content related to customer reviews of a European hotel.
 
@@ -47,7 +45,7 @@ In Storage Explorer, you can only query one table at time using [supported query
 
 ## Next steps
 
-Connect this knowledge store to Power BI for deeper analysis, or move forward with code, using the REST API and Postman to create a different knowledge store.
+Connect this knowledge store to Power BI to build visualizations that include multiple tables.
 
 > [!div class="nextstepaction"]
 > [Connect with Power BI](knowledge-store-connect-power-bi.md)

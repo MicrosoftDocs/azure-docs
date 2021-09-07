@@ -17,17 +17,11 @@ In this article, learn how to connect to and explore a knowledge store using Pow
 
 A knowledge store composed of tables in Azure Storage works best in Power BI. If the tables contain projections from the same skillset and projection group, you can easily build table visualizations that combine fields from related tables.
 
-To follow the steps in this article, use the hotel-reviews sample data and [create a knowledge store in the Azure portal](knowledge-store-create-portal.md) or use the [REST APIs](knowledge-store-create-rest.md). 
+Follow along with the steps in this article using the sample data and knowledge store [created in the Azure portal](knowledge-store-create-portal.md) or through [Postman and REST APIs](knowledge-store-create-rest.md). 
 
-If necessary, [install Power BI Desktop](https://powerbi.microsoft.com/downloads/).
+## Connect to Azure Storage
 
-For a demonstration of the techniques in this article, the following video segment shows you how.
-
-> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=593&end=663]
-
-## Connect with Power BI
-
-1. Start Power BI Desktop and select **Get data**.
+1. Start [Power BI Desktop](https://powerbi.microsoft.com/downloads/) and select **Get data**. 
 
 1. In the **Get Data** window, select **Azure**, and then select **Azure Table Storage**.
 
@@ -36,6 +30,8 @@ For a demonstration of the techniques in this article, the following video segme
 1. For **Account Name or URL**, enter in your Azure Storage account name (the full URL will be created for you).
 
 1. If prompted, enter the storage account key.
+
+## Set up tables
 
 1. Select the checkbox next to all of the tables that were created from the same skillset, and then select **Load**.
 
@@ -66,13 +62,19 @@ For a demonstration of the techniques in this article, the following video segme
 
 1. On the command bar, click **Close and Apply**.
 
+## Check table relationships
+
 1. Click on the Model tile on the left navigation pane and validate that Power BI shows relationships between all three tables.
 
    ![Validate relationships](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Validate relationships")
 
 1. Double-click each relationship and make sure that the **Cross-filter direction** is set to **Both**.  This enables your visuals to refresh when a filter is applied.
 
-1. Click on the Report tile on the left navigation pane to explore data through visualizations. For text fields, tables and cards are useful visualizations. You can choose fields from each of the three tables to fill in the table or card.
+## Build a report
+
+1. Click on the Report tile on the left navigation pane to explore data through visualizations. For text fields, tables and cards are useful visualizations.
+
+1. Choose fields from each of the three tables to fill in the table or card.
 
    ![Build a table report](media/knowledge-store-connect-power-bi/power-bi-table-report.png "Build a table report")
 
@@ -86,6 +88,12 @@ Click **Get Power BI Template** on the **Add cognitive skills** page to retrieve
 
 > [!NOTE]
 > The template is downloaded while the wizard is in mid-flight. You'll have to wait until the knowledge store is actually created in Azure Table Storage before you can use it.
+
+## Video overview
+
+For a demonstration of using Power BI with a knowledge, the following video segment provides an example.
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=593&end=663]
 
 ## Next steps
 
