@@ -4,10 +4,9 @@ description: Learn about how to connect a Data Factory to Azure Purview
 ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
-ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 08/24/2021
+ms.date: 09/02/2021
 ---
 
 # Connect Data Factory to Azure Purview (Preview)
@@ -36,6 +35,8 @@ To establish the connection on Data Factory authoring UI:
 2. Choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to.
 
 3. Once connected, you can see the name of the Purview account in the tab **Purview account**.
+
+If your Purview account is protected by firewall, create the managed private endpoints for Purview. Learn more about how to let Data Factory [access a secured Purview account](how-to-access-secured-purview-account.md). You can either do it during the initial connection or edit an existing connection later.
 
 The Purview connection information is stored in the data factory resource like the following. To establish the connection programmatically, you can update the data factory and add the `purviewConfiguration` settings.
 
@@ -89,4 +90,4 @@ Once you connect the data factory to a Purview account, you can use the search b
 
 [Discover and explore data in ADF using Purview](how-to-discover-explore-purview-data.md)
 
-[Azure Purview Data Catalog lineage user guide](../purview/catalog-lineage-user-guide.md)
+[Access a secured Purview account](how-to-access-secured-purview-account.md)

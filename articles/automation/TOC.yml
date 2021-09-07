@@ -14,24 +14,19 @@
   items:
     - name: Create Automation account - Azure portal
       href: quickstarts/create-account-portal.md
-    - name: Create a PowerShell runbook
-      href: quickstarts/create-powershell-runbook.md
+    - name: Enable managed identities - Azure portal
+      href: quickstarts/enable-managed-identity.md    
     - name: Enable Desired State Configuration for a machine
       href: quickstarts/dsc-configuration.md
 - name: Tutorials
   items:
-    - name: Create a graphical runbook
-      href: learn/automation-tutorial-runbook-graphical.md
-    - name: Create a PowerShell runbook
-      href: learn/automation-tutorial-runbook-textual-powershell.md
+    - name: Create PowerShell runbook using managed identity
+      href: learn/powershell-runbook-managed-identity.md 
     - name: Create a PowerShell Workflow runbook
       href: learn/automation-tutorial-runbook-textual.md
-    - name: Create a Python runbook
-      href: learn/automation-tutorial-runbook-textual-python2.md
     - name: Create a Python 3 runbook
       href: learn/automation-tutorial-runbook-textual-python-3.md
-    - name: Use managed identity with PowerShell runbook
-      href: learn/powershell-runbook-managed-identity.md 
+
 - name: Concepts
   items:
     - name: Automation account authentication overview
