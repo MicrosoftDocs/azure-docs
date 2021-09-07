@@ -64,7 +64,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 | `{APP NAME}`  | &mdash;                 | `BlazorSample`                         |
 | `{CLIENT ID}` | Application (client) ID | `41451fa7-0000-0000-0000-69eff5a761fd` |
 | `{TENANT ID}` | Directory (tenant) ID   | `e86c78e2-0000-0000-0000-918e0565a45e` |
-| `{DOMAIN}`    | Primary domain          | `yourdomain.onmicrosoft.com`           |
+| `{DOMAIN}`    | Primary domain          | `tenantname.onmicrosoft.com`           |
 
 Now, navigate to your new Blazor app in your editor and add the client secret to the *appsettings.json* file, replacing the text "secret-from-app-registration".
 
