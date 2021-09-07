@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 04/08/2021
+ms.date: 09/07/2021
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
