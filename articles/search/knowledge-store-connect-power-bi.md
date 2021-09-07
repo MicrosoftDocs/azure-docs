@@ -89,15 +89,13 @@ Click **Get Power BI Template** on the **Add cognitive skills** page to retrieve
 > [!NOTE]
 > The template is downloaded while the wizard is in mid-flight. You'll have to wait until the knowledge store is actually created in Azure Table Storage before you can use it.
 
-## Video overview
+## Video introduction
 
-For a demonstration of using Power BI with a knowledge, the following video segment provides an example.
+For a demonstration of using Power BI with a knowledge store, watch the following video.
 
-> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=593&end=663]
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3]
 
 ## Next steps
-
-To learn how to explore this knowledge store using Storage Explorer, see the following article.
 
 > [!div class="nextstepaction"]
 > [Tables in Power BI reports and dashboards](/power-bi/visuals/power-bi-visualization-tables)
