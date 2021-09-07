@@ -48,9 +48,9 @@ A hub is a virtual network that can contain gateways for site-to-site, ExpressRo
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-## <a name="gateway"></a>Create a S2S VPN gateway
+## <a name="gateway"></a>Configure a site-to-site gateway
 
-In this section, you configure site-to-site connectivity settings, and then proceed to create the hub and S2S VPN gateway. A hub and gateway can take about 30 minutes to create.
+In this section, you configure site-to-site connectivity settings, and then proceed to create the hub and site-to-site VPN gateway. A hub and gateway can take about 30 minutes to create.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
