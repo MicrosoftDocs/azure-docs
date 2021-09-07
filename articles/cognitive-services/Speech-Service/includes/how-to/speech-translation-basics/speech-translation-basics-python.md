@@ -75,7 +75,7 @@ def translate_speech_to_text():
             subscription=speech_key, region=service_region)
 
     # Source (input) language
-    translation_config.speech_recognition_language = from_language
+    translation_config.speech_recognition_language = "it-IT"
 ```
 
 The [`speech_recognition_language`][recognitionlang] property expects a language-locale format string. You can provide any value in the **Locale** column in the list of supported [locales/languages](../../../language-support.md).
