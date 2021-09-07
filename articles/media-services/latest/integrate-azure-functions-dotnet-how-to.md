@@ -8,7 +8,7 @@ ms.service: media-services
 ms.workload: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/22/2021
+ms.date: 06/09/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ---
@@ -17,303 +17,598 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This article shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this article monitors a storage account container named **input** for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function. To review Azure Functions, see  [Overview](../../azure-functions/functions-overview.md) and other topics in the **Azure Functions** section.
+This article shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this article encodes a video file with Media Encoder Standard. As soon as the encoding job has been created, the function returns the job name and output asset name. To review Azure Functions, see [Overview](../../azure-functions/functions-overview.md) and other topics in the **Azure Functions** section.
 
-If you want to explore and deploy existing Azure Functions that use Azure Media Services, check out [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration). This repository contains examples that use Media Services to show workflows related to ingesting content directly from blob storage, encoding, and writing content back to blob storage.
+If you want to explore and deploy existing Azure Functions that use Azure Media Services, check out [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration). This repository contains examples that use Media Services to show workflows related to ingesting content directly from blob storage, encoding, and live streaming operations.
 
 ## Prerequisites
 
 - Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
 - If you are going to create Azure Functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](account-create-how-to.md).
+- Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-## Create a function app
+This article explains how to create a C# / .NET 5 function that communicates with Media Services. To create a function with another language, review this [article](../../azure-functions/functions-develop-vs-code).
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your Azure account.
-2. Create a function app as described [here](../../azure-functions/functions-create-function-app-portal.md).
+### Run local requirements
 
->[!NOTE]
-> A storage account that you specify should be in the same region as your app.
+These prerequisites are only required to run and debug your functions locally. They aren't required to create or publish projects to Azure Functions.
 
-## Configure function app settings
+- The [Azure Functions Core Tools](../../azure-functions/functions-run-local#install-the-azure-functions-core-tools) version 3.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
-When developing Media Services functions, it is handy to add environment variables that will be used throughout your functions. To configure app settings, click the Configure App Settings link. For more information, see  [How to configure Azure Function app settings](../../azure-functions/functions-how-to-use-azure-function-app-settings.md).
++ The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code. 
 
-## Create a function
++ [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).
 
-Once your function app is deployed, you can find it among **App Services** Azure Functions.
+[!INCLUDE [functions-install-vs-code-extension](../../../includes/functions-install-vs-code-extension.md)]
 
-1. Select your function app and click **New Function**.
-1. Choose the **C#** language and **Data Processing** scenario.
-1. Choose **BlobTrigger** template. This function is triggered whenever a blob is uploaded into the **input** container. The **input** name is specified in the **Path**, in the next step.
-1. Once you select **BlobTrigger**, some more controls appear on the page.
-1. Click **Create**.
+## Create an Azure Functions project
 
-## Files
+The Functions extension lets you create a function app project, along with your first function. The following steps show how to create an HTTP-triggered function in a new Functions project. HTTP trigger is the simplest function trigger template to demonstrate.
 
-Your Azure Function is associated with code files and other files that are described in this section. When you use the Azure portal to create a function, **function.json** and **run.csx** are created for you. You need to add or upload a **project.json** file. The rest of this section gives a brief explanation of each file and shows their definitions.
+1. From **Azure: Functions**, select the **Create Function** icon:
 
-### function.json
+    ![Create a function](./Media/integrate-azure-functions-dotnet-how-to/create-function.png)
 
-The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. For more information, see [Azure Functions HTTP and webhook bindings](../../azure-functions/functions-reference.md#function-code).
+1. Select the folder for your function app project, and then **Select C# for your function project** and **.NET 5 Isolated** for the runtime.
 
->[!NOTE]
->Set the **disabled** property to **true** to prevent the function from being executed.
+1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
 
-Replace the contents of the existing function.json file with the following code:
+    ![Choose the HTTP trigger template](./Media/integrate-azure-functions-dotnet-how-to/create-function-choose-template.png)
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myBlob",
-      "type": "blobTrigger",
-      "direction": "in",
-      "path": "input/{filename}.mp4",
-      "connection": "ConnectionString"
-    }
-  ],
-  "disabled": false
-}
+1. Type **HttpTriggerEncode** for the function name and select Enter, accept **Company.Function** for the namespaceand then select **Function** for the access rights. This authorization level requires you to provide a [function key](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
+
+    ![Select Function authorization](./Media/integrate-azure-functions-dotnet-how-to/create-function-auth.png)
+
+    A function is created in your chosen language and in the template for an HTTP-triggered function.
+
+    ![HTTP-triggered function template in Visual Studio Code](./Media/integrate-azure-functions-dotnet-how-to/new-function-full.png)
+
+### Generated project files
+
+The project template creates a project in your chosen language and installs required dependencies. For any language, the new project has these files:
+
+* **host.json**: Lets you configure the Functions host. These settings apply when you're running functions locally and when you're running them in Azure. For more information, see [host.json reference](./../azure-functions/functions-host-json.md).
+
+* **local.settings.json**: Maintains settings used when you're running functions locally. These settings are used only when you're running functions locally. For more information, see [Local settings file](#local-settings).
+
+    >[!IMPORTANT]
+    >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
+
+
+* **HttpTriggerEncode.cs** class file that implements the function.
+
+### Install Media Services and other extensions
+
+Run the dotnet add package command in the Terminal window to install the extension packages that you need in your project. The following command installs the Media Services package and other extensions.
+
+```bash
+dotnet add package Azure.Storage.Blobs
+dotnet add package Microsoft.Azure.Management.Media
+dotnet add package Microsoft.Identity.Client
+dotnet add package Microsoft.AspNetCore.Mvc.Abstractions
+dotnet add package Microsoft.AspNetCore.Mvc.Core
 ```
 
-### project.json
+### HttpTriggerEncode.cs
 
-The project.json file contains dependencies. Here is an example of **project.json** file that includes the required .NET Azure Media Services packages from NuGet. Note that the version numbers change with latest updates to the packages, so you should confirm the most recent versions.
+This is the C# code for your function. The function defined below takes a Media Services asset or a source URL and launches an encoding job with Media Services. It uses a Transform which is created if it does not exist. When it is created, it used the preset provided in the input body. 
 
-Add the following definition to project.json.
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "windowsazure.mediaservices": "4.0.0.4",
-        "windowsazure.mediaservices.extensions": "4.0.0.4",
-        "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.13.1",
-        "Microsoft.IdentityModel.Protocol.Extensions": "1.0.2.206221351"
-      }
-    }
-   }
-}
-
-```
-
-### run.csx
-
-This is the C# code for your function.  The function defined below monitors a storage account container named **input** (that is what was specified in the path) for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function.
-
-The example defined in this section demonstrates:
-
-1. How to ingest an asset into a Media Services account (by coping a blob into an AMS asset)
-2. How to submit an encoding job that uses Media Encoder Standard's "Adaptive Streaming" preset
-
-Replace the contents of the existing run.csx file with the following code: Once you are done defining your function click **Save and Run**.
+Replace the contents of the existing HttpTriggerEncode.cs file with the following code. Once you are done defining your function click **Save and Run**.
 
 ```csharp
-#r "Microsoft.WindowsAzure.Storage"
-#r "Newtonsoft.Json"
-#r "System.Web"
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
 
 using System;
-using System.Net;
-using System.Net.Http;
-using Newtonsoft.Json;
-using Microsoft.WindowsAzure.MediaServices.Client;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.IO;
-using System.Web;
-using Microsoft.Azure;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.Auth;
-using Microsoft.Azure.WebJobs;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
-  
-// Read values from the App.config file.
+using System.Text.Json;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Azure.Management.Media;
+using Microsoft.Azure.Management.Media.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Microsoft.Identity.Client;
+using Microsoft.Rest;
+using System.Linq;
 
-static readonly string _AADTenantDomain = Environment.GetEnvironmentVariable("AMSAADTenantDomain");
-static readonly string _RESTAPIEndpoint = Environment.GetEnvironmentVariable("AMSRESTAPIEndpoint");
- 
-static readonly string _mediaservicesClientId = Environment.GetEnvironmentVariable("AMSClientId");
-static readonly string _mediaservicesClientSecret = Environment.GetEnvironmentVariable("AMSClientSecret");
-
-static readonly string _connectionString = Environment.GetEnvironmentVariable("ConnectionString");  
-
-private static CloudMediaContext _context = null;
-private static CloudStorageAccount _destinationStorageAccount = null;
-
-public static void Run(CloudBlockBlob myBlob, string fileName, TraceWriter log)
+namespace Functions
 {
-    // NOTE that the variables {fileName} here come from the path setting in function.json
-    // and are passed into the  Run method signature above. We can use this to make decisions on what type of file
-    // was dropped into the input container for the function. 
-
-    // No need to do any Retry strategy in this function, By default, the SDK calls a function up to 5 times for a 
-    // given blob. If the fifth try fails, the SDK adds a message to a queue named webjobs-blobtrigger-poison.
-
-    log.Info($"C# Blob trigger function processed: {fileName}.mp4");
-    log.Info($"Media Services REST endpoint : {_RESTAPIEndpoint}");
-
-    try
+    public static class SubmitEncodingJob
     {
-        AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain,
-                            new AzureAdClientSymmetricKey(_mediaservicesClientId, _mediaservicesClientSecret),
-                            AzureEnvironments.AzureCloudEnvironment);
- 
-        AzureAdTokenProvider tokenProvider = new AzureAdTokenProvider(tokenCredentials);
- 
-        _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+        /// <summary>
+        /// Data to pass as an input to the function
+        /// </summary>
+        private class RequestBodyModel
+        {
+            /// <summary>
+            /// Name of the asset to encode.
+            /// Mandatory, except if you provide inputUrl.
+            /// </summary>
+            [JsonProperty("inputAssetName")]
+            public string InputAssetName { get; set; }
 
-        IAsset newAsset = CreateAssetFromBlob(myBlob, fileName, log).GetAwaiter().GetResult();
+            /// <summary>
+            /// Input Url of the file to encode.
+            /// Example : "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4"
+            /// Mandatory, except if you provide inputAssetName.
+            /// </summary>
+            [JsonProperty("inputUrl")]
+            public string InputUrl { get; set; }
 
-        // Step 2: Create an Encoding Job
+            /// <summary>
+            /// Name of the transform.
+            /// It will be created if it does not exist. In that case, please set the builtInPreset value to provide the Standard Encoder preset to use.
+            /// Mandatory.
+            /// </summary>
+            [JsonProperty("transformName")]
+            public string TransformName { get; set; }
 
-        // Declare a new encoding job with the Standard encoder
-        IJob job = _context.Jobs.Create("Azure Function - MES Job");
+            /// <summary>
+            /// If transform does not exist, then the function creates it and use the provided built in preset.
+            /// Optional.
+            /// </summary>
+            [JsonProperty("builtInPreset")]
+            public string BuiltInPreset { get; set; }
 
-        // Get a media processor reference, and pass to it the name of the 
-        // processor to use for the specific task.
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+            /// <summary>
+            /// Name of the attached storage account to use for the output asset.
+            /// Optional.
+            /// </summary>
+            [JsonProperty("outputAssetStorageAccount")]
+            public string OutputAssetStorageAccount { get; set; }
+        }
 
-        // Create a task with the encoding details, using a custom preset
-        ITask task = job.Tasks.AddNew("Encode with Adaptive Streaming",
-            processor,
-            "Adaptive Streaming",
-            TaskOptions.None); 
+        /// <summary>
+        /// Data output by the function
+        /// </summary>
+        private class AnswerBodyModel
+        {
+            /// <summary>
+            /// Name of the output asset created.
+            /// </summary>
+            [JsonProperty("outputAssetName")]
+            public string OutputAssetName { get; set; }
 
-        // Specify the input asset to be encoded.
-        task.InputAssets.Add(newAsset);
+            /// <summary>
+            /// Name of the job created.
+            /// </summary>
+            [JsonProperty("jobName")]
+            public string JobName { get; set; }
+        }
 
-        // Add an output asset to contain the results of the job. 
-        // This output is specified as AssetCreationOptions.None, which 
-        // means the output asset is not encrypted. 
-        task.OutputAssets.AddNew(fileName, AssetCreationOptions.None);
+        /// <summary>
+        /// Function which submits an encoding job
+        /// </summary>
+        /// <param name="req"></param>
+        /// <param name="executionContext"></param>
+        /// <returns></returns>
+        [Function("HttpTriggerEncode")]
+        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req,
+            FunctionContext executionContext)
+        {
+            var log = executionContext.GetLogger("SubmitEncodingJob");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
-        job.Submit();
-        log.Info("Job Submitted");
+            // Get request body data.
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            var data = (RequestBodyModel)JsonConvert.DeserializeObject(requestBody, typeof(RequestBodyModel));
 
+            // Return bad request if input asset name is not passed in
+            if (data.InputAssetName == null && data.InputUrl == null)
+            {
+                return new BadRequestObjectResult("Please pass asset name or input Url in the request body");
+            }
+
+            // Return bad request if input asset name is not passed in
+            if (data.TransformName == null)
+            {
+                return new BadRequestObjectResult("Please pass the transform name in the request body");
+            }
+
+            ConfigWrapper config = new(new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables() // parses the values from the optional .env file at the solution root
+                .Build());
+
+            IAzureMediaServicesClient client;
+            try
+            {
+                client = await CreateMediaServicesClientAsync(config);
+                log.LogInformation("AMS Client created.");
+            }
+            catch (Exception e)
+            {
+                if (e.Source.Contains("ActiveDirectory"))
+                {
+                    log.LogError("TIP: Make sure that you have filled out the appsettings.json file before running this sample.");
+                }
+                log.LogError($"{e.Message}");
+
+                return new BadRequestObjectResult(e.Message);
+            }
+
+            // Set the polling interval for long running operations to 2 seconds.
+            // The default value is 30 seconds for the .NET client SDK
+            client.LongRunningOperationRetryTimeout = 2;
+
+            // Creating a unique suffix so that we don't have name collisions if you run the sample
+            // multiple times without cleaning up.
+            string uniqueness = Guid.NewGuid().ToString().Substring(0, 13);
+            string jobName = $"job-{uniqueness}";
+            string outputAssetName = $"output-{uniqueness}";
+
+            Transform transform;
+            try
+            {
+                // Ensure that you have the encoding Transform.  This is really a one time setup operation.
+                transform = await CreateEncodingTransform(client, log, config.ResourceGroup, config.AccountName, data.TransformName, data.BuiltInPreset);
+                log.LogInformation("Transform retrieved.");
+            }
+            catch (Exception e)
+            {
+                log.LogError("Error when creating/getting the transform.");
+                log.LogError($"{e.Message}");
+                return new BadRequestObjectResult(e.Message);
+            }
+
+            Asset outputAsset;
+            try
+            {
+                // Output from the job must be written to an Asset, so let's create one
+                outputAsset = await CreateOutputAssetAsync(client, log, config.ResourceGroup, config.AccountName, outputAssetName, data.OutputAssetStorageAccount);
+                log.LogInformation($"Output asset '{outputAssetName}' created.");
+            }
+            catch (Exception e)
+            {
+                log.LogError("Error when creating the output asset.");
+                log.LogError($"{e.Message}");
+                return new BadRequestObjectResult(e.Message);
+            }
+
+            // Job input prepration : asset or url
+            JobInput jobInput;
+            if (data.InputUrl != null)
+            {
+                jobInput = new JobInputHttp(files: new[] { data.InputUrl });
+                log.LogInformation("Input is a Url.");
+            }
+            else
+            {
+                jobInput = new JobInputAsset(assetName: data.InputAssetName);
+                log.LogInformation($"Input is asset '{data.InputAssetName}'.");
+            }
+
+            Job job;
+            try
+            {
+                // Job submission to Azure Media Services
+                job = await SubmitJobAsync(
+                                           client,
+                                           log,
+                                           config.ResourceGroup,
+                                           config.AccountName,
+                                           data.TransformName,
+                                           jobName,
+                                           jobInput,
+                                           outputAssetName
+                                           );
+                log.LogInformation($"Job '{jobName}' submitted.");
+            }
+            catch (Exception e)
+            {
+                log.LogError("Error when submitting the job.");
+                log.LogError($"{e.Message}");
+                return new BadRequestObjectResult(e.Message);
+            }
+
+            return new OkObjectResult(new AnswerBodyModel
+            {
+                OutputAssetName = outputAsset.Name,
+                JobName = job.Name
+            });
+        }
+
+        /// <summary>
+        /// Creates the AzureMediaServicesClient object based on the credentials
+        /// supplied in local configuration file.
+        /// </summary>
+        /// <param name="config">The param is of type ConfigWrapper, which reads values from local configuration file.</param>
+        /// <returns>A task.</returns>
+        private static async Task<IAzureMediaServicesClient> CreateMediaServicesClientAsync(ConfigWrapper config)
+        {
+            ServiceClientCredentials credentials = await GetCredentialsAsync(config);
+
+            return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
+            {
+                SubscriptionId = config.SubscriptionId
+            };
+        }
+
+        private static readonly string TokenType = "Bearer";
+
+        /// <summary>
+        /// Create the ServiceClientCredentials object based on the credentials
+        /// supplied in local configuration file.
+        /// </summary>
+        /// <param name="config">The param is of type ConfigWrapper. This class reads values from local configuration file.</param>
+        /// <returns></returns>
+        private static async Task<ServiceClientCredentials> GetCredentialsAsync(ConfigWrapper config)
+        {
+            // Use ConfidentialClientApplicationBuilder.AcquireTokenForClient to get a token using a service principal with symmetric key
+
+            var scopes = new[] { config.ArmAadAudience + "/.default" };
+
+            var app = ConfidentialClientApplicationBuilder.Create(config.AadClientId)
+                .WithClientSecret(config.AadSecret)
+                .WithAuthority(AzureCloudInstance.AzurePublic, config.AadTenantId)
+                .Build();
+
+            var authResult = await app.AcquireTokenForClient(scopes)
+                                                     .ExecuteAsync()
+                                                     .ConfigureAwait(false);
+
+            return new TokenCredentials(authResult.AccessToken, TokenType);
+        }
+
+        /// <summary>
+        /// If the specified transform exists, return that transform. If the it does not
+        /// exist, creates a new transform with the specified output. In this case, the
+        /// output is set to encode a video using a predefined preset.
+        /// </summary>
+        /// <param name="client">The Media Services client.</param>
+        /// <param name="resourceGroupName">The name of the resource group within the Azure subscription.</param>
+        /// <param name="accountName"> The Media Services account name.</param>
+        /// <param name="transformName">The transform name.</param>
+        /// <param name="builtInPreset">The built in standard encoder preset to use if the transform is created.</param>
+        /// <returns></returns>
+        private static async Task<Transform> CreateEncodingTransform(IAzureMediaServicesClient client, ILogger log, string resourceGroupName, string accountName, string transformName, string builtInPreset)
+        {
+            // Does a transform already exist with the desired name? Assume that an existing Transform with the desired name
+            // also uses the same recipe or Preset for processing content.
+            Transform transform = client.Transforms.Get(resourceGroupName, accountName, transformName);
+
+            if (transform == null)
+            {
+                log.LogInformation($"Creating transform '{transformName}'...");
+                // Create a new Transform Outputs array - this defines the set of outputs for the Transform
+                TransformOutput[] outputs = new TransformOutput[]
+                {
+                    // Create a new TransformOutput with a custom Standard Encoder Preset
+                    // This demonstrates how to create custom codec and layer output settings
+
+                  new TransformOutput(
+                        new BuiltInStandardEncoderPreset()
+                        {
+                            // Pass the buildin preset name.
+                            PresetName = builtInPreset
+                        },
+                        onError: OnErrorType.StopProcessingJob,
+                        relativePriority: Priority.Normal
+                    )
+                };
+
+                string description = $"An encoding transform using {builtInPreset} preset";
+
+                // Create the Transform with the outputs defined above
+                transform = await client.Transforms.CreateOrUpdateAsync(resourceGroupName, accountName, transformName, outputs, description);
+            }
+            else
+            {
+                log.LogInformation($"Transform '{transformName}' found in AMS account.");
+            }
+
+            return transform;
+        }
+
+        /// <summary>
+        /// Creates an output asset. The output from the encoding Job must be written to an Asset.
+        /// </summary>
+        /// <param name="client">The Media Services client.</param>
+        /// <param name="resourceGroupName">The name of the resource group within the Azure subscription.</param>
+        /// <param name="accountName"> The Media Services account name.</param>
+        /// <param name="assetName">The output asset name.</param>
+        /// <param name="storageAccountName">The output asset storage name.</param>
+        /// <returns></returns>
+        private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClient client, ILogger log, string resourceGroupName, string accountName, string assetName, string storageAccountName = null)
+        {
+            // Check if an Asset already exists
+            Asset outputAsset = await client.Assets.GetAsync(resourceGroupName, accountName, assetName);
+
+            if (outputAsset != null)
+            {
+                // The asset already exists and we are going to overwrite it. In your application, if you don't want to overwrite
+                // an existing asset, use an unique name.
+                log.LogInformation($"Warning: The asset named {assetName} already exists. It will be overwritten by the function.");
+            }
+            else
+            {
+                log.LogInformation("Creating an output asset..");
+                outputAsset = new Asset(storageAccountName: storageAccountName);
+            }
+
+            return await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, outputAsset);
+        }
+
+        /// <summary>
+        /// Submits a request to Media Services to apply the specified Transform to a given input video.
+        /// </summary>
+        /// <param name="client">The Media Services client.</param>
+        /// <param name="log">Function logger.</param>
+        /// <param name="resourceGroupName">The name of the resource group within the Azure subscription.</param>
+        /// <param name="accountName"> The Media Services account name.</param>
+        /// <param name="transformName">The name of the transform.</param>
+        /// <param name="jobName">The (unique) name of the job.</param>
+        /// <param name="jobInput">The input of the job</param>
+        /// <param name="outputAssetName">The (unique) name of the  output asset that will store the result of the encoding job. </param>
+        private static async Task<Job> SubmitJobAsync(
+            IAzureMediaServicesClient client,
+            ILogger log,
+            string resourceGroupName,
+            string accountName,
+            string transformName,
+            string jobName,
+            JobInput jobInput,
+            string outputAssetName
+            )
+        {
+            JobOutput[] jobOutputs =
+            {
+                new JobOutputAsset(outputAssetName),
+            };
+
+            // In this example, we are assuming that the job name is unique.
+            //
+            // If you already have a job with the desired name, use the Jobs.Get method
+            // to get the existing job. In Media Services v3, Get methods on entities returns null 
+            // if the entity doesn't exist (a case-insensitive check on the name).
+            Job job;
+            try
+            {
+                log.LogInformation("Creating a job...");
+                job = await client.Jobs.CreateAsync(
+                         resourceGroupName,
+                         accountName,
+                         transformName,
+                         jobName,
+                         new Job
+                         {
+                             Input = jobInput,
+                             Outputs = jobOutputs,
+                         });
+
+            }
+            catch (Exception exception)
+            {
+                if (exception.GetBaseException() is ApiErrorException apiException)
+                {
+                    log.LogError(
+                          $"ERROR: API call failed with error code '{apiException.Body.Error.Code}' and message '{apiException.Body.Error.Message}'.");
+                }
+                throw;
+            }
+
+            return job;
+        }
     }
-    catch (Exception ex)
+
+    /// <summary>
+    /// This class reads values from local configuration file resources/conf/appsettings.json.
+    /// Please change the configuration using your account information. For more information, see
+    /// https://docs.microsoft.com/azure/media-services/latest/access-api-cli-how-to. For security
+    /// reasons, do not check in the configuration file to source control.
+    /// </summary>
+    public class ConfigWrapper
     {
-        log.Error("ERROR: failed.");
-        log.Info($"StackTrace : {ex.StackTrace}");
-        throw ex;
+        private readonly IConfiguration _config;
+
+        public ConfigWrapper(IConfiguration config)
+        {
+            _config = config;
+        }
+
+        public string SubscriptionId
+        {
+            get { return _config["SubscriptionId"]; }
+        }
+
+        public string ResourceGroup
+        {
+            get { return _config["ResourceGroup"]; }
+        }
+
+        public string AccountName
+        {
+            get { return _config["AccountName"]; }
+        }
+
+        public string AadTenantId
+        {
+            get { return _config["AadTenantId"]; }
+        }
+
+        public string AadClientId
+        {
+            get { return _config["AadClientId"]; }
+        }
+
+        public string AadSecret
+        {
+            get { return _config["AadSecret"]; }
+        }
+
+        public Uri ArmAadAudience
+        {
+            get { return new Uri(_config["ArmAadAudience"]); }
+        }
+
+        public Uri AadEndpoint
+        {
+            get { return new Uri(_config["AadEndpoint"]); }
+        }
+
+        public Uri ArmEndpoint
+        {
+            get { return new Uri(_config["ArmEndpoint"]); }
+        }
     }
-}
-
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-    if (processor == null)
-    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-    return processor;
-}
-
-public static async Task<IAsset> CreateAssetFromBlob(CloudBlockBlob blob, string assetName, TraceWriter log){
-    IAsset newAsset = null;
-
-    try{
-        Task<IAsset> copyAssetTask = CreateAssetFromBlobAsync(blob, assetName, log);
-        newAsset = await copyAssetTask;
-        log.Info($"Asset Copied : {newAsset.Id}");
-    }
-    catch(Exception ex){
-        log.Info("Copy Failed");
-        log.Info($"ERROR : {ex.Message}");
-        throw ex;
-    }
-
-    return newAsset;
-}
-
-/// <summary>
-/// Creates a new asset and copies blobs from the specifed storage account.
-/// </summary>
-/// <param name="blob">The specified blob.</param>
-/// <returns>The new asset.</returns>
-public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, string assetName, TraceWriter log)
-{
-     //Get a reference to the storage account that is associated with the Media Services account. 
-    _destinationStorageAccount = CloudStorageAccount.Parse(_connectionString);
-
-    // Create a new asset. 
-    var asset = _context.Assets.Create(blob.Name, AssetCreationOptions.None);
-    log.Info($"Created new asset {asset.Name}");
-
-    IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy",
-    TimeSpan.FromHours(4), AccessPermissions.Write);
-    ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
-    CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
-
-    // Get the destination asset container reference
-    string destinationContainerName = (new Uri(destinationLocator.Path)).Segments[1];
-    CloudBlobContainer assetContainer = destBlobStorage.GetContainerReference(destinationContainerName);
-
-    try{
-    assetContainer.CreateIfNotExists();
-    }
-    catch (Exception ex)
-    {
-    log.Error ("ERROR:" + ex.Message);
-    }
-
-    log.Info("Created asset.");
-
-    // Get hold of the destination blob
-    CloudBlockBlob destinationBlob = assetContainer.GetBlockBlobReference(blob.Name);
-
-    // Copy Blob
-    try
-    {
-    using (var stream = await blob.OpenReadAsync()) 
-    {            
-        await destinationBlob.UploadFromStreamAsync(stream);          
-    }
-
-    log.Info("Copy Complete.");
-
-    var assetFile = asset.AssetFiles.Create(blob.Name);
-    assetFile.ContentFileSize = blob.Properties.Length;
-    assetFile.IsPrimary = true;
-    assetFile.Update();
-    asset.Update();
-    }
-    catch (Exception ex)
-    {
-    log.Error(ex.Message);
-    log.Info (ex.StackTrace);
-    log.Info ("Copy Failed.");
-    throw;
-    }
-
-    destinationLocator.Delete();
-    writePolicy.Delete();
-
-    return asset;
 }
 ```
+
+### local.settings.json
+
+Update the file with the following content (please replace the values)
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "AadClientId": "00000000-0000-0000-0000-000000000000",
+    "AadEndpoint": "https://login.microsoftonline.com",
+    "AadSecret": "00000000-0000-0000-0000-000000000000",
+    "AadTenantId": "00000000-0000-0000-0000-000000000000",
+    "AccountName": "amsaccount",
+    "ArmAadAudience": "https://management.core.windows.net/",
+    "ArmEndpoint": "https://management.azure.com/",
+    "ResourceGroup": "amsResourceGroup",
+    "SubscriptionId": "00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 
 ## Test your function
 
-To test your function, you need to upload an MP4 file into the **input** container of the storage account that you specified in the connection string.  
+When you run the function locally in VS Code, the function should be exposed as : 
 
-1. Select the storage account you specified.
-2. Click **Blobs**.
-3. Click **+ Container**. Name the container **input**.
-4. Press **Upload** and browse to a .mp4 file that you want to upload.
+```url
+http://localhost:7071/api/HttpTriggerEncode
+```
 
->[!NOTE]
-> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](../../azure-functions/functions-bindings-storage-blob.md).
+To test your function, you can use Postman to do a POST on this URL.
+
+JSON input body example :
+
+```json
+{
+    "inputUrl":"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4",
+    "transformName" : "TransformAS",
+    "builtInPreset" :"AdaptiveStreaming"
+ }
+```
+
+The function should return 200 OK with a output body containing the job and output asset names.
+
+![Postman](./Media/integrate-azure-functions-dotnet-how-to/postman.png)
 
 ## Next steps
 
-At this point, you are ready to start developing a Media Services application.
+At this point, you are ready to start developing functions leveraging Media Services.
 
-For more details and complete samples/solutions of using Azure Functions and Logic Apps with Azure Media Services to create custom content creation workflows, see the [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration)
+For more details and complete sample of using Azure Functions with Azure Media Services v3 to create custom content creation workflows, see the [Media Services v3 Azure Functions sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/Functions)
