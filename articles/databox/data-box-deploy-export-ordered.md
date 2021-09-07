@@ -258,6 +258,24 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 
    ![XML file added to container](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
+---
+
+### Sample XML file
+
+# [XML tag usage](#tab/xml-tag-usage)
+
+xxxxxxxxxxxxxxxxxxxxxxx
+
+# [Valid blob prefix paths](#tab/blob-prefix-paths)
+
+xxxxxxxxxxxxxxxxxxxxxxx
+
+
+# [Valid file prefix paths](#tab/file-prefix-paths)
+
+xxxxxxxxxxxxxxxxxxxxxxx
+
+
 ## Track the order
 
 After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
@@ -297,9 +315,21 @@ After placing an order, you can cancel it at any point before the order starts p
 
 To delete a canceled order, go to **Overview** and select **Delete** from the command bar.
 
-## Sample XML file
+### Sample XML file
 
-The following xml shows an example of blob names, blob prefixes, and Azure Files contained in the xml format that the export order uses when you select the **use XML file** option:
+The following xml is an example of blob names, blob prefixes, and Azure Files contained in the xml format that the export order uses when you select the **use XML file** option.<!--Make the wording simpler and clearer. They will provide the XML.-->
+
+The sample xml file below contains examples of tags that select an individual blob and file and sets of ,  or file by specifying a *path* and sets of blobs or sets of files by specifying a *path prefix*.
+
+Key to understanding the xml tags used in an export order is the distinction between a path and a prefix:
+
+* A *path* selects and filters to a single object.
+* A *prefix* selects and filters to multiple objects. 
+* The object can be a blob or a file.
+
+For blobs, use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name.
+
+For Azure Files, use a prefix to select a set of similarly named shares or similarly named files in a share. The prefix may be the prefix of the share name, the complete share name, or a complete share name followed by the prefix of the file name.
 
 ```xml
 <<?xml version="1.0" encoding="utf-8"?>
@@ -331,11 +361,6 @@ The following xml tags are used in the XML file attached to a Data Box export or
 |`<FilePath>`       |Filters the selection to a single file. | /fileshare1/file.txt</br>Exports the file **/fileshare1/file.txt**. |
 |`<FilePathPrefix>` |Filters the selection to a set of similarly named shares, similarly named folders in a share, or similarly named files in a folder. |  `/64mbfiles/`</br> Exports all directories and files in the **64mbfiles/** share. |
 
-To understand the tags, you need to know these distinctions:
-
-* *Path*: Selects and filters to a single object.
-* *Path prefix*: Selects and filters to multiple objects.
-* The object can be a blob or a file.
 
 Important points to remember when using the xml tags:
 
