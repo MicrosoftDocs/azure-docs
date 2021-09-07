@@ -87,7 +87,7 @@ $vnet = New-AzVirtualNetwork `
 
 ### Create a NIC
 
-Create virtual NICs with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface. The following example creates a virtual NIC.
+Create virtual NICs with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). The following example creates a virtual NIC.
 
 ```azurepowershell
 # Create an IP Config
@@ -129,7 +129,7 @@ Now you can create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm
 
 ## Allow network traffic to the VM
 
-Before you can connect to the public IP address from the internet, ensure that you have the necessary ports open in any network security group that you might have associated to the network interface, the subnet the network interface is in, or both. You can view the effective security rules for a network interface and its subnet using the [Portal](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal), [CLI](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli), or [PowerShell](diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
+Before you can connect to the public IP address from the internet, ensure that you have the necessary ports open in any network security group that you might have associated to the network interface, the subnet the network interface is in, or both. You can view the effective security rules for a network interface and its subnet using the [Portal](../../virtual-network/diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal), [CLI](../../virtual-network/diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli), or [PowerShell](../../virtual-network/diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
 
 ## Clean up resources
 
@@ -142,5 +142,5 @@ When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/modu
 ## Next steps
 
 * Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
-* Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
+* Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
 * Learn more about [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
