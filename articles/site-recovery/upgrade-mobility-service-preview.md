@@ -3,13 +3,21 @@ title: Upgrade Mobility Service and appliance components - preview
 description: This article describes about automatic updates for mobility agent and the procedure involved with manual updates - preview.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
+ms.date: 09/01/2021
 ---
 
 
 # Upgrade Mobility Service and Appliance components (Preview)
 
+From this preview, you do not need to maintain source machine's Root/Admin credentials are not required for performing upgrades. The credentials are required only for the initial installation of the agent. Once done, you can remove the credentials.
+
+
+## Update mobility agent automatically
+
 By default, automatic updates are enabled on a vault. Automatic updates will be triggered at 12:00 AM local time every day, if a new version is available.
+
+> [!NOTE]
+> If you are using private preview bits, automatic updates are blocked for the protected machines. Ensure that you setup Site Recovery on your machine again, using a fresh Preview appliance.
 
 To avail the latest features, enhancements and fixes, we recommend you to choose **Allow Site Recovery to manage** option on the **Mobility agent upgrade settings (Preview)**. Automatic updates do not require a reboot or affect on-going replication of your virtual machines. Automatic updates also ensure that all the replication appliances in the vault are automatically updated.
 
@@ -19,8 +27,6 @@ To turn off the automatic updates, toggle the **Allow Site Recovery to manage** 
 
 ![Automatic updates off for mobility agent](./media/upgrade-mobility-service-preview/automatic-updates-off.png)
 
-> [!NOTE]
-> If you are using private preview bits, automatic updates are blocked for the protected machines. Ensure that you setup Site Recovery on your machine again, using a fresh Preview appliance.
 
 ## Update mobility agent manually
 
