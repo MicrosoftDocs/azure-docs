@@ -42,7 +42,7 @@ Interactive authentication with Azure AD requires a web browser. For more inform
 This method takes as parameters:
 
 - The `scopes` to request an access token for.
-- A callback that receives the [`DeviceCodeResult`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.devicecoderesult).
+- A callback that receives the [`DeviceCodeResult`](/dotnet/api/microsoft.identity.client.devicecoderesult).
 
 The following sample code presents the synopsis of most current cases, with explanations of the kind of exceptions you can get and their mitigation. For a fully functional code sample, see [active-directory-dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) on GitHub.
 
