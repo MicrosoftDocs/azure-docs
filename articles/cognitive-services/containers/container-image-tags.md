@@ -1742,7 +1742,7 @@ This container image has the following tags available. You can also find a full 
 # [Latest version](#tab/current)
 
 Release notes for `v1.9.0`:
-* Add new `en-GB` and `zh-CN` voices.
+* Add 1 new `en-GB` and 9 (4 are preview) new `zh-CN` voices.
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
@@ -1789,14 +1789,14 @@ Release notes for `v1.9.0`:
 | `zh-cn-xiaoyouneural`               | Container image with the `zh-CN` locale and `zh-CN-XiaoYouNeural` voice.   |
 | `zh-cn-yunyangneural`               | Container image with the `zh-CN` locale and `zh-CN-YunYangNeural` voice.   |
 | `zh-cn-yunyeneural`                 | Container image with the `zh-CN` locale and `zh-CN-YunYeNeural` voice.     |
-| `zh-cn-xiaochenneural`              | Container image with the `zh-CN` locale and `zh-CN-XiaoChenNeural` voice.  |
+| `zh-cn-xiaochenneural-preview`      | Container image with the `zh-CN` locale and `zh-CN-XiaoChenNeural` voice.  |
 | `zh-cn-xiaohanneural`               | Container image with the `zh-CN` locale and `zh-CN-XiaoHanNeural` voice.   |
 | `zh-cn-xiaomoneural`                | Container image with the `zh-CN` locale and `zh-CN-XiaoMoNeural` voice.    |
-| `zh-cn-xiaoqiuneural`               | Container image with the `zh-CN` locale and `zh-CN-XiaoQiuNeural` voice.   |
+| `zh-cn-xiaoqiuneural-preview`       | Container image with the `zh-CN` locale and `zh-CN-XiaoQiuNeural` voice.   |
 | `zh-cn-xiaoruineural`               | Container image with the `zh-CN` locale and `zh-CN-XiaoRuiNeural` voice.   |
-| `zh-cn-xiaoshuangneural`            | Container image with the `zh-CN` locale and `zh-CN-XiaoShuangNeural` voice.|
+| `zh-cn-xiaoshuangneural-preview`    | Container image with the `zh-CN` locale and `zh-CN-XiaoShuangNeural` voice.|
 | `zh-cn-xiaoxuanneural`              | Container image with the `zh-CN` locale and `zh-CN-XiaoXuanNeural` voice.  |
-| `zh-cn-xiaoyanneural`               | Container image with the `zh-CN` locale and `zh-CN-XiaoYanNeural` voice.   |
+| `zh-cn-xiaoyanneural-preview`       | Container image with the `zh-CN` locale and `zh-CN-XiaoYanNeural` voice.   |
 | `zh-cn-yunxineural`                 | Container image with the `zh-CN` locale and `zh-CN-YunXiNeural` voice.     |
 
 # [Previous version](#tab/previous)
