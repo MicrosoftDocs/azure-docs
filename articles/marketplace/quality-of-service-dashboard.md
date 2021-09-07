@@ -26,13 +26,13 @@ View graphical representations of the following items:
 Additionally, view [offer deployment details](#offer-deployment-details) in tabular form.
 
 > [!IMPORTANT]
-> This dashboard is currently only available for **Public Azure application** offers.
+> This dashboard is currently only available for **Azure application** offers available to all (not private offers).
 
 The following sections describe how to use the Quality-of-Service (QoS) dashboard and how to read the data.
 
 To access the Quality-of-Service dashboard in the Partner Center, select **Commercial Marketplace** > [**Analyze**](https://partner.microsoft.com/dashboard/commercial-marketplace/quality-of-service/summary) > **Quality of Service**.
 
-This feature is currently applicable to all partners performing deployment of Public Azure applications using Azure Resource Manager (ARM) templates. This report will not show data for other marketplace offers.
+This feature is currently applicable to all partners performing deployment of Azure application offers using Azure Resource Manager (ARM) templates (but not for private offers). This report will not show data for other marketplace offers.
 
 **Month range**: There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
 
@@ -69,19 +69,17 @@ About this graph:
 
 This graph shows the metric and trend for the average time duration for a successful and failed deployment. View the metrics by selecting an offer in the drop-down menu. Select a SKU in the tabular view or enter it in the search bar. Following are different mean deployments durations (in minutes):
 
-1. **Success duration** – Mean time of deployment duration with offer deployments status marked as Success. This aggregated metric is calculated using the time duration between start and end timestamps of deployments marked with successful status.
-
-1. **Failure duration** – Mean time of deployments duration with offer deployment status marked as Failure. This aggregated metric is calculated using the time duration between start and end timestamps of deployments marked with Failure status.
-
-1. **First Successful deployment duration** – Mean time of deployment duration with offer deployment status marked as Success. This aggregated metric is calculated using the time duration between start timestamp of first deployment and end timestamp of the final deployment marked with Successful status. It is calculated for each deployment marked for a specific Offer SKU and Customer.
+- **Success duration** – Mean time of deployment duration with offer deployments status marked as Success. This aggregated metric is calculated using the time duration between start and end timestamps of deployments marked with successful status.
+- **Failure duration** – Mean time of deployments duration with offer deployment status marked as Failure. This aggregated metric is calculated using the time duration between start and end timestamps of deployments marked with Failure status.
+- **First Successful deployment duration** – Mean time of deployment duration with offer deployment status marked as Success. This aggregated metric is calculated using the time duration between start timestamp of first deployment and end timestamp of the final deployment marked with Successful status. It is calculated for each deployment marked for a specific Offer SKU and Customer.
 
 :::image type="content" source="media/quality-of-service/deployment-duration-quality.png" alt-text="Shows a deployment duration quality graph.":::
 
 About this graph:
 
-1. Select Failure, Success, or First successful deployment duration in the legend to be displayed.
-2. The line graph presents the Mean duration of deployments marked as successful, failed, and successful deployments with failed prior attempts.
-3. Mean time for first deployment factors the time spent on failure attempts before the deployment is marked as successful.
+- Select Failure, Success, or First successful deployment duration in the legend to be displayed.
+- The line graph presents the Mean duration of deployments marked as successful, failed, and successful deployments with failed prior attempts.
+- Mean time for first deployment factors the time spent on failure attempts before the deployment is marked as successful.
 
 ## Deployment count
 
@@ -173,7 +171,7 @@ About this table:
 | Subscription ID | Subscription ID | The Subscription ID of the customer |
 | Customer Tenant ID | Customer Tenant ID | The Tenant ID of the customer |
 | Customer Name | Customer Name | The name of the customer |
-| Template Type | Template Type | Type of Public Azure App deployed. It can be either Managed App or Solution Templates. |
+| Template Type | Template Type | Type of Azure App deployed. It can be either Managed App or Solution Templates and it cannot be private. |
 | Deployment Start Time | Deployment Start Time | The start time of the deployment |
 | Deployment End Time | Deployment End Time | The end time of the deployment |
 | Deployment Duration: | Deployment Duration: | The total time duration of offer deployment in milliseconds. It is shown in minutes in the graph. |

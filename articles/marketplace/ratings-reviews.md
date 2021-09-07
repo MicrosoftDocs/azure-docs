@@ -59,9 +59,9 @@ You can respond to reviews from users and the response will be visible on either
 
 The response will appear under the text of the original review in the product detail page in AppSource, and Azure Marketplace online storefront.
 
-#### Appsource
+#### AppSource
 
-:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png" alt-text="Illustrates Appsource review response" lightbox="media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png":::
+:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png" alt-text="Illustrates AppSource review response" lightbox="media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png":::
 
 #### Azure Marketplace online store
 
