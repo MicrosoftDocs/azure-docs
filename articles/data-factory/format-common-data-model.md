@@ -50,7 +50,7 @@ When selecting "Entity Reference" both in the Source and Sink transformations, y
 
 * Local uses the entity defined in the manifest file already being used by ADF
 * Custom will ask you to point to an entity manifest file that is different from the manifest file ADF is using
-* Standard will use an entity reference from the standard library of CDM entities maintained in ```Github```.
+* Standard will use an entity reference from the standard library of CDM entities maintained in ```GitHub```.
 
 ### Sink settings
 
