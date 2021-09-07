@@ -123,7 +123,7 @@ Return to the Redirect URL field and copy the value that has been generated. You
 
 :::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Screenshot of the Redirect URL field in the 'Edit Logic Apps Custom Connector' page. The button to copy the value is highlighted.":::
 
-The Redirect URL is all the information that is required to create your connector (no need to continue past Security to the Definition step). You can close the **Edit Logic Apps Custom Connector** pane.
+Now you've entered all the information that is required to create your connector (no need to continue past Security to the Definition step). You can close the **Edit Logic Apps Custom Connector** pane.
 
 >[!NOTE]
 >Back on your connector's Overview page where you originally selected **Edit**, note that selecting Edit again will restart the entire process of entering your configuration choices. It will not populate your values from the last time you went through it, so if you want to save an updated configuration with any changed values, you must re-enter all the other values as well to avoid their being overwritten by the defaults.

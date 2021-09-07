@@ -56,7 +56,7 @@ Here are the additional options you can configure during setup, using the other 
 
 ### Verify success and collect important values
 
-After finishing your instance setup by selecting **Create**, you can view the status of your instance's deployment in your Azure notifications along the portal icon bar. The notification will indicate when deployment has succeeded, at which point you could select the _Go to resource_ button to view your created instance.
+After finishing your instance setup by selecting **Create**, you can view the status of your instance's deployment in your Azure notifications along the portal icon bar. The notification will indicate when deployment has succeeded, at which point you can select the _Go to resource_ button to view your created instance.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Screenshot of the Azure notifications showing a successful deployment and highlighting the 'Go to resource' button in the Azure portal.":::
 
@@ -65,7 +65,7 @@ If deployment fails, the notification will indicate why. Observe the advice from
 >[!TIP]
 >Once your instance is created, you can return to its page at any time by searching for the name of your instance in the Azure portal search bar.
 
-From the instance's *Overview* page, note its *Name*, *Resource group*, and *Host name*. These values are all important and you may need to use them as you continue working with your Azure Digital Twins instance. If other users will be programming against the instance, you should share these values with them.
+From the instance's *Overview* page, note its **Name**, **Resource group**, and **Host name**. These values are all important and you may need to use them as you continue working with your Azure Digital Twins instance. If other users will be programming against the instance, you should share these values with them.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Screenshot of the Azure portal, highlighting the important values from the Azure Digital Twins instance's Overview page.":::
 
