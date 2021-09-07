@@ -131,5 +131,9 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
 1. Select **Create**. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. 
 
 ## Next steps
+After you've created the ExpressRoute Circuit, you can link your ExpressRoute Circuit to a VNet Gateway
 
+> [!div class="nextstepaction"]
+> [Link a Virtual Network to an ExpressRoute circuit](expressroute-howto-add-gateway-portal-resource-manager.md)
+> 
 For more information about ExpressRoute Direct, see the [Overview](expressroute-erdirect-about.md).
