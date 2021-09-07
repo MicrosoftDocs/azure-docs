@@ -35,7 +35,7 @@ To assign custom security attributes and add role assignments conditions in your
     - `microsoft.directory/customSecurityAttributeDefinitions/allProperties/read`
     - `microsoft.directory/users/customSecurityAttributes/read`
     - `microsoft.directory/users/customSecurityAttributes/update`
-- The following write permission, such as User Access Administrator or Owner:
+- The following write permission, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner):
     - `Microsoft.Authorization/roleAssignments/write`
 
 > [!IMPORTANT]
@@ -45,17 +45,35 @@ To assign custom security attributes and add role assignments conditions in your
 
 In this tutorial, you allow read access to blobs if the user has a custom security attribute that matches the blob index tag. This is accomplished by adding a condition to the role assignment.
  
-For example, if Brenda has the attribute Project=Baker, she can only read blobs with the Project=Baker blob index tag. Similarly, Chandra can only read blobs with Project=Cascade.
- 
+![Diagram of role assignment with a condition.](./media/conditions-custom-security-attributes/condition-principal-attribute.png)
+
+For example, if Brenda has the attribute `Project=Baker`, she can only read blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read blobs with `Project=Cascade`.
+
+![Diagram showing read access to blobs based on tags and custom security attributes.](./media/conditions-custom-security-attributes/condition-principal-attribute-example.png)
+
+Here is what the condition looks like in code:
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+ )
+ OR 
+ (
+  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Test_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
+ )
+)
+```
+
 For more information about conditions, see [What is Azure attribute-based access control (Azure ABAC)? (preview)](conditions-overview.md).
 
 ## Step 1: Add a new custom security attribute
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://azure.portal.com).
 
-1. Click Azure Active Directory.
+1. Click **Azure Active Directory**.
 
-1. Add an attribute named Project with values of Baker and Cascade. For more information, see Add or deactivate custom security attributes in Azure AD in the previous section.
+1. Add an attribute named `Project` with values of `Baker` and `Cascade`. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
  
 ## Step 2: Assign the custom security attribute to a user
 
@@ -63,17 +81,17 @@ For more information about conditions, see [What is Azure attribute-based access
 
 1. Add a user as a member of the group.
 
-1. Assign the Project attribute with a value of Cascade to the user. For more information, see Assign or remove custom security attributes for a user in the previous section. 
+1. Assign the `Project` attribute with a value of `Cascade` to the user. For more information, see [Assign or remove custom security attributes for a user](../active-directory/enterprise-users/users-custom-security-attributes.md). 
  
-1. Be sure to click Save to save your assignment.
+1. Be sure to click **Save** to save your assignment.
 
 ## Step 3: Set up storage and blob index tags
 
-1. Create a storage account that is compatible with the blob index tags feature. For more information, see Manage and find Azure Blob data with blob index tags (preview).
+1. Create a storage account that is compatible with the blob index tags feature. For more information, see [Manage and find Azure Blob data with blob index tags](../storage/blobs/storage-manage-find-blobs.md).
 
-1. Create a new container within the storage account and set the Public access level to Private (no anonymous access).
+1. Create a new container within the storage account and set the **Public access level** to **Private (no anonymous access)**.
 
-1. Set the authentication type to Azure AD User Account.
+1. Set the authentication type to **Azure AD User Account**.
 
 1. Upload text files to the container and set the following blob index tags.
 
@@ -84,32 +102,33 @@ For more information about conditions, see [What is Azure attribute-based access
  
 ## Step 4: Assign Storage Blob Data Reader role with a condition
 
-1. Open a new tab and sign in to the Azure portal.
+1. Open a new tab and sign in to the [Azure portal](https://azure.portal.com).
 
 1. Open the resource group that has the storage account.
 
-1. Click Access control (IAM).
+1. Click **Access control (IAM)**.
 
-1. Click the Role assignments tab to view the role assignments at this scope.
+1. Click the **Role assignments** tab to view the role assignments at this scope.
 
-1. Click Add > Add role assignment (Preview).
+1. Click **Add** > **Add role assignment (Preview)**.
  
-1. On the Role tab, select the Storage Blob Data Reader role.
+1. On the **Role** tab, select the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role.
  
-1. On the Members tab, select the security group you created earlier.
+1. On the **Members** tab, select the security group you created earlier.
 
-1. (Optional) In the Description box, enter Read access to blobs if the user has a custom security attribute that matches the blob index tag.
+1. (Optional) In the **Description** box, enter **Read access to blobs if the user has a custom security attribute that matches the blob index tag**.
 
-1. On the Condition tab, click Add condition.
-The Add role assignment condition page appears.
+1. On the **Condition** tab, click **Add condition**.
+
+    The Add role assignment condition page appears.
  
-1. In the Add action section, click Add action.
+1. In the **Add action** section, click **Add action**.
 
     The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition.
  
-1. Click Read content from a blob with tag conditions and then click Select.
+1. Click **Read content from a blob with tag conditions** and then click **Select**.
 
-1. In the Build expression section, click Add.
+1. In the **Build expression** section, click **Add**.
 
 1. Enter the following settings:
 
@@ -124,9 +143,9 @@ The Add role assignment condition page appears.
     | Key | Project |
 
     > [!NOTE]
-    > If Principal is not listed as an option in Attribute source, make sure you have defined custom security attribute as described earlier in Step 1: Add a new custom security attribute.
+    > If Principal is not listed as an option in Attribute source, make sure you have defined custom security attribute as described earlier in [Step 1: Add a new custom security attribute](#step-1-add-a-new-custom-security-attribute).
 
-1. Scroll up to Editor type and click Code.
+1. Scroll up to **Editor type** and click **Code**.
 
     Your condition should look similar to the following:
 
@@ -142,30 +161,30 @@ The Add role assignment condition page appears.
     )
     ```
 
-1. Click Save to save the condition.
+1. Click **Save** to save the condition.
 
-1. On the Review + assign tab, click Review + assign to assign the Storage Blob Data Reader role with a condition.
+1. On the Review + assign tab, click **Review + assign** to assign the Storage Blob Data Reader role with a condition.
 
 ## Step 5: Assign Reader role
 
-- Repeat the previous steps to assign the Reader role without a condition for the security group at resource group scope.
+- Repeat the previous steps to assign the [Reader](built-in-roles.md#reader) role without a condition for the security group at resource group scope.
 
     > [!NOTE]
     > You typically do not need to assign the Reader role. However, this is done so that you can test the condition using the Azure portal.
 
 ## Step 6: Test the condition
 
-1. In a new window, open the Azure portal.
+1. In a new window, open the [Azure portal](https://azure.portal.com).
 
-1. Sign in as the user you created with the Project=Cascade custom security attribute.
+1. Sign in as the user you created with the `Project=Cascade` custom security attribute.
 
 1. Open the storage account and container you created.
 
-1. Ensure that the authentication method is set to Azure AD User Account and not Access key.
+1. Ensure that the authentication method is set to **Azure AD User Account** and not **Access key**.
 
 1. Click the Baker text file.
 
-    You should NOT be able to view or download the blob and an authorization failed message should be displayed.
+    You should **NOT** be able to view or download the blob and an authorization failed message should be displayed.
  
 1. Click Cascade text file.
 
@@ -173,35 +192,35 @@ The Add role assignment condition page appears.
 
 ## Azure PowerShell
 
-You can also use Azure PowerShell to add role assignment conditions. The following commands show how to add conditions. For information, see Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview).
+You can also use Azure PowerShell to add role assignment conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview)](../storage/common/storage-auth-abac-powershell.md).
 
 ### Add a condition
 
-1. Use the Connect-AzAccount command and follow the instructions that appear to sign in to your directory as User Access Administrator or Owner.
+1. Use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the instructions that appear to sign in to your directory as User Access Administrator or Owner.
 
     ```powershell
     Connect-AzAccount
     ```
 
-1. Use Get-AzRoleAssignment to get the role assignment you assigned to the security group.
+1. Use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) to get the role assignment you assigned to the security group.
 
     ```powershell
     $groupRoleAssignment = Get-AzRoleAssignment -ObjectId <groupObjectId> -Scope <scope>
     ```
     
-1. Set the Condition property of the role assignment object.
+1. Set the `Condition` property of the role assignment object.
 
     ```powershell
     $groupRoleAssignment.Condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:BashABAC_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>]))"
     ```
 
-1. Set the ConditionVersion property of the role assignment object.
+1. Set the `ConditionVersion` property of the role assignment object.
 
     ```powershell
     $groupRoleAssignment.ConditionVersion = "2.0"
     ```
 
-1. Use Set-AzRoleAssignment to update the role assignment.
+1. Use [Set-AzRoleAssignment](/powershell/module/az.resources/set-azroleassignment) to update the role assignment.
 
     ```powershell
     Set-AzRoleAssignment -InputObject $groupRoleAssignment
@@ -209,19 +228,19 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
 
 ### Test the condition
 
-1. In a new PowerShell window, use the Connect-AzAccount command to sign in as a member of the security group.
+1. In a new PowerShell window, use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command to sign in as a member of the security group.
 
     ```powershell
     Connect-AzAccount
     ```
 
-1. Set the context for the storage account.
+1. Use [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) to set the context for the storage account.
 
     ```powershell
     $bearerCtx = New-AzStorageContext -StorageAccountName <accountName>
     ```
 
-1. Use Get-AzStorageBlob to try to read the Baker file.
+1. Use [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) to try to read the Baker file.
 
     ```powershell
     Get-AzStorageBlob -Container <containerName> -Blob <blobNameBaker> -Context $bearerCtx
@@ -231,7 +250,7 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
     ...
     ```
 
-1. Use Get-AzStorageBlob to try to read the Cascade file.
+1. Use [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) to try to read the Cascade file.
 
     ```powershell
     Get-AzStorageBlob -Container <containerName> -Blob <blobNameCascade> -Context $bearerCtx
@@ -246,17 +265,17 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
 
 ## Azure CLI
 
-You can also use Azure CLI to add role assignments conditions. The following commands show how to add conditions. For information, see Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview).
+You can also use Azure CLI to add role assignments conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview)](../storage/common/storage-auth-abac-cli.md).
 
 ### Add a condition
 
-1. Use the az login command and follow the instructions that appear to sign in to your directory as User Access Administrator or Owner.
+1. Use the [az login](/cli/azure/reference-index#az_login) command and follow the instructions that appear to sign in to your directory as User Access Administrator or Owner.
 
     ```azurecli
     az login
     ```
 
-1. Use az role assignment list to get the role assignment you assigned to the security group.
+1. Use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) to get the role assignment you assigned to the security group.
 
     ```azurecli
     az role assignment list --assignee <groupObjectId> --scope <scope>
@@ -283,19 +302,19 @@ You can also use Azure CLI to add role assignments conditions. The following com
     }
     ```
 
-1. Update the condition property.
+1. Update the `condition` property.
 
     ```azurecli
-    "conditionVersion": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:BashABAC_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]))",
+    "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:BashABAC_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]))",
     ```
 
-1. Update the conditionVersion property.
+1. Update the `conditionVersion` property.
 
     ```azurecli
     "conditionVersion": "2.0",
     ```
 
-1. Use az role assignment update to add the condition to the role assignment.
+1. Use [az role assignment update](/cli/azure/role/assignment#az_role_assignment_update) to add the condition to the role assignment.
 
     ```azurecli
     az role assignment update --role-assignment "./path/roleassignment.json"
@@ -303,19 +322,13 @@ You can also use Azure CLI to add role assignments conditions. The following com
 
 ### Test the condition
 
-1. In a new command window, use the az login command to sign in as a member of the security group.
+1. In a new command window, use the [az login](/cli/azure/reference-index#az_login) command to sign in as a member of the security group.
 
     ```azurecli
     az login
     ```
 
-1. Set the context for the storage account.
-
-    ```azurecli
-    $bearerCtx = New-AzStorageContext -StorageAccountName <accountName>
-    ```
-
-1. Use az storage blob show to try to read the properties for the Baker file.
+1. Use [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) to try to read the properties for the Baker file.
 
     ```azurecli
     az storage blob show --account-name <storageAccountName> --container-name <containerName> --name <blobNameBaker> --auth-mode login
@@ -324,7 +337,7 @@ You can also use Azure CLI to add role assignments conditions. The following com
     ...
     ```
 
-1. Use az storage blob show to try to read the properties for the Cascade file.
+1. Use [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) to try to read the properties for the Cascade file.
 
     ```azurecli
     az storage blob show --account-name <storageAccountName> --container-name <containerName> --name <blobNameCascade> --auth-mode login
