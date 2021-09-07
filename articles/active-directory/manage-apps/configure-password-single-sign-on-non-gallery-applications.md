@@ -25,7 +25,7 @@ Password-based SSO is a great way to get started integrating applications into A
 
 - Support applications that require multiple sign-in fields for applications that require more than just username and password fields to sign in
 
-- Customize the labels of the username and password fields your users see on [My Apps](../user-help/my-apps-portal-end-user-access.md) when they enter their credentials
+- Customize the labels of the username and password fields your users see on [My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) when they enter their credentials
 
 - Allow your users to provide their own usernames and passwords for any existing application accounts they're typing in manually.
 

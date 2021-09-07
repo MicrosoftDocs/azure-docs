@@ -81,7 +81,7 @@ For details on known impacted scenarios as well as what experience your users ca
 - Previously, the presence of the banner recommending the use of collections caused content to scroll behind the header. This issue has been resolved. 
 - Previously, there was another issue when adding apps to a collection, the order of apps in All Apps collection would get randomly reordered. This issue has also been resolved. 
 
-For more information on My Apps, read [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+For more information on My Apps, read [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ---
 
@@ -145,7 +145,7 @@ The onPremisesPublishing resource type now includes the property, "isBackendCert
  
 Users can now use their existing authentication methods to directly sign into the Microsoft Authenticator app to set up their credential. Users don't need to scan a QR Code anymore and can use a Temporary Access Pass (TAP) or Password + SMS (or other authentication method) to configure their account in the Authenticator app.
 
-This improves the user credential provisioning process for the Microsoft Authenticator app and gives the end user a self-service method to provision the app. [Learn more](../user-help/user-help-auth-app-add-work-school-account.md#sign-in-with-your-credentials).
+This improves the user credential provisioning process for the Microsoft Authenticator app and gives the end user a self-service method to provision the app. [Learn more](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c#sign-in-with-your-credentials).
  
 ---
 
@@ -262,7 +262,7 @@ For the Risky users, Risky sign-ins, and Risk detections reports in Identity Pro
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
- You can use Azure AD access reviews to review service principal's access to privileged Azure AD and Azure resource roles. [Learn more](../privileged-identity-management/pim-how-to-start-security-review.md#open-access-reviews).
+ You can use Azure AD access reviews to review service principal's access to privileged Azure AD and Azure resource roles. [Learn more](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md#open-access-reviews).
  
 ---
 
@@ -282,7 +282,7 @@ Now group owners in Azure AD can create and manage Azure AD access reviews on th
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
-When admins create access reviews of assignments to privileged roles, they can scope the reviews to only eligibly assigned users or only actively assigned users. [Learn more](../privileged-identity-management/pim-how-to-start-security-review.md).
+When admins create access reviews of assignments to privileged roles, they can scope the reviews to only eligibly assigned users or only actively assigned users. [Learn more](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
  
 ---
 
@@ -1124,7 +1124,7 @@ Users with this role can configure the authentication methods policy, tenant-wid
 **Service category:** My Apps  
 **Product capability:** End User Experiences
  
-Users can now create their own groupings of apps on the My Apps app launcher. They can also reorder and hide collections shared with them by their administrator. [Learn more](../user-help/my-apps-portal-user-collections.md).
+Users can now create their own groupings of apps on the My Apps app launcher. They can also reorder and hide collections shared with them by their administrator. [Learn more](https://support.microsoft.com/account-billing/organize-apps-using-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d).
 
 ---
 
@@ -1136,7 +1136,7 @@ Users can now create their own groupings of apps on the My Apps app launcher. Th
  
 Microsoft Authenticator provides Multi-factor Authentication (MFA) and account management capabilities, and now also will autofill passwords on sites and apps users visit on their mobile (iOS and Android). 
 
-To use autofill on Authenticator, users need to add their personal Microsoft account to Authenticator and use it to sync their passwords. Work or school accounts cannot be used to sync passwords at this time. [Learn more](../user-help/user-help-auth-app-faq.md#autofill-for-it-admins).
+To use autofill on Authenticator, users need to add their personal Microsoft account to Authenticator and use it to sync their passwords. Work or school accounts cannot be used to sync passwords at this time. [Learn more](https://support.microsoft.com/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd#autofill-for-it-admins).
 
 ---
 
