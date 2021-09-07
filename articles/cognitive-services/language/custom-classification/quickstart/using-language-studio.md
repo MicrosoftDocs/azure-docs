@@ -83,7 +83,7 @@ To start training your model:
 
 ## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and [improve model](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try. 
+Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and make adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
 
 >[!NOTE]
 >You can only have one deployed model per project. Deploying a new model replaces any existing deployed model.

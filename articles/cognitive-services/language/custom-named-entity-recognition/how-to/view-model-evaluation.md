@@ -15,7 +15,7 @@ ms.author: aahi
 
 # View model evaluation and details
 
-After your model has finished training, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-groups). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset.
+After your model has finished training, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-split). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ After your model has finished training, you can view the model details and see h
 
 ## View the model's evaluation details
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customTextNext/projects/extraction).
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
 
 2. Select **View model details** from the menu on the left side of the screen.
 
