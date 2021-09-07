@@ -11,6 +11,20 @@
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
       href: concept-azure-machine-learning-architecture.md
+    - name: "Migrate from ML Studio (classic)"
+      items: 
+        - name: Migration overview
+          href: migrate-overview.md
+        - name: Migrate datasets
+          href: migrate-register-dataset.md
+        - name: Rebuild experiments
+          href: migrate-rebuild-experiment.md
+        - name: Rebuild web services
+          href: migrate-rebuild-web-service.md
+        - name: Migrate client applications
+          href: migrate-rebuild-integrate-with-client-app.md
+        - name: Rebuild Execute R Script components
+          href: migrate-execute-r-script.md
 - name: Quickstart
   expanded: true
   items: 
@@ -249,8 +263,9 @@
             - name: Configure secure web services
               displayName: ssl, tls
               href: how-to-secure-web-service.md
-            - name: Configure Firewall
+            - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
+              displayName: firewall, user-defined route, udr
         - name: Data protection
           items:
             - name: Failover & disaster recovery
@@ -344,7 +359,7 @@
           displayName: github gitlab
           href: concept-train-model-git-integration.md
         - name: How to troubleshoot environments
-          displayName: troubleshoot, envrionment, debug, image
+          displayName: troubleshoot, environment, debug, image
           href: how-to-troubleshoot-environments.md          
     - name: Work with data
       items: 
@@ -471,10 +486,10 @@
           displayName: interpretability
           items: 
             - name: Interpret ML models
-              displayName: SDK, interpret, explain, explanability, interpretability
+              displayName: SDK, interpret, explain, explainability, interpretability
               href: how-to-machine-learning-interpretability-aml.md
             - name: Explain automated ML models
-              displayName: SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml
+              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
               href: how-to-machine-learning-interpretability-automl.md
         - name: Assess and mitigate model fairness
           href: how-to-machine-learning-fairness-aml.md              
@@ -527,16 +542,24 @@
               href: how-to-view-online-endpoints-costs.md
             - name: Use REST to deploy a model as a managed online endpoint
               href: how-to-deploy-with-rest.md
+            - name: Deploy an AutoML model with a managed online endpoint
+              href: how-to-deploy-automl-endpoint.md
+            - name: Viewing managed online endpoint costs
+              href: how-to-view-online-endpoints-costs.md
             - name: Managed online endpoints VM SKU list
               href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Monitoring managed online endpoints
               href: how-to-monitor-online-endpoints.md
+            - name: Debug managed online endpoints locally VS Code
+              href: how-to-debug-managed-online-endpoints-visual-studio-code.md
             - name: Troubleshoot managed online endpoints
               href: how-to-troubleshoot-managed-online-endpoints.md
           - name: Batch
             items:
             - name: Batch scoring with batch endpoints
               href: how-to-use-batch-endpoint.md
+            - name: Batch endpoints in studio
+              href: how-to-use-batch-endpoints-studio.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
       - name: Deployment targets
@@ -597,7 +620,7 @@
       - name: High-performance serving with Triton
         href: how-to-deploy-with-triton.md
       - name: Deploy encrypted inferencing service
-        displayName: homomorhic,encryption,deployment
+        displayName: homomorphic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
       - name: Profile models
         displayName: profile resource requirement

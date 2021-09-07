@@ -222,9 +222,7 @@ Your runbook currently starts the VM that you have hardcoded in the runbook. It 
 
 ## Next steps
 
-* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](/powershell/scripting/overview).
-* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
-* To get started with graphical runbooks, see [Create a graphical runbook](automation-tutorial-runbook-graphical.md).
-* To get started with PowerShell runbooks, see [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
-* To learn more about runbook types and their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).
-* For more information on PowerShell script support features, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+In this tutorial, you created a PowerShell workflow runbook. For a look at Python 3 runbooks, see:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Create a Python 3 runbook (preview)](automation-tutorial-runbook-textual-python-3.md)
