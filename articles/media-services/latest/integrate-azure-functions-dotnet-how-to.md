@@ -26,17 +26,17 @@ If you want to explore and deploy existing Azure Functions that use Azure Media 
 - If you are going to create Azure Functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](account-create-how-to.md).
 - Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-This article explains how to create a C# / .NET 5 function that communicates with Media Services. To create a function with another language, review this [article](../../azure-functions/functions-develop-vs-code.md).
+This article explains how to create a C# .NET 5 function that communicates with Azure Media Services. To create a function with another language, look to this [article](../../azure-functions/functions-develop-vs-code.md).
 
 ### Run local requirements
 
 These prerequisites are only required to run and debug your functions locally. They aren't required to create or publish projects to Azure Functions.
 
+- [.NET Core 3.1 and .NET 5 SDKs](https://dotnet.microsoft.com/download/dotnet).
+
 - The [Azure Functions Core Tools](../../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 3.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
-+ The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code. 
-
-+ [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).
+- The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.
 
 ## Install the Azure Functions extension
 
@@ -74,23 +74,9 @@ The Functions extension lets you create a function app project, along with your 
 
     ![HTTP-triggered function template in Visual Studio Code](./Media/integrate-azure-functions-dotnet-how-to/new-function-full.png)
 
-### Generated project files
+## Install Media Services and other extensions
 
-The project template creates a project in your chosen language and installs required dependencies. For any language, the new project has these files:
-
-* **host.json**: Lets you configure the Functions host. These settings apply when you're running functions locally and when you're running them in Azure. For more information, see [host.json reference](./../../azure-functions/functions-host-json.md).
-
-* **local.settings.json**: Maintains settings used when you're running functions locally. These settings are used only when you're running functions locally.
-
-    >[!IMPORTANT]
-    >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
-
-
-* **HttpTriggerEncode.cs** class file that implements the function.
-
-### Install Media Services and other extensions
-
-Run the dotnet add package command in the Terminal window to install the extension packages that you need in your project. The following command installs the Media Services package and other extensions.
+Run the dotnet add package command in the Terminal window to install the extension packages that you need in your project. The following command installs the Media Services package and other extensions needed by the sample.
 
 ```bash
 dotnet add package Azure.Storage.Blobs
@@ -99,6 +85,19 @@ dotnet add package Microsoft.Identity.Client
 dotnet add package Microsoft.AspNetCore.Mvc.Abstractions
 dotnet add package Microsoft.AspNetCore.Mvc.Core
 ```
+
+## Generated project files
+
+The project template creates a project in your chosen language and installs required dependencies. The new project has these files:
+
+* **host.json**: Lets you configure the Functions host. These settings apply when you're running functions locally and when you're running them in Azure. For more information, see [host.json reference](./../../azure-functions/functions-host-json.md).
+
+* **local.settings.json**: Maintains settings used when you're running functions locally. These settings are used only when you're running functions locally.
+
+    >[!IMPORTANT]
+    >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
+
+* **HttpTriggerEncode.cs** class file that implements the function.
 
 ### HttpTriggerEncode.cs
 
@@ -571,7 +570,7 @@ namespace Functions
 
 ### local.settings.json
 
-Update the file with the following content (please replace the values)
+Update the file with the following content (and replace the values).
 
 ```json
 {
@@ -592,7 +591,6 @@ Update the file with the following content (please replace the values)
 }
 ```
 
-
 ## Test your function
 
 When you run the function locally in VS Code, the function should be exposed as : 
@@ -601,7 +599,7 @@ When you run the function locally in VS Code, the function should be exposed as 
 http://localhost:7071/api/HttpTriggerEncode
 ```
 
-To test your function, you can use Postman to do a POST on this URL.
+To test your it, you can use Postman to do a POST on this URL using a JSON input body.
 
 JSON input body example :
 
@@ -613,7 +611,7 @@ JSON input body example :
  }
 ```
 
-The function should return 200 OK with a output body containing the job and output asset names.
+The function should return 200 OK with an output body containing the job and output asset names.
 
 ![Test the function with Postman](./Media/integrate-azure-functions-dotnet-how-to/postman.png)
 
