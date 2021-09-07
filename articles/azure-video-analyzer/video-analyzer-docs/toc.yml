@@ -24,9 +24,9 @@
         href: edge/detect-motion-emit-events-quickstart.md
       - name: Detect motion, record video
         items:
-        - name: recored locally on edge
+        - name: Record locally on edge
           href: edge/detect-motion-record-video-edge-devices.md
-        - name: record to the cloud
+        - name: Record to the cloud
           href: edge/detect-motion-record-video-clips-cloud.md
       - name: Analyze live video
         items:

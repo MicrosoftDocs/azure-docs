@@ -45,7 +45,7 @@ The gRPC extension processor can be used for sending properties along with excha
 
 ## Cognitive Services extension processor
 
-Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis]../../cognitive-services/computer-vision/) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
+Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis](../../cognitive-services/computer-vision/) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
 
 Use Cognitive Services extension processor node when:
 
