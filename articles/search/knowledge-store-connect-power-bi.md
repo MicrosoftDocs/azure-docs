@@ -71,7 +71,7 @@ Click **Get Power BI Template** on the **Add cognitive skills** page to retrieve
    ![Change data types](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Change data types")
 
 1. Select *hotelReviewsSsPages*, and then repeat steps 9 and 10 to delete the columns and expand the *Content*.
-1. Change the data type for *Content.SentimentScore* to **Decimal Number**.
+
 1. Select *hotelReviewsSsKeyPhrases* and repeat steps 9 and 10 to delete the columns and expand the *Content*. There are no data type modifications for this table.
 
 1. On the command bar, click **Close and Apply**.
