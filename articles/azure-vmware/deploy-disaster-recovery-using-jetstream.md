@@ -3,7 +3,7 @@ title: Deploy disaster recovery using JetStream DR (Preview)
 description: Learn how to implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads. 
 ms.topic: how-to
 ms.date: 09/07/2021
-
+ms.custom: references_regions
 ---
 
 # Deploy disaster recovery using JetStream DR (Preview)
