@@ -40,7 +40,7 @@ To learn more about JetStream DR, see:
 
 
 
-## Supported scenarios
+## JetStream scenarios on Azure VMware Solution
 You can use JetStream DR with Azure VMware Solution for the following two scenarios:  
 
 - On-premises VMware to Azure VMware Solution DR
