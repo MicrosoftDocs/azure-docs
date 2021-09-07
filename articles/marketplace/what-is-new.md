@@ -5,7 +5,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/03/2021
+ms.date: 09/07/2021
 ---
 
 # What's new in the Microsoft commercial marketplace
@@ -38,7 +38,8 @@ Learn about important updates in the commercial marketplace program of Partner C
 ## Documentation updates
 
 | Category | Description | Date |
-| --- | --- | --- |
+| ------------ | ------------- | ------------- |
+| Offers | New article describes the quality of offer deployments reporting available on the [Quality of Service dashboard](quality-of-service-dashboard.md). | 2021-08-27 |
 | Offers | The [Commercial marketplace transact capabilities](/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) topic now includes a flowchart to help you determine the appropriate transactable offer type and pricing plan to sell your software in the commercial marketplace. | 2021-08-18 |
 | Policy | Updated [certification](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context) policy; see [change history](/legal/marketplace/offer-policies-change-history). | 2021-08-06 |
 | Co-sell | Information added for the MACC program including, requirements, how often we update MACC status, and definitions for Enrolled, and not Enrolled. To learn more, see [Azure Consumption Commitment enrollment](./azure-consumption-commitment-enrollment.md), or [Co-sell with Microsoft sales teams and partners overview](./co-sell-overview.md). | 2021-06-03 |
