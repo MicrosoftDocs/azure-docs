@@ -13,9 +13,9 @@ ms.custom: template-how-to
 
 This article describes how to move Azure Notification Hubs resources to a different Azure region. At a high level, the process is:
 
-- Create a destination namespace with a different name.
-- Export the registrations from the previous namespace.
-- Import the registrations into the new namespace in the desired region.
+1. Create a destination namespace with a different name.
+1. Export the registrations from the previous namespace.
+1. Import the registrations into the new namespace in the desired region.
 
 ## Overview
 
