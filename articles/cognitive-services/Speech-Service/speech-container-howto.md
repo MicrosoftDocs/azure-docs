@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 09/01/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -16,9 +16,12 @@ keywords: on-premises, Docker, container
 
 # Install and run Docker containers for the Speech service APIs 
 
-Containers enable you to run some of the Speech service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
+Containers enable you to run _some_ of the Speech service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
 Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are several containers available, which use the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech Services.
+
+> [!IMPORTANT]
+> We retired the standard speech synthesis voices and text-to-speech container on August 31st 2021. Consider migrating your applications to use the Neural text-to-speech container instead. [Follow these steps](https://aka.ms/sttsretirement) for more information on updating your application.
 
 | Container | Features | Latest | Release status |
 |--|--|--|--|

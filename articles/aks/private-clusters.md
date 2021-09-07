@@ -66,16 +66,11 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 
 The following parameters can be leveraged to configure Private DNS Zone.
 
-- "System", which is also the default value. If the --private-dns-zone argument is omitted, AKS will create a Private DNS Zone in the Node Resource Group.
-- "None", defaults to public DNS which means AKS will not create a Private DNS Zone (PREVIEW).  
+- "system", which is also the default value. If the --private-dns-zone argument is omitted, AKS will create a Private DNS Zone in the Node Resource Group.
+- "none", defaults to public DNS which means AKS will not create a Private DNS Zone.  
 - "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID", which requires you to create a Private DNS Zone in this format for Azure global cloud: `privatelink.<region>.azmk8s.io`. You will need the Resource ID of that Private DNS Zone going forward.  Additionally, you will need a user assigned identity or service principal with at least the `private dns zone contributor`  and `vnet contributor` roles.
   - If the Private DNS Zone is in a different subscription than the AKS cluster, you need to register Microsoft.ContainerServices in both the subscriptions.
   - "fqdn-subdomain" can be utilized with "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" only to provide subdomain capabilities to `privatelink.<region>.azmk8s.io`
-
-### Prerequisites
-
-* The AKS Preview version 0.5.19 or later
-* The api version 2021-05-01 or later
 
 ### Create a private AKS cluster with Private DNS Zone
 
@@ -90,6 +85,11 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 ```
 
 ## Create a private AKS cluster with a Public DNS address
+
+Prerequisites:
+
+* Azure CLI with aks-preview extension 0.5.29 or later.
+* If using ARM or the rest API, the AKS API version must be 2021-05-01 or later.
 
 The Public DNS option can be leveraged to simplify routing options for your Private Cluster.  
 

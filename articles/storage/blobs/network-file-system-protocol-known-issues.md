@@ -44,26 +44,9 @@ Windows client for NFS is not yet supported
 
 ## Blob Storage features
 
-The following Blob Storage features aren't yet supported.
+When you enable NFS 3.0 protocol support, some Blob Storage features will be fully supported, but some features might be supported only at the preview level or not yet supported at all.  
 
-- [Azure Active Directory (AD) security](../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json)
-- [Azure Backup integration](../../backup/blob-backup-overview.md)
-- [Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json)
-- [Blob index tags](storage-blob-index-how-to.md)
-- [Blob storage events](storage-blob-event-overview.md)
-- [Blob versioning](versioning-enable.md)
-- [Change Feed](storage-blob-change-feed.md)
-- [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json)
-- [Customer-provided keys for Azure Storage encryption](encryption-customer-provided-keys.md) 
-- [Encryption scopes](encryption-scope-overview.md)
-- [Last access time tracking for lifecycle management](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview)
-- [Object replication for block blobs](object-replication-overview.md)
-- [Page blobs](storage-blobs-introduction.md#blobs)
-- [Point-in-time restore for block blobs](point-in-time-restore-overview.md)
-- [Soft delete for blobs](soft-delete-blob-overview.md)
-- [Soft delete for containers](soft-delete-container-overview.md)
-- [Blob snapshots](snapshots-overview.md)
-- [Static websites hosting](storage-blob-static-website.md)
+To see how each Blob Storage feature is supported in accounts that have NFS 3.0 support enabled, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
 
 ## Blob storage APIs
 

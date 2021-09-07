@@ -106,6 +106,21 @@ sections:
         You can either:
         * [Subscribe](monitoring/reacting-to-media-services-events.md) to the stream-level [Microsoft.Media.LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md#liveeventencoderdisconnected) events and monitor that no reconnections come in for a while to stop and delete your live event.
         * [Subscribe](monitoring/reacting-to-media-services-events.md) to the track-level [heartbeat](monitoring/media-services-event-schemas.md#liveeventingestheartbeat) events. If all tracks have an incoming bitrate dropping to 0 or the last time stamp is no longer increasing, you can safely shut down the live event. The heartbeat events come in at every 20 seconds for every track, so it might be a bit verbose.
+    - question: Can I re-use the same streaming URL on re-start of a Live Event?
+      answer: | 
+        No, you cannot easily use the same streaming URL if you stop and start a live event. 
+        Each time you create and publish a new live output (and asset), a new streaming URL (GUID) will be used for the new locator. 
+        That way, you are sure there won't be any cache conflict in the Streaming Endpoint and the CDN. 
+        You can prepare (and know) the streaming URLs in advance because you can force a specific GUID for the streaming locator, and decide the manifest name to use for the live output.
+        
+        So let's say, you decide to use GUID 1a7ed69e-a361-433d-8a56-29c61872744f for the live output that you will create tomorrow. When this day comes, you start the live event and create a live output. You can decide to use "conference1" for the manifest and force the GUID for the locator.
+
+        The streaming URL is predictable and is `http://<youraccountname>-<azureregion>.streaming.media.azure.net/1a7ed69e-a361-433d-8a56-29c61872744f/conference1.ism/manifest`
+
+        You cannot reuse the same live output / asset multiple times. You should think of the combination of the Live output + asset as a tape recording. 
+        Once the live has been recorded to the asset, you cannot reuse it for another recording. There will be blob conflict or overwrites if you did that again. 
+        Unless you plan to full purge the blobs in the storage account, and purge the CDN completely, there will be issues. 
+        There will likely still be issues because the fragments have are already cached downstream at the CDN or in customer client device caches (browser cache, etc.)
 
 
   - name: Packaging and delivery
@@ -157,7 +172,7 @@ sections:
         DRM systems like PlayReady, Widevine, and FairPlay all provide an additional level of encryption on the key that's used to decrypt the content, compared to an AES-128 clear key. The content key is encrypted to a key protected by the DRM runtime in addition to any transport-level encryption provided by TLS. Additionally, decryption is handled in a secure environment at the operating system level, where it's more difficult for a malicious user to attack. We recommend DRM for use cases where the viewer might not be a trusted party and you need the highest level of security.
     - question: How do I show a video to only users who have a specific permission, without using Azure AD?
       answer: |
-        You don't have to use any specific token provider such as Azure Active Directory (Azure AD). You can create your own [JWT](https://jwt.io/) provider (so-called Secure Token Service, or STS) by using asymmetric key encryption. In your custom STS, you can add claims based on your business logic.
+        You don't have to use any specific token provider such as Azure Active Directory (Azure AD). You can create your own [JWT](https://docs.microsoft.com/azure/active-directory/develop/security-tokens#json-web-tokens-and-claims) provider (so-called Secure Token Service, or STS) by using asymmetric key encryption. In your custom STS, you can add claims based on your business logic.
         
         Make sure that the issuer, audience, and claims all match up exactly between what's in JWT and the `ContentKeyPolicyRestriction` value used in `ContentKeyPolicy`.
 
