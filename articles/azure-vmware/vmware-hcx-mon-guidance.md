@@ -19,7 +19,7 @@ Throughout the migration cycle, MON optimizes application mobility for:
 In this article, you'll learn about the Azure VMware Solution-specific use cases for MON.
 
 
-## Optimize for VM to VM L2 communication 
+## Optimize traffic flows across standard and stretched segments on AVS Private Cloud side 
 
 In this scenario, VM1 is migrated to the cloud using the NE, which provides optimal VM to VM latency. As a result, VM1 needs low latency to VM3 on the local Azure VMware Solution segment. We migrate the VM1 gateway from on-premises to Azure VMware Solution (cloud) to ensure an optimal path for traffic (blue line). If the gateway remains on-premises (red line), a tromboning effect and higher latency are observed. 
 
@@ -37,9 +37,9 @@ In this scenario, we assume a VM from on-premises has been migrated to Azure VMw
 >[!IMPORTANT]
 >The main point here is to plan and avoid asymmetric traffic flows carefully. 
 
-By default and without using MON, a VM in Azure VMware Solution on a stretched network without MON can communicate back to on-premises using the ExpressRoute preferred path. Ideally, a VM on an Azure VMware Solution stretched segment enabled with MON should be traversing traffic back to on-premises over the NE and not out over the T0 gateway via the ExpressRoute. 
+By default and without using MON, a VM in Azure VMware Solution on a stretched network without MON can communicate back to on-premises using the ExpressRoute preferred path. Ideally, and based on customers use case one should evaluate how a VM on an Azure VMware Solution stretched segment enabled with MON should be traversing back to on-premises either over the NE or the T0 gateway via the ExpressRoute, but keeping traffic flows symmetric.
 
-Therefore, the MON policy-based routes have to specifically address the subnet on the on-premises side; otherwise, the 0.0/0 route is used. Policy-based routes can be found under the NE segment, selecting advanced. By default, all RFC1918 routes are included in the MON policy-based routes defined. 
+If choosing the NE path for example, the MON policy-based routes have to specifically address the subnet on the on-premises side; otherwise, the 0.0/0 route is used. Policy-based routes can be found under the NE segment, selecting advanced. By default, all RFC1918 routes are included in the MON policy-based routes defined. 
 
 :::image type="content" source="media/tutorial-vmware-hcx/default-hcx-mon-policy-based-routes.png" alt-text="Screenshot showing the default policy-based routes.":::
 
