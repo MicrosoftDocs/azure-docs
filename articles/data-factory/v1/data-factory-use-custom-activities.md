@@ -1042,7 +1042,7 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 
 
 [developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
-[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[cmdlet-reference]: /powershell/resourcemanager/Azurerm.DataFactories/v2.2.0/Azurerm.DataFactories
 
 [new-azure-batch-account]: /previous-versions/azure/mt125880(v=azure.100)
 [new-azure-batch-pool]: /previous-versions/azure/mt125936(v=azure.100)
