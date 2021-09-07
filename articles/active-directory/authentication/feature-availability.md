@@ -67,7 +67,7 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Terms of use attestation | ● |
 | - Access certifications and reviews |  ● |
 | - Entitlements management |  ● |
-|  -Privileged Identity Management (PIM), just-in-time access |  ● |
+| - Privileged Identity Management (PIM), just-in-time access |  ● |
 | **Event logging and reporting**|   |
 | - Basic security and usage reports |  ● |
 | - Advanced security and usage reports | ● |
