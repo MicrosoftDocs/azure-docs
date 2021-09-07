@@ -78,6 +78,8 @@ items:
     - name: Connect to Azure Data Explorer
       href: quickstart-connect-azure-data-explorer.md
       displayName: quickstart
+    - name: Partner solutions 
+      href: ./partner/browse-partners.md
     -name: 
   # - name: Tutorials
   #   items:
@@ -647,7 +649,7 @@ items:
       href: ./spark/apache-spark-notebook-concept.md
     - name: Package management
       href: ./spark/apache-spark-azure-portal-add-libraries.md
-    - name: Monitoring tools
+    - name: Monitor Apache Spark applications 
       href: monitoring/how-to-monitor-spark-applications.md
   - name: How-to guides
     items:
@@ -693,14 +695,18 @@ items:
         href: ./spark/apache-spark-history-server.md
       - name: Monitor Spark applications
         href: monitoring/apache-spark-applications.md
-      - name: Monitor Spark pools
+      - name: Monitor Apache Spark pools
         href: monitoring/how-to-monitor-spark-pools.md
-      - name: Connect and monitor Azure Synapse Spark Application level metrics
+      - name: Collect Apache Spark applications metrics using APIs
         href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
-      - name: Monitor Apache Spark application level metrics with Prometheus and Grafana
+      - name: Monitor Apache Spark Applications metrics with Prometheus and Grafana
         href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-      - name: Use Azure Log Analytics to collect and visualize metrics and logs (preview)
-        href: ./spark/apache-spark-azure-log-analytics.md      
+      - name: Monitor your Apache Spark applications with Azure Log Analytics (preview)
+        href: ./spark/apache-spark-azure-log-analytics.md 
+      - name: Collect Apache Spark applications logs and metrics with Azure Storage account
+        href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md
+      - name: Collect Apache Spark applications logs and metrics with Azure Event Hubs
+        href: ./spark//azure-synapse-diagnostic-emitters-azure-eventhub.md         
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3
@@ -1365,14 +1371,14 @@ items:
   - name: Partners
     items:
     - name: Business intelligence
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/business-intelligence.md
     - name: Data integration
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-data-integration.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/data-integration.md
     - name: Data management
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-data-management.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/data-management.md
     - name: Machine learning and AI
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/machine-learning-ai.md
     - name: System integration
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-system-integration.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/system-integration.md
     - name: Compatibility issues with third-party applications
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?context=/azure/synapse-analytics/context/context
+      href: ./partner/compatibility-issues.md
