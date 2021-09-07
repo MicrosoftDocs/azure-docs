@@ -35,14 +35,12 @@
   items:
   - name: Create a metrics chart
     href: essentials/tutorial-metrics-explorer.md
-  - name: Collect logs from Azure resource
+  - name: Create a metrics alert
+    href: alerts/tutorial-metrics-alert.md
+  - name: Collect resource logs
     href: essentials/tutorial-resource-logs.md
-  - name: Write log queries
+  - name: Analyze log data
     href: logs/get-started-queries.md
-  - name: Create a dashboard from log query
-    href: visualize/tutorial-logs-dashboards.md
-  - name: Autoscale on performance and schedule
-    href: autoscale/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
