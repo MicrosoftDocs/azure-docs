@@ -46,6 +46,26 @@ items:
         href: configure-public-ip-application-gateway.md
       - name: Bastion
         href: configure-public-ip-bastion.md
+    - name: Upgrade a public IP address
+      items:
+      - name: Upgrade a public IP address - Portal
+        href: public-ip-upgrade-portal.md
+      - name: Upgrade a public IP address - PowerShell
+        href: public-ip-upgrade-powershell.md
+      - name: Upgrade a public IP address - Azure CLI
+        href: public-ip-upgrade-cli.md
+      - name: Migrate a classic reserved IP
+        href: public-ip-upgrade-classic.md
+    - name: Routing preference
+      items:
+      - name: Create public IP address
+        items:
+        - name: Azure portal
+          href: routing-preference-portal.md
+        - name: Azure PowerShell
+          href: routing-preference-powershell.md
+        - name: Azure CLI
+          href: routing-preference-cli.md
 - name: Reference
   items:
   - name: Azure CLI
