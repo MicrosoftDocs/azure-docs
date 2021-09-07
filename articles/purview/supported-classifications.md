@@ -11484,7 +11484,7 @@ No
 - le numéro de swift
 - swift numéro d'acheminement
 - le numéro BIC
-- # BIC
+- \# BIC
 - code identificateur de banque
 - SWIFTコード
 - SWIFT番号
