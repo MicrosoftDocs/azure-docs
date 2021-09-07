@@ -71,25 +71,25 @@ You can also leverage this agent from portal with the following procedure.
 
 ## Review the Reports on AppDynamics Dashboard
 1. You can take a overview of your apps in the **AppDynamics** dashboard
-   ![appdynamics-dashboard-birds-eye-view-of-apps](media/appdynamics-agent/appdynamics-dashboard-birds-eye-view-of-apps.jpg)
+   ![appdynamics dashboard birds eye view of apps](media/appdynamics-agent/appdynamics-dashboard-birds-eye-view-of-apps.jpg)
 2. You can find the overall information for your apps
    - `api-gateway`
-   ![appdynamics-dashboard-api-gateway](media/appdynamics-agent/appdynamics-dashboard-api-gateway.jpg)
+   ![appdynamics dashboard api gateway](media/appdynamics-agent/appdynamics-dashboard-api-gateway.jpg)
    - `customers-service`
-   ![appdynamics-dashboard-customers-service](media/appdynamics-agent/appdynamics-dashboard-customers-service.jpg)
+   ![appdynamics dashboard customers service](media/appdynamics-agent/appdynamics-dashboard-customers-service.jpg)
 3. You can find the basic information for database calls
-   ![appdynamics-dashboard-customer-service-db-calls](media/appdynamics-agent/appdynamics-dashboard-customer-service-db-calls.jpg)
+   ![appdynamics dashboard customer service db calls](media/appdynamics-agent/appdynamics-dashboard-customer-service-db-calls.jpg)
 4. You can dig deeper to find slowest database calls
-   ![appdynamics-dashboard-slowest-db-calls-from-customers-service](media/appdynamics-agent/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg)
-   ![appdynamics-dashboard-slowest-db-calls-from-customers-service-2](media/appdynamics-agent/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg)
+   ![appdynamics dashboard slowest db calls from customers service](media/appdynamics-agent/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg)
+   ![appdynamics dashboard slowest db calls from customers service 2](media/appdynamics-agent/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg)
 5. You can find the memory usage analysis
-  ![appdynamics-dashboard-customers-service-memory-usage](media/appdynamics-agent/appdynamics-dashboard-customers-service-memory-usage.jpg)
+  ![appdynamics dashboard customers service memory usage](media/appdynamics-agent/appdynamics-dashboard-customers-service-memory-usage.jpg)
 6. You can find the garbage collection process
-  ![appdynamics-dashboard-customers-service-garbage-collection](media/appdynamics-agent/appdynamics-dashboard-customers-service-garbage-collection.jpg)
+  ![appdynamics dashboard customers service garbage collection](media/appdynamics-agent/appdynamics-dashboard-customers-service-garbage-collection.jpg)
 7. You can find slowest transactions 
-![appdynamics-dashboard-customers-service-slowest-transactions](media/appdynamics-agent/appdynamics-dashboard-customers-service-slowest-transactions.jpg)
+![appdynamics dashboard customers service slowest transactions](media/appdynamics-agent/appdynamics-dashboard-customers-service-slowest-transactions.jpg)
 8. You can define more metrics for JVM
-![appdynamics-dashboard-customers-service-jvm-metric-browser](media/appdynamics-agent/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg)
+![appdynamics dashboard customers service jvm metric browser](media/appdynamics-agent/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg)
 
 
 ## AppDynamics Agent Logging
