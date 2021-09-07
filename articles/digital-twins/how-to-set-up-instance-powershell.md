@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using Azure PowerShell
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/16/2020
+ms.date: 9/3/2021
 ms.topic: how-to
 ms.service: digital-twins
 
