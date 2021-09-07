@@ -32,4 +32,4 @@ How-to guides contain code samples that demonstrate how to complete a task. In t
 
 ## Next steps
 
-Check out [developing on the edge](../edge/overview.md).
+Check out [developing on the edge](../overview.md).
