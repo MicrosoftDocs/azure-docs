@@ -7,7 +7,7 @@ metadata:
   ms.service: synapse-analytics
   ms.topic: overview
   ms.subservice: overview
-  ms.date: 07/27/2021
+  ms.date: 09/02/2021
   ms.author: saveenr
   ms.reviewer: jrasnick, wiassaf
     
@@ -161,7 +161,7 @@ sections:
       - question: |
           How do I secure access to my Azure Synapse workspace?
         answer: |
-          With or without a [managed virtual network](/security/synapse-workspace-managed-vnet.md), you can connect to your workspace from public networks. For more information, see [Connectivity Settings](/azure/azure-sql/database/connectivity-settings). Access from public networks can be controlled by enabling the [public network access feature](/azure/azure-sql/database/connectivity-settings#public-network-access) or the [workspace firewall](/bs-cyrl-ba/azure/synapse-analytics/security/synapse-workspace-ip-firewall). Alternatively, you can connect to your workspace using a [managed private endpoint](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) and [private Link](../azure-sql/database/private-endpoint-overview.md). Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) do not have the ability to connect via managed private endpoints.
+          With or without a [managed virtual network](./security/synapse-workspace-managed-vnet.md), you can connect to your workspace from public networks. For more information, see [Connectivity Settings](./security/connectivity-settings.md). Access from public networks can be controlled by enabling the [public network access feature](./security/connectivity-settings.md#public-network-access) or the [workspace firewall](./security/synapse-workspace-ip-firewall.md). Alternatively, you can connect to your workspace using a [managed private endpoint](./security/synapse-workspace-managed-private-endpoints.md) and [Private Link](../azure-sql/database/private-endpoint-overview.md). Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](./security/synapse-workspace-managed-vnet.md) do not have the ability to connect via managed private endpoints.
           
 
 

@@ -506,8 +506,8 @@
       tocHref: /azure/cosmos-db/graph/
       topicHref: /azure/cosmos-db/graph/
     - name: SQL API
-      tocHref: /azure/cosmos-db/sql/sql-query-getting-started
-      topicHref: /azure/cosmos-db/sql/sql-query-getting-started
+      tocHref: /azure/cosmos-db/sql/
+      topicHref: /azure/cosmos-db/sql/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
@@ -782,7 +782,7 @@
       - name: Peering Service
         tocHref: /azure/peering-service/
         topicHref: /azure/peering-service/
-      - name: Route Server (Preview)
+      - name: Route Server
         tocHref: /azure/route-server/
         topicHref: /azure/route-server/
       - name: Traffic Manager

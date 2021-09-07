@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/06/2021
 ms.custom: "project-no-code, b2c-support"
 ms.author: mimart
 ms.subservice: B2C
@@ -206,10 +206,9 @@ Keep these things in mind when you configure company branding in Azure AD B2C:
 * The banner logo appears in the verification emails sent to your users when they initiate a sign-up user flow.
 
 
+::: zone pivot="b2c-user-flow"
 
 ## Enable company branding in user flow pages
-
-::: zone pivot="b2c-user-flow"
 
 Once you've configured company branding, enable it in your user flows.
 
@@ -227,6 +226,8 @@ If you'd like to brand all pages in the user flow, set the page layout version f
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## Enable company branding in custom policy pages
 
 Once you've configured company branding, enable it in your custom policy. Configure the [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. To specify a page layout in your custom policies that use an old **DataUri** value. For more information, learn how to [migrate to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
 

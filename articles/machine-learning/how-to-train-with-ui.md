@@ -1,5 +1,5 @@
 ---
-title: Create a Training Job from UI
+title: Create a Training Job with the job creation UI
 titleSuffix: Azure Machine Learning
 description: Learn how to use the job creation UI in Azure Machine Learning Studio to create a training job. 
 services: machine-learning

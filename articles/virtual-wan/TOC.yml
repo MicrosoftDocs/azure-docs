@@ -153,7 +153,7 @@
           items:
             - name: Windows 10
               href: openvpn-azure-ad-client.md
-            - name: macOS - Preview
+            - name: macOS
               href: openvpn-azure-ad-client-mac.md
     - name: Configure Always-On tunnels
       items:
@@ -195,11 +195,11 @@
       href: howto-private-link.md
     - name: Manage access to resources - Spoke VNet P2S
       href: manage-secure-access-resources-spoke-p2s.md
-  - name: Health monitoring
+  - name: Monitoring
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md
-    - name: Azure Monitor Insights for Virtual WAN
+    - name: Azure Monitor Insights
       href: azure-monitor-insights.md
 - name: Reference
   items:
