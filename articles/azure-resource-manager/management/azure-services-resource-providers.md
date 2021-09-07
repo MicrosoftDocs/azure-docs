@@ -95,7 +95,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft.HealthcareApis | [Azure API for FHIR](../../healthcare-apis/fhir/index.yml) |
-| Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
+| Microsoft.HybridCompute | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.HybridNetwork  | [Network Function Manager](../../network-function-manager/index.yml) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
@@ -104,8 +104,8 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [Key Vault](../../key-vault/index.yml) |
-| Microsoft.Kubernetes | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/) |
-| Microsoft.KubernetesConfiguration | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/) |
+| Microsoft.Kubernetes | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
+| Microsoft.KubernetesConfiguration | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
 | Microsoft.Kusto | [Azure Data Explorer](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |

@@ -34,7 +34,7 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 ## Run the application in Visual Studio
 
 1. In the sample application project folder, open the **active-directory-b2c-wpf.sln** solution in Visual Studio.
-2. [Restore the NuGet packages](/nuget/consume-packages/package-restore.md).
+2. [Restore the NuGet packages](/nuget/consume-packages/package-restore).
 3. Press **F5** to debug the application.
 
 ## Sign in using your account
