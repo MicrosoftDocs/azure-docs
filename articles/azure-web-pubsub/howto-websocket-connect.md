@@ -18,7 +18,7 @@ Web PubSub uses a [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519.htm
 
 Typically, the client communicates with its app server first, to get the URL of the service and the token. Then, the client opens the WebSocket connection to the service by using the URL and token it receives.
 
-The portal also provides a dynamically generated client URL, with a token for clients to start a quick test:
+The portal also provides a tool to generate the client URL with the token dynamically. This tool can be useful to do a quick test.
 
 :::image type="content" source="./media/howto-websocket-connect/generate-client-url.png" alt-text="Screenshot showing where to find the Client URL Generator.":::
 
