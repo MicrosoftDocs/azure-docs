@@ -46,10 +46,10 @@ Create an empty standard HDD for uploading by specifying both the **-–for-uplo
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` with values of your choosing. The `--upload-size-bytes` parameter contains an example value of `34359738880`, replace it with a value appropriate for you.
 
 > [!TIP]
-> If you are creating an OS disk, add `--hyper-v-generation <yourGeneration>` and `--os-type <yourOSType>` (either Linux or Windows) to `az disk create`.
+> If you are creating an OS disk, add `--hyper-v-generation <yourGeneration>` to `az disk create`.
 
 ```azurecli
-az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
+az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --os-type Linux --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
 If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra disks are not supported for now.
@@ -102,7 +102,7 @@ The follow script will do this for you, the process is similar to the steps desc
 Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
 
 > [!TIP]
-> If you are creating an OS disk, add `--hyper-v-generation <yourGeneration>` and `--os-type <yourOSType>` (either Linux or Windows) to `az disk create`.
+> If you are creating an OS disk, add `--hyper-v-generation <yourGeneration>` to `az disk create`.
 
 ```azurecli
 sourceDiskName=<sourceDiskNameHere>
@@ -110,10 +110,12 @@ sourceRG=<sourceResourceGroupHere>
 targetDiskName=<targetDiskNameHere>
 targetRG=<targetResourceGroupHere>
 targetLocation=<yourTargetLocationHere>
+#Expected value for OS is either "Windows" or "Linux"
+targetOS=<yourOSTypeHere>
 
 sourceDiskSizeBytes=$(az disk show -g $sourceRG -n $sourceDiskName --query '[diskSizeBytes]' -o tsv)
 
-az disk create -g $targetRG -n $targetDiskName -l $targetLocation --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocation --os-type $targetOS --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
 targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 
