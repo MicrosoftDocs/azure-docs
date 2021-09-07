@@ -14,4 +14,4 @@ ms.date: 08/06/2021
 
 - **User**: Connections to Web PubSub can belong to one user. A user might have multiple connections, for example when a single user is connected across multiple devices or multiple browser tabs.
 
-- **Message**: When the client is connected, it can send messages upstream, or receive messages from upstream, from the WebSocket connection.
+- **Message**: When the client is connected, it can send messages to the upstream application, or receive messages from the upstream application, through the WebSocket connection.
