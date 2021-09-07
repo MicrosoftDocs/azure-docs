@@ -115,9 +115,7 @@ sections:
         
         So let's say, you decide to use GUID 1a7ed69e-a361-433d-8a56-29c61872744f for the live output that you will create tomorrow. When this day comes, you start the live event and create a live output. You can decide to use "conference1" for the manifest and force the GUID for the locator.
 
-        The Streaming URL is predictable and is :
-
-        http://<youraccountname>-<azureregion>.streaming.media.azure.net/1a7ed69e-a361-433d-8a56-29c61872744f/conference1.ism/manifest
+        The streaming URL is predictable and is `http://<youraccountname>-<azureregion>.streaming.media.azure.net/1a7ed69e-a361-433d-8a56-29c61872744f/conference1.ism/manifest`
 
         You cannot reuse the same live output / asset multiple times. You should think of the combination of the Live output + asset as a tape recording. 
         Once the live has been recorded to the asset, you cannot reuse it for another recording. There will be blob conflict or overwrites if you did that again. 
