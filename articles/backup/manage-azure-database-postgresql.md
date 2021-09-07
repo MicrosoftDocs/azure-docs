@@ -40,6 +40,10 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
 1. Click **Stop Backup**.
 
+1. Select **Confirm** to stop backup.
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-inline.png" alt-text="Screenshot for the confirmation for stopping backup." lightbox="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-expanded.png":::
+
 ### Stop Protection and Delete Data
 
 1. Go to **Backup center** and select **Azure Database for PostgreSQL server (Preview)**.
@@ -70,7 +74,7 @@ Use the following steps:
 
 1. From the list of server backup instances, select the instance that you want resume.
 
-1. Select **Resume Protection (Preview)**.
+1. Select **Resume Backup (Preview)**.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/resume-data-protection-inline.png" alt-text="Screenshot showing the option to resume data protection." lightbox="./media/manage-azure-database-postgresql/resume-data-protection-expanded.png":::
 
