@@ -36,16 +36,16 @@ This article describes how to migrate a public client application from Azure Act
 
    The public client scenarios are:
 
-   - [Web Authentication Manager](scenario-desktop-acquire-token-wam.md) the preferred broker based authentication on Windows.
-   - [Interactive Authentication](scenario-desktop-acquire-token-interactive.md) where the user is shown a web based interface to complete the sign in process.
+   - [Web Authentication Manager](scenario-desktop-acquire-token-wam.md) the preferred broker-based authentication on Windows.
+   - [Interactive Authentication](scenario-desktop-acquire-token-interactive.md) where the user is shown a web-based interface to complete the sign-in process.
    - [Integrated Windows Authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md) where a user signs using the same identity they used to sign into windows domain (for domain joined or AAD joined machines).
-   - [Username/Password](scenario-desktop-acquire-token-username-password.md) where the sign in occurs by providing a username/password credential.
+   - [Username/Password](scenario-desktop-acquire-token-username-password.md) where the sign-in occurs by providing a username/password credential.
    - [Device Code Flow](scenario-desktop-acquire-token-device-code-flow.md) where a device of limited UX shows you a device code to complete the authentication flow on an alternate device.
 
 
 ## [Interactive](#tab/interactive)
 
-Interactive scenarios are where your public client application shows a login user interface hosted in a browser, and the user is required to interactively sign in.
+Interactive scenarios are where your public client application shows a login user interface hosted in a browser, and the user is required to interactively sign-in.
 
 #### Find out if your code uses interactive scenarios
 
@@ -117,7 +117,7 @@ catch (MsalUiRequiredException) // no change in the pattern
    :::column-end:::
 :::row-end:::
 
-Note that the MSAL code shown above leverages WAM (Web authentication manager) which is the recommended approach. If you wish to use interactive authentication without WAM, please see [Interactive Authentication](scenario-desktop-acquire-token-interactive.md).
+The MSAL code shown above uses WAM (Web authentication manager) which is the recommended approach. If you wish to use interactive authentication without WAM, see [Interactive Authentication](scenario-desktop-acquire-token-interactive.md).
 
 ## [Integrated Windows Authentication](#tab/iwa)
 
@@ -236,7 +236,7 @@ result = await context.AcquireTokenAsync(resource, clientId,
 
 ## [Username Password](#tab/up)
 
-Username Password authentication is where the sign in occurs by providing a username/password credential.
+Username Password authentication is where the sign-in occurs by providing a username/password credential.
 #### Find out if your code uses Username Password authentication
 
 The ADAL code for your app uses Username password authentication scenarios if it contains a call to `AcquireTokenAsync` available as an extension method of the `AuthenticationContextIntegratedAuthExtensions` class, with the following parameters:
