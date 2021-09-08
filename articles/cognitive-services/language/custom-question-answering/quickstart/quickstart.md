@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Use SDK to create and manage knowledge base - custom question answering"
-description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
+description: This quickstart shows you how to create and manage your knowledge base using custom question answering.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 zone_pivot_groups: custom-qna-quickstart
 ---
 
-# Quickstart: QnA Maker client library
+# Quickstart: Custom question answering
 
 Get started with the custom question answering client library. Follow these steps to install the package and try out the example code for basic tasks.
 
@@ -37,8 +37,8 @@ Get started with the custom question answering client library. Follow these step
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 

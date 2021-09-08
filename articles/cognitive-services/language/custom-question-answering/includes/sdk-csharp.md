@@ -73,7 +73,9 @@ From the project directory, open the *program.cs* file and add the following `us
 
 In the application's `Main` method, add variables and code, shown in the following section, to use the common tasks in this quickstart.
 
+<!-- TODO: Replace Link
 - We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
+-->
 
 - The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the Text Analytics resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and Endpoint.
 
@@ -172,7 +174,9 @@ Generate an answer from a published knowledgebase using the [QnAMakerClient.Know
 
 [!code-csharp[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/Preview-sdk-based-quickstart/Program.cs?name=GenerateAnswer)]
 
+<!-- TODO: Replace Link
 This is a simple example querying the knowledgebase. To understand advanced querying scenarios, review [other query examples](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md?pivots=url-test-tool-curl#use-curl-to-query-for-a-chit-chat-answer).
+-->
 
 ## Delete a knowledge base
 
