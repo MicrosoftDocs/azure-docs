@@ -31,6 +31,8 @@ To get started, you'll need:
 
 * A [**single-service Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
+* A brief understanding of [**Azure role-based access control (Azure RBAC)**](../../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
+
 * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You'll create containers to store and organize your blob data within your storage account. 
 
 * **If your storage account is behind a firewall, you must enable the following configuration**: </br>
@@ -38,13 +40,12 @@ To get started, you'll need:
   * On your storage account page, select **Security + networking** → **Networking** from the left menu.
     :::image type="content" source="../media/managed-identities/security-and-networking-node.png" alt-text="Screenshot: security + networking tab.":::
 
-  * In the main window, select **Allow access from selected networks**.
+  * In the main window, select **Allow access from Selected networks**.
   :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Screenshot: Selected networks radio button selected.":::
 
   * On the selected networks page navigate to the **Exceptions** category and make certain that the  [**Allow Azure services on the trusted services list to access this storage account**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) checkbox is enabled.
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
-* A brief understanding of [**Azure role-based access control (Azure RBAC)**](../../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
 
 ## Managed Identity assignments
 
