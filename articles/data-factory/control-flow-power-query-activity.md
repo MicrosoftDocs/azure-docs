@@ -25,10 +25,10 @@ To achieve scale with your Power Query activity, Azure Data Factory translates y
 
 ## Settings
 
-* Power Query: Choose an existing Powery Query to execute or create a new one.
+* Power Query: Choose an existing Power Query to execute or create a new one.
 * Run on Azure IR: Choose and existing Azure Integration Runtime to define the compute environment for your Power Query, or create a new one.
-* Compute type: If you choose the default auto resolve intgeration runtime, then you can select the compute type to apply to the Spark cluster compute for your Power Query execution.
-* Core count: If you choose the default auto resolve intgeration runtime, then you can select the number of cores to apply to the Spark cluster compute for your Power Query execution.
+* Compute type: If you choose the default auto resolve integration runtime, then you can select the compute type to apply to the Spark cluster compute for your Power Query execution.
+* Core count: If you choose the default auto resolve integration runtime, then you can select the number of cores to apply to the Spark cluster compute for your Power Query execution.
 
 ## Sink
 
