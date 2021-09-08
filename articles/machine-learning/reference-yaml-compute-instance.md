@@ -1,5 +1,5 @@
 ---
-title: 'CLI (v2) compute instance instance YAML schema'
+title: 'CLI (v2) compute instance YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) compute instance YAML schema.
 services: machine-learning
@@ -19,7 +19,7 @@ ms.reviewer: laobri
 
 ## Remarks
 
-The `az ml compute --type computeinstance` command can be used for managing Azure Machine Learning compute instances. Note that `create` and `delete` subcommands are used.
+The `az ml compute --type computeinstance` command can be used for managing Azure Machine Learning compute instances.
 
 ## Examples
 

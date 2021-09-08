@@ -19,7 +19,7 @@ ms.reviewer: laobri
 
 ## Remarks
 
-The `az ml compute --type amlcompute` command can be used for managing Azure Machine Learning AmlComputes. Note that `create` and `delete` subcommands are used.
+The `az ml compute --type amlcompute` command can be used for managing Azure Machine Learning AmlComputes.
 
 ## Examples
 
