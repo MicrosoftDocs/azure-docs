@@ -24,7 +24,7 @@ Speech Studio supports Azure role-based access control (Azure RBAC), an authoriz
 
 To grant access to an Azure speech resource, you add a role assignment through the Azure RBAC tool in the Azure portal. 
 
-Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current).
+Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 
 ## Supported built-in roles in Speech Studio
 
