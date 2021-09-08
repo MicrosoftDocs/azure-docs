@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: Marketplace template
-    href: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
+    href: https://azure.microsoft.com/blog/deploying-pivotal-cloud-foundry-on-azure-with-a-click-of-a-button/
 - name: Tutorials
   items:
   - name: Create CF on Azure
