@@ -19,6 +19,8 @@ Sometimes, an object may turn out to be more difficult to detect. For example:
 - When an object is too large and it takes too long to walk around it
 - When the object's surface isn't detected by the device sensors
 
+## Adjusting object query values
+
 Some mechanisms offered by the Azure Object Anchors SDK that can help in these situations are:
 
 - The `ObjectQuery.MinSurfaceCoverage` property. It represents the minimum required surface coverage ratio to consider an object instance to be a true positive. It allows a range from 0 to 1.0 (representing 0% to 100%). The default setting varies between objects (the larger the surface area, the smaller the minimum required coverage will be). It will work for most situations as-is. But, when faced with difficult objects, the recommendation is to lower the value for this property, so that less surface coverage is required to detect the object.
