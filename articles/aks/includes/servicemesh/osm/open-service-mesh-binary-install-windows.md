@@ -6,13 +6,13 @@ ms.date: 03/15/2021
 ms.author: pgibson
 ---
 
-## Download and install the OSM client binary
+## Download and install the Open Service Mesh (OSM) client binary
 
 In a PowerShell-based shell on Windows, use `Invoke-WebRequest` to download the OSM release and then extract with `Expand-Archive` as follows:
 
 ```powershell
 # Specify the OSM version that will be leveraged throughout these instructions
-$OSM_VERSION="v0.8.4"
+$OSM_VERSION="v0.9.1"
 
 [Net.ServicePointManager]::SecurityProtocol = "tls12"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/osm-$OSM_VERSION-windows-amd64.zip" -OutFile "osm-$OSM_VERSION.zip"
