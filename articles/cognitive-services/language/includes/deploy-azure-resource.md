@@ -17,7 +17,7 @@ Before you can use Language Studio, you need to have an Azure account. You can [
 > [!IMPORTANT] 
 > If you want to use one of the custom features, we recommend following the associated quickstart article.The setup process and requirements for these features are different, and the articles linked above will help you get started more easily.  
 > * [Conversational Language Understanding](../custom-language-understanding/quickstart.md)
-> * [Custom Content Classification](../custom-classification/quickstart.md)
+> * [Custom Text Classification](../custom-classification/quickstart/using-language-studio.md)
 > * [Custom Named Entity Recognition (NER)](../custom-named-entity-recognition/quickstart.md) 
 > * [Custom Question Answering](../custom-question-answering/quickstart.md)
 > * [Custom Translator](../custom-translator/quickstart.md)
@@ -32,11 +32,11 @@ Before you can use Language Studio, you need to have an Azure account. You can [
     |Value  |Description  |
     |---------|---------|
     |Azure subscription | The name of your Azure subscription.        |
-    |Azure resource group     | The name of your Azure resource group, which will contain your resource.        |
+    |Azure resource group     | The name of your Azure resource group, which will contain your resource. To create a new one ...        |
     |Azure resource name | A name for your new resource.       |
     |Location     | The location where your service requests will be sent. Choose a location near you for lower latency.        |
     |Pricing tier     | The [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) for your resource. You can select the free (F0) tier if you're trying the service.       |
-    |Managed Identity     | Enables Azure to authenticate to other cloud services. You typically would select this setting when using a custom feature of the service.        |
+    |Managed Identity     | Enables Azure to authenticate to other cloud services. Select this setting when...        |
 
     > [!TIP]
     > * You can only have one resource using the free pricing tier at a time, per subscription.
@@ -46,4 +46,3 @@ Before you can use Language Studio, you need to have an Azure account. You can [
 3. Select **Done**. Your resource will be created, and you will be able to try the different features offered by the Language Service. 
 
 You can switch between language resources by clicking the **Settings** icon in the top-right corner of Language Studio. You can delete and manage your resource [using the Azure portal](/azure/azure-resource-manager/management/manage-resources-portal).
-
