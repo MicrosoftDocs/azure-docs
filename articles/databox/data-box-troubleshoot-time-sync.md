@@ -23,7 +23,7 @@ Data Box automatically synchronizes time when it is connected to the internet us
 If you see any time difference between the time on Data Box and other local devices on your site, you can sync the time on your Data Box by accessing its PowerShell interface. The `Set-Date API` is used to modify the device time. For more information, see [Set-Date API](/powershell/module/microsoft.powershell.utility/set-date?view=powershell-7.1&preserve-view=true).
 
 
-## Connect to the PowerShell interface
+## Connect to PowerShell interface
 
 To troubleshoot time sync issues, you'll first need to connect to the PowerShell interface of your device.
 
