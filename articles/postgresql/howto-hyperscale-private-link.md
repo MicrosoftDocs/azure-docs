@@ -134,7 +134,9 @@ az vm run-command invoke \
 	--resource-group link-demo \
 	--name link-demo-vm \
 	--command-id RunShellScript \
-	--scripts "psql '$PG_URI' -c 'SHOW citus.version;'"
+	--scripts "psql '$PG_URI' -c 'SHOW citus.version;'" \
+	--query 'value[0].message' \
+	| xargs printf
 ```
 
 You should see a version number for Citus in the output. If you do, then psql
