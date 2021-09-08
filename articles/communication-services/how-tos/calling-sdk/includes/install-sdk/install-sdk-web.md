@@ -14,7 +14,7 @@ npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
 ```
 
-## Initialize a CallClient instance, create a CallAgent instance, and access deviceManager
+## Initialize required objects
 
 A CallClient, instance is required for most call operations. Let's create a new `CallClient` instance. You can configure it with custom options like a Logger instance.
 

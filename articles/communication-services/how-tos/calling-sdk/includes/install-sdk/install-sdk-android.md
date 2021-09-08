@@ -37,7 +37,7 @@ dependencies {
 }
 ```
 
-### Initialize the CallClient, create a CallAgent, and access the DeviceManager
+### Initialize the required objects
 
 To create a `CallAgent` instance you have to call the `createCallAgent` method on a `CallClient` instance. This asynchronously returns a `CallAgent` instance object.
 The `createCallAgent` method takes a `CommunicationUserCredential` as an argument, which encapsulates an [access token](../../../../quickstarts/access-tokens.md).
