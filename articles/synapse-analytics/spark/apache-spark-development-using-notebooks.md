@@ -37,7 +37,7 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |Drag and drop to move a cell| Not supported |&#9745;|
 |Outline (Table of Content)| Not supported |&#9745;|
 |Variable explorer| Not supported |&#9745;|
-|Format text cell with toolbar buttons|&#9745;| Not available |
+|Format text cell with toolbar buttons|&#9745;| Not supported. Variable explorer only supports python. |
 |Code cell commenting| Not supported | &#9745;|
 
 
@@ -210,6 +210,7 @@ Supported undo cell operations:
 
 > [!NOTE]
 > In-cell text operations and code cell commenting operations are not undoable.
+> Now you can undo/redo up to the latest 10 historical cell operations.
 
 
 ---
