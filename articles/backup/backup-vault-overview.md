@@ -3,6 +3,7 @@ title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
 ms.date: 09/08/2021
+ms.custom: references_regions
 ---
 # Backup vaults overview
 
