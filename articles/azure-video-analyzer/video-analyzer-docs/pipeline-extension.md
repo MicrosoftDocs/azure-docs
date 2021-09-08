@@ -19,6 +19,9 @@ Video Analyzer supports the following pipeline extension processors:
 	
 The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md)
 
+> [!NOTE]
+> Pipeline extensions are currently available only for edge module and not for cloud.
+
 ## HTTP extension processor
 
 HTTP extension processor enables extensibility scenarios using the [HTTP protocol](http-extension-protocol.md), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a pipeline via an HTTP REST endpoint.
