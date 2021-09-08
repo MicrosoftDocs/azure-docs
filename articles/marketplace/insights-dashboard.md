@@ -70,17 +70,17 @@ The following graph shows the *CTA* vs. *Consent given* metric:
 
 ### Page visits and Call to actions against offers, referral domains, and campaign IDs
 
-#### Referral domains
-
-Selecting a specific referral domain shows the monthly trend of page visits, calls to action, and consent clicks on the chart to the right. Additionally, there is a column for Platform – website and client, displays for AppSource offers only. The funnel view depicts the conversions rates among page views, calls to action, and consent-given clicks on the chart.
-
-:::image type="content" source="./media/insights-dashboard/referral-domains-funnel-graph.png" alt-text="Shows a sample funnel graph of referral domains.":::
-
 #### Offers
 
 Select a specific offer to see the monthly trend of page visits, calls to action, and consent-given clicks on the chart.
 
 :::image type="content" source="./media/insights-dashboard/offers-funnel-graph.png" alt-text="Shows a sample funnel graph of offers.":::
+
+#### Referral domains
+
+Selecting a specific referral domain shows the monthly trend of page visits, calls to action, and consent clicks on the chart to the right. Additionally, there is a column for Platform – website and client, displays for AppSource offers only. The funnel view depicts the conversions rates among page views, calls to action, and consent-given clicks on the chart.
+
+:::image type="content" source="./media/insights-dashboard/referral-domains-funnel-graph.png" alt-text="Shows a sample funnel graph of referral domains.":::
 
 #### Campaign IDs
 
