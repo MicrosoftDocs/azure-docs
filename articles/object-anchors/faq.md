@@ -44,7 +44,7 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **Q: What is the gravity direction and unit required by the model conversion service?**
 
-**A:** See [here](./troubleshooting/troubleshooting-object-detection.md#ensure-the-gravity-direction-and-asset-dimension-unit-are-correct)
+**A:** See [here](./troubleshoot/object-detection.md#ensure-the-gravity-direction-and-asset-dimension-unit-are-correct)
        for detailed information.
 
 **Q: How long does it take to convert a CAD model?**
@@ -110,12 +110,11 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: What should I do if the Object Anchors runtime cannot detect my object?**
 
-**A:** See [here](./troubleshooting/troubleshooting-object-detection.md) for detailed information.
+**A:** See [here](./troubleshoot/object-detection.md) for detailed information.
 
 **Q: How to choose object query parameters?**
 
-**A:** See [here](./troubleshooting/troubleshooting-object-detection.md#adjust-object-query-parameters) for detailed
-       information.
+**A:** See [here](./troubleshoot/object-detection.md#adjust-object-query-values) for detailed information.
 
 **Q: How do I get Object Anchors diagnostics data from the HoloLens?**
 

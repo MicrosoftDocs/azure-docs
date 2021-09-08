@@ -25,7 +25,7 @@ loaded the model into an application.
 * Clear the spatial mapping cache and rescan the object.
 * Ensure the correct gravity direction and asset dimension were used during model conversion as described [below](#ensure-the-gravity-direction-and-asset-dimension-unit-are-correct).
 * Visually inspect the detection model as described [below](#visually-inspect-the-detection-models-mesh).
-* Adjust the model parameters as described [below](#adjust-object-query-parameters).
+* Adjust the model query values as described [below](#adjust-object-query-values).
 * Capture diagnostics as described [below](#capture-diagnostics).
 
 ### Ensure the gravity direction and asset dimension unit are correct
@@ -55,7 +55,7 @@ Sometimes it can be helpful to visually inspect the detection model's mesh so th
 or feature issues. Follow the instructions [here](../visualize-converted-model.md) to visualize a converted model in
 Unity.
 
-### Adjust object query parameters
+### Adjust object query values
 
 * Provide tight search areas to ideally cover the full object to improve detection speed and accuracy.
 * The default `ObjectQuery.MinSurfaceCoverage` value is often sufficient, but you can use a smaller value to get a

@@ -107,4 +107,4 @@ The app aligns a 3D model to its physical counterpart closely. A user can air ta
 > [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
 
 > [!div class="nextstepaction"]
-> [Troubleshooting object detection](../troubleshooting/troubleshooting-object-detection.md)
+> [Troubleshooting object detection](../troubleshoot/object-detection.md)

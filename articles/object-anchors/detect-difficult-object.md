@@ -44,4 +44,4 @@ In this troubleshooting guide, you learned how to troubleshoot detection of diff
 Here are some related articles:
 
 > [!div class="nextstepaction"]
-> [Troubleshooting object detection](./troubleshooting/troubleshooting-object-detection.md)
+> [Troubleshooting object detection](./troubleshoot/object-detection.md)

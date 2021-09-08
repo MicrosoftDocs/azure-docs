@@ -70,4 +70,4 @@ The app looks for objects in the current field of view and then tracks them once
 > [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
 
 > [!div class="nextstepaction"]
-> [Troubleshooting object detection](../troubleshooting/troubleshooting-object-detection.md)
+> [Troubleshooting object detection](../troubleshoot/object-detection.md)

@@ -61,4 +61,4 @@
   - name: Detect a difficult object
     href: detect-difficult-object.md
   - name: Troubleshooting object detection
-    href: troubleshooting/troubleshooting-object-detection.md
+    href: troubleshoot/object-detection.md

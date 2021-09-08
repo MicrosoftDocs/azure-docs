@@ -106,4 +106,4 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 > [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
 
 > [!div class="nextstepaction"]
-> [Troubleshooting object detection](../troubleshooting/troubleshooting-object-detection.md)
+> [Troubleshooting object detection](../troubleshoot/object-detection.md)
