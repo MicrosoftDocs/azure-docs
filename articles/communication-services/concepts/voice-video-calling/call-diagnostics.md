@@ -18,7 +18,7 @@ When working with calls in Azure Communication Services, issues or problems may 
 
 **Call diagnostics, is currently only supported for our JS / Web SDK.**
 
-## Accessing Diagnostics
+## Accessing diagnostics
 
 Call diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 
@@ -26,11 +26,11 @@ Call diagnostics is an extended feature of the core `Call` API and allows you to
 const callDiagnostics = call.api(Features.Diagnostics);
 ```
 
-## Diagnostic Values
+## Diagnostic values
 
 The following users facing diagnostics are available:
 
-### Network Values
+### Network values
 
 | Name                      | Description                                                     | Possible values                                                                                                                                                                                                                                  | Use cases                                           |
 | ------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
@@ -39,7 +39,7 @@ The following users facing diagnostics are available:
 | networkReconnect          | The connection was lost and we are reconnecting to the network. | - Set to `Poor` when the media transport connectivity is lost <br/> - Set to `Bad` when the network is disconnected <br/> - Set to `Good` when a new session is connected.                                                                       | Low bandwidth, no internet                          |
 | networkReceiveQuality     | An indicator regarding incoming stream quality.                 | - Set to `Bad` when there is a severe problem with receiving the stream. quality <br/> - Set to `Poor` when there is a mild problem with receiving the stream. quality <br/> - Set to `Good` when there is no problem with receiving the stream. | Low bandwidth                                       |
 
-### Audio Values
+### Audio values
 
 | Name                           | Description                                                     | Possible values                                                                                                                                                                                                                                                                                                   | Use cases                                                        |
 | ------------------------------ | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -50,7 +50,7 @@ The following users facing diagnostics are available:
 | microphoneMuteUnexpectedly     | Microphone is muted                                             | - Set to `True` when microphone enters muted state unexpectedly. <br/> - Set to `False` when microphone starts to successfully send audio stream                                                                                                                                                                  | Microphone is muted from the system.                             |
 | microphonePermissionDenied     | There is low volume from device or it’s almost silent on macOS. | - Set to `True` when audio permission is denied by system settings (audio). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS.                                                                                                                             | Microphone permissions are disabled in the Settings.             |
 
-### Camera Values
+### Camera values
 
 | Name                   | Description                                            | Possible values                                                                                                                                                                                                                                                                                              | Use cases                                                                       |
 | ---------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
@@ -59,13 +59,13 @@ The following users facing diagnostics are available:
 | cameraStartTimedOut    | Common scenario where camera is in bad state.          | - Set to `True` when camera device times out to start sending video stream. <br/> - Set to `False` when selected camera device successfully sends local video again.                                                                                                                                         | Camera failures                                                                 |
 | cameraPermissionDenied | Camera permissions were denied in settings.            | - Set to `True` when camera permission is denied by system settings (video). <br/> - Set to `False` on successful stream acquisition. <br> Note: This diagnostic only works on macOS Chrome                                                                                                                  | Camera permissions are disabled in the settings.                                |
 
-### Misc Values
+### Misc values
 
 | Name                         | Description                                                  | Possible values                                                                                                                                                                                         | Use cases                                 |
 | ---------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
 | screenshareRecordingDisabled | System screen sharing was denied by preferences in Settings. | - Set to `True` when screen sharing permission is denied by system settings (sharing). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS.Chrome. | Screen recording is disabled in Settings. |
 
-## Diagnostic Events
+## Diagnostic events
 
 - Subscribe to the `diagnosticChanged` event to monitor when any call diagnostic changes.
 

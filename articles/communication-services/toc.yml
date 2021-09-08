@@ -164,19 +164,19 @@ items:
   items:
   - name: Using the Calling SDK
     items:
-      - name: Manage Calls
+      - name: Manage calls
         href: how-tos/calling-sdk/manage-calls.md
-      - name: Manage Video
+      - name: Manage video
         href: how-tos/calling-sdk/manage-video.md
-      - name: Record Calls
+      - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
-      - name: Enable Push Notifications
+      - name: Enable push notifications
         href: how-tos/calling-sdk/push-notifications.md
-      - name: Transcribe Calls
+      - name: Transcribe calls
         href: how-tos/calling-sdk/call-transcription.md
       - name: Show active speakers
         href: how-tos/calling-sdk/dominant-speaker.md
-      - name: Transfer Calls
+      - name: Transfer calls
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Join a Teams meeting
         href: how-tos/calling-sdk/teams-interoperability.md
