@@ -19,13 +19,14 @@ In this tutorial, you learn how to:
 > * Create a PowerShell Workflow runbook
 > * Test and publish the runbook
 > * Run and track the status of the runbook job
-> * Update the runbook to start an Azure virtual machine with runbook parameters
+> * Add authentication to manage Azure resources
+> * Update the runbook parameters to start an Azure virtual machine
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* An Azure Automation account with at least one user-assigned managed identity. For more information, see [Using a user-assigned managed identity for an Azure Automation account](../add-user-assigned-identity.md).
+* An Azure Automation account with at least one user-assigned managed identity. For more information, see [Enable managed identities](../quickstarts/enable-managed-identity.md).
 * Az modules: `Az.Accounts`, `Az.ManagedServiceIdentity`, and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](../shared-resources/modules.md#import-az-modules).
 * Two or more [Azure virtual machines](../../virtual-machines/windows/quick-create-powershell.md). Since you stop and start these machines, they shouldn't be production VMs.
 
@@ -129,11 +130,11 @@ Before you publish the runbook to make it available in production, you should te
 
    The job status starts as Queued, indicating that the job is waiting for a runbook worker in the cloud to become available. The status changes to Starting when a worker claims the job. Finally, the status becomes Running when the runbook actually starts to run.
 
-1. When the runbook job completes, the Test pane displays its output. The output should look similar to the following:
+1. When the runbook job completes, the **Test** page displays its output. The output should look similar to the following image:
 
    :::image type="content" source="../media/automation-tutorial-runbook-textual/workflow-runbook-parallel-output.png" alt-text="PowerShell workflow runbook parallel output":::
 
-   Review the output. Everything in the `Parallel` block, including the `Start-Sleep` command, executed at the same time. The same commands outside the `Parallel` block ran consecutively, as evidenced by the different date time stamps. 
+   Review the output. Everything in the `Parallel` block, including the `Start-Sleep` command, executed at the same time. The same commands outside the `Parallel` block ran sequentially, as shown by the different date time stamps. 
 
 1. Close the **Test** page to return to the canvas.
 
@@ -195,6 +196,7 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
    :::image type="content" source="../media/automation-tutorial-runbook-textual/runbook-auth-output.png" alt-text="Basic information that confirms credentials.":::
 
+1. Close the **Test** page to return to the canvas.
 
 ## Add code to start a virtual machine
 
@@ -210,7 +212,7 @@ Now that your runbook is authenticating to the Azure subscription, you can manag
 
 ## Add input parameters to the runbook
 
-Your runbook currently starts the VM that you have hardcoded in the runbook. It will be more useful if you can specify the VM when the runbook is started. Add input parameters to the runbook to provide that functionality.
+Your runbook currently starts the VM that you've hardcoded in the runbook. It will be more useful if you can specify the VM when the runbook is started. Add input parameters to the runbook to provide that functionality.
 
 1. Replace the current two lines for variables with the following:
 
@@ -295,7 +297,7 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
    |VMs|Enter the names of the virtual machines using the following syntax: `["VM1","VM2","VM3"]`|
    |Action|Enter `stop` or `start`.|
 
-1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed consecutively.
+1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed sequentially.
 
 ## Clean up Resources
 
