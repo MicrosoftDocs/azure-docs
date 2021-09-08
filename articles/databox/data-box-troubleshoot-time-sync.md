@@ -27,18 +27,18 @@ If you see any time difference between the time on Data Box and other local devi
 
 To troubleshoot time sync issues, you'll first need to connect to the PowerShell interface of your device.
 
-![INCLUDE[data-box-connect-powershell-interface](../../includes/data-box-connect-powershell-interface.md)]
+[!INCLUDE [Connect to Data Box PowerShell interface](../../includes/data-box-connect-powershell-interface.md)]
 
 
 ### Change device time
 
 To change the device time, follow these steps.
 
-1. Use the Get-Date cmdlet to view the date and time on your Data Box.
+1. Use the `Get-Date` cmdlet to view the date and time on your Data Box.
 
     `Get-Date`
 
-1. Use the Set-Date cmdlet to change the time on your Data Box.
+1. Use the `Set-Date` cmdlet to change the time on your Data Box.
 
     - Set the time forward by 2 minutes.
     
