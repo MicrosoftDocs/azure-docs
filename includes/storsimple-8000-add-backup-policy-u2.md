@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 09/08/2021
 ms.author: alkohli
 ---
 
@@ -37,6 +37,9 @@ ms.author: alkohli
        4. Enter a time and date for the backup policy to begin.
 
        5. Click **OK** to define the schedule.
+       
+       > [!NOTE]
+       > You can only retain 64 backups through any one schedule. If you want to keep more than 64 backups, disable the old schedule at or before 64 backups, and then add a new schedule to the backup policy.
 
    5. Click **Create** to create a backup policy.
    
