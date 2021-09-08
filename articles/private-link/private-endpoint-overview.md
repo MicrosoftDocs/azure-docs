@@ -147,19 +147,36 @@ The following table includes a list of known limitations when using private endp
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Public preview limitations
 
+### NSG
 
+| Limitation | Description | Mitigation |
+| ---------- | ----------- | ---------- |
+| Obtain effective routes / security rules will not be available on private endpoint network interface. | You won't be able to navigate to the private endpoint network interface to see relevant information on the effective routes / security rules blade. | Q4CY21 |
+| NSG flow logs not supported. | NSG flow logs will not work for inbound traffic destined for a private endpoint. | No information at this time. |
+| Intermittent drops with ZRS storage accounts. | Customers using ZRS storage account may see periodic intermittent drops even with allow NSG applied on storage private endpoint subnet. | September |
+| Intermittent drops with Azure Key Vault. | Customers using Azure Key Vault may see periodic intermittent drops even with allow NSG applied on Azure Key Vault private endpoint subnet. | September |
+| Limit on number of address prefixes per NSG. | Having more than 500 address prefixes in NSG in a single rule isn't supported. | September |
+| AllowVirtualNetworkAccess flag | Customers setting vnet peering on their vnet (Vnet A) with **AllowVirtualNetworkAccess** flag set to false on the peering link initiated to another vnet (Vnet B) will not be able to use **VirtualNetwork Tag** to deny traffic from Vnet B being able to access private endpoint resources. They will need to explicitly place a block for Vnet B’s address prefix to deny traffic to the private. | September |
+| Dual Port NSG Rules unsupported. | If multiple port ranges are used with NSG Rules then only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to deny all instead of specific ports. </br> **See rule example below for more information.** | September |
+
+| Priority | Source port | Destination port | Action | Effective action |
+| -------- | ----------- | ---------------- | ------ | ---------------- |
+| 10 | 10-12 | 10-12 | Allow/Deny | Single port range in source/destination ports will work as expected. |
+| 10 | 10-12, 13-14 | 14-15, 16-17 | Allow | Only source ports 10-12 and destination ports 14-15 will be allowed. |
+| 10 | 10-12, 13-14 | 120-130, 140-150 | Deny | Traffic from all source ports will be denied to all dest ports since there are multiple source and destination port ranges. |
+| 10 | 10-12, 13-14 | 120-130 | Deny | Traffic from all source ports will be denied to destination ports 120-130 only. There are multiple source port ranges and a single destination port range. |
+
+**Table: Example dual port rule.**
+
+### UDR
+
+| Limitation | Description | Mitigation |
+| ---------- | ----------- | ---------- |
+| Source Network Address Translation (SNAT) is recommended at all times. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored. | No information at this time. |
+ 
 ## Next steps
-- [Create a Private Endpoint for Azure Web Apps using the portal](create-private-endpoint-portal.md)
-- [Create a Private Endpoint for Azure Web Apps using PowerShell](create-private-endpoint-powershell.md)
-- [Create a Private Endpoint for Azure Web Apps using CLI](create-private-endpoint-cli.md)
-- [Create a Private Endpoint for Storage account using the portal](./tutorial-private-endpoint-storage-portal.md)
-- [Create a Private Endpoint for Azure Cosmos account using the portal](../cosmos-db/how-to-configure-private-endpoints.md)
-- [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
-- [Create your own Private Link for Azure Database for PostgreSQL - Single server using the portal](../postgresql/howto-configure-privatelink-portal.md)
-- [Create your own Private Link for Azure Database for PostgreSQL - Single server using CLI](../postgresql/howto-configure-privatelink-cli.md)
-- [Create your own Private Link for Azure Database for MySQL using the portal](../mysql/howto-configure-privatelink-portal.md)
-- [Create your own Private Link for Azure Database for MySQL using CLI](../mysql/howto-configure-privatelink-cli.md)
-- [Create your own Private Link for Azure Database for MariaDB using the portal](../mariadb/howto-configure-privatelink-portal.md)
-- [Create your own Private Link for Azure Database for MariaDB using CLI](../mariadb/howto-configure-privatelink-cli.md)
-- [Create your own Private Link for Azure Key Vault using the portal and CLI](../key-vault/general/private-link-service.md)
+
+- For more information on private endpoint and private link, see [What is Azure Private Link?](private-link-overview.md).
+- To get started creating a private endpoint for a web app, see [Quickstart - Create a Private Endpoint using the Azure portal](create-private-endpoint-portal.md).
