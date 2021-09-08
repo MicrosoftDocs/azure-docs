@@ -24,7 +24,7 @@ This topic provides an overview of how to use Azure Arc–enabled servers and Az
 
 As a service provider, you can manage on-premises Windows Server or Linux machines outside Azure that your customers have connected to their subscription using the [Azure Connected Machine agent](../../azure-arc/servers/agent-overview.md). When viewing resources for a delegated subscription in the Azure portal, you'll see these connected machines labeled with **Azure Arc**.
 
-Tou can manage these connected machines using Azure constructs, such as Azure Policy and tagging, the same way that you’d manage the customer's Azure resources. You can also work across customer tenants to manage all connected hybrid machines together.
+You can manage these connected machines using Azure constructs, such as Azure Policy and tagging, the same way that you’d manage the customer's Azure resources. You can also work across customer tenants to manage all connected hybrid machines together.
 
 For example, you can [ensure the same set of policies are applied across customers' hybrid machines](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md). You can also use Azure Security Center to monitor compliance across all of your customers' hybrid environments, or [use Azure Monitor to collect data directly from hybrid machines](../../azure-arc/servers/learn/tutorial-enable-vm-insights.md) into a Log Analytics workspace. [Virtual machine extensions](../../azure-arc/servers/manage-vm-extensions.md) can be deployed to non-Azure Windows and Linux VMs, simplifying management of customer's hybrid machines.
 
