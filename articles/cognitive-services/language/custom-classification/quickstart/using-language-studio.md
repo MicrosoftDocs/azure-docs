@@ -18,7 +18,7 @@ In this article, we use the Language studio to demonstrate key concepts of Custo
 
 ## Prerequisites
 
-[!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation.md)]
+[!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
 ## Create a custom classification project
 
@@ -28,7 +28,7 @@ In this article, we use the Language studio to demonstrate key concepts of Custo
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. If you're using a preexisting resource, see [creating Azure resources](../concepts/use-azure-resources.md). When you are done, select **Next**. 
+4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. If you're using a preexisting resource, see [creating Azure resources](../how-to/use-azure-resources.md). When you are done, select **Next**. 
  
     >[!NOTE]
     > * You only need to do this step once for each new resource you use. 
