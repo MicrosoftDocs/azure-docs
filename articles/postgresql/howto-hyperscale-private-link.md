@@ -1,0 +1,151 @@
+---
+title: Private link - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: How to set up private link in a server group for Azure Database for PostgreSQL - Hyperscale (Citus)
+author: jonels-msft
+ms.author: jonels
+ms.service: postgresql
+ms.subservice: hyperscale-citus
+ms.topic: how-to
+ms.date: 09/07/2021
+---
+
+# Private link in Azure Database for PostgreSQL - Hyperscale (Citus)
+
+In this how-to, we’ll establish a private link between a virtual machine and an
+Azure Database for PostgreSQL - Hyperscale (Citus) server group.
+
+## Create a virtual network
+
+First, we’ll set up a resource group and virtual network. It'll hold our server
+group and virtual machine.
+
+```sh
+az group create \
+	--name link-demo \
+	--location eastus
+
+az network vnet create \
+	--resource-group link-demo \
+	--name link-demo-net \
+	--address-prefix 10.0.0.0/16
+
+az network nsg create \
+	--resource-group link-demo \
+	--name link-demo-nsg
+
+az network vnet subnet create \
+	--resource-group link-demo \
+	--vnet-name link-demo-net \
+	--name link-demo-subnet \
+	--address-prefixes 10.0.1.0/24 \
+	--network-security-group link-demo-nsg
+```
+
+## Create a virtual machine
+
+For demonstration, we’ll use a virtual machine running Debian Linux, and the
+`psql` PostgreSQL client.
+
+```sh
+# provision the VM
+az vm create \
+	--resource-group link-demo \
+	--name link-demo-vm \
+	--vnet-name link-demo-net \
+	--subnet link-demo-subnet \
+	--nsg link-demo-nsg \
+	--public-ip-address link-demo-net-ip \
+	--image debian \
+	--admin-username azureuser \
+	--generate-ssh-keys
+
+# install psql database client
+az vm run-command invoke \
+	--resource-group link-demo \
+	--name link-demo-vm \
+	--command-id RunShellScript \
+	--scripts \
+		"sudo touch /home/azureuser/.hushlogin" \
+		"sudo DEBIAN_FRONTEND=noninteractive apt-get update" \
+		"sudo DEBIAN_FRONTEND=noninteractive apt-get install -q -y postgresql-client"
+```
+
+## Create a server group with a private link
+
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+
+2. Select **Databases** from the **New** page, and select **Azure Database for
+   PostgreSQL** from the **Databases** page.
+
+3. For the deployment option, click the **Create** button under **Hyperscale
+   (Citus) server group**.
+
+4. Fill out the new server details form with the following information:
+
+	- **Resource group**: `link-demo`
+	- **Server group name**: `link-demo-sg`
+	- **Location**: `East US`
+	- **Password**: (your choice)
+
+5. Click **Configure server group**, choose the **Basic** plan, and click
+   **Save**.
+
+6. Click **Next: Networking** at the bottom of the page.
+
+7. Select **Private access (preview)**.
+
+8. A blade appears called **Create private endpoint**. Enter these values and
+   click **OK**:
+
+	- **Resource group**: `link-demo`
+	- **Location**: `(US) East US`
+	- **Name**: `link-demo-sg-c-pe1`
+	- **Target sub-resource**: `link-demo-sg-c`
+	- **Virtual network**: `link-demo-net`
+	- **Subnet**: `link-demo-subnet`
+	- **Integrate with private DNS zone**: Yes
+
+9. After creating the private endpoint, click **Review + create** to provision
+   your Hyperscale (Citus) server group.
+
+## Access the server group privately from the virtual machine
+
+The private link allows our virtual machine to connect to our server group,
+and prevents external hosts from doing so. In this step, we'll check that
+the `psql` database client on our virtual machine can communicate with the
+coordinator node of the server group.
+
+```sh
+# save db URI
+#
+# obtained from Settings -> Connection Strings in the Azure portal
+#
+# fill in your password!
+PG_URI='host=c.link-demo-sg.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require'
+
+# attempt to connect to server group with psql in the virtual machine
+az vm run-command invoke \
+	--resource-group link-demo \
+	--name link-demo-vm \
+	--command-id RunShellScript \
+	--scripts \
+		"psql '$PG_URI' -c 'SHOW citus.version;'"
+```
+
+You should see a version number for Citus in the output. This shows that psql
+was able to execute a command.
+
+## Clean up resources
+
+Now that we've seen how to establish a private link between a virtual machine
+and a Hyperscale (Citus) server group, we can deprovision the resources.
+
+Simply delete the resource group:
+
+```sh
+az group delete --resource-group link-demo
+
+# press y to confirm
+```
+
+## Next steps

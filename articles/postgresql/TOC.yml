@@ -740,6 +740,10 @@
         href: howto-hyperscale-restore-portal.md
     - name: Major version upgrades
       href: howto-hyperscale-upgrade.md
+    - name: Private link
+      items:
+      - name: Azure portal
+      - href: howto-hyperscale-private-link.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot connection errors
