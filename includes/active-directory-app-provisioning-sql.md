@@ -88,25 +88,25 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
     ![Screenshot that shows the Welcome screen.](media/active-directory-app-provisioning-sql/install-2.png)</br>
 
  10. On the **Select Extension** screen, select **On-premises application provisioning (Azure AD to application)**. Select **Next**. 
- 
-    ![Screenshot that shows Select extension.](media/active-directory-app-provisioning-sql/install-3.png)</br>
+     
+   ![Screenshot that shows Select extension.](media/active-directory-app-provisioning-sql/install-3.png)</br>
  11. Use your global administrator account to sign in to Azure AD.
  
-     ![Screenshot that shows Azure sign-in.](media/active-directory-app-provisioning-sql/install-4.png)</br>
+   ![Screenshot that shows Azure sign-in.](media/active-directory-app-provisioning-sql/install-4.png)</br>
  12. On the **Agent configuration** screen, select **Confirm**.
  
-     ![Screenshot that shows Confirm installation.](media/active-directory-app-provisioning-sql/install-5.png)</br>
+   ![Screenshot that shows Confirm installation.](media/active-directory-app-provisioning-sql/install-5.png)</br>
  13. After the installation is complete, you should see a message at the bottom of the wizard. Select **Exit**.
  
-     ![Screenshot that shows finishing.](media/active-directory-app-provisioning-sql/install-6.png)</br>
- 
+   ![Screenshot that shows finishing.](media/active-directory-app-provisioning-sql/install-6.png)</br>
  14. In the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
-     >[!NOTE]
-     >After you add the agent, wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes.
-     >
-     >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
+     
+   >[!NOTE]
+   >After you add the agent, wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes.
+   >
+   >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
    
-     ![Screenshot that shows restarting an agent.](.\media\active-directory-app-provisioning-sql\configure-8.png)
+   ![Screenshot that shows restarting an agent.](.\media\active-directory-app-provisioning-sql\configure-8.png)
 
 ## Configure the Azure AD ECMA Connector Host
  1. On the desktop, select the ECMA shortcut.
@@ -338,7 +338,8 @@ Now that your attributes are mapped, you can test on-demand provisioning with on
  1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
  
     ![Screenshot that shows Start provisioning.](.\media\active-directory-app-provisioning-sql\configure-14.png)
- 2. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
+ 2
+. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
 
 ## Check that users were successfully provisioned
 After waiting, check the SQL database to ensure users are being provisioned.
