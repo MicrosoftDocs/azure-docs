@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Citrix ShareFile | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Citrix ShareFile | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Citrix ShareFile.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/06/2021
+ms.date: 09/08/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Citrix ShareFile
+# Tutorial: Azure AD SSO integration with Citrix ShareFile
 
 In this tutorial, you'll learn how to integrate Citrix ShareFile with Azure Active Directory (Azure AD). When you integrate Citrix ShareFile with Azure AD, you can:
 

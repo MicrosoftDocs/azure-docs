@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Palo Alto Networks - Admin UI | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks - Admin UI.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/06/2021
+ms.date: 09/08/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Palo Alto Networks - Admin UI
+# Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI
 
 In this tutorial, you'll learn how to integrate Palo Alto Networks - Admin UI with Azure Active Directory (Azure AD). When you integrate Palo Alto Networks - Admin UI with Azure AD, you can:
 
