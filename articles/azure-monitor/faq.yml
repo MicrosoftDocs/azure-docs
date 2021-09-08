@@ -795,7 +795,7 @@ sections:
           
           Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
           
-          OpenTelemetry auto-instrumentation efforts include a [Java 1.X Offering](https://github.com/open-telemetry/opentelemetry-java-instrumentation), which Microsoft supports via a distro called [Java 3.X](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). [Python](https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-instrumentation) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft does not currently support. All other OpenTelemetry langauges are focused on Manual Instrumentation only.
+          OpenTelemetry auto-instrumentation efforts include a Java offering, which Microsoft supports via a distro called [Java 3.X](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). [Python](https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-instrumentation) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft does not currently support. All other OpenTelemetry langauges are focused on Manual Instrumentation only.
           
       - question: |
           Can I use the OpenTelemetry-Collector?
