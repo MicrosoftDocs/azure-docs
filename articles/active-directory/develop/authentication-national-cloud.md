@@ -31,7 +31,7 @@ National clouds are unique and a separate environment from Azure global. It's im
 > [!WARNING]
 > Azure Germany (Microsoft Cloud Deutschland) will be [closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Services and applications you choose _not_ to migrate to a region in global Azure before that date will become inaccessible.
 
-If you haven't migrated your apps from Azure Germany, follow [Azure Active Directory information for the migration from Azure Germany](microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad) to get started.
+If you haven't migrated your apps from Azure Germany, follow [Azure Active Directory information for the migration from Azure Germany](/microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad) to get started.
 
 ## App registration endpoints
 
