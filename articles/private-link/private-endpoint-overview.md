@@ -4,10 +4,9 @@ description: Learn about Azure Private Endpoint
 services: private-link
 author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
-
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 09/09/2021
 ms.author: allensu
 ---
 # What is Azure Private Endpoint?
@@ -24,14 +23,13 @@ The service could be an Azure service such as:
 ## Private Endpoint properties 
  A Private Endpoint specifies the following properties: 
 
-
 |Property  |Description |
 |---------|---------|
 |Name    |    A unique name within the resource group.      |
-|Subnet    |  The subnet to deploy and where the private IP address is assigned. For subnet requirements, see the Limitations section in this article.         |
+|Subnet    |  The subnet to deploy and where the private IP address is assigned. For subnet requirements, see the limitations section in this article.         |
 |Private Link Resource    |   The private link resource to connect using resource ID or alias, from the list of available types. A unique network identifier will be generated for all traffic sent to this resource.       |
 |Target subresource   |      The subresource to connect. Each private link resource type has different options to select based on preference.    |
-|Connection approval method    |  Automatic or manual. Depending on Azure Role based access control permissions, your private endpoint can be approved automatically. If you try to connect to a private link resource without Azure role-based access control, use the manual method to allow the owner of the resource to approve the connection.        |
+|Connection approval method    |  Automatic or manual. Depending on Azure role based access control permissions, your private endpoint can be approved automatically. If you try to connect to a private link resource without Azure role-based access control, use the manual method to allow the owner of the resource to approve the connection.        |
 |Request Message     |  You can specify a message for requested connections to be approved manually. This message can be used to identify a specific request.        |
 |Connection status   |   A read-only property that specifies if the private endpoint is active. Only private endpoints in an approved state can be used to send traffic. More states available: <br>-**Approved**: Connection was automatically or manually approved and is ready to be used.</br><br>-**Pending**: Connection was created manually and is pending approval by the private link resource owner.</br><br>-**Rejected**: Connection was rejected by the private link resource owner.</br><br>-**Disconnected**: Connection was removed by the private link resource owner. The private endpoint becomes informative and should be deleted for cleanup. </br>|
 
@@ -58,7 +56,6 @@ Some key details about private endpoints:
 - Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 - The subscription from the private link resource must also be registered with Microsoft. Network resource provider. For details, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
-
  
 ## Private link resource 
 A private link resource is the destination target of a given private endpoint. 
@@ -171,7 +168,7 @@ The following table includes a list of known limitations when using private endp
 | Intermittent drops with ZRS storage accounts. | Customers using ZRS storage account may see periodic intermittent drops even with allow NSG applied on storage private endpoint subnet. | September |
 | Intermittent drops with Azure Key Vault. | Customers using Azure Key Vault may see periodic intermittent drops even with allow NSG applied on Azure Key Vault private endpoint subnet. | September |
 | Limit on number of address prefixes per NSG. | Having more than 500 address prefixes in NSG in a single rule isn't supported. | September |
-| AllowVirtualNetworkAccess flag | Customers setting vnet peering on their vnet (Vnet A) with **AllowVirtualNetworkAccess** flag set to false on the peering link to another vnet (Vnet B) won't can't use the **VirtualNetwork Tag** to deny traffic from Vnet B accessing private endpoint resources. They'll need to explicitly place a block for Vnet B’s address prefix to deny traffic to the private. | September |
+| AllowVirtualNetworkAccess flag | Customers setting VNet peering on their VNet (VNet A) with **AllowVirtualNetworkAccess** flag set to false on the peering link to another VNet (VNet B) won't can't use the **VirtualNetwork Tag** to deny traffic from VNet B accessing private endpoint resources. They'll need to explicitly place a block for VNet B’s address prefix to deny traffic to the private. | September |
 | Dual Port NSG Rules unsupported. | If multiple port ranges are used with NSG Rules, then only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to deny all instead of specific ports. </br> **For more information, see rule example below.** | September |
 
 | Priority | Source port | Destination port | Action | Effective action |
