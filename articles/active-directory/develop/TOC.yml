@@ -256,7 +256,19 @@
       - name: Code configuration
         href: scenario-desktop-app-configuration.md
       - name: Acquire token
-        href: scenario-desktop-acquire-token.md
+        items:
+        - name: Overview
+          href: scenario-desktop-acquire-token.md
+        - name: Interactively
+          href: scenario-desktop-acquire-token-interactive.md
+        - name: Interactive with WAM
+          href: scenario-desktop-acquire-token-wam.md
+        - name: Integrated Windows Auth
+          href: scenario-desktop-acquire-token-integrated-windows-authentication.md
+        - name: Username Password
+          href: scenario-desktop-acquire-token-username-password.md
+        - name: Device code flow
+          href: scenario-desktop-acquire-token-device-code-flow.md
       - name: Call a web API
         href: scenario-desktop-call-api.md
       - name: Move to production
