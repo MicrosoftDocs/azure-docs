@@ -16,7 +16,7 @@ This article describes the available options for securing your IoT Device Provis
 
 This article discusses:
 
-* The authentication process and the tokens the provisioning service uses to verify permissions against both the Service and Device REST APIs.
+* The authentication process and the tokens the provisioning service uses to verify permissions against both the [Service and Device REST APIs](rest/api/iot-dps/).
 
 * The different permissions that you can grant to a backend app to access the Service API.
 
@@ -65,7 +65,7 @@ The expected values are:
 | `{URL-encoded-resourceURI}`   |Lower case URL-encoding of `{ID_Scope}/registrations/{registration_id}` |
 | `{policyName}`  | For the Device API, this policy is always “registration”. |
 
-The following Python snippet shows a function called `generateSasToken` that computes the token from the inputs `uri`, `key`, `policy_name`, `expiry` for an individual enrollment using a symmetric key authentication type.
+The following Python snippet shows a function called `generate_sas_token` that computes the token from the inputs `uri`, `key`, `policy_name`, `expiry` for an individual enrollment using a symmetric key authentication type.
 
 ```python
 
@@ -89,7 +89,7 @@ from hmac import HMAC
 
     return 'SharedAccessSignature ' + urlencode(rawtoken) 
 
-print(generate_sas_token("myIdScope/registrations/mydeviceregistrationid", "00mysymmetrickey "registration")) 
+print(generate_sas_token("myIdScope/registrations/mydeviceregistrationid", "00mysymmetrickey", "registration"))
 
 ```
 
