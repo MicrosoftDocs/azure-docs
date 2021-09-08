@@ -57,6 +57,8 @@
     - name: Configure containers
       href: containers/form-recognizer-container-configuration.md
       displayName: docker, container, run, billing, apikey, logging
+    - name: Container image tags
+      href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
       maintainContext: true
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md

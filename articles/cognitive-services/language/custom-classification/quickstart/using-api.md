@@ -16,15 +16,26 @@ ms.author: aahi
 
 In this article, you will use the authoring and analyze APIs to demonstrate key concepts of custom text classification.
 
-## Prerequisites
+## Create new resource from Azure portal
 
-* A Text analytics resource in **West US 2** or **West Europe** with **S** pricing tier.
+Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call the custom text classification API.  
 
-* Proper permissions for storage account.
+|Requirement  |Required value  |
+|---------|---------|
+|Location | "West US 2" or "West Europe"         |
+|Pricing tier     | Standard (**S**) pricing tier        |
 
-* Connect storage account to your resource. 
+> [!IMPORTANT]
+> In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use custom text classification. While you can specify a storage account later, it's easier to do it now.
 
-* A labeled `.txt` available in your container.
+
+## Upload Sample data to blob container
+
+After you have created an Azure storage account and linked it to your Language Service resource
+
+1. [Download sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
+
+2. Go to your azure storage account in [Azure portal](https://ms.portal.azure.com), create a new container and upload sample data to it.
 
 ### Get your resource keys and endpoint
 
@@ -185,122 +196,11 @@ Use the following [**GET**] request to query the status of the training process.
 |status|"inProgress"|General status of all your tasks|
 |errors|[]|list of errors of all your tasks|
 
-## View the model evaluation
+## Deploy your model
 
-After model training is completed, you can view model details and see how well does it perform against the test set. The [test set](../how-to/train-model.md#data-splits) is composed of 10% of your data, this split is done at random before training. The test set is a blind set that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset.
+Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and [improve model](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try. 
 
-### Get evaluation details
-
-Use this `GET` request to get you model evaluation results:
-
-`{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/evaluation`.
-
-Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName}` with your project name. Pass `trainingModelName` as a parameter and for the value indicate the model name you are requesting evaluation for (model name is case-sensitive). For your request to be successful, make sure that the model has completed training successfully on more than 10 files to be able to query evaluation results. Evaluation is performed only on the [test set](../how-to/train-model.md#data-splits).
-
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
-
-#### Response Body
-
-```json
-    "modelType": "MultiClassification",
-    "singleClassificationEvaluation": null,
-    "multiClassificationEvaluation": {
-        "classes": {
-            "Class_1": {
-                "f1": 0,
-                "precision": 0,
-                "recall": 0,
-                "countTruePositives": 0,
-                "countTrueNegatives": 0,
-                "countFalsePositives": 0,
-                "countFalseNegatives": 1
-            },
-            "Class_2": {
-                "f1": 1,
-                "precision": 1,
-                "recall": 1,
-                "countTruePositives": 0,
-                "countTrueNegatives": 0,
-                "countFalsePositives": 0,
-                "countFalseNegatives": 0
-            }
-        },
-        "microF1": 0.33333334,
-        "microPrecision": 0.2857143,
-        "microRecall": 0.4,
-        "macroF1": 0.26666668,
-        "macroPrecision": 0.2,
-        "macroRecall": 0.4
-    }
-}
-```
-
-|Key|Sample Value|Description|
-|--|--|--|
-|modelType|"MultiClassification"|Type of the model. This value can be `SingleClassification` based on model type|
-|multiClassificationEvaluation|{}| Object for multiClassification results of the test set|
-|singleClassificationEvaluation|{}| Object for singleClassification results of the test set|
-|classes|[]| list of all classes with their class-level evaluation metrics. You can learn more about evaluation metrics [here](../concepts/evaluation.md)|
-|microF1, microPrecision, microRecall|0.33, 0.28, 0.4| These are model-level evaluation metrics. You can learn more about evaluation metrics [here](../concepts/evaluation.md)|
-|macroF1, macroPrecision, macroRecall|0.26, 0.2, 0.4|These are model-level evaluation metrics. Macro metrics are calculated as the average of class-level metrics for all classes.|
-
-## Improve model performance
-
-After the training is completed and you have reviewed model evaluation details, this is your chance to improve model performance. You will review inconsistencies between predicted classes and tagged classes by the model and make improvements where applicable.
-
-### Review validation set
-
-Use this [**GET**] request to get you model evaluation results `{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/validation`.
-Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName}` with your project name. Pass `trainingModelName` as a parameter and for the value indicate the model name you are requesting validation data for (model name is case-sensitive). For your request to be successful make sure that the model has completed training successfully on more than 10 files to be able to query validation results. You can learn more about the validation set [here](../how-to/train-model.md#data-splits).
-
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
-
-#### Response Body
-
-```json
-    {
-    "modelType": "MultiClassification",
-    "singleClassificationValidation": null,
-    "multiClassificationValidation": {
-        "documents": [
-            {
-                "classes": {
-                    "labeledClasses": [
-                        "Class_1",
-                        "Class_2"
-                    ],
-                    "predictedClasses": [
-                        "Class_1",
-                    ]
-                },
-                "location": "file.txt",
-                "culture": "en-us"
-            }
-        ]
-    }
-}
-```
-
-|Key|Sample Value|Description|
-|--|--|--|
-|modelType|"MultiClassification"|Type of the model. This value can be `SingleClassification` based on model type|
-|multiClassificationValidation|{}| Object for multiClassification results of the validation set|
-|singleClassificationValidation|{}| Object for singleClassification results of the validation set|
-|documents|[]|list of files in validation set|
-|labeledClasses|[]| list of classes tagged for this file|
-|predictedClasses|[]| list of classes predicted for this file|
-
-## Publish your model
-
-### Trigger Publish
+### Trigger Deploy
 
 Use this [**POST**] request to create your project: `{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/publish`. Replace `{YOUR-ENDPOINT}` by the endpoint you got from the previous step and `{projectName}` with the name of the project that contains the model you want to publish.
 
@@ -331,7 +231,7 @@ Use this [**POST**] request to create your project: `{YOUR-ENDPOINT}/language/te
 You will receive a 202 response indicating success. In the response **headers**, extract `location`. 
 `location` is formatted like this `{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/publish/jobs/{jobId}`. You will use this endpoint in the next to get the publishing status. 
 
-### Get Publish Status
+### Get Deploy Status
 
 Use this [**GET**] request to query the status of the publishing process. You can use the endpoint you received from the previous step.
 `{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/publish/jobs/{jobId}`.
@@ -455,7 +355,7 @@ You will receive a 202 response indicating success. In the response **headers**,
 You will use this endpoint in the next step to get the custom classification task results. 
 
 
-### Orchestrator Get job status/results
+### Get task status/results
 
 Use this [**GET**] request to query the status/results of the custom classification task. You can use the endpoint you received from the previous step.
 `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze/jobs/<jobId>`.

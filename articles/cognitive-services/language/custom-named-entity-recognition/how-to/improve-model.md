@@ -27,13 +27,13 @@ After you've trained your model you reviewed its evaluation details, you can sta
 After you have reviewed your [model's evaluation](view-model-evaluation.md), you'll have formed an idea on what's wrong with your model's prediction. 
 
 > [!NOTE]
-> This guide focuses on data from the [validation set](train-model.md#data-groups) that was created during training.
+> This guide focuses on data from the [validation set](train-model.md#data-split) that was created during training.
 
 ### Review validation set
 
 Using Language Studio, you can review how your model performs against how you expected it to perform. You can review predicted and tagged classes for each model you have trained.
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customTextNext/projects/extraction).
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
 
 2. Select **Improve model** from the left side menu.
 
@@ -61,7 +61,7 @@ In [model evaluation](view-model-evaluation.md), entities that are over represen
 
 To examine data distribution in your dataset:
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customTextNext/projects/extraction).
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
 
 2. Select **Improve model** from the left side menu.
 

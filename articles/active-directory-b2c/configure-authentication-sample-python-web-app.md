@@ -143,11 +143,11 @@ CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder - for use ONLY during t
        WARNING: This is a development server. Do not use it in a production deployment.
        Use a production WSGI server instead.
      * Debug mode: off
-     * Running on http://localhost:5000/ (Press CTRL+C to quit)
+     * Running on `http://localhost:5000/` (Press CTRL+C to quit)
     ```
 
  
-1. To view the web application running on your local machine, go to [http://localhost:5000](http://localhost:5000). 
+1. To view the web application running on your local machine, go to `http://localhost:5000`. 
 
 1. Select **Sign In**.
 
@@ -197,7 +197,7 @@ Open the *app_config.py* file. This file contains information about your Azure A
 
 |Key  |Value  |
 |---------|---------|
-|`ENDPOINT`| The URI of your web API (for example, https://localhost:44332/hello).|
+|`ENDPOINT`| The URI of your web API (for example, `https://localhost:44332/hello`).|
 |`SCOPE`| The web API [scopes](#step-62-configure-scopes) that you created.|
 | | |
 
@@ -243,5 +243,4 @@ You can add and modify redirect URIs in your registered applications at any time
 * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. 
 
 ## Next steps
-
 * Learn how to [Configure authentication options in a Python web app by using Azure AD B2C](enable-authentication-python-web-app-options.md).

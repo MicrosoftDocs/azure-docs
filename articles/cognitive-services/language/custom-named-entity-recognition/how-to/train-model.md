@@ -18,7 +18,7 @@ After you have completed tagging your data, you can start training your model. Y
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
-## Data groups
+## Data split
 
 Before starting the training process, files in your dataset are divided into three groups at random: 
 
@@ -43,7 +43,7 @@ You must have minimum of 10 docs in your project for the [evaluation](view-model
 > * You can only have up to 10 models per project.
 > * Training can take up to few hours.
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customTextNext/projects/extraction).
+1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
 
 2. Select **Train** from the left side menu.
 

@@ -2597,6 +2597,8 @@
         href: sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
       - name: SAP SuccessFactors Writeback
         href: sap-successfactors-writeback-tutorial.md
+      - name: SchoolStream ASA
+        href: schoolstream-asa-provisioning-tutorial.md
       - name: SECURE DELIVER
         href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin

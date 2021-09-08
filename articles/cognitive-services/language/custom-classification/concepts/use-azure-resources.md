@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Using Azure resources for custom classification
 
-When you create a custom text classification project, you will connect it to a blob storage container where your data is uploaded. Use this article to learn how to set up Azure resources to work with custom classification.
+Before creating a a custom text classification project, you will connect your Language Services resource to a blob storage container where your data is uploaded. Use this article to learn how to set up Azure resources to work with custom classification.
 
 ## Creating Azure resources
 
@@ -22,10 +22,10 @@ Before you start using custom classification, you will need a Language Services 
 
 You can also create a resource in Language Studio by clicking the settings icon in the top right corner, selecting **Resources**, then clicking **Create a new resource**. If you use this process, or have a preexisting storage account you'd like to use, you will have to [create an Azure Blob storage account](/azure/storage/common/storage-account-create). Afterwards you'll need to:
 1. Enable identity management on your Azure resource.
-2. Set contributor roles on the storage account
+2. Set contributor roles on the storage account.
 
 > [!NOTE]
-> To use custom classification, you'll need a Language Services resource in **West US 2** or **West Europe** with the Standard (S) pricing tier.
+> To use custom classification, you'll need a Language Services resource in **West US 2** or **West Europe** with the Standard (**S**) pricing tier.
 
 ### Identity management for your Language Services resource
 
@@ -38,7 +38,8 @@ Your Language Services resource must have identity management, which can be enab
 
 Your Azure blob storage account must have the below contributor roles:
 
-* Your resource has the **owner** or **contributor** role on the storage account.
+* You have **owner** or **contributor** role for the Langugae Services resource.
+* You have **owner** or **contributor** role for the storage account.
 * Your resource has the **Storage blob data owner** or **Storage blob data contributor** role on the storage account.
 * Your resource has the **Reader** role on the storage account.
 
