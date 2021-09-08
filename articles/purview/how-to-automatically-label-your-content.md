@@ -23,16 +23,17 @@ If you do not already have the required license, you can sign up for a trial of 
 
 ### Step 2: Consent to use sensitivity labels in Azure Purview
 
-The following steps allow your sensitivity labels to be available for use in Azure Purview, where you can apply sensitivity labels to files and schematized data assets.
+The following steps extend your sensitivity labels and enable them to be available for use in Azure Purview, where you can apply sensitivity labels to files and schematized data assets.
 
-1. In Microsoft 365, navigate to the **Information Protection** page. 
-1. In the **Extend labeling to assets in Azure Purview**, select the **Turn on** button, and then select **Yes** in the confirmation dialog that appears.
+1. In Microsoft 365, navigate to the **Information Protection** page.<br/>
+   If you've just provisioned your subscription for Information Protection, it may take a few hours for the **Information Protection** page to display.
+1. In the **Extend labeling to assets in Azure Purview** area, select the **Turn on** button, and then select **Yes** in the confirmation dialog that appears.
 
 For example:
 
 :::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="Select **Turn on** to extend sensitivity labels to Purview" lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
-Once you extend labeling to assets in Azure Purview, you can select the labels that you want to make available in Purview. 
+After you've extended labeling to assets in Azure Purview, all published sensitivity labels are available for use in Purview. 
 
 ### Step 3: Create or modify existing label to automatically label content
 
