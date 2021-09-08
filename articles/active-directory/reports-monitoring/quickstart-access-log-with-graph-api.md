@@ -46,11 +46,11 @@ The goal of this step is to create a record of a failed sign-in in the Azure AD 
 
 This section provides you with the steps to get information about your sign-in using the Graph API.
 
- ![Graph explorer query](./media/quickstart-access-log-with-graph-api/graph-explorer-query.png)   
+ ![Microsoft Graph Explorer query](./media/quickstart-access-log-with-graph-api/graph-explorer-query.png)   
 
 **To review the failed sign-in:**
 
-1. Navigate to the [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
+1. Navigate to [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
 
 2. Sign-in to your tenant as global administrator.
 
