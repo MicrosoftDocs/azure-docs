@@ -30,6 +30,8 @@ This section will help you better understand how customer-managed key encryption
 
 > [!NOTE]
 > Synapse workspaces do not support the use of EC, EC-HSM, RSA-HSM, and oct-HSM keys for encryption. 
+> When creating a new key in the Azure Key Vault via ARM Template, 'keyOps' under properties for Microsoft.KeyVault/vaults/keys resource needs to have "unwrapKey" and 
+> "wrapKey" specified.
 
 The data in the following Synapse components is encrypted with the customer-managed key configured at the workspace level:
 * SQL pools
@@ -40,7 +42,7 @@ The data in the following Synapse components is encrypted with the customer-mana
 
 ## Workspace encryption configuration
 
-Workspaces can be configured to enable double encryption with a customer-managed key at the time of workspace creation. Enable double encryption using a customer-managed key on the "Security" tab when creating your new workspace. You can choose to enter a key identifier URI or select from a list of key vaults in the **same region** as the workspace. The Key Vault itself needs to have **purge protection enabled**.
+Workspaces can be configured to enable double encryption with a customer-managed key at the time of workspace creation. Enable double encryption using a customer-managed key on the "Security" tab when creating your new workspace. You can choose to enter a key identifier URI or select from a list of key vaults in the **same region** as the workspace. The Key Vault itself needs to have **purge protection enabled**. 
 
 > [!IMPORTANT]
 > The configuration setting for double encryption cannot be changed after the workspace is created.
