@@ -2,7 +2,7 @@
 title: Template functions - numeric
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers.
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 09/08/2021
 ---
 
 # Numeric functions for ARM templates
@@ -211,7 +211,7 @@ The output from the preceding example with the default values is:
 
 Converts the value to a floating point number. You only use this function when passing custom parameters to an application, such as a Logic App.
 
-The `float` function is not supported in Bicep.
+The `float` function isn't supported in Bicep.
 
 ### Parameters
 
@@ -306,31 +306,9 @@ An integer representing the maximum value from the collection.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) shows how to use max with an array and a list of integers:
+The following example shows how to use max with an array and a list of integers.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[max(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[max(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/max.json":::
 
 The output from the preceding example with the default values is:
 
@@ -357,31 +335,9 @@ An integer representing minimum value from the collection.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) shows how to use min with an array and a list of integers:
+The following example shows how to use min with an array and a list of integers.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[min(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[min(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/min.json":::
 
 The output from the preceding example with the default values is:
 
@@ -396,7 +352,7 @@ The output from the preceding example with the default values is:
 
 Returns the remainder of the integer division using the two provided integers.
 
-The `mod` function is not supported in Bicep. Use the [% operator](../bicep/operators-numeric.md#modulo-) instead.
+The `mod` function isn't supported in Bicep. Use the [% operator](../bicep/operators-numeric.md#modulo-) instead.
 
 ### Parameters
 
@@ -456,7 +412,7 @@ The output from the preceding example with the default values is:
 
 Returns the multiplication of the two provided integers.
 
-The `mul` function is not supported in Bicep. Use the [* operator](../bicep/operators-numeric.md#multiply-) instead.
+The `mul` function isn't supported in Bicep. Use the [* operator](../bicep/operators-numeric.md#multiply-) instead.
 
 ### Parameters
 
