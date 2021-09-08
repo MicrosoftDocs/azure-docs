@@ -190,7 +190,7 @@ Set-TimeZone -Id "Russian Standard Time"
 To see the current time zone of the running container or an available list of time zones, use [Get-TimeZone](/powershell/module/microsoft.powershell.management/get-timezone).
 
 ## Can I maintain session affinity from client connections to pods with Windows Containers?
-Only by a workaround. The product group is currently working to add AKS support for Windows Server 2022 images which will support session affinity with Kube-Proxy. The workaround to allow session affinity by Client IP can be achieved by limiting your desired pod to run a single instance per node and configuring your Kubernetes service to direct traffic to the pod on the local node. To achieve this, the following configuration can be used:
+While this will be supported in the WS2022 OS version, the current way to achieve session affinity by Client IP is done by limiting your desired pod to run a single instance per node and configuring your Kubernetes service to direct traffic to the pod on the local node. To achieve this, the following configuration can be used:
 1. AKS cluster running a minimum version of 1.20.
 1. Constrain your pod to allow only one instance per Windows node. This can be achieved by using anti-affinity in your deployment configuration.
 1. In your Kubernetes service configuration, set “externalTrafficPolicy=Local”. This will ensure the Kubernetes service only directs traffic to pods within the local node.
