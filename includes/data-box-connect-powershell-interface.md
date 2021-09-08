@@ -9,60 +9,6 @@ ms.author: alkohli
 
 Depending on the software version, that your Data Box is running, you may need to take different steps to connect to the PowerShell interface of the device.
 
-
-### [v3.0 to v4.0](#tab/b)
-
-1. Open an elevated PowerShell session.
-
-1. Open a PowerShell session using **Run as administrator**. Add your Data Box to the `TrustedHosts` list using the IP address. Type:
-
-    ```powershell
-    Set-Item Wsman:\localhost\Client\TrustedHosts <IPv4_address for your Data Box> 
-    ``` 
-
-1. Get password for your Data Box order resource in the Azure portal. 
-
-1. Convert the password supplied in plain text to a secure string. Type:
-
-    ```powershell
-    $Pwd = ConvertTo-SecureString <Password from Azure portal> -AsPlainText -Force 
-    ```
-1. Provide the username and password for the session and create a credential object. The default username is `StorSimpleAdmin` and the password you got in the earlier step.
-
-    ```powershell
-    $Cred = New-Object System.Management.Automation.PSCredential("~\StorSimpleAdmin",$Pwd)
-    ``` 
-1. Start a session with the device.
-
-    ```powershell
-    Enter-PSSession -Computer <IPv4_address for your Data Box> -ConfigurationName Minishell -Credential $Cred 
-    ```
-
-    Here is an example output
-    
-    ```powershell
-    Windows PowerShell
-    Copyright (C) Microsoft Corporation. All rights reserved.
-    
-    Try the new cross-platform PowerShell https://aka.ms/pscore6
-    
-    PS C:\WINDOWS\system32> Set-Item wsman:\localhost\Client\TrustedHosts "10.128.45.52"
-    
-    WinRM Security Configuration.
-    This command modifies the TrustedHosts list for the WinRM client. The computers in the
-    TrustedHosts list might not be authenticated. The client might send credential information to
-     these computers. Are you sure that you want to modify this list?
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
-    PS C:\WINDOWS\system32> $Pwd = ConvertTo-SecureString "Password1" -AsPlainText -Force
-    PS C:\WINDOWS\system32> $Cred = New-Object System.Management.Automation.PSCredential("~\StorSimpleAdmin",$Pwd)
-    PS C:\WINDOWS\system32> Enter-PSSession -Computer "10.128.45.52" -ConfigurationName Minishell -Credential $Cred
-    WARNING: Please engage Microsoft Support if you need to access this interface
-    to troubleshoot any potential issues you may be experiencing.
-    Changes made through this interface without involving Microsoft
-    Support could result in an unsupported configuration.
-    [10.128.45.52]: PS>
-    ```
-
 ### [v4.1 and later](#tab/c)
 
 For these versions of software, you must first install certificates on the host accessing your Data Box and then connect to the PowerShell interface of the device. When you install certificates, you can use the default certificates that the device is shipped with or bring your own certificates. In each case, the specific steps that you'll take are slightly different.
@@ -115,7 +61,7 @@ Follow these steps if you'll bring your own certificates on Data Box.
     ```
     Provide the **Name** and **DNS domain** for your device from the earlier steps.
 
-1. Add your Data Box to the `TrustedHosts` list using the IP address. Type:
+1. Add your Data Box to the `TrustedHosts` list using the `$Name` parameter. Type:
  
     ```powershell
     Set-Item wsman:\localhost\Client\TrustedHosts $Name 
@@ -153,7 +99,7 @@ Follow these steps if you'll bring your own certificates on Data Box.
     [by506b4b5d0790.microsoftdatabox.com]: PS>
     ```
 
-#### Skip certificate validation
+### Skip certificate validation
 
 If you are not using the certificates (we recommend that you use the certificates!), you can skip the certificate validation check by using the session options: `-SkipCACheck -SkipCNCheck -SkipRevocationCheck`.
 
@@ -175,6 +121,60 @@ Follow these steps to skip certificate validation:
     ```powershell
     Enter-PSSession -ComputerName $Name -ConfigurationName Minishell -Credential ~\StorSimpleAdmin -UseSSL -SessionOption $sessOptions 
     ```
+
+### [v3.0 to v4.0](#tab/b)
+
+1. Open a PowerShell session using **Run as administrator**. 
+1. Add your Data Box to the `TrustedHosts` list using the IP address. Type:
+
+    ```powershell
+    Set-Item Wsman:\localhost\Client\TrustedHosts <IPv4_address for your Data Box> 
+    ``` 
+
+1. Get password for your Data Box order resource in the Azure portal. 
+
+1. Convert the password supplied in plain text to a secure string. Type:
+
+    ```powershell
+    $Pwd = ConvertTo-SecureString <Password from Azure portal> -AsPlainText -Force 
+    ```
+1. Provide the username and password for the session and create a credential object. The default username is `StorSimpleAdmin` and the password you got in the earlier step.
+
+    ```powershell
+    $Cred = New-Object System.Management.Automation.PSCredential("~\StorSimpleAdmin",$Pwd)
+    ``` 
+1. Start a session with the device.
+
+    ```powershell
+    Enter-PSSession -Computer <IPv4_address for your Data Box> -ConfigurationName Minishell -Credential $Cred 
+    ```
+
+    Here is an example output
+    
+    ```powershell
+    Windows PowerShell
+    Copyright (C) Microsoft Corporation. All rights reserved.
+    
+    Try the new cross-platform PowerShell https://aka.ms/pscore6
+    
+    PS C:\WINDOWS\system32> Set-Item wsman:\localhost\Client\TrustedHosts "10.128.45.52"
+    
+    WinRM Security Configuration.
+    This command modifies the TrustedHosts list for the WinRM client. The computers in the
+    TrustedHosts list might not be authenticated. The client might send credential information to
+     these computers. Are you sure that you want to modify this list?
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+    PS C:\WINDOWS\system32> $Pwd = ConvertTo-SecureString "Password1" -AsPlainText -Force
+    PS C:\WINDOWS\system32> $Cred = New-Object System.Management.Automation.PSCredential("~\StorSimpleAdmin",$Pwd)
+    PS C:\WINDOWS\system32> Enter-PSSession -Computer "10.128.45.52" -ConfigurationName Minishell -Credential $Cred
+    WARNING: Please engage Microsoft Support if you need to access this interface
+    to troubleshoot any potential issues you may be experiencing.
+    Changes made through this interface without involving Microsoft
+    Support could result in an unsupported configuration.
+    [10.128.45.52]: PS>
+    ```
+
+
 
 
   

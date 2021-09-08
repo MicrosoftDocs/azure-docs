@@ -16,11 +16,11 @@ ms.author: alkohli
 This article describes how to diagnose that your Data Box is out of sync and then change the time on your Data Box device. The information in this article applies to import as well as export orders on both Data Box and Data Box Heavy devices.
 
 
-## About synchronizing device time
+## About device time sync
 
 Data Box automatically synchronizes time when it is connected to the internet using the default Windows time server `time.windows.com`. However, if Data Box is not connected to the internet, the device time may be out of sync. This situation may affect the data copy from the source data to Data Box specifically if the copy is via the REST API or certain tools that have time constraints. 
 
-If you see any time difference between the time on Data Box and other local devices on your site, you can sync the time on your Data Box by accessing its PowerShell interface. The Set-Date API is used to modify the device time. 
+If you see any time difference between the time on Data Box and other local devices on your site, you can sync the time on your Data Box by accessing its PowerShell interface. The `Set-Date API` is used to modify the device time. For more information, see [Set-Date API](/powershell/module/microsoft.powershell.utility/set-date?view=powershell-7.1&preserve-view=true).
 
 
 ## Connect to the PowerShell interface
