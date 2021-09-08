@@ -54869,6 +54869,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Face/face-how-to-install-containers.md",
+      "redirect_url": "/azure/cognitive-services/Face/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/face-resource-container-config.md",
+      "redirect_url": "/azure/cognitive-services/Face/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/LUIS/encrypt-data-at-rest",
       "redirect_document_id": false
