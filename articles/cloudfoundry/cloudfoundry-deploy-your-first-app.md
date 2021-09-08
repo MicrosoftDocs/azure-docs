@@ -136,7 +136,7 @@ Running the `cf app` command on the application shows that Cloud Foundry is crea
 
 <!-- LINKS -->
 
-[pcf-azuremarketplace]: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
+[pcf-azuremarketplace]: https://azure.microsoft.com/blog/deploying-pivotal-cloud-foundry-on-azure-with-a-click-of-a-button
 [pcf-custom]: https://docs.pivotal.io/pivotalcf/1-10/customizing/azure.html
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/ops-manager/2-10/install/pcf_azure.html
