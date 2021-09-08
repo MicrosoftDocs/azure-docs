@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/07/2021
+ms.date: 09/08/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -222,6 +222,9 @@ Perform the following steps in the Azure portal to order a device.
 
     ![Commit order](media/data-box-deploy-export-ordered/azure-data-box-select-export-order-commit-order.png)
 
+> [!NOTE]
+> To check whether blob and file exports are successful, you can review logs for the export order. Error logs are generated automatically during export. A verbose log file also is generated if you selected **Include verbose log** when you configure the export order. For more information about copy logs and verbose logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).<!--Placement? This replaces the "Copy logs" section at the end of the document.-->
+
 ## Export order using XML file
 
 If you select **Use XML file**, you can specify specific containers and blobs (page and block) you want to export. You will need to follow the [Sample XML file table](#sample-xml-file) specifications for formatting your XML. The steps below show you how to use an XML file for exporting your data:
@@ -260,50 +263,56 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 
 ---
 
-### Sample XML file
+## Sample XML file
 
 # [Sample file](#tab/sample-file)
 
 <!--Old text - The following xml is an example of blob names, blob prefixes, and Azure Files contained in the xml format that the export order uses when you select the **use XML file** option.<!--Make the wording simpler and clearer. They will provide the XML.-->
 
-The sample xml file below has each of the xml tags that you use to select blobs and files for export in a Data Box order.
+The sample xml file below includes one or more examples of each xml tag that is used to select blobs and files for export in a Data Box export order.
+
+For more examples of valid path and prefix formats, see Valid paths, prefixes. TAB LINK
 
 ```xml
 <<?xml version="1.0" encoding="utf-8"?>
+   <!--BlobList/prefix/Container list for Blob storage for export.-->
    <BlobList>
-      <BlobPath>/8tbpageblob/blob.txt</BlobPath>
-      <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix>
-      <BlobPathPrefix>/1tbfilepageblob</BlobPathPrefix>
-      <BlobPathPrefix>/1tbfile/</BlobPathPrefix>
-	  <BlobPathPrefix>/1tbfile/file</BlobPathPrefix>
+      <BlobPath>/8tbpageblob/blob.txt</BlobPath> <!--Exports the blob /8tbpageblob/blob.txt.-->
+      <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix> <!--Exports every blob in the container blockblobdot75tbdata.-->
+      <BlobPathPrefix>/1tbfilepageblob</BlobPathPrefix> <!--Exports all containers with the prefix "1tbfilepageblob".-->
+      <BlobPathPrefix>/1tbfile/</BlobPathPrefix> <!--Exports all blobs in the container 1tbfile.-->
+	    <BlobPathPrefix>/1tbfile/file</BlobPathPrefix> <!--Exports all blobs in the container 1tbfile that have the prefix "file".-->
    </BlobList>
+   <!--FileList/prefix/Share list for Azure File storage for export.-->
    <AzureFileList>
-	  <FilePath>/fileshare1/file.txt</FilePath>
-      <FilePathPrefix>/64mbfiles/</FilePathPrefix>
-      <FilePathPrefix>/fileshare2/file</FilePathPrefix>
-      <FilePathPrefix>/dir</FilePathPrefix>
-   </AzureFileList>
+	    <FilePath>/fileshare1/file.txt</FilePath> <!--Exports the file /fileshare1/file.txt in fileshare1.-->
+      <FilePathPrefix>/64mbfiles/</FilePathPrefix> <!--Exports all directories and files in 64mbfiles/.-->
+      <FilePathPrefix>/fileshare2/file</FilePathPrefix> <!--Exports all directories and files in fileshare2 that start with the prefix "file".-->
+      <FilePathPrefix>/dir</FilePathPrefix> <!--Exports all directories and files that start with the prefix "dir".-->
+     </AzureFileList>
 ```
 
-The following xml tags are used:
+The following xml tags are used in the xml file.
 
-| xml tag           |Description | Example |
-|-------------------|------------|---------|
-|`<BlobList>`       |Container list for Blob storage for export. | TBD  |
-|`<BlobPath>`       |Filters the selection to a single blob. |*/8tbpageblob/blob.txt* exports the blob **/8tbpageblob/blob.txt**.|
-|`BlobPathPrefix`   |Filters the selection to a set of similarly named containers or similarly named blobs in a container.</br>The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. | */blockblob4dot75tbdata/* exports all containers that begin with the prefix **1tbfilepageblob**.</br>For more examples, see Valid blob path prefixes. LINK TO TAB. |
-|`<AzureFileList>`  |Share list for Azure File storage for export | TBD |
-|`<FilePath>`       |Filters the selection to a single file. | */fileshare1/file.txt* exports the file **/fileshare1/file.txt**. |
-|`<FilePathPrefix>` |Filters the selection to a set of similarly named shares, similarly named folders in a share, or similarly named files in a folder. | */64mbfiles/* exports all directories and files in the **64mbfiles/** share.</br>For more examples, see Valid file path prefixes. LINK TO TAB. |
+| xml tag           |Description |
+|-------------------|------------|
+|`<BlobList>`       |Container list for Blob storage for export. |
+|`<BlobPath>`       |Filters the selection to a single blob. |
+|`BlobPathPrefix`   |Filters the selection to a set of similarly named containers or similarly named blobs in a container.</br>The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
+|`<AzureFileList>`  |Share list for Azure File storage for export |
+|`<FilePath>`       |Filters the selection to a single file. |
+|`<FilePathPrefix>` |Filters the selection to a set of similarly named shares, similarly named folders in a share, or similarly named files in a folder. |
 
 # [XML tag usage](#tab/xml-tag-usage)
+
+Follow these guidelines to construct the xml file for your export order. Incorrect tag formats can lead to export failures.
 
 #### Path vs. prefix
 
 To form the xml tags correctly, you need to understand the difference between a path and a prefix:
 
   * A *path* selects and filters to a single object.
-  * A *prefix* selects and filters to multiple objects. 
+  * A *prefix* selects and filters to multiple objects.
   * The object can be a blob or a file.
 
 The prefixes that select multiple blobs or multiple files are similar:  
@@ -314,12 +323,12 @@ The prefixes that select multiple blobs or multiple files are similar:
 
 #### General xml requirements
 
-* xml tags are case sensitive and need to match the tags in the above table exactly.
+* All xml tags are case sensitive and need to match the tags in the above<!--No longer above.--> table exactly.
 * Opening and closing tags must match.
 * Incorrect xml tags or formatting may lead to data export failure.
 * No data will be exported if the blob prefix or file prefix is invalid.
 
-# [Valid blob path prefixes](#tab/blob-path-prefixes)
+# [Valid paths, prefixes](#tab/valid-paths-prefixes)
 
 
 The following table has examples of valid paths for the &lt;BlobPathPrefix&gt; tag.<!--Generalize to "path, prefixes," and start with a sample path?-->
@@ -384,14 +393,14 @@ After placing an order, you can cancel it at any point before the order starts p
 
 To delete a canceled order, go to **Overview** and select **Delete** from the command bar.
 
-## Sample log files
+<!--## Sample log files
 
-<!--What to do with this section? The sample logs were commented out. Just make a note, with link, at the point where they will want to view log files?-->
+SECTION REPLACED BY A NOTE AT THE END OF "Order" PROCEDURE.
 
 This section provides sample log files that are are generated during export. The error logs are generated automatically. To generate the verbose log file, you need to select **Include verbose log** in Azure portal when configuring the export order.
-For more information regarding copy and verbose logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).
+For more information regarding copy logs and verbose logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).
 
-<!-- ### Verbose log
+### Verbose log
 
 The following log files show examples of verbose logging when you select **Include verbose log**:
 
@@ -426,9 +435,9 @@ The following log files show examples of verbose logging when you select **Inclu
 
 ### Copy logs
 
-For more information regarding copy logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box). -->
+For more information regarding copy logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).
 
-<!-- The following xml shows an example of the copy log when the export is successful:
+The following xml shows an example of the copy log when the export is successful:
 
 ```xml
 <CopyLog Summary="Summary">
