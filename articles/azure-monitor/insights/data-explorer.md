@@ -12,14 +12,14 @@ ms.author: lagayhar
 # Azure Data Explorer Insights
 
 Azure Data Explorer Insights provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures.
+
+It offers:
+
+-    **At-scale perspective**. A snapshot view of your clusters' primary metrics helps you track performance of queries, ingestion, and export operations.
+-   **Drill-down analysis**. You can drill down into a particular Azure Data Explorer cluster to perform detailed analysis.
+-    **Customization**. You can change which metrics you want to see, modify or set thresholds that align with your limits, and save your own custom workbooks. Charts in the workbook can be pinned to Azure dashboards.
+
 This article will help you understand how to onboard and use Azure Data Explorer Insights.
-
-## Introduction to Azure Data Explorer Insights
-
-Before jumping into the experience, you should understand how it presents and visualizes information.
--    **At scale perspective** showing a snapshot view of your clusters' primary metrics, to easily track performance of queries, ingestion, and export operations.
--   **Drill down analysis** of a particular Azure Data Explorer cluster to help perform detailed analysis.
--    **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save your own custom workbooks. Charts in the workbook can be pinned to Azure dashboards.
 
 ## View from Azure Monitor (at scale perspective)
 
@@ -27,7 +27,7 @@ From Azure Monitor, you can view the main performance metrics for the cluster, i
 
 To view the performance of your clusters across all your subscriptions, perform the following steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights Hub section, select **Azure Data Explorer Clusters**.
 
@@ -82,7 +82,9 @@ Azure Data Explorer Insights combines both logs and metrics to provide a global 
 ![Screenshot of blue button that displays the text "Enable Logs for Monitoring"](./media/data-explorer/enable-logs.png)
 
 
- The **Overview** tab shows:
+### Overview tab
+
+The **Overview** tab shows:
 
 - Metrics tiles highlighting the availability and overall status of the cluster to quickly assess its health.
 
@@ -93,9 +95,13 @@ Azure Data Explorer Insights combines both logs and metrics to provide a global 
 
 [![Screenshot of view from an Azure Data Explorer cluster resource](./media/data-explorer/overview.png)](./media/data-explorer/overview.png#lightbox)
 
+### Key Metrics tab
+
 The **Key Metrics** tab shows a unified view of some of the cluster's metrics, grouped by: general metrics, query-related, ingestion-related, and streaming ingestion-related metrics.
 
 [![Screenshot of failures view](./media/data-explorer/key-metrics.png)](./media/data-explorer/key-metrics.png#lightbox)
+
+### Usage tab
 
 The **Usage** tab allows users to deep dive into the performance of the cluster's commands and queries. On this page, you can:
  
@@ -108,13 +114,25 @@ The **Usage** tab allows users to deep dive into the performance of the cluster'
 
 [![Screenshot of operations view with line charts of query count by application, total memory by application and total CPU by application](./media/data-explorer/usage-2.png)](./media/data-explorer/usage-2.png#lightbox)
 
-The **tables** tab shows the latest and historical properties of tables in the cluster. You can see which tables are consuming the most space, track growth history by table size, hot data, and the number of rows over time.
+### Tables tab
 
-The **cache** tab allows users to analyze their actual queries' lookback window patterns and compare them to the configured cache policy (for each table). You can identify tables used by the most queries and tables that are not queried at all, and adapt the cache policy accordingly. You may get particular cache policy recommendations on specific tables in Azure Advisor (currently, cache recommendations are available only from the [main Azure Advisor dashboard](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), based on actual queries' lookback window in the past 30 days and an un-optimized cache policy for at least 95% of the queries. Cache reduction recommendations in Azure Advisor are available for clusters that are "bounded by data" (meaning the cluster has low CPU and low ingestion utilization, but because of high data capacity, the cluster could not scale-in or scale-down).
+The **Tables** tab shows the latest and historical properties of tables in the cluster. You can see which tables are consuming the most space, track growth history by table size, hot data, and the number of rows over time.
+
+### Cache tab
+
+The **Cache** tab allows users to analyze their actual queries' lookback window patterns and compare them to the configured cache policy (for each table). You can identify tables used by the most queries and tables that are not queried at all, and adapt the cache policy accordingly. 
+
+You may get particular cache policy recommendations on specific tables in Azure Advisor (currently, cache recommendations are available only from the [main Azure Advisor dashboard](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), based on actual queries' lookback window in the past 30 days and an un-optimized cache policy for at least 95% of the queries. 
+
+Cache reduction recommendations in Azure Advisor are available for clusters that are "bounded by data" (meaning the cluster has low CPU and low ingestion utilization, but because of high data capacity, the cluster could not scale-in or scale-down).
 
 [![Screenshot of cache details](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
-The **cluster boundaries** tab displays the cluster boundaries based on your usage. In this tab you can inspect the CPU, ingestion and cache utilization. These metrics are scored as "Low", "Medium" or "High". These metrics and scores are important when deciding on the optimal SKU and instances count for your cluster, and they are taken into account in Azure Advisor SKU/size recommendation. In this tab you can select a metric tile and deep dive to understand its trend and how its score is decided. You can also view the Azure Advisor SKU/size recommendation for your cluster. For example, in the following image you can see that all metrics are scored as "Low", and thereby the cluster receives a cost recommendation allowing it to scale in/down and save cost.
+### Clusterm Boundaries tab
+
+The **Cluster Boundaries** tab displays the cluster boundaries based on your usage. In this tab you can inspect the CPU, ingestion and cache utilization. These metrics are scored as "Low", "Medium" or "High". These metrics and scores are important when deciding on the optimal SKU and instances count for your cluster, and they are taken into account in Azure Advisor SKU/size recommendation. 
+
+On the **Cluster Boundaries** tab, you can select a metric tile and deep dive to understand its trend and how its score is decided. You can also view the Azure Advisor SKU/size recommendation for your cluster. For example, in the following image you can see that all metrics are scored as "Low", and thereby the cluster receives a cost recommendation allowing it to scale in/down and save cost.
 
 > [!div class="mx-imgBorder"]
 > [![Screenshot of cluster boundaries.](./media/data-explorer/cluster-boundaries.png)](./media/data-explorer/cluster-boundaries.png#lightbox)
@@ -159,7 +177,6 @@ To view your logs-based data, you will need to [enable diagnostic logs](/azure/d
 ### I have already enabled logs for my Azure Data Explorer Cluster, why am I still unable to see my data under Commands and Queries?
 
 Currently, diagnostic logs do not work retroactively, so the data will only start appearing once there have been actions taken to your Azure Data Explorer. Therefore, it may take some time, ranging from hours to a day, depending on how active your Azure Data Explorer cluster is.
-
 
 ## Next steps
 
