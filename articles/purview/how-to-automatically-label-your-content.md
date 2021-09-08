@@ -1,5 +1,5 @@
 ---
-title: How to automatically apply sensitivity labels to your data
+title: How to automatically apply sensitivity labels to your data in Azure Purview
 description: Learn how to create sensitivity labels and automatically apply them to your data during a scan.
 author: ajaykar
 ms.author: ajaykar
@@ -8,7 +8,7 @@ ms.subservice: purview-label
 ms.topic: how-to
 ms.date: 03/09/2021
 ---
-# One of theses
+# How to automatically apply sensitivity labels to your data in Azure Purview
 
 ## Create or extend existing sensitivity labels to Azure Purview
 
@@ -17,7 +17,7 @@ If you don't already have sensitivity labels, you'll need to create them and mak
 
 ### Step 1: Licensing requirements
 
-MIP sensitivity labels are created and managed in the Microsoft 365 Security and Compliance Center. To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 E5 license.
+Sensitivity labels are created and managed in the Microsoft 365 Security and compliance center. To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 E5 license.
 
 If you do not already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/business/compliance-solutions#midpagectaregion).
 
@@ -37,35 +37,33 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
 ### Step 3: Create or modify existing label to automatically label content
 
-When you use sensitivity labels for Office apps on Windows, macOS, iOS, and Android, users see new labels within four hours, and within one hour for Office on the web. However, allow up to 24 hours for changes to replicate to all apps and services.
-
 > [!IMPORTANT]
 > Do not delete a label unless you understand the impact for your users. For more information, see [Removing and deleting labels](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) in the Microsoft 365 documentation.
 >
 
 **To create new sensitivity labels or modify existing labels**:
 
-1. Open the [Microsoft 365 Security and Compliance Center](https://protection.office.com/homepage). 
+1. Open the [Microsoft 365 Security and compliance center](https://protection.office.com/homepage). 
 
 1. Under **Solutions**, select **Information protection**, then select **Create a label**. 
 
-    :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Create sensitivity labels in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
+    :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Create sensitivity labels in the Microsoft 365 Security and compliance center" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
 1. Name the label. Then, under **Define the scope for this label**:
 
     - To label files, also select **Files & emails**.
     - To label schematized data like database columns, select **Schematized data assets**.
     
-    :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Create your label in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-label-scope.png":::
+    :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Create your label in the Microsoft 365 Security and compliance center" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 
-1. Follow the rest of the prompts in the wizard for your label settings. 
+1. Follow the rest of the prompts to configure the label settings. 
 
     Specifically, define auto-labeling rules for files and schematized data assets:
 
     - [Define auto-labeling rules for files](#define-auto-labeling-rules-for-files)
     - [Define auto-labeling rules for schematized data assets](#define-auto-labeling-rules-for-database-columns)
 
-    For more information about wizard options, see [What sensitivity labels can do](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) in the Microsoft 365 documentation.
+    For more information about configuration options, see [What sensitivity labels can do](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) in the Microsoft 365 documentation.
 
 1. Repeat the steps listed above to create more labels. 
 
@@ -73,7 +71,7 @@ When you use sensitivity labels for Office apps on Windows, macOS, iOS, and Andr
 
 1. To modify existing labels, browse to **Information Protection** > **Labels**, and select your label. 
 
-    Then select **Edit label** to open the **Edit sensitivity label** wizard again, with all of the settings you'd defined when you created the label.
+    Then select **Edit label** to open the **Edit sensitivity label** configuration again, with all of the settings you'd defined when you created the label.
 
     :::image type="content" source="media/create-sensitivity-label/edit-sensitivity-label-full-small.png" alt-text="Edit an existing sensitivity label" lightbox="media/create-sensitivity-label/edit-sensitivity-label-full.png":::
 
@@ -83,27 +81,26 @@ When you use sensitivity labels for Office apps on Windows, macOS, iOS, and Andr
 
     For more information, see [Label priority (order matters)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) in the Microsoft 365 documentation.
 
-
-Continue by [scanning your data to apply labels automatically](#scan-your-data-to-apply-labels-automatically), and then:
+Continue by [scanning your data to apply labels automatically](#Scan-your-data-to-apply-sensitivity-labels-automatically), and then:
 
 - [View labels on assets](#view-labels-on-assets)
 - [View Insight reports for the classifications and sensitivity labels](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
 
 #### Auto-labeling for files
 
-Define auto-labeling rules for files in the wizard when you create or edit your label. 
+Define auto-labeling rules for files when you create or edit your label. 
 
 On the **Auto-labeling for Office apps** page, enable **Auto-labeling for Office apps,** and then define the conditions where you want your label to be automatically applied to your data.
 
 For example:
 
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Define auto-labeling rules for files in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Define auto-labeling rules for files in the Microsoft 365 Security and compliance center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
 For more information, see [Apply a sensitivity label to data automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) in the Microsoft 365 documentation. 
 
 #### Auto-labeling for schematized data
 
-Define auto-labeling rules for schematized data assets in the wizard when you create or edit your label. 
+Define auto-labeling rules for schematized data assets when you create or edit your label. 
 
 Under the **schematized data assets** option:
 
@@ -113,14 +110,14 @@ Under the **schematized data assets** option:
 
 For example:
         
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Define auto-labeling rules for SQL columns in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Define auto-labeling rules for SQL columns in the Microsoft 365 Security and compliance center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
 ### Step 4: Publish labels
 
 Once you create a label, you will need to Scan your data in Azure Purview to automatically apply the labels you've created, based on the auto-labeling rules you've defined. 
 
 ### Scan your data to apply sensitivity labels automatically
-Scan your data in Azure Purview to automatically apply the labels you've created, based on the auto-labeling rules you've defined.
+Scan your data in Azure Purview to automatically apply the labels you've created, based on the auto-labeling rules you've defined. Allow up to 24 hours for sensitivity label changes to reflect in Purview.
 
 For more information on how to set up scans on various assets in Azure Purview, see:
 
@@ -146,7 +143,7 @@ For example:
 
 ## View Insight reports for the classifications and sensitivity labels
 
-Find insights on your classified and labeled data in Azure Purview using the **Classification** and **Sensitivity labeling** reports.
+Find insights on your classified and labeled data in Azure Purview use the **Classification** and **Sensitivity labeling** reports.
 
 > [!div class="nextstepaction"]
 > [Classification insights](./classification-insights.md)
