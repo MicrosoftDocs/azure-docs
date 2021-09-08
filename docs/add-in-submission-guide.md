@@ -3,7 +3,7 @@ title: Microsoft 365 Store step-by-step submission guide
 description:  Use this step-by-step submission guide to submit your app to the Microsoft stores. 
 localization_priority: Normal
 ms.author: mingshen
-ms.date: 9/13/2021
+ms.date: 9/27/2021
 ---
 
 # Store step-by-step submission guide
@@ -22,6 +22,8 @@ This article is a step-by-step guide that will detail how to submit your app to 
 1. Select the **Marketplace offers** tile.
 
     :::image type="content" source="images/workspaces/marketplace-offers-tile.png" alt-text="Illustrates the product GUID in the URL for an Office app.":::
+
+1. If you see the _Commercial marketplace_ and _Office store_ tabs in the upper-left of the page, select the **Office store** tab.
 
 1. Select **+ New offer** and then select the type of app you want to submit. The example screenshots in this article show an Office Add-in, but the steps apply to Teams apps, SharePoint solutions, and so on.
 
@@ -100,7 +102,7 @@ You will need to upload your manifest file to the grey box on the **Packages** p
 
 When your manifest is uploaded and is correct, you will receive a confirmation and see that manifest checks have passed and that the **Status** column shows **Complete**.
 
-[ ![A completed manifest upload.](./images/add-in-submission-guide/step-4-packages-complete-upload.png) ](./images/add-in-submission-guide/step-4-packages-complete-upload.png#lightbox)
+[ ![A completed manifest upload.](./images/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png) ](./images/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png#lightbox)
 
 #### [Current interface](#tab/old-web-form)
 
@@ -185,7 +187,7 @@ If you don't specify a support document link, you will be prompted to enter one.
 
 ## Step 7: For each language your app is available in, create your detailed store listing
 
-Your store listing is configured on the **Marketplace listings** page. You should include a summary, description, search keywords, icons, screenshots, and an optional video. For details, see [our submission checklist](./checklist.md).
+Your store listing is configured on the **Marketplace listings** page. You should include a summary, description, optional search keywords, icons, screenshots, and an optional video. For details, see [our submission checklist](./checklist.md).
 
 To provide your listing information, select the language you want to configure under the **Language** column.
 
