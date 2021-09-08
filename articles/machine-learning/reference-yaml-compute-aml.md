@@ -1,7 +1,7 @@
 ---
-title: 'CLI (v2) AmlCompute YAML schema'
+title: 'CLI (v2) compute cluster (AmlCompute) YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) AmlCompute YAML schema.
+description: Reference documentation for the CLI (v2) compute cluster (AmlCompute) YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,13 +13,13 @@ ms.date: 09/20/2021
 ms.reviewer: laobri
 ---
 
-# CLI (v2) AmlCompute YAML schema
+# CLI (v2) compute cluster (AmlCompute) YAML schema
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Remarks
 
-The `az ml compute` command can be used for managing Azure Machine Learning AmlComputes.
+The `az ml compute` command can be used for managing Azure Machine Learning compute clusters (AmlCompute).
 
 ## Examples
 
@@ -27,15 +27,15 @@ The `az ml compute` command can be used for managing Azure Machine Learning AmlC
 
 ## Schema
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/AmlCompute.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json. The schema is provided below in JSON and YAML formats for convenience.
 
 # [JSON](#tab/json)
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/AmlCompute.schema.json":::
+:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/amlCompute.schema.json":::
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/AmlCompute.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/amlCompute.schema.yml":::
 
 ---
 
