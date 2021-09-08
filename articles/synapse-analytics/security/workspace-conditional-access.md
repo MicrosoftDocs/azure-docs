@@ -27,5 +27,5 @@ The following steps show how to configure a Conditional Access policy for Azure 
 
 ## Next steps
 Learn more about Conditional access policies and their components.
-- [Common Conditional Access policies](active-directory\conditional-access\concept-conditional-access-policy-common.md)
-- [Building a Conditional Access policy](active-directory\conditional-access\concept-conditional-access-policies.md)
+- [Common Conditional Access policies](..\..\active-directory\conditional-access\concept-conditional-access-policy-common.md)
+- [Building a Conditional Access policy](..\..\active-directory\conditional-access\concept-conditional-access-policies.md)
