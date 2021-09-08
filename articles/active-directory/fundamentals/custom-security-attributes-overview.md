@@ -162,7 +162,7 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 
 Here are some of the known issues with custom security attributes:
 
-- You can only add the predefined values after you add the custom security attribute by using the Edit attribute page.
+- You can only add the predefined values after you add the custom security attribute by using the **Edit attribute** page.
 - Users with attribute set-level role assignments can see other attribute sets and custom security attribute definitions.
 - Global Administrators can read audit logs for custom security attribute definitions and assignments.
 - Directory synced users from an on-premises Active Directory can't be assigned custom security attributes.
