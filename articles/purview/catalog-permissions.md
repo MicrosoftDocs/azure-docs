@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 08/18/2021
 ---
 
 # Access control in Azure Purview
