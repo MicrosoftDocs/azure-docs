@@ -14,7 +14,7 @@ ms.reviewer: larryfr
 
 # Audit and manage Azure Machine Learning
 
-When teams collaborate on Azure Machine Learning, they may face varying requirements to the configuration and organization of resources. Machine learning teams may look for flexibility in how to organize workspaces for collaboration. Moreover, teams may need to optimize compute cluster sizing to meet the requirements of their use cases. As an administrator looking to manage the Azure environment, you can use [Azure Policy](../governance/policy/index.yml) for auditing and governing resource state.
+When teams collaborate on Azure Machine Learning, they may face varying requirements to the configuration and organization of resources. Machine learning teams may look for flexibility in how to organize workspaces for collaboration. Teams may also need to optimize compute cluster sizing to meet the requirements of their use cases. As an administrator looking to manage the Azure environment, you can use [Azure Policy](../governance/policy/index.yml) for auditing and governing resource state.
 
 ## Policies for Azure Machine Learning
 
