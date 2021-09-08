@@ -118,7 +118,7 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 
 ## Move a Backup vault across Azure subscriptions/resource groups (Public Preview)
 
-This article explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
+This section explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
 
 >[!Note]
 >You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource?view=azps-6.3.0&preserve-view=true) and [CLI](/cli/azure/resource?view=azure-cli-latest&preserve-view=true#az_resource_move).
@@ -129,7 +129,9 @@ The vault move across subscriptions and resource groups is currently supported i
 
 ### Use Azure portal to move Backup vault to a different resource group
 
-1. Sign in to the [Azure portal](https://portal.azure.com/), and then open the list of Backup vaults and select the vault you want to move.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Open the list of Backup vaults and select the vault you want to move.
 
    The vault dashboard displays the vault details.
 
@@ -145,7 +147,7 @@ The vault move across subscriptions and resource groups is currently supported i
 
    :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-inline.png" alt-text="Screenshot showing the selection of an existing resource group or creation of a new resource group." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-expanded.png":::
 
-   On the **Under Resources to move** tab, the Backup vault that needs to be moved will undergo validation. This process may take a few minutes. Wait till the validation is complete.a
+1. On the **Resources to move** tab, the Backup vault that needs to be moved will undergo validation. This process may take a few minutes. Wait till the validation is complete.
 
    :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-inline.png" alt-text="Screenshot showing the Backup vault validation status." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-expanded.png"::: 
 
@@ -161,7 +163,9 @@ Wait till the move operation is complete to perform any other operations on the 
 
 ### Use Azure portal to move Backup vault to a different subscription
 
-1. Sign in to the [Azure portal](https://portal.azure.com/), and then open the list of Backup vaults and select the vault you want to move.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Open the list of Backup vaults and select the vault you want to move.
    
    The vault dashboard displays the vault details.
 
@@ -179,7 +183,7 @@ Wait till the move operation is complete to perform any other operations on the 
 
    :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-to-move-to-other-subscription-inline.png" alt-text="Screenshot showing the selection of an existing resource group or creation of a new resource group in another Azure subscription." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-to-move-to-other-subscription-expanded.png":::
 
-   On the **Under Resources to move** tab, the Backup vault that needs to be moved will undergo validation. This process may take a few minutes. Wait till the validation is complete.
+1. On the **Resources to move** tab   , the Backup vault that needs to be moved will undergo validation. This process may take a few minutes. Wait till the validation is complete.
 
    :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-inline.png" alt-text="Screenshot showing the validation status of Backup vault to be moved to another Azure subscription." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-expanded.png"::: 
 
