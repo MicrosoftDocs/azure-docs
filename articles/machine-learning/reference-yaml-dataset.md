@@ -17,6 +17,10 @@ ms.reviewer: laobri
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+## YAML syntax
+
+[TODO]
+
 ## Remarks
 
 The `az ml dataset` command can be used for managing Azure Machine Learning datasets.
