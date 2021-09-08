@@ -791,7 +791,7 @@ sections:
       - question: |
           What's the difference between manual and auto-instrumentation?
         answer: |
-          Manual instrumentation is coding against the OpenTelemetry API and typically consists of installing a language-specific SDK in an application.
+          Manual instrumentation is coding against the OpenTelemetry API and typically consists of installing a language-specific SDK in an application. “Manual” does not mean you’ll be required to write complex code to define spans for distributed traces (though it remains an option). A rich and [growing set of instrumentation libraries](https://opentelemetry.io/registry/) maintained by OpenTelemetry contributors will enable you to effortlessly capture telemetry signals across common frameworks and libraries. 
           
           Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
           
