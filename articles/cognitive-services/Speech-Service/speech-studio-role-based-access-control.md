@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Azure role-based access control in Speech Studio 
 
-Speech Studio supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you can assign different levels of permissions for your Speech Studio operations to different team members. For more information on Azure RBAC, see the [Azure RBAC documentation](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Speech Studio supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you can assign different levels of permissions for your Speech Studio operations to different team members. For more information on Azure RBAC, see the [Azure RBAC documentation](/azure/role-based-access-control/overview).
 
 ## Prerequisites
 
