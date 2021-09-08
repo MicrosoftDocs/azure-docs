@@ -5,7 +5,7 @@ author: craigktreasure
 manager: vriveras
 
 ms.author: crtreasu
-ms.date: 04/01/2020
+ms.date: 09/08/2021
 ms.topic: overview
 ms.service: azure-object-anchors
 #Customer intent: Address frequently asked questions regarding Azure Object Anchors.
@@ -42,14 +42,10 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types. For more information, see [Asset Requirements](overview.md).
 
-**Q: What is the gravity direction and unit required by the model conversion service? How can we figure them out?**
+**Q: What is the gravity direction and unit required by the model conversion service?**
 
-**A:** Gravity direction is the down vector pointing to the earth. For CAD models, gravity direction is typically the opposite of an up direction. 
-For example, in many cases +Z represents up, in which case -Z or `Vector3(0.0, 0.0, -1.0)` would represent the gravity direction. When determining gravity, you should not only consider the model, but also the orientation in which the model will be seen during runtime. If you are trying to detect a chair in the real world on a flat surface, gravity might be `Vector3(0.0, 0.0, -1.0)`. However, if the chair is on a 45-degree slope, gravity might be `Vector3(0.0, -Sqrt(2)/2, -Sqrt(2)/2)`.
-
-The gravity direction can be reasoned with a 3D rendering tool, like [MeshLab](http://www.meshlab.net/).
-
-The unit represents the unit of measurement of the model. Supported units can be found using the **Microsoft.Azure.ObjectAnchors.Conversion.AssetLengthUnit** enumeration.
+**A:** See [here](./troubleshooting/troubleshooting-object-detection.md#ensure-the-gravity-direction-and-asset-dimension-unit-are-correct)
+       for detailed information.
 
 **Q: How long does it take to convert a CAD model?**
 
@@ -114,25 +110,12 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: What should I do if the Object Anchors runtime cannot detect my object?**
 
-**A:**
-
-* Ensure the room has enough textures by adding a few posters.
-* Scan the object more completely.
-* Adjust the model parameters as described below.
-* Provide a tight bounding box as search area that includes all or most of the object.
-* Clear spatial mapping cache and rescan the object.
-* Capture diagnostics and send the data to us.
-* Adjust the `MinSurfaceCoverage` property from the `ObjectQuery` class. For more information, see [How to detect a difficult object](detect-difficult-object.md).
+**A:** See [here](./troubleshooting/troubleshooting-object-detection.md) for detailed information.
 
 **Q: How to choose object query parameters?**
 
-**A:**
-
-* Provide tight search areas to ideally cover the full object to improve detection speed and accuracy.
-* Default `ObjectQuery.MinSurfaceCoverage` from object model usually is good, otherwise use a smaller value to get a quicker detection.
-* Use a small value for `ObjectQuery.ExpectedMaxVerticalOrientationInDegrees` if object is expected to be up-right.
-* An app should always use a `1:1` object model for detection. The estimated scale should be close to 1 ideally within 1% error. An app could set `ObjectQuery.MaxScaleChange` to `0` or `0.1` to disable or enable scale estimation, and qualitatively evaluate the instance pose.
-* For more information, see [How to detect a difficult object](detect-difficult-object.md).
+**A:** See [here](./troubleshooting/troubleshooting-object-detection.md#adjust-object-query-parameters) for detailed
+       information.
 
 **Q: How do I get Object Anchors diagnostics data from the HoloLens?**
 
