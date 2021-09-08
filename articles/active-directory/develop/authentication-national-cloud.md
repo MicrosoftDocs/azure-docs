@@ -23,8 +23,8 @@ National clouds are physically isolated instances of Azure. These regions of Azu
 Including the global cloud​, Azure Active Directory (Azure AD) is deployed in the following national clouds:  
 
 - Azure Government
-- Azure Germany (deprecated)
 - Azure China 21Vianet
+- Azure Germany ([closes on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions))
 
 National clouds are unique and a separate environment from Azure global. It's important to be aware of key differences while developing your application for these environments. Differences include registering applications, acquiring tokens, and configuring endpoints.
 
@@ -42,7 +42,7 @@ The following table lists the base URLs for the Azure AD endpoints used to regis
 | National cloud | Azure AD portal endpoint |
 |----------------|--------------------------|
 | Azure AD for US Government | `https://portal.azure.us` |
-| Azure AD Germany (deprecated) | `https://portal.microsoftazure.de` |
+| Azure AD Germany ([closes on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions)) | `https://portal.microsoftazure.de` |
 | Azure AD China operated by 21Vianet | `https://portal.azure.cn` |
 | Azure AD (global service) |`https://portal.azure.com` |
 
@@ -55,7 +55,7 @@ The following table lists the base URLs for the Azure AD endpoints used to acqui
 | National cloud | Azure AD authentication endpoint |
 |----------------|-------------------------|
 | Azure AD for US Government | `https://login.microsoftonline.us` |
-| Azure AD Germany (deprecated)| `https://login.microsoftonline.de` |
+| Azure AD Germany ([closes on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions))| `https://login.microsoftonline.de` |
 | Azure AD China operated by 21Vianet | `https://login.partner.microsoftonline.cn` |
 | Azure AD (global service)| `https://login.microsoftonline.com` |
 
@@ -83,4 +83,4 @@ National cloud documentation:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
-- [Azure Germany (deprecated)](../../germany/index.yml)
+- [Azure Germany (closes on October 29, 2021)](../../germany/index.yml)
