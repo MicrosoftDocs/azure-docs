@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with iPass SmartConnect | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with iPass SmartConnect'
 description: Learn how to configure single sign-on between Azure Active Directory and iPass SmartConnect.
 services: active-directory
 author: jeevansd
@@ -13,7 +13,7 @@ ms.date: 09/01/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with iPass SmartConnect
+# Tutorial: Azure AD SSO integration with iPass SmartConnect
 
 In this tutorial, you'll learn how to integrate iPass SmartConnect with Azure Active Directory (Azure AD). When you integrate iPass SmartConnect with Azure AD, you can:
 
