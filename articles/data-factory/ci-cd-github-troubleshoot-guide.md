@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 06/27/2021
+ms.date: 09/07/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF 
@@ -282,6 +282,19 @@ Because customers may have different unit testing requirements with different sk
 For example, you want to delete duplicates in a file and then store curated file as table in a database. To test the pipeline, you set up a CI/CD project using Azure DevOps.
 You set up a TEST pipeline stage where you deploy your developed pipeline. You configure TEST stage to run Python tests for making sure table data is what you expected. If you do not use CI/CD, you use **Nunit** to trigger deployed pipelines with tests you want. Once you are satisfied with the results, you can finally publish the pipeline to a production data factory. 
 
+
+### Pipeline runs temporarily fail after CI/CD deployment or authoring updates
+
+#### Issue
+After some amount of time, new pipeline runs begin to succeed without any user action after temporary failures.
+
+#### Cause
+
+There are several scenarios which can trigger this behavior, all of which involve a new version of a dependent resource being called by the old version of the parent resource. For example, suppose an existing child pipeline called by “Execute pipeline” is updated to have required parameters and the existing parent pipeline is updated to pass these parameters. If the deployment occurs during a parent pipeline execution, but before the **Execute Pipeline** activity, the old version of the pipeline will call the new version of the child pipeline, and the expected parameters will not be passed. This will cause the pipeline to fail with a *UserError*. This can also occur with other types of dependencies, such as if a breaking change is made to linked service during a pipeline run that references it. 
+
+#### Resolution
+
+New runs of the parent pipeline will automatically begin succeeding, so typically no action is needed. However, to prevent these errors, customers should consider dependencies while authoring and planning deployments to avoid breaking changes. 
 
 ## Next steps
 
