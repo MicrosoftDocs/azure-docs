@@ -36,5 +36,5 @@ You can also use a storage account or event-hub namespace that isn't in the subs
 
 ## Next steps
 
-[Azure Data Factory metrics and alerts](monitor-adf-metrics-and-alerts.md)
-[Monitor and manage pipelines programmatically](monitor-programmatically.md)
+- [Azure Data Factory metrics and alerts](monitor-adf-metrics-and-alerts.md)
+- [Monitor and manage pipelines programmatically](monitor-programmatically.md)
