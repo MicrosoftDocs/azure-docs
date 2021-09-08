@@ -47,7 +47,7 @@ For any given use case, there might be a few ways to solve the problem. Choosing
 | Support IP-based SSL needs for your app | App-assigned address |
 | Support unshared dedicated inbound address for your app | App-assigned address |
 | Restrict access to your app from a set of well-defined addresses | Access restrictions |
-| Restrict access to your app from resources in a virtual network | Service endpoints </br> ILB ASE </br> Private endpoints |
+| Restrict access to your app from resources in a virtual network | Service endpoints </br> Internal Load Balancer (ILB) ASE </br> Private endpoints |
 | Expose your app on a private IP in your virtual network | ILB ASE </br> Private endpoints </br> Private IP for inbound traffic on an Application Gateway instance with service endpoints |
 | Protect your app with a web application firewall (WAF) | Application Gateway and ILB ASE </br> Application Gateway with private endpoints </br> Application Gateway with service endpoints </br> Azure Front Door with access restrictions |
 | Load balance traffic to your apps in different regions | Azure Front Door with access restrictions | 
@@ -224,20 +224,18 @@ An App Service Environment (ASE) is a single-tenant deployment of the Azure App 
 * Access resources across ExpressRoute.
 * Expose your apps with a private address in your virtual network. 
 * Access resources across service endpoints. 
+* Access resources across private endpoints. 
 
-With an ASE, you don't need to use features like VNet Integration or service endpoints because the ASE is already in your virtual network. If you want to access resources like SQL or Azure Storage over service endpoints, enable service endpoints on the ASE subnet. If you want to access resources in the virtual network, you don't need to do any additional configuration. If you want to access resources across ExpressRoute, you're already in the virtual network and don't need to configure anything on the ASE or the apps in it. 
+With an ASE, you don't need to use VNet Integration because the ASE is already in your virtual network. If you want to access resources like SQL or Azure Storage over service endpoints, enable service endpoints on the ASE subnet. If you want to access resources in the virtual network or private endpoints in the virtual network, you don't need to do any additional configuration. If you want to access resources across ExpressRoute, you're already in the virtual network and don't need to configure anything on the ASE or the apps in it. 
 
 Because the apps in an ILB ASE can be exposed on a private IP address, you can easily add WAF devices to expose just the apps that you want to the internet and help keep the rest secure. This feature can help make the development of multitier applications easier. 
 
 Some things aren't currently possible from the multitenant service but are possible from an ASE. Here are some examples:
 
-* Expose your apps on a private IP address.
-* Help secure all outbound traffic with network controls that aren't a part of your app.
 * Host your apps in a single-tenant service. 
 * Scale up to many more instances than are possible in the multitenant service. 
 * Load private CA client certificates for use by your apps with private CA-secured endpoints.
 * Force TLS 1.1 across all apps hosted in the system without any ability to disable it at the app level. 
-* Provide a dedicated outbound address for all the apps in your ASE that aren't shared with customers. 
 
 ![Diagram that illustrates an ASE in a virtual network.](media/networking-features/app-service-environment.png)
 
@@ -306,7 +304,7 @@ If you scan App Service, you'll find several ports that are exposed for inbound 
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Management | 454, 455 |
-|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  FTP/FTPS    | 21, 990, 10001-10300 |
 |  Visual Studio remote debugging  |  4020, 4022, 4024 |
 |  Web Deploy service | 8172 |
 |  Infrastructure use | 7654, 1221 |
