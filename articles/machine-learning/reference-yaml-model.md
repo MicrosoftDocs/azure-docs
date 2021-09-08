@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 08/03/2021
+ms.date: 09/20/2121
 ms.reviewer: laobri
 ---
 
@@ -17,23 +17,27 @@ ms.reviewer: laobri
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+## Remarks
+
+The `az ml model` command can be used for managing Azure Machine Learning models.
+
+## Examples
+
+[TODO]
+
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/model.schema.json. The schema is provided below in JSON and YAML formats for convenience.
 
 # [JSON](#tab/json)
 
-:::code language="json" source="~/azureml-examples-main/cli/.schemas/jsons/latest/model.schema.json":::
+:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/model.schema.json":::
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/model.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/model.schema.yml":::
 
 ---
-
-## Remarks
-
-The `az ml model` command can be used for managing Azure Machine Learning models.
 
 ## Next steps
 

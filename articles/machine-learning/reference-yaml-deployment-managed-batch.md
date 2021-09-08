@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 08/03/2021
+ms.date: 09/20/2121
 ms.reviewer: laobri
 ---
 
@@ -17,23 +17,27 @@ ms.reviewer: laobri
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+## Remarks
+
+The `az ml batch-deployment` command can be used for managing Azure Machine Learning batch deployments.
+
+## Examples
+
+[TODO]
+
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json. The schema is provided below in JSON and YAML formats for convenience.
 
 # [JSON](#tab/json)
 
-:::code language="json" source="~/azureml-examples-main/cli/.schemas/jsons/latest/batchDeployment.schema.json":::
+:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/batchDeployment.schema.json":::
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/batchDeployment.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/batchDeployment.schema.yml":::
 
 ---
-
-## Remarks
-
-The `az ml deployment` command can be used for managing Azure Machine Learning deployments.
 
 ## Next steps
 
