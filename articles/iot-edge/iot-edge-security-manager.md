@@ -143,7 +143,7 @@ Another core principle for the IoT Edge module runtime is to minimize churn.  Fo
 ### Architecture
 
 <!--1.1-->
-:::moniker range="iotedge-2018-06}"
+:::moniker range="iotedge-2018-06"
 
 ![Azure IoT Edge security daemon](media/edge-security-manager/iot-edge-security-daemon.png)
 
