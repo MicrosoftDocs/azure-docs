@@ -83,4 +83,4 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
     ![Define an action group](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## Next Steps
-[Setup diagnostic logs via the Azure Monitor REST API](monitor-adf-logs-with-rest.md)
+[Configure diagnostics settings and workspace](monitor-configure-diagnostics.md)

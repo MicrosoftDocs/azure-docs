@@ -691,18 +691,18 @@ items:
       items:
       - name: Overview
         href: monitor-using-azure-monitor.md
-      - name: Configure diagnostics settings and workspace
-        href: monitor-configure-diagnostics.md
-      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
-        href: monitor-install-adf-analytics.md
       - name: Azure Data Factory metrics and alerts
         href: monitor-adf-metrics-and-alerts.md
+      - name: Configure diagnostics settings and workspace
+        href: monitor-configure-diagnostics.md
       - name: Setup diagnostics logs via the Azure Monitor REST API
         href: monitor-adf-logs-with-rest.md
-      - name: Schema of logs and events
-        href: monitor-schema-logs-and-events.md
       - name: Monitor SSIS operations with Azure Monitor
         href: monitor-adf-ssis.md
+      - name: Schema of logs and events
+        href: monitor-schema-logs-and-events.md
+      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
+        href: monitor-install-adf-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Monitor integration runtime

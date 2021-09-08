@@ -55,4 +55,4 @@ Create or add diagnostic settings for your data factory.
 After a few moments, the new setting appears in your list of settings for this data factory. Diagnostic logs are streamed to that workspace as soon as new event data is generated. Up to 15 minutes might elapse between when an event is emitted and when it appears in Log Analytics.
 
 ## Next Steps
-[Install Azure Data Factory Analytics solution from Azure Marketplace](monitor-install-adf-analytics.md)
+[Setup diagnostics logs via the Azure Monitor REST API](monitor-adf-logs-with-rest.md)

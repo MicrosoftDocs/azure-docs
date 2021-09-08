@@ -455,4 +455,4 @@ Log Analytics inherits the schema from Monitor with the following exceptions:
     | $.properties.Tags | Tags | Dynamic |
 
 ## Next Steps
-[Monitor SSIS operations with Azure Monitor](monitor-adf-ssis.md)
+[Install Azure Data Factory Analytics solution from Azure Marketplace](monitor-install-adf-analytics.md)
