@@ -121,6 +121,8 @@ items:
           href: virtual-networks-static-private-ip-classic-pportal.md
         - name: Azure PowerShell
           href: virtual-networks-static-private-ip-classic-ps.md
+      - name: Virtual machine scale set with IPv6
+        href: ipv6-virtual-machine-scale-set.md 
     - name: Routing preference
       items:
       - name: Create public IP address
