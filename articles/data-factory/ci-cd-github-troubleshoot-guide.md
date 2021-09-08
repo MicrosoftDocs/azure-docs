@@ -16,7 +16,7 @@ ms.date: 09/07/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-In this article, let us explore common troubleshooting methods for Continuous Integration-Continuous Deployment (CI-CD), Azure DevOps and GitHub issues in Azure Data Factory.
+In this article, let us explore common troubleshooting methods for Continuous Integration-Continuous Deployment (CI-CD), Azure DevOps, and GitHub issues in Azure Data Factory.
 
 If you have questions or issues in using source control or DevOps techniques, here are a few articles you may find useful:
 
@@ -157,15 +157,15 @@ Until recently, only way to publish ADF pipeline for deployments was using ADF P
 
 CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [ADF CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
 
-###  Cannot publish because of 4-MB ARM template limit  
+###  Cannot publish because of 4 MB ARM template limit  
 
 #### Issue
 
-You cannot deploy because you hit Azure Resource Manager limit of 4-MB total template size. You need a solution to deploy after crossing the limit. 
+You cannot deploy because you hit Azure Resource Manager limit of 4 MB total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
-Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
 
 #### Resolution
 
@@ -276,7 +276,7 @@ During development and deployment cycles, you may want to unit test your pipelin
 Because customers may have different unit testing requirements with different skill sets, usual practice is to follow following steps:
 
 1. Setup Azure DevOps CI/CD project or develop  .NET/PYTHON/REST type SDK driven test strategy.
-2. For CI/CD, create build artifact containing all scripts and deploy resources in release pipeline. For SDK driven approach, develop Test units using PyTest in Python,  C# **Nunit** using .NET  SDK and so on.
+2. For CI/CD, create build artifact containing all scripts and deploy resources in release pipeline. For SDK driven approach, develop Test units using PyTest in Python,  Nunit in C# using .NET  SDK and so on.
 3. Run unit tests as part of release pipeline or independently with ADF Python/PowerShell/.NET/REST SDK. 
 
 For example, you want to delete duplicates in a file and then store curated file as table in a database. To test the pipeline, you set up a CI/CD project using Azure DevOps.
