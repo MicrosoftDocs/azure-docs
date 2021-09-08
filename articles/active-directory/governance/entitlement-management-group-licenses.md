@@ -26,7 +26,11 @@ With Azure Active Directory, you can use groups to manage the [licenses for your
 *	Allow other users to request membership of the group
 
 In this tutorial, you work for WoodGrove Bank as an IT administrator. You've been asked to create an access package to your organization to easily gain access to Office licenses. You should already have a group that manages your [Office licenses](/active-directory/enterprise-users/licensing-groups-assign.md). These users require yearly review and allow new users to request Office licenses pending manager approval. 
+To use Azure AD entitlement management, you must have one of the following licenses:
 
+- Azure AD Premium P2
+- Enterprise Mobility + Security (EMS) E5 license
+For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 ## Step 1: Configure Basics for your Access Package
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
