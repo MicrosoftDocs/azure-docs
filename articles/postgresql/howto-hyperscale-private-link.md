@@ -11,13 +11,13 @@ ms.date: 09/07/2021
 
 # Private link in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-In this how-to, we’ll establish a private link between a virtual machine and an
-Azure Database for PostgreSQL - Hyperscale (Citus) server group.
+This how-to establishes a private link between a virtual machine and an Azure
+Database for PostgreSQL - Hyperscale (Citus) server group.
 
 ## Create a virtual network
 
-First, we’ll set up a resource group and virtual network. It'll hold our server
-group and virtual machine.
+First, we’ll set up a resource group and virtual network. It will hold our
+server group and virtual machine.
 
 ```sh
 az group create \
@@ -120,7 +120,7 @@ coordinator node of the server group.
 #
 # obtained from Settings -> Connection Strings in the Azure portal
 #
-# fill in your password!
+# replace {your_password} in the string with your actual password
 PG_URI='host=c.link-demo-sg.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require'
 
 # attempt to connect to server group with psql in the virtual machine
@@ -128,19 +128,18 @@ az vm run-command invoke \
 	--resource-group link-demo \
 	--name link-demo-vm \
 	--command-id RunShellScript \
-	--scripts \
-		"psql '$PG_URI' -c 'SHOW citus.version;'"
+	--scripts "psql '$PG_URI' -c 'SHOW citus.version;'"
 ```
 
-You should see a version number for Citus in the output. This shows that psql
-was able to execute a command.
+You should see a version number for Citus in the output. If you do, then psql
+was able to execute the command, and the private link worked.
 
 ## Clean up resources
 
-Now that we've seen how to establish a private link between a virtual machine
-and a Hyperscale (Citus) server group, we can deprovision the resources.
+Now we've seen how to establish a private link between a virtual machine and a
+Hyperscale (Citus) server group, and we can deprovision the resources.
 
-Simply delete the resource group:
+Delete the resource group, and the resources inside will be deprovisioned:
 
 ```sh
 az group delete --resource-group link-demo
