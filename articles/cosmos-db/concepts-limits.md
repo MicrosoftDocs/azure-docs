@@ -20,7 +20,7 @@ After you create an Azure Cosmos account under your subscription, you can manage
 
 ### Provisioned throughput
 
-You can provision throughput at a container-level or a database-level in terms of [request units (RU/s or RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database.
+You can provision throughput at a container-level or a database-level in terms of [request units (RU/s or RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database. Storage refers to the combined amount of data stored and index.
 
 | Resource | Default limit |
 | --- | --- |
