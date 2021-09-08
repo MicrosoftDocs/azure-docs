@@ -21,12 +21,14 @@ ms.reviewer: mathoma
 # Tutorial: Prerequisites for availability groups in multiple subnets (SQL Server on Azure VMs) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-In this tutorial, complete the prerequisites for creating an [Always On availability group for SQL Server on AzureVirtual Machines (VMs) in multiple subnets](availability-group-manually-configure-tutorial-multiple-subnet.md). At the end of the tutorial, you will have a domain controller on two Azure virtual machines, two SQL Server VMs in multiple subnets, and a storage account in a single resource group. 
-
-**Time estimate**: Please note that this tutorial may take several hours to complete, as creating resources can take some time. 
-
 > [!TIP]
 > Eliminate the need for an Azure Load Balancer for your Always On availability group by creating your SQL Server VMs in multiple subnets within the same Azure virtual network.
+
+In this tutorial, complete the prerequisites for creating an [Always On availability group for SQL Server on AzureVirtual Machines (VMs) in multiple subnets](availability-group-manually-configure-tutorial-multiple-subnet.md). At the end of the tutorial, you will have a domain controller on two Azure virtual machines, two SQL Server VMs in multiple subnets, and a storage account in a single resource group. 
+
+**Time estimate**: This tutorial may take several hours to complete, as creating resources can be time-intensive. 
+
+
 
 
 The following diagram illustrates the resources you deploy in this tutorial: 
@@ -58,7 +60,7 @@ To create the resource group in the Azure portal, follow these steps:
 1. On the **Create a resource group** page, fill out the values to create the resource group:
    1. Choose the appropriate Azure subscription from the drop-down. 
    1. Provide a name for your resource group, such as **SQL-HA-RG**.
-   1. Choose a region from the drop-down, such as **West US 2**. All subsequent resources will be deployed to this location as well. 
+   1. Choose a region from the drop-down, such as **West US 2**. Be sure to deploy all subsequent resources to this location as well. 
    1. Select **Review + create** to review your resource parameters, and then select **Create** to create your resource group.  
 
    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/01-resource-group-create-complete.png" alt-text="Fill out the values to create your resource group in the Azure portal. ":::
@@ -72,7 +74,7 @@ To create the virtual network in the Azure portal, follow these steps:
 
 1. Go to your resource group in the [Azure portal](https://portal.azure.com) and select **+ Create**
 
-   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/02-create-resource-rg.png" alt-text="New item":::
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/02-create-resource-rg.png" alt-text="Create new resource in your resource group":::
 
 1. Search for **virtual network** in the **Marketplace** search box and choose the **virtual network** tile from Microsoft. Select **Create** on the **Virtual network** page.  
 1. In **Create virtual network** enter this information in the **Basics** tab: 
@@ -81,22 +83,26 @@ To create the virtual network in the Azure portal, follow these steps:
 
    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/03-create-vnet-basics.png" alt-text="Choose the resource group you made previously, then provide a name for your virtual network, such as SQLHAVNET":::
 
-1. On the **IP addresses** tab, choose the **default** subnet to open the **Edit subnet** page. Change the name to **DC-subnet** for the domain controller subnet. Select **Save**.  
+1. On the **IP addresses** tab, select the **default** subnet to open the **Edit subnet** page. Change the name to **DC-subnet** to use for the domain controller subnet. Select **Save**.  
 
    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/04-create-vnet-ipaddress-rename-default-subnet.png" alt-text="Create virtual network":::
 
 1. Select **+ Add subnet** to add an additional subnet for your first SQL Server VM, and fill in the following values: 
    1. Provide a value for the **Subnet name**, such as **SQL-subnet-1**. 
-   1. Provide an IP address within the same subnet range as **DC-subnet**, but iterate the third octet by 1. For example, if your **DC-subnet** range is *10.5.0.0*, enter the IP address range **10.5.1.0** for **SQL-subnet-1**. Likewise, if your **DC-subnet** IP range is *10.38.0.0*, then enter **10.38.1.0** for the new subnet. 
+   1. Provide an IP address within the same subnet range as **DC-subnet**, but iterate the third octet by 1. 
+      - For example, if your **DC-subnet** range is **10.5.0.0**, enter the IP address range *10.5.1.0* for **SQL-subnet-1**. 
+      - Likewise, if your **DC-subnet** IP range is **10.38.0.0**, then enter *10.38.1.0* for the new subnet. 
    1. Select **Add** to add your new subnet. 
 
      :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/05-create-vnet-ipaddress-add-sql-subnet-1.png" alt-text="Name your first subnet, such as sql-subnet-1, and then iterate the third octet by 1, so that if your DC-subnet IP address is 10.5.0.0, your new subnet should be 10.5.1.0":::
 
-1. Repeat the previous step to add an additional subnet for your second SQL Server VM with a name such as **SQL-subnet-2**. However, once again, iterate the third octet by one. For example, if your **DC-subnet** range is *10.5.0.0*, and your **SQL-subnet-1** is *10.5.1.0*, then enter the IP address range **10.5.2.0** for **SQL-subnet-2**. Likewise, if your **DC-subnet** IP range is *10.38.0.0*, and your **SQL-subnet-1** is *10.38.1.0*, then enter **10.38.2.0** for the new subnet. 
+1. Repeat the previous step to add an additional subnet for your second SQL Server VM with a name such as **SQL-subnet-2**. However, once again, iterate the third octet by one. 
+   - For example, if your **DC-subnet** range is **10.5.0.0**, and your **SQL-subnet-1** is **10.5.1.0**, then enter the IP address range *10.5.2.0* for **SQL-subnet-2**. 
+   - Likewise, if your **DC-subnet** IP range is **10.38.0.0**, and your **SQL-subnet-1** is **10.38.1.0**, then enter *10.38.2.0* for the new subnet. 
 
    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/06-create-vnet-ipaddress-add-sql-subnet-2.png" alt-text="Name your second subnet, such as sql-subnet-2, and then iterate the third octet by 2, so that if your DC-subnet IP address is 10.5.0.0, your new subnet should be 10.5.2.0":::
 
-1. After you've added the second subnet, review your subnet names and ranges, like the image example (though your IP addresses may be different). If everything looks correct, select **Review + create**, then **Create** to create your new virtual network. 
+1. After you've added the second subnet, review your subnet names and ranges (your IP address ranges may vary). If everything looks correct, select **Review + create**, then **Create** to create your new virtual network. 
 
    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/07-create-vnet-ipaddress.png" alt-text="After you've added the second subnet, review your subnet names and ranges, like the image example (though your IP addresses may be different). If everything looks correct, select Review + create, then Create to create your new virtual network.":::
 
@@ -105,9 +111,21 @@ To create the virtual network in the Azure portal, follow these steps:
 
 ## Create domain controllers
 
-After you've created the network, and subnets, you're ready to create the virtual machines for the domain controllers.
+After your network and subnets are ready, create your virtual machines for the domain controllers, and then configure the domain controller. 
 
-### Create virtual machines for the domain controllers
+### Create DC virtual machines
+
+To create your domain controller virtual machines in the Azure portal, follow these steps: 
+
+1. Go to your resource group in the [Azure portal](https://portal.azure.com) and select **+ Create**
+
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/02-create-resource-rg.png" alt-text="Create new resource in your resource group":::
+
+1. Search for **Windows Server** in the **Marketplace** search box and choose the **virtual network** tile from Microsoft. Select **Create** on the **Virtual network** page.
+
+
+1. Select **+ Create** to create a new resource within your resource group. 
+
 
 To create and configure the domain controllers, return to the **SQL-HA-RG** resource group.
 
