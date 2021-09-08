@@ -33,7 +33,7 @@ This approach allows customers to use dense elastic pools to achieve adequate pe
 >
 > The number of databases that can be placed in dense pools without causing resource contention and performance problems depends on the number of concurrently active databases, and on resource consumption by user workloads in each database. This number can change over time as user workloads change.
 > 
-> Additionally, if the min vCore per database setting is set to a value greater than 0, the maximum number of databases in the pool will be implicitly limited. For more information, see [Database properties for pooled databases](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases).
+> Additionally, if the min vCores per database, or min DTUs per database setting is set to a value greater than 0, the maximum number of databases in the pool will be implicitly limited. For more information, see [Database properties for pooled vCore databases](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases) and [Database properties for pooled DTU databases](resource-limits-dtu-elastic-pools.md#database-properties-for-pooled-databases).
 
 When resource contention occurs in a densely packed pool, customers can choose one or more of the following actions to mitigate it:
 
