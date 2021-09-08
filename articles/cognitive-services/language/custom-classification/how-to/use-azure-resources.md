@@ -20,17 +20,17 @@ When you create a custom text classification project, you will connect it to a b
 
 Before you start using custom classification, you will need a Language Services resource. We recommend the steps in the [quickstart](../quickstart/using-language-studio.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure blob storage account at the same time, with all of the required permissions pre-configured. 
 
-# [Azure portal](#tabs/portal)
+# [Azure portal](#tab/portal)
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-# [Language Studio](#tabs/studio)
+# [Language Studio](#tab/studio)
 
 ### Create a new resource from Language Studio
 
 If it's your first time logging in, you'll see a window appear in [Language Studio](https://language.azure.com/) that will let you choose a language resource. You can also create a resource by clicking the settings icon in the top right corner, selecting **Resources**, then clicking **Create a new resource**. Follow the steps that appear to create your resource.
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > * Be sure to to select **Managed Identity** when you create a resource. This will let Azure authenticate to your Azure Blob storage account. 
 > * To use Custom Text Classification, you'll need a Language Services resource in **West US 2** or **West Europe** with the Standard (S) pricing tier.
 
@@ -39,10 +39,7 @@ Afterwards you'll need to:
 1. Enable identity management on your Azure resource.
 2. Set the correct roles on the storage account
 
-> [!NOTE]
-> To use custom classification, you'll need a Language Services resource in **West US 2** or **West Europe** with the Standard (S) pricing tier.
-
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 ### Create a new resource with the Azure CLI
 
