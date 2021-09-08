@@ -244,7 +244,7 @@ The Azure Database for PostgreSQL connector in copy activity provides built-in d
 
 ![Screenshot of partition options](.\media\connector-azure-database-for-postgresql/connector-postgresql-partition-options.png)
 
-When you enable partitioned copy, copy activity runs parallel queries against your Azure Database for PostgreSQL source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Azure SQL Database.
+When you enable partitioned copy, copy activity runs parallel queries against your Azure Database for PostgreSQL source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Azure Database for PostgreSQL.
 
 You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Azure Database for PostgreSQL. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommended to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
@@ -285,25 +285,6 @@ Best practices to load data with partition option:
     }
 }
 ```
-
-### Sample query to check physical partition
-
-```sql
-SELECT DISTINCT s.name AS SchemaName, t.name AS TableName, pf.name AS PartitionFunctionName, c.name AS ColumnName, iif(pf.name is null, 'no', 'yes') AS HasPartition
-FROM sys.tables AS t
-LEFT JOIN sys.objects AS o ON t.object_id = o.object_id
-LEFT JOIN sys.schemas AS s ON o.schema_id = s.schema_id
-LEFT JOIN sys.indexes AS i ON t.object_id = i.object_id 
-LEFT JOIN sys.index_columns AS ic ON ic.partition_ordinal > 0 AND ic.index_id = i.index_id AND ic.object_id = t.object_id 
-LEFT JOIN sys.columns AS c ON c.object_id = ic.object_id AND c.column_id = ic.column_id 
-LEFT JOIN sys.partition_schemes ps ON i.data_space_id = ps.data_space_id 
-LEFT JOIN sys.partition_functions pf ON pf.function_id = ps.function_id 
-WHERE s.name='[your schema]' AND t.name = '[your table name]'
-```
-
-If the table has physical partition, you would see "HasPartition" as "yes" like the following.
-
-![Sql query result](./media/connector-azure-sql-database/sql-query-result.png)
 
 ## Mapping data flow properties
 
