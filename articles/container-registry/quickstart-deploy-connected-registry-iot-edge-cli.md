@@ -47,15 +47,18 @@ To support the connected registry on nested IoT Edge, you need to import and set
 ```azurecli
 az acr import \
   --name $REGISTRY_NAME \
-  --source acronpremiot.azurecr.io/acr/microsoft/azureiotedge-agent:20210609.5 -t azureiotedge-agent:20210609.5
+  --source acronpremiot.azurecr.io/acr/microsoft/azureiotedge-agent:20210609.5 \
+  --image azureiotedge-agent:20210609.5
 
 az acr import \
   --name $REGISTRY_NAME \
-  --source acronpremiot.azurecr.io/acr/microsoft/azureiotedge-hub:20210609.5 -t azureiotedge-hub:20210609.5
+  --source acronpremiot.azurecr.io/acr/microsoft/azureiotedge-hub:20210609.5 \
+  --image azureiotedge-hub:20210609.5
 
 az acr import \
   --name $REGISTRY_NAME \
-  --source acronpremiot.azurecr.io/acr/microsoft/azureiotedge-api-proxy:9.9.9-dev -t azureiotedge-api-proxy:9.9.9-dev
+  --source acronpremiot.azurecr.io/acr/microsoft/azureiotedge-api-proxy:9.9.9-dev \
+  --image azureiotedge-api-proxy:9.9.9-dev
 ```
 
 ## Create a client token for access to the cloud registry
@@ -280,13 +283,13 @@ az acr connected-registry show \
   --output table
 ```
 
-You may need to a wait few minutes until the deployment of the connected registry and API proxy complete.
+After successful deployment, the connected registry shows a status of `Online`.
 
-[TODO: WHAT IS EXPECTED STATUS?]
+On the IoT Edge device, make sure you open the the ports `8000`, `5671`, and `8883`. The API proxy will listen on port 8000 configured as `NGINX_DEFAULT_PORT`.
 
-Make sure you open the the ports `8000`, `5671`, `8883`. The API proxy will listen on port 8000 configued as `NGINX_DEFAULT_PORT`.
+[TODO: Where to open the ports?]
 
-You can find more information about API Proxy in the [https://github.com/Azure/iotedge/tree/master/edge-modules/api-proxy-module]
+For more information about the API Proxy, see the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/master/edge-modules/api-proxy-module).
 
 ## Next steps
 

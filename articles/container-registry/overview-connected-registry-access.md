@@ -12,7 +12,7 @@ ms.date: 08/23/2021
 
 To access and manage a [connected registry](intro-connected-registry.md), currently only ACR [token-based authentication](container-registry-repository-scoped-permissions.md) is supported. As shown in the following image, two different types of tokens are used by each connected registry:
 
-* [**Client tokens**](#client-token) - One or more tokens that on-premises clients use to authenticate with a connected registry and push or pull images and artifacts to or from it.
+* [**Client tokens**](#client-tokens) - One or more tokens that on-premises clients use to authenticate with a connected registry and push or pull images and artifacts to or from it.
 * [**Sync token**](#sync-token) - A token used by each connected registry to access its parent and synchronize content.
 
 ![Connected registry authentication verview](media/connected-registry/connected-registry-authentication-overview.svg)
@@ -50,7 +50,7 @@ Update sync tokens, passwords, or scope maps as needed by using [az acr token](/
 
 ## Registry endpoints
 
-Token credentials for connected registies are scoped to access specific registry endpoints:
+Token credentials for connected registries are scoped to access specific registry endpoints:
 
 * A client token accesses the connected registry's endpoint. The connected registry endpoint is the login server URI, which is typically the IP address of the server or device that hosts it.
 

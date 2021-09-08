@@ -30,7 +30,7 @@ The top layer of the architecture, *Layer 5: Enterprise Network*, is managed by 
 
 The connected registry is show as working in [registry mode](intro-connected-registry.md#modes). Clients of this connected registry can pull and push images and artifacts to it. Pushed images will be synchronized with the cloud registry. If pushes are not required in that layer, the connected registry can be changed to operate in [mirror mode](intro-connected-registry.md#modes).
 
-For steps to deploy the connnected registry as an IoT Edge module at this level, see [Quickstart - Deploy a connected registry to an IoT Edge device][quickstart-deploy-connected-registry-iot-edge-cli].
+For steps to deploy the connected registry as an IoT Edge module at this level, see [Quickstart - Deploy a connected registry to an IoT Edge device][quickstart-deploy-connected-registry-iot-edge-cli].
 
 ### Nested layers
 
@@ -40,7 +40,7 @@ You can also deploy a connected registry working in mirror mode to serve the lay
 
 In this architecture, the connected registries deployed on each layer are configured to synchronize the images with the connected registry on the layer above. The connected registries are deployed as IoT Edge modules and leverage the IoT Edge mechanisms for deployment and network routing.
 
-For steps to deploy the connected registry on nested IoT Edge devices, see [Quickstart: Deploy connected registry on nested IoT Edge devices][quickstart-connected-registry-nested-iot-edge-cli].
+For steps to deploy the connected registry on nested IoT Edge devices, see [Quickstart: Deploy connected registry on nested IoT Edge devices][quickstart-deploy-connected-registry-nested-iot-edge-cli].
 
 ## Next steps
 
@@ -53,10 +53,10 @@ In this overview, you learned about the use of the connected registry in hierarc
 > [Quickstart - Deploy a connected registry to an IoT Edge device][quickstart-deploy-connected-registry-iot-edge-cli]
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy connected registry on nested IoT Edge devices][quickstart-connected-registry-nested-iot-edge-cli]
+> [Quickstart: Deploy connected registry on nested IoT Edge devices][quickstart-deploy-connected-registry-nested-iot-edge-cli]
 
 <!-- LINKS - internal -->
 [quickstart-connected-registry-cli]:quickstart-connected-registry-cli.md
 [quickstart-deploy-connected-registry-iot-edge-cli]:quickstart-deploy-connected-registry-iot-edge-cli.md
 [tutorial-nested-iot-edge]:../iot-edge/tutorial-nested-iot-edge.md
-[quickstart-connected-registry-nested-iot-edge-cli]: quickstart-connected-registry-nested-iot-edge-cli.md
+[quickstart-deploy-connected-registry-nested-iot-edge-cli]: quickstart-deploy-connected-registry-nested-iot-edge-cli.md

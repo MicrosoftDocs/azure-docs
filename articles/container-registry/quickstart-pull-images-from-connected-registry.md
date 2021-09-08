@@ -14,7 +14,7 @@ In this quickstart, you use Azure CLI commands to configure a client token for a
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 * Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli].
-* Connected registry instance deployed on an IoT Edge device. For deployment steps, see [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md) or [TODO FILL IN HERE].
+* Connected registry instance deployed on an IoT Edge device. For deployment steps, see [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md) or [Quickstart: Deploy a connected registry to a nested IoT Edge device](quickstart-deploy-connected-registry-nested-iot-edge-cli.md).
 
 ## Create a scope map
 
@@ -60,18 +60,22 @@ az acr connected-registry update \
 
 ## Pull an image from the connected registry
 
-From a machine with access to the connected registry instance, use the following command to sign into the connected registry, using the client token credentials:
+From a machine with access to the connected registry instance, use the following example command to sign into the connected registry, using the client token credentials. For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference:
 
 ```
 docker login --username myconnectedregistry-client-token \
-  --password <use_the_password_for_the_token> <use_the_ip_address_of_the_connected_registry>
+  --password <token_password> <IP_address_or_FQDN_of_connected_registry>
 ```
-[TODO: REPLACE WITH PASSWD_STDIN form, and explain how to get IP of CR]
+
+For IoT Edge scenarios, be sure to include the port used to reach the connected registry on the device. Example:
+
+docker login --username myconnectedregistry-client-token \
+  --password xxxxxxxxxxx myedgevm.easus.cloudapp.azure.com:8000
 
 Then, use the following command to pull the `hello-world` image:
 
 ```
-docker pull <use_the_ip_address_of_the_connected_registry>/hello-world
+docker pull <IP_address_or_FQDN_of_connected_registry>/hello-world
 ```
 
 ## Next steps

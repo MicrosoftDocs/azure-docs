@@ -39,25 +39,33 @@ The following image shows a typical deployment model for the connected registry.
 
 ![Connected registry overview](media/connected-registry/connected-registry-overview.svg)
 
-* **Deployment** - Each connected registry is a resource you manage using a cloud-based Azure container registry. The top parent in the connected registry hierarchy is an Azure container registry in an Azure cloud or in a private deployment of [Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview).
+### Deployment
 
-  Use Azure tools to install the connected registry on a server or device on your premises, or an environment that supports container workloads on-premises such as [Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md).
+Each connected registry is a resource you manage using a cloud-based Azure container registry. The top parent in the connected registry hierarchy is an Azure container registry in an Azure cloud or in a private deployment of [Azure Stack Hub](../azure-stack/operator/azure-stack-overview.md).
 
-* **Content synchronization** - The connected registry regularly accesses the cloud registry to synchronize container images and OCI artifacts. 
+Use Azure tools to install the connected registry on a server or device on your premises, or an environment that supports container workloads on-premises such as [Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md).
 
-    It can also be configured to synchronize a subset of the repositories from the cloud registry or to synchronize only during certain intervals to reduce traffic between the cloud and the premises.
+### Content synchronization
 
-* **Modes** - A connected registry can work in one of two modes: *registry mode* or *mirror mode*
+The connected registry regularly accesses the cloud registry to synchronize container images and OCI artifacts. 
 
-    - **Registry mode** - The default registry mode allows clients to pull as well as push artifacts to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. 
+It can also be configured to synchronize a subset of the repositories from the cloud registry or to synchronize only during certain intervals to reduce traffic between the cloud and the premises.
+
+### Modes
+
+A connected registry can work in one of two modes: *registry mode* or *mirror mode*
+
+- **Registry mode** - The default registry mode allows clients to pull as well as push artifacts to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. 
         
-      The registry mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
+  The registry mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
 
-    - **Mirror mode** - When the connected registry is in mirror mode, clients may only pull artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate.
+- **Mirror mode** - When the connected registry is in mirror mode, clients may only pull artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate.
 
-* **Registry hierarchy** - Each connected registry must be connected to a parent. The top parent is the cloud registry. For hierarchical scenarios such as [nested IoT Edge](overview-connected-registry-and-iot-edge.md), you can nest connected registries in registry mode or mirror mode. The parent connected to the cloud registry can operate in either mode. 
+### Registry hierarchy
 
-    Child registries must be compatible with their parent capabilities. Thus, both registry and mirror mode connected registries can be children of a connected registry operating in registry mode, but only a mirror mode registry can be a child of a connected registry operating in mirror mode.  
+Each connected registry must be connected to a parent. The top parent is the cloud registry. For hierarchical scenarios such as [nested IoT Edge](overview-connected-registry-and-iot-edge.md), you can nest connected registries in registry mode or mirror mode. The parent connected to the cloud registry can operate in either mode. 
+
+Child registries must be compatible with their parent capabilities. Thus, both registry and mirror mode connected registries can be children of a connected registry operating in registry mode, but only a mirror mode registry can be a child of a connected registry operating in mirror mode.  
 
 ## Client access
 

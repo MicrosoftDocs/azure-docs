@@ -10,7 +10,7 @@ ms.custom:
 
 # Quickstart: Create a connected registry using Azure Container Registry CLI commands
 
-In this quickstart, you use the Azure CLI to create a [connected registry](intro-connected-registry.md) resource in Azure. The connected registry feature of Azure Container Registry allows you to deploy a registry on your premises and synchronize images and other artifiacts between the cloud and your premises. 
+In this quickstart, you use the Azure CLI to create a [connected registry](intro-connected-registry.md) resource in Azure. The connected registry feature of Azure Container Registry allows you to deploy a registry on your premises and synchronize images and other artifacts between the cloud and your premises. 
 
 In this quickstart, you create two connected registry resources for an Azure container registry: one connected registry allows artifact pull and push functionality and one allows only artifact pull functionality. After creating a connected registry, you can follow other quickstart guides to deploy and use a connected registry on your on-premises infrastructure.
 
