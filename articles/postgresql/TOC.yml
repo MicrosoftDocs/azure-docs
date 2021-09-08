@@ -705,6 +705,11 @@
       - name: Azure portal
         href: howto-hyperscale-manage-firewall-using-portal.md
         displayName: firewall rule, hyperscale
+    - name: Private link
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-private-link.md
+        displayName: network, private link
     - name: Create users
       href: howto-hyperscale-create-users.md
     - name: Distributed data
@@ -740,10 +745,6 @@
         href: howto-hyperscale-restore-portal.md
     - name: Major version upgrades
       href: howto-hyperscale-upgrade.md
-    - name: Private link
-      items:
-      - name: Azure portal
-      - href: howto-hyperscale-private-link.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot connection errors
