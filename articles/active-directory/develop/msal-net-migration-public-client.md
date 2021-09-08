@@ -28,7 +28,7 @@ This article describes how to migrate a public client application from Azure Act
    The code that uses ADAL in a public client application instantiates `AuthenticationContext` and calls an override of `AcquireTokenAsync` with the following parameters:
 
    - A `resourceId` string. This variable is the app ID URI of the web API that you want to call.
-   - A `clientId` which is the identifier for your application, also known as App Id.
+   - A `clientId` which is the identifier for your application, also known as App ID.
 
 2. After you've identified that you have apps that are using ADAL.NET, install the MSAL.NET NuGet package [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) and update your project library references. For more information, see [Install a NuGet package](https://www.bing.com/search?q=install+nuget+package).
 
@@ -463,7 +463,7 @@ private static async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublic
    :::column-end:::
 :::row-end:::
 
-## MSAL benefits
+### MSAL benefits
 
 Key benefits of MSAL.NET for your app include:
 
@@ -472,7 +472,7 @@ Key benefits of MSAL.NET for your app include:
    - Azure AD Cached Credential Service (CCS) benefits. CCS operates as an Azure AD backup.
    - Proactive renewal of tokens if the API that you call enables long-lived tokens through [continuous access evaluation](app-resilience-continuous-access-evaluation.md).
 
-## Troubleshooting
+### Troubleshooting
 
 The following troubleshooting information makes two assumptions: 
 
@@ -490,7 +490,7 @@ You can troubleshoot the exception by using these steps:
 1. Confirm that you're using the latest version of MSAL.NET.
 1. Confirm that the authority host that you set when building the confidential client application and the authority host that you used with ADAL are similar. In particular, is it the same [cloud](msal-national-cloud.md) (Azure Government, Azure China 21Vianet, or Azure Germany)?
 
-## Next steps
+### Next steps
 
 Learn more about the [differences between ADAL.NET and MSAL.NET apps](msal-net-differences-adal-net.md).
 Learn more about [token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
