@@ -217,6 +217,10 @@ landingContent:
           url: https://aka.ms/asqlworkshop
         - text: Azure SQL bootcamp 
           url: https://aka.ms/azuresqlbootcamp
+        - text: Build full-stack apps with Azure SQL
+          url: https://aka.ms/azuremodernapps
+        - text: Deploy IoT solutions with Azure SQL
+          url: https://aka.ms/azuresqliot
         - text: Educational SQL resources
           url: /sql/sql-server/educational-sql-resources
 
