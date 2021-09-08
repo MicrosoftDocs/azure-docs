@@ -1,6 +1,6 @@
 ---
 title: Create and manage a catalog of resources in entitlement management - Azure AD
-description: Learn how to create a new container of resources and access packages in Azure Active Directory.entitlement management.
+description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -23,6 +23,8 @@ ms.collection: M365-identity-device-management
 ---
 # Create and manage a catalog of resources in Azure AD entitlement management
 
+This article shows you how to create and manage a catalog of resources and access packages in Azure Active Directory (Azure AD) entitlement management.
+
 ## Create a catalog
 
 A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. Whoever creates the catalog becomes the first catalog owner. A catalog owner can add more catalog owners.
@@ -36,7 +38,7 @@ To create a catalog:
 
 1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
 
-1. In the left menu, select **Catalogs**.
+1. On the left menu, select **Catalogs**.
 
     ![Screenshot that shows entitlement management catalogs in the Azure portal.](./media/entitlement-management-catalog-create/catalogs.png)
 
@@ -76,7 +78,7 @@ $catalog = New-MgEntitlementManagementAccessPackageCatalog -DisplayName "Marketi
 
 To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. For example:
 
-* Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure Active Directory (Azure AD) security groups. Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either.
+* Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either.
 * Applications can be Azure AD enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Azure AD. For more information on how to select appropriate resources for applications with multiple roles, see [Add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
 * Sites can be SharePoint Online sites or SharePoint Online site collections.
 
@@ -86,9 +88,9 @@ To add resources to a catalog:
 
 1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
 
-1. In the left menu, select **Catalogs** and then open the catalog you want to add resources to.
+1. On the left menu, select **Catalogs** and then open the catalog you want to add resources to.
 
-1. In the left menu, select **Resources**.
+1. On the left menu, select **Resources**.
 
 1. Select **Add resources**.
 
@@ -113,7 +115,7 @@ Attributes are required fields that requestors will be asked to answer before th
 
 To require attributes for access requests:
 
-1. Select **Resources** in the left menu, and a list of resources in the catalog appears. 
+1. Select **Resources** on the left menu, and a list of resources in the catalog appears. 
 
 1. Select the ellipsis next to the resource where you want to add attributes, and then select **Require attributes (Preview)**. 
 
@@ -158,7 +160,7 @@ To require attributes for access requests:
 
 1. If you have [Multi-Geo](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) enabled for SharePoint, select the environment you want to select sites from.
     
-    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multi-geo-select.png" alt-text="Screenshot that shows Access package - Add resource roles - Select SharePoint Multi-geo sites.":::
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multi-geo-select.png" alt-text="Screenshot that shows the Select SharePoint Online sites pane.":::
 
 1. Then select the sites you want to be added to the catalog.
 
@@ -176,9 +178,9 @@ To remove resources from a catalog:
 
 1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
 
-1. In the left menu, select **Catalogs** and then open the catalog you want to remove resources from.
+1. On the left menu, select **Catalogs** and then open the catalog you want to remove resources from.
 
-1. In the left menu, select **Resources**.
+1. On the left menu, select **Resources**.
 
 1. Select the resources you want to remove.
 
@@ -194,9 +196,9 @@ To assign a user to the catalog owner role:
 
 1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
 
-1. In the left menu, select **Catalogs** and then open the catalog you want to add administrators to.
+1. On the left menu, select **Catalogs** and then open the catalog you want to add administrators to.
 
-1. In the left menu, select **Roles and administrators**.
+1. On the left menu, select **Roles and administrators**.
 
     ![Screenshot that shows catalog roles and administrators.](./media/entitlement-management-shared/catalog-roles-administrators.png)
 
@@ -214,7 +216,7 @@ To edit a catalog:
 
 1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
 
-1. In the left menu, select **Catalogs** and then open the catalog you want to edit.
+1. On the left menu, select **Catalogs** and then open the catalog you want to edit.
 
 1. On the catalog's **Overview** page, select **Edit**.
 
@@ -234,11 +236,11 @@ To delete a catalog:
 
 1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
 
-1. In the left menu, select **Catalogs** and then open the catalog you want to delete.
+1. On the left menu, select **Catalogs** and then open the catalog you want to delete.
 
 1. On the catalog's **Overview** page, select **Delete**.
 
-1. In the message box that appears, select **Yes**.
+1. On the message box that appears, select **Yes**.
 
 ### Delete a catalog programmatically
 
