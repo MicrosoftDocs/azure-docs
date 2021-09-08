@@ -8,15 +8,17 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 09/08/2021
 ---
 # Add custom analyzers to string fields in an Azure Cognitive Search index
 
-A *custom analyzer* is a combination of tokenizer, one or more token filters, and one or more character filters that you define in the search index, and then reference on field definitions that require custom analysis. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Character filters prepare the input text before it is processed by the tokenizer. 
+A *custom analyzer* is a user-defined combination of tokenizer, one or more token filters, and one or more character filters specified in the search index, and then referenced on field definitions that require custom analysis. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Character filters prepare the input text before it is processed by the tokenizer. For concepts and examples, see [Analyzers in Azure Cognitive Search](search-analyzers.md).
 
-A custom analyzer gives you control over the process of converting text into indexable and searchable tokens by allowing you to choose which types of analysis or filtering to invoke, and the order in which they occur. If you want to use a built-in analyzer with custom options, such as changing the maxTokenLength on Standard, you would create a custom analyzer, with a user-defined name, to set those options.
+A custom analyzer gives you control over the process of converting text into indexable and searchable tokens by allowing you to choose which types of analysis or filtering to invoke, and the order in which they occur. 
 
-Situations where custom analyzers can be helpful include:
+Create and assign a custom analyzer if none of default (Standard Lucence), built-in, or language analyzers are sufficient for your needs. You might also create a custom analyzer if you want to use a built-in analyzer with custom options. For example, if you wanted to change the maxTokenLength on Standard, you would create a custom analyzer, with a user-defined name, to set that option.
+
+Scenarios where custom analyzers can be helpful include:
 
 - Using character filters to remove HTML markup before text inputs are tokenized, or replace certain characters or symbols.
 
@@ -30,18 +32,18 @@ Situations where custom analyzers can be helpful include:
 
 - ASCII folding. Add the Standard ASCII folding filter to normalize diacritics like ö or ê in search terms.  
 
-To create a custom analyzer, specify it in the "analyzers" section of an index at design time, and then reference it on searchable, Edm.String fields using either the "analyzer" property, or the "indexAnalyzer" and "searchAnalyzer" pair.
-
 > [!NOTE]  
-> Custom analyzers that you create are not exposed in the Azure portal. The only way to add a custom analyzer is through code that defines an index. 
+> Custom analyzers are not exposed in the Azure portal. The only way to add a custom analyzer is through code that defines an index. 
 
 ## Create a custom analyzer
+
+To create a custom analyzer, specify it in the "analyzers" section of an index at design time, and then reference it on searchable, Edm.String fields using either the "analyzer" property, or the "indexAnalyzer" and "searchAnalyzer" pair.
 
 An analyzer definition includes a name, type, one or more character filters, a maximum of one tokenizer, and one or more token filters for post-tokenization processing. Character filters are applied before tokenization. Token filters and character filters are applied from left to right.
 
 - Names in a custom analyzer must be unique and cannot be the same as any of the built-in analyzers, tokenizers, token filters, or characters filters. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters. 
 
-- The type must be #Microsoft.Azure.Search.CustomAnalyzer.
+- Type must be #Microsoft.Azure.Search.CustomAnalyzer.
 
 - "charFilters" can be one or more filters from [Character Filters](#CharFilter), processed before tokenization, in the order provided. Some character filters have options, which can be set in a "charFilter section. Character filters are optional.
 
@@ -206,7 +208,9 @@ The analyzer_type is only provided for analyzers that can be customized. If ther
 
 ## Character filters
 
-In the table below, the character filters that are implemented using Apache Lucene are linked to the Lucene API documentation.
+Character filters add processing before a string reaches the tokenizer.
+
+Cognitive Search supports character filters in the following list. More information about each one can be found in the Lucene API reference.
 
 |**char_filter_name**|**char_filter_type** <sup>1</sup>|**Description and Options**|  
 |--------------------|---------------------------------|---------------------------|
@@ -220,7 +224,9 @@ In the table below, the character filters that are implemented using Apache Luce
 
 ## Tokenizers
 
-A tokenizer divides continuous text into a sequence of tokens, such as breaking a sentence into words. In the table below, the tokenizers that are implemented using Apache Lucene are linked to the Lucene API documentation.
+A tokenizer divides continuous text into a sequence of tokens, such as breaking a sentence into words, or a word into root forms. 
+
+Cognitive Search supports tokenizers in the following list. More information about each one can be found in the Lucene API reference.
 
 |**tokenizer_name**|**tokenizer_type** <sup>1</sup>|**Description and Options**|  
 |------------------|-------------------------------|---------------------------|  
@@ -244,7 +250,7 @@ A tokenizer divides continuous text into a sequence of tokens, such as breaking 
 
 ## Token filters
 
-A token filter is used to filter out or modify the tokens generated by a tokenizer. For example, you can specify a lowercase filter that converts all characters to lowercase. You can have multiple token filters in a custom analyzer. Token filters run in the order in which they are listed. 
+A token filter is used to filter out or modify the tokens generated by a tokenizer. For example, you can specify a lowercase filter that converts all characters to lowercase. You can have multiple token filters in a custom analyzer. Token filters run in the order in which they are listed.
 
 In the table below, the token filters that are implemented using Apache Lucene are linked to the Lucene API documentation.
 
