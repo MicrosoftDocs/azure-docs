@@ -74,7 +74,7 @@ This article assumes the following configuration:
         * Azure Machine Learning service
     :::column-end:::
     :::column:::
-        Custom DNS configuration
+        You may need to use a custom DNS server. For more information, see [Use your workspace with a custom DNS](how-to-custom-dns.md).
     :::column-end:::
 :::row-end:::
 :::row:::
