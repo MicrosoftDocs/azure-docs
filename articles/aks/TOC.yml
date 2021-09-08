@@ -207,6 +207,8 @@
           href: azure-files-dynamic-pv.md
         - name: Azure Files - Static
           href: azure-files-volume.md
+        - name: Azure HPC Cache
+          href: azure-hpc-cache.md
         - name: NFS Server - Static
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
