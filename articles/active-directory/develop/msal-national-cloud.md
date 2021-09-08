@@ -27,9 +27,14 @@ Including the global cloud, Azure Active Directory (Azure AD) is deployed in
 
 - Azure Government
 - Azure China 21Vianet
-- Azure Germany
+- Azure Germany (deprecated)
 
 This guide demonstrates how to sign in to work and school accounts, get an access token, and call the Microsoft Graph API in the [Azure Government cloud](https://azure.microsoft.com/global-infrastructure/government/) environment.
+
+> [!WARNING]
+> Azure Germany (Microsoft Cloud Deutschland) will be [closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Services and applications you choose _not_ to migrate to a region in global Azure before that date will become inaccessible.
+
+If you haven't migrated your apps from Azure Germany, follow [Azure Active Directory information for the migration from Azure Germany](microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad) to get started.
 
 ## Prerequisites
 
@@ -211,4 +216,4 @@ National cloud documentation:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
-- [Azure Germany](../../germany/index.yml)
+- [Azure Germany (deprecated)](../../germany/index.yml)

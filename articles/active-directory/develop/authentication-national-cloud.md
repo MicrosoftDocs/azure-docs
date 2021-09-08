@@ -23,10 +23,15 @@ National clouds are physically isolated instances of Azure. These regions of Azu
 Including the global cloud​, Azure Active Directory (Azure AD) is deployed in the following national clouds:  
 
 - Azure Government
-- Azure Germany
+- Azure Germany (deprecated)
 - Azure China 21Vianet
 
 National clouds are unique and a separate environment from Azure global. It's important to be aware of key differences while developing your application for these environments. Differences include registering applications, acquiring tokens, and configuring endpoints.
+
+> [!WARNING]
+> Azure Germany (Microsoft Cloud Deutschland) will be [closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Services and applications you choose _not_ to migrate to a region in global Azure before that date will become inaccessible.
+
+If you haven't migrated your apps from Azure Germany, follow [Azure Active Directory information for the migration from Azure Germany](microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad) to get started.
 
 ## App registration endpoints
 
@@ -37,7 +42,7 @@ The following table lists the base URLs for the Azure AD endpoints used to regis
 | National cloud | Azure AD portal endpoint |
 |----------------|--------------------------|
 | Azure AD for US Government | `https://portal.azure.us` |
-| Azure AD Germany | `https://portal.microsoftazure.de` |
+| Azure AD Germany (deprecated) | `https://portal.microsoftazure.de` |
 | Azure AD China operated by 21Vianet | `https://portal.azure.cn` |
 | Azure AD (global service) |`https://portal.azure.com` |
 
@@ -50,7 +55,7 @@ The following table lists the base URLs for the Azure AD endpoints used to acqui
 | National cloud | Azure AD authentication endpoint |
 |----------------|-------------------------|
 | Azure AD for US Government | `https://login.microsoftonline.us` |
-| Azure AD Germany| `https://login.microsoftonline.de` |
+| Azure AD Germany (deprecated)| `https://login.microsoftonline.de` |
 | Azure AD China operated by 21Vianet | `https://login.partner.microsoftonline.cn` |
 | Azure AD (global service)| `https://login.microsoftonline.com` |
 
