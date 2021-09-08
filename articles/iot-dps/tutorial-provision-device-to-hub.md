@@ -67,7 +67,7 @@ After enrollment, the provisioning service then waits for the device to boot and
 
 Your IoT device can be a real device, or a simulated device. Since the IoT device has now been enrolled with a Device Provisioning Service instance, the device can now boot up, and call the provisioning service to be recognized using the attestation mechanism. Once the provisioning service has recognized the device, it will be assigned to an IoT hub.
 
-Simulated device examples, using both TPM and X.509 attestation, are included for C, Java, C#, Node.js, and Python.  To see an example of a device using TPM attestation, see [Quickstart: Provision a simulated TPM device](quick-create-simulated-device.md). For an example of a device using X.509 attestation, see [Quickstart:Provision a simulated symmetric key device](quick-create-simulated-device-x509.md#prepare-and-run-the-device-provisioning-code)
+Simulated device examples, using both TPM and X.509 attestation, are included for C, Java, C#, Node.js, and Python.  To see an example of a device using TPM attestation, see [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md). For an example of a device using X.509 attestation, see [Quickstart:Provision a simulated symmetric key device](quick-create-simulated-device-x509.md#prepare-and-run-the-device-provisioning-code)
 
 Start the device to allow your device's client application to start the registration with your Device Provisioning Service.  
 
@@ -83,7 +83,7 @@ Once your device boots, the following actions should take place:
 
     ![Successful connection to hub in the portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-For more information, see the provisioning device client sample, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). The sample demonstrates provisioning a simulated device using TPM, X.509 certificates and symmetric keys. Refer back to the [TPM](./quick-create-simulated-device.md), [X.509](./quick-create-simulated-device-x509.md), and [Symmetric key](./quick-create-simulated-device-symm-key.md) attestation quickstarts for step-by-step instructions on using the sample.
+For more information, see the provisioning device client sample, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). The sample demonstrates provisioning a simulated device using TPM, X.509 certificates and symmetric keys. Refer back to the [TPM](./quick-create-simulated-device-tpm.md), [X.509](./quick-create-simulated-device-x509.md), and [Symmetric key](./quick-create-simulated-device-symm-key.md) attestation quickstarts for step-by-step instructions on using the sample.
 
 ## Next steps
 In this tutorial, you learned how to:

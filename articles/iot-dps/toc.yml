@@ -41,7 +41,7 @@
   - name: Simulated TPM device attestation sample
     items:
     - name: C
-      href: quick-create-simulated-device.md
+      href: quick-create-simulated-device-tpm.md
     - name: Java
       href: quick-create-simulated-device-tpm-java.md
     - name: C#

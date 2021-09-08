@@ -1,24 +1,24 @@
 ---
-title: Quickstart - Provision a simulated TPM device to Azure IoT Hub using C#
-description: Quickstart - Create and provision a simulated TPM device using C# device SDK for Azure IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
-author: wesmc7777
-ms.author: wesmc
-ms.date: 11/08/2018
+title: Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub
+description: Quickstart - Learn how to provision a TPM simulated device to the Azure IoT Hub Device Provisioning Service
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 9/7/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.custom: mvc
 ---
 
-# Quickstart: Create and provision a simulated TPM device using C# device SDK for IoT Hub Device Provisioning Service
+# Quickstart: Create and provision a simulated TPM device 
 
-[!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
+In this quickstart, you'll create a TPM simulated device on your Windows machine. After you've configured your device, you'll then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
 
-These steps show you how to use the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) to simulate a TPM device on a development machine running the Windows OS. The sample also connects the simulated device to an IoT Hub using the Device Provisioning Service. 
+The sample code uses the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device.
 
-The sample code uses the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device. 
+If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.  Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
 
-If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 
@@ -28,6 +28,15 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 This article will demonstrate individual enrollments.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
+
+## Prerequisites
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+
 
 <a id="setupdevbox"></a>
 ## Prepare the development environment 
