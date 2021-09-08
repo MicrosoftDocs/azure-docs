@@ -75,7 +75,7 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Identity Protection: risk events investigation, SIEM connectivity | ● |
 | **Frontline workers** |  |
 | - SMS sign-in | AGC: SMS/Voice/Push notification aren't available |
-| - Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available |
+| - Shared device sign-out | GOV: Enterprise state roaming for Windows 10 devices is not available |
 | - Delegated user management portal (My Staff) | ● |
 
 
