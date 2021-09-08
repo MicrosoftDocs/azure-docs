@@ -26,7 +26,7 @@ Use the QnA Maker client library for Node.js to:
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org).
 * Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and resource. After it deploys, select **Go to resource**.
-    * You will need the key and resource name from the resource you create to connect your application to the QnA Maker API. You'll paste your key and resource name into the code below later in the quickstart.
+    * You will need the key and resource name from the resource you create to connect your application to the QnA Maker API. Paste your key and resource name into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
@@ -63,13 +63,13 @@ Create a file named index.js and import the following libraries:
 
 Create a variable for your resource's Azure key and resource name.
 
-- We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
+- We use subscription key and authoring key interchangeably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and QnA Maker Endpoint.
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Select **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and QnA Maker Endpoint.
 
  ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
 
-- The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Export Template** page, under **Automation** to locate the Runtime Endpoint.
+- The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Select **Export Template** page, under **Automation** to locate the Runtime Endpoint.
 
  ![QnA Maker Runtime Endpoint](../media/runtime-endpoint.png)
    
@@ -112,7 +112,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 ## Authenticate the client for authoring the knowledge base
 
-Instantiate a client with your endpoint and key. Create an ServiceClientCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient) object.
+Instantiate a client with your endpoint and key. Create a ServiceClientCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient) object.
 
 [!code-javascript[Create QnAMakerClient object with key and endpoint](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=AuthorizationAuthor)]
 
@@ -122,7 +122,7 @@ A knowledge base stores question and answer pairs for the [CreateKbDTO](/javascr
 
 * For **editorial content**, use the [QnADTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadto) object.
     * To use metadata and follow-up prompts, use the editorial context, because this data is added at the individual QnA pair level.
-* For **files**, use the [FileDTO](/javascript/api/@azure/cognitiveservices-qnamaker/filedto) object. The FileDTO includes the filename as well as the public URL to reach the file.
+* For **files**, use the [FileDTO](/javascript/api/@azure/cognitiveservices-qnamaker/filedto) object. The FileDTO includes the filename and the public URL to reach the file.
 * For **URLs**, use a list of strings to represent publicly available URLs.
 
 The creation step also includes properties for the knowledgebase:

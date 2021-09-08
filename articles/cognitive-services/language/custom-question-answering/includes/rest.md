@@ -5,8 +5,6 @@ ms.date: 08/25/2021
 ms.topic: quickstart
 ---
 
-[!INCLUDE [Custom subdomains notice](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).

@@ -25,7 +25,7 @@ Use the QnA Maker client library for .NET to:
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and resource name. After it deploys, select **Go to resource**.
-    * You will need the key and resource name from the resource you create to connect your application to the QnA Maker API. You'll paste your key and resource name into the code below later in the quickstart.
+    * You will need the key and resource name from the resource you create to connect your application to the QnA Maker API. Paste your key and resource name into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
@@ -74,13 +74,13 @@ From the project directory, open the *program.cs* file and add the following `us
 
 In the application's `Main` method, add variables and code, shown in the following section, to use the common tasks in this quickstart.
 
-- We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
+- We use subscription key and authoring key interchangeably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and QnA Maker Endpoint.
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Select **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and QnA Maker Endpoint.
 
  ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
 
-- The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Export Template** page, under **Automation** to locate the Runtime Endpoint.
+- The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Select **Export Template** page, under **Automation** to locate the Runtime Endpoint.
 
  ![QnA Maker Runtime Endpoint](../media/runtime-endpoint.png)
       
@@ -137,7 +137,7 @@ A knowledge base stores question and answer pairs for the [CreateKbDTO](/dotnet/
 
 * For **editorial content**, use the [QnADTO](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadto) object.
     * To use metadata and follow-up prompts, use the editorial context, because this data is added at the individual QnA pair level.
-* For **files**, use the [FileDTO](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto) object. The FileDTO includes the filename as well as the public URL to reach the file.
+* For **files**, use the [FileDTO](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto) object. The FileDTO includes the filename and the public URL to reach the file.
 * For **URLs**, use a list of strings to represent publicly available URLs.
 
 The creation step also includes properties for the knowledgebase:
@@ -151,7 +151,7 @@ The final line of the following code returns the knowledge base ID from the resp
 
 [!code-csharp[Create a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=CreateKBMethod)]
 
-Make sure the include the [`MonitorOperation`](#get-status-of-an-operation) function, referenced in the above code, in order to successfully create a knowledge base.
+Make sure to include the [`MonitorOperation`](#get-status-of-an-operation) function, referenced in the above code, in order to successfully create a knowledge base.
 
 ## Update a knowledge base
 
@@ -159,7 +159,7 @@ You can update a knowledge base by passing in the knowledge base ID and an [Upda
 
 [!code-csharp[Update a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=UpdateKBMethod)]
 
-Make sure the include the [`MonitorOperation`](#get-status-of-an-operation) function, referenced in the above code, in order to successfully update a knowledge base.
+Make sure to include the [`MonitorOperation`](#get-status-of-an-operation) function, referenced in the above code, in order to successfully update a knowledge base.
 
 ## Download a knowledge base
 
@@ -213,7 +213,7 @@ Delete the knowledgebase using the [DeleteAsync](/dotnet/api/microsoft.azure.cog
 
 Some methods, such as create and update, can take enough time that instead of waiting for the process to finish, an [operation](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.operation) is returned. Use the [operation ID](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.operation.operationid#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_Operation_OperationId) from the operation to poll (with retry logic) to determine the status of the original method.
 
-The _loop_ and _Task.Delay_ in the following code block are used to simulate retry logic. These should be replaced with your own retry logic.
+The loop and `Task.Delay` in the following code block are used to simulate retry logic. These should be replaced with your own retry logic.
 
 [!code-csharp[Monitor an operation](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=MonitorOperation)]
 
