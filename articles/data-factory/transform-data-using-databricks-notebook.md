@@ -201,7 +201,7 @@ The **Pipeline run** dialog box asks for the **name** parameter. Use **/path/fil
 
 1.  Select **Refresh** periodically to check the status of the pipeline run.
 
-1.  To see activity runs associated with the pipeline run, select **pipeline1** link under the **Pipeline name** column.
+1.  To see activity runs associated with the pipeline run, select **pipeline1** link in the **Pipeline name** column.
 
 1. You can switch back to the pipeline runs view by selecting the **All pipeline runs** link in the breadcrumb menu at the top.
 
