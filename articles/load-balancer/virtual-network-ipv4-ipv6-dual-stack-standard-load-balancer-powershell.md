@@ -339,14 +339,14 @@ foreach ($NIC in $NICsInRG) {
 ```
 The following figure shows a sample output that lists the private IPv4 and IPv6 addresses of the two VMs, and the frontend IPv4 and IPv6 IP addresses of the Load Balancer.
 
-![IP summary of dual stack (IPv4/IPv6) application deployment in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-summary.png)
+![IP summary of dual stack (IPv4/IPv6) application deployment in Azure](../virtual-network/media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-summary.png)
 
 ## View IPv6 dual stack virtual network in Azure portal
 You can view the IPv6 dual stack virtual network in Azure portal as follows:
 1. In the portal's search bar, enter *dsVnet*.
 2. When **dsVnet** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *dsVnet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *dsSubnet*.
 
-  ![IPv6 dual stack virtual network in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
+  ![IPv6 dual stack virtual network in Azure](../virtual-network/media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
 
 ## Clean up resources
@@ -359,4 +359,4 @@ Remove-AzResourceGroup -Name dsRG1
 
 ## Next steps
 
-In this article, you created a Standard Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md)
+In this article, you created a Standard Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?]((../virtual-network/ip-services/ipv6-overview.md)

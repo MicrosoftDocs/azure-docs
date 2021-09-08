@@ -56922,6 +56922,36 @@
       "source_path_from_root": "/articles/virtual-network/routing-preference-azure-kubernetes-service-cli.md",
       "redirect_url": "/azure/virtual-network/ip-services/routing-preference-azure-kubernetes-service-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-configure-standard-load-balancer-template-json.md",
+      "redirect_url": "/azure/load-balancer/ipv6-configure-standard-load-balancer-template-json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-dual-stack-standard-internal-load-balancer-powershell.md",
+      "redirect_url": "/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-add-to-existing-vnet-powershell.md",
+      "redirect_url": "/azure/load-balancer/ipv6-add-to-existing-vnet-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-add-to-existing-vnet-cli.md",
+      "redirect_url": "/azure/load-balancer/ipv6-add-to-existing-vnet-cli",
+      "redirect_document_id": false
     }
   ]
 }
