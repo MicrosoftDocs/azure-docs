@@ -19,7 +19,7 @@ This article describes how to troubleshoot common routing problems that you migh
 
 * Regular requests sent to your backend without going through Azure Front Door are succeeding. Going via Azure Front Door results in 503 error responses.
 * The failure from Azure Front Door typically shows after about 30 seconds.
-* Intermittent 503 errors with log `ErrorInfo: OriginInvalidResponse`
+* Intermittent 503 errors with log `ErrorInfo: OriginInvalidResponse`.
 
 ### Cause
 
