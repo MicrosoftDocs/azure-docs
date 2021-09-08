@@ -304,7 +304,7 @@ If you scan App Service, you'll find several ports that are exposed for inbound 
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Management | 454, 455 |
-|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  FTP/FTPS    | 21, 990, 10001-10300 |
 |  Visual Studio remote debugging  |  4020, 4022, 4024 |
 |  Web Deploy service | 8172 |
 |  Infrastructure use | 7654, 1221 |
