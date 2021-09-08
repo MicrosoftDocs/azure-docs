@@ -16,15 +16,15 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 ## Prerequisites
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform utility to  monitor and manage Azure IoT 
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform utility to  monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, install IoT Explorer on another computer. Alternatively, you can use Azure CLI to perform the steps that use IoT Explorer. 
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
-    - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+    - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli). If you're using Raspberry Pi as your development platform, either install Azure CLI on another computer or use Azure Cloud Shell to run CLI commands.
 
 Install the remaining prerequisites for your operating system.
 
 ### Linux
-The steps in this tutorial were tested using Ubuntu Linux 18.04.
+The steps in this tutorial were tested using Ubuntu Linux 18.04 and also on a Raspberry Pi 3 Model B+ running Raspberry Pi OS version 10 (buster). 
 
 To complete this quickstart on Linux, install the following software on your local Linux environment:
 
@@ -108,7 +108,7 @@ In this section, you use the C SDK to send messages from a simulated device to y
 
     **Bash**
     ```bash
-    cmake/iothub_client/samples/pnp/pnp_temperature_controller/Debug/pnp_temperature_controller
+    cmake/iothub_client/samples/pnp/pnp_temperature_controller/pnp_temperature_controller
     ```
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
