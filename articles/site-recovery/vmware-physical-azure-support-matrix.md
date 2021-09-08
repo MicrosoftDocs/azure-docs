@@ -186,7 +186,7 @@ BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com
 
 **Action** | **Details**
 --- | ---
-Resize disk on replicated VM (Not supported for Preview architecture)| Supported on the source VM before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
+Resize disk on replicated VM (Not supported for Preview architecture)| Resizing up on the source VM is supported. Resizing down on the source VM is not supported. Resizing should be performed before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
 Add disk on replicated VM | Not supported.<br/> Disable replication for the VM, add the disk, and then re-enable replication.
 
 > [!NOTE]
