@@ -18,7 +18,7 @@ ms.workload: web
 
 # Create a Pivotal Cloud Foundry cluster on Azure
 
-This tutorial provides quick steps to create and generate the parameters you need to provision a Pivotal Cloud Foundry (PCF) cluster on Azure. To find the Pivotal Cloud Foundry solution, perform a search in the Azure [Marketplace](/azure/cloudfoundry/cloudfoundry-deploy-your-first-app).
+This tutorial provides quick steps to create and generate the parameters you need to provision a Pivotal Cloud Foundry (PCF) cluster on Azure. To find the Pivotal Cloud Foundry solution, perform a search in the Azure [Marketplace](https://azure.microsoft.com/blog/deploying-pivotal-cloud-foundry-on-azure-with-a-click-of-a-button).
 
 ![Search Pivotal Cloud Foundry in Azure](media/deploy/pcf-marketplace.png)
 
@@ -112,7 +112,7 @@ For more information, see [Use SSH keys with Windows on Azure](../virtual-machin
 
 ## Provision your Cloud Foundry cluster on Azure
 
-Now you have all the parameters you need to provision your [Pivotal Cloud Foundry cluster on Azure](/azure/cloudfoundry/cloudfoundry-deploy-your-first-app).
+Now you have all the parameters you need to provision your [Pivotal Cloud Foundry cluster on Azure](https://azure.microsoft.com/blog/deploying-pivotal-cloud-foundry-on-azure-with-a-click-of-a-button).
 Enter the parameters, and create your PCF cluster.
 
 ## Verify the deployment, and sign in to the Pivotal Ops Manager
