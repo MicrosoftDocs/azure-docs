@@ -50,11 +50,11 @@ This section provides you with the steps to get information about your sign-in u
 
 **To review the failed sign-in:**
 
-1. Navigate to the [Microsoft Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
+1. Navigate to the [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
 
 2. Sign-in to your tenant as global administrator.
 
-    ![Microsoft Graph explorer authentication](./media/quickstart-access-log-with-graph-api/graph-explorer-authentication.png)   
+    ![Microsoft Graph Explorer authentication](./media/quickstart-access-log-with-graph-api/graph-explorer-authentication.png)   
 
 3. In the **HTTP verb drop-down list**, select **GET**.
 
@@ -66,7 +66,7 @@ This section provides you with the steps to get information about your sign-in u
 
 Review the outcome of your query.
 
- ![Microsoft Graph explorer response preview](./media/quickstart-access-log-with-graph-api/response-preview.png)   
+ ![Microsoft Graph Explorer response preview](./media/quickstart-access-log-with-graph-api/response-preview.png)   
 
 
 ## Clean up resources
