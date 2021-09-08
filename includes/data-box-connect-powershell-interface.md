@@ -26,7 +26,7 @@ Follow these steps if you'll use the default certificates (shipped with the devi
 
 1. Copy the certificate to the host connecting to your Data Box. If using a Windows host, open Explorer. Right-click the certificate file that you copied to the host and select **Install certificate**. 
 
-1. Complete the installation steps through the **Certificate Import Wizard**. For detailed steps, see [Import certificate to the client](data-box-bring-your-own-certificates.md#import-certificates-to-client). 
+1. Complete the installation steps through the **Certificate Import Wizard**. For detailed steps, see [Import certificate to the client](../articles/databox/data-box-bring-your-own-certificates.md#import-certificates-to-client). 
 
 1. Add an entry to host file that maps the device IP address to the FQDN of the device. The format of the entry would be: 
 
