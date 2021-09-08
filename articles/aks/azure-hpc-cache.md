@@ -316,13 +316,13 @@ server.myhpccache.local:/myfilepath 8.0E         0      8.0E   0% /mnt/azure/myf
 ...
 ```
 
-## Frequently Asked Questions (FAQ)
+## Frequently asked questions (FAQ)
 
-### Running Applications as Non-Root
+### Running applications as non-root
 
 If you need to run an application as a non-root user, you may need to disable root squashing to chown a directory to another user.  The non-root user will need to own a directory to access the file system.  For the user to own a directory, the root user must chown a directory to that user, but if the HPC Cache is squashing root, this operation will be denied because the root user (UID 0) is being mapped to the anonymous user.  More information about root squashing and client access policies is found [here][hpc-cache-access-policies].
 
-## Feedback
+### Sending feedback
 
 We'd love to hear from you!  Please send any feedback or questions to <aks-hpccache-feed@microsoft.com>.
 
