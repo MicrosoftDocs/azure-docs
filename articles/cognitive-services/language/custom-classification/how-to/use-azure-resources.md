@@ -54,7 +54,7 @@ Edit the following values in the parameters file:
 |`sku`| Pricing tier of your resource. Custom text only works with **S** tier|
 |`storageResourceName`| Name of your storage account|
 |`storageLocation`| Region in which your storage account is hosted.|
-|`storageSkuType`| SKU of your [storage account](https://docs.microsoft.com/rest/api/storagerp/srp_sku_types).|
+|`storageSkuType`| SKU of your [storage account](/rest/api/storagerp/srp_sku_types).|
 |`storageResourceGroupName`| Resource group of your storage account|
 <!-- |builtInRoleType| Set this role to **"Contributor"**| -->
 
@@ -109,4 +109,4 @@ To set proper roles on your storage account:
 ## Next steps
 
 * [Custom classification quickstart](../quickstart/using-language-studio.md)
-* [Recommended practices](recommended-practices.md)
+* [Recommended practices](../concepts/recommended-practices.md)
