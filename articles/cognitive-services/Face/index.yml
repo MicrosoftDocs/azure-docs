@@ -77,21 +77,6 @@ landingContent:
             url: Face-API-How-to-Topics/howtodetectfacesinimage.md
           - text: Use the HeadPose attribute
             url: Face-API-How-to-Topics/how-to-use-headpose.md
-      
-  - title: Use containers
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Install and run containers
-            url: face-how-to-install-containers.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure containers
-            url: face-resource-container-config.md
-      - linkListType: deploy
-        links:
-          - text: Use container instances
-            url: ../containers/azure-container-instance-recipe.md
   
   - title: Reference
     linkLists:
