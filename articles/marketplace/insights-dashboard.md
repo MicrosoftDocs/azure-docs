@@ -80,7 +80,7 @@ Selecting a specific referral domain shows the monthly trend of page visits, cal
 
 Select a specific offer to see the monthly trend of page visits, calls to action, and consent-given clicks on the chart.
 
-:::image type="content" source="./media/insights-dashboard/offers-funnel-graph.png" alt-text="Shows a sample funnel graph of referral domains.":::
+:::image type="content" source="./media/insights-dashboard/offers-funnel-graph.png" alt-text="Shows a sample funnel graph of offers.":::
 
 #### Campaign IDs
 
