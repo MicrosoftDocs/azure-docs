@@ -96,6 +96,10 @@ items:
     items:
       - name: Backwards compatibility
         href: custom-language-understanding/concepts/backwards-compatibility.md
+- name: Custom question answering
+  items:
+  - name: Quickstart
+    href: custom-question-answering/quickstart.md
 - name: Entity linking
   items:
   - name: Overview
