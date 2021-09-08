@@ -4,6 +4,7 @@ description: This tutorial provides steps for using the Azure portal to setup Pr
 author: lrtoyou1223
 ms.author: lle
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 05/06/2021
 ---

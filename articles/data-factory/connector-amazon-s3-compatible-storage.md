@@ -5,6 +5,7 @@ description: Learn about how to copy data from Amazon S3 Compatible Storage to s
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 08/30/2021

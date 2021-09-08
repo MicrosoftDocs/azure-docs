@@ -4,6 +4,7 @@ description: Learn how move data to/from Azure Cosmos DB collection using Azure 
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
 robots: noindex

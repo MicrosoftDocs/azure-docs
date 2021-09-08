@@ -4,6 +4,7 @@ description: Learn how to move data from an on-premises or cloud HTTP source by 
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 05/22/2018
 robots: noindex
