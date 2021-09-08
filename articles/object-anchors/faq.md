@@ -44,8 +44,9 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **Q: What is the gravity direction and unit required by the model conversion service?**
 
-**A:** See [here](./troubleshoot/object-detection.md#ensure-the-gravity-direction-and-asset-dimension-unit-are-correct)
-       for detailed information.
+**A:** The gravity direction is the down vector pointing to the earth and the unit of measurement represents the scale
+       of the model. When converting a model, it's important to
+       [ensure the gravity direction and asset dimension unit are correct](./troubleshoot/object-detection.md#ensure-the-gravity-direction-and-asset-dimension-unit-are-correct).
 
 **Q: How long does it take to convert a CAD model?**
 
@@ -67,7 +68,7 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **Q: How long does it take to detect an object on HoloLens?**
 
-**A:** It depends on the object size and the scanning process. To get quicker detection, try following the best practices for a thorough scan. 
+**A:** It depends on the object size and the scanning process. To get quicker detection, try following the best practices for a thorough scan.
 For smaller objects within 2 meters in each dimension, detection can occur within a few seconds. For larger objects, like a car, the user should walk a full loop around the object to get a reliable detection, which means detection could take tens of seconds.
 
 **Q: What are the best practices while using Object Anchors in a HoloLens application?**
@@ -110,11 +111,13 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: What should I do if the Object Anchors runtime cannot detect my object?**
 
-**A:** See [here](./troubleshoot/object-detection.md) for detailed information.
+**A:** There are many factors that may prevent an object from being detected properly: environment, model conversion
+       configuration, query settings, and so on. Learn more about how to [troubleshoot object detection](./troubleshoot/object-detection.md).
 
 **Q: How to choose object query parameters?**
 
-**A:** See [here](./troubleshoot/object-detection.md#adjust-object-query-values) for detailed information.
+**A:** Here's some [general guidance](./troubleshoot/object-detection.md#adjust-object-query-values) and a more
+       detailed guide for [difficult to detect objects](./detect-difficult-object.md).
 
 **Q: How do I get Object Anchors diagnostics data from the HoloLens?**
 
