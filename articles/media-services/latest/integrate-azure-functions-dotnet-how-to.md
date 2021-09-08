@@ -106,7 +106,7 @@ This is the C# code for your function. The role of the function is to take a Med
 
 Once you are done defining your function click **Save and Run**.
 
-The source code for the **Run** method is :
+The source code for the **Run** method of the function is :
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-functions-integration/Tutorial/HttpTriggerEncode.cs#Run)]
 
@@ -161,4 +161,4 @@ The function should return 200 OK with an output body containing the job and out
 
 At this point, you are ready to start developing functions that call Media Services API.
 
-For more details and a complete sample of using Azure Functions with Azure Media Services v3, see the [Media Services v3 Azure Functions sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/main/Functions)
+For more details and a complete sample of using Azure Functions with Azure Media Services v3, see the [Media Services v3 Azure Functions sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/main/Functions).
