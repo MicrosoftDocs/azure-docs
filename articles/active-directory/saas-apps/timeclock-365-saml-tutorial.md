@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 09/02/2021
 ms.author: jeedes
 
 ---
@@ -33,7 +33,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Timeclock 365 SAML supports **SP** initiated SSO
+* Timeclock 365 SAML supports **SP** initiated SSO.
+* Timeclock 365 SAML supports [Automated user provisioning](timeclock-365-provisioning-tutorial.md).
 
 ## Adding Timeclock 365 SAML from the gallery
 
@@ -45,7 +46,6 @@ To configure the integration of Timeclock 365 SAML into Azure AD, you need to ad
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Timeclock 365 SAML** in the search box.
 1. Select **Timeclock 365 SAML** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Timeclock 365 SAML
 
@@ -140,6 +140,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Create** button to create the test user.
 
+> [!NOTE]
+> Timeclock 365 SAML also supports automatic user provisioning, you can find more details [here](./timeclock-365-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -149,7 +152,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 * Go to Timeclock 365 SAML Sign-on URL directly and initiate the login flow from there.
 
 * You can use Microsoft My Apps. When you click the Timeclock 365 SAML tile in the My Apps, this will redirect to Timeclock 365 SAML Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
 
 ## Next steps
 
