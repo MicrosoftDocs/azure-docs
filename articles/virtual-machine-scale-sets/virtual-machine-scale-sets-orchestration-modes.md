@@ -160,7 +160,6 @@ Register and get started with [Flexible orchestration mode](..\virtual-machines\
     |-|-|-|-|
     | Maximum Instance Count (with FD availability guarantee)  | 1000  | 3000  | 200  |
 
-
 ## Troubleshoot scale sets with Flexible orchestration
 Find the right solution to your troubleshooting scenario.
 

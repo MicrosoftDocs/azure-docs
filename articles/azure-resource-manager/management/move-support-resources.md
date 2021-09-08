@@ -1573,7 +1573,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | accounts | **pending** | **pending** | No |
+> | accounts | Yes | Yes | No |
 
 ## Microsoft.ProviderHub
 
