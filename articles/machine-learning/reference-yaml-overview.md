@@ -43,7 +43,7 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | - | - |
 | [Model](reference-yaml-model.md) | https://azuremlschemas.azureedge.net/latest/model.schema.json |
 
-## Computes
+## Compute
 
 | Reference | URI |
 | - | - |
@@ -51,7 +51,7 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | [Compute instance](reference-yaml-compute-instance.md) | https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json |
 | [Attached Virtual Machine (VM)](reference-yaml-compute-vm.md) | https://azuremlschemas.azureedge.net/latest/vmCompute.schema.json |
 
-## Jobs
+## Job
 
 | Reference | URI |
 | - | - |
@@ -59,7 +59,7 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | [Sweep](reference-yaml-job-sweep.md) | https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json |
 | [Pipeline](reference-yaml-job-pipeline.md) | https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json |
 
-## Datastores
+## Datastore
 
 | Reference | URI |
 | - | - |
@@ -68,26 +68,26 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | [Azure Data Lake Gen1](reference-yaml-datastore-data-lake-gen1.md) | https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.json |
 | [Azure Data Lake Gen2](reference-yaml-datastore-data-lake-gen2.md) | https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json |
 
-## Endpoints
+## Endpoint
 
 | Reference | URI |
 | - | - |
 | [Managed online (real-time)](reference-yaml-endpoint-managed-online.md) | https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json |
-| [Managed batch](reference-yaml-endpoint-managed-batch.md) | https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json |
+| [Batch](reference-yaml-endpoint-batch.md) | https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json |
 
-## Deployments
+## Deployment
 
 | Reference | URI |
 | - | - |
 | [Managed online (real-time)](reference-yaml-deployment-managed-online.md) | https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json |
-| [Managed batch](reference-yaml-deployment-managed-batch.md) | https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json |
+| [Batch](reference-yaml-deployment-batch.md) | https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json |
 
-## Components
+## Component
 
 | Reference | URI |
 | - | - |
 | [Command](reference-yaml-component-command.md) | https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json |
-|
+
 ## Next steps
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)

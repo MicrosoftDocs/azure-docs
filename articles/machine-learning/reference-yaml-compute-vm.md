@@ -19,7 +19,7 @@ ms.reviewer: laobri
 
 ## Remarks
 
-The `az ml compute` command can be used for managing Virtual Machines (VM) attached to Azure Machine Learning.
+The `az ml compute` command can be used for managing Virtual Machines (VM) attached to an Azure Machine Learning workspace.
 
 ## Examples
 

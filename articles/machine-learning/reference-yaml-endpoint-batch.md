@@ -1,7 +1,7 @@
 ---
-title: 'CLI (v2) managed batch endpoint YAML schema'
+title: 'CLI (v2) batch endpoint YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) managed batch endpoint YAML schema.
+description: Reference documentation for the CLI (v2) batch endpoint YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 09/20/2021
 ms.reviewer: laobri
 ---
 
-# CLI (v2) managed batch endpoint YAML schema
+# CLI (v2) batch endpoint YAML schema
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 

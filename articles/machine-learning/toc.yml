@@ -721,13 +721,13 @@
           href: reference-yaml-model.md
         - name: Compute
           items:
-            - name: AmlCompute
+            - name: Compute cluster (AmlCompute)
               href: reference-yaml-compute-aml.md
             - name: Compute instance
               href: reference-yaml-compute-instance.md
             - name: Attached Virtual Machine (VM)
               href: reference-yaml-compute-vm.md
-        - name: Jobs
+        - name: Job
           items:
             - name: Command
               href: reference-yaml-job-command.md
@@ -735,7 +735,7 @@
               href: reference-yaml-job-sweep.md
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
-        - name: Datastores
+        - name: Datastore
           items:
             - name: Azure Blob
               href: reference-yaml-datastore-blob.md
@@ -745,19 +745,19 @@
               href: reference-yaml-datastore-data-lake-gen1.md
             - name: Azure Data Lake Gen2
               href: reference-yaml-datastore-data-lake-gen2.md
-        - name: Endpoints
+        - name: Endpoint
           items:
             - name: Managed online (real-time)
               href: reference-yaml-endpoint-managed-online.md
-            - name: Managed batch
-              href: reference-yaml-endpoint-managed-batch.md
-        - name: Deployments
+            - name: Batch
+              href: reference-yaml-endpoint-batch.md
+        - name: Deployment
           items:
             - name: Managed online (real-time)
               href: reference-yaml-deployment-managed-online.md
-            - name: Managed batch
-              href: reference-yaml-deployment-managed-batch.md
-        - name: Components
+            - name: Batch
+              href: reference-yaml-deployment-batch.md
+        - name: Component
           items:
             - name: Command
               href: reference-yaml-component-command.md

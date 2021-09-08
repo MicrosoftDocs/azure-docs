@@ -19,7 +19,7 @@ ms.reviewer: laobri
 
 ## Remarks
 
-The `az ml compute --type computeinstance` command can be used for managing Azure Machine Learning compute instances.
+The `az ml compute` command can be used for managing Azure Machine Learning compute instances.
 
 ## Examples
 
