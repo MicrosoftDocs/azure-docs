@@ -20,7 +20,7 @@ Multiple layers of security are available to help protect the data on your Azure
 
 Azure Database for PostgreSQL encrypts data in two ways:
 
-- **Data in transit**: Azure Database for PostgreSQL encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default. See this [how to guide](how-to-connect-tls-ssl.md) for more details. For better security, you can choose to enable [SCRAM authentication](how-to-connect-scram.md).
+- **Data in transit**: Azure Database for PostgreSQL encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default. See this [guide](how-to-connect-tls-ssl.md) for more details. For better security, you may choose to enable [SCRAM authentication](how-to-connect-scram.md).
 - **Data at rest**: For storage encryption, Azure Database for PostgreSQL uses the FIPS 140-2 validated cryptographic module. Data is encrypted on disk, including backups and the temporary files created while queries are running. 
 
   The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. This is similar to other at-rest encryption technologies, like transparent data encryption in SQL Server or Oracle databases. Storage encryption is always on and can't be disabled.
@@ -48,26 +48,26 @@ For example,
 postgres=> create role demouser with password 'password123';
 ```
 
-To view the list of roles in your server, you can connect using `psql` client and query the `pg_roles` table.
+You can periodically audit the list of roles in your server. For example, you can connect using `psql` client and query the `pg_roles` table which lists all the roles along with privileges such as create additional roles, create databases, replication etc. 
 
 ```SQL
-postgres=> select rolname from pg_roles;
-          rolname
----------------------------
- azuresu
- pg_monitor
- pg_read_all_settings
- pg_read_all_stats
- pg_stat_scan_tables
- pg_read_server_files
- pg_write_server_files
- pg_execute_server_program
- pg_signal_backend
- azure_pg_admin
- replication
- sr
- demouser
-(13 rows)
+postgres=> \x
+Expanded display is on.
+postgres=> select * from pg_roles where rolname='demouser';
+-[ RECORD 1 ]--+---------
+rolname        | demouser
+rolsuper       | f
+rolinherit     | t
+rolcreaterole  | f
+rolcreatedb    | f
+rolcanlogin    | f
+rolreplication | f
+rolconnlimit   | -1
+rolpassword    | ********
+rolvaliduntil  |
+rolbypassrls   | f
+rolconfig      |
+oid            | 24827
 
 ```
 
