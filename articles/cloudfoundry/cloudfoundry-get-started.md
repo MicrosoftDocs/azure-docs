@@ -52,5 +52,5 @@ Cloud Foundry is well suited to agile software development, including the use of
 
 ## Next steps
 
-- [Deploy Pivotal Cloud Foundry from the Azure Marketplace](https://azure.microsoft.com/blog/deploying-pivotal-cloud-foundry-on-azure-with-a-click-of-a-button)
+- Deploy Pivotal Cloud Foundry from the Azure Marketplace
 - [Deploy an app to Cloud Foundry in Azure](./cloudfoundry-deploy-your-first-app.md)
