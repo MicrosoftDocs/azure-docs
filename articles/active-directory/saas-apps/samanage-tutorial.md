@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SolarWinds Service Desk (previously Samanage)
@@ -35,6 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * SolarWinds supports **SP** initiated SSO.
+* SolarWinds supports [Automated user provisioning](samanage-provisioning-tutorial.md).
 
 ## Add SolarWinds from the gallery
 
@@ -174,6 +175,9 @@ In the case of SolarWinds, provisioning is a manual task.
    
    >[!NOTE]
    >The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other SolarWinds user account creation tools or APIs provided by SolarWinds to provision Azure Active Directory user accounts.
+
+> [!NOTE]
+> SolarWinds also supports automatic user provisioning, you can find more details [here](./samanage-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

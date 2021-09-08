@@ -18,17 +18,7 @@ In this article, we use the Language studio to demonstrate key concepts of Custo
 
 ## Prerequisites
 
-### Create new resource from Azure portal
-
-Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call the custom text classification API.  
-
-|Requirement  |Required value  |
-|---------|---------|
-|Location | "West US 2" or "West Europe"         |
-|Pricing tier     | Standard (**S**) pricing tier        |
-
-> [!IMPORTANT]
-> In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use custom text classification. While you can specify a storage account later, it's easier to do it now. 
+[!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
 ## Upload Sample data to blob container
 
@@ -46,7 +36,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. If you're using a preexisting resource, see [creating Azure resources](../concepts/use-azure-resources.md). When you are done, select **Next**. 
+4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. If you're using a preexisting resource, see [creating Azure resources](../how-to/use-azure-resources.md). When you are done, select **Next**. 
  
     >[!NOTE]
     > * You only need to do this step once for each new resource you use. 
