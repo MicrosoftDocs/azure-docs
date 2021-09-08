@@ -3,7 +3,7 @@ title: View acquisitions report
 description: Analyze your app or add-in performance and see funnel and acquisitions metrics.
 localization_priority: Priority
 ms.author: mingshen
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # View the Acquisitions report in the dashboard
