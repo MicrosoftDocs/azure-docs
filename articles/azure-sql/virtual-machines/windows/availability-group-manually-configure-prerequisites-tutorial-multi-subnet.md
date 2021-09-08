@@ -115,60 +115,38 @@ After your network and subnets are ready, create your virtual machines for the d
 
 ### Create DC virtual machines
 
-To create your domain controller virtual machines in the Azure portal, follow these steps: 
+To create your domain controller (DC) virtual machines in the Azure portal, follow these steps: 
 
 1. Go to your resource group in the [Azure portal](https://portal.azure.com) and select **+ Create**
 
    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/02-create-resource-rg.png" alt-text="Create new resource in your resource group":::
 
-1. Search for **Windows Server** in the **Marketplace** search box and choose the **virtual network** tile from Microsoft. Select **Create** on the **Virtual network** page.
+1. Search for **Windows Server** in the **Marketplace** search box. 
+1. On the **Windows Server** tile from Microsoft, select the **Create** drop-down and choose the **Windows Server 2016 Datacenter** image. 
+1. Fill out the values on the **Create a virtual machine** page to create your domain controller VM, such as **DC-VM-1**. Optionally, create an additional VM, such as **DC-VM-2** to provide high availability for the Active Directory Domain Services. Use the values in the following tablet to create your VM(s):
 
+    | **Field** | Value |
+    | --- | --- |
+    | **Subscription** |*Your subscription* |
+    | **Resource group** |SQL-HA-RG |
+    | **Virtual machine name** |First domain controller: *DC-VM-1*.</br>Second domain controller *DC-VM-2*. |
+    | **Region** |*Your Region* |
+    | **Availability options** |Availability zone </br> *In Azure regions that do not have support for Availability Zones yet, use Availability Sets instead. Create a new Availability Set to place all the VMs created in this tutorial.* |
+    | **Availability zone** |Specify 1 for DC-VM-1. </br> Specify 2 for DC-VM-2 |
+    | **Size** |D2s_v3 (2 vCPUs, 8 GB RAM) |
+    | **User name** |DomainAdmin |
+    | **Password** |Contoso!0000 |
+    | **Public inbound ports** | *Allow selected ports*
+    | **Select inbound ports** | *RDP (3389)*
+    | **OS disk type** | Premium SSD (locally redundant storage)
+    | **Virtual network** |SQLHAVNET |
+    | **Subnet** |DC-subnet |
+    | **Public IP** |*Same name as the VM* |
+    | **NIC network security group**| Basic |
+    | **Public inbound ports**| Allow selected ports |
+    | **Select inbound ports**| RDP (3389) |
+    | **Boot diagnostics** |Enable with managed storage account (recommended) |
 
-1. Select **+ Create** to create a new resource within your resource group. 
-
-
-To create and configure the domain controllers, return to the **SQL-HA-RG** resource group.
-
-1. Select **+ Create**. 
-1. Search for **Windows Server**.
-1. Select **Windows Server**, select **Windows Server 2016 Datacenter** under plan and select **Create**
-
-Repeat the preceding steps to create two virtual machines. Name the two virtual machines:
-
-* DC-VM-1
-* DC-VM-2
-
-  > [!NOTE]
-  > The **DC-VM-2** virtual machine is optional, to provide high availability for Active Directory Domain Services.
-  >
-
-The following table shows the settings for these two machines:
-
-| **Field** | Value |
-| --- | --- |
-| **Subscription** |*Your subscription* |
-| **Resource group** |SQL-HA-RG |
-| **Virtual machine name** |First domain controller: *DC-VM-1*.</br>Second domain controller *DC-VM-2*. |
-| **Region** |*Your Region* |
-| **Availability options** |Availability zone </br> *In Azure regions that do not have support for Availability Zones yet, use Availability Sets instead. Create a new Availability Set to place all the VMs created in this tutorial.* |
-| **Availability zone** |Specify 1 for DC-VM-1. </br> Specify 2 for DC-VM-2 |
-| **Size** |D2s_v3 (2 vCPUs, 8 GB RAM) |
-| **User name** |DomainAdmin |
-| **Password** |Contoso!0000 |
-| **Public inbound ports** | *Allow selected ports*
-| **Select inbound ports** | *RDP (3389)*
-| **OS disk type** | Premium SSD (locally redundant storage)
-| **Virtual network** |SQLHAVNET |
-| **Subnet** |DC-subnet |
-| **Public IP** |*Same name as the VM* |
-| **NIC network security group**| Basic |
-| **Public inbound ports**| Allow selected ports |
-| **Select inbound ports**| RDP (3389) |
-| **Boot diagnostics** |Enable with managed storage account (recommended) |
-
-Azure creates the virtual machines.
-
-After the virtual machines are created, configure the domain controller.
 
 ### Configure the domain controller
 
