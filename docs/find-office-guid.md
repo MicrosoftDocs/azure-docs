@@ -3,7 +3,7 @@ title: Find a Microsoft 365 product GUID in Partner Center
 description: Find the GUID for a Microsoft 365 product in Partner Center.
 localization_priority: Normal
 ms.author: mingshen
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Find a Microsoft 365 product GUID in Partner Center
@@ -16,7 +16,7 @@ Follow these steps to find a GUID that identifies a product in Partner Center th
 
 1. Select the **Marketplace offers** tile.
 
-    :::image type="content" source="images/workspaces/marketplace-offers-tile.png" alt-text="Illustrates the product GUID in the URL for an Office app.":::
+    :::image type="content" source="./images/workspaces/marketplace-offers-tile.png" alt-text="Illustrates the product GUID in the URL for an Office app.":::
 
 1. In the **Offer alias** column, select the product that the ISV wants the report for.
 
