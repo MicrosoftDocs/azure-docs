@@ -158,7 +158,8 @@ This option is accessible from the Extract option in the ribbon
 * Select Advanced Editor option from the ribbon
 * Expand the list of pivoted values manually
 * Replace List.Distinct() with the list of values like this:
-```#"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)
+```
+#"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)
 in
   #"Pivoted column"
 ```
