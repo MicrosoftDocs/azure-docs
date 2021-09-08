@@ -27,7 +27,7 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Cloud authentication (Pass-through authentication, password hash synchronization) | ● |
 | - Federated authentication (Active Directory Federation Services or federation with other identity providers) | ● |
 | - Single sign-on (SSO) unlimited | Not available | 
-| - Multifactor authentication (MFA) | AGC: SMS/Voice/Push notification aren't available due to lack of internet connectivity and third party providers are not available in air-gapped cloud. | 
+| - Multifactor authentication (MFA) | GOV: Hardware OATH tokens are not available. Trusted IPs are not supported. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address.<br>AGC: SMS/Voice/Push notification aren't available due to lack of internet connectivity and third party providers are not available in air-gapped cloud. | 
 | - Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | Gov (ARL): Authenticator app only shows GUID and not UPN for compliance reason.<br>AGC: Microsoft Authenticator app, which relies on phones and third party push notification services, is not available.  | 
 | - Service-level agreement | ● | 
 | **Applications Access** |   |
@@ -75,7 +75,7 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Identity Protection: risk events investigation, SIEM connectivity | ● |
 | **Frontline workers** |  |
 | - SMS sign-in | AGC: SMS/Voice/Push notification aren't available |
-| - Shared device sign-out | ● |
+| - Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available |
 | - Delegated user management portal (My Staff) | ● |
 
 
