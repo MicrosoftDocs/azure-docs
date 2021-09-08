@@ -34,7 +34,7 @@ Follow these steps if you'll use the default certificates (shipped with the devi
 
     Get the device serial number from **Device credentials > GUI access to device** in the right-pane of the **Device details** blade in the Azure portal. 
 
-    ![Get Data Box serial number in the Azure portal](media/data-box-connect-powershell-interface/download-certificate-data-box-portal.png)
+    ![Get Data Box serial number in the Azure portal](media/data-box-connect-powershell-interface/get-device-serial-number-portal.png)
  
 
 #### Use your own certificates 
