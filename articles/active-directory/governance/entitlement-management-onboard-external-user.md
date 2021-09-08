@@ -37,7 +37,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 1. In the Azure portal, in the left navigation, click **Azure Active Directory**.
 
-2. In the left menu, click **Identity Governance**
+2. In the left menu, click **Identity Governance**.
 
 3. In the left menu, click **Access packages**. If you see Access denied, ensure that an Azure AD Premium P2 license is present in your directory.
 
