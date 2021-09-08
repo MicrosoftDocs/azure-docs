@@ -47,7 +47,100 @@ This article assumes the following configuration:
 
 ## Inbound and outbound requirements
 
-TODO: Figure out how to represent the table in the limited width of a doc.
+:::row:::
+    :::column:::
+        __Scenario__
+    :::column-end:::
+    :::column:::
+        __Required inbound__
+    :::column-end:::
+    :::column:::
+        __Required outbound__
+    :::column-end:::
+    :::column:::
+        __Additional configuration__
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [Access workspace from studio](#scenario-access-workspace-from-studio)
+    :::column-end:::
+    :::column:::
+        NA
+    :::column-end:::
+    :::column:::
+        * Azure Active Directory
+        * Azure Frontdoor
+        * Azure Machine Learning service
+    :::column-end:::
+    :::column:::
+        Custom DNS configuration
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [Use AutoML, designer, dataset, and datastore from studio](#scenario-use-automl-designer-dataset-and-datastore-from-studio)
+    :::column-end:::
+    :::column:::
+        NA
+    :::column-end:::
+    :::column:::
+        NA
+    :::column-end:::
+    :::column:::
+        * Workspace service principal configuration
+        * Allow access from trusted Azure services
+
+        For more information, see [How to secure a workspace in  a virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [Use compute instance and compute cluster](#scenario-use-compute-instance-and-compute-cluster)
+    :::column-end:::
+    :::column:::
+        * Azure Machine Learning service on port 44224
+        * Azure Batch Management service on ports 29876-29877
+    :::column-end:::
+    :::column:::
+        * Azure Active Directory
+        * Azure Resource Manager
+        * Azure Machine Learning service
+        * Azure Storage Account
+    :::column-end:::
+    :::column:::
+        If you use a firewall, user-defined routes. For more information, see [Configure inbound and outbound traffic](how-to-access-azureml-behind-firewall.md).
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [Use Azure Kubernetes Service](#scenario-use-azure-kubernetes-service)
+    :::column-end:::
+    :::column:::
+        NA
+    :::column-end:::
+    :::column:::
+        For information on the outbound configuration for AKS, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster).
+    :::column-end:::
+    :::column:::
+        Configure the Internal Load Balancer. For more information, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster).
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [Use Docker images managed by Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-ml)
+    :::column-end:::
+    :::column:::
+        NA
+    :::column-end:::
+    :::column:::
+        Microsoft Container Registry
+        `viennaglobal.azurecr.io` global container registry
+    :::column-end:::
+    :::column:::
+        If the Azure Container Registry for your workspace is behind the VNet, configure the workspace to use a compute cluster to build images. For more information, see [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+    :::column-end:::
+:::row-end:::
 
 ## Scenario: Access workspace from studio
 
