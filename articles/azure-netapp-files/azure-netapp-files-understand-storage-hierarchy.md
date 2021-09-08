@@ -83,5 +83,5 @@ The following example shows the relationships of the Azure subscription, NetApp 
 - [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 - [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md)
-- [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+- [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 - [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md)

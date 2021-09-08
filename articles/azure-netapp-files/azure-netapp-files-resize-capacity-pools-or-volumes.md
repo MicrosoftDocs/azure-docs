@@ -79,7 +79,7 @@ The following table describes the destination volume resizing behavior based on 
 
 ## Next steps
 
-- [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+- [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 - [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md)
 - [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) 
 - [Understand volume quota](volume-quota-introduction.md)

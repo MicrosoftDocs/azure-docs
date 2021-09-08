@@ -16,7 +16,7 @@ ms.topic: how-to
 ms.date: 06/14/2021
 ms.author: b-juche
 ---
-# Set up a capacity pool
+# Create a capacity pool
 
 Setting up a capacity pool enables you to create volumes within it.  
 

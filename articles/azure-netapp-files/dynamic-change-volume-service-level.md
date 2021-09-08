@@ -68,5 +68,5 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ## Next steps  
 
 * [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
-* [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Troubleshoot issues for changing the capacity pool of a volume](troubleshoot-capacity-pools.md#issues-when-changing-the-capacity-pool-of-a-volume)

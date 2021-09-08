@@ -161,7 +161,7 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
 
 ---
 
-## Set up a capacity pool
+## Create a capacity pool
 
 # [Portal](#tab/azure-portal)
 

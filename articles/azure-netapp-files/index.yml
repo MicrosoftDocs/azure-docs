@@ -44,7 +44,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Register the NetApp Resource Provider
+          - text: Register for NetApp Resource Provider
             url: azure-netapp-files-register.md
           - text: Create a NetApp account
             url: azure-netapp-files-create-netapp-account.md
