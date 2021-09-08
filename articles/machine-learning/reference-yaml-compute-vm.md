@@ -27,15 +27,15 @@ The `az ml compute` command can be used for managing Virtual Machines (VM) attac
 
 ## Schema
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/AmlCompute.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/vmCompute.schema.json. The schema is provided below in JSON and YAML formats for convenience.
 
 # [JSON](#tab/json)
 
-:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/AmlCompute.schema.json":::
+:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/vmCompute.schema.json":::
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/AmlCompute.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/vmCompute.schema.yml":::
 
 ---
 

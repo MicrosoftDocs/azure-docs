@@ -49,7 +49,7 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | - | - |
 | [AmlCompute](reference-yaml-compute-aml.md) | https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json |
 | [Compute instance](reference-yaml-compute-instance.md) | https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json |
-| [Virtual machine (VM)](reference-yaml-compute-vm.md) | https://azuremlschemas.azureedge.net/latest/vmCompute.schema.json |
+| [Attached Virtual Machine (VM)](reference-yaml-compute-vm.md) | https://azuremlschemas.azureedge.net/latest/vmCompute.schema.json |
 
 ## Jobs
 
