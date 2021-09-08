@@ -38,8 +38,8 @@ This article describes how to migrate a public client application from Azure Act
 
    - [Web Authentication Manager](scenario-desktop-acquire-token-wam.md) the preferred broker based authentication on Windows.
    - [Interactive Authentication](scenario-desktop-acquire-token-interactive.md) where the user is shown a web based interface to complete the sign in process.
-   - [Integrated Windows Authentication](scenario-desktop-acquire-token-iwa.md) where a user signs using the same identity they used to sign into windows domain (for domain joined or AAD joined machines).
-   - [Username/Password](scenario-desktop-acquire-token-usernamepassword.md) where the sign in occurs by providing a username/password credential.
+   - [Integrated Windows Authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md) where a user signs using the same identity they used to sign into windows domain (for domain joined or AAD joined machines).
+   - [Username/Password](scenario-desktop-acquire-token-username-password.md) where the sign in occurs by providing a username/password credential.
    - [Device Code Flow](scenario-desktop-acquire-token-device-code-flow.md) where a device of limited UX shows you a device code to complete the authentication flow on an alternate device.
 
 
