@@ -378,7 +378,7 @@ A detailed description of query execution can be found in [Full text search in A
 
 To learn more about analyzers, see the following articles:
 
-+ [Language analyzers](index-add-language-analyzers.md)
-+ [Custom analyzers](index-add-custom-analyzers.md)
++ [Add a language analyzer](index-add-language-analyzers.md)
++ [Add a custom analyzer](index-add-custom-analyzers.md)
 + [Create a search index](search-what-is-an-index.md)
 + [Create a multi-language index](search-language-support.md)
