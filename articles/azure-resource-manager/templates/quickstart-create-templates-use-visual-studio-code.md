@@ -47,7 +47,7 @@ This action adds a storage resource to the template.
 
 ![Image showing an Azure Storage resource in an ARM template](./media/quickstart-create-templates-use-visual-studio-code/5.png)
 
-The **tab** key can be used to tab through configurable properties on the storage account.
+The **control + space** key can be used to tab through configurable properties on the storage account.
 
 ![Image showing how the tab key can be used to navigate through resource configuration](./media/quickstart-create-templates-use-visual-studio-code/6.png)
 
