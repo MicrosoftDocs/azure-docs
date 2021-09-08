@@ -281,5 +281,9 @@ The required information is described in the [Configure authentication in a samp
 
 After you're successfully authenticated, you'll see your display name in the navigation bar. To view the claims that the Azure AD B2C token returns to your app, select **Claims**.
 
+Watch this video to learn about some best practices when you integrate Azure AD B2C with an API.
+
+>[![!Video https://www.youtube.com/embed/wuUu71RcsIo]
+
 ## Next steps
 * Learn how to [customize and enhance the Azure AD B2C authentication experience for your web app](enable-authentication-web-application-options.md).
