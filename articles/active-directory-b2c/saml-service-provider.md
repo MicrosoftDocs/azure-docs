@@ -41,7 +41,7 @@ Organizations that use Azure AD B2C as their customer identity and access manage
 3. If the user signs in by using a federated identity provider, a token response is sent to Azure AD B2C.
 4. Azure AD B2C generates a SAML assertion and sends it to the application.
 
-Watch this video to learn how to integrte SAML applications with Azure AD B2C. 
+Watch this video to learn how to integrate SAML applications with Azure AD B2C. 
 
 >[!Video https://www.youtube.com/embed/r2TIVBCm7v4]
 
