@@ -96,7 +96,7 @@ sections:
       - question: Who can view the sensitivity label insights report in Azure Purview? 
         answer: All users with at least data reader access to the Purview account have permissions to view sensitivity label insights reports in Azure Purview. 
 
-      - question: Does Purview scan an entire asset when labelling an asset? 
+      - question: Does Purview scan an entire asset when applying automatic labels to the schematized data? 
         answer: |
           The Purview scanner samples files as follows: 
           
