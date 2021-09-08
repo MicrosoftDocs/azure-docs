@@ -22,7 +22,7 @@ For Azure SQL Managed Instance, see [What's new](../managed-instance/doc-changes
 
 ## Feature availability
 
-The following two sections list the features of Azure SQL Database that are currently in public preview or in general availability. To provide feedback directly to the product group, see [https://aka.ms/sqlfeedback](https://aka.ms/sqlfeedback). 
+The following two sections list the features of Azure SQL Database that are currently in public preview or have recently transitioned in general availability.
 
 ### Public preview 
 
@@ -44,7 +44,7 @@ The following table lists the features of Azure SQL Database that are currently 
 
 ### General availability (GA)
 
-The following table lists the features of Azure SQL Database that have gone from public preview to general availability (GA) within the last 12 months. 
+The following table lists the features of Azure SQL Database that have recently transitioned to general availability (GA). 
 
 | Feature | GA Month | Details |
 | ---| --- |--- |
@@ -75,13 +75,6 @@ The following table lists the features of Azure SQL Database that have gone from
 | **Change data capture** | Using change data capture (CDC) with Azure SQL Database is now in public preview. To learn more, see [Change data capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server). | 
 | **SQL Database ledger** | SQL Database ledger is in public preview, and introduces the ability to cryptographically attest to other parties, such as auditors or other business parties, that your data hasn't been tampered with. To learn more, see [Ledger](ledger-overview.md). | 
 |||
-
-
-
-## Known issues
-
-The known issues content has moved to a dedicated [known issues in SQL Database](doc-changes-updates-known-issues.md) article. 
-
 
 ## Contribute to content
 
