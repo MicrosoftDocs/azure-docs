@@ -369,7 +369,7 @@ Use the following commands to create these items.
 
 1. Deploy the function project to Azure:
 
-    After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](/azure-functions/functions-run-local) command.
+    After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](./../azure-functions/functions-run-local.md) command.
 
     ```bash
     func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings

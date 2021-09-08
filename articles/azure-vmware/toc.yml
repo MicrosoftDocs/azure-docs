@@ -126,8 +126,6 @@
     href: connect-multiple-private-clouds-same-region.md
   - name: Deploy disaster recovery
     items:
-    - name: Deploy Zerto DR
-      href: deploy-zerto-disaster-recovery.md 
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery

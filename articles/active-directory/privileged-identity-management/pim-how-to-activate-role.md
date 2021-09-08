@@ -44,7 +44,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Azure AD roles - activation page contains duration and scope](./media/pim-how-to-activate-role/activate-page.png)
 
-1. Select **Additional verification required**"** and follow the instructions to provide additional security verification. You are required to authenticate only once per session.
+1. Select **Additional verification required**"** and follow the instructions to provide security verification. You are required to authenticate only once per session.
 
     ![Screen to provide security verification such as a PIN code](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
@@ -90,9 +90,9 @@ If you do not require activation of a role that requires approval, you can cance
 
    ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## Troubleshoot for new version
+## Troubleshoot portal delay
 
-### Permissions are not granted after activating a role
+### Permissions aren't granted after activating a role
 
 When you activate a role in Privileged Identity Management, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, sign out of the portal you are trying to perform the action and then sign back in. In the Azure portal, PIM signs you out and back in automatically.
 
