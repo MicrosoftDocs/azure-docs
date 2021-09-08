@@ -83,4 +83,4 @@ National cloud documentation:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
-- [Azure Germany](../../germany/index.yml)
+- [Azure Germany (deprecated)](../../germany/index.yml)
