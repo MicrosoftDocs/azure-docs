@@ -1,5 +1,6 @@
 ---
 title: Display call transcription state on the client
+titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to display the call transcription state
 author: probableprime
 ms.author: rifox

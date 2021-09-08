@@ -1,5 +1,6 @@
 ---
 title: Join a Teams meeting
+titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to join a Teams meeting.
 author: probableprime
 ms.author: rifox

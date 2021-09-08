@@ -1,5 +1,6 @@
 ---
 title: Get active speakers
+titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to render the active speakers in a call.
 author: probableprime
 ms.author: rifox

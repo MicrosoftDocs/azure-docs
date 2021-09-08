@@ -1,5 +1,6 @@
 ---
 title: Enable push notifications for calls.
+titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to enable push notifications for calls.
 author: probableprime
 ms.author: rifox
