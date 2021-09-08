@@ -20,7 +20,7 @@ Ensure that durability settings are not mismatched on the Service Fabric cluster
 
 With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
 
-When using automatic OS image upgrades you should deprecate the use of the Patch Orchestration Application in the case you were using it before.
+If you want to switch from Patch Orchestration Application to automatic OS image upgrade, you must first deprecate the use of Patch Orchestration Application.
 
 ## Enable auto OS upgrades and disable Windows Update
 
