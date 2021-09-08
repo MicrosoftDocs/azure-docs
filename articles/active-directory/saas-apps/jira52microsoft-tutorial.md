@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD integration with JIRA SAML SSO by Microsoft (V5.2)'
+title: 'Tutorial: Azure AD SSO integration with JIRA SAML SSO by Microsoft (V5.2)'
 description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft (V5.2).
 services: active-directory
 author: jeevansd
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 09/08/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure AD integration with JIRA SAML SSO by Microsoft (V5.2)
+# Tutorial: Azure AD SSO integration with JIRA SAML SSO by Microsoft (V5.2)
 
 In this tutorial, you'll learn how to integrate JIRA SAML SSO by Microsoft (V5.2) with Azure Active Directory (Azure AD). When you integrate JIRA SAML SSO by Microsoft (V5.2) with Azure AD, you can:
 

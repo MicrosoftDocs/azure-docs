@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD integration with SAP Cloud Platform'
+title: 'Tutorial: Azure AD SSO integration with SAP Cloud Platform'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Cloud Platform.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/07/2021
+ms.date: 09/08/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure AD integration with SAP Cloud Platform
+# Tutorial: Azure AD SSO integration with SAP Cloud Platform
 
 In this tutorial, you'll learn how to integrate SAP Cloud Platform with Azure Active Directory (Azure AD). When you integrate SAP Cloud Platform with Azure AD, you can:
 
