@@ -87,6 +87,12 @@ az vm run-command invoke \
 	- **Location**: `East US`
 	- **Password**: (your choice)
 
+	> [!NOTE]
+	>
+	> The server group name must be globally unique across Azure because it
+	> creates a DNS entry. If `link-demo-sg` is unavailable, please choose
+	> another name and adjust the steps below accordingly.
+
 5. Click **Configure server group**, choose the **Basic** plan, and click
    **Save**.
 
