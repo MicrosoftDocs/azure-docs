@@ -2,8 +2,7 @@
 title: "Quickstart: Use cURL & REST to manage knowledge base - custom question answering"
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
 ms.date: 08/25/2021
-ms.topic: quickstart
----
+ms.topic: include
 
 ## Prerequisites
 
@@ -145,8 +144,6 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 ```
 
 The response status is 204 with no results. Use the `-v` command-line parameter to see verbose output for the cURL command. This will include the HTTP status.
-
----
 
 ## Additional resources
 

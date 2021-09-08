@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: custom question answering client library for Node.js"
 description: This quickstart shows how to get started with the custom question answering client library for Node.js.
-ms.topic: quickstart
+ms.topic: include
 ms.date: 08/25/2021
 ms.custom: devx-track-js
 ---
@@ -65,12 +65,12 @@ Create a variable for your resource's Azure key and resource name.
 
 - The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the Text Analytics resource you created in the prerequisites. Select **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and Endpoint.
 
-> [!div class="mx-imgBorder"]
-> ![Custom QnA Authoring Endpoint](../../../qnamaker/media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
+    > [!div class="mx-imgBorder"]
+    > ![Custom QnA Authoring Endpoint](../../../qnamaker/media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
 
 - For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md) provides secure key storage.
 
-[!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=Resourcevariables)]
+    [!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=Resourcevariables)]
 
 ## Object models
 

@@ -46,7 +46,7 @@ Create a new Python file named `quickstart-file.py` and import the following lib
 
 Create variables for your resource's Azure endpoint and key.
 
-- We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
+- We use subscription key and authoring key interchangeably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
 - The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Select **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and QnA Maker Endpoint.
 
@@ -84,7 +84,7 @@ Use the `generate_answer` method to get an answer from the query runtime.
 
 ## Authenticate the client for authoring the knowledge base
 
-Instantiate a client with your endpoint and key. Create an CognitiveServicesCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qn_amaker_client.qnamakerclient) object.
+Instantiate a client with your endpoint and key. Create a CognitiveServicesCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qn_amaker_client.qnamakerclient) object.
 
 [!code-python[Authorization to resource key](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=AuthorizationAuthor)]
 
@@ -96,7 +96,7 @@ A knowledge base stores question and answer pairs for the [CreateKbDTO](/python/
 
 * For **editorial content**, use the [QnADTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadto) object.
     * To use metadata and follow-up prompts, use the editorial context, because this data is added at the individual QnA pair level.
-* For **files**, use the [FileDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.filedto) object. The FileDTO includes the filename as well as the public URL to reach the file.
+* For **files**, use the [FileDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.filedto) object. The FileDTO includes the filename and the public URL to reach the file.
 * For **URLs**, use a list of strings to represent publicly available URLs.
 
 Call the [create](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations#create-create-kb-payload--custom-headers-none--raw-false----operation-config-) method then pass the returned operation ID to the [Operations.getDetails](#get-status-of-an-operation) method to poll for status.
