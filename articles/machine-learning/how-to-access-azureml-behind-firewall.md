@@ -64,6 +64,7 @@ These rule collections are described in more detail in [What are some Azure Fire
     | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | TCP | 443 | 
     | ContainerRegistry.region  | TCP | 443 |
     | MicrosoftContainerRegistry.region | TCP | 443 |
+    | Keyvault.region | TCP | 443 |
 
     > [!TIP]
     > * ContainerRegistry.region is only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.

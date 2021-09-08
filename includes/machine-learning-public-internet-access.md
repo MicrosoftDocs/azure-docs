@@ -23,6 +23,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Outbound | 443 | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). | 
 | Outbound | 443 | ContainerRegistry.region | Access docker images provided by Microsoft. |
 | Outbound | 443 | MicrosoftContainerRegistry.region | Access docker images provided by Microsoft. Setup of the Azure Machine Learning router for Azure Kubernetes Service. |
+| Outbound | 443 | Keyvault.region | Access the key vault for the Azure Batch service. |
 
 > [!TIP]
 > If you need the IP addresses instead of service tags, use one of the following options:
