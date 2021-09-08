@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/07/1992
+ms.date: 09/07/2021
 ms.author: pafarley
 ---
 
@@ -40,7 +40,7 @@ A role definition is a collection of permissions. Use the following recommended 
 |**Cognitive Service Speech User** |No |Can view the projects / datasets / models / endpoints; cannot create, edit, delete |Can view the projects / datasets / models / endpoints; cannot create, edit, delete |Full access |
 |**Cognitive Services Data Reader (preview)** |No |Can view the projects / datasets / models / endpoints; cannot create, edit, delete |Can view the projects / datasets / models / endpoints; cannot create, edit, delete |Full access |
 
-Alternatively, you can create your own custom roles: see [Azure custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). For example, you could create a custom role with the permission to upload custom speech datasets, but without the ability to deploy a custom speech model to an endpoint.
+Alternatively, you can [create your own custom roles](/azure/role-based-access-control/custom-roles). For example, you could create a custom role with the permission to upload custom speech datasets, but without the ability to deploy a custom speech model to an endpoint.
 
 > [!NOTE]
 > Speech Studio supports key-based authentication. Roles that have permission to list resource keys (`Microsoft.CognitiveServices/accounts/listKeys/action`) will firstly be authenticated with a resource key and will have full access to the Speech Studio operations, as long as key authentication is enabled in Azure portal. If key authentication is disabled by the service admin, then those roles will lose all access to the Studio.
@@ -50,4 +50,4 @@ Alternatively, you can create your own custom roles: see [Azure custom roles](ht
 
 ## Next steps
 
-Learn more about [Speech service encryption of data at rest](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-encryption-of-data-at-rest)
+Learn more about [Speech service encryption of data at rest](/azure/cognitive-services/speech-service/speech-encryption-of-data-at-rest).
