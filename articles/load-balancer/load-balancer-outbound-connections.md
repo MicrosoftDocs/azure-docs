@@ -171,6 +171,10 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
 | 401-800 | 64 |
 | 801-1,000 | 32 | 
 
+## <a name="preallocatedports"></a> Manual port allocation
+
+Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion.
+
 ## Constraints
 
 *	When a connection is idle with no new packets being sent, the ports will be released after 4 – 120 minutes.
