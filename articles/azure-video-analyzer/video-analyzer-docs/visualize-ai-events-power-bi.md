@@ -1,9 +1,9 @@
 ---
-title: Tutorial: Real-time visualization of AI inference events with Power BI
-description: You can use Azure Video Analyzer for continuous video recording or event-based recording. This article talks about how to visualize AI inference events in Microsoft Power BI.
+title: Real-time visualization of AI inference events with Power BI
+description: You can use Azure Video Analyzer for continuous video recording or event-based recording. This tutorial walks through the steps for real-time to visualization AI inference events from IoT Hub in Microsoft Power BI.
 ms.service: azure-video-analyzer
-ms.topic: how-to
-ms.date: 09/03/2021
+ms.topic: tutorial
+ms.date: 09/08/2021
 ---
 
 # Visualize AI inference events with Power BI
