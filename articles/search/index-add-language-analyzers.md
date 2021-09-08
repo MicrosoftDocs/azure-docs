@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 09/08/2021
 ---
 # Add language analyzers to string fields in an Azure Cognitive Search index
 
@@ -18,7 +18,7 @@ A *language analyzer* is a specific type of [text analyzer](search-analyzers.md)
 
 You should consider a language analyzer when awareness of word or sentence structure adds value to text parsing. A common example is the association of irregular verb forms ("bring" and "brought) or plural nouns ("mice" and "mouse"). Without linguistic awareness, these strings are parsed on physical characteristics alone, which fails to catch the connection. Since large chunks of text are more likely to have this content, fields consisting of descriptions, reviews, or summaries are good candidates for a language analyzer.
 
-You should also consider language analyzers when content consists of non-Western language strings. While the [default analyzer](search-analyzers.md#default-analyzer) is language-agnostic, the concept of using spaces and special characters (hyphens and slashes) to separate strings tends is more applicable to Western languages than non-Western ones. 
+You should also consider language analyzers when content consists of non-Western language strings. While the [default analyzer (Standard Lucene)](search-analyzers.md#default-analyzer) is language-agnostic, the concept of using spaces and special characters (hyphens and slashes) to separate strings tends is more applicable to Western languages than non-Western ones. 
 
 For example, in Chinese, Japanese, Korean (CJK), and other Asian languages, a space is not necessarily a word delimiter. Consider the following Japanese string. Because it has no spaces, a language-agnostic analyzer would likely analyze the entire string as one token, when in fact the string is actually a phrase.
 
@@ -49,9 +49,13 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 
 ## How to specify a language analyzer
 
-Set a language analyzer on "searchable" fields of type Edm.String during field definition.
+A language analyzer is specified on field definitions in the index schema *when the field is created* and before it's loaded with data.
 
-Although field definitions have several analyzer-related properties, only the "analyzer" property can be used for language analyzers. The value of "analyzer" must be one of the language analyzers from the support analyzers list.
+Set a language analyzer on "searchable" fields of type Edm.String during field definition, using the "analyzer" property only. Although field definitions have several analyzer-related properties, only the "analyzer" property can be used for language analyzers. The value of "analyzer" must be one of the language analyzers from the [supported analyzers list](#language-analyzer-list).
+
+Language analyzers are used as-is and cannot be customized. If you can't find an analyzer that meets your requirements, you can create a [custom analyzer](cognitive-search-working-with-skillsets.md) with the microsoft_language_tokenizer or microsoft_language_stemming_tokenizer, and add filters for pre- and post-tokenization processing.
+
+The following example illustrates a language analyzer specification:
 
 ```json
 {
