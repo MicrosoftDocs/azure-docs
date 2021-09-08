@@ -99,14 +99,14 @@ The project template creates a project in your chosen language and installs requ
 
 ### HttpTriggerEncode.cs
 
-This is the C# code for your function. The role of the function is to take a Media Services asset or a source URL and launches an encoding job with Media Services. It uses a Transform that is created if it does not exist. When it is created, it used the preset provided in the input body. 
+This is the C# code for your function. Its role is to take a Media Services asset or a source URL and launches an encoding job with Media Services. It uses a Transform that is created if it does not exist. When it is created, it used the preset provided in the input body. 
 
 >[!IMPORTANT]
 >Replace the full content of HttpTriggerEncode.cs file with [`HttpTriggerEncode.cs` from this repository](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/blob/main/Tutorial/HttpTriggerEncode.cs).
 
-Once you are done defining your function click **Save and Run**.
+Once you are done defining your function, select **Save and Run**.
 
-The source code for the **Run** method of the function is :
+The source code for the **Run** method of the function is:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-functions-integration/Tutorial/HttpTriggerEncode.cs#Run)]
 
@@ -135,15 +135,15 @@ Update the file with the following content (and replace the values).
 
 ## Test your function
 
-When you run the function locally in VS Code, the function should be exposed as : 
+When you run the function locally in VS Code, the function should be exposed as: 
 
 ```url
 http://localhost:7071/api/HttpTriggerEncode
 ```
 
-To test your it, you can use Postman to do a POST on this URL using a JSON input body.
+To test it, you can use Postman to do a POST on this URL using a JSON input body.
 
-JSON input body example :
+JSON input body example:
 
 ```json
 {
@@ -161,4 +161,4 @@ The function should return 200 OK with an output body containing the job and out
 
 At this point, you are ready to start developing functions that call Media Services API.
 
-For more details and a complete sample of using Azure Functions with Azure Media Services v3, see the [Media Services v3 Azure Functions sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/main/Functions).
+For more information and a complete sample of using Azure Functions with Azure Media Services v3, see the [Media Services v3 Azure Functions sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/main/Functions).
