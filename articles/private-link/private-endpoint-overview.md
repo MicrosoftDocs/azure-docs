@@ -130,7 +130,7 @@ The private link resource owner can do the following actions over a private endp
 > [!NOTE]
 > Only a private endpoint in an approved state can send traffic to a given private link resource. 
 
-### Connecting using alias
+### Connect with alias
 
 Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owners can share this alias with their consumers offline. 
 
