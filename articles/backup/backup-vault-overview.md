@@ -116,7 +116,7 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 
 ![Backup jobs](./media/backup-vault-overview/backup-jobs.png)
 
-## Move a Backup vault across Azure Subscriptions and Resource Groups (Public Preview)
+## Move a Backup vault across Azure subscriptions and Resource Groups (Public Preview)
 
 This section explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
 
@@ -131,28 +131,28 @@ The vault move across subscriptions and resource groups is currently supported i
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Open the list of Backup vaults and select the vault you want to move.
+1. Open the list of Backup vaults and select the vault you want to move.
 
    The vault dashboard displays the vault details.
 
    :::image type="content" source="./media/backup-vault-overview/vault-dashboard-to-move-to-resource-group-inline.png" alt-text="Screenshot showing the dashboard of the vault to be moved to another resource group." lightbox="./media/backup-vault-overview/vault-dashboard-to-move-to-resource-group-expanded.png"::: 
 
-3. In the vault **Overview** menu, click **Move**, and then select **Move to another resource group**.
+1. In the vault **Overview** menu, click **Move**, and then select **Move to another resource group**.
 
    :::image type="content" source="./media/backup-vault-overview/select-move-to-another-resource-group-inline.png" alt-text="Screenshot showing the option for moving the Backup vault to another resource group." lightbox="./media/backup-vault-overview/select-move-to-another-resource-group-expanded.png":::
 
-4. In the **Resource group** drop-down list, select an existing resource group or select **Create new** to create a new resource group.
+1. In the **Resource group** drop-down list, select an existing resource group or select **Create new** to create a new resource group.
 
    :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-inline.png" alt-text="Screenshot showing the selection of an existing resource group or creation of a new resource group." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-expanded.png":::
 
    >[!Note]
    >The subscription details to move the vault auto-populates in the **Resource group** drop-down list.
 
-5. On the **Resources to move** tab, you can view the validation progress status for the Backup vault that needs to be moved. Wait till the validation is complete.
+1. On the **Resources to move** tab, you can view the validation progress status for the Backup vault that needs to be moved. Wait till the validation is complete.
 
    :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-inline.png" alt-text="Screenshot showing the Backup vault validation status." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-expanded.png"::: 
 
-6. Select the checkbox _I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs_’ to confirm, and then select **Move**.
+1. Select the checkbox _I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs_’ to confirm, and then select **Move**.
  
    >[!Note]
    >The resource path changes after moving vault across resource groups or subscriptions. Ensure that you update the tools and scripts with the new resource path after the move operation completes.
@@ -166,27 +166,27 @@ Wait till the move operation is complete to perform any other operations on the 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Open the list of Backup vaults and select the vault you want to move.
+1. Open the list of Backup vaults and select the vault you want to move.
    
    The vault dashboard displays the vault details.
 
    :::image type="content" source="./media/backup-vault-overview/vault-dashboard-to-move-to-another-subscription-inline.png" alt-text="Screenshot showing the dashboard of the vault to be moved to another Azure subscription." lightbox="./media/backup-vault-overview/vault-dashboard-to-move-to-another-subscription-expanded.png"::: 
 
-3. In the vault **Overview** menu, click **Move**, and then select **Move to another subscription**.
+1. In the vault **Overview** menu, click **Move**, and then select **Move to another subscription**.
 
    :::image type="content" source="./media/backup-vault-overview/select-move-to-another-subscription-inline.png" alt-text="Screenshot showing the option for moving the Backup vault to another Azure subscription." lightbox="./media/backup-vault-overview/select-move-to-another-subscription-expanded.png"::: 
 
-4. In the **Subscription** drop-down list, select an existing subscription.
+1. In the **Subscription** drop-down list, select an existing subscription.
 
-5. In the **Resource group** drop-down list, select an existing resource group or select **Create new**  to create a new resource group.
+1. In the **Resource group** drop-down list, select an existing resource group or select **Create new**  to create a new resource group.
 
    :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-to-move-to-other-subscription-inline.png" alt-text="Screenshot showing the selection of an existing resource group or creation of a new resource group in another Azure subscription." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-to-move-to-other-subscription-expanded.png":::
 
-6. On the **Resources to move** tab, you can view the validation process status for the Backup vault that needs to be moved. Wait till the validation is complete.
+1. On the **Resources to move** tab, you can view the validation process status for the Backup vault that needs to be moved. Wait till the validation is complete.
 
    :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-inline.png" alt-text="Screenshot showing the validation status of Backup vault to be moved to another Azure subscription." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-expanded.png"::: 
 
-7. Select the checkbox _I understand that tools and scripts associated with moved resources will not work until I update them to use new resource   IDs_ to confirm, and then select **Move**.
+1. Select the checkbox _I understand that tools and scripts associated with moved resources will not work until I update them to use new resource   IDs_ to confirm, and then select **Move**.
  
    >[!Note]
    >The resource path changes after moving vault across resource groups or subscriptions. Ensure that you update the tools and scripts with the new resource path after the move operation completes.
