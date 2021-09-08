@@ -195,8 +195,8 @@ items:
     items:
       - name: How to automatically label your content
         href: how-to-automatically-label-your-content.md
-      - name: Sensitivity labels in Azure Purview FAQs
-        href: sensitivity-labels-FAQ.md
+      - name: Sensitivity labels FAQs
+        href: labeling-frequently-asked-questions.yml
   - name: Search & browse
     items:
     - name: Browse Data Catalog
