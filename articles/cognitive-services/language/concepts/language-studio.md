@@ -37,7 +37,7 @@ After sending text, you'll be able to see a visualization, along with the JSON r
 
 ## Features with customization
 
-The Language Service also offers multiple features that let you create, train, and publish custom models to better fit your data. For example, custom content classification and custom question answering. See the [Azure Cognitive Services for Language overview](../overview.md) to see the list of features offered by the service, and the note above the [Azure account and resource](#set-up-your-azure-account-and-deploy-an-azure-resource) of this article. 
+The Language Service also offers multiple features that let you create, train, and publish custom models to better fit your data. For example, custom content classification and custom question answering. See the [Azure Cognitive Services for Language overview](../overview.md) to see the list of features offered by the service, and the note above the [Azure account and resource](#deploy-an-azure-resource-and-get-started) of this article. 
 
 For these features, Language Studio offers workflows that let developers and subject matter experts build models  without needing machine learning expertise. 
 

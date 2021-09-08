@@ -19,8 +19,6 @@ Before you can use Language Studio, you need to have an Azure account. You can [
 > * [Conversational Language Understanding](../custom-language-understanding/quickstart.md)
 > * [Custom Text Classification](../custom-classification/quickstart/using-language-studio.md)
 > * [Custom Named Entity Recognition (NER)](../custom-named-entity-recognition/quickstart.md) 
-> * [Custom Question Answering](../custom-question-answering/quickstart.md)
-> * [Custom Translator](../custom-translator/quickstart.md)
 
 1. [Log into Language Studio](https://language.azure.com/). If it's your first time logging in, you'll see a window appear that lets you choose a language resource. 
 
