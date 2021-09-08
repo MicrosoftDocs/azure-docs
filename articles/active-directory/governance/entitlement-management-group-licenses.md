@@ -39,7 +39,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 2. In the left menu, click **Identity Governance**
 
-3. In the left menu, click **Access Packages**. If you see Access denied, ensure that an Azure AD Premium P2 license is present in your directory
+3. In the left menu, click **Access Packages**. 
 
 4. Click **New access package**
 
