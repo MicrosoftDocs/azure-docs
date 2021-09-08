@@ -104,3 +104,10 @@ For the time being (and most likely the foreseeable future), we won't support cu
 ## Soft delete for blobs capability (currently in preview)
 
 If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure Portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items. 
+
+## Events
+
+If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions. 
+
+> [!TIP]
+> Read access to the secondary endpoint is available only when you enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). 
