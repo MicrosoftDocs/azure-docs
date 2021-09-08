@@ -33,7 +33,7 @@ For more background on lexical analysis, listen to the following video clip for 
 
 ## Default analyzer  
 
-In Azure Cognitive Search queries, an analyzer is automatically invoked on all string fields marked as searchable. 
+In Azure Cognitive Search, an analyzer is automatically invoked on all string fields marked as searchable. 
 
 By default, Azure Cognitive Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
 
