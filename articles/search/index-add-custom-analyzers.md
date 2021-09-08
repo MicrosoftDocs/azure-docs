@@ -227,7 +227,7 @@ Cognitive Search supports character filters in the following list. More informat
 A tokenizer divides continuous text into a sequence of tokens, such as breaking a sentence into words, or a word into root forms. 
 
 Cognitive Search supports tokenizers in the following list. More information about each one can be found in the Lucene API reference.
-I
+
 |**tokenizer_name**|**tokenizer_type** <sup>1</sup>|**Description and Options**|  
 |------------------|-------------------------------|---------------------------|  
 |[classic](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Grammar based tokenizer that is suitable for processing most European-language documents.  </br></br>**Options**  </br></br>maxTokenLength (type: int) - The maximum token length. Default: 255, maximum: 300. Tokens longer than the maximum length are split.|  
