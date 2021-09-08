@@ -266,6 +266,6 @@ Use our **[pre-submission checklist](./checklist.md)** to address all the things
 
 Once you have answered those questions for yourself, select the submit button on your app for review and approval.
 
-## Step 11: Congratulations, you are done submitting
+## Step 11: Congratulations, you are done submitting!
 
 Expect a response within 3 to 4 business days from our reviewers if there are any issues related to your submission.
