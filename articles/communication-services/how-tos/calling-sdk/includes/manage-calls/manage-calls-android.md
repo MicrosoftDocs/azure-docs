@@ -214,14 +214,14 @@ Any given remote participant has a set of properties and collections associated 
 
 * Get the identifier for this remote participant.
 Identity is one of the 'Identifier' types
-```java
-CommunicationIdentifier participantIdentifier = remoteParticipant.getIdentifier();
-```
+    ```java
+    CommunicationIdentifier participantIdentifier = remoteParticipant.getIdentifier();
+    ```
 
 * Get state of this remote participant.
-```java
-ParticipantState state = remoteParticipant.getState();
-```
+    ```java
+    ParticipantState state = remoteParticipant.getState();
+    ```
 State can be one of
 * 'IDLE' - initial state
 * 'EARLY_MEDIA' - announcement is played before participant is connected to the call
@@ -232,23 +232,22 @@ State can be one of
 * 'IN_LOBBY' - participant is waiting in the lobby to be admitted. Currently only used in Teams interop scenario
 * 'DISCONNECTED' - final state - participant is disconnected from the call
 
-
 * To learn why a participant left the call, inspect `callEndReason` property:
-```java
-CallEndReason callEndReason = remoteParticipant.getCallEndReason();
-```
+    ```java
+    CallEndReason callEndReason = remoteParticipant.getCallEndReason();
+    ```
 
 * To check whether this remote participant is muted or not, inspect the `isMuted` property:
-```java
-boolean isParticipantMuted = remoteParticipant.isMuted();
-```
+    ```java
+    boolean isParticipantMuted = remoteParticipant.isMuted();
+    ```
 
 * To check whether this remote participant is speaking or not, inspect the `isSpeaking` property:
-```java
-boolean isParticipantSpeaking = remoteParticipant.isSpeaking();
-```
+    ```java
+    boolean isParticipantSpeaking = remoteParticipant.isSpeaking();
+    ```
 
 * To inspect all video streams that a given participant is sending in this call, check the `videoStreams` collection:
-```java
-List<RemoteVideoStream> videoStreams = remoteParticipant.getVideoStreams(); // [RemoteVideoStream, RemoteVideoStream, ...]
-```
+    ```java
+    List<RemoteVideoStream> videoStreams = remoteParticipant.getVideoStreams(); // [RemoteVideoStream, RemoteVideoStream, ...]
+    ```

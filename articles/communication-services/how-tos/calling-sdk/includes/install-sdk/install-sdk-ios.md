@@ -19,13 +19,13 @@ You're not going to create unit tests or UI tests during this quickstart. Feel f
 
 1. Create a Podfile for your application, like this:
 
-```
-platform :ios, '13.0'
-use_frameworks!
-target 'AzureCommunicationCallingSample' do
-    pod 'AzureCommunicationCalling', '~> 1.0.0'
-end
-```
+    ```
+    platform :ios, '13.0'
+    use_frameworks!
+    target 'AzureCommunicationCallingSample' do
+        pod 'AzureCommunicationCalling', '~> 1.0.0'
+    end
+    ```
 2. Run `pod install`.
 3. Open `.xcworkspace` with Xcode.
 

@@ -154,9 +154,9 @@ Remote participants have a set of associated properties and collections:
 
 - `CommunicationIdentifier`: Get the identifier for a remote participant. Identity is one of the `CommunicationIdentifier` types:
 
-```js
-const identifier = remoteParticipant.identifier;
-```
+    ```js
+    const identifier = remoteParticipant.identifier;
+    ```
 
 It can be one of the following `CommunicationIdentifier` types:
 
@@ -167,9 +167,9 @@ It can be one of the following `CommunicationIdentifier` types:
 
 - `state`: Get the state of a remote participant.
 
-```js
-const state = remoteParticipant.state;
-```
+    ```js
+    const state = remoteParticipant.state;
+    ```
 
 The state can be:
 
@@ -184,34 +184,34 @@ The state can be:
 
 - `callEndReason`: To learn why a participant left the call, check the `callEndReason` property:
 
-```js
-const callEndReason = remoteParticipant.callEndReason;
-const callEndReasonCode = callEndReason.code // (number) code associated with the reason
-const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
-```
+    ```js
+    const callEndReason = remoteParticipant.callEndReason;
+    const callEndReasonCode = callEndReason.code // (number) code associated with the reason
+    const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
+    ```
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 
-```js
-const isMuted = remoteParticipant.isMuted;
-```
+    ```js
+    const isMuted = remoteParticipant.isMuted;
+    ```
 
 - `isSpeaking` status: To find out if a remote participant is speaking, check the `isSpeaking` property. It returns `Boolean`.
 
-```js
-const isSpeaking = remoteParticipant.isSpeaking;
-```
+    ```js
+    const isSpeaking = remoteParticipant.isSpeaking;
+    ```
 
 - `videoStreams`: To inspect all video streams that a given participant is sending in this call, check the `videoStreams` collection. It contains `RemoteVideoStream` objects.
 
-```js
-const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
-```
+    ```js
+    const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+    ```
 - `displayName`: To get display name for this remote participant, inspect `displayName` property it return string. 
 
-```js
-const displayName = remoteParticipant.displayName;
-```
+    ```js
+    const displayName = remoteParticipant.displayName;
+    ```
 
 ## Check call properties
 

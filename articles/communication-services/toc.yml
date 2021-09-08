@@ -179,7 +179,7 @@ items:
       - name: Transfer Calls
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Join a Teams meeting
-        href: how-tos/calling-sdk/teams-interop.md
+        href: how-tos/calling-sdk/teams-interoperability.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
 - name: Samples

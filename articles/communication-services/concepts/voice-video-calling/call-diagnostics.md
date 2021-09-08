@@ -9,7 +9,6 @@ manager: chpalm
 services: azure-communication-services
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.custom: references_regions
 ms.service: azure-communication-services
 ---
 
