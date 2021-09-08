@@ -11,7 +11,7 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 09/08/2021
 ms.author: pafarley
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q3, contperf-fy22q1
 ---
 
 # What's new in Azure Face service?
