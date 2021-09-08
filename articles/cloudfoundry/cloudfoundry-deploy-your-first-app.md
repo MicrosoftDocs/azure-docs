@@ -17,7 +17,7 @@ ms.author: seanmck
 
 There are several options for creating a Cloud Foundry environment on Azure:
 
-- Use the [Pivotal Cloud Foundry offer] pcf-azuremarketplace in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] for deploying the marketplace offer in the Pivotal documentation.
+- Use the Pivotal Cloud Foundry offer in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] for deploying the marketplace offer in the Pivotal documentation.
 - Create a customized environment by [deploying Pivotal Cloud Foundry manually][pcf-custom].
 - [Deploy the open-source Cloud Foundry packages directly][oss-cf-bosh] by setting up a [BOSH](https://bosh.io) director, a VM that coordinates the deployment of the Cloud Foundry environment.
 
