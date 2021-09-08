@@ -11,7 +11,7 @@ ms.date: 09/07/2021
 ms.author: alkohli
 ---
 
-# Troubleshoot time sync issues for Azure Data Box and Azure Data Box Heavy devices
+# Sync device time for Azure Data Box and Azure Data Box Heavy
 
 This article describes how to diagnose that your Data Box is out of sync and then change the time on your Data Box device. The information in this article applies to import as well as export orders on both Data Box and Data Box Heavy devices.
 
