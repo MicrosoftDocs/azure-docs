@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
+ms.date: 09/08/2021
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics
@@ -586,6 +586,35 @@ In the sink transformation, you can write to either a container or folder in Azu
    * **Output to a single file**: Combine the partitioned output files into a single named file. The path is relative to the dataset folder. Please be aware that te merge operation can possibly fail based upon node size. This option is not recommended for large datasets.
 
 **Quote all:** Determines whether to enclose all values in quotes
+    
+### ```umask```
+
+You can optionally set the ```umask``` for files using POSIX read, write, execute flags for owner, user and group.
+    
+### Pre-processing and post-processing commands
+    
+You can optionally execute Hadoop filesystem commands before or after writing to an ADLS Gen2 sink. The following commands are supported:
+    
+* ```cp```
+* ```mv```
+* ```rm```
+* ```mkdir```
+
+Examples:
+
+* ```mkdir /folder1```
+* ```mkdir -p folder1```
+* ```mv /folder1/*.* /folder2/```
+* ```cp /folder1/file1.txt /folder2```
+* ```rm -r /folder1```
+
+Parameters are also supported through expression builder, for example:
+
+```mkdir -p {$tempPath}/commands/c1/c2```
+```mv {$tempPath}/commands/*.* {$tempPath}/commands/c1/c2```
+
+
+By default, folders are created as user/root. Refer to the top level container with ‘/’.
 
 ## Lookup activity properties
 
