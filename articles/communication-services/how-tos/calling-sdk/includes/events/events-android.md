@@ -1,3 +1,10 @@
+---
+author: probableprime
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 09/08/2021
+ms.author: rifox
+---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 With our Android SDK, you can subscribe to most of the properties and collections to be notified when values change.
