@@ -556,43 +556,46 @@ As the root superuser, a manual installation can be achieved as follows:
     ```bash
     echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$NEW_LIB_PATH\"" >> /home/azacsnap/.profile
     ```
-# [Azure NetApp Files (with VM)](#tab/azure-netapp-files)
+    
+1. Actions to take depending on storage back-end:
 
-1. On Azure NetApp Files
-    1. Configure the user’s `DOTNET_BUNDLE_EXTRACT_BASE_DIR` path per the .NET Core single-file extract
-       guidance.
-        1. SUSE Linux
+    # [Azure NetApp Files (with VM)](#tab/azure-netapp-files)
+
+    1. On Azure NetApp Files
+        1. Configure the user’s `DOTNET_BUNDLE_EXTRACT_BASE_DIR` path per the .NET Core single-file extract
+           guidance.
+            1. SUSE Linux
+
+                ```bash
+                echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
+                echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
+                ```
+
+            1. RHEL
+
+                ```bash
+                echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
+                echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
+                ```
+
+    # [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
+
+    1. On Azure Large Instances
+        1. Copy the SSH keys for back-end storage for azacsnap from the "root" user (the user running
+        the install). This assumes the "root" user has already configured connectivity to the storage
+           > see section "[Enable communication with storage](#enable-communication-with-storage)".
 
             ```bash
-            echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
-            echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
+            cp -pr ~/.ssh /home/azacsnap/.
             ```
 
-        1. RHEL
+        1. Set the user permissions correctly for the SSH files
 
             ```bash
-            echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
-            echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
+            chown -R azacsnap.sapsys /home/azacsnap/.ssh
             ```
 
-# [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
-
-1. On Azure Large Instances
-    1. Copy the SSH keys for back-end storage for azacsnap from the "root" user (the user running
-    the install). This assumes the "root" user has already configured connectivity to the storage
-       > see section "[Enable communication with storage](#enable-communication-with-storage)".
-
-        ```bash
-        cp -pr ~/.ssh /home/azacsnap/.
-        ```
-
-    1. Set the user permissions correctly for the SSH files
-
-        ```bash
-        chown -R azacsnap.sapsys /home/azacsnap/.ssh
-        ```
-
----
+    ---
 
 1. Copy the SAP HANA connection secure user store for the target user, azacsnap. This
     assumes the "root" user has already configured the secure user store.
