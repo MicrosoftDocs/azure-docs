@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 09/07/2021
+ms.date: 09/08/2021
 ---
 
 # Maintenance window (Preview)
@@ -85,7 +85,7 @@ Choosing a maintenance window other than the default is currently available in t
 | East US | Yes | Yes | Yes |
 | East US 2 | Yes | Yes | Yes |
 | East Asia | Yes | Yes | |
-| France Central |  |  | Yes |
+| France Central | Yes | Yes | Yes |
 | France South | Yes | Yes | |
 | Germany West Central | Yes | Yes | Yes |
 | Japan East | Yes | Yes | Yes |
@@ -117,7 +117,7 @@ To get the maximum benefit from maintenance windows, make sure your client appli
 
 For more on the client connection policy in Azure SQL Database, see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy). 
 
-For more on the client connection policy in Azure SQL Managed Instance see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
+For more on the client connection policy in Azure SQL Managed Instance, see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
 
 ## Considerations for Azure SQL Managed Instance
 
