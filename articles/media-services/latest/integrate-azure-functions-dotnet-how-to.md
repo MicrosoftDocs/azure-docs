@@ -101,8 +101,8 @@ The project template creates a project in your chosen language and installs requ
 
 This is the C# code for your function. The role of the function is to take a Media Services asset or a source URL and launches an encoding job with Media Services. It uses a Transform that is created if it does not exist. When it is created, it used the preset provided in the input body. 
 
-    >[!IMPORTANT]
-    >Replace the full content of HttpTriggerEncode.cs file with [`HttpTriggerEncode.cs` from this repository](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/blob/main/Tutorial/HttpTriggerEncode.cs).
+>[!IMPORTANT]
+>Replace the full content of HttpTriggerEncode.cs file with [`HttpTriggerEncode.cs` from this repository](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/blob/main/Tutorial/HttpTriggerEncode.cs).
 
 Once you are done defining your function click **Save and Run**.
 
