@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/26/2021
+ms.date: 09/08/2021
 ---
 
 
@@ -20,7 +20,7 @@ Multiple layers of security are available to help protect the data on your Azure
 
 Azure Database for PostgreSQL encrypts data in two ways:
 
-- **Data in transit**: Azure Database for PostgreSQL encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default.
+- **Data in transit**: Azure Database for PostgreSQL encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default. See this [how to guide](how-to-connect-tls-ssl.md) for more details. For better security, you can choose to enable [SCRAM authentication](how-to-connect-scram.md).
 - **Data at rest**: For storage encryption, Azure Database for PostgreSQL uses the FIPS 140-2 validated cryptographic module. Data is encrypted on disk, including backups and the temporary files created while queries are running. 
 
   The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. This is similar to other at-rest encryption technologies, like transparent data encryption in SQL Server or Oracle databases. Storage encryption is always on and can't be disabled.
@@ -42,11 +42,56 @@ When you're running Azure Database for PostgreSQL - Flexible Server, you have tw
 
 While you're creating the Azure Database for PostgreSQL server, you provide credentials for an administrator role. This administrator role can be used to create more [PostgreSQL roles](https://www.postgresql.org/docs/current/user-manag.html).
 
-You can also connect to the server by using [Azure Active Directory authentication](../concepts-aad-authentication.md). [Audit logging](../concepts-audit.md) is available to track activity in your databases. 
+For example,
+
+```SQL
+postgres=> create role demouser with password 'password123';
+```
+
+To view the list of roles in your server, you can connect using `psql` client and query the `pg_roles` table.
+
+```SQL
+postgres=> select rolname from pg_roles;
+          rolname
+---------------------------
+ azuresu
+ pg_monitor
+ pg_read_all_settings
+ pg_read_all_stats
+ pg_stat_scan_tables
+ pg_read_server_files
+ pg_write_server_files
+ pg_execute_server_program
+ pg_signal_backend
+ azure_pg_admin
+ replication
+ sr
+ demouser
+(13 rows)
+
+```
+
+[Audit logging](../concepts-audit.md) is also available with Flexible Server to track activity in your databases. 
 
 > [!NOTE]
 > Azure Database for PostgreSQL - Flexible Server currently doesn't support [Azure Defender protection](../../security-center/azure-defender.md). 
 
+## Updating passwords
+
+For better security, it is a good practice to periodically rotate your admin password and database user passwords. It is recommended to use strong passwords using upper and lower cases, numbers and special characters.
+
+### Reset administrator password
+
+Follow the [how to guide](./how-to-manage-server-portal.md#reset-admin-password) to reset the admin password.
+
+### Update database user password
+
+You can use client tools to update database user passwords. 
+For example,
+```SQL
+postgres=> alter role demouser with password 'Password123!';
+ALTER ROLE
+```
 ## Next steps
 - Enable [firewall rules for IP addresses](concepts-firewall-rules.md) for public access networking.
 - Learn about [private access networking with Azure Database for PostgreSQL - Flexible Server](concepts-networking.md).
