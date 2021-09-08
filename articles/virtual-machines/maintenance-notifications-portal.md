@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: maintenance-control
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 11/19/2019
+ms.date: 09/08/2021
 ms.author: shants
 #pmcontact: shants
 ---
@@ -23,9 +23,7 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 2. In the left navigation, click **Virtual Machines**.
 
-3. In the Virtual Machines pane, select **Edit columns** button to open the list of available columns.
-
-4. Select and add the following columns:
+3. In the Virtual Machines pane, select **Maintenance -> Virtual machine maintenance** button to open the list with maintenance columns.
 
    **Maintenance status**: Shows the maintenance status for the VM. The following are the potential values:
 	  
