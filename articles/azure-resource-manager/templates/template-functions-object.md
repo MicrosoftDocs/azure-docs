@@ -2,7 +2,7 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 09/08/2021
 ---
 
 # Object functions for ARM templates
@@ -37,60 +37,9 @@ Checks whether an array contains a value, an object contains a key, or a string 
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) shows how to use contains with different types:
+The following example shows how to use contains with different types:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "OneTwoThree"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'e')]"
-    },
-    "stringFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'z')]"
-    },
-    "objectTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'one')]"
-    },
-    "objectFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'a')]"
-    },
-    "arrayTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'three')]"
-    },
-    "arrayFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'four')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/contains.json":::
 
 The output from the preceding example with the default values is:
 
@@ -175,44 +124,9 @@ Returns **True** if the value is empty; otherwise, **False**.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) checks whether an array, object, and string are empty.
+The following example checks whether an array, object, and string are empty.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": []
-    },
-    "testObject": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": ""
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testArray'))]"
-    },
-    "objectEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testObject'))]"
-    },
-    "stringEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/empty.json":::
 
 The output from the preceding example with the default values is:
 
@@ -242,52 +156,9 @@ An array or object with the common elements.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) shows how to use intersection with arrays and objects:
+The following example shows how to use intersection with arrays and objects.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "z",
-        "three": "c"
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "objectOutput": {
-      "type": "object",
-      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/intersection.json":::
 
 The output from the preceding example with the default values is:
 
@@ -423,55 +294,9 @@ An int.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) shows how to use length with an array and string:
+The following example shows how to use length with an array and string:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "One Two Three"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "propA": "one",
-        "propB": "two",
-        "propC": "three",
-        "propD": {
-          "propD-1": "sub",
-          "propD-2": "sub"
-        }
-      }
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayLength": {
-      "type": "int",
-      "value": "[length(parameters('arrayToTest'))]"
-    },
-    "stringLength": {
-      "type": "int",
-      "value": "[length(parameters('stringToTest'))]"
-    },
-    "objectLength": {
-      "type": "int",
-      "value": "[length(parameters('objectToTest'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
 
 The output from the preceding example with the default values is:
 
@@ -541,52 +366,9 @@ An array or object.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) shows how to use union with arrays and objects:
+The following example shows how to use union with arrays and objects:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c1"
-      }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "three": "c2",
-        "four": "d",
-        "five": "e"
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "three", "four" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "objectOutput": {
-      "type": "object",
-      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/union.json":::
 
 The output from the preceding example with the default values is:
 

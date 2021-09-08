@@ -45,7 +45,7 @@ An array.
 
 ### Example
 
-The following example template shows how to use the array function with different types.
+The following example shows how to use the array function with different types.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/array.json":::
 
@@ -88,7 +88,7 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-The following example template shows how to combine two string values and return a concatenated string.
+The following example shows how to combine two string values and return a concatenated string.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/concat-string.json":::
 
@@ -150,7 +150,7 @@ An array. When no parameters are provided, it returns an empty array.
 
 ### Example
 
-The following example template shows how to use createArray with different types:
+The following example shows how to use createArray with different types:
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/createarray.json":::
 
@@ -401,7 +401,7 @@ An array of integers.
 
 ### Example
 
-The following example template shows how to use the range function.
+The following example shows how to use the range function.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/range.json":::
 
