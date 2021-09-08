@@ -19,7 +19,7 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 Install the remaining prerequisites for your operating system.
 
 ### Linux
-The steps in this quickstart were tested using Ubuntu Linux 18.04 and also on a Raspberry Pi 3 Model B+ running Raspberry Pi OS version 10 (buster).
+The steps in this quickstart were tested using Ubuntu Linux 18.04 and on a Raspberry Pi 3 Model B+ running Raspberry Pi OS version 10 (buster).
 
 To complete this quickstart on Linux, install the following software on your local Linux environment:
 
