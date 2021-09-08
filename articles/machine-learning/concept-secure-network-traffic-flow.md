@@ -70,7 +70,7 @@ This article assumes the following configuration:
     :::column-end:::
     :::column:::
         * Azure Active Directory
-        * Azure Frontdoor
+        * Azure Front Door
         * Azure Machine Learning service
     :::column-end:::
     :::column:::
