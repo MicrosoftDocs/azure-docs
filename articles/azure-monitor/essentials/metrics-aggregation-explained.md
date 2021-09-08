@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/31/2021
 ---
 
-# Azure Monitor Metrics metrics aggregation and display explained
+# Azure Monitor Metrics aggregation and display explained
 
 This article explains the aggregation of metrics in the Azure Monitor time-series database that back Azure Monitor [platform metrics](../data-platform.md) and [custom metrics](../essentials/metrics-custom-overview.md). This article also applies to standard [Application Insights metrics](../app/app-insights-overview.md). 
 
