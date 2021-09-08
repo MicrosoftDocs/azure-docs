@@ -30,7 +30,7 @@ To troubleshoot time sync issues, you'll first need to connect to the PowerShell
 [!INCLUDE [Connect to Data Box PowerShell interface](../../includes/data-box-connect-powershell-interface.md)]
 
 
-### Change device time
+## Change device time
 
 To change the device time, follow these steps.
 
@@ -51,21 +51,21 @@ To change the device time, follow these steps.
         Set-Date -Adjust -<time change in hours:mins:secs format> -DisplayHint Time
         ```    
 
-    Here is an example output:
+        Here is an example output:
+        
+        ```powershell
+        [by506b4b5d0790.microsoftdatabox.com]: PS>Get-date
+        Friday, September 3, 2021 2:22:50 PM
+        [by506b4b5d0790.microsoftdatabox.com]: PS>Set-Date -Adjust 00:02:00 -DisplayHint Time
+        2:25:18 PM
+        [by506b4b5d0790.microsoftdatabox.com]: PS>Set-Date -Adjust -00:02:00 -DisplayHint Time
+        2:23:28 PM
+        [by506b4b5d0790.microsoftdatabox.com]: PS>Get-date
+        Friday, September 3, 2021 2:23:42 PM
+        [by506b4b5d0790.microsoftdatabox.com]: PS>
+        ```
+        For more information, see [Set-Date API](/powershell/module/microsoft.powershell.utility/set-date?view=powershell-7.1&preserve-view=true).
     
-    ```powershell
-    [by506b4b5d0790.microsoftdatabox.com]: PS>Get-date
-    Friday, September 3, 2021 2:22:50 PM
-    [by506b4b5d0790.microsoftdatabox.com]: PS>Set-Date -Adjust 00:02:00 -DisplayHint Time
-    2:25:18 PM
-    [by506b4b5d0790.microsoftdatabox.com]: PS>Set-Date -Adjust -00:02:00 -DisplayHint Time
-    2:23:28 PM
-    [by506b4b5d0790.microsoftdatabox.com]: PS>Get-date
-    Friday, September 3, 2021 2:23:42 PM
-    [by506b4b5d0790.microsoftdatabox.com]: PS>
-    ```
-    For more information, see [Set-Date API](/powershell/module/microsoft.powershell.utility/set-date?view=powershell-7.1&preserve-view=true).
-
 ## Next steps
 
 To troubleshoot other Data Box issues, see one of the following:
