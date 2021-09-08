@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
 ms.custom: seo-lt-2019
-ms.date: 08/31/2021
+ms.date: 09/08/2021
 ---
 
 # Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory
@@ -104,7 +104,7 @@ In this section, you author a Databricks linked service. This linked service con
 
     1.  For **Access Token**, generate it from Azure Databricks workplace. You can find the steps [here](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
-    1.  For **Cluster version**, select **4.2** (with Apache Spark 2.3.1, Scala 2.11).
+    1.  For **Cluster version**, select the version you want to use.
 
     1.  For **Cluster node type**, select **Standard\_D3\_v2** under **General Purpose (HDD)** category for this tutorial. 
     
@@ -144,13 +144,13 @@ In this section, you author a Databricks linked service. This linked service con
 
        1. Create a **New Folder** in Workplace and call it as **adftutorial**.
 
-          ![Screenshot showing how to create a new folder.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png" alt-text="Screenshot showing how to create a new folder.":::        
 
        1. [Screenshot showing how to create a new notebook.](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder, click **Create.**
 
-          ![Screenshot showing how to create a new notebook.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png" alt-text="Screenshot showing how to create a new notebook.":::  
 
-          ![Screenshot showing how to set the properties of the new notebook.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png" alt-text="Screenshot showing how to set the properties of the new notebook.":::
 
        1. In the newly created notebook "mynotebook'" add the following code:
 
@@ -163,7 +163,7 @@ In this section, you author a Databricks linked service. This linked service con
            print (y)
            ```
 
-           ![Screenshot showing how to create widgets for parameters.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png" alt-text="Screenshot showing how to create widgets for parameters."::: 
 
        1. The **Notebook Path** in this case is **/adftutorial/mynotebook**.
 
@@ -197,25 +197,23 @@ The **Pipeline run** dialog box asks for the **name** parameter. Use **/path/fil
 
 1.  Switch to the **Monitor** tab. Confirm that you see a pipeline run. It takes approximately 5-8 minutes to create a Databricks job cluster, where the notebook is executed.
 
-    ![Screenshot showing how to monitor the pipeline.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-22.png" alt-text="Screenshot showing how to monitor the pipeline."::: 
 
 1.  Select **Refresh** periodically to check the status of the pipeline run.
 
-1.  To see activity runs associated with the pipeline run, select **View Activity Runs** in the **Actions** column.
+1.  To see activity runs associated with the pipeline run, select **pipeline1** link under the **Pipeline name** column.
 
-    ![Screenshot showing how to view the activity runs.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
-
-You can switch back to the pipeline runs view by selecting the **Pipelines** link at the top.
+1. You can switch back to the pipeline runs view by selecting the **All pipeline runs** link in the breadcrumb menu at the top.
 
 ## Verify the output
 
 You can log on to the **Azure Databricks workspace**, go to **Clusters** and you can see the **Job** status as *pending execution, running, or terminated*.
 
-![Screenshot showing how to view the job cluster and the job.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png" alt-text="Screenshot showing how to view the job cluster and the job."::: 
 
 You can click on the **Job name** and navigate to see further details. On successful run, you can validate the parameters passed and the output of the Python notebook.
 
-![Screenshot showing how to view the run details and output.](media/transform-data-using-databricks-notebook/databricks-output.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-output.png" alt-text="Screenshot showing how to view the run details and output."::: 
 
 ## Next steps
 
