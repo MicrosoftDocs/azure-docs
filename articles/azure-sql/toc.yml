@@ -1264,7 +1264,13 @@
             href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Availability group (AG)
           items:
-          - name: Create AG 
+          - name: Configure AG (multi-subnet) 
+            items: 
+            - name: Prerequisites
+              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md
+            - name: Create availability group
+              href: virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet.md
+          - name: Configure AG (single subnet)
             items: 
             - name: Azure portal
               href: virtual-machines/windows/availability-group-azure-portal-configure.md
@@ -1276,7 +1282,18 @@
               href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
             - name: Domain-independent (workgroup)
               href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-            - name: Configure manually
+            - name: Manually
+              items: 
+              - name: Prerequisites
+                href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-single-subnet.md
+              - name: Create availability group
+                href: virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet.md
+              - name: Load balancer - Azure portal
+                href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+              - name: Load balancer - Azure PowerShell
+                href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+
+            - name: Single subnet
               items:
               - name: Prerequisites
                 href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
