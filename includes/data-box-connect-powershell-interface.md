@@ -96,7 +96,7 @@ Follow these steps if you'll use the default certificates (shipped with the devi
 Follow these steps if you'll bring your own certificates on Data Box.
  
 1. Install the signing chain certificate that you are bringing, on the host machine that you'll connect to the Data Box. Open the certificate via Explorer, right-click the file and select **Install certificate**. 
-1. Follow steps in [Import certificate on client]() and install the certificate in Local machine/root. 
+1. Follow steps in [Import certificate on client](data-box-bring-your-own-certificates.md#import-certificates-to-client) and install the certificate in Local machine/root. 
 1. Add an entry to the host file that maps the device IP address to the FQDN of the device. The format of the entry would be: 
 
     `<Device IP address>  <Name>.<DNS domain>` 
