@@ -2,7 +2,7 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 09/08/2021
 ---
 # Backup vaults overview
 
@@ -115,6 +115,120 @@ In the **Jobs** tile, you get a summarized view of all backup and restore relate
 In the **Backup Instances** tile, you get a summarized view of all backup instances in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection status.
 
 ![Backup jobs](./media/backup-vault-overview/backup-jobs.png)
+
+## Move a Backup vault across Azure Subscriptions and Resource Groups (Public Preview)
+
+This section explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
+
+>[!Note]
+>You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource?view=azps-6.3.0&preserve-view=true) and [CLI](/cli/azure/resource?view=azure-cli-latest#az_resource_move).
+
+### Supported regions
+
+The vault move across subscriptions and resource groups is currently supported in the following regions: West US, South Central US, East Asia, Switzerland North, South Africa North, UK West, North Central US, UAE North, Norway East, Australia Southeast, Japan West, Canada East, Korea Central, Australia Central, West Central US, Central India, West India, South India, UAE Central, South Africa West, Norway West, Switzerland West.
+
+### Move Backup vault to a different resource group
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Open the list of Backup vaults and select the vault you want to move.
+
+   The vault dashboard displays the vault details.
+
+   :::image type="content" source="./media/backup-vault-overview/vault-dashboard-to-move-to-resource-group-inline.png" alt-text="Screenshot showing the dashboard of the vault to be moved to another resource group." lightbox="./media/backup-vault-overview/vault-dashboard-to-move-to-resource-group-expanded.png"::: 
+
+3. In the vault **Overview** menu, click **Move**, and then select **Move to another resource group**.
+
+   :::image type="content" source="./media/backup-vault-overview/select-move-to-another-resource-group-inline.png" alt-text="Screenshot showing the option for moving the Backup vault to another resource group." lightbox="./media/backup-vault-overview/select-move-to-another-resource-group-expanded.png":::
+
+4. In the **Resource group** drop-down list, select an existing resource group or select **Create new** to create a new resource group.
+
+   >[!Note]
+   >The same subscription to move the vault auto populates.
+
+   :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-inline.png" alt-text="Screenshot showing the selection of an existing resource group or creation of a new resource group." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-expanded.png"::: 
+
+5. On the **Resources to move** tab, you can view the validation progress status for the Backup vault that needs to be moved. Wait till the validation is complete.
+
+   :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-inline.png" alt-text="Screenshot showing the Backup vault validation status." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-expanded.png"::: 
+
+6. Select the checkbox _I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs_’ to confirm, and then select **Move**.
+ 
+   >[!Note]
+   >The resource path changes after moving vault across resource groups or subscriptions. Ensure that you update the tools and scripts with the new resource path after the move operation completes.
+
+Wait till the move operation is complete to perform any other operations on the vault. Any operations performed on the Backup vault will fail while the move is in progress. When the process is complete, the Backup vault should appear in the target resource group.
+
+>[!Important]
+>If you encounter any error while moving the vault, refer to the [Error codes and troubleshooting section](#error-codes-and-troubleshooting).  
+
+### Move Backup vault to a different subscription
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Open the list of Backup vaults and select the vault you want to move.
+   
+   The vault dashboard displays the vault details.
+
+   :::image type="content" source="./media/backup-vault-overview/vault-dashboard-to-move-to-another-subscription-inline.png" alt-text="Screenshot showing the dashboard of the vault to be moved to another Azure subscription." lightbox="./media/backup-vault-overview/vault-dashboard-to-move-to-another-subscription-expanded.png"::: 
+
+3. In the vault **Overview** menu, click **Move**, and then select **Move to another subscription**.
+
+   :::image type="content" source="./media/backup-vault-overview/select-move-to-another-subscription-inline.png" alt-text="Screenshot showing the option for moving the Backup vault to another Azure subscription." lightbox="./media/backup-vault-overview/select-move-to-another-subscription-expanded.png"::: 
+
+4. In the **Subscription** drop-down list, select an existing subscription.
+
+5. In the **Resource group** drop-down list, select an existing resource group or select **Create new**  to create a new resource group.
+
+   :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-to-move-to-other-subscription-inline.png" alt-text="Screenshot showing the selection of an existing resource group or creation of a new resource group in another Azure subscription." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-to-move-to-other-subscription-expanded.png":::
+
+6. On the **Resources to move** tab, you can view the validation process status for the Backup vault that needs to be moved. Wait till the validation is complete.
+
+   :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-inline.png" alt-text="Screenshot showing the validation status of Backup vault to be moved to another Azure subscription." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-expanded.png"::: 
+
+7. Select the checkbox _I understand that tools and scripts associated with moved resources will not work until I update them to use new resource   IDs_ to confirm, and then select **Move**.
+ 
+   >[!Note]
+   >The resource path changes after moving vault across resource groups or subscriptions. Ensure that you update the tools and scripts with the new resource path after the move operation completes.
+
+Wait till the move operation is complete to perform any other operations on the vault. Any operations performed on the Backup vault will fail if performed while move is in progress. When the process completes, the Backup vault should appear in the target Subscription and Resource group.
+
+>[!Important]
+>If you encounter any error while moving the vault, refer to the [Error codes and troubleshooting section](#error-codes-and-troubleshooting).
+
+### Error codes and troubleshooting
+
+Troubleshoot the following common issues you might encounter during Backup vault move:
+
+#### BackupVaultMoveResourcesPartiallySucceeded   
+
+You may face this error when Backup vault move succeeds only partially. The issue should get resolved automatically within 36 hours. If it persists, contact Microsoft Support. 
+
+#### BackupVaultMoveResourcesCriticalFailure 
+
+**Cause**: You may face this error when Backup vault move fails critically. 
+
+**Recommendation**: The issue should get resolved automatically within 36 hours. If it persists, contact Microsoft Support. 
+
+#### UserErrorBackupVaultResourceMoveInProgress 
+
+**Cause**: You may face this error if you try to perform any operations on the Backup vault while it’s being moved. 
+
+**Recommendation**: Wait till the move operation is complete, and then retry. 
+#### UserErrorBackupVaultResourceMoveNotAllowedForMultipleResources
+
+**Cause**: You may face this error if you try to move multiple Backup vaults  in one attempt. 
+
+**Recommentation**: Ensure that only one Backup vault is selected for every move operation. 
+#### UserErrorBackupVaultResourceMoveNotAllowedUntilResourceProvisioned
+
+**Cause**: You may face this error if the vault is not yet provisioned. 
+
+**Recommendation**: Retry the operation after some time.
+
+#### BackupVaultResourceMoveIsNotEnabled 
+
+**Cause**: Resource move for Backup vault is currently not supported in this Azure region. 
 
 ## Next steps
 
