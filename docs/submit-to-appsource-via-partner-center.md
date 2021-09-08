@@ -3,7 +3,7 @@ title: Make your solutions available in Microsoft AppSource and within Office
 description: Upload Office Add-ins and SharePoint Add-ins to Microsoft AppSource via Partner Center.
 localization_priority: Priority
 ms.author: mingshen
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Make your solutions available in Microsoft AppSource and within Office
