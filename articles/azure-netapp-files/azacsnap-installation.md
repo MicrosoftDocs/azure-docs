@@ -62,9 +62,15 @@ tools.
       Microsoft  operations will  provide  the  storage  user  and  storage  IP at  the  time  of provisioning.
       
       ---
-      
-1. **[Enable communication with SAP HANA](#enable-communication-with-sap-hana)** (refer separate section for more details): Customer must
-    set up an appropriate SAP HANA user with the required privileges to perform the snapshot.
+
+1. **[Enable communication with storage](#enable-communication-with-storage)** (refer separate section for more details): Select the storage back-end you are using for your deployment.
+
+1. **[Enable communication with database](#enable-communication-with-database)** (refer separate section for more details): 
+   
+   # [SAP HANA](#tab/sap-hana)
+   
+   Customer must set up an appropriate SAP HANA user with the required privileges to perform the snapshot.
+
    1. This setting can be tested from the command line as follows using the text in `grey`
       1. HANAv1
 
@@ -75,6 +81,9 @@ tools.
             `hdbsql -n <HANA IP address> -i <HANA instance> -d SYSTEMDB -U <HANA user> "\s"`
 
       - The examples above are for non-SSL communication to SAP HANA.
+      
+   ---
+
 
 ## Enable communication with storage
 
@@ -587,7 +596,7 @@ As the root superuser, a manual installation can be achieved as follows:
 
 1. Copy the SAP HANA connection secure user store for the target user, azacsnap. This
     assumes the "root" user has already configured the secure user store.
-    > see section "[Enable communication with SAP HANA](#enable-communication-with-sap-hana)".
+    > see section "[Enable communication with database](#enable-communication-with-database)".
 
     ```bash
     cp -pr ~/.hdb /home/azacsnap/.
@@ -643,7 +652,7 @@ The following output shows the steps to complete after running the installer wit
 1. Run your first snapshot backup
     1. `azacsnap -c backup –-volume data--prefix=hana_test --retention=1`
 
-Step 2 will be necessary if "[Enable communication with SAP HANA](#enable-communication-with-sap-hana)" was not done before the
+Step 2 will be necessary if "[Enable communication with database](#enable-communication-with-database)" was not done before the
 installation.
 
 > [!NOTE]
