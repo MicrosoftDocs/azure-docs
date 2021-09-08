@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Juno Journey | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Juno Journey'
 description: Learn how to configure single sign-on between Azure Active Directory and Juno Journey.
 services: active-directory
 author: jeevansd
@@ -13,7 +13,7 @@ ms.date: 09/01/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Juno Journey
+# Tutorial: Azure AD SSO integration with Juno Journey
 
 In this tutorial, you'll learn how to integrate Juno Journey with Azure Active Directory (Azure AD). When you integrate Juno Journey with Azure AD, you can:
 
