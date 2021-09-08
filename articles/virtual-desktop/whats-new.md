@@ -69,7 +69,7 @@ Here's what changed in August 2021:
 
 Windows 11 (Preview) images are now available in the Azure Marketplace for customers to test and validate with Azure Virtual Desktop. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-11-preview-is-now-available-on-azure-virtual-desktop/ba-p/2666468).
 
-### Multimedia Redirection is now in public preview
+### Multimedia redirection is now in public preview
 
 Multimedia redirection gives you smooth video playback while watching videos in your Azure Virtual Desktop web browser and works with Microsoft Edge and Google Chrome. Learn more at [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/public-preview-announcing-public-preview-of-multimedia/m-p/2663244#M7692).
 
