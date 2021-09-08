@@ -23,7 +23,7 @@ ms.custom: aaddev
 
 In addition to the Microsoft worldwide cloud, the Microsoft Authentication Library (MSAL) enables application developers in national clouds to acquire tokens in order to authenticate and call secured web APIs. These web APIs can be Microsoft Graph or other Microsoft APIs.
 
-Including the global cloud, Azure Active Directory (Azure AD) is deployed in the following national clouds:  
+Including the global Azure, Azure Active Directory (Azure AD) is deployed in the following national clouds:  
 
 - Azure Government
 - Azure China 21Vianet
