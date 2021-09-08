@@ -724,7 +724,7 @@
               href: reference-yaml-compute-aml.md
             - name: Compute instance
               href: reference-yaml-compute-instance.md
-            - name: Virtual machine (VM)
+            - name: Attached Virtual Machine (VM)
               href: reference-yaml-compute-vm.md
           - name: Jobs
             items:
