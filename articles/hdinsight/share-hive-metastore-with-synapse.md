@@ -15,7 +15,7 @@ Azure Synapse Analytics allows Apache Spark pools in the same workspace to share
 
 The feature works with both Spark 2.4 and Spark 3.0. The following table shows the supported Hive metastore service (HMS) versions for each Spark version.
 
-|Spark Version|HMS 1.2.X|HMS 2.1.X|HMS 2.3.x|HMS 3.1.X|
+|Spark Version|HMS 1.2.X|HMS 2.1.X|HMS 2.3.X|HMS 3.1.X|
 |--|--|--|--|--|
 |2.4|Yes|Yes|Yes|No|
 |3|Yes|Yes|Yes|Yes|
