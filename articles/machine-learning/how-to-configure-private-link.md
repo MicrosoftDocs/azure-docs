@@ -260,10 +260,6 @@ Currently there is no way to enable this functionality using the portal.
 
 ---
 
-## Securely connect to your workspace
-
-[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
-
 ## Next steps
 
 * For more information on securing your Azure Machine Learning workspace, see the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
