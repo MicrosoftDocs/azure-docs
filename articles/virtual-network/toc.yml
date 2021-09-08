@@ -180,26 +180,6 @@
       href: tutorial-tap-virtual-network-cli.md
     - name: Deploy Container networking
       href: deploy-container-networking.md
-  - name: IP services
-    items:
-    - name: Load balancer
-      items:
-      - name: Standard public
-        items: 
-        - name: Standard Public Load Balancer with IPv6 - PowerShell
-          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-        - name: Standard Public Load Balancer with IPv6 - Azure CLI
-          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-        - name: Standard Public Load Balancer with IPv6 - ARM template
-          href: ipv6-configure-standard-load-balancer-template-json.md
-      - name: Standard internal
-        items:
-        - name: Standard Internal Load Balancer with IPv6 - PowerShell
-          href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-      - name: Add IPv6 to an IPv4 application- PowerShell
-        href: ipv6-add-to-existing-vnet-powershell.md
-      - name: Add IPv6 to an IPv4 application - Azure CLI
-        href: ipv6-add-to-existing-vnet-cli.md    
   - name: Security
     items:
     - name: Filter network traffic
