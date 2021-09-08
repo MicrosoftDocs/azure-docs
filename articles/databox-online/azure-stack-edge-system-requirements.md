@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/08/2021
+ms.date: 04/26/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro FPGA system requirements
