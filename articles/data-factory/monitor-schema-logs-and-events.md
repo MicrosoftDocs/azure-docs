@@ -455,4 +455,5 @@ Log Analytics inherits the schema from Monitor with the following exceptions:
     | $.properties.Tags | Tags | Dynamic |
 
 ## Next Steps
+
 [Install Azure Data Factory Analytics solution from Azure Marketplace](monitor-install-adf-analytics.md)

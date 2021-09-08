@@ -1,5 +1,5 @@
 ---
-title: Data Factory metrics 
+title: Data Factory metrics and alerts
 description: Learn about metrics available for monitoring Azure Data Factory.
 author: minhe-msft
 ms.author: hemin
@@ -83,4 +83,5 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
     ![Define an action group](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## Next Steps
+
 [Configure diagnostics settings and workspace](monitor-configure-diagnostics.md)

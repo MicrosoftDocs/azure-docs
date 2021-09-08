@@ -86,4 +86,5 @@ When querying SSIS package execution logs on Logs Analytics, you can join them u
 ![Querying SSIS package execution logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
 
 ## Next Steps
+
 [Schema of logs and events](monitor-schema-logs-and-events.md)

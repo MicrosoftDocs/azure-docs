@@ -54,4 +54,5 @@ You can visualize the preceding metrics, look at the queries behind these metric
 > Azure Data Factory Analytics (Preview) sends diagnostic logs to _Resource-specific_ destination tables. You can write queries against the following tables: _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_.
 
 ## Next Steps
+
 [Monitor and manage pipelines programmatically](monitor-programmatically.md)
