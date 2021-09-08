@@ -56,7 +56,7 @@ However, there are also daemon apps. In these scenarios, applications acquire to
 
 Security tokens can be acquired by multiple types of applications. These applications tend to be separated into the following three categories. Each is used with different libraries and objects.
 
-- **Single-page applications**: Also known as SPAs, these are web apps in which tokens are acquired by a JavaScript or TypeScript app running in the browser. Many modern apps have a single-page application at the front end that's primarily written in JavaScript. The application often uses a framework like Angular, React, or Vue. MSAL.js is the only Microsoft authentication library that supports single-page applications.
+- **Single-page applications**: Also known as SPAs, these are web apps in which tokens are acquired by a JavaScript or TypeScript app running in the browser. Many modern apps have a single-page application at the front end that's primarily written in JavaScript. The application often uses a framework like Angular, React, or Vue. MSAL.js is the only Microsoft Authentication Library that supports single-page applications.
 
 - **Public client applications**: Apps in this category, like the following types, always sign in users:
   - Desktop apps that call web APIs on behalf of signed-in users
@@ -130,7 +130,7 @@ Applications running on a device without a browser can still call an API on beha
 
 ![Device code flow](media/scenarios/device-code-flow-app.svg)
 
-Though we don't recommend that you use it, the [username/password flow](scenario-desktop-acquire-token-usernamepassword.md) is available in public client applications. This flow is still needed in some scenarios like DevOps.
+Though we don't recommend that you use it, the [username/password flow](scenario-desktop-acquire-token-username-password.md) is available in public client applications. This flow is still needed in some scenarios like DevOps.
 
 Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Azure AD. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
@@ -274,7 +274,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
 
 ## Scenarios and supported platforms and languages
 
-Microsoft authentication libraries support multiple platforms:
+Microsoft Authentication Libraries support multiple platforms:
 
 - .NET Core
 - .NET Framework

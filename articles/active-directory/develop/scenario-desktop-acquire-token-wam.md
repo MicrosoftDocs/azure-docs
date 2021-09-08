@@ -3,7 +3,7 @@ title: Acquire a token to call a web API using web account manager (desktop app)
 titleSuffix: Microsoft identity platform
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using web account manager
 services: active-directory
-author: sahmalik
+author: maliksahil
 manager: CelesteDG
 
 ms.service: active-directory
@@ -35,13 +35,13 @@ Using an authentication broker such as WAM has numerous benefits.
 - Enhanced security (your app does not have to manage the powerful refresh token)
 - Better support for Windows Hello, Conditional Access and FIDO keys
 - Integration with Windows' "Email and Accounts" view
-- Better Single Sing-On (users don't have to re-enter passwords)
+- Better Single Sing-On (users don't have to reenter passwords)
 - Most bug fixes and enhancements will be shipped with Windows
 
 ## WAM limitations
 
-- B2C authorities are not supported
-- Available on Win10, Win Server 2016, Win Server 2019 (on Mac, Linux and earlier Windows MSAL will fallback to a browser)
+- B2C authorities are not supported.
+- Available on Win10, Win Server 2016, Win Server 2019. On Mac, Linux and earlier Windows, MSAL will fallback to a browser.
 
 ## WAM calling pattern
 
@@ -120,7 +120,8 @@ In addition to this, WAM can list the OS-wide Work and School accounts configure
 })
 ```
 
-Note: Microsoft (i.e. outlook.com etc.) accounts will not be listed in Win32 nor UWP for privacy reasons.
+>[!NOTE]
+> Microsoft (i.e. outlook.com etc.) accounts will not be listed in Win32 nor UWP for privacy reasons.
 
 Applications cannot remove accounts from Windows! 
 
@@ -129,7 +130,8 @@ Applications cannot remove accounts from Windows!
 - Removes all account information from MSAL's token cache (this includes MSA - i.e. personal accounts - account info and other account information copied by MSAL into its cache).
 - Removes app-only (not OS-wide) accounts.
 
-Note: Apps cannot remove OS accounts. Only users can do that. If an OS account is passed into `RemoveAsync`, and then `GetAccounts` is called with `ListWindowsWorkAndSchoolAccounts` enabled - the same OS account will still be returned.
+>[!NOTE]
+> Apps cannot remove OS accounts. Only users can do that. If an OS account is passed into `RemoveAsync`, and then `GetAccounts` is called with `ListWindowsWorkAndSchoolAccounts` enabled - the same OS account will still be returned.
 
 ## Other considerations
 
@@ -144,7 +146,7 @@ Note: Apps cannot remove OS accounts. Only users can do that. If an OS account i
 
 ## Troubleshooting
 
-When an app that uses MSAL is run as an elevated process, some of these calls within WAM may fail due to different process security levels. Internally MSAL.NET uses native Windows methods ([COM](windows/win32/com/the-component-object-model.md)) to integrate with WAM. Starting with version 4.32.0, MSAL will display a descriptive error message when it detects that the app process is elevated and WAM returned no accounts.
+When an app that uses MSAL is run as an elevated process, some of these calls within WAM may fail due to different process security levels. Internally MSAL.NET uses native Windows methods ([COM](/windows/win32/com/the-component-object-model)) to integrate with WAM. Starting with version 4.32.0, MSAL will display a descriptive error message when it detects that the app process is elevated and WAM returned no accounts.
 
 One solution is to not run the app as elevated, if possible. Another potential workaround is to call `WindowsNativeUtils.InitializeProcessSecurity` method when the app starts up. This will set the security of the processes used by WAM to the same levels. See [this sample app](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/devapps/WAM/NetCoreWinFormsWam/Program.cs#L18-L21) for an example. However, note, that this workaround is not guaranteed to succeed to due external factors like the underlying CLR behavior. In that case, an `MsalClientException` will be thrown. See issue [#2560](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/2560) for additional information.
 

@@ -617,6 +617,30 @@ In the following tables, the term alphanumeric refers to:
 > | tagNames / tagValues | tag name | 1-256 | All characters. |
 > | templateSpecs | resource group | 1-90 | Alphanumerics, underscores, parentheses, hyphens, and periods. |
 
+## Microsoft.Security
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | advancedThreatProtectionSettings | resource group | see value | Must be `current` |
+> | alertsSuppressionRules | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | assessmentMetadata | assessment type | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | assessments | assessment type | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | automations | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | autoProvisioningSettings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | connectors | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | deviceSecurityGroups | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | informationProtectionPolicies | resource group | see values | Use one of:<br>`custom`<br>`effective` | 
+> | iotSecuritySolutions | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | locations / applicationWhitelistings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | locations / jitNetworkAccessPolicies | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | ingestionSettings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | pricings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | securityContacts | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | settings | subscription | see values | Use one of:<br>`MCAS`<br>`Sentinel`<br>`WDATP`<br>`WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW` |
+> | serverVulnerabilityAssessments | resource type | see value | Must be `Default` |
+> | sqlVulnerabilityAssessments / baselineRules | Vulnerability assessment | 1-260 | Alphanumerics, underscores, and hyphens. |
+
 ## Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]

@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery replication appliance - Preview
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
+ms.date: 09/01/2021
 ---
 
 # Deploy Azure Site Recovery replication appliance - Preview
@@ -62,10 +62,9 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   |aka.ms |Allow access to also known as links. Used for Azure Site Recovery appliance updates. |
   |download.microsoft.com/download |Allow downloads from Microsoft download. |
   |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
-  |`*.discoverysrv.windowsazure.com `|Connect to Azure Site Recovery discovery service URL. |
-  |`*.hypervrecoverymanager.windowsazure.com `|Connect to Azure Site Recovery micro-service URLs  |
-  |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks |
-  |`*.backup.windowsazure.com `|Protection service URL – a microservice used by Azure Site Recovery for processing and creating replicated disks in Azure |
+  |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Connect to Azure Site Recovery micro-service URLs.
+  |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks. |
+
 
 > [!NOTE]
 > Private links are not supported with the preview release.
@@ -236,6 +235,9 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
     Ensure you do not close the browser while configuration is in progress.
 
+    >[!NOTE]
+    > Appliance cloning is not supported with this preview. If you attempt to clone, it might disrupt the recovery flow.
+
 
 ## View Azure Site Recovery replication appliance in Azure portal
 
@@ -263,4 +265,4 @@ An appliance that uses an inbuilt process server to protect the workload can han
 For detailed information about how to use multiple appliances and failover a replication appliance, see [this article](switch-replication-appliance-preview.md)
 
 ## Next steps
-Set up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.
+Set up disaster recovery of [VMware VMs](vmware-azure-set-up-replication-tutorial-preview.md) to Azure.

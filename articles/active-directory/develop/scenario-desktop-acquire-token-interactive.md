@@ -3,7 +3,7 @@ title: Acquire a token to call a web API interactively (desktop app) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app interactively
 services: active-directory
-author: sahmalik
+author: maliksahil
 manager: CelesteDG
 
 ms.service: active-directory
@@ -331,7 +331,7 @@ if not result:
 ```
 
 ---
-## Next steps
+### Next steps
 
 Move on to the next article in this scenario,
 [Call a web API from the desktop app](scenario-desktop-call-api.md).
