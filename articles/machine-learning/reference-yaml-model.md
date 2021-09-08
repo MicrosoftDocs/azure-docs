@@ -17,6 +17,20 @@ ms.reviewer: laobri
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+## YAML syntax
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `$schema` | string | The YAML schema. | |
+| `name` | string | **Required.** Name of the model. | |
+| `version` | string | Version of the model. If omitted, Azure ML will autogenerate a version. | |
+| `description` | string | Description of the model. | |
+| `tags` | object | Dictionary of tags for the model. | |
+| `local_path` | string | Local path to the model file(s). This can point to either a file or a directory. **One of `local_path` or `model_uri` is required.** | |
+| `model_uri` | string | URI of the model file(s). This can point to either a file or directory. **One of `local_path` or `model_uri` is required.** | |
+| `model_format` | string | Storage format of the model. Applicable for no-code deployment scenarios. | `custom`, `mlflow`, `triton`, `openai` |
+| `flavors` | object | Flavors of the model. Each model storage format type may have one or more supported flavors. Applicable for no-code deployment scenarios. | |
+
 ## Remarks
 
 The `az ml model` command can be used for managing Azure Machine Learning models.
