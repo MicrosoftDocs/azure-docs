@@ -99,7 +99,7 @@ items:
 - name: Custom question answering
   items:
   - name: Quickstart
-    href: custom-question-answering/quickstart/quickstart.md
+    href: custom-question-answering/quickstart/sdk.md
 - name: Entity linking
   items:
   - name: Overview
