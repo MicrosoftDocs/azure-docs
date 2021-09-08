@@ -115,7 +115,7 @@
       href: edge/deploy-iot-edge-device.md
     - name: Deploy to a Windows device
       href: edge/deploy-iot-edge-linux-on-windows.md
-    - name: Deploy on Azure Stack Edge
+    - name: Deploy to Azure Stack Edge
       href: edge/deploy-on-stack-edge.md
   - name: Design topologies
     items:
@@ -193,7 +193,7 @@
       href: edge/http-extension-protocol.md
     - name: Inference metadata schema
       href: edge/inference-metadata-schema.md
-    - name: Module Twin configuration schema
+    - name: Module Twin configuration
       href: edge/module-twin-configuration-schema.md
     - name: Production readiness and best practices	
       href: edge/production-readiness.md
