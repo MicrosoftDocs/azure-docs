@@ -68,7 +68,7 @@ Combines multiple arrays and returns the concatenated array, or combines multipl
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or string |The first array or string for concatenation. |
-| additional arguments |No |array or string |Additional arrays or strings in sequential order for concatenation. |
+| more arguments |No |array or string |More arrays or strings in sequential order for concatenation. |
 
 This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Arrays are only concatenated with other arrays.
 
@@ -174,7 +174,7 @@ Determines if an array, object, or string is empty.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object, or string |The value to check if it is empty. |
+| itemToTest |Yes |array, object, or string |The value to check if it's empty. |
 
 ### Return value
 
@@ -235,7 +235,7 @@ Returns a single array or object with the common elements from the parameters.
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or object |The first value to use for finding common elements. |
 | arg2 |Yes |array or object |The second value to use for finding common elements. |
-| additional arguments |No |array or object |Additional values to use for finding common elements. |
+| more arguments |No |array or object |More values to use for finding common elements. |
 
 ### Return value
 
@@ -422,7 +422,7 @@ Returns an array with all the elements after the specified number in the array, 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to use for skipping. |
-| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it is larger than the length of the array or string, an empty array or string is returned. |
+| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it's larger than the length of the array or string, an empty array or string is returned. |
 
 ### Return value
 
@@ -445,14 +445,14 @@ The output from the preceding example with the default values is:
 
 `take(originalValue, numberToTake)`
 
-Returns an array with the specified number of elements from the start of the array, or a string with the specified number of characters from the start of the string.
+Returns an array or string. An array has the specified number of elements from the start of the array. A string has the specified number of characters from the start of the string.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to take the elements from. |
-| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned. |
+| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it's larger than the length of the given array or string, all the elements in the array or string are returned. |
 
 ### Return value
 
@@ -483,7 +483,7 @@ Returns a single array or object with all elements from the parameters. Duplicat
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or object |The first value to use for joining elements. |
 | arg2 |Yes |array or object |The second value to use for joining elements. |
-| additional arguments |No |array or object |Additional values to use for joining elements. |
+| more arguments |No |array or object |More values to use for joining elements. |
 
 ### Return value
 

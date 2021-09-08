@@ -58,7 +58,7 @@ The output from the preceding example with the default values is:
 
 Creates an object from the keys and values.
 
-The `createObject` function is not supported by Bicep.  Construct an object by using `{}`. See [Objects](../bicep/data-types.md#objects).
+The `createObject` function isn't supported by Bicep.  Construct an object by using `{}`. See [Objects](../bicep/data-types.md#objects).
 
 ### Parameters
 
@@ -66,8 +66,8 @@ The `createObject` function is not supported by Bicep.  Construct an object by u
 |:--- |:--- |:--- |:--- |
 | key1 |No |string |The name of the key. |
 | value1 |No |int, boolean, string, object, or array |The value for the key. |
-| additional keys |No |string |Additional names of the keys. |
-| additional values |No |int, boolean, string, object, or array |Additional values for the keys. |
+| more keys |No |string |More names of the keys. |
+| more values |No |int, boolean, string, object, or array |More values for the keys. |
 
 The function only accepts an even number of parameters. Each key must have a matching value.
 
@@ -148,7 +148,7 @@ Returns a single array or object with the common elements from the parameters.
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or object |The first value to use for finding common elements. |
 | arg2 |Yes |array or object |The second value to use for finding common elements. |
-| additional arguments |No |array or object |Additional values to use for finding common elements. |
+| more arguments |No |array or object |More values to use for finding common elements. |
 
 ### Return value
 
@@ -312,7 +312,7 @@ The output from the preceding example with the default values is:
 
 Returns null.
 
-The `null` function is not available in Bicep. Use the `null` keyword instead.
+The `null` function isn't available in Bicep. Use the `null` keyword instead.
 
 ### Parameters
 
@@ -358,7 +358,7 @@ Returns a single array or object with all elements from the parameters. Duplicat
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or object |The first value to use for joining elements. |
 | arg2 |Yes |array or object |The second value to use for joining elements. |
-| additional arguments |No |array or object |Additional values to use for joining elements. |
+| more arguments |No |array or object |More values to use for joining elements. |
 
 ### Return value
 

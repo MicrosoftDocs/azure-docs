@@ -249,7 +249,7 @@ Combines multiple string values and returns the concatenated string, or combines
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |string or array |The first string or array for concatenation. |
-| additional arguments |No |string or array |Additional strings or arrays in sequential order for concatenation. |
+| more arguments |No |string or array |More strings or arrays in sequential order for concatenation. |
 
 This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Strings are only concatenated with other strings.
 
@@ -560,7 +560,7 @@ Creates a formatted string from input values.
 |:--- |:--- |:--- |:--- |
 | formatString | Yes | string | The composite format string. |
 | arg1 | Yes | string, integer, or boolean | The value to include in the formatted string. |
-| additional arguments | No | string, integer, or boolean | Additional values to include in the formatted string. |
+| more arguments | No | string, integer, or boolean | More values to include in the formatted string. |
 
 ### Remarks
 
@@ -616,7 +616,7 @@ Creates a value in the format of a globally unique identifier based on the value
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Yes |string |The value used in the hash function to create the GUID. |
-| additional parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
+| more parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
 
 ### Remarks
 
@@ -1359,7 +1359,7 @@ The output from the preceding example with the default values is:
 
 `take(originalValue, numberToTake)`
 
-Returns a string with the specified number of characters from the start of the string, or an array with the specified number of elements from the start of the array.
+Returns an array or string. An array has the specified number of elements from the start of the array. A string has the specified number of characters from the start of the string.
 
 ### Parameters
 
@@ -1544,7 +1544,7 @@ Creates a deterministic hash string based on the values provided as parameters.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Yes |string |The value used in the hash function to create a unique string. |
-| additional parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
+| more parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
 
 ### Remarks
 
@@ -1621,17 +1621,16 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Yes |string |The base uri string. Take care to observe the behavior regarding the handling of the trailing slash (`/`), as described following this table.  |
+| baseUri |Yes |string |The base uri string. Take care to observe the behavior about the handling of the trailing slash (`/`), as described following this table.  |
 | relativeUri |Yes |string |The relative uri string to add to the base uri string. |
 
-* If **baseUri** ends in a trailing slash, the result is simply
-  **baseUri** followed by **relativeUri**.
+* If **baseUri** ends in a trailing slash, the result is **baseUri** followed by **relativeUri**.
 
-* If **baseUri** does not end in a trailing slash one of two things
+* If **baseUri** doesn't end in a trailing slash one of two things
   happens.
 
    * If **baseUri** has no slashes at all (aside from the `//` near
-     the front) the result is simply **baseUri** followed by **relativeUri**.
+     the front) the result is **baseUri** followed by **relativeUri**.
 
    * If **baseUri** has some slashes, but doesn't end with a slash,
      everything from the last slash onward is removed from **baseUri**

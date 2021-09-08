@@ -211,7 +211,7 @@ The output from the preceding example with the default values is:
 
 Converts the value to a floating point number. You only use this function when passing custom parameters to an application, such as a Logic App.
 
-The `float` function is not supported in Bicep.
+The `float` function isn't supported in Bicep.
 
 ### Parameters
 
@@ -352,7 +352,7 @@ The output from the preceding example with the default values is:
 
 Returns the remainder of the integer division using the two provided integers.
 
-The `mod` function is not supported in Bicep. Use the [% operator](../bicep/operators-numeric.md#modulo-) instead.
+The `mod` function isn't supported in Bicep. Use the [% operator](../bicep/operators-numeric.md#modulo-) instead.
 
 ### Parameters
 
@@ -412,7 +412,7 @@ The output from the preceding example with the default values is:
 
 Returns the multiplication of the two provided integers.
 
-The `mul` function is not supported in Bicep. Use the [* operator](../bicep/operators-numeric.md#multiply-) instead.
+The `mul` function isn't supported in Bicep. Use the [* operator](../bicep/operators-numeric.md#multiply-) instead.
 
 ### Parameters
 
