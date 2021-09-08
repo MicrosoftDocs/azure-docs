@@ -105,7 +105,7 @@ For one-time scans, you'll need to rerun these manually to populate the assets i
 
     :::image type="content" source="./media/concept-account-upgrade/run-scan-now.png" alt-text="Screenshot of Purview studio window, opened to a scan, with Run scan now highlighted." border="true":::
 
-### What happens when your upgraded account doesn't have a collection admin
+### What happens when your upgraded account doesn't have a collection admin?
 
 Your upgraded Purview account will have default collection admin(s) if the process can identify at least one user or group in the following order: 
 
@@ -125,7 +125,7 @@ You can still manually add a collection admin by using the management API. The u
     POST https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Purview/accounts/<accountName>/addRootCollectionAdmin?api-version=2021-07-01
    ```    
     
-#### Request Body
+#### Request body
 
    ```json
     {
@@ -135,7 +135,7 @@ You can still manually add a collection admin by using the management API. The u
 
 `objectId` is the objectId of the new collection admin to add.
 
-#### Response Body
+#### Response body
 
 If success, you will get an empty body response with `200` code.
 
