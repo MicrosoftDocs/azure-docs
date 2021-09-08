@@ -16,20 +16,6 @@ ms.author: aahi
 
 Use this article to learn more about recommended practices when using custom text classification.
 
-## Schema design
-
-The schema defines the classes that you need your model to classify your text into at runtime.
-
-* Review files in your dataset to become familiar with their format and structure.
-
-* Identify the classes/categories you want to extract from the data.
-
-    For example, if you are classifying support tickets, your classes might be: *sign in issues*, *hardware issue*, *software issue*, and *new hardware request*.
-
-* Avoid class ambiguity. Ambiguity happens when your classes are similar to each other. If your schema is ambiguous, you'll need more tagged data to train your model.
-    
-    For example, if you are classifying food recipes, they are similar to an extent, so to differentiate between *dessert recipe* and *main dish recipe* you will need to add more examples to overcome ambiguity since both files are similar. Avoiding ambiguity saves time, effort, and yields better results.
-    
 ## Data selection
 
 The quality of data you train your model with affects model performance greatly.
@@ -55,6 +41,31 @@ Include less frequent classes in your data, if the model was not exposed a certa
 
 * Consider where your data comes from. If you are collecting data from one person or department, you are likely missing diversity that will be important for your model to learn about all usage scenarios.
 
+## Data preparation
+
+As a prerequisite for creating a Custom text classification project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly, or through using the Azure Storage Explorer tool. Using the Azure Storage Explorer tool allows you to upload more data in less time.
+
+* [Create and upload files from Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
+* [Create and upload files using Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs)
+
+You can only use `.txt`. files for custom text. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to change your file format.
+
+You can upload an unlabeled dataset or a labeled  dataset to your container. You will then [tag your data](../how-to/tag-data.md).
+
+## Schema design
+
+The schema defines the classes that you need your model to classify your text into at runtime.
+
+* Review files in your dataset to become familiar with their format and structure.
+
+* Identify the classes/categories you want to extract from the data.
+
+    For example, if you are classifying support tickets, your classes might be: *sign in issues*, *hardware issue*, *software issue*, and *new hardware request*.
+
+* Avoid class ambiguity. Ambiguity happens when your classes are similar to each other. If your schema is ambiguous, you'll need more tagged data to train your model.
+    
+    For example, if you are classifying food recipes, they are similar to an extent, so to differentiate between *dessert recipe* and *main dish recipe* you will need to add more examples to overcome ambiguity since both files are similar. Avoiding ambiguity saves time, effort, and yields better results.
+    
 ## Data tagging
 
 * As a general rule, more tagged data leads to better results.

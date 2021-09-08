@@ -16,27 +16,6 @@ ms.author: aahi
 
 Follow the recommended development life cycle for best results:
 
-## Schema design
-
-The schema defines the entity types/categories that you need your model to extract from the text at runtime.
-
-* Review files in your dataset to be familiar with their format and structure. Then identify the entities you want to extract from the data.
-
-    For example, if you are extracting entities from support emails, you might need to extract *Customer name*, *Product name*, *Customer's problem*, *Request date*, and *Contact information*.
-
-* Avoid ambiguity in entity types.
-
-    Ambiguity occurs when the types you select are similar to each other.
-The more ambiguous your schema the more tagged data you will need to train your model.
-
-    For example, if you are extracting data from a legal contract, to extract *Name of first party* and *Name of second party* you will need more examples to overcome ambiguity, because the names of both parties will seem similar. Avoiding ambiguity saves time, and yields better results.
-
-* Avoid complex entities.
-
-    Complex entities can be difficult to extract from text, consider breaking them down into multiple entities.
-
-    For example, the model would have a hard time extracting *Address* if it was not broken down into smaller entities. Because there are many variations of how addresses appear, it would take a large number of tagged entities to teach the model to extract an address, without breaking it down. However, if you replace *Address* with *Street Name*, *City*, *State*, and *Zip*, the model will require fewer tags per entity.
-
 ## Data selection
 
 The quality of data you train your model with affects model performance greatly.
@@ -65,6 +44,38 @@ The quality of data you train your model with affects model performance greatly.
 * Avoid duplicate files in your data. Duplicate data has a negative effect on the training process, model metrics, and model performance.
 
 * Consider where your data comes from. If you are collecting data from one person or department, you are likely missing diversity that will be important for your model to learn about all usage scenarios.
+
+## Data preparation
+
+As a prerequisite for creating a Custom text classification project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly, or through using the Azure Storage Explorer tool. Using the Azure Storage Explorer tool allows you to upload more data in less time.
+
+* [Create and upload files from Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
+* [Create and upload files using Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs)
+
+You can only use `.txt`. files for custom text. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to change your file format.
+
+You can upload an unlabeled dataset or a labeled  dataset to your container. You will then [tag your data](../how-to/tag-data.md).
+
+## Schema design
+
+The schema defines the entity types/categories that you need your model to extract from the text at runtime.
+
+* Review files in your dataset to be familiar with their format and structure. Then identify the entities you want to extract from the data.
+
+    For example, if you are extracting entities from support emails, you might need to extract *Customer name*, *Product name*, *Customer's problem*, *Request date*, and *Contact information*.
+
+* Avoid ambiguity in entity types.
+
+    Ambiguity occurs when the types you select are similar to each other.
+The more ambiguous your schema the more tagged data you will need to train your model.
+
+    For example, if you are extracting data from a legal contract, to extract *Name of first party* and *Name of second party* you will need more examples to overcome ambiguity, because the names of both parties will seem similar. Avoiding ambiguity saves time, and yields better results.
+
+* Avoid complex entities.
+
+    Complex entities can be difficult to extract from text, consider breaking them down into multiple entities.
+
+    For example, the model would have a hard time extracting *Address* if it was not broken down into smaller entities. Because there are many variations of how addresses appear, it would take a large number of tagged entities to teach the model to extract an address, without breaking it down. However, if you replace *Address* with *Street Name*, *City*, *State*, and *Zip*, the model will require fewer tags per entity.
 
 ## Data tagging
 
