@@ -24,19 +24,19 @@ Learn how to manage video calls with the Azure Communication Services SDKS. We'l
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Manage Video Calls JavaScript](./includes/manage-calls/manage-calls-web.md)]
+[!INCLUDE [Manage Video Calls JavaScript](./includes/manage-video/manage-video-web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Manage Video Calls Android](./includes/manage-calls/manage-calls-android.md)]
+[!INCLUDE [Manage Video Calls Android](./includes/manage-video/manage-video-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Manage Video Calls iOS](./includes/manage-calls/manage-calls-ios.md)]
+[!INCLUDE [Manage Video Calls iOS](./includes/manage-video/manage-video-ios.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Manage Video Calls Windows](./includes/manage-calls/manage-calls-windows.md)]
+[!INCLUDE [Manage Video Calls Windows](./includes/manage-video/manage-video-windows.md)]
 ::: zone-end
 
 ## Next steps

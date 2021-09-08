@@ -1,4 +1,4 @@
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
 ### Request access to the microphone
 

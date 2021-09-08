@@ -1,3 +1,10 @@
+---
+author: probableprime
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 09/08/2021
+ms.author: rifox
+---
 ## Install the SDK
 
 Locate your project level build.gradle and make sure to add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`
