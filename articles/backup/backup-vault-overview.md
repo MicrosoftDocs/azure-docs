@@ -121,11 +121,11 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 This section explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
 
 >[!Note]
->You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource?view=azps-6.3.0&preserve-view=true) and [CLI](/cli/azure/resource?view=azure-cli-latest#az_resource_move).
+>You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource?view=azps-6.3.0&preserve-view=true) and [CLI](/cli/azure/resource?view=azure-cli-latest&preserve-view=true#az_resource_move).
 
 ### Supported regions
 
-The vault move across subscriptions and resource groups is currently supported in the following regions: West US, South Central US, East Asia, Switzerland North, South Africa North, UK West, North Central US, UAE North, Norway East, Australia Southeast, Japan West, Canada East, Korea Central, Australia Central, West Central US, Central India, West India, South India, UAE Central, South Africa West, Norway West, Switzerland West.
+The vault move across subscriptions and resource groups is currently supported in the following regions: West US, South Central US, East Asia, Switzerland North, South Africa North, UK West, North Central US, UAE North, Norway East, Australia Southeast, Japan West, Canada East, Korea Central, Australia Central, West Central US, Central India, West India, South India, UAE Central, South Africa West, Norway West, Switzerland West
 
 ### Move Backup vault to a different resource group
 
@@ -143,10 +143,10 @@ The vault move across subscriptions and resource groups is currently supported i
 
 4. In the **Resource group** drop-down list, select an existing resource group or select **Create new** to create a new resource group.
 
-   >[!Note]
-   >The same subscription to move the vault auto populates.
+   :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-inline.png" alt-text="Screenshot showing the selection of an existing resource group or creation of a new resource group." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-expanded.png":::
 
-   :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-inline.png" alt-text="Screenshot showing the selection of an existing resource group or creation of a new resource group." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-expanded.png"::: 
+   >[!Note]
+   >The subscription details to move the vault auto-populates in the **Resource group** drop-down list.
 
 5. On the **Resources to move** tab, you can view the validation progress status for the Backup vault that needs to be moved. Wait till the validation is complete.
 
