@@ -114,7 +114,7 @@ In this section, you configure your local environment, install the Azure IoT C d
 
     **Bash**
     ```bash
-    cmake/iothub_client/samples/pnp/pnp_temperature_controller/Debug/pnp_temperature_controller
+    cmake/iothub_client/samples/pnp/pnp_temperature_controller/pnp_temperature_controller
     ```
 
     After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
