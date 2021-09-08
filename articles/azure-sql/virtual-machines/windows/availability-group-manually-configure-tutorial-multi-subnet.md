@@ -59,7 +59,7 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 2. In the **Server Manager** dashboard, select **Tools**, and then select **Failover Cluster Manager**.
 3. In the left pane, right-click **Failover Cluster Manager**, and then select **Create a Cluster**.
 
-   ![Create Cluster](./media/availability-group-manually-configure-tutorial-multi-subnet/01-createcluster.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/01-createcluster.png" alt-text="Create Cluster":::
 
 4. In the Create Cluster Wizard, create a two-node cluster by stepping through the pages with the settings in the following table:
 
@@ -96,15 +96,15 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 
 3. Right-click the first failed **IP Address** resource, and then select **Properties**.
 
-   ![Cluster Properties](./media/availability-group-manually-configure-tutorial-multi-subnet/02-failed-ip-address.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/02-failed-ip-address.png" alt-text="Cluster Properties":::
 
 4. Select **Static IP Address** and specify the secondary IP that was dedicated for windows cluster from the same subnet and select **Ok** 
    
-    ![Static IP](./media/availability-group-manually-configure-tutorial-multi-subnet/03-first-static-ipaddress.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/03-first-static-ipaddress.png" alt-text="Static IP":::
 
 5. Repeat the steps for the second failed **IP Address** resource. 
 
-    ![Static IP](./media/availability-group-manually-configure-tutorial-multi-subnet/04-second-static-ipaddress.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/04-second-static-ipaddress.png" alt-text="Static IP":::
 
 6. In the **Cluster Core Resources** section, right-click cluster name and select **Bring Online**. Wait until the name and one of the IP address resource are online. Since the VMs are in different subnets the cluster created will have an OR dependency on the two IP addresses. When the cluster name resource comes online, it updates the domain controller (DC) server with a new Active Directory (AD) computer account. 
 
@@ -118,7 +118,7 @@ To view and copy storage access keys for the Azure Storage Account created in [p
 2. Under **Security + networking** select **Access Keys**
 3. Select **Show Keys** and copy the key
 
-    ![Storage access key](./media/availability-group-manually-configure-tutorial-multi-subnet/05-storage-account-keys.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/05-storage-account-keys.png" alt-text="Storage access key":::
 
 ### Configure the cluster quorum
 
@@ -140,7 +140,7 @@ Next, set the cluster quorum.
     
 5. You should following output with the quorum set to cloud witness. 
 
-    ![Select configure cluster quorum settings](./media/availability-group-manually-configure-tutorial-multi-subnet/06-configurequorum.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/06-configurequorum.png" alt-text="Select configure cluster quorum settings":::
 
 The cluster core resources are configured with a cloud witness.
 
@@ -152,7 +152,7 @@ Next, enable the **AlwaysOn availability groups** feature. Do these steps on bot
 2. In the browser tree, select **SQL Server Services**, then right-click the **SQL Server (MSSQLSERVER)** service and select **Properties**.
 3. Select the **AlwaysOn High Availability** tab, then select **Enable AlwaysOn availability groups**, as follows:
 
-    ![Enable AlwaysOn availability groups](./media/availability-group-manually-configure-tutorial-multi-subnet/08-enablealwayson.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/08-enablealwayson.png" alt-text="Enable AlwaysOn availability groups":::
 
 4. Select **Apply**. Select **OK** in the pop-up dialog.
 
@@ -178,7 +178,7 @@ Repeat these steps on the other SQL Server.
 
 3. Right-click **Shares**, and select **New Share...**.
 
-   ![Select New Share](./media/availability-group-manually-configure-tutorial-multi-subnet/09-newshare.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/09-newshare.png" alt-text="Select New Share":::
 
    Use **Create a Shared Folder Wizard** to create a share.
 
@@ -192,7 +192,7 @@ Repeat these steps on the other SQL Server.
 
 8. Make sure that the SQL Server service accounts for both servers have full control.
 
-   ![Make sure that the SQL Server service accounts for both servers have full control.](./media/availability-group-manually-configure-tutorial-multi-subnet/10-backupsharepermission.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/10-backupsharepermission.png" alt-text="Make sure that the SQL Server service accounts for both servers have full control.":::
 
 9. Select **OK**.
 
@@ -219,11 +219,11 @@ You are now ready to configure an availability group using the following steps:
 
 1. On remote desktop session to the first SQL Server VM **SQL-VM-1**. In **Object Explorer** in SSMS, right-click **Always On High Availability** and select **New availability group Wizard**.
 
-    ![Launch New availability group Wizard](./media/availability-group-manually-configure-tutorial-multi-subnet/11-newagwiz.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/11-newagwiz.png" alt-text="Launch New availability group Wizard":::
 
 2. In the **Introduction** page, select **Next**. In the **Specify availability group Name** page, type a name for the availability group in **Availability group name**. For example, **AG1**. Select **Next**.
 
-    ![New availability group Wizard, Specify availability group Name](./media/availability-group-manually-configure-tutorial-multi-subnet/12-newagname.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/12-newagname.png" alt-text="New availability group Wizard, Specify availability group Name":::
 
 3. In the **Select Databases** page, select your database, and then select **Next**.
 
@@ -231,21 +231,21 @@ You are now ready to configure an availability group using the following steps:
    >The database meets the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.
    >
 
-   ![New availability group Wizard, Select Databases](./media/availability-group-manually-configure-tutorial-multi-subnet/13-newagselectdatabase.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/13-newagselectdatabase.png" alt-text="New availability group Wizard, Select Databases":::
 
 4. In the **Specify Replicas** page, select **Add Replica**.
 
-   ![New availability group Wizard, Specify Replicas](./media/availability-group-manually-configure-tutorial-multi-subnet/14-newagaddreplica.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/14-newagaddreplica.png" alt-text="New availability group Wizard, Specify Replicas":::
 
 5. The **Connect to Server** dialog pops up. Type the name of the second server in **Server name**. Select **Connect**.
 
    Back in the **Specify Replicas** page, you should now see the second server listed in **Availability Replicas**. Configure the replicas as follows.
 
-   ![New availability group Wizard, Specify Replicas (Complete)](./media/availability-group-manually-configure-tutorial-multi-subnet/15-newagreplica.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/15-newagreplica.png" alt-text="New availability group Wizard, Specify Replicas (Complete)":::
 
 6. Select **Endpoints** to see the database mirroring endpoint for this availability group. Use the same port that you used when you set the [firewall rule for database mirroring endpoints](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
-    ![New availability group Wizard, Select Initial Data Synchronization](./media/availability-group-manually-configure-tutorial-multi-subnet/16-endpoint.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/16-endpoint.png" alt-text="New availability group Wizard, Select Initial Data Synchronization":::
 
 7. Select **Listener** and select **Create an availability group listener**. 
    Following table shows the settings for the Listener
@@ -266,15 +266,15 @@ You are now ready to configure an availability group using the following steps:
 
    In **Add IP Address** select the first subnet range 10.38.1.0/24 and in **IPv4 Address** provide the address 10.38.1.11.Select **Ok**. 
     
-    ![Add Listener IP](./media/availability-group-manually-configure-tutorial-multi-subnet/18-add-listener-ip-subnet-1.png)    
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/18-add-listener-ip-subnet-1.png" alt-text="Add Listener IP":::    
 
    Repeat the steps to add the IP address from the second subnet range 10.38.2.0/24. 
 
-    ![Add Listener IP](./media/availability-group-manually-configure-tutorial-multi-subnet/19-add-listener-ip-subnet-2.png)    
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/19-add-listener-ip-subnet-2.png" alt-text="Add Listener IP":::    
 
 9. **Listener** page should look similar to the following image. Select **Next**
 
-    ![Listener](./media/availability-group-manually-configure-tutorial-multi-subnet/20-listener.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/20-listener.png" alt-text="Listener":::
 
 10. In the **Select Initial Data Synchronization** page, select **Full database and log backup** and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, **\\\\<First SQL Server\>\Backup\\**. Select **Next**.
 
@@ -282,16 +282,16 @@ You are now ready to configure an availability group using the following steps:
    >Full synchronization takes a full backup of the database on the first instance of SQL Server and restores it to the second instance. For large databases, full synchronization is not recommended because it may take a long time. You can reduce this time by manually taking a backup of the database and restoring it with `NO RECOVERY`. If the database is already restored with `NO RECOVERY` on the second SQL Server before configuring the availability group, choose **Join only**. If you want to take the backup after configuring the availability group, choose **Skip initial data synchronization**.
    >
 
-   ![Choose full data synchronization](./media/availability-group-manually-configure-tutorial-multi-subnet/21-full-data-sync.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/21-full-data-sync.png" alt-text="Choose full data synchronization":::
 
 11. In the **Validation** page, select **Next**. This page should look similar to the following image:
 
-    ![New availability group Wizard, Validation](./media/availability-group-manually-configure-tutorial-multi-subnet/22-validation.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/22-validation.png" alt-text="New availability group Wizard, Validation":::
 
    
 12. In the **Summary** page, select **Finish**, then wait while the wizard configures the new availability group. In the **Progress** page, you can select **More details** to view the detailed progress. Once the wizard is finished, inspect the **Results** page to verify that the availability group and the listener is successfully created.
 
-     ![New availability group Wizard, Results](./media/availability-group-manually-configure-tutorial-multi-subnet/23-results.png)
+     :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/23-results.png" alt-text="New availability group Wizard, Results":::
 
 13. Select **Close** to exit the wizard.
 
@@ -299,17 +299,17 @@ You are now ready to configure an availability group using the following steps:
 
 1. In **Object Explorer**, expand **AlwaysOn High Availability**, and then expand **availability groups**. You should now see the new availability group in this container. Right-click the availability group and select **Show Dashboard**.
 
-   ![Show availability group Dashboard](./media/availability-group-manually-configure-tutorial-multi-subnet/24-showdashboard.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/24-showdashboard.png" alt-text="Show availability group Dashboard":::
 
    Your **AlwaysOn Dashboard** should look similar to the following screenshot:
 
-   ![availability group Dashboard](./media/availability-group-manually-configure-tutorial-multi-subnet/25-agdashboard.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/25-agdashboard.png" alt-text="availability group Dashboard":::
 
    You can see the replicas, the failover mode of each replica, and the synchronization state.
 
 2. In **Failover Cluster Manager**, select your cluster. Select **Roles**. The availability group name you used is a role on the cluster. Select the role **AG1** and select **Resources** in the bottom window. You should see the Availbaility Group Listener name and the IPs associated with it. 
 
-   ![availability group in Failover Cluster Manager](./media/availability-group-manually-configure-tutorial-multi-subnet/26-clustermanager.png)
+   :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/26-clustermanager.png" alt-text="availability group in Failover Cluster Manager":::
 
    > [!WARNING]
    > Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with availability groups](/sql/database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server).
@@ -326,11 +326,11 @@ To test the connection:
 
 2. Open SQL Server Management Studio and in **Server name:** type the name of the listener **AG1-Listener**
 
-    ![SSMS connection](./media/availability-group-manually-configure-tutorial-multi-subnet/27-ssms-listerner-connect.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/27-ssms-listerner-connect.png" alt-text="SSMS connection":::
 
 3. Select **Options** and select **Additional Connection Parameters** and enter **MultiSubnetFailover=True**. 
 
-    ![SSMS connection](./media/availability-group-manually-configure-tutorial-multi-subnet/28-ssms-connection-parameters.png)
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/28-ssms-connection-parameters.png" alt-text="SSMS connection":::
 
    The connection automatically connects to whichever instance of SQL Server hosts the primary replica.
 
