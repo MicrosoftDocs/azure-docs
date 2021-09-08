@@ -23,14 +23,19 @@ ms.author: lajanuar
 
 Managed identity supports both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.  In this article, we will examine how to manage access to translation documents in your Azure blob storage account using system-assigned managed identity.
 
-> [!NOTE]
->
-> For all operations using an Azure blob storage account available on the public Internet, you can provide a shared access signature (**SAS**) URL with restricted rights for a limited period, and pass it in your POST requests:
->
-> * To retrieve your SAS URL, go to your storage resource in the Azure portal and select the **Storage Explorer** tab.
-> * Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself.
-> * Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**.
-> * Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+The diagram below illustrates the managed identity creation process:
+
+* A request is sent to Azure Resource Manager to create a system-assigned or user-assigned managed identity.
+
+* Azure Resource Manager creates a managed identity service principal in Azure Active Directory. A managed identity is a special type of service principal that can only be used with Azure resources.
+
+* If a system-assigned managed identity is created, it is linked directly to the relevant Azure resource for which it was created, in our case a Translator resource.
+
+* If a user-assigned managed identity is created, it is a standalone resource not tied to another Azure resource or lifecycle.
+
+  :::image type="content" source="../media/managed-identities/managed-identity.png" alt-text="Diagram: Azure AD service principles and managed identities.":::
+
+Managed identity supports both privately and publicly accessible Azure blob storage accounts.  For storage accounts **with public access**, you can opt to use a shared access signature (SAS) to grant limited access; however if you have an Azure storage account protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS), Translator cannot directly access your storage account data; however, once a managed identity is enabled, the Translator service can access your storage account using an assigned managed identity credential.  In this article, we will examine how to manage access to translation documents in your Azure blob storage account using system-assigned managed identity.
 
 ## Prerequisites
 

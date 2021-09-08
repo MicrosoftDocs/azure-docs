@@ -154,13 +154,11 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 ### Authenticating with Azure Active Directory (Azure AD)
 
- Translator v3.0 supports Azure AD authentication, Microsoft’s cloud-based identity and access management solution. You can authenticate your client by including the following within the headers of your REST API request: 
+ Translator v3.0 supports Azure AD authentication, Microsoft’s cloud-based identity and access management solution.  Authorization headers enable the Translator service to validate the requesting client as authorized to use the resource and to complete the request. You can authenticate your client by including the following headers with your REST API request:
 
-* **An Azure Active Directory access token**. The access bearer token provides proof of authentication and validates the client's autorizationd to use the resource.  *See*, [**acquire an Azure Active Directory access token**](/azure/databricks/dev-tools/api/latest/aad/app-aad-token#get-an-azure-active-directory-access-token). An authentication token is valid for 10 minutes. The token should be reused when making multiple calls to the Translator.  *See* [Authenticating with an access token](#authenticating-with-an access-token).
+* **An Azure Active Directory access token**. [**Acquire an Azure Active Directory access token**](/azure/databricks/dev-tools/api/latest/aad/app-aad-token#get-an-azure-active-directory-access-token) to provide proof of authentication and validate the client's authorization to use the resource. An authentication token is valid for 10 minutes and should be reused when making multiple calls to the Translator.  *See* [Authenticating with an access token](#authenticating-with-an-access-token), above.
 
-* **Your Translator service instance Resource ID**.   Your resource identifier (Resource ID) is sent to the Translator service as part of the REST API request authorization headers.
-
-The authorization headers enable the Translator service to validate the requesting client as authorized to use the resource and to complete the request.
+* **Resource ID for your Translator resource**.   The resource identifier (Resource ID) is sent to the Translator service as part of your REST API request authorization headers.
 
 #### **Prerequisites**
 
