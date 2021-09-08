@@ -48,25 +48,25 @@ A hub is a virtual network that can contain gateways for site-to-site, ExpressRo
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-## <a name="gateway"></a>Create site-to-site VPN gateway
+## <a name="gateway"></a>Configure a site-to-site gateway
 
-In this section, you configure site-to-site connectivity settings, and then proceed to create the hub and S2S VPN gateway. A hub and gateway can take about 30 minutes to create.
+In this section, you configure site-to-site connectivity settings, and then proceed to create the hub and site-to-site VPN gateway. A hub and gateway can take about 30 minutes to create.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
-## <a name="site"></a>Create site
+## <a name="site"></a>Create a site
 
 In this section, you create site. Sites correspond to your physical locations. Create as many sites as you need. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per virtual hub in a virtual WAN. If you had multiple hubs, you can create 1000 per each of those hubs. If you have Virtual WAN partner CPE device, check with them to learn about their automation to Azure. Typically, automation implies a simple click experience to export large-scale branch information into Azure, and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway. For more information, see [Automation guidance from Azure to CPE partners](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
-## <a name="connectsites"></a>Connect VPN site to hub
+## <a name="connectsites"></a>Connect the VPN site to a hub
 
 In this section, you connect your VPN site to the hub.
 
 [!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
-## <a name="vnet"></a>Connect VNet to hub
+## <a name="vnet"></a>Connect a VNet to the hub
 
 In this section, you create a connection between the hub and your VNet.
 
