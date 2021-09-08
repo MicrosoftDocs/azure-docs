@@ -14,7 +14,7 @@ ms.author: alkohli
 
     ![Screenshot shows a selected backup policy with Add schedule selected in a context menu.](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
-3. In the **Add schedule** blade, modify the snapshot type, backup frequency, retention, and start date and time. Click **Add**. 
+3. In the **Add schedule** blade, modify the snapshot type, backup frequency, retention, and start date and time. Click **Add**.
 
     ![Screenshot shows the Add Schedule pane with values entered.](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
