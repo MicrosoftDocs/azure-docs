@@ -45,7 +45,7 @@ An array.
 
 ### Example
 
-The following example shows how to use the array function with different types.
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) shows how to use the array function with different types.
 
 ```json
 {
@@ -288,7 +288,7 @@ An array. When no parameters are provided, it returns an empty array.
 
 ### Example
 
-The following example shows how to use createArray with different types:
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) shows how to use createArray with different types:
 
 ```json
 {
@@ -796,7 +796,7 @@ An array of integers.
 
 ### Example
 
-The following example shows how to use the range function:
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) shows how to use the range function:
 
 ```json
 {

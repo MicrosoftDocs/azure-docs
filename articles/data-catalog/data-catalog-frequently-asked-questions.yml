@@ -110,7 +110,7 @@ sections:
           >
           
           > [!NOTE]
-          > For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the Data Catalog data source registration tool extracts that property value. For *on-premises* SQL Server relational databases that lack a first-class **Description** property, the Data Catalog data source registration tool extracts the value from the **ms_description** extended property for objects and columns. This property is not supported for SQL Azure. For more information, see [Using Extended Properties on Database Objects](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
+          > For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the Data Catalog data source registration tool extracts that property value. For *on-premises* SQL Server relational databases that lack a first-class **Description** property, the Data Catalog data source registration tool extracts the value from the **MS_Description** extended property for objects and columns. This property is not supported for SQL Azure. For more information, see [Using Extended Properties on Database Objects](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
           >
           >
           

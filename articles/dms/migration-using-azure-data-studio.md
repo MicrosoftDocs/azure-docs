@@ -136,4 +136,4 @@ Migrate SQL Server database(s) to your target Azure SQL Managed Instance or SQL 
 
 ## Next steps
 
-- For an overview and installation of the Azure SQL Migration extension, see [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension.md).
+- For an overview and installation of the Azure SQL Migration extension, see [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
