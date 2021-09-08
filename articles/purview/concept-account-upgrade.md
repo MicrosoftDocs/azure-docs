@@ -105,6 +105,53 @@ For one-time scans, you'll need to rerun these manually to populate the assets i
 
     :::image type="content" source="./media/concept-account-upgrade/run-scan-now.png" alt-text="Screenshot of Purview studio window, opened to a scan, with Run scan now highlighted." border="true":::
 
+### What happens when your upgraded account doesn't have a collection admin
+
+Your upgraded Purview account will have default collection admin(s) if the process can identify at least one user or group in the following order: 
+
+1. Owner (explicitly assigned)
+
+1. User Access Administrator (explicitly assigned)
+
+1. Data Source Administrator and Data Curator
+
+If your account did not have any user or group matched with the above criteria, the upgraded Purview account will have no collection admin. 
+
+You can still manually add a collection admin by using the management API. The user who calls this API must have Owner or User Access Administrator permission on Purview account to execute a write action. You will need to know the `objectId` of the new collection admin to submit via the API.
+
+#### Request
+
+   ```
+    POST https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Purview/accounts/<accountName>/addRootCollectionAdmin?api-version=2021-07-01
+   ```    
+    
+#### Request Body
+
+   ```json
+    {
+        "objectId": "<objectId>"
+    }
+   ```    
+
+`objectId` is the objectId of the new collection admin to add.
+
+#### Response Body
+
+If success, you will get an empty body response with `200` code.
+
+If failure, the format of the response body is as follows.
+
+   ```json
+    {
+        "error": {
+            "code": "19000",
+            "message": "The caller does not have Microsoft.Authorization/roleAssignments/write permission on resource: [/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>].",
+            "target": null,
+            "details": []
+        }
+    }
+   ```
+
 ## Permissions
 
 In upgraded Purview accounts, permissions are managed through collections.
