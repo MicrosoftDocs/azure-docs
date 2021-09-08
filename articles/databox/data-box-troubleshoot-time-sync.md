@@ -34,11 +34,11 @@ To troubleshoot time sync issues, you'll first need to connect to the PowerShell
 
 To change the device time, follow these steps.
 
-1. Use the `Get-Date` cmdlet to view the date and time on your Data Box.
+1. To diagnose if the device time is out of sync, get the device time first. Use the `Get-Date` cmdlet to view the date and time on your Data Box.
 
     `Get-Date`
 
-1. Use the `Set-Date` cmdlet to change the time on your Data Box.
+1. If the device time is out of sync, use the `Set-Date` cmdlet to change the time on your Data Box.
 
     - Set the time forward by 2 minutes.
     
