@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/22/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -34,6 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * OpenText Directory Services supports **SP and IDP** initiated SSO.
 * OpenText Directory Services supports **Just In Time** user provisioning.
+* OpenText Directory Services supports [Automated user provisioning](open-text-directory-services-provisioning-tutorial.md).
 
 ## Add OpenText Directory Services from the gallery
 
@@ -141,6 +142,9 @@ To configure single sign-on on **OpenText Directory Services** side, you need to
 ### Create OpenText Directory Services test user
 
 In this section, a user called B.Simon is created in OpenText Directory Services. OpenText Directory Services supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in OpenText Directory Services, a new one is created after authentication.
+
+> [!NOTE]
+> OpenText Directory Services also supports automatic user provisioning, you can find more details [here](./open-text-directory-services-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
