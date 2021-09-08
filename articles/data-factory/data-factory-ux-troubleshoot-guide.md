@@ -3,6 +3,7 @@ title: Troubleshoot Azure Data Factory UX
 description: Learn how to troubleshoot Azure Data Factory UX issues.
 author: ceespino
 ms.service: data-factory
+ms.subservice: authoring
 ms.topic: troubleshooting
 ms.date: 06/01/2021
 ms.author: ceespino
@@ -98,7 +99,7 @@ File format dataset can be used with all the file-based connectors, for example,
 
 On ADF authoring UI, when you use a file format dataset in an activity - including Copy, Lookup, GetMetadata, Delete activities - and in dataset you want to point to a linked service of different type from the current (for example, switch from File System to ADLS Gen2), you would see the following warning message. To make sure it’s a clean switch, upon your consent, the pipelines and activities, which reference this dataset will be modified to use the new type as well, and any existing data store settings, which are incompatible with the new type will be cleared as it no longer applies.
 
-To learn more on which the supported data store settings for each connector, you can go to the corresponding connector article -> copy activity properties to see the detailed property list. Refer to [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
+To learn more on which the supported data store settings for each connector, you can go to the corresponding connector article -> copy activity properties to see the detailed property list. Refer to [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
 
 ![Warning message](media/data-factory-ux-troubleshoot-guide/warning-message.png)
 
@@ -119,7 +120,7 @@ Solution is to fix JSON files at first and then reopen the pipeline using Author
 For more troubleshooting help, try these resources:
 
 * [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+* [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure videos](https://azure.microsoft.com/resources/videos/index/)

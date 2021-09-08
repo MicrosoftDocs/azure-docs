@@ -24,6 +24,8 @@
   items:
   - name: Essentials for remote app streaming
     items:
+    - name: Set up managed identities
+      href: identities.md
     - name: Deploy apps with MSIX app attach
       href: msix-app-attach.md
     - name: Host custom apps
@@ -202,6 +204,8 @@
     href: ../troubleshoot-set-up-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Identify and diagnose issues
     href: ../diagnostics-role-service.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+  - name: Getting started feature
+    href: ../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Host pool creation
     href: ../troubleshoot-set-up-issues.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Session host virtual machine configuration

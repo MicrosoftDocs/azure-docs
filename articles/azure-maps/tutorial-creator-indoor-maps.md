@@ -7,7 +7,7 @@ ms.date: 5/19/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Tutorial: Use Creator to create indoor maps

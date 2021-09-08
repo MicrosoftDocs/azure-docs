@@ -4,6 +4,7 @@ description: This article describes how to migrate SQL Server Integration Servic
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ---

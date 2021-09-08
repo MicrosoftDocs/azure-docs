@@ -1,12 +1,14 @@
 ---
 title: Copy data to Search index
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to push or copy data to an Azure search index by using the Copy Activity in an Azure Data Factory pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
+ms.custom: synapse
+ms.date: 08/30/2021
 ---
 
 # Copy data to an Azure Cognitive Search index using Azure Data Factory
@@ -26,6 +28,31 @@ You can copy data from any supported source data store into search index. For a 
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Azure Search using UI
+
+Use the following steps to create a linked service to Azure Search in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+2. Search for Search and select the Azure Search connector.
+
+   :::image type="content" source="media/connector-azure-search/azure-search-connector.png" alt-text="Select the Azure Search connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-azure-search/configure-azure-search-linked-service.png" alt-text="Configure a linked service to Azure Search.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Cognitive Search connector.
 

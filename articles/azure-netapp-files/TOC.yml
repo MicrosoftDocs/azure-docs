@@ -121,8 +121,8 @@
     items:
     - name: Create an SMB volume
       href: azure-netapp-files-create-volumes-smb.md
-    - name: Convert existing SMB volumes to use Continuous Availability
-      href: convert-smb-continuous-availability.md
+    - name: Enable Continuous Availability on existing SMB volumes
+      href: enable-continuous-availability-existing-SMB.md
   - name: Create a dual-protocol volume 
     href: create-volumes-dual-protocol.md
   - name: Configure ADDS LDAP over TLS
@@ -131,6 +131,8 @@
     href: azure-netapp-files-configure-export-policy.md
   - name: Mount or unmount a volume
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+  - name: Configure Unix permissions and change ownership mode
+    href: configure-unix-permissions-change-ownership-mode.md
   - name: Manage snapshots
     href: azure-netapp-files-manage-snapshots.md
   - name: Resize a capacity pool or a volume

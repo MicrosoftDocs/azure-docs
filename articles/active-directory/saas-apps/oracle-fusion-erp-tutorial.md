@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Oracle Fusion ERP supports **SP** initiated SSO.
+* Oracle Fusion ERP supports [**Automated** user provisioning and deprovisioning](oracle-fusion-erp-provisioning-tutorial.md) (recommended).
 
 ## Add Oracle Fusion ERP from the gallery
 

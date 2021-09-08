@@ -7,7 +7,7 @@ ms.date: 01/14/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: philmea
+
 ms.custom: mvc
 #Customer intent: As a new IoT developer, I want to connect a device to an IoT Hub using the C SDK so that I can learn how secure provisioning works with symmetric keys.
 ---

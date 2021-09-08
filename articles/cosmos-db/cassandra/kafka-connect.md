@@ -13,7 +13,7 @@ ms.reviewer: abhishgu
 # Ingest data from Apache Kafka into Azure Cosmos DB Cassandra API using Kafka Connect
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Existing Cassandra applications can easily work with the [Azure Cosmos DB Cassandra API](cassandra-introduction.md) because of its [CQLv4 driver compatibility](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). You leverage this capability to integrate with streaming platforms such as [Apache Kafka](https://kafka.apache.org/) and bring data into Azure Cosmos DB.
+Existing Cassandra applications can easily work with the [Azure Cosmos DB Cassandra API](cassandra-introduction.md) because of its [CQLv4 driver compatibility](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver). You leverage this capability to integrate with streaming platforms such as [Apache Kafka](https://kafka.apache.org/) and bring data into Azure Cosmos DB.
 
 Data in Apache Kafka (topics) is only useful when consumed by other applications or ingested into other systems. It's possible to build a solution using the [Kafka Producer/Consumer](https://kafka.apache.org/documentation/#api) APIs [using a language and client SDK of your choice](https://cwiki.apache.org/confluence/display/KAFKA/Clients). Kafka Connect provides an alternative solution. It's a platform to stream data between Apache Kafka and other systems in a scalable and reliable manner. Since Kafka Connect supports off the shelf connectors which includes Cassandra, you don't need to write custom code to integrate Kafka with Azure Cosmos DB Cassandra API. 
 

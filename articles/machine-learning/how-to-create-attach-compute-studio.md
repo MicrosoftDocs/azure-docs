@@ -23,6 +23,10 @@ In this article, learn how to create and manage compute targets in Azure Machine
   * [Other compute resources](how-to-attach-compute-targets.md)
 * The [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -62,7 +66,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 1. Fill out the form for your compute type:
 
-    * [Compute instance](#compute-instance)
+    * [Compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create)
     * [Compute clusters](#amlcompute)
     * [Inference clusters](#inference-clusters)
     * [Attached compute](#attached-compute)
@@ -73,44 +77,8 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
     :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="View compute status from a list":::
 
+Follow the steps in [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create).
 
-## <a name="compute-instance"></a> Create compute instance
-
-Use the [steps above](#portal-create) to start creation of the compute instance.  Then fill out the form as follows:
-
-|Field  |Description  |
-|---------|---------|
-|Compute name     |  <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
-|Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
-|Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
-
-Select **Create** unless you want to configure advanced settings for the compute instance.
-
-### Advanced settings
-
-Select **Next: Advanced Settings** if you want to:
-
-* Enable SSH access.  Follow the [detailed instructions](#enable-ssh) below.
-* Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
-* Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](how-to-create-manage-compute-instance.md#on-behalf).
-* Provision with a setup script - for more details about how to create and use a setup script, see [Customize the compute instance with a script](how-to-create-manage-compute-instance.md#setup-script).
-
-### <a name="enable-ssh"></a> Enable SSH access
-
-SSH access is disabled by default.  SSH access cannot be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
-
-After you have selected **Next: Advanced Settings**:
-
-1. Turn on **Enable SSH access**.
-1. In the **SSH public key source**, select one of the options from the dropdown:
-    * If you **Generate new key pair**:
-        1. Enter a name for the key in **Key pair name**.
-        1. Select **Create**.
-        1. Select **Download private key and create compute**.  The key is usually downloaded into the **Downloads** folder.  
-    * If you select **Use existing public key stored in Azure**, search for and select the key in **Stored key**.
-    * If you select **Use existing public key**, provide an RSA public key in the single-line format (starting with "ssh-rsa") or the multi-line PEM format. You can generate SSH keys using ssh-keygen on Linux and OS X, or PuTTYGen on Windows.
-
-Once the compute instance is created and running, see [Connect with SSH access](#ssh-access).
 
 ## <a name="amlcompute"></a> Create compute clusters
 
@@ -133,6 +101,14 @@ Select **Next** to proceed to **Advanced Settings** and fill out the form as fol
 | Idle seconds before scale down | Idle time before scaling the cluster down to the minimum node count. |
 | Enable SSH access | Use the same instructions as [Enable SSH access](#enable-ssh) for a compute instance (above). |
 |Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources     |
+
+### <a name="enable-ssh"></a> Enable SSH access
+
+SSH access is disabled by default.  SSH access cannot be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+
+Once the compute cluster is created and running, see [Connect with SSH access](#ssh-access).
 
 ### <a name="managed-identity"></a> Set up managed identity
 

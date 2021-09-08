@@ -2,11 +2,12 @@
 title: Automated publishing for continuous integration and delivery
 description: Learn how to publish for continuous integration and delivery automatically.
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 08/23/2021
 ---
 
 # Automated publishing for continuous integration and delivery
@@ -73,10 +74,10 @@ Two commands are currently available in the package:
 
 ### Export ARM template
 
-Run `npm run start export <rootFolder> <factoryId> [outputFolder]` to export the ARM template by using the resources of a given folder. This command also runs a validation check prior to generating the ARM template. Here's an example:
+Run `npm run build export <rootFolder> <factoryId> [outputFolder]` to export the ARM template by using the resources of a given folder. This command also runs a validation check prior to generating the ARM template. Here's an example:
 
 ```dos
-npm run start export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
+npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
 ```
 
 - `RootFolder` is a mandatory field that represents where the Data Factory resources are located.
@@ -88,10 +89,10 @@ npm run start export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxx
 
 ### Validate
 
-Run `npm run start validate <rootFolder> <factoryId>` to validate all the resources of a given folder. Here's an example:
+Run `npm run build validate <rootFolder> <factoryId>` to validate all the resources of a given folder. Here's an example:
 
 ```dos
-npm run start validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
+npm run build validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
 ```
 
 - `RootFolder` is a mandatory field that represents where the Data Factory resources are located.

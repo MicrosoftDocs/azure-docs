@@ -49,7 +49,7 @@ To see an example of how to upload videos using URL, check out [this example](up
 
 ## Automatic Scaling of Media Reserved Units 
 
-Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Reserved Units](https://docs.microsoft.com/azure/media-services/latest/concept-media-reserved-units)(MRUs) auto scaling by [Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/media-services-overview) (AMS), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, e.g. price reduction in many cases, based on your business needs as it is being auto scaled. 
+Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Reserved Units](../../media-services/latest/concept-media-reserved-units.md)(MRUs) auto scaling by [Azure Media Services](../../media-services/latest/media-services-overview.md) (AMS), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, e.g. price reduction in many cases, based on your business needs as it is being auto scaled. 
 
 ## Respect throttling
 

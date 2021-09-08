@@ -39,7 +39,7 @@ To view activity logs for the virtual machines on your Azure Stack Edge Pro GPU 
 
     ![Screenshot showing the Activity logs page for Virtual Machines on an Azure Stack Edge device. An expanded operation is highlighted in the list.](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-03.png)<!--Reshoot to remove pointer. May be able to replace drop-down only.-->
 
-On any **Activity log** pane in Azure, you can filter and sort activities, select columns to display, drill down to details for a specific activity, and get **Quick Insights** into errors, failed deployments, alerts, service health, and security changes over the last 24 hours. For more information about the logs and the filtering options, see [View activity logs](/azure/azure-resource-manager/management/view-activity-logs).
+On any **Activity log** pane in Azure, you can filter and sort activities, select columns to display, drill down to details for a specific activity, and get **Quick Insights** into errors, failed deployments, alerts, service health, and security changes over the last 24 hours. For more information about the logs and the filtering options, see [View activity logs](../azure-resource-manager/management/view-activity-logs.md).
 
 ## Next steps
 

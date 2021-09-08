@@ -6,7 +6,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/21/2021
+ms.date: 08/04/2021
 ms.author: aersoy
 ---
 
@@ -24,6 +24,8 @@ The **Azure API for DICOM service** supports a subset of the DICOMweb&trade; Sta
 Additionally, the following non-standard API(s) are supported:
 
 - [Delete](#delete)
+
+Our service also makes use of REST API versioning. For information on how to specify the version when making requests visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
 
 ## Store (STOW-RS)
 

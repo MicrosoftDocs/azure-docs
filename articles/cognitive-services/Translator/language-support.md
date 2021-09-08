@@ -37,6 +37,7 @@ ms.author: lajanuar
 | Bulgarian | `bg` |✔|✔|✔|✔|✔|
 | Cantonese (Traditional) | `yue` |✔|✔||||
 | Catalan | `ca` |✔|✔|✔|✔|✔|
+| Chinese (Literary) | `lzh` |✔|||||
 | Chinese Simplified | `zh-Hans` |✔|✔|✔|✔|✔|
 | Chinese Traditional | `zh-Hant` |✔|✔|✔|✔||
 | Croatian | `hr` |✔|✔|✔|✔|✔|

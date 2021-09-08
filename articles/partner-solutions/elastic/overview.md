@@ -31,7 +31,7 @@ Here are the key capabilities provided by the Elastic integration with Azure:
 
 ## Elastic links
 
-For more help with using the Elastic service, see the [Elastic documentation](https://azure-native-02.docs-preview.app.elstc.co/guide/en/cloud/master/ec-azure-marketplace-native.html) for Azure integration.
+For more help with using the Elastic service, see the [Elastic documentation](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html) for Azure integration.
 
 ## Next steps
 

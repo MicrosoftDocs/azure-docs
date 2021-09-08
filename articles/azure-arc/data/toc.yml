@@ -1,3 +1,4 @@
+items:
 - name: Azure Arc-enabled data services documentation
   href: index.yml
 - name: Overview
@@ -198,6 +199,8 @@
               href: restore-adventureworks-sample-db.md
 - name: Reference
   items:
+  - name: Release version log
+    href: version-log.md
   - name: az arcdata extension
     items:
     - name: Overview

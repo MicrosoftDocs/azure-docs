@@ -48,22 +48,22 @@ Before deploying Azure Sentinel, we recommend taking the following steps to help
 
 Before deploying Azure Sentinel, make sure that your Azure tenant has the following requirements:
 
-- An [Azure Active Directory license and tenant](/azure/active-directory/develop/quickstart-create-new-tenant), or an [individual account with a valid payment method](https://azure.microsoft.com/free/), are required to access Azure and deploy resources.
+- An [Azure Active Directory license and tenant](../active-directory/develop/quickstart-create-new-tenant.md), or an [individual account with a valid payment method](https://azure.microsoft.com/free/), are required to access Azure and deploy resources.
 
-- After you have a tenant, you must have an [Azure subscription](/azure/cost-management-billing/manage/create-subscription) to track resource creation and billing.
+- After you have a tenant, you must have an [Azure subscription](../cost-management-billing/manage/create-subscription.md) to track resource creation and billing.
 
-- After you have a subscription, you'll need the [relevant permissions](/azure/role-based-access-control/) to begin using your subscription. If you are using a new subscription, an admin or higher from the AAD tenant should be designated as the [owner/contributor](/azure/role-based-access-control/rbac-and-directory-admin-roles) for the subscription.
+- After you have a subscription, you'll need the [relevant permissions](../role-based-access-control/index.yml) to begin using your subscription. If you are using a new subscription, an admin or higher from the AAD tenant should be designated as the [owner/contributor](../role-based-access-control/rbac-and-directory-admin-roles.md) for the subscription.
 
     - To maintain the least privileged access available, assign roles at the level of the resource group.
-    - For more control over permissions and access, set up custom roles. For more information, see [Role-based access control](/azure/role-based-access-control/custom-roles).
+    - For more control over permissions and access, set up custom roles. For more information, see [Role-based access control](../role-based-access-control/custom-roles.md).
     - For extra separation between users and security users, you might want to use [resource-context](resource-context-rbac.md) or [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043).
 
     For more information about other roles and permissions supported for Azure Sentinel, see [Permissions in Azure Sentinel](roles.md).
 
-- A [Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace) is required to house all of the data that Azure Sentinel will be ingesting and using for its detections, analytics, and other features. For more information, see [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
+- A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) is required to house all of the data that Azure Sentinel will be ingesting and using for its detections, analytics, and other features. For more information, see [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
 
 > [!TIP]
-> When setting up your Azure Sentinel workspace, [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) that's dedicated to Azure Sentinel and the resources that Azure Sentinel users including the Log Analytics workspace, any playbooks, workbooks, and so on.
+> When setting up your Azure Sentinel workspace, [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) that's dedicated to Azure Sentinel and the resources that Azure Sentinel users including the Log Analytics workspace, any playbooks, workbooks, and so on.
 >
 > A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to any relevant resources. Managing access via a resource group helps to ensure that you're using Azure Sentinel efficiently without potentially issuing improper permissions. Without a resource group for Azure Sentinel, where resources are scattered among multiple resource groups, a user or service principal may find themselves unable to perform a required action or view data due to insufficient permissions.
 >
@@ -76,4 +76,4 @@ Before deploying Azure Sentinel, make sure that your Azure tenant has the follow
 >[On-board Azure Sentinel](quickstart-onboard.md)
 
 > [!div class="nextstepaction"]
->[Get visibility into alerts](quickstart-get-visibility.md)
+>[Get visibility into alerts](get-visibility.md)

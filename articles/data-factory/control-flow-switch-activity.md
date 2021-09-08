@@ -5,6 +5,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 06/23/2021 
 ms.custom: devx-track-azurepowershell

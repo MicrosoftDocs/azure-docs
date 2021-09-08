@@ -3,7 +3,7 @@ title: Authorize REST API in Azure IoT Central
 description: How to authenticate and authorize IoT Central REST API calls
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -64,7 +64,7 @@ To get an API token, you can use the IoT Central UI or a REST API call.
 In the IoT Central UI:
 
 1. Navigate to **Administration > API tokens**.
-1. Select **+ Generate token**.
+1. Select **+ Create token**.
 1. Enter a name for the token and select a role.
 1. Select **Generate**.
 1. IoT Central displays the token that looks like the following example:

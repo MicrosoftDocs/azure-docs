@@ -1,5 +1,5 @@
 ---
-title: VMware server assessment support in Azure Migrate
+title: VMware server discovery support in Azure Migrate
 description: Learn about Azure Migrate discovery and assessment support for servers in a VMware environment.
 author: Vikram1988
 ms.author: vibansa
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/17/2021
 ---
 
-# Support matrix for VMware assessment 
+# Support matrix for VMware discovery 
 
 This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to discover and assess servers in a VMware environment for migration to Azure.
 
@@ -92,15 +92,31 @@ Support | Details
 > [!NOTE]
 > By default, Azure Migrate uses the most secure way of connecting to SQL instances i.e. Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. 
 >
-> However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](https://go.microsoft.com/fwlink/?linkid=2158046) to understand what to choose.
+> However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
+## ASP.NET web apps discovery requirements
+
+[Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server.
+User can add both domain and non-domain credentials on appliance. Please make sure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
+After the appliance is connected, it gathers configuration data for IIS web server and ASP.NET web apps. Web apps configuration data is updated once every 24 hours.
+
+Support | Details
+--- | ---
+**Supported servers** | Currently supported only for windows servers running IIS in your VMware environment.
+**Windows servers** | Windows Server 2008 R2 and later are supported.
+**Linux servers** | Currently not supported.
+**IIS access** | Web apps discovery requires a local admin user account.
+**IIS versions** | IIS 7.5 and later are supported.
+
+> [!NOTE]
+> Data is always encrypted at rest and during transit.
 
 ## Dependency analysis requirements (agentless)
 
 [Dependency analysis](concepts-dependency-visualization.md) helps you identify dependencies between on-premises servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agentless dependency analysis:
 
 Support | Details
---- | --- 
+--- | ---
 **Supported servers** | Currently supported only for servers in your VMware environment.
 **Windows servers** | Windows Server 2019<br />Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br />Microsoft Windows Server 2008 (32-bit)
 **Linux servers** | Red Hat Enterprise Linux 7, 6, 5<br /> Ubuntu Linux 16.04, 14.04<br /> Debian 8, 7<br /> Oracle Linux 7, 6<br /> CentOS 7, 6, 5<br /> SUSE Linux Enterprise Server 11 and later

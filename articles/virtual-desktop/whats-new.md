@@ -61,6 +61,34 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
 
+## August 2021
+
+Here's what changed in August 2021:
+
+### Windows 11 (Preview) on AVD
+
+Windows 11 (Preview) images are now available in the Azure Marketplace for customers to test and validate with Azure Virtual Desktop. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-11-preview-is-now-available-on-azure-virtual-desktop/ba-p/2666468).
+
+### Multimedia Redirection (MMR) is now in public preview
+
+Multimedia redirection (MMR) gives you smooth video playback while watching videos in your Azure Virtual Desktop web browser and works with Microsoft Edge and Google Chrome. Learn more at [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/public-preview-announcing-public-preview-of-multimedia/m-p/2663244#M7692).
+
+### IP virtualization support for Windows Server 2019
+
+IP virtualization is supported on Windows Server 2008 R2 and up. Additional steps are needed to use IP virtualization for Windows Server 2019. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/ip-virtualization-support-for-windows-server-2019/m-p/2658650).
+
+### Windows Defender Application Control and Azure Disk Encryption is now supported
+
+Azure Virtual Desktop now supports Windows Defender Application Control to control which drivers and applications are allowed to run on the Windows VM, and Azure Disk Encryption which uses Windows BitLocker to provide volume encryption for the OS and data disks of your VMs. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/support-for-windows-defender-application-control-and-azure-disk/m-p/2658633#M7685).
+ 
+### Signing into Azure AD using smart cards are now supported in Azure Virtual Desktop
+
+While this isn't a new feature for Azure AD, configuring Active Directory Federation Services to sign in with smart cards is now supported in Azure Virtual Desktop. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/signing-in-to-azure-ad-using-smart-cards-now-supported-in-azure/m-p/2654209#M7671).
+
+### Screen capture protection is now generally available
+
+Prevent sensitive information from being screen captured by software running on the client endpoints with screen capture protection in AVD. Learn more at our [blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-screen-capture-protection-for/m-p/2699684).
+
 ## July 2021
 
 Here's what changed in July 2021:

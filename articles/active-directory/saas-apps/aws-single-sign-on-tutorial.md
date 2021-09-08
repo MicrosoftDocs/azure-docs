@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image3](common/idp-intiated.png)
 
 	> [!Note]
-	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement.
+	> If the **Identifier** and **Reply URL** values are not getting auto populated, then fill in the values manually according to your requirement.
 
 1. If you don't have **Service Provider metadata file**, perform the following steps on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 

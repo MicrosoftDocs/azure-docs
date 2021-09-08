@@ -2,13 +2,13 @@
 title: Azure Communication Services Call Recording overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Call Recording feature and APIs.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
 
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
 ---

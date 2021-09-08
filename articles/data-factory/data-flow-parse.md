@@ -4,6 +4,7 @@ description: Parse embedded column documents
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 05/10/2021
 ---

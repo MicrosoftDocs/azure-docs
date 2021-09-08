@@ -590,24 +590,21 @@ The Service Principal doesn't have permissions to access your Azure resources by
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
 ```json
-{
-    "properties": {
-        "roleName": "Linux Fence Agent Role",
-        "description": "Allows to power-off and start virtual machines",
-        "assignableScopes": [
-            "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-            "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Compute/*/read",
-                    "Microsoft.Compute/virtualMachines/powerOff/action",
-                    "Microsoft.Compute/virtualMachines/start/action"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
+       {
+         "Name": "Linux Fence Agent Role - Test",
+         "description": "Allows to power-off and start virtual machines",
+         "assignableScopes": [
+         "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+         "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+         ],
+         "actions": [
+         "Microsoft.Compute/*/read",
+         "Microsoft.Compute/virtualMachines/powerOff/action",
+         "Microsoft.Compute/virtualMachines/start/action"
+            ],
+         "notActions": [],
+         "dataActions": [],
+         "notDataActions": []
             }
         ]
     }

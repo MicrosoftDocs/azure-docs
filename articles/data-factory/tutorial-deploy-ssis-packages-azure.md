@@ -2,6 +2,7 @@
 title: Provision the Azure-SSIS integration runtime 
 description: Learn how to provision the Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/19/2021

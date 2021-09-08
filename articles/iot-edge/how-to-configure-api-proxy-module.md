@@ -2,7 +2,7 @@
 title: Configure API proxy module - Azure IoT Edge | Microsoft Docs
 description: Learn how to customize the API proxy module for IoT Edge gateway hierarchies.
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 11/10/2020
 ms.topic: conceptual

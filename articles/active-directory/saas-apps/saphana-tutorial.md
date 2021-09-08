@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 08/02/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SAP HANA
@@ -41,8 +41,8 @@ To test the steps in this tutorial, follow these recommendations:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* SAP HANA supports **IDP** initiated SSO
-* SAP HANA supports **just-in-time** user provisioning
+* SAP HANA supports **IDP** initiated SSO.
+* SAP HANA supports **just-in-time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -187,10 +187,10 @@ If you need to create a user manually, take the following steps:
 
 3. Select **Add** to add the SAML IDP.  Select the appropriate SAML IDP, and then select **OK**.
 
-4. Add the **External Identity** (in this case, BrittaSimon) or choose **Any**. Then select **OK**.
+4. Add the **External Identity** (in this case, BrittaSimon). Then select **OK**.
 
    > [!Note]
-   > If  the **Any** check box is not selected, then the user name in HANA needs to exactly match the name of the user in the UPN before the domain suffix. (For example, BrittaSimon@contoso.com becomes BrittaSimon in HANA.)
+   > You have to populate the **External Identity** field for the user and that has to match the **NameID** field in the SAML token from Azure AD. **Any** checkbox should not be checked as this option requires the IDP to send SPProvderID property in the NameID Field which is right now not supported by Azure AD. Plese refer [this](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/db6db355bb571014b56eb25057daec5f.html) document for more details.
 
 5. For testing purposes, assign all **XS** roles to the user.
 

@@ -17,9 +17,9 @@ ms.service: azure-communication-services
 To access telemetry for Azure Communication Services Voice & Video resources, follow these steps.
 
 ## Enable logging
-1. First, you will need to create a storage account for your logs. Go to [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) for instructions to complete this step. See also [Storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) for more information on the types and features of different storage options. If you already have an Azure storage account go to Step 2.
+1. First, you will need to create a storage account for your logs. Go to [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) for instructions to complete this step. See also [Storage account overview](../../storage/common/storage-account-overview.md) for more information on the types and features of different storage options. If you already have an Azure storage account go to Step 2.
  
-1. When you've created your storage account, next you need to enable logging by following the instructions in [Enable diagnostic logs in your resource](https://docs.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics#enable-diagnostic-logs-in-your-resource). You will select the check boxes for the logs "CallSummaryPRIVATEPREVIEW" and "CallDiagnosticPRIVATEPREVIEW". 
+1. When you've created your storage account, next you need to enable logging by following the instructions in [Enable diagnostic logs in your resource](./logging-and-diagnostics.md#enable-diagnostic-logs-in-your-resource). You will select the check boxes for the logs "CallSummaryPRIVATEPREVIEW" and "CallDiagnosticPRIVATEPREVIEW". 
 
 1. Next, select the "Archive to a storage account" box and then select the storage account for your logs in the drop-down menu below. The "Send to Analytics workspace" option isn't currently available for Private Preview of this feature, but it will be made available when this feature is made public.
 

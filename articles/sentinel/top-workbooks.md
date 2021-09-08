@@ -22,7 +22,7 @@ ms.author: bagol
 
 The following table lists the most commonly used, built-in Azure Sentinel workbooks.
 
-Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** on the left, and then search for the workbook you want to use. For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
+Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** on the left, and then search for the workbook you want to use. For more information, see [Visualize and monitor your data](monitor-your-data.md).
 
 > [!TIP]
 > We recommend deploying any workbooks associated with the data you're ingesting. Workbooks allow for broader monitoring and investigating based on your collected data.
@@ -34,7 +34,7 @@ Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** o
 |---------|---------|
 |**Analytics Efficiency**     |  Provides insights into the efficacy of your analytics rules to help you achieve better SOC performance. <br><br>For more information, see [The Toolkit for Data-Driven SOCs](https://techcommunity.microsoft.com/t5/azure-sentinel/the-toolkit-for-data-driven-socs/ba-p/2143152).|
 |**Azure Activity**     |     Provides extensive insight into your organization's Azure activity by analyzing and correlating all user operations and events. <br><br>For more information, see [Auditing with Azure Activity logs](audit-sentinel-data.md#auditing-with-azure-activity-logs).    |
-|**Azure AD Audit logs**     |  Uses Azure Active Directory audit logs to provide insights into Azure AD scenarios. <br><br>For more information, see  [Quickstart: Get started with Azure Sentinel](quickstart-get-visibility.md).     |
+|**Azure AD Audit logs**     |  Uses Azure Active Directory audit logs to provide insights into Azure AD scenarios. <br><br>For more information, see  [Quickstart: Get started with Azure Sentinel](get-visibility.md).     |
 |**Azure AD Audit, Activity and Sign-in logs**     |   Provides insights into Azure Active Directory Audit, Activity, and Sign-in data with one workbook. Shows activity such as sign-ins by location, device, failure reason, user action, and more. <br><br> This workbook can be used by both Security and Azure administrators.   |
 |**Azure AD Sign-in logs**     | Uses the Azure AD sign-in logs to provide insights into Azure AD scenarios.        |
 |**Cybersecurity Maturity Model Certification (CMMC)**     |   Provides a mechanism for viewing log queries aligned to CMMC controls across the Microsoft portfolio, including Microsoft security offerings, Office 365, Teams, Intune, Windows Virtual Desktop, and so on. <br><br>For more information, see [Cybersecurity Maturity Model Certification (CMMC) Workbook in Public Preview](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-cybersecurity-maturity-model-certification-cmmc/ba-p/2111184).|
@@ -51,5 +51,3 @@ Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** o
 |**Security Operations Efficiency**     |  Intended for security operations center (SOC) managers to view overall efficiency metrics and measures regarding the performance of their team. <br><br>For more information, see [Manage your SOC better with incident metrics](manage-soc-with-incident-metrics.md).  |
 |**Threat Intelligence**     | Provides insights into threat indicators, including type and severity of threats, threat activity over time, and correlation with other data sources, including Office 365 and firewalls.  <br><br>For more information, see [Understand threat intelligence in Azure Sentinel](understand-threat-intelligence.md).      |
 |**Zero Trust (TIC3.0)**     |  Provides an automated visualization of Zero Trust principles, cross-walked to the [Trusted Internet Connections framework](https://www.cisa.gov/trusted-internet-connections).   <br><br>For more information, see the [Zero Trust (TIC 3.0) workbook announcement blog](https://techcommunity.microsoft.com/t5/public-sector-blog/announcing-the-azure-sentinel-zero-trust-tic3-0-workbook/ba-p/2313761).  |
-
-

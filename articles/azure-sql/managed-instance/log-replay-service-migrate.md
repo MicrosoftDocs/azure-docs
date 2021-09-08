@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 03/31/2021
+ms.date: 09/07/2021
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
@@ -161,7 +161,7 @@ Azure Blob Storage is used as intermediary storage for backup files between SQL 
 
 In migrating databases to a managed instance by using LRS, you can use the following approaches to upload backups to Blob Storage:
 - Using SQL Server native [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) functionality
-- Using [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer) to upload backups to a blob container
+- Using [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) to upload backups to a blob container
 - Using Storage Explorer in the Azure portal
 
 ### Make backups from SQL Server directly to Blob Storage
@@ -388,6 +388,7 @@ Functional limitations of LRS are:
 - LRS requires databases on SQL Server to be backed up with the `CHECKSUM` option enabled.
 - The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have only read and list permissions.
 - Backup files for different databases must be placed in separate folders on Blob Storage.
+- Backup files containing % and $ characters in the file name cannot be consumed by LRS. Consider renaming such file names.
 - LRS must be started separately for each database that points to separate folders with backup files on Blob Storage.
 - LRS can support up to 100 simultaneous restore processes per single managed instance.
 

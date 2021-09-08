@@ -19,7 +19,7 @@ This article describes the information that you need to help understand the data
 
 ## About data residency for Azure Stack Edge 
 
-Azure Stack Edge services uses [Azure Regional Pairs](/azure/best-practices-availability-paired-regions#azure-regional-pairs) when storing and processing customer data in all the geos where the service is available. For the Southeast Asia (Singapore) region, the service is currently paired with Hong Kong. The Azure region pairing implies that any data stored in Singapore is replicated in Hong Kong. Singapore has laws in place that require that the customer data not leave the country boundaries. 
+Azure Stack Edge services uses [Azure Regional Pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs) when storing and processing customer data in all the geos where the service is available. For the Southeast Asia (Singapore) region, the service is currently paired with Hong Kong. The Azure region pairing implies that any data stored in Singapore is replicated in Hong Kong. Singapore has laws in place that require that the customer data not leave the country boundaries. 
 
 To ensure that the customer data resides in a single region only, a new option is enabled in the Azure Stack Edge service. This option when selected, lets the service store and process the customer data only in Singapore region. The customer data is not replicated to Hong Kong. There is service-specific metadata (which is not sensitive data) that is still replicated to the paired region.  
 
@@ -100,4 +100,3 @@ If you choose to store and process the data only in Singapore region, then the s
 ## Next steps
 
 - Learn more about [Azure data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/).
-

@@ -122,7 +122,6 @@ For more information, see [Overview of Platform-supported migration of IaaS reso
 - 	Dynamic Public IP addresses
 - 	DNS Name 
 - 	Network Traffic Rules
-- 	Hypernet virtual network
 
 ## Supported configurations / migration scenarios
 These are top scenarios involving combinations of resources, features, and Cloud Services. This list is not exhaustive.

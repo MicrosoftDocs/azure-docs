@@ -55,7 +55,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | West   US 2        |                      |                     |                |
 | West   US 3        |                      |                     |                |
 
-\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 
 ## Azure Services supporting Availability Zones
@@ -115,6 +115,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 |     Products                                                    | Resiliency             |
 |-----------------------------------------------------------------|:----------------------------:|
+|     [App Service](../app-service/how-to-zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [App Service Environments](../app-service/environment/zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)                      | :large_blue_diamond:  |
 |     [Azure API Management](../api-management/zone-redundancy.md)                      | :large_blue_diamond:  |

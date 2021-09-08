@@ -46,6 +46,7 @@ Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium Post
 ### Set up PostgreSQL database if you haven't already. 
 
 This could be an existing on-premise database or you could [download and install one](https://www.postgresql.org/download/) on your local machine. It's also possible to use a [Docker container](https://hub.docker.com/_/postgres).
+[!INCLUDE [pull-image-include](../../../includes/pull-image-include.md)]
 
 To start a container:
 

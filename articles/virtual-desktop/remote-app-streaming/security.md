@@ -21,7 +21,7 @@ Meanwhile, Azure Virtual Desktop manages portions of the services on the custome
 
 To keep the service flexible, the session hosts are hosted in the partner or customers' Azure subscription. This lets customers integrate the service with other Azure services and lets them connect on-premises network infrastructure with ExpressRoute or a virtual private network (VPN).
 
-Like many cloud services, there's a [shared set of security responsibilities](/azure/security/fundamentals/shared-responsibility) between you and Microsoft. When you use Azure Virtual Desktop, it's important to understand that while some parts of the service are secured for you, there are others you'll need to configure yourself according to your organization's security needs.
+Like many cloud services, there's a [shared set of security responsibilities](../../security/fundamentals/shared-responsibility.md) between you and Microsoft. When you use Azure Virtual Desktop, it's important to understand that while some parts of the service are secured for you, there are others you'll need to configure yourself according to your organization's security needs.
 
 You'll need to configure security in the following areas:
 
@@ -37,7 +37,7 @@ For more information about how to configure each of these areas, check out our [
 
 You can protect workloads by using security features and controls from Microsoft 365, Azure, and Azure Virtual Desktop.
 
-When the service connects to the internet, Azure Active Directory (Azure AD) authenticates its credentials, enabling protective features like [Conditional Access](/azure/active-directory/conditional-access/overview) and [multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks). These features greatly reduce the risk of user identities being compromised.
+When the user connects to the service over the internet, Azure Active Directory (Azure AD) authenticates the user's credentials, enabling protective features like [Conditional Access](../../active-directory/conditional-access/overview.md) and [multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md). These features greatly reduce the risk of user identities being compromised.
 
 Azure Virtual Desktop has features like [Reverse Connect](../network-connectivity.md#reverse-connect-transport) that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can also use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs or, for Windows 10 session hosts that might involve Azure Active Directory Join scenarios, [Microsoft Endpoint Manager](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
@@ -82,11 +82,11 @@ To learn more about security feature support and servicing, see our [Microsoft S
 
 ## Recommended security boundaries for Azure Virtual Desktop scenarios
 
-You'll also need to make certain choices about security boundaries on a case-by-case basis. For example, if a user in your organization needs local administrative privileges to install apps, you'll need to give them a personal desktop instead of a shared RDSH. We don't typically recommend giving users local admin privileges in RDSH because these users can cross security boundaries for sessions or NTFS data permissions, shut down shared RDSH VMs, or do other things that could interrupt service or cause data losses.
+You'll also need to make certain choices about security boundaries on a case-by-case basis. For example, if a user in your organization needs local administrative privileges to install apps, you'll need to give them a personal desktop instead of a shared RDSH. We don't recommend giving users local admin privileges in multi-session pooled scenarios because these users can cross security boundaries for sessions or NTFS data permissions, shut down multi-session VMs, or do other things that could interrupt service or cause data losses.
 
 Users from the same organization, like knowledge workers with apps that don't require admin privileges, are great candidates for multi-session Remote Desktop session hosts like Windows 10 Enterprise multi-session. These session hosts reduce costs for your organization because multiple users can share a single VM, with only the overhead costs of a single OS. With profile technology like FSLogix, users can be assigned any VM in a host pool without noticing any service interruptions. This feature also lets you optimize costs by doing things like shutting down VMs during off-peak hours.
 
-If your situation requires users from different organizations to connect to your deployment, we recommend you have a separate tenant for identity services like Active Directory and Azure AD. We also recommend you have a separate subscription for hosting Azure resources like VMs.
+If your situation requires users from different organizations to connect to your deployment, we recommend you have a separate tenant for identity services like Active Directory and Azure AD. We also recommend you have a separate subscription for hosting Azure resources like Azure Virtual Desktop and VMs.
 
 The following table lists our recommendations for each scenario.
 
@@ -112,9 +112,9 @@ Windows uses security boundaries and controls to ensure user processes and data 
 
 This deployment would benefit from a security in depth strategy that adds more security boundaries that prevent users within and outside of the organization from getting unauthorized access to other users' personal information. Unauthorized data access happens because of an error in the configuration process by the system admin, such as an undisclosed security vulnerability or a known vulnerability that hasn't been patched out yet.
 
-On the other hand, Microsoft doesn't support granting users that work for different or competing companies access to the same multi-session environment. These scenarios have several security boundaries that can be attacked or abused, like network, kernel, process, user, or sessions. A single security vulnerability could cause unauthorized data and credential theft, personal information leaks, identity thief, and other issues. Virtualized environment providers are responsible for offering well-designed systems with multiple strong security boundaries and extra safety features enabled wherever possible.
+On the other hand, Microsoft doesn't support granting users that work for different or competing companies access to the same multi-session environment. These scenarios have several security boundaries that can be attacked or abused, like network, kernel, process, user, or sessions. A single security vulnerability could cause unauthorized data and credential theft, personal information leaks, identity theft, and other issues. Virtualized environment providers are responsible for offering well-designed systems with multiple strong security boundaries and extra safety features enabled wherever possible.
 
-Reducing these potential threats requires a fault-proof configuration, patch management design process, and regular patch deployment, which is beyond the scope of most organizations. It's better to follow the principles of defense in depth and keep environments separate.
+Reducing these potential threats requires a fault-proof configuration, patch management design process, and regular patch deployment schedules. It's better to follow the principles of defense in depth and keep environments separate.
 
 ## Next steps
 

@@ -14,11 +14,11 @@ This article describes a number of approaches to migrate an Azure Cache for Redi
 
 [Azure Private Link](../private-link/private-link-overview.md) simplifies the network architecture and secures the connection between endpoints in Azure. You can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. Advantages of using Azure Private Link for Azure Cache for Redis include: 
 
-* **Tier flexibility** – Azure Private Link is supported on all our tiers; Basic, Standard, Premium, Enterprise, and Enterprise Flash. Compared to Virtual Network injection, which is only offered on our premium tier.  
+* **Tier flexibility** – Azure Private Link is supported on all our tiers; Basic, Standard, Premium, Enterprise, and Enterprise Flash. Compared to Virtual Network injection, which is only offered on our premium tier.   
 
-* **Azure Policy Support** – Ensure all caches in your organization are created with Private Link and audit your organization’s existing caches to verify they all utilize Private Link. 
+* **Simplified Network Security Group (NSG) Rule Management** - NSG rules do not need to be configured to adhere to requirements from Azure Cache for Redis.
 
-* **Simplified Network Security Group (NSG) Rule Management** - NSG rules do not need to be configured such that the client's network traffic is allowed to reach the Azure Cache for Redis instance.  
+* **Azure Policy Support** – Ensure all caches in your organization are created with Private Link and audit your organization’s existing caches to verify they all utilize Private Link.
 
 ## Migration options
 

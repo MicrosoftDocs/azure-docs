@@ -1,7 +1,10 @@
 ---
 title: Visual authoring
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use visual authoring in Azure Data Factory
 ms.service: data-factory
+ms.subservice: authoring
+ms.custom: synapse
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain

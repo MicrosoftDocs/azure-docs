@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 08/10/2021
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge Pro GPU device via Windows PowerShell
@@ -69,62 +69,6 @@ A Multi-Process Service (MPS) on Nvidia GPUs provides a mechanism where GPUs can
 
 > [!NOTE]
 > When the device software and the Kubernetes cluster are updated, the MPS setting is not retained for the workloads. You'll need to enable MPS again.
-
-<!--## Enable compute on private network
-
-Use the `Add-HcsNetRoute` cmdlet to enable compute on a private network. This cmdlet lets you add custom routes on Kubernetes master and worker VMs. 
-#### Add new route configuration
-
-IP routing is the process of forwarding a packet based on the destination IP address. For the Kubernetes VMs on your device, you can route the traffic by adding a new route configuration.  
-
-A route configuration is a routing table entry that includes the following fields:
-
-| Parameter | Description  |
-|---------|---------|
-|Destination     | Either an IP address or an IP address prefix.         |
-|Prefix length     | The prefix length corresponding to the address or range of addresses in the destination.        |
-|Next hop     | The IP address to which the packet is forwarded.        |
-|Interface     | The network interface that forwards the IP packet.        |
-|Metric     |Routing metric determines the preferred network interface used to reach the destination.          |
-
-
-Consider the following information before you add these routes:
-
-- The Kubernetes network where you are adding this route is in a private network and not connected to the internet.
-- The device port on which the compute is enabled does not have a gateway configured.
-- If you have a flat subnet, then you don't need to add these routes to the private network. You can (optionally) add these routes when there are multiple subnets on your private network.
-- You can add these routes only to the Kubernetes master and worker VMs and not to the device (Windows host). 
-- The Kubernetes compute need not be configured before you add this route. You can also add or update routes after the Kubernetes compute is configured. You can only add a new route configuration via the PowerShell interface of the device and not through the local UI.
-- Make sure that the network interface that you'll use has a static configuration. 
-
-Consider an example where Port 1 and Port 2 on your device are connected to the internet. Ports 3 to Port 6 are on a private network and is the same network that has the Kubernetes master and worker VMs. None of the ports 3 to 6 have a default gateway configured. There are cameras that are connected to the private network. And the camera feed creates a traffic that flows between the camera and the network interfaces on the Kubernetes VMs. 
-
-To add a new custom route, use the cmdlet as follows:
-
-```powershell
-Add-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24" -NextHop "192.168.20.1" -RouteMetric 100 
-```
-
-Here the compute is enabled on the Port 3 network interface on your device and a virtual switch is created. The above route defines a destination subnet 192.168.21.0/24 and specifies the next hop as 192.168.20.1. This routing configuration has a routing metric of 100. Lower the routing metric, higher the priority assigned to the route.
- 
-
-#### Check route configuration for an interface 
-
-Use this cmdlet to check for all the custom route configurations that you added on your device. These routes do not include all the system routes or default routes that already exist on the device. 
-
-```powershell
-Get-HcsNetRoute -InterfaceAlias Port3
-```
-
-
-#### Remove a route configuration
-
-Use this cmdlet to remove a route configuration that you added on your device.
-
-```powershell
-Remove-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24"
-```
--->
 
 ## Reset your device
 
@@ -292,7 +236,10 @@ Here is a sample output.
 <6> 2021-02-25 00:53:05.412 +00:00 [INF] - Plan execution ended for deployment 11
 [10.100.10.10]: PS>
 ```
-
+> [!NOTE]
+> The direct methods such as GetModuleLogs or UploadModuleLogs are not supported on IoT Edge on Kubernetes on your Azure Stack Edge.
+ 
+ 
 ### Use kubectl commands
 
 On an Azure Stack Edge Pro GPU device that has the compute role configured, all the `kubectl` commands are available to monitor or troubleshoot modules. To see a list of available commands, run `kubectl --help` from the command window.

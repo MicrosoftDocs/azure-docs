@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Shopify Plus supports **SP and IDP** initiated SSO.
+* Shopify Plus supports [Automated user provisioning](shopify-plus-provisioning-tutorial.md).
 
 ## Add Shopify Plus from the gallery
 
@@ -129,6 +130,9 @@ To configure single sign-on on the **Shopify Plus** side, copy the **App Federat
 ### Create Shopify Plus test user
 
 In this section, you create a user called B.Simon in Shopify Plus. Return to the **Users** section and add a user by entering their email and permissions. Users must be created and activated before you use single sign-on.
+
+> [!NOTE]
+> Shopify Plus also supports automatic user provisioning, you can find more details [here](./shopify-plus-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ### Enforce SAML authentication
 

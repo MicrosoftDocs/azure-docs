@@ -114,9 +114,6 @@ resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-p
     principalId: principalId
   }
   scope: demoStorageAcct
-  dependsOn: [
-    demoStorageAcct
-  ]
 }
 ```
 

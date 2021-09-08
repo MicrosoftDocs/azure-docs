@@ -182,7 +182,7 @@
   - name: Integration
     items:
     - name: API for FHIR
-      href: ../../healthcare-apis/fhir/fhir-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../healthcare-apis/fhir/fhir-service-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Logic Apps
@@ -408,6 +408,14 @@
     - name: Pass sensitive values
       displayname: key vault
       href: key-vault-parameter.md
+  - name: Export templates
+    items:
+    - name: Azure CLI
+      href: export-template-cli.md
+    - name: Portal
+      href: export-template-portal.md
+    - name: PowerShell
+      href: export-template-powershell.md
   - name: Test templates
     items:
     - name: Test toolkit
@@ -432,12 +440,6 @@
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
       href: deploy-github-actions.md
-  - name: Discover template properties
-    items:
-    - name: Export template
-      href: export-template-portal.md
-    - name: Discover resources
-      href: view-resources.md
   - name: Use authoring tools
     items:
     - name: Visual Studio

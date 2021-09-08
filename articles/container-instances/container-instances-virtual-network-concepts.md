@@ -44,8 +44,6 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * If you are connecting your container group to an Azure Storage Account, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to that resource.
 * [IPv6 addresses](../virtual-network/ipv6-overview.md) are not supported at this time. 
 
-[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
-
 ## Required network resources
 
 There are three Azure Virtual Network resources required for deploying container groups to a virtual network: the [virtual network](#virtual-network) itself, a [delegated subnet](#subnet-delegated) within the virtual network, and a [network profile](#network-profile). 

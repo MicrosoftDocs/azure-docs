@@ -24,7 +24,6 @@ ms.custom: include file
 | &nbsp; |[Azure Files](../connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../connector-azure-sql-database.md) |
 | &nbsp; |[Azure SQL Database Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
-| &nbsp; |[Azure Search](../connector-azure-search.md) | 
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table storage](../connector-azure-table-storage.md) |
 | **Database** |[Amazon Redshift](../connector-amazon-redshift.md) |

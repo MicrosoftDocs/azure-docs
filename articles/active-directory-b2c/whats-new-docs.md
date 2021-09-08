@@ -93,7 +93,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 - [Developer notes for Azure Active Directory B2C](custom-policy-developer-notes.md)
 - [Add an API connector to a sign-up user flow](add-api-connector.md)
-- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
+- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Secure your API Connector](secure-rest-api.md)
 - [Use API connectors to customize and extend sign-up user flows](api-connectors-overview.md)
 - [Technical and feature overview of Azure Active Directory B2C](technical-overview.md)
@@ -103,7 +103,6 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Tutorial: Create user flows in Azure Active Directory B2C](tutorial-create-user-flows.md)
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 - [User flows and custom policies overview](user-flow-overview.md)
-- [Tutorial: Enable authentication in a single-page application with Azure AD B2C](tutorial-single-page-app.md)
 - [Set up phone sign-up and sign-in for user flows](phone-authentication-user-flows.md)
 - [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md)
 - [User flow versions in Azure Active Directory B2C](user-flow-versions.md)

@@ -15,6 +15,9 @@ Azure Files offers two industry-standard protocols for mounting Azure file share
 
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
+> [!IMPORTANT]
+> We do not recommend using NFS for production during preview. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for a list of known issues.
+
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
 
@@ -80,6 +83,21 @@ The status of items that appear in this tables may change over time as support c
 ## Regional availability
 
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
+
+## Performance
+NFS Azure file shares are only offered on premium file shares, which stores data on solid-state drives (SSD). The IOPS and the throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the understanding billing article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress may face additional latencies due to high number of open and close operations.
+
+## Workloads
+> [!IMPORTANT]
+> We do not recommend using NFS for production during preview. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues.
+
+NFS preview has been validated to work well with workloads such as home directories for general purpose file servers and content repositories for application workloads.
+
+The following workloads have known issues. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues:
+- IBM MQ will experience locking issues.
+- Oracle Database will experience incompatibility with its dNFS feature.
+- SAP Application Layer will experience inconsistent behavior due to a [known active issue with ls -l](storage-troubleshooting-files-nfs.md#ls-la-throws-io-error).
+
 
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)

@@ -2,6 +2,7 @@
 title: Source control
 description: Learn how to configure source control in Azure Data Factory
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
@@ -235,6 +236,8 @@ A side pane will open where you confirm that the publish branch and pending chan
 > [!IMPORTANT]
 > The main branch is not representative of what's deployed in the Data Factory service. The main branch *must* be published manually to the Data Factory service.
 
+
+
 ## Best practices for Git integration
 
 ### Permissions
@@ -256,17 +259,34 @@ Using Key Vault or MSI authentication also makes continuous integration and depl
 
 ### Stale publish branch
 
-If the publish branch is out of sync with the main branch and contains out-of-date resources despite a recent publish, try following these steps:
+Below are some examples of situations that can cause a stale publish branch:
+
+- A user has multiple branches. In one feature branch, they deleted a linked service that isn't AKV associated (non-AKV linked services are published immediately regardless if they are in Git or not) and never merged the feature branch into the collaboration branch.
+- A user modified the data factory using the SDK or PowerShell
+- A user moved all resources to a new branch and tried to publish for the first time. Linked services should be created manually when importing resources.
+- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the UX is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the UX will allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
+
+If the publish branch is out of sync with the main branch and contains out-of-date resources despite a recent publish, you can use either of the below solutions:
+
+#### Option 1: Use **Overwrite live mode** functionality
+
+It publishes or overwrites the code from your collaboration branch into the live mode. It will consider the code in your repository as the source of truth. 
+
+<u>*Code flow:*</u> ***Collaboration branch -> Live mode***
+
+![force publish code from collaboration branch](media/author-visually/force-publish-changes-from-collaboration-branch.png)
+
+#### Option 2: Disconnect and reconnect Git repository
+
+It imports the code from live mode into collaboration branch. It considers the code in live mode as source of truth. 
+
+<u>*Code flow:*</u> ***Live mode -> Collaboration branch***  
 
 1. Remove your current Git repository
 1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **New branch**
 1. Create a pull request to merge the changes to the collaboration branch 
 
-Below are some examples of situations that can cause a stale publish branch:
-- A user has multiple branches. In one feature branch, they deleted a linked service that isn't AKV associated (non-AKV linked services are published immediately regardless if they are in Git or not) and never merged the feature branch into the collaboration branch.
-- A user modified the data factory using the SDK or PowerShell
-- A user moved all resources to a new branch and tried to publish for the first time. Linked services should be created manually when importing resources.
-- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the UX is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the UX will allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
+Choose either method appropriately as needed. 
 
 ## Switch to a different Git repository
 
