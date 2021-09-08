@@ -12,7 +12,7 @@ ms.author: allensu
 ---
 # What is Azure Private Endpoint?
 
-Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. 
+A private endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service powered by Azure Private Link. By enabling a private endpoint, you're bringing the service into your virtual network.
 
 The service could be an Azure service such as:
 
@@ -35,8 +35,15 @@ The service could be an Azure service such as:
 |Request Message     |  You can specify a message for requested connections to be approved manually. This message can be used to identify a specific request.        |
 |Connection status   |   A read-only property that specifies if the private endpoint is active. Only private endpoints in an approved state can be used to send traffic. More states available: <br>-**Approved**: Connection was automatically or manually approved and is ready to be used.</br><br>-**Pending**: Connection was created manually and is pending approval by the private link resource owner.</br><br>-**Rejected**: Connection was rejected by the private link resource owner.</br><br>-**Disconnected**: Connection was removed by the private link resource owner. The private endpoint becomes informative and should be deleted for cleanup. </br>|
 
-Here are some key details about private endpoints: 
-- Private endpoint enables connectivity between the consumers from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) and services powered by Private Link.
+Some key details about private endpoints: 
+
+- Private endpoint enables connectivity between the consumers from the same:
+    
+    - Virtual Network
+    - Regionally peered virtual networks
+    - Globally peered virtual networks
+    - On premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/)
+    - Services powered by Private Link
  
 - Network connections can only be initiated by clients connecting to the private endpoint. Service providers don't have routing configuration to create connections into service consumers. Connections can only be established in a single direction.
 
@@ -46,7 +53,7 @@ Here are some key details about private endpoints:
  
 - The private link resource can be deployed in a different region than the virtual network and private endpoint.
  
-- Multiple private endpoints can be created using the same private link resource. For a single network using a common DNS server configuration, the recommended practice is to use a single private endpoint for a given private link resource to avoid duplicate entries or conflicts in DNS resolution. 
+- Multiple private endpoints can be created using the same private link resource. For a single network using a common DNS server configuration, the recommended practice is to use a single private endpoint for a given private link resource. Use this practice to avoid duplicate entries or conflicts in DNS resolution. 
  
 - Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -54,7 +61,9 @@ Here are some key details about private endpoints:
 
  
 ## Private link resource 
-A private link resource is the destination target of a given private endpoint. The table below lists the available private endpoint resources: 
+A private link resource is the destination target of a given private endpoint. 
+
+The table below lists the available resources that support a private endpoint: 
  
 | Private link resource name | Resource type | Subresources |
 | ---------------------------| ------------- | ------------- |
@@ -101,11 +110,11 @@ A private link resource is the destination target of a given private endpoint. T
 | **Azure App Service** | Microsoft.Web/sites | sites |
 | **Azure App Service** | Microsoft.Web/staticSites | staticSite |
 
- 
 ## Network security of private endpoints 
-When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access more resources within the same Azure service, extra private endpoints are required. 
+
+When using private endpoints, traffic is secured to a private link resource. The platform does an access control to validate network connections reaching only the specified private link resource. To access more resources within the same Azure service, extra private endpoints are required. 
  
-You can completely lock down your workloads from accessing public endpoints to connect to a supported Azure service. This control provides an extra network security layer to your resources by providing a built-in exfiltration protection that prevents access to other resources hosted on the same Azure service. 
+You can completely lock down your workloads from accessing public endpoints to connect to a supported Azure service. This control provides an extra network security layer to your resources. The security provides protection that prevents access to other resources hosted on the same Azure service. 
  
 ## Access to a private link resource using approval workflow 
 You can connect to a private link resource using the following connection approval methods:
@@ -124,15 +133,19 @@ The private link resource owner can do the following actions over a private endp
 > [!NOTE]
 > Only a private endpoint in an approved state can send traffic to a given private link resource. 
 
-### Connecting using Alias
-Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owner can share this Alias with their consumers offline. Consumers can request a connection to private link service using either the resource URI or the Alias. If you want to connect using Alias, you must create private endpoint using manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. Look at [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) for details. 
+### Connecting using alias
 
-## DNS configuration 
-When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve to the given private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This configuration must be overwritten to connect using your private endpoint. 
+Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owners can share this alias with their consumers offline. 
+
+Consumers can request a connection to private link service using either the resource URI or the alias. If you want to connect using alias, you must create a private endpoint using the manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
+
+## DNS configuration
+
+The DNS settings used for connections to a private link resource are important. Ensure your DNS settings are correct when you use the fully qualified domain name (FQDN) for the connection. The settings must resolve to the private IP address of the private endpoint. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This configuration must be overwritten to connect using your private endpoint. 
  
-The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses given for a private link resource. 
+The network interface associated with the private endpoint contains the information required to configure your DNS. The information includes the FQDN and private IP address for a private link resource. 
 
-For complete detailed information about recommendations to configure DNS for Private Endpoints, see [Private Endpoint DNS configuration](private-endpoint-dns.md).
+For complete detailed information about recommendations to configure DNS for private endpoints, see [Private Endpoint DNS configuration](private-endpoint-dns.md).
  
 ## Limitations
  
@@ -140,7 +153,7 @@ The following table includes a list of known limitations when using private endp
 
 | Limitation | Description |Mitigation |
 | --------- | --------- | --------- |
-| Traffic destined to a private endpoint using a user defined route may be asymmetric. | Return traffic from a private endpoint bypasses an NVA and attempts to return to the source VM. | For all traffic destined to a private endpoint by way of a UDR, it's recommended to SNAT traffic at the NVA to ensure symmetric routing.  |
+| Traffic destined to a private endpoint using a user-defined route may be asymmetric. | Return traffic from a private endpoint bypasses a Network Virtual Appliance (NVA) and attempts to return to the source VM. | Source Network Address Translation (SNAT) is used to ensure symmetric routing. For all traffic destined to a private endpoint using a UDR, it's recommended to use SNAT for traffic at the NVA. |
 
 > [!IMPORTANT]
 > NSG and UDR support for private endpoints is in public preview.
@@ -153,13 +166,13 @@ The following table includes a list of known limitations when using private endp
 
 | Limitation | Description | Mitigation |
 | ---------- | ----------- | ---------- |
-| Obtain effective routes / security rules will not be available on private endpoint network interface. | You won't be able to navigate to the private endpoint network interface to see relevant information on the effective routes / security rules blade. | Q4CY21 |
-| NSG flow logs not supported. | NSG flow logs will not work for inbound traffic destined for a private endpoint. | No information at this time. |
+| Obtain effective routes and security rules won't be available on a private endpoint network interface. | You aren't able to navigate to the network interface to see relevant information on the effective routes and security rules. | Q4CY21 |
+| NSG flow logs not supported. | NSG flow logs won't work for inbound traffic destined for a private endpoint. | No information at this time. |
 | Intermittent drops with ZRS storage accounts. | Customers using ZRS storage account may see periodic intermittent drops even with allow NSG applied on storage private endpoint subnet. | September |
 | Intermittent drops with Azure Key Vault. | Customers using Azure Key Vault may see periodic intermittent drops even with allow NSG applied on Azure Key Vault private endpoint subnet. | September |
 | Limit on number of address prefixes per NSG. | Having more than 500 address prefixes in NSG in a single rule isn't supported. | September |
-| AllowVirtualNetworkAccess flag | Customers setting vnet peering on their vnet (Vnet A) with **AllowVirtualNetworkAccess** flag set to false on the peering link initiated to another vnet (Vnet B) will not be able to use **VirtualNetwork Tag** to deny traffic from Vnet B being able to access private endpoint resources. They will need to explicitly place a block for Vnet B’s address prefix to deny traffic to the private. | September |
-| Dual Port NSG Rules unsupported. | If multiple port ranges are used with NSG Rules then only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to deny all instead of specific ports. </br> **See rule example below for more information.** | September |
+| AllowVirtualNetworkAccess flag | Customers setting vnet peering on their vnet (Vnet A) with **AllowVirtualNetworkAccess** flag set to false on the peering link to another vnet (Vnet B) won't can't use the **VirtualNetwork Tag** to deny traffic from Vnet B accessing private endpoint resources. They'll need to explicitly place a block for Vnet B’s address prefix to deny traffic to the private. | September |
+| Dual Port NSG Rules unsupported. | If multiple port ranges are used with NSG Rules, then only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to deny all instead of specific ports. </br> **For more information, see rule example below.** | September |
 
 | Priority | Source port | Destination port | Action | Effective action |
 | -------- | ----------- | ---------------- | ------ | ---------------- |
@@ -174,7 +187,7 @@ The following table includes a list of known limitations when using private endp
 
 | Limitation | Description | Mitigation |
 | ---------- | ----------- | ---------- |
-| Source Network Address Translation (SNAT) is recommended at all times. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored. | No information at this time. |
+| Source Network Address Translation (SNAT) is recommended always. | Because of the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored. | No information at this time. |
  
 ## Next steps
 
