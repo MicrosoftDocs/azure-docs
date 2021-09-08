@@ -756,7 +756,7 @@ sections:
           
           The key value propositions of OpenTelemetry are that it's vender-neutral and provides consistent APIs/SDKs across langauges.
           
-          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported langauges](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to cusotmers. In particular, the OpenTelemetry .NET SDK is more performant at scale than it's predecessor the Application Insights SDK.
+          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported langauges](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than it's predecessor the Application Insights SDK.
           
           Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
           
