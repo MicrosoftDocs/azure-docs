@@ -67,7 +67,7 @@ To edit role assignments in a collection, select the **Role assignments** tab to
 
 For more information about collections in upgraded accounts, please read our [guide on creating and managing collections](how-to-create-and-manage-collections.md).
 
-### What happens to your collections during upgrade
+### What happens to your collections during upgrade?
 
 1. A root collection is created. The root collection is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it's called Contoso Purview.
 
@@ -75,7 +75,7 @@ For more information about collections in upgraded accounts, please read our [gu
 
 1. Your previously existing collections will be connected to the root collection. You'll see them listed below the root collection, and can interact with them there.
 
-### What happens to your sources during upgrade
+### What happens to your sources during upgrade?
 
 1. Any sources that weren't previously associated with a collection are automatically added to the root collection.
 
