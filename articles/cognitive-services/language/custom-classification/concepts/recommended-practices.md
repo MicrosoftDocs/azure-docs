@@ -16,6 +16,22 @@ ms.author: aahi
 
 Use this article to learn more about recommended practices when using custom text classification.
 
+## Data preparation
+
+As a prerequisite for creating a Custom entity extraction project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly or through using the Azure Storage Explorer tool. Using Azure Storage Explorer tool allows you to upload more data in less time.
+
+* [Create and upload files from Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
+* [Create and upload files using Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
+
+You can only use `.txt`. files for custom text. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to change your file format.
+
+You can upload an unlabeled dataset or a labeled  dataset to your container.<br>
+Learn how to tag your using Language Studio for [extraction](extraction/ct-how-to-tag-data.md) and [classification](classification/ctc-how-to-tag-data.md). <br>
+Learn more about tags file format for [extraction](extraction/ct-concept-tags-file-format.md) and [classification](classification/ctc-concept-tags-file-format.md).
+
+>[!TIP]
+> **Review recommended practices** for data selection in [extraction](extraction/ct-concept-recommended-practices.md#Data-selection) and [classification](classification/ctc-concept-recommended-practices.md#Data-selection).
+
 ## Schema design
 
 The schema defines the classes that you need your model to classify your text into at runtime.
