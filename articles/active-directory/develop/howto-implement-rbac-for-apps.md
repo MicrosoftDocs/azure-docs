@@ -29,7 +29,7 @@ This article explains how to implement application-specific role-based access co
 
 As discussed in [Role-based access control for application developers](./custom-rbac-for-developers.md), there are three ways to implement RBAC using the Microsoft identity platform:
 
-- **App Roles** – using the [App Roles feature in an application registration]() in conjunction with logic within your application to interpret incoming App Role assignments.
+- **App Roles** – using the [App Roles feature in an application registration](./howto-add-app-roles-in-azure-ad-apps.md#declare-roles-for-an-application) in conjunction with logic within your application to interpret incoming App Role assignments.
 - **Groups** – using an incoming identity’s group assignments in conjunction with logic within your application to interpret the group assignments. 
 - **Custom Data Store** – retrieve and interpret role assignments using logic within your application.
 
@@ -39,11 +39,11 @@ The rest of this article will show you how to define app roles and implement RBA
 
 ## Defining roles for your application
 
-The first step for implementing RBAC for your application is to define the roles your application needs and assign users or groups to those roles.  This process is outlined in [How to: Add app roles to your application and receive them in the token](). Once you have defined your roles and assigned users or groups, you can access the role assignments in the tokens coming into your applications and act on them accordingly.
+The first step for implementing RBAC for your application is to define the roles your application needs and assign users or groups to those roles.  This process is outlined in [How to: Add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md). Once you have defined your roles and assigned users or groups, you can access the role assignments in the tokens coming into your applications and act on them accordingly.
 
 ## Implementing RBAC in ASP.NET Core 
 
-ASP.NET Core supports adding RBAC to an ASP.NET Core web application or web API.  This allows for easy implementation of RBAC using [role checks]() with the ASP.NET Core *Authorize* attribute. It is also possible to use ASP.NET Core’s support for [policy-based role checks](/aspnet/core/security/authorization/roles?view=aspnetcore-5.0#policy-based-role-checks).
+ASP.NET Core supports adding RBAC to an ASP.NET Core web application or web API.  This allows for easy implementation of RBAC using [role checks](https://docs.microsoft.com/aspnet/core/security/authorization/roles?view=aspnetcore-5.0#adding-role-checks) with the ASP.NET Core *Authorize* attribute. It is also possible to use ASP.NET Core’s support for [policy-based role checks](https://docs.microsoft.com/aspnet/core/security/authorization/roles?view=aspnetcore-5.0#policy-based-role-checks).
 
 ### ASP.NET Core MVC web application 
 
@@ -67,7 +67,7 @@ Implementing RBAC in an ASP.NET Core MVC web application is straightforward.  It
 
     ```
     And then follow the instructions specified in [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](./quickstart-v2-aspnet-core-webapp.md?view=aspnetcore-5.0) to add authentication to your application.
-1. Add role checks on your controller actions as outlined in [Adding role checks](/aspnet/core/security/authorization/roles?view=aspnetcore-5.0#adding-role-checks).
+1. Add role checks on your controller actions as outlined in [Adding role checks](https://docs.microsoft.com/aspnet/core/security/authorization/roles?view=aspnetcore-5.0#adding-role-checks).
 1. Test the application by trying to access one of the protected MVC routes.
 
 ### ASP.NET Core web API
@@ -92,7 +92,7 @@ Implementing RBAC in an ASP.NET Core web API mainly involves utilizing the *Auth
 
     ```
     And then follow the instructions specified in [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](./quickstart-v2-aspnet-core-webapp.md?view=aspnetcore-5.0) to add authentication to your application.
-1. Add role checks on your controller actions as outlined in [Adding role checks](/aspnet/core/security/authorization/roles?view=aspnetcore-5.0#adding-role-checks).
+1. Add role checks on your controller actions as outlined in [Adding role checks](https://docs.microsoft.com/aspnet/core/security/authorization/roles?view=aspnetcore-5.0#adding-role-checks).
 1. Call the API from a client app.  See [Angular single-page application calling .NET Core web API and using App Roles to implement Role-Based Access Control](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl/1-call-api-roles) for an end to end sample.
 
 
@@ -109,4 +109,4 @@ Implementing RBAC in a Node.js with express application involves the use of MSAL
 
 ## Next steps
 
-- Read more on [permissions and consent in the Microsoft identity platform]().
+- Read more on [permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md).
