@@ -56952,6 +56952,91 @@
       "source_path_from_root": "/articles/virtual-network/ipv6-add-to-existing-vnet-cli.md",
       "redirect_url": "/azure/load-balancer/ipv6-add-to-existing-vnet-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-ipv4-ipv6-dual-stack-powershell.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-ipv4-ipv6-dual-stack-cli.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-configure-template-json.md",
+      "redirect_url": "/azure/load-balancer/ipv6-configure-template-json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/associate-public-ip-address-vm.md",
+      "redirect_url": "/azure/virtual-network/ip-services/associate-public-ip-address-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/remove-public-ip-address-vm.md",
+      "redirect_url": "/azure/virtual-network/ip-services/remove-public-ip-address-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-classic-pportal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-classic-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-virtual-machine-scale-set.md",
+      "redirect_url": "/azure/virtual-network/ip-services/ipv6-virtual-machine-scale-set",
+      "redirect_document_id": false
     }
   ]
 }
