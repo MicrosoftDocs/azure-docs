@@ -1,7 +1,7 @@
 ---
-title: Copy data from Web Table using Azure Data Factory 
+title: Copy data from Web Table
+description: Learn about Web Table Connector that lets you copy data from a web table to data stores supported as sinks by Azure Data Factory and Synapse Analytics. 
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about Web Table Connector of Azure Data Factory that lets you copy data from a web table to data stores supported by Data Factory as sinks. 
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: jianleishen
 ---
-# Copy data from Web table by using Azure Data Factory
+# Copy data from Web table by using Azure Data Factory or Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-web-table-connector.md)
 > * [Current version](connector-web-table.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Web table database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from a Web table database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 The difference among this Web table connector, the [REST connector](connector-rest.md) and the [HTTP connector](connector-http.md) are:
 
@@ -205,4 +205,4 @@ If you are using Excel 2013, use [Microsoft Power Query for Excel](https://www.m
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
