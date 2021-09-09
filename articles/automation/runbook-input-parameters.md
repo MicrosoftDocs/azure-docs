@@ -3,11 +3,12 @@ title: Configure runbook input parameters in Azure Automation
 description: This article tells how to configure runbook input parameters, which allow data to be passed to a runbook when it's started.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/14/2019
+ms.date: 09/13/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
-# Configure runbook input parameters
+
+# Configure runbook input parameters in Automation
 
 Runbook input parameters increase the flexibility of a runbook by allowing data to be passed to it when it's started. These parameters allow runbook actions to be targeted for specific scenarios and environments. This article describes the configuration and use of input parameters in your runbooks.
 
@@ -295,10 +296,10 @@ Param(
      [object]$json
 )
 
-# Connect to Azure account
-$Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID `
-    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+# Connect to Azure with user-assigned managed identity
+Connect-AzAccount -Identity
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
+Connect-AzAccount -Identity -AccountId $identity.ClientId
 
 # Convert object to actual JSON
 $json = $json | ConvertFrom-Json
