@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 05/08/2020
+ms.date: 09/09/2021
 ---
 
 # Transform data using Hadoop Pig activity in Azure Data Factory or Synapse Analytics

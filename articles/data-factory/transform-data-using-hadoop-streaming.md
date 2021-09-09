@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/08/2020
+ms.date: 09/09/2021
 ---
 
 # Transform data using Hadoop Streaming activity in Azure Data Factory or Synapse Analytics

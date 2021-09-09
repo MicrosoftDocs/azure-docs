@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/16/2020
+ms.date: 09/09/2021
 ---
 
 # Create a predictive pipeline using Azure Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics

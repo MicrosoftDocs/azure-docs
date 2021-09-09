@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/01/2018
+ms.date: 09/09/2021
 ---
 
 # Process data by running U-SQL scripts on Azure Data Lake Analytics 

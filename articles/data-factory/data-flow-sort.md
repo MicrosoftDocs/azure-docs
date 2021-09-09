@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/14/2020
+ms.date: 09/09/2021
 ---
 
 # Sort transformation in mapping data flow

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/21/2021
+ms.date: 09/09/2021
 ---
 
 # Using column patterns in mapping data flow
