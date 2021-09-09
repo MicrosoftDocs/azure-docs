@@ -89,21 +89,7 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 ## Examples
 
-### Hello world
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/misc/hello-world.yml":::
-
-### Hello world with an environment variable
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/misc/hello-world-env-var.yml":::
-
-### Basic Python job
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
-
-### Command job invoking bash script to run Python code
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris-bash/job.yml":::
+[TODO]
 
 ## Schema
 
