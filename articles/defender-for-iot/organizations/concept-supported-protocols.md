@@ -5,11 +5,11 @@ ms.date: 09/09/2021
 ms.topic: article
 ---
 
-# SUPPORT FOR IoT, OT, ICS, and SCADA protocols
+# Support for IoT, OT, ICS, and SCADA protocols
 
 Azure Defender for IoT provides an open and interoperable Operation Technology (OT) cybersecurity platform. Defender for IoT is deployed in many different locations, and reduces Industrial IoT (IT), and ICS risk with deployments in demanding, and complex OT environments across all industry verticals, and geographies.
 
-## Supported Protocols
+## Supported protocols
 
 Azure Defender for IoT supports a broad range of protocols across a diverse enterprise, and includes industrial automation equipment across all industrial sectors, enterprise networks, and building management system (BMS) environments. For custom or proprietary protocols, Microsoft offers an SDK that makes it easy to develop, test, and deploy custom protocol dissectors as plug-ins. The SDK does all this without divulging proprietary information, such as how the protocols are designed, or by sharing PCAPs that may contain sensitive information. The complete list of supported protocols is listed in the table below.
 
@@ -39,13 +39,13 @@ Azure Defender for IoT supports a broad range of protocols across a diverse ente
 | GE EGD (GE) | Omron FINS (Omron) | Toshiba Computer Link (Toshiba) | |
 | GE-SRTP (GE) | OSISoft (OSI Soft) | UDP (Generic) | |
 
-## Add support for proprietary and restricted protocols
+## Add support for restricted protocols
 
 The Industrial Internet of Things (IIoT) unlocks new levels of productivity. These in turn help organizations improve security, increase output, and maximize revenue. Digitalization is driving deployment of billions of IoT devices, and increases the connectivity between IT, and OT networks. This increase in connectivity increases the attack surface, and allows for a greater risk of dangerous cyberattacks on industrial control systems.
 
 The Horizon Protocol SDK allows quick support for 100% of the protocols used in IoT, and ICS environments. Custom, or proprietary protocols can be limited so that they are not able to be shared outside your organization. Either due to regulations, or corporate policies. The Horizon SDK allows you to write plug-ins that enable Deep Packet Inspection (DPI) on the traffic, and detect threats in real time. The Horizon SDK makes extra customizations possible as well. For example, the Horizon SDK enables asset vendors, partners, or platform owners to localize and customize the text for alerts, events, and protocol parameters.
 
-:::image type="content" source="media/concept-supported-protocols/sdk-horizon.png" alt-text="The Horizon SDK allows quick support for 100% of the protocols used in IOT, and ICS environments.":::
+[![The Horizon SDK allows quick support for 100% of the protocols used in IOT, and ICS environments.](media/concept-supported-protocols/sdk-horizon.png)](sdk-horizon-expanded.png#lightbox)
 
 ## Next steps
 
