@@ -1,5 +1,5 @@
 ---
-title: Audit and manage policy compliance
+title: Audit and manage Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Policy to use built-in policies for Azure Machine Learning to make sure your workspaces are compliant with your requirements.
 author: aashishb
@@ -20,7 +20,11 @@ As a platform administrator, you can use policies to lay out guardrails for team
 
 ## Policies for Azure Machine Learning
 
-[Azure Policy](../governance/policy/index.yml) is a governance tool that allows you to ensure that Azure resources are compliant with your policies. With Azure Machine Learning, you can assign the following policies:
+[Azure Policy](../governance/policy/index.yml) is a governance tool that allows you to ensure that Azure resources are compliant with your policies.
+
+Azure Machine Learning provides a set of policies that you can use for common scenarios with Azure Machine Learning. You can assign these policy definitions to your existing subscription or use them as the basis to create your own custom definitions. F
+
+The table below includes a selection of policies you can assign with Azure Machine Learning. For a complete list of the built-in policies for Azure Machine Learning, see [Built-in policies for Azure Machine Learning](../governance/policy/samples/built-in-policies.md#machine-learning).
 
 | Policy | Description |
 | ----- | ----- |
@@ -34,13 +38,7 @@ As a platform administrator, you can use policies to lay out guardrails for team
 
 Policies can be set at different scopes, such as at the subscription or resource group level. For more information, see the [Azure Policy documentation](../governance/policy/overview.md).
 
-## Conditional access policies
-
-To control who can access your Azure Machine Learning workspace, use Azure Active Directory [Conditional Access](../active-directory/conditional-access/overview.md).
-
-## Built-in policies
-
-Azure Machine Learning provides a set of policies that you can use for common scenarios with Azure Machine Learning. You can assign these policy definitions to your existing subscription or use them as the basis to create your own custom definitions. For a complete list of the built-in policies for Azure Machine Learning, see [Built-in policies for Azure Machine Learning](../governance/policy/samples/built-in-policies.md#machine-learning).
+## Assigning built-in policies
 
 To view the built-in policy definitions related to Azure Machine Learning, use the following steps:
 
@@ -51,6 +49,20 @@ To view the built-in policy definitions related to Azure Machine Learning, use t
 From here, you can select policy definitions to view them. While viewing a definition, you can use the __Assign__ link to assign the policy to a specific scope, and configure the parameters for the policy. For more information, see [Assign a policy - portal](../governance/policy/assign-policy-portal.md).
 
 You can also assign policies by using [Azure PowerShell](../governance/policy/assign-policy-powershell.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), and [templates](../governance/policy/assign-policy-template.md).
+
+## Conditional access policies
+
+To control who can access your Azure Machine Learning workspace, use Azure Active Directory [Conditional Access](../active-directory/conditional-access/overview.md).
+
+## Enabling self-service using 'landing zones'
+
+Landing zones are an architectural pattern to set up Azure environments that accounts for scale, governance, security, and productivity. A data landing zone is an administator-configured environment that an application team uses to host a data and analytics workload.
+
+The purpose of the landing zone is to ensure when a team starts in the Azure environment, all infrastructure configuration work is done. For instance, security controls are set up in compliance with organizational standards and network connectivity is set up. Using the landing zones pattern, machine learning teams can be enabled to self-service deploy and manage their own resources. By use of Azure policy, administrators can audit and manage Azure resources for compliance. 
+
+Azure Machine Learning integrates with [data landing zones](https://github.com/Azure/data-landing-zone) in the [Cloud Adoption Framework data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/). This reference implementation provides an optimized environment to migrate machine learning workloads onto and includes policies for Azure Machine Learning preconfigured.
+
+## Configure built-in policies
 
 ### Workspace encryption with customer-managed key
 
@@ -101,14 +113,6 @@ If the policy is set to __deny__, then you cannot create a compute unless SSH is
 Modifies any Azure Machine Learning compute cluster or instance creation request to disable local authentication (SSH).
 
 To configure this policy, set the effect parameter to __Modify__ or __Disabled__. If set __Modify__, any creation of a compute cluster or instance within the scope where the policy applies will automatically have local authentication disabled.
-
-## Manage and scale using landing zones
-
-Landing zones are an architectural pattern to set up Azure environments that accounts for scale, governance, security, and productivity. A data landing zone is an administator-configured environment that an application team uses to host a data and analytics workload.
-
-The purpose of the landing zone is to ensure when a team starts in the Azure environment, all infrastructure configuration work is done. For instance, security controls are set up in compliance with organizational standards and network connectivity is set up. Using the landing zones pattern, machine learning teams can be enabled to self-service deploy and manage their own resources. By use of Azure policy, administrators can audit and manage Azure resources for compliance. 
-
-Azure Machine Learning integrates with [data landing zones](https://github.com/Azure/data-landing-zone) in the [Cloud Adoption Framework data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/). This reference implementation provides an optimized environment to migrate machine learning workloads onto and includes policies for Azure Machine Learning preconfigured.
 
 ## Next steps
 
