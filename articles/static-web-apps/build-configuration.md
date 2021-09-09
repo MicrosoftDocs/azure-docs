@@ -28,7 +28,7 @@ The following table lists the available configuration settings.
 With these settings, you can set up GitHub Actions or [Azure Pipelines](publish-devops.md) to run continuous integration/continuous delivery (CI/CD) for your static web app.
 
 > [!NOTE]
-> Currently, you can only define `app_build_command` and `api_build_command` for Node.js builds. The build process always calls `npm install` before any custom command.
+> Currently, you can only define `app_build_command` and `api_build_command` for Node.js builds.
 
 ## File name and location
 
@@ -287,45 +287,17 @@ on:
       - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
-# [Azure DevOps](#tab/azure-devops)
-
-```files
-├── app1  👉 controlled by: ???
-├── app2  👉 controlled by: ???
-│
-├── api1  👉 controlled by: ???
-├── api2  👉 controlled by: ???
-│
-├── azure-pipelines.yml
-│
-└── README.md
-```
-
-```yaml
-trigger:
-  - main
-
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-  - checkout: self
-    submodules: true
-  - task: AzureStaticWebApp@0
-    inputs:
-      app_location: 'src'
-      api_location: 'api'
-      output_location: 'public'
-      azure_static_web_apps_api_token: $(deployment_token)
-```
-
----
-
-In this instance, only changes made to following files trigger a new build:
+In this example, only changes made to following files trigger a new build:
 
 - Any files inside the _app1_ folder
 - Any files inside the _api1_ folder
 - Changes to the app's _azure-static-web-apps-purple-pond.yml_ workflow file
+
+# [Azure DevOps](#tab/azure-devops)
+
+To support more than one application in a single repository, create a separate workflow file and associate it with different Azure DevOps pipelines.
+
+---
 
 ## Next steps
 
