@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 09/02/2021
+ms.date: 09/09/2021
 ms.author: aahi
 ---
 
@@ -2057,7 +2057,7 @@ This container image has the following tags available. You can also find a full 
 
 Release notes for `3.0.017010001`:
 
-* You can now use the Text Analytics for health container [with the client library](../text-analytics/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) 
+* You can now use the [Text Analytics for health container with the client library](../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) 
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|

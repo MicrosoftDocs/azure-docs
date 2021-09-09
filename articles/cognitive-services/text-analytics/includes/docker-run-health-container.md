@@ -59,7 +59,7 @@ Afterwards when you authenticate the Text Analytics client, change the endpoint 
 For example, if you're using C# you would use the following code:
 
 ```csharp
-var client = new TextAnalyticsClient(http://localhost:5000, credentials);
+var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analytics-key");
 ```
 
 ### Demo UI to visualize output
