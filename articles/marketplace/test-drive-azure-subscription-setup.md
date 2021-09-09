@@ -44,16 +44,15 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
         :::image type="content" source="./media/test-drive/microsoft-graph.png" alt-text="Setting the application permissions.":::
 
-    11. Select **Add permission**.
-    12. Once the permission is added, select **Grant admin consent for Microsoft**.
-    13. From the message alert, select **Yes**.
+    11. Once the permission is added, select **Grant admin consent for Microsoft**.
+    12. From the message alert, select **Yes**.
 
         [![Shows the application permissions successfully granted.](media/test-drive/api-permissions-confirmation-customer.png)](media/test-drive/api-permissions-confirmation-customer.png#lightbox)
 
-    14. To generate a secret for the Azure AD App:
+    13. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.
         2. Under Client secrets, select **New client secret**.
-        3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key. We recommend providing the maximum duration for the expiration: 24 months.
+        3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
         4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you leave this blade. You will need this value later when configuring your test drive.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
@@ -147,7 +146,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     14. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.
         2. Under Client secrets, select **New client secret**.
-        3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key. We recommend providing the maximum duration for the expiration: 24 months.
+        3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
         4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you leave this blade. You will need this value later when configuring your test drive.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
