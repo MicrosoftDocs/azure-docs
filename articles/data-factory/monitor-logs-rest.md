@@ -216,4 +216,4 @@ For more information, see [Diagnostic Settings](/rest/api/monitor/diagnosticsett
 
 ## Next Steps
 
-[Monitor SSIS operations with Azure Monitor](monitor-adf-ssis.md)
+[Monitor SSIS operations with Azure Monitor](monitor-ssis.md)

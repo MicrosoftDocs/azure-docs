@@ -56,4 +56,4 @@ After a few moments, the new setting appears in your list of settings for this d
 
 ## Next Steps
 
-[Setup diagnostics logs via the Azure Monitor REST API](monitor-adf-logs-with-rest.md)
+[Setup diagnostics logs via the Azure Monitor REST API](monitor-logs-rest.md)

@@ -458,4 +458,4 @@ Log Analytics inherits the schema from Monitor with the following exceptions:
 
 ## Next Steps
 
-[Install Azure Data Factory Analytics solution from Azure Marketplace](monitor-install-adf-analytics.md)
+[Install Azure Data Factory Analytics solution from Azure Marketplace](monitor-install-analytics.md)

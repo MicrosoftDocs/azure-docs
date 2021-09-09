@@ -20,11 +20,11 @@ This solution provides you a summary of overall health of your Data Factory, wit
 
 1. Go to **Azure Marketplace**, choose **Analytics** filter, and search for **Azure Data Factory Analytics (Preview)**
 
-   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image3.png" alt-text="Go to "Azure Marketplace", enter "Analytics filter", and select "Azure Data Factory Analytics (Preview")":::
+   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image3.png" alt-text="Go to &quot;Azure Marketplace&quot;, enter &quot;Analytics filter&quot;, and select &quot;Azure Data Factory Analytics (Preview&quot;)":::
 
 1. Details about **Azure Data Factory Analytics (Preview)**
 
-   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image4.png" alt-text="Details about "Azure Data Factory Analytics (Preview)"":::
+   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image4.png" alt-text="Details about &quot;Azure Data Factory Analytics (Preview)&quot;":::
 
 1. Select **Create** and then create or select the **Log Analytics Workspace**.
 
@@ -44,11 +44,11 @@ Installing this solution creates a default set of views inside the workbooks sec
 * ADF Statistics - 2) Trigger Runs by Type
 * ADF Statistics - 3) Max Pipeline Runs Duration
 
-:::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image6.png" alt-text="Window with "Workbooks (Preview)" and "AzureDataFactoryAnalytics" highlighted":::
+:::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image6.png" alt-text="Window with &quot;Workbooks (Preview)&quot; and &quot;AzureDataFactoryAnalytics&quot; highlighted":::
 
 You can visualize the preceding metrics, look at the queries behind these metrics, edit the queries, create alerts, and take other actions.
 
-:::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image8.png" alt-text="Graphical representation of pipeline runs by data factory"":::
+:::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image8.png" alt-text="Graphical representation of pipeline runs by data factory":::
 
 > [!NOTE]
 > Azure Data Factory Analytics (Preview) sends diagnostic logs to _Resource-specific_ destination tables. You can write queries against the following tables: _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_.

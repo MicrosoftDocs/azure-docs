@@ -62,11 +62,11 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
     > [!NOTE]
     > Make sure to select **All** in the **Filter by resource type** drop-down list.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image5.png" alt-text=""Define alert condition" > "Select target", which opens the "Select a resource" pane ":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image5.png" alt-text="&quot;Define alert condition&quot; > &quot;Select target&quot;, which opens the &quot;Select a resource&quot; pane ":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image6.png" alt-text=""Define alert condition" >" Add criteria", which opens the "Configure signal logic" pane":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image6.png" alt-text="&quot;Define alert condition&quot; > &quot;Add criteria&quot;, which opens the &quot;Configure signal logic&quot; pane":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image7.png" alt-text=""Configure signal type" pane":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image7.png" alt-text="&quot;Configure signal type&quot; pane":::
 
 1. Define the alert details.
 
@@ -74,7 +74,7 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 
 1. Define the action group.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="Create a rule, with "New Action group" highlighted":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="Create a rule, with &quot;New Action group&quot; highlighted":::
 
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image10.png" alt-text="Create a new action group":::
 
