@@ -21,9 +21,9 @@ ms.author: kumud
 ---
 # Configure a private IP address for a VM using the Azure portal
 
-[!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
+[!INCLUDE [virtual-networks-static-private-ip-intro-include](../../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
+[!INCLUDE [virtual-networks-static-ip-scenario-include](../../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 The following sample steps expect a simple environment to already be created. If you want to run the steps as they're displayed in this document, first [create a virtual network](quick-create-portal.md#create-a-virtual-network). However, in step 3, use these values instead:
 

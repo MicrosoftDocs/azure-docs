@@ -22,15 +22,15 @@ ms.custom: H1Hack27Feb2017
 ---
 # Configure private IP addresses for a virtual machine (Classic) using the Azure portal
 
-[!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
+[!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
-[!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
+[!INCLUDE [virtual-networks-static-private-ip-intro-include](../../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../../includes/azure-arm-classic-important-include.md)]
 
 This article covers the classic deployment model. You can also [manage a static private IP address in the Resource Manager deployment model](virtual-networks-static-private-ip-arm-pportal.md).
 
-[!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
+[!INCLUDE [virtual-networks-static-ip-scenario-include](../../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 The sample steps that follow expect a simple environment already created. If you want to run the steps as they are displayed in this document, first build the test environment described in [create a vnet](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal).
 
