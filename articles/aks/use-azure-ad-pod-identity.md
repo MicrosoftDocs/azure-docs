@@ -145,6 +145,9 @@ az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enabl
 
 ## Create an identity
 
+> [!IMPORTANT]
+> You must have the relevant permissions (for example, Owner) on your subscription to create the identity.
+
 Create an identity using [az identity create][az-identity-create] and set the *IDENTITY_CLIENT_ID* and *IDENTITY_RESOURCE_ID* variables.
 
 ```azurecli-interactive
@@ -169,11 +172,6 @@ az role assignment create --role "Virtual Machine Contributor" --assignee "$IDEN
 ## Create a pod identity
 
 Create a pod identity for the cluster using `az aks pod-identity add`.
-
-> [!IMPORTANT]
-> You must have the relevant permissions (for example, Owner) on your subscription to create the identity and assign role binding to the cluster identity.
-> 
-> The cluster identity must have Managed Identity Operator permissions for the identity to be assigned.
 
 ```azurecli-interactive
 export POD_IDENTITY_NAME="my-pod-identity"
