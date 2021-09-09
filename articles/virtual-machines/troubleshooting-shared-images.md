@@ -337,14 +337,14 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: The current source image for the scale set is a generalized source image, but it's being updated with a source image that is specialized. The current source image and the new source image for a scale set must be of the same state.  
 **Workaround**: To update the scale set, use a generalized image version.
 
-**Message**: *Disk encryption set <diskEncryptionSetID\> in shared image gallery <versionID\> belongs to subscription <subscriptionID\_1\> and cannot be used with resource '' in subscription <subscriptionID\_2\>*  
+**Message**: *Disk encryption set \<diskEncryptionSetID\> in shared image gallery \<versionID\> belongs to subscription \<subscriptionID\_1\> and cannot be used with resource '' in subscription \<subscriptionID\_2\>*  
 **Cause**: The disk encryption set used to encrypt the image version resides in a different subscription than the subscription to host the image version.  
 **Workaround**: Use the same subscription for the image version and disk encryption set.
 
 **Message**: *The VM or virtual machine scale set creation takes a long time.*  
 **Workaround**: Verify that the **OSType** of the image version that you're trying to create the VM or virtual machine scale set from has the same **OSType** of the source that you used to create the image version. 
 
-**Message**: *The resource with id <vmID\> has a different plan ['{\"name\":\"\<name\>\",\"publisher\":\"<publisher>\",\"product\":\"<product>\",\"promotionCode\":\"<promotionCode>\"}'] than the parent gallery image plan ['null'].*  
+**Message**: *The resource with id \<vmID\> has a different plan ['{\"name\":\"\<name\>\",\"publisher\":\"\<publisher\>\",\"product\":\"\<product\>\",\"promotionCode\":\"\<promotionCode\>\"}'] than the parent gallery image plan ['null'].*  
 **Cause**: The parent image definition for the image version being deployed does not have a purchase plan information.  
 **Workaround**: Create an image definition with the same purchase plan details from the error message and create the image version within the image definition.
 

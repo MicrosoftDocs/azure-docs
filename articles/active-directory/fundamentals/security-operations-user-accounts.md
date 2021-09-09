@@ -76,7 +76,7 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -267,11 +267,11 @@ The following are listed in order of importance based on the impact and severity
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
 | Multi-factor authentication (MFA) fraud alerts.| High| Azure AD Sign-ins log| Status = failed<br>-and-<br>Details = MFA Denied<br>| Monitor and alert on any entry. |
-| Failed authentications from countries you do not operate out of.| Medium| Azure AD Sign-ins log| Location = <unapproved location>| Monitor and alert on any entries. |
+| Failed authentications from countries you do not operate out of.| Medium| Azure AD Sign-ins log| Location = \<unapproved location\>| Monitor and alert on any entries. |
 | Failed authentications for legacy protocols or protocols that are not used .| Medium| Azure AD Sign-ins log| Status = failure<br>-and-<br>Client app = Other Clients, POP, IMAP, MAPI, SMTP, ActiveSync| Monitor and alert on any entries. |
 | Failures blocked by CA.| Medium| Azure AD Sign-ins log| Error code = 53003 <br>-and-<br>Failure reason = blocked by CA| Monitor and alert on any entries. |
 | Increased failed authentications of any type.| Medium| Azure AD Sign-ins log| Capture increases in failures across the board. I.e., total failures for today is >10 % on the same day the previous week.| If you don't have a set threshold, monitor and alert if failures increase by 10% or greater. |
-| Authentication occurring at times and days of the week when countries do not conduct normal business operations.| Low| Azure AD Sign-ins log| Capture interactive authentication occurring outside of normal operating days\time. <br>Status = success<br>-and-<br>Location = <location><br>-and-<br>Day\Time = <not normal working hours>| Monitor and alert on any entries. |
+| Authentication occurring at times and days of the week when countries do not conduct normal business operations.| Low| Azure AD Sign-ins log| Capture interactive authentication occurring outside of normal operating days\time. <br>Status = success<br>-and-<br>Location = \<location\><br>-and-<br>Day\Time = \<not normal working hours\>| Monitor and alert on any entries. |
 | Account disabled/blocked for sign-ins| Low| Azure AD Sign-ins log| Status = Failure<br>-and-<br>error code = 50057, The user account is disabled.| This could indicate someone is trying to gain access to an account once they have left an organization. Although the account is blocked it is still important to log and alert on this activity. |
 
 
@@ -279,7 +279,7 @@ The following are listed in order of importance based on the impact and severity
 
  | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Authentications of privileged accounts outside of expected controls.| High| Azure AD Sign-ins log| Status = success<br>-and-<br>UserPricipalName = <Admin account><br>-and-<br>Location = <unapproved location><br>-and-<br>IP Address = <unapproved IP><br>Device Info= <unapproved Browser, Operating System><br>| Monitor and alert on successful authentication for privileged accounts outside of expected controls. Three common controls are listed. |
+| Authentications of privileged accounts outside of expected controls.| High| Azure AD Sign-ins log| Status = success<br>-and-<br>UserPricipalName = \<Admin account\><br>-and-<br>Location = \<unapproved location\><br>-and-<br>IP Address = \<unapproved IP\><br>Device Info= \<unapproved Browser, Operating System\><br>| Monitor and alert on successful authentication for privileged accounts outside of expected controls. Three common controls are listed. |
 | When only single-factor authentication is required.| Low| Azure AD Sign-ins log| Status = success<br>Authentication requirement = Single-factor authentication| Monitor this periodically and ensure this is the expected behavior. |
 | Discover privileged accounts not registered for MFA.| High| Azure Graph API| Query for IsMFARegistered eq false for administrator accounts. <br>[List credentialUserRegistrationDetails - Microsoft Graph beta | Microsoft Docs](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http)| Audit and investigate to determine if intentional or an oversight. |
 | Successful authentications from countries your organization does not operate out of.| Medium| Azure AD Sign-ins log| Status = success<br>Location = <unapproved country>| Monitor and alert on any entries not equal to the city names you provide. |
@@ -291,8 +291,8 @@ On periodic basis, we recommend you review authentications to medium business im
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - | - |- |- |- |
-| Authentications to MBI and HBI application using single-factor authentication.| Low| Azure AD Sign-ins log| status = success<br>-and-<br>Application ID = <HBI app> <br>-and-<br>Authentication requirement = single-factor authentication.| Review and validate this configuration is intentional. |
-| Authentications at days and times of the week or year that countries do not conduct normal business operations.| Low| Azure AD Sign-ins log| Capture interactive authentication occurring outside of normal operating days\time. <br>Status = success<br>Location = <location><br>Date\Time = <not normal working hours>| Monitor and alert on authentications days and times of the week or year that countries do not conduct normal business operations. |
+| Authentications to MBI and HBI application using single-factor authentication.| Low| Azure AD Sign-ins log| status = success<br>-and-<br>Application ID = \<HBI app\> <br>-and-<br>Authentication requirement = single-factor authentication.| Review and validate this configuration is intentional. |
+| Authentications at days and times of the week or year that countries do not conduct normal business operations.| Low| Azure AD Sign-ins log| Capture interactive authentication occurring outside of normal operating days\time. <br>Status = success<br>Location = \<location\><br>Date\Time = \<not normal working hours\>| Monitor and alert on authentications days and times of the week or year that countries do not conduct normal business operations. |
 | Measurable increase of successful sign ins.| Low| Azure AD Sign-ins log| Capture increases in successful authentication across the board. I.e., total successes for today is >10 % on the same day the previous week.| If you don't have a set threshold, monitor and alert if successful authentications increase by 10% or greater. |
 
 ## Next steps
