@@ -24,7 +24,7 @@ Loads the content of the specified file as a base64 string.
 |:--- |:--- |:--- |:--- |
 | filePath | Yes | string | The path to the file to load. The path is relative to the deployed Bicep file. |
 
-## Remarks
+### Remarks
 
 Use this function when you have base64 content that is stored in a separate file. Rather than duplicating the content into your Bicep file, load the content with this function. The file is loaded when the Bicep file is compiled to a JSON template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
 
