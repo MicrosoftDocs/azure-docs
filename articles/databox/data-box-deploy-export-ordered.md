@@ -341,7 +341,10 @@ To select a single file for export, use the &lt;FilePath&gt; tag with a share pa
 
 # [Sample XML file](#tab/sample-xml-file)
 
-This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order. For more examples of valid blob and file path prefixes, see Prefix examples.
+This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order. 
+
+- For a XML file requirements, see the **XML file overview** tab.
+- For more examples of valid blob and file path prefixes, see the **Prefix examples** tab.
 
 ```xml
 <<?xml version="1.0" encoding="utf-8"?>
