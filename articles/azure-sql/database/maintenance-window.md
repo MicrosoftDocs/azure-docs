@@ -72,29 +72,36 @@ Choosing a maintenance window other than the default is available on all SLOs **
 Choosing a maintenance window other than the default is currently available in the following regions:
 
 - Australia East
-- Australia SouthEast
+- Australia Southeast
 - Brazil South
 - Canada Central
 - Canada East
 - Central India
 - Central US
-- East US
-- East US2
+- China East 2
+- China North 2
 - East Asia
+- East US
+- East US 2
 - France South
 - Germany West Central
 - Japan East
+- Japan West
 - Korea Central*
-- NorthCentral US
+- Korea South*
+- North Central US
 - North Europe
-- SouthCentral US
-- SouthEast Asia
+- South Africa North*
+- South Central US
+- Southeast Asia
+- Switzerland North
+- UAE Central*
 - UK South
 - UK West
 - West Central US
 - West Europe
 - West US
-- West US2
+- West US 2
 
 *Available only for Azure SQL Managed Instance
 
