@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Proxyclick
@@ -32,6 +32,8 @@ To get started, you need the following items:
 In this tutorial, you'll configure and test Azure AD single sign-on in a test environment.
 
 * Proxyclick supports SP-initiated and IdP-initiated SSO.
+
+* Proxyclick supports [Automated user provisioning](proxyclick-provisioning-tutorial.md).
 
 ## Add Proxyclick from the gallery
 
@@ -171,6 +173,9 @@ To create a user account, take these steps:
 	1. In the **Last Name** box, enter the last name of the user. In this case, **Simon**.
 
 	1. Select **Add User**.
+
+> [!NOTE]
+> Proxyclick also supports automatic user provisioning, you can find more details [here](./proxyclick-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

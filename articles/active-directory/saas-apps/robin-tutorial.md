@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -34,6 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Robin supports **SP and IDP** initiated SSO.
 * Robin supports **Just In Time** user provisioning.
+* Robin supports  [Automated user provisioning](robin-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -130,6 +131,8 @@ To configure single sign-on on **Robin** side, you need to send the downloaded *
 ### Create Robin test user
 
 In this section, a user called Britta Simon is created in Robin. Robin supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Robin, a new one is created after authentication.
+
+Robin also supports automatic user provisioning, you can find more details [here](./robin-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

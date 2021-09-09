@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/01/2021
+  ms.date: 09/08/2021
   featureFlags:
   - clicktale
 
@@ -277,9 +277,9 @@ productDirectory:
       summary: Build intelligent video-based applications using the AI of your choice
       imageSrc: ./media/index/video-analyzer.svg
       azureCategories:
-        - ai-machine-learning      
+        - ai-machine-learning
         - media
-      url: azure-video-analyzer/video-analyzer-docs/overview.md      
+      url: azure-video-analyzer/video-analyzer-docs/overview.md
     # Card
     - title: Azure Video Analyzer for Media
       summary: Unlock video insights
@@ -1319,7 +1319,7 @@ productDirectory:
         - networking
       url: load-balancer/index.yml
     # Card
-    - title: Azure Route Server (Preview)
+    - title: Azure Route Server
       summary: Simplify operations management of your network appliances
       imageSrc: ./media/index/azure-route-server.svg
       azureCategories:
