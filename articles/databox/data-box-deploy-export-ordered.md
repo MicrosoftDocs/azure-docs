@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/08/2021
+ms.date: 09/09/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -223,7 +223,7 @@ Perform the following steps in the Azure portal to order a device.
     ![Commit order](media/data-box-deploy-export-ordered/azure-data-box-select-export-order-commit-order.png)
 
 > [!NOTE]
-> To check whether blob and file exports are successful, you can review logs for the export order. Error logs are generated automatically during export. A verbose log file also is generated if you selected **Include verbose log** when you configure the export order. For more information about copy logs and verbose logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).<!--Placement? This replaces the "Copy logs" section at the end of the document.-->
+> To check whether blob and file exports are successful, you can review logs for the export order. Error logs are generated automatically during export. A verbose log file also is generated if you select **Include verbose log** when you configure the export order. For more information about copy logs and verbose logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).<!--Placement? This replaces the "Copy logs" section at the end of the document.-->
 
 ## Export order using XML file
 
@@ -265,9 +265,9 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 
 ## Sample XML file
 
-# [Sample file](#tab/sample-file)
+Follow these guidelines if you choose to select blobs and files for export in your Data Box export order by using an xml file.
 
-<!--Old text - The following xml is an example of blob names, blob prefixes, and Azure Files contained in the xml format that the export order uses when you select the **use XML file** option.<!--Make the wording simpler and clearer. They will provide the XML.-->
+# [Sample file](#tab/sample-file)
 
 The sample xml file below includes one or more examples of each xml tag that is used to select blobs and files for export in a Data Box export order.
 
@@ -303,9 +303,9 @@ The following xml tags are used in the xml file.
 |`<FilePath>`       |Filters the selection to a single file. |
 |`<FilePathPrefix>` |Filters the selection to a set of similarly named shares, similarly named folders in a share, or similarly named files in a folder. |
 
-# [XML tag usage](#tab/xml-tag-usage)
+# [xml tag usage](#tab/xml-tag-usage)
 
-Follow these guidelines to construct the xml file for your export order. Incorrect tag formats can lead to export failures.
+Follow these guidelines when you construct the xml file for your export order. Incorrect tag formats can lead to export failures.
 
 #### Path vs. prefix
 
@@ -330,27 +330,30 @@ The prefixes that select multiple blobs or multiple files are similar:
 
 # [Valid paths, prefixes](#tab/valid-paths-prefixes)
 
-
-The following table has examples of valid paths for the &lt;BlobPathPrefix&gt; tag.<!--Generalize to "path, prefixes," and start with a sample path?-->
+The following are examples of valid paths that select multiple blobs for export. The paths are used with the <!--&lt;BlobPath&gt; and--> &lt;BlobPathPrefix&gt; tag.
 
 |Path                    |Description                                                                         |
 |------------------------|------------------------------------------------------------------------------------|
 |/	                     |Exports all blobs in the storage account.                                           |
 |/$root/	               |Exports all blobs in the root container.                                            |
 |/containers	           |Exports all blobs in any container that begins with prefix **containers**.          |
-|/container1/        |Exports all blobs in the container **container1**.                                  |
-|/container1/2021Q2  |Exports all blobs in container **container1** that begin with prefix **2021Q2**.|
+|/container1/            |Exports all blobs in the container **container1**.                                  |
+|/container1/2021Q2      |Exports all blobs in container **container1** that begin with prefix **2021Q2**.    |
+
+To select a single blob for export, use the &lt;BlobPath&gt; tag with a path and blob name.
 
 # [Valid file path prefixes](#tab/file-path-prefixes)
 
-The following table has examples of valid paths for the &lt;FilePathPrefix&gt; tag.<!--Generalize to "path, prefixes," and start with a sample path?-->
+The following are examples of valid paths that select multiple files for export. The paths are used with the <!--&lt;FilePath&gt; and-->&lt;FilePathPrefix&gt; tag.
 
 |Path                    |Description                                                                                          |
 |------------------------|-----------------------------------------------------------------------------------------------------|
 |/	                     |Exports all files and directories in the storage account.                                            |
 |/fileshare/	           |Exports all files and directories in any file share that begins with prefix **fileshare**.           |
 |/fileshare1/	           |Exports all files and directories in **fileshare1**.                                                 |
-|/fileshare1/contosowest  |Exports all files and directories in fileshare **fileshare1** that begin with prefix **contosowest**. |
+|/fileshare1/contosowest |Exports all files and directories in fileshare **fileshare1** that begin with prefix **contosowest**.|
+
+To select a single file for export, use the &lt;FilePath&gt; tag with a share path and file name.
 
 ---
 
