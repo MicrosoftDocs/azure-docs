@@ -32,6 +32,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Clarizen One supports **IDP** initiated SSO.
+* Clarizen One supports [**automated** user provisioning and deprovisioning](clarizen-one-provisioning-tutorial.md) (recommended).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.

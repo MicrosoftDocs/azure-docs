@@ -128,7 +128,7 @@ ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
 You need to install mysql-client tool to be able to connect to the server.
 
 ```bash
-sude apt-getupdate
+sudo apt-getupdate
 sudo apt-get install mysql-client
 ```
 

@@ -199,7 +199,7 @@ With the prerequisites in place, the next step is to define the ARM deployment t
                     "value": ""
                 },
                 "appArtifactLocation": {
-                    "value": "public"
+                    "value": "src"
                 },
                 "resourceTags": {
                     "value": {

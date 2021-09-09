@@ -49,13 +49,13 @@ When you choose **Managed Identity**, to set up the connection, you must first g
 1. Set the **Role** to **Storage Blob Data Reader** and enter your Azure Purview account name under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
 
 > [!Note]
-> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/common/storage-auth-aad.md)
+> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
 
 #### Account Key
 
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
-1. Navigate to your ADLS Gne2 storage account
+1. Navigate to your ADLS Gen2 storage account
 1. Select **Security + networking > Access keys**
 1. Copy your *key* and save it somewhere for the next steps
 1. Navigate to your key vault

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up and manage endpoints and event routes for Azure Digital Twins data
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/22/2020
+ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -435,6 +435,9 @@ Here are the supported route filters.
 | Content type | Content type of data value | `datacontenttype = '<content-type>'` | The content type is `application/json` |
 | Spec version | The version of the event schema you are using | `specversion = '<version>'` | The version must be `1.0`. This indicates the CloudEvents schema version 1.0 |
 | Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [Event notifications](concepts-event-notifications.md) for examples of notifications. Any property in the `data` field can be referenced using `$body`
+
+>[!NOTE]
+> Azure Digital Twins currently doesn't support filtering events based on fields within an array. This includes filtering on properties within a `patch` section of a [digital twin change notification](concepts-event-notifications.md#digital-twin-change-notifications).
 
 The following data types are supported as values returned by references to the data above:
 

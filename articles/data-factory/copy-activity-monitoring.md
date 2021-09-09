@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
 ---
 # Monitor copy activity

@@ -40,4 +40,6 @@ The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands 
 
 ## Next steps
 
+In real-world applications, you can use SDKs in various languages build your own application. We also provide Function extensions for you to build serverless applications easily.
+
 [!INCLUDE [next step](includes/include-next-step.md)]

@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 08/16/2021
 ---
 
 # Resource functions for Bicep
@@ -15,6 +15,7 @@ Resource Manager provides the following functions for getting resource values in
 * [getSecret](#getsecret)
 * [list*](#list)
 * [pickZones](#pickzones)
+* [providers (deprecated)](#providers)
 * [reference](#reference)
 * [resourceId](#resourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
@@ -111,6 +112,8 @@ Built-in policy definitions are tenant level resources. For an example of deploy
 `keyVaultName.getSecret(secretName)`
 
 Returns a secret from an Azure Key Vault. The `getSecret` function can only be called on a `Microsoft.KeyVault/vaults` resource. Use this function to pass a secret to a secure string parameter of a Bicep module. The function can be used only with a parameter that has the `@secure()` decorator.
+
+The key vault must have `enabledForTemplateDeployment` set to `true`. The user deploying the Bicep file must have access to the secret. For more information, see [Use Azure Key Vault to pass secure parameter value during Bicep deployment](key-vault-parameter.md).
 
 ### Parameters
 
@@ -469,6 +472,10 @@ The output from the preceding examples returns three arrays.
 | notSupportedType | array | [] |
 
 You can use the response from pickZones to determine whether to provide null for zones or assign virtual machines to different zones.
+
+## providers
+
+**The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
 
 ## reference
 

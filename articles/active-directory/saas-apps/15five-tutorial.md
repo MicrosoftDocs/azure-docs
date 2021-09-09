@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/27/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with 15Five
@@ -32,6 +32,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * 15Five supports **SP** initiated SSO.
+* 15Five supports [Automated user provisioning](15five-provisioning-tutorial.md).
 
 ## Add 15Five from the gallery
 

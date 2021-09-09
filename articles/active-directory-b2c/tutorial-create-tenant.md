@@ -47,7 +47,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     ![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
-1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription your're using ([learn more](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
+1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription your're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 
     1. On the Azure portal menu or from the **Home** page, select **Subscriptions**.
     2. Select your subscription, and then select **Resource providers**.

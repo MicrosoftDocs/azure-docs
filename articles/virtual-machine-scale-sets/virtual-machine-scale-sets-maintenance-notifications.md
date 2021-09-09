@@ -14,6 +14,7 @@ ms.custom: mimckitt, devx-track-azurepowershell
 
 # Planned maintenance notifications for virtual machine scale sets
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines (VMs). Updates might include patching the hosting environment or upgrading and decommissioning hardware. Most updates don't affect the hosted VMs. However, updates affect VMs in these scenarios:
 

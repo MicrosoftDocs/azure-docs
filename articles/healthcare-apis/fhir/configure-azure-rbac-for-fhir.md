@@ -33,7 +33,7 @@ In the Role selection, search for one of the built-in roles for the FHIR data pl
 
 In the **Select** section, type the client application registration name. If the name is found, the application name is listed. Select the application name, and then select **Save**. 
 
-If the client application is not found, check your application registration, to ensure that the name is correct. Ensure that the client application is created in the same tenant where the FHIR service is deployed in.
+If the client application is not found, check your application registration, to ensure that the name is correct. Ensure that the client application is created in the same tenant where the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) is deployed in.
 
 
 [ ![Select role assignment.](media/rbac/select-role-assignment.png) ](media/rbac/select-role-assignment.png#lightbox)

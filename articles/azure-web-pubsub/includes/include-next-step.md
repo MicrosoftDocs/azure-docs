@@ -6,18 +6,22 @@ ms.topic: include
 ms.date: 08/06/2021
 ---
 
-In real-world applications, you can use SDKs in various languages build your own application. We also provide Function extensions for you to build serverless applications easily.
-
-Follow the quickstarts listed below to start building your own application.
+Follow the tutorials listed below to start building your own application.
 
 > [!div class="nextstepaction"]
-> [Quick start: Publish and subscribe messages in Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message)
+> [Tutorial: Publish and subscribe messages in Azure Web PubSub](./../tutorial-pub-sub-messages.md)
 
 > [!div class="nextstepaction"]
-> [Quick start: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+> [Tutorial: Create a simple chatroom with Azure Web PubSub](./../tutorial-build-chat.md)
 
 > [!div class="nextstepaction"]
-> [Quick start: Build serverless chat with Azure Functions and Web PubSub](./../quickstart-serverless.md)
+> [Tutorial: Client streaming using service-supported subprotocol](./../tutorial-subprotocol.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Build serverless chat with Azure Functions and Web PubSub](./../quickstart-serverless.md)
+
+> [!div class="nextstepaction"]
+> [Play with Live Demos](https://aka.ms/awps/livedemos)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://aka.ms/awps/samples)

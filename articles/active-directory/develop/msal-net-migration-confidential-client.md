@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 06/08/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to migrate my confidential client app from ADAL.NET to MSAL.NET.
 ---
 

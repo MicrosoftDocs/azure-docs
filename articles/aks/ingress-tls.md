@@ -136,25 +136,44 @@ az network dns record-set a add-record \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-> [!NOTE]
-> Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain. Note that this sample is for a Bash shell.
-> 
-> ```bash
-> # Public IP address of your ingress controller
-> IP="MY_EXTERNAL_IP"
-> 
-> # Name to associate with public IP address
-> DNSNAME="demo-aks-ingress"
-> 
-> # Get the resource-id of the public ip
-> PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-> 
-> # Update public ip address with DNS name
-> az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
-> 
-> # Display the FQDN
-> az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
-> ```
+### Configure an FQDN for the ingress controller
+Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain.  Your FQDN will be of the form `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`.
+
+There are two methods for this configuration described below.
+
+#### Method 1: Set the DNS label using the Azure CLI
+Note that this sample is for a Bash shell.
+
+```bash
+# Public IP address of your ingress controller
+IP="MY_EXTERNAL_IP"
+
+# Name to associate with public IP address
+DNSNAME="demo-aks-ingress"
+
+# Get the resource-id of the public ip
+PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
+
+# Update public ip address with DNS name
+az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+
+# Display the FQDN
+az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
+ ```
+
+#### Method 2: Set the DNS label using helm chart settings
+You can pass an annotation setting to your helm chard configuration by using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter.  This can be set either when the ingress controller is first deployed, or it can be configured later.
+The following example shows how to update this setting after the controller has been deployed.
+
+```
+DNS_LABEL="demo-aks-ingress"
+NAMESPACE="nginx-basic"
+
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
+  --namespace $NAMESPACE \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL
+
+```
 
 ## Install cert-manager
 

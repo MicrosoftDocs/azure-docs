@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 08/11/2021
 ms.author: helohr
 ---
 # Deploy Azure AD joined virtual machines in Azure Virtual Desktop
@@ -17,7 +17,7 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article will walk you through the process of deploying and accessing Azure Active Directory joined virtual machines in Azure Virtual Desktop. This removes the need to have line-of-sight from the VM to an on-premise or virtualized Active Directory Domain Controller (DC) or to deploy Azure AD Domain services (Azure AD DS). In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
+This article will walk you through the process of deploying and accessing Azure Active Directory joined virtual machines in Azure Virtual Desktop. Azure AD-joined VMs remove the need to have line-of-sight from the VM to an on-premise or virtualized Active Directory Domain Controller (DC) or to deploy Azure AD Domain services (Azure AD DS). In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
 
 > [!NOTE]
 > Azure Virtual Desktop (Classic) doesn't support this feature.
@@ -43,7 +43,10 @@ You can deploy Azure AD-joined VMs directly from the Azure portal when [creating
 > - Host pools should only contain VMs of the same domain join type. For example, AD-joined VMs should only be with other AD VMs, and vice-versa.
 > - The host pool VMs must be Windows 10 single-session or multi-session, version 2004 or later.
 
-After you've created the host pool, you must assign user access. For Azure AD-joined VMs, you'll need to do two things: give users access to both the App Group and VMs.
+After you've created the host pool, you must assign user access. For Azure AD-joined VMs, you'll need to do two things:
+
+- Add users to the App Group to give them access to the resources.
+- Grant users the Virtual Machine User Login role so they can sign in to the VMs.
 
 Follow the instructions in [Manage app groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
 
@@ -75,7 +78,7 @@ To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you
 
 ### Enabling MFA for Azure AD joined VMs
 
-You can enable [multifactor authentication](set-up-mfa.md) for Azure AD joined VMs by setting a Conditional Access policy on the "Azure Virtual Desktop" app. Unless you want to restrict sign in to strong authentication methods like Windows Hello, you should exclude the "Azure Windows VM Sign-In" app from the list of cloud apps as described in the [MFA sign-in method requirements](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) for Azure AD joined VMs. If you're using non-Windows clients, you must disable the MFA policy on "Azure Windows VM Sign-In".
+You can enable [multifactor authentication](set-up-mfa.md) for Azure AD joined VMs by setting a Conditional Access policy on the Azure Virtual Desktop app. For connections to succeed, [disable the legacy per-user multifactor authentication](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#using-conditional-access). If you don't want to restrict signing in to strong authentication methods like Windows Hello for Business, you'll also need to [exclude the Azure Windows VM Sign-In app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) from your Conditional Access policy.
 
 ## User profiles
 

@@ -2,7 +2,7 @@
 title: Tutorial - Access your private cloud
 description: Learn how to access an Azure VMware Solution private cloud
 ms.topic: tutorial
-ms.date: 03/13/2021
+ms.date: 08/13/2021
 ---
 
 # Tutorial: Access an Azure VMware Solution private cloud
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 ## Create a new Windows virtual machine
 
-1. In the resource group, select **Add**, search for and select **Microsoft Windows 10**. Then select **Create**.
+1. In the resource group, select **Add**, search for **Microsoft Windows 10**, and select it. Then select **Create**.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Screenshot of how to add a new Windows 10 VM for a jump box.":::
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
    | **Username** | Enter the user name for logging on to the VM. |
    | **Password** | Enter the password for logging on to the VM. |
    | **Confirm password** | Enter the password for logging on to the VM. |
-   | **Public inbound ports** | Select **None**. If you select None, you can use [JIT access](../security-center/security-center-just-in-time.md#jit-configure) to control access to the VM only when you want to access it. Alternatively, you can use an [Azure Bastion](../bastion/tutorial-create-host-portal.md) if you want to access the jump box server securely from the internet without exposing any network port.  |
+   | **Public inbound ports** | Select **None**. <ul><li>To control access to the VM only when you want to access it, use [JIT access](../security-center/security-center-just-in-time.md#jit-configure).</li><li>To securely access the jump box server from the internet without exposing any network port, use an [Azure Bastion](../bastion/tutorial-create-host-portal.md).</li></ul>  |
 
 
 1. Once validation passes, select **Create** to start the virtual machine creation process.
@@ -61,7 +61,7 @@ In this tutorial, you learn how to:
 
 1. In the Windows VM, open a browser and navigate to the vCenter and NSX-T Manager URLs in two tabs. 
 
-1. In the vCenter tab, enter the `cloudadmin@vmcp.local` user credentials from the previous step.
+1. In the vCenter tab, enter the `cloudadmin@vsphere.local` user credentials from the previous step.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Screenshot showing the VMware vSphere sign in page." border="true":::
 

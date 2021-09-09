@@ -109,4 +109,4 @@ The following list contains links to libraries for other programming languages a
 
 ## Azure CLI
 
-[Azure CLI reference](/cli/azure/storage)
+[Azure CLI reference](/cli/azure/azure-cli-reference-for-storage)
