@@ -154,7 +154,7 @@ Until recently, the it was only possible to publish a pipeline for deployments b
 
 #### Resolution
 
-CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and clicka button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
+CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and click a button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
 
 ###  Cannot publish because of 4 MB ARM template limit  
 
@@ -272,7 +272,7 @@ You want to perform unit testing during development and deployment of your pipel
 During development and deployment cycles, you may want to unit test your pipeline before you manually or automatically publish your pipeline. Test automation allows you to run more tests, in less time, with guaranteed repeatability. Automatically re-testing all your pipelines before deployment gives you some protection against regression faults. Automated testing is a key component of CI/CD software development approaches: inclusion of automated tests in CI/CD deployment pipelines can significantly improve quality. In long run, tested pipeline artifacts are reused saving you cost and time.  
  
 #### Resolution
-Because customers may have different unit testing requirements with different skill sets, usual practice is to follow following steps:
+Because customers may have different unit testing requirements with different skillsets, usual practice is to follow following steps:
 
 1. Setup Azure DevOps CI/CD project or develop  .NET/PYTHON/REST type SDK driven test strategy.
 2. For CI/CD, create a build artifact containing all scripts and deploy resources in release pipeline. For an SDK driven approach, develop Test units using PyTest in Python, Nunit in C# using .NET SDK and so on.
