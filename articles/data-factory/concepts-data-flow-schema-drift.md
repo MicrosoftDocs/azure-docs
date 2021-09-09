@@ -1,7 +1,7 @@
 ---
 title: Schema drift in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Build resilient Data Flows in Azure Data Factory with Schema Drift
+description: Build resilient Data Flows in Azure Data Factory and Synapse Analytics pipelines with Schema Drift
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/15/2020
+ms.date: 09/09/2021
 ---
 
 # Schema drift in mapping data flow
@@ -28,13 +28,13 @@ Azure Data Factory natively supports flexible schemas that change from execution
 
 You need to make an architectural decision in your data flow to accept schema drift throughout your flow. When you do this, you can protect against schema changes from the sources. However, you'll lose early-binding of your columns and types throughout your data flow. Azure Data Factory treats schema drift flows as late-binding flows, so when you build your transformations, the drifted column names won't be available to you in the schema views throughout the flow.
 
-This video provides an introduction to some of the complex solutions that you can build easily in ADF with data flow's schema drift feature. In this example, we build reusable patterns based on flexible database schemas:
+This video provides an introduction to some of the complex solutions that you can build easily in Azure Data Factory or Synapse Analytics pipelines with data flow's **schema drift** feature. In this example, we build reusable patterns based on flexible database schemas:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
 ## Schema drift in source
 
-Columns coming into your data flow from your source definition are defined as "drifted" when they are not present in your source projection. You can view your source projection from the projection tab in the source transformation. When you select a dataset for your source, ADF will automatically take the schema from the dataset and create a projection from that dataset schema definition.
+Columns coming into your data flow from your source definition are defined as "drifted" when they are not present in your source projection. You can view your source projection from the projection tab in the source transformation. When you select a dataset for your source, the service will automatically take the schema from the dataset and create a projection from that dataset schema definition.
 
 In a source transformation, schema drift is defined as reading columns that aren't defined your dataset schema. To enable schema drift, check **Allow schema drift** in your source transformation.
 
