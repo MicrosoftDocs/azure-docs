@@ -14072,7 +14072,7 @@
       "source_path_from_root": "/articles/azure-vmware/deploy-zerto-disaster-recovery.md",
       "redirect_url": "/azure/azure-vmware/introduction",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
@@ -15771,6 +15771,26 @@
     {
       "source_path_from_root": "/articles/data-explorer/spark-integration.md",
       "redirect_url": "/azure/data-explorer/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-data-guidelines.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-document-type-url.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-question-answer-set.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-role-based-access-control.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
       "redirect_document_id": false
     },
     {
@@ -57026,6 +57046,11 @@
     {
       "source_path_from_root": "/articles/azure-cache-for-redis/cache-best-practices.md",
       "redirect_url": "/azure/azure-cache-for-redis/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/normalization-schema.md",
+      "redirect_url": "/azure/sentinel/network-normalization-schema",
       "redirect_document_id": false
     }
   ]
