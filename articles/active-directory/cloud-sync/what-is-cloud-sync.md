@@ -29,7 +29,7 @@ With Azure AD Connect cloud sync, provisioning from AD to Azure AD is orchestrat
 ## Azure AD Connect cloud sync video
 The following short video provides an excellent overview of Azure AD Connect cloud sync:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
+> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
 
 
 ## Comparison between Azure AD Connect and cloud sync
