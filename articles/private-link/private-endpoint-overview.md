@@ -169,7 +169,7 @@ The following table includes a list of known limitations when using private endp
 | Intermittent drops with Azure Key Vault. | Customers using Azure Key Vault may see periodic intermittent drops even with allow NSG applied on Azure Key Vault private endpoint subnet. | September |
 | Limit on number of address prefixes per NSG. | Having more than 500 address prefixes in NSG in a single rule isn't supported. | September |
 | AllowVirtualNetworkAccess flag | Customers setting VNet peering on their VNet (VNet A) with **AllowVirtualNetworkAccess** flag set to false on the peering link to another VNet (VNet B) won't can't use the **VirtualNetwork Tag** to deny traffic from VNet B accessing private endpoint resources. They'll need to explicitly place a block for VNet B’s address prefix to deny traffic to the private. | September |
-| Dual Port NSG Rules unsupported. | If multiple port ranges are used with NSG Rules, then only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to deny all instead of specific ports. </br> **For more information, see rule example below.** | September |
+| Dual port NSG rules unsupported. | If multiple port ranges are used with NSG rules, then only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to deny all instead of specific ports. </br> **For more information, see rule example below.** | September |
 
 | Priority | Source port | Destination port | Action | Effective action |
 | -------- | ----------- | ---------------- | ------ | ---------------- |
