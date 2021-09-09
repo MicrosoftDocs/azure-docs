@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Proofpoint on Demand | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Proofpoint on Demand'
 description: Learn how to configure single sign-on between Azure Active Directory and Proofpoint on Demand.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/29/2021
+ms.date: 09/09/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Proofpoint on Demand
+# Tutorial: Azure AD SSO integration with Proofpoint on Demand
 
 In this tutorial, you'll learn how to integrate Proofpoint on Demand with Azure Active Directory (Azure AD). When you integrate Proofpoint on Demand with Azure AD, you can:
 
@@ -34,7 +34,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Proofpoint on Demand supports **SP** initiated SSO
+* Proofpoint on Demand supports **SP** initiated SSO.
 
 ## Add Proofpoint on Demand from the gallery
 
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Proofpoint on Demand, perform the follow
     1. **[Create Proofpoint on Demand test user](#create-proofpoint-on-demand-test-user)** - to have a counterpart of B.Simon in Proofpoint on Demand that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -72,19 +72,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Proofpoint on Demand Domain and URLs single sign-on information](common/sp-identifier-reply.png)
-
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<hostname>.pphosted.com/ppssamlsp_hostname`
-
-    b. In the **Identifier** box, type a URL using the following pattern:
+    a. In the **Identifier** box, type a URL using the following pattern:
     `https://<hostname>.pphosted.com/ppssamlsp`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
 
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<hostname>.pphosted.com/ppssamlsp_hostname`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Proofpoint on Demand Client support team](https://www.proofpoint.com/us/support-services) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Proofpoint on Demand Client support team](https://www.proofpoint.com/us/support-services) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -118,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Proofpoint on Demand SSO
+## Configure Proofpoint on Demand SSO
 
 To configure single sign-on on **Proofpoint on Demand** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Proofpoint on Demand support team](https://www.proofpoint.com/us/support-services). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -126,7 +124,7 @@ To configure single sign-on on **Proofpoint on Demand** side, you need to send t
 
 In this section, you create a user called Britta Simon in Proofpoint on Demand. Work with [Proofpoint on Demand Client support team](https://www.proofpoint.com/us/support-services) to add users in the Proofpoint on Demand platform.
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
@@ -134,8 +132,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Proofpoint on Demand Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Proofpoint on Demand tile in the My Apps, you should be automatically signed in to the Proofpoint on Demand for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Proofpoint on Demand tile in the My Apps, this will redirect to Proofpoint on Demand Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Proofpoint on Demand you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Proofpoint on Demand you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
