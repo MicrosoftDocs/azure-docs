@@ -172,7 +172,7 @@ items:
         - name: .NET
           href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-legacy&preserve-view=true
         - name: Python
-          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics??view=azure-python-previous&preserve-view=true
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-previous&preserve-view=true
         - name: Java
           href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-legacy&preserve-view=true
         - name: Node.js

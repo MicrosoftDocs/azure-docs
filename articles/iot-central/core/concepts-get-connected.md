@@ -60,7 +60,6 @@ To learn more, see [How to connect devices with X.509 certificates](how-to-conne
 For testing only, you can use the following utilities to generate root, intermediate, and device certificates:
 
 - [Tools for the Azure IoT Device Provisioning Device SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): a collection of Node.js tools that you can use to generate and verify X.509 certificates and keys.
-- If you're using a DevKit device, this [command-line tool](https://aka.ms/iotcentral-docs-dicetool) generates a CA certificate that you can add to your IoT Central application to verify the certificates.
 - [Manage test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): a collection of PowerShell and Bash scripts to:
   - Create a certificate chain.
   - Save the certificates as .cer files to upload to your IoT Central application.

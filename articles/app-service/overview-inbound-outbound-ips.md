@@ -25,7 +25,7 @@ Regardless of the number of scaled-out instances, each app has a single inbound 
 
 - Delete an app and recreate it in a different resource group (deployment unit may change).
 - Delete the last app in a resource group _and_ region combination and recreate it (deployment unit may change).
-- Delete an existing IP-based TLS/SSL binding, such as during certificate renewal (see [Renew certificate](configure-ssl-certificate.md#renew-certificate)).
+- Delete an existing IP-based TLS/SSL binding, such as during certificate renewal (see [Renew certificate](configure-ssl-certificate.md#renew-an-expiring-certificate)).
 
 ## Find the inbound IP
 

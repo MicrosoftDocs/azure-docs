@@ -4,18 +4,92 @@ description: Describes Bicep resource access operator and property access operat
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 08/30/2021
 ---
 
 # Bicep accessor operators
 
-The accessor operators are used to access child resources and properties on objects. You can also use the property accessor to use some functions.
+The accessor operators are used to access child resources, properties on objects, and elements in an array. You can also use the property accessor to use some functions.
 
 | Operator | Name |
 | ---- | ---- |
+| `[]` | [Index accessor](#index-accessor) |
+| `.`  | [Function accessor](#function-accessor) |
 | `::` | [Nested resource accessor](#nested-resource-accessor) |
 | `.`  | [Property accessor](#property-accessor) |
-| `.`  | [Function accessor](#function-accessor) |
+
+## Index accessor
+
+`array[index]`
+
+`object['index']`
+
+To get an element in an array, use `[index]` and provide an integer for the index.
+
+The following example gets an element in an array.
+
+```bicep
+var arrayVar = [
+  'Coho'
+  'Contoso'
+  'Fabrikan'
+]
+
+output accessorResult string = arrayVar[1]
+``` 
+
+Output from the example:
+
+| Name | Type | Value |
+| ---- | ---- | ---- |
+| accessorResult | string | 'Contoso' |
+
+You can also use the index accessor to get an object property by name. You must use a string for the index, not an integer. The following example gets a property on an object.
+
+```bicep
+var environmentSettings = {
+  dev: {
+    name: 'Development'
+  }
+  prod: {
+    name: 'Production'
+  }
+}
+
+output accessorResult string = environmentSettings['dev'].name
+```
+
+Output from the example:
+
+| Name | Type | Value |
+| ---- | ---- | ---- |
+| accessorResult | string | 'Development' |
+
+## Function accessor
+
+`resourceName.functionName()`
+
+Two functions - [getSecret](bicep-functions-resource.md#getsecret) and [list*](bicep-functions-resource.md#list) - support the accessor operator for calling the function. These two functions are the only functions that support the accessor operator.
+
+### Example
+
+The following example references an existing key vault, then uses `getSecret` to pass a secret to a module.
+
+```bicep
+resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+  name: kvName
+  scope: resourceGroup(subscriptionId, kvResourceGroup )
+}
+
+module sql './sql.bicep' = {
+  name: 'deploySQL'
+  params: {
+    sqlServerName: sqlServerName
+    adminLogin: adminLogin
+    adminPassword: kv.getSecret('vmAdminPassword')
+  }
+}
+```
 
 ## Nested resource accessor
 
@@ -102,32 +176,6 @@ resource publicIp 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
 
 // Use property accessor to get value
 output ipFqdn string = publicIp.properties.dnsSettings.fqdn
-```
-
-## Function accessor
-
-`resourceName.functionName()`
-
-Two functions - [getSecret](bicep-functions-resource.md#getsecret) and [list*](bicep-functions-resource.md#list) - support the accessor operator for calling the function. These two functions are the only functions that support the accessor operator.
-
-### Example
-
-The following example references an existing key vault, then uses `getSecret` to pass a secret to a module.
-
-```bicep
-resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
-  name: kvName
-  scope: resourceGroup(subscriptionId, kvResourceGroup )
-}
-
-module sql './sql.bicep' = {
-  name: 'deploySQL'
-  params: {
-    sqlServerName: sqlServerName
-    adminLogin: adminLogin
-    adminPassword: kv.getSecret('vmAdminPassword')
-  }
-}
 ```
 
 ## Next steps

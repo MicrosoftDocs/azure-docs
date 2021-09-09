@@ -22,15 +22,15 @@ You can get started creating a Data Factory pipeline from a template in the foll
 
 1.  Select **Pipeline templates** in the **Discover more** section of the Data Factory home page to open the template gallery.
 
-    ![Open the template gallery from the Overview page](media/doc-common-process/home-page-pipeline-templates-tile.png)
+    ![Screenshot showing how to open the template gallery from the Data Factory home page.](media/doc-common-process/home-page-pipeline-templates-tile.png)
 
 1.  On the Author tab in Resource Explorer, select **+**, then select **Pipeline from template** to open the template gallery.
 
-    ![Open the template gallery from the Author tab](media/solution-templates-introduction/templates-introduction-image-2.png)
+    ![Screenshot showing how to open the template gallery from the Author tab.](media/solution-templates-introduction/templates-introduction-image-2.png)
 
 ## Template Gallery
 
-![The template gallery](media/solution-templates-introduction/templates-introduction-image-3.png)
+![Screenshot showing the Template gallery page.](media/solution-templates-introduction/templates-introduction-image-3.png)
 
 ### Out of the box Data Factory templates
 
@@ -76,11 +76,11 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 
 You can also save a pipeline as a template by selecting **Save as template** on the Pipeline tab.
 
-![Save a pipeline as a template](media/solution-templates-introduction/templates-introduction-image-4.png)
+![Screenshot showing how to save a pipeline as a template.](media/solution-templates-introduction/templates-introduction-image-4.png)
 
 After checking the **My templates** box in the **Template gallery** page, you can view pipelines saved as templates in the right pane of this page. 
 
-![My templates](media/solution-templates-introduction/templates-introduction-image-5.png)
+![Screenshot showing the My templates pane.](media/solution-templates-introduction/templates-introduction-image-5.png)
 
 > [!NOTE]
 > To use the My Templates feature, you have to enable GIT integration. Both Azure DevOps GIT and GitHub are supported.

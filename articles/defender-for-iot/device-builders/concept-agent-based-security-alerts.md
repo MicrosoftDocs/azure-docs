@@ -1,11 +1,11 @@
 ---
-title: Agent based security alerts
+title: Micro agent security alerts (Preview)
 description: Learn about security alerts and recommended remediation using Defender for IoT device's features and service.
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 08/30/2021
 ---
 
-# Defender for IoT devices security alerts
+# Micro agent security alerts (Preview)
 
 Defender for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 In addition, you can create custom alerts based on your knowledge of expected device behavior.
@@ -13,9 +13,10 @@ An alert acts as an indicator of potential compromise, and should be investigate
 
 In this article, you will find a list of built-in alerts, which can be triggered on your IoT devices.
 In addition to built-in alerts, Defender for IoT allows you to define custom alerts based on expected IoT Hub and/or device behavior.
+
 For more information, see [customizable alerts](concept-customizable-security-alerts.md).
 
-## Agent based security alerts
+## Security alerts
 
 | Name | Severity | Data Source | Description | Suggested remediation steps |
 |--|--|--|--|--|
@@ -57,5 +58,3 @@ For more information, see [customizable alerts](concept-customizable-security-al
 ## Next steps
 
 - Defender for IoT service [Overview](overview.md)
-- Learn how to [Access your security data](how-to-security-data-access.md)
-- Learn more about [Investigating a device](how-to-investigate-device.md)
