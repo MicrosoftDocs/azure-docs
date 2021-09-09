@@ -49,7 +49,25 @@ The following table lists the prerequisites that you need to complete before sta
 
 ## Create the cluster
 
-After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Server VMs and a cloud witness.
+### Add failover cluster feature
+
+The availability group lives on top of the Windows Server Failover Cluster infrastructure, so before deploying your availability group, you must first configure the Windows Server Failover Cluster, which includes adding the feature, and tuning the cluster network thresholds. 
+
+To add the Failover Clustering features, do the following steps on both SQL Server VMs:
+
+1. Connect to the SQL Server virtual machine through the Remote Desktop Protocol (RDP) by using the *CORP\install* account. Open **Server Manager Dashboard**.
+1. Select the **Add roles and features** link on the dashboard.
+
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/09-addfeatures.png" alt-text="Server Manager - Add roles":::
+
+1. Select **Next** until you get to the **Server Features** section.
+1. In **Features**, select **Failover Clustering**.
+1. Add any additional required features.
+1. Select **Install** to add the features.
+1. Repeat the steps on the other SQL Server VM. 
+
+
+### Create cluster
 
 1. Use Remote Desktop Protocol (RDP) to connect to the first SQL Server VM **SQL-VM-1**. Use a domain account that is an administrator on both the SQL Server VMs. 
 
@@ -79,6 +97,9 @@ After the prerequisites are completed, the first step is to create a Windows Ser
    >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they don't appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
    > 
    
+>[!TIP]
+> When running the cluster on Azure VMs, change the cluster settings to a more relaxed monitoring state to make the cluster more stable and reliable. To learn more, see [SQL Server VM - HADR configuration best practices](hadr-cluster-best-practices.md#checklist).
+
 
 ### Set the Windows server failover cluster IP address
 
