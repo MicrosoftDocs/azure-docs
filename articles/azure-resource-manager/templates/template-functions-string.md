@@ -2,7 +2,7 @@
 title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 09/08/2021
 ---
 
 # String functions for ARM templates
@@ -249,7 +249,7 @@ Combines multiple string values and returns the concatenated string, or combines
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |string or array |The first string or array for concatenation. |
-| additional arguments |No |string or array |Additional strings or arrays in sequential order for concatenation. |
+| more arguments |No |string or array |More strings or arrays in sequential order for concatenation. |
 
 This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Strings are only concatenated with other strings.
 
@@ -259,27 +259,9 @@ A string or array of concatenated values.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) shows how to combine two string values and return a concatenated string.
+The following example shows how to combine two string values and return a concatenated string.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "prefix": {
-      "type": "string",
-      "defaultValue": "prefix"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "concatOutput": {
-      "type": "string",
-      "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/concat-string.json":::
 
 The output from the preceding example with the default values is:
 
@@ -287,40 +269,9 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) shows how to combine two arrays.
+The following example shows how to combine two arrays.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [
-        "1-1",
-        "1-2",
-        "1-3"
-      ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [
-        "2-1",
-        "2-2",
-        "2-3"
-      ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "return": {
-      "type": "array",
-      "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/concat-array.json":::
 
 The output from the preceding example with the default values is:
 
@@ -347,60 +298,9 @@ Checks whether an array contains a value, an object contains a key, or a string 
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) shows how to use contains with different types:
+The following example shows how to use contains with different types:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "OneTwoThree"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'e')]"
-    },
-    "stringFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'z')]"
-    },
-    "objectTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'one')]"
-    },
-    "objectFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'a')]"
-    },
-    "arrayTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'three')]"
-    },
-    "arrayFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'four')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/contains.json":::
 
 The output from the preceding example with the default values is:
 
@@ -541,44 +441,9 @@ Returns **True** if the value is empty; otherwise, **False**.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) checks whether an array, object, and string are empty.
+The following example checks whether an array, object, and string are empty.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": []
-    },
-    "testObject": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": ""
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testArray'))]"
-    },
-    "objectEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testObject'))]"
-    },
-    "stringEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/empty.json":::
 
 The output from the preceding example with the default values is:
 
@@ -672,32 +537,9 @@ A string of the first character, or the type (string, int, array, or object) of 
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) shows how to use the first function with an array and string.
+The following example shows how to use the first function with an array and string.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayOutput": {
-      "type": "string",
-      "value": "[first(parameters('arrayToTest'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[first('One Two Three')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/first.json":::
 
 The output from the preceding example with the default values is:
 
@@ -718,7 +560,7 @@ Creates a formatted string from input values.
 |:--- |:--- |:--- |:--- |
 | formatString | Yes | string | The composite format string. |
 | arg1 | Yes | string, integer, or boolean | The value to include in the formatted string. |
-| additional arguments | No | string, integer, or boolean | Additional values to include in the formatted string. |
+| more arguments | No | string, integer, or boolean | More values to include in the formatted string. |
 
 ### Remarks
 
@@ -726,7 +568,7 @@ Use this function to format a string in your template. It uses the same formatti
 
 ### Examples
 
-The following example template shows how to use the format function.
+The following example shows how to use the format function.
 
 ```json
 {
@@ -774,7 +616,7 @@ Creates a value in the format of a globally unique identifier based on the value
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Yes |string |The value used in the hash function to create the GUID. |
-| additional parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
+| more parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
 
 ### Remarks
 
@@ -921,32 +763,9 @@ A string of the last character, or the type (string, int, array, or object) of t
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) shows how to use the last function with an array and string.
+The following example shows how to use the last function with an array and string.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayOutput": {
-      "type": "string",
-      "value": "[last(parameters('arrayToTest'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[last('One Two Three')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/last.json":::
 
 The output from the preceding example with the default values is:
 
@@ -1034,55 +853,9 @@ An int.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) shows how to use length with an array and string:
+The following example shows how to use length with an array and string:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "One Two Three"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "propA": "one",
-        "propB": "two",
-        "propC": "three",
-        "propD": {
-          "propD-1": "sub",
-          "propD-2": "sub"
-        }
-      }
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayLength": {
-      "type": "int",
-      "value": "[length(parameters('arrayToTest'))]"
-    },
-    "stringLength": {
-      "type": "int",
-      "value": "[length(parameters('stringToTest'))]"
-    },
-    "objectLength": {
-      "type": "int",
-      "value": "[length(parameters('objectToTest'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
 
 The output from the preceding example with the default values is:
 
@@ -1118,7 +891,7 @@ A string containing 36 characters in the format of a globally unique identifier.
 
 ### Examples
 
-The following example template shows a parameter with a new identifier.
+The following example shows a parameter with a new identifier.
 
 ```json
 {
@@ -1312,47 +1085,9 @@ An array or string.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) skips the specified number of elements in the array, and the specified number of characters in a string.
+The following example skips the specified number of elements in the array, and the specified number of characters in a string.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "elementsToSkip": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    },
-    "charactersToSkip": {
-      "type": "int",
-      "defaultValue": 4
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "array",
-      "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/skip.json":::
 
 The output from the preceding example with the default values is:
 
@@ -1624,7 +1359,7 @@ The output from the preceding example with the default values is:
 
 `take(originalValue, numberToTake)`
 
-Returns a string with the specified number of characters from the start of the string, or an array with the specified number of elements from the start of the array.
+Returns an array or string. An array has the specified number of elements from the start of the array. A string has the specified number of characters from the start of the string.
 
 ### Parameters
 
@@ -1639,47 +1374,9 @@ An array or string.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) takes the specified number of elements from the array, and characters from a string.
+The following example takes the specified number of elements from the array, and characters from a string.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "elementsToTake": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    },
-    "charactersToTake": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "array",
-      "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/take.json":::
 
 The output from the preceding example with the default values is:
 
@@ -1847,7 +1544,7 @@ Creates a deterministic hash string based on the values provided as parameters.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Yes |string |The value used in the hash function to create a unique string. |
-| additional parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
+| more parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
 
 ### Remarks
 
@@ -1924,17 +1621,16 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Yes |string |The base uri string. Take care to observe the behavior regarding the handling of the trailing slash (`/`), as described following this table.  |
+| baseUri |Yes |string |The base uri string. Take care to observe the behavior about the handling of the trailing slash (`/`), as described following this table.  |
 | relativeUri |Yes |string |The relative uri string to add to the base uri string. |
 
-* If **baseUri** ends in a trailing slash, the result is simply
-  **baseUri** followed by **relativeUri**.
+* If **baseUri** ends in a trailing slash, the result is **baseUri** followed by **relativeUri**.
 
-* If **baseUri** does not end in a trailing slash one of two things
+* If **baseUri** doesn't end in a trailing slash one of two things
   happens.
 
    * If **baseUri** has no slashes at all (aside from the `//` near
-     the front) the result is simply **baseUri** followed by **relativeUri**.
+     the front) the result is **baseUri** followed by **relativeUri**.
 
    * If **baseUri** has some slashes, but doesn't end with a slash,
      everything from the last slash onward is removed from **baseUri**
