@@ -1,41 +1,11 @@
 ---
-title: Quickstart - Add calling to an Windows app using Azure Communication Services
-description: In this quickstart, you learn how to use the Azure Communication Services Calling SDK for Windows.
-author: tophpalmer
-ms.author: rifox
-ms.date: 06/30/2021
-ms.topic: quickstart
+author: probableprime
 ms.service: azure-communication-services
+ms.topic: include
+ms.date: 09/08/2021
+ms.author: rifox
 ---
-
-In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Windows.
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../../access-tokens.md)
-- Any edition of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with the `Universal Windows Platform development` workload alongside with Windows SDK `10.0.17134` or greater installed. Additionally, the `NuGet package manager` and `NuGet targets and build tasks` components should also be installed.
-- Optional: Complete the quick start for [getting started with adding calling to your application](../../getting-started-with-calling.md)
-
-## Setting up
-
-### Creating the Visual Studio project
-
-In Visual Studio 2019, create a new `Blank App (Universal Windows)` project. After entering the project name, feel free to pick any Windows SDK greater than `10.0.17134`. 
-
-### Install the package and dependencies with NuGet Package Manager
-
-Tha Calling SDK APIs and libraries are publicly available via a NuGet package.
-The following steps exemplify how to find, download, and install the Calling SDK NuGet package.
-
-1. Open NuGet Package Manager (`Tools` -> `NuGet Package Manager` -> `Manage NuGet Packages for Solution`)
-2. Click on `Browse` and then type `Azure.Communication.Calling` in the search box.
-3. Make sure that `Include prerelease` check box is selected.
-4. Click on the `Azure.Communication.Calling` package.
-5. Select the checkbox corresponding to the CS project on the right-side tab.
-6. Click on the `Install` button.
-
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
 ### Request access to the microphone
 
@@ -46,14 +16,13 @@ he following steps exemplify how to achieve that.
 2. Click on the `Capabilities` tab.
 3. Select the `Microphone` check box from the capabilities list.
 
-
 ### Create UI buttons to place and hang up the call
 
 This simple sample app will contain two buttons. One for placing the call and another to hang up a placed call.
 The following steps exemplify how to add these buttons to the app.
 
 1. In the `Solution Explorer` panel, double click on the file named `MainPage.xaml`.
-2. In the central panel, look for the XMAL code under the UI preview.
+2. In the central panel, look for the XAML code under the UI preview.
 3. Replace the `<Grid>` to `</Grid>` XAML code by the following excerpt:
 ```xml
 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -77,19 +46,6 @@ using Azure.Communication.Calling;
 ```
 
 Please keep `MainPage.xaml.cs` open. The next steps will add more code to it.
-
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for UWP.
-
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | The CallClient is the main entry point to the Calling client library. |
-| CallAgent | The CallAgent is used to start and join calls. |
-| Call | The Call is used to manage placed or joined calls. |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
-| CallAgentOptions | The CallAgentOptions contains information to identify the caller. |
-| HangupOptions | The HangupOptions informs if a call should be terminated to all its participants. |
 
 ## Allow app interactions
 
@@ -117,6 +73,19 @@ private void HangupHandler(object sender, RoutedEventArgs e)
 }
 ```
 
+## Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for UWP.
+
+| Name                                  | Description                                                  |
+| ------------------------------------- | ------------------------------------------------------------ |
+| CallClient | The CallClient is the main entry point to the Calling client library. |
+| CallAgent | The CallAgent is used to start and join calls. |
+| Call | The Call is used to manage placed or joined calls. |
+| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
+| CallAgentOptions | The CallAgentOptions contains information to identify the caller. |
+| HangupOptions | The HangupOptions informs if a call should be terminated to all its participants. |
+
 ## Initialize the CallAgent
 
 To create a `CallAgent` instance from `CallClient` you must use `CallClient.CreateCallAgent` method that asynchronously returns a `CallAgent` object once it is initialized.
@@ -127,7 +96,7 @@ The following code should be added inside `CallHandler`.
 
 ```csharp
 CallClient client = new CallClient();
-CommunicationTokenCredential creds;
+CommunicationTokenCredential credentials;
 
 CallAgentOptions callAgentOptions = new CallAgentOptions
 {
@@ -136,7 +105,7 @@ CallAgentOptions callAgentOptions = new CallAgentOptions
 
 try
 {
-    creds = new CommunicationTokenCredential("<CREDENTIAL TOKEN>");
+    credentials = new CommunicationTokenCredential("<CREDENTIAL TOKEN>");
 }
 catch (Exception)
 {
@@ -177,9 +146,9 @@ The following code should be added inside `HangupHandler`.
 
 ```csharp
 HangUpOptions hangupOptions = new HangUpOptions();
-call_.HangUpAsync(hangupOptions).Completed +=
-(IAsyncAction asyncInfo, AsyncStatus asyncStatus) =>
+call_.HangUpAsync(hangupOptions).Completed += (IAsyncAction asyncInfo, AsyncStatus asyncStatus) =>
 {
+
 };
 ```
 
