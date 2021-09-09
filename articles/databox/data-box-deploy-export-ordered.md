@@ -283,7 +283,7 @@ The following XML tags are used in the XML file for a Data Box export order:
 |`<FilePath>`       |Filters the selection to a single file. |
 |`<FilePathPrefix>` |Filters the selection to a set of similarly named shares, similarly named folders in a share, or similarly named files in a folder. |
 
-To see the tags in context, go to **Sample XML file** tab.
+To see the tags in context, go to the **Sample XML file** tab.
 
 #### Path vs. prefix
 
@@ -299,14 +299,14 @@ The prefixes that select multiple blobs or multiple files are similar:
 
 * For Azure Files, use a prefix to select a set of similarly named shares or similarly named files in a share. The prefix may be the prefix of the share name, the complete share name, or a complete share name followed by the prefix of the file name.
 
-For examples of correctly formed prefixes, see **Prefix examples** tab.
+For examples of correctly formed prefixes, go to the **Prefix examples** tab.
 
 #### XML tag requirements
 
 * All XML tags are case sensitive and need to match the tags in the above table exactly.
 * Opening and closing tags must match.
 * Incorrect XML tags or formatting may lead to data export failure.
-* No data will be exported if the blob prefix or file prefix is invalid. For examples of valid prefixes, see the **Prefix examples** tab.
+* No data will be exported if the blob prefix or file prefix is invalid. For examples of valid prefixes, go to the **Prefix examples** tab.
 
 # [Prefix examples](#tab/prefix-examples)
 
@@ -343,8 +343,8 @@ To select a single file for export, use the &lt;FilePath&gt; tag with a share pa
 
 This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order. 
 
-- For a XML file requirements, see the **XML file overview** tab.
-- For more examples of valid blob and file prefixes, see the **Prefix examples** tab.
+- For a XML file requirements, go to the **XML file overview** tab.
+- For more examples of valid blob and file prefixes, got to the **Prefix examples** tab.
 
 ```xml
 <<?xml version="1.0" encoding="utf-8"?>
