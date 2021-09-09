@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/08/2021
+ms.date: 09/09/2021
 ms.author: alkohli
 
 ---
@@ -28,7 +28,7 @@ When you back up a volume, you can choose to create a local snapshot or a cloud 
 
 When you take a cloud snapshot of a locally pinned volume, you copy only the changed data to the cloud, where it is deduplicated and compressed.
 
-You can only retain 64 backups with any backup schedule. If you want to keep more than 64 backups, you'll need to disable the current schedule at or before 64 backups, and then add a new schedule for the backup policy.
+You can only retain 64 backups with any backup schedule. When you reach 64 backups for a schedule, you can disable that schedule and then add a new schedule, choosing the maximum retention of 64 backups again. You can use this work-around until you reach the limit of 256 backups per volume. At that point, you'll need to delete the older backups before you can take new backups.
 
 ## The Backup policy blade
 

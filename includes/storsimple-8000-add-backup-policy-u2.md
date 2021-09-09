@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 09/08/2021
+ms.date: 09/09/2021
 ms.author: alkohli
 ---
 
@@ -39,7 +39,7 @@ ms.author: alkohli
        5. Click **OK** to define the schedule.
        
        > [!NOTE]
-       > You can only retain 64 backups through any one schedule. If you want to keep more than 64 backups, disable the old schedule at or before 64 backups, and then add a new schedule to the backup policy.
+       > A schedule has a maximum retention limit of 64 backups. When you reach 64 backups for a schedule, you can disable that schedule and then add a new schedule, choosing the maximum retention of 64 backups again. You can use this work-around until you reach the limit of 256 backups per volume. At that point, you'll need to delete the older backups before you can take new backups.
 
    5. Click **Create** to create a backup policy.
    
