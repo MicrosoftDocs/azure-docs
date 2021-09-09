@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 09/08/2021
 ---
 
-# Visualize AI inference events with Power BI
+# Tutorial: Real-time visualization of AI inference events with Power BI
 
 Azure Video Analyzer provides the capability to capture, record, and analyze live video along with publishing the results of video analysis in form of AI inference events to the [IoT Edge Hub](../../iot-edge/iot-edge-runtime.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub). These AI inference events can then be routed to other destinations including Visual Studio Code and Azure services such as Time Series Insights and Event Hubs.
 
