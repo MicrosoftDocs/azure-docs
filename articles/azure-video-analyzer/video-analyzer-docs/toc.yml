@@ -77,10 +77,10 @@
         href: overview.md
 - name: GitHub samples
   items:
-  - name: C# sample repository
-    href: https://go.microsoft.com/fwlink/?linkid=2163551
-  - name: Python sample repository
-    href: https://go.microsoft.com/fwlink/?linkid=2163454
+    - name: C# sample repository
+      href: https://go.microsoft.com/fwlink/?linkid=2163551
+    - name: Python sample repository
+      href: https://go.microsoft.com/fwlink/?linkid=2163454
 - name: Concepts
   items:
   - name: Pipeline

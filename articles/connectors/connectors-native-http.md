@@ -302,6 +302,22 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 <a name="disable-location-header-check"></a>
 
+### Set up interval between retry attempts with the Retry-After header
+
+To specify the number of seconds between retry attempts, you can add the `Retry-After` header to the HTTP action response. For example, if the target endpoint returns the `429 - Too many requests` status code, you can specify a longer interval between retries. The `Retry-After` header also works with the `202 - Accepted` status code.
+
+Here is the same example that shows the HTTP action response that contains `Retry-After`:
+
+```json
+{
+    "statusCode": 429,
+    "headers": {
+        "Retry-After": "300"
+    }
+}
+```
+
+
 ## Disable checking location headers
 
 Some endpoints, services, systems, or APIs return a `202 ACCEPTED` response that doesn't have a `location` header. To avoid having an HTTP action continually check the request status when the `location` header doesn't exist, you can have these options:

@@ -37,7 +37,7 @@ Front Door caches any chunks as they're received so the entire file doesn't need
 
 ## File compression
 
-Refer to improve performance by compressing files in Azure Front Door.
+Refer to [improve performance by compressing files](how-to-compression.md) in Azure Front Door.
 
 ## Query string behavior
 
