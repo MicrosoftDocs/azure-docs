@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.author: trkeya
 author: trkeya
-ms.date: 08/27/2021
+ms.date: 09/09/2021
 ---
 
 # Azure Resource Manager test drive
@@ -311,8 +311,9 @@ The final section to complete is to be able to deploy the test drives automatica
         1. Ensure the service principal has been created: `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
       ![Shows the code to verify service principal](media/test-drive/commands-to-verify-service-principal.png)
 
-4. Copy this Application ID, `d7e39695-0b24-441c-a140-047800a05ede`, and paste it in the **Azure AD App ID** field.
-5. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription, from the Azure portal or PowerShell:
+4. For **Azure AD App ID**, paste in this Application ID: `d7e39695-0b24-441c-a140-047800a05ede`.
+5. For **Azure AD App Key**, since no secret is required, insert a dummy secret, such as "no-secret".
+6. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription, from the Azure portal or PowerShell:
 
    1. From the Azure portal:
 
