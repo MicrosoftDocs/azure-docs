@@ -247,7 +247,7 @@
               displayName: vnet, workspace, container instance, container registry
               href: how-to-secure-workspace-vnet.md
             - name: Secure training environment
-              displayName: vnet
+              displayName: vnet, No public IP
               href: how-to-secure-training-vnet.md
             - name: Secure inferencing environment
               displayName: vnet
@@ -299,7 +299,7 @@
           - name: Create & manage compute resources
             items: 
               - name: Compute instance
-                displayName: compute target
+                displayName: compute target, No public IP
                 href: how-to-create-manage-compute-instance.md
               - name: Compute cluster
                 displayName: compute target, low priority, managed identity
