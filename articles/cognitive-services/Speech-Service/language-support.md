@@ -364,7 +364,7 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#neural-and-standard-voices).
 
 > [!IMPORTANT]
-> We are retiring the standard voices on **31st August 2024** and they will no longer be supported after that date. The announcement has been sent out to all existing Speech subscriptions before **31st August 2021**. During the retiring period (**31st August 2021** - **31st August 2024**), existing standard voice users can continue to use their standard voices, all new users/new speech resources should move to the neural voices.
+> We are retiring the standard voices on **31st August 2024** and they will no longer be supported after that date. We announced this in emails sent to all existing Speech subscriptions created before **31st August 2021**. During the retiring period (**31st August 2021** - **31st August 2024**), existing standard voice users can continue to use standard voices, but all new users/new speech resources must choose neural voices.
 
 > [!NOTE]
 > With two exceptions, standard voices are created from samples that use a 16 khz sample rate.
