@@ -83,9 +83,10 @@ Your solution can use either SAML or OIDC for SSO when the customer's IT adminis
 
 The second leg of the IT administrator journey will be to integrate applications with Azure AD by using your solution. To do this, your solution will use Microsoft Graph to create application registrations and Azure AD Conditional Access policies.
 
+Here is a diagram and summary of this user authentication flow:
+
 ![image diagram of the IT administrator being redirected by the solution to Azure AD to log in,  then being redirected by Azure AD back to the solution with a SAML token or JWT, and finally the solution making a call to Microsoft Graph with the JWT](./media/secure-hybrid-access-integrations/registration-flow.png)
 
-Here is a summary and diagram of this user authentication flow:
 
 1. The IT administrator wants to sign-in to your solution with their Azure AD credentials.
 
@@ -99,7 +100,7 @@ Here is a summary and diagram of this user authentication flow:
 
 When end users need to sign into individual applications secured with your solution and Azure AD, they use either OIDC or SAML. If the applications need to interact with Microsoft Graph or any Azure AD protected API for some reason, its recommended that the individual applications you register with Microsoft Graph be configured to use OIDC. This will ensure that the JWT that they get from Azure AD to authenticate them into the applications can also be applied for interacting with Microsoft Graph. If there is no need for the individual applications to interact with Microsoft Graph or any Azure AD protected API, then SAML will suffice.
 
-Here is a summary and diagram of this user authentication flow:
+Here is a diagram and summary of this user authentication flow:
 
 ![image diagram of the end user being redirected by the solution to Azure AD to log in, then being redirected by Azure AD back to the solution with a SAML token or JWT, and finally the solution making a call to another application using the application's preferred authentication type](./media/secure-hybrid-access-integrations/end-user-flow.png)
 
