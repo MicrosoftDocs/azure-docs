@@ -15,12 +15,12 @@ Video Analyzer supports the following pipeline extension processors:
 
 * [HTTP extension processor](pipeline.md#http-extension-processor) 
 * [gRPC extension processor](pipeline.md#grpc-extension-processor)
-* [Cognitive Services extension processor](pipeline.md#cognitive-services-extension-processor) 
-	
+* [Cognitive Services extension processor](pipeline.md#cognitive-services-extension-processor)
+
 The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md)
 
 > [!NOTE]
-> Pipeline extensions are currently available only for edge module and not for cloud.
+> Capability is currently available only for edge module & not for cloud pipelines.
 
 ## HTTP extension processor
 
