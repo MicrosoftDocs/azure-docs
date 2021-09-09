@@ -37,3 +37,4 @@ There are two ways to enable application monitoring for Azure App Services hoste
 > Snapshot debugger and profiler are only available in .NET and .NET Core
 
 ## Next Steps
+- Learn how to enable Agent-based application monitoring for your [.NET Core](./azure-web-apps-netcore.md), [.NET](./azure-web-apps-net.md), [Java](./azure-web-apps-java.md) or [Nodejs](./azure-web-apps-nodejs.md) application running on App Service. 

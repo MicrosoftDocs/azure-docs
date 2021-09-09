@@ -5,6 +5,7 @@ ms.author: lagayhar
 author: lgayhardt
 services: azure-monitor
 ms.subservice: application-insights
+ms.custom: "devx-track-azurepowershell"
 ---
 
 ### App Service Application settings with Azure Resource Manager
