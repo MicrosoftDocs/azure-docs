@@ -90,4 +90,22 @@ QID is an event identifier in QRadar. All of Defenders for IoT platform reports 
 
 1. Execute: `sudo /opt/qradar/bin/qidmap_cli.sh -i -f <path>/xsense_qids`. The message that the QID was deployed successfully appears.
 
-## 
+## SetUp QRadar forwarding rules
+
+For the integration to work, you will need to setup in the Defender for IoT appliance, a Qradar forwarding rule.
+
+**To define QRadar notifications in the Defender for IoT appliance**:
+
+1. In the side menu, select **Forwarding**.
+
+   :::image type="content" source="media/integration-qradar/create.png" alt-text="Create a Forwarding Rule":::
+
+1. Set the Action to **QRadar**.
+
+1. Configure the QRadar IP address, and the timezone.
+
+1. Select **Submit**.
+
+##
+
+The Map the rule on the on-premises management console.
