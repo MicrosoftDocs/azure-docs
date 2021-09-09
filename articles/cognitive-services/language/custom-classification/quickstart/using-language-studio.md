@@ -26,7 +26,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 1. [Download sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
 
-2. Go to your azure storage account in [Azure portal](https://ms.portal.azure.com), create a new container and upload sample data to it.
+2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com), create a new container and upload sample data to it.
 
 ## Create a custom classification project
 
@@ -52,7 +52,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 ## Tagging your data
 
-Typically, after creating a project, you would start [tagging your data](../how-to/tag-data.md) before training the classification model. For this quickstart since you we selected choosing an existing tags file you can see tagged data already. Refer to this [guide](../how-to/tag-data.md) if you  would like to edit the existing tags.
+Typically, after creating a project, you would start [tagging your data](../how-to/tag-data.md) before training the classification model. For this quickstart, because you selected choosing an existing tags file, you can see tagged data already. Refer to this [guide](../how-to/tag-data.md) if you  would like to edit the existing tags.
 
 ## Train your model
 

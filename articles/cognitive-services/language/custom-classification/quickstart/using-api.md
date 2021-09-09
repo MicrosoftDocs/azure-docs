@@ -35,7 +35,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 1. [Download sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
 
-2. Go to your azure storage account in [Azure portal](https://ms.portal.azure.com), create a new container and upload sample data to it.
+2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com), create a new container and upload sample data to it.
 
 ### Get your resource keys and endpoint
 
