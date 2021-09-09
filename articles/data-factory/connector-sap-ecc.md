@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/28/2020
+ms.date: 09/09/2021
 ---
 
 # Copy data from SAP ECC by using Azure Data Factory

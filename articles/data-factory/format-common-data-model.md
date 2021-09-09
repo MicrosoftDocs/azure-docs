@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 09/09/2021
 ms.author: makromer
 ---
 
