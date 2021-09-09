@@ -119,8 +119,10 @@
         href: add-template-to-azure-pipelines.md
       - name: Bicep with GitHub Actions
         href: deploy-github-actions.md
-  - name: Use Bicep CLI
+  - name: Migrate to Bicep
     items:
+    - name: Workflow
+      href: migrate.md
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
