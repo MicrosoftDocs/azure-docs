@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/11/2020
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -21,8 +21,11 @@ Azure AD Connect cloud sync is new offering from Microsoft designed to meet and 
 - Multiple provisioning agents can be used to simplify high availability deployments, particularly critical for organizations relying upon password hash synchronization from AD to Azure AD.
 - Support for large groups with up to 50K members. It is recommended to use only the OU scoping filter when synchronizing large groups.
 
-
 ![What is Azure AD Connect](media/what-is-cloud-sync/architecture-1.png)
+
+For additional information see the following video.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
 
 ## How is Azure AD Connect cloud sync different from Azure AD Connect sync?
 With Azure AD Connect cloud sync, provisioning from AD to Azure AD is orchestrated in Microsoft Online Services. An organization only needs to deploy, in their on-premises or IaaS-hosted environment, a light-weight agent that acts as a bridge between Azure AD and AD. The provisioning configuration is stored in Azure AD and managed as part of the service.
