@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/24/2021
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Soloinsight-CloudGate SSO supports **SP** initiated SSO.
+* Soloinsight-CloudGate SSO supports [Automated user provisioning](soloinsight-cloudgate-sso-provisioning-tutorial.md).
 
 ## Add Soloinsight-CloudGate SSO from the gallery
 
@@ -62,13 +63,13 @@ To configure and test Azure AD SSO with Soloinsight-CloudGate SSO, perform the f
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Soloinsight-CloudGate SSO** application integration page, find the **Manage** section and select **Single sign-on**.
+1. In the Azure portal, on the **Soloinsight-CloudGate SSO** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** page, enter the values for the following fields:
+1. On the **Basic SAML Configuration** page, perform the following steps:
 
     1. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.sigateway.com/login`
@@ -168,6 +169,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 To Create a test user, Select **Employees** from the main menu of your CloudGate Web Portal and fill out the Add New employee form. The Authority Level that is to be assigned to the test user is **Business Admin** Click on **Create** once all the required fields are filled.
 
 ![Employee test](./media/soloinsight-cloudgate-sso-tutorial/employee-test.png)
+
+> [!NOTE]
+> Soloinsight-CloudGate SSO also supports automatic user provisioning, you can find more details [here](./soloinsight-cloudgate-sso-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

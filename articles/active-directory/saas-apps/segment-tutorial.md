@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 
@@ -34,6 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Segment supports **SP and IDP** initiated SSO.
 * Segment supports **Just In Time** user provisioning.
+* Segment supports [Automated user provisioning](segment-provisioning-tutorial.md).
 
 ## Add Segment from the gallery
 
@@ -71,7 +72,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a value using the following pattern:
     `urn:auth0:segment-prod:samlp-<CUSTOMER_VALUE>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
@@ -83,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.segment.com`
 
 	> [!NOTE]
-	> These values are placeholders. You need to use the actual identifier, reply URL, and sign-on URL. Steps for getting these values are described later in this tutorial.
+	> These values are placeholders. You need to use the actual Identifier and Reply URL. Steps for getting these values are described later in this tutorial.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -154,6 +155,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create Segment test user
 
 In this section, a user called B.Simon is created in Segment. Segment supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Segment, a new one is created after authentication.
+
+Segment also supports automatic user provisioning, you can find more details [here](./segment-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

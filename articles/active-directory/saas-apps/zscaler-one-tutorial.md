@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 09/02/2021
 ms.author: jeedes
 ---
 
@@ -35,6 +35,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * Zscaler One supports **SP** initiated SSO.
 
 * Zscaler One supports **Just In Time** user provisioning.
+
+* Zscaler One supports [Automated user provisioning](zscaler-one-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -223,6 +225,9 @@ In this section, a user called Britta Simon is created in Zscaler One. Zscaler O
 
 > [!Note]
 > If you need to create a user manually, contact [Zscaler One support team](https://www.zscaler.com/company/contact).
+
+> [!NOTE]
+> Zscaler One also supports automatic user provisioning, you can find more details [here](./zscaler-one-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

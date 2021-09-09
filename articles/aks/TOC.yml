@@ -132,6 +132,8 @@
           maintainContext: false
     - name: Supported Kubernetes version
       href: supported-kubernetes-versions.md
+    - name: Cloud Controller Manager (preview)
+      href: out-of-tree.md
     - name: Security Hardening in host OS
       href: security-hardened-vm-host-image.md
     - name: Azure Kubernetes Service Diagnostics overview
