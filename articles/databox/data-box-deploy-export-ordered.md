@@ -100,8 +100,7 @@ Perform the following steps in the Azure portal to order a device.
     |Include verbose log     | Indicates whether you want a verbose log file that contains a list of all files that were exported successfully. For more information about the copy logs and verbose logs for an export order, see [View logs](data-box-export-logs.md#view-logs-during-data-copy). |
 
     > [!NOTE]
-    >
-    > If you select **Use XML file** for the **Export type** setting, you need to make sure that the xml contains valid paths and/or prefixes. You must construct and supply the XML file.  If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
+    > If you select **Use XML file** for the **Export type** setting, you need to make sure that the XML file contains valid paths and/or prefixes. You must construct and supply the XML file. If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported. For guidance, see [Sample XML file](#sample-xml-file).
 
     To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
@@ -222,9 +221,6 @@ Perform the following steps in the Azure portal to order a device.
 
     ![Commit order](media/data-box-deploy-export-ordered/azure-data-box-select-export-order-commit-order.png)
 
-> [!NOTE]
-> To check whether blob and file exports are successful, you can review logs for the export order. Error logs are generated automatically during export. A verbose log file also is generated if you select **Include verbose log** when you configure the export order. For more information about copy logs and verbose logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).<!--Placement? This replaces the "Copy logs" section at the end of the document.-->
-
 ## Export order using XML file
 
 If you select **Use XML file**, you can specify specific containers and blobs (page and block) you want to export. You will need to follow the [Sample XML file table](#sample-xml-file) specifications for formatting your XML. The steps below show you how to use an XML file for exporting your data:
@@ -267,13 +263,13 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 
 Follow these guidelines if you choose to select blobs and files for export by using an XML file. 
 
-You'll find this inforamtion on the three tabs:
+You'll find this information on the three tabs:
 - **XML file overview**: Review tag requirements for the XML file.
 - **Prefix examples**: See examples of valid prefixes that select multiple blobs and files for export.
 - **Sample XML file**: Copy a sample XML file with examples of each tag.
 
 
-# [XML file overview](#tab/xml-file-overview)
+# [Overview of XML file](#tab/sample-xml-file/xml-file-overview)
 
 Follow these guidelines when you construct the XML file for your export order. Incorrect tag formats can lead to export failures.
 
@@ -313,7 +309,7 @@ For examples of correctly formed prefixes, see the **Prefix examples** tab.
 * Incorrect XML tags or formatting may lead to data export failure.
 * No data will be exported if the blob prefix or file prefix is invalid. For examples of valid prefixes, see **Prefix examples**.
 
-# [Prefix examples](#tab/prefix-examples)
+# [Prefix examples](#tab/sample-xml-file/prefix-examples)
 
 These sample paths show various ways to construct a prefix to select multiple blobs or files for export.
 
@@ -345,7 +341,7 @@ The sample paths below are used with the &lt;FilePathPrefix&gt; tag to selecct m
 
 To select a single file for export, use the &lt;FilePath&gt; tag with a share path and file name.
 
-# [Sample XML file](#tab/sample-xml-file)
+# [Sample XML file](#tab/sample-xml-file/sample-xml-file)
 
 This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order. For more examples of valid blob and file path prefixes, see Prefix examples.
 
@@ -408,87 +404,6 @@ To cancel this order, in the Azure portal, go to **Overview** and select **Cance
 After placing an order, you can cancel it at any point before the order starts processing.
 
 To delete a canceled order, go to **Overview** and select **Delete** from the command bar.
-
-<!--## Sample log files
-
-SECTION REPLACED BY A NOTE AT THE END OF "Order" PROCEDURE.
-
-This section provides sample log files that are are generated during export. The error logs are generated automatically. To generate the verbose log file, you need to select **Include verbose log** in Azure portal when configuring the export order.
-For more information regarding copy logs and verbose logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).
-
-### Verbose log
-
-The following log files show examples of verbose logging when you select **Include verbose log**:
-
-```xml
-<File CloudFormat="BlockBlob" Path="validblobdata/test1.2.3.4" Size="1024" crc64="7573843669953104266"></File>
-<File CloudFormat="BlockBlob" Path="validblobdata/helloEndWithDot..txt" Size="11" crc64="7320094093915972193"></File>
-<File CloudFormat="BlockBlob" Path="validblobdata/test..txt" Size="12" crc64="17906086011702236012"></File>
-<File CloudFormat="BlockBlob" Path="validblobdata/test1" Size="1024" crc64="7573843669953104266"></File>
-<File CloudFormat="BlockBlob" Path="validblobdata/test1.2.3" Size="1024" crc64="7573843669953104266"></File>
-<File CloudFormat="BlockBlob" Path="validblobdata/.......txt" Size="11" crc64="7320094093915972193"></File>
-<File CloudFormat="BlockBlob" Path="validblobdata/copylogb08fa3095564421bb550d775fff143ed====..txt" Size="53638" crc64="1147139997367113454"></File>
-<File CloudFormat="BlockBlob" Path="validblobdata/testmaxChars-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-12345679" Size="1024" crc64="7573843669953104266"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/file0" Size="0" crc64="0"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/file1" Size="0" crc64="0"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/file4096_000001" Size="4096" crc64="16969371397892565512"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/file4096_000000" Size="4096" crc64="16969371397892565512"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/64KB-Seed10.dat" Size="65536" crc64="10746682179555216785"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/LiveSiteReport_Oct.xlsx" Size="7028" crc64="6103506546789189963"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/NE_Oct_GeoReport.xlsx" Size="103197" crc64="13305485882546035852"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/64KB-Seed1.dat" Size="65536" crc64="3140622834011462581"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/1mbfiles-0-0" Size="1048576" crc64="16086591317856295272"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/file524288_000001" Size="524288" crc64="8908547729214703832"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/4mbfiles-0-0" Size="4194304" crc64="1339017920798612765"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/file524288_000000" Size="524288" crc64="8908547729214703832"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/8mbfiles-0-1" Size="8388608" crc64="3963298606737216548"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/1mbfiles-0-1" Size="1048576" crc64="11061759121415905887"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/XLS-10MB.xls" Size="1199104" crc64="2218419493992437463"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/8mbfiles-0-0" Size="8388608" crc64="1072783424245035917"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/4mbfiles-0-1" Size="4194304" crc64="9991307204216370812"></File>
-<File CloudFormat="BlockBlob" Path="export-ut-container/VL_Piracy_Negtive10_TPNameAndGCS.xlsx" Size="12398699" crc64="13526033021067702820"></File>
-```
-
-### Copy logs
-
-For more information regarding copy logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).
-
-The following xml shows an example of the copy log when the export is successful:
-
-```xml
-<CopyLog Summary="Summary">
-  <Status>Succeeded</Status>
-    <TotalFiles_Blobs>27</TotalFiles_Blobs>
-    <FilesErrored>0</FilesErrored>
-</CopyLog>
-```
-
-For more information regarding copy logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).
-
-The following xml shows an example of the copy log when the export has errors:
-
-```xml
-<ErroredEntity CloudFormat="AppendBlob" Path="export-ut-appendblob/wastorage.v140.3.0.2.nupkg">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>400</ErrorCode>
-  <ErrorMessage>UnsupportBlobType</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity CloudFormat="AppendBlob" Path="export-ut-appendblob/xunit.console.Primary_2020-05-07_03-54-42-PM_27444.hcsml">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>400</ErrorCode>
-  <ErrorMessage>UnsupportBlobType</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity CloudFormat="AppendBlob" Path="export-ut-appendblob/xunit.console.Primary_2020-05-07_03-54-42-PM_27444 (1).hcsml">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>400</ErrorCode>
-  <ErrorMessage>UnsupportBlobType</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><CopyLog Summary="Summary">
-  <Status>Failed</Status>
-  <TotalFiles_Blobs>4</TotalFiles_Blobs>
-  <FilesErrored>3</FilesErrored>
-</CopyLog>
-``` -->
 
 ## Next steps
 
