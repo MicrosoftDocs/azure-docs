@@ -253,8 +253,8 @@ successfully made GET on instance metadata
 In order to enable an application to use multiple identities, set the `--binding-selector` to the same selector when creating pod identities.
 
 ```azurecli-interactive
-az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE}  --name ${POD_IDENTITY_NAME_1} --identity-resource-id ${IDENTITY_RESOURCE_ID_1} --binding-selector foo
-az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE}  --name ${POD_IDENTITY_NAME_2} --identity-resource-id ${IDENTITY_RESOURCE_ID_2} --binding-selector foo
+az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE}  --name ${POD_IDENTITY_NAME_1} --identity-resource-id ${IDENTITY_RESOURCE_ID_1} --binding-selector myMultiIdentitySelector
+az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE}  --name ${POD_IDENTITY_NAME_2} --identity-resource-id ${IDENTITY_RESOURCE_ID_2} --binding-selector myMultiIdentitySelector
 ```
 
 Then set the `aadpodidbinding` field in your pod YAML to the binding selector you specified.
@@ -265,7 +265,7 @@ kind: Pod
 metadata:
   name: demo
   labels:
-    aadpodidbinding: foo
+    aadpodidbinding: myMultiIdentitySelector
 ...
 ```
 
