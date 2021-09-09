@@ -53,9 +53,9 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 ## Parsers
 
-### Available parsers
+### Source-agnostic parsers
 
-The KQL functions implementing the DNS information model have the following names:
+To use the source-agnostic parsers that unify all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query:
 
 | Name | Description | Usage instructions |
 | --- | --- | --- |
@@ -66,6 +66,22 @@ The KQL functions implementing the DNS information model have the following name
 | | | |
 
 The parsers can be deployed from the [Azure Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
+
+### Built-in source specific parsers
+
+Azure Sentinel provides the following built-in, product-specific DNS parsers:
+
+  - **Microsoft DNS Server**, collected using the Log Analytics Agent - ASimDnsMicrosoftOMS (regular), vimDnsMicrosoftOMS (parametrized)
+  - **Cisco Umbrella** - ASimDnsCiscoUmbrella (regular), vimDnsCiscoUmbrella (parametrized)
+  - **Infoblox NIOS** - ASimDnsInfobloxNIOS (regular), vimDnsInfobloxNIOS (parametrized)
+  - **GCP DNS** - ASimDnsGcp (regular), vimDnsGcp  (parametrized)
+  - **Corelight Zeek DNS events** - ASimDnsCorelightZeek (regular), vimDnsCorelightZeek  (parametrized)
+
+The parsers can be deployed from the [Azure Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
+
+### Add your own normalized parsers
+
+When implementing custom parsers for the Dns information model, name your KQL functions using the following syntax: `vimDns<vendor><Product` for parametrized parsers and `ASimDns<vendor><Product` for regular parsers.
 
 ### Filtering parser parameters
 
@@ -89,7 +105,7 @@ To filter results using a parameter, you must specify the parameter in your pars
 
 ## Normalized content
 
-Support for the DNS ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
+Support for the DNS ASIM schema also includes support for the following built-in analytics rules with normalized DNS parsers. While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
 
 The following built-in analytic rules now work with normalized DNS parsers:
  - [Excessive NXDOMAIN DNS Queries (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
