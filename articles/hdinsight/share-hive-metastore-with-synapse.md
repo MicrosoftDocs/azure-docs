@@ -15,7 +15,8 @@ Azure Synapse Analytics allows Apache Spark pools in the same workspace to share
 
 The feature works with both Spark 2.4 and Spark 3.0. The following table shows the supported Hive metastore service (HMS) versions for each Spark version.
 
-|Spark Version|HMS 1.2.X|HMS 2.1.X|HMS 2.3.X|HMS 3.1.X|
+
+|Spark Version|HMS 1.2.X|HMS 2.1.X|HMS 2.3.x|HMS 3.1.X|
 |--|--|--|--|--|
 |2.4|Yes|Yes|Yes|No|
 |3|Yes|Yes|Yes|Yes|
@@ -69,6 +70,9 @@ try {
 After creating the linked service to the external Hive metastore successfully, you need to setup a few configurations in the Spark to use the external Hive metastore. You can both set up the configuration at Spark pool level, or at Spark session level. 
 
 Here are the configurations and descriptions:
+
+> [!NOTE]
+> The Default Hive metastore version is 2.3. You don't need to set `spark.sql.hive.metastore.version` and `spark.sql.hive.metastore.jars` if your Hive metastore version is 2.3. Only `spark.hadoop.hive.synapse.externalmetastore.linkedservice.name` is needed.
 
 |Spark config|Description|
 |--|--|
