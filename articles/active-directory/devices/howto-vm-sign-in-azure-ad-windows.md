@@ -266,7 +266,6 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 1. Ensure the required endpoints are accessible from the VM using PowerShell:
    
    - `curl https://login.microsoftonline.com/ -D -`
-   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
    - `curl https://enterpriseregistration.windows.net/ -D -`
    - `curl https://device.login.microsoftonline.com/ -D -`
    - `curl https://pas.windows.net/ -D -`
