@@ -8,7 +8,7 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-ms.date: 07/16/2020
+ms.date: 09/09/2021
 ---
 
 # Execute Azure Machine Learning pipelines in Azure Data Factory

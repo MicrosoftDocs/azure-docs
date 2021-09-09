@@ -30,7 +30,10 @@ To complete this tutorial, you need:
 - An Azure free account. If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
 
-## Create an instance of Azure Database for MySQL - Flexible Server
+## Create an Azure Database for MySQL - Flexible Server
+
+In this article, you'll use the Azure portal to create a Flexible Server with public access connectivity method. Alternatively, refer the respective quickstarts to create a Flexible Server using [Azure CLI](./quickstart-create-server-cli.md) or [ARM template](./quickstart-create-arm-template.md), or [within a VNET](./quickstart-create-connect-server-vnet.md).
+
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure free account. 
     
@@ -105,7 +108,7 @@ To complete this tutorial, you need:
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-and-create.png" alt-text="Screenshot that shows the Review + create blade.":::
 
     >[!IMPORTANT]
-    >As long as you are using your Azure free account, and your free service usage is within monthly limits (to view usage information, refer [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) section below), you won't be charged for the service. We're currently working to improve the **Cost Summary** experience for free services. 
+    >While creating the Flexible server instance from your Azure free account, you will still see an **Estimated cost per month** in the **Compute + Storage : Cost Summary** blade and **Review + Create** tab. But, as long as you are using your Azure free account, and your free service usage is within monthly limits (to view usage information, refer [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) section below), you won't be charged for the service. We're currently working to improve the **Cost Summary** experience for free services. 
     
 1. Select **Create** to provision the server. 
  

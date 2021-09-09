@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 09/09/2021
 ms.author: makromer
 ---
 
@@ -50,7 +50,7 @@ When selecting "Entity Reference" both in the Source and Sink transformations, y
 
 * Local uses the entity defined in the manifest file already being used by ADF
 * Custom will ask you to point to an entity manifest file that is different from the manifest file ADF is using
-* Standard will use an entity reference from the standard library of CDM entities maintained in ```Github```.
+* Standard will use an entity reference from the standard library of CDM entities maintained in GitHub.
 
 ### Sink settings
 

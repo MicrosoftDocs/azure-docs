@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2019
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 # Copy data from Office 365 into Azure using Azure Data Factory
