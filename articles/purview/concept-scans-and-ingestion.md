@@ -43,6 +43,9 @@ To keep deleted files out of your catalog, it's important to run regular scans. 
 
 When you enumerate large data stores like Data Lake Storage Gen2, there are multiple ways (including enumeration errors and dropped events) to miss information. A particular scan might miss that a file was created or deleted. So, unless the catalog is certain a file was deleted, it won't delete it from the catalog. This strategy means there can be errors when a file that doesn't exist in the scanned data store still exists in the catalog. In some cases, a data store might need to be scanned two or three times before it catches certain deleted assets.
 
+> [!NOTE]
+> Assets that are marked for deletion are deleted after a successful scan. Deleted assets might continue to be visible in your catalog for some time before they are processed and removed.
+
 ## Ingestion
 
 The technical metadata or classifications identified by the scanning process are then sent to Ingestion. The ingestion process is responsible for populating the data map and is managed by Purview.  Ingestion analyses the input from scan, [applies resource set patterns](concept-resource-sets.md#how-azure-purview-detects-resource-sets), populates available [lineage](concept-data-lineage.md) information, and then loads the data map automatically. Assets/schemas can be discovered or curated only after ingestion is complete. So, if your scan is completed but you haven't seen your assets in the data map or catalog, you'll need to wait for the ingestion process to finish.
