@@ -26,8 +26,6 @@ This document covers a generic migration case for moving the application from on
 2. [Moving from Premium Disks to Ultra Disks](https://support.cirrusdata.cloud/en/article/howto-cirrus-migrate-cloud-migration-between-azure-tiers-sxhppt/)
 3. [Moving from AWS to Azure](https://support.cirrusdata.cloud/en/article/howto-cirrus-migrate-cloud-migration-from-aws-to-azure-weegd9/.)
 
-For detailed step-by-step instructions, and videos for the use cases visit [Cirrus Data Cloud website](https://support.cirrusdata.cloud/en/category/howtos-1un623w/).
-
 ## Components
 
 Cirrus Migrate Cloud consists of multiple components:
