@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: stevevi
 ms.author: stevevi
-ms.date: 08/27/2021
+ms.date: 08/31/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -45,15 +45,16 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |Service category|Service name|Azure Public|Azure Government|Notes|
 |-----------|-----------|-------|----------|----------------------|
 |**AI + Machine Learning**|Azure Bot Service|\*.botframework.com|\*.botframework.azure.us||
-||Computer Vision|See [Computer Vision docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)|\*.cognitiveservices.azure.us||
-||    Custom Vision|See [Training](https://go.microsoft.com/fwlink/?linkid=865445) and [Prediction](https://go.microsoft.com/fwlink/?linkid=865446) API references|\*.cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
-||Content Moderator|See [Content Moderator docs](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)|\*.cognitiveservices.azure.us||
-||Face|See [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)|\*.cognitiveservices.azure.us||
-||Form Recognizer|See [Form Recognizer docs](../applied-ai-services/form-recognizer/quickstarts/client-library.md#prerequisites)|\*.cognitiveservices.azure.us||
-||Language Understanding|See [LUIS REST API docs](../cognitive-services/luis/developer-reference-resource.md)|\*.cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
-||Personalizer|See [Personalizer docs](../cognitive-services/personalizer/quickstart-personalizer-sdk.md#prerequisites)|\*.cognitiveservices.azure.us||
-||QnA Maker|See [QnA Maker docs](../cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure.md)|\*.cognitiveservices.azure.us||
+||Azure Form Recognizer|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
+||Computer Vision|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
+||Custom Vision|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
+||Content Moderator|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
+||Face API|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
+||Language Understanding|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
+||Personalizer|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
+||QnA Maker|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
 ||Speech service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../cognitive-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
+||Text Analytics|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
 ||Translator|See [Translator API docs](../cognitive-services/translator/reference/v3-0-reference.md#base-urls)|\*.cognitiveservices.azure.us||
 |**Analytics**|HDInsight|\*.azurehdinsight.net|\*.azurehdinsight.us||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|

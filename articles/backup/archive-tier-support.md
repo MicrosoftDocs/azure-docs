@@ -2,7 +2,7 @@
 title: Archive Tier support
 description: Learn about Archive Tier Support for Azure Backup
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -206,7 +206,7 @@ Stop protection and delete data deletes all the recovery points. For recovery po
 
 | Workloads | Preview | Generally available |
 | --- | --- | --- |
-| SQL Server in Azure VM | East US, South Central US, North Central US, West Europe, UK South | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, Central US, East US 2, West US, West US 2, West Central US |
+| SQL Server in Azure VM | East US, South Central US, North Central US, West Europe | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US |
 | Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South | None |
 
 ## Error codes and troubleshooting steps

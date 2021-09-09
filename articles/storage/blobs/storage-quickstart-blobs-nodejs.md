@@ -28,8 +28,6 @@ Additional resources:
 - An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
 - [Node.js](https://nodejs.org/en/download/).
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Setting up
 
 This section walks you through preparing a project to work with the Azure Blob storage client library v12 for JavaScript.

@@ -24,6 +24,10 @@ Currently, Azure Purview captures runtime lineage from the following Azure Synap
 
 [!INCLUDE[azure-synapse-supported-activity-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
+## Access secured Azure Purview account
+      
+If your Purview account is protected by firewall, learn how to let Azure Synapse [access a secured Purview account](../synapse-analytics/catalog-and-governance/how-to-access-secured-purview-account.md) through Purview private endpoints.
+
 ## Bring Azure Synapse lineage into Purview
 
 ### Step 1: Connect Azure Synapse workspace to your Purview account
