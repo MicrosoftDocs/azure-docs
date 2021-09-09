@@ -16,7 +16,7 @@ This article describes the available options for securing your IoT Device Provis
 
 This article discusses:
 
-* The authentication process and the tokens the provisioning service uses to verify permissions against both the [Service and Device REST APIs](rest/api/iot-dps/).
+* The authentication process and the tokens the provisioning service uses to verify permissions against both the [Service and Device REST APIs](/rest/api/iot-dps/).
 
 * The different permissions that you can grant to a backend app to access the Service API.
 
