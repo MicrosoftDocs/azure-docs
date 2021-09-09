@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SAP Analytics Cloud supports **SP** initiated SSO.
+
+* SAP Analytics Cloud supports [Automated user provisioning](sap-analytics-cloud-provisioning-tutorial.md). 
 
 ## Add SAP Analytics Cloud from the gallery
 
@@ -70,18 +72,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    a. In the **Sign on URL** text box, type a URL using one of the following patterns:
+    a. In the **Identifier (Entity ID)** text box, type a value using one of the following patterns:
 
-    - `https://<sub-domain>.sapanalytics.cloud/`
-    - `https://<sub-domain>.sapbusinessobjects.cloud/`
+    | **Identifier URL** |
+    |----|
+    | `<sub-domain>.sapbusinessobjects.cloud` |
+    | `<sub-domain>.sapanalytics.cloud` |
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
-
-    - `<sub-domain>.sapbusinessobjects.cloud`
-    - `<sub-domain>.sapanalytics.cloud`
+    b. In the **Sign on URL** text box, type a URL using one of the following patterns:
+    
+    | **Sign on URL** |
+    |------|
+    | `https://<sub-domain>.sapanalytics.cloud/` |
+    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
 	> [!NOTE] 
-	> The values in these URLs are for demonstration only. Update the values with the actual sign-on URL and identifier URL. To get the sign-on URL, contact the [SAP Analytics Cloud Client support team](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). You can get the identifier URL by downloading the SAP Analytics Cloud metadata from the admin console. This is explained later in the tutorial.
+	> The values in these URLs are for demonstration only. Update the values with the actual Identifier and Sign on URL. To get the sign-on URL, contact the [SAP Analytics Cloud Client support team](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). You can get the identifier URL by downloading the SAP Analytics Cloud metadata from the admin console. This is explained later in the tutorial.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -184,6 +190,9 @@ To provision a user account:
         ![Select role](./media/sapboc-tutorial/user-3.png)
 
     1. Select the **Save** icon.
+
+> [!NOTE]
+> SAP Analytics Cloud also supports automatic user provisioning, you can find more details [here](./sap-analytics-cloud-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

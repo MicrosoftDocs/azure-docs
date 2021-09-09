@@ -10455,7 +10455,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/template-functions-any.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/template-functions-any",
+      "redirect_url": "/azure/azure-resource-manager/bicep/bicep-functions-any",
       "redirect_document_id": false
     },
     {
@@ -14063,6 +14063,16 @@
       "redirect_url": "/azure/azure-toolkit-for-intelliJ",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-vmware/deploy-disaster-recovery-using-jetstream.md",
+      "redirect_url": "/azure/azure-vmware/concepts-run-command",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/deploy-zerto-disaster-recovery.md",
+      "redirect_url": "/azure/azure-vmware/introduction",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
@@ -54864,6 +54874,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Face/face-how-to-install-containers.md",
+      "redirect_url": "/azure/cognitive-services/Face/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/face-resource-container-config.md",
+      "redirect_url": "/azure/cognitive-services/Face/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/LUIS/encrypt-data-at-rest",
       "redirect_document_id": false
@@ -56356,6 +56376,11 @@
     {
       "source_path_from_root": "/articles/communication-services/quickstarts/managed-identity-from-cli.md",
       "redirect_url": "/azure/communication-services/quickstarts/identity/service-principal-from-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/calling-client-samples.md",
+      "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling",
       "redirect_document_id": false
     },
     {
