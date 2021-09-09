@@ -12,37 +12,38 @@ ms.date: 08/31/2021
      
 This document describes the subprotocol `protobuf.webpubsub.azure.v1`.
 
-When the client is using this subprotocol, both the outgoing data frame and the incoming data frame are expected to be protocol buffers (protobuf) payloads.
+When the client is using this subprotocol, both the outgoing and incoming data frames are expected to be protocol buffers (protobuf) payloads.
 
 ## Overview
 
-Subprotocol `protobuf.webpubsub.azure.v1` empowers the clients to do a publish-subscribe (PubSub) directly instead of doing a round trip to the upstream server. We call the WebSocket connection with the `protobuf.webpubsub.azure.v1` subprotocol a PubSub WebSocket client.
+Subprotocol `protobuf.webpubsub.azure.v1` empowers the client to do a publish-subscribe (PubSub) directly instead of doing a round trip to the upstream server. The WebSocket connection with the `protobuf.webpubsub.azure.v1` subprotocol is called a PubSub WebSocket client.
 
-For example, in JavaScript, you can create a PubSub WebSocket client with protobuf subprotocol by using:
+For example, in JavaScript, you can create a PubSub WebSocket client with the protobuf subprotocol by using:
 
 ```js
 // PubSub WebSocket client
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.webpubsub.azure.v1');
 ```
 
-For a simple WebSocket client, the server is a *necessary* role to handle the events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and it always relies on the server-side to process messages and do other operations. With the help of the `protobuf.webpubsub.azure.v1` subprotocol, an authorized client can join a group by using [join requests](#join-groups) and publish messages to a group by using [publish requests](#publish-messages) directly. The client can also route messages to various upstream event handlers by using [event requests](#send-custom-events) to customize the *event* that the message belongs to.
+For a simple WebSocket client, the server has the *necessary* role of handling events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and it always relies on the server side to process messages and do other operations. With the help of the `protobuf.webpubsub.azure.v1` subprotocol, an authorized client can join a group by using [join requests](#join-groups) and publish messages to a group by using [publish requests](#publish-messages) directly. The client can also route messages to various upstream event handlers by using [event requests](#send-custom-events) to customize the *event* that the message belongs to.
 
 > [!NOTE]
 > Currently, the Web PubSub service supports only [proto3](https://developers.google.com/protocol-buffers/docs/proto3).
 
 ## Permissions
 
-In our description of the PubSub WebSocket clients, you might have noticed that a client can publish to other clients only when it's *authorized* to. The client's roles determine its *initial* permissions, as shown in the following table:
+In the earlier description of the PubSub WebSocket client, you might have noticed that a client can publish to other clients only when it's *authorized* to do so. The client's roles determine its *initial* permissions, as shown in the following table:
 
 | Role | Permission |
 |---|---|
-| Not specified | The client can send event requests.
-| `webpubsub.joinLeaveGroup` | The client can join or leave any group.
-| `webpubsub.sendToGroup` | The client can publish messages to any group.
-| `webpubsub.joinLeaveGroup.<group>` | The client can join or leave group `<group>`.
-| `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`.
+| Not specified | The client can send event requests. |
+| `webpubsub.joinLeaveGroup` | The client can join or leave any group. |
+| `webpubsub.sendToGroup` | The client can publish messages to any group. |
+| `webpubsub.joinLeaveGroup.<group>` | The client can join or leave group `<group>`. |
+| `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`. |
+| | |
 
-The server-side can also grant or revoke permissions of the client dynamically through REST APIs or server SDKs.
+The server side can also grant or revoke a client's permissions dynamically through REST APIs or server SDKs.
 
 ## Requests
 
@@ -116,9 +117,9 @@ Format:
 
 There's an implicit `dataType`, which can be `protobuf`, `text`, or `binary`, depending on the `data` in `MessageData` you set. The receiver clients can use `dataType` to handle the content correctly.
 
-* `protobuf`: If you set `send_to_group_message.data.protobuf_data`, the implicit `dataType` is `protobuf`. `protobuf_data` can be in the [Any](https://developers.google.com/protocol-buffers/docs/proto3#any) message type. All other clients receive a protobuf-encoded binary, which can be deserialized by the protobuf SDK. Clients that support only text-based content (for example, `json.webpubsub.azure.v1`) receive a Base64-encoded binary.
+* `protobuf`: If you set `send_to_group_message.data.protobuf_data`, the implicit `dataType` is `protobuf`. `protobuf_data` can be of the [Any](https://developers.google.com/protocol-buffers/docs/proto3#any) message type. All other clients receive a protobuf-encoded binary, which can be deserialized by the protobuf SDK. Clients that support only text-based content (for example, `json.webpubsub.azure.v1`) receive a Base64-encoded binary.
 
-* `text`: If you set `send_to_group_message.data.text_data`, the implicit `dataType` is `text`. `text_data` should be a string. All clients with other protocols receive a UTF-8 encoded string.
+* `text`: If you set `send_to_group_message.data.text_data`, the implicit `dataType` is `text`. `text_data` should be a string. All clients with other protocols receive a string encoded with UTF-8 standards.
 
 * `binary`: If you set `send_to_group_message.data.binary_data`, the implicit `dataType` is `binary`. `binary_data` should be a byte array. All clients with other protocols receive a raw binary without protobuf encoding. Clients that support only text-based content (for example, `json.webpubsub.azure.v1`) receive a Base64-encoded binary.
 
@@ -140,7 +141,7 @@ Set `send_to_group_message.group` to `group` and `send_to_group_message.data.tex
     }
     ```
 
-* The raw client in group `group` receives string data `text data`.
+* The raw client in group `group` receives string `text data`.
 
 #### Case 2: Publish protobuf data
 
@@ -169,7 +170,7 @@ Set `send_to_group_message.group` to `group` and `send_to_group_message.data.pro
     ```
 
     > [!NOTE]
-    > The data is a Base64-encoded deserializeable protobuf binary. 
+    > The data is a Base64-encoded, deserializeable protobuf binary. 
 
 You can use the following protobuf definition and use `Any.unpack()` to deserialize it:
 
@@ -190,7 +191,7 @@ message MyMessage {
 
 #### Case 3: Publish binary data
 
-Set `send_to_group_message.group` to `group` and `send_to_group_message.data.binary_data` to `[1, 2, 3]`.
+Set `send_to_group_message.group` to `group`, and set `send_to_group_message.data.binary_data` to `[1, 2, 3]`.
 
 * The protobuf subprotocol client in group `group` receives the binary frame and can use the [DownstreamMessage](#responses) to deserialize it.
 
@@ -225,11 +226,11 @@ There's an implicit `dataType`, which can be `protobuf`, `text`, or `binary`, de
 
 * `binary`: If you set `event_message.data.binary_data`, the implicit is `binary`. `binary_data` should be a byte array. The event handler receives the raw binary frame.
 
-#### Case 1: send event with text data:
+#### Case 1: Send an event with text data
 
 Set `event_message.data.text_data` to `"text data"`.
 
-What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `text/plain` for `dataType`=`text`
+The upstream event handler receives a request that's similar to the following. Note that `Content-Type` for the CloudEvents HTTP request is `text/plain`, where `dataType`=`text`.
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -252,9 +253,9 @@ text data
 
 ```
 
-#### Case 2: send event with protobuf data:
+#### Case 2: Send an event with protobuf data
 
-Assume you have a customer message:
+Assume that you've received the following customer message:
 
 ```
 message MyMessage {
@@ -264,7 +265,7 @@ message MyMessage {
 
 Set `event_message.data.protobuf_data` to `any.pack(MyMessage)` with `value = 1`
 
-What the upstream event handler receives like below, please note that the `Content-Type` for the CloudEvents HTTP request is `application/x-protobuf` for `dataType`=`protobuf`
+The upstream event handler receives a request that's similar to the following. Note that the `Content-Type` for the CloudEvents HTTP request is `application/x-protobuf`, where `dataType`=`protobuf`.
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -297,11 +298,11 @@ message MyMessage {
 }
 ```
 
-#### Case 3: send event with binary data:
+#### Case 3: Send an event with binary data
 
 Set `send_to_group_message.binary_data` to `[1, 2, 3]`.
 
-The upstream event handler receives a response similar to the following. For `dataType`=`binary`, the `Content-Type` for the CloudEvents HTTP request is `application/octet-stream`. 
+The upstream event handler receives a request similar to the following. For `dataType`=`binary`, the `Content-Type` for the CloudEvents HTTP request is `application/octet-stream`. 
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -324,9 +325,9 @@ ce-eventName: <event_name>
 01 02 03 
 ```
 
-The WebSocket frame can be in `text` format for text message frames or UTF8-encoded binaries for `binary` message frames.
+The WebSocket frame can be in `text` format for text message frames or UTF-8-encoded binaries for `binary` message frames.
 
-The service declines the client if the message doesn't match the described format.
+The service declines the client if the message doesn't match the prescribed format.
 
 ## Responses
 
@@ -375,7 +376,7 @@ message DownstreamMessage {
 }
 ```
 
-Messages received by the client can be any of three types: `ack`, `message`, or `system`. 
+Messages received by the client can be in any of three types: `ack`, `message`, or `system`. 
 
 ### Ack response
 
@@ -392,14 +393,13 @@ Clients can receive messages published from a group that the client has joined. 
 You'll always get a `DownstreamMessage.DataMessage` message in the following scenarios:
 
 - When the message is from a group, `from` is `group`. When the message is from the server, `from` is `server`
-
 - When the message is from a group, `group` is the group name.
 
 The sender's `dataType` will cause one of the following messages to be sent: 
-* If `dataType` is `text`, you should use `message_response_message.data.text_data`. 
-* If `dataType` is `binary`, you should use `message_response_message.data.binary_data`. 
-* If `dataType` is `protobuf`, you should use `message_response_message.data.protobuf_data`. 
-* If `dataType` is `json`, you should use `message_response_message.data.text_data` and the content is a serialized JSON string.
+* If it's `text`, use `message_response_message.data.text_data`. 
+* If it's `binary`, use `message_response_message.data.binary_data`. 
+* If it's `protobuf`, use `message_response_message.data.protobuf_data`. 
+* If it's `json`, use `message_response_message.data.text_data`, and the content is a serialized JSON string.
 
 ### System response
 
