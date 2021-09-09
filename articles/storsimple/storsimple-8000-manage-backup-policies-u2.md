@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/09/2021
+ms.date: 07/05/2017
 ms.author: alkohli
 
 ---
@@ -27,8 +27,6 @@ This tutorial explains how to use the StorSimple Device Manager service **Backup
 When you back up a volume, you can choose to create a local snapshot or a cloud snapshot. If you are backing up a locally pinned volume, we recommend that you specify a cloud snapshot. Taking a large number of local snapshots of a locally pinned volume coupled with a data set that has a lot of churn will result in a situation in which you could rapidly run out of local space. If you choose to take local snapshots, we recommend that you take fewer daily snapshots to back up the most recent state, retain them for a day, and then delete them.
 
 When you take a cloud snapshot of a locally pinned volume, you copy only the changed data to the cloud, where it is deduplicated and compressed.
-
-You can only keep 64 backups with any backup schedule. When you reach 64 backups for a schedule, you can disable that schedule and then add a new schedule, choosing the maximum retention of 64 backups again. This work-around will work until you reach the limit of 256 backups per volume. At that point, you'll need to delete the older backups before you can take new backups.
 
 ## The Backup policy blade
 
