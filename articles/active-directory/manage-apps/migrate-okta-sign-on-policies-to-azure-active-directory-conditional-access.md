@@ -61,7 +61,7 @@ Azure AD CA policies can be configured to match Okta's conditions for most scena
 
 In some scenarios, you may need additional setup before you configure the CA policies. The two known scenarios at the time of writing this article are:
 
-- **Okta network locations to named locations in Azure AD** - Follow [this article](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition#named-locations) to configure named locations in Azure AD.
+- **Okta network locations to named locations in Azure AD** - Follow [this article](../conditional-access/location-condition.md#named-locations) to configure named locations in Azure AD.
 
 - **Okta device trust to device-based CA** - CA offers two possible options when evaluating a user's device.
 
@@ -76,7 +76,7 @@ Enabling hybrid Azure AD join can be done on your Azure AD Connect server by run
 >[!NOTE]
 >Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
 
-1. Follow these [instructions](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains#configure-hybrid-azure-ad-join) to enable Hybrid Azure AD join.
+1. Follow these [instructions](../devices/hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join) to enable Hybrid Azure AD join.
 
 2. On the SCP configuration page, select the **Authentication Service** drop-down. Choose your Okta federation provider URL followed by **Add**. Enter your on-premises enterprise administrator credentials then select **Next**.
 
@@ -137,11 +137,11 @@ After you configured the pre-requisites, and established the base settings its t
 1. To configure CA policies in Azure AD, navigate to the [Azure portal](https://portal.azure.com). Select **View** on Manage Azure Active Directory.
 
 2. Configuration of CA policies should keep in mind [best
-practices for deploying and designing CA](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#understand-conditional-access-policy-components).
+practices for deploying and designing CA](../conditional-access/plan-conditional-access.md#understand-conditional-access-policy-components).
 
-3. To mimic global sign-on MFA policy from Okta, [create a policy](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa).
+3. To mimic global sign-on MFA policy from Okta, [create a policy](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
 
-4. Create a [device trust based CA rule](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices).
+4. Create a [device trust based CA rule](../conditional-access/require-managed-devices.md).
 
 5. This policy as any other in this tutorial can be targeted to a specific application, test group of users or both.
 
@@ -150,7 +150,7 @@ practices for deploying and designing CA](https://docs.microsoft.com/azure/activ
    ![image shows success in testing user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/success-test-user.png)
 
 6. After you configured the location-based policy, and device
-trust policy, its time to configure the equivalent [**Block legacy authentication**](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) policy.
+trust policy, its time to configure the equivalent [**Block legacy authentication**](../conditional-access/howto-conditional-access-policy-block-legacy.md) policy.
 
 With these three CA policies, the original Okta sign on policies experience has been replicated in Azure AD. Next steps involve enrolling the user to Azure MFA and testing the policies.
 
@@ -165,7 +165,7 @@ need to register for Azure MFA methods. Users can be required to register throug
 2. User can go to <https://aka.ms/mysecurityinfo> to
 enter information or manage form of MFA registration.
 
-See [this guide](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined) to fully understand the MFA registration process.  
+See [this guide](../authentication/howto-registration-mfa-sspr-combined.md) to fully understand the MFA registration process.  
 
 Navigate to <https://aka.ms/mfasetup> after signing in with Okta MFA, you're instructed to register for MFA with Azure AD.
 
@@ -173,7 +173,7 @@ Navigate to <https://aka.ms/mfasetup> after signing in with Okta MFA, you're ins
 >If registration already happened in the past for that user,
 they'll be taken to **My Security** information page after  satisfying the MFA prompt.
 
-See the [end-user documentation for MFA enrollment](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-signin).
+See the [end-user documentation for MFA enrollment](../user-help/security-info-setup-signin.md).
 
 ## Step 6 - Enable CA policies
 
