@@ -250,7 +250,7 @@ successfully made GET on instance metadata
 ```
 ## Run an application with multiple identities
 
-In order to enable an application to use multiple identities, set the `--binding-selector` flag when creating pod identities.
+In order to enable an application to use multiple identities, set the `--binding-selector` to the same selector when creating pod identities.
 
 ```azurecli-interactive
 az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE}  --name ${POD_IDENTITY_NAME_1} --identity-resource-id ${IDENTITY_RESOURCE_ID_1} --binding-selector foo
