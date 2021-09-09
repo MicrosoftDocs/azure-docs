@@ -5,7 +5,7 @@ author: mgoedtel
 ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
-ms.date: 06/30/2021
+ms.date: 09/09/2021
 ms.custom: template-quickstart
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
