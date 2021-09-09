@@ -68,31 +68,31 @@ Here are some ways that custom security attributes compare with [directory schem
 
     Check that you are assigned the Attribute Definition Administrator or Attribute Assignment Administrator roles. By default, the [Global Administrator](../roles/permissions-reference.md#global-administrator) and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) roles do not have permissions to read or add custom security attributes.
 
-    ![Check permissions to add custom security attributes in Azure AD.](./media/custom-security-attributes-overview/attributes-permissions.png)
+    ![Diagram showing checking permissions to add custom security attributes in Azure AD.](./media/custom-security-attributes-overview/attributes-permissions.png)
 
 1. **Add attribute sets**
 
     Add attribute sets to group and manage related custom security attributes. [Learn more](custom-security-attributes-add.md)
 
-    ![Add custom security attribute sets in Azure AD.](./media/custom-security-attributes-overview/attribute-sets-add.png)
+    ![Diagram showing adding multiple custom security attribute sets.](./media/custom-security-attributes-overview/attribute-sets.png)
 
 1. **Manage attribute sets**
 
     Specify who can read, define, or assign custom security attributes in an attribute set. [Learn more](custom-security-attributes-manage.md)
 
-    ![Manage security attribute sets in Azure AD.](./media/custom-security-attributes-overview/attribute-sets-manage.png)
+    ![Diagram showing assigning attribute definition administrators and attribute assignment administrators to attribute sets.](./media/custom-security-attributes-manage/delegate-attribute-sets-manage.png)
 
 1. **Define attributes**
 
     Add your custom security attributes to your directory. You can specify the date type (Boolean, integer, or string) and whether values are predefined, free-form, single, or multiple. [Learn more](custom-security-attributes-add.md)
 
-    ![Define custom security attributes in Azure AD.](./media/custom-security-attributes-overview/attributes-define.png)
+    ![Diagram showing delegated administrators defining custom security attributes.](./media/custom-security-attributes-manage/delegate-attributes-define.png)
 
 1. **Assign attributes**
 
     Assign custom security attributes to Azure AD objects for your business scenarios. [Learn more](../enterprise-users/users-custom-security-attributes.md)
 
-    ![Assign custom security attributes to Azure AD objects.](./media/custom-security-attributes-overview/attributes-assign.png)
+    ![Diagram showing delegated administrators assigning custom security attributes to Azure AD objects.](./media/custom-security-attributes-manage/delegate-attributes-assign.png)
 
 1. **Use attributes**
 
