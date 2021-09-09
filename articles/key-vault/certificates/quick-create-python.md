@@ -140,7 +140,7 @@ python kv_certificates.py
 ```
 
 - If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#grant-access-to-your-key-vault).
-- Re-running the code with the same key name may produce the error, "(Conflict) Certificate <name> is currently in a deleted but recoverable state." Use a different key name.
+- Re-running the code with the same key name may produce the error, "(Conflict) Certificate \<name\> is currently in a deleted but recoverable state." Use a different key name.
 
 ## Code details
 

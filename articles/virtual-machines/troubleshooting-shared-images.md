@@ -344,7 +344,7 @@ If you have problems performing any operations on shared image galleries, image 
 **Message**: *The VM or virtual machine scale set creation takes a long time.*  
 **Workaround**: Verify that the **OSType** of the image version that you're trying to create the VM or virtual machine scale set from has the same **OSType** of the source that you used to create the image version. 
 
-**Message**: *The resource with id <vmID\> has a different plan ['{\"name\":\"<name>\",\"publisher\":\"<publisher>\",\"product\":\"<product>\",\"promotionCode\":\"<promotionCode>\"}'] than the parent gallery image plan ['null'].*  
+**Message**: *The resource with id <vmID\> has a different plan ['{\"name\":\"\<name\>\",\"publisher\":\"<publisher>\",\"product\":\"<product>\",\"promotionCode\":\"<promotionCode>\"}'] than the parent gallery image plan ['null'].*  
 **Cause**: The parent image definition for the image version being deployed does not have a purchase plan information.  
 **Workaround**: Create an image definition with the same purchase plan details from the error message and create the image version within the image definition.
 
