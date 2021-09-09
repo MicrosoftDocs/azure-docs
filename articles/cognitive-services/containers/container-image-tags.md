@@ -2055,14 +2055,14 @@ This container image has the following tags available. You can also find a full 
 
 # [Latest version](#tab/current)
 
-Release notes for `3.0.017010001`:
+Release notes for `3.0.017010001-onprem-amd64`:
 
 * You can now use the [Text Analytics for health container with the client library](../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) 
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
-| `3.0.017010001` |       |
+| `3.0.017010001-onprem-amd64` |       |
 
 # [Previous versions](#tab/previous)
 
