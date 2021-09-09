@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/05/2021
+ms.date: 09/09/2021
 ms.author: todorb
 
 ---
@@ -73,7 +73,6 @@ For a list of existing Azure Marketplace offerings in this space, visit [this pa
  * Free [training on FedRAMP](https://www.fedramp.gov/learning/).
  * FedRAMP [templates](https://www.fedramp.gov/templates/) to help you with program requirements.
  * Get familiar with the [FedRAMP Marketplace](https://marketplace.fedramp.gov/#/products).
- * Are you a partner and want to join our program? Fill out the [form](https://aka.ms/partnerazcl).
  * Learn more about [Azure Blueprints](../../governance/blueprints/overview.md) and review [samples](../../governance/blueprints/samples/index.md).
  * To learn how Azure Blueprints help you when using Azure Policy review the [blog post](https://azure.microsoft.com/blog/new-azure-blueprint-simplifies-compliance-with-nist-sp-800-53/).
  
