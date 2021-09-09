@@ -88,7 +88,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
 1. The SAP servers must be joined to an Active Directory Domain.
 2. The Active Directory Domain containing the SAP servers must be replicated to Azure Active Directory using Azure AD connect.
 3. It is highly recommended that there is at least one Active Directory Domain controller in the Azure landscape to avoid traversing the Express Route to contact Domain Controllers on-premises.
-4. The Azure support team should review the Azure Files SMB with [Active Directory Integration](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-enable#videos) documentation.
+4. The Azure support team should review the Azure Files SMB with [Active Directory Integration](../../../storage/files/storage-files-identity-auth-active-directory-enable#videos) documentation.
 5. The user executing the Azure Files PowerShell script must have permission to create objects in Active Directory.
 6. **SWPM version 1.0 SP32 and SWPM 2.0 SP09 or higher are required. SAPInst patch must be 749.0.91 or higher.**
 7. An up-to-date release of PowerShell should be installed on the Windows Server where the script is executed. 
@@ -98,13 +98,13 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
 2. The Active Directory administrator or Azure Administrator should check **Azure AD Connect** Synchronization Service Manager. By default it takes approximately 30 minutes to replicate to the **Azure Active Directory**. 
 3. The Azure administrator should complete the following tasks:
    1. Create a Storage Account with either Premium ZRS or LRS. Customers with Zonal deployment should choose ZRS:
-   ![create-sa-1]
-   ![create-sa-2]
-   ![create-sa-4]
-   ![create-sa-3]
+   ![create-sa-1](media/virtual-machines-shared-sap-high-availability-guide/create-sa-1.png)
+   ![create-sa-2](media/virtual-machines-shared-sap-high-availability-guide/create-sa-2.png)
+   ![create-sa-4](media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png)
+   ![create-sa-3](media/virtual-machines-shared-sap-high-availability-guide/create-sa-3.png)
    2. Create the **sapmnt** File share with an appropriate size.  The suggested size is 256GB which delivers 650 IOPS, 75 MB/sec Egress and 50 MB/sec Ingress.
-   ![create-sa-7] 
-   3. Download the [Azure Files Github](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable#download-azfileshybrid-module) content and execute the [script](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable#run-join-azstorageaccountforauth).   
+   ![create-sa-7](media/virtual-machines-shared-sap-high-availability-guide/create-sa-7.png) 
+   3. Download the [Azure Files Github](../../../storage/files/storage-files-identity-ad-ds-enable#download-azfileshybrid-module) content and execute the [script](../../../storage/files/storage-files-identity-ad-ds-enable#run-join-azstorageaccountforauth).   
    4. This script will create either a Computer Account or Service Account in Active Directory.  The user running the script must have the following properties: 
        * The user running the script must have permission to create objects in the Active Directory Domain containing the SAP servers. Typically, a domain administrator account is used such as **SAPCONT_ADMIN@SAPCONTOSO.local** 
        * Before executing the script confirm that this Active Directory Domain user account is synchronized with Azure Active Directory (AAD).  An example of this would be to open the Azure Portal and navigate to AAD users and check that the user **SAPCONTIT_ADMIN@SAPCONTOSO.local** exists and verify the AAD user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.
@@ -124,29 +124,29 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
        >
          
 
-       ![smb-acl-1]
+       ![smb-acl-1](media/virtual-machines-shared-sap-high-availability-guide/smb-acl-1.png)
        The following screenshots show how to add Computer machine accounts by selecting the Object Types -> Computers
-       ![add-computer-1]
+       ![add-computer-1](media/virtual-machines-shared-sap-high-availability-guide/add-computer-2.png)
        The DOMAIN\CLUSTER_NAME$ can be found by selecting “Computers” from the “Object Types”  
-       ![add-computer-3]
-       ![add-computer-4]
-       ![add-computer-5]
+       ![add-computer-3](media/virtual-machines-shared-sap-high-availability-guide/add-computer-3.png)
+       ![add-computer-4](media/virtual-machines-shared-sap-high-availability-guide/add-computer-4.png)
+       ![add-computer-5](media/virtual-machines-shared-sap-high-availability-guide/add-computer-5.png)
 
    7. [Configure the Azure Standard Load Balancer for the SAP ASCS/ERS Virtual IP(s) with HA Ports](sap-high-availability-infrastructure-wsfc-shared-disk#fe0bd8b5-2b43-45e3-8295-80bee5415716)
    8. If required move the Computer Account created for Azure Files to an Active Directory Container that does not have account expiry.  The name of the Computer Account will be the short name of the storage account 
 
-    ![ps-script-1]
+    ![ps-script-1](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png)
 
     After correctly running the script the following should appear as “Configured”  
     Storage -> Files Shares “Active Directory: Configured”
 
-    ![smb-share-1]
+    ![smb-share-1](media/virtual-machines-shared-sap-high-availability-guide/smb-acl-1.png)
 
 4. Basis administrator should complete the tasks below:
     1. [Install the Windows Cluster on ASCS/ERS Nodes and add the Cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
     2. The first Cluster Node installation will ask for the Azure Files SMB storage account name.  Enter the FQDN <storage_account_name>.file.core.windows.net.  If SAPInst does not accept >13 characters then the SWPM version is too old.
     3. [Modify the SAP Profile of the ASCS/SCS Instance](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
-    4. [Update the Probe Port for the SAP <SID> role in WSFC](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
+    4. [Update the Probe Port for the SAP \<SID> role in WSFC](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
     5. Continue with SWPM Installation for the second ASCS/ERS Node. SWPM will only require path of profile directory.  Enter the full UNC path to the profile directory.
     6. Enter the UNC profile path for the DB and PAS/AAS Installation.
     7. PAS Installation will ask for Transport hostname. Provide the FQDN of a separate storage account name for transport directory.
@@ -166,20 +166,6 @@ Disaster Recovery scenarios or Cross-Region Replication scenarios are supported 
 * [Installation of an (A)SCS Instance on a Failover Cluster](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 
 [sap-ha-guide-figure-8007A]:./media/virtual-machines-shared-sap-high-availability-guide/ha-smb-as.png
-[smb-acl-1]:./media/virtual-machines-shared-sap-high-availability-guide/smb-acl-1.png
-[add-computer-1]:./media/virtual-machines-shared-sap-high-availability-guide/add-computer-2.png
-[add-computer-1]:./media/virtual-machines-shared-sap-high-availability-guide/add-computer-2.png
-[add-computer-3]:./media/virtual-machines-shared-sap-high-availability-guide/add-computer-3.png
-[add-computer-4]:./media/virtual-machines-shared-sap-high-availability-guide/add-computer-4.png
-[add-computer-5]:./media/virtual-machines-shared-sap-high-availability-guide/add-computer-5.png
-[smb-share-1]:./media/virtual-machines-shared-sap-high-availability-guide/smb-share-1.png
-[ps-script-1]:./media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png
-[create-sa-1]:./media/virtual-machines-shared-sap-high-availability-guide/create-sa-1.png
-[create-sa-2]:./media/virtual-machines-shared-sap-high-availability-guide/create-sa-2.png
-[create-sa-3]:./media/virtual-machines-shared-sap-high-availability-guide/create-sa-3.png
-[create-sa-4]:./media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png
-[create-sa-5]:./media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png
-[create-sa-7]:./media/virtual-machines-shared-sap-high-availability-guide/create-sa-7.png
 [16083]:https://launchpad.support.sap.com/#/notes/16083
 [2273806]:https://launchpad.support.sap.com/#/notes/2273806
 [aad-integration]:../../../azure-netapp-files/azure-netapp-files-introduction.md
