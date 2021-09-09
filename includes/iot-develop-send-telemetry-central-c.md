@@ -14,7 +14,9 @@
 In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to IoT Central, and send telemetry.
 
 ## Prerequisites
-This quickstart has been tested on the following platforms: Windows 10, Ubuntu 18.4 running on Windows Subsystem for Linux (WSL), and on a Raspberry Pi 3 Model B+ running Raspberry Pi OS version 10 (buster). The shell commands in this quickstart use the standard Linux path separator `/`. If you use Windows, replace these separators with the Windows path separator `\`.
+This quickstart has been tested on the following platforms: Windows 10, Ubuntu 18.4 running on Windows Subsystem for Linux (WSL), and on a Raspberry Pi 3 Model B+ running Raspberry Pi OS version 10 (buster). 
+
+The shell commands in this quickstart use the standard Linux path separator `/`. If you use Windows, replace these separators with the Windows path separator `\`.
 
 Install the remaining prerequisites for your operating system.
 
