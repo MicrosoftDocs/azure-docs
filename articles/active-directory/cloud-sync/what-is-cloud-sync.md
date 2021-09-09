@@ -23,17 +23,13 @@ Azure AD Connect cloud sync is new offering from Microsoft designed to meet and 
 
 ![What is Azure AD Connect](media/what-is-cloud-sync/architecture-1.png)
 
-For additional information see the following video.
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
-
 ## How is Azure AD Connect cloud sync different from Azure AD Connect sync?
 With Azure AD Connect cloud sync, provisioning from AD to Azure AD is orchestrated in Microsoft Online Services. An organization only needs to deploy, in their on-premises or IaaS-hosted environment, a light-weight agent that acts as a bridge between Azure AD and AD. The provisioning configuration is stored in Azure AD and managed as part of the service.
 
 ## Azure AD Connect cloud sync video
 The following short video provides an excellent overview of Azure AD Connect cloud sync:
 
-> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
 
 
 ## Comparison between Azure AD Connect and cloud sync
