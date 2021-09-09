@@ -1,7 +1,7 @@
 ---
 title: Rank transformation in mapping data flow 
+description: Learn how to use a mapping data flow rank transformation to generate a ranking column in Azure Data Factory or Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: How to use Azure Data Factory's mapping data flow rank transformation generate a ranking column
 author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/05/2020
+ms.date: 09/09/2021
 ---
 
 # Rank transformation in mapping data flow 
