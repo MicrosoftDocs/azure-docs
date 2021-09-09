@@ -1,5 +1,5 @@
 ---
-title: 'Common Azure Key Vault errors in Application Gateway'
+title: Common Azure Key Vault errors in Application Gateway
 titleSuffix: Azure Application Gateway
 description: This article identifies Key Vault-related problems, and helps you resolve them for smooth operations of Application Gateway.
 services: application-gateway
@@ -32,7 +32,7 @@ The following sections cover various errors you might encounter.
 
 **Resolution:** Configure the access policy of Key Vault to grant this permission on secrets. 
 1. Go to the linked key vault in the Azure portal.
-1. Open the **Access Policies** pane.
+1. Open the **Access policies** pane.
 1. For **Permission model**, select **Vault access policy**.
 1. Under **Secret Management Operations**, select the **Get** permission.
 1. Select **Save**.
@@ -76,7 +76,7 @@ On the other hand, if a certificate object is permanently deleted, you will need
 **Resolution:** To use the identity again:
 1. Re-create a managed identity with the same name that was used previously, and under the same resource group. Resource activity logs contain more details. 
 1. After you create the identity, go to **Application Gateway - Access Control (IAM)**. Assign the identity the **Reader** role, at a minimum.
-1. Finally, go to the desired key vault resource, and set its access policies to grant **Get** secret permissions for this new managed identity. 
+1. Finally, go to the desired Key Vault resource, and set its access policies to grant **Get** secret permissions for this new managed identity. 
 
 For more information, see [How integration works](./key-vault-certs.md#how-integration-works).
 
@@ -111,3 +111,9 @@ Select **Managed deleted vaults**. From here, you can find the deleted Key Vault
 
 **Resolution:** Your Azure subscription can get disabled for various reasons. To take the necessary action to resolve, see [Reactivating a disabled Azure subscription](../cost-management-billing/manage/subscription-disabled.md).
 
+## Next steps
+
+These troubleshooting articles might be helpful as you continue to use Application Gateway:
+
+- [Azure Application Gateway Resource Health overview](https://docs.microsoft.com/azure/application-gateway/resource-health-overview)
+- [Troubleshoot Azure Application Gateway session affinity issues](https://docs.microsoft.com/azure/application-gateway/how-to-troubleshoot-application-gateway-session-affinity-issues)
