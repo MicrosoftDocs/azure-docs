@@ -80,6 +80,9 @@ Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS clus
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
+> [!NOTE]
+> When you enable pod-managed identity on your AKS cluster, an AzurePodIdentityException named *aks-addon-exception* is added to the *kube-system* namespace. An AzurePodIdentityException allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the node-managed identity (NMI) server. The *aks-addon-exception* allows AKS first-party addons, such as AAD pod-managed identity, to operate without having to manually configure an AzurePodIdentityException. Optionally, you can add, remove, and update an AzurePodIdentityException using `az aks pod-identity exception add`, `az aks pod-identity exception delete`, `az aks pod-identity exception update`, or `kubectl`.
+
 ## Update an existing AKS cluster with Azure CNI
 
 Update an existing AKS cluster with Azure CNI to include pod-managed identity.
@@ -178,7 +181,6 @@ az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSClu
 ```
 
 > [!NOTE]
-> When you enable pod-managed identity on your AKS cluster, an AzurePodIdentityException named *aks-addon-exception* is added to the *kube-system* namespace. An AzurePodIdentityException allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the node-managed identity (NMI) server. The *aks-addon-exception* allows AKS first-party addons, such as AAD pod-managed identity, to operate without having to manually configure an AzurePodIdentityException. Optionally, you can add, remove, and update an AzurePodIdentityException using `az aks pod-identity exception add`, `az aks pod-identity exception delete`, `az aks pod-identity exception update`, or `kubectl`.
 > The "POD_IDENTITY_NAME" has to be a valid [DNS subdomain name] as defined in [RFC 1123]. 
 
 > [!NOTE]
