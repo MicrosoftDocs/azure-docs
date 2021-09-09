@@ -25,7 +25,7 @@ ms.author: kumud
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-The following sample steps expect a simple environment to already be created. If you want to run the steps as they're displayed in this document, first [create a virtual network](quick-create-portal.md#create-a-virtual-network). However, in step 3, use these values instead:
+The following sample steps expect a simple environment to already be created. If you want to run the steps as they're displayed in this document, first [create a virtual network](../../virtual-network/quick-create-portal.md#create-a-virtual-network). However, in step 3, use these values instead:
 
 | Setting | Value |
 | ------- | ----- |
