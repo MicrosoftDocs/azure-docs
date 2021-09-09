@@ -15774,22 +15774,22 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/cognitive-services/QnAMaker/reference-data-guidelines.md",
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-data-guidelines.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/cognitive-services/QnAMaker/reference-document-type-url.md",
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-document-type-url.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/cognitive-services/QnAMaker/reference-question-answer-set.md",
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-question-answer-set.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/cognitive-services/QnAMaker/reference-role-based-access-control.md",
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-role-based-access-control.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/",
       "redirect_document_id": false
     },
