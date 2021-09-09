@@ -31,6 +31,10 @@ Sign-up and sign-in policy lets users:
 
 ![Profile editing flow](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
 
+Watch this video to learn how the user sign-in and sign-up policy works 
+
+>[!Video https://www.youtube.com/embed/c8rN1ZaR7wk]
+
 ## Prerequisites
 
 If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
