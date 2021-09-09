@@ -42,7 +42,7 @@ All connectors based on diagnostics settings, cannot be connected to a workspace
 Use [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) to help manage multiple Azure Sentinel instances in different tenants.
 
 > [!NOTE]
-> [Partner data connectors](partner-data-connectors.md) are typically based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
+> [Partner data connectors](data-connectors-reference.md) are often based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
 >
 
 

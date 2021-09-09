@@ -33,6 +33,31 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## Create a linked service to Magento using UI
+
+Use the following steps to create a linked service to Magento in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Magento and select the Magento connector.
+
+   :::image type="content" source="media/connector-magento/magento-connector.png" alt-text="Screenshot of the Magento connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-magento/configure-magento-linked-service.png" alt-text="Screenshot of linked service configuration for Magento.":::
+
+## Connector configuration details
+
 The following sections provide details about properties that are used to define Data Factory entities specific to Magento connector.
 
 ## Linked service properties

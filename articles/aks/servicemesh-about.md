@@ -69,4 +69,4 @@ You may also want to explore the various service mesh standardization efforts:
 [smp]: https://github.com/service-mesh-performance/service-mesh-performance
 
 <!-- LINKS - internal -->
-[osm-about]: ./servicemesh-osm-about.md
+[osm-about]: ./open-service-mesh-about.md
