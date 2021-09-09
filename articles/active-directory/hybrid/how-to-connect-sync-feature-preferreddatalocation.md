@@ -1,21 +1,13 @@
 ---
 title: 'Azure AD Connect: Configure preferred data location for Microsoft 365 resources'
 description: Describes how to put your Microsoft 365 user resources close to the user with Azure Active Directory Connect sync.
-services: active-directory
-documentationcenter: ''
 author: billmath
-manager: mtillman
-editor: ''
-ms.assetid:
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2021
 ms.subservice: hybrid
 ms.author: billmath
-
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Connect sync: Configure preferred data location for Microsoft 365 resources
@@ -32,7 +24,7 @@ By setting the attribute **preferredDataLocation**, you can define a user's geo.
 > [!IMPORTANT]
 > Multi-Geo is currently available to customers with an active Enterprise Agreement and a minimum of 250 Microsoft 365 Services subscriptions. Please talk to your Microsoft representative for details.
 >
-> For a list of all geos supported by Azure AD Connect see [Microsoft 365 Multi-Geo availability](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability).
+> For a list of all geos supported by Azure AD Connect see [Microsoft 365 Multi-Geo availability](/microsoft-365/enterprise/microsoft-365-multi-geo#microsoft-365-multi-geo-availability).
 
 
 
