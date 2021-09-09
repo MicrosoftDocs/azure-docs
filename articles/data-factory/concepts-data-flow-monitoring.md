@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/18/2021
+ms.date: 09/09/2021
 ---
 
 # Monitor Data Flows

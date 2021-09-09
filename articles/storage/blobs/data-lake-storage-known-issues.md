@@ -13,6 +13,9 @@ ms.reviewer: jamesbak
 
 This article describes limitations and known issues for accounts that have the hierarchical namespace feature enabled. 
 
+> [!NOTE]
+> Some of the features described in this article might not be supported in accounts that have Network File System (NFS) 3.0 support enabled. To view a table that shows the impact of feature support when various capabilities are enabled, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md). 
+
 ## Supported Blob storage features
 
 An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
@@ -58,6 +61,10 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using Azure Storage Explorer, PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support is not yet available for the Azure portal.
 
+## Access control lists (ACL) and anonymous read access
+
+If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
+
 <a id="known-issues-tools"></a>
 
 ## AzCopy
@@ -83,11 +90,7 @@ ACLs are not yet supported.
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2.
 Applications that call Blob APIs will likely work.
 
-## Access control lists (ACL) and anonymous read access
-
-If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
-
-## Diagnostic logs
+## Storage Analytics logs (classic)
 
 The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 

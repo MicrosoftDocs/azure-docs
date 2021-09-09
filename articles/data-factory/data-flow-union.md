@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/27/2020
+ms.date: 09/09/2021
 ---
 
 # Union transformation in mapping data flow
