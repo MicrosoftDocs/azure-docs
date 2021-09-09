@@ -31,17 +31,17 @@ SSIS operational [metrics](../azure-monitor/essentials/data-platform-metrics.md)
 
 When you configure diagnostic settings and workspace for your ADF on Azure Monitor, selecting the _AllMetrics_ check box will make SSIS operational metrics available for [interactive analysis using Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md), [presentation on Azure dashboard](../azure-monitor/app/tutorial-app-dashboards.md), and [near-real time alerts](../azure-monitor/alerts/alerts-metric.md).
 
-![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
+:::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image2.png" alt-text="Name your settings and select a log-analytics workspace":::
 
 ## SSIS operational alerts
 
 To raise alerts on SSIS operational metrics from ADF portal, [select the **Alerts & metrics** page of ADF **Monitor** hub and follow the step-by-step instructions provided](./monitor-visually.md#alerts).
 
-![Raising SSIS operational alerts from ADF portal](media/data-factory-monitor-oms/data-factory-monitor-alerts-ssis.png)
+:::image type="content" source="media/data-factory-monitor-oms/data-factory-monitor-alerts-ssis.png" alt-text="Raising SSIS operational alerts from ADF portal":::
 
 To raise alerts on SSIS operational metrics from Azure portal, [select the **Alerts** page of Azure **Monitor** hub and follow the step-by-step instructions provided](monitor-adf-metrics-and-alerts.md).
 
-![Raising SSIS operational alerts from Azure portal](media/data-factory-monitor-oms/azure-monitor-alerts-ssis.png)
+:::image type="content" source="media/data-factory-monitor-oms/azure-monitor-alerts-ssis.png" alt-text="Raising SSIS operational alerts from Azure portal":::
 
 ## SSIS operational logs
 
@@ -49,7 +49,7 @@ SSIS operational [logs](../azure-monitor/logs/data-platform-logs.md) are events 
 
 When you configure diagnostic settings and workspace for your ADF on Azure Monitor, you can select the relevant SSIS operational logs and send them to Log Analytics that's based on Azure Data Explorer. In there, they'll be made available for [analysis using rich query language](../azure-monitor/logs/log-query-overview.md), [presentation on Azure dashboard](../azure-monitor/app/tutorial-app-dashboards.md), and [near-real time alerts](../azure-monitor/alerts/alerts-log.md).
 
-![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
+:::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image2.png" alt-text="Name your settings and select a log-analytics workspace":::
 
 The schemas and content of SSIS package execution logs in Azure Monitor and Log Analytics are similar to the schemas of SSISDB internal tables or views.
 
@@ -68,11 +68,11 @@ Your selected SSIS package execution logs are always sent to Log Analytics regar
 
 When querying SSIS IR operation logs on Logs Analytics, you can use **OperationName** and **ResultType** properties that are set to `Start/Stop/Maintenance/Heartbeat` and `Started/InProgress/Succeeded/Failed/Healthy/Unhealthy`, respectively.
 
-![Querying SSIS IR operation logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+:::image type="content" source="media/data-factory-monitor-oms/log-analytics-query.png" alt-text="Querying SSIS IR operation logs on Log Analytics":::
 
 To query SSIS IR node status, you can set the **OperationName** property to `Heartbeat`. Each node normally sends one `Heartbeat` record per minute to Log Analytics with the **ResultType** property reflecting its status, which is `Healthy` when it's available for package executions and `Unhealthy` when it isn't. For example, if your SSIS IR has two available nodes, you'll always see two `Heartbeat` records with the **ResultType** property set to `Healthy` within any one-minute period.
 
-![Querying SSIS IR heartbeats on Log Analytics](media/data-factory-monitor-oms/log-analytics-query-3.png)
+:::image type="content" source="media/data-factory-monitor-oms/log-analytics-query-3.png" alt-text="Querying SSIS IR heartbeats on Log Analytics":::
 
 You can query the following patterns to detect the unavailability of your SSIS IR node(s):
 
@@ -83,7 +83,7 @@ You can turn the above queries into [alerts](../azure-monitor/alerts/alerts-unif
 
 When querying SSIS package execution logs on Logs Analytics, you can join them using **OperationId**/**ExecutionId**/**CorrelationId** properties. **OperationId**/**ExecutionId** are always set to `1` for all operations/executions related to packages **not** stored in SSISDB/invoked via T-SQL.
 
-![Querying SSIS package execution logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
+:::image type="content" source="media/data-factory-monitor-oms/log-analytics-query2.png" alt-text="Querying SSIS package execution logs on Log Analytics":::
 
 ## Next Steps
 

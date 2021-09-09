@@ -20,11 +20,11 @@ Create or add diagnostic settings for your data factory.
 
 1. If no settings exist on the selected data factory, you're prompted to create a setting. Select **Turn on diagnostics**.
 
-   ![Create a diagnostic setting if no settings exist](media/data-factory-monitor-oms/monitor-oms-image1.png)
+   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image1.png" alt-text="Create a diagnostic setting if no settings exist":::
 
    If there are existing settings on the data factory, you see a list of settings already configured on the data factory. Select **Add diagnostic setting**.
 
-   ![Add a diagnostic setting if settings exist](media/data-factory-monitor-oms/add-diagnostic-setting.png)
+   :::image type="content" source="media/data-factory-monitor-oms/add-diagnostic-setting.png" alt-text="Add a diagnostic setting if settings exist":::
 
 1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics Workspace**.
 
@@ -45,7 +45,7 @@ Create or add diagnostic settings for your data factory.
 
     * If you select _AllMetrics_, various ADF metrics will be made available for you to monitor or raise alerts on, including the metrics for ADF activity, pipeline, and trigger runs, as well as for SSIS IR operations and SSIS package executions.
 
-   ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
+   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image2.png" alt-text="Name your settings and select a log-analytics workspace":::
 
     > [!NOTE]
     > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure/azure-monitor/reference/tables/azurediagnostics).

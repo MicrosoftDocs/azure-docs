@@ -12,6 +12,8 @@ ms.date: 09/02/2021
 
 # Schema of logs and events
 
+This article describes the schema used by Azure Data Factory logs and events for monitoring.
+
 ## Monitor schema
 
 ### Activity-run log attributes

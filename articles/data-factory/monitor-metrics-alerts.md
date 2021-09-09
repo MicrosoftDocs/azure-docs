@@ -49,38 +49,38 @@ To access the metrics, complete the instructions in [Azure Monitor data platform
 
 Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts.
 
-![Alerts in the portal menu](media/monitor-using-azure-monitor/alerts_image3.png)
+:::image type="content" source="media/monitor-using-azure-monitor/alerts_image3.png" alt-text="Alerts in the portal menu":::
 
 ### Create Alerts
 
 1. Select **+ New Alert rule** to create a new alert.
 
-    ![New alert rule](media/monitor-using-azure-monitor/alerts_image4.png)
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image4.png" alt-text="New alert rule":::
 
 1. Define the alert condition.
 
     > [!NOTE]
     > Make sure to select **All** in the **Filter by resource type** drop-down list.
 
-    !["Define alert condition" > "Select target", which opens the "Select a resource" pane ](media/monitor-using-azure-monitor/alerts_image5.png)
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image5.png" alt-text=""Define alert condition" > "Select target", which opens the "Select a resource" pane ":::
 
-    !["Define alert condition" >" Add criteria", which opens the "Configure signal logic" pane](media/monitor-using-azure-monitor/alerts_image6.png)
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image6.png" alt-text=""Define alert condition" >" Add criteria", which opens the "Configure signal logic" pane":::
 
-    !["Configure signal type" pane](media/monitor-using-azure-monitor/alerts_image7.png)
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image7.png" alt-text=""Configure signal type" pane":::
 
 1. Define the alert details.
 
-    ![Alert details](media/monitor-using-azure-monitor/alerts_image8.png)
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image8.png" alt-text="Alert details":::
 
 1. Define the action group.
 
-    ![Create a rule, with "New Action group" highlighted](media/monitor-using-azure-monitor/alerts_image9.png)
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="Create a rule, with "New Action group" highlighted":::
 
-    ![Create a new action group](media/monitor-using-azure-monitor/alerts_image10.png)
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image10.png" alt-text="Create a new action group":::
 
-    ![Configure email, SMS, push, and voice](media/monitor-using-azure-monitor/alerts_image11.png)
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image11.png" alt-text="Configure email, SMS, push, and voice":::
 
-    ![Define an action group](media/monitor-using-azure-monitor/alerts_image12.png)
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image12.png" alt-text="Define an action group":::
 
 ## Next Steps
 

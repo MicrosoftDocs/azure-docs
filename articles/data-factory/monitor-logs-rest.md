@@ -12,6 +12,8 @@ ms.date: 09/02/2021
 
 # Setup diagnostic logs via the Azure Monitor REST API
 
+This article describes how to setup diagnostic logs for Azure Data Factory using the Azure Monitor REST API.
+
 ## Diagnostic settings
 
 Use diagnostic settings to configure diagnostic logs for non-compute resources. The settings for a resource control have the following features:
