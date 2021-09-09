@@ -262,9 +262,9 @@ To use an XML file to export your data:
 ## Sample XML file
 
 Follow these guidelines if you choose to select blobs and files for export by using an XML file:
-- **XML file overview** tab: Review tag requirements for the XML file.
-- **Prefix examples** tab: See examples of valid prefixes that select multiple blobs and files for export.
-- **Sample XML file** tab: Copy a sample XML file with examples of each tag.
+- **XML file overview tab:** Review tag requirements for the XML file.
+- **Prefix examples tab:** See examples of valid prefixes that select multiple blobs and files for export.
+- **Sample XML file tab:** Copy a sample XML file with examples of each tag.
 
 # [XML file overview](#tab/xml-file-overview)
 
