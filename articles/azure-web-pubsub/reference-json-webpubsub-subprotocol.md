@@ -78,13 +78,14 @@ Format:
     "type": "sendToGroup",
     "group": "<group_name>",
     "ackId" : 1, // optional
+    "echo": true|false,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
 
 * `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
-
+* `echo` is optional. If false, this message is not echoed back to the same connection. If not set, the default value is true.
 `dataType` can be one of `json`, `text`, or `binary`:
 * `json`: `data` can be any type that JSON supports and will be published as what it is; If `dataType` isn't specified, it defaults to `json`.
 * `text`: `data` should be in string format, and the string data will be published;
@@ -322,6 +323,7 @@ Clients can receive messages published from one group the client joined, or from
         "group": "<group_name>",
         "dataType": "json|text|binary",
         "data" : {} // The data format is based on the dataType
+        "fromUserId": "abc"
     }
     ```
 
