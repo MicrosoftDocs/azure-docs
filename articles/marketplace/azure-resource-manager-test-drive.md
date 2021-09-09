@@ -331,9 +331,9 @@ The final section to complete is to be able to deploy the test drives automatica
           ![Hows how to assign the contributor role](media/test-drive/access-control-permissions.jpg)
 
        1. Select **Save**.
-   1. If using Powershell:
+   1. If using PowerShell:
       1. Run this to get the ServicePrincipal object-id: `(Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive').id`.
-      1. Run this with the ObjectId and Subscription Id: `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>`.
+      1. Run this with the ObjectId and subscription ID: `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>`.
 
 > [!NOTE]
 > Before deleting the old appID, go to the Azure portal, then **Resource groups**, and search for `CloudTry_`. Check the **Event initiated by** column.
