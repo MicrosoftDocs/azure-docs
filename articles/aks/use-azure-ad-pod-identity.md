@@ -90,12 +90,13 @@ Update an existing AKS cluster with Azure CNI to include pod-managed identity.
 ```azurecli-interactive
 az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity
 ```
+
 ## Using Kubenet network plugin with Azure Active Directory pod-managed identities 
 
 > [!IMPORTANT]
 > Running aad-pod-identity in a cluster with Kubenet is not a recommended configuration because of the security implication. Please follow the mitigation steps and configure policies before enabling aad-pod-identity in a cluster with Kubenet.
 
-## Mitigation
+### Mitigation
 
 To mitigate the vulnerability at the cluster level, you can use the Azure built-in policy "Kubernetes cluster containers should only use allowed capabilities" to limit the CAP_NET_RAW attack.  
 
