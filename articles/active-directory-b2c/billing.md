@@ -78,9 +78,9 @@ To change your pricing tier, follow these steps.
 
 1. Sign in to the Azure portal.
 
-1. To select the directory that contains the Azure subscription your Azure B2C tenant is linked to and not the Azure AD B2C tenant itself, select the **Directories + subscriptions** icon in the portal toolbar.
+1. To select the Azure AD directory that contains the Azure subscription your Azure B2C tenant is linked to and not the Azure AD B2C tenant itself, select the **Directories + subscriptions** icon in the portal toolbar.
 
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 
 1. In the search box at the top of the portal, enter the name of your Azure AD B2C tenant. Then select the tenant in the search results under **Resources**.
 
