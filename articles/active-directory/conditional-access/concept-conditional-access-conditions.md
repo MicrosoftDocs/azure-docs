@@ -104,13 +104,13 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 
 | OS | Browsers |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows 10 | Microsoft Edge, Internet Explorer, Chrome, Firefox |
 | Windows 8 / 8.1 | Internet Explorer, Chrome |
 | Windows 7 | Internet Explorer, Chrome |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |
 | Android | Microsoft Edge, Intune Managed Browser, Chrome |
 | Windows Phone | Microsoft Edge, Internet Explorer |
-| Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome, Firefox |
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
@@ -121,6 +121,7 @@ These browsers support device authentication, allowing the device to be identifi
 > [!NOTE]
 > Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario. 
 > Safari is supported for device-based Conditional Access, but it can not satisfy the **Require approved client app** or **Require app protection policy** conditions. A managed browser like Microsoft Edge will satisfy approved client app and app protection policy requirements.
+> For Firefox support, starting Firefox 91 in Windows 10 version 1809 or above, configure [Windows SSO](https://support.mozilla.org/en-US/kb/windows-sso).
 
 #### Why do I see a certificate prompt in the browser
 
