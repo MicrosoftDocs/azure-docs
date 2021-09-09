@@ -269,9 +269,9 @@ Follow these guidelines if you choose to select blobs and files for export in yo
 
 # [Sample file](#tab/sample-file)
 
-The sample xml file below includes one or more examples of each xml tag that is used to select blobs and files for export in a Data Box export order.
+The sample xml file below includes one or more examples of each xml tag that is used to select blobs and files for export in a Data Box export order.<!--I restored the descriptions to the code block after reviewing the work item again. If they're in the code block, they can be copied with the sample tags, which is useful.-->
 
-For more examples of valid path and prefix formats, see Valid paths, prefixes. TAB LINK
+For more examples of valid prefix formats, see the **Valid blob, file prefixes** tab.
 
 ```xml
 <<?xml version="1.0" encoding="utf-8"?>
@@ -328,7 +328,7 @@ The prefixes that select multiple blobs or multiple files are similar:
 * Incorrect xml tags or formatting may lead to data export failure.
 * No data will be exported if the blob prefix or file prefix is invalid.
 
-# [Valid paths, prefixes](#tab/valid-paths-prefixes)
+# [Valid blob, file prefixes](#tab/valid-blob-file-prefixes)
 
 The following are examples of valid paths that select multiple blobs for export. The paths are used with the &lt;BlobPathPrefix&gt; tag.
 
