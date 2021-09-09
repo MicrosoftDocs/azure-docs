@@ -24,7 +24,7 @@ After completing this quickstart, you'll understand key concepts of the Batch se
 
 - A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
-- [Python](https://python.org/downloads) version 2.7 or 3.6, including the [pip](https://pip.pypa.io/en/stable/installing/) package manager
+- [Python](https://python.org/downloads) version 2.7 or 3.6 or later, including the [pip](https://pip.pypa.io/en/stable/installing/) package manager.
 
 ## Sign in to Azure
 
@@ -73,7 +73,6 @@ When you run the sample application, the console output is similar to the follow
 ```output
 Sample start: 11/26/2018 4:02:54 PM
 
-Container [input] created.
 Uploading file taskdata0.txt to container [input]...
 Uploading file taskdata1.txt to container [input]...
 Uploading file taskdata2.txt to container [input]...
@@ -89,7 +88,7 @@ After tasks complete, you see output similar to the following for each task:
 Printing task output...
 Task: Task0
 Node: tvm-2850684224_3-20171205t000401z
-Standard out:
+Standard output:
 Batch processing began with mainframe computers and punch cards. Today it still plays a central role in business, engineering, science, and other pursuits that require running lots of automated tasks....
 ...
 ```
@@ -101,7 +100,7 @@ Typical execution time is approximately 3 minutes when you run the application i
 The Python app in this quickstart does the following:
 
 - Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch tasks.
-- Creates a pool of two compute nodes running Ubuntu 18.04 LTS.
+- Creates a pool of two compute nodes running Ubuntu 20.04 LTS.
 - Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Bash shell command line.
 - Displays files returned by the tasks.
 
