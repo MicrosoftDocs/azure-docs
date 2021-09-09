@@ -1,3 +1,6 @@
+This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into a SQL database.  It covers  how to set up and use the generic SQL connector with the Azure AD ECMA Connector Host. 
+ 
+For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md).
 
 ## Prerequisites for the Azure AD ECMA Connector Host
 
@@ -18,16 +21,6 @@
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
  - The Hybrid Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
-
-
-
-
->[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability.
-
-This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into a SQL database. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md).
-
-This tutorial covers how to set up and use the generic SQL connector with the Azure AD ECMA Connector Host. 
 
 ## Prepare the sample database
 On a server running SQL Server, run the SQL script found in [Appendix A](#appendix-a). This script creates a sample database with the name CONTOSO. This is the database that you'll be provisioning users into.
