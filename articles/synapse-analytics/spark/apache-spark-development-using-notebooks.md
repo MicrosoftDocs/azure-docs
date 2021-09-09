@@ -37,10 +37,11 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |Drag and drop to move a cell| Not supported |&#9745;|
 |Outline (Table of Content)| Not supported |&#9745;|
 |Variable explorer| Not supported |&#9745;|
-|Format text cell with toolbar buttons|&#9745;| Not supported. Variable explorer only supports python. |
+|Format text cell with toolbar buttons|&#9745;| Not supported.|
 |Code cell commenting| Not supported | &#9745;|
 
-
+> [!NOTE]
+> Variable explorer only supports python.
 ## Create a notebook
 
 There are two ways to create a notebook. You can create a new notebook or import an existing notebook to a Synapse workspace from the **Object Explorer**. Synapse notebooks recognize standard Jupyter Notebook IPYNB files.
