@@ -185,10 +185,10 @@ Each pricing tier has different limits for client connections, memory, and bandw
 
 | Azure Cache for Redis metric | More information |
 | --- | --- |
-| Network bandwidth usage |[Cache performance - available bandwidth](/azure/azure-cache-for-redis/cache-planning-faq#azure-cache-for-redis-performance) |
+| Network bandwidth usage |[Cache performance - available bandwidth](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 | Connected clients |[Default Redis server configuration - max clients](#maxclients) |
 | Server load |[Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts) |
-| Memory usage |[Cache performance - size](/azure/azure-cache-for-redis/cache-planning-faq#azure-cache-for-redis-performance) |
+| Memory usage |[Cache performance - size](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
 To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 
@@ -494,7 +494,7 @@ When using the Redis Console with a premium clustered cache, you can issue comma
 
 If you attempt to access a key that is stored in a different shard than the connected shard, you receive an error message similar to the following message:
 
-```
+```console
 shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```

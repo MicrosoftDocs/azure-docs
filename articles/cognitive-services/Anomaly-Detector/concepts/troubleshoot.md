@@ -26,9 +26,10 @@ This article provides guidance on how to troubleshoot and remediate common error
 | `SubscriptionNotInHeaders` | 400             | apim-subscription-id is not found in headers | Please add your APIM subscription ID in the header. Example header: `{"apim-subscription-id": <Your Subscription ID>}` |
 | `FileNotExist`             | 400             | File \<source> does not exist.                  | Please check the validity of your blob shared access signature (SAS). Make sure that it has not expired. |
 | `InvalidBlobURL`           | 400             |                                                | Your blob shared access signature (SAS) is not a valid SAS.                            |
-| `StorageWriteError`        | 403             |                                                | This error is possibly caused by permission issues. Our service is not allowed to write the data to the blob encrypted by a Customer Managed Key (CMK). Either remove CMK or grant access to our service again. Please refer to [this page](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal) for more details. |
+| `StorageWriteError`        | 403             |                                                | This error is possibly caused by permission issues. Our service is not allowed to write the data to the blob encrypted by a Customer Managed Key (CMK). Either remove CMK or grant access to our service again. Please refer to [this page](../../encryption/cognitive-services-encryption-keys-portal.md) for more details. |
 | `StorageReadError`         | 403             |                                                | Same as `StorageWriteError`.                                 |
-| `UnexpectedError`          | 500             |                                                | Please contact us with detailed error information. You could take the support options from [this document](/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/anomaly-detector/context/context) or email us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com)           |
+| `UnexpectedError`          | 500             |                                                | Please contact us with detailed error information. You could take the support options from [this document](../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fanomaly-detector%2fcontext%2fcontext) or email us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com)           |
+
 
 ### Train a Multivariate Anomaly Detection Model
 
@@ -38,8 +39,8 @@ This article provides guidance on how to troubleshoot and remediate common error
 | `TooManyRunningModels`   | 400             | This subscription has reached the maximum number of running models. | Each APIM subscription ID is allowed to train 5 models concurrently. Please train a new model after previous models have completed their training process. |
 | `InvalidJsonFormat`      | 400             | Invalid json format.                                         | Training request is not a valid JSON.                        |
 | `InvalidAlignMode`       | 400             | The `'alignMode'` field must be one of the following: `'Inner'` or `'Outer'` . | Please check the value of `'alignMode'` which should be either `'Inner'` or `'Outer'` (case sensitive). |
-| `InvalidFillNAMethod`    | 400             | The `'fillNAMethod'` field must be one of the following:  `'Previous'`, `'Subsequent'`, `'Linear'`, `'Zero'`, `'Fixed'`, `'NotFill'` and it cannot be `'NotFill'` when `'alignMode'` is `'Outer'`. | Please check the value of `'fillNAMethod'`. You may refer to [this section](/azure/cognitive-services/anomaly-detector/concepts/best-practices-multivariate#fill-not-available-na) for more details. |
-| `RequiredPaddingValue`   | 400             | The `'paddingValue'` field is required in the request when `'fillNAMethod'` is `'Fixed'`. | You need to provide a valid padding value when `'fillNAMethod'` is `'Fixed'`. You may refer to [this section](/azure/cognitive-services/anomaly-detector/concepts/best-practices-multivariate#fill-not-available-na) for more details. |
+| `InvalidFillNAMethod`    | 400             | The `'fillNAMethod'` field must be one of the following:  `'Previous'`, `'Subsequent'`, `'Linear'`, `'Zero'`, `'Fixed'`, `'NotFill'` and it cannot be `'NotFill'` when `'alignMode'` is `'Outer'`. | Please check the value of `'fillNAMethod'`. You may refer to [this section](./best-practices-multivariate.md#optional-parameters-for-training-api) for more details. |
+| `RequiredPaddingValue`   | 400             | The `'paddingValue'` field is required in the request when `'fillNAMethod'` is `'Fixed'`. | You need to provide a valid padding value when `'fillNAMethod'` is `'Fixed'`. You may refer to [this section](./best-practices-multivariate.md#optional-parameters-for-training-api) for more details. |
 | `RequiredSource`         | 400             | The `'source'` field is required in the request.             | Your training request has not specified a value for the `'source'` field. Example: `{"source": <Your Blob SAS>}`. |
 | `RequiredStartTime`      | 400             | The `'startTime'` field is required in the request.          | Your training request has not specified a value for the `'startTime'` field. Example: `{"startTime": "2021-01-01T00:00:00Z"}`. |
 | `InvalidTimestampFormat` | 400             | Invalid Timestamp format. `<timestamp>` is not a valid format. | The format of timestamp in the request body is not correct. You may try `import pandas as pd; pd.to_datetime(timestamp)` to verify. |
@@ -51,6 +52,12 @@ This article provides guidance on how to troubleshoot and remediate common error
 | Error Code      | HTTP Error Code | Error Message             | Comment                                                      |
 | --------------- | --------------- | ------------------------- | ------------------------------------------------------------ |
 | `ModelNotExist` | 404             | The model does not exist. | The model with corresponding model ID does not exist. Please check the model ID in the request URL. |
+
+### List Multivariate Models
+
+| Error Code      | HTTP Error Code | Error Message             | Comment                                                      |
+| --------------- | --------------- | ------------------------- | ------------------------------------------------------------ |
+|`InvalidRequestParameterError`| 400             | Invalid values for $skip or $top … | Please check whether the values for the two parameters are numerical. $skip and $top are used to list the models with pagination. Because the API only returns 10 most recently updated models, you could use $skip and $top to get models updated earlier. | 
 
 ### Anomaly Detection with a Trained Model
 

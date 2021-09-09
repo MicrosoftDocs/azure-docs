@@ -5,8 +5,9 @@ author: shirleywangmsft
 ms.author: shwang
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/07/2021
 ---
 
 # Understanding Data Factory pricing through examples
@@ -120,6 +121,16 @@ To accomplish the scenario, you need to create a pipeline with the following ite
   - Pipeline Activity = $0.00003 (Prorated for 1 minute of execution time. $0.002/hour on Azure Integration Runtime)
   - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
 
+## Run SSIS packages on Azure-SSIS integration runtime
+
+Azure-SSIS integration runtime (IR) is a specialized cluster of Azure virtual machines (VMs) for SSIS package executions in Azure Data Factory (ADF). When you provision it, it will be dedicated to you, hence it will be charged just like any other dedicated Azure VMs as long as you keep it running, regardless whether you use it to execute SSIS packages or not. With respect to its running cost, you’ll see the hourly estimate on its setup pane in ADF portal, for example:  
+
+![SSIS pricing example](media/pricing-concepts/ssis-pricing-example.png)
+
+In the above example, if you keep your Azure-SSIS IR running for 2 hours, you'll be charged: **2 (hours) x US$1.158/hour = US$2.316**.
+
+To manage your Azure-SSIS IR running cost, you can scale down your VM size, scale in your cluster size, bring your own SQL Server license via Azure Hybrid Benefit (AHB) option that offers significant savings, see [Azure-SSIS IR pricing](https://azure.microsoft.com/pricing/details/data-factory/ssis/), and or start & stop your Azure-SSIS IR whenever convenient/on demand/just in time to process your SSIS workloads, see [Reconfigure Azure-SSIS IR](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir) and [Schedule Azure-SSIS IR](how-to-schedule-azure-ssis-integration-runtime.md).
+
 ## Using mapping data flow debug for a normal workday
 
 As a Data Engineer, Sam is responsible for designing, building, and testing mapping data flows every day. Sam logs into the ADF UI in the morning and enables the Debug mode for Data Flows. The default TTL for Debug sessions is 60 minutes. Sam works throughout the day for 8 hours, so the Debug session never expires. Therefore, Sam's charges for the day will be:
@@ -180,20 +191,20 @@ To accomplish the scenario, you need to create two pipelines with the following 
 | Create Pipeline | 6 Read/Write entities (2 for pipeline creation, 4 for dataset references) |
 | Get Pipeline | 2 Read/Write entity |
 | Run Pipeline | 6 Activity runs (2 for trigger run, 4 for activity runs) |
-| Execute Delete Activity: each execution time = 5 min. The Delete Activity execution in first pipeline is from 10:00 AM UTC to 10:05 AM UTC. The Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC.|Total 7 min pipeline activity execution in Managed VNET. Pipeline activity supports up to 50 concurrency in Managed VNET. |
+| Execute Delete Activity: each execution time = 5 min. The Delete Activity execution in first pipeline is from 10:00 AM UTC to 10:05 AM UTC. The Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC.|Total 7 min pipeline activity execution in Managed VNET. Pipeline activity supports up to 50 concurrency in Managed VNET. There is a 60 minutes Time To Live (TTL) for pipeline activity|
 | Copy Data Assumption: each execution time = 10 min. The Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC. The Copy Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 | Monitor Pipeline Assumption: Only 2 runs occurred | 6 Monitoring run records retrieved (2 for pipeline run, 4 for activity run) |
 
 
-**Total Scenario pricing: $0.45523**
+**Total Scenario pricing: $1.45523**
 
 - Data Factory Operations = $0.00023
   - Read/Write = 20*00001 = $0.0002 [1 R/W = $0.50/50000 = 0.00001]
   - Monitoring = 6*000005 = $0.00003 [1 Monitoring = $0.25/50000 = 0.000005]
-- Pipeline Orchestration & Execution = $0.455
+- Pipeline Orchestration & Execution = $1.455
   - Activity Runs = 0.001*6 = 0.006 [1 run = $1/1000 = 0.001]
   - Data Movement Activities = $0.333 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
-  - Pipeline Activity = $0.116 (Prorated for 7 minutes of execution time. $1/hour on Azure Integration Runtime)
+  - Pipeline Activity = $1.116 (Prorated for 7 minutes of execution time plus 60 minutes TTL. $1/hour on Azure Integration Runtime)
 
 > [!NOTE] 
 > These prices are for example purposes only.

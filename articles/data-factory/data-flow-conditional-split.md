@@ -1,13 +1,15 @@
 ---
 title: Conditional split transformation in mapping data flow 
-description: Split data into different streams using the conditional split transformation in Azure Data Factory mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Split data into different streams using the conditional split transformation in a mapping data flow in Azure Data Factory or Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 05/21/2020
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
 # Conditional split transformation in mapping data flow
@@ -44,7 +46,7 @@ Use the data flow expression builder to enter an expression for the split condit
 
 The below example is a conditional split transformation named `SplitByYear` that takes in incoming stream `CleanData`. This transformation has two split conditions `year < 1960` and `year > 1980`. `disjoint` is false because the data goes to the first matching condition. Every row matching the first condition goes to output stream `moviesBefore1960`. All remaining rows matching the second condition go to output stream `moviesAFter1980`. All other rows flow through the default stream `AllOtherMovies`.
 
-In the Data Factory UX, this transformation looks like the below image:
+In the service UI, this transformation looks like the below image:
 
 ![conditional split](media/data-flow/conditionalsplit1.png "conditional split options")
 

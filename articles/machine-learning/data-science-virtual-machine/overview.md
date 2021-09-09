@@ -24,7 +24,7 @@ The DSVM is available on:
 
 ## Comparison with Azure Machine Learning
 
-The DSVM is a customized VM image for Data Science but [Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) is an end-to-end platform that encompasses:
+The DSVM is a customized VM image for Data Science but [Azure Machine Learning](../overview-what-is-azure-machine-learning.md) (AzureML) is an end-to-end platform that encompasses:
 
 + Fully Managed Compute
   + Compute Instances

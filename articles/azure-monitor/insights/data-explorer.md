@@ -1,5 +1,5 @@
 ---
-title: Azure Data Explorer Insights (ADX Insights preview)| Microsoft Docs
+title: Azure Data Explorer Insights (ADX Insights)| Microsoft Docs
 description: This article describes Azure Data Explorer Insights (ADX Insights)
 services: azure-monitor 
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.author: lagayhar
 
 ---
 
-# Azure Data Explorer Insights (preview)
+# Azure Data Explorer Insights
 
-Azure Data Explorer Insights (preview) provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures.
-This article will help you understand how to onboard and use Azure Data Explorer Insights (preview).
+Azure Data Explorer Insights provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures.
+This article will help you understand how to onboard and use Azure Data Explorer Insights.
 
-## Introduction to Azure Data Explorer Insights (preview)
+## Introduction to Azure Data Explorer Insights
 
 Before jumping into the experience, you should understand how it presents and visualizes information.
 -    **At scale perspective** showing a snapshot view of your clusters' primary metrics, to easily track performance of queries, ingestion, and export operations.
@@ -29,7 +29,7 @@ To view the performance of your clusters across all your subscriptions, perform 
 
 1. Sign into the [Azure portal](https://portal.azure.com/)
 
-2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights Hub section, select **Azure Data Explorer Clusters (preview)**.
+2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights Hub section, select **Azure Data Explorer Clusters**.
 
 ![Screenshot of overview experience with multiple graphs](./media/data-explorer/insights-hub.png)
 
@@ -73,7 +73,7 @@ To access Azure Data Explorer Insights directly from an Azure Data Explorer Clus
 
 1. In the Azure portal, select **Azure Data Explorer Clusters**.
 
-2. From the list, choose an Azure Data Explorer Cluster. In the monitoring section, choose **Insights (preview)**.
+2. From the list, choose an Azure Data Explorer Cluster. In the monitoring section, choose **Insights**.
 
 These views are also accessible by selecting the resource name of an Azure Data Explorer cluster from within the Azure Monitor insights view.
 
@@ -110,7 +110,7 @@ The **Usage** tab allows users to deep dive into the performance of the cluster'
 
 The **tables** tab shows the latest and historical properties of tables in the cluster. You can see which tables are consuming the most space, track growth history by table size, hot data, and the number of rows over time.
 
-The **cache** tab allows users to analyze their actual queries' lookback window patterns and compare them to the configured cache policy (for each table). You can identify tables used by the most queries and tables that are not queried at all, and adapt the cache policy accordingly. You may get particular cache policy recommendations on specific tables in Azure Advisor (currently, cache recommendations are available only from the [main Azure Advisor dashboard](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), based on actual queries' lookback window in the past 30 days and an un-optimized cache policy for at least 95% of the queries. Cache reduction recommendations in Azure Advisor are available for clusters that are "bounded by data" (meaning the cluster has low CPU and low ingestion utilization, but because of high data capacity, the cluster could not scale-in or scale-down).
+The **cache** tab allows users to analyze their actual queries' lookback window patterns and compare them to the configured cache policy (for each table). You can identify tables used by the most queries and tables that are not queried at all, and adapt the cache policy accordingly. You may get particular cache policy recommendations on specific tables in Azure Advisor (currently, cache recommendations are available only from the [main Azure Advisor dashboard](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), based on actual queries' lookback window in the past 30 days and an un-optimized cache policy for at least 95% of the queries. Cache reduction recommendations in Azure Advisor are available for clusters that are "bounded by data" (meaning the cluster has low CPU and low ingestion utilization, but because of high data capacity, the cluster could not scale-in or scale-down).
 
 [![Screenshot of cache details](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
@@ -144,7 +144,7 @@ Customizations are saved to a custom workbook to prevent overwriting the default
 
 For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
 
-This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Data Explorer Insights (preview). Use the list below to locate the information relevant to your specific issue.
+This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Data Explorer Insights. Use the list below to locate the information relevant to your specific issue.
 
 ### Why don't I see all my subscriptions in the subscription picker?
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop troubleshooting overview - Azure
-description: An overview for troubleshooting issues while setting up a Azure Virtual Desktop environment.
+description: An overview for troubleshooting issues while setting up an Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 12/04/2020
@@ -12,11 +12,11 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
-This article provides an overview of the issues you may encounter when setting up a Azure Virtual Desktop environment and provides ways to resolve the issues.
+This article provides an overview of the issues you may encounter when setting up an Azure Virtual Desktop environment and provides ways to resolve the issues.
 
 ## Report issues
 
-To report issues or suggest features for Azure Virtual Desktop with Azure Resource Manager integration, visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). You can use the Tech Community to discuss best practices or suggest and vote for new features.
+To report issues or suggest features for Azure Virtual Desktop with Azure Resource Manager integration, visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum). You can use the Tech Community to discuss best practices or suggest and vote for new features.
 
 When you make a post asking for help or propose a new feature, make sure you describe your topic in as much detail as possible. Detailed information can help other users answer your question or understand the feature you're proposing a vote for.
 
@@ -41,11 +41,11 @@ Use the following table to identify and resolve issues you may encounter when se
 | Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Issues with third-party authentication methods or tools | Verify that your third-party provider supports Azure Virtual Desktop scenarios and approach them regarding any known issues. |
 | Issues using Log Analytics for Azure Virtual Desktop | For issues with the diagnostics schema, [open an Azure support request](https://azure.microsoft.com/support/create-ticket/).<br><br>For queries, visualization, or other issues in Log Analytics, select the appropriate problem type under Log Analytics. |
-| Issues using M365 apps | Contact the M365 admin center with one of the [M365 admin center help options](/microsoft-365/admin/contact-support-for-business-products/). |
+| Issues using Microsoft 365 apps | Contact the Microsoft 365 admin center with one of the [Microsoft 365 admin center help options](/microsoft-365/admin/contact-support-for-business-products/). |
 
 ## Next steps
 
-- To troubleshoot issues while creating a host pool in a Azure Virtual Desktop environment, see [host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while creating a host pool in an Azure Virtual Desktop environment, see [host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues related to the Azure Virtual Desktop agent or session connectivity, see [Troubleshoot common Azure Virtual Desktop Agent issues](troubleshoot-agent.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection.md).

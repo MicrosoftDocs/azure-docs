@@ -2,7 +2,7 @@
 title: Bring your own key specification - Azure Key Vault | Microsoft Docs
 description: This document described bring your own key specification. 
 services: key-vault
-author: amitbapat
+author: mbaldwin
 manager: devtiw
 tags: azure-resource-manager
 
@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.author: ambapat 
+ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 
 ---

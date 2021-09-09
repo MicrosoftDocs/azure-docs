@@ -33,7 +33,7 @@
     href: ./tutorials/protect-new-resources.md
   - name: "Learn: Govern multiple subscriptions by using Azure Blueprints"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/10-govern-subscriptions-azure-blueprints
+    href: /learn/modules/build-cloud-governance-strategy-azure/8-govern-subscriptions-azure-blueprints
 - name: Samples
   items:
   - name: Index
@@ -268,8 +268,8 @@
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure Friday - Azure Blueprints Overview
     href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice

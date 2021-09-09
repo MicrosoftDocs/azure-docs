@@ -5,7 +5,6 @@ services: sql-database
 ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: seoapril2019, devx-track-azurepowershell
-ms.devlang: sqldbrb=2
 ms.topic: how-to
 author: AlainDormehlMSFT
 ms.author: aldorme

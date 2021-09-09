@@ -3,28 +3,30 @@ title: What is BareMetal Infrastructure on Azure?
 description: Provides an overview of the BareMetal Infrastructure on Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 07/13/2021
 ---
 
 #  What is BareMetal Infrastructure on Azure?
 
-Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs. In some cases, though, you may need to run services on bare metal servers without a virtualization layer. You may need root access, and control over the operating system (OS). To meet such a need, Azure offers BareMetal Infrastructure for several high-value and mission-critical applications.
+Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs. In some cases, though, you may need to run services on bare metal servers without a virtualization layer. You may need root access and control over the operating system (OS). To meet this need, Azure offers BareMetal Infrastructure for several high-value, mission-critical applications.
 
-BareMetal Infrastructure is made up of dedicated BareMetal instances (compute instances). It features high-performance and application-appropriate storage (NFS, ISCSI, and Fiber Channel) and a set of function-specific virtual LANs (VLANs) in an isolated environment. Storage can be shared across BareMetal instances to enable features like scale-out clusters or high availability pairs with STONITH.
+BareMetal Infrastructure is made up of dedicated BareMetal instances (compute instances). It features:
+- High-performance storage appropriate to the application (NFS, ISCSI, and Fiber Channel). Storage can also be shared across BareMetal instances to enable features like scale-out clusters or high availability pairs with STONITH. 
+- A set of function-specific virtual LANs (VLANs) in an isolated environment. 
  
 This environment also has special VLANs you can access if you're running virtual machines (VMs) on one or more Azure Virtual Networks (VNets) in your Azure subscription. The entire environment is represented as a resource group in your Azure subscription.
 
-BareMetal Infrastructure is offered in over 30 SKUs from 2-socket to 24-socket servers and memory ranging from 1.5 TB up to 24 TBs. A large set of SKUs is also available with Octane memory. Azure offers the largest range of bare metal instances in a hyperscale cloud.
+BareMetal Infrastructure is offered in over 30 SKUs from 2-socket to 24-socket servers and memory ranging from 1.5 TBs up to 24 TBs. A large set of SKUs is also available with Octane memory. Azure offers the largest range of bare metal instances in a hyperscale cloud.
 
 ## Why BareMetal Infrastructure?  
 
-Some central workloads in the enterprise are made up of technologies that just aren't designed to run in a typical virtualized cloud setting. They require special architecture, certified hardware, or extraordinarily large sizes. Although those technologies have the most sophisticated data protection and business continuity features, those features aren't built for the virtualized cloud. They're more sensitive to latencies, noisy neighbors, and require a lot more control over change management and maintenance activity.
+Some workloads in the enterprise are made up of technologies that just aren't designed to run in a typical virtualized cloud setting. They require special architecture, certified hardware, or extraordinarily large sizes. Although those technologies have the most sophisticated data protection and business continuity features, those features aren't built for the virtualized cloud. They're more sensitive to latencies and noisy neighbors and require more control over change management and maintenance activity.
 
 BareMetal Infrastructure is built, certified, and tested for a select set of such applications. Azure was the first to offer such solutions, and has since lead with the largest portfolio and most sophisticated systems.
 
 ### BareMetal benefits  
 
-BareMetal Infrastructure is intended for mission critical workloads that require certification to run your enterprise applications. The BareMetal instances are dedicated only to you, and you'll have full access (root access) to the operating system (OS). You manage OS and application installation according to your needs. For security, the instances are provisioned within your Azure Virtual Network (VNet) with no internet connectivity. Only services running on your virtual machines (VMs), and other Azure services in same Tier 2 network, can communicate with your BareMetal instances.  
+BareMetal Infrastructure is intended for critical workloads that require certification to run your enterprise applications. The BareMetal instances are dedicated only to you, and you'll have full access (root access) to the operating system (OS). You manage OS and application installation according to your needs. For security, the instances are provisioned within your Azure Virtual Network (VNet) with no internet connectivity. Only services running on your virtual machines (VMs), and other Azure services in same Tier 2 network, can communicate with your BareMetal instances.  
 
 BareMetal Infrastructure offers these benefits:
 
@@ -48,7 +50,7 @@ BareMetal Infrastructure offers these benefits:
 BareMetal Infrastructure offers multiple SKUs certified for specialized workloads. Use the workload-specific SKUs to meet your needs.
 
 - Large instances – Ranging from two-socket to four-socket systems.  
-- Very Large instances – Ranging from four-socket to twenty-socket systems. 
+- Very Large instances – Ranging from 4-socket to 20-socket systems. 
 
 BareMetal Infrastructure for specialized workloads is available in the following Azure regions:
 - West Europe
@@ -65,11 +67,11 @@ BareMetal Infrastructure for specialized workloads is available in the following
 
 ## Managing BareMetal instances in Azure 
 
-Depending on your needs, the application topologies of BareMetal Infrastructure can be complex. You may deploy multiple instances, in one or more locations, with shared or dedicated storage and specialized LAN and WAN connections. So for BareMetal Infrastructure, Azure offers a consultative capture of that information by a CSA/GBB in the field in a provisioning portal. 
+Depending on your needs, the application topologies of BareMetal Infrastructure can be complex. You may deploy multiple instances in one or more locations. The instances can have shared or dedicated storage, and specialized LAN and WAN connections. So for BareMetal Infrastructure, Azure offers a consultation by a CSA/GBB in the field to work with you. 
 
 By the time your BareMetal Infrastructure is provisioned, the OS, networks, storage volumes, placements in zones and regions, and WAN connections between locations are already pre-configured. You're set to register your OS licenses (BYOL), configure the OS, and install the application layer.
 
-You'll be able to see all the BareMetal resources, and their state and attributes, in the Azure portal. You can also operate the instances and open service requests and support tickets from there. 
+You'll see all the BareMetal resources,and their state and attributes, in the Azure portal. You can also operate the instances and open service requests and support tickets from there. 
 
 ## Operational model
 
@@ -153,7 +155,7 @@ The architecture shown is divided into three sections:
 
 ## Next steps
 
-The next step is to learn how to identify and interact with BareMetal instances through the Azure portal.
+Learn how to identify and interact with BareMetal instances through the Azure portal.
 
 > [!div class="nextstepaction"]
 > [Manage BareMetal instances through the Azure portal](connect-baremetal-infrastructure.md)

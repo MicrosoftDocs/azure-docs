@@ -4,6 +4,7 @@ description: This article compares Azure Data Factory with Azure Data Factory ve
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: overview
 ms.date: 04/09/2018
 ---

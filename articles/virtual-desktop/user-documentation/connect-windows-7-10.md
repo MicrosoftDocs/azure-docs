@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop Windows 10 or 7 - Azure
 description: How to connect to Azure Virtual Desktop using the Windows Desktop client.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
 ms.custom: template-how-to
@@ -11,14 +11,14 @@ ms.custom: template-how-to
 
 # Connect with the Windows Desktop client
 
-You can access Azure Virtual Desktop resources on devices with Windows 10, Windows 10 IoT Enterprise, and  Windows 7 using the Windows Desktop client. 
+You can access Azure Virtual Desktop resources on devices with Windows 10, Windows 10 IoT Enterprise, and Windows 7 using the Windows Desktop client. 
 
 > [!IMPORTANT]
-> This does not support Window 8 or Windows 8.1.
+> This method doesn't support Windows 8 or Windows 8.1.
 > 
-> This only supports Azure Resource Manager objects, to support objects without Azure Resource Manager, see [Connect with Windows Desktop (classic) client](../virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
+> This method only supports Azure Resource Manager objects. To support objects without Azure Resource Manager, see [Connect with Windows Desktop (classic) client](../virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 > 
-> This does not support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
+> This method also doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
 
 ## Install the Windows Desktop client
 
@@ -50,7 +50,7 @@ To launch the resource once subscribed, go to the **Connection Center** and doub
 ### Use a user account
 
 1. Select **Subscribe** from the main page.
-1. Sign in with your user account when prompted.
+2. Sign in with your user account when prompted.
 
 The resources grouped by workspace will appear in the **Connection Center**.
 
@@ -62,7 +62,7 @@ The resources grouped by workspace will appear in the **Connection Center**.
 ### Use a specific URL
 
 1. Select **Subscribe with URL** from the main page.
-1. Enter either the *Workspace URL* or an *email address*:
+2. Enter either the *Workspace URL* or an *email address*:
    - For **Workspace URL**, use the URL provided by your admin.
 
    |Available Resources|URL|
@@ -70,13 +70,14 @@ The resources grouped by workspace will appear in the **Connection Center**.
    |Azure Virtual Desktop (classic)|`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`|
    |Azure Virtual Desktop|`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`|
    |Azure Virtual Desktop (US Gov)|`https://rdweb.wvd.azure.us/api/arm/feeddiscovery`|
+   |Azure Virtual Desktop (China)|`https://rdweb.wvd.azure.cn/api/arm/feeddiscovery`|
    
    - For **Email**, use your email address. 
       
    The client will find the URL associated with your email, provided your admin has enabled [email discovery](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 
-1. Select **Next**.
-1. Sign in with your user account when prompted.
+3. Select **Next**.
+4. Sign in with your user account when prompted.
 
 The resources grouped by workspace will appear in the **Connection Center**.
 

@@ -1,13 +1,15 @@
 ---
 title: Filter transformation in mapping data flow 
-description: Filter out rows using the filter transformation in Azure Data Factory mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Filter out rows using the filter transformation in a mapping data flow in Azure Data Factory or Synapse Analytics.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 05/26/2020
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
 # Filter transformation in mapping data flow
@@ -39,7 +41,7 @@ Use the data flow expression builder to enter an expression for the filter condi
 
 The below example is a filter transformation named `FilterBefore1960` that takes in incoming stream `CleanData`. The filter condition is the expression `year <= 1960`.
 
-In the Data Factory UX, this transformation looks like the below image:
+In the UI, this transformation looks like the below image:
 
 ![Filter transformation](media/data-flow/filter1.png "Filter transformation")
 

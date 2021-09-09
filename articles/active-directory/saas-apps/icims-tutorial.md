@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `icims.com`
 
     c. In the **Reply URL** text box, type the URL:
-    `https://.icims.com/`
+    `https://*.icims.com/*`
 
     > [!NOTE]
 	> The Sign on URL value is not real. Update this value with the actual Sign on URL. Contact [ICIMS Client support team](https://www.icims.com/contact-us) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

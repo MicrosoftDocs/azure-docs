@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: chpalm
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
@@ -18,6 +18,10 @@ Azure Communication Services is committed to helping our customers meet their pr
 ## Data residency
 
 When creating an Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data may transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
+
+## Data collection
+
+Azure Communication Services only collects diagnostic data required to deliver the service. 
 
 ## Data residency and events
 

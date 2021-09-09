@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage the twin graph with relationships
+title: Manage the twin graph and relationships
 titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
@@ -21,7 +21,7 @@ The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) re
 
 Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
-This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage digital twins](how-to-manage-twin.md).
+This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [Manage digital twins](how-to-manage-twin.md).
 
 ## Prerequisites
 
@@ -53,13 +53,13 @@ The following code sample illustrates how to create a relationship in your Azure
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod" highlight="13":::
 
-This custom function can now be called to create a _contains_ relationship like this: 
+This custom function can now be called to create a _contains_ relationship in the following way: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
 
 If you wish to create multiple relationships, you can repeat calls to the same method, passing different relationship types into the argument. 
 
-For more information on the helper class `BasicRelationship`, see [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
+For more information on the helper class `BasicRelationship`, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
 
 ### Create multiple relationships between twins
 
@@ -68,11 +68,11 @@ Relationships can be classified as either:
 * Outgoing relationships: Relationships belonging to this twin that point outward to connect it to other twins. The `GetRelationshipsAsync()` method is used to get outgoing relationships of a twin.
 * Incoming relationships: Relationships belonging to other twins that point towards this twin to create an "incoming" link. The `GetIncomingRelationshipsAsync()` method is used to get incoming relationships of a twin.
 
-There is no restriction on the number of relationships that you can have between two twins—you can have as many relationships between twins as you like. 
+There's no restriction on the number of relationships that you can have between two twins—you can have as many relationships between twins as you like. 
 
 This means that you can express several different types of relationships between two twins at once. For example, Twin A can have both a *stored* relationship and *manufactured* relationship with Twin B.
 
-You can even create multiple instances of the same type of relationship between the same two twins, if desired. In this example, Twin A could have two different *stored* relationships with Twin B, as long as the relationships have different relationship IDs.
+You can even create multiple instances of the same type of relationship between the same two twins, if you want. In this example, Twin A could have two different *stored* relationships with Twin B, as long as the relationships have different relationship IDs.
 
 ## List relationships
 
@@ -88,9 +88,9 @@ To access the list of **outgoing** relationships for a given twin in the graph, 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
 
-This returns an `Azure.Pageable<T>` or `Azure.AsyncPageable<T>`, depending on whether you use the synchronous or asynchronous version of the call.
+This method returns an `Azure.Pageable<T>` or `Azure.AsyncPageable<T>`, depending on whether you use the synchronous or asynchronous version of the call.
 
-Here is an example that retrieves a list of relationships. It uses the SDK call (highlighted) inside a custom method that might appear in the context of a larger program.
+Here's an example that retrieves a list of relationships. It uses the SDK call (highlighted) inside a custom method that might appear in the context of a larger program.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod" highlight="8":::
 
@@ -98,11 +98,11 @@ You can now call this custom method to see the outgoing relationships of the twi
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindOutgoingRelationships":::
 
-You can use the retrieved relationships to navigate to other twins in your graph. To do this, read the `target` field from the relationship that is returned, and use it as the ID for your next call to `GetDigitalTwin()`.
+You can use the retrieved relationships to navigate to other twins in your graph by reading the `target` field from the relationship that is returned, and using it as the ID for your next call to `GetDigitalTwin()`.
 
 ### List incoming relationships to a digital twin
 
-Azure Digital Twins also has an API to find all **incoming** relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
+Azure Digital Twins also has an SDK call to find all **incoming** relationships to a given twin. This SDK is often useful for reverse navigation, or when deleting a twin.
 
 >[!NOTE]
 > `IncomingRelationship` calls don't return the full body of the relationship. For more information on the `IncomingRelationship` class, see its [reference documentation](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
@@ -117,7 +117,7 @@ You can now call this custom method to see the incoming relationships of the twi
 
 ### List all twin properties and relationships
 
-Using the above methods for listing outgoing and incoming relationships to a twin, you can create a method that prints full twin information, including the twin's properties and both types of its relationships. Here is an example custom method showing how to combine the above custom methods for this purpose.
+Using the above methods for listing outgoing and incoming relationships to a twin, you can create a method that prints full twin information, including the twin's properties and both types of its relationships. Here's an example custom method showing how to combine the above custom methods for this purpose.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
 
@@ -132,13 +132,16 @@ Relationships are updated using the `UpdateRelationship` method.
 >[!NOTE]
 >This method is for updating the **properties** of a relationship. If you need to change the source twin or target twin of the relationship, you'll need to [delete the relationship](#delete-relationships) and [re-create one](#create-relationships) using the new twins.
 
-The required parameters for the client call are the ID of the source twin (the twin where the relationship originates), the ID of the relationship to update, and a [JSON Patch](http://jsonpatch.com/) document containing the properties and new values you want to update.
+The required parameters for the client call are:
+- The ID of the source twin (the twin where the relationship originates).
+- The ID of the relationship to update.
+- A [JSON Patch](http://jsonpatch.com/) document containing the properties and new values you want to update.
 
-Here is sample code showing how to use this method. This example uses the SDK call (highlighted) inside a custom method that might appear in the context of a larger program.
+Here's a sample code snippet showing how to use this method. This example uses the SDK call (highlighted) inside a custom method that might appear in the context of a larger program.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod" highlight="6":::
 
-Here is an example of a call to this custom method, passing in a JSON Patch document with the information to update a property.
+Here's an example of a call to this custom method, passing in a JSON Patch document with the information to update a property.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
 
@@ -146,7 +149,7 @@ Here is an example of a call to this custom method, passing in a JSON Patch docu
 
 The first parameter specifies the source twin (the twin where the relationship originates). The other parameter is the relationship ID. You need both the twin ID and the relationship ID, because relationship IDs are only unique within the scope of a twin.
 
-Here is sample code showing how to use this method. This example uses the SDK call (highlighted) inside a custom method that might appear in the context of a larger program.
+Here's sample code showing how to use this method. This example uses the SDK call (highlighted) inside a custom method that might appear in the context of a larger program.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod" highlight="5":::
 
@@ -167,9 +170,9 @@ Consider the following data table, describing a set of digital twins 
 | dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
 | dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
 
-One way to get this data into Azure Digital Twins is to convert the table to a CSV file and write code to interpret the file into commands to create twins and relationships. The following code sample illustrates reading the data from the CSV file and creating a twin graph in Azure Digital Twins.
+One way to get this data into Azure Digital Twins is to convert the table to a CSV file. Once the table is converted, code can be written to interpret the file into commands to create twins and relationships. The following code sample illustrates reading the data from the CSV file and creating a twin graph in Azure Digital Twins.
 
-In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **host name** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
+In the code below, the CSV file is called *data.csv*, and there's a placeholder representing the **host name** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graphFromCSV.cs":::
 
@@ -199,14 +202,14 @@ Next, complete the following steps to configure your project code:
       dotnet add package Azure.Identity
       ```
 
-You'll also need to set up local credentials if you want to run the sample directly. The next section walks through this.
+You'll also need to set up local credentials if you want to run the sample directly. The next section walks through this process.
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
 ### Run the sample
 
 Now that you've completed setup, you can run the sample code project.
 
-Here is the console output of the program: 
+Here's the console output of the program: 
 
 :::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Screenshot of the console output showing the twin details with incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
@@ -216,5 +219,5 @@ Here is the console output of the program:
 ## Next steps
 
 Learn about querying an Azure Digital Twins twin graph:
-* [Concepts: Query language](concepts-query-language.md)
-* [How-to: Query the twin graph](how-to-query-graph.md)
+* [Query language](concepts-query-language.md)
+* [Query the twin graph](how-to-query-graph.md)

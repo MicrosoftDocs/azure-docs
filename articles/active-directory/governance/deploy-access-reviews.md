@@ -81,7 +81,7 @@ The following videos may be useful as you learn about Access Reviews:
 
 You need a valid Azure AD Premium (P2) license for each person, other than Global Administrators or User Administrators, who will create or perform Access Reviews. For more information, see [Access Reviews license requirements](access-reviews-overview.md).
 
-You may also need other Identity Governance features, such as [Entitlement Lifecycle Management](entitlement-management-overview.md) or Privileged Identity Managements. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+You may also need other Identity Governance features, such as [Entitlement Lifecycle Management](entitlement-management-overview.md) or Privileged Identity Managements. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Plan the Access Reviews deployment project
 
@@ -277,7 +277,7 @@ External identities can be granted access to company resources through one of th
 
 * Assigned a privileged role in Azure AD or in an Azure subscription
 
-See [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). The script will show where external identities invited into the tenant are used. You can see external user’s group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example direct rights assignment to Sharepoint resources, without the use of groups.
+See [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). The script will show where external identities invited into the tenant are used. You can see external user’s group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example direct rights assignment to SharePoint resources, without the use of groups.
 
 When creating an Access Review for groups or applications, you can choose to let the reviewer focus on Everyone with access, or Guest users only. By selecting Guest users only, reviewers are given a focused list of external identities from Azure AD B2B that have access to the resource.
 
@@ -335,7 +335,7 @@ Go to [Use Azure AD access reviews to manage users excluded from Conditional Acc
 
 ### Review guest users' group memberships
 
-Go to [Manage guest access with Azure AD access reviews](./manage-guest-access-with-access-reviews.md) to learn how to review guest users' access to group memeberships.
+Go to [Manage guest access with Azure AD access reviews](./manage-guest-access-with-access-reviews.md) to learn how to review guest users' access to group memberships.
 
 ### Review access to on-premises groups
 

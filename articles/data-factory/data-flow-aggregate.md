@@ -1,13 +1,15 @@
 ---
 title: Aggregate transformation in mapping data flow
-description: Learn how to aggregate data at scale in Azure Data Factory with the mapping data flow Aggregate transformation.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to aggregate data at scale in Azure Data Factory and Synapse Analyatics with the mapping data flow Aggregate transformation.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/14/2020
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
 # Aggregate transformation in mapping data flow
@@ -79,7 +81,7 @@ For data validation scenarios, the `count()` function can be used to count how m
 
 The below example takes an incoming stream `MoviesYear` and groups rows by column `year`. The transformation creates an aggregate column `avgrating` that evaluates to the average of column `Rating`. This aggregate transformation is named `AvgComedyRatingsByYear`.
 
-In the Data Factory UX, this transformation looks like the below image:
+In the UI, this transformation looks like the below image:
 
 ![Group by example](media/data-flow/agg-script1.png "Group by example")
 

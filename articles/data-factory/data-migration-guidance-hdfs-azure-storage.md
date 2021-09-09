@@ -4,6 +4,7 @@ description: Learn how to use Azure Data Factory to migrate data from on-premise
 ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019

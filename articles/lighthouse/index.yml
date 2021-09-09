@@ -69,7 +69,7 @@ landingContent:
         links:
           - text: View and manage service providers
             url: ./how-to/view-manage-service-providers.md
-          - text: View managing tenant activity
+          - text: Monitor managing tenant activity
             url: ./how-to/view-service-provider-activity.md
 
   - title: Samples and templates

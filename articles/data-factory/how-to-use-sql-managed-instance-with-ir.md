@@ -4,6 +4,7 @@ description: Learn how to use Azure SQL Managed Instance with SQL Server Integra
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 4/15/2020
 ---
@@ -87,7 +88,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     1. Make sure that you have no [resource lock](../azure-resource-manager/management/lock-resources.md) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
 
-    1. Make sure that you don't have an Azure policy that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
+    1. Make sure that you don't have an Azure Policy definition that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 

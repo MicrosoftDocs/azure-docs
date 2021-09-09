@@ -4,6 +4,7 @@ description:  This tutorial provides best practices for writing to files to data
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/04/2021

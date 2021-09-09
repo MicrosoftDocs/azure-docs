@@ -21,6 +21,9 @@ Each runbook in Azure Automation has two versions, Draft and Published. You edit
 
 This article provides detailed steps for performing different functions with this editor. These are not applicable to [graphical runbooks](automation-runbook-types.md#graphical-runbooks). To work with these runbooks, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 
+> [!IMPORTANT] 
+> Do not include the keyword "AzureRm" in any script designed to be executed with the Az module. Inclusion of the keyword, even in a comment, may cause the AzureRm to load and then conflict with the Az module.
+
 ## Edit a runbook with the Azure portal
 
 1. In the Azure portal, select your Automation account.

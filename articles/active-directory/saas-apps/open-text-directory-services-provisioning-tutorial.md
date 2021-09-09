@@ -3,8 +3,8 @@ title: 'Tutorial: Configure OpenText Directory Services for automatic user provi
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to OpenText Directory Services.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: ad55ba5f-c56c-4ed0-bdfd-163d2883ed80
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure OpenText Directory Services for automatic user provisioning

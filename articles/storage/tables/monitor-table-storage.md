@@ -59,7 +59,7 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 
 ## Creating a diagnostic setting
 
-You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, or an Azure Resource Manager template. 
+You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, an Azure Resource Manager template, or Azure Policy. 
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -256,6 +256,10 @@ Here's an example:
 ### [Template](#tab/template)
 
 To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+
+### [Azure Policy](#tab/policy)
+
+You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. See [Azure Policy built-in definitions for Azure Storage](../common/policy-reference.md).
 
 ---
 
@@ -469,6 +473,10 @@ The following example shows how to read metric data on the metric supporting mul
 ```
 
 ### [Template](#tab/template)
+
+N/A.
+
+### [Azure Policy](#tab/policy)
 
 N/A.
 

@@ -12,7 +12,7 @@ ms.author: duau
 
 # Quickstart: Create an Azure Route Server using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM Template) to deploy an Azure Route Server into a new or existing virtual network.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to deploy an Azure Route Server into a new or existing virtual network.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

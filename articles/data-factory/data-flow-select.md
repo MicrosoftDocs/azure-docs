@@ -1,12 +1,14 @@
 ---
 title: Select transformation in mapping data flow
-description: Azure Data Factory mapping data flow Select Transformation
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about the mapping data flow Select Transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/02/2020
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
 # Select transformation in mapping data flow

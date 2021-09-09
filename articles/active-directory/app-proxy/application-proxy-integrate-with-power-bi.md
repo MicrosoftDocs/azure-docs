@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: has-adal-ref
 ---
 
 # Enable remote access to Power BI Mobile with Azure Active Directory Application Proxy

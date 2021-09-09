@@ -3,6 +3,7 @@ metadata:
   title: Troubleshoot package execution in the SSIS integration runtime
   description: "This article provides troubleshooting guidance for SSIS package execution in the SSIS integration runtime"
   ms.service: data-factory
+  ms.subservice: integration-services
   ms.topic: conceptual
   ms.author: sawinark
   author: swinarko
@@ -110,7 +111,7 @@ sections:
       - question: |
           Error message: "The request limit for the database is ... and has been reached. "
         answer: |
-          If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTC of SSISDB to resolve this issue. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
+          If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTU of SSISDB to resolve this issue. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
           
       - question: |
           Error message: "SSIS Operation failed with unexpected operation status: ... "

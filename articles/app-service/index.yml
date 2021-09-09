@@ -17,9 +17,11 @@ landingContent:
         links:
           - text: What is App Service?
             url: overview.md
+          - text: What is an App Service plan?
+            url: overview-hosting-plans.md
           - text: App Service Environments
             url: environment/intro.md
-          - text: Compare hosting options
+          - text: Compare Azure hosting options for web apps
             url: /azure/architecture/guide/technology-choices/compute-decision-tree
       - linkListType: whats-new
         links:
@@ -106,7 +108,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Manage App Service plans
-            url: overview-hosting-plans.md
+            url: app-service-plan-manage.md
       - linkListType: tutorial
         links:
           - text: Secure resource access with managed identities

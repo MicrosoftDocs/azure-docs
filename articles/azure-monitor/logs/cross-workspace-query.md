@@ -12,7 +12,7 @@ ms.date: 06/30/2021
 
 Azure Monitor Logs support querying across multiple Log Analytics workspaces and Application Insights apps in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.
 
-If you manage subscriptions in other Azure Active Directory (Azure AD) tenants through [Azure Lighthouse](/azure/lighthouse/overview), you can include [Log Analytics workspaces created in those customer tenants](/azure/lighthouse/how-to/monitor-at-scale) in your queries.
+If you manage subscriptions in other Azure Active Directory (Azure AD) tenants through [Azure Lighthouse](../../lighthouse/overview.md), you can include [Log Analytics workspaces created in those customer tenants](../../lighthouse/how-to/monitor-at-scale.md) in your queries.
 
 There are two methods to query data that is stored in multiple workspace and apps:
 

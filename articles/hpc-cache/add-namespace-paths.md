@@ -110,7 +110,7 @@ The options used for the update command are similar to the "create" command, exc
 
 ---
 
-### ADLS-NFS namespace paths (PREVIEW)
+### ADLS-NFS namespace paths
 
 Like a regular blob storage target, an ADLS-NFS storage target only has one export, so it can only have one namespace path.
 

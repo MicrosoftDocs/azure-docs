@@ -127,7 +127,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Authorize access to Azure Storage
-            url: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Data Lake access control
             url: data-lake-storage-access-control.md
       - linkListType: how-to-guide

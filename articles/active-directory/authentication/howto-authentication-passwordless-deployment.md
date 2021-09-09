@@ -22,11 +22,11 @@ Passwords are a primary attack vector. Bad actors use social engineering, phishi
 
 Microsoft offers the following [three passwordless authentication options](concept-authentication-passwordless.md) that integrate with Azure Active Directory (Azure AD):
 
-* [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
+* [Microsoft Authenticator app](./concept-authentication-passwordless.md#microsoft-authenticator-app) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
 
-* [FIDO2-compliant security keys](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) - useful for users who sign in to shared machines like kiosks, in situations where use of phones is restricted, and for highly privileged identities. 
+* [FIDO2-compliant security keys](./concept-authentication-passwordless.md#fido2-security-keys) - useful for users who sign in to shared machines like kiosks, in situations where use of phones is restricted, and for highly privileged identities. 
 
-* [Windows Hello for Business](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#windows-hello-for-business) - best for users on their dedicated Windows computers. 
+* [Windows Hello for Business](./concept-authentication-passwordless.md#windows-hello-for-business) - best for users on their dedicated Windows computers. 
 
 > [!NOTE]
 > To create an offline version of this plan with all links, use your browsers print to pdf functionality.
@@ -318,7 +318,7 @@ You can also manage the passwordless authentication methods using the authentica
 
 * Manage your authentication method policies for security keys and Microsoft Authenticator app.
 
-For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](https://docs.microsoft.com/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 ### Rollback
 
@@ -355,7 +355,7 @@ Azure AD adds entries to the audit logs when:
 
 * A user enables or disables their account on a security key or resets the second factor for the security key on their Win 10 machine. See event IDs: 4670 and 5382.
 
-**Azure AD keeps most auditing data for 30 days** and makes the data available via Azure Admin portal or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-active-directory), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
+**Azure AD keeps most auditing data for 30 days** and makes the data available via Azure Admin portal or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
 
 There are two tabs in the Authentication methods activity dashboard - Registration and Usage.
 
@@ -385,4 +385,4 @@ Select the user row, and then select the **Authentication Details** tab to view 
 
 * [Learn how passwordless authentication works](concept-authentication-passwordless.md)
 
-* [Deploy other identity features](https://aka.ms/deploymentplans)
+* [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)

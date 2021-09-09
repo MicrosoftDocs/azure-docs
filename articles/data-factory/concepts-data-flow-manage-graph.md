@@ -1,13 +1,15 @@
 ---
 title: Managing the mapping data flow graph
+titleSuffix: Azure Data Factory & Azure Synapse
 description: How to effectively manage and edit the mapping data flow graph
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/02/2020
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
 # Managing the mapping data flow graph

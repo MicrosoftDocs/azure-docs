@@ -1,6 +1,6 @@
 ---
 title: Stream execution logs in Azure Functions
-description: 115-145 characters including spaces. This abstract displays in the search result.
+description: Learn how you can stream logs for functions in near real time.
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.custom: "contperf-fy21q2, devx-track-azurepowershell"
