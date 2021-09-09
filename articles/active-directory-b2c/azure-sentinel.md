@@ -79,7 +79,7 @@ In the following example, we explain the scenario where you receive a notificati
 1. From the Azure Sentinel navigation menu, select **Analytics**.
 
 2. In the action bar at the top, select **+ Create** and select
-   **Scheduled query rule**. It will open the **Analytics rule wizard**.
+   **Scheduled query rule**. This will open the **Analytics rule wizard**.
 
 ![image shows select create scheduled query rule](./media/azure-sentinel/create-scheduled-rule.png)
 

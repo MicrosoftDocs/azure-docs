@@ -40,30 +40,78 @@ The main differences between these options are listed in the following table:
 
 | Attribute          | Azure Database for MySQL<br/>Single Server |Azure Database for MySQL<br/>Flexible Server  |MySQL on Azure VMs                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| MySQL Version Support | 5.6, 5.7 & 8.0| 5.7 & 8.0 | Any version|
+| **General**  | | | |
+| General availability | GA since 2018 | Public Preview | GA |
+| Service-level agreement (SLA) | 99.99% availability SLA |No SLA in preview| 99.99% using Availability Zones|
+| Underlying O/S | Windows | Linux  | User Managed |
+| MySQL Edition | Community Edition | Community Edition | Community or Enterprise Edition |
+| MySQL Version Support | 5.6(Retired), 5.7 & 8.0| 5.7 & 8.0 | Any version|
+| Availability zone selection for application colocation | No | Yes | Yes |
+| Username in connection string | `<user_name>@server_name`. For example, `mysqlusr@mypgServer` | Just username. For example, `mysqlusr` | Just username. For example, `mysqlusr` | 
+| **Compute & Storage Tiers and Scaling** | | | |
+| Compute tiers | Basic, General Purpose, Memory Optimized | Burstable, General Purpose, Memory Optimized | Burstable, General Purpose, Memory Optimized |
 | Compute scaling | Supported (Scaling from and to Basic tier is not supported)| Supported | Supported|
 | Storage size | 5 GiB to 16 TiB| 20 GiB to 16 TiB | 32 GiB to 32,767 GiB|
 | Online Storage scaling | Supported| Supported| Not supported|
 | Auto storage scaling | Supported| Supported| Not supported|
-| Additional IOPs scaling | Not Supported| Supported| Not supported|
+| IOPs scaling | Not Supported| Supported| Not supported|
+| **Cost Optimization** | | | |
+| Reserved Instance Pricing | Supported | Supported | Supported |
+| Stop/Start Server for development | Server can be stopped up to 7 days | Server can be stopped up to 30 days | Supported |
+| Low cost Burstable SKU | Not Supported | Supported | Supported |
+| **Networking/Security** | | | |
 | Network Connectivity | - Public endpoints with server firewall.<br/> - Private access with Private Link support.|- Public endpoints with server firewall.<br/> - Private access with Virtual Network integration.| - Public endpoints with server firewall.<br/> - Private access with Private Link support.|
-| Service-level agreement (SLA) | 99.99% availability SLA |No SLA in preview| 99.99% using Availability Zones|
-| Operating system patching| Automatic  | Automatic with custom maintenance window control | Managed by end users |
-| MySQL patching     | Automatic  | Automatic with custom maintenance window control | Managed by end users |
-| High availability | Built-in HA within single availability zone| Built-in HA within and across availability zones | Custom managed using clustering, replication, etc.|
-| Zone redundancy | Not supported | Supported | Supported|
-| Zone placement | Not supported | Supported | Supported|
-| Hybrid scenarios | Supported with [Data-in Replication](./concepts-data-in-replication.md)| Supported with [Data-in Replication](./flexible-server/concepts-data-in-replication.md) | Managed by end users |
-| Read replicas | Supported (up to 5 replicas)| Supported (up to 10 replicas)| Managed by end users |
-| Backup | Automated with 7-35 days retention | Automated with 1-35 days retention | Managed by end users |
-| Monitoring database operations | Supported | Supported | Managed by end users |
-| Disaster recovery | Supported with geo-redundant backup storage and cross region read replicas | Coming soon| Custom Managed with replication technologies |
-| Query Performance Insights | Supported | Not available in preview| Managed by end users |
-| Reserved Instance Pricing | Supported | Coming soon | Supported |
-| Azure AD Authentication | Supported | Not available in preview | Not Supported|
-| Data Encryption at rest | Supported with customer managed keys | Supported with service managed keys | Not Supported|
 | SSL/TLS | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Enabled by default with support for TLS v1.2, 1.1 and 1.0| Supported with TLS v1.2, 1.1 and 1.0 |
+| Data Encryption at rest | Supported with customer managed keys | Supported with service managed keys | Not Supported|
+| Azure AD Authentication | Supported | Not Supported | Not Supported|
+| Azure defender support | Yes | No | No |
+| **Patching & Maintenance** | | |
+| Operating system patching| Automatic  | Automatic  | User managed |
+| MySQL minor version upgrade  | Automatic  | Automatic | User managed |
+| MySQL in-place major version upgrade | Supported from 5.6 to 5.7 | Not Supported | User Managed |
+| Maintenance control | System managed | Customer managed | User managed |
+| Maintenance window | Anytime within 15 hrs window | 1hr window | User managed |
+| Planned maintenance notification | 3 days | 5 days | User managed |
+| **High Availability** | | | |
+| High availability | Same-zone HA (not hot standby)| Same-zone and zone-redundant HA with hot standby | User managed using clustering, replication, etc.|
+| Zone redundancy | Not supported | Supported | Supported|
+| Standby zone placement | Not supported | Supported | Supported|
+| Automatic failover | Yes (spins another server)| Yes | User Managed|
+| Forced failover | No | Yes | User Managed |
+| Transparent Application failover | Yes | Yes | User Managed|
+| **Replication** | | | |
+| Support for read replicas | Yes | Yes | User Managed |
+| Number of read replicas supported | 5 | 10 | User Managed |
+| Mode of replication | Asynchronous | Asynchronous | User Managed |
+| Gtid support for read replicas | Supported | Supported | User Managed |
+| Cross-region support (Geo-replication) | Yes | Not supported | User Managed |
+| Hybrid scenarios | Supported with [Data-in Replication](./concepts-data-in-replication.md)| Supported with [Data-in Replication](./flexible-server/concepts-data-in-replication.md) | User Managed |
+| Gtid support for data-in replication | Supported | Not Supported | User Managed |
+| Data-out replication | Not Supported | Supported | Supported |
+| **Backup and Recovery** | | | |
+| Automated backups | Yes | Yes | No |
+| Backup retention | 7-35 days | 1-35 days | User Managed |
+| Long term retention of backups | User Managed | User Managed | User Managed |
+| Exporting backups | Supported using logical backups | Supported using logical backups | Supported |
+| Point in time restore capability to any time within the retention period | Yes | Yes | User Managed |
+| Ability to restore on a different zone | Not supported | Yes | Yes |
+| Ability to restore to a different VNET | No | Yes | Yes |
+| Ability to restore to a different region | Yes (Geo-redundant) | No | User Managed |
+| Ability to restore a deleted server | Yes | No | No |
+| **Disaster Recovery** | | | | 
+| DR across Azure regions | Using cross region read replicas, geo-redundant backup | Not supported | User Managed |
+| Automatic failover | No | Not Supported | No |
+| Can use the same r/w endpoint | No | Not Supported | No |
+| **Metrics** | | | |
+| Monitoring database operations | Supported | Supported | User Managed |
+| Query Performance Insights | Supported | Not Supported | User Managed |
+| **Plugins** | | | |
+| validate_password | Not Supported | Supported | Supported |
+| caching_sha2_password | Not Supported | Supported | Supported |
+| **Developer Productivity** | | | |
 | Fleet Management | Supported with Azure CLI, PowerShell, REST, and Azure Resource Manager | Supported with Azure CLI, PowerShell, REST, and Azure Resource Manager  | Supported for VMs with Azure CLI, PowerShell, REST, and Azure Resource Manager |
+| Terraform Support | Supported | Not Supported | Supported |
+| Github Actions | Supported | Supported | User Managed |
 
 ## Business motivations for choosing PaaS or IaaS
 
