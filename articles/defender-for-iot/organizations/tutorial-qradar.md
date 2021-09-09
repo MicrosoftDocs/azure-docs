@@ -150,31 +150,38 @@ All of the sensor reports from now on are tagged as Sensor Alerts.
 
 1. Configure the following fields:
    - New Property: _choose from the list below_
-      - Xsense Alert Description
-      - Xsense Alert ID
-      - Xsense Alert Score
-      - Xsense Alert Title
-      - Xsense Destination Name
-      - Xsense Direct Redirect
-      - Xsense Sender IP
-      - Xsense Sender Name
-      - Xsense Alert Engine
-      - Xsense Source Device Name
+      - Sensor Alert Description
+      - Sensor Alert ID
+      - Sensor Alert Score
+      - Sensor Alert Title
+      - Sensor Destination Name
+      - Sensor Direct Redirect
+      - Sensor Sender IP
+      - Sensor Sender Name
+      - Sensor Alert Engine
+      - Sensor Source Device Name
    - Check **Optimize Parsing**
    - Field Type: `AlphaNumeric`
    - Check **Enabled**
    - Log Source Type: `Universal LEAF`
-   - Log Source: `<Xsense Name>`
-   - Event Name (should be already set as XSense Alert)
+   - Log Source: `<Sensor Name>`
+   - Event Name (should be already set as Sensor Alert)
    - Capture Group: 1
    - Regex:
-      - Xsense Alert Description RegEx: `msg=(.*)(?=\t)`
-      - Xsense Alert ID RegEx: `alertId=(.*)(?=\t)`
-      - Xsense Alert Score RegEx: `Detected score=(.*)(?=\t)`
-      - Xsense Alert Title RegEx: `title=(.*)(?=\t)`
-      - Xsense Destination Name RegEx: `dstName=(.*)(?=\t)`
-      - Xsense Direct Redirect RegEx: `rta=(.*)(?=\t)`
-      - Xsense Sender IP: RegEx: `reporter=(.*)(?=\t)`
-      - Xsense Sender Name RegEx: `senderName=(.*)(?=\t)`
-      - Xsense Alert Engine RegEx: `engine =(.*)(?=\t)`
-      - Xsense Source Device Name RegEx: `src`
+      - Sensor Alert Description RegEx: `msg=(.*)(?=\t)`
+      - Sensor Alert ID RegEx: `alertId=(.*)(?=\t)`
+      - Sensor Alert Score RegEx: `Detected score=(.*)(?=\t)`
+      - Sensor Alert Title RegEx: `title=(.*)(?=\t)`
+      - Sensor Destination Name RegEx: `dstName=(.*)(?=\t)`
+      - Sensor Direct Redirect RegEx: `rta=(.*)(?=\t)`
+      - Sensor Sender IP: RegEx: `reporter=(.*)(?=\t)`
+      - Sensor Sender Name RegEx: `senderName=(.*)(?=\t)`
+      - Sensor Alert Engine RegEx: `engine =(.*)(?=\t)`
+      - Sensor Source Device Name RegEx: `src`
+
+## Next steps
+
+In this tutorial, you learned how to get started with the QRadar integration. Continue on to learn how to [Integrate ServiceNow with Azure Defender for IoT](tutorial-servicenow.md).
+
+> [!div class="nextstepaction"]
+> [Integrate ServiceNow with Azure Defender for IoT](tutorial-servicenow.md)
