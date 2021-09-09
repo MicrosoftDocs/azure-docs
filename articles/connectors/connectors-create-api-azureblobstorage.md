@@ -181,7 +181,7 @@ Other solutions for accessing storage accounts behind firewalls:
 
 ### Access storage accounts in other regions
 
-Logic apps can't directly access storage accounts behind firewalls when they're both in the same region. As a workaround, put your logic apps in a different region than your storage account. Then, give access to the [outbound IP addresses for the managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound).
+Logic apps can't directly access storage accounts behind firewalls when they're both in the same region. As a workaround, put your logic apps in a different region than your storage account. Then, give access to the [outbound IP addresses for the managed connectors in your region](/connectors/common/outbound-ip-addresses#azure-logic-apps).
 
 > [!NOTE]
 > This solution doesn't apply to the Azure Table Storage connector and Azure Queue Storage connector. Instead, to access your Table Storage or Queue Storage, [use the built-in HTTP trigger and actions](../logic-apps/logic-apps-http-endpoint.md).
