@@ -17,15 +17,15 @@ ms.author: allensu
 ---
 # Assign multiple IP addresses to virtual machines using the Azure portal
 
-> [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
+> [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 > 
-> This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure portal. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../azure-resource-manager/management/deployment-models.md) article.
+> This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure portal. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../../azure-resource-manager/management/deployment-models.md) article.
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
-If you want to create a VM with multiple IP addresses, or a static private IP address, you must create it using PowerShell or the Azure CLI. To learn how, click the PowerShell or CLI options at the top of this article. You can create a VM with a single dynamic private IP address and (optionally) a single public IP address. Use the portal by following the steps in the [Create a Windows VM](../virtual-machines/windows/quick-create-portal.md) or [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md) articles. After you create the VM, you can change the IP address type from dynamic to static and add additional IP addresses using the portal by following steps in the [Add IP addresses to a VM](#add) section of this article.
+If you want to create a VM with multiple IP addresses, or a static private IP address, you must create it using PowerShell or the Azure CLI. To learn how, click the PowerShell or CLI options at the top of this article. You can create a VM with a single dynamic private IP address and (optionally) a single public IP address. Use the portal by following the steps in the [Create a Windows VM](../../virtual-machines/windows/quick-create-portal.md) or [Create a Linux VM](../../virtual-machines/linux/quick-create-portal.md) articles. After you create the VM, you can change the IP address type from dynamic to static and add additional IP addresses using the portal by following steps in the [Add IP addresses to a VM](#add) section of this article.
 
 ## <a name="add"></a>Add IP addresses to a VM
 
@@ -62,7 +62,7 @@ Complete the following steps to add a new private IP address:
 A public IP address is added by associating a public IP address resource to either a new IP configuration or an existing IP configuration.
 
 > [!NOTE]
-> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) article.
+> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) article.
 > 
 
 ### <a name="create-public-ip"></a>Create a public IP address resource
@@ -102,4 +102,4 @@ A public IP address is one setting for a public IP address resource. If you have
 > After you change the IP address configuration, you must restart the VM for the changes to take effect in the VM.
 
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

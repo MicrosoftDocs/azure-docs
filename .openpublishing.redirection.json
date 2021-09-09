@@ -57037,6 +57037,11 @@
       "source_path_from_root": "/articles/virtual-network/ipv6-virtual-machine-scale-set.md",
       "redirect_url": "/azure/virtual-network/ip-services/ipv6-virtual-machine-scale-set",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-network-interface-addresses.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-network-network-interface-addresses",
+      "redirect_document_id": false
     }
   ]
 }
