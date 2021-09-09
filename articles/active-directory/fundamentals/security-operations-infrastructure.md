@@ -210,7 +210,7 @@ For information on what and how to monitor configuration information refer to:
 
 
 
-* For more information on logging PowerShell script operations, refer to [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows?view=powershell-7.1), which is part of the PowerShell reference documentation.
+* For more information on logging PowerShell script operations, refer to [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows), which is part of the PowerShell reference documentation.
 
 * For more information on configuring PowerShell logging for analysis by Splunk, refer to [Get Data into Splunk User Behavior Analytics](https://docs.splunk.com/Documentation/UBA/5.0.4.1/GetDataIn/AddPowerShell).
 

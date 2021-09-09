@@ -55,7 +55,7 @@ This [article](/windows-server/get-started-19/install-upgrade-migrate-19) descri
 
 This release of Azure AD Connect contains several cmdlets that require PowerShell 5.0, so this requirement is a new prerequisite for Azure AD Connect.  
 
-More details about PowerShell prerequisites can be found [here](/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements?view=powershell-7.1#windows-powershell-50).
+More details about PowerShell prerequisites can be found [here](/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements#windows-powershell-50).
 
  >[!NOTE]
  >PowerShell 5 is already part of Windows Server 2016 so you probably do not have to take action as long as you are on a recent Window Server version. 
