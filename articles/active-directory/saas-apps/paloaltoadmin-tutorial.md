@@ -202,18 +202,18 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. In the **IdP Server Profile** drop-down list, select the appropriate SAML Identity Provider Server profile (for example, **AzureAD Admin UI**).
 
-    c. Select the **Enable Single Logout** check box.
+    d. Select the **Enable Single Logout** check box.
 
-    d. In the **Admin Role Attribute** box, enter the attribute name (for example, **adminrole**).
+    e. In the **Admin Role Attribute** box, enter the attribute name (for example, **adminrole**).
 
-    e. Select the **Advanced** tab and then, under **Allow List**, select **Add**.
+    f. Select the **Advanced** tab and then, under **Allow List**, select **Add**.
 
     ![Screenshot shows the Add button on the Advanced tab.](./media/paloaltoadmin-tutorial/allowlist.png)
 
-    f. Select the **All** check box, or select the users and groups that can authenticate with this profile.  
+    g. Select the **All** check box, or select the users and groups that can authenticate with this profile.  
     When a user authenticates, the firewall matches the associated username or group against the entries in this list. If you don’t add entries, no users can authenticate.
 
-    g. Select **OK**.
+    h. Select **OK**.
 
 13. To enable administrators to use SAML SSO by using Azure, select **Device** > **Setup**. In the **Setup** pane, select the **Management** tab and then, under **Authentication Settings**, select the **Settings** ("gear") button.
 
