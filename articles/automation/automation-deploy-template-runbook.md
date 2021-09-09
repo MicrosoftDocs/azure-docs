@@ -3,13 +3,13 @@ title: Deploy an Azure Resource Manager template in an Azure Automation PowerShe
 description: This article describes how to deploy an Azure Resource Manager template stored in Azure Storage from a PowerShell runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 09/13/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 keywords: powershell,  runbook, json, azure automation
 ---
 
-# Deploy an Azure Resource Manager template in a PowerShell runbook
+# Deploy an Azure Resource Manager template in an Automation PowerShell runbook
 
 You can write an [Azure Automation PowerShell runbook](./learn/automation-tutorial-runbook-textual-powershell.md)
 that deploys an Azure resource by using an [Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). The templates allow you to use Azure Automation to automate deployment of your Azure resources. You can maintain your Resource Manager templates in a central, secure location, such as Azure Storage.
@@ -133,13 +133,10 @@ param (
     $StorageFileName
 )
 
-# Authenticate to Azure if running from Azure Automation
-$ServicePrincipalConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint | Write-Verbose
+# Connect to Azure with user-assigned managed identity
+Connect-AzAccount -Identity
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
+Connect-AzAccount -Identity -AccountId $identity.ClientId
 
 #Set the parameter values for the Resource Manager template
 $Parameters = @{
