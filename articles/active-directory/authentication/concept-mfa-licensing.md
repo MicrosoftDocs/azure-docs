@@ -60,13 +60,13 @@ The following table provides deployment considerations for different MFA policie
 
 | Policy | Security defaults | Conditional Access | Per-user MFA |
 | --- |:---:|:---:|:---:|
-| **Management** | | | |
+| **Management** | 
 | Standard set of security rules to keep your company safe | ● |  |  |
 | One-click on/off | ● |  |  |
 | Included in Office 365 licensing (See [license considerations](#available-versions-of-azure-ad-multi-factor-authentication)) | ● |  | ● |
 | Pre-configured templates in Microsoft 365 Admin Center wizard | ● | ● |  |
 | Configuration flexibility | | ● |  |
-| **Functionality** | | |
+| **Functionality** | 
 | Exempt users from the policy | | ● | ● |
 | Authenticate by phone call or SMS | | ● | ● |
 | Authenticate by Microsoft Authenticator and Software tokens | ● | ● | ● |
