@@ -175,7 +175,7 @@ bicep --help
 # Done!
 ```
 
-## Install on an air-gapped cloud
+## Install on air-gapped cloud
 
 To install Bicep CLI in an air-gapped environment, you need to download the Bicep CLI executable manually and save it to a certain location.
 
