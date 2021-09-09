@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 01/08/2021
+ms.date: 08/25/2021
 ms.author: sngun
 
 ---
@@ -29,6 +29,7 @@ ms.author: sngun
 > The .NET Cosmos DB Table Library [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) is in maintenance mode and will be deprecated soon. Please upgrade to the new .NET Azure Data Tables Library [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) to continue to get the latest features supported by the Table API.
 
 ## Table offerings
+
 If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API:
 
 | Feature | Azure Table storage | Azure Cosmos DB Table API |
@@ -44,11 +45,7 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 
 ## Get started
 
-Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com). Then get started with our [Quick Start for Table API by using .NET](create-table-dotnet.md). 
-
-> [!IMPORTANT]
-> If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
->
+Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com). Then get started with our [Quick Start for Table API by using .NET](create-table-dotnet.md).
 
 ## Next steps
 
