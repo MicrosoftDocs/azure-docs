@@ -68,7 +68,7 @@ Standard SKU public IP addresses:
 > Diagnostic settings don't appear under the resource blade when using a standard SKU public IP address. To enable logging on your standard public IP address resource, navigate to diagnostic settings under the Azure Monitor blade and select your IP address resource.
 
 > [!NOTE]
-> Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](../../virutal-network/network-security-groups-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
+> Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
 
 ### Basic
 
@@ -84,7 +84,7 @@ Basic SKU addresses:
 > Basic SKU IPv4 addresses can be upgraded after creation to Standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](public-ip-upgrade-portal.md).
 
 >[!IMPORTANT]
-> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of Basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
+> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of Basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
 
 ## IP address assignment
 
