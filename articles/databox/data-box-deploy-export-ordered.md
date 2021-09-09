@@ -106,7 +106,7 @@ Perform the following steps in the Azure portal to order a device.
 
    ![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-   To see an example of the xml input, see [Sample XML input](data-box-deploy-export-ordered.md#sample-xml-file)
+   To see an example of the XML input, see [Sample XML input](data-box-deploy-export-ordered.md#sample-xml-file)
 
 9. In **Data selection**, review your settings and select **Next: Security>** to continue.
 
@@ -223,7 +223,9 @@ Perform the following steps in the Azure portal to order a device.
 
 ## Export order using XML file
 
-If you select **Use XML file**, you can specify specific containers and blobs (page and block) you want to export. You will need to follow the [Sample XML file table](#sample-xml-file) specifications for formatting your XML. The steps below show you how to use an XML file for exporting your data:
+If you select **Use XML file**, you can specify specific containers and blobs (page and block) you want to export. The steps below show you how to use the XML file for exporting your data. To construct the XML file, follow the guidance in [Sample XML file](#sample-xml-file).
+
+To use an XML file to export your data:
 
 1. For **Export type**, select **Use XML file**. This is your XML file that specifies specific blobs and Azure files you want to export. To add the XML file, select **Click here to select an XML file**.
 
@@ -257,8 +259,6 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 
    ![XML file added to container](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
----
-
 ## Sample XML file
 
 Follow these guidelines if you choose to select blobs and files for export by using an XML file. 
@@ -268,8 +268,9 @@ You'll find this information on the three tabs:
 - **Prefix examples**: See examples of valid prefixes that select multiple blobs and files for export.
 - **Sample XML file**: Copy a sample XML file with examples of each tag.
 
+---
 
-# [Overview of XML file](#tab/sample-xml-file/xml-file-overview)
+# [XML file overview](#tab/xml-file-overview)
 
 Follow these guidelines when you construct the XML file for your export order. Incorrect tag formats can lead to export failures.
 
@@ -309,7 +310,7 @@ For examples of correctly formed prefixes, see the **Prefix examples** tab.
 * Incorrect XML tags or formatting may lead to data export failure.
 * No data will be exported if the blob prefix or file prefix is invalid. For examples of valid prefixes, see **Prefix examples**.
 
-# [Prefix examples](#tab/sample-xml-file/prefix-examples)
+# [Prefix examples](#tab/prefix-examples)
 
 These sample paths show various ways to construct a prefix to select multiple blobs or files for export.
 
@@ -341,7 +342,7 @@ The sample paths below are used with the &lt;FilePathPrefix&gt; tag to selecct m
 
 To select a single file for export, use the &lt;FilePath&gt; tag with a share path and file name.
 
-# [Sample XML file](#tab/sample-xml-file/sample-xml-file)
+# [Sample XML file](#tab/sample-xml-file)
 
 This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order. For more examples of valid blob and file path prefixes, see Prefix examples.
 
