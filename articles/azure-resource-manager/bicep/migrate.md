@@ -12,7 +12,7 @@ There are a number of benefits to defining your Azure resources in Bicep includi
 
 When you have existing JSON ARM templates and/or deployed resources, and you want to safely migrate those to Bicep, we suggest following a recommended workflow, consisting of five phases:
 
-:::image type="content" source="./media/migrate/five-phases.png" alt-text="Diagram of the five phases for migrating Azure resources to Bicep: convert, migrate, refactor, test, and deploy.":::
+:::image type="content" source="./media/migrate/five-phases.png" alt-text="Diagram of the five phases for migrating Azure resources to Bicep: convert, migrate, refactor, test, and deploy." border="false":::
 
 The first step in the process is to capture your Azure resources as a JSON file, if one doesn't already exist. You then decompile the JSON file to an initial Bicep file, which you improve upon by refactoring. When you have a working file, you test and deploy using a process that minimizes the risk of breaking changes to your Azure environment.
 
