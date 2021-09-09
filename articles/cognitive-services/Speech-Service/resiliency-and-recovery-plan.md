@@ -1,5 +1,5 @@
 ---
-title: How to backup and recover speech customization resources
+title: How to back up and recover speech customization resources
 titleSuffix: Azure Cognitive Services
 description: Learn how to prepare for service outages with Custom Speech and Custom Voice. 
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 07/28/2021
 ms.author: mitagaki
 ---
 
-# Backup and recover speech customization resources
+# Back up and recover speech customization resources
 
 The Speech service is [available in various regions](/azure/cognitive-services/speech-service/regions). Service subscription keys are tied to a single region. When you acquire a key, you select a specific region, where your data, model and deployments reside.
 
@@ -77,7 +77,7 @@ Your client code can monitor availability of your deployed models in your primar
 
 If you do not require real-time failover you can decide to import your data, create and deploy your models in the secondary region at a later time with the understanding that these tasks will take time to complete.
 
-#### Failover Tests
+#### Failover time requirements
 
 This section provides general guidance about timing. The times were recorded to estimate offline failover using a [representative test data set](https://github.com/microsoft/Cognitive-Custom-Speech-Service).
 
