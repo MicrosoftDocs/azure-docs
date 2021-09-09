@@ -70,10 +70,13 @@ After creating the linked service to the external Hive metastore successfully, y
 
 Here are the configurations and descriptions:
 
+> [!NOTE]
+> The Default Hive metastore version is 2.3. You don't need to set `spark.sql.hive.metastore.version` and `spark.sql.hive.metastore.jars` if your Hive metastore version is 2.3. Only `spark.hadoop.hive.synapse.externalmetastore.linkedservice.name` is needed.
+
 |Spark config|Description|
 |--|--|
-|`spark.sql.hive.metastore.version`|Supported versions: <ul><li>`1.2`</li><li>`2.1`</li><li>`2.3`</li><li>`3.1`</li></ul> Make sure you use the first 2 parts without the 3rd part|
-|`spark.sql.hive.metastore.jars`|<ul><li>Version 1.2: `/opt/hive-metastore/lib-1.2/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 2.1: `/opt/hive-metastore/lib-2.1/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 2.3: `/opt/hive-metastore/lib-2.3/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 3.1: `/opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/*`</li></ul>|
+|`spark.sql.hive.metastore.version`|Supported versions: <ul><li>`1.2`</li><li>`2.1`</li><li>`3.1`</li></ul> Make sure you use the first 2 parts without the 3rd part|
+|`spark.sql.hive.metastore.jars`|<ul><li>Version 1.2: `/opt/hive-metastore/lib-1.2/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 2.1: `/opt/hive-metastore/lib-2.1/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 3.1: `/opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/*`</li></ul>|
 |`spark.hadoop.hive.synapse.externalmetastore.linkedservice.name`|Name of your linked service created to the Azure SQL Database.|
 
 ### Configure Spark pool 
