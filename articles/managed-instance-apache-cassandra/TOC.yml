@@ -24,7 +24,7 @@
     - name: Migration
       items:
       - name: Use dual-write proxy - live
-        href: dual-write-proxy-migration.md          
+        href: dual-write-proxy-migration.md  
       - name: Use Apache Spark - offline 
         href: spark-migration.md  
 - name: Concepts

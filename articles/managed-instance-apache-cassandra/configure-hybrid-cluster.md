@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
+ms.date: 09/08/2021
 ---
 # Quickstart: Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra (Preview)
 
@@ -45,7 +45,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > - Azure Active Directory
    > - Azure Security
 
-1. Now we will apply some special permissions to the VNet and subnet which Cassandra Managed Instance requires, using Azure CLI. Use the `az role assignment create` command, replacing `<subscription ID>`, `<resource group name>`, and `<VNet name>` with the appropriate values:
+1. Now we will apply some special permissions to the VNet and subnet which Cassandra Managed Instance requires, using Azure CLI. Use the `az role assignment create` command, replacing `<subscriptionID>`, `<resourceGroupName>`, and `<vnetName>` with the appropriate values:
 
    ```azurecli-interactive
    az role assignment create \
