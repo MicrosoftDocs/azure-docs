@@ -111,7 +111,7 @@ The following example shows the schema of a user deleted event. The schema of ot
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of an API updated event. The `data` property includes the `resourceUri`.  The schema of other API Management resource updated events is similar. 
+The following example shows the schema of an API updated event. The schema of other API Management resource updated events is similar. 
 ```json
 [{
   "id": "95015754-aa51-4eb6-98d9-9ee322b82ad7",
@@ -129,7 +129,7 @@ The following example shows the schema of an API updated event. The `data` prope
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of an API updated event. The `data` property includes the `resourceUri`.  The schema of other API Management resource updated events is similar. 
+The following example shows the schema of an API updated event. The schema of other API Management resource updated events is similar. 
 
 ```json
 [{
@@ -183,7 +183,7 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `resourceUri` | string | The fully qualified ID of the resource that the compliance state change is for, including the resource name and resource type. Uses the format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>` |
+| `resourceUri` | string | The fully qualified ID of the resource that the compliance state change is for, including the resource name and resource type. Uses the format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/Microsoft.ApiManagement/service/<ServiceName>/<ResourceType>/<ResourceName>` |
 
 ## Tutorials and how-tos
 
