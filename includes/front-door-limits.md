@@ -85,4 +85,4 @@
 * Maximum rules engine condition header value character: 256 characters.
 * Maximum ETag header size: 128 bytes
 
-For more information about limits that apply to Rules Engine configurations, see [Rules Engine terminology](../../frontdoor/front-door-rules-engine.md#terminology)
+For more information about limits that apply to Rules Engine configurations, see [Rules Engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)
