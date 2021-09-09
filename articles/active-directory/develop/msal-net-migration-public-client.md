@@ -463,6 +463,7 @@ private static async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublic
    :::column-end:::
 :::row-end:::
 
+---
 ### MSAL benefits
 
 Key benefits of MSAL.NET for your app include:
