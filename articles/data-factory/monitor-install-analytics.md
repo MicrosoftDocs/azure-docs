@@ -20,7 +20,7 @@ This solution provides you a summary of overall health of your Data Factory, wit
 
 1. Go to **Azure Marketplace**, choose **Analytics** filter, and search for **Azure Data Factory Analytics (Preview)**
 
-   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image3.png" alt-text="Go to &quot;Azure Marketplace&quot;, enter &quot;Analytics filter&quot;, and select &quot;Azure Data Factory Analytics (Preview&quot;)":::
+   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image3.png" alt-text="Go to &quot;Azure Marketplace&quot;, enter &quot;Analytics filter&quot;, and select &quot;Azure Data Factory Analytics (Preview)&quot;":::
 
 1. Details about **Azure Data Factory Analytics (Preview)**
 
