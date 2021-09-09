@@ -56374,6 +56374,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/calling-client-samples.md",
+      "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
       "redirect_url": "/azure/virtual-desktop/teams-on-avd",
       "redirect_document_id": false
@@ -57021,6 +57026,11 @@
     {
       "source_path_from_root": "/articles/azure-cache-for-redis/cache-best-practices.md",
       "redirect_url": "/azure/azure-cache-for-redis/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/normalization-schema.md ",
+      "redirect_url": "/azure/sentinel/network-normalization-schema",
       "redirect_document_id": false
     }
   ]
