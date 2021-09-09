@@ -4,7 +4,7 @@ description: Learn how to share existing Azure HDInsight external Hive Metastore
 keywords: external Hive metastore,share,Synapse
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/22/2020
+ms.date: 09/09/2021
 ---
 
 # Share Hive Metastore with Synapse Spark Pool (Preview）
@@ -162,7 +162,7 @@ After setting up storage connections, you can query the existing tables in the H
 - Synapse Studio object explorer will continue to show objects in managed Synapse metastore instead of the external HMS, we are improving the experience of this.
 - [SQL <-> spark synchronization](../synapse-analytics/sql/develop-storage-files-spark-tables.md) doesn’t work when using external HMS.  
 - Only Azure SQL Database is supported as external Hive Metastore database. Only SQL authorization is supported.
-- Currently Spark only works external Hive tables and non-transitional/non-ACID managed Hive tables. It doesn’t support Hive ACID/transactional tables currently.
+- Currently Spark only works external Hive tables and non-transactional/non-ACID managed Hive tables. It doesn’t support Hive ACID/transactional tables currently.
 - Apache Ranger integration is not supported as of now.
 
 ## Troubleshooting
@@ -213,4 +213,4 @@ If you need to migrate your HMS version, we recommend using [hive schema tool](h
 If you want to share the Hive catalog with a spark cluster in HDInsight 4.0, please ensure your property `spark.hadoop.metastore.catalog.default` in Synapse spark aligns with the value in HDInsight spark. The default value is `Spark`.
 
 ### When sharing the Hive metastore with HDInsight 4.0 Hive clusters, I can list the tables successfully, but only get empty result when I query the table
-As mentioned in the limitations, Synapse Spark pool only supports external hive tables and non-transitional/ACID managed tables, it doesn’t support Hive ACID/transactional tables currently. By default in HDInsight 4.0 Hive clusters, all managed tables are created as ACID/transactional tables by default, that’s why you get empty results when querying those tables. 
+As mentioned in the limitations, Synapse Spark pool only supports external hive tables and non-transactional/ACID managed tables, it doesn’t support Hive ACID/transactional tables currently. By default in HDInsight 4.0 Hive clusters, all managed tables are created as ACID/transactional tables by default, that’s why you get empty results when querying those tables. 
