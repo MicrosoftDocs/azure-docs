@@ -272,6 +272,8 @@ You'll find this information on the three tabs:
 
 Follow these guidelines when you construct the XML file for your export order. Incorrect tag formats can lead to export failures.
 
+Test link: [Order Data Box using Azure CLI](data-box-deploy-ordered.md?tabs=azure-cli#order-data-box)
+
 #### Tag usage
 
 The following XML tags are used in the XML file for a Data Box export order:
