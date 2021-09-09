@@ -203,6 +203,13 @@ The fields below are specific to DNS events. That said, many of them do have sim
 | **ThreatCategory** | Optional | String | If a DNS event source also provides DNS security, it may also evaluate the DNS event. For example, it may search for the IP address or domain in a threat intelligence database, and may assign the domain or IP address with a Threat Category. |
 | **EventSeverity** | Optional | String | If a DNS event source also provides DNS security, it may evaluate the DNS event. For example, it may search for the IP address or domain in a threat intelligence database, and may assign a severity based on the evaluation. <br><br>Example: `Informational`|
 | **DvcAction** | Optional | String | If a DNS event source also provides DNS security, it may take an action on the request, such as blocking it. <br><br>Example: `Blocked` |
+| **DnsFlagsAuthenticated** | Optional | Boolean | The DNS `AD` flag, which is related to DNSSEC, indicates in a response that all data included in the answer and authority sections of the response have been verified by the server according to the policies of that server. see [RFC 3655 Section 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) for more information.    |
+| **DnsFlagsAuthoritative** | Optional | Boolean | The DNS `AA` flag indicates whether the response from the server was authoritative    |
+| **DnsFlagsCheckingDisabled** | Optional | Boolean | The DNS `CD` flag, which is related to DNSSEC, indicates in a query that non-verified data is acceptable to the system sending the query. see [RFC 3655 Section 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) for more information.   |
+| **DnsFlagsRecursionAvailable** | Optional | Boolean | The DNS `RA` flag indicates in a response that  that server supports recursive queries.   |
+| **DnsFlagsRecursionDesired** | Optional | Boolean | The DNS `RD` flag indicates in a request that that client would like the server to use recursive queries.   |
+| **DnsFlagsTruncates** | Optional | Boolean | The DNS `TC` flag indicates that a response was truncates as it exceeded the maximum response size.  |
+| **DnsFlagsZ** | Optional | Boolean | The DNS `Z` flag is a deprecated DNS flag, which might be reported by older DNS systems.  |
 | | | | | |
 
 ### Deprecated aliases
@@ -223,7 +230,7 @@ The following fields are aliases that are currently deprecated but are maintaine
 
 The following fields have been added to version 0.1.2 of the schema:
 - EventSchema - which is currently optional, but will become mandatory on January 1st 2022
-- 
+- Dedicated flag field augmenting the combined **[Flags](#flags)** field: `DnsFlagsAuthoritative`, `DnsFlagsCheckingDisabled`, `DnsFlagsRecursionAvailable`, `DnsFlagsRecursionDesired`, `DnsFlagsTruncates`, and `DnsFlagsZ`.
 
 ### Additional entities
 
@@ -282,9 +289,9 @@ The fields in each dictionary in the dynamic value correspond to the fields in e
 
 ## Handling DNS flags
 
-Parsing and normalization are not required for flag data. Instead, store the flag data provided by the reporting device in the [Flags](#flags) field.
+Parsing and normalization are not required for flag data. Instead, store the flag data provided by the reporting device in the [Flags](#flags) field. If determining the value of individual flags is straight forward, you can also use the dedicated flags fields. 
 
-You can also provide an extra KQL function called `_imDNS<vendor>Flags_`, which takes the unparsed response as input and returns a dynamic list, with Boolean values that represent each flag in the following order:
+You can also provide an extra KQL function called `_imDNS<vendor>Flags_`, which takes the unparsed response, or dedicated flag fields, as input and returns a dynamic list, with Boolean values that represent each flag in the following order:
 
 - Authenticated (AD)
 - Authoritative (AA)
