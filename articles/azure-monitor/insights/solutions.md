@@ -10,9 +10,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Monitoring solutions in Azure Monitor
 
-Monitoring solutions in Azure Monitor provide analysis of the operation of an Azure application or service. This article provides a brief overview of monitoring solutions in Azure and details on using and installing them. 
+Monitoring solutions in Azure Monitor provide analysis of the operation of an Azure application or service. This article gives a brief overview of monitoring solutions in Azure and details on using and installing them. 
 
-You can add monitoring solutions to Azure Monitor for any applications and services that you use. They're typically available at no cost but collect data that might invoke usage charges.
+You can add monitoring solutions to Azure Monitor for any applications and services that you use. They're typically available at no cost, but they collect data that might invoke usage charges.
 
 ## Use monitoring solutions
 

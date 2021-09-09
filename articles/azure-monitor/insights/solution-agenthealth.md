@@ -14,7 +14,7 @@ The Agent Health solution in Azure helps you understand which monitoring agents 
 You can also use the Agent Health solution to:
 
 * Keep track of how many agents are deployed and where they're distributed geographically.
-* Perform other queries to maintain awareness of the distribution of agents deployed in Azure, other cloud environments, or on-premises.    
+* Perform other queries to maintain awareness of the distribution of agents deployed in Azure, in other cloud environments, or on-premises.    
 
 ## Prerequisites
 Before you deploy this solution, confirm that you have supported [Windows agents](../agents/agent-windows.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../agents/om-agents.md) integrated with your workspace.
