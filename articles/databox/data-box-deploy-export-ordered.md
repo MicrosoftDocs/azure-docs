@@ -262,9 +262,9 @@ To use an XML file to export your data:
 ## Sample XML file
 
 Follow these guidelines if you choose to select blobs and files for export by using an XML file:
-- [XML file overview](data-box-export-deploy-ordered?tabs=xml-file-overview#sample-xml-file): Review tag requirements for the XML file.
-- [Prefix examples](data-box-export-deploy-ordered?tabs=prefix-examples#sample-xml-file): See examples of valid prefixes that select multiple blobs and files for export.
-- [Sample XML file](data-box-export-deploy-ordered?tabs=sample-xml-file#sample-xml-file): Copy a sample XML file with examples of each tag.
+- [XML file overview](data-box-export-deploy-ordered.md?tabs=xml-file-overview#sample-xml-file): Review tag requirements for the XML file.
+- [Prefix examples](data-box-export-deploy-ordered.md?tabs=prefix-examples#sample-xml-file): See examples of valid prefixes that select multiple blobs and files for export.
+- [Sample XML file](data-box-export-deploy-ordered.md?tabs=sample-xml-file#sample-xml-file): Copy a sample XML file with examples of each tag.
 
 # [XML file overview](#tab/xml-file-overview)
 
@@ -285,7 +285,7 @@ The following XML tags are used in the XML file for a Data Box export order:
 |`<FilePath>`       |Filters the selection to a single file. |
 |`<FilePathPrefix>` |Filters the selection to a set of similarly named shares, similarly named folders in a share, or similarly named files in a folder. |
 
-To see the tags in context, go to [Sample XML file](data-box-export-deploy-ordered?tabs=sample-xml-file#sample-xml-file).
+To see the tags in context, go to [Sample XML file](data-box-export-deploy-ordered.md?tabs=sample-xml-file#sample-xml-file).
 
 #### Path vs. prefix
 
@@ -301,7 +301,7 @@ The prefixes that select multiple blobs or multiple files are similar:
 
 * For Azure Files, use a prefix to select a set of similarly named shares or similarly named files in a share. The prefix may be the prefix of the share name, the complete share name, or a complete share name followed by the prefix of the file name.
 
-For examples of correctly formed prefixes, see [Prefix examples](data-box-export-deploy-ordered?tabs=prefix-examples#sample-xml-file).
+For examples of correctly formed prefixes, see [Prefix examples](data-box-export-deploy-ordered.md?tabs=prefix-examples#sample-xml-file).
 
 #### XML tag requirements
 
