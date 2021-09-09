@@ -87,9 +87,9 @@ steps:
 ::: zone pivot="programming-language-java"
 
 ## Set up Spring Cloud Instance and DevOps project
-1.	Go to your Azure Spring Cloud instance and create a new app. 
-2.	Go to Azure DevOps website and create a new project under a chosen organization. If you do not have a DevOps organization, you could create one for free.
-3.	Go to repo section and import demo code from [this link](https://github.com/spring-guides/gs-spring-boot) to repo.
+1.	navigate to your Azure Spring Cloud instance and create a new app. 
+2.	navigate to Azure DevOps website and create a new project under a chosen organization. If you do not have a DevOps organization, you could create one for free.
+3.	navigate to repo section and import demo code from [this link](https://github.com/spring-guides/gs-spring-boot) to repo.
 
 ## Create an Azure Resource Manager service connection
 
@@ -100,14 +100,14 @@ DevOps provides you with convenient ways to deploy your app. The following displ
 
 ### Deploy artifacts via pipeline
 
-1. Click on Pipelines blade and create a new pipeline with a Maven template.
+1. Select **Pipelines** Section and create a new pipeline with a Maven template.
 2. Edit yml file:
 
-> * Change mavenPomFile under the Maven task to 'complete/pom.xml'.
-> * Click "show assistance" on the right side and choose Azure Spring Cloud template.
+> * Modify mavenPomFile under the Maven task to 'complete/pom.xml'.
+> * Select **Show assistance** on the right side and choose Azure Spring Cloud template.
 > * Choose the service connection you just created for Azure Subscription. Choose your Spring Cloud Instance and App Instance. 
-> * Disable “Use Staging Deployment”.
-> * Change package or folder to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar.
+> * Disable **Use Staging Deployment**.
+> * Modify package or folder to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar.
 > * Add this task to your pipeline.
 
   
@@ -132,7 +132,7 @@ steps:
     Package: ./target/your-result-jar.jar
 ```
 
-3. Click save and run, and then wait for job to be done.
+3. Select **Save and run** button, and then wait for job to be done.
 
 ### Blue-green deployments
 
@@ -163,33 +163,33 @@ steps:
     UseStagingDeployment: true
 ```
 
-#### Use Release Blade
+#### Use Release Section
 The follow steps demonstrate how to enable blue-green deployment via Release Blade.
 
-1.	Click on Pipelines blade and create a new pipeline for Maven build and Publish artifact
-> *	Choose Maven template and change mavenPomFile to ‘complete/pom.xml’
-> *	Click on show assistance on the right side and choose publish build artifact template
-> *	Change Path to public to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar
-> *	Click on save and run
+1.  Select **Pipelines** section and create a new pipeline for Maven build and Publish artifact
+> *	Choose Maven template and modify mavenPomFile to ‘complete/pom.xml’
+> *	Select **Show assistance** on the right side and choose publish build artifact template
+> *	Modify Path to public to complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar
+> *	Select **Save and run** button
 
-2.	Go to Releases blade. Add a new pipeline, and choose "an empty job" to edit.
+2.	Navigate to Releases section. Add a new pipeline, and choose **Empty job** to edit.
 [ ![Choose an empty task template](media/spring-cloud-how-to-cicd/Choose-empty-template.jpg)](media/spring-cloud-how-to-cicd/Choose-empty-template.jpg#lightbox)
 
 Create a new job and search for “Azure Spring Cloud” template.
-[ ![create a job](media/spring-cloud-how-to-cicd/Create-new-job.jpg)](media/spring-cloud-how-to-cicd/Create-new-job.jpg#lightbox)
+[ ![Create a job](media/spring-cloud-how-to-cicd/Create-new-job.jpg)](media/spring-cloud-how-to-cicd/Create-new-job.jpg#lightbox)
 
-Fill this task with your app's information. Disable "use staging deployment". Click "create a new staging deployment" and enter deployment name. Then, click on save.
-[ ![fill the job template](media/spring-cloud-how-to-cicd/Fill-the-job-template.jpg)](media/spring-cloud-how-to-cicd/Fill-the-job-template.jpg#lightbox)
+Fill this task with your app's information. Disable **Use Staging Deployment**. Enable **Create a new staging deployment if one does not exist.** and enter deployment name. Then save this task.
+[ ![Fill the job template](media/spring-cloud-how-to-cicd/Fill-the-job-template.jpg)](media/spring-cloud-how-to-cicd/Fill-the-job-template.jpg#lightbox)
 
-3.  Click on "the artifact" and choose the pipeline that publish the artifact. Then, click on the task in the stage 1, and then change package or folder to the artifact address. Save changes.
-[ ![change artifact path](media/spring-cloud-how-to-cicd/Change-artifact-path.jpg)](media/spring-cloud-how-to-cicd/Change-artifact-path.jpg#lightbox)
+3.  Select **Artifacts** and choose the pipeline that publish the artifact. Then, Navigate to the task in the stage 1, and then Modify "Package or folder" to the artifact address. Save changes.
+[ ![Modify artifact path](media/spring-cloud-how-to-cicd/Change-artifact-path.jpg)](media/spring-cloud-how-to-cicd/Change-artifact-path.jpg#lightbox)
 
-4. Click on "clone stage" and modify this stage. Change action to “Set Production Deployment”. Fill blanks of this task.
+4. Select **Clone stage** and modify its task. Modify action to **Set Production Deployment**. Fill blanks of this task.
 [ ![Clone the stage](media/spring-cloud-how-to-cicd/Clone-the-stage.jpg)](media/spring-cloud-how-to-cicd/Clone-the-stage.jpg#lightbox)
 
-5.	Click “create release”, the deployment will automatically start. 
+5.	Select **Create release** button, the deployment will automatically start. 
 
-To check your app's current release status, click “view release”. After this task is done, go to Azure portal and check your app status.
+To verify your app's current release status, Select **View release**. After this task is done, visit your Azure portal and verify your app status.
 
 ### Deploy from source
 
