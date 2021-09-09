@@ -1,18 +1,15 @@
 ---
-title: "Quickstart: Use cURL & REST to manage knowledge base - QnA Maker"
+title: "Quickstart: Use cURL & REST to manage knowledge base - custom question answering"
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
-ms.date: 1/22/2021
-ms.topic: quickstart
+ms.date: 08/25/2021
+ms.topic: include
 ---
-
-[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
-* You must have a [QnA Maker resource](../how-to/set-up-qnamaker-service-azure.md?tabs=v1#create-a-new-qna-maker-service), to use the key and resource name. You entered the resource **Name** during resource creation, then the key was created for you. The resource name is used as the subdomain for your endpoint. To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:
+* Custom question and answering requires a [Text Analytics resource](../../../qnamaker/how-to/set-up-qnamaker-service-azure.md?tabs=v2#create-a-new-qna-maker-service) with the custom question answering feature enabled to generate an API key and endpoint. The **Name** you chose when creating your resource is used as the subdomain for your endpoint. To retrieve the key and your resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:
 
-    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
+    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2`
 
 > [!CAUTION]
 > The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
@@ -23,15 +20,15 @@ To create a knowledge base with the REST APIs and cURL, you need to have the fol
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to Text Analytics service|
 |JSON describing knowledge base|`-d` param|[Examples](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) of JSON|
 |Size of the JSON in bytes|`-h` param for `Content-Size` header||
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values and size of JSON.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/create \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/create \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
 -H "Content-Type:application/json" \
@@ -57,14 +54,14 @@ When you create a knowledge base, because the operation is async, the response i
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
+|Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
 |Operation Id|URL route|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to Text Analytics service|
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and operation ID.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/operations/REPLACE-WITH-YOUR-OPERATION-ID \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/operations/REPLACE-WITH-YOUR-OPERATION-ID \
 -X GET \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
@@ -81,24 +78,21 @@ The cURL response includes the status. If the operation state is succeeded, then
    "operationId": "f293f218-d080-48f0-a766-47993e9b26a8"
 }
 ```
+
 ## Publish knowledge base
 
-Before you query the knowledge base, you need to:
-* Publish knowledge base
-* Get the runtime endpoint key
-
-This task publishes the knowledge base. Getting the runtime endpoint key is a [separate task](#get-published-knowledge-bases-runtime-endpoint-key).
+Before you query the knowledge base, you need to Publish the knowledge base.
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to Text Analytics service|
 |Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
 -v \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
@@ -107,48 +101,12 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 
 The response status is 204 with no results. Use the `-v` command-line parameter to see verbose output for the cURL command. This will include the HTTP status.
 
-## Get published knowledge base's runtime endpoint key
-
-Before you query the knowledge base, you need to:
-* Publish knowledge base
-* Get the runtime endpoint key
-
-This task getS the runtime endpoint key. Publishing the knowledge base is a [separate task](#publish-knowledge-base).
-
-The runtime endpoint key is the same key for all knowledge bases using the QnA Maker resource.
-
-|Information|cURL configuration|Purpose|
-|--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
-
-The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/endpointkeys \
--X GET \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
-```
-
-The cURL response includes the runtime endpoint keys. Use just one of the keys when querying to get an answer from the knowledge base.
-
-```json
-{
-  "primaryEndpointKey": "93e88a14-694a-44d5-883b-184a68aa8530",
-  "secondaryEndpointKey": "92c98c16-ca31-4294-8626-6c57454a5063",
-  "installedVersion": "4.0.5",
-  "lastStableVersion": "4.0.6"
-}
-```
-
 ## Query for answer from published knowledge base
 
-Getting an answer from the knowledge is done from a separate runtime than managing the knowledge base. Because it is a separate runtime, you need to authenticate with a runtime key.
-
 |Information|cURL configuration|Purpose|
 |--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker runtime key|`-h` param for `Authorization` header|The key is part of a string that includes the word `Endpointkey `. Authenticate to QnA Maker service|
+|Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to Text Analytics service|
 |Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 |JSON describing query|`-d` param|[Request body parameters](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) and [examples](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) of JSON|
 |Size of the JSON in bytes|`-h` param for `Content-Size` header||
@@ -156,11 +114,11 @@ Getting an answer from the knowledge is done from a separate runtime than managi
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID/generateAnswer \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID/generateAnswer \
 -X POST \
--H "Authorization: EndpointKey REPLACE-WITH-YOUR-RUNTIME-KEY" \
 -H "Content-Type:application/json" \
 -H "Content-Size:159" \
+-H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 -d '{"question": "How are QnA Maker and LUIS used together?","top": 6,"isTest": true,  "scoreThreshold": 20, "strictFilters": [], "userId": "sd53lsY="}'
 ```
 
@@ -172,14 +130,14 @@ When you are done with the knowledge base, delete it.
 
 |Information|cURL configuration|Purpose|
 |--|--|--|
-|QnA Maker resource name|URL|used to construct URL|
-|QnA Maker resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to QnA Maker service|
+|Text Analytics resource name (Custom question answering feature enabled)|URL|used to construct URL|
+|Text Analytics resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to Text Analytics service|
 |Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
 -X DELETE \
 -v \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
