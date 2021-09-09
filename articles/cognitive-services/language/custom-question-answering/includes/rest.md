@@ -3,7 +3,7 @@ title: "Quickstart: Use cURL & REST to manage knowledge base - custom question a
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
 ms.date: 08/25/2021
 ms.topic: include
-
+---
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
