@@ -203,6 +203,8 @@ The **Pipeline run** dialog box asks for the **name** parameter. Use **/path/fil
 
 1.  To see activity runs associated with the pipeline run, select **pipeline1** link in the **Pipeline name** column.
 
+1. In the **Activity runs** page, select **Output** in the **Activity name** column to view the output of each activity, and you can find the link to Databricks logs here for more detailed Spark logs.
+
 1. You can switch back to the pipeline runs view by selecting the **All pipeline runs** link in the breadcrumb menu at the top.
 
 ## Verify the output
