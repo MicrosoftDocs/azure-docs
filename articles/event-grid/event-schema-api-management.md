@@ -111,16 +111,13 @@ The following example shows the schema of a user deleted event. The schema of ot
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of an API updated event. The `data` property includes both the  `updatedProperies` array and the `resourceUri`.  The schema of other API Management resource updated events is similar. 
+The following example shows the schema of an API updated event. The `data` property includes the `resourceUri`.  The schema of other API Management resource updated events is similar. 
 ```json
 [{
   "id": "95015754-aa51-4eb6-98d9-9ee322b82ad7",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "updatedProperties": [
-      "path"
-    ],
     "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "eventType": "Microsoft.ApiManagement.APIUpdated",
@@ -132,7 +129,7 @@ The following example shows the schema of an API updated event. The `data` prope
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of an API updated event. The `data` property includes both the  `updatedProperies` array and the `resourceUri`.  The schema of other API Management resource updated events is similar. 
+The following example shows the schema of an API updated event. The `data` property includes the `resourceUri`.  The schema of other API Management resource updated events is similar. 
 
 ```json
 [{
@@ -140,9 +137,6 @@ The following example shows the schema of an API updated event. The `data` prope
   "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "updatedProperties": [
-      "path"
-    ],
     "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "Type": "Microsoft.ApiManagement.APIUpdated",
@@ -190,7 +184,6 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `resourceUri` | string | The URI of the API Management resource that triggered the event. |
-| `updatedProperties` | string[] | List of properties updated in the API Management resource that triggered an update event. |
 
 ## Tutorials and how-tos
 
