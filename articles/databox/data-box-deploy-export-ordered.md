@@ -261,12 +261,10 @@ To use an XML file to export your data:
 
 ## Sample XML file
 
-Follow these guidelines if you choose to select blobs and files for export by using an XML file. 
-
-You'll find this information on the three tabs:
-- **XML file overview**: Review tag requirements for the XML file.
-- **Prefix examples**: See examples of valid prefixes that select multiple blobs and files for export.
-- **Sample XML file**: Copy a sample XML file with examples of each tag.
+Follow these guidelines if you choose to select blobs and files for export by using an XML file:
+- [XML file overview](data-box-export-deploy-ordered?tabs=xml-file-overview#sample-xml-file): Review tag requirements for the XML file.
+- [Prefix examples](data-box-export-deploy-ordered?tabs=prefix-examples#sample-xml-file): See examples of valid prefixes that select multiple blobs and files for export.
+- [Sample XML file](data-box-export-deploy-ordered?tabs=sample-xml-file#sample-xml-file): Copy a sample XML file with examples of each tag.
 
 # [XML file overview](#tab/xml-file-overview)
 
@@ -287,6 +285,8 @@ The following XML tags are used in the XML file for a Data Box export order:
 |`<FilePath>`       |Filters the selection to a single file. |
 |`<FilePathPrefix>` |Filters the selection to a set of similarly named shares, similarly named folders in a share, or similarly named files in a folder. |
 
+To see the tags in context, go to [Sample XML file](data-box-export-deploy-ordered?tabs=sample-xml-file#sample-xml-file).
+
 #### Path vs. prefix
 
 To form the XML tags correctly, you need to understand the difference between a path and a prefix:
@@ -301,14 +301,14 @@ The prefixes that select multiple blobs or multiple files are similar:
 
 * For Azure Files, use a prefix to select a set of similarly named shares or similarly named files in a share. The prefix may be the prefix of the share name, the complete share name, or a complete share name followed by the prefix of the file name.
 
-For examples of correctly formed prefixes, see the **Prefix examples** tab.
+For examples of correctly formed prefixes, see [Prefix examples](data-box-export-deploy-ordered?tabs=prefix-examples#sample-xml-file).
 
 #### XML tag requirements
 
 * All XML tags are case sensitive and need to match the tags in the above table exactly.
 * Opening and closing tags must match.
 * Incorrect XML tags or formatting may lead to data export failure.
-* No data will be exported if the blob prefix or file prefix is invalid. For examples of valid prefixes, see **Prefix examples**.
+* No data will be exported if the blob prefix or file prefix is invalid. For examples of valid prefixes, see [Prefix examples](data-box-export-deploy-ordered?tabs=prefix-examples#sample-xml-file).
 
 # [Prefix examples](#tab/prefix-examples)
 
