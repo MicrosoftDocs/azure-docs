@@ -7,10 +7,7 @@ ms.date: 09/09/2021
 
 # File functions for Bicep
 
-Resource Manager provides the following Bicep functions for loading content from external files:
-
-* [loadFileAsBase64](#loadfileasbase64)
-* [loadTextContent](#loadtextcontent)
+This article describes the Bicep functions for loading content from external files.
 
 ## loadFileAsBase64
 
