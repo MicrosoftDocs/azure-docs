@@ -71,7 +71,7 @@ When accessing your workspace from studio, the network traffic flows are as foll
 * For most storage operations, traffic flows through the private endpoint of the default storage for your workspace. Exceptions are discussed in the [Use AutoML, designer, dataset, and datastore](#scenario-use-automl-designer-dataset-and-datastore-from-studio) section.
 * You also need to configure a DNS solution that allows you to resolve the names of the resources within the VNet. For more information, see [Use your workspace with a custom DNS](how-to-custom-dns.md).
 
-:::image type="content" source="./media/concept-secure-network-traffic-flow/workspacee-traffic-studio.png" alt-text="Diagram of network traffic between client and workspace when using studio":::
+:::image type="content" source="./media/concept-secure-network-traffic-flow/workspace-traffic-studio.png" alt-text="Diagram of network traffic between client and workspace when using studio":::
 
 ## Scenario: Use AutoML, designer, dataset, and datastore from studio
 
