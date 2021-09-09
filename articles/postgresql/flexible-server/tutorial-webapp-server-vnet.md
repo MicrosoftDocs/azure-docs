@@ -91,8 +91,8 @@ az webapp up --resource-group demoresourcegroup --location westus2 --plan testap
 ```
 
 > [!NOTE]
-> - For the --location argument, use the same location as you did for the database in the previous section.
-> - Replace <app-name> with a unique name across all Azure. Allowed characters for <app-name> are A-Z, 0-9, and -. A good pattern is to use a combination of your company name and an app identifier.
+> - For the _--location_ argument, use the same location as you did for the database in the previous section.
+> - Replace \<app-name\> with a unique name across all Azure. Allowed characters for \<app-name\> are A-Z, 0-9, and -. A good pattern is to use a combination of your company name and an app identifier.
 
 This command performs the following actions, which may take a few minutes:
 

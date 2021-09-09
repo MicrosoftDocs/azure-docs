@@ -113,7 +113,7 @@ az deployment group create --resource-group myResourceGroup \
 ::: zone pivot="platform-linux"
 Run the code below to create a Python app on Linux. 
 
-Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
+Replace \<app-name\> with a globally unique app name. Valid characters characters are `a-z`, `0-9`, and `-`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
