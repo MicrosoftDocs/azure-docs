@@ -21,7 +21,7 @@ Customers will be able to mark their AppTraces and ContainerLog/ContainerLogV2 t
 * [Purge](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) command will not be available for this data.
 
 ## Preview terms
-During the 2021, Troubleshooting logs will be offered as a private preview. The preview is available in all of the public Azure regions. The provisional price for these logs will be $0.50/GB with four days of retention included. Customers can extend the retention for these tables at the standard $0.10/GB/month cost. During the first period of the preview, until December 2021, no charging will be made for these logs.
+Troubleshooting logs will be offered as a private preview. The preview is available in all of the public Azure regions. The provisional price for these logs will be $0.50/GB with four days of retention included. Customers can extend the retention for these tables at the standard $0.10/GB/month cost. During the first period of the preview, until the beginning of 2022, no charging will be made for these logs.
 
 ## Troubleshoot and query your code or configuration issues
 Use Azure Monitor Troubleshooting Logs to fetch your records and investigate problems and issues in a simpler and cheaper way using KQL.
