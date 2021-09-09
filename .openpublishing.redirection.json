@@ -57005,7 +57005,7 @@
     },
     {
       "source_path_from_root": "/articles/sentinel/normalization-schema.md ",
-      "redirect_url": "/azure/sentinel/network-normalization-schema.md",
+      "redirect_url": "/azure/sentinel/network-normalization-schema",
       "redirect_document_id": false
     }
   ]

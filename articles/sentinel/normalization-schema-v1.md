@@ -193,7 +193,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 |
 
 
-## <a name="changes"></a>Differences between the v1 and v2
+## <a name="changes"></a>Differences between the version 0.1 and version 0.2
 
 The original version of the Azure Sentinel Network session normalization schema, version 0.1, was released as a preview before ASIM was available.
 
@@ -352,8 +352,8 @@ The following fields exist in version 0.1 only, and were removed in [version 0.2
 |**Removed to align with ASIM handling of URLs**     |  - UrlHostname       |
 |**Removed because these fields are not typically provided as part of Network Session events.**<br><br>If an event includes these fields, use the [Process Event schema](process-events-normalization-schema.md) to understand how to describe device properties. |     - SrcDvcOs<br>- SrcDvcModelName<br>- SrcDvcModelNumber<br>- DvcMacAddr<br>- DvcOs    |
 |**Removed to align with ASIM file representation guidance**     |   - FilePath<br>- FileExtension      |
-|**Removed as this field indicates that a different schema should be used, such as the [Authentication schema](authentication-normalization-schema.md).**     |  CloudAppOperation       |
-|**Removed as it duplicates `DstHostname`**     |   DstDomainHostname      |
+|**Removed as this field indicates that a different schema should be used, such as the [Authentication schema](authentication-normalization-schema.md).**     |  - CloudAppOperation       |
+|**Removed as it duplicates `DstHostname`**     |  - DstDomainHostname      |
 |     |         |
 
 
