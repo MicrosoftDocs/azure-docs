@@ -204,7 +204,7 @@ To copy data from and to Amazon RDS for Oracle, set the type property of the dat
             "table": "<table_name>"
         },
         "linkedServiceName": {
-            "referenceName": "<Oracle linked service name>",
+            "referenceName": "<Amazon RDS for Oracle linked service name>",
             "type": "LinkedServiceReference"
         }
     }
