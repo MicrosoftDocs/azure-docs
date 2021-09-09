@@ -155,7 +155,7 @@ An event has the following top-level data:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject |
+| `subject` | string | Publisher-defined path to the event subject. |
 | `eventType` | string | One of the registered event types for this event source. |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
 | `id` | string | Unique identifier for the event. |
@@ -170,7 +170,7 @@ An event has the following top-level data:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | The fully qualified ID of the resource that the compliance state change is for, including the resource name and resource type. Uses the format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>` |
+| `subject` | string | Publisher-defined path to the event subject. |
 | `type` | string | One of the registered event types for this event source. |
 | `time` | string | The time the event is generated based on the provider's UTC time. |
 | `id` | string | Unique identifier for the event. |
