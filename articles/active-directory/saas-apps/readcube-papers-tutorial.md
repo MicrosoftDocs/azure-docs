@@ -74,10 +74,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, perform the following step:
+	1. In the **Reply URL (ACS URL)** text box, type the URL: `https://connect.liblynx.com/saml/module.php/saml/sp/saml2-acs.php/dsrsi`
+	2. In the **Sign on URL** text box, type the URL: `https://app.readcube.com`
+	![image](articles/active-directory/saas-apps/media/readcube-papers-tutorial/readcube-papers-tutorial-1.png)
 
-	a. In the **Sign on URL** text box, type the URL:
-    `https://app.readcube.com`
-
+    	 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
