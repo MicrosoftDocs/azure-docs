@@ -14,6 +14,8 @@
 In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to the hub, and send telemetry.
 
 ## Prerequisites
+This quickstart has been tested on the following platforms: Windows 10, Ubuntu 18.4 running on Windows Subsystem for Linux (WSL), and on a Raspberry Pi 3 Model B+ running Raspberry Pi OS version 10 (buster). The following prerequisites should be installed on your development machine except where noted for Raspberry Pi:
+
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform utility to  monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, install IoT Explorer on another computer. Alternatively, you can use Azure CLI to perform the steps that use IoT Explorer. 
@@ -24,8 +26,6 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 Install the remaining prerequisites for your operating system.
 
 ### Linux
-The steps in this quickstart were tested using Ubuntu Linux 18.04 and on a Raspberry Pi 3 Model B+ running Raspberry Pi OS version 10 (buster). 
-
 To complete this quickstart on Linux, install the following software on your local Linux environment:
 
 Install **GCC**, **Git**, **cmake**, and the required dependencies using the `apt-get` command:
