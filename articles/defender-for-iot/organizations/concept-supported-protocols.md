@@ -1,7 +1,7 @@
 ---
 title: Protocols supported by Azure Defender for IoT
 description: Learn about all of the protocols that are supported by Azure Defender for IoT.
-ms.date: 09/01/2021
+ms.date: 09/09/2021
 ms.topic: article
 ---
 
@@ -48,3 +48,6 @@ The Horizon Protocol SDK allows quick support for 100% of the protocols used in 
 :::image type="content" source="media/concept-supported-protocols/sdk-horizon.png" alt-text="The Horizon SDK allows quick support for 100% of the protocols used in IOT, and ICS environments.":::
 
 ## Next steps
+
+Learn more about the [Horizon proprietary protocol dissector](references-horizon-sdk.md).
+Check out our [Horizon API](references-horizon-api.md).
