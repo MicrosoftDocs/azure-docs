@@ -350,10 +350,10 @@ The following fields exist in version 0.1 only, and were removed in [version 0.2
 |---------|---------|
 |**Removed because duplicates exist, without the `Dvc` string in the field name**     |  - DstDvcIpAddr<br> - DstDvcMacAddr<br>- SrcDvcIpAddr<br>- SrcDvcMacAddr       |
 |**Removed to align with ASIM handling of URLs**     |  - UrlHostname       |
-|**Removed because these fields are not typically provided as part of Network Session events.**<br><br>If an event includes these fields, use the [Process Event schema](process-events-normalization-schema.md) to understand how to describe device properties. |     - SrcDvcOs<br>- SrcDvcModelName<br>- SrcDvcModelNumber<br>- DvcMacAddr<br>- DvcOs    |
+|**Removed because these fields are not typically provided as part of Network Session events.**<br><br>If an event includes these fields, use the [Process Event schema](process-events-normalization-schema.md) to understand how to describe device properties. |     - SrcDvcOs<br>- SrcDvcModelName<br>- SrcDvcModelNumber<br>- DvcMacAddr<br>- DvcOs         |
 |**Removed to align with ASIM file representation guidance**     |   - FilePath<br>- FileExtension      |
 |**Removed as this field indicates that a different schema should be used, such as the [Authentication schema](authentication-normalization-schema.md).**     |  - CloudAppOperation       |
-|**Removed as it duplicates `DstHostname`**     |  - DstDomainHostname      |
+|**Removed as it duplicates `DstHostname`**     |  - DstDomainHostname         |
 |     |         |
 
 

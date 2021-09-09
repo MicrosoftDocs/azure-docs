@@ -74,7 +74,7 @@ The following sections provide guidance on normalizing and using the schema for 
 | **Use IPS events** | IPS events are surfaced as part of the [imNetworkSession](#using-parsers) and [imNotables](#using-parsers) source-agnostic parsers. |
 | | |
 
-### Web Servers
+### Web servers
 
 | Task | Description |
 | --- | --- |
@@ -82,7 +82,7 @@ The following sections provide guidance on normalizing and using the schema for 
 | **Use Web Server Events** | Web Server events are surfaced as part of the [imNetworkSession](#using-parsers) source-agnostic parser. However, to use any HTTP-specific fields, use the [imWebSession](#using-parsers) parser. |
 | | |
 
-### Web Security Gateways
+### Web security gateways
 
 | Task | Description |
 | --- | --- |
@@ -91,7 +91,7 @@ The following sections provide guidance on normalizing and using the schema for 
 | | |
 
 
-## Using parsers
+## Use parsers
 
 To use a source-agnostic parser that unifies all built-in parsers, and ensure that your analysis runs across all configured sources, use any of the following parsers:
 
@@ -153,7 +153,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventStartTime** | Mandatory | Date/time | If the source supports aggregation and the record represents multiple events, this field specifies the time the that first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
 | **EventEndTime** | Mandatory | Alias | Alias to the [TimeGenerated](#timegenerated) field. |
 | **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Sessions records, supported values include:<br>- `NetworkConnection`<br>- `NetworkSession`<br>- `HTTPsession` |
-| **EventSubType** | Optional | String | Additional description of the event type, if applicable. br><br> For Network Sessions records, supported values include:<br>- `Start`<br>- `End` |
+| **EventSubType** | Optional | String | Additional description of the event type, if applicable. <br> For Network Sessions records, supported values include:<br>- `Start`<br>- `End` |
 | **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
 | <a name="eventresultdetails"></a>**EventResultDetails** | Optional | String | For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
 | **EventOriginalResultDetails**    | Optional    | String     |  The value provided in the original record for [EventResultDetails](#eventresultdetails), if provided by the source.|
@@ -178,7 +178,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **AdditionalFields** | Optional | Dynamic | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic  **AdditionalFields**  field, and add to it the extra information as key/value pairs. |
 | | | | |
 
-### Network Session fields
+### Network session fields
 
 The following fields are common to all network session activity logging:
 
@@ -246,7 +246,7 @@ The following fields are common to all network session activity logging:
 | **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
 | **NetworkApplicationProtocol** | Optional | String | The application layer protocol used by the connection or session. If the [DstPortNumber](#dstportnumber) value is provided, we recommend that you include  **NetworkApplicationProtocol** too. If the value is not available from the source, derive the value from the [DstPortNumber](#dstportnumber) value.<br><br>Example: `HTTP` |
 | **NetworkProtocol** | Optional | Enumerated | The IP protocol used by the connection or session as listed in [IANA protocol assignment](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). Typically, `TCP`, `UDP` or `ICMP`.<br><br>Example: `TCP` |
-| **NetworkDirection** | Optional | Enumerated | The direction of the connection or session, into or out of the organization. Supported values include: `Inbound`, `Outbound`, `Listen`. `Listen` indicates that a device has started accepting network connections, but is not actually, neccesarily, connected.|
+| **NetworkDirection** | Optional | Enumerated | The direction of the connection or session, into or out of the organization. Supported values include: `Inbound`, `Outbound`, `Listen`. `Listen` indicates that a device has started accepting network connections, but is not actually, necessarily, connected.|
 | <a name="networkduration"></a>**NetworkDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of the network session or connection.<br><br>Example: `1500` |
 | **Duration** | Alias | | Alias to [NetworkDuration](#networkduration) |
 | **NetworkIcmpCode** | Optional | Integer | For an ICMP message, the ICMP message type numeric value as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections. If a [NetworkIcmpType](#networkicmptype) value is provided, this field is mandatory. If the value is not available from the source, derive the value from the  [NetworkIcmpType](#networkicmptype) field instead.<br><br>Example: `34` |
@@ -275,7 +275,7 @@ The following fields are useful if the record includes information about an inte
 | **DvcOutboundInterface** | Optional | String | If reported by an intermediary device, the network interface used by the NAT device for the connection to the destination device.<br><br>Example: `Ethernet adapter Ethernet 4e` |
 | | | | |
 
-### <a name="http-session-fields"></a>HTTP Session fields
+### <a name="http-session-fields"></a>HTTP session fields
 
 An HTTP session is a network session that uses the HTTP protocol. Such sessions are often reported by web servers, web proxies, and web security gateways. The following are additional fields that are specific to HTTP sessions:
 
