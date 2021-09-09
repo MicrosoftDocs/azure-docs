@@ -2,7 +2,7 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 09/09/2021
 ---
 
 # What is Bicep?
@@ -127,6 +127,17 @@ When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
 
 - No support for the concept of apiProfile, which is used to map a single apiProfile to a set apiVersion for each resource type.
 - No support for user-defined functions.
+- Symbolic names cannot be hyphenated. See below unsupported examples:
+
+    ```bicep
+    resource storage-account 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+      ...
+    }
+    ```
+    
+    ```bicep
+    var jsonFile =  json(loadTextContent('folder/file.json')).property-name-1.id
+    ```
 
 ## Next steps
 
