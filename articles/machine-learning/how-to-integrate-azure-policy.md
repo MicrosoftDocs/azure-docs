@@ -58,7 +58,9 @@ To control who can access your Azure Machine Learning workspace, use Azure Activ
 
 Landing zones are an architectural pattern to set up Azure environments that accounts for scale, governance, security, and productivity. A data landing zone is an administator-configured environment that an application team uses to host a data and analytics workload.
 
-The purpose of the landing zone is to ensure when a team starts in the Azure environment, all infrastructure configuration work is done. For instance, security controls are set up in compliance with organizational standards and network connectivity is set up. Using the landing zones pattern, machine learning teams can be enabled to self-service deploy and manage their own resources. By use of Azure policy, administrators can audit and manage Azure resources for compliance. 
+The purpose of the landing zone is to ensure when a team starts in the Azure environment, all infrastructure configuration work is done. For instance, security controls are set up in compliance with organizational standards and network connectivity is set up.
+
+Using the landing zones pattern, machine learning teams can be enabled to self-service deploy and manage their own resources. By use of Azure policy, as an administrator you can audit and manage Azure resources for compliance and make sure workspaces are compliant to meet your requirements. 
 
 Azure Machine Learning integrates with [data landing zones](https://github.com/Azure/data-landing-zone) in the [Cloud Adoption Framework data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/). This reference implementation provides an optimized environment to migrate machine learning workloads onto and includes policies for Azure Machine Learning preconfigured.
 
@@ -121,3 +123,4 @@ To configure this policy, set the effect parameter to __Modify__ or __Disabled__
 * [Working with security policies with Azure Security Center](../security-center/tutorial-security-policy.md)
 * The [Cloud Adoption Framework scenario for data management and analytics](/azure/cloud-adoption-framework/scenarios/data-management/) outlines considerations in running data and analytics workloads in the cloud.
 * [Cloud Adoption Framework data landing zones](https://github.com/Azure/data-landing-zone) provide a reference implementation for managing data and analytics workloads in Azure.
+* Learn how to use policy in integrate Azure Private Link with Azure Private DNS zones in hub and spoke network architectures.[](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)
