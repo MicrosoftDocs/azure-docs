@@ -16,7 +16,7 @@ Cirrus Migrate Cloud (CMC) enables disk migration from an existing storage syste
 
 ## Overview
 
-The solution uses distributed Migration Agents. They are running on every host that allows direct Host-to-Host connections. Each Host-to-Host migration is independent. This is making the solution infinitely scalable, without central bottlenecks for the dataflow. The migration is using cMotion™ technology to ensure that there is no impact on production running on the source, and the destination host. 
+The solution uses distributed Migration Agents running on every host that allows direct Host-to-Host connections. Each Host-to-Host migration is independent making the solution infinitely scalable, without central bottlenecks for the dataflow. The migration is using cMotion™ technology to ensure no impact on production. 
 
 ## Use cases
 
@@ -50,9 +50,9 @@ Before starting the migration, make sure the following prerequisites have been m
 - Ensure that managed disk is the same size or larger than the source disk 
 - Ensure that either the source, or the destination virtual machine has a port open to allow our H2H connection.
 
-1. **Prepare the Azure virtual machine**. Document is assuming that virtual machine is fully implemented. Therefore, once the data disks are migrated, the destination host can immediately start up the application and bring it online. State of the data will be the same as the source when it was just shut down seconds ago. CMC does not migrate the OS disk from source to destination.
+1. **Prepare the Azure virtual machine**. Document is assuming that virtual machine is fully implemented. So, once the data disks are migrated, the destination host can immediately start up the application, and bring it online. State of the data will be the same as the source when it was shut down seconds ago. CMC does not migrate the OS disk from source to destination.
 
-1. **Prepare the application in the Azure virtual machine**. In this example, the source is Linux host. It can run any user application accessing the respective BSD storage. We will use a database application running at the source using a 1 GiB disk as a source storage device. This is just for example, but any application can be used instead. Set up a virtual machine in Azure ready to be used as the destination virtual machine. Make sure that resource configuration and operating system is compatible with the application, and ready to receive the migration from the source using CMC portal. The destination block storage device/s will be automatically allocated and created during the migration process.
+1. **Prepare the application in the Azure virtual machine**. In this example, the source is Linux host. It can run any user application accessing the respective BSD storage. We will use a database application running at the source using a 1 GiB disk as a source storage device. However, any application can be used instead. Set up a virtual machine in Azure ready to be used as the destination virtual machine. Make sure that resource configuration and operating system are compatible with the application, and ready to receive the migration from the source using CMC portal. The destination block storage device/s will be automatically allocated and created during the migration process.
 
 1. **Sign up for CMC account**. To obtain a CMC account, follow the support page for the exact instructions on how to get an account. More details can be read [here](https://support.cirrusdata.cloud/portal/en/kb/articles/how-do-i-get-a-license-for-data-galaxy-complete).
 
@@ -62,7 +62,7 @@ Before starting the migration, make sure the following prerequisites have been m
 
 1. **Define the migration project parameters**. Use the CMC web-based portal to configure the migration by defining the parameters: source, destination, and other parameters.
 
-1. **Install the migration CMC agents on source and destination hosts**. Using the CMC web-based management portal, select  **Deploy Cirrus Migrate Cloud** to get the curl command for **New Installation**. Run the command on the source and destination command line interface.
+1. **Install the migration CMC agents on source and destination hosts**. Using the CMC web-based management portal, select  **Deploy Cirrus Migrate Cloud** to get the curl command for **New Installation**. Run the command on the source and destination command-line interface.
 
 1. **Create a bidirectional connection between source and destination hosts**. Use **H2H** tab in the CMC web-based management portal, and **Create New Connection** button. Select the device used by the application, not the device used by the Linux operating system.
 
@@ -74,8 +74,8 @@ Before starting the migration, make sure the following prerequisites have been m
 
 1. **Start the migration to the destination virtual machine** using **Migrate Host Volumes** from the CMC web-based management portal. Follow the instructions for remote location. Use the CMC portal to **Auto allocate destination volumes** on the right of the screen. 
  
-1. Next, we need to add Azure Credentials to allow connectivity and disk provisioning using the **Integrations** tab on the CMC portal. Fill in the required fields using your private company’s values for Azure: **Integration Name**, **Tenant ID**, **Client/Application ID** and **Secret**. Press **Save**. 
-_Note_: Do not press the **Auto allocate destination volumes** button for a new allocation. Instead press **Continue**.
+1. Next, we need to add Azure Credentials to allow connectivity and disk provisioning using the **Integrations** tab on the CMC portal. Fill in the required fields using your private company’s values for Azure: **Integration Name**, **Tenant ID**, **Client/Application ID**, and **Secret**. Press **Save**. 
+_Note_: Don't press the **Auto allocate destination volumes** button for a new allocation. Instead press **Continue**.
 
     :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-migration-4.jpg" alt-text="Screenshot that shows entering Azure credentials":::
 
@@ -83,14 +83,14 @@ _Note_: Do not press the **Auto allocate destination volumes** button for a new 
 
 ## Migration guide
 
-After pressing **Save** in the previous step, you are switched to **New Migration Session** window. Fill in the fields:
+After pressing **Save** in the previous step, **New Migration Session** window appears. Fill in the fields:
    - **Session description**: provide meaningful description
    - **Auto Resync Interval**: enable migration schedule 
    - Use iQoS to select the impact migration will have on the production:
      - **Minimum** throttles migration rate to 25% of the allocated bandwidth
      - **Moderate** throttles migration rate to 50% of the allocated bandwidth
      - **Aggressive** throttles migration rate to 75% of the allocated bandwidth
-     - **Relentless** doesn't throttles the migration.
+     - **Relentless** doesn't throttle the migration.
 
        :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-iqos.jpg" alt-text="Screenshot that shows options for iQoS settings":::
 
@@ -110,21 +110,21 @@ Details on iQoS will show synchronized blocks, and migration status. It also sho
 
 ## Moving the workload to Azure with cMotion
 
-After the initial synchronization finished, and the migration state progress is 100% (source blocks migrated) we will prepare to move the workload from the source disk to the destination Azure Managed Disk using cMotion™.
+After the initial synchronization finishes, we will prepare to move the workload from the source disk to the destination Azure Managed Disk using cMotion™.
 
 ### Start cMotion™
 
-At this point the systems are ready for cMotion™ migration cut-over. 
+At this point, the systems are ready for cMotion™ migration cut-over. 
 
-1. Go to the CMC portal and using Session Actions select **Trigger cMotion™**. This will swing the workload from the source disk to the destination disk. To check if the process was done, go to the terminal on the Azure virtual machine, and run *iostat /dev/<device_name>* (e.g. /dev/sdc), and observe that the IOs are written by the application on the destination disk in Azure cloud.
+1. In the CMS portal select **Trigger cMotion™** using Session to switch the workload from the source to the destination disk. To check if the process was done, you can use iostat, or equivalent command. Go to the terminal in the Azure virtual machine, and run *iostat /dev/<device_name>* (for example /dev/sdc), and observe that the IOs are written by the application on the destination disk in Azure cloud.
 
 :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-monitor-4.jpg" alt-text="Screenshot that shows current monitoring status":::
 
-In this state the workload can be swung, or moved back to the source disk at any time. If you want to revert the production virtual machine, use the **Session Actions** button, and select the **Revert cMotion™** option. We can swing back, and forth as many times we want while the application is running at source host/VM.
+In this state, the workload can be swung, or moved back to the source disk at any time. If you want to revert the production virtual machine, use the **Session Actions** button, and select the **Revert cMotion™** option. We can swing back, and forth as many times we want while the application is running at source host/VM.
 
 When the final cut-over to the destination virtual machine is desired, follow the steps:
 1. Select **Session Actions**
-2. Click the **Finalize Cutover** option. This will "lock-in" the cut-over to the new Azure virtual machine, and disable the option for source disk to be removed. Stop any other application running in the source host for final host cut-over. 
+2. Click the **Finalize Cutover** option to "lock-in" the cut-over to the new Azure virtual machine, and disable the option for source disk to be removed. Stop any other application running in the source host for final host cut-over. 
 
 ### Move the application to the destination virtual machine
 
@@ -139,10 +139,10 @@ Observe that there are no IOs going to source hosts devices by running the iosta
 
 ### Complete the migration session in CMC GUI 
 
-The migration was completed when all the IOs were redirected to the destination devices after triggering cMotion™, in the Azure virtual machine and the migration was completed. You can now close the session using **Session Actions**. Click on **Delete Session** to close the migration session. 
+The migration step completed when all the IOs were redirected to the destination devices after triggering cMotion™. You can now close the session using **Session Actions**. Click on **Delete Session** to close the migration session. 
 As a last step, you will remove the **Cirrus Migrate Cloud Agents** from both source host and Azure virtual machine. To perform uninstall, get the **Uninstall curl command** from **Deploy Cirrus Migrate Cloud** button. Option is in the **Hosts** section of the portal. 
 
-This completes the migration. Now the source application is running in production on the destination Azure virtual machine with locally mounted disks.	
+After the agents are removed, migration is fully completed. Now the source application is running in production on the destination Azure virtual machine with locally mounted disks.	
 
 ## Support
 
@@ -152,7 +152,7 @@ In the [Azure portal](https://portal.azure.com) search for support in the search
 
 ### Engaging Cirrus Support
 
-In the CMS portal select **Help Center** tab on the CMC portal to contact Cirrus Data Solutions support, or go to [CDSI website](https://support.cirrusdata.cloud/en/), and file a support request.
+In the CMC portal, select **Help Center** tab on the CMC portal to contact Cirrus Data Solutions support, or go to [CDSI website](https://support.cirrusdata.cloud/en/), and file a support request.
 
 ## Next steps
 - Learn more on [Azure virtual machines](/azure/virtual-machines/windows/overview)
