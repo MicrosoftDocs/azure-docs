@@ -90,11 +90,11 @@ Enabling hybrid Azure AD join can be done on your Azure AD Connect server by run
 
 While hybrid Azure AD join is direct replacement for Okta device trust on Windows, CA policies can also look at device compliance for devices that have fully enrolled into Microsoft Endpoint Manager.
 
-- **Compliance overview** - Refer to [device compliance policies in Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows).
+- **Compliance overview** - Refer to [device compliance policies in Microsoft Intune](/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows).
 
-- **Device compliance** - Create [policies in Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/create-compliance-policy).
+- **Device compliance** - Create [policies in Microsoft Intune](/mem/intune/protect/create-compliance-policy).
 
-- **Windows enrollment** - If you've opted to deploy hybrid Azure AD join, an additional group policy can be deployed to complete the [auto-enrollment process of these devices into Microsoft Intune](https://docs.microsoft.com/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
+- **Windows enrollment** - If you've opted to deploy hybrid Azure AD join, an additional group policy can be deployed to complete the [auto-enrollment process of these devices into Microsoft Intune](/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
 
 - **iOS/iPadOS enrollment** - Before enrolling an iOS device, [additional configurations](https://docs.microsoft.com/mem/intune/enrollment/ios-enroll) must be made in the Endpoint Management Console.
 
