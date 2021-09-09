@@ -121,7 +121,7 @@
         href: deploy-github-actions.md
   - name: Migrate to Bicep
     items:
-    - name: Workflow
+    - name: Recommended workflow
       href: migrate.md
     - name: Decompile
       href: decompile.md
