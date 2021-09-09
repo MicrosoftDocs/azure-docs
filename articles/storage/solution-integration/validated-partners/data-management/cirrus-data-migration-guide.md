@@ -30,7 +30,7 @@ This document covers a generic migration case for moving the application from on
 
 Cirrus Migrate Cloud consists of multiple components:
 
-- **cMotion™** feature of CMC performs a storage-level cut-over from a source to the target cloud without downtime to the source host. cMotion™ is used to swing the workload over from the original FC or iSCSI source disk to the new destination Azure Managed Disk.
+- **cMotion™** feature of CMC does a storage-level cut-over from a source to the target cloud without downtime to the source host. cMotion™ is used to swing the workload over from the original FC or iSCSI source disk to the new destination Azure Managed Disk.
 - **Web-based Management Portal** is web-based management as a service. It allows users to manage migration and protect any block storage. Web-based Management Portal provides interfaces for all CMC application configurations, management, and administrative tasks.
 
     :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-web-portal.jpg" alt-text="Screenshot of CMC Portal":::
@@ -85,9 +85,9 @@ After pressing **Save** in the previous step, **New Migration Session** window a
    - **Session description**: provide meaningful description
    - **Auto Resync Interval**: enable migration schedule 
    - Use iQoS to select the impact migration will have on the production:
-     - **Minimum** throttles migration rate to 25% of the allocated bandwidth
-     - **Moderate** throttles migration rate to 50% of the allocated bandwidth
-     - **Aggressive** throttles migration rate to 75% of the allocated bandwidth
+     - **Minimum** throttles migration rate to 25% of the available bandwidth
+     - **Moderate** throttles migration rate to 50% of the available bandwidth
+     - **Aggressive** throttles migration rate to 75% of the available bandwidth
      - **Relentless** doesn't throttle the migration.
 
        :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-iqos.jpg" alt-text="Screenshot that shows options for iQoS settings":::
@@ -120,7 +120,7 @@ At this point, the systems are ready for cMotion™ migration cut-over.
 
 In this state, the workload can be swung, or moved back to the source disk at any time. If you want to revert the production virtual machine, use the **Session Actions** button, and select the **Revert cMotion™** option. We can swing back, and forth as many times we want while the application is running at source host/VM.
 
-When the final cut-over to the destination virtual machine is desired, follow the steps:
+When the final cut-over to the destination virtual machine is required, follow the steps:
 1. Select **Session Actions**
 2. Click the **Finalize Cutover** option to "lock-in" the cut-over to the new Azure virtual machine, and disable the option for source disk to be removed. Stop any other application running in the source host for final host cut-over. 
 
