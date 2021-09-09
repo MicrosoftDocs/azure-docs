@@ -28,7 +28,7 @@ When you back up a volume, you can choose to create a local snapshot or a cloud 
 
 When you take a cloud snapshot of a locally pinned volume, you copy only the changed data to the cloud, where it is deduplicated and compressed.
 
-You can only retain 64 backups with any backup schedule. When you reach 64 backups for a schedule, you can disable that schedule and then add a new schedule, choosing the maximum retention of 64 backups again. You can use this work-around until you reach the limit of 256 backups per volume. At that point, you'll need to delete the older backups before you can take new backups.
+You can only keep 64 backups with any backup schedule. When you reach 64 backups for a schedule, you can disable that schedule and then add a new schedule, choosing the maximum retention of 64 backups again. This work-around will work until you reach the limit of 256 backups per volume. At that point, you'll need to delete the older backups before you can take new backups.
 
 ## The Backup policy blade
 
