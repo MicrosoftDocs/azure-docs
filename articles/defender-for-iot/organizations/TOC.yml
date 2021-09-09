@@ -32,7 +32,10 @@
 - name: Concepts
   items:  
     - name: Key concepts
-      href: concept-key-concepts.md    
+      href: concept-key-concepts.md
+    - name: Supported protocols
+      displayNAme: protocol, Horizon, horizon, 
+      href: concept-supported-protocols.md    
 - name: How-to guides
   items:
   - name: Prepare your network
