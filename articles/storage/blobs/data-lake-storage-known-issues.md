@@ -5,13 +5,13 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 09/08/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
 # Known issues with Azure Data Lake Storage Gen2
 
-This article describes limitations and known issues of Azure Data Lake Storage Gen2.
+This article describes limitations and known issues for accounts that have the hierarchical namespace feature enabled. 
 
 ## Supported Blob storage features
 
@@ -31,11 +31,11 @@ See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-
 
 ## Blob storage APIs
 
-Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
+Data Lake Storage Gen2 APIs, NFS 3.0, and Blob APIs can operate on the same data.
 
-This section describes issues and limitations with using blob APIs and Data Lake Storage Gen2 APIs to operate on the same data.
+This section describes issues and limitations with using blob APIs, NFS 3.0, and Data Lake Storage Gen2 APIs to operate on the same data.
 
-* You cannot use blob API and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API.
+* You cannot use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 or APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option.
 
 * When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
@@ -103,4 +103,11 @@ For the time being (and most likely the foreseeable future), we won't support cu
 
 ## Soft delete for blobs capability (currently in preview)
 
-If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure Portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items. 
+If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items. 
+
+## Events
+
+If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions. 
+
+> [!TIP]
+> Read access to the secondary endpoint is available only when you enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). 
