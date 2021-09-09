@@ -1,5 +1,5 @@
 ---
-title: Copy data to and from Amazon RDS for Oracle
+title: Copy data from Amazon RDS for Oracle
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Amazon RDS for Oracle to supported sink stores, using Data Factory or Azure Synapse Analytics pipelines.
 author: jianleishen
@@ -28,7 +28,7 @@ You can copy data from an Amazon RDS for Oracle database to any supported sink d
 
 Specifically, this Amazon RDS for Oracle connector supports:
 
-- The following versions of an Oracle database:
+- The following versions of an Amazon RDS for Oracle database:
     - Amazon RDS for Oracle 19c R1 (19.1) and higher
     - Amazon RDS for Oracle 18c R1 (18.1) and higher
     - Amazon RDS for Oracle 12c R1 (12.1) and higher
