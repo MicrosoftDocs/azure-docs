@@ -92,7 +92,7 @@ az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity
 ## Using Kubenet network plugin with Azure Active Directory pod-managed identities 
 
 > [!IMPORTANT]
-> Running aad-pod-identity in a cluster with Kubenet is not a recommended configuration because of the security implication. Please follow the mitigation steps and configure policies before enabling aad-pod-identity in a cluster with Kubenet.
+> Running aad-pod-identity in a cluster with Kubenet is not a recommended configuration due to security concerns. Default Kubenet configuration fails to prevent ARP spoofing, which could be utilized by a pod to act as another pod and gain access to an identity it's not intended to have. Please follow the mitigation steps and configure policies before enabling aad-pod-identity in a cluster with Kubenet.
 
 ### Mitigation
 
