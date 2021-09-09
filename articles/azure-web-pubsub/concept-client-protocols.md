@@ -17,21 +17,22 @@ The service provides two types of endpoints for clients to connect to:
 * `/client/hubs/{hub}`
 * `/client/?hub={hub}`
 
-`{hub}` is a mandatory parameter that acts as isolation for various applications. You can set it either in the path or in the query.
+`{hub}` is a mandatory parameter that acts as isolation for various applications. You can set it in either the path or the query.
 
 ## Authorization
 
-Clients connect to the service with a JSON Web Token (JWT) token. The JWT token can be either in query string, as `/client/?hub={hub}&access_token={token}`, or in the `Authorization` header, as `Authorization: Bearer {token}`.
+Clients connect to the service with a JSON Web Token (JWT). The token can be in either the query string, as `/client/?hub={hub}&access_token={token}`, or the `Authorization` header, as `Authorization: Bearer {token}`.
 
 Here is a general authorization workflow:
 
-1. The client negotiates with your application server. The application server has the auth middleware, which handles the client request and signs a JWT token for the client to connect to the service.
-1. The application server returns the JWT token and the service URL to the client.
-1. The client tries to connect to the Web PubSub service by using the URL and JWT token that's returned from the application server.
+1. The client negotiates with your application server. The application server has the authorization middleware, which handles the client request and signs a JWT for the client to connect to the service.
+1. The application server returns the JWT and the service URL to the client.
+1. The client tries to connect to the Web PubSub service by using the URL and the JWT that's returned from the application server.
 
 <a name="simple_client"></a>
 
 ## The simple WebSocket client
+
 A simple WebSocket client, as the naming indicates, is a simple WebSocket connection. It can also have its own custom subprotocol. 
 
 For example, in JavaScript, you can create a simple WebSocket client by using the following code:
@@ -59,7 +60,7 @@ var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'j
 
 #### The protobuf subprotocol
 
-Protocol buffers (protobuf) is a language-neutral, platform-neutral, binary-based protocol that makes it easy to send binary data. Protobuf provides tools to generate clients for many languages, such as Java, Python, Objective-C, C# and C++. [Learn more about protobuf](https://developers.google.com/protocol-buffers).
+Protocol buffers (protobuf) is a language-neutral, platform-neutral, binary-based protocol that simplifies sending binary data. Protobuf provides tools to generate clients for many languages, such as Java, Python, Objective-C, C#, and C++. [Learn more about protobuf](https://developers.google.com/protocol-buffers).
 
 For example, in JavaScript, you can create a PubSub WebSocket client with a protobuf subprotocol by using the following code:
 
@@ -68,11 +69,11 @@ For example, in JavaScript, you can create a PubSub WebSocket client with a prot
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.webpubsub.azure.v1');
 ```
 
-When the client is using a subprotocol, both the outgoing data frame and the incoming data frame are expected to be JSON payloads. An authorized client can publish messages to other clients directly through the Azure Web PubSub service.
+When the client is using a subprotocol, both the outgoing and incoming data frames are expected to be JSON payloads. An authorized client can publish messages to other clients directly through the Azure Web PubSub service.
 
 ### Permissions
 
-As you might have noticed in our PubSub WebSocket client description, a client can publish to other clients only when it's *authorized* to do so. A client's permissions can be granted when it's connected or during the lifetime of the connection.
+As you likely noticed in the earlier PubSub WebSocket client description, a client can publish to other clients only when it's *authorized* to do so. A client's permissions can be granted when it's being connected or during the lifetime of the connection.
 
 | Role | Permission |
 |---|---|
