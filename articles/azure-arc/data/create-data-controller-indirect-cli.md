@@ -112,10 +112,7 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 
 #### Configure storage (Azure Stack HCI with AKS-HCI)
 
-If you are using Azure Stack HCI with AKS-HCI, do one of the following, depending on your Azure stack HCA AKS-HCI version:
-
-- For version 1.20 and above, create a custom storage class with `fsGroupPolicy:File` (For details - https://kubernetes-csi.github.io/docs/support-fsgroup.html). 
-- For version 1.19, use: 
+If you are using Azure Stack HCI with AKS-HCI, create a custom storage class with `fsType`.
 
    ```json
    fsType: ext4
