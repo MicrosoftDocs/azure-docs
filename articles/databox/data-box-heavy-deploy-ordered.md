@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 09/08/2021
 ms.author: alkohli
 ms.localizationpriority: high 
 ms.custom: contperf-fy22q1
@@ -59,6 +59,8 @@ Before you begin, make sure that:
 ## Order Data Box Heavy
 
 [!INCLUDE [order-data-box-via-portal](../../includes/data-box-order-portal.md)]
+
+The Data Box team will contact you to get more information about your requirements so they can determine whether Data Box Heavy service is available in the needed location. The order remains in an **Ordered** state while they review the order. They'll notify you if for some reason they can't fill your order.
 
 ## Track the order
 
