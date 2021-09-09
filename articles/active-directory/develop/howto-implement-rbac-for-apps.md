@@ -17,7 +17,7 @@ ms.reviewer: johngarland, mamarxen, ianbe, marsma
 #Customer intent: As an application developer, I want to learn how to implement role-based access control in my apps so I can ensure that only those users with the right access privileges can access my app's functionality.
 ---
 
-# How to: Implement Role-based access control in apps
+# How to: Implement role-based access control in apps
 
 Role-based access control (RBAC) allows users or groups to have specific permissions regarding which resources they have access to, what they can do with those resources, and who manages which resources.
 
