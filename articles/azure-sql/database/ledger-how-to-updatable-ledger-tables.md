@@ -1,8 +1,8 @@
 ---
 title: "Create and use updatable ledger tables"
 description: Learn how to create and use updatable ledger tables in Azure SQL Database.
-ms.custom: ""
-ms.date: "05/25/2021"
+ms.custom: references_regions
+ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Central US.
+> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
 
 This article shows you how to create an [updatable ledger table](ledger-updatable-ledger-tables.md) in Azure SQL Database. Next, you'll insert values in your updatable ledger table and then make updates to the data. Finally, you'll view the results by using the ledger view. We'll use an example of a banking application that tracks banking customers' balances in their accounts. Our example will give you a practical look at the relationship between the updatable ledger table and its corresponding history table and ledger view.
 
@@ -156,7 +156,7 @@ We'll create an account balance table with the following schema.
    FROM [Account].[Balance] 
    GO
    
-   SELECT * FROM <Your unique history table name>
+   SELECT * FROM [<Your unique history table name>]
    GO 
    
    SELECT * FROM Account.Balance_Ledger

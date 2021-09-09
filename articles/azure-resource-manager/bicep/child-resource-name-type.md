@@ -75,7 +75,7 @@ resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {
 }
 
 resource <child-resource-symbolic-name> '<child-resource-type>@<api-version>' = {
-  parent: 'myParent'
+  parent: <parent-resource-symbolic-name>
   name: 'myChild'
   <child-resource-properties>
 }

@@ -1,7 +1,6 @@
 ---
 title: Optimize performance on Azure Lsv2-series virtual machines - Storage 
 description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines using a Linux example.
-services: virtual-machines-linux
 author: laurenhughes
 ms.service: virtual-machines
 ms-subservice: vm-sizes-storage
@@ -15,6 +14,8 @@ ms.author: joelpell
 
 # Optimize performance on the Lsv2-series Linux virtual machines
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Lsv2-series virtual machines support a variety of workloads that need high I/O and throughput on local storage across a wide range of applications and industries.  The Lsv2-series is ideal for Big Data, SQL, NoSQL databases, data warehousing and large transactional databases, including Cassandra, MongoDB, Cloudera, and Redis.
 
 The design of the Lsv2-series Virtual Machines (VMs) maximizes the AMD EPYC™ 7551 processor to provide the best performance between the processor, memory, NVMe devices, and the VMs. Working with partners in Linux, several builds are available Azure Marketplace that are optimized for Lsv2-series performance and currently include:
@@ -27,7 +28,7 @@ The design of the Lsv2-series Virtual Machines (VMs) maximizes the AMD EPYC™ 7
 
 This article provides tips and suggestions to ensure your workloads and applications achieve the maximum performance designed into the VMs. The information on this page will be continuously updated as more Lsv2 optimized images are added to the Azure Marketplace.
 
-## AMD EYPC™ chipset architecture
+## AMD EPYC™ chipset architecture
 
 Lsv2-series VMs use AMD EYPC™ server processors based on the Zen microarchitecture. AMD developed Infinity Fabric (IF) for EYPC™ as scalable interconnect for its NUMA model that could be used for on-die, on-package, and multi-package communications. Compared with QPI (Quick-Path Interconnect) and UPI (Ultra-Path Interconnect) used on Intel modern monolithic-die processors, AMD’s many-NUMA small-die architecture may bring both performance benefits as well as challenges. The actual impact of memory bandwidth and latency constraints could vary depending on the type of workloads running.
 

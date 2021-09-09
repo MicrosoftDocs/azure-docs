@@ -12,9 +12,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 05/12/2020
+ms.date: 08/26/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -24,6 +24,18 @@ ms.collection: M365-identity-device-management
 This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](overview-reports.md). 
 
 ## Getting started 
+
+**Q: How does licensing for reporting work?**
+
+**A:** All Azure AD licenses allow you to see activity logs in the Azure Portal. 
+
+If your tenant has:
+
+- An Azure AD free license, you can see up to seven days of activity logs data in the Portal. 
+- An Azure AD Premium license, you can see up to 30 days of data in the Azure Portal. 
+
+You can also export that log data to Azure Monitor, Azure Event Hubs, and Azure Storage, or query your activity data through the Microsoft Graph API. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in the logs after you upgrade to a premium license with no data activities before the upgrade.
+
 
 **Q: I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?**
 
@@ -94,6 +106,37 @@ This article includes answers to frequently asked questions about Azure Active D
 **A:** You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records.
 
 ---
+
+## Sign-in logs
+
+**Q: What data is included in the CSV file I can download from the Azure AD Sign-in logs blade in the Azure Portal?**
+**A:** The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign in logs is not included in CSV downloads. For example, CA policies and report-only information are not included in the CSV download. If you need to export all the information contained in your sign-in logs, the Export Data Settings button in the Azure AD Sign-in logs blade will let you export all data.
+
+---
+ 
+**Q: Why is Client app not populated when a guest signs into my tenant?**
+**A:** When a guest user signs into your tenant, the client app information for that user is not displayed in your tenant's sign-in logs to maintain customer privacy. Your users' client apps will not be displayed to other tenants that your users attempt to access. 
+
+---
+
+**Q: Why is Device ID not populated when a guest signs into my tenant?**
+**A:** When a user signs into your tenant using a device registered with another tenant, the Device ID for that device is not displayed in your tenant's sign-in logs to maintain customer privacy. Your Device IDs will not be displayed to other tenants that your users attempt to access. 
+
+---
+
+**Q: In some interrupted sign-ins, why do I see an Object ID rather than a UPN for my user?** 
+**A:** When our service is unable to resolve the UPN of a user due to an interrupted or failed sign in, it may display an object ID instead. 
+
+---
+
+**Q: Why is a user's sign-in shown as interactive sign-ins even if the property isInteractive is False?**
+**A:** This property is being deprecated. It does not reliably indicate which sign-in events are interactive and which are non-interactive. 
+
+Within the Azure AD sign-in logs blade in the Azure Portal, you can find interactive sign-ins in the User sign-ins (interactive) tab and non-interactive sign-ins in the User sign-ins (non-interactive) tab. In the MS Graph API, you should rely on the signInEventTypes property to determine which signins are interactive. For example: 
+
+`"signInEventTypes":["interactiveUser"],`
+
+You can also filter using the $filter parameter when requesting sign-in logs from the MS Graph API. 
 
 ## Risky sign-ins
 

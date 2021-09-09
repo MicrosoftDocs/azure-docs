@@ -2,7 +2,7 @@
 title: Configure DHCP for Azure VMware Solution
 description: Learn how to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
 ms.topic: how-to
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, contperf-fy22q1
 ms.date: 07/13/2021
 
 # Customer intent: As an Azure service administrator, I want to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
@@ -20,7 +20,7 @@ In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMw
 - [Third-party external DHCP server](#use-a-third-party-external-dhcp-server)
 
 >[!TIP]
->If you want to configure DHCP using a simplified view of NSX-T operations, see [Create a DHCP server or DHCP relay using the Azure portal](configure-nsx-network-components-azure-portal.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal). 
+>If you want to configure DHCP using a simplified view of NSX-T operations, see [Configure DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).
 
 
 >[!IMPORTANT]
@@ -36,7 +36,7 @@ If you want to use NSX-T to host your DHCP server, you'll create a DHCP server a
 
 1. In NSX-T Manager, select **Networking** > **DHCP**, and then select **Add Server**.
 
-1. Select **DHCP** for the **Server Type**, provide the server name and IP address, and then select **Save**.
+1. Select **DHCP** for the **Server Type**, provide the server name and IP address, and select **Save**.
 
    :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Screenshot showing how to add a DHCP server in NSX-T Manager." border="true":::
 
@@ -97,17 +97,17 @@ Use a DHCP relay for any non-NSX-based DHCP service. For example, a VM running D
 
 1. In NSX-T Manager, select **Networking** > **DHCP**, and then select **Add Server**.
 
-1. Select **DHCP Relay** for the **Server Type**, provide the server name and IP address, and then select **Save**.
+1. Select **DHCP Relay** for the **Server Type**, provide the server name and IP address, and select **Save**.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Screenshot showing how to create a DHCP relay service in NSX-T Manager." border="true":::
 
 1. Select **Tier 1 Gateways**, select the vertical ellipsis on the Tier-1 gateway, and then select **Edit**.
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="Screenshot showing how to edit the Tier-1 Gateway." border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Screenshot showing how to edit the Tier-1 Gateway." border="true":::
 
 1. Select **No IP Allocation Set** to define the IP address allocation.
 
-   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="Screenshot showing how to add a subnet to the Tier-1 Gateway." border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Screenshot showing how to add a subnet to the Tier-1 Gateway." border="true":::
 
 1. For **Type**, select **DHCP Server**. 
    

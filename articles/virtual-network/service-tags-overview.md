@@ -38,7 +38,7 @@ The columns indicate whether the tag:
 - Supports [regional](https://azure.microsoft.com/regions) scope.
 - Is usable in [Azure Firewall](../firewall/service-tags.md) rules.
 
-By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope.  
+By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope. Note that the direction listed for each tag is a recommendation. For example, the AzureCloud tag may be used to allow inbound traffic. However, we don't recommend this in most scenarios since this means allowing traffic from all Azure IP's, including those used by other Azure customers. 
 
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
@@ -69,7 +69,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureEventGrid** | Azure Event Grid. | Both | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Both | No | No |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**, **AzureFrontDoor.Frontend** and **AzureFrontDoor.FirstParty** tags. | Outbound | No | No |
-| **AzureIoTHub** | Azure IoT Hub. | Outbound | No | No |
+| **AzureIoTHub** | Azure IoT Hub. | Outbound | Yes | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. This only includes probe traffic, not real traffic to your backend resource. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
 | **AzureMachineLearning** | Azure Machine Learning. | Both | No | Yes |
@@ -82,6 +82,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureSignalR** | Azure SignalR. | Outbound | No | No |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | No |
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md). | Inbound | No | Yes |  
+| **AzureUpdateDelivery** | For accessing Windows Updates. <br/><br/>*Note:* This tag provides access to Windows Update metadata services. To successfully download updates you must also enable the **AzureFrontDoor.FirstParty** service tag and configure outbound security rules with the protocol and port defined as follows: <ul><li>AzureUpdateDelivery: TCP, port 443</li><li>AzureFrontDoor.FirstParty: TCP, port 80</li></ul>*This tag is not currently configurable via Azure Portal*| Outbound | No | No |  
 | **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | No | Yes |
 | **CognitiveServicesManagement** | The address ranges for traffic for Azure Cognitive Services. | Both | No | No |
 | **DataFactory**  | Azure Data Factory | Both | No | No |
@@ -101,10 +102,11 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **PowerQueryOnline** | Power Query Online. | Both | No | No |
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Note:* This tag represents the Service Fabric service endpoint for control plane per region. This enables customers to perform management operations for their Service Fabric clusters from their VNET (endpoint eg. https:// westus.servicefabric.azure.com) | Both | No | No |
-| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Synapse Analytics.<br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. This tag does not apply to SQL managed instance. | Outbound | Yes | Yes |
+| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, and Azure Synapse Analytics.<br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. This tag does not apply to SQL managed instance. | Outbound | Yes | Yes |
 | **SqlManagement** | Management traffic for SQL-dedicated deployments. | Both | No | Yes |
 | **Storage** | Azure Storage. <br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |
 | **StorageSyncService** | Storage Sync Service. | Both | No | No |
+| **WindowsAdminCenter** | Allow the Windows Admin Center backend service to communicate with customers' installation of Windows Admin Center. *Note: This tag is not currently configurable via Azure Portal.* | Outbound | No | Yes |
 | **WindowsVirtualDesktop** | Windows Virtual Desktop. | Both | No | Yes |
 | **VirtualNetwork** | The virtual network address space (all IP address ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks, virtual networks connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](./network-security-groups-overview.md#azure-platform-considerations), and address prefixes used on [user-defined routes](virtual-networks-udr-overview.md). This tag might also contain default routes. | Both | No | No |
 

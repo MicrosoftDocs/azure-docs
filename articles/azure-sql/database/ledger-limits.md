@@ -1,8 +1,8 @@
 ---
 title: "Limitations for Azure SQL Database ledger"
 description: Limitations of the ledger feature in Azure SQL Database
-ms.custom: ""
-ms.date: "05/25/2021"
+ms.custom: references_regions
+ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Central US.
+> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
 
 This article provides an overview of the limitations of ledger tables used with Azure SQL Database.
 
@@ -31,7 +31,7 @@ This article provides an overview of the limitations of ledger tables used with 
 | Sparse column sets | Sparse column sets aren't supported. |
 | Ledger truncation | Deleting older data in [append-only ledger tables](ledger-append-only-ledger-tables.md) or the history table of [updatable ledger tables](ledger-updatable-ledger-tables.md) isn't supported. |
 | Converting existing tables to ledger tables | Existing tables in a database that aren't ledger-enabled can't be converted to ledger tables. |
-|Locally redundant storage (LRS) support for [automated digest management](ledger-digest-management-and-database-verification.md) | Automated digest management with ledger tables by using [Azure Storage immutable blobs](../../storage/blobs/storage-blob-immutable-storage.md) doesn't offer the ability for users to use [LRS](../../storage/common/storage-redundancy.md#locally-redundant-storage) accounts.|
+|Locally redundant storage (LRS) support for [automated digest management](ledger-digest-management-and-database-verification.md) | Automated digest management with ledger tables by using [Azure Storage immutable blobs](../../storage/blobs/immutable-storage-overview.md) doesn't offer the ability for users to use [LRS](../../storage/common/storage-redundancy.md#locally-redundant-storage) accounts.|
 
 ## Remarks
 

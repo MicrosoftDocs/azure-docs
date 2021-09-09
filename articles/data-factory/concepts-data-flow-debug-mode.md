@@ -1,12 +1,14 @@
 ---
 title: Mapping data flow Debug Mode
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Start an interactive debug session when building data flows
 ms.author: makromer
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/16/2021
+ms.custom: synapse
+ms.date: 09/06/2021
 ---
 
 # Mapping data flow Debug Mode
@@ -21,11 +23,11 @@ Azure Data Factory mapping data flow's debug mode allows you to interactively wa
 
 ![Screenshot that shows where is the Debug slider 2](media/data-flow/debug-button-4.png)
 
-Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a default 60-minute time to live will be spun up. If you'd like to allow for more idle team before your session times out, you can choose a higher TTL setting. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#ir).
+Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a default 60-minute time to live will be spun up. If you'd like to allow for more idle team before your session times out, you can choose a higher TTL setting. For more information on data flow integration runtimes, see [Integration Runtime performance](concepts-integration-runtime-performance.md).
 
 ![Debug IR selection](media/data-flow/debug-new-1.png "Debug IR selection")
 
-When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off in Azure Data Factory. You should be aware of the hourly charges incurred by Azure Databricks during the time that you have the debug session turned on.
+When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off in Azure Data Factory. You should be aware of the hourly charges incurred by Azure Data Factory during the time that you have the debug session turned on.
 
 In most cases, it's a good practice to build your Data Flows in debug mode so that you can validate your business logic and view your data transformations before publishing your work in Azure Data Factory. Use the "Debug" button on the pipeline panel to test your data flow in a pipeline.
 

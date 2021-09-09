@@ -72,8 +72,8 @@ The following table details regional support for Custom Neural Voice features.
 |---|---|
 | Voice model hosting | East US, West US 2, South Central US, Southeast Asia, UK South, West Europe, Australia East |
 | Realtime Characters | East US, West US 2, South Central US, Southeast Asia, UK South, West Europe, Australia East |
-| Long Audio Characters | East US, West Europe, UK South, Southeast Asia, India Central |
-| Custom Neural Training | East US, UK South |
+| Long Audio Characters | East US, West Europe, Southeast Asia, UK South, India Central |
+| Custom Neural Training | East US, Southeast Asia, UK South |
 
 ### Long audio API
 

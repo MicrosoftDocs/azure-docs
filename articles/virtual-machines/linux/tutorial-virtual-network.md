@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create and manage Azure virtual networks for Linux VMs 
-description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure virtual networks for Linux virtual machines
+title: "Tutorial - Create and manage Azure virtual networks for Linux VMs"
+description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure virtual networks for Linux virtual machines. 
 services: virtual-machines
 author: cynthn
 ms.collection: linux
@@ -15,6 +15,8 @@ ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Create and manage Azure virtual networks for Linux virtual machines with the Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Azure virtual machines use Azure networking for internal and external network communication. This tutorial walks through deploying two virtual machines and configuring Azure networking for these VMs. The examples in this tutorial assume that the VMs are hosting a web application with a database back-end, however an application is not deployed in the tutorial. In this tutorial, you learn how to:
 

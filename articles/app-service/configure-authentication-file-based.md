@@ -207,7 +207,7 @@ The following exhausts possible configuration options within the file:
 }
 ```
 
-## Next steps
+## More resources
 
-> [!div class="nextstepaction"]
-> [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Environment variables and app settings for authentication](reference-app-settings.md#authentication--authorization)

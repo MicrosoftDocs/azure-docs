@@ -4,6 +4,7 @@ description: An overview of available Data Wrangling functions in Azure Data Fac
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
 ---

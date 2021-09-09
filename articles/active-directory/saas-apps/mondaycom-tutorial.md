@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * monday.com supports **SP and IDP** initiated SSO
+* monday.com supports [**automated** user provisioning and deprovisioning](mondaycom-provisioning-tutorial.md) (recommended).
 * monday.com supports **Just In Time** user provisioning
 
 ## Add monday.com from the gallery

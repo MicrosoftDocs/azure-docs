@@ -45,9 +45,6 @@ Classic storage accounts do not support firewalls and virtual networks.
 
 You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by creating an exception. This process is documented in the [Manage Exceptions](#manage-exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure.
 
-> [!IMPORTANT] 
-> If you delete subnet that has been included in a network rule, make sure to remove that subnet from the network rule. Otherwise, if you create a subnet by the same name, you won't be able to use that subnet in the network rules of any storage accounts. 
-
 ## Change the default network access rule
 
 By default, storage accounts accept connections from clients on any network. To limit access to selected networks, you must first change the default action.
@@ -123,6 +120,9 @@ You can configure storage accounts to allow access only from specific subnets. T
 Enable a [Service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage within the VNet. The service endpoint routes traffic from the VNet through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
 
 Each storage account supports up to 200 virtual network rules, which may be combined with [IP network rules](#grant-access-from-an-internet-ip-range).
+
+> [!IMPORTANT] 
+> If you delete a subnet that has been included in a network rule, it will be removed from the network rules for the storage account. If you create a new subnet by the same name, it will not have access to the storage account. To allow access, you must explicitly authorize the new subnet in the network rules for the storage account.
 
 ### Available virtual network regions
 

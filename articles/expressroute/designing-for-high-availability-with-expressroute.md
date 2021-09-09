@@ -57,17 +57,21 @@ Microsoft peering is designed for communication between public end-points. So co
 
 [![3]][3]
 
-In the option 1, NAT is applied after splitting the traffic between the primary and secondary connections of the ExpressRoute. To meet the stateful requirements of NAT, independent NAT pools are used between the primary and the secondary devices so that the return traffic would arrive to the same edge device through which the flow egressed.
+#### Option 1:
 
-In the option 2, a common NAT pool is used before splitting the traffic between the primary and secondary connections of the ExpressRoute. It's important to make the distinction that the common NAT pool before splitting the traffic does not mean introducing single-point of failure thereby compromising high-availability.
+NAT gets applied after splitting the traffic between the primary and secondary connections of the ExpressRoute circuit. To meet the stateful requirements of NAT, independent NAT pools are used for the primary and the secondary devices. The return traffic will arrive on the same edge device through which the flow egressed.
 
-With the option 1, following an ExpressRoute connection failure, ability to reach the corresponding NAT pool is broken. Therefore, all the broken flows have to be re-established either by TCP or application layer following the corresponding window timeout. If either of the NAT pools are used to frontend any of the on-premises servers and if the corresponding connectivity were to fail, the on-premises servers cannot be reached from Azure until the connectivity is fixed.
+If the ExpressRoute connection fails, the ability to reach the corresponding NAT pool is then broken. That's why all broken network flows have to be re-established either by TCP or by the application layer following the corresponding window timeout. During the failure, Azure can't reach the on-premises servers using the corresponding NAT until connectivity has been restored for either the primary or secondary connections of the ExpressRoute circuit.
 
-Whereas with the option 2, the NAT is reachable even after a primary or secondary connection failure. Therefore, the network layer itself can reroute the packets and help faster recovery following the failure. 
+#### Option 2:
+
+A common NAT pool is used before splitting the traffic between the primary and secondary connections of the ExpressRoute circuit. It's important to make the distinction that the common NAT pool before splitting the traffic doesn't mean it will introduce a single-point of failure as such compromising high-availability.
+
+The NAT pool is reachable even after the primary or secondary connection fail. That's why the network layer itself can reroute the packets and help recover faster following a failure. 
 
 > [!NOTE]
-> If you use NAT option 1 (independent NAT pools for primary and secondary ExpressRoute connections) and map a port of an IP address from one of the NAT pool to an on-premises server, the server will not be reachable via the ExpressRoute circuit when the corresponding connection fails.
-> 
+> * If you use NAT option 1 (independent NAT pools for primary and secondary ExpressRoute connections) and map a port of an IP address from one of the NAT pool to an on-premises server, the server will not be reachable via the ExpressRoute circuit when the corresponding connection fails.
+> * Terminating ExpressRoute BGP connections on stateful devices can cause issues with failover during planned or unplanned maintenances by Microsoft or your ExpressRoute Provider. You should test your set up to ensure your traffic will failover properly, and when possible, terminate BGP sessions on stateless devices.
 
 ## Fine-tuning features for private peering
 

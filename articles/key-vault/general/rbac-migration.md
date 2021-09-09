@@ -71,7 +71,7 @@ Access policy predefined permission templates:
 | Certificate Management | Certificates: all operations | Key Vault Certificates Officer|
 | SQL Server Connector | Keys: get, list, wrap key, unwrap key | Key Vault Crypto Service Encryption User|
 | Azure Data Lake Storage or Azure Storage | Keys: get, list,  unwrap key | N/A<br> Custom role required|
-| Azure Backup | Keys: get, list, backup<br> Certificate: get, list, backup | N/A<br> Custom role required|
+| Azure Backup | Keys: get, list, backup<br> Secrets: get, list, backup | N/A<br> Custom role required|
 | Exchange Online Customer Key | Keys: get, list, wrap key, unwrap key | Key Vault Crypto Service Encryption User|
 | Exchange Online Customer Key | Keys: get, list, wrap key, unwrap key | Key Vault Crypto Service Encryption User|
 | Azure Information BYOK | Keys: get, decrypt, sign | N/A<br>Custom role required|

@@ -43,7 +43,7 @@ The SAS-based token method provides authentication for each call made by the dev
 
 Azure IoT SDKs automatically generate tokens without requiring any special configuration. If you don't use the SDK, you'll have to generate the security tokens.
 
-You can set up and provision many devices at a time using the [IoT Hub Device Provisioning Service](/azure/iot-dps).
+You can set up and provision many devices at a time using the [IoT Hub Device Provisioning Service](../iot-dps/index.yml).
 
 ### Devices can securely communicate with an IoT Hub
 

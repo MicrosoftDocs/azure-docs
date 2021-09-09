@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/25/2021
 
 # As a developer, I want to connect to my single-tenant workflows from virtual networks using private endpoints.
 ---
@@ -153,7 +153,7 @@ In your logic app settings, set `AzureWebJobsStorage` to the connection string f
 
 ### Considerations for private endpoints on storage accounts
 
-- Create different private endpoints for each of the Table, Queue, and Blob storage services.
+- Create different private endpoints for each of the Table, Queue, Blob, and File storage services.
 
 - Route all outbound traffic through your virtual network by using this setting:
 

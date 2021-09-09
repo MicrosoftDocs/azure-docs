@@ -1,4 +1,4 @@
-### YamlMime:FAQ
+### YamlMime:FAQ
 metadata:
   title: Maintenance Window FAQ
   description: FAQ on how the Azure SQL Database and managed instance maintenance window can be configured.
@@ -8,7 +8,7 @@ metadata:
   ms.topic: reference
   author: WilliamDAssafMSFT
   ms.author: wiassaf
-  ms.reviewer: sstein
+  ms.reviewer: mathoma
   ms.custom: 
   ms.date: 03/23/2021
 

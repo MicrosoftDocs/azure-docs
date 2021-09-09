@@ -17,11 +17,10 @@ ms.date: 01/27/2021
 In this quickstart, you create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. You then query the database using **Query editor** in the Azure portal.
 
 
-
-## Prerequisite
+## Prerequisites
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- You may also need the latest version of either [Azure PowerShell](/powershell/azure/install-az-ps) or the [Azure CLI](/cli/azure/install-azure-cli-windows), depending on the creation method you choose. 
+- The latest version of either [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli-windows).
 
 ## Create a single database
 
@@ -29,7 +28,7 @@ This quickstart creates a single database in the [serverless compute tier](serve
 
 # [Portal](#tab/azure-portal)
 
-To create a single database in the Azure portal this quickstart starts at the Azure SQL page.
+To create a single database in the Azure portal, this quickstart starts at the Azure SQL page.
 
 1. Browse to the [Select SQL Deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
 1. Under **SQL databases**, leave **Resource type** set to **Single database**, and select **Create**.
@@ -38,9 +37,9 @@ To create a single database in the Azure portal this quickstart starts at the Az
 
 1. On the **Basics** tab of the **Create SQL Database** form, under **Project details**, select the desired Azure **Subscription**.
 1. For **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
-1. For **Database name** enter *mySampleDatabase*.
+1. For **Database name**, enter *mySampleDatabase*.
 1. For **Server**, select **Create new**, and fill out the **New server** form with the following values:
-   - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver12345, and the portal lets you know if it is available or not.
+   - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver12345, and the portal lets you know if it's available or not.
    - **Server admin login**: Enter *azureuser*.
    - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
    - **Location**: Select a location from the dropdown list.
@@ -155,6 +154,47 @@ az sql db create \
     --capacity 2
 ```
 
+# [Azure CLI (sql up)](#tab/azure-cli-sql-up)
+
+## Use Azure Cloud Shell
+
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
+
+## Create a database and resources
+
+The [az sql up](/cli/azure/sql#az_sql_up) command simplifies the database creation process. With it, you can create a database and all of its associated resources with a single command. This includes the resource group, server name, server location, database name, and login information. The database is created with a default pricing tier of General Purpose, Provisioned, Gen5, 2 vCores. 
+
+This command creates and configures a [logical server](logical-servers.md) for Azure SQL Database for immediate use. For more granular resource control during database creation, use the standard Azure CLI commands in this article.
+
+> [!NOTE]
+> When running the `az sql up` command for the first time, the Azure CLI prompts you to install the `db-up` extension. This extension is currently in preview. Accept the installation to continue. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+1. Run the `az sql up` command. If any required parameters aren't used, like `--server-name`, that resource is created with a random name and login information assigned to it.
+
+    ```azurecli-interactive
+    az sql up \
+        --resource-group $resourceGroupName \
+        --location $location \
+        --server-name $serverName \
+        --database-name mySampleDatabase \
+        --admin-user $adminlogin \
+        --admin-password $password
+    ```
+
+2.	A server firewall rule is automatically created. If the server declines your IP address, create a new firewall rule using the `az sql server firewall-rule create` command.
+
+    ```azurecli-interactive
+    az sql server firewall-rule create \
+        --resource-group $resourceGroupName \
+        --server $serverName \
+        -n AllowYourIp \
+        --start-ip-address $startip \
+        --end-ip-address $endip
+    ```
+
+3. All required resources are created, and the database is ready for queries.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -289,6 +329,14 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 1. Under **Type the resource group name**, enter *myResourceGroup*, and then select **Delete**.
 
 ### [Azure CLI](#tab/azure-cli)
+
+To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
+
+```azurecli-interactive
+az group delete --name $resourceGroupName
+```
+
+### [Azure CLI (sql up)](#tab/azure-cli-sql-up)
 
 To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
 

@@ -45,7 +45,7 @@ After you've created a CDN profile, you use it to create an endpoint.
     | **Origin type** | Select **Storage**. | 
     | **Origin hostname** | Select the host name of the Azure Storage account you're using from the drop-down list, such as *cdnstorageacct123.blob.core.windows.net*. |
     | **Origin path** | Leave blank. |
-    | **Origin host header** | Leave the default value (which is the host name for the storage account). |  
+    | **Origin host header** | Leave the default value (which is the Origin hostname). |  
     | **Protocol** | Leave the default **HTTP** and **HTTPS** options selected. |
     | **Origin port** | Leave the default port values. | 
     | **Optimized for** | Leave the default selection, **General web delivery**. |

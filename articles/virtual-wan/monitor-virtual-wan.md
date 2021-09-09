@@ -31,16 +31,42 @@ Metrics in Azure Monitor are numerical values that describe some aspect of a sys
 
 The following metrics are available for Azure site-to-site VPN gateways:
 
+#### Tunnel Packet Drop Metrics
+| Metric | Description|
+| --- | --- |
+| **Tunnel Egress Packet Drop Count** | Count of Outgoing packets dropped by tunnel.|
+| **Tunnel Ingress Packet Drop Count** | Count of Incoming packets dropped by tunnel.|
+| **Tunnel NAT Packet Drops** | Number of NATed packets dropped on a tunnel by drop type and NAT rule.|
+| **Tunnel Egress TS Mismatch Packet Drop** | Outgoing packet drop count from traffic selector mismatch of a tunnel.|
+| **Tunnel Ingress TS Mismatch Packet Drop** | Incoming packet drop count from traffic selector mismatch of a tunnel.|
+
+#### IPSEC Metrics
+| Metric | Description|
+| --- | --- |
+| **Tunnel MMSA Count** | Number of MMSAs getting created or deleted.|
+| **Tunnel QMSA Count** | Number of  IPSEC QMSAs getting created or deleted.|
+
+#### Routing Metrics
+| Metric | Description|
+| --- | --- |
+| **BGP Peer Status** | BGP connectivity status per peer and per instance.|
+| **BGP Routes Advertised** | Number of routes advertised per peer and per intance.|
+| **BGP Routes Learned** | Number of routes learned per peer and per intance.|
+| **VNET Address Prefix Count** | Number of VNET address prefixes that are used/advertised by the gateway.|
+
+You can review per peer and instance metrics by slecting **Apply splitting** and choosing the preferred value. 
+
+#### Traffic Flow Metrics
 | Metric | Description|
 | --- | --- |
 | **Gateway Bandwidth** | Average site-to-site aggregate bandwidth of a gateway in bytes per second.|
 | **Tunnel Bandwidth** | Average bandwidth of a tunnel in bytes per second.|
 | **Tunnel Egress Bytes** | Outgoing bytes of a tunnel. |
 | **Tunnel Egress Packets** | Outgoing packet count of a tunnel. |
-| **Tunnel Egress TS Mismatch Packet Drop** | Outgoing packet drop count from traffic selector mismatch of a tunnel.|
 | **Tunnel Ingress Bytes** | Incoming bytes of a tunnel.|
 | **Tunnel Ingress Packet** | Incoming packet count of a tunnel.|
-| **Tunnel Ingress TS Mismatch Packet Drop** | Incoming packet drop count from traffic selector mismatch of a tunnel.|
+| **Tunnel Peak PPS** | Number of packets per second per link connection in the last minute.|
+| **Tunnel Flow Count** | Number of distinct flows created per link connection.|
 
 ### Point-to-site VPN gateways
 
@@ -49,7 +75,8 @@ The following metrics are available for Azure point-to-site VPN gateways:
 | Metric | Description|
 | --- | --- |
 | **Gateway P2S Bandwidth** | Average point-to-site aggregate bandwidth of a gateway in bytes per second. |
-| **P2S Connection Count** |Point-to-site connection count of a gateway. |
+| **P2S Connection Count** |Point-to-site connection count of a gateway. Point-to-site connection count of a gateway. To ensure you are viewing accurate Metrics in Azure Monitor, please select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You may also select **Max** if you also Split By **Instance**. |
+| **User VPN Routes Count** | Number of User VPN Routes configured on the VPN Gateway. This metric can be broken down into **Static** and **Dynamic** Routes.
 
 ### Azure ExpressRoute gateways
 

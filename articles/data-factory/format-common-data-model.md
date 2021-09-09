@@ -1,8 +1,11 @@
 ---
 title: Common Data Model format
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Transform data using the Common Data Model metadata system
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: makromer
@@ -47,7 +50,7 @@ When selecting "Entity Reference" both in the Source and Sink transformations, y
 
 * Local uses the entity defined in the manifest file already being used by ADF
 * Custom will ask you to point to an entity manifest file that is different from the manifest file ADF is using
-* Standard will use an entity reference from the standard library of CDM entities maintained in ```Github```.
+* Standard will use an entity reference from the standard library of CDM entities maintained in GitHub.
 
 ### Sink settings
 
@@ -79,7 +82,7 @@ When mapping data flow columns to entity properties in the Sink transformation, 
 2. Find the partitions.Location property 
 3. Change "blob.core.windows.net" to "dfs.core.windows.net"
 4. Fix any "%2F" encoding in the URL to "/"
-5. If using ADF Data Flows, Special characters in the partition file path must be replaced with alpha-numeric values, or switch to Synapse Data Flows
+5. If using ADF Data Flows, Special characters in the partition file path must be replaced with alpha-numeric values, or switch to Azure Synapse Data Flows
 
 ### CDM source data flow script example
 

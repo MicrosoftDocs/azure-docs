@@ -1,12 +1,14 @@
 ---
 title: Copy data from AWS Marketplace
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Amazon Marketplace Web Service to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019
-ms.date: 08/01/2018
+ms.custom: synapse
+ms.date: 08/30/2021
 ---
 
 # Copy data from Amazon Marketplace Web Service using Azure Data Factory
@@ -29,6 +31,31 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Amazon Marketplace Web Service using UI
+
+Use the following steps to create a linked service to Amazon Marketplace Web Service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Amazon and select the Amazon Marketplace Web Service connector.
+
+   :::image type="content" source="media/connector-amazon-marketplace-web-service/amazon-marketplace-web-service-connector.png" alt-text="Screenshot of the Amazon Marketplace Web Service connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-amazon-marketplace-web-service/configure-amazon-marketplace-web-service-linked-service.png" alt-text="Screenshot of linked service configuration for Amazon Marketplace Web Service.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Amazon Marketplace Web Service connector.
 

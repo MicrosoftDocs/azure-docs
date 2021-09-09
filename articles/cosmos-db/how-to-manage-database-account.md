@@ -22,7 +22,7 @@ This article describes how to manage various tasks on an Azure Cosmos account us
 
 ### <a id="create-database-account-via-cli"></a>Azure CLI
 
-Please see [Create an Azure Cosmos DB account with Azure CLI](manage-with-cli.md#create-an-azure-cosmos-db-account)
+Please see [Create an Azure Cosmos DB account with Azure CLI](sql/manage-with-cli.md#create-an-azure-cosmos-db-account)
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
 
@@ -57,7 +57,7 @@ In a multi-region write mode, you can add or remove any region, if you have at l
 
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
-Please see [Add or remove regions with Azure CLI](manage-with-cli.md#add-or-remove-regions)
+Please see [Add or remove regions with Azure CLI](sql/manage-with-cli.md#add-or-remove-regions)
 
 ### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
@@ -73,7 +73,7 @@ Open the **Replicate Data Globally** tab and select **Enable** to enable multi-r
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
-Please see [Enable multiple-write regions with Azure CLI](manage-with-cli.md#enable-multiple-write-regions)
+Please see [Enable multiple-write regions with Azure CLI](sql/manage-with-cli.md#enable-multiple-write-regions)
 
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
@@ -159,7 +159,7 @@ The Automatic failover option allows Azure Cosmos DB to failover to the region w
 
 ### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
-Please see [Enable automatic failover with Azure CLI](manage-with-cli.md#enable-automatic-failover)
+Please see [Enable automatic failover with Azure CLI](sql/manage-with-cli.md#enable-automatic-failover)
 
 ### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
@@ -190,7 +190,7 @@ After a Cosmos account is configured for automatic failover, the failover priori
 
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
-Please see [Set failover priority with Azure CLI](manage-with-cli.md#set-failover-priority)
+Please see [Set failover priority with Azure CLI](sql/manage-with-cli.md#set-failover-priority)
 
 ### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
@@ -222,7 +222,7 @@ The process for performing a manual failover involves changing the account's wri
 
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
-Please see [Trigger manual failover with Azure CLI](manage-with-cli.md#trigger-manual-failover)
+Please see [Trigger manual failover with Azure CLI](sql/manage-with-cli.md#trigger-manual-failover)
 
 ### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
@@ -233,4 +233,4 @@ Please see [Trigger manual failover with PowerShell](manage-with-powershell.md#t
 For more information and examples on how to manage the Azure Cosmos account as well as database and containers, read the following articles:
 
 * [Manage Azure Cosmos DB using Azure PowerShell](manage-with-powershell.md)
-* [Manage Azure Cosmos DB using Azure CLI](manage-with-cli.md)
+* [Manage Azure Cosmos DB using Azure CLI](sql/manage-with-cli.md)

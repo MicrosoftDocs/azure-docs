@@ -4,6 +4,7 @@ description: Learn how to use a solution template to incrementally copy new or u
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020

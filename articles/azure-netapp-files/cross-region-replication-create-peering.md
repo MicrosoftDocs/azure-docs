@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 08/11/2021
 ms.author: b-juche
 ---
 # Create volume replication for Azure NetApp Files
@@ -100,6 +100,9 @@ To authorize the replication, you need to obtain the resource ID of the replicat
     ![Authorize replication](../media/azure-netapp-files/cross-region-replication-authorize.png) 
 
 6. In the Authorize field, paste the destination replication volume resource ID that you obtained in Step 3, then click **OK**.
+
+    > [!NOTE]
+    > Due to various factors, like the state of the destination storage at a given time, there’s likely a difference between the used space of the source volume and the used space of the destination volume. <!-- ANF-14038 --> 
 
 ## Next steps  
 

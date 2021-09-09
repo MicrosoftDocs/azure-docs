@@ -2,7 +2,7 @@
 title: Deploy Azure Video Analyzer on Azure Stack Edge
 description: This article lists the steps that will help you deploy Azure Video Analyzer on your Azure Stack Edge.
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 06/01/2021
 
 ---
 # Deploy Azure Video Analyzer on Azure Stack Edge

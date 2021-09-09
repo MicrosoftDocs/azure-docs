@@ -4,6 +4,7 @@ description: Learn how to configure the properties of the Azure-SSIS Integration
 ms.date: 01/10/2018
 ms.topic: conceptual
 ms.service: data-factory
+ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ---

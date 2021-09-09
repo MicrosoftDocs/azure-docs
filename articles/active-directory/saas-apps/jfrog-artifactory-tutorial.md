@@ -71,30 +71,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `<servername>.jfrog.io`
+    a. In the **Identifier** text box, enter a URL that reflects the Artifactory URL.
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     
-    - For Artifactory 6.x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
-    - For Artifactory 7.x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+    - For Artifactory Self-hosted: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
+    - For Artifactory SaaS: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    - For Artifactory 6.x: `https://<servername>.jfrog.io/<servername>/webapp/`
-    - For Artifactory 7.x: `https://<servername>.jfrog.io/ui/login`
+    - For Artifactory Self-hosted: `https://<servername>.jfrog.io/<servername>/webapp/`
+    - For Artifactory SaaS: `https://<servername>.jfrog.io/ui/login`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [JFrog Artifactory Client support team](https://support.jfrog.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. JFrog Artifactory application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click the **Edit** icon to open the  User Attributes dialog.
+1. JFrog Artifactory application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click the **Edit** icon to open the  User Attributes & Claims dialog.
 
 	![Screenshot shows User Attributes with the edit control called out.](common/edit-attribute.png)
 
-1. In addition to the above, JFrog Artifactory expects a number of additional attributes to be passed back in the SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
+1. In addition to the above, JFrog Artifactory expects a number of additional attributes to be passed back in the SAML response. In the **User Attributes & Claims** section click **Add a group claim** and perform the following steps:
 
-	a. Click the **pen** next to **Groups returned in claim**.
+	a. Click **Open** next to **Groups returned in claim**.
 
 	![Screenshot shows User Attributes & Claims with the Edit icon selected.](./media/jfrog-artifactory-tutorial/configuration-4.png)
 
@@ -110,8 +109,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 6. Configure the Artifactory (SAML Service Provider Name) with the 'Identifier' field (see step 4). In the **Set up JFrog Artifactory** section, copy the appropriate URL(s) based on your requirement.
 
-   - For Artifactory 6.x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
-   - For Artifactory 7.x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+   - For Artifactory Self-hosted: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
+   - For Artifactory SaaS: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 

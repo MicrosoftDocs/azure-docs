@@ -102,6 +102,7 @@ Keep in mind the following points about Azure role assignments in Azure Storage:
 
 - When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container.
 - If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure roles that are scoped to the storage account or a container.
+- If you have set the appropriate allow permissions to access data via Azure AD and are unable to access the data, for example you are getting an "AuthorizationPermissionMismatch" error. Be sure to allow enough time for the permissions changes you have made in Azure AD to replicate, and be sure that you do not have any deny assignments that block your access, see [Understand Azure deny assignments](../../role-based-access-control/deny-assignments.md).
 
 ## Next steps
 

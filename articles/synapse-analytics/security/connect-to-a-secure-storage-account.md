@@ -1,12 +1,12 @@
 ---
 title: Connect to a secure storage account from your Azure Synapse workspace 
 description: This article will teach you how to connect to a secure storage account from your Azure Synapse workspace
-author: RonyMSFT 
+author: ashinMSFT 
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
 ms.date: 02/10/2021 
-ms.author: ronytho
+ms.author: seshin
 ms.reviewer: jrasnick
 ---
 

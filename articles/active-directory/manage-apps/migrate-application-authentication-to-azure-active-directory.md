@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 02/05/2021
 ms.author: davidmu
-ms.reviewer: baselden
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
 ---
 
@@ -570,7 +570,7 @@ Users can download an **Intune-managed browser**:
 
 **Let users open their apps from a browser extension.**
 
-Users can [download the MyApps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) in [Chrome,](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) [FireFox,](https://addons.mozilla.org/firefox/addon/access-panel-extension/) or [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) and can launch apps right from their browser bar to:
+Users can [download the MyApps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) in [Chrome,](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) or [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) and can launch apps right from their browser bar to:
 
 - **Search for their apps and have their most-recently-used apps appear**
 
@@ -596,7 +596,7 @@ Azure AD provides a centralized access location to manage your migrated apps. Go
 
 You can also use the [Azure portal](https://portal.azure.com/) to audit all your apps from a centralized location,
 
-- **Audit your app** using **Enterprise Applications, Audit, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
+- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
 
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth / OpenID Connect.
 

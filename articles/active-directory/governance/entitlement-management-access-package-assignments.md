@@ -126,6 +126,22 @@ $policy = $accesspackage.AccessPackageAssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetId "a43ee6df-3cc5-491a-ad9d-ea964ef8e464"
 ```
 
+You can also assign multiple users to an access package in PowerShell with the `New-MgEntitlementManagementAccessPackageAssignment` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.1 or later. This cmdlet takes as parameters
+* the access package ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackage` cmdlet,
+* the access package assignment policy ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackageAssignmentPolicy`cmdlet,
+* the object IDs of the target users, either as an array of strings, or as a list of user members returned from the `Get-MgGroupMember` cmdlet.
+
+For example, if you want to ensure all the users who are currently members of a group also have assignments to an access package, you can use this cmdlet to create requests for those users who don't currently have assignments.  Note that this will cmdlet will only create assignments; it does not remove assignments.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
+Select-MgProfile -Name "beta"
+$members = Get-MgGroupMember -GroupId "a34abd69-6bf8-4abd-ab6b-78218b77dc15"
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
+$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
+$req = New-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -RequiredGroupMember $members
+```
+
 ## Remove an assignment
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager

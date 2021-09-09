@@ -3,7 +3,7 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/02/2021
 ms.author: tomfitz
 ---
 # Bicep deployment what-if operation
@@ -190,7 +190,11 @@ The following results show the two different output formats:
 
 ### Set up environment
 
-To see how what-if works, let's runs some tests. First, deploy a [Bicep file that creates a virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.bicep). You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
+To see how what-if works, let's runs some tests. First, deploy a Bicep file that creates a virtual network. You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-before.bicep":::
+
+To deploy the Bicep file, use:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -218,7 +222,11 @@ az deployment group create \
 
 ### Test modification
 
-After the deployment completes, you're ready to test the what-if operation. This time you deploy a [Bicep file that changes the virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.bicep). It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
+After the deployment completes, you're ready to test the what-if operation. This time you deploy a Bicep file that changes the virtual network. It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-after.bicep":::
+
+To view the changes, use:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -368,6 +376,24 @@ Are you sure you want to execute the deployment?
 ```
 
 You see the expected changes and can confirm that you want the deployment to run.
+
+## Clean up resources
+
+When you no longer need the example resources, use Azure CLI or Azure PowerShell to delete the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli
+az group delete --name ExampleGroup
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name ExampleGroup
+```
+
+---
 
 ## SDKs
 
