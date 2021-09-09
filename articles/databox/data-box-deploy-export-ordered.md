@@ -268,8 +268,6 @@ You'll find this information on the three tabs:
 - **Prefix examples**: See examples of valid prefixes that select multiple blobs and files for export.
 - **Sample XML file**: Copy a sample XML file with examples of each tag.
 
----
-
 # [XML file overview](#tab/xml-file-overview)
 
 Follow these guidelines when you construct the XML file for your export order. Incorrect tag formats can lead to export failures.
@@ -327,7 +325,6 @@ The sample paths below are used with the &lt;BlobPathPrefix&gt; tag to select mu
 |/container1/2021Q2      |Exports all blobs in container **container1** that begin with prefix **2021Q2**.    |
 
 To select a single blob for export, use the &lt;BlobPath&gt; tag with a container path and blob name.
-
 
 #### Valid file path prefixes
 
