@@ -101,7 +101,7 @@ No. When you enable [Azure Defender for servers](defender-for-servers-introducti
 :::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine.":::
 
 ### Will I be charged for machines without the Log Analytics agent installed?
-Yes. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, the machines in that subscription get a range of protections even if you haven't installed the Log Analytics agent.
+Yes. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, the machines in that subscription get a range of protections even if you haven't installed the Log Analytics agent.This is applicable for Azure virtual machines, Azure virtual machine scale sets instances, and Azure Arc-enabled servers.
 
 ### If a Log Analytics agent reports to multiple workspaces, will I be charged twice? 
 Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll be charged for every workspace that has a 'Security' or 'AntiMalware' solution installed. 
