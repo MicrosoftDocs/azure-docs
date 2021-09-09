@@ -391,9 +391,9 @@ If you want to be able to periodically get the elevate access logs, you can dele
 
 1. Create a new security group and note the group object ID.
 
-1. Use the [az login](/cli/azure/reference-index#az_login) command to sign in as Global Administrator.
-
 1. Follow the steps earlier in this article to elevate your access.
+
+1. Use the [az login](/cli/azure/reference-index#az_login) command to sign in as Global Administrator.
 
 1. Use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command to assign the [Reader](built-in-roles.md#reader) role to the group who can only read logs at the directory level, which are found at `Microsoft/Insights`.
 
