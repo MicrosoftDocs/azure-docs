@@ -33,7 +33,7 @@ Follow these steps to enable CMKs:
 2.	Select the **Customer Managed Keys** option. Provide the details of your [customer-managed keys](../../../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal) and select **Save**.
 
 > [!div class="mx-imgBorder"]
-> ![Question Answering CMK](media/question-answering-cmk.png)
+> ![Question Answering CMK](media/encrypt-data-at-rest/question-answering-cmk.png)
    
 3.	On a successful save, the CMK will be used to encrypt the data stored in the Azure Search Index.
 
