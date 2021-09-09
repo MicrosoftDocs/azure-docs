@@ -188,7 +188,8 @@ For each scenario, you can target the action against one or more subscriptions, 
         ]
     }
     ```
-1.  "**Enable**" the logic app in the overview panel.  
+
+1. In the overview pane for the logic app, select **Enable**.  
 
 ## Sequenced start and stop scenario
 
