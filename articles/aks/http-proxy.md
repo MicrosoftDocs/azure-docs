@@ -4,7 +4,7 @@ description: Use the HTTP proxy configuration feature for Azure Kubernetes Servi
 services: container-service
 author: nickomang
 ms.topic: article
-ms.date: 07/07/2021
+ms.date: 09/09/2021
 ms.author: nickoman
 ---
 
@@ -12,11 +12,11 @@ ms.author: nickoman
 
 Azure Kubernetes Service (AKS) clusters, whether deployed into a managed or custom virtual network, have certain outbound dependencies necessary to function properly. Previously, in environments requiring internet access to be routed through HTTP proxies, this was a problem. Nodes had no way of bootstrapping the configuration, environment variables, and certificates necessary to access internet services.
 
-This preview feature adds HTTP proxy support to AKS clusters, exposing a straightforward interface cluster operators can use to  secure AKS-required network traffic in proxy-dependent environments.
+This feature adds HTTP proxy support to AKS clusters, exposing a straightforward interface that cluster operators can use to secure AKS-required network traffic in proxy-dependent environments.
 
-Some more complex solutions may require creating a chain of trust to establish secure communications across the network. The feature also provides the ability to install a trusted certificate authority onto the nodes as part of bootstrapping a cluster.
+Some more complex solutions may require creating a chain of trust to establish secure communications across the network. The feature also enables installation of a trusted certificate authority onto the nodes as part of bootstrapping a cluster.
 
-## Limitations, requirements, and other details
+## Limitations and other details
 
 The following scenarios are **not** supported:
 - Different proxy configurations per node pool
@@ -28,15 +28,38 @@ The following scenarios are **not** supported:
 
 By default, *httpProxy*, *httpsProxy*, and *trustedCa* have no value.
 
-*noProxy* by default includes **should we list all the IPs/FQDNs?**
+## Prerequisites
 
-Upon deploying a cluster using the HTTP proxy feature, 
+* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
+* [Azure CLI installed](/cli/azure/install-azure-cli).
+
+### Register the `HTTPProxyConfigPreview` preview feature
+
+To use the feature, you must also enable the `HTTPProxyConfigPreview` feature flag on your subscription.
+
+Register the `HTTPProxyConfigPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "HTTPProxyConfigPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/HTTPProxyConfigPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## Configuring an HTTP proxy using Azure CLI 
 
-Deploying an AKS using Azure CLI with an HTTP proxy is done at creation, using the [az aks create][az-aks-create] command, and passing in the configuration as a JSON or YAML file.
+Using AKS with an HTTP proxy is done at cluster creation, using the [az aks create][az-aks-create] command and passing in configuration as a JSON or YAML file.
 
-The schema for our file looks like this:
+The schema for the config file looks like this:
 
 ```json
 "httpProxyConfig": {
@@ -55,12 +78,11 @@ Create a file and provide values for *httpProxy*, *httpsProxy*, and *noProxy*. I
 az aks create -n $clusterName -g $resourceGroup --proxy-configuration-file aks-proxy-config.json
 ```
 
-Your cluster should initialize with the HTTP proxy configured on the nodes.
-
+Your cluster will initialize with the HTTP proxy configured on the nodes.
 
 ## Configuring an HTTP proxy using Azure Resource Manager (ARM) templates
 
-Deploying an AKS cluster with an HTTP proxy configured via ARM template is very straightforward. The same schema used for CLI deployment exists in the `Microsoft.ContainerService/managedClusters` definition under properties:
+Deploying an AKS cluster with an HTTP proxy configured via ARM template is straightforward. The same schema used for CLI deployment exists in the `Microsoft.ContainerService/managedClusters` definition under properties:
 
 ```json
 "properties": {
@@ -76,23 +98,26 @@ Deploying an AKS cluster with an HTTP proxy configured via ARM template is very 
 }
 ```
 
-In your template, provide values for `httpProxy`, `httpsProxy`, and `noProxy`. If necessary, also provide a value for `trustedCa`. Deploy the template, and your cluster should initialize with your HTTP proxy configured on the nodes.
+In your template, provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If necessary, also provide a value for `*trustedCa*. Deploy the template, and your cluster should initialize with your HTTP proxy configured on the nodes.
 
 ## Handling CA rollover
 
 Values for *httpProxy*, *httpsProxy*, and *noProxy* cannot be changed after cluster creation. However, to support rolling CA certs, the value for *trustedCa* can be changed and applied to the cluster with the [az aks update][az-aks-update] command.
 
-For example, assuming a new file has been created with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*, the following will update the cluster:
+For example, assuming a new file has been created with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*, the following action will update the cluster:
 
 ```azurecli
 az aks update -n $clusterName -g $resourceGroup --proxy-configuration-file aks-proxy-config-2.json
 ```
 
 ## Next steps
-- For more on the network requirements of AKS clusters, please see [control egress traffic for cluster nodes in AKS][aks-egress].
+- For more on the network requirements of AKS clusters, see [control egress traffic for cluster nodes in AKS][aks-egress].
 
 
 <!-- LINKS - internal -->
 [aks-egress]: ./limit-egress-traffic.md
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
