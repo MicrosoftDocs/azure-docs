@@ -180,6 +180,8 @@
           href: managed-instance-overview.md
         - name: Features
           href: managed-instance-features.md
+        - name: Limitations
+          href: limitations-managed-instance.md
     - name: Quickstarts
       items:
         - name: Create SQL Managed Instance
