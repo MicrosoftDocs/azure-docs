@@ -330,9 +330,9 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
 ### View elevate access logs using the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-
 1. Follow the steps earlier in this article to elevate your access.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
 1. Open **Monitor** > **Activity log**.
 
@@ -348,11 +348,11 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
 ### View elevate access logs using Azure CLI
 
-1. Use the [az login](/cli/azure/reference-index#az_login) command to sign in as Global Administrator.
-
 1. Follow the steps earlier in this article to elevate your access.
 
-1. Use the [az rest](/cli/azure/reference-index#az_rest) command to run the following call where you will have to filter by a date as shown with the example timestamp and specify a filename where you want the logs to be stored.
+1. Use the [az login](/cli/azure/reference-index#az_login) command to sign in as Global Administrator.
+
+1. Use the [az rest](/cli/azure/reference-index#az_rest) command to make the following call where you will have to filter by a date as shown with the example timestamp and specify a filename where you want the logs to be stored.
 
     The `url` calls an API to retrieve the logs in Microsoft.Insights. The output will be saved to your file.
 
