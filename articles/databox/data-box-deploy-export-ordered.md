@@ -265,19 +265,21 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 
 ## Sample XML file
 
-Follow these guidelines if you choose to select blobs and files for export in your Data Box export order by using an xml file.
+Follow these guidelines if you choose to select blobs and files for export by using an XML file. 
+
+You'll find this inforamtion on the three tabs:
 - **XML file overview**: Review tag requirements for the XML file.
 - **Prefix examples**: See examples of valid prefixes that select multiple blobs and files for export.
-- **Sample XML file**: Copy a sample XML file for a Data Box export that includes an example of each tag.
+- **Sample XML file**: Copy a sample XML file with examples of each tag.
 
 
-# [XML file overview](#tab/xml-file)
+# [XML file overview](#tab/xml-file-overview)
 
 Follow these guidelines when you construct the XML file for your export order. Incorrect tag formats can lead to export failures.
 
-### Tags used in the XML file
+#### Tag usage
 
-The following XML tags are used in the XML file for a Data Box export order.
+The following XML tags are used in the XML file for a Data Box export order:
 
 | xml tag           |Description |
 |-------------------|------------|
@@ -301,6 +303,8 @@ The prefixes that select multiple blobs or multiple files are similar:
 * For blobs, use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name.
 
 * For Azure Files, use a prefix to select a set of similarly named shares or similarly named files in a share. The prefix may be the prefix of the share name, the complete share name, or a complete share name followed by the prefix of the file name.
+
+For examples of correctly formed prefixes, see the **Prefix examples** tab.
 
 #### XML tag requirements
 
