@@ -30,7 +30,7 @@ In this article, you'll learn how to install and configure the following virtual
 
 - Azure VMware Solution private cloud deployed with a minimum of three nodes.  
 
-[are there any other prerequisites other than having an AVS private cloud?  Does AVS need to be in a production environment or can this be either production and trail?]
+
 
 
 
