@@ -34,7 +34,7 @@ In this article, you'll learn how to install and configure the following virtual
 
 
 
-## Step 1. Download the Bitname virtual appliance OVA/OVF file
+## Step 1. Download the Bitnami virtual appliance OVA/OVF file
 
 
 1. Go to the [VMware Marketplace](https://marketplace.cloud.vmware.com/) and download the virtual appliance you want to install on your Azure VMware Solution private cloud:
