@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/08/2021
 ms.author: banders
 
 ---
@@ -37,7 +37,7 @@ This section doesn't apply to Azure customers in Australia, Japan, or Singapore.
 You receive an Azure invoice when any of the following events occur during your billing cycle:
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
-- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance:
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -70,7 +70,7 @@ This section only applies to Azure customers in Australia, Japan, or Singapore.
 You receive one or more Azure invoices when any of the following events occur:
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
-- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services:
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
