@@ -770,8 +770,6 @@
       href: ./linux/no-agent.md
     - name: Disable Linux Agent provisioning
       href: ./linux/disable-provisioning.md
-    - name: Capture VM to managed image
-      href: ./linux/capture-image.md
   - name: Windows custom images
     items:
     - name: Prepare a VHD to Upload
@@ -795,89 +793,35 @@
     - name: Overview
       displayName: Shared Image Gallery, SIG, sig, gallery, image
       href: ./shared-image-galleries.md
-    - name: CLI
+    - name: Create a gallery
+      displayName: Shared Image Gallery, SIG, sig, gallery, image
+      href: create-gallery.md
+    - name: Share a gallery
+      href: share-gallery.md
+    - name: Capture a VM in the portal
+      href: capture-image-portal.md
+    - name: Create an image
+      displayName: VM, image, VHD, storage account
+      href: image-version.md
+    - name: Create a VM
       items:
-      - name: Create a gallery
+      - name: Generalized
         displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: shared-images-cli.md
-      - name: Create an image
-        items:
-        - name: From a VM
-          displayName: Shared Image Gallery, SIG, sig, gallery, image
-          href: image-version-vm-cli.md
-        - name: From a Managed Disk or snapshot
-          displayName: Shared Image Gallery, SIG, sig, gallery, image
-          href: image-version-snapshot-cli.md
-        - name: Clone a managed image
-          displayName: Shared Image Gallery, SIG, sig, gallery, image
-          href: image-version-managed-image-cli.md
-        - name: Copy from another gallery
-          displayName: Shared Image Gallery, SIG, sig, gallery, image
-          href: image-version-another-gallery-cli.md
-      - name: Create a VM
-        items:
-        - name: Generalized
-          displayName: Shared Image Gallery, SIG, sig, gallery, image
-          href: vm-generalized-image-version-cli.md
-        - name: Specialized
-          displayName: Shared Image Gallery, SIG, sig, gallery, image
-          href: vm-specialized-image-version-cli.md
-      - name: Update image resources
+        href: vm-generalized-image-version.md
+      - name: Specialized
         displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: update-image-resources-cli.md
-      - name: App registration for sharing
-        items:
-        - name: Linux
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, app registration
-          href: ./linux/share-images-across-tenants.md
-        - name: Windows
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, app registration
-          href: ./windows/share-images-across-tenants.md
-    - name: PowerShell
+        href: vm-specialized-image-version.md
+    - name: Update image resources
+      displayName: Shared Image Gallery, SIG, sig, gallery, image
+      href: update-image-resources.md
+    - name: App registration for sharing
       items:
-      - name: Create a gallery
-        displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: shared-images-powershell.md
-      - name: Create an image version
-        items:
-        - name: From a VM
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, version
-          href: image-version-vm-powershell.md
-        - name: From a Managed Disk or snapshot
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, managed disk, snapshot
-          href: image-version-snapshot-powershell.md
-        - name: Clone a managed image
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, clone, copy
-          href: image-version-managed-image-powershell.md
-        - name: Copy from another gallery
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, copy, clone
-          href: image-version-another-gallery-powershell.md
-      - name: Create a VM
-        items:
-        - name: Generalized
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, generalized
-          href: vm-generalized-image-version-powershell.md
-        - name: Specialized
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, specialized
-          href: vm-specialized-image-version-powershell.md
-        - name: Update image resources
-          displayName: Shared Image Gallery, SIG, sig, gallery, image
-          href: update-image-resources-powershell.md
-        - name: App registration for sharing
-          displayName: Shared Image Gallery, SIG, sig, gallery, image
-          href: windows/share-images-across-tenants.md
-    - name: Portal
-      items:
-      - name: Create a gallery, image and VM
-        items:
-        - name: Linux
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, create
-          href: ./linux/shared-images-portal.md
-        - name: Windows
-          displayName: Shared Image Gallery, SIG, sig, gallery, image, create
-          href: ./windows/shared-images-portal.md
-      - name: Capture a VM in the portal
-        href: capture-image-portal.md
+      - name: Linux
+        displayName: Shared Image Gallery, SIG, sig, gallery, image, app registration
+        href: ./linux/share-images-across-tenants.md
+      - name: Windows
+        displayName: Shared Image Gallery, SIG, sig, gallery, image, app registration
+        href: ./windows/share-images-across-tenants.md
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery
@@ -1264,10 +1208,8 @@
         href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
     - name: Backup and disaster recovery for managed disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: Snapshot a disk - CLI
-      href: ./linux/snapshot-copy-managed-disk.md
-    - name: Snapshot a disk - PowerShell
-      href: ./windows/snapshot-copy-managed-disk.md
+    - name: Snapshot a disk
+      href: snapshot-copy-managed-disk.md
     - name: Backup unmanaged disks
       href: ./linux/incremental-snapshots.md
     - name: Backup and disaster recovery for unmanaged disks

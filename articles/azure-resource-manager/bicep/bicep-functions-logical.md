@@ -9,7 +9,7 @@ ms.date: 07/29/2021
 
 # Logical functions for Bicep
 
-Resource Manager provides a `bool` function for Bicep. 
+Resource Manager provides a `bool` function for Bicep.
 
 Most of the logical functions in Azure Resource Manager templates are replaced with [logical operators](./operators-logical.md) in Bicep.
 
@@ -31,7 +31,7 @@ A boolean of the converted value.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) shows how to use bool with a string or integer.
+The following example shows how to use bool with a string or integer.
 
 ```bicep
 output trueString bool = bool('true')
