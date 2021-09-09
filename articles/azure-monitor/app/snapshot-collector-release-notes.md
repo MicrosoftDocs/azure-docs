@@ -31,7 +31,7 @@ A point release to address multiple improvements and added support for Azure Act
 - Snapshot Collector package size reduced by 60%. From 10.34 mb to 4.11 mb.
 - Update to latest Application Insights 2.18.0. 
 ### New features
-- Add Azure Active Directory authentication to SnapshotCollector. Learn more about Azure AD authentication in Application Insights [here](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication).
+- Add Azure Active Directory authentication to SnapshotCollector. Learn more about Azure AD authentication in Application Insights [here](./azure-ad-authentication.md).
 ### Bug fixes
 - Fix [ObjectDisposedException on shutdown](https://github.com/microsoft/ApplicationInsights-dotnet/issues/2097).
 
