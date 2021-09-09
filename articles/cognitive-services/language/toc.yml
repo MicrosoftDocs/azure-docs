@@ -100,6 +100,10 @@ items:
   items:
   - name: Quickstart
     href: custom-question-answering/quickstart/sdk.md
+  - name: How-to guides
+    items:
+    - name: Encrypt data at rest
+      href: custom-question-answering/how-to/encrypt-data-at-rest.md
 - name: Entity linking
   items:
   - name: Overview
