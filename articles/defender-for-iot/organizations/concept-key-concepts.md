@@ -1,7 +1,7 @@
 ---
 title: Key advantages
 description: Learn about basic Defender for IoT concepts.
-ms.date: 08/29/2021
+ms.date: 09/09/2021
 ms.topic: article
 ---
 
@@ -108,35 +108,7 @@ In addition, working with Horizon custom alerts lets you write your own alert ti
 
 Using custom, condition-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
 
-### Supported IoT and OT protocols by agentless monitoring
-
-Azure Defender for IoT supports a broad range of protocols across diverse industrial equipment, including Modbus, DNP3, BACnet, and more. For custom or proprietary protocols, Microsoft offers an open SDK for easy development, testing, and deployment of custom protocol dissectors as plug-ins, without divulging proprietary information about how protocols are designed or sharing PCAPs that may contain sensitive information. The complete list of supported protocols is listed in the table below.
-
-| Supported Protocol |  |  |  |
-|--|--|--|--|
-| AMS (Beckhoff) | GOOSE (IoT/OT) | PCCC (Rockwell) | VLAN (Generic) |
-| ARP (Generic) | Honeywell Experion (Honeywell) | PCS7 (Siemens) | Wonderware Suitelink (Schneider Electric/Wonderware) |
-| Asterix (IoT/OT) | HL7 (Generic) | Profinet DCP (Siemens/Generic) | Yokogawa HIS Equalize (Yokogawa) |
-| ASTM (Generic) | ICMP (Generic) | Profinet Realtime (Siemens/Generic) |  |
-| BACnet (IoT/OT) | IEC 60870 (IEC104/101) (IoT/OT) | RPC (Generic) |  |
-| BeckhoffTwincat (Beckhoff) | IPv4 (Generic) | Yokogawa VNet/IP (Yokogawa) |  |
-| Bently Nevada (Baker Hughes) | IPv6 (Generic) | Schneider ElectricTelvent (OASyS) (Schneider Electric) |  |
-| CAMP (Siemens) | ISO Industrial Protocol (IoT/OT) | Schneider Electric/ Invensys /TriStation / Foxboro I/A / Foxboro EVO |  |
-| CAPWAP (Generic) | LLC (Generic) | Siemens PHD (Siemens) |  |
-| CDP (Cisco) | LLDP (Generic) | Siemens S7 (Siemens) |  |
-| CITECTSCADA ODBC SERVICE (Citect) | Lontalk (IoT/OT) | Siemens S7-Plus (Siemens) |  |
-| Codesys V3 (Generic) | Mitsubishi Melsec/Melsoft (Mitsubishi) | Siemens SICAM (Siemens) |
-| DICOM (Generic) | MMS (including ABB extension) (ABB / Generic) | Siemens WinCC (Siemens) |
-| DNP3 (IoT/OT) | Modbus over CIP (Rockwell) | SMB / Browse / NBDGM (Generic) |  |
-| DNS (Generic) | Modbus RTU (IoT/OT) | SMV (SAMPLED-VALUES) (IoT/OT) |
-| Emerson DeltaV (Emerson) | Modbus Schneider Electric extensions / Unity (Schneider Electric) | SSH (Generic) |  |
-| Emerson OpenBSI/BSAP (Emerson) | Modbus TCP (IoT/OT) | STP (Generic) |  |
-| Emerson Ovation (Emerson) | MQTT (IoT/OT) | Syslog (Generic) |  |
-| Emerson/Fisher ROC (Emerson) | NBNS (Generic) | TCP (Generic) |  |
-| EtherNet/IP CIP (including Rockwell extension) (Rockwell) | netbios (Generic) | TDS (Oracle) |  |
-| Euromap 63 (IoT/OT) | NTLM (Generic) | TNS (Oracle) |  |
-| GE EGD (GE) | Omron FINS (Omron) | Toshiba Computer Link (Toshiba) |  |
-| GE-SRTP (GE) | OSISoft (OSI Soft) | UDP (Generic) |  |
+For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md#supported-protocols).
 
 ## High availability
 
