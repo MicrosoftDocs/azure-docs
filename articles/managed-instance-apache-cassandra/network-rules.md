@@ -58,7 +58,7 @@ If you are not using Azure Firewall, the required network rules and IP address d
 
 ### DNS access
 
-The system uses DNS names to reach the Azure services described in this article so that it can use load balancers. Therefore, the virtual network must run a DNS server that can resolve those adresses. The virtual machines in the virtual network honor the name server that is communicated through the DHCP protocol. In most cases, Azure automatically sets up a DNS server for the virtual network. If this doesn't occur in your scenario, the DNS names that are described in this article are a good guide to get started.
+The system uses DNS names to reach the Azure services described in this article so that it can use load balancers. Therefore, the virtual network must run a DNS server that can resolve those addresses. The virtual machines in the virtual network honor the name server that is communicated through the DHCP protocol. In most cases, Azure automatically sets up a DNS server for the virtual network. If this doesn't occur in your scenario, the DNS names that are described in this article are a good guide to get started.
 
 ## Internal port usage
 
