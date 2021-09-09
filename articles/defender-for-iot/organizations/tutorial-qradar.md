@@ -98,14 +98,83 @@ For the integration to work, you will need to setup in the Defender for IoT appl
 
 1. In the side menu, select **Forwarding**.
 
-   :::image type="content" source="media/integration-qradar/create.png" alt-text="Create a Forwarding Rule":::
+1. Select **Create Forwarding Rule**.
 
 1. Set the Action to **QRadar**.
+
+    :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Create a Forwarding Rule":::
 
 1. Configure the QRadar IP address, and the timezone.
 
 1. Select **Submit**.
 
-##
+## Map notifications to QRadar
 
-The Map the rule on the on-premises management console.
+The rule must then be mapped on the on-premises management console.
+
+**To map the notifications to QRadar**:
+
+1. Sign in to the management console.
+
+1. From the left side pane, select **Forwarding**.
+
+1. In the Qradar GUI, under QRadar, select **Log Activity** .
+
+1. Select **Add Filter** and set the following parameters:
+   - Parameter: `Log Sources [Indexed]`
+   - Operator: `Equals`
+   - Log Source Group: `Other`
+   - Log Source: `<Xsense Name>`
+
+1. Double-click an unknown report from the sensor.
+
+1. Select **Map Event**.
+
+1. In the Modal Log Source Event page, select as follows:
+   - High-Level Category - Suspicious Activity + Low-Level Category - Unknown Suspicious Event + Log
+   - Source Type - any
+
+1. Select **Search**.
+
+1. From the results, choose the line in which the name XSense appears, and select **OK**.
+
+All of the sensor reports from now on are tagged as Sensor Alerts.
+
+## Add custom fields to the alerts
+
+**To add custom fields to alerts**:
+
+1. Select **Extract Property**.
+
+1. Select **Regex Based**.
+
+1. Configure the following fields:
+   - New Property: _choose from the list below_
+      - Xsense Alert Description
+      - Xsense Alert ID
+      - Xsense Alert Score
+      - Xsense Alert Title
+      - Xsense Destination Name
+      - Xsense Direct Redirect
+      - Xsense Sender IP
+      - Xsense Sender Name
+      - Xsense Alert Engine
+      - Xsense Source Device Name
+   - Check **Optimize Parsing**
+   - Field Type: `AlphaNumeric`
+   - Check **Enabled**
+   - Log Source Type: `Universal LEAF`
+   - Log Source: `<Xsense Name>`
+   - Event Name (should be already set as XSense Alert)
+   - Capture Group: 1
+   - Regex:
+      - Xsense Alert Description RegEx: `msg=(.*)(?=\t)`
+      - Xsense Alert ID RegEx: `alertId=(.*)(?=\t)`
+      - Xsense Alert Score RegEx: `Detected score=(.*)(?=\t)`
+      - Xsense Alert Title RegEx: `title=(.*)(?=\t)`
+      - Xsense Destination Name RegEx: `dstName=(.*)(?=\t)`
+      - Xsense Direct Redirect RegEx: `rta=(.*)(?=\t)`
+      - Xsense Sender IP: RegEx: `reporter=(.*)(?=\t)`
+      - Xsense Sender Name RegEx: `senderName=(.*)(?=\t)`
+      - Xsense Alert Engine RegEx: `engine =(.*)(?=\t)`
+      - Xsense Source Device Name RegEx: `src`
