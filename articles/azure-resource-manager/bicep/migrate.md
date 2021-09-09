@@ -4,7 +4,7 @@ description: Describes the recommended workflow when migrating Azure resources a
 author: jowaddel
 ms.author: jowaddel
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 09/09/2021
 ---
 # Migrating to Bicep
 
