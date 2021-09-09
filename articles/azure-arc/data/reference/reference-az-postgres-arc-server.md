@@ -112,7 +112,7 @@ The storage class to be used for logs persistent volumes.
 #### `--storage-class-backups`
 The storage class to be used for backup persistent volumes.
 #### `--volume-claim-mounts`
-A comma-separated list of volume claim mounts. A volume claim mount is a pair of an existing persistent volume claim (in the same namespace) and volume type (and optional metadata depending on the volume type) separated by colon.The persistent volume will be mounted in each pod for the PostgreSQL server group. The mount path may depend on the volume type.
+A comma-separated list of volume claim mounts. A volume claim mount is a pair of an existing persistent volume claim (in the same namespace) and volume type (and optional metadata depending on the volume type) separated by colon. The persistent volume will be mounted in each pod for the PostgreSQL server group. The mount path may depend on the volume type.
 #### `--extensions`
 A comma-separated list of the Postgres extensions that should be loaded on startup. Please refer to the postgres documentation for supported values.
 #### `--volume-size-data`
@@ -133,11 +133,11 @@ Optional.
 #### `--no-wait`
 If given, the command will not wait for the instance to be in a ready state before returning.
 #### `--engine-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2'.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2'.
 #### `--coordinator-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'coordinator' node role. When node role specific settings are specified, default settings will be ignored and overridden with the settings provided here.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'coordinator' node role. When node role-specific settings are specified, default settings will be ignored and overridden with the settings provided here.
 #### `--worker-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'worker' node role. When node role specific settings are specified, default settings will be ignored and overridden with the settings provided here.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'worker' node role. When node role-specific settings are specified, default settings will be ignored and overridden with the settings provided here.
 #### `--use-k8s`
 Use local Kubernetes APIs to perform this action.
 ### Global Arguments
@@ -227,13 +227,13 @@ Optional.
 #### `--no-wait`
 If given, the command will not wait for the instance to be in a ready state before returning.
 #### `--engine-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2'. The provided settings will be merged with the existing settings. To remove a setting, provide an empty value like 'removedKey='. If you change an engine setting that requires a restart, the service will be restarted to apply the settings immediately.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2'. The provided settings will be merged with the existing settings. To remove a setting, provide an empty value like 'removedKey='. If you change an engine setting that requires a restart, the service will be restarted to apply the settings immediately.
 #### `--replace-settings`
 When specified with --engine-settings, will replace all existing custom engine settings with new set of settings and values.
 #### `--coordinator-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'coordinator' node role. When node role specific settings are specified, default settings will be ignored and overridden with the settings provided here.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'coordinator' node role. When node role-specific settings are specified, default settings will be ignored and overridden with the settings provided here.
 #### `--worker-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'worker' node role. When node role specific settings are specified, default settings will be ignored and overridden with the settings provided here.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'worker' node role. When node role-specific settings are specified, default settings will be ignored and overridden with the settings provided here.
 #### `--admin-password`
 If given, the Azure Arc-enabled PostgreSQL Hyperscale server group's admin password will be set to the value of the AZDATA_PASSWORD environment variable if present and a prompted value otherwise.
 #### `--use-k8s`
