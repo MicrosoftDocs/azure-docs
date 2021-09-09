@@ -1,15 +1,15 @@
 ---
-title: Update your Azure Percept DK over a USB-C cable connection
+title: Update Azure Percept DK over a USB-C connection
 description: Learn how to update the Azure Percept DK over a USB-C cable connection
 author: EthanChangAED
-ms.author: hschang
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
 ---
 
-# Update the Azure Percept DK over a USB-C cable connection
+# Update Azure Percept DK over a USB-C connection
 
 This guide will show you how to successfully update your dev kit's operating system and firmware over a USB connection. Here's an overview of what you will be doing during this procedure.
 

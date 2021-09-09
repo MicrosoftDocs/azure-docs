@@ -5,7 +5,7 @@
   items:
   - name: What is Azure DB for MySQL?
     href: overview.md
-  - name: Which MySQL option should I choose?
+  - name: Select the right MySQL deployment type
     href: select-right-deployment-type.md
   - name: What's new in Single Server?
     href: single-server-whats-new.md
@@ -588,6 +588,8 @@
       items:
       - name: Troubleshoot Connection errors
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
+      - name: Troubleshoot CLI errors
+        href: flexible-server/how-to-troubleshoot-cli-errors.md       
 - name: Migration
   items:
   - name: Migrate data from MySQL on-premises to Azure Database for MySQL >

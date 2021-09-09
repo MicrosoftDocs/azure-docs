@@ -38,7 +38,7 @@ In this tutorial, you'll learn to:
 
 Enable **Diagnostic settings** in Azure AD within your Azure AD B2C tenant to define where logs and metrics for a resource should be sent.
 
-Then after, [configure Azure AD B2C to send logs to Azure Monitor](https://docs.microsoft.com/azure/active-directory-b2c/azure-monitor).
+Then after, [configure Azure AD B2C to send logs to Azure Monitor](./azure-monitor.md).
 
 ## Deploy an Azure Sentinel instance
 
@@ -79,7 +79,7 @@ In the following example, we explain the scenario where you receive a notificati
 1. From the Azure Sentinel navigation menu, select **Analytics**.
 
 2. In the action bar at the top, select **+ Create** and select
-   **Scheduled query rule**. It will open the **Analytics rule wizard**.
+   **Scheduled query rule**. This will open the **Analytics rule wizard**.
 
 ![image shows select create scheduled query rule](./media/azure-sentinel/create-scheduled-rule.png)
 

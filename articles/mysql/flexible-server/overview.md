@@ -30,7 +30,17 @@ Flexible servers are best suited for:
 - Zone redundant high availability
 - Managed maintenance windows
 
+For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Flexible Server](whats-new.md).
+
 ![Flexible Server conceptual diagram](media/overview/1-flexible-server-conceptual-diagram.png) 
+
+## Free 12-month offer
+
+With an [Azure free account](https://azure.microsoft.com/free/), you can use Flexible Server for free for 12 months with monthly limits of up to:
+* **750 hours of Burstable B1MS instance**, enough hours to run a database instance continuously each month.
+* **32 GB** storage and **32 GB** backup storage. 
+
+You can take advantage of this offer to develop and deploy applications that use Azure Database for MySQL – Flexible Server. To learn how to create and use a flexible server for free using Azure free account, refer [this tutorial](how-to-deploy-on-azure-free-account.md). 
 
 ## High availability within and across availability zones
 
@@ -45,7 +55,6 @@ Azure Database for MySQL Flexible Server (Preview) allows configuring high avail
 :::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="same redundant high availability":::
 
 For more information, see [high availability concepts](concepts-high-availability.md).
-
 
 ## Automated patching with managed maintenance window
 
@@ -77,7 +86,7 @@ See [Networking concepts](concepts-networking.md) to learn more.
 
 ## Adjust performance and scale within seconds
 
-The flexible server service is available in three SKU tiers: Burstable, General Purpose, and Memory Optimized. The Burstable tier is best suited for low-cost development and low concurrency workloads that don't need full compute capacity continuously. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. 
+The flexible server service is available in three SKU tiers: Burstable, General Purpose, and Memory Optimized. The Burstable tier is best suited for low-cost development and low concurrency workloads that don't need full compute capacity continuously. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Flexible Server enables you to provision additional IOPS up to 20K IOPs above the complimentary IOPS limit independent of storage. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. 
 
 See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
@@ -96,7 +105,7 @@ For more information, see [Read Replica concepts](concepts-read-replicas.md).
 Data-in replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL Flexible service. The external server can be on-premises, in virtual machines, Azure Database for MySQL Single Server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based. The main scenarios to consider about using Data-in replication are:
 * Hybrid Data Synchronization
 * Multi-Cloud Synchronization
-* Minimal downtime migration to Flexible Server
+* [Minimal downtime migration to Flexible Server](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
 
 For more information, see [Data-in replication concepts](concepts-data-in-replication.md).
 
@@ -111,9 +120,9 @@ For more information, see [Server concepts](concept-servers.md).
 
 The flexible server service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default).
 
-The service encrypts data in-motion with transport layer security enforced by default. Flexible Server only supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 will be denied.
+The service encrypts data in-motion with transport layer security enforced by default. Flexible Server by default supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 will be denied. SSL enforcement can be disabled by setting the require_secure_transport server parameter and you can set the minimum tls_version for your server.
 
-For more information, see [how to use encrypted connections to flexible servers](https://docs.mongodb.com/manual/tutorial/configure-ssl).
+For more information, see [how to use encrypted connections to flexible servers](how-to-connect-tls-ssl.md).
 
 Flexible Server allows full private access to the servers using [Azure virtual network](../../virtual-network/virtual-networks-overview.md) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints.
 
@@ -121,7 +130,7 @@ For more information, see [Networking concepts](concepts-networking.md).
 
 ## Monitoring and alerting
 
-The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance.
+The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance. In addition, you can use and integrate with community monitoring tools like [Percona Monitoring and Management with your MySQL Flexible Server](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545). 
 
 For more information, see [Monitoring concepts](concepts-monitoring.md).
 
@@ -135,6 +144,8 @@ The service runs the community version of MySQL. This allows full application co
 
 ### Online or Minimal downtime migrations
 Use data-in replication with mydumper/myloader consistent backup/restore for initial seeding. Learn more with step by step instructions - [Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
+
+To migrate from Azure Database for MySQL - Single Server to Flexible Server in 5 easy steps, refer to [this blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057).
 
 For more information, see [Migration Guide for Azure Database for MySQL](../../mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md)
 
