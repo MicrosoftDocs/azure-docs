@@ -146,7 +146,7 @@ az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enabl
 > [!IMPORTANT]
 > You must have the relevant permissions (for example, Owner) on your subscription to create the identity.
 
-Create an identity using [az identity create][az-identity-create] and set the *IDENTITY_CLIENT_ID* and *IDENTITY_RESOURCE_ID* variables.
+Create an identity which will be used by the demo pod with [az identity create][az-identity-create] and set the *IDENTITY_CLIENT_ID* and *IDENTITY_RESOURCE_ID* variables.
 
 ```azurecli-interactive
 az group create --name myIdentityResourceGroup --location eastus
@@ -158,6 +158,8 @@ export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n
 ```
 
 ## Assign permissions for the managed identity
+
+The managed identity that will be assigned to the pod needs to be granted permissions that align with the actions it will be taking.
 
 To run the demo, the *IDENTITY_CLIENT_ID* managed identity must have Virtual Machine Contributor permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
 
