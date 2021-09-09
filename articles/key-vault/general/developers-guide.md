@@ -139,7 +139,7 @@ For basic scenarios, there are other solutions for simplified usage with support
 - Use Key Vault secrets with App Service application settings
     - [Use Key Vault references for App Service and Azure Functions](../../app-service/app-service-key-vault-references.md)
 - Use Key Vault secrets with App Configuration service for applications hosted in Azure VM
-    - [Configure Applications with App Configuration and Key Vault](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/app-secrets-configuration/)
+    - [Configure Applications with App Configuration and Key Vault](/samples/azure/azure-sdk-for-net/app-secrets-configuration/)
 
 ## Code examples
 

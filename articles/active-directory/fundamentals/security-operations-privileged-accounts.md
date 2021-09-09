@@ -35,7 +35,7 @@ The log files you use for investigation and monitoring are:
 
 * [Azure AD Audit logs](../reports-monitoring/concept-audit-logs.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault insights](../../azure-monitor/insights/key-vault-insights-overview.md)
 

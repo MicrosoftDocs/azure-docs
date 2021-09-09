@@ -40,7 +40,7 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -169,16 +169,16 @@ Azure AD uses Microsoft SQL Server Data Engine or SQL to store Azure AD Connect 
 
 | What to monitor| Where| Notes |
 | - | - | - |
-| mms_management_agent| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_partition| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_run_profile| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_server_configuration| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_synchronization_rule| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
+| mms_management_agent| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_partition| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_run_profile| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_server_configuration| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_synchronization_rule| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
 
 
 For information on what and how to monitor configuration information refer to:
 
-* For SQL server, see [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15).
+* For SQL server, see [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records).
 
 * For Azure Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15). 
 

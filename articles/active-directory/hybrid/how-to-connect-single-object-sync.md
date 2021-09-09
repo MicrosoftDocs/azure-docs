@@ -38,7 +38,7 @@ The Single Object Sync tool performs the following steps:
  9. Sync Object from Active Directory Connector Space. 
  10. Export Object from Azure Active Directory Connector Space to Azure Active Directory. 
 
-In addition to the JSON output, the tool generates an HTML report that has all the details of the synchronization operation. The HTML report is located in **C:\ProgramData\AADConnect\ADSyncObjectDiagnostics\ ADSyncSingleObjectSyncResult-<date>.htm**. This HTML report can be shared with the support team to do further troubleshooting, if needed. 
+In addition to the JSON output, the tool generates an HTML report that has all the details of the synchronization operation. The HTML report is located in **C:\ProgramData\AADConnect\ADSyncObjectDiagnostics\ ADSyncSingleObjectSyncResult-\<date\>.htm**. This HTML report can be shared with the support team to do further troubleshooting, if needed. 
 
 The HTML report has the following: 
 

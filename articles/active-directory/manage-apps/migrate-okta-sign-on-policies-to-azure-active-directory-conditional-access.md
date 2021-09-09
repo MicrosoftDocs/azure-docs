@@ -96,9 +96,9 @@ While hybrid Azure AD join is direct replacement for Okta device trust on Window
 
 - **Windows enrollment** - If you've opted to deploy hybrid Azure AD join, an additional group policy can be deployed to complete the [auto-enrollment process of these devices into Microsoft Intune](/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
 
-- **iOS/iPadOS enrollment** - Before enrolling an iOS device, [additional configurations](https://docs.microsoft.com/mem/intune/enrollment/ios-enroll) must be made in the Endpoint Management Console.
+- **iOS/iPadOS enrollment** - Before enrolling an iOS device, [additional configurations](/mem/intune/enrollment/ios-enroll) must be made in the Endpoint Management Console.
 
-- **Android enrollment** - Before enrolling an Android device, [additional configurations](https://docs.microsoft.com/mem/intune/enrollment/android-enroll) must be made in the Endpoint Management Console.
+- **Android enrollment** - Before enrolling an Android device, [additional configurations](/mem/intune/enrollment/android-enroll) must be made in the Endpoint Management Console.
 
 ## Step 3 - Configure Azure AD Multi-Factor Authentication tenant settings
 
