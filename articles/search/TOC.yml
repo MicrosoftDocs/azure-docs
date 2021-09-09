@@ -126,6 +126,8 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Analyzers
+    href: search-analyzers.md
   - name: Semantic search
     href: semantic-search-overview.md
   - name: Relevance scoring
@@ -266,8 +268,6 @@
       href: index-sql-relational-data.md
   - name: Analyzers
     items:
-    - name: Adding analyzers
-      href: search-analyzers.md
     - name: Add a language analyzer
       href: index-add-language-analyzers.md
     - name: Add a custom analyzer
@@ -608,8 +608,6 @@
     href: search-data-sources-terms-of-use.md
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
-  - name: Feedback Forum (UserVoice)
-    href:  https://feedback.azure.com/forums/263029-azure-search 
   - name: Compliance and certifications
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Documentation links (AI enrichment)
