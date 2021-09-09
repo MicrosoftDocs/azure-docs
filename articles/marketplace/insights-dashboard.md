@@ -60,9 +60,7 @@ The Marketplace Insights **Visitors** chart displays a count of _Page visits_ an
 
 This number represents the count of **Call to Action** button clicks completed on the offer listing page (product detail page). _Calls to action_ are counted when users select the **Get It Now**, **Free Trial**, **Contact Me**, or **Test Drive** buttons. *Consent given* represents the total count of clicks for customer-provided consent to Microsoft or the partner, and equals the number of customers acquired for your offers. The following two examples show where *Consent given* clicks appear:
 
-:::image type="content" source="./media/insights-dashboard/consent-screen-1.png" alt-text="Illustrates a location where a consent button is selected.":::
-
-:::image type="content" source="./media/insights-dashboard/consent-screen-2.png" alt-text="Illustrates a second location where a consent button is selected.":::
+:::image type="content" source="./media/insights-dashboard/consent-screen.png" alt-text="Illustrates a location where a consent button is selected.":::
 
 The following graph shows the *CTA* vs. *Consent given* metric:
 
