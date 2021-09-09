@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 09/09/2021
 ---
 
 # Filter activity in Azure Data Factory and Synapse Analytics pipelines

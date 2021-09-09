@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/14/2020
+ms.date: 09/09/2021
 ---
 
 # Unpivot transformation in mapping data flow

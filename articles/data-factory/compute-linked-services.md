@@ -7,7 +7,7 @@ ms.subservice: concepts
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 05/08/2019 
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
 ---
 

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 09/09/2021
 ms.author: yexu
 ---
 #  Data consistency verification in copy activity

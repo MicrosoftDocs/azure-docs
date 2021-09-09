@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/03/2020
+ms.date: 09/09/2021
 ---
 
 # Create a tumbling window trigger dependency
