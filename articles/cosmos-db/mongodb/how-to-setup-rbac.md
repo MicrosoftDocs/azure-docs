@@ -8,31 +8,78 @@ ms.date: 09/08/2021
 ms.author: gahllevy
 ---
 
-# Configure role-based access control for your Azure Cosmos DB API for MongoDB database
+# Configure role-based access control for your Azure Cosmos DB API for MongoDB (preview)
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 > [!NOTE]
 > This article is about role-based access control for data plane operations in Azure Cosmos DB. If you are using management plane operations, see [role-based access control](role-based-access-control.md) applied to your management plane operations article.
 
-Azure Cosmos DB exposes a built-in role-based access control (RBAC) system that lets you:
-
-- Authorize your data requests with a fine-grained, role-based permission model.
+The API for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users are roles reside within a database and are managed using the Azure CLI, Azure Powershell, or ARM for this preview feature.
 
 ## Concepts
 
-The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found in other RBAC systems like [Azure RBAC](../role-based-access-control/overview.md):
+### Resource
+A resource is a collection or database which we are applying access control rules to.
 
-- The [permission model](#permission-model) is composed of a set of **actions**; each of these actions maps to one or multiple database operations. Some examples of actions include reading an item, writing an item, or executing a query.
-- Azure Cosmos DB users create **[role definitions](#role-definitions)** containing a list of allowed actions.
-- Role definitions get assigned to specific Azure AD identities through **[role assignments](#role-assignments)**. A role assignment also defines the scope that the role definition applies to; currently, three scopes are currently:
-    - An Azure Cosmos DB account,
-    - An Azure Cosmos DB database,
-    - An Azure Cosmos DB container.
+### Privileges
+Privileges are actions that can be take on a specific resource. For example, read access to collection xyz. Privileges are assigned to a specific role.
 
-  :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="RBAC concepts":::
+### Role
+A role has one or more privileges. Roles are assigned to users (zero or more) to enable them to perform the actions defined in those privileges. Roles are stored within a single database.
 
-## <a id="permission-model"></a> Permission model
+### User
+A database user that performs operation. Users are stored within a single database.
 
+## Create a role
+
+## Assign privileges to a role
+
+## Create a user
+
+## Assign roles to a user
+
+## Delete a role or user
+
+## <a id="disable-local-auth"></a> Enforcing RBAC as the only authentication method
+
+In situations where you want to force clients to connect to Azure Cosmos DB through RBAC exclusively, you have the option to disable the account's primary/secondary keys. When doing so, any incoming request using either a primary/secondary key or a resource token will be actively rejected.
+
+### Using Azure Resource Manager templates
+
+When creating or updating your Azure Cosmos DB account using Azure Resource Manager templates, set the `disableLocalAuth` property to `true`:
+
+```json
+"resources": [
+    {
+        "type": " Microsoft.DocumentDB/databaseAccounts",
+        "properties": {
+            "disableLocalAuth": true,
+            // ...
+        },
+        // ...
+    },
+    // ...
+ ]
+```
+
+## Limits
+
+- You can create up to 100 role definitions and 2,000 role assignments per Azure Cosmos DB account.
+- You can only assign role definitions to Azure AD identities belonging to the same Azure AD tenant as your Azure Cosmos DB account.
+- Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
+- The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
+
+#
+#
+#
+#
+#
+#
+#
+
+
+
+## Privileges
 > [!IMPORTANT]
 > This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. This means that you **cannot use any Azure Cosmos DB data plane SDK** to authenticate management operations with an AAD identity. Instead, you must use [Azure RBAC](role-based-access-control.md) through:
 > - [Azure Resource Manager (ARM) templates](manage-with-templates.md)
