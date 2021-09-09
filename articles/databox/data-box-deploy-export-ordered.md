@@ -330,7 +330,7 @@ The prefixes that select multiple blobs or multiple files are similar:
 
 # [Valid paths, prefixes](#tab/valid-paths-prefixes)
 
-The following are examples of valid paths that select multiple blobs for export. The paths are used with the <!--&lt;BlobPath&gt; and--> &lt;BlobPathPrefix&gt; tag.
+The following are examples of valid paths that select multiple blobs for export. The paths are used with the &lt;BlobPathPrefix&gt; tag.
 
 |Path                    |Description                                                                         |
 |------------------------|------------------------------------------------------------------------------------|
@@ -342,9 +342,7 @@ The following are examples of valid paths that select multiple blobs for export.
 
 To select a single blob for export, use the &lt;BlobPath&gt; tag with a path and blob name.
 
-# [Valid file path prefixes](#tab/file-path-prefixes)
-
-The following are examples of valid paths that select multiple files for export. The paths are used with the <!--&lt;FilePath&gt; and-->&lt;FilePathPrefix&gt; tag.
+The following are examples of valid paths that select multiple files for export. The paths are used with the &lt;FilePathPrefix&gt; tag.
 
 |Path                    |Description                                                                                          |
 |------------------------|-----------------------------------------------------------------------------------------------------|
