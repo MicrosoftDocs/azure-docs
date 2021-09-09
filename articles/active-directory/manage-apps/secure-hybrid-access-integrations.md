@@ -71,17 +71,19 @@ The solution will include three key authentication flows that support the follow
 
 Your solution can use either SAML or OIDC for SSO when the customer's IT administrator signs in. Either way, its recommended that the IT administrator can sign in to your solution using their Azure AD credentials, which enables them a seamless experience and allows them to use the existing security controls they already have in place. Your solution should be integrated with Azure AD for SSO using either SAML or OIDC.
 
+![image diagram of the IT administrator being redirected by the solution to Azure AD to log in, and then being redirected by Azure AD back to the solution with a SAML token or JWT](./media/secure-hybrid-access-integrations/admin-flow.png)
+
 1. The IT administrator wants to sign-in to your solution with their Azure AD credentials.
 
 2. Your solution will redirect them to Azure AD either with a SAML or OIDC sign-in request.
 
 3. Azure AD will authenticate the IT administrator and then send them back to your solution with either a SAML token or JWT in tow to be authorized within your solution
 
-![image diagram of the IT administrator being redirected by the solution to Azure AD to log in, and then being redirected by Azure AD back to the solution with a SAML token or JWT](./media/secure-hybrid-access-integrations/admin-flow.png)
-
 ### The IT administrator integrates applications with Azure AD using your solution
 
 The second leg of the IT administrator journey will be to integrate applications with Azure AD by using your solution. To do this, your solution will use Microsoft Graph to create application registrations and Azure AD Conditional Access policies.
+
+![image diagram of the IT administrator being redirected by the solution to Azure AD to log in,  then being redirected by Azure AD back to the solution with a SAML token or JWT, and finally the solution making a call to Microsoft Graph with the JWT](./media/secure-hybrid-access-integrations/registration-flow.png)
 
 Here is a summary and diagram of this user authentication flow:
 
@@ -93,20 +95,18 @@ Here is a summary and diagram of this user authentication flow:
 
 4. When an IT administrator wants to integrate one of their applications with Azure AD, rather than having to go to the Azure AD portal, your solution will call the Microsoft Graph with their existing JWT to register those applications or apply Azure AD Conditional Access policies to them.
 
-![image diagram of the IT administrator being redirected by the solution to Azure AD to log in,  then being redirected by Azure AD back to the solution with a SAML token or JWT, and finally the solution making a call to Microsoft Graph with the JWT](./media/secure-hybrid-access-integrations/registration-flow.png)
-
 ### End-users sign-in to the applications secured by your solution and Azure AD
 
 When end users need to sign into individual applications secured with your solution and Azure AD, they use either OIDC or SAML. If the applications need to interact with Microsoft Graph or any Azure AD protected API for some reason, its recommended that the individual applications you register with Microsoft Graph be configured to use OIDC. This will ensure that the JWT that they get from Azure AD to authenticate them into the applications can also be applied for interacting with Microsoft Graph. If there is no need for the individual applications to interact with Microsoft Graph or any Azure AD protected API, then SAML will suffice.
 
 Here is a summary and diagram of this user authentication flow:
 
-1. The end user wants to sign-in to an application secured by your solution and Azure AD.
-1. Your solution will redirect them to Azure AD either with a SAML or OIDC sign-in request.
-1. Azure AD will authenticate the end user and then send them back to your solution with either a SAML token or JWT for authorization within your solution.
-1. Once authorized against your solution, your solution will then allow the original request to the application to go through using the preferred protocol of the application.
-
 ![image diagram of the end user being redirected by the solution to Azure AD to log in, then being redirected by Azure AD back to the solution with a SAML token or JWT, and finally the solution making a call to another application using the application's preferred authentication type](./media/secure-hybrid-access-integrations/end-user-flow.png)
+
+1. The end user wants to sign-in to an application secured by your solution and Azure AD.
+2. Your solution will redirect them to Azure AD either with a SAML or OIDC sign-in request.
+3. Azure AD will authenticate the end user and then send them back to your solution with either a SAML token or JWT for authorization within your solution.
+4. Once authorized against your solution, your solution will then allow the original request to the application to go through using the preferred protocol of the application.
 
 ## Summary of Microsoft Graph APIs you will use
 
