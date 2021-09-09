@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 08/11/2021
+ms.date: 09/09/2021
 ---
 
 # Interactive debugging with Visual Studio Code
@@ -336,6 +336,9 @@ Save the `ip_address` value. It is used in the next section.
 ## Debug and troubleshoot deployments
 
 In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using VS Code and the debugpy, you can attach to the code running inside the Docker container.
+
+> [!TIP]
+> Save time and catch bugs early by debugging managed online endpoints and deployments locally. For more information, see [Debug managed online endpoints locally in Visual Studio Code (preview)](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 > [!IMPORTANT]
 > This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-) method.

@@ -8,7 +8,7 @@ ms.subservice: core
 author: petrodeg
 ms.author:  petrodeg
 ms.reviewer: laobri
-ms.date: 05/13/2021
+ms.date: 09/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
 #Customer intent: As a data scientist, I want to figure out why my managed online endpoint deployment failed so that I can fix it.
@@ -38,11 +38,15 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 
 Local deployment is deploying a model to a local Docker environment. Local deployment is useful for testing and debugging before to deployment to the cloud.
 
+> [!TIP]
+> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug managed online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+
 Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. To use local deployment, add `--local` to the appropriate CLI command:
 
 ```azurecli
-az ml endpoint create -n <endpoint-name> -f <spec_file.yaml> --local
+az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
+
 As a part of local deployment the following steps take place:
 
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
@@ -57,13 +61,13 @@ You can't get direct access to the VM where the model is deployed. However, you 
 To see log output from container, use the following CLI command:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> -d <deployment-name> -l 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 or
 
 ```azurecli
-    az ml endpoint get-logs --name <endpoint-name> --deployment <deployment-name> --lines 100
+    az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> --lines 100
 ```
 
 Add `--resource-group` and `--workspace-name` to the commands above if you have not already set these parameters via `az configure`.
@@ -71,7 +75,7 @@ Add `--resource-group` and `--workspace-name` to the commands above if you have 
 To see information about how to set these parameters, and if current values are already set, run:
 
 ```azurecli
-az ml endpoint get-logs -h
+az ml online-deployment get-logs -h
 ```
 
 By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
@@ -118,7 +122,7 @@ For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed0
 To get more details about this error, run:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --tail 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### ERR_1300: Unable to download user model\code artifacts
@@ -149,7 +153,7 @@ After provisioning the compute resource, during deployment creation, Azure tries
 To get more details about this error, run:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### ERR_1350: Unable to download user model, not enough space on the disk
@@ -165,14 +169,14 @@ This error means that this container couldn't start, which means scoring could n
 To get the exact reason for an error, run: 
 
 ```azurecli
-az ml endpoint get-logs
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### ERR_2200: User container has crashed\terminated
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.  The error in this scenario is that this container is crashing when running, which means scoring couldn't happen. This error happens when:
 
-- There's an error in `score.py`. Use `get--logs` to help diagnose common problems:
+- There's an error in `score.py`. Use `get-logs` to help diagnose common problems:
     - A package that was  imported but is not in the conda environment
     - A syntax error
     - A failure in the `init()` method
@@ -182,6 +186,24 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 ### ERR_5000: Internal error
 
 While we do our best to provide a stable and reliable service, sometimes things don't go according to plan. If you get this error, it means something isn't right on our side and we need to fix it. Submit a [customer support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) with all related information and we'll address the issue.  
+
+## Network Isolation
+
+Note that resources outside of the Azure Machine Learning workspace are not accessible from managed online deployments.
+
+For example, reaching out to the internet or an Azure resource from a scoring script is not supported.
+
+If your use case requires an exception from this network isolation, submit a [customer support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).  
+
+## Private Link
+
+When using managed online endpoints with a Private Link enabled workspace, the ability to score against that endpoint will be affected by the allow_public_access property. 
+
+When not provided, the value of `allow_public_access` for the endpoint is set to true, and scoring will be available via the public internet as well as any Private Endpoints in the workspace. 
+
+When `allow_public_access` is explicitly set to false for the endpoint, scoring will only be accessible from the Private Endpoints in the workspace.
+
+This value is not editable for an existing endpoint.
 
 ## HTTP status codes
 

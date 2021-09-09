@@ -43,9 +43,8 @@ The installation shows the following attributes, which are valid candidates:
 * Single-valued attributes: String, Boolean, Integer, Binary
 * Multi-valued attributes: String, Binary
 
-
->[!NOTE]
-> After Azure AD Connect synchronized multi-valued Active Directory attribute to Azure AD as a multi-valued attribute extension, it is possible to include attribute to the SAML claim. But, it is not possible to consume this data through API call.
+> [!NOTE]
+> Not all features in Azure Active Directory support multi valued extension attributes. Please refer to the documentation of the feature in which you plan to use these attributes to confirm they are supported.
 
 The list of attributes is read from the schema cache that's created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, you must [refresh the schema](how-to-connect-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 

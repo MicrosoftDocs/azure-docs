@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
@@ -54,7 +54,7 @@ This type of authorization is common for daemons and service accounts that need 
 
 In order to enable this ACL-based authorization pattern, Azure AD doesn't require that applications be authorized to get tokens for another application. Thus, app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
 
-If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that user assignment requirements are enabled for your app](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). This will block users and applications without assigned roles from being able to get a token for this application. 
+If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that user assignment requirements are enabled for your app](../manage-apps/add-application-portal-configure.md#configure-app-properties). This will block users and applications without assigned roles from being able to get a token for this application.
 
 ### Application permissions
 
@@ -110,7 +110,7 @@ At this point, Azure AD enforces that only a tenant administrator can sign into 
 If the admin approves the permissions for your application, the successful response looks like this:
 
 ```HTTP
-GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=12345&admin_consent=True
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
 | Parameter | Description |
@@ -161,7 +161,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 | `client_id` | Required | The application ID that's assigned to your app. You can find this information in the portal where you registered your app. |
 | `scope` | Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br/>This value tells the Microsoft identity platform that of all the direct application permissions you have configured for your app, the endpoint should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Required | The client secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. |
+| `client_secret` | Required | The client secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
 | `grant_type` | Required | Must be set to `client_credentials`. |
 
 ### Second case: Access token request with a certificate

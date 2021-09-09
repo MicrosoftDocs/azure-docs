@@ -13,7 +13,17 @@ ms.custom:
 ---
 # Quickstart: Create an Azure Purview account in the Azure portal.
 
-This quickstart describes the steps to create an Azure Purview account in the Azure portal.
+Azure Purview is a unified data governance tool that helps you to manage your data landscape. This quickstart describes the steps to create an Azure Purview account in the Azure portal and get started on the process of classifying, securing, and discovering your data in Purview!
+
+## Prerequisites
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* The user account that you use to sign in to Azure must be a contributor, owner, or an administrator of the Azure subscription.
+
+* Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+
+* No [Azure Policies](../governance/policy/overview.md) preventing creation of **Storage accounts** or **Event Hub namespaces**. Purview will deploy a managed Storage account and Event Hub when it is created. If a blocking policy exists and needs to remain in place, please follow our [Purview exception tag guide](create-purview-portal-faq.md) to prepare your environment.
 
 ## Create an Azure Purview account
 

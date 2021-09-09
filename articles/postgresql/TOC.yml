@@ -401,6 +401,14 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
+    - name: Upgrades and migration
+      items:
+      - name: Major version upgrade methods
+        href: how-to-upgrade-using-dump-and-restore.md
+      - name: Upgrade/Migrate data with pg_dump and pg_restore
+        href: howto-migrate-using-dump-and-restore.md
+      - name: Upgrade/Migrate data with pg_dump and psql
+        href: howto-migrate-using-export-and-import.md
 - name: Flexible Server (Preview)
   expanded: true
   items:
@@ -507,7 +515,10 @@
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
-      displayName: logical decoding
+  - name: Troubleshooting
+    items:  
+    - name: Troubleshoot CLI errors
+      href: flexible-server/how-to-troubleshoot-cli-errors.md    
   - name: How-to guides
     items:
     - name: Manage a server

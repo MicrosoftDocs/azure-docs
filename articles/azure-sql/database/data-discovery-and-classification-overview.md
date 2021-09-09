@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/23/2021
+ms.date: 08/24/2021
 tags: azure-synapse
 ---
 # Data Discovery & Classification
@@ -109,6 +109,26 @@ After the organization-wide policy has been defined, you can continue classifyin
 An important aspect of the classification is the ability to monitor access to sensitive data. [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
 
 [ ![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
+
+These are the activites that are actually auditable with sensitivity information:
+- ALTER TABLE ... DROP COLUMN
+- BULK INSERT
+- DELETE
+- INSERT
+- MERGE
+- UPDATE
+- UPDATETEXT
+- WRITETEXT
+- DROP TABLE
+- BACKUP
+- DBCC CloneDatabase
+- SELECT INTO
+- INSERT INTO EXEC
+- TRUNCATE TABLE
+- DBCC SHOW_STATISTICS
+- sys.dm_db_stats_histogram
+
+Use [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) to returns information from an audit file stored in an Azure Storage account.
 
 ## <a id="permissions"></a>Permissions
 

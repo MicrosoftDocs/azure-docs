@@ -170,7 +170,7 @@ To configure the Quagga network virtual appliance, you will need to deploy a Lin
     ```azurepowershell-interactive
     $routes = @{
         RouteServerName = 'myRouteServer'
-        ResourceGroupName 'myRouteServerRG'
+        ResourceGroupName = 'myRouteServerRG'
         PeerName = 'Quagga'
     }
     Get-AzRouteServerPeerLearnedRoute @routes | ft

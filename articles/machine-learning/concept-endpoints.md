@@ -30,7 +30,7 @@ In this article, you learn about:
 
 ## What are endpoints and deployments (preview)?
 
-After you train a machine learning model, you need to deploy the model so that others can use it to perform inferencing. In Azure Machine Learning, you can use **endpoints** (preview) and **deployments** (preview) to do so.
+After you train a machine learning model, you need to deploy the model so that others can use it to do inferencing. In Azure Machine Learning, you can use **endpoints** (preview) and **deployments** (preview) to do so.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
@@ -41,7 +41,7 @@ An **endpoint** is an HTTPS endpoint that clients can call to receive the infere
 - A stable scoring URI (endpoint-name.region.inference.ml.azure.com)
 
 
-A **deployment** is a set of compute resources hosting the model that performs the actual inferencing. It contains: 
+A **deployment** is a set of compute resources hosting the model that does the actual inferencing. It contains: 
 - Model details (code, model, environment) 
 - Compute resource and scale settings 
 - Advanced settings (like request and probe settings)
@@ -65,9 +65,9 @@ Create and manage batch and online endpoints with multiple developer tools:
 
 ### Online endpoints requirements
 
-To create an online endpoint, you need to specify the following:
+To create an online endpoint, you need to specify the following elements:
 - Model files (or specify a registered model in your workspace) 
-- Scoring script - code needed to perform scoring/inferencing
+- Scoring script - code needed to do scoring/inferencing
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
 - Compute instance & scale settings 
 
@@ -79,9 +79,9 @@ Deploy locally to test your endpoints without deploying to the cloud. Azure Mach
 
 ### Native blue/green deployment 
 
-Recall, that a single endpoint can have multiple deployments. The online endpoint can perform load balancing to allocate any percentage of traffic to each deployment.
+Recall, that a single endpoint can have multiple deployments. The online endpoint can do load balancing to give any percentage of traffic to each deployment.
 
-Traffic allocation can be used to perform safe rollout blue/green deployments by balancing requests between different instances.
+Traffic allocation can be used to do safe rollout blue/green deployments by balancing requests between different instances.
 
 :::image type="content" source="media/concept-endpoints/traffic-allocation.png" alt-text="Screenshot showing slider interface to set traffic allocation between deployments":::
 
@@ -99,6 +99,21 @@ However [managed online endpoints](#managed-online-endpoints-vs-aks-online-endpo
 - Managed identity: User assigned and system assigned (managed online endpoint only)
 - SSL by default for endpoint invocation
 
+### Autoscaling
+
+Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints supports autoscaling through integration with the [Azure monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview.md) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
+
+:::image type="content" source="media/concept-endpoints/concept-autoscale.png" alt-text="Image showing that autoscale flexibly provides between min and max instances, depending on rules":::
+
+### Visual Studio Code debugging
+
+::::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
+
+### VNET ingress
+
+Securing managed online/batch endpoints requires minimal effort compared to the other compute environments as they share the same private endpoint resource used for securing your workspace. If you have a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint), all managed online/batch endpoints in the workspace will be secured by the same private endpoint resource that was created.
+
+ You can further allow individual online/batch endpoints to have public internet access if you want a particular endpoint to be accessible from the public as well as from your VNet.
 
 ## Managed online endpoints vs AKS online endpoints (preview)
 
@@ -122,8 +137,8 @@ Managed online endpoints can help streamline your deployment process. Managed on
 
 - Managed infrastructure
     - Automatically provisions the compute and hosts the model (you just need to specify the VM type and scale settings) 
-    - Automatically performs updates and patches to the underlying host OS image
-    - Automatic node recovery in case of system failure
+    - Automatically updates and patches the underlying host OS image
+    - Automatic node recovery if there's a system failure
 
 :::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency":::
 
@@ -143,7 +158,7 @@ For a step-by-step tutorial, see [How to deploy managed online endpoints](how-to
 
 ## What are batch endpoints (preview)?
 
-**Batch endpoints** (preview) are endpoints that are used to perform batch inferencing on large volumes of data over a period of time.  **Batch endpoints** receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
+**Batch endpoints** (preview) are endpoints that are used to do batch inferencing on large volumes of data over a period of time.  **Batch endpoints** receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 
 Learn how to [deploy and use batch endpoints with the Azure CLI](how-to-use-batch-endpoint.md).
 
@@ -151,12 +166,12 @@ Learn how to [deploy and use batch endpoints with the Azure CLI](how-to-use-batc
 
 Use the no-code batch endpoint creation experience for [MLflow models](how-to-use-mlflow.md) to automatically create scoring scripts and execution environments.  
 
-For batch endpoints using MLflow models, you need to specify the following:
+For batch endpoints using MLflow models, you need to specify the following elements:
 - Model files (or specify a registered model in your workspace)
 - Compute target
 
-However, if you are **not** deploying an MLflow model, you need to provide additional requirements:
-- Scoring script - code needed to perform scoring/inferencing
+However, if you are **not** deploying an MLflow model, you need to provide two more inputs:
+- Scoring script - code needed to do scoring/inferencing
 - Environment - a Docker image with Conda dependencies
 
 
@@ -164,7 +179,7 @@ However, if you are **not** deploying an MLflow model, you need to provide addit
 
 Invoking a batch endpoint triggers an asynchronous batch inference job. Compute resources are automatically provisioned when the job starts, and automatically de-allocated as the job completes. So you only pay for compute when you use it.
 
-You can [override compute resource settings](how-to-use-batch-endpoint.md#overwrite-settings) (like instance count) and advanced settings (like mini batch size, error threshold, and so on) for each individual batch inference job to speed up execution as well as reduce cost.
+You can [override compute resource settings](how-to-use-batch-endpoint.md#overwrite-settings) (like instance count) and advanced settings (like mini batch size, error threshold, and so on) for each individual batch inference job to speed up execution and reduce cost.
 
 ### Flexible data sources and storage
 
