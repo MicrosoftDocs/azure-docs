@@ -250,9 +250,9 @@ The value for this setting indicates a custom package index URL for Python apps.
 
 To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
-## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
+## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES (Preview)
 
-The configuration is specific to Python function apps. It defines the prioritization of module loading order. When your Python function apps face issues related to module collision (e.g. when you're using protobuf, tensorflow, or grpcio in your project), configuring this app setting to `1` should resolve your issue. By default, this value is set to `0`.
+The configuration is specific to Python function apps. It defines the prioritization of module loading order. When your Python function apps face issues related to module collision (e.g. when you're using protobuf, tensorflow, or grpcio in your project), configuring this app setting to `1` should resolve your issue. By default, this value is set to `0`. This flag is currently in Preview.
 
 |Key|Value|Description|
 |---|-----|-----------|
@@ -312,7 +312,7 @@ Only used when deploying to a Premium plan or to a Consumption plan running on W
 
 ## WEBSITE\_CONTENTOVERVNET
 
-A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
+A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Key|Sample value|
 |---|------------|

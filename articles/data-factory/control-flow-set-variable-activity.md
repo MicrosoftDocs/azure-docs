@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/09/2021
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel

@@ -117,7 +117,7 @@ To simplify the replacement of values in the example, set the following variable
 
 ```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 # Resource group - image builder will only support creating custom images in the same Resource Group as the source managed image.
 imageResourceGroup=<Resource group>
 identityName="aibIdentity"
@@ -137,7 +137,7 @@ sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g
 az role definition create --role-definition ./aibRoleImageCreation.json
 
 # Get the user-assigned managed identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 az role assignment create \
@@ -159,7 +159,7 @@ To simplify the replacement of values in the example, set the following variable
 
 ```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 VnetResourceGroup=<Resource group>
 identityName="aibIdentity"
 
@@ -178,7 +178,7 @@ sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibR
 az role definition create --role-definition ./aibRoleNetworking.json
 
 # Get the user-assigned managed identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 az role assignment create \

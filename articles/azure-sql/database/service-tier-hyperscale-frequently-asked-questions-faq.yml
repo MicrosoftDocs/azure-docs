@@ -11,7 +11,7 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: mathoma
-  ms.date: 07/27/2021
+  ms.date: 09/09/2021
     
 title: Azure SQL Database Hyperscale FAQ
 summary: |
@@ -302,7 +302,7 @@ sections:
       - question: |
           How often are the database backups taken?
         answer: |
-          There are no traditional full, differential, and log backups for Hyperscale databases. Instead, there are regular storage snapshots of data files. Log that is generated is retained as-is for the configured retention period, allowing restore to any point in time within the retention period.
+          There are no traditional full, differential, and transaction log backups for Hyperscale databases. Instead, there are regular storage snapshots of data files. Generated transaction log is retained as-is for the configured retention period. At restore time, relevant transaction log records are applied to the restored storage snapshot, resulting in a transactionally consistent database without any data loss as of the specified point in time within the retention period.
 
       - question: |
           Does Hyperscale support point-in-time restore?

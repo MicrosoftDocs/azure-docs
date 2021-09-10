@@ -11,7 +11,7 @@ ms.date: 04/30/2021
 
 # Plan a Microsoft Dynamics 365 offer
 
-This article explains the different options and features of a Dynamics 365 offer in Microsoft AppSource in the commercial marketplace. AppSource includes offers that build on or extend Microsoft 365, Dynamics 365, PowerApps, and Power BI.
+This article explains the different options and features of a Dynamics 365 offer in Microsoft AppSource in the commercial marketplace. AppSource includes offers that build on or extend Microsoft 365, Dynamics 365, Power Apps, and Power BI.
 
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program. Also, review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center).
 

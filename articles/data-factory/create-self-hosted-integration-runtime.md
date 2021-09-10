@@ -7,7 +7,7 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 06/16/2021 
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
 ---
 

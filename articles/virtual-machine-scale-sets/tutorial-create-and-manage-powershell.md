@@ -142,7 +142,7 @@ Once logged in to the VM instance, you could perform some manual configuration c
 
 
 ## Understand VM instance images
-The Azure marketplace includes many images that can be used to create VM instances. To see a list of available publishers, use the [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) command.
+Azure marketplace includes many images that can be used to create VM instances. To see a list of available publishers, use the [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) command.
 
 ```azurepowershell-interactive
 Get-AzVMImagePublisher -Location "EastUS"

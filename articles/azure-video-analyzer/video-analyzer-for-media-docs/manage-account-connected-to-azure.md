@@ -55,14 +55,6 @@ In the **Update connection to Azure Media Services** dialog of your [Video Analy
 |Application ID|The Azure AD application ID (with permissions for the specified Media Services account) that you created for this Video Analyzer for Media account. <br/><br/>To get the app ID, navigate to Azure portal. Under the Media Services account, choose your account and go to **API Access**. Select **Connect to Media Services API with service principal** -> **Azure AD App**. Copy the relevant parameters.|
 |Application key|The Azure AD application key associated with your Media Services account that you specified above. <br/><br/>To get the app key, navigate to Azure portal. Under the Media Services account, choose your account and go to **API Access**. Select **Connect to Media Services API with service principal** -> **Manage application** -> **Certificates & secrets**. Copy the relevant parameters.|
 
-## Autoscale reserved units
-
-The **Settings** page enables you to set the autoscaling of media reserved units (RU). If the option is **On**, you can allocate the maximum number of RUs and be sure that Video Analyzer for Media stops/starts RUs automatically. With this option, you don't pay extra money for idle time but also don't wait for indexing jobs to complete a long time when the indexing load is high.
-
-Autoscale doesn't scale below 1 RU or above the default limit of the Media Services account. To increase the limit, create a service request. For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](../../media-services/previous/media-services-quotas-and-limitations.md).
-
-![Autoscale reserved units Video Analyzer for Media](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
-
 ## Errors and warnings
 
 If your account needs some adjustments, you see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to exact places in Azure portal where you need to make changes. This section gives more details about the error and warning messages.

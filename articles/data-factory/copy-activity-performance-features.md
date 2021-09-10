@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/24/2020
+ms.date: 09/09/2021
 ---
 
 # Copy activity performance optimization features

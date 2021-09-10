@@ -11,7 +11,6 @@ ms.reviewer: davberg
 ---
 
 # Compute benchmark scores for Linux VMs
-<<<<<<< HEAD
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
