@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Manage the lifecycle of your group-based licenses 
+title: Tutorial - Manage the lifecycle of your group-based licenses in Azure AD
 description: Step-by-step tutorial for how to create an access package for managing group-based licenses in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a IT admin, I want step-by-step instructions for creating an access package for Managing the lifecycle of your group-based licenses.
 
 ---
-# Tutorial: Manage the lifecycle of your group-based licenses
+# Tutorial: Manage the lifecycle of your group-based licenses in Azure AD
  
 With Azure Active Directory, you can use groups to manage the [licenses for your applications](/active-directory/enterprise-users/licensing-groups-assign.md). You can make the management of this group even easier using entitlement management. 
 
