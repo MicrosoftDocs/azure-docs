@@ -24,7 +24,6 @@ This tutorial describes how to migrate data to Azure Managed Instance for Apache
 
 The following image illustrates the approach.
 
-
 :::image type="content" source="./media/migration/live-migration.gif" alt-text="Animation that shows the live migration of data to Azure Managed Instance for Apache Cassandra." border="false":::
 
 ## Prerequisites
@@ -34,7 +33,6 @@ The following image illustrates the approach.
 * [Provision an Azure Databricks account inside your Managed Cassandra virtual network](deploy-cluster-databricks.md). Ensure that the account has network access to your source Cassandra cluster. We'll create a Spark cluster in this account for the historical data load.
 
 * Ensure that you've already migrated the keyspace/table scheme from your source Cassandra database to your target Cassandra managed-instance database.
-
 
 ## Provision a Spark cluster
 
@@ -87,7 +85,7 @@ Starting the proxy in this way assumes that the following are true:
 - Source and target endpoints have the same username and password.
 - Source and target endpoints implement Secure Sockets Layer (SSL).
 
-If your source and target endpoints can't meet these criteria, read on for further configuration options. 
+If your source and target endpoints can't meet these criteria, read on for further configuration options.
 
 ### Configure SSL
 
@@ -104,7 +102,6 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> 
 
 > [!NOTE]
 > Make sure your client application uses the same keystore and password as the ones used for the dual-write proxy when you're building SSL connections to the database via the proxy.
-
 
 ### Configure the credentials and port
 
@@ -160,7 +157,6 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-
 ```
 
 After the dual-write proxy is running, you'll need to change the port on your application client and restart. (Or change the Cassandra port and restart the cluster if you've chosen that approach.) The proxy will then start forwarding writes to the target endpoint. You can learn about [monitoring and metrics](https://github.com/Azure-Samples/cassandra-proxy#monitoring) available in the proxy tool. 
-
 
 ## Run the historical data load
 
@@ -228,7 +224,6 @@ DFfromSourceCassandra
 ## Validate the source and target
 
 After the historical data load is complete, your databases should be in sync and ready for cutover. However, we recommend that you validate the source and target to ensure that request results match before finally cutting over.
-
 
 ## Next steps
 
