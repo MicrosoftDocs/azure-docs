@@ -62,7 +62,7 @@ import { AzureClient, InsecureTokenProvider } from "@fluidframework/azure-client
 
 ???
 
-### Remove the Tinyliscious client from the app
+### Remove the Tinylicious client from the app
 
 Since we're not going to use the Tinylicious server anymore, we don't need to create a client in the app. Open `app.ts` and delete this line of code.
 
