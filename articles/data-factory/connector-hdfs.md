@@ -454,7 +454,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     c. Select the encryption algorithm you want to use when you connect to the KDC server. You can select all the options.
 
-    :::image type="content" source="media/connector-hdfs/config-encryption-types-for-kerberos.png" alt-text="Screenshot of the "Network security: Configure encryption types allowed for Kerberos" pane":::
+    :::image type="content" source="media/connector-hdfs/config-encryption-types-for-kerberos.png" alt-text="Screenshot of the &quot;Network security: Configure encryption types allowed for Kerberos&quot; pane":::
 
     d. Use the `Ksetup` command to specify the encryption algorithm to be used on the specified realm.
 
@@ -472,7 +472,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     d. Add a principal from the realm.
 
-       :::image type="content" source="media/connector-hdfs/map-security-identity.png" alt-text="The "Security Identity Mapping" pane":::
+       :::image type="content" source="media/connector-hdfs/map-security-identity.png" alt-text="Screenshot of the &quot;Security Identity Mapping&quot; pane":::
 
 **On the self-hosted integration runtime machine:**
 

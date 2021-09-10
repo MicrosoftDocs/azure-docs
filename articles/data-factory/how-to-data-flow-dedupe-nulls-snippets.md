@@ -25,7 +25,7 @@ By using code snippets in mapping data flows, you can easily perform common task
 
 1. Select the **Source settings** tab, add a source transformation, and then connect it to one of your datasets.
 
-    :::image type="content" source="media/data-flow/snippet-adf-2.png" alt-text="Screenshot of the "Source settings" pane for adding a source type.":::
+    :::image type="content" source="media/data-flow/snippet-adf-2.png" alt-text="Screenshot of the &quot;Source settings&quot; pane for adding a source type.":::
 
     The dedupe and null check snippets use generic patterns that take advantage of data flow schema drift. The snippets work with any schema from your dataset, or with datasets that have no pre-defined schema.
 
@@ -43,7 +43,7 @@ By using code snippets in mapping data flows, you can easily perform common task
 
    * Alternatively, you can connect the new transformation in the designer by selecting the incoming stream from the new transformation node in the graph.
 
-     :::image type="content" source="media/data-flow/snippet-adf-4.png" alt-text="Screenshot of the "Conditional split settings" pane.":::
+     :::image type="content" source="media/data-flow/snippet-adf-4.png" alt-text="Screenshot of the &quot;Conditional split settings&quot; pane.":::
 
    Now your data flow will remove duplicate rows from your source by using the aggregate transformation, which groups by all rows by using a general hash across all column values.
     

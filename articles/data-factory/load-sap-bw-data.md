@@ -229,7 +229,7 @@ For a full load OHD, choose different options than for delta extraction:
 
 - In the DTP: Set **Extraction Mode** to **Full**. You must change the automatically created DTP from **Delta** to **Full** immediately after the OHD is created, as this image shows:
 
-   :::image type="content" source="media/load-sap-bw-data/create-sap-bw-ohd-full2.png" alt-text="Create SAP BW OHD dialog box configured for "Full" extraction":::
+   :::image type="content" source="media/load-sap-bw-data/create-sap-bw-ohd-full2.png" alt-text="Create SAP BW OHD dialog box configured for &quot;Full&quot; extraction":::
 
 - In the BW Open Hub connector: Turn off **Exclude last request**. Otherwise, nothing will be extracted.
 
