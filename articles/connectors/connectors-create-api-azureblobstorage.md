@@ -185,15 +185,15 @@ Logic apps can't directly access storage accounts behind firewalls when they're 
 
 > [!NOTE]
 > This solution doesn't apply to the Azure Table Storage connector and Azure Queue Storage connector. 
-> Instead, to access your Table Storage or Queue Storage, [use the built-in HTTP trigger and actions](../logic-apps/logic-apps-http-endpoint.md).
+> Instead, to access your Table Storage or Queue Storage, [use the built-in HTTP trigger and action](../logic-apps/logic-apps-http-endpoint.md).
 
 To add your outbound IP addresses to the storage account firewall:
 
 1. Note the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) for your logic app's region.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com), and find your storage account resource.
 
-1. Open your storage account's page. In the navigation menu, under **Security + networking**, select **Networking**.
+1. On your storage account resource menu, under **Security + networking**, select **Networking**.
 
 1. Under **Allow access from**, select **Selected networks**. The related settings now appear on the page.
 
