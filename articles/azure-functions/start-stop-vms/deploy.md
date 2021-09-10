@@ -28,6 +28,10 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
 > [!NOTE]
 > Currently this preview does not support specifying an existing Storage account or Application Insights resource.
 
+
+> [!NOTE]
+> The naming format for the function app and storage account has changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resource.
+
 1. Open your browser and navigate to the Start/Stop VMs v2 [GitHub organization](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md).
 1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in. This will open the custom Azure Resource Manager deployment page in the Azure portal.
 1. If prompted, sign in to the [Azure portal](https://portal.azure.com).
@@ -52,9 +56,6 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
 1. Select **Go to resource group** from the notification pane. You shall see a screen similar to:
 
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
-
-> [!NOTE]
-> The naming format for the function app and storage account has changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resource.
 
 > [!NOTE]
 > We are collecting operation and heartbeat telemetry to better assist you if you reach the support team for any troubleshooting. We are also collecting virtual machine event history to verify when the service acted on a virtual machine and how long a virtual machine was snoozed in order to determine the efficacy of the service.
@@ -185,8 +186,11 @@ For each scenario, you can target the action against one or more subscriptions, 
           "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
           
         ]
+      }
     }
     ```
+
+1. In the overview pane for the logic app, select **Enable**.  
 
 ## Sequenced start and stop scenario
 
