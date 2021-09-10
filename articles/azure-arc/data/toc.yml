@@ -202,6 +202,10 @@
               href: migrate-to-managed-instance.md
             - name: Restore AdventureWorks
               href: restore-adventureworks-sample-db.md
+        - name: Configure business continuity
+          items:
+            - name: Restore to a point in time 
+              href: point-in-time-restore.md
 - name: Reference
   items:
   - name: azdata
