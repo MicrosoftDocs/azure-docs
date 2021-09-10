@@ -11,12 +11,10 @@ ms.author: bwren
 # Azure Activity log
 The Activity log is a [platform log](./platform-logs-overview.md) in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI.   This article provides details on viewing the Activity log and sending it to different destinations.
 
-The Activity log is documented [as part of Azure Resource Manager](/azure/azure-resource-manager/management/view-activity-logs), however we repeat some information below to outline its relevance in Azure Monitor. 
-
 For additional functionality, you should create a diagnostic setting to send the Activity log to one or more of these locations for the following reasons: 
--	to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and longer retention (up to 2 years) 
+-	to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting, and longer retention (up to 2 years) 
 -	to Azure Event Hubs to forward outside of Azure
--	to Azure Storage for cheaper, indefinite archiving
+-	to Azure Storage for cheaper, long-term archiving
 
 See [Create diagnostic settings to send platform logs and metrics to different destinations](./diagnostic-settings.md) for details on creating a diagnostic setting.
 
