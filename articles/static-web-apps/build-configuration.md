@@ -295,7 +295,7 @@ In this example, only changes made to following files trigger a new build:
 
 # [Azure DevOps](#tab/azure-devops)
 
-To support more than one application in a single repository, create a separate workflow file and associate it with different Azure DevOps pipelines.
+To support more than one application in a single repository, create a separate workflow file and associate it with different Azure Pipelines.
 
 ---
 
