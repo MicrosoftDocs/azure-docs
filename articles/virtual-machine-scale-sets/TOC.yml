@@ -203,7 +203,7 @@
       href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
       maintainContext: true
   - name: Networking
-    href: ../virtual-machines/network-overview.md
+    href: ../virtual-network/network-overview.md
     maintainContext: true
   - name: Infrastructure automation
     href: ../virtual-machines/infrastructure-automation.md
