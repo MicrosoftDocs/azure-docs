@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 8/10/2021
+ms.date: 8/24/2021
 ms.author: wgries
 ms.subservice: files
 ---
@@ -116,7 +116,6 @@ The following items don't sync, but the rest of the system continues to operate 
 - Failover Clustering is supported only with clustered disks, but not with Cluster Shared Volumes (CSVs).
 - A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
 - Do not store an OS or application paging file within a server endpoint location.
-- The server name in the portal is not updated if the server is renamed.
 
 ### Cloud endpoint
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync.
@@ -236,7 +235,7 @@ The following release notes are for version 11.2.0.0 of the Azure File Sync agen
 - New PowerShell cmdlet (Add-StorageSyncAllowedServerEndpointPath) to configure allowed server endpoints paths on a server. This cmdlet is useful for scenarios in which the Azure File Sync deployment is managed by a Cloud Solution Provider (CSP) or Service Provider and the customer wants to configure allowed server endpoints paths on a server. When creating a server endpoint, if the path specified is not in the allowlist, the server endpoint creation will fail. Note, this is an optional feature and all supported paths are allowed by default when creating a server endpoint.  
 
 	
-	- To add a server endpoint path that’s allowed, run the following PowerShell commands on the server:
+	- To add a server endpoint path that's allowed, run the following PowerShell commands on the server:
 
 	```powershell
 	Import-Module 'C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll' -verbose

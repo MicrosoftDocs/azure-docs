@@ -46,7 +46,7 @@ Finally, you download and install the latest version of self-hosted IR, as well 
   
   If you use OLEDB/ODBC/ADO.NET drivers for other database systems, such as PostgreSQL, MySQL, Oracle, and so on, you can download the 64-bit versions from their websites.
 - If you use data flow components from Azure Feature Pack in your packages, [download and install Azure Feature Pack for SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=54798) on the same machine where your self-hosted IR is installed, if you haven't done so already.
-- If you haven't done so already, [download and install the 64-bit version of Visual C++ (VC) runtime](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) on the same machine where your self-hosted IR is installed.
+- If you haven't done so already, [download and install the 64-bit version of Visual C++ (VC) runtime](https://www.microsoft.com/en-us/download/details.aspx?id=40784) on the same machine where your self-hosted IR is installed.
 
 ### Enable Windows authentication for on-premises tasks
 
@@ -155,7 +155,7 @@ You can also enable the `ConnectByProxy`/`ExecuteOnProxy` properties when you ru
 
 ## Debug the on-premises tasks and cloud staging tasks
 
-On your self-hosted IR, you can find the runtime logs in the *C:\ProgramData\SSISTelemetry* folder and the execution logs of on-premises staging tasks and Execute SQL/Process Tasks in the *C:\ProgramData\SSISTelemetry\ExecutionLog* folder. You can find the execution logs of cloud staging tasks in your SSISDB, specified logging file paths, or Azure Monitor depending on whether you store your packages in SSISDB, enable [Azure Monitor integration](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor), etc. You can also find the unique IDs of on-premises staging tasks in the execution logs of cloud staging tasks. 
+On your self-hosted IR, you can find the runtime logs in the *C:\ProgramData\SSISTelemetry* folder and the execution logs of on-premises staging tasks and Execute SQL/Process Tasks in the *C:\ProgramData\SSISTelemetry\ExecutionLog* folder. You can find the execution logs of cloud staging tasks in your SSISDB, specified logging file paths, or Azure Monitor depending on whether you store your packages in SSISDB, enable [Azure Monitor integration](./monitor-ssis.md), etc. You can also find the unique IDs of on-premises staging tasks in the execution logs of cloud staging tasks. 
 
 ![Unique ID of the first staging task](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 

@@ -16,6 +16,9 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 
 You can authenticate a device to your IoT Hub using two self-signed device certificates. This is sometimes called thumbprint authentication because the certificates contain thumbprints (hash values) that you submit to the IoT hub. The following steps tell you how to create two self-signed certificates.
 
+> [!NOTE]
+> This example was created using Cygwin64 for Windows. Cygwin is an open source tool collection that allows Unix or Linux applications to be run on Windows from within a Linux-like interface. CygWin64 is bundled with OpenSSL. If you are using Linux, you probably already have OpenSSL installed. 
+
 ## Step 1 - Create a key for the first certificate
 
 ```bash
@@ -48,10 +51,16 @@ openssl req -text -in device1.csr -noout
 ## Step 4 - Self-sign certificate 1
 
 ```bash
-openssl x509 -req -days 365 -in device1.csr -signkey device1.key -out device.crt
+openssl x509 -req -days 365 -in device1.csr -signkey device1.key -out device1.crt
 ```
 
-## Step 5 - Create a key for certificate 2
+## Step 5 - Create a key for the second certificate
+
+```bash
+openssl genpkey -out device2.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+```
+
+## Step 6 - Create a CSR for the second certificate
 
 When prompted, specify the same device ID that you used for certificate 1.
 
@@ -65,34 +74,34 @@ Organization Name (eg, company) [Default Company Ltd]:.
 Organizational Unit Name (eg, section) []:.
 Common Name (eg, your name or your server hostname) []:{your-device-id}
 Email Address []:
-
 ```
 
-## Step 6 - Self-sign certificate 2
+## Step 7 - Self-sign certificate 2
 
 ```bash
 openssl x509 -req -days 365 -in device2.csr -signkey device2.key -out device2.crt
 ```
 
-## Step 7 - Retrieve the thumbprint for certificate 1
+## Step 8 - Retrieve the thumbprint for certificate 1
 
 ```bash
-openssl x509 -in device.crt -noout -fingerprint
+openssl x509 -in device1.crt -noout -fingerprint
 ```
 
-## Step 8 - Retrieve the thumbprint for certificate 2
+## Step 9 - Retrieve the thumbprint for certificate 2
 
 ```bash
 openssl x509 -in device2.crt -noout -fingerprint
 ```
 
-## Step 9 - Create a new IoT device
+## Step 10 - Create a new IoT device
 
 Navigate to your IoT Hub in the Azure portal and create a new IoT device identity with the following characteristics:
 
 * Provide the **Device ID** that matches the subject name of your two certificates.
 * Select the **X.509 Self-Signed** authentication type.
 * Paste the hex string thumbprints that you copied from your device primary and secondary certificates. Make sure that the hex strings have no colon delimiters.
+
 
 ## Next Steps
 

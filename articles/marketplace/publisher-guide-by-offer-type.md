@@ -1,12 +1,12 @@
 ---
 title: Publishing guide by offer type - Microsoft commercial marketplace
-description: This article describes the offer types that are available in the Microsoft commercial marketplace.
+description: This article describes the offer types that are available in the Microsoft commercial marketplace (Azure Marketplace).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 04/06/2021
+ms.date: 08/20/2021
 ---
 
 # Publishing guide by offer type
@@ -37,6 +37,9 @@ The following table shows the commercial marketplace offer types in Partner Cent
 | [**Managed service**](./plan-managed-service-offer.md) | Create managed service offers and manage customer-delegated subscriptions or resource groups through [Azure Lighthouse](../lighthouse/overview.md).|
 | [**Power BI app**<br/>**Microsoft 365**](marketplace-dynamics-365.md) | Publish AppSource offers that build on or extend Power BI and Microsoft 365.|
 | [**Software as a Service**](plan-saas-offer.md) | Use the software as a service (SaaS) offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. For information on single sign-on requirements for SaaS offers, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md). |
+
+> [!IMPORTANT]
+> **SaaS Offers and Microsoft 365 Add-ins**: For specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers, see [Transacting in the commercial marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md). For SaaS offers, the offer's transaction capability as well as the category selection will determine the online store where your offer will be published.
 
 ## Next steps
 

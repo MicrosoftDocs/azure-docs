@@ -141,6 +141,9 @@ You're now ready to deploy a test application.
 
 Create a file named *hello-world-enclave.yaml* and paste in the following YAML manifest. You can find this sample application code in the [Open Enclave project](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). This deployment assumes that you've deployed the *confcom* add-on.
 
+> [!NOTE]
+> The following example pulls a public container image from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the image in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
+
 ```yaml
 apiVersion: batch/v1
 kind: Job

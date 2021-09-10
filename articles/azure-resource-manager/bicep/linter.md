@@ -11,7 +11,7 @@ The Bicep linter can be used to analyze Bicep files. It checks syntax errors, an
 
 ## Install linter
 
-The linter can be used with Visual Studio code and Bicep CLI. It requires:
+The linter can be used with Visual Studio Code and Bicep CLI. It requires:
 
 - Bicep CLI version 0.4 or later.
 - Bicep extension for Visual Studio Code version 0.4 or later.
@@ -125,7 +125,7 @@ The Bicep extension of Visual Studio Code provides intellisense for editing Bice
 
 :::image type="content" source="./media/linter/bicep-linter-configure-intellisense.png" alt-text="The intellisense support in configuring bicepconfig.json.":::
 
-## Use in Visual Studio code
+## Use in Visual Studio Code
 
 Install the Bicep extension 0.4 or later to use linter.  The following screenshot shows linter in action:
 
@@ -145,7 +145,7 @@ Select the solution to fix the issue automatically.
 
 ## Use in Bicep CLI
 
-Install the Bicep CLI 0.4 or later to use linter.  The following screenshot shows linter in action. The Bicep file is the same as used in [Use in Visual Studio code](#use-in-visual-studio-code).
+Install the Bicep CLI 0.4 or later to use linter.  The following screenshot shows linter in action. The Bicep file is the same as used in [Use in Visual Studio Code](#use-in-visual-studio-code).
 
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
 

@@ -47,7 +47,7 @@ If you need to add resources to an access package, you should check whether the 
 
 ## Add resource roles
 
-A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles to your access package. You can add resource roles for groups, teams, applications, and SharePoint sites.
+A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles from each of the catalog's resources to your access package. You can add resource roles that are provided by groups, teams, applications, and SharePoint sites.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -119,6 +119,8 @@ Once an application role is part of an access package:
 Here are some considerations when selecting an application:
 
 - Applications may also have groups assigned to their roles as well.  You can choose to add a group in place of an application role in an access package, however then the application will not be visible to the user as part of the access package in the My Access portal.
+- Azure portal may also show service principals for services that cannot be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they cannot be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
+- Applications which only support Personal Microsoft Account users for authentication, and do not support organizational accounts in your directory, do not have application roles and cannot be added to access package catalogs.
 
 1. On the **Add resource roles to access package** page, click **Applications** to open the Select applications pane.
 
