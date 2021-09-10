@@ -178,6 +178,8 @@ items:
   items:
   - name: Overview
     href: named-entity-recognition/overview.md
+  - name: Quickstart
+    href: named-entity-recognition/quickstart.md
   - name: How-to guides
     items:
     - name: Call NER and PII
