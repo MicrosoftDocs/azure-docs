@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Onboard external users through an approval process
+title: Tutorial - Onboard external users to Azure AD through an approval process - Azure Active Directory
 description: Step-by-step tutorial for how to create an access package for external users requiring approvals in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a IT admin, I want step-by-step instructions for creating an access package for managing external users through approvals.
 
 ---
-# Tutorial: Onboard external users through an approval process
+# Tutorial - Onboard external users to Azure AD through an approval proces
 
 You can use entitlement management as a way of onboarding external users. This feature allows external users to request access to a set of resources and where you can set up approvals before they gain access to your directory. For external users onboarded through entitlement, you can manage their lifecycle through access packages. When their last access package expires, they'll be removed from your directory.
 
