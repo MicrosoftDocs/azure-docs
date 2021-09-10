@@ -19,9 +19,9 @@ ms.date: 09/09/2021
 
 Azure Data Factory and Synapse Analytics mapping data flow's debug mode allows you to interactively watch the data shape transform while you build and debug your data flows. The debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows. To turn on debug mode, use the **Data Flow Debug** button in the top bar of data flow canvas or pipeline canvas when you have data flow activities.
 
-![Screenshot that shows where is the Debug slider 1](media/data-flow/debug-button.png)
+:::image type="content" source="media/data-flow/debug-button.png" alt-text="Screenshot that shows where is the Debug slider 1":::
 
-![Screenshot that shows where is the Debug slider 2](media/data-flow/debug-button-4.png)
+:::image type="content" source="media/data-flow/debug-button-4.png" alt-text="Screenshot that shows where is the Debug slider 2":::
 
 Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a default 60-minute time to live will be spun up. If you'd like to allow for more idle team before your session times out, you can choose a higher TTL setting. For more information on data flow integration runtimes, see [Integration Runtime performance](concepts-integration-runtime-performance.md).
 

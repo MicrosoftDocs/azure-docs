@@ -246,7 +246,7 @@ To copy data from Azure Cosmos DB's API for MongoDB to tabular sink or reversed,
 
 Specifically for writing into Cosmos DB, to make sure you populate Cosmos DB with the right object ID from your source data, for example, you have an "id" column in SQL database table and want to use the value of that as the document ID in MongoDB for insert/upsert, you need to set the proper schema mapping according to MongoDB strict mode definition (`_id.$oid`) as the following:
 
-![Map ID in MongoDB sink](./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png)
+:::image type="content" source="./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png" alt-text="Map ID in MongoDB sink":::
 
 After copy activity execution, below BSON ObjectId is generated in sink:
 

@@ -43,7 +43,7 @@ Lastly, choose the column name for storing the values for unpivoted columns that
 
 For instance, SumCost is the column name that is chosen in the example shared above.
 
-![Image showing the PO, Vendor, and Fruit columns before and after a unipivot transformation using the Fruit column as the unipivot key.](media/data-flow/unpivot3.png)
+:::image type="content" source="media/data-flow/unpivot3.png" alt-text="Image showing the PO, Vendor, and Fruit columns before and after a unipivot transformation using the Fruit column as the unipivot key.":::
 
 Setting the Column Arrangement to "Normal" will group together all of the new unpivoted columns from a single value. Setting the columns arrangement to "Lateral" will group together new unpivoted columns generated from an existing column.
 

@@ -24,7 +24,7 @@ Mapping data flows provide an entirely visual experience with no coding required
 
 Data flows are created from the factory resources pane like pipelines and datasets. To create a data flow, select the plus sign next to **Factory Resources**, and then select **Data Flow**. 
 
-![New data flow](media/data-flow/new-data-flow.png)
+:::image type="content" source="media/data-flow/new-data-flow.png" alt-text="New data flow":::
 
 This action takes you to the data flow canvas, where you can create your transformation logic. Select **Add source** to start configuring your source transformation. For more information, see [Source transformation](data-flow-source.md).
 
@@ -38,7 +38,7 @@ Mapping data flow has a unique authoring canvas designed to make building transf
 
 The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation. Learn more on how to [manage the data flow graph](concepts-data-flow-manage-graph.md).
 
-![Screenshot shows the graph part of the canvas with a Search text box.](media/data-flow/canvas-2.png)
+:::image type="content" source="media/data-flow/canvas-2.png" alt-text="Screenshot shows the graph part of the canvas with a Search text box.":::
 
 ### Configuration panel
 
@@ -56,7 +56,7 @@ The first tab in each transformation's configuration pane contains the settings 
 
 The **Optimize** tab contains settings to configure partitioning schemes. To learn more about how to optimize your data flows, see the [mapping data flow performance guide](concepts-data-flow-performance.md).
 
-![Screenshot shows the Optimize tab, which includes Partition option, Partition type, and Number of partitions.](media/data-flow/optimize.png)
+:::image type="content" source="media/data-flow/optimize.png" alt-text="Screenshot shows the Optimize tab, which includes Partition option, Partition type, and Number of partitions.":::
 
 #### Inspect
 

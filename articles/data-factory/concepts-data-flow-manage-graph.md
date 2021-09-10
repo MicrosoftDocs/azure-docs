@@ -18,7 +18,7 @@ ms.date: 09/09/2021
 
 Mapping data flows are authored using a design surface know as the data flow graph. In the graph, transformation logic is built left-to-right and additional data streams are added top-down. To add a new transformation, select the plus sign on the lower right of an existing transformation.
 
-![Canvas](media/data-flow/canvas-2.png)
+:::image type="content" source="media/data-flow/canvas-2.png" alt-text="Canvas":::
 
 As your data flows get more complex, use the following mechanisms to effectively navigate and manage the data flow graph. 
 
