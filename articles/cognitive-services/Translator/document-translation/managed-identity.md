@@ -79,7 +79,7 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 
     >[!NOTE]
     >
-    > If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or get the permissions error, "you do not have permissions to add role assignment at this scope", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as [**Owner**](../../../role-based-access-control/built-in-roles.md#owner) or[**User Access Administrator**](../../../role-based-access-control/built-in-roles.md#user-access-administrator) at the storage scope for the storage resource.
+    > If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or get the permissions error, "you do not have permissions to add role assignment at this scope", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as [**Owner**](../../../role-based-access-control/built-in-roles.md#owner) or [**User Access Administrator**](../../../role-based-access-control/built-in-roles.md#user-access-administrator) at the storage scope for the storage resource.
 
 1. Next, you're going to assign a **Storage Blob Data Contributor** role to your Translator service resource. In the **Add role assignment** pop-up window, complete the fields as follows and select **Save**:
 
