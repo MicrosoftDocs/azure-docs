@@ -161,6 +161,7 @@ The screenshot below shows the **Preparation tasks blade** in the Azure portal. 
 
 ## Next steps
 
-- Learn about different ways to [copy data and application to Batch compute nodes](batch-applications-to-pool-nodes.md).
-- Learn how to use [application packages](batch-application-packages.md) to prepare Batch compute nodes for task execution. This feature is especially useful for deploying applications that do not require running an installer, applications that contain many (100+) files, or applications that require strict version control.
+- Learn about [error checking for jobs and tasks](batch-job-task-error-checking.md).
+- Learn how to use [application packages](batch-application-packages.md) to prepare Batch compute nodes for task execution.
+- Explore different ways to [copy data and application to Batch compute nodes](batch-applications-to-pool-nodes.md).
 - Learn about using the [Azure Batch File Conventions library](batch-task-output.md#use-the-batch-file-conventions-library-for-net) to persist logs and other job and task output data.
