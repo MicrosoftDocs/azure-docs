@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell
 
 # Enhanced pre-post scripts for database consistent snapshot
 
-Azure Backup service already provides a [_pre-post_ script framework](/azure/backup/backup-azure-linux-app-consistent) to achieve application consistency in Linux VMs using Azure Backup. This involves invoking a pre-script (to quiesce the applications) before taking
+Azure Backup service already provides a [_pre-post_ script framework](./backup-azure-linux-app-consistent.md) to achieve application consistency in Linux VMs using Azure Backup. This involves invoking a pre-script (to quiesce the applications) before taking
 snapshot of disks and calling post-script (commands to un-freeze the applications) after the snapshot is completed to return the applications to the normal mode. Customers should author these pre-post scripts and provide the relevant information in the *VMSnapshotScriptPluginConfig.json* file in the `etc/azure` directory. But customers were concerned about authoring, debugging and maintaining their scripts and considered that work as overhead. So, Azure Backup has decided to provide an _enhanced_ pre-post scripts experience to marquee databases so that users can get application consistent snapshots daily without any additional overhead. 
 
 Following are the key benefits of the new 'enhanced' pre-post script framework.
@@ -23,7 +23,7 @@ Following are the key benefits of the new 'enhanced' pre-post script framework.
 
 The following the list of databases are covered under the enhanced framework:
 
-- [Oracle (Preview)](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup)
+- [Oracle (Preview)](../virtual-machines/workloads/oracle/oracle-database-backup-azure-backup.md)
 - MySQL (Preview)
 
 ## Prerequisites
@@ -82,7 +82,7 @@ The key requirement is to make sure that the database is involved before and aft
 
 ### Log backup strategy
 
-The enhanced pre-post script framework is built on Azure VM backup that schedules backup once per day. So, the data loss window with RPO as 24 hours isn’t acceptable for production databases. This solution has to be complemented with a log backup strategy where log backups are streamed out explicitly. With the advent of [NFS on blob](/azure/storage/blobs/network-file-system-protocol-support) and [NFS on AFS (Preview)](/azure/storage/files/files-nfs-protocol), it’s easier to mount volumes directly on database VMs and use database clients to transfer log backups. The data loss window, that is RPO, falls down to the frequency of log backups. Also, these NFS targets need not be highly performant because, as mentioned above, you might not need to trigger regular streaming (fulls and incrementals) for operational backups after getting a database consistent snapshots.
+The enhanced pre-post script framework is built on Azure VM backup that schedules backup once per day. So, the data loss window with RPO as 24 hours isn’t acceptable for production databases. This solution has to be complemented with a log backup strategy where log backups are streamed out explicitly. With the advent of [NFS on blob](../storage/blobs/network-file-system-protocol-support.md) and [NFS on AFS (Preview)](../storage/files/files-nfs-protocol.md), it’s easier to mount volumes directly on database VMs and use database clients to transfer log backups. The data loss window, that is RPO, falls down to the frequency of log backups. Also, these NFS targets need not be highly performant because, as mentioned above, you might not need to trigger regular streaming (fulls and incrementals) for operational backups after getting a database consistent snapshots.
 
 >[!NOTE]
 >The enhanced pre- script usually takes care to flush all the log transactions in transit to the log backup destination, before quiescing the database to take a snapshot. This means the snapshots should be database consistent and reliable during recovery.
@@ -99,4 +99,3 @@ Once the database consistent snapshots are taken and the log backups are streame
 ## Summary
 
 Using database consistent snapshots + logs backed up using a custom solution, you can build a performant and cost effective database backup solution leveraging the benefits of Azure VM backup and also re-using the capabilities of database clients.
-

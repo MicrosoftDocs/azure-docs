@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 09/10/2021
 ---
 
 # Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps
@@ -261,7 +261,9 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
     * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
-* For XML transformation, support for referencing assemblies from maps is currently unavailable. Also, only XSLT 1.0 is currently supported.
+* **Authentication**: Azure Active Directory Open Authentication (Azure AD OAuth) is currently unavailable for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
+
+* **XML transformation**: Support for referencing assemblies from maps is currently unavailable. Also, only XSLT 1.0 is currently supported.
 
 * **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
