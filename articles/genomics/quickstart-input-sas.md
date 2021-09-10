@@ -3,9 +3,9 @@ title: Workflow using shared access signatures
 titleSuffix: Microsoft Genomics
 description: This article demonstrates how to submit a workflow to the Microsoft Genomics service using shared access signatures (SAS) instead of storage account keys.
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
@@ -82,4 +82,4 @@ msgen submit -f [full path to your config file]
 ```
 
 ## Next steps
-In this article, you used SAS tokens instead of the account keys to submit a workflow to the Microsoft Genomics service through the `msgen` Python client. For additional information about workflow submission and other commands you can use with the Microsoft Genomics service, see our [FAQ](frequently-asked-questions-genomics.md).
+In this article, you used SAS tokens instead of the account keys to submit a workflow to the Microsoft Genomics service through the `msgen` Python client. For additional information about workflow submission and other commands you can use with the Microsoft Genomics service, see our [FAQ](frequently-asked-questions-genomics.yml).

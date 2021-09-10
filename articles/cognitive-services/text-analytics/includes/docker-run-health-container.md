@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/12/2020
+ms.date: 09/02/2021
 ms.author: aahi
 ---
 
@@ -16,28 +16,21 @@ ms.author: aahi
 There are multiple ways you can install and run the Text Analytics for health container. 
 
 - Use the [Azure portal](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare) to create a Text Analytics resource, and use Docker to get your container.
+- Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](../../../docker/index.yml).
 - Use the following PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
 ### Run the container locally
 
-To run the container in your own environment after downloading the container image, find its image ID:
- 
-```bash
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
-
-Execute the following `docker run` command. Replace the placeholders below with your own values:
+To run the container in your own environment after downloading the container image, execute the following `docker run` command. Replace the placeholders below with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 | **{API_KEY}** | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | The endpoint for accessing the Text Analytics API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| **{IMAGE_ID}** | The image ID for your container. | `1.1.011300001-amd64-preview` |
-| **{INPUT_DIR}** | The input directory for the container. | Windows: `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
---mount type=bind,src={INPUT_DIR},target=/output {IMAGE_ID} \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest \
 Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
@@ -47,12 +40,27 @@ Logging:Disk:Format=json
 
 This command:
 
-- Assumes that the input directory exists on the host machine
-- Runs a Text Analytics for Health container from the container image
+- Runs the *Text Analytics for health* container from the container image
 - Allocates 6 CPU core and 12 gigabytes (GB) of memory
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 - Accepts the end user license agreement (Eula) and responsible AI (RAI) terms
 - Automatically removes the container after it exits. The container image is still available on the host computer.
+
+### Run the container with Client library support
+
+Starting with container version `3.0.017010001-onprem-amd64` (or if you use the `latest` container), you can run the Text Analytics for health container to work with the Text Analytics [client library](../quickstarts/client-libraries-rest-api.md) health operation. To do so, add the following parameter to the `docker run` command:
+
+`enablelro=true`
+
+Afterwards when you authenticate the Text Analytics client, use the endpoint that your container is running on:
+
+`http://localhost:5000`
+
+For example, if you're using C# you would use the following code:
+
+```csharp
+var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analytics-key");
+```
 
 ### Demo UI to visualize output
 
@@ -68,7 +76,7 @@ http://<serverURL>:5000/demo
 Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.5/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -189,7 +197,7 @@ services:
         # replace with path to logs folder
       - <path-to-logs-folder>:/output
   nginx:
-    image: nginx
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     ports:
       - 443:443
     volumes:

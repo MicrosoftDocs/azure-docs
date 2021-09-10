@@ -37,16 +37,18 @@ We also have a [tutorial for Blazor Server](tutorial-blazor-server.md).
 Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. Follow the instructions in [Register an application](quickstart-register-app.md) with these specifications:
 
 - For **Supported account types**, select **Accounts in this organizational directory only**.
-- Leave the **Redirect URI** drop down set to **Web** and enter `https://localhost:5001/authentication/login-callback`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
+- Set the **Redirect URI** drop down to **Single-page application (SPA)** and enter `https://localhost:5001/authentication/login-callback`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
 
 Once registered, under **Manage**, select **Authentication** > **Implicit grant and hybrid flows**. Select **Access tokens** and **ID tokens**, and then select **Save**.
+
+> Note: if you're using .NET 6 or later then you don't need to use Implicit grant. The latest template uses MSAL Browser 2.0 and supports Auth Code Flow with PKCE
 
 ## Create the app using the .NET Core CLI
 
 To create the app you need the latest Blazor templates. You can install them for the .NET Core CLI with the following command:
 
 ```dotnetcli
-dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.9.1
 ```
 
 Then run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.

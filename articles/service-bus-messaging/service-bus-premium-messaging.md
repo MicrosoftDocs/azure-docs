@@ -19,7 +19,7 @@ Some high-level differences are highlighted in the following table.
 | Predictable performance |Variable latency |
 | Fixed pricing |Pay as you go variable pricing |
 | Ability to scale workload up and down |N/A |
-| Message size up to 1 MB. This limit may be raised in the future. For latest important updates to the service, see [Messaging on Azure blog](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Message size up to 256 KB |
+| Message size up to 1 MB. [Support for message payloads up to 100 MB](#large-messages-support-preview) currently exists in preview. |Message size up to 256 KB |
 
 **Service Bus Premium Messaging** provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will. The result is predictable and repeatable performance for your Service Bus-based solution.
 
@@ -61,7 +61,7 @@ When provisioning an Azure Service Bus Premium namespace, the number of messagin
 
 The number of messaging units allocated to the Service Bus Premium namespace can be **dynamically adjusted** to factor in the change (increase or decrease) in workloads.
 
-There are a number of factors to take into consideration when deciding the number of messaging units for your architecture:
+There are a few factors to take into consideration when deciding the number of messaging units for your architecture:
 
 - Start with ***1 or 2 messaging units*** allocated to your namespace.
 - Study the CPU usage metrics within the [Resource usage metrics](monitor-service-bus-reference.md#resource-usage-metrics) for your namespace.
@@ -84,9 +84,32 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 
 Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Click **View full pricing details** to see more information about each tier.
 
-![create-premium-namespace][create-premium-namespace]
+:::image type="content" source="./media/service-bus-premium-messaging/select-premium-tier.png" alt-text="Screenshot that shows the selection of premium tier when creating a namespace.":::
 
-You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
+You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/).
+
+## Large messages support (Preview)
+Azure Service Bus premium tier namespaces support the ability to send large message payloads up to 100 MB. This feature is primarily targeted towards legacy workloads that have used larger message payloads on other enterprise messaging brokers and are looking to seamlessly migrate to Azure Service Bus.
+
+Here are some considerations when sending large messages on Azure Service Bus -
+   * Supported on Azure Service Bus premium tier namespaces only.
+   * Supported only when using the AMQP protocol. Not supported when using the SBMP protocol.
+   * Supported when using [Java Message Service (JMS) 2.0 client SDK](how-to-use-java-message-service-20.md) and other language client SDKs.
+   * Sending large messages will result in decreased throughput and increased latency.
+   * While 100 MB message payloads are supported, it's recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
+   * The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
+
+### Enabling large messages support for a new queue (or topic)
+
+To enable support for large messages, set the max message size when creating a new queue (or topic) as shown below. 
+
+:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview.png" alt-text="Screenshot that shows how to enable large message support for an existing queue.":::
+
+### Enabling large messages support for an existing queue (or topic)
+
+You can also enable support for large message for existing queues (or topics), by updating the **Max message size** on the ***Overview*** for that specific queue (or topic) as below.
+
+:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview-update.png" alt-text="Screenshot of the Create queue page with large message support enabled.":::
 
 ## Next steps
 
@@ -96,6 +119,4 @@ To learn more about Service Bus Messaging, see the following links:
 - [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 
-<!--Image references-->
 
-[create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png

@@ -66,7 +66,7 @@ It is required to get the Service Principal's application ID and secret:
 To register a new Azure Data Explorer (Kusto) account in your data catalog, do the following:
 
 1. Navigate to your Purview account
-1. Select **Sources** on the left navigation
+1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On **Register sources**, select **Azure Data Explorer**
 1. Select **Continue**
@@ -83,7 +83,35 @@ On the **Register sources (Azure Data Explorer (Kusto))** screen, do the followi
 
 :::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="register sources options" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans-azure-data-explorer.md)]
+## Creating and running a scan
+
+To create and run a new scan, do the following:
+
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
+
+1. Select the Azure Data Explorer source that you registered.
+
+1. Select **New scan**
+
+1. Select the credential to connect to your data source. 
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/set-up-scan-data-explorer.png" alt-text="Set up scan":::
+
+1. You can scope your scan to specific databases by choosing the appropriate items in the list.
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/scope-your-scan-data-explorer.png" alt-text="Scope your scan":::
+
+1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/scan-rule-set-data-explorer.png" alt-text="Scan rule set":::
+
+1. Choose your scan trigger. You can set up a schedule or run the scan once.
+
+   :::image type="content" source="media/register-scan-azure-data-explorer/trigger-scan.png" alt-text="trigger":::
+
+1. Review your scan and select **Save and run**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 

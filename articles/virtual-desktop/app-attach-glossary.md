@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop MSIX app attach glossary - Azure
+title: Azure Virtual Desktop MSIX app attach glossary - Azure
 description: A glossary of MSIX app attach terms and concepts.
 services: virtual-desktop
 author: Heidilohr
@@ -60,15 +60,15 @@ To expand an MSIX package:
 
 Uploading an MSIX package involves uploading the VHD(x) or [CIM](#cim) that contains an expanded MSIX package to the MSIX share.
 
-In Windows Virtual Desktop, uploads happen once per MSIX share. Once you upload a package, all host pools in the same subscription can reference it.
+In Azure Virtual Desktop, uploads happen once per MSIX share. Once you upload a package, all host pools in the same subscription can reference it.
 
 ## Add an MSIX package
 
-In Windows Virtual Desktop, adding an MSIX package links it to a host pool.
+In Azure Virtual Desktop, adding an MSIX package links it to a host pool.
 
 ## Publish an MSIX package 
 
-In Windows Virtual Desktop, a published MSIX package must be assigned to an Active Directory Domain Service (AD DS) or Azure Active Directory (Azure AD) user or user group.
+In Azure Virtual Desktop, a published MSIX package must be assigned to an Active Directory Domain Service (AD DS) or Azure Active Directory (Azure AD) user or user group.
 
 ## Staging
 
@@ -85,11 +85,11 @@ There are two types of registration: regular and delayed.
 
 ### Regular registration
 
-In regular registration, each application assigned to a user is fully registered. Registration happens during the time the user signs in to the session, which might impact the time it takes for them to start using Windows Virtual Desktop.
+In regular registration, each application assigned to a user is fully registered. Registration happens during the time the user signs in to the session, which might impact the time it takes for them to start using Azure Virtual Desktop.
 
 ### Delayed registration
 
-In delayed registration, each application assigned to the user is only partially registered. Partial registration means that the Start menu tile and double-click file associations are registered. Registration happens while the user signs in to their session, so it has minimal impact on the time it takes to start using Windows Virtual Desktop. Registration completes only when the user runs the application in the MSIX package.
+In delayed registration, each application assigned to the user is only partially registered. Partial registration means that the Start menu tile and double-click file associations are registered. Registration happens while the user signs in to their session, so it has minimal impact on the time it takes to start using Azure Virtual Desktop. Registration completes only when the user runs the application in the MSIX package.
 
 Delayed registration is currently the default configuration for MSIX app attach.
 
@@ -128,4 +128,4 @@ The following table is a performance comparison between VHD and CimFS. These num
 
 ## Next steps
 
-If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [FAQ](app-attach-faq.md). Otherwise, get started with [Set up app attach](app-attach.md).
+If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [FAQ](app-attach-faq.yml). Otherwise, get started with [Set up app attach](app-attach.md).

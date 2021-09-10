@@ -5,11 +5,11 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
-ms.devlang: 
+ms.devlang:
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: MashaMSFT
+ms.author: mathoma
+ms.reviewer:
 ms.date: 12/18/2018
 ---
 # Explore SaaS analytics with Azure SQL Database, Azure Synapse Analytics, Data Factory, and Power BI
@@ -158,7 +158,7 @@ There are also three parameterized linked services that link the data factory to
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
 Corresponding to the three linked services, there are three datasets that refer to the data you use in the pipeline activities as inputs or outputs. Explore each of the datasets to observe connections and parameters used. _AzureBlob_ points to the configuration file containing source and target tables and columns, as well as the tracker column in each source.
-  
+
 ### Data warehouse pattern overview
 
 Azure Synapse is used as the analytics store to perform aggregation on the tenant data. In this sample, PolyBase is used to load data into the data warehouse. Raw data is loaded into staging tables that have an identity column to keep track of rows that have been transformed into the star-schema tables. The following image shows the loading pattern:
@@ -203,7 +203,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P\@ssword1*. Click **Connect**.  
+5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P\@ssword1*. Click **Connect**.
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
@@ -239,7 +239,7 @@ The insights into ticket selling patterns might lead Wingtip Tickets to optimize
 
 Meanwhile, some Wingtip Tickets customers complain that they struggle to sell enough tickets to justify the service cost. Perhaps in these insights there is an opportunity to boost ticket sales for underperforming venues. Higher sales would increase the perceived value of the service. Right click fact_Tickets and select **New measure**. Enter the following expression for the new measure called **AverageTicketsSold**:
 
-```sql
+```DAX
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
 ```
 

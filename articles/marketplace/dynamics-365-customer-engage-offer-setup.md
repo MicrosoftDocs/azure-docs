@@ -1,6 +1,6 @@
 ---
-title: Create a Dynamics 365 for Customer Engagement & PowerApps offer on Microsoft AppSource (Azure Marketplace).
-description: Create a Dynamics 365 for Customer Engagement & PowerApps offer on Microsoft AppSource (Azure Marketplace).
+title: Create a Dynamics 365 for Customer Engagement & Power Apps offer on Microsoft AppSource (Azure Marketplace).
+description: Create a Dynamics 365 for Customer Engagement & Power Apps offer on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -9,11 +9,11 @@ ms.author: vamahtan
 ms.date: 04/30/2021
 ---
 
-# How to create a Dynamics 365 for Customer Engagement & PowerApps offer
+# How to create a Dynamics 365 for Customer Engagement & Power Apps offer
 
-This article describes how to create a Dynamics 365 for Customer Engagement & PowerApps offer. All offers for Dynamics 365 go through our certification process. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
+This article describes how to create a Dynamics 365 for Customer Engagement & Power Apps offer. All offers for Dynamics 365 go through our certification process. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
 
-Before you start, create a commercial marketplace account in [Partner Center](partner-center-portal/create-account.md) and ensure it is enrolled in the commercial marketplace program.
+Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
 ## Before you begin
 
@@ -56,7 +56,7 @@ For **How do you want potential customers to interact with this listing offer?**
 - **Enable app license management through Microsoft** – Manage your app licenses through Microsoft. To let customers run your app’s base functionality without a license and run premium features after they’ve purchased a license, select the **Allow customers to install my app even if licenses are not assigned box**. If you select this second box, you need to configure your solution package to not require a license.
 
     > [!NOTE]
-    > You cannot change this setting after you publish your offer. To learn more about this setting, see [Third-party app license management through Microsoft](third-party-license.md).
+    > You cannot change this setting after you publish your offer. To learn more about this setting, see [ISV app license management](isv-app-license.md).
 
 - **Get it now (free)** – List your offer to customers for free.
 - **Free trial (listing)** – List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
@@ -77,7 +77,7 @@ To enable a test drive, select the **Enable a test drive** check box and select 
 
 ## Customer leads
 
-[!INCLUDE [Connect lead management](partner-center-portal/includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](includes/customer-leads.md)]
 
 For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 

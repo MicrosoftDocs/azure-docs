@@ -29,6 +29,13 @@ Before including the Azure Spatial Anchors SDK in your Unity project, be sure to
 ### Import ASA packages
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
+### HoloLens only: Configure your Unity project XR settings
+When developing MixedReality apps on HoloLens, you need to set the XR configuration in Unity. Please refer to [Setting up your XR configuration - Mixed Reality | Microsoft Docs](https://docs.microsoft.com/windows/mixed-reality/develop/unity/xr-project-setup?tabs=openxr)     and [Choosing a Unity version and XR plugin - Mixed Reality | Microsoft Docs](https://docs.microsoft.com/windows/mixed-reality/develop/unity/choosing-unity-version) for more details.
+
+Azure Spatial Anchors SDK 2.9 or older only support Windows XR plugin (com.unity.xr.windowsmr), and hence Azure Spatial Anchor HoloLens Unity package has an explicit dependency on com.unity.xr.windowsmr package.
+
+Azure Spatial Anchors SDK version 2.10.0 or later support both the Mixed Reality OpenXR plugin ([com.microsoft.mixedreality.openxr](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=package&feed=Unity-packages&view=overview&package=com.microsoft.mixedreality.openxr&protocolType=Npm)) and the Windows XR plugin  ([com.unity.xr.windowsmr](https://docs.unity3d.com/Manual/com.unity.xr.windowsmr.html)). You need to include either of com.microsoft.mixedreality.openxr or com.unity.xr.windowsmr packages in your project per your choice.
+
 ### Android only: Configure the mainTemplate.gradle file
 
 1. Go to **Edit** > **Project Settings** > **Player**.

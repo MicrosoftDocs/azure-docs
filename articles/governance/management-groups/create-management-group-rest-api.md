@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a management group with REST API"
 description: In this quickstart, you use REST API to create a management group to organize your resources into a resource hierarchy.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ---
 # Quickstart: Create a management group with REST API
@@ -44,13 +44,14 @@ directory. You receive a notification when the process is complete. For more inf
 ### Create in REST API
 
 For REST API, use the
-[Management Groups - Create or Update](/rest/api/managementgroups/managementgroups/createorupdate) endpoint
-to create a new management group. In this example, the management group **groupId** is _Contoso_.
+[Management Groups - Create or Update](/rest/api/managementgroups/managementgroups/createorupdate)
+endpoint to create a new management group. In this example, the management group **groupId** is
+_Contoso_.
 
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-02-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-05-01
   ```
 
 - No Request Body
@@ -66,7 +67,7 @@ endpoint and request body:
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-02-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-05-01
   ```
 
 - Request Body
@@ -85,7 +86,7 @@ specify a different management group as the parent, use the **properties.parent.
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-02-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-05-01
   ```
 
 - Request Body
@@ -109,7 +110,7 @@ To remove the management group created above, use the
 - REST API URI
 
   ```http
-  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-02-01
+  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-05-01
   ```
 
 - No Request Body

@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Map a custom domain to an Azure Blob Storage endpoint
@@ -407,6 +408,19 @@ If you don't need users to access your blob or web content by using HTTPS, then 
    * [HTTP-to-HTTPS redirection with Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
    * [Pricing and billing when using Blob Storage with Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#pricing-and-billing).
+
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+
+<sup>2</sup>    Feature is supported at the preview level.
 
 ## Next steps
 

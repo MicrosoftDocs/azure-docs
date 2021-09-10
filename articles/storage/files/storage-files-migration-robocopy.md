@@ -19,6 +19,13 @@ This migration article describes the use of RoboCopy to move or migrate files to
 
 There are many different migration routes for different source and deployment combinations. Look through the [table of migration guides](storage-files-migration-overview.md#migration-guides) to find the migration that best suits your needs.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## AzCopy vs. RoboCopy
 AzCopy and RoboCopy are two fundamentally different file copy tools. RoboCopy uses any version of the SMB protocol. AzCopy is a "born-in-the-cloud" tool that can be used to move data as long as the target is in Azure storage. AzCopy depends on a REST protocol.
 

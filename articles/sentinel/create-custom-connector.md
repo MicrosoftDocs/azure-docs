@@ -194,11 +194,13 @@ You can use your custom connector's built-in parsing technique to extract the re
 For example:
 
 - **If you've used Logstash**, use the [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) filter plugin to parse your data.
-- **If you've used an Azure function**, parse your data with code. For more information, see [Parsers](normalization.md#parsers).
+- **If you've used an Azure function**, parse your data with code.
 
-Azure Sentinel supports parsing at query time. Parsing at query time enables you to push data in at the original format, and then parse on demand, when needed.
+Azure Sentinel supports parsing at query time. Parsing at query time enables you to push data in at the original format, and then parse on demand, when needed. 
 
 Parsing at query time also means you don't need to know your data's exact structure ahead of time, when you create your custom connector, or even the information you'll need to extract. Instead, parse your data at any time, even during an investigation.
+
+For more information on parsing at query time, see [Parsers](normalization-about-parsers.md).
 
 > [!NOTE]
 > Updating your parser also applies to data that you've already ingested into Azure Sentinel.
@@ -207,9 +209,11 @@ Parsing at query time also means you don't need to know your data's exact struct
 
 Use the data ingested into Azure Sentinel to secure your environment with any of the following processes:
 
-- [Get visibility into alerts](quickstart-get-visibility.md)
-- [Visualize and monitor your data](tutorial-monitor-your-data.md)
-- [Investigate incidents](tutorial-investigate-cases.md)
-- [Detect threats](tutorial-detect-threats-built-in.md)
+- [Get visibility into alerts](get-visibility.md)
+- [Visualize and monitor your data](monitor-your-data.md)
+- [Investigate incidents](investigate-cases.md)
+- [Detect threats](detect-threats-built-in.md)
 - [Automate threat prevention](tutorial-respond-threats-playbook.md)
 - [Hunt for threats](hunting.md)
+
+Also, learn about one example of creating a custom connector to monitor Zoom: [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516).

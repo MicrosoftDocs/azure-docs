@@ -12,7 +12,7 @@ ms.date: 12/03/2020
 ms.author: mbullwin
 ---
 
-# Deploy an Anomaly Detector module to IoT Edge
+# Deploy an Anomaly Detector univariate module to IoT Edge
 
 Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detector-container-howto.md) module to an IoT Edge device. Once it's deployed into IoT Edge, the module runs in IoT Edge together with other modules as container instances. It exposes the exact same APIs as an Anomaly Detector container instance running in a standard docker container environment. 
 

@@ -42,7 +42,7 @@ spark.sql.files.maxPartitionBytes 1099511627776
 spark.sql.files.openCostInBytes 1099511627776
 ```
 
-The example shown above overrides several default values for five Spark configuration parameters.  These values are the compression codec, Apache Hadoop MapReduce split minimum size and parquet block sizes. Also, the Spar SQL partition and open file sizes default values.  These configuration changes are chosen because the associated data and jobs (in this example, genomic data) have particular characteristics. These characteristics will do better using these custom configuration settings.
+The example shown above overrides several default values for five Spark configuration parameters.  These values are the compression codec, Apache Hadoop MapReduce split minimum size and parquet block sizes. Also, the Spark SQL partition and open file sizes default values.  These configuration changes are chosen because the associated data and jobs (in this example, genomic data) have particular characteristics. These characteristics will do better using these custom configuration settings.
 
 ---
 

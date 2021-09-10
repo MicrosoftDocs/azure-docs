@@ -96,7 +96,7 @@ Monitoring solutions from Microsoft and partners are available from the [Azure M
 Members of the community can submit management solutions to Azure Quickstart Templates. You can install these solutions directly or download them templates for later installation.
 
 1. Follow the process described in [Log Analytics workspace and Automation account](#log-analytics-workspace-and-automation-account) to link a workspace and account.
-2. Go to [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
+2. Go to [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
 3. Search for a solution that you're interested in.
 4. Select the solution from the results to view its details.
 5. Click the **Deploy to Azure** button.

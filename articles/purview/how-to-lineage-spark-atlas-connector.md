@@ -82,7 +82,7 @@ After the Atlas Spark model definition is successfully created, follow below ste
 1. Get spark type definition from GitHub https://github.com/apache/atlas/blob/release-2.1.0-rc3/addons/models/1000-Hadoop/1100-spark_model.json
 
 2. Assign role:
-    1. Open Purview management center and choose Assign roles
+    1. Navigate to your Purview account and select Access control (IAM) 
     1. Add Users and grant your service principal *Purview Data source administrator* role
 3. Get auth token:
     1. Open "postman" or similar tools 
@@ -91,7 +91,7 @@ After the Atlas Spark model definition is successfully created, follow below ste
         * grant_type: client_credentials
         * client_id: {service principal ID}
         * client_secret: {service principal key}
-        * resource: https://projectbabylon.azure.net
+        * resource: `https://purview.azure.net`
 
         :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/postman-examples.png" alt-text="Screenshot showing postman example" lightbox="./media/how-to-lineage-spark-atlas-connector/postman-examples.png":::      
 

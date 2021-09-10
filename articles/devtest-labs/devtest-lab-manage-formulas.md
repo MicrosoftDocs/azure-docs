@@ -118,8 +118,7 @@ To delete a formula, follow these steps:
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Related blog posts
-* [Custom images or formulas?](devtest-lab-faq.md#what-is-the-difference-between-a-custom-image-and-a-formula)
+* [Custom images or formulas?](/azure/devtest-labs/devtest-lab-faq#what-is-the-difference-between-a-custom-image-and-a-formula)
 
 ## Next steps
 Once you have created a formula for use when creating a VM, the next step is to [add a VM to your lab](devtest-lab-add-vm.md).
-

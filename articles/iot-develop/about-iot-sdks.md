@@ -120,7 +120,7 @@ Azure IoT also offers service SDKs that enable you to build solution-side applic
 
 The IoT Hub service SDKs allow you to build applications that easily interact with your IoT Hub to manage devices and security. You can use these SDKs to send cloud-to-device messages, invoke direct methods on your devices, update device properties, and more.
 
-[**Learn more about IoT Hub**](https://azure.microsoft.com/services/iot-hub/) | [**Try controlling a device**](../iot-hub/quickstart-control-device-python.md)
+[**Learn more about IoT Hub**](https://azure.microsoft.com/services/iot-hub/) | [**Try controlling a device**](../iot-hub/quickstart-control-device.md)
 
 **C# IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) | [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices/) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service/samples) | [Reference Documentation](/dotnet/api/microsoft.azure.devices)
 
@@ -160,5 +160,5 @@ The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub th
 
 * [Quickstart: Send telemetry to IoT Central](quickstart-send-telemetry-central.md)
 * [Quickstart: Send telemetry to IoT Hub](quickstart-send-telemetry-iot-hub.md)
-* [Get started with embedded development](quickstart-device-development.md)
+* [Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central](quickstart-devkit-mxchip-az3166.md)
 * Learn more about the [benefits of developing using Azure IoT SDKs](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/)

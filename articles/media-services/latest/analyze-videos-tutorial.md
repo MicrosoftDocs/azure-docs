@@ -6,7 +6,7 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services 
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 07/26/2021
 ms.author: inhenkel
 ---
 
@@ -29,13 +29,14 @@ This tutorial shows you how to:
 
 ## Compliance, Privacy, and Security
  
-As an important reminder, you must comply with all applicable laws in your use of Video Indexer. You must not use Video Indexer or any other Azure service in a manner that violates the rights of others. Before uploading any videos, including any biometric data, to the Video Indexer service for processing and storage, you must have all the proper rights, including all appropriate consents, from the individuals in the video. To learn about compliance, privacy and security in Video Indexer, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../video-indexer/faq.md). By using Video Indexer, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement.
+As an important reminder, you must comply with all applicable laws in your use of Azure Video Analyzer for Media (formerly Video Indexer). You must not use Video Analyzer for Media or any other Azure service in a manner that violates the rights of others. Before uploading any videos, including any biometric data, to the Video Analyzer for Media service for processing and storage, you must have all the proper rights, including all appropriate consents, from the individuals in the video. To learn about compliance, privacy and security in Video Analyzer for Media, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). By using Video Analyzer for Media, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement.
 
 ## Prerequisites
 
-- If you don't have Visual Studio installed, get [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Create a Media Services account](./account-create-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
-- Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You'll need to use them to access the API.
+- Install [Visual Studio Code for Windows/macOS/Linux](https://code.visualstudio.com/) or [Visual Studio 2019 for Windows or Mac](https://visualstudio.microsoft.com/).
+- Install [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
+- [Create a Media Services account](./account-create-how-to.md). Be sure to copy the **API Access** details in JSON format or store the values needed to connect to the Media Services account in the *.env* file format used in this sample.
+- Follow the steps in [Access the Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You'll need to use them to access the API in this sample, or enter them into the *.env* file format.
 
 ## Download and configure the sample
 
@@ -45,13 +46,13 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
-The sample is located in the [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) folder.
+The sample is located in the [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/AnalyzeVideos) folder.
 
-Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) in your downloaded project. Replace the values with the credentials you got from [accessing APIs](./access-api-howto.md).
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 ## Examine the code that analyzes the specified video
 
-This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
+This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
 
 The sample completes the following actions:
 
@@ -62,11 +63,19 @@ The sample completes the following actions:
 5. Checks the job's status.
 6. Downloads the files that resulted from running the job.
 
-### Start using Media Services APIs with .NET SDK
+### Start using Media Services APIs with the .NET SDK
 
-To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in local configuration file. 
+To start using Media Services APIs with .NET, you need to create an `AzureMediaServicesClient` object. To create the object, you need to supply credentials for the client to connect to Azure by using Azure Active Directory. Another option is to use interactive authentication, which is implemented in `GetCredentialsInteractiveAuthAsync`.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
+
+In the code that you cloned at the beginning of the article, the `GetCredentialsAsync` function creates the `ServiceClientCredentials` object based on the credentials supplied in the local configuration file (*appsettings.json*) or through the *.env* environment variables file in the root of the repository.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
+
+In the case of interactive authentication, the `GetCredentialsInteractiveAuthAsync` function creates the `ServiceClientCredentials` object based on an interactive authentication and the connection parameters supplied in the local configuration file (*appsettings.json*) or through the *.env* environment variables file in the root of the repository. In that case, AADCLIENTID and AADSECRET are not needed in the configuration or environment variables file.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 
 ### Create an input asset and upload a local file into it 
 

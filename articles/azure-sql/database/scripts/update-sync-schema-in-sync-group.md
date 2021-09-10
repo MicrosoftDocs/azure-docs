@@ -3,13 +3,13 @@ title: "PowerShell: Update SQL Data Sync sync schema"
 description: Azure PowerShell example script to update the sync schema for SQL Data Sync
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: MaraSteiu 
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Use PowerShell to update the sync schema in an existing sync group

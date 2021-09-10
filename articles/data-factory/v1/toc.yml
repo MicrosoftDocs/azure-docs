@@ -46,7 +46,7 @@
   - name: Move data between on-premises and cloud
     href: data-factory-move-data-between-onprem-and-cloud.md
   - name: FAQ
-    href: data-factory-faq.md      
+    href: data-factory-faq.yml      
 - name: How To
   items: 
   - name: Move data
@@ -139,9 +139,9 @@
       href: data-factory-hadoop-streaming-activity.md
     - name: HDInsight Spark Activity
       href: data-factory-spark.md
-    - name: Azure Machine Learning Studio (classic) Batch Execution Activity
+    - name: ML Studio (classic) Batch Execution Activity
       href: data-factory-azure-ml-batch-execution-activity.md
-    - name: Azure Machine Learning Studio (classic) Update Resource Activity
+    - name: ML Studio (classic) Update Resource Activity
       href: data-factory-azure-ml-update-resource-activity.md
     - name: Stored Procedure Activity
       href: data-factory-stored-proc-activity.md
@@ -208,7 +208,7 @@
   - name: Release notes for Data Management Gateway
     href: data-factory-gateway-release-notes.md
   - name: Request a feature
-    href: https://feedback.azure.com/forums/270578-azure-data-factory
+    href: /answers/topics/azure-data-factory.html
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-factory
   - name: Stack Overflow

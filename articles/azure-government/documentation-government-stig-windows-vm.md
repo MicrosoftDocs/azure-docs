@@ -5,7 +5,7 @@ author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
-ms.date: 04/28/2021
+ms.date: 06/14/2021
 ---
 
 # Deploy STIG-compliant Windows Virtual Machines (Preview)
@@ -48,15 +48,19 @@ Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government
 
     a. Enter the *VM name*.
 
-    b. Select the *Windows OS version*.
+    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](../virtual-machines/availability-set-overview.md).
 
-    c. Select the instance *Size*.
+    c. Select the *Windows OS version*.
 
-    d. Enter the administrator account *Username*.
+    d. Select the instance *Size*.
 
-    e. Enter the administrator account *Password*.
+    e. Enter the administrator account *Username*.
 
-    f. Confirm *Password*.
+    f. Enter the administrator account *Password*.
+
+    g. Confirm *Password*.
+
+    h. Check if using an existing Windows Server license.
 
     :::image type="content" source="./media/stig-windows-instance-details.png" alt-text="Instance details section where you provide a name for the virtual machine and select its region, image, and size" border="false":::
 

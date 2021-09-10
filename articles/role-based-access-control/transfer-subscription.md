@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/06/2021
+ms.date: 09/04/2021
 ms.author: rolyon
 ---
 
@@ -17,6 +17,8 @@ ms.author: rolyon
 Organizations might have several Azure subscriptions. Each subscription is associated with a particular Azure Active Directory (Azure AD) directory. To make management easier, you might want to transfer a subscription to a different Azure AD directory. When you transfer a subscription to a different Azure AD directory, some resources are not transferred to the target directory. For example, all role assignments and custom roles in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not be transferred to the target directory.
 
 This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
+
+If you want to instead **block** the transfer of subscriptions to different directories in your organization, you can configure a subscription policy. For more information, see [Manage Azure subscription policies](../cost-management-billing/manage/manage-azure-subscription-policy.md).
 
 > [!NOTE]
 > For Azure Cloud Solution Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.
@@ -82,6 +84,8 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 
 > [!WARNING]
 > If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is **not** in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+
+To get a list of some of the Azure resources that are impacted when you transfer a subscription, you can also run a query in [Azure Resource Graph](../governance/resource-graph/overview.md). For a sample query, see [List impacted resources when transferring an Azure subscription](../governance/resource-graph/samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription).
 
 ## Prerequisites
 
@@ -244,18 +248,19 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 ### List other known resources
 
-1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID.
+1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID (in `bash`).
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//' -e 's/\r$//')
     ```
-
-1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies.
+    
+1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies (in `bash`).
 
     ```azurecli
-    az graph query -q \
-    'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
-    --subscriptions $subscriptionId --output table
+    az graph query -q 'resources 
+        | where type != "microsoft.azureactivedirectory/b2cdirectories" 
+        | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true 
+        | project name, type, kind, identity, tenantId, properties.tenantId' --subscriptions $subscriptionId --output yaml
     ```
 
 ## Step 2: Transfer the subscription

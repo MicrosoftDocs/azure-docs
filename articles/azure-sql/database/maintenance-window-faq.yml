@@ -1,14 +1,14 @@
-### YamlMime:FAQ
+### YamlMime:FAQ
 metadata:
   title: Maintenance Window FAQ
   description: FAQ on how the Azure SQL Database and managed instance maintenance window can be configured.
   services: sql-database
   ms.service: sql-db-mi
-  ms.subservice: service
+  ms.subservice: service-overview
   ms.topic: reference
   author: WilliamDAssafMSFT
   ms.author: wiassaf
-  ms.reviewer: sstein
+  ms.reviewer: mathoma
   ms.custom: 
   ms.date: 03/23/2021
 
@@ -47,7 +47,7 @@ sections:
 
       - question: Are there any prerequisites for configuring maintenance window?
         answer: |
-          In case of managed instance [additional IP addresses](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios) are needed temporarily, as in scaling vCores scenario for corresponding service tier.
+          In case of managed instance [additional IP addresses](../managed-instance/vnet-subnet-determine-size.md#update-scenarios) are needed temporarily, as in scaling vCores scenario for corresponding service tier.
 
       - question: In which regions is choosing a maintenance window available?
         answer: | 

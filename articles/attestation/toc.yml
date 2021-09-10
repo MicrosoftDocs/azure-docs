@@ -51,7 +51,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation
   - name: FAQ
-    href: faq.md
+    href: faq.yml
   - name: REST
     href: /rest/api/attestation/
   - name: Azure PowerShell

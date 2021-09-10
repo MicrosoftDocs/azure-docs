@@ -24,13 +24,13 @@ This article shows how to use the storage account key to create a service SAS fo
 
 The following code example creates a SAS for a container. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad hoc SAS on the container.
 
-### [\.NET v12](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next, create a new [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) object and call the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) to get the SAS token string.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForContainer":::
 
-### [\.NET v11](#tab/dotnetv11)
+### [.NET v11 SDK](#tab/dotnetv11)
 
 To create a service SAS for a container, call the [CloudBlobContainer.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) method.
 
@@ -79,7 +79,7 @@ private static string GetContainerSasUri(CloudBlobContainer container,
 }
 ```
 
-# [JavaScript v12](#tab/javascript)
+# [JavaScript v12 SDK](#tab/javascript)
 
 A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next, call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) function providing the required parameters to get the SAS token string.
 
@@ -91,13 +91,13 @@ A service SAS is signed with the account access key. Use the [StorageSharedKeyCr
 
 The following code example creates a SAS on a blob. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad hoc SAS on the blob.
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next, create a new [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) object and call the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) to get the SAS token string.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForBlob":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [.NET v11 SDK](#tab/dotnetv11)
 
 To create a service SAS for a blob, call the [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) method.
 
@@ -151,7 +151,7 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 }
 ```
 
-# [JavaScript v12](#tab/javascript)
+# [JavaScript v12 SDK](#tab/javascript)
 
 To create a service SAS for a blob, call the [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) method.
 

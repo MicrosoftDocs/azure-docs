@@ -20,9 +20,6 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory Pass-through Authentication: Current limitations
 
->[!IMPORTANT]
->Azure Active Directory (Azure AD) Pass-through Authentication is a free feature, and you don't need any paid editions of Azure AD to use it. Pass-through Authentication is only available in the world-wide instance of Azure AD, and not on the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) or the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/).
-
 ## Supported scenarios
 
 The following scenarios are supported:
@@ -53,7 +50,7 @@ The following scenarios are _not_ supported:
 - [Migrate from AD FS to Pass-through Authentication](https://aka.ms/ADFSTOPTADPDownload) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Technical deep dive](how-to-connect-pta-how-it-works.md): Understand how the Pass-through Authentication feature works.
-- [Frequently asked questions](how-to-connect-pta-faq.md): Find answers to frequently asked questions about the Pass-through Authentication feature.
+- [Frequently asked questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions about the Pass-through Authentication feature.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security deep dive](how-to-connect-pta-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.

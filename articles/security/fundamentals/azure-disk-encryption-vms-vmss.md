@@ -29,7 +29,7 @@ The following articles provide guidance for encrypting Linux virtual machines.
 - [Creating and configuring a key vault for Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-key-vault.md)
 - [Azure Disk Encryption sample scripts](../../virtual-machines/linux/disk-encryption-sample-scripts.md)
 - [Azure Disk Encryption troubleshooting](../../virtual-machines/linux/disk-encryption-troubleshooting.md)
-- [Azure Disk Encryption frequently asked questions](../../virtual-machines/linux/disk-encryption-faq.md)
+- [Azure Disk Encryption frequently asked questions](../../virtual-machines/linux/disk-encryption-faq.yml)
 
 ### Azure disk encryption with Azure AD (previous version)
 
@@ -52,7 +52,7 @@ The following articles provide guidance for encrypting Windows virtual machines.
 - [Creating and configuring a key vault for Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-key-vault.md)
 - [Azure Disk Encryption sample scripts](../../virtual-machines/windows/disk-encryption-sample-scripts.md)
 - [Azure Disk Encryption troubleshooting](../../virtual-machines/windows/disk-encryption-troubleshooting.md)
-- [Azure Disk Encryption frequently asked questions](../../virtual-machines/windows/disk-encryption-faq.md)
+- [Azure Disk Encryption frequently asked questions](../../virtual-machines/windows/disk-encryption-faq.yml)
 
 ### Azure disk encryption with Azure AD (previous version)
 

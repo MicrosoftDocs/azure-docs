@@ -139,7 +139,7 @@ the subordinate zone corresponding to your primary Event Hub:
 
 | CNAME record                | Alias                    |
 | --------------------------- | ------------------------ |
-| `eventhub.test.example.com` | `test1.test.example.com` |
+| `eventhub.test.example.com` | `eh1.test.example.com`   |
 
 Using a DNS client that allows for querying CNAME and SRV records explicitly
 (the built-in clients of Java and .NET only allow for simple resolution of names
@@ -339,7 +339,7 @@ select * into dest2Output from inputSource where Info = 2
 
 The log projection pattern flattens the event stream onto an indexed database,
 with events becoming records in the database. Typically, events are added to the
-same collection or table, and the Event Hub partition key becomes party of the
+same collection or table, and the Event Hub partition key becomes part of the
 the primary key looking for making the record unique.
 
 Log projection can produce a time-series historian of your event data or a

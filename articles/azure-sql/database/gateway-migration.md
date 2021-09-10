@@ -3,12 +3,12 @@ title: Gateway traffic migration notice
 description: Article provides notice to users about the migration of Azure SQL Database gateway IP addresses
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 07/01/2019
 ---
 # Azure SQL Database traffic migration to newer Gateways
@@ -23,13 +23,26 @@ The most up-to-date information will be maintained in the [Azure SQL Database ga
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+## August 2021
+New SQL Gateways are being added to the following regions:
+
+- Norway East: 51.120.104.32, 51.120.208.32
+- Japan East: 40.79.184.32
+- Central India: 40.80.48.32, 20.192.96.32
+
+These SQL Gateway shall start accepting customer traffic on 2 August 2021.
+
 ## June 2021
 New SQL Gateways are being added to the following regions:
+
 - UK West: 51.140.208.96, 51.140.208.97
-- Korea Central US: 20.44.24.32, 20.194.64.33
+- Korea Central: 20.44.24.32, 20.194.64.33
 - Japan East: 13.78.104.32
 
-This SQL Gateway shall start accepting customer traffic on 1 June 2021.
+These SQL Gateway shall start accepting customer traffic on 1 June 2021.
+
+# [Completed](#tab/completed-ip)
+The following gateway migrations are complete: 
 
 ## May 2021
 New SQL Gateways are being added to the following regions:
@@ -68,9 +81,6 @@ The following SQL Gateways in multiple regions are in the process of being deact
 - West US: 23.99.34.75
 
 No customer impact is anticipated since these Gateways (running on older hardware) are not routing any customer traffic. The IP addresses for these Gateways shall be deactivated on 15th March 2021.
-
-# [Completed](#tab/completed-ip)
-The following gateway migrations are complete: 
 
 ## February 2021
 New SQL Gateways are being added to the following regions:
@@ -186,7 +196,7 @@ You will not be impacted if you have:
 
 ## What to do you do if you're affected
 
-We recommend that you allow outbound traffic to IP addresses for all the [gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) in the region on TCP port 1433, and port range 11000-11999. This recommendation is applicable to clients connecting from on-premises and also those connecting via Service Endpoints. For more information on port ranges, see [Connection policy](connectivity-architecture.md#connection-policy).
+We recommend that you allow outbound traffic to IP addresses for all the [gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) in the region on TCP port 1433. Also, allow port range 11000 thru 11999 when connecting from a client located within Azure (for example, an Azure VM) or when your Connection Policy is set to Redirection. This recommendation is applicable to clients connecting from on-premises and also those connecting via Service Endpoints. For more information on port ranges, see [Connection policy](connectivity-architecture.md#connection-policy).
 
 Connections made from applications using Microsoft JDBC Driver below version 4.0 might fail certificate validation. Lower versions of Microsoft JDBC rely on Common Name (CN) in the Subject field of the certificate. The mitigation is to ensure that the hostNameInCertificate property is set to *.database.windows.net. For more information on how to set the hostNameInCertificate property, see [Connecting with Encryption](/sql/connect/jdbc/connecting-with-ssl-encryption).
 

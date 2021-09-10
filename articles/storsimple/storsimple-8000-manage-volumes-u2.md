@@ -4,7 +4,7 @@ description: Explains how to add, modify, monitor, and delete StorSimple volumes
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 12/09/2017
+ms.date: 08/11/2021
 ms.author: alkohli
 
 ---
@@ -33,7 +33,7 @@ Locally pinned volumes are fully provisioned volumes that do not tier data to th
 
 Locally pinned volumes are fully provisioned; therefore, you must have sufficient space on your device when you create them. You can provision locally pinned volumes up to a maximum size of 8 TB on the StorSimple 8100 device and 20 TB on the 8600 device. StorSimple reserves the remaining local space on the device for snapshots, metadata, and data processing. You can increase the size of a locally pinned volume to the maximum space available, but you cannot decrease the size of a volume once created.
 
-When you create a locally pinned volume, the available space for creation of tiered volumes is reduced. The reverse is also true: if you have existing tiered volumes, the space available for creating locally pinned volumes will be lower than the maximum limits stated above. For more information on local volumes, refer to the [frequently asked questions on locally pinned volumes](storsimple-8000-local-volume-faq.md).
+When you create a locally pinned volume, the available space for creation of tiered volumes is reduced. The reverse is also true: if you have existing tiered volumes, the space available for creating locally pinned volumes will be lower than the maximum limits stated above. For more information on local volumes, refer to the [frequently asked questions on locally pinned volumes](storsimple-8000-local-volume-faq.yml).
 
 ### Tiered volumes
 
@@ -310,8 +310,7 @@ Perform the following steps to enable or disable monitoring for a volume.
 2. From the tabular listing of volumes, select the volume and right-click to invoke the context menu. Select **Modify**.
 3. In the **Modify volume** blade, for **Monitoring** select **Enable** or **Disable** to enable or disable monitoring.
 
-    ![Disable monitoring](./media/storsimple-8000-manage-volumes-u2/monitor-volume-0
-1.png) 
+    ![Disable monitoring](./media/storsimple-8000-manage-volumes-u2/monitor-volume-01.png) 
 
 4. Click **Save** and when prompted for confirmation, click **Yes**. The Azure portal displays a notification for updating the volume and then a success message, after the volume is successfully updated.
 

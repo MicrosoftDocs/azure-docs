@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/12/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -34,11 +34,11 @@ For more information about stored access policies, see [Define a stored access p
 
 ## Create a stored access policy
 
-The underlying REST operation to create a stored access policy is [Set Container ACL](/rest/api/storageservices/set-container-acl). You must authorize the operation to create a stored access policy via Shared Key by using the account access keys in a connection string. Authorizing the **Set Container ACL** operation with Azure AD credentials is not supported. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+The underlying REST operation to create a stored access policy is [Set Container ACL](/rest/api/storageservices/set-container-acl). You must authorize the operation to create a stored access policy via Shared Key by using the account access keys in a connection string. Authorizing the **Set Container ACL** operation with Azure AD credentials is not supported. For more information, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 The following code examples create a stored access policy on a container. You can use the access policy to specify constraints for a service SAS on the container or its blobs.
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 To create a stored access policy on a container with version 12 of the .NET client library for Azure Storage, call one of the following methods:
 
@@ -89,7 +89,7 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 }
 ```
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 To create a stored access policy on a container with version 12 of the .NET client library for Azure Storage, call one of the following methods:
 

@@ -96,6 +96,8 @@
     href: howto-conditional-access-session-lifetime.md
   - name: Troubleshooting
     items:
+    - name: Troubleshoot policy changes
+      href: troubleshoot-policy-changes-audit-log.md
     - name: Troubleshoot sign-in problems
       href: troubleshoot-conditional-access.md
     - name: Troubleshoot using the What If tool 
@@ -123,7 +125,7 @@
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-active-directory.html
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/active-directory/
+    href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow

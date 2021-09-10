@@ -18,30 +18,6 @@ This feature can only be set at cluster creation or node pool creation time.
 > [!IMPORTANT]
 > Azure ultra disks require nodepools deployed in availability zones and regions that support these disks as well as only specific VM series. See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
-### Register the `EnableUltraSSD` preview feature
-
-To create an AKS cluster or a node pool that can leverage Ultra disks, you must enable the `EnableUltraSSD` feature flag on your subscription.
-
-Register the `EnableUltraSSD` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableUltraSSD"
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableUltraSSD')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ### Install aks-preview CLI extension
 
 To create an AKS cluster or a node pool that can use Ultra Disks, you need the latest *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or install any available updates using the [az extension update][az-extension-update] command:
@@ -60,7 +36,7 @@ az extension update --name aks-preview
 
 ## Create a new cluster that can use Ultra disks
 
-Create an AKS cluster that is able to leverage Ultra Disks by using the following CLI commands. Use the `--aks-custom-headers` flag to set the `EnableUltraSSD` feature.
+Create an AKS cluster that is able to leverage Ultra Disks by using the following CLI commands. Use the `--enable-ultra-ssd` flag to set the `EnableUltraSSD` feature.
 
 Create an Azure resource group:
 
@@ -73,20 +49,20 @@ Create the AKS cluster with support for Ultra Disks.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
 ```
 
-If you want to create clusters without ultra disk support, you can do so by omitting the custom `--aks-custom-headers` parameter.
+If you want to create clusters without ultra disk support, you can do so by omitting the `--enable-ultra-ssd` parameter.
 
 ## Enable Ultra disks on an existing cluster
 
-You can enable ultra disks on existing clusters by adding a new node pool to your cluster that support ultra disks. Configure a new node pool to use ultra disks by using the `--aks-custom-headers` flag.
+You can enable ultra disks on existing clusters by adding a new node pool to your cluster that support ultra disks. Configure a new node pool to use ultra disks by using the `--enable-ultra-ssd` flag.
 
 ```azurecli
-az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
 ```
 
-If you want to create new node pools without support for ultra disks, you can do so by omitting the custom `--aks-custom-headers` parameter.
+If you want to create new node pools without support for ultra disks, you can do so by omitting the `--enable-ultra-ssd` parameter.
 
 ## Use ultra disks dynamically with a storage class
 

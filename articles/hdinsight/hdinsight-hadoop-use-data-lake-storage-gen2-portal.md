@@ -6,14 +6,14 @@ ms.author: guyhay
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 09/17/2020
+ms.date: 09/07/2021
 ---
 
 # Create a cluster with Data Lake Storage Gen2 using the Azure portal
 
 The Azure portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. In this article, you learn how to create Linux-based Azure HDInsight clusters by using the portal. Additional details are available from [Create HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md).
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -81,6 +81,7 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
     > [!NOTE]
     > * To add a secondary storage account with Data Lake Storage Gen2, at the storage account level, simply assign the managed identity created earlier to the new Data Lake Storage Gen2 that you want to add. Please be advised that adding a secondary storage account with Data Lake Storage Gen2 via the "Additional storage accounts" blade on HDInsight isn't supported.
     > * You can enable RA-GRS or RA-ZRS on the Azure Blob storage account that HDInsight uses. However, creating a cluster against the RA-GRS or RA-ZRS secondary endpoint isn't supported.
+    > * HDInsight does not support setting Data Lake Storage Gen2 as read-access geo-zone-redundant storage (RA-GZRS) or geo-zone-redundant storage (GZRS).
 
 ## Delete the cluster
 

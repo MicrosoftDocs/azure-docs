@@ -2,7 +2,7 @@
 title: Ethernet configuration of BareMetal for Oracle
 description: Learn about the configuration of Ethernet interfaces on BareMetal instances for Oracle workloads.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/14/2021
 ---
 

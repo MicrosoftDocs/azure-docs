@@ -88,7 +88,9 @@
         href: customize-invitation-api.md
     - name: Identity providers
       items:
-      - name: Microsoft Account (Preview)
+      - name: Azure Active Directory
+        href: azure-ad-account.md
+      - name: Microsoft account
         href: microsoft-account.md
       - name: Google federation
         href: google-federation.md
@@ -112,6 +114,8 @@
         href: self-service-sign-up-add-api-connector.md
       - name: Add a custom approval system
         href: self-service-sign-up-add-approvals.md
+      - name: Secure your API connector
+        href: self-service-sign-up-secure-api-connector.md
     - name: Manage guest user accounts
       items:
       - name: Dynamic groups and B2B users
@@ -141,7 +145,7 @@
   - name: Resources
     items:
     - name: FAQ
-      href: faq.md
+      href: ./faq.yml
     - name: Getting support
       href: ../fundamentals/active-directory-troubleshooting-support-howto.md
     - name: Azure feedback forum
@@ -151,7 +155,7 @@
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-active-directory.html
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/active-directory/
+      href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Service updates

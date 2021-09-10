@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 05/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -26,50 +26,78 @@ As we learned in the previous article, [Identity Protection policies](concept-id
 
 Both policies work to automate the response to risk detections in your environment and allow users to self-remediate when risk is detected. 
 
-> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
-
-## Prerequisites 
-
-If your organization wants to allow users to self-remediate when risks are detected, users must be registered for both self-service password reset and Azure AD Multi-Factor Authentication. We recommend [enabling the combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md) for the best experience. Allowing users to self-remediate gets them back to a productive state more quickly without requiring administrator intervention. Administrators can still see these events and investigate them after the fact. 
-
 ## Choosing acceptable risk levels
 
-Organizations must decide the level of risk they are willing to accept balancing user experience and security posture. 
+Organizations must decide the level of risk they're willing to accept balancing user experience and security posture. 
 
-Microsoft's recommendation is to set the user risk policy threshold to **High** and the sign-in risk policy to **Medium and above**.
+Microsoft's recommendation is to set the user risk policy threshold to **High** and the sign-in risk policy to **Medium and above** and allow self-remediation options. Choosing to block access rather than allowing self-remediation options, like password change and multi-factor authentication, will impact your users and administrators. Weigh this choice when configuring your policies.
 
-Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users. However, it excludes **Low** and **Medium** risk detections from the policy, which may not block an attacker from exploiting a compromised identity. Selecting a **Low** threshold introduces additional user interrupts, but increased security posture.
-
-## Exclusions
-
-All of the policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../roles/security-emergency-access.md). Organizations may determine they need to exclude other accounts from specific policies based on the way the accounts are used. All exclusions should be reviewed regularly to see if they are still applicable.
+Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users. However, it excludes **Low** and **Medium** risk detections from the policy, which may not block an attacker from exploiting a compromised identity. Selecting a **Low** threshold introduces more user interrupts.
 
 Configured trusted [network locations](../conditional-access/location-condition.md) are used by Identity Protection in some risk detections to reduce false positives.
 
+### Risk remediation
+
+Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR). 
+
+- When a user risk policy triggers: 
+   - Administrators can require a secure password reset, requiring Azure AD MFA be done before the user creates a new password with SSPR, resetting the user risk. 
+- When a sign in risk policy triggers: 
+   - Azure AD MFA can be triggered, allowing to user to prove it's them by using one of their registered authentication methods, resetting the sign in risk. 
+
+> [!WARNING]
+> Users must register for Azure AD MFA and SSPR before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
+> 
+> Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password reset.
+
+## Exclusions
+
+Policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../roles/security-emergency-access.md). Organizations may need to exclude other accounts from specific policies based on the way the accounts are used. Exclusions should be reviewed regularly to see if they're still applicable.
+
 ## Enable policies
 
-To enable the user risk and sign-in risk policies complete the following steps.
+There are two locations where these policies may be configured, Conditional Access and Identity Protection. Configuration using Conditional Access policies is the preferred method, providing more context including: 
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
-1. Select **User risk policy**.
-   1. Under **Assignments**
-      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
-         1. Optionally you can choose to exclude users from the policy.
-      1. **Conditions** - **User risk** Microsoft's recommendation is to set this option to **High**.
-   1. Under **Controls**
-      1. **Access** - Microsoft's recommendation is to **Allow access** and **Require password change**.
-   1. **Enforce Policy** - **On**
-   1. **Save** - This action will return you to the **Overview** page.
-1. Select **Sign-in risk policy**.
-   1. Under **Assignments**
-      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
-         1. Optionally you can choose to exclude users from the policy.
-      1. **Conditions** - **Sign-in risk** Microsoft's recommendation is to set this option to **Medium and above**.
-   1. Under **Controls**
-      1. **Access** - Microsoft's recommendation is to **Allow access** and **Require multi-factor authentication**.
-   1. **Enforce Policy** - **On**
-   1. **Save**
+   - Enhanced diagnostic data
+   - Report-only mode integration
+   - Graph API support
+   - Use more Conditional Access attributes in policy
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
+
+### User risk with Conditional Access
+
+1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Select **New policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Under **Assignments**, select **Users and groups**.
+   1. Under **Include**, select **All users**.
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Select **Done**.
+1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Configure user risk levels needed for policy to be enforced** select **High**, then select **Done**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**.
+1. Confirm your settings, and set **Enable policy** to **On**.
+1. Select **Create** to create to enable your policy.
+
+### Sign in risk with Conditional Access
+
+1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Select **New policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Under **Assignments**, select **Users and groups**.
+   1. Under **Include**, select **All users**.
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Select **Done**.
+1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+1. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to** 
+   1. Select **High** and **Medium**.
+   1. Select **Done**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+1. Confirm your settings and set **Enable policy** to **On**.
+1. Select **Create** to create to enable your policy.
 
 ## Next steps
 

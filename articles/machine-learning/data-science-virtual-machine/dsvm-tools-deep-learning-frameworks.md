@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python
 
-author: timoklimmer
-ms.author: tklimmer
+author: michalmar
+ms.author: mimarusa
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 07/27/2021
 ---
 
 # Deep learning and AI frameworks for the Azure Data Science VM
@@ -49,16 +49,16 @@ Deep learning frameworks on the DSVM are listed below.
 
 | Category | Value |
 |--|--|
-| Version(s) supported | 1.8.1 (Ubuntu 18.04, Windows 2019) |
+| Version(s) supported | 1.9.0 (Ubuntu 18.04, Windows 2019) |
 | Supported DSVM editions | Windows Server 2019<br>Ubuntu 18.04 |
-| How is it configured / installed on the DSVM? | Installed in Python, conda environment 'py38_pytorch' |
+| How is it configured / installed on the DSVM? | Installed in Python, conda environments 'py38_default', 'py38_pytorch' |
 | How to run it | Terminal: Activate the correct environment, and then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Connect, and then open the PyTorch directory for samples. |
 
 ## [TensorFlow](https://www.tensorflow.org/)
 
 | Category | Value |
 |--|--|
-| Version(s) supported | 2.4 |
+| Version(s) supported | 2.5 |
 | Supported DSVM editions | Windows Server 2019<br>Ubuntu 18.04 |
-| How is it configured / installed on the DSVM? | Installed in Python, conda environment 'py38_tensorflow' |
+| How is it configured / installed on the DSVM? | Installed in Python, conda environments 'py38_default', 'py38_tensorflow' |
 | How to run it | Terminal: Activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the TensorFlow directory for samples. |

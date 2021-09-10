@@ -2,11 +2,10 @@
 title: Configure cache and incremental enrichment (preview) 
 titleSuffix: Azure Cognitive Search
 description: Enable caching and preserve state of enriched content for controlled processing in a cognitive skillset. This feature is currently in public preview.
-author: vkurpad 
-manager: eladz
-ms.author: vikurpad
+
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
 ---
@@ -14,8 +13,7 @@ ms.date: 01/06/2020
 # How to configure caching for incremental enrichment in Azure Cognitive Search
 
 > [!IMPORTANT] 
-> Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> [REST API preview versions](search-api-preview.md) provide this feature. There is no portal or .NET SDK support at this time.
+> This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature
 
 This article shows you how to add caching to an enrichment pipeline so that you can incrementally modify steps without having to rebuild every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the document tree need to be refreshed based on changes detected in the skillset or indexer definitions. Existing processed output is preserved and reused wherever possible. 
 
@@ -70,7 +68,7 @@ Modify the cache object to include the following required and optional propertie
 ```
 
 > [!NOTE]
-> The indexer cache requires a general purpose v2 storage account. For more information, review the [different types of storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+> The indexer cache requires a general purpose v2 storage account. For more information, review the [different types of storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 ### Step 3: Reset the indexer
 
@@ -122,7 +120,7 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-After the indexer runs, you can find the cache in Azure Blob storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
+After the indexer runs, you can find the cache in Azure Blob Storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
 > [!NOTE]
 > A reset and rerun of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be rerun on all documents.

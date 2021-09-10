@@ -5,7 +5,8 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: jingwang
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Tutorial: Use REST API to create an Azure Data Factory pipeline to copy data 

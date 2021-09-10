@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -39,7 +39,7 @@ The key benefits of enabling automatic user provisioning are:
 
 ### Licensing
 
-Azure AD provides self-service integration of any application using templates provided in the application gallery menu. For a full list of license requirements, see [Azure AD licensing page](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure AD provides self-service integration of any application using templates provided in the application gallery menu. For a full list of license requirements, see [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 #### Application licensing
 

@@ -3,7 +3,7 @@ title: Telemetry, property, and command payloads in Azure IoT Central | Microsof
 description: Azure IoT Central device templates let you specify the telemetry, properties, and commands of a device must implement. Understand the format of the data a device can exchange with IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/19/2020
+ms.date: 08/25/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -475,7 +475,7 @@ A device client should send a JSON payload that looks like the following example
 { "BooleanProperty": false }
 ```
 
-The following snippet from a device model shows the definition of a `boolean` property type:
+The following snippet from a device model shows the definition of a `long` property type:
 
 ```json
 {

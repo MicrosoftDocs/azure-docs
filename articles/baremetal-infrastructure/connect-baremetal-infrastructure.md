@@ -2,22 +2,21 @@
 title: Connect BareMetal Infrastructure instances in Azure
 description: Learn how to identify and interact with BareMetal instances in the Azure portal or Azure CLI.
 ms.topic: how-to
-ms.subservice: workloads
-ms.date: 04/06/2021
+ms.date: 07/13/2021
 ---
 
 # Connect BareMetal Infrastructure instances in Azure
 
-This article shows how the [Azure portal](https://portal.azure.com/) displays [BareMetal instances](concepts-baremetal-infrastructure-overview.md). This article also shows you what you can do in the Azure portal with your deployed BareMetal Infrastructure instances. 
+In this article, we'll show what you can do in the [Azure portal](https://portal.azure.com/) with your deployed BareMetal Infrastructure instances. 
  
 ## Register the resource provider
-An Azure resource provider for BareMetal instances provides visibility of the instances in the Azure portal. By default, the Azure subscription you use for BareMetal instance deployments registers the *BareMetalInfrastructure* resource provider. If you don't see your deployed BareMetal instances, you must register the resource provider with your subscription. 
+An Azure resource provider for BareMetal instances lets you see the instances in the Azure portal. By default, the Azure subscription you use for BareMetal instance deployments registers the *BareMetalInfrastructure* resource provider. If you don't see your deployed BareMetal instances, register the resource provider with your subscription. 
 
-You can register the BareMetal instance resource provider by using the Azure portal or Azure CLI.
+You can register the BareMetal instance resource provider by using the Azure portal or Azure command-line interface (CLI).
 
 ### [Portal](#tab/azure-portal)
  
-You'll need to list your subscription in the Azure portal and then double-click on the subscription used to deploy your BareMetal instances.
+You'll need to list your subscription in the Azure portal and then double-click the subscription used to deploy your BareMetal instances.
  
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -27,10 +26,10 @@ You'll need to list your subscription in the Azure portal and then double-click 
 
 1. Select the subscription from the subscription list.
 
-1. Select **Resource providers** and enter **BareMetalInfrastructure** into the search. The resource provider should be **Registered**, as the image shows.
+1. Select **Resource providers** and enter **BareMetalInfrastructure** into search. The resource provider should be **Registered**, as the image shows.
  
 >[!NOTE]
->If the resource provider is not registered, select **Register**.
+>If the resource provider isn't registered, select **Register**.
  
 :::image type="content" source="media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png" alt-text="Screenshot showing the BareMetal instances registered.":::
 
@@ -54,13 +53,13 @@ For more information about resource providers, see [Azure resource providers and
 
 ## BareMetal instances in the Azure portal
  
-When you submit a BareMetal instance deployment request, you'll specify the Azure subscription that you're connecting to the BareMetal instances. Use the same subscription you use to deploy the application layer that works against the BareMetal instances.
+When you submit a BareMetal instance deployment request, specify the Azure subscription you're connecting to the BareMetal instances. Use the same subscription you use to deploy the application layer that works against the BareMetal instances.
  
-During the deployment of your BareMetal instances, a new [Azure resource group](../azure-resource-manager/management/manage-resources-portal.md) gets created in the Azure subscription you used in the deployment request. This new resource group lists all of the BareMetal instances you've deployed in that subscription.
+During the deployment of your BareMetal instances, a new [Azure resource group](../azure-resource-manager/management/manage-resources-portal.md) is created in the Azure subscription you used in the deployment request. This new resource group lists all BareMetal instances you've deployed in that subscription.
 
 ### [Portal](#tab/azure-portal)
 
-1. In the BareMetal subscription, in the Azure portal, select **Resource groups**.
+1. In the Azure portal, in the BareMetal subscription, select **Resource groups**.
  
    :::image type="content" source="media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Screenshot showing the list of Resource groups.":::
 
@@ -99,7 +98,7 @@ In the list of BareMetal instances, select the single instance you want to view.
  
 :::image type="content" source="media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot showing the BareMetal instance attributes of a single instance." lightbox="media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
  
-The attributes in the image don't look much different than the Azure virtual machine (VM) attributes. On the left, you'll see the Resource group, Azure region, and subscription name and ID. If you assigned tags, then you'll see them here as well. By default, the BareMetal instances don't have tags assigned.
+The attributes in the image don't look much different than the Azure virtual machine (VM) attributes. On the left, you'll see the Resource group, Azure region, and subscription name and ID. If you assigned tags, you'll see them here as well. By default, the BareMetal instances don't have tags assigned.
  
 On the right, you'll see the name of the BareMetal instance, operating system (OS), IP address, and SKU that shows the number of CPU threads and memory. You'll also see the power state and hardware version (revision of the BareMetal instance stamp). The power state indicates whether the hardware unit is powered on or off. The operating system details, however, don't indicate whether it's up and running.
  
@@ -115,7 +114,7 @@ The possible hardware revisions are:
 >Rev 4.2 is the latest rebranded BareMetal Infrastructure using the existing Rev 4 architecture. Rev 4 provides closer proximity to the Azure virtual machine (VM) hosts. It has significant improvements in network latency between Azure VMs and SAP HANA instances. You can access and manage your BareMetal instances through the Azure portal. For more information, see [BareMetal Infrastructure on Azure](concepts-baremetal-infrastructure-overview.md).
 
  
-Also, on the right side, you'll find the [Azure proximity placement group's](../virtual-machines/co-location.md) name, which is created automatically for each deployed BareMetal instance. Reference the proximity placement group when you deploy the Azure VMs that host the application layer. When you use the proximity placement group associated with the BareMetal instance, you ensure that the Azure VMs get deployed close to the BareMetal instance.
+Also on the right side, you'll find the [Azure proximity placement group's](../virtual-machines/co-location.md) name. The placement group's name is created automatically for each deployed BareMetal instance. Reference the proximity placement group when you deploy the Azure VMs that host the application layer. Use the proximity placement group associated with the BareMetal instance to ensure the Azure VMs are deployed close to the BareMetal instance.
  
 >[!TIP]
 >To locate the application layer in the same Azure datacenter as Revision 4.x, see [Azure proximity placement groups for optimal network latency](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
@@ -138,7 +137,7 @@ You can check the activities of a single BareMetal instance. One of the main act
  
 :::image type="content" source="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Screenshot showing the BareMetal instance activities." lightbox="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
  
-Changes to the instance's metadata in Azure also get recorded in the Activity log. Besides the restart initiated, you can see the activity of **Write BareMetallnstances**. This activity makes no changes on the BareMetal instance itself but documents the changes to the unit's metadata in Azure.
+Changes to the instance's metadata in Azure also get recorded in the Activity log. Besides the restart, you can see the activity of **Write BareMetalInstances**. This activity makes no changes on the BareMetal instance itself but documents the changes to the unit's metadata in Azure.
  
 Another activity that gets recorded is when you add or delete a [tag](../azure-resource-manager/management/tag-resources.md) to an instance.
  
@@ -148,7 +147,7 @@ Another activity that gets recorded is when you add or delete a [tag](../azure-r
  
 You can add Azure tags to a BareMetal instance or delete them. Tags get assigned just as they do when assigning tags to VMs. As with VMs, the tags exist in the Azure metadata. Tags have the same restrictions for BareMetal instances as for VMs.
  
-Deleting tags also works the same way as for VMs. Applying and deleting a tag is listed in the BareMetal instance's Activity log.
+Deleting tags also works the same way as for VMs. Both applying and deleting a tag is listed in the BareMetal instance's Activity log.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -170,9 +169,16 @@ az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllab
 
 ## Check properties of an instance
  
-When you acquire the instances, you can go to the Properties section to view the data collected about the instances. Data collected includes the Azure connectivity, storage backend, ExpressRoute circuit ID, unique resource ID, and the subscription ID. You'll use this information in support requests or when setting up storage snapshot configuration.
+When you acquire the instances, you can go to the Properties section to view the data collected about the instances. Data collected includes:
+- Azure connectivity
+- Storage backend
+- ExpressRoute circuit ID
+- Unique resource ID
+- Subscription ID. 
+
+You'll use this information in support requests or when setting up storage snapshot configuration.
  
-Another critical piece of information you'll see is the storage NFS IP address. It isolates your storage to your **tenant** in the BareMetal instance stack. You'll use this IP address when you edit the [configuration file for storage snapshot backups](../virtual-machines/workloads/sap/hana-backup-restore.md#set-up-storage-snapshots).
+Another critical piece of information you'll see is the storage NFS IP address. It isolates your storage to your **tenant** in the BareMetal instance stack. You'll use this IP address when you edit the [Configure Azure Application Consistent Snapshot tool](../azure-netapp-files/azacsnap-cmd-ref-configure.md).
  
 :::image type="content" source="media/connect-baremetal-infrastructure/baremetal-instance-properties.png" alt-text="Screenshot showing the BareMetal instance property settings." lightbox="media/connect-baremetal-infrastructure/baremetal-instance-properties.png":::
  
@@ -236,6 +242,7 @@ It takes up to five business days for a support representative to confirm your r
 
 ## Next steps
 
-Learn more about workloads:
+Learn more about workloads for BareMetal Infrastructure.
 
-- [What is SAP HANA on Azure (Large Instances)?](../virtual-machines/workloads/sap/hana-overview-architecture.md)
+> [!div class="nextstepaction"]
+> [What is SAP HANA on Azure (Large Instances)?](../virtual-machines/workloads/sap/hana-overview-architecture.md)

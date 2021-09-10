@@ -7,7 +7,8 @@ author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Backend pool management
@@ -155,7 +156,7 @@ az vm create \
 
 Follow this [quickstart Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create/) to deploy a load balancer and virtual machines and add the virtual machines to the backend pool via network interface.
 
-Follow this [quickstart Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool) to deploy a load balancer and virtual machines and add the virtual machines to the backend pool via IP address.
+Follow this [quickstart Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-ip-configured-backend-pool) to deploy a load balancer and virtual machines and add the virtual machines to the backend pool via IP address.
 
 
 ## Configure backend pool by IP address and virtual network
@@ -309,10 +310,12 @@ A Backend Pool configured by IP address has the following limitations:
   * Limit of 100 IP addresses in the backend pool
   * The backend resources must be in the same virtual network as the load balancer
   * A Load Balancer with IP-based Backend Pool cannot function as a Private Link service
-  * This feature is not currently supported in the Azure portal
   * ACI containers are not currently supported by this feature
   * Load balancers or services such as Application Gateway cannot be placed in the backend pool of the load balancer
   * Inbound NAT Rules cannot be specified by IP address
+
+>[!Important]
+> When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.
 
 ## Next steps
 In this article, you learned about Azure Load Balancer backend pool management and how to configure a backend pool by IP address and virtual network.

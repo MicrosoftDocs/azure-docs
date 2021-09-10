@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Prevent anonymous public read access to containers and blobs

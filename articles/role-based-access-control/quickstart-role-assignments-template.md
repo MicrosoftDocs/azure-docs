@@ -35,7 +35,7 @@ To assign Azure roles and remove role assignments, you must have:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). The template has three parameters and a resources section. In the resources section, notice that it has the three elements of a role assignment: security principal, role definition, and scope.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/rbac-builtinrole-resourcegroup/). The template has three parameters and a resources section. In the resources section, notice that it has the three elements of a role assignment: security principal, role definition, and scope.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.authorization/rbac-builtinrole-resourcegroup/azuredeploy.json":::
 

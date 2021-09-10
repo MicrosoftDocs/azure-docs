@@ -25,7 +25,7 @@ Security Center integrates with your function app in the portal. It provides, fo
 
 ### Log and monitor
 
-One way to detect attacks is through activity monitoring activity and logging analytics. Functions integrates with Application Insights to collects log, performance, and error data for your function app. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
+One way to detect attacks is through activity monitoring and logging analytics. Functions integrates with Application Insights to collects log, performance, and error data for your function app. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 Functions also integrates with Azure Monitor Logs to enable you to consolidate function app logs with system events for easier analysis. You can use diagnostic settings to configure streaming export of platform logs and metrics for your functions to the destination of your choice, such as a Logs Analytics workspace. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md). 
 
@@ -75,9 +75,9 @@ By default, keys are stored in a Blob storage container in the account provided 
 
 |Location  |Setting | Value | Description  |
 |---------|---------|---------|---------|
-|Different storage account     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Stores keys in Blob storage of a second storage account, based on the provided SAS URL. Keys are encrypted before being stored using a secret unique to your function app. |
+|Different storage account     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL>` | Stores keys in Blob storage of a second storage account, based on the provided SAS URL. Keys are encrypted before being stored using a secret unique to your function app. |
 |File system   | `AzureWebJobsSecretStorageType`   |  `files`       | Keys are persisted on the file system, encrypted before storage using a secret unique to your function app. |
-|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-run-local.md#local-settings-file). | 
+|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). | 
 |Kubernetes Secrets  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (optional) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Supported only when running the Functions runtime in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The Azure Functions Core Tools generates the values automatically when deploying to Kubernetes.|
 
 ### Authentication/authorization
@@ -128,7 +128,7 @@ For example, every function app requires an associated storage account, which is
 
 App settings and connection strings are stored encrypted in Azure. They're decrypted only before being injected into your app's process memory when the app starts. The encryption keys are rotated regularly. If you prefer to instead manage the secure storage of your secrets, the app setting should instead be references to Azure Key Vault. 
 
-You can also encrypt settings by default in the local.settings.json file when developing functions on your local computer. To learn more, see the `IsEncrypted` property in the [local settings file](functions-run-local.md#local-settings-file).  
+You can also encrypt settings by default in the local.settings.json file when developing functions on your local computer. To learn more, see the `IsEncrypted` property in the [local settings file](functions-develop-local.md#local-settings-file).  
 
 #### Key Vault references
 
@@ -210,7 +210,7 @@ Restricting network access to your function app lets you control who can access 
 
 ### Set access restrictions
 
-Access restrictions allow you to define lists of allow/deny rules to control traffic to your app. Rules are evaluated in priority order. If there are no rules defined, then your app will accept traffic from any address. To learn more, see [Azure App Service Access Restrictions #](../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json).
+Access restrictions allow you to define lists of allow/deny rules to control traffic to your app. Rules are evaluated in priority order. If there are no rules defined, then your app will accept traffic from any address. To learn more, see [Azure App Service Access Restrictions](../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json).
 
 ### Private site access
 

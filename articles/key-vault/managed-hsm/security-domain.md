@@ -4,8 +4,8 @@ description: Overview of the Managed HSM Security Domain, a set of core credenti
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-author: amitbapat
-ms.author: ambapat
+author: mbaldwin
+ms.author: mbaldwin
 ms.date: 09/15/2020
 ---
 # About the Managed HSM Security Domain

@@ -17,22 +17,92 @@
         href: quickstart-send-telemetry-iot-hub.md
     - name: Embedded device development
       items:
-      - name: Embedded device development quickstarts
-        href: quickstart-device-development.md
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
+      - name: MXCHIP AZ3166 - IoT Hub
+        href: quickstart-devkit-mxchip-az3166-iot-hub.md
+      - name: Microchip ATSAME54-XPro
+        href: quickstart-devkit-microchip-atsame54-xpro.md
+      - name: NXP MIMXRT1050-EVKB
+        href: quickstart-devkit-nxp-mimxrt1050-evkb.md
+      - name: NXP MIMXRT1060-EVK
+        href: quickstart-devkit-nxp-mimxrt1060-evk.md
+      - name: Renesas RX65N-2MB
+        href: quickstart-devkit-renesas-rx65n-2mb.md
+      - name: Renesas RX65N Cloud Kit
+        href: quickstart-devkit-renesas-rx65n-cloud-kit.md
+      - name: STMicroelectronics B-L475E/L4S5I-IOT01A
+        href: quickstart-devkit-stm-b-l475e.md
 - name: Tutorials
   items:
+    - name: Build a device solution with IoT Hub
+      items:
+      - name: Set up your environment
+        href: set-up-environment.md
+      - name: Connect a device to IoT Hub
+        href: tutorial-connect-device.md
+      - name: Interact with a device from your solution
+        href: tutorial-service.md
     - name: Securely connect IoT devices to the cloud
       href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
+    - name: Connect a multiple component device
+      href: tutorial-multiple-components.md
+    - name: Use MQTT to connect a device
+      href: tutorial-use-mqtt.md
+    - name: Connect a device module
+      href: tutorial-migrate-device-to-module.md
+    - name: Preview - Connect and analyze data with Time Series Insights Gen2
+      href: tutorial-configure-tsi.md
 - name: Concepts
   items:
   - name: Connection options for device developers
     href: concepts-overview-connection-options.md
   - name: Overview of device types
     href: concepts-iot-device-types.md
+  - name: Device certification
+    href: ../certification/program-requirements-pnp.md
+  - name: Device models
+    items:
+    - name: Modeling guide
+      href: concepts-modeling-guide.md
+    - name: Use models in a solution
+      href: concepts-model-discovery.md
+    - name: Model repository
+      href: concepts-model-repository.md
+    - name: Model parser
+      href: concepts-model-parser.md
+  - name: IoT Plug and Play
+    items:
+    - name: What is IoT Plug and Play?
+      href: overview-iot-plug-and-play.md
+    - name: Architecture
+      href: concepts-architecture.md
+    - name: IoT Plug and Play conventions
+      href: concepts-convention.md
+    - name: Device developer guide
+      href: concepts-developer-guide-device.md
+    - name: Service developer guide
+      href: concepts-developer-guide-service.md
+    - name: Digital twins
+      href: concepts-digital-twin.md
+    - name: IoT Plug and Play bridge
+      href: concepts-iot-pnp-bridge.md
+- name: How to
+  items:
+  - name: Install and use IoT explorer
+    href: ../iot-fundamentals/howto-use-iot-explorer.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+  - name: Manage digital twins
+    href: howto-manage-digital-twin.md
+  - name: Convert a device to IoT Plug and Play
+    href: howto-convert-to-pnp.md
+  - name: Troubleshoot
+    items:
+      - name: Troubleshoot embedded quickstarts
+        href: troubleshoot-embedded-device-quickstarts.md
 - name: Reference
   items:
+    - name: Libraries and SDKs
+      href: libraries-sdks.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
@@ -43,6 +113,8 @@
       href: https://azure.github.io/azure-sdk-for-c/
     - name: Azure RTOS Middleware (Device)
       href: /azure/rtos/threadx
+    - name: Digital Twin REST API
+      href: /rest/api/iothub/service/digitaltwin
     - name: .NET (Device)
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (Service)
@@ -79,6 +151,10 @@
   items:
     - name: Support and help options
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+    - name: IoT glossary
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+    - name: Code samples
+      href: /samples/browse/?expanded=azure&products=azure-iot-pnp
     - name: Azure IoT samples
       items:
       - name: C# (.NET)

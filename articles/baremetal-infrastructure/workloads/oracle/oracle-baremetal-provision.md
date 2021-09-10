@@ -2,7 +2,7 @@
 title: Provision BareMetal for Oracle
 description: Learn about provisioning your BareMetal Infrastructure for Oracle.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/14/2021
 ---
 

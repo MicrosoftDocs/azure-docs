@@ -39,7 +39,7 @@ This script uses the following commands to create a resource group, App Service 
 | [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Creates an App Service app. |
 | [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) | Creates a Cosmos DB account. |
 | [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) | Lists connection strings for the specified Cosmos DB account. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Creates or updates an app setting for an App Service app. App settings are exposed as environment variables for your app. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Creates or updates an app setting for an App Service app. App settings are exposed as environment variables for your app (see [Environment variables and app settings reference](../reference-app-settings.md)). |
 
 ## Next steps
 

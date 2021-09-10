@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 05/25/2021
 ms.author: inhenkel
 ms.custom: "seodec18, devx-track-csharp"
 
@@ -48,7 +48,7 @@ To successfully complete your content protection system, you need to fully under
 
 ### Media Services code
   
-The [DRM sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) shows you how to implement a multi-DRM system with Media Services v3 by using .NET. It also shows how to use the Media Services license/key delivery service.
+The [DRM sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs) shows you how to implement a multi-DRM system with Media Services v3 by using .NET. It also shows how to use the Media Services license/key delivery service.
   
 You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). To see what makes sense to combine, see [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types).
 
@@ -187,7 +187,7 @@ When you configure the token-restricted policy, you must specify the primary ver
 
 ### Token replay prevention
 
-The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. The customer can add a claim of type `urn:microsoft:azure:mediaservices:maxuses` in the token, where the value is the number of times the token can be used to acquire a license or key. All subsequent requests with the same token to Key Delivery will return an unauthorized response. See how to add the claim in the [DRM sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. The customer can add a claim of type `urn:microsoft:azure:mediaservices:maxuses` in the token, where the value is the number of times the token can be used to acquire a license or key. All subsequent requests with the same token to Key Delivery will return an unauthorized response. See how to add the claim in the [DRM sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L591).
  
 #### Considerations
 

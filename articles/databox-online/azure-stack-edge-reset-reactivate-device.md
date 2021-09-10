@@ -1,5 +1,5 @@
 ---
-title: Reset and reactivate your Azure Stack Edge device | Microsoft Docs 
+title: Azure Stack Edge device reset and reactivation 
 description: Learn how to wipe the data from and then reactivate your Azure Stack Edge device.
 services: databox
 author: v-dalc

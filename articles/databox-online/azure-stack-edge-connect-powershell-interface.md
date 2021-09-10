@@ -1,6 +1,6 @@
 ---
-title: Connect to and manage Microsoft Azure Stack Edge Pro FPGA device via the Windows PowerShell interface | Microsoft Docs
-description: Describes how to connect to and then manage Azure Stack Edge Pro FPGA via the Windows PowerShell interface.
+title: Connect to and manage Microsoft Azure Stack Edge Pro FPGA device via the Windows PowerShell interface
+description: Describes Azure Stack Edge Pro FPGA connection and management via Windows PowerShell interface.
 services: databox
 author: alkohli
 

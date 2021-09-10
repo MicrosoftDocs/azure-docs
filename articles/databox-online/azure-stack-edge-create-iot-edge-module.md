@@ -1,6 +1,6 @@
 ---
-title: C# IoT Edge module for Azure Stack Edge Pro FPGA | Microsoft Docs
-description: Learn how to develop a C# IoT Edge module that can be deployed on your Azure Stack Edge Pro FPGA.
+title: Azure Stack Edge Pro FPGA C# IoT Edge module
+description: Learn how to develop a C# IoT Edge module for your Azure Stack Edge Pro FPGA.
 services: databox
 author: alkohli
 

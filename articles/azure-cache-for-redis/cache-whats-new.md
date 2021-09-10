@@ -16,7 +16,7 @@ ms.author: yegu
 
 ## Azure TLS Certificate Change
 
-Microsoft is updating Azure services to use TLS server certificates from a different set of Certificate Authorities (CAs). This change is rolled out in phases from August 13, 2020 to October 26, 2020 (estimated). Azure is making this change because [the current CA certificates don't comply with one of the CA/Browser Forum Baseline requirements](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951). The problem was reported on July 1, 2020 and applies to multiple popular Public Key Infrastructure (PKI) providers worldwide. Most TLS certificates used by Azure services today come from the *Baltimore CyberTrust Root* PKI. The Azure Cache for Redis service will continue to be chained to the Baltimore CyberTrust Root. Its TLS server certificates, however, will be issued by new Intermediate Certificate Authorities (ICAs) starting on October 12, 2020.
+Microsoft is updating Azure services to use TLS server certificates from a different set of Certificate Authorities (CAs). This change is rolled out in phases from August 13, 2020 to October 26, 2020 (estimated). Azure is making this change because [the current CA certificates don't  one of the CA/Browser Forum Baseline requirements](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951). The problem was reported on July 1, 2020 and applies to multiple popular Public Key Infrastructure (PKI) providers worldwide. Most TLS certificates used by Azure services today come from the *Baltimore CyberTrust Root* PKI. The Azure Cache for Redis service will continue to be chained to the Baltimore CyberTrust Root. Its TLS server certificates, however, will be issued by new Intermediate Certificate Authorities (ICAs) starting on October 12, 2020.
 
 > [!NOTE]
 > This change is limited to services in public [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/). It excludes sovereign (e.g., China) or government clouds.
@@ -36,7 +36,9 @@ The following table provides information about the certificates that are being r
 
 ### What actions should I take?
 
-If your application uses the operating system certificate store or pins the Baltimore root among others, no action is needed. On the other hand, if your application pins any intermediate or leaf TLS certificate, we recommend that you pin the following roots:
+If your application uses the operating system certificate store or pins the Baltimore root among others, no action is needed. 
+
+If your application pins any intermediate or leaf TLS certificate, we recommend you pin the following roots:
 
 | Certificate | Thumbprint |
 | ----- | ----- |
@@ -49,7 +51,7 @@ If your application uses the operating system certificate store or pins the Balt
 >
 >
 
-To continue to pin intermediate certificates, add the following to the pinned intermediate certificates list, which includes few additional ones to minimize future changes:
+To continue to pin intermediate certificates, add the following to the pinned intermediate certificates list, which includes few more to minimize future changes:
 
 | Common name of the CA | Thumbprint |
 | ----- | ----- |
@@ -60,8 +62,8 @@ To continue to pin intermediate certificates, add the following to the pinned in
 | [Microsoft Azure TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2005.cer) | 6c3af02e7f269aa73afd0eff2a88a4a1f04ed1e5 |
 | [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006.cer) | 30e01761ab97e59a06b41ef20af6f2de7ef4f7b0 |
 
-If your application validates certificate in code, you will need to modify it to recognize the properties (e.g., Issuers, Thumbprint) of the newly pinned certificates. This extra verification should cover all pinned certificates to be more future-proof.
+If your application validates certificate in code, you need to modify it to recognize the properties --- for example, Issuers, Thumbprint --- of the newly pinned certificates. This extra verification should cover all pinned certificates to be more future-proof.
 
 ## Next steps
 
-If you have additional questions, contact us through [support](https://azure.microsoft.com/support/options/).  
+If you have more questions, contact us through [support](https://azure.microsoft.com/support/options/).  

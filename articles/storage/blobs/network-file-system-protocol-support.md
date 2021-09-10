@@ -1,22 +1,19 @@
 ---
-title: Network File System 3.0 support in Azure Blob storage (preview) | Microsoft Docs
+title: Network File System 3.0 support in Azure Blob Storage | Microsoft Docs
 description: Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer that runs on-premises.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
-ms.custom: references_regions
+
 ---
 
-# Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)
+# Network File System (NFS) 3.0 protocol support in Azure Blob Storage
 
 Blob storage now supports the Network File System (NFS) 3.0 protocol. This support provides Linux file system compatibility at object storage scale and prices and enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
-
-> [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance and block blob storage accounts with premium performance tier in all public regions.
 
 It's always been a challenge to run large-scale legacy workloads, such as High Performance Computing (HPC) in the cloud. One reason is that applications often use traditional file protocols such as NFS or Server Message Block (SMB) to access data. Also, native cloud storage services focused on object storage that have a flat namespace and extensive metadata instead of file systems that provide a hierarchical namespace and efficient metadata operations. 
 
@@ -43,32 +40,25 @@ When your application makes a request by using the NFS 3.0 protocol, that reques
 
 Your Linux clients can mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. To mount a storage account container, you'll have to do these things.
 
-1. Register NFS 3.0 protocol feature with your subscription.
+1. Create an Azure Virtual Network (VNet).
 
-2. Verify that the feature is registered.
+2. Configure network security.
 
-3. Create an Azure Virtual Network (VNet).
+3. Create and configure storage account that accepts traffic only from the VNet.
 
-4. Configure network security.
+4. Create a container in the storage account.
 
-5. Create and configure storage account that accepts traffic only from the VNet.
+5. Mount the container.
 
-6. Create a container in the storage account.
-
-7. Mount the container.
-
-For step-by-step guidance, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
-
-> [!IMPORTANT]
-> It's important to complete these tasks in order. You can't mount containers that you create before you enable the NFS 3.0 protocol on your account. Also, after you've enabled the NFS 3.0 protocol on your account, you can't disable it.
+For step-by-step guidance, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](network-file-system-protocol-support-how-to.md).
 
 ## Network security
 
-Your storage account must be contained within a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
+Traffic must originate from a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
 
 To learn more, see [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
-## Supported network connections
+### Supported network connections
 
 A client can connect over a public or a [private endpoint](../common/storage-private-endpoints.md), and can connect from any of the following network locations:
 
@@ -93,72 +83,16 @@ A client can connect over a public or a [private endpoint](../common/storage-pri
 
 <a id="azure-storage-features-not-yet-supported"></a>
 
-## Support for Azure Storage features
+## Known issues and limitations
 
-The following table shows the current level of support for Azure Storage features in accounts that have the NFS 3.0 feature enabled. 
-
-The status of items that appear in this tables will change over time as support continues to expand.
-
-| Storage feature | Premium | Standard |Storage Feature | Premium | Standard |
-|-----------------|---------|----------|----------------|---------|----------|
-| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ | 	⛔ | [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2) | ⛔ | 	⛔ |
-| [Access tiers for Azure Blob storage](storage-blob-storage-tiers.md) |	✔️ | 	⛔ | [Blob index tags](storage-blob-index-how-to.md) |	⛔ | ⛔ |
-| [Azure Blob Storage lifecycle management](storage-lifecycle-management-concepts.md) | ✔️  |	⛔ | [Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |	⛔ |
-|  [Azure Storage blob inventory](blob-inventory.md) |	✔️  |	⛔ | [Change Feed](storage-blob-change-feed.md) |	⛔ |	⛔ |
-| [Azure Monitor](monitor-blob-storage.md) |	✔️ |	⛔ | [Blob versioning](versioning-enable.md) | ⛔ |	⛔ |
-| [Blob snapshots](snapshots-overview.md) |	✔️  |	⛔ | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | ⛔ |	⛔ |
-| [Private endpoints](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  |	⛔ | [Azure Backup integration](/azure/backup/blob-backup-overview) | ⛔ |	⛔ |
-| [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) | ✔️  |	⛔ | [Soft delete for containers](soft-delete-container-overview.md) |	⛔ |	⛔ |
-| [Firewall rules](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json) | ✔️  |	⛔ | [Soft delete for blobs](soft-delete-blob-overview.md) |	⛔ |	⛔ |
-| [Disallow shared key authorization](../common/shared-key-authorization-prevent.md)  | ✔️ |	⛔ | [Last access time tracking for lifecycle management](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview) |	⛔|	⛔ |
-| [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md) |	✔️ |	⛔ | [Customer-provided keys for Azure Storage encryption](encryption-customer-provided-keys.md)  |	⛔ |	⛔ |
-| [Immutable Blob storage](storage-blob-immutable-storage.md) | ✔️    |	⛔ | [Static websites hosting](storage-blob-static-website.md) |	⛔  |	⛔ |
-| [Append blobs](storage-blobs-introduction.md#blobs) | ✔️   |	⛔ | [Page blobs](storage-blobs-introduction.md#blobs) | ⛔ |	⛔ |
-| [Azure Active Directory (AD) security](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json) | ⛔ |	⛔ | [Encryption scopes](encryption-scope-overview.md)  |	⛔ |	⛔ |
-| [Object replication for block blobs](object-replication-overview.md) | ⛔  |	⛔ | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |	⛔ |
-| [Blob storage events](storage-blob-event-overview.md)| ⛔ |	⛔ 
-
-  
-## Known issues
-
-- NFS 3.0 support can't be enabled on existing storage accounts.
-
-- NFS 3.0 support can't be disabled in a storage account after you've enabled it.
-
--  Files can't be viewed in either the Azure portal or Azure Storage Explorer. To list files and directories, either [mount a Blob Storage container by using the NFS 3.0 protocol](network-file-system-protocol-support-how-to.md), or use the [Blob service REST API](/rest/api/storageservices/blob-service-rest-api).
-
-### NFS 3.0 features not yet supported
-
-The following NFS 3.0 features aren't yet supported.
-
-- NFS 3.0 over UDP. Only NFS 3.0 over TCP is supported.
-
-- Locking files with Network Lock Manager (NLM). Mount commands must include the `-o nolock` parameter.
-
-- Mounting subdirectories. You can only mount the root directory (Container).
-
-- Listing mounts (For example: by using the command `showmount -a`)
-
-- Listing exports (For example: by using the command `showmount -e`)
-
-- Hard link
-
-- Exporting a container as read-only
-
-### NFS 3.0 clients not yet supported
-
-The following NFS 3.0 clients aren't yet supported.
-
-- Windows client for NFS
+See the [Known issues](network-file-system-protocol-known-issues.md) article for a complete list of issues and limitations with the current release of NFS 3.0 support.
 
 ## Pricing
 
-During the preview, the data stored in your storage account is billed at the same capacity rate that blob storage charges per GB per month. 
+See the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page for data storage and transaction costs. 
 
-A transaction is not charged during the preview. Pricing for transactions is subject to change and will be determined when it is generally available.
+## See also
 
-## Next steps
-
-- To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
-
-- To optimize performance, see [Network File System (NFS) 3.0 performance considerations in Azure Blob storage (preview)](network-file-system-protocol-support-performance.md).
+- [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](network-file-system-protocol-support-how-to.md)
+- [Network File System (NFS) 3.0 performance considerations in Azure Blob Storage](network-file-system-protocol-support-performance.md)
+- [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md)

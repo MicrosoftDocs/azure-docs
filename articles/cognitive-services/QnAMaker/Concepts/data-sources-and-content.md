@@ -15,7 +15,9 @@ A knowledge base consists of question and answer pairs brought in by public URLs
 
 Content is brought into a knowledge base from a data source. Data source locations are **public URLs or files**, which do not require authentication.
 
-[SharePoint files](../how-to/add-sharepoint-datasources.md), secured with authentication, are the exception. SharePoint resources must be files, not web pages. If the URL ends with a web extension, such as .ASPX, it will not import into QnA Maker from SharePoint.
+[SharePoint files](../how-to/add-sharepoint-datasources.md), secured with authentication, are the exception. SharePoint resources must be files, not web pages. 
+
+QnA Maker supports public URLs ending with a .ASPX web extension which are not secured with authentication.
 
 ## Chit-chat content
 
@@ -32,7 +34,7 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 
 ## Structured multi-turn format through import
 
-You can creating the multi-turn conversations in a `.tsv` file format. The format provides you with the ability to create the multi-turn conversations by analyzing previous chat logs (with other processes, not using QnA Maker), then create the `.tsv` file through automation. Import the file to replace the existing knowledge base.
+You can create the multi-turn conversations in a `.tsv` file format. The format provides you with the ability to create the multi-turn conversations by analyzing previous chat logs (with other processes, not using QnA Maker), then create the `.tsv` file through automation. Import the file to replace the existing knowledge base.
 
 > [!div class="mx-imgBorder"]
 > ![Conceptual model of 3 levels of multi-turn question](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
@@ -57,6 +59,13 @@ If you are unsure how to represent your QnA pair in the `.tsv` file:
 * Use this [downloadable example from GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
 * Or create the pair in the QnA Maker portal, save, then export the knowledge base for an example of how to represent the pair.
 
+## Unstructured data format 
+
+You can also create a knowledge base based on unstructured content imported via a file. Currently this functionality is available only via document upload for documents that are in any of the supported file formats.
+
+> [!IMPORTANT]
+> The support for unstructured content via file upload is available only in Custom question answering (preview release)
+
 ## Content types of documents you can add to a knowledge base
 Content types include many standard structured documents such as PDF, DOC, and TXT.
 
@@ -67,7 +76,7 @@ The table below summarizes the types of content and file formats that are suppor
 |Source Type|Content Type| Examples|
 |--|--|--|
 |URL|FAQs<br> (Flat, with sections or with a topics homepage)<br>Support pages <br> (Single page how-to articles, troubleshooting articles etc.)|[Plain FAQ](../troubleshooting.md), <br>[FAQ with links](https://www.microsoft.com/en-us/software-download/faq),<br> [FAQ with topics homepage](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Support article](./best-practices.md)|
-|PDF / DOC|FAQs,<br> Product Manual,<br> Brochures,<br> Paper,<br> Flyer Policy,<br> Support guide,<br> Structured QnA,<br> etc.|**Without Multi-turn**<br>[Structured QnA.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br><br>**Multi-turn**:<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso Benefits (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso Benefits (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)|
+|PDF / DOC|FAQs,<br> Product Manual,<br> Brochures,<br> Paper,<br> Flyer Policy,<br> Support guide,<br> Structured QnA,<br> etc.|**Without Multi-turn**<br>[Structured QnA.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br> [Unstructured blog.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Introducing-surface-laptop-4-and-new-access.pdf),<br> [Unstructured white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/sample-unstructured-paper.pdf)<br><br>**Multi-turn**:<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso Benefits (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso Benefits (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)|
 |*Excel|Structured QnA file<br> (including RTF, HTML support)|**Without Multi-turn**:<br>[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)<br><br>**Multi-turn**:<br>[Structured simple FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx)<br>[Surface laptop FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-Surface-Pro.xlsx)|
 |*TXT/TSV|Structured QnA file|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 

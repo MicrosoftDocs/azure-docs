@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro FPGA manage bandwidth schedules | Microsoft Docs 
+title: Azure Stack Edge Pro FPGA bandwidth schedules management
 description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro FPGA.
 services: databox
 author: alkohli

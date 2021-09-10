@@ -25,7 +25,7 @@ This guide will show you how to code for common scenarios using the Azure Queue 
 
 ## Create a Java application
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 First, verify that your development system meets the prerequisites listed in [Azure Queue Storage client library v12 for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
@@ -106,7 +106,7 @@ Open the `pom.xml` file in your text editor. Add the following dependency elemen
 </dependency>
 ```
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 First, verify your development system meets the prerequisites listed in the [Azure Storage SDK for Java v8](https://github.com/azure/azure-storage-java). Follow the instructions for downloading and installing the Azure Storage libraries for Java. Then you can create a Java application using the examples in this article.
 
@@ -116,11 +116,11 @@ First, verify your development system meets the prerequisites listed in the [Azu
 
 Add the following import statements to the top of the Java file where you want to use Azure Storage APIs to access queues:
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ImportStatements":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 ```java
 // Include the following imports to use queue APIs.
@@ -134,11 +134,11 @@ import com.microsoft.azure.storage.queue.*;
 
 An Azure Storage client uses a storage connection string for accessing data management services. Get the name and the primary access key for your storage account listed in the [Azure portal](https://portal.azure.com). Use them as the `AccountName` and `AccountKey` values in the connection string. This example shows how you can declare a static field to hold the connection string:
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ConnectionString":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 ```java
 // Define the connection-string with your values.
@@ -162,13 +162,13 @@ The following samples assume that you have a `String` object containing the stor
 
 ## How to: Create a queue
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 A `QueueClient` object contains the operations for interacting with a queue. The following code creates a `QueueClient` object. Use the `QueueClient` object to create the queue you want to use.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_CreateQueue":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 A `CloudQueueClient` object lets you get reference objects for queues. The following code creates a `CloudQueueClient` object that provides a reference to the queue you want to use. You can create the queue if it doesn't exist.
 
@@ -202,13 +202,13 @@ catch (Exception e)
 
 ## How to: Add a message to a queue
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 To insert a message into an existing queue, call the `sendMessage` method. A message can be either a string (in UTF-8 format) or a byte array. Here is code that sends a string message into the queue.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_AddMessage":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 To insert a message into an existing queue, first create a new `CloudQueueMessage`. Next, call the `addMessage` method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array. Here is code that creates a queue (if it doesn't exist) and inserts the message `Hello, World`.
 
@@ -245,11 +245,11 @@ catch (Exception e)
 
 You can peek at the message in the front of a queue without removing it from the queue by calling `peekMessage`.
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_PeekMessage":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 ```java
 try
@@ -286,13 +286,13 @@ catch (Exception e)
 
 You can change the contents of a message in-place in the queue. If the message represents a work task, you could use this feature to update the status. The following code updates a queue message with new contents and sets the visibility timeout to extend another 30 seconds. Extending the visibility timeout gives the client another 30 seconds to continue working on the message. You could keep a retry count, as well. If the message is retried more than *n* times, you would delete it. This scenario protects against a message that triggers an application error each time it's processed.
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 The following code sample searches through the queue of messages, locates the first message content that matches a search string, modifies the message content, and exits.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_UpdateSearchMessage":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 The following code sample searches through the queue of messages, locates the first message content that matches `Hello, world`, modifies the message content, and exits.
 
@@ -341,11 +341,11 @@ catch (Exception e)
 
 The following code sample updates just the first visible message in the queue.
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_UpdateFirstMessage":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 ```java
 try
@@ -388,13 +388,13 @@ catch (Exception e)
 
 You can get an estimate of the number of messages in a queue.
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 The `getProperties` method returns several values including the number of messages currently in a queue. The count is only approximate because messages can be added or removed after your request. The `getApproximateMessageCount` method returns the last value retrieved by the call to `getProperties`, without calling Queue Storage.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_GetQueueLength":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 The `downloadAttributes` method retrieves several values including the number of messages currently in a queue. The count is only approximate because messages can be added or removed after your request. The `getApproximateMessageCount` method returns the last value retrieved by the call to `downloadAttributes`, without calling Queue Storage.
 
@@ -431,13 +431,13 @@ catch (Exception e)
 
 ## How to: Dequeue the next message
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 Your code dequeues a message from a queue in two steps. When you call `receiveMessage`, you get the next message in a queue. A message returned from `receiveMessage` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call `deleteMessage`. If your code fails to process a message, this two-step process ensures that you can get the same message and try again. Your code calls `deleteMessage` right after the message has been processed.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 Your code dequeues a message from a queue in two steps. When you call `retrieveMessage`, you get the next message in a queue. A message returned from `retrieveMessage` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call `deleteMessage`. If your code fails to process a message, this two-step process ensures that you can get the same message and try again. Your code calls `deleteMessage` right after the message has been processed.
 
@@ -476,13 +476,13 @@ catch (Exception e)
 
 There are two ways to customize message retrieval from a queue. First, get a batch of messages (up to 32). Second, set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message.
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 The following code example uses the `receiveMessages` method to get 20 messages in one call. Then it processes each message using a `for` loop. It also sets the invisibility timeout to five minutes (300 seconds) for each message. The timeout starts for all messages at the same time. When five minutes have passed since the call to `receiveMessages`, any messages not deleted will become visible again.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessages":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 The following code example uses the `retrieveMessages` method to get 20 messages in one call. Then it processes each message using a `for` loop. It also sets the invisibility timeout to five minutes (300 seconds) for each message. The timeout starts for all messages at the same time. When five minutes have passed since the call to `retrieveMessages`, any messages not deleted will become visible again.
 
@@ -517,13 +517,13 @@ catch (Exception e)
 
 ## How to: List the queues
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 To obtain a list of the current queues, call the `QueueServiceClient.listQueues()` method, which will return a collection of `QueueItem` objects.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ListQueues":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 To obtain a list of the current queues, call the `CloudQueueClient.listQueues()` method, which will return a collection of `CloudQueue` objects.
 
@@ -556,13 +556,13 @@ catch (Exception e)
 
 ## How to: Delete a queue
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 To delete a queue and all the messages contained in it, call the `delete` method on the `QueueClient` object.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DeleteMessageQueue":::
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 To delete a queue and all the messages contained in it, call the `deleteIfExists` method on the `CloudQueue` object.
 

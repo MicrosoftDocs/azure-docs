@@ -4,8 +4,9 @@ description: This PowerShell script shows how to use Azure Data Factory to copy 
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: article
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 10/31/2017
 ---
 

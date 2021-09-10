@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 07/20/2021
 ---
 
 # Tag support for Azure resources
@@ -1614,7 +1614,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | actionGroups | Yes | Yes |
+> | actionGroups | Yes | No |
 > | activityLogAlerts | Yes | Yes |
 > | alertrules | Yes | Yes |
 > | autoscalesettings | Yes | Yes |
@@ -1957,7 +1957,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | Yes | No |
 > | netAppAccounts / accountBackups | No | No |
-> | netAppAccounts / capacityPools | Yes | No |
+> | netAppAccounts / capacityPools | Yes | Yes |
 > | netAppAccounts / capacityPools / volumes | Yes | No |
 > | netAppAccounts / capacityPools / volumes / snapshots | No | No |
 > | netAppAccounts / volumeGroups | No | No |
@@ -2562,7 +2562,7 @@ Jump to a resource provider namespace:
 > | servers / restorableDroppedDatabases | No | No |
 > | servers / serviceobjectives | No | No |
 > | servers / tdeCertificates | No | No |
-> | virtualClusters | Yes | Yes |
+> | virtualClusters | No | No |
 
 <a id="sqlnote"></a>
 

@@ -1,26 +1,25 @@
 ---
-title: Delete Azure Arc enabled SQL Managed Instance
-description: Delete Azure Arc enabled SQL Managed Instance
+title: Delete Azure Arc-enabled SQL Managed Instance
+description: Delete Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: rothja
-ms.author: jroth
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Delete Azure Arc enabled SQL Managed Instance
-This article describes how you can delete an Azure Arc enabled SQL Managed Instance.
+# Delete Azure Arc-enabled SQL Managed Instance
+This article describes how you can delete an Azure Arc-enabled SQL Managed Instance.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## View Existing Azure Arc enabled SQL Managed Instances
+## View Existing Azure Arc-enabled SQL Managed Instances
 To view SQL Managed Instances, run the following command:
 
-```console
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 Output should look something like this:
@@ -31,17 +30,17 @@ Name    Replicas    ServerEndpoint    State
 demo-mi 1/1         10.240.0.4:32023  Ready
 ```
 
-## Delete a Azure Arc enabled SQL Managed Instance
+## Delete a Azure Arc-enabled SQL Managed Instance
 To delete a SQL Managed Instance, run the following command:
 
-```console
-azdata arc sql mi delete -n <NAME_OF_INSTANCE>
+```azurecli
+az sql mi-arc delete -n <NAME_OF_INSTANCE> --k8s-namespace <namespace> --use-k8s
 ```
 
 Output should look something like this:
 
-```console
-# azdata arc sql mi delete -n demo-mi
+```azurecli
+# az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
 Deleted demo-mi from namespace arc
 ```
 
@@ -85,7 +84,7 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
   
 
 > [!NOTE]
-> As indicated, not deleting the PVCs might eventually get your Kubernetes cluster in a situation where it will throw errors. Some of these errors may include being unable to login to your Kubernetes cluster with azdata as the pods may be evicted from it because of this storage issue (normal Kubernetes behavior).
+> As indicated, not deleting the PVCs might eventually get your Kubernetes cluster in a situation where it will throw errors. Some of these errors may include being unable to create, read, update, delete resources from the Kubernetes API, or being able to run commands like `az arcdata dc export` as the controller pods may be evicted from the Kubernetes nodes because of this storage issue (normal Kubernetes behavior).
 >
 > For example, you may see messages in the logs similar to:  
 > - Annotations:    microsoft.com/ignore-pod-health: true  
@@ -95,8 +94,8 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
 
 ## Next steps
 
-Learn more about [Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
+Learn more about [Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
 
 [Start by creating a Data Controller](create-data-controller.md)
 
-Already created a Data Controller? [Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
+Already created a Data Controller? [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)

@@ -7,7 +7,8 @@ author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/02/2020
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Quickstart: Create an Azure Private Endpoint using Azure PowerShell

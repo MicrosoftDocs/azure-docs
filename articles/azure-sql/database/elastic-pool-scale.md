@@ -7,9 +7,9 @@ ms.subservice: elastic-pools
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
-ms.reviewer: sstein
+author: arvindshmicrosoft 
+ms.author: arvindsh
+ms.reviewer: mathoma
 ms.date: 04/09/2021
 ---
 # Scale elastic pool resources in Azure SQL Database

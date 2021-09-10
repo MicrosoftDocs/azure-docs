@@ -3,8 +3,8 @@ title: Azure IoT glossary of terms | Microsoft Docs
 description: Developer guide - a glossary explaining some of the common terms used in the Azure IoT articles.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-hub
-services: iot-hub
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/08/2021
 ---
@@ -80,6 +80,10 @@ A type of [endpoint](#endpoint) that is built into IoT Hub. Every IoT hub includ
 ### Cloud gateway
 
 A cloud gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). A cloud gateway is hosted in the cloud in contrast to a [field gateway](#field-gateway) that runs local to your devices. A typical use case for a cloud gateway is to implement protocol translation for your devices.
+
+### Cloud property
+
+In IoT Central, cloud properties are part of the [device template](#device-model), but aren't part of the [device model](#device-model). Cloud properties let the solution developer specify any device metadata to store in the IoT Central application. Cloud properties don't affect the code that a device developer writes to implement the device model.
 
 ### Cloud-to-device
 
@@ -173,7 +177,7 @@ Device management encompasses the full lifecycle associated with managing the de
 
 ### Device model
 
-A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-modeling-guide.md).
+A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-develop/concepts-modeling-guide.md).
 
 ### Device modeling
 
@@ -191,6 +195,10 @@ IoT Hub Device Provisioning Service (DPS) is a helper service for [IoT Hub](#iot
 
 You can use the [Device REST API](/rest/api/iothub/device) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
 
+### Device template
+
+In IoT Central, a [device template](../iot-central/core/concepts-device-templates.md) is a blueprint that defines the characteristics and behaviors of a type of device that connects to your application. For example, the device template defines the telemetry that a device sends so that IoT Central can create visualizations that use the correct units and data types. A [device model](#device-model) is part of the device template.
+
 ### Device twin
 
 A device twin is JSON document that stores device state information such as metadata, configurations, and conditions. IoT Hub persists a device twin for each device that you provision in your IoT hub. Device twins enable you to synchronize device conditions and configurations between the device and the solution back end. You can query device twins to locate specific devices and for the status of long-running operations.
@@ -201,7 +209,7 @@ Refers to messages sent from a connected device to [IoT Hub](#iot-hub). These me
 
 ### Digital twin
 
-A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language (DTDL)](#digital-twins-definition-language-dtdl) to represent digital twins of physical devices or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin solutions. An [IoT Plug and Play](../iot-pnp/index.yml) device has a digital twin, described by a DTDL [device model](#device-model).
+A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language (DTDL)](#digital-twins-definition-language-dtdl) to represent digital twins of physical devices or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin solutions. An [IoT Plug and Play](../iot-develop/index.yml) device has a digital twin, described by a DTDL [device model](#device-model).
 
 ### Digital twin change events
 
@@ -363,7 +371,9 @@ Azure IoT solution accelerators package together multiple Azure services into so
 
 ### Job
 
-Your solution back end can use [jobs](../iot-hub/iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses  to [import to and export](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
+In [IoT Hub](#iot-hub), [jobs](../iot-hub/iot-hub-devguide-jobs.md) let you schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). IoT Hub also uses jobs to [import to and export](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
+
+In IoT Central, [jobs](../iot-central/core/howto-manage-devices-in-bulk.md) let you manage your connected devices in bulk by setting properties and calling commands. IoT Central jobs also let you update [cloud properties](#cloud-property) in bulk.
 
 ## L
 
@@ -385,7 +395,7 @@ The [Device Provisioning Service (DPS)](#device-provisioning-service), can provi
 
 A model defines a type of entity in your physical environment, including its properties, telemetries, components, and sometimes other information. Models are used to create [digital twins](#digital-twin) that represent specific physical objects of this type. Models are written in the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl).
 
-In the [Azure Digital Twins service](../digital-twins/index.yml), models can define devices or higher-level abstract business concepts. In [IoT Plug and Play](../iot-pnp/index.yml), [device models](#device-model) are used to describe devices specifically.
+In the [Azure Digital Twins service](../digital-twins/index.yml), models can define devices or higher-level abstract business concepts. In [IoT Plug and Play](../iot-develop/index.yml), [device models](#device-model) are used to describe devices specifically.
 
 ### Model ID
 

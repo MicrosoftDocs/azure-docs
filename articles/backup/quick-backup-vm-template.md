@@ -4,7 +4,7 @@ description: Learn how to back up your virtual machines with Azure Resource Mana
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.custom: mvc,subject-armqs
+ms.custom: mvc,subject-armqs, devx-track-azurepowershell
 ---
 
 # Quickstart: Back up a virtual machine in Azure with an ARM template
@@ -21,7 +21,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure quickstart Templates](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services vault configured with the DefaultPolicy for Protection.
+The template used in this quickstart is from [Azure quickstart Templates](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services vault configured with the DefaultPolicy for Protection.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.recoveryservices/recovery-services-create-vm-and-configure-backup/azuredeploy.json":::
 
@@ -32,7 +32,7 @@ The resources defined in the template are:
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.RecoveryServices/vaults**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults)
 - [**Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems)
 
