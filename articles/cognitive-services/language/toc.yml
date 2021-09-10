@@ -138,6 +138,8 @@ items:
   items:
   - name: Overview
     href: language-detection/overview.md
+  - name: Language support
+    href: language-detection/language-support.md 
   - name: Quickstart
     href: language-detection/quickstart.md 
   - name: How-to
