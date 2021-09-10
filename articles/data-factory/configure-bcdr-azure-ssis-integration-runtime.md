@@ -73,7 +73,7 @@ To configure a dual standby Azure-SSIS IR pair that works in sync with Azure SQL
 
    1. For each SSIS job, right-click and select the **Script Job as**, **CREATE To**, and **New Query Editor Window** dropdown menu items to generate its script.
 
-      ![Generate SSIS job script](media/configure-bcdr-azure-ssis-integration-runtime/generate-ssis-job-script.png)
+      :::image type="content" source="media/configure-bcdr-azure-ssis-integration-runtime/generate-ssis-job-script.png" alt-text="Generate SSIS job script":::
 
    1. For each generated SSIS job script, find the command to execute `sp_add_job` stored procedure and modify/remove the value assignment to `@owner_login_name` argument as necessary.
 

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 
@@ -119,7 +119,7 @@ The below table lists the properties supported by an Excel source. You can edit 
 
 The below image is an example of an Excel source configuration in mapping data flows using dataset mode.
 
-![Excel source](media/data-flow/excel-source.png)
+:::image type="content" source="media/data-flow/excel-source.png" alt-text="Excel source":::
 
 The associated data flow script is:
 
@@ -131,7 +131,7 @@ source(allowSchemaDrift: true,
 
 If you use inline dataset, you see the following source options in mapping data flow.
 
-![Excel source inline dataset](media/data-flow/excel-source-inline-dataset.png)
+:::image type="content" source="media/data-flow/excel-source-inline-dataset.png" alt-text="Excel source inline dataset":::
 
 The associated data flow script is:
 

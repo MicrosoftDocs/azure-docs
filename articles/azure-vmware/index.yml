@@ -81,8 +81,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-        - text: Deploy Zerto DR
-          url: deploy-zerto-disaster-recovery.md
         - text: Deploy VMware HCX for disaster recovery
           url: deploy-disaster-recovery-using-vmware-hcx.md
         - text: Deploy VMware SRM for disaster recovery
