@@ -154,7 +154,7 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 ## Authentication with Azure Active Directory (Azure AD)
 
- Translator v3.0 supports Azure AD authentication, Microsoft’s cloud-based identity and access management solution.  Authorization headers enable the Translator service to validate the requesting client is authorized to use the resource and to complete the request.
+ Translator v3.0 supports Azure AD authentication, Microsoft’s cloud-based identity and access management solution.  Authorization headers enable the Translator service to validate that the requesting client is authorized to use the resource and to complete the request.
 
 ### **Prerequisites**
 
