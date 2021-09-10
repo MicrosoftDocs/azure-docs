@@ -1,8 +1,6 @@
 ---
 title: Emergency Rotation of the AD FS certificates | Microsoft Docs
 description: This article explains how to revoke and update AD FS certificates immediately.
-services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -26,9 +24,9 @@ In the event that you need to rotate the AD FS certificates immediately, you can
 ## Determine your Token Signing Certificate thumbprint
 In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-sigining certificate.  To do this, use the following steps below:
 
- 1.	Connect to the Microsoft Online Service
+ 1.    Connect to the Microsoft Online Service
 `PS C:\>Connect-MsolService`
- 2.	Document both your on-premise and cloud Token Signing Certificate thumbprint and expiration dates.
+ 2.    Document both your on-premise and cloud Token Signing Certificate thumbprint and expiration dates.
 `PS C:\>Get-MsolFederationProperty -DomainName <domain>` 
  3.  Copy down the the thumbprint.  It will be used later to remove the existing certificates.
 
@@ -102,7 +100,7 @@ Open the Microsoft Azure Active Directory Module for Windows PowerShell. Alterna
 Connect to Azure AD by run the following command: `Connect-MsolService`, and then, enter your global administrator credentials.
 
 >[!Note]
-> If you are running these commands on a computer that is not the primary federation server, enter the following command first: `Set-MsolADFSContext –Computer <servername>`. Replace <servername> with the name of the AD FS server. Then enter the administrator credentials for the AD FS server when prompted.
+> If you are running these commands on a computer that is not the primary federation server, enter the following command first: `Set-MsolADFSContext –Computer <servername>`. Replace \<servername\> with the name of the AD FS server. Then enter the administrator credentials for the AD FS server when prompted.
 
 Optionally, verify whether an update is required by checking the current certificate information in Azure AD. To do so, run the following command: `Get-MsolFederationProperty`. Enter the name of the Federated domain when prompted.
 
