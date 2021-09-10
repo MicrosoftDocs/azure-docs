@@ -242,7 +242,7 @@ The Shaper skill is easy to work with because it focuses shaping under one skill
       "sourceContext": "/document/reviews_text/pages/*",
       "inputs": [
         {
-          "name": "SentimentScore",
+          "name": "Sentiment",
           "source": "/document/reviews_text/pages/*/Sentiment"
         },
         {

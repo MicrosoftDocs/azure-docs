@@ -23,7 +23,7 @@ Azure Spring Cloud requires two dedicated subnets:
 * Service runtime
 * Spring Boot applications
 
-Each of these subnets requires a dedicated cluster. Multiple clusters can't share the same subnets. The minimum size of each subnet is /28. The number of application instances that Azure Spring Cloud can support varies based on the size of the subnet. You can find the detailed Virtual Network (VNET) requirements in the [Virtual network requirements][11] section of [Deploy Azure Spring Cloud in a virtual network][17].
+Each of these subnets requires a dedicated Azure Spring Cloud cluster. Multiple clusters can't share the same subnets. The minimum size of each subnet is /28. The number of application instances that Azure Spring Cloud can support varies based on the size of the subnet. You can find the detailed Virtual Network (VNET) requirements in the [Virtual network requirements][11] section of [Deploy Azure Spring Cloud in a virtual network][17].
 
 > [!WARNING]
 > The selected subnet size can't overlap with the existing VNET address space, and shouldn't overlap with any peered or on-premises subnet address ranges.
@@ -32,8 +32,8 @@ Each of these subnets requires a dedicated cluster. Multiple clusters can't shar
 
 Typical uses for this architecture include:
 
-* Internal applications deployed in hybrid cloud environments
-* Externally facing applications
+* Private applications: Internal applications deployed in hybrid cloud environments
+* Public applications: Externally facing applications
 
 These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
 
@@ -41,20 +41,20 @@ These use cases are similar except for their security and network traffic rules.
 
 The following list describes the infrastructure requirements for private applications. These requirements are typical in highly regulated environments.
 
-* No direct egress to the public Internet except for control plane traffic.
-* Egress traffic should travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall).
+* A subnet must only have one instance of Azure Spring Cloud.
+* Adherence to at least one Security Benchmark should be enforced.
+* Application host Domain Name Service (DNS) records should be stored in Azure Private DNS.
+* Azure service dependencies should communicate through Service Endpoints or Private Link.
 * Data at rest should be encrypted.
 * Data in transit should be encrypted.
 * DevOps deployment pipelines can be used (for example, Azure DevOps) and require network connectivity to Azure Spring Cloud.
+* Egress traffic should travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall).
+* If [Azure Spring Cloud Config Server][8] is used to load config properties from a repository, the repository must be private.
 * Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault.
-* Application host Domain Name Service (DNS) records should be stored in Azure Private DNS.
 * Name resolution of hosts on-premises and in the Cloud should be bidirectional.
-* Adherence to at least one Security Benchmark should be enforced.
-* Azure service dependencies should communicate through Service Endpoints or Private Link.
+* No direct egress to the public Internet except for control plane traffic.
 * Resource Groups managed by the Azure Spring Cloud deployment must not be modified.
 * Subnets managed by the Azure Spring Cloud deployment must not be modified.
-* A subnet must only have one instance of Azure Spring Cloud.
-* If [Azure Spring Cloud Config Server][8] is used to load config properties from a repository, the repository must be private.
 
 The following list shows the components that make up the design:
 
@@ -62,24 +62,24 @@ The following list shows the components that make up the design:
   * Domain Name Service (DNS)
   * Gateway
 * Hub subscription
-  * Azure Firewall Subnet
   * Application Gateway Subnet
+  * Azure Firewall Subnet
   * Shared Services Subnet
 * Connected subscription
-  * Virtual Network Peer
   * Azure Bastion Subnet
+  * Virtual Network Peer
 
 The following list describes the Azure services in this reference architecture:
-
-* [Azure Spring Cloud][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
 
 * [Azure Key Vault][2]: a hardware-backed credential management service that has tight integration with Microsoft identity services and compute resources.
 
 * [Azure Monitor][3]: an all-encompassing suite of monitoring services for applications that deploy both in Azure and on-premises.
 
+* [Azure Pipelines][5]: a fully featured Continuous Integration / Continuous Development (CI/CD) service that can automatically deploy updated Spring Boot apps to Azure Spring Cloud.
+
 * [Azure Security Center][4]: a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure.
 
-* [Azure Pipelines][5]: a fully featured Continuous Integration / Continuous Development (CI/CD) service that can automatically deploy updated Spring Boot apps to Azure Spring Cloud.
+* [Azure Spring Cloud][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
 
 The following diagram represents a well-architected hub and spoke design that addresses the above requirements:
 
@@ -87,24 +87,24 @@ The following diagram represents a well-architected hub and spoke design that ad
 
 ## Public applications
 
-The following list describes the infrastructure requirements for public applications. These requirements are typical in highly regulated environments.
+The following list describes the infrastructure requirements for public applications. These requirements are typical in highly regulated environments. These requirements are a superset of those in the preceding section. Additional items are indicated with italics.
 
-* Ingress traffic should be managed by at least Application Gateway or Azure Front Door.
-* Azure DDoS Protection standard should be enabled.
-* No direct egress to the public Internet except for control plane traffic.
-* Egress traffic should traverse a central Network Virtual Appliance (NVA) (for example, Azure Firewall).
+* A subnet must only have one instance of Azure Spring Cloud.
+* Adherence to at least one Security Benchmark should be enforced.
+* Application host Domain Name Service (DNS) records should be stored in Azure Private DNS.
+* _Azure DDoS Protection standard should be enabled._
+* Azure service dependencies should communicate through Service Endpoints or Private Link.
 * Data at rest should be encrypted.
 * Data in transit should be encrypted.
 * DevOps deployment pipelines can be used (for example, Azure DevOps) and require network connectivity to Azure Spring Cloud.
+* Egress traffic should travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall).
+* _Ingress traffic should be managed by at least Application Gateway or Azure Front Door._
+* _Internet routable addresses should be stored in Azure Public DNS._
 * Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault.
-* Application host DNS records should be stored in Azure Private DNS.
-* Internet routable addresses should be stored in Azure Public DNS.
 * Name resolution of hosts on-premises and in the Cloud should be bidirectional.
-* Adherence to at least one Security Benchmark should be enforced.
-* Azure service dependencies should communicate through Service Endpoints or Private Link.
+* No direct egress to the public Internet except for control plane traffic.
 * Resource Groups managed by the Azure Spring Cloud deployment must not be modified.
 * Subnets managed by the Azure Spring Cloud deployment must not be modified.
-* A subnet must only have one instance of Azure Spring Cloud.
 
 The following list shows the components that make up the design:
 
@@ -112,30 +112,30 @@ The following list shows the components that make up the design:
   * Domain Name Service (DNS)
   * Gateway
 * Hub subscription
-  * Azure Firewall Subnet
   * Application Gateway Subnet
+  * Azure Firewall Subnet
   * Shared Services Subnet
 * Connected subscription
-  * Virtual Network Peer
   * Azure Bastion Subnet
+  * Virtual Network Peer
 
 The following list describes the Azure services in this reference architecture:
 
-* [Azure Spring Cloud][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
+* _[Azure Application Firewall][7]: a feature of Azure Application Gateway that provides centralized protection of applications from common exploits and vulnerabilities._
+
+* _[Azure Application Gateway][6]: a load balancer responsible for application traffic with Transport Layer Security (TLS) offload operating at layer 7._
 
 * [Azure Key Vault][2]: a hardware-backed credential management service that has tight integration with Microsoft identity services and compute resources.
 
 * [Azure Monitor][3]: an all-encompassing suite of monitoring services for applications that deploy both in Azure and on-premises.
 
-* [Azure Security Center][4]: a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure.
-
 * [Azure Pipelines][5]: a fully featured Continuous Integration / Continuous Development (CI/CD) service that can automatically deploy updated Spring Boot apps to Azure Spring Cloud.
 
-* [Azure Application Gateway][6]: a load balancer responsible for application traffic with Transport Layer Security (TLS) offload operating at layer 7.
+* [Azure Security Center][4]: a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure.
 
-* [Azure Application Firewall][7]: a feature of Azure Application Gateway that provides centralized protection of applications from common exploits and vulnerabilities.
+* [Azure Spring Cloud][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
 
-The following diagram represents a well-architected hub and spoke design that addresses the above requirements:
+The following diagram represents a well-architected hub and spoke design that addresses the above requirements.  Note that only the hub-virtual-network communicates with the internet:
 
 ![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public.png)
 
@@ -167,17 +167,17 @@ Azure Spring Cloud addresses multiple aspects of operational excellence. You can
 
 ### Reliability
 
-Azure Spring Cloud is designed with AKS as a foundational component. While AKS provides a level of resiliency through clustering, this reference architecture incorporates services and architectural considerations to increase availability of the application if there's component failure.
+Azure Spring Cloud is built on AKS. While AKS provides a level of resiliency through clustering, this reference architecture goes even further by incorporating services and architectural considerations to increase availability of the application if there's component failure.
 
 By building on top of a well-defined hub and spoke design, the foundation of this architecture ensures that you can deploy it to multiple regions. For the private application use case, the architecture uses Azure Private DNS to ensure continued availability during a geographic failure. For the public application use case, Azure Front Door and Azure Application Gateway ensure availability.
 
 ### Security
 
-The security of this architecture is addressed by its adherence to industry-defined controls and benchmarks. The controls in this architecture are from the [Cloud Control Matrix][19] (CCM) by the [Cloud Security Alliance][18] (CSA) and the [Microsoft Azure Foundations Benchmark][20] (MAFB) by the [Center for Internet Security][21] (CIS). In the applied controls, the focus is on the primary security design principles of governance, networking, and application security. It is your responsibility to handle the design principles of Identity, Access Management, and Storage as they relate to your target infrastructure.
+The security of this architecture is addressed by its adherence to industry-defined controls and benchmarks. In this context, "control" means a concise and well-defined best practice, such as "Employ the least privilege principle when implementing information system access. IAM-05" The controls in this architecture are from the [Cloud Control Matrix][19] (CCM) by the [Cloud Security Alliance][18] (CSA) and the [Microsoft Azure Foundations Benchmark][20] (MAFB) by the [Center for Internet Security][21] (CIS). In the applied controls, the focus is on the primary security design principles of governance, networking, and application security. It is your responsibility to handle the design principles of Identity, Access Management, and Storage as they relate to your target infrastructure.
 
 #### Governance
 
-The primary aspect of governance that this architecture addresses is segregation through the isolation of network resources. In the CCM, DCS-08 recommends ingress and egress control for the datacenter. To satisfy the control, the architecture uses a hub and spoke design using Network Security Groups (NSGs) to filter east-west traffic between resources. The architecture also filters traffic between central services in the hub and resources in the spoke. The architecture uses an instance of Azure Firewall to manage traffic between the Internet and the resources within the architecture.
+The primary aspect of governance that this architecture addresses is segregation through the isolation of network resources. In the CCM, DCS-08 recommends ingress and egress control for the datacenter. To satisfy the control, the architecture uses a hub and spoke design using Network Security Groups (NSGs) to filter east-west traffic between resources. The architecture also filters traffic between central services in the hub and resources in the spoke. The architecture uses an instance of Azure Firewall to manage traffic between the internet and the resources within the architecture.
 
 The following list shows the control that addresses datacenter security in this reference:
 
@@ -187,7 +187,7 @@ The following list shows the control that addresses datacenter security in this 
 
 #### Network
 
-The network design supporting this architecture is derived from the traditional hub and spoke model. This decision ensures that network isolation is a foundational construct. CCM control IVS-06 recommends that traffic between networks and virtual machines are restricted and monitored between trusted and untrusted environments. This architecture adopts the control by implementation of the NSGs for east-west traffic, and the Azure Firewall for north-south traffic. CCM control IPY-04 recommends that the infrastructure should use secure network protocols for the exchange of data between services. The Azure services supporting this architecture all use standard secure protocols such as TLS for HTTP and SQL.
+The network design supporting this architecture is derived from the traditional hub and spoke model. This decision ensures that network isolation is a foundational construct. CCM control IVS-06 recommends that traffic between networks and virtual machines are restricted and monitored between trusted and untrusted environments. This architecture adopts the control by implementation of the NSGs for east-west traffic (within the "data center"), and the Azure Firewall for north-south traffic (outside of the "data center"). CCM control IPY-04 recommends that the infrastructure should use secure network protocols for the exchange of data between services. The Azure services supporting this architecture all use standard secure protocols such as TLS for HTTP and SQL.
 
 The following list shows the CCM controls that address network security in this reference:
 

@@ -1,7 +1,7 @@
 ---
-title: Execute Pipeline Activity in Azure Data Factory 
+title: Execute Pipeline Activity
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how you can use the Execute Pipeline Activity to invoke one Data Factory pipeline from another Data Factory pipeline.
+description: Learn how you can use the Execute Pipeline Activity to invoke one pipeline from another pipeline in Azure Data Factory or Synapse Analytics.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -9,16 +9,14 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 09/09/2021
 ---
 
-# Execute Pipeline activity in Azure Data Factory
+# Execute Pipeline activity in Azure Data Factory and Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Execute Pipeline activity allows a Data Factory pipeline to invoke another pipeline.
-
-
+The Execute Pipeline activity allows a Data Factory or Synapse pipeline to invoke another pipeline.
 
 ## Syntax
 
@@ -251,7 +249,7 @@ The master pipeline forwards these values to the invoked pipeline as shown in th
 
 ```
 ## Next steps
-See other control flow activities supported by Data Factory: 
+See other supported control flow activities: 
 
 - [For Each Activity](control-flow-for-each-activity.md)
 - [Get Metadata Activity](control-flow-get-metadata-activity.md)

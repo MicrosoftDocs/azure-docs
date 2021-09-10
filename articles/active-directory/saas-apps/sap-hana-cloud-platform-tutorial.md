@@ -27,7 +27,7 @@ To configure Azure AD integration with SAP Cloud Platform, you need the followin
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * SAP Cloud Platform single sign-on enabled subscription
 
-After completing this tutorial, the Azure AD users you have assigned to SAP Cloud Platform will be able to single sign into the application using the [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+After completing this tutorial, the Azure AD users you have assigned to SAP Cloud Platform will be able to single sign into the application using the [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 >[!IMPORTANT]
 >You need to deploy your own application or subscribe to an application on your SAP Cloud Platform account to test single sign on. In this tutorial, an application is deployed in the account.
@@ -249,7 +249,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to SAP Cloud Platform Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the SAP Cloud Platform tile in the My Apps, you should be automatically signed in to the SAP Cloud Platform for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the SAP Cloud Platform tile in the My Apps, you should be automatically signed in to the SAP Cloud Platform for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
