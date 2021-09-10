@@ -1,7 +1,7 @@
 ---
 title: Flatten transformation in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Denormalize hierarchical data using the flatten transformation
+description: Denormalize hierarchical data using the flatten transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 09/09/2021
 ---
 
 # Flatten transformation in mapping data flow
@@ -50,7 +50,7 @@ Enter a pattern matching condition for the column or columns that you wish to fl
 
 ### Deep column traversal
 
-Optional setting that tells ADF to handle all subcolumns of a complex object individually instead of handling the complex object as a whole column.
+Optional setting that tells the service to handle all subcolumns of a complex object individually instead of handling the complex object as a whole column.
 
 ### Hierarchy level
 

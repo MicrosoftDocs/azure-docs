@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/13/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,8 @@ To get started, you need:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * New Relic supports SSO that's initiated by either the service provider or the identity provider.
+
+* New Relic supports [Automated user provisioning](new-relic-by-organization-provisioning-tutorial.md).
 
 ## Add New Relic from the gallery
 
@@ -144,6 +146,9 @@ In this section, you create a user called B.Simon in New Relic.
    1. Choose a user **Type** and a user **Group** for the user. For a test user, **Basic user** for Type and **User** for Group are reasonable choices.
    
    1. To save the user, select **Add User**.
+
+> [!NOTE]
+> New Relic also supports automatic user provisioning, you can find more details [here](./new-relic-by-organization-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
