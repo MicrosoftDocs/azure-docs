@@ -668,13 +668,13 @@ The following table explains the binding configuration properties that you set i
 |**direction**     | n/a | Must be set to `out`.         |
 |**name**     | n/a | Name of the binding parameter that represents the document in the function.  |
 |**databaseName** | **DatabaseName**|The database containing the collection where the document is created.     |
-|**collectionName** |**CollectionName**  | The name of the collection where the document is created. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `ContainerName`. |
+|**collectionName** <br> or <br> **containerName** |**CollectionName** <br> or <br> **ContainerName** | The name of the collection where the document is created. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `ContainerName`. |
 |**createIfNotExists**  |**CreateIfNotExists**    | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false* because new collections are created with reserved throughput, which has cost implications. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
 |**partitionKey**|**PartitionKey** |When `CreateIfNotExists` is true, it defines the partition key path for the created collection.|
-|**collectionThroughput**|**CollectionThroughput**| When `CreateIfNotExists` is true, it defines the [throughput](../cosmos-db/set-throughput.md) of the created collection. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `ContainerThroughput`. |
-|**connectionStringSetting**    |**ConnectionStringSetting** |The name of the app setting containing your Azure Cosmos DB connection string.  <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `Connection`. The value is the name of an app setting that either contains the connection string or a configuration section which defines the connection. See [Connections](./functions-reference.md#connections). |
+|**collectionThroughput** <br> or <br> **containerThroughput**|**CollectionThroughput** <br> or <br> **ContainerThroughput**| When `CreateIfNotExists` is true, it defines the [throughput](../cosmos-db/set-throughput.md) of the created collection. <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `ContainerThroughput`. |
+|**connectionStringSetting** <br> or <br> **connection**   |**ConnectionStringSetting** <br> or <br> **Connection**|The name of the app setting containing your Azure Cosmos DB connection string.  <br><br> In [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) this property is called `Connection`. The value is the name of an app setting that either contains the connection string or contains a configuration section or prefix which defines the connection. See [Connections](./functions-reference.md#connections). |
 |**preferredLocations**| **PreferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
-|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (Optional) When set to `true` along with `PreferredLocations`, it can leverage [multi-region writes](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in the Azure Cosmos DB service. <br><br> This property is deprecated and not available in [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher). |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (Optional) When set to `true` along with `PreferredLocations`, it can leverage [multi-region writes](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in the Azure Cosmos DB service. <br><br> This property is not available in [version 4.x of the extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher). |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -684,39 +684,6 @@ By default, when you write to the output parameter in your function, a document 
 
 > [!Note]
 > When you specify the ID of an existing document, it gets overwritten by the new output document.
-
-## Exceptions and return codes
-
-| Binding | Reference |
-|---|---|
-| CosmosDB | [CosmosDB Error Codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
-
-<a name="host-json"></a>
-
-## host.json settings
-
-This section describes the global configuration settings available for this binding in Azure Functions version 2.x. For more information about global configuration settings in Azure Functions version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "cosmosDB": {
-            "connectionMode": "Gateway",
-            "protocol": "Https",
-            "leaseOptions": {
-                "leasePrefix": "prefix1"
-            }
-        }
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------|
-|GatewayMode|Gateway|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service.  Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|n/a|Lease prefix to use across all functions in an app.|
 
 ## Next steps
 

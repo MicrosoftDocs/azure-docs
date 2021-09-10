@@ -138,16 +138,17 @@ The following roles cover the primary permissions needed for each extension in n
 | Azure Queues | [Storage Queue Data Reader](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Storage Queue Data Message Processor](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Storage Queue Data Message Sender](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Storage Queue Data Contributor](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
 | Event Hubs   |    [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
 | Service Bus | [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
-| Azure Cosmos DB | [Cosmos DB Built-in Data Reader](../cosmos-db/how-to-setup-rbac#built-in-role-definitions.md#built-in-role-definitions), [Cosmos DB Built-in Data Contributor](../cosmos-db/how-to-setup-rbac#built-in-role-definitions.md#built-in-role-definitions) |
+| Azure Cosmos DB | [Cosmos DB Built-in Data Reader](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions), [Cosmos DB Built-in Data Contributor](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions) |
 
 #### Connection properties
 
-An identity-based connection for an Azure service accepts the following properties:
+An identity-based connection for an Azure service accepts the following properties where `<CONNECTION_NAME_PREFIX>` is the value of your `connection` property in the trigger or binding definition:
 
 | Property    | Required for Extensions | Environment variable | Description |
 |---|---|---|---|
 | Service URI | Azure Blob<sup>1</sup>, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` | The data plane URI of the service to which you are connecting. |
 | Fully Qualified Namespace | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hubs and Service Bus namespace. |
+| Account Endpoint | Azure Cosmos DB | `<CONNECTION_NAME_PREFIX>__accountEndpoint` | The Azure Cosmos DB account endpoint URI. |
 | Token Credential | (Optional) | `<CONNECTION_NAME_PREFIX>__credential` | Defines how a token should be obtained for the connection. Recommended only when specifying a user-assigned identity, when it should be set to "managedidentity". This is only valid when hosted in the Azure Functions service. |
 | Client ID | (Optional) | `<CONNECTION_NAME_PREFIX>__clientId` | When `credential` is set to "managedidentity", this property specifies the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. If not specified, the system-assigned identity will be used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` should not be set. |
 
@@ -186,6 +187,20 @@ Example of `local.settings.json` properties required for identity-based connecti
   "IsEncrypted": false,
   "Values": {
     "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
+    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
+    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
+  }
+}
+```
+
+Example of `local.settings.json` properties required for identity-based connection with Azure Cosmos DB: 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "<CONNECTION_NAME_PREFIX>__accountEndpoint": "<accountEndpoint>",
     "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
     "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
     "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
