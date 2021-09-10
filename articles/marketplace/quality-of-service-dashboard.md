@@ -28,11 +28,29 @@ Additionally, view [offer deployment details](#offer-deployment-details) in tabu
 > [!IMPORTANT]
 > This dashboard is currently only available for **Azure application** offers available to all (not private offers).
 
+This feature is currently applicable to all partners performing deployment of Azure application offers using Azure Resource Manager (ARM) templates (but not for private offers). This report will not show data for other marketplace offers.
+
+## Access the Quality of service dashboard
+
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/new-web-form)
+
+<!--- Content here -->
+
+#### [Current view](#tab/old-web-form)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home)
+
+1. In the left-nav, select **Commercial Marketplace** > [**Analyze**](https://partner.microsoft.com/dashboard/commercial-marketplace/quality-of-service/summary) > **Quality of Service**.
+
+---
+
+
+
 The following sections describe how to use the Quality-of-Service (QoS) dashboard and how to read the data.
 
-To access the Quality-of-Service dashboard in the Partner Center, select **Commercial Marketplace** > [**Analyze**](https://partner.microsoft.com/dashboard/commercial-marketplace/quality-of-service/summary) > **Quality of Service**.
 
-This feature is currently applicable to all partners performing deployment of Azure application offers using Azure Resource Manager (ARM) templates (but not for private offers). This report will not show data for other marketplace offers.
 
 **Month range**: There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
 
