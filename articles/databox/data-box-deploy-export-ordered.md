@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/09/2021
+ms.date: 09/10/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -270,6 +270,8 @@ Follow these guidelines if you choose to select blobs and files for export by us
 
 Follow these guidelines when you construct the XML file for your export order. Incorrect tag formats can lead to export failures.
 
+For steps to upload the XML file when you place an export order, see [Export order using XML file](#export-order-using-xml-file).
+
 #### Tag usage
 
 The following XML tags are used in the XML file for a Data Box export order:
@@ -319,8 +321,8 @@ The sample paths below are used with the &lt;BlobPathPrefix&gt; tag to select mu
 |Path                    |Description                                                                         |
 |------------------------|------------------------------------------------------------------------------------|
 |/	                     |Exports all blobs in the storage account.                                           |
-|/$root/	               |Exports all blobs in the root container.                                            |
-|/containers	           |Exports all blobs in any container that begins with prefix **containers**.          |
+|/$root/	             |Exports all blobs in the root container.                                            |
+|/containers	         |Exports all blobs in any container that begins with prefix **containers**.          |
 |/container1/            |Exports all blobs in the container **container1**.                                  |
 |/container1/2021Q2      |Exports all blobs in container **container1** that begin with prefix **2021Q2**.    |
 
@@ -328,13 +330,13 @@ To select a single blob for export, use the &lt;BlobPath&gt; tag with a containe
 
 #### Valid file path prefixes
 
-The sample paths below are used with the &lt;FilePathPrefix&gt; tag to selecct multiple Azure Files for export.
+The sample paths below are used with the &lt;FilePathPrefix&gt; tag to select multiple Azure Files for export.
 
 |Path                    |Description                                                                                          |
 |------------------------|-----------------------------------------------------------------------------------------------------|
-|/	                     |Exports all files and directories in the storage account.                                            |
-|/fileshare/	           |Exports all files and directories in any file share that begins with prefix **fileshare**.           |
-|/fileshare1/	           |Exports all files and directories in **fileshare1**.                                                 |
+|/                       |Exports all files and directories in the storage account.                                            |
+|/fileshare              |Exports all files and directories in any file share that begins with prefix **fileshare**.           |
+|/fileshare1/            |Exports all files and directories in **fileshare1**.                                                 |
 |/fileshare1/contosowest |Exports all files and directories in fileshare **fileshare1** that begin with prefix **contosowest**.|
 
 To select a single file for export, use the &lt;FilePath&gt; tag with a share path and file name.
@@ -348,18 +350,18 @@ This sample XML file includes examples of each XML tag that is used to select bl
 
 ```xml
 <<?xml version="1.0" encoding="utf-8"?>
-   <!--BlobList/prefix/Container list for Blob storage for export.-->
+   <!--BlobList lists filters to select individual blobs (BlobPath) and multiple blobs (BlobPathPrefix) in Blob storage for export.-->
    <BlobList>
       <BlobPath>/8tbpageblob/blob.txt</BlobPath> <!--Exports the blob /8tbpageblob/blob.txt.-->
       <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix> <!--Exports every blob in the container blockblobdot75tbdata.-->
       <BlobPathPrefix>/1tbfilepageblob</BlobPathPrefix> <!--Exports all containers with the prefix "1tbfilepageblob".-->
       <BlobPathPrefix>/1tbfile/</BlobPathPrefix> <!--Exports all blobs in the container 1tbfile.-->
-	    <BlobPathPrefix>/1tbfile/file</BlobPathPrefix> <!--Exports all blobs in the container 1tbfile that have the prefix "file".-->
+      <BlobPathPrefix>/1tbfile/file</BlobPathPrefix> <!--Exports all blobs in the container 1tbfile that have the prefix "file".-->
    </BlobList>
-   <!--FileList/prefix/Share list for Azure File storage for export.-->
+   <!--FileList lists filters that select individual files (FilePath) and multiple files (FilePathPrefix) in Azure File storage for export.-->
    <AzureFileList>
-	    <FilePath>/fileshare1/file.txt</FilePath> <!--Exports the file /fileshare1/file.txt in fileshare1.-->
-      <FilePathPrefix>/64mbfiles/</FilePathPrefix> <!--Exports all directories and files in 64mbfiles/.-->
+	    <FilePath>/fileshare1/file.txt</FilePath> <!--Exports the file in fileshare1 with the path /fileshare1/file.txt.-->
+      <FilePathPrefix>/64mbfiles/</FilePathPrefix> <!--Exports all directories and files in the file share 64mbfiles.-->
       <FilePathPrefix>/fileshare2/file</FilePathPrefix> <!--Exports all directories and files in fileshare2 that start with the prefix "file".-->
       <FilePathPrefix>/dir</FilePathPrefix> <!--Exports all directories and files that start with the prefix "dir".-->
      </AzureFileList>
