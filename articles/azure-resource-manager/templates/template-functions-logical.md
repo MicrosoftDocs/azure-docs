@@ -2,7 +2,7 @@
 title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 09/09/2021
 ---
 
 # Logical functions for ARM templates
@@ -39,29 +39,9 @@ Returns **True** if all values are true; otherwise, **False**.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) shows how to use logical functions.
+The following example shows how to use logical functions.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "andExampleOutput": {
-      "type": "bool",
-      "value": "[and(bool('true'), bool('false'))]"
-    },
-    "orExampleOutput": {
-      "type": "bool",
-      "value": "[or(bool('true'), bool('false'))]"
-    },
-    "notExampleOutput": {
-      "type": "bool",
-      "value": "[not(bool('true'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/andornot.json":::
 
 The output from the preceding example is:
 
@@ -93,33 +73,9 @@ You can also use [true()](#true) and [false()](#false) to get boolean values.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) shows how to use bool with a string or integer.
+The following example shows how to use bool with a string or integer.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "trueString": {
-      "type": "bool",
-      "value": "[bool('true')]",
-    },
-    "falseString": {
-      "type": "bool",
-      "value": "[bool('false')]"
-    },
-    "trueInt": {
-      "type": "bool",
-      "value": "[bool(1)]"
-    },
-    "falseInt": {
-      "type": "bool",
-      "value": "[bool(0)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/bool.json":::
 
 The output from the preceding example with the default values is:
 
@@ -150,19 +106,7 @@ A boolean that is always false.
 
 The following example returns a false output value.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "falseOutput": {
-      "type": "bool",
-      "value": "[false()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/false.json":::
 
 The output from the preceding example is:
 
@@ -196,30 +140,9 @@ When the condition is **True**, only the true value is evaluated. When the condi
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) shows how to use the `if` function.
+The following example shows how to use the `if` function.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-  ],
-  "outputs": {
-    "yesOutput": {
-      "type": "string",
-      "value": "[if(equals('a', 'a'), 'yes', 'no')]"
-    },
-    "noOutput": {
-      "type": "string",
-      "value": "[if(equals('a', 'b'), 'yes', 'no')]"
-    },
-    "objectOutput": {
-      "type": "object",
-      "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/if.json":::
 
 The output from the preceding example is:
 
@@ -297,29 +220,9 @@ Returns **True** when parameter is **False**. Returns **False** when parameter i
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) shows how to use logical functions.
+The following example shows how to use logical functions.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "andExampleOutput": {
-      "type": "bool",
-      "value": "[and(bool('true'), bool('false'))]",
-    },
-    "orExampleOutput": {
-      "type": "bool",
-      "value": "[or(bool('true'), bool('false'))]"
-    },
-    "notExampleOutput": {
-      "type": "bool",
-      "value": "[not(bool('true'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/andornot.json":::
 
 The output from the preceding example is:
 
@@ -374,29 +277,9 @@ Returns **True** if any value is true; otherwise, **False**.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) shows how to use logical functions.
+The following example shows how to use logical functions.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "andExampleOutput": {
-      "value": "[and(bool('true'), bool('false'))]",
-      "type": "bool"
-    },
-    "orExampleOutput": {
-      "value": "[or(bool('true'), bool('false'))]",
-      "type": "bool"
-    },
-    "notExampleOutput": {
-      "value": "[not(bool('true'))]",
-      "type": "bool"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/andornot.json":::
 
 The output from the preceding example is:
 
@@ -426,19 +309,7 @@ A boolean that is always true.
 
 The following example returns a true output value.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "trueOutput": {
-      "type": "bool",
-      "value": "[true()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/true.json":::
 
 The output from the preceding example is:
 
