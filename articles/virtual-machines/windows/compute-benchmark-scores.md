@@ -3,7 +3,7 @@ title: Compute benchmark scores for Azure Windows VMs
 description: Compare SPECint compute benchmark scores for Azure VMs running Windows Server.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: benchmark
+ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
