@@ -1,3 +1,17 @@
+---
+title: Restore a database in Azure Arc enabled SQL managed instance to a previous point in time
+description: Restore a database in Azure Arc enabled SQL managed instance to a previous point in time
+services: azure-arc
+ms.service: azure-arc
+ms.subservice: azure-arc-data
+author: dnethi
+ms.author: dnethi
+ms.reviewer: mikeray
+ms.date: 09/10/2021
+ms.topic: how-to
+---
+
+
 # Restore a database in Azure Arc enabled SQL managed instance to a previous point in time 
 
 Use the point-in-time restore (PITR) to create a database as a copy of another database from some time in the past. This article describes how to do a point-in-time restore of a database in Azure Arc enabled SQL managed instance.
@@ -92,7 +106,13 @@ kubectl describe sqlmirestoretask sql01-restore-20210909 -n arc
 ```
 
 
+## Next steps
 
+[Learn more about Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
+
+[Start by creating a Data Controller](create-data-controller.md)
+
+[Already created a Data Controller? Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
 
 
 
