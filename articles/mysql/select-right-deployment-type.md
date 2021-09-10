@@ -38,8 +38,8 @@ When making your decision, consider the following two options:
 
 The main differences between these options are listed in the following table:
 
-| Attribute          | Azure Database for MySQL<br/>Single Server |Azure Database for MySQL<br/>Flexible Server  |MySQL on Azure VMs                      |
-|:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
+| Attribute          | Azure Database for MySQL<br/>Single Server |Azure Database for MySQL<br/>Flexible Server  |MySQL on Azure VMs |
+|:-------------------|:-------------------------------------------|:---------------------------------------------|:------------------|
 | **General**  | | | |
 | General availability | GA since 2018 | Public Preview | GA |
 | Service-level agreement (SLA) | 99.99% availability SLA |No SLA in preview| 99.99% using Availability Zones|
@@ -48,13 +48,13 @@ The main differences between these options are listed in the following table:
 | MySQL Version Support | 5.6(Retired), 5.7 & 8.0| 5.7 & 8.0 | Any version|
 | Availability zone selection for application colocation | No | Yes | Yes |
 | Username in connection string | `<user_name>@server_name`. For example, `mysqlusr@mypgServer` | Just username. For example, `mysqlusr` | Just username. For example, `mysqlusr` | 
-| **Compute & Storage Tiers and Scaling** | | | |
+| **Compute & Storage Scaling** | | | |
 | Compute tiers | Basic, General Purpose, Memory Optimized | Burstable, General Purpose, Memory Optimized | Burstable, General Purpose, Memory Optimized |
 | Compute scaling | Supported (Scaling from and to Basic tier is not supported)| Supported | Supported|
 | Storage size | 5 GiB to 16 TiB| 20 GiB to 16 TiB | 32 GiB to 32,767 GiB|
-| Online Storage scaling | Supported| Supported| Not supported|
-| Auto storage scaling | Supported| Supported| Not supported|
-| IOPs scaling | Not Supported| Supported| Not supported|
+| Online Storage scaling | Supported| Supported| Not Supported|
+| Auto storage scaling | Supported| Supported| Not Supported|
+| IOPs scaling | Not Supported| Supported| Not Supported|
 | **Cost Optimization** | | | |
 | Reserved Instance Pricing | Supported | Supported | Supported |
 | Stop/Start Server for development | Server can be stopped up to 7 days | Server can be stopped up to 30 days | Supported |
