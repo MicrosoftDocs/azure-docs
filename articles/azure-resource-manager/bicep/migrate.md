@@ -71,7 +71,7 @@ The deploy phase consists of eight steps, which you complete in any order:
 
 In the _test_ phase of migrating your resources to Bicep, the goal is to verify the integrity of your migrated templates and to perform a test deployment.
 
-The test phase consists of two steps:
+The test phase consists of two steps:, which you complete in sequence:
 
 1. **Run the ARM template deployment what-if operation.** To help you verify your converted templates before deployment, you can use the [Azure Resource Manager template deployment what-if operation](../templates/deploy-what-if.md). It compares the current state of your environment with the desired state that is defined in the template. The tool outputs the list of changes that will occur *without* applying the changes to your environment. You can use what-if with both incremental and complete mode deployments. Even if you plan to deploy your template using incremental mode, it's a good idea to run your what-if operation in complete mode.
 
@@ -81,7 +81,7 @@ The test phase consists of two steps:
 
 In the _deploy_ phase of migrating your resources to Bicep, the goal is to deploy your final Bicep file to production.
 
-The deploy phase consists of four steps:
+The deploy phase consists of four steps, which you complete in sequence:
 
 1. **Prepare a rollback plan.** The ability to recover from a failed deployment is crucial. Develop a rollback plan in the event of any breaking changes introduced into your environments. Take inventory of the types of resources that are deployed, such as virtual machines, web apps, and databases. Each resource's data plane should be considered as well. Do you have a way to recover a virtual machine and its data? Do you have a way to recover a database after deletion? A well-developed rollback plan will help to keep your downtime to a minimum if any issues arise from a deployment.
 
