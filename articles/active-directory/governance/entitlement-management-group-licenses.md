@@ -51,7 +51,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 1. Click **Next** to open the **Resource roles** tab
 
-2. On this tab, you select the resources and the resource role to include in the access package. In this example scenario, you would click **Groups and Teams** and search for your group that has assigned Office licenses
+2. On this tab, you select the resources and the resource role to include in the access package. In this example scenario, you would click **Groups and Teams** and search for your group that has assigned [Office licenses](/active-directory/enterprise-users/licensing-groups-assign.md).
 
 ## Step 3: Configure Requests for your Access Package
 
@@ -59,7 +59,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 2. On this tab, you create a request policy. A *policy* defines the rules or guardrails to access an access package. You create a policy that allows a specific user in the resource directory to request this access package
 
-3. In the **Users who can request access** section, click **For users in your directory** and select **All members (excluding guests)**. 
+3. In the **Users who can request access** section, click **For users in your directory** and select **All members (excluding guests)**. This makes it so that only members if your directory will be able to request Office licenses.
 
 4.	Ensure that **Require approval** is set to **Yes**
 
@@ -68,7 +68,7 @@ For more information, see [License requirements](entitlement-management-overview
     * **Require requestor justification** - sets the Justification field on the requestor form to be required
     * **How many stages** - Allows you to configure multiple stages of approval for the selected users and groups
     * **Approver** - this field has two options:
-      * **Manager as approver** - This option allows the requestor's manager to approve the request. You can select some to be the Fallback approver if the system can't find the manager
+      * **Manager as approver** - This option allows the requestor's manager to approve the request. You can select some to be the Fallback approver if the system can't find the manager. For this scenario, this should be the option you select.
       * **Choose specific approvers** - This option allows you to set specific people to be the approver(s)
     * **Decision must be made in how many days?** - Time limit for approvers
     * **Require approver justification** - Approvers must fill in the justification field for their approvals in case you want to review later
@@ -89,9 +89,9 @@ For more information, see [License requirements](entitlement-management-overview
 
 2.	In the **Expiration** section, set **Access package assignments expire** to **Number of days**
 	
-3.	Set **Assignments expire after** to **365** days. This field determines when members who have access to this access package will need to renew their access.
+3.	Set **Assignments expire after** to **365** days. This field determines when members who have access to this access package will need to renew their access. 
 
-4.	You can also configure **Access Reviews** which allows periodic checks of whether the guest still needs access to the access package. A review can be a self-review or you can set their manager, specific reviews for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md).
+4.	You can also configure **Access Reviews** which allows periodic checks of whether the user still needs access to the access package. A review can be a self-review or you can set their manager, specific reviews for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md). For this scenario, you will want each user to review whether they still need a license for Office each year.
 
     1.	Set **Require access reviews** to **Yes**
     2.	You can leave the **Starting on** to the current date - This date is when the access review campaign will start. Once an access review has been created, you can't update its start date
