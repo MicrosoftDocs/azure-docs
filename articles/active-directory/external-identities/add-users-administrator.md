@@ -68,13 +68,15 @@ If you need to manually add B2B collaboration users to a group, follow these ste
 7. Do one of the following:
 
    - *If the guest user is already in the directory:*
-      a. On the **Add members** page, start typing the name or email address of the guest user.
-      b. In the search results, choose the user, and then choose **Select**.
+      
+       a. On the **Add members** page, start typing the name or email address of the guest user.
+       b. In the search results, choose the user, and then choose **Select**.
 
    - *If the guest user isn't currently in the directory:*
-      a. On the **Add members** page, type the user's full email address in the search box, type a **Personal message** (optional), and then choose **Invite** to send an invitation.
-      b. Choose **Select**.
-      c. Now add the user to the group: On the **Members** page, choose **Add members**. Type the user's name or email address in the search box, choose the user in the results, and then choose **Select**.
+      
+       a. On the **Add members** page, type the user's full email address in the search box, type a **Personal message** (optional), and then choose **Invite** to send an invitation.
+       b. Choose **Select**.
+       c. Now add the user to the group: On the **Members** page, choose **Add members**. Type the user's name or email address in the search box, choose the user in the results, and then choose **Select**.
 
 You can also use dynamic groups with Azure AD B2B collaboration. For more information, see [Dynamic groups and Azure Active Directory B2B collaboration](use-dynamic-groups.md).
 
@@ -92,22 +94,24 @@ To add B2B collaboration users to an application, follow these steps:
 8. Do one of the following:
 
    - *If the guest user is already in the directory:*
-      a. On the **Users** page, start typing the name or email address of the guest user.
-      b. In the search results, choose the user, and then choose **Select**.
-      c. On the **Add Assignment** page, choose **Assign** to add the user to the app.
+      
+       a. On the **Users** page, start typing the name or email address of the guest user.
+       b. In the search results, choose the user, and then choose **Select**.
+       c. On the **Add Assignment** page, choose **Assign** to add the user to the app.
 
    - *If the guest user isn't currently in the directory:*
-      a. On the **Users** page, type the user's full email address in the search box, type a **Personal message** (optional), and then choose **Invite**.
-      b. Choose **Select**.
-      c. Now add the invited user to the application: On the **Add Assignment** page, choose the link under **Users**. Type the invited user's name or email address in the search box, choose the user in the results, and then choose **Select**.
-      d. On the **Add Assignment** page, choose **Assign**.
+      
+       a. On the **Users** page, type the user's full email address in the search box, type a **Personal message** (optional), and then choose **Invite**.
+       b. Choose **Select**.
+       c. Now add the invited user to the application: On the **Add Assignment** page, choose the link under **Users**. Type the invited user's name or email address in the search box, choose the user in the results, and then choose **Select**.
+       d. On the **Add Assignment** page, choose **Assign**.
 
 9. The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If the application provides different roles and you want to change the user's role, do the following:
 
-   a. Select the check box next to the guest user, and then select the **Edit** button. 
-   b. On the **Edit Assignment** page, choose the link under **Select a role**, and select the role you want to assign to the user.
-   c. Choose **Select**.
-   d. Select **Assign**.
+    a. Select the check box next to the guest user, and then select the **Edit** button. 
+    b. On the **Edit Assignment** page, choose the link under **Select a role**, and select the role you want to assign to the user.
+    c. Choose **Select**.
+    d. Select **Assign**.
 
 ## Resend invitations to guest users
 
