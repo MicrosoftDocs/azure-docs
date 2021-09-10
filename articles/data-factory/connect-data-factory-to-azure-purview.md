@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 09/02/2021
+ms.date: 09/09/2021
 ---
 
 # Connect Data Factory to Azure Purview (Preview)

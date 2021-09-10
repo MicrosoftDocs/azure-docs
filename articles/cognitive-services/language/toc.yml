@@ -98,6 +98,14 @@ items:
     items:
       - name: Backwards compatibility
         href: custom-language-understanding/concepts/backwards-compatibility.md
+- name: Custom question answering
+  items:
+  - name: Quickstart
+    href: custom-question-answering/quickstart/sdk.md
+  - name: How-to guides
+    items:
+    - name: Encrypt data at rest
+      href: custom-question-answering/how-to/encrypt-data-at-rest.md
 - name: Entity linking
   items:
   - name: Overview
@@ -176,6 +184,8 @@ items:
     href: named-entity-recognition/overview.md
   - name: Language support
     href: named-entity-recognition/language-support.md
+  - name: Quickstart
+    href: named-entity-recognition/quickstart.md
   - name: How-to guides
     items:
     - name: Call NER and PII
@@ -218,6 +228,8 @@ items:
     href: concepts/specify-model-version.md
   - name: Send batch requests asynchronously
     href: concepts/asynchronous-use.md
+  - name: Language Studio
+    href: concepts/language-studio.md
 - name: Enterprise readiness
   items:
     - name: Region support

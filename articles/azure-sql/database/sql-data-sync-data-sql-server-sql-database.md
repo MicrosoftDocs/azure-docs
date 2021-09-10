@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: MaraSteiu 
 ms.author: masteiu
 ms.reviewer: mathoma
-ms.date: 08/20/2019
+ms.date: 09/09/2021
 ---
 # What is SQL Data Sync for Azure?
 
@@ -218,10 +218,10 @@ Not directly. You can sync between SQL Server databases indirectly, however, by 
 
 ### Can I use Data Sync to sync between databases in SQL Database that belong to different subscriptions
 
-Yes. You can sync between databases that belong to resource groups owned by different subscriptions.
+Yes. You can sync between databases that belong to resource groups owned by different subscriptions, even if the subscriptions belong to different tenants.
 
 - If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
-- Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
+- Otherwise, you have to use PowerShell to add the sync members.
 
 ### Can I use Data Sync to sync between databases in SQL Database that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
 

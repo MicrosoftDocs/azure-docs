@@ -63,7 +63,7 @@
           href: analyze-live-video-custom-vision.md
         - name: With Spatial Analysis
           href: computer-vision-for-spatial-analysis.md
-    - name: Real-time visualization of AI inference events
+    - name: Visualize AI inference events
       href: visualize-ai-events-power-bi.md
 - name: GitHub samples
   items:
