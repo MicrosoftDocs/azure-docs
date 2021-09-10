@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a public IP address - Azure portal'
 titleSuffix: Azure Virtual Network
-description: In this quickstart, learn how to create a standard and basic public IP address.
+description: In this quickstart, learn how to create a standard or basic SKU public IP address. You'll also learn about routing preference and tier.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -20,7 +20,6 @@ In this quickstart, you'll learn how to create an Azure public IP address. Publi
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Sign in to Azure
-<!-- Introduction paragraph -->
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -30,6 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 >[!NOTE]
 >Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
+
 ## Create a standard SKU public IP address
 
 Use the following steps to create a standard public IPv4 address named **myStandardPublicIP**. 
@@ -198,8 +198,7 @@ For more information, see [Cross-region load balancer](../../load-balancer/cross
 You can associate the above created IP address with a cross-region load balancer. For more information, see [Tutorial: Create a cross-region load balancer using the Azure portal](../../load-balancer/tutorial-cross-region-portal.md).
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-the public IP address with the following steps:
+If you're not going to continue to use this application, delete the public IP address with the following steps:
 
 1. In the search box at the top of the portal, enter **Resource group**.
 
