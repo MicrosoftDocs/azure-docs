@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 08/09/2021
+  ms.date: 09/08/2021
   featureFlags:
   - clicktale
 
@@ -1326,7 +1326,7 @@ productDirectory:
         - networking
       url: load-balancer/index.yml
     # Card
-    - title: Azure Route Server (Preview)
+    - title: Azure Route Server
       summary: Simplify operations management of your network appliances
       imageSrc: ./media/index/azure-route-server.svg
       azureCategories:
