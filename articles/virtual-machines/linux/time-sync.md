@@ -115,11 +115,10 @@ On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [c
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0 stratum 2
 ```
-Per above, if the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.
 
-Stratum information is not automatically conveyed from the Azure host to the Linux guest. So the above configuration line specifies that the Azure host time source
-is to be treated as Stratum 2, which in turn causes the Linux guest to report itself as Stratum 3. You can change the stratum setting on the above configuration
-line if you wish to have the Linux guest report itself differently.
+If the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.
+
+Stratum information isn't automatically conveyed from the Azure host to the Linux guest. The preceding configuration line specifies that the Azure host time source is to be treated as Stratum 2, which in turn causes the Linux guest to report itself as Stratum 3. You can change the stratum setting in the configuration line if you want the Linux guest to report itself differently.
 
 By default, chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too big, chrony fails to fix the drift. To overcome this, the `makestep` parameter in **/etc/chrony.conf** can be changed to force a time sync if the drift exceeds the threshold specified.
 
