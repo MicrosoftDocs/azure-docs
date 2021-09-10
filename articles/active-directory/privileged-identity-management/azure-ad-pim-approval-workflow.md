@@ -141,8 +141,6 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentAppr
 
 ### Approve the activation request step
 
-For a specific activation request, this command gets all the approval steps that need approval. Multi-step approvals are not currently supported.
-
 #### HTTP request
 
 ````HTTP

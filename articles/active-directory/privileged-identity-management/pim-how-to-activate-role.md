@@ -44,7 +44,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Azure AD roles - activation page contains duration and scope](./media/pim-how-to-activate-role/activate-page.png)
 
-1. Select **Additional verification required**"** and follow the instructions to provide security verification. You are required to authenticate only once per session.
+1. Select **Additional verification required** and follow the instructions to provide security verification. You are required to authenticate only once per session.
 
     ![Screen to provide security verification such as a PIN code](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
