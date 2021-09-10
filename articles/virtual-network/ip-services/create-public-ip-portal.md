@@ -13,7 +13,7 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 # Quickstart: Create a public IP address using the Azure portal
 
-In this quickstart, you'll learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs, basic and standard. Two tiers of public IP addresses are available, regional and global.  The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
+In this quickstart, you'll learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs, basic, and standard. Two tiers of public IP addresses are available, regional, and global.  The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
 
 ## Prerequisites
 
@@ -109,7 +109,7 @@ If it's acceptable for the IP address to change over time, **Dynamic** IP assign
 
 # [**Routing Preference**](#tab/option-1-create-public-ip-routing-preference)
 
-This section shows you how to configure [routing preference](routing-preference-overview.md) via ISP network (**Internet** option) for a public IP address. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
+This section shows you how to configure [routing preference](routing-preference-overview.md) via ISP network (**Internet** option) for a public IP address. After you create the public IP address, you can associate it with the following Azure resources:
 
 * Virtual machine
 * Virtual machine scale set
