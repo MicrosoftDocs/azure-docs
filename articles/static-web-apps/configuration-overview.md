@@ -1,5 +1,5 @@
 ---
-title: Configuration overview
+title: Configuration overview for Azure Static Web Apps
 description: Learn about the different ways to configure Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
