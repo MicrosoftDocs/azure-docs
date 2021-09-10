@@ -106,6 +106,9 @@ In some cases, you might want to directly assign specific users to an access pac
 1. Click **Add** to directly assign the selected users to the access package.
 
     After a few moments, click **Refresh** to see the users in the Assignments list.
+    
+> [!NOTE]
+> When assigning users to an access package, administrators will need to verify that the users are eligible for that access package based on the existing policy requirements. Otherwise, the users won't successfully be assigned to the access package. If the access package contains a policy that requires user requests to be approved, users can't be directly assigned to the package without necessary approval(s) from the designated approver(s).
 
 ## Directly assigning users programmatically
 ### Assign a user to an access package with Microsoft Graph
