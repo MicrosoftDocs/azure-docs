@@ -1,6 +1,6 @@
 ---
-title: Enable and configure autoscaling for Service Fabric managed cluster nodes
-description: Learn how to enable and configure autoscaling policies on Service Fabric managed cluster.
+title: Configure autoscaling for Service Fabric managed cluster nodes
+description: Learn how to configure autoscaling policies on Service Fabric managed cluster.
 ms.topic: how-to
 ms.date: 9/16/2021
 ---
@@ -36,9 +36,58 @@ of the service.>
 > [!NOTE]
 > Currently there is only support for policies based on metrics emitted from VMSS and only one scaling trigger per scaling policy.
 
+
+## Example auto scale deployment
+
+In this example we'll use this [ARM template sample](url) which will create a SFMC cluster with two node types. One primary and one secondary in one availability zone.
+
+Auto-scale of the node type is done based on managed VMSS CPU host metrics. 
+VMSS resource is auto-resolved in the template. 
+
+The following steps will take you step by step through an end to end setup of a cluster with auto scale configured.
+
+1) Create resource group in a region
+
+   ```powershell 
+   Login-AzAccount
+   Select-AzSubscription -SubscriptionId $subscriptionid
+   $location = "eastus2" 
+   $resourceGroupName = "myrg" 
+ 
+   New-AzResourceGroup -Name $resourceGroupName -Location $location 
+   ```
+
+2) Create cluster resource
+
+   ```powershell
+   $parameters = @{ 
+       clusterDnsName = "mycluster" 
+    } 
+   
+   Download this [sample ARM template](url) to a local folder that you will use to configure auto scaling using the above parameters.
+
+   New-AzResourceGroupDeployment -Name "deploy_cluster" -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose 
+   ```
+
+3) Configure auto scale rules on a secondary node type
+ 
+   ```powershell
+   $parameters = @{ 
+       clusterName = $clusterName 
+       SecondaryNodeTypeName = $SecondaryNodeTypeName
+    } 
+
+   Download this [sample ARM template](url) that will configure auto scaling using the above parameters.
+
+   New-AzResourceGroupDeployment -Name "deploy_autoscale" -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose 
+   ```
+
+![NOTE] After this deployment completes, future deployments should use -1 for secondary node types that have auto scale rules enabled. This will avoid cluster deployments conflicting with auto scale.
+
+
 ## Enable or disable auto scaling in a managed cluster
 
-Service Fabric managed clusters do not configure auto scaling to be enabled by default. You can enable or disable auto scaling on non-primary/secondary node types on a Service Fabric managed cluster resource at initial deployment or anytime after with an additional cluster deployment.
+Service Fabric managed clusters do not configure auto scaling to be enabled by default. You can enable or disable auto scaling on secondary node types on a Service Fabric managed cluster resource at initial deployment or anytime after with an additional cluster deployment. Only the Service Fabric managed cluster standard SKU is supported for auto scale.
 
 To enable this feature configure the `enabled` property under the type `Microsoft.Insights/autoscaleSettings` for the cluster deployment as shown below:
 
@@ -66,7 +115,9 @@ To disable auto scaling, set the value to `false`
 
 Service Fabric managed clusters do not configure any [policies for auto scaling](../azure-monitor/autoscale/autoscale-understanding-settings.md) by default. You can create and assign policies to secondary node types on a Service Fabric managed cluster resource at initial deployment or anytime after with an additional cluster deployment.
 
-The following example will set a policy for `VmNodeType1Name` to be at least 3 nodes, but allow scaling up to 50 nodes. It will trigger off of average CPU usage being 70% over a 5 minute window using 1 minute granularity.
+The following example will set a policy for `VmNodeType1Name` to be at least 3 nodes, but allow scaling up to 50 nodes. It will trigger scaling up off of average CPU usage being 70% over a 5 minute window using 1 minute granularity. It will also trigger to scale down if... xyz
+
+<fix sample to include both scale up and down>
 
 ```JSON
     "resources": [
@@ -112,83 +163,13 @@ The following example will set a policy for `VmNodeType1Name` to be at least 3 n
 ```
 
 
-## Example auto scale deployment
-In this example the following Topology will be created:
-3 AvailabilityZones for a zonal redundant cluster
-1 IP 
-1 LB
+## Review deployed auto scale rules
 
-With the following node types
-FE - primary node type
-BE - regular node type - 1 auto-scale rule  
-BESL - stateless node type - 1 auto-scale rule 
-BEMPG - high capacity node type - 1 auto-scale rule 
+Todo: Document how to visualize
+To visualize your settings
+https://resources.azure.com navigate to subscription -> SFMC resource group -> microsoft.insights -> autoscalesettings -> Auto Scale policy 'Name'
 
- 
-In this example we'll be executing the following steps:
-1) Do two ARM template deployments 
-2) 1st deployment will deploy the cluster with the auto-scale rules disabled in same template. 
-3) 2nd deployment will enable auto-scale rules 
- 
-Auto-scale of the node type is done based on managed VMSS CPU host metrics. 
-VMSS resource is auto-resolved in the template. 
-
-
-Steps: 
-
-1) Copy template to a local folder. 
-
-Full sample template <here> <<cluster.json>>
-
-2) Create resource group in a region
-
-   ```powershell 
-   $location = "eastus2" 
-   $resourceGroupName = "myrg" 
- 
-   New-AzResourceGroup -Name $resourceGroupName -Location $location 
-   ```
-
-3) Create cluster with auto-scale rules disabled
-
-   ```powershell
-   $clusterDnsName = "mycluster" 
-   ```
-   This deployment will have:
-    - the default VM counts will apply 
-    - Autoscale disabled 
-
-   ```powershell
-   $parameters = @{ 
-       clusterDnsName = $clusterDnsName 
-       adminPassword = "<password>" 
-       sku="Standard" 
-       clientAdminCertThumbrint="123BDACDCDFB2C7B250192C6078E47D1E1DB119B" 
-   } 
- 
-   $deploymentname="deploy_cluster1" 
-
-   New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose 
-   ```
-
-4) Enable Auto Scale
- 
-```powershell
-$parameters = @{ 
-    clusterDnsName = $clusterDnsName 
-    adminPassword = "<password>" 
-    sku="Standard" 
-    clientAdminCertThumbrint="123BDACDCDFB2C7B250192C6078E47D1E1DB119B" 
-    enableAutoScale=$true 
-    nt1InstanceCount=-1 
-    nt2InstanceCount=-1 
-    nt3InstanceCount=-1 
-} 
-
-$deploymentname="deploy_cluster2" 
-
-New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose 
-```
+Use ARM client (powershell examples). Retrieve via what commands
 
 
 ## Next steps
