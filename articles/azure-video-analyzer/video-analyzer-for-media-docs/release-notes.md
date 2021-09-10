@@ -25,6 +25,19 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Bug fixes
 * Deprecated functionality
 
+## August 2021
+
+### Re-index video or audio files
+
+There is now an option to re-index video or audio files that have failed during the indexing process.
+
+### Improve accessibility support
+
+Fixed bugs related to CSS, theming and accessibility:
+
+* high contrast
+* account settings and insights views in the [portal](https://www.videoindexer.ai).  
+
 ## July 2021
 
 ### Automatic Scaling of Media Reserved Units
