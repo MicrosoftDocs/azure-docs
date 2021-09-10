@@ -103,7 +103,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. After the creation is complete, you see the **Data factory** page. Select the **Author & Monitor** tile to start the Data Factory UI application on a separate tab.
 
-    :::image type="content" source="./media/tutorial-transform-data-spark-portal/data-factory-home-page.png" alt-text="Home page for the data factory, with the "Author & Monitor" tile":::
+    :::image type="content" source="./media/tutorial-transform-data-spark-portal/data-factory-home-page.png" alt-text="Home page for the data factory, with the &quot;Author & Monitor&quot; tile":::
 
 ## Create linked services
 You author two linked services in this section: 
@@ -133,7 +133,7 @@ You author two linked services in this section:
 1. Select the **+ New** button again to create another linked service. 
 1. In the **New Linked Service** window, select **Compute** > **Azure HDInsight**, and then select **Continue**. 
 
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/select-azure-hdinsight.png" alt-text="Selecting the "Azure HDInsight" tile":::
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/select-azure-hdinsight.png" alt-text="Selecting the &quot;Azure HDInsight&quot; tile":::
 1. In the **New Linked Service** window, complete the following steps: 
 
    a. For **Name**, enter **AzureHDInsightLinkedService**.
@@ -209,7 +209,7 @@ Select **Add Trigger** on the toolbar, and then select **Trigger Now**.
    
 1. Select **Refresh** periodically to check the status of the pipeline run. 
 
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/monitor-tab.png" alt-text="Tab for monitoring pipeline runs, with "Refresh" button":::
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/monitor-tab.png" alt-text="Tab for monitoring pipeline runs, with &quot;Refresh&quot; button":::
 
 1. To see activity runs associated with the pipeline run, select **View Activity Runs** in the **Actions** column.
 

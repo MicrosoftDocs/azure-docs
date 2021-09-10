@@ -55,7 +55,7 @@ You also can create custom .NET activities to move or process data with your own
 
 The diagram illustrates how Data Factory orchestrates data movement and processing. It also shows how Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 inches or A3 size). To access the diagram so that you can print it, see [HPC and data orchestration by using Batch and Data Factory](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[:::image type="content" source="https://go.microsoft.com/fwlink/?LinkId=717686" alt-text="Large-scale data processing diagram](./media/data-factory-data-processing-using-batch/image1.png)":::
+[:::image type="content" alt-text="Large-scale data processing diagram." source="./media/data-factory-data-processing-using-batch/large-scale-data-processing-diagram.png":::
 
 The following list provides the basic steps of the process. The solution includes code and explanations to build the end-to-end solution.
 
