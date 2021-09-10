@@ -34,7 +34,7 @@ Check your product's section in the [data connectors reference](data-connectors-
 
 - You must have read and write permissions on the Azure Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md).
 
 ## Configure and connect your data source
 
