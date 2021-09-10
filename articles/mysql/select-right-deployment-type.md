@@ -74,7 +74,7 @@ The main differences between these options are listed in the following table:
 | Maintenance window | Anytime within 15 hrs window | 1hr window | User managed |
 | Planned maintenance notification | 3 days | 5 days | User managed |
 | [**High Availability**](flexible-server/concepts-high-availability.md) | | | |
-| High availability | Built-in HA (withou hot standby)| Built-in HA (without hot standby), Same-zone and zone-redundant HA with hot standby | User managed |
+| High availability | Built-in HA (without hot standby)| Built-in HA (without hot standby), Same-zone and zone-redundant HA with hot standby | User managed |
 | Zone redundancy | Not supported | Supported | Supported|
 | Standby zone placement | Not supported | Supported | Supported|
 | Automatic failover | Yes (spins another server)| Yes | User Managed|
@@ -117,7 +117,7 @@ The main differences between these options are listed in the following table:
 | [**Developer Productivity**](flexible-server/quickstart-create-server-cli.md) | | | |
 | Fleet Management | Supported with Azure CLI, PowerShell, REST, and Azure Resource Manager | Supported with Azure CLI, PowerShell, REST, and Azure Resource Manager  | Supported for VMs with Azure CLI, PowerShell, REST, and Azure Resource Manager |
 | Terraform Support | Supported | Not Supported | Supported |
-| Github Actions | Supported | Supported | User Managed |
+| GitHub Actions | Supported | Supported | User Managed |
 
 ## Business motivations for choosing PaaS or IaaS
 
