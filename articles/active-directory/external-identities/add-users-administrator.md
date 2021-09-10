@@ -62,7 +62,7 @@ If you need to manually add B2B collaboration users to a group, follow these ste
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Search for and select **Azure Active Directory** from any page.
 3. Under **Manage**, select **Groups**.
-4. Select a group. (Or, select **New group** to create a new one.) It's a good idea to include in the group description that the group contains B2B guest users.
+4. Select a group (or select **New group** to create a new one). It's a good idea to include in the group description that the group contains B2B guest users.
 5. Under **Manage**, select **Members**.
 6. Select **Add members**.
 7. Do one of the following:
@@ -76,8 +76,6 @@ If you need to manually add B2B collaboration users to a group, follow these ste
       - Choose **Select**.
       - Now add the user to the group: On the **Members** page, choose **Add members**. Type the user's name or email address in the search box, choose the user in the results, and then choose **Select**.
 
-   ![Add invite button to add guest members](./media/add-users-administrator/group-invite.png)
- 
 You can also use dynamic groups with Azure AD B2B collaboration. For more information, see [Dynamic groups and Azure Active Directory B2B collaboration](use-dynamic-groups.md).
 
 ## Add guest users to an application
@@ -101,7 +99,7 @@ To add B2B collaboration users to an application, follow these steps:
    - *If the guest user isn't currently in the directory:*
       - On the **Users** page, type the user's full email address in the search box, type a **Personal message** (optional), and then choose **Invite**.
       - Choose **Select**.
-      - Now add the invited user to the application: On the **Add Assignment** page, choose the link under **Users**. Type the user's name or email address in the search box, choose the user in the results, and then choose **Select**.
+      - Now add the invited user to the application: On the **Add Assignment** page, choose the link under **Users**. Type the invited user's name or email address in the search box, choose the user in the results, and then choose **Select**.
       - On the **Add Assignment** page, choose **Assign**.
 
 9. The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If the application provides different roles and you want to change the user's role, do the following:
