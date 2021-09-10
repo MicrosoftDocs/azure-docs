@@ -40,9 +40,9 @@ items:
     href: use-purview-studio.md
   - name: Purview permissions
     href: catalog-permissions.md
-  - name: Data Map
+  - name: Data map
     items:
-    - name: Elastic Data Map
+    - name: Elastic data map
       href: concept-elastic-data-map.md
     - name: Collections
       href: concept-collection.md
@@ -52,7 +52,7 @@ items:
       href: concept-scans-and-ingestion.md
     - name: Data lineage
       href: concept-data-lineage.md
-  - name: Data Catalog
+  - name: Data catalog
     items:
     - name: Catalog search
       href: concept-search.md
@@ -68,7 +68,7 @@ items:
   items:
   - name: Create and manage collections
     href: how-to-create-and-manage-collections.md
-  - name: Manage Sources
+  - name: Manage sources
     items: 
     - name: Supported sources
       href: purview-connector-overview.md
@@ -157,7 +157,7 @@ items:
       href: how-to-browse-catalog.md
     - name: Search Data Catalog
       href: how-to-search-catalog.md
-    - name: Manage Catalog assets
+    - name: Manage catalog assets
       href: catalog-asset-details.md
   - name: Lineage 
     items:
@@ -255,7 +255,7 @@ items:
   items:
     - name: Azure Purview product glossary
       href: reference-purview-glossary.md
-    - name: Supported Browsers
+    - name: Supported browsers
       href: supported-browsers.md
     - name: Supported data sources and file types
       href: sources-and-scans.md
