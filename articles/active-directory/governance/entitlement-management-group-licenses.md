@@ -35,33 +35,33 @@ For more information, see [License requirements](entitlement-management-overview
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
-1. In the **Azure portal**, in the left navigation, click **Azure Active Directory**
+1. In the **Azure portal**, in the left navigation, click **Azure Active Directory**.
 
-2. In the left menu, click **Identity Governance**
+2. In the left menu, click **Identity Governance**.
 
 3. In the left menu, click **Access Packages**. 
 
-4. Click **New access package**
+4. Click **New access package**.
 
-5. On the **Basics** tab, enter the name and description for your access package
+5. On the **Basics** tab, enter the name and description for your access package.
 
-6. You can leave the **Catalog** drop-down list set to **General**
+6. You can leave the **Catalog** drop-down list set to **General**.
 
 ## Step 2: Configure the Resources for your Access Package
 
-1. Click **Next** to open the **Resource roles** tab
+1. Click **Next** to open the **Resource roles** tab.
 
 2. On this tab, you select the resources and the resource role to include in the access package. In this example scenario, you would click **Groups and Teams** and search for your group that has assigned [Office licenses](/active-directory/enterprise-users/licensing-groups-assign.md).
 
 ## Step 3: Configure Requests for your Access Package
 
-1. Click **Next** to open the **Requests** tab
+1. Click **Next** to open the **Requests** tab.
 
-2. On this tab, you create a request policy. A *policy* defines the rules or guardrails to access an access package. You create a policy that allows a specific user in the resource directory to request this access package
+2. On this tab, you create a request policy. A *policy* defines the rules or guardrails to access an access package. You create a policy that allows a specific user in the resource directory to request this access package.
 
 3. In the **Users who can request access** section, click **For users in your directory** and select **All members (excluding guests)**. This makes it so that only members if your directory will be able to request Office licenses.
 
-4.	Ensure that **Require approval** is set to **Yes**
+4.	Ensure that **Require approval** is set to **Yes**.
 
 5.	The following settings allow you to configure how your approvals work for the users you selected in the step above:
 
@@ -71,37 +71,37 @@ For more information, see [License requirements](entitlement-management-overview
     * **Decision must be made in how many days?** - Time limit for approvers. Leave this as **14**.
     * **Require approver justification** - Approvers must fill in the justification field for their approvals in case you want to review later. Leave this as **Yes**.
 
-6.	Set **Enable new requests and assignments** to **Yes** to enable this access package to be requested as soon as it's created
+6.	Set **Enable new requests and assignments** to **Yes** to enable this access package to be requested as soon as it's created.
 
 ## Step 4: Configure Requestor information for your access package
 
-1.	Click **Next** to open the **Requestor information** tab
+1.	Click **Next** to open the **Requestor information** tab.
 
-2.	On this screen, you can ask more questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional
+2.	On this screen, you can ask more questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional.
 
 3.	Fill in any questions that are necessary and configure the type of answer you would expect.
 
 ## Step 5: Configure the Lifecycle for your access package
 
-1. Click **Next** to open the **Lifecycle** tab
+1. Click **Next** to open the **Lifecycle** tab.
 
-2.	In the **Expiration** section, set **Access package assignments expire** to **Number of days**
+2.	In the **Expiration** section, set **Access package assignments expire** to **Number of days**.
 	
 3.	Set **Assignments expire after** to **365** days. This field determines when members who have access to this access package will need to renew their access. 
 
 4.	You can also configure **Access Reviews** which allows periodic checks of whether the user still needs access to the access package. A review can be a self-review or you can set their manager, specific reviews for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md). For this scenario, you will want each user to review whether they still need a license for Office each year.
 
-    1.	Set **Require access reviews** to **Yes**
-    2.	You can leave the **Starting on** to the current date - This date is when the access review campaign will start. Once an access review has been created, you can't update its start date
-    3.	Set **Review frequency** to be **Annually** - This field determines how often the access review campaign runs
-    4.	Specify a **Duration (in days)** - This field is how many days each occurrence of the access review series will run
-    5.	For the **Reviewers**, select **Manager**
+    1.	Set **Require access reviews** to **Yes**.
+    2.	You can leave the **Starting on** to the current date - This date is when the access review campaign will start. Once an access review has been created, you can't update its start date.
+    3.	Set **Review frequency** to be **Annually** - This field determines how often the access review campaign runs.
+    4.	Specify a **Duration (in days)** - This field is how many days each occurrence of the access review series will run.
+    5.	For the **Reviewers**, select **Manager**.
 
 ## Step 6: Review and create your access package
 
-1.	Click **Next** to open the **Review + Create** tab
+1.	Click **Next** to open the **Review + Create** tab.
 
-2.	On this screen, you can review the configuration for your access package before creating it. If there are any issues, you can use the tabs to navigate to a specific point in the create experience to make edits
+2.	On this screen, you can review the configuration for your access package before creating it. If there are any issues, you can use the tabs to navigate to a specific point in the create experience to make edits.
 
 3.	Once you're happy with your selection, click **Create**. After a few moments, you should see a notification that the access package was successfully created.
 
