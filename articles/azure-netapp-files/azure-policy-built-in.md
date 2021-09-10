@@ -41,4 +41,3 @@ To learn how to assign a policy to resources and view compliance report, see [As
 ## Next steps
 
 * [Azure Policy documentation](/azure/governance/policy/)
-* FAQ: [Does Azure NetApp Files work with Azure Policy?](azure-netapp-files-faqs.md#does-azure-netapp-files-work-with-azure-policy)
