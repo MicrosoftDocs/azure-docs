@@ -1,16 +1,16 @@
 ---
-title: Resize a virtual machine using the Azure portal or PowerShell 
+title: Resize a virtual machine
 description: Change the VM size used for an Azure virtual machine.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 01/13/2020
+ms.date: 09/10/2021
 ms.author: cynthn 
 ms.custom: devx-track-azurepowershell
 
 ---
-# Resize a virtual machine using the Azure portal or PowerShell
+# Change the size of a virtual machine 
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
@@ -20,7 +20,7 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
 
 If your VM uses Premium Storage, make sure that you choose an **s** version of the size to get Premium Storage support. For example, choose Standard_E4**s**_v3 instead of Standard_E4_v3.
 
-## Use the portal
+### [Portal](#tab/portal)
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Open the page for the virtual machine.
@@ -30,7 +30,38 @@ If your VM uses Premium Storage, make sure that you choose an **s** version of t
 
 If the virtual machine is currently running, changing its size will cause it to be restarted. Stopping the virtual machine may reveal additional sizes.
 
-## Use PowerShell to resize a VM not in an availability set
+### [CLI](#tab/cli)
+
+To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
+
+1. View the list of available VM sizes on the hardware cluster where the VM is hosted with [az vm list-vm-resize-options](/cli/azure/vm). The following example lists VM sizes for the VM named `myVM` in the resource group `myResourceGroup` region:
+   
+    ```azurecli
+    az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
+    ```
+
+2. If the desired VM size is listed, resize the VM with [az vm resize](/cli/azure/vm). The following example resizes the VM named `myVM` to the `Standard_DS3_v2` size:
+   
+    ```azurecli
+    az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
+    ```
+   
+    The VM restarts during this process. After the restart, your existing OS and data disks are remapped. Anything on the temporary disk is lost.
+
+3. If the desired VM size is not listed, you need to first deallocate the VM with [az vm deallocate](/cli/azure/vm). This process allows the VM to then be resized to any size available that the region supports and then started. The following steps deallocate, resize, and then start the VM named `myVM` in the resource group named `myResourceGroup`:
+   
+    ```azurecli
+    az vm deallocate --resource-group myResourceGroup --name myVM
+    az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
+    az vm start --resource-group myResourceGroup --name myVM
+    ```
+   
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+
+### [PowerShell](#tab/powershell)
+
+**Use PowerShell to resize a VM not in an availability set.**
 
 Set some variables. Replace the values with your own information.
 
@@ -68,7 +99,7 @@ Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 > 
 > 
 
-## Use PowerShell to resize a VM in an availability set
+**Use PowerShell to resize a VM in an availability set**
 
 If the new size for a VM in an availability set is not available on the hardware cluster currently hosting the VM, then all VMs in the availability set will need to be deallocated to resize the VM. You also might need to update the size of other VMs in the availability set after one VM has been resized. To resize a VM in an availability set, perform the following steps.
 
