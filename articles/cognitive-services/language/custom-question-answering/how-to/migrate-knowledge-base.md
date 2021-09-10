@@ -1,10 +1,10 @@
 ---
-title: Migrate knowledge bases - QnA Maker
+title: Migrate knowledge bases - custom question answering
 description: Migrating a knowledge base requires exporting from one knowledge base, then importing into another.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 08/25/2021
 ---
 # Migrate a knowledge base using export-import
 
@@ -18,8 +18,8 @@ You may want to create a copy of your knowledge base for several reasons:
 ## Prerequisites
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
-> * Set up a new [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
+> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
+> * Set up [Custom question answering](../How-To/set-up-qnamaker-service-azure.md)
 
 ## Export a knowledge base
 1. Sign in to [QnA Maker portal](https://qnamaker.ai).
@@ -57,9 +57,9 @@ You may want to create a copy of your knowledge base for several reasons:
 1. **Publish** the knowledge base and create a chat bot. Learn how to [publish your knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
    > [!div class="mx-imgBorder"]
-   > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
+   > ![Migrate knowledge base](../media/migrate-knowledge-base/import-export-kb.png)
 
-## Programmatically migrate a knowledge base from QnA Maker
+## Programmatically migrate a knowledge base
 
 The migration process is programmatically available using the following REST APIs:
 
@@ -71,7 +71,6 @@ The migration process is programmatically available using the following REST API
 
 * [Replace API (reload with same knowledge base ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
 * [Create API (load with new knowledge base ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
-
 
 ## Chat logs
 There is no way to migrate chat logs, since the new knowledge base uses Application Insights for storing chat logs.
