@@ -97,33 +97,35 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
 1. The Active Directory administrator should create in advance 3 Domain users with **Local Administrator** rights and one global group in the **local Windows AD**: **SAPCONT_ADMIN@SAPCONTOSO.local** has Domain Admin rights and is used to run **SAPInst**, **\<sid>adm** and **SAPService\<SID>** as SAP system users and the **SAP_\<SAPSID>_GlobalAdmin** group. The SAP Installation Guide contains the specific details required for these accounts.  **SAP user accounts should not be Domain Administrator**. It is generally recommended **not to use \<sid>adm to run SAPInst**.
 2. The Active Directory administrator or Azure Administrator should check **Azure AD Connect** Synchronization Service Manager. By default it takes approximately 30 minutes to replicate to the **Azure Active Directory**. 
 3. The Azure administrator should complete the following tasks:
-   1. Create a Storage Account with either Premium ZRS or LRS. Customers with Zonal deployment should choose ZRS:
-   ![This is a more descriptive Text for the picture](media/virtual-machines-shared-sap-high-availability-guide/create-sa-1.png)
-   ![create-sa-2](media/virtual-machines-shared-sap-high-availability-guide/create-sa-2.png)
-   ![create-sa-4](media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png)
-   ![create-sa-3](media/virtual-machines-shared-sap-high-availability-guide/create-sa-3.png)
-   2. Create the **sapmnt** File share with an appropriate size.  The suggested size is 256GB which delivers 650 IOPS, 75 MB/sec Egress and 50 MB/sec Ingress.
-   ![create-sa-7](media/virtual-machines-shared-sap-high-availability-guide/create-sa-7.png) 
-   3. Download the [Azure Files Github](../../../storage/files/storage-files-identity-ad-ds-enable#download-azfileshybrid-module) content and execute the [script](../../../storage/files/storage-files-identity-ad-ds-enable#run-join-azstorageaccountforauth).   
-   4. This script will create either a Computer Account or Service Account in Active Directory.  The user running the script must have the following properties: 
-       * The user running the script must have permission to create objects in the Active Directory Domain containing the SAP servers. Typically, a domain administrator account is used such as **SAPCONT_ADMIN@SAPCONTOSO.local** 
-       * Before executing the script confirm that this Active Directory Domain user account is synchronized with Azure Active Directory (AAD).  An example of this would be to open the Azure Portal and navigate to AAD users and check that the user **SAPCONTIT_ADMIN@SAPCONTOSO.local** exists and verify the AAD user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.
-       * Grant the **Contributor RBAC** role to this Azure Active Directory user account for the Resource Group containing the storage account holding the File Share.  In this example the user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com** is granted **Contributor Role** to the respective Resource Group 
-       * The script should be executed while logged on to a Windows server using an Active Directory Domain user account with the permission as specified above, in this example the account **SAPCONT_ADMIN@SAPCONTOSO.local** would be used.
-
-       > [!IMPORTANT]
-       > When executing the PowerShell script command **Connect-AzAccount**, it is highly recommended to enter the Azure Active Directory user account that corresponds and maps to the Active Directory Domain user account used to logon to a Windows Server, in this example this is the user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**
-       >
-
-       * In this example scenario the Active Directory Administrator would logon to the Windows Server as **SAPCONT_ADMIN@SAPCONTOSO.local** and when using the **PS command Connect-AzAccount** connect as user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.  Ideally the Active Directory Administrator and the Azure Administrator should work together on this task.
+     1. Create a Storage Account with either **Premium ZRS** or **LRS**. Customers with Zonal deployment should choose ZRS. Here the choice between setting up a **Standard** or **Premium Account** needs to be made:
+     ![create-sa-1](media/virtual-machines-shared-sap-high-availability-guide/create-sa-1.png)
+     > [!IMPORTANT]
+     > For productive use the recommendation is using a **Premium Account**. For non-productive using a **Standard Account** will be sufficient. 
+     >
+     ![create-sa-2](media/virtual-machines-shared-sap-high-availability-guide/create-sa-2.png)Here the default settings should be ok.
+     ![create-sa-4](media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png)In this screen the decision to use a private endpoint is made.
+     ![create-sa-3](media/virtual-machines-shared-sap-high-availability-guide/create-sa-3.png)**Select Private Network Endpoint** for the storage account.
+     If required add a DNS A-Record into Windows DNS for the **<storage_account_name>.file.core.windows.net** (this may need to be in a new DNS Zone).  Discuss this topic with the DNS administrator.  The new zone should not update outside of an organization.    
+     ![pe-dns-1](media/virtual-machines-shared-sap-high-availability-guide/pe-dns-1.png)     
+     2. Create the **sapmnt** File share with an appropriate size.  The suggested size is 256GB which delivers 650 IOPS, 75 MB/sec Egress and 50 MB/sec Ingress.
+     ![create-sa-5](media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png) 
+      
+     3. Download the [Azure Files Github](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable#download-azfileshybrid-module) content and execute the [script](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable#run-join-azstorageaccountforauth).   
+     4. This script will create either a Computer Account or Service Account in Active Directory.  The user running the script must have the following properties: 
+         * The user running the script must have permission to create objects in the Active Directory Domain containing the SAP servers. Typically, a domain administrator account is used such as **SAPCONT_ADMIN@SAPCONTOSO.local** 
+         * Before executing the script confirm that this Active Directory Domain user account is synchronized with Azure Active Directory (AAD).  An example of this would be to open the Azure Portal and navigate to AAD users and check that the user **SAPCONT_ADMIN@SAPCONTOSO.local** exists and verify the AAD user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.
+         * Grant the **Contributor RBAC** role to this Azure Active Directory user account for the Resource Group containing the storage account holding the File Share.  In this example the user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com** is granted **Contributor Role** to the respective Resource Group 
+         * The script should be executed while logged on to a Windows server using an Active Directory Domain user account with the permission as specified above, in this example the account **SAPCONT_ADMIN@SAPCONTOSO.local** would be used.
+         >[!IMPORTANT]
+         > When executing the PowerShell script command **Connect-AzAccount**, it is highly recommended to enter the Azure Active Directory user account that corresponds and maps to the Active Directory Domain user account used to logon to a Windows Server, in this example this is the user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**
+         >
+         In this example scenario the Active Directory Administrator would logon to the Windows Server as **SAPCONT_ADMIN@SAPCONTOSO.local** and when using the **PS command Connect-AzAccount** connect as user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.  Ideally the Active Directory Administrator and the Azure Administrator should work together on this task.
    5. Assign SAP users **\<sid>adm**, **SAPService\<SID>** and the **SAP_\<SAPSID>_GlobalAdmin** group to the Azure Files Premium SMB File Share with Role **Storage File Data SMB Share Elevated Contributor** in the Azure Portal 
    6. Check the ACL on the **sapmnt file share** after the installation and add **DOMAIN\CLUSTER_NAME$** account, **DOMAIN\\\<sid>adm**, **DOMAIN\SAPService\<SID>** and the **Group SAP_\<SID>_GlobalAdmin**. These accounts and group **should have full control of sapmnt directory**.
 
        > [!IMPORTANT]
        > This step must be completed before the SAPInst installation or it will be difficult or impossible to change ACLs after SAPInst has created directories and files on the File Share
        >
-         
-
        ![ACL Properties](media/virtual-machines-shared-sap-high-availability-guide/smb-acl-1.png)
        The following screenshots show how to add Computer machine accounts by selecting the Object Types -> Computers
        ![add-computer-1](media/virtual-machines-shared-sap-high-availability-guide/add-computer-2.png)
