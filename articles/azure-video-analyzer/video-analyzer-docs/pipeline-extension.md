@@ -15,9 +15,12 @@ Video Analyzer supports the following pipeline extension processors:
 
 * [HTTP extension processor](pipeline.md#http-extension-processor) 
 * [gRPC extension processor](pipeline.md#grpc-extension-processor)
-* [Cognitive Services extension processor](pipeline.md#cognitive-services-extension-processor) 
-	
+* [Cognitive Services extension processor](pipeline.md#cognitive-services-extension-processor)
+
 The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md)
+
+> [!NOTE]
+> Capability is currently available only for edge module & not for cloud pipelines.
 
 ## HTTP extension processor
 
@@ -45,12 +48,12 @@ The gRPC extension processor can be used for sending properties along with excha
 
 ## Cognitive Services extension processor
 
-Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis](../../cognitive-services/computer-vision/overview.md) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
+Cognitive Services extension processor (Microsoft built & supported AI) is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis](../../cognitive-services/computer-vision/overview.md) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
 
 Use Cognitive Services extension processor node when:
 
 * You want better interoperability with existing [Spatial Analysis operations](../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md).
-* Want to use all the benefits of gRPC protocol, accuracy, and performance of Microsoft built and supported AI.
+* Want to use all the benefits of gRPC protocol, accuracy, and performance of **Microsoft built and supported AI**.
 * Analyze multiple camera feeds at low latency and high throughput.
 
 ## Use your inferencing model
