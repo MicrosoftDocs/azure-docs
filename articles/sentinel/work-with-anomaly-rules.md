@@ -25,7 +25,7 @@ ms.author: yelevin
 
 ## View SOC-ML anomaly rule templates
 
-Azure Sentinel’s [SOC-ML anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](tutorial-detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules must be activated before they will generate anomalies, which you can find in the **Anomalies** table in the **Logs** section.
+Azure Sentinel’s [SOC-ML anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules must be activated before they will generate anomalies, which you can find in the **Anomalies** table in the **Logs** section.
 
 1. From the Azure Sentinel navigation menu, select **Analytics**.
 
@@ -145,4 +145,4 @@ This is by design, to give you the opportunity to compare the results generated 
 In this document, you learned how to work with SOC-ML anomaly detection analytics rules in Azure Sentinel.
 
 - Get some background information about [SOC-ML](soc-ml-anomalies.md).
-- Explore other [analytics rule types](tutorial-detect-threats-built-in.md).
+- Explore other [analytics rule types](detect-threats-built-in.md).

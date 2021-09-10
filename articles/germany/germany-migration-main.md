@@ -19,6 +19,8 @@ The two regions in Germany are entirely separate from global Azure. The clouds i
 
 The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and Microsoft 365 (or other Microsoft products), there are complexities in identity migration and you should first read the [Migration phases actions and impacts for the Migration from Microsoft Cloud Deutschland](/microsoft-365/enterprise/ms-cloud-germany-transition-phases?view=o365-worldwide). If you have questions, contact your account manager or Microsoft support.
 
+Azure Cloud Solution Providers need to take additional steps to support customers during and after the transition to the new German datacenter region. Learn more about the [additional steps](/microsoft-365/enterprise/ms-cloud-germany-transition-add-csp).
+
 ## Migration process
 
 The process that you use to migrate a workload from Azure Germany to global Azure typically is similar to the process that's used to migrate applications to the cloud. The steps in the migration process are:

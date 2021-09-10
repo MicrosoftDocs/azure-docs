@@ -17,6 +17,10 @@ ms.date: 02/08/2021
 > Azure Cache for Redis supports both classic deployment model and Azure Resource Manager virtual networks.
 >
 
+> [!IMPORTANT]
+> Azure Cache for Redis now supports Azure Private Link, which simplifies the network architecture and secures the connection between endpoints in Azure. You can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. Azure Private Links is offered on all our tiers, includes Azure Policy support, and simplified NSG rule management. To learn more, see [Private Link Documentation](cache-private-link.md). To migrate your VNet injected caches to Private Link, see [here](cache-vnet-migration.md).
+>
+
 ## Set up virtual network support
 
 Virtual network support is configured on the **New Azure Cache for Redis** pane during cache creation.

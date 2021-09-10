@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/02/2020
+ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
 ---
@@ -23,13 +23,12 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Apache Spark pools (powered by Azure Synapse Analytics)
 * Azure HDInsight
 * Azure Batch
-* Azure Databricks
+* Azure Databricks - used as a training compute target only in [machine learning pipelines](how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
-
+* Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
 
 To use compute targets managed by Azure Machine Learning, see:
-
 
 * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
 * [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)
@@ -340,9 +339,23 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## Azure Kubernetes Service
+## <a id="kubernetes"></a>Kubernetes (preview)
 
-Azure Kubernetes Service (AKS) allows for various configuration options when used with Azure Machine Learning. For more information, see [How to create and attach Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
+Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training:
+
+* [Azure Kubernetes Service](../aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
+* [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure.
+
+[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+
+To detach a Kubernetes cluster from your workspace, use the following method:
+
+```python
+compute_target.detach()
+```
+
+> [!WARNING]
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources).
 
 ## Notebook examples
 

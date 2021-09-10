@@ -150,11 +150,6 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
     :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Check Python version in Jupyter Notebook" border="true":::
 
-## Known issue
-
-There's a known bug for Anaconda version `4.7.11`, `4.7.12`, and `4.8.0`. If you see your script actions stops responding at `"Collecting package metadata (repodata.json): ...working..."` and failing with `"Python script has been killed due to timeout after waiting 3600 secs"`. You can download [this script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) and run it as script actions on all nodes to fix the issue.
-
-To check your Anaconda version, you can SSH to the cluster header node and run `/usr/bin/anaconda/bin/conda --v`.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Describes how to define and consume a module, and how to use module
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 09/10/2021
 ---
 
 # Use Bicep modules
@@ -97,8 +97,23 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
     ]
     ...
     ```
+- The **_params_** property contains any parameters to pass to the module file. These parameters match the parameters defined in the Bicep file.
+
+Like resources, modules are deployed in parallel unless they depend on other modules or resource deployments. To learn more about dependencies, see [Set resource dependencies](resource-declaration.md#set-resource-dependencies).
 
 To get an output value from a module, retrieve the property value with syntax like: `stgModule.outputs.storageEndpoint` where `stgModule` is the identifier of the module.
+
+You can conditionally deploy a module. Use the same **if** syntax as you would use when [conditionally deploying a resource](conditional-resource-deployment.md).
+
+```bicep
+param deployZone bool
+
+module dnsZone 'dnszones.bicep' = if (deployZone) {
+  name: 'myZoneModule'
+}
+```
+
+You can deploy a module multiple times by using loops. For more information, see [Module iteration in Bicep](loop-modules.md).
 
 ## Configure module scopes
 
@@ -160,3 +175,4 @@ Or, you can use the scope functions to get a valid scope. Those functions are:
 ## Next steps
 
 - To go through a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
+- You can deploy a module multiple times by using loops. For more information, see [Module iteration in Bicep](loop-modules.md).

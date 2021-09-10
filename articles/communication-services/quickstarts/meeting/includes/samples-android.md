@@ -3,7 +3,7 @@ title: Using the Azure Communication Services Teams Embed for Android
 description: In this overview, you will learn how to use the Azure Communication Services Teams Embed library for Android.
 author: palatter
 ms.author: palatter
-ms.date: 24/02/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -15,7 +15,86 @@ ms.service: azure-communication-services
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Complete the quickstart for [getting started with adding Teams Embed to your application](../getting-started-with-teams-embed.md)
 
-## Teams Embed Events
+## Joining a group call
+
+Group call can be joined by providing `MeetingUIClientGroupCallLocator` and `MeetingUIClientJoinOptions` to the `meetingUIClient.join` API. The group call will not ring for other participants. The user will be joining the call silently.
+
+Navigate to the main layout file (`app/src/main/res/layout/activity_main.xml`) to set up the button to join a group call. Create a button with an ID `join_groupCall`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/join_groupCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Join Group Call"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+Navigate to **MainActivity.java** and add the button on click action in the `onCreate` method:
+
+```java
+package com.yourcompany.teamsembedandroidgettingstarted;
+
+import com.azure.android.communication.ui.meetings.MeetingUIClient;
+import com.azure.android.communication.ui.meetings.MeetingUIClientCall;
+import com.azure.android.communication.ui.meetings.MeetingUIClientGroupCallLocator;
+import com.azure.android.communication.ui.meetings.MeetingUIClientJoinOptions;
+
+import java.util.UUID;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        Button joinGroupCallButton = findViewById(R.id.join_groupCall);
+        joinGroupCallButton.setOnClickListener(l -> joinGroupCall());
+    }
+}
+```
+
+Setting up the client and providing the token is done the same way as for meeting join API, which is described in the [quickstart](../getting-started-with-teams-embed.md).
+
+The `joinGroupCall` method is set as the action that will be performed when the *Join Group Call* button is tapped. Joining a group call can be done via the `MeetingUIClient`. Create a `MeetingUIClientGroupCallLocator` and configure the join options using the `MeetingUIClientJoinOptions`.
+Note to replace `<GROUP_ID>` with a UUID string. Group ID string must be in GUID or UUID format.
+
+```java
+/**
+ * Join a group call with a groupID.
+ */
+private void joinGroupCall() {
+    getAllPermissions();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
+
+    MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
+
+    try {
+        UUID groupUUID = UUID.fromString("<GROUP_ID>");
+        MeetingUIClientGroupCallLocator meetingUIClientGroupCallLocator = new MeetingUIClientGroupCallLocator(groupUUID);
+        meetingUIClientCall = meetingUIClient.join(meetingUIClientGroupCallLocator, meetingJoinOptions);
+    } catch (Exception ex) {
+        Toast.makeText(getApplicationContext(), "Failed to join group call: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+    }
+}
+```
+
+## Teams Embed call or meeting status events capturing
+
+Joined group call or meeting status can be captured from `MeetingUIClientCallEventListener` class. The status includes connection states, participants count, and modalities like microphone or camera state.
 
 Add the following code to your `MainActivity.java`.
 
@@ -103,7 +182,7 @@ public void onIsHandRaisedChanged(List<String> participantIds) {
 
 ## Bring your own identity from the app to the participants in the SDK call.
 
-The app can assign its users identity values to the participants in the call or meeting and override the default values. The values include avatar, name, subtitle, and role.  
+The app can assign its users identity values to the participants in the call or meeting and override the default values. The values include avatar, name and subtitle.
 
 ### Assigning avatars for call participants
 
@@ -152,7 +231,6 @@ public void provideAvatarFor(CommunicationIdentifier communicationIdentifier, Me
 }
 ```
 
-
 Add other mandatory MeetingUIClientCallIdentityProvider interface methods to the class and they may be left with empty implementations.
 
 ```java
@@ -163,12 +241,10 @@ public void provideDisplayNameFor(CommunicationIdentifier communicationIdentifie
 @Override
 public void provideSubTitleFor(CommunicationIdentifier communicationIdentifier, MeetingUIClientCallIdentityProviderCallback callback) {
 }
-
-@Override
-public void provideRoleFor(CommunicationIdentifier communicationIdentifier, MeetingUIClientCallIdentityProviderCallback callback) {
-}
 ```
 ## Receive information about user actions in the UI and add your own custom functionalities.
+
+### Call Screen
 
 The `MeetingUIClientCallUserEventListener` interface methods are called upon user actions in remote participant's profile.
 
@@ -207,14 +283,14 @@ public void onNamePlateOptionsClicked(@NonNull Activity activity, @NonNull Commu
         CommunicationUserIdentifier userIdentifier = (CommunicationUserIdentifier) communicationIdentifier;
         if (userIdentifier.getId().startsWith("8:acs:")) {
             // Custom behavior based on the user here.
-            System.out.println("Acs user tile clicked");
+            System.out.println("On user name plate clicked");
         }
     }
 }
 ```
 
 Add and implement `onParticipantViewLongPressed` method and map each `userIdentifier` to the corresponding call participant user.
-This method is called on long press of user tile from call main screen. Return true for custom handling or false for default handling of the long press.
+This method is called on long press of user tile from call main screen. Return `true` for custom handling or `false` for default handling of the long press.
 
 ```java
 @Override
@@ -223,7 +299,55 @@ public boolean onParticipantViewLongPressed(@NonNull Activity activity, @NonNull
         CommunicationUserIdentifier userIdentifier = (CommunicationUserIdentifier) communicationIdentifier;
         if (userIdentifier.getId().startsWith("8:acs:")) {
             // Custom behavior based on the user here.
-            System.out.println("Acs user tile clicked");
+            System.out.println("On participant tile long pressed");
+            return true;
+        }
+        return false;
+    }
+}
+```
+
+### Call Roster
+
+The `MeetingUIClientCallRosterDelegate` interface methods are called upon user actions in the call roster.
+
+Add the `MeetingUIClientCallRosterDelegate` to your class.
+
+```java
+public class MainActivity extends AppCompatActivity implements MeetingUIClientCallRosterDelegate {
+```
+
+Call `setMeetingUIClientCallRosterDelegate` with parameter `this`.
+
+```java
+private void joinMeeting() {
+    getAllPermissions();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
+
+    MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
+
+    MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
+
+    try {
+        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
+        meetingUIClientCall.setMeetingUIClientCallRosterDelegate(this);
+    } catch (Exception ex) {
+        Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+    }
+}
+```
+
+Add and implement `onCallParticipantCellTapped` method and map each `userIdentifier` to the corresponding call participant user.
+This method is called on single tap of remote participant cell from call roster screen. Return `true` for custom handling or `false` for default handling of the single tap.
+
+```java
+@Override
+public boolean onCallParticipantCellTapped(@NonNull Activity activity, @NonNull CommunicationIdentifier communicationIdentifier) {
+    if(communicationIdentifier instanceof CommunicationUserIdentifier) {
+        CommunicationUserIdentifier userIdentifier = (CommunicationUserIdentifier) communicationIdentifier;
+        if (userIdentifier.getId().startsWith("8:acs:")) {
+            // Custom behavior based on the user here.
+            System.out.println("On call participant cell tapped");
             return true;
         }
         return false;
@@ -232,12 +356,12 @@ public boolean onParticipantViewLongPressed(@NonNull Activity activity, @NonNull
 ```
 ## User experience customization
 
-The user experience in the SDK can be customized by providing app-specific icons or replacing call controls bars. 
+The user experience in the SDK can be customized by providing app-specific icons. 
 
 ### Customize UI icons in a call or meeting
 The icons shown in the call or meeting could be customized through method `public void setIconConfig(Map<MeetingUIClientIconType, Integer> iconConfig)` exposed in `MeetingUIClient`.
 
-After creating the meetingUIClient, set the icon configuration `meetingUIClient.setIconConfig(getIconConfig())`   for the call icons supported in `MeetingUIClientIconType`.
+After creating the meetingUIClient, set the icon configuration `meetingUIClient.setIconConfig(getIconConfig())` for the call icons supported in `MeetingUIClientIconType`.
 
 ```java
 private MeetingUIClient createMeetingUIClient() {
@@ -262,145 +386,10 @@ private Map<IconType, Integer> getIconConfig() {
 }
 ```
 
-### Customize main call screen
-
-The `MeetingUIClient` provides support to customize the main call screen UI. Currently it supports customizing the UI using `MeetingUIClientInCallScreenProvider` interface methods.
-Call screen control actions are exposed through the methods present in `MeetingUIClientCall`.
-
-Add the `MeetingUIClientInCallScreenProvider` to your class.
-
-```java
-public class MainActivity extends AppCompatActivity implements MeetingUIClientInCallScreenProvider {
-```
-
-Call `setMeetingUIClientInCallScreenProvider` with parameter `this`.
-
-```java
-private void joinGroupCall() {
-    getAllPermissions();
-    MeetingUIClient meetingUIClient = createMeetingUIClient();
-
-    UUID groupUUID = UUID.fromString("<GROUP_ID>");
-    MeetingUIClientGroupCallLocator meetingUIClientGroupCallLocator = new MeetingUIClientGroupCallLocator(groupUUID);
-
-    MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
-    meetingUIClient.setMeetingUIClientInCallScreenProvider(this);
-    
-    try {
-        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientGroupCallLocator, meetingJoinOptions);
-    } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to join group call: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
-    }
-}
-```
-
-Add and implement `provideInCallControlTopBar` method to provide the main call screen top information bar.
-
-```java
-@Override
-public View provideInCallControlTopBar() {
-    View topView;
-    // set topView to your custom view here
-    return topView;
-}
-```
-
-Add other mandatory `MeetingUIClientInCallScreenProvider` methods to the class and they may be left with empty implementations to return null.
-```java
-@Override
-public View provideInCallControlBottomBar() {
-    return null;
-}
-```
-### Customize staging call screen
-
-The `MeetingUIClient` provides support to customize the staging call screen UI. Currently it supports customizing the UI using `MeetingUIClientStagingScreenProvider` interface methods.
-
-Add the `MeetingUIClientStagingScreenProvider` to your class.
-
-```java
-public class MainActivity extends AppCompatActivity implements MeetingUIClientStagingScreenProvider {
-```
-
-Call `setMeetingUIClientStagingScreenProvider` with parameter `this` before joining the call or meeting.
-
-```java
-private void joinGroupCall() {
-    getAllPermissions();
-    MeetingUIClient meetingUIClient = createMeetingUIClient();
-
-    UUID groupUUID = UUID.fromString("<GROUP_ID>");
-    MeetingUIClientGroupCallLocator meetingUIClientGroupCallLocator = new MeetingUIClientGroupCallLocator(groupUUID);
-
-    MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
-    meetingUIClient.setMeetingUIClientStagingScreenProvider(this);
-
-    try {
-        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientGroupCallLocator, meetingJoinOptions);
-    } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to join group call: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
-    }
-}
-```
-
-Add and implement  `MeetingUIClientInCallScreenProvider` methods to the class and return your custom implementation or 0 for default.
-
-```java
-@Override
-public int onProvideJoinButtonBackground() {
-    return R.drawable.join_button_background;
-}
-
-@Override
-public int onProvideStagingScreenBackgroundColor() {
-    return 0;
-}
-```
-
-### Customize on connecting call screen
-
-The `MeetingUIClient` provides support to customize the connecting call screen UI. Currently it supports customizing the UI using `MeetingUIClientConnectingScreenProvider` interface methods.
-
-Add the `MeetingUIClientConnectingScreenProvider` to your class.
-
-```java
-public class MainActivity extends AppCompatActivity implements MeetingUIClientConnectingScreenProvider {
-```
-
-Call `setMeetingUIClientConnectingScreenProvider` with parameter `this` before joining the call or meeting.
-
-```java
-private void joinGroupCall() {
-    getAllPermissions();
-    MeetingUIClient meetingUIClient = createMeetingUIClient();
-
-    UUID groupUUID = UUID.fromString("<GROUP_ID>");
-    MeetingUIClientGroupCallLocator meetingUIClientGroupCallLocator = new MeetingUIClientGroupCallLocator(groupUUID);
-
-    MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
-
-    meetingUIClient.setMeetingUIClientConnectingScreenProvider(this);
-    try {
-        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientGroupCallLocator, meetingJoinOptions);
-    } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to join group call: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
-    }
-}
-```
-
-Add and implement  `onProvideConnectingScreenBackgroundColor` method to modify the background color of the connecting screen.
-
-```java
-@Override
-public int onProvideConnectingScreenBackgroundColor() {
-    return ContextCompat.getColor(mContext, android.R.color.black);
-}
-```
-
 ## Perform operations with the call
 
 Call control actions are exposed through the methods present in `MeetingUIClientCall`.
-These methods are useful in controlling the call actions if the UI had been customized using the `MeetingUIClient` customization delegates.
+These methods are useful in controlling the call actions.
 
 Add variable for meetingUIClientCall
 
@@ -415,16 +404,15 @@ private void joinGroupCall() {
     getAllPermissions();
     MeetingUIClient meetingUIClient = createMeetingUIClient();
 
-    UUID groupUUID = UUID.fromString("<GROUP_ID>");
-    MeetingUIClientGroupCallLocator meetingUIClientGroupCallLocator = new MeetingUIClientGroupCallLocator(groupUUID);
-
     MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
 
     try {
+        UUID groupUUID = UUID.fromString("<GROUP_ID>");
+        MeetingUIClientGroupCallLocator meetingUIClientGroupCallLocator = new MeetingUIClientGroupCallLocator(groupUUID);
         meetingUIClientCall = meetingUIClient.join(meetingUIClientGroupCallLocator, meetingJoinOptions);
         meetingUIClientCall.setMeetingUIClientCallEventListener(this);
     } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Failed to join group call: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
@@ -471,21 +459,15 @@ public void setAudioRoute(MeetingUIClientAudioRoute audioRoute)
 // Raise the hand of current user for an active call.
 public void raiseHand()
 
-// Lower the hand of user provided in the userIdentifier for an active call.
-public void lowerHand(CommunicationIdentifier userIdentifier)
-
-// Show the call roster for an active call.
-public void showCallRoster() 
+// Lower the hand of current user for an active call.
+public void lowerHand()
 
 // Change the layout in the call for self user.
 public List<MicrosoftTeamsSDKLayoutMode> getSupportedLayoutModes()
 public void changeLayout(MeetingUIClientLayoutMode microsoftTeamsSDKLayoutMode)
 
 // Hang up the call or leave the meeting.
-public void hangup()
-
-// Set the user role for an active call.
-public void setRoleFor(CommunicationIdentifier userIdentifier, MeetingUIClientUserRole userRole)
+public void hangUp()
 ```
 
 ## Use Teams Embed SDK and Azure Communication Calling SDK in the same app

@@ -24,8 +24,6 @@ In this quickstart, you learn to manage blobs by using Python. Blobs are objects
 - [Python](https://www.python.org/downloads/).
 - [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python).
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Download the sample application
 
 The [sample application](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) in this quickstart is a basic Python application.  

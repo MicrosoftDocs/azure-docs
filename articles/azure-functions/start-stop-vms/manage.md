@@ -3,7 +3,7 @@ title: Manage Start/Stop VMs v2 (preview)
 description: This article tells how to monitor status of your Azure VMs managed by the Start/Stop VMs v2 (preview) feature and perform other management tasks.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/16/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
 ---
 
@@ -16,6 +16,9 @@ Start/Stop VMs v2 (preview) includes a [dashboard](../../azure-monitor/visualiza
 The log data each tile in the dashboard displays is refreshed every hour, with a manual refresh option on demand by clicking the **Refresh** icon on a given visualization, or by refreshing the full dashboard.
 
 To learn about working with a log-based dashboard, see the following [tutorial](../../azure-monitor/visualize/tutorial-logs-dashboards.md).
+
+> [!NOTE]
+> If you run into problems during deployment, you encounter an issue when using Start/Stop VMs v2 (preview), or if you have a related question, you can submit an issue on [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Filing an Azure support incident from the [Azure support site](https://azure.microsoft.com/support/options/) is not available for this preview version. 
 
 ## Configure email notifications
 

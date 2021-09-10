@@ -31,9 +31,9 @@ This dataset is stored in the West US 2 and West Central US Azure regions. Alloc
 
 ## Data Access
 
-West US 2: https://datasetclinvar.blob.core.windows.net/dataset
+West US 2: 'https://datasetclinvar.blob.core.windows.net/dataset'
 
-West Central US: https://datasetclinvar-secondary.blob.core.windows.net/dataset
+West Central US: 'https://datasetclinvar-secondary.blob.core.windows.net/dataset'
 
 [SAS Token](../storage/common/storage-sas-overview.md): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=qFPPwPba1RmBvaffkzkLuzabYU5dZstSTgMwxuLNME8%3D
 
@@ -59,7 +59,7 @@ For any questions or feedback about this dataset, contact clinvar@ncbi.nlm.nih.g
 
 Several public genomics data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/services/open-datasets/catalog/). We create a blob service linked to this open dataset. You can find examples of data calling procedure from Azure Open Dataset for `ClinVar` dataset in below:
 
-Users can call and download the following path with this notebook: https://datasetclinvar.blob.core.windows.net/dataset/ClinVarFullRelease_00-latest.xml.gz.md5
+Users can call and download the following path with this notebook: 'https://datasetclinvar.blob.core.windows.net/dataset/ClinVarFullRelease_00-latest.xml.gz.md5'
 
 > [!NOTE]
 > Users needs to log-in their Azure Account via Azure CLI for viewing the data with Azure ML SDK. On the other hand, they do not need do any actions for downloading the data.

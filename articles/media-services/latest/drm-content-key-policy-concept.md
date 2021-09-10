@@ -51,7 +51,7 @@ To get to the key, use `GetPolicyPropertiesWithSecretsAsync`, as shown in the [G
 
 ## Filtering, ordering, paging
 
-See [Filtering, ordering, paging of Media Services entities](filter-order-page-entitites-how-to.md).
+See [Filtering, ordering, paging of Media Services entities](filter-order-page-entities-how-to.md).
 
 ## Additional notes
 

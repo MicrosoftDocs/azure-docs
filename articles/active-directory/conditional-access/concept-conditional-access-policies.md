@@ -74,9 +74,9 @@ Location data is provided by IP geolocation data. Administrators can choose to d
 
 #### Client apps
 
-By default Conditional Access policies apply to browser apps, mobile apps, and desktop clients that support modern authentication. 
+By default, all newly created Conditional Access policies will apply to all client app types even if the client apps condition is not configured.
 
-This assignment condition allows Conditional Access policies to target specific client applications not using modern authentication. These applications include Exchange ActiveSync clients, older Office applications that do not use modern authentication, and mail protocols like IMAP, MAPI, POP, and SMTP.
+The behavior of the client apps condition was updated in August 2020. If you have existing Conditional Access policies, they will remain unchanged. However, if you click on an existing policy, the configure toggle has been removed and the client apps the policy applies to are selected.
 
 #### Device state
 

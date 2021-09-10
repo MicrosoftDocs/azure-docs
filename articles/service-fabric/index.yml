@@ -58,7 +58,7 @@ landingContent:
           - text: About Service Fabric managed clusters
             url: overview-managed-cluster.md
           - text: Service Fabric managed clusters FAQ
-            url: faq-managed-cluster.md
+            url: faq-managed-cluster.yml
       - linkListType: quickstart
         links:
           - text: Create a managed cluster

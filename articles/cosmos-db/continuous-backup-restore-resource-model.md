@@ -4,21 +4,16 @@ description: This article explains the resource model for the Azure Cosmos DB po
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
 
 ---
 
-# Resource model for the Azure Cosmos DB point-in-time restore feature (Preview)
+# Resource model for the Azure Cosmos DB point-in-time restore feature
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-> [!IMPORTANT]
-> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article explains the resource model for the Azure Cosmos DB point-in-time restore feature(Preview). It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
+This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
 
 ## Database account's resource model
 
@@ -26,10 +21,10 @@ The database account's resource model is updated with a few extra properties to 
 
 ### BackupPolicy
 
-A new property in the account level backup policy named `Type` under `backuppolicy` parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. In the public preview, you can only set this mode when creating the account. After it's enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
+A new property in the account level backup policy named `Type` under `backuppolicy` parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. You can set this mode when creating the account or while [migrating an account from periodic to continuous mode](migrate-continuous-backup.md). After continuous mode is enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
 
 > [!NOTE]
-> Currently the point-in-time restore feature is in public preview and it's available for Azure Cosmos DB API for MongoDB, and SQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode.
+> Currently the point-in-time restore feature is available for Azure Cosmos DB API for MongoDB and SQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode.
 
 ### CreateMode
 
@@ -44,14 +39,7 @@ The `RestoreParameters` resource contains the restore operation details includin
 |restoreMode  | The restore mode should be *PointInTime* |
 |restoreSource   |  The instanceId of the source account from which the restore will be initiated.       |
 |restoreTimestampInUtc  | Point in time in UTC to which the account should be restored to. |
-|databasesToRestore   | List of `DatabaseRestoreSource` objects to specify which databases and containers should be restored. If this value is empty, then the entire account is restored.   |
-
-**DatabaseRestoreResource** - Each resource represents a single database and all the collections under that database.
-
-|Property Name |Description  |
-|---------|---------|
-|databaseName | The name of the database |
-| collectionNames| The list of containers under this database |
+|databasesToRestore   | List of `DatabaseRestoreResource` objects to specify which databases and containers should be restored. Each resource represents a single database and all the collections under that database, see the [restorable SQL resources](#restorable-sql-resources) section for more details. If this value is empty, then the entire account is restored.   |
 
 ### Sample resource
 
@@ -93,8 +81,7 @@ The following JSON is a sample database account resource with continuous backup 
     },
     "backupPolicy": {
       "type": "Continuous"
-    },
-}
+    }
 }
 ```
 
@@ -115,13 +102,13 @@ This resource contains a database account instance that can be restored. The dat
 |---------|---------|
 | ID | The unique identifier of the resource. |
 | accountName | The global database account name. |
-| creationTime | The time in UTC when the account was created.  |
+| creationTime | The time in UTC when the account was created or migrated.  |
 | deletionTime | The time in UTC when the account was deleted.  This value is empty if the account is live. |
 | apiType | The API type of the Azure Cosmos DB account. |
 | restorableLocations |	The list of locations where the account existed. |
 | restorableLocations: locationName | The region name of the regional account. |
-| restorableLocations: regionalDatabaseAccountInstanceI | The GUID of the regional account. |
-| restorableLocations: creationTime	| The time in UTC when the regional account was created.|
+| restorableLocations: regionalDatabaseAccountInstanceId | The GUID of the regional account. |
+| restorableLocations: creationTime	| The time in UTC when the regional account was created r migrated.|
 | restorableLocations: deletionTime	| The time in UTC when the regional account was deleted. This value is empty if the regional account is live.|
 
 To get a list of all restorable accounts, see [Restorable Database Accounts - list](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list) or [Restorable Database Accounts- list by location](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list-by-location) articles.
@@ -204,5 +191,7 @@ To get a list of all MongoDB database and collection combinations that exist on 
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
+* Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

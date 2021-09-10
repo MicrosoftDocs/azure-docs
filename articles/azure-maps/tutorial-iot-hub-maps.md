@@ -3,11 +3,11 @@ title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
 description: Tutorial on how to Integrate IoT Hub with Microsoft Azure Maps service APIs
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/01/2020
+ms.date: 06/21/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc
 
 #Customer intent: As a customer, I want to build an IoT system so that I can use Azure Maps APIs for spatial analytics on the device data.
@@ -116,11 +116,9 @@ Next, use the [Postman app](https://www.getpostman.com) to [upload the geofence]
 
 Follow these steps to upload the geofence by using the Azure Maps Data Upload API: 
 
-1. Open the Postman app, and select **New**. In the **Create New** window, select **Collection**. Name the collection and select **Create**.
+1. Open the Postman app, select **New** again. In the **Create New** window, select **HTTP Request**, and enter a request name for the request.
 
-2. To create the request, select **New** again. In the **Create New** window, select **Request**, and enter a request name for the request. Select the collection you created in the previous step, and then select **Save**.
-
-3. Select the **POST** HTTP method in the builder tab, and enter the following URL to upload the geofence to the Data Upload API. Make sure to replace `{subscription-key}` with your primary subscription key.
+2. Select the **POST** HTTP method in the builder tab, and enter the following URL to upload the geofence to the Data Upload API. Make sure to replace `{subscription-key}` with your primary subscription key.
 
     ```HTTP
     https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
@@ -128,21 +126,21 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
 
     In the URL path, the `geojson` value against the `dataFormat` parameter represents the format of the data being uploaded.
 
-4. Select **Body** > **raw** for the input format, and choose **JSON** from the drop-down list. [Open the JSON data file](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4), and copy the JSON into the body section. Select **Send**.
+3. Select **Body** > **raw** for the input format, and choose **JSON** from the drop-down list. [Open the JSON data file](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4), and copy the JSON into the body section. Select **Send**.
 
-5. Select **Send** and wait for the request to process. After the request completes, go to the **Headers** tab of the response. Copy the value of the **Operation-Location** key, which is the `status URL`.
+4. Select **Send** and wait for the request to process. After the request completes, go to the **Headers** tab of the response. Copy the value of the **Operation-Location** key, which is the `status URL`.
 
     ```http
     https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
     ```
 
-6. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
+5. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
 
    ```HTTP
    https://us.atlas.microsoft.com/mapData/<operationId>/status?api-version=2.0&subscription-key={subscription-key}
    ```
 
-7. When the request completes successfully, select the **Headers** tab in the response window. Copy the value of the **Resource-Location** key, which is the `resource location URL`.  The `resource location URL` contains the unique identifier (`udid`) of the uploaded data. Copy the `udid` for later use in this tutorial.
+6. When the request completes successfully, select the **Headers** tab in the response window. Copy the value of the **Resource-Location** key, which is the `resource location URL`.  The `resource location URL` contains the unique identifier (`udid`) of the uploaded data. Copy the `udid` for later use in this tutorial.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/resource-location-url.png" alt-text="Copy the resource location URL.":::
 
@@ -153,7 +151,7 @@ IoT Hub enables secure and reliable bi-directional communication between an IoT 
 > [!NOTE]
 > The ability to publish device telemetry events on Event Grid is currently in preview. This feature is available in all regions except the following: East US, West US, West Europe, Azure Government, Azure China 21Vianet, and Azure Germany.
 
-To create an IoT hub in the *ContosoRental* resource group, follow the steps in [create an IoT hub](../iot-hub/quickstart-send-telemetry-dotnet.md#create-an-iot-hub).
+To create an IoT hub in the *ContosoRental* resource group, follow the steps in [create an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub).
 
 ## Register a device in your IoT hub
 
@@ -171,7 +169,7 @@ Now, set up your Azure function.
 
 1. In the Azure portal dashboard, select **Create a resource**. Type **Function App** in the search text box. Select **Function App** > **Create**.
 
-1. On the **Function App** creation page, name your function app. Under **Resource Group**, select **ContosoRental** from the drop-down list. Select **.NET Core** as the **Runtime Stack**. At the bottom of the page, select **Next: Hosting >**.
+1. On the **Function App** creation page, name your function app. Under **Resource Group**, select **ContosoRental** from the drop-down list. Select **.NET** as the **Runtime Stack**. Select **3.1** as the **Version**.  At the bottom of the page, select **Next: Hosting >**.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Screenshot of create a function app.":::
 
@@ -270,7 +268,7 @@ For a complete list of Azure Maps REST APIs, see:
 
 * [Azure Maps REST APIs](/rest/api/maps/spatial/getgeofence)
 
-* [IoT Plug and Play](../iot-pnp/index.yml)
+* [IoT Plug and Play](../iot-develop/index.yml)
 
 To get a list of devices that are Azure certified for IoT, visit:
 
@@ -286,4 +284,4 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 
 
 > [!div class="nextstepaction"]
-> [Send telemetry from a device](../iot-hub/quickstart-send-telemetry-dotnet.md)
+> [Send telemetry from a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)

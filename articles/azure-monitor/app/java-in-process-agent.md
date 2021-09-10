@@ -2,7 +2,7 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
-ms.date: 03/29/2020
+ms.date: 06/24/2021
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
@@ -48,11 +48,9 @@ Download [applicationinsights-agent-3.1.1.jar](https://github.com/microsoft/Appl
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` to your application's JVM args. 
 
-Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
-
-For additional help with configuring your application's JVM args, please see [Tips for updating your JVM args](./java-standalone-arguments.md).
+For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
 **3. Point the agent to your Application Insights resource**
 

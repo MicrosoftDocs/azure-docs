@@ -25,9 +25,9 @@ In your source code management (SCM) system, configure automated build pipelines
 
 The **CI/CD workflow** combines two complementary development processes:
 
-* [Continuous Integration](/azure/devops/learn/what-is-continuous-integration) (CI) is the engineering practice of frequently committing code in a shared repository, and performing an automated build on it. Paired with an automated [testing](luis-concept-devops-testing.md) approach, continuous integration allows us to verify that for each update, the LUDown source is still valid and can be imported into a LUIS app, but also that it passes a group of tests that verify the trained app can recognize the intents and entities required for your solution.
+* [Continuous Integration](/devops/develop/what-is-continuous-integration) (CI) is the engineering practice of frequently committing code in a shared repository, and performing an automated build on it. Paired with an automated [testing](luis-concept-devops-testing.md) approach, continuous integration allows us to verify that for each update, the LUDown source is still valid and can be imported into a LUIS app, but also that it passes a group of tests that verify the trained app can recognize the intents and entities required for your solution.
 
-* [Continuous Delivery](/azure/devops/learn/what-is-continuous-delivery) (CD) takes the Continuous Integration concept further to automatically deploy the application to an environment where you can do more in-depth testing. CD enables us to learn early about any unforeseen issues that arise from our changes as quickly as possible, and also to learn about gaps in our test coverage.
+* [Continuous Delivery](/devops/deliver/what-is-continuous-delivery) (CD) takes the Continuous Integration concept further to automatically deploy the application to an environment where you can do more in-depth testing. CD enables us to learn early about any unforeseen issues that arise from our changes as quickly as possible, and also to learn about gaps in our test coverage.
 
 The goal of continuous integration and continuous delivery is to ensure that "main is always shippable,". For a LUIS app, this means that we could, if we needed to, take any version from the main branch LUIS app and ship it on production.
 

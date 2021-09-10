@@ -17,7 +17,7 @@ ms.custom: ['Role: Cloud Development', devx-track-csharp]
 
 Message routing enables you to send messages from your devices to cloud services in an automated, scalable, and reliable manner. Message routing can be used for: 
 
-* **Sending device telemetry messages as well as events** namely, device lifecycle events, device twin change events, digital twin change events, and device connection state events to the built-in-endpoint and custom endpoints. Learn about [routing endpoints](#routing-endpoints). To learn more about the events sent from IoT Plug and Play devices, see [Understand IoT Plug and Play digital twins](../iot-pnp/concepts-digital-twin.md).
+* **Sending device telemetry messages as well as events** namely, device lifecycle events, device twin change events, digital twin change events, and device connection state events to the built-in-endpoint and custom endpoints. Learn about [routing endpoints](#routing-endpoints). To learn more about the events sent from IoT Plug and Play devices, see [Understand IoT Plug and Play digital twins](../iot-develop/concepts-digital-twin.md).
 
 * **Filtering data before routing it to various endpoints** by applying rich queries. Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. Learn more about using [queries in message routing](iot-hub-devguide-routing-query-syntax.md).
 
@@ -100,7 +100,7 @@ You can configure a route by following this [tutorial](tutorial-routing.md).
 
 Use the following tutorials to learn how to read messages from an endpoint.
 
-* Reading from [Built-in-endpoint](quickstart-send-telemetry-node.md)
+* Reading from [Built-in-endpoint](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 * Reading from [Blob storage](../storage/blobs/storage-blob-event-quickstart.md)
 
@@ -119,7 +119,7 @@ You can enable/disable the fallback route in the Azure portal->Message Routing b
 
 ## Non-telemetry events
 
-In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, digital twin change events and device connection state events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device was deleted or created. As part of [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin property is set or changed, a digital twin is replaced, or when a change event happens for the underlying device twin. Finally, if a route is created with data source set to **device connection state events**, IoT Hub sends a message indicating whether the device was connected or disconnected.
+In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, digital twin change events and device connection state events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device was deleted or created. As part of [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin property is set or changed, a digital twin is replaced, or when a change event happens for the underlying device twin. Finally, if a route is created with data source set to **device connection state events**, IoT Hub sends a message indicating whether the device was connected or disconnected.
 
 
 [IoT Hub also integrates with Azure Event Grid](iot-hub-event-grid.md) to publish device events to support real-time integrations and automation of workflows based on these events. See key [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md) to learn which works best for your scenario.
@@ -160,6 +160,6 @@ Use the [troubleshooting guide for routing](troubleshoot-message-routing.md) for
 
 * To learn how to create Message Routes, see [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md).
 
-* [How to send device-to-cloud messages](quickstart-send-telemetry-node.md)
+* [How to send device-to-cloud messages](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 * For information about the SDKs you can use to send device-to-cloud messages, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).

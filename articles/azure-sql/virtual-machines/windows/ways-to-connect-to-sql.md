@@ -90,8 +90,6 @@ Server=mysqlvm;Integrated Security=true
 
 ## <a id="change"></a> Change SQL connectivity settings
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
 You can change the connectivity settings for your SQL Server virtual machine in the Azure portal.
 
 1. In the Azure portal, select **SQL virtual machines**.

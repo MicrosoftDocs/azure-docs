@@ -186,8 +186,6 @@ If you want to add custom dimensions to all of your telemetry:
 
 ## Telemetry processors (preview)
 
-This feature is in preview.
-
 It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
  * Mask sensitive data
  * Conditionally add custom dimensions
@@ -420,6 +418,13 @@ The setting applies to all of these metrics:
 [//]: # "  }"
 [//]: # "}"
 [//]: # "```"
+
+## Authentication (preview)
+> [!NOTE]
+> Authentication feature is available starting from version 3.2.0-BETA
+
+It allows you to configure agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Azure Active Directory Authentication.
+For more information, check out the [Authentication](./azure-ad-authentication.md) documentation.
 
 ## Self-diagnostics
 

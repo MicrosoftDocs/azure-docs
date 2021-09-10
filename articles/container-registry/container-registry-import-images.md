@@ -208,6 +208,8 @@ In this article, you learned about importing container images to an Azure contai
 
 * Image import can help you move content to a container registry in a different Azure region, subscription, or Azure AD tenant. For more information, see [Manually move a container registry to another region](manual-regional-move.md).
 
+* Learn how to [disable artifact export](data-loss-prevention.md) from a network-restricted container registry.
+
 
 <!-- LINKS - Internal -->
 [az-login]: /cli/azure/reference-index#az_login

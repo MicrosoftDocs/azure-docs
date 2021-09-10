@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 06/15/2021
+ms.date: 06/25/2021
 ms.author: curtand
 ms.custom: pim,azuread-video-2020,contperf-fy21q3-portal
 ms.collection: M365-identity-device-management
@@ -50,6 +50,7 @@ Privileged Identity Management provides time-based and approval-based role activ
 - Get **notifications** when privileged roles are activated
 - Conduct **access reviews** to ensure users still need roles
 - Download **audit history** for internal or external audit
+- Prevents removal of the **last active Global Administrator** role assignment
 
 ## What can I do with it?
 
@@ -62,6 +63,24 @@ Once you set up Privileged Identity Management, you'll see **Tasks**, **Manage**
 For Azure AD roles in Privileged Identity Management, only a user who is in the Privileged Role Administrator or Global Administrator role can manage assignments for other administrators. Global Administrators, Security Administrators, Global Readers, and Security Readers can also view assignments to Azure AD roles in Privileged Identity Management.
 
 For Azure resource roles in Privileged Identity Management, only a subscription administrator, a resource Owner, or a resource User Access administrator can manage assignments for other administrators. Users who are Privileged Role Administrators, Security Administrators, or Security Readers do not by default have access to view assignments to Azure resource roles in Privileged Identity Management.
+
+## Terminology
+
+To better understand Privileged Identity Management and its documentation, you should review the following terms.
+
+| Term or concept | Role assignment category | Description |
+| --- | --- | --- |
+| eligible | Type | A role assignment that requires a user to perform one or more actions to use the role. If a user has been made eligible for a role, that means they can activate the role when they need to perform privileged tasks. There's no difference in the access given to someone with a permanent versus an eligible role assignment. The only difference is that some people don't need that access all the time. |
+| active | Type | A role assignment that doesn't require a user to perform any action to use the role. Users assigned as active have the privileges assigned to the role. |
+| activate |  | The process of performing one or more actions to use a role that a user is eligible for. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers. |
+| assigned | State | A user that has an active role assignment. |
+| activated | State | A user that has an eligible role assignment, performed the actions to activate the role, and is now active. Once activated, the user can use the role for a pre-configured period of time before they need to activate again. |
+| permanent eligible | Duration | A role assignment where a user is always eligible to activate the role. |
+| permanent active | Duration | A role assignment where a user can always use the role without performing any actions. |
+| time-bound eligible | Duration | A role assignment where a user is eligible to activate the role only within start and end dates. |
+| time-bound active | Duration | A role assignment where a user can use the role only within start and end dates. |
+| just-in-time (JIT) access |  | A model in which users receive temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it. |
+| principle of least privilege access |  | A recommended security practice in which every user is provided with only the minimum privileges needed to accomplish the tasks they are authorized to perform. This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios. |
 
 ## Extend and renew assignments
 
@@ -96,7 +115,7 @@ Privileged Identity Management supports the following scenarios:
 
 ## Managing privileged access Azure AD groups (preview)
 
-In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of privileged access groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../roles/groups-concept.md).
+In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of privileged access groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 
 >[!Important]
 > To assign a privileged access group to a role for administrative access to Exchange, Security and Compliance center, or SharePoint, use the Azure AD portal **Roles and Administrators** experience and not in the Privileged Access Groups experience to make the user or group eligible for activation into the group.

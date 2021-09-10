@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/03/2021
+ms.date: 06/17/2021
 ms.author: aahi
 ---
 
@@ -33,6 +33,12 @@ Use the table below to find which model versions are supported by each hosted en
 
 
 You can find details about the updates for these models in [What's new](../whats-new.md).
+
+## Extractive summarization
+
+Extractive summarization is available starting in `version 3.1-preview.1` by using the asynchronous `analyze` endpoint. 
+
+The current model version is: `2021-08-01`
 
 ## Text Analytics for health
 

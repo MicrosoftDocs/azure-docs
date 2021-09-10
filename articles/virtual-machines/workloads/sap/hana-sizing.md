@@ -11,7 +11,7 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/14/2021
+ms.date: 07/16/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
@@ -34,7 +34,7 @@ For more information on how to run these reports and obtain their most recent pa
 
 ## Sizing greenfield implementations
 
-If you're starting your implementation from scratch, SAP Quick Sizer will calculate memory requirements of the implementation of SAP software on top of HANA.
+When you're starting an implementation from scratch, SAP Quick Sizer will calculate memory requirements of the implementation of SAP software on top of HANA.
 
 ## Memory requirements
 

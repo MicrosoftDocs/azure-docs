@@ -14,7 +14,7 @@ ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "10/07/2020"
+ms.date: "06/01/2021"
 ms.author: mathoma
 ms.custom: "seo-lt-2019"
 

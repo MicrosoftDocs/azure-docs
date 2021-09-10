@@ -1,7 +1,7 @@
 ---
 title: YAML reference - ACR Tasks
 description: Reference for defining tasks in YAML for ACR Tasks, including task properties, step types, step properties, and built-in variables.
-ms.topic: article
+ms.topic: reference
 ms.date: 07/08/2020
 ---
 

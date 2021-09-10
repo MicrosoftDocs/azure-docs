@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 07/26/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -55,7 +55,7 @@ You can configure your virtual network to use both Site-to-Site and Point-to-Sit
 
 ## <a name="privacy"></a>Privacy
 
-### Does the VPN service store customer data?
+### Does the VPN service store or process customer data?
 
 No.
 
@@ -72,6 +72,10 @@ Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and
 ### What is a route-based (dynamic-routing) gateway?
 
 Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selectors for route-based VPNs are configured as any-to-any (or wild cards).
+
+### Can I specify my own policy-based traffic selectors?
+
+Yes, traffic selectors can be defined via the *trafficSelectorPolicies* attribute on a connection via the [New-AzIpsecTrafficSelectorPolicy](/powershell/module/az.network/new-azipsectrafficselectorpolicy) PowerShell command. For the specified traffic selector to take effect, ensure the [Use Policy Based Traffic Selectors](vpn-gateway-connect-multiple-policybased-rm-ps.md#enablepolicybased) option is enabled.
 
 ### Can I update my policy-based VPN gateway to route-based?
 
@@ -240,6 +244,10 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 ### Can I configure forced tunneling?
 
 Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
+
+## <a name="nat"></a>NAT
+
+[!INCLUDE [vpn-gateway-faq-nat-include](../../includes/vpn-gateway-faq-nat-include.md)]
 
 ## <a name="vms"></a>Cross-premises connectivity and VMs
 

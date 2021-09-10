@@ -26,6 +26,12 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
+    <artifactId>azure-communication-common</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
     <version>1.0.0</version>
 </dependency>

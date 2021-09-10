@@ -1,6 +1,6 @@
 ---
 title: Publish your app to the Azure Active Directory app gallery
-description: Learn how to list an application that supports single sign-on in the Azure Active Directory app gallery.
+description: Learn how to list an application that supports single sign-on in the Azure Active Directory app gallery. Publishing to the app gallery makes it easier for customers to find and add your app to their tenant. 
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -8,15 +8,29 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/10/2021
+ms.date: 06/23/2021
 ms.author: kenwith
 ms.reviewer: jeedes
-ms.custom: aaddev
+ms.custom: aaddev, contperf-fy21q4
 ---
 
 # Publish your app to the Azure AD app gallery
 
-You can publish your app in the Azure AD app gallery. When your app is published, it will show up as an option for customers when they are adding apps to their tenant. 
+You can publish your app in the Azure Active Directory (Azure AD) app gallery. When your app is published, it will show up as an option for customers when they are [adding apps to their tenant](../manage-apps/add-application-portal.md). 
+
+The steps to publishing your app in the Azure AD app gallery are:
+1. Prerequisites
+1. Choose the right single sign-on standard for your app.
+1. Implement single sign-on in your app.
+1. Implement SCIM user provisioning in your app (optional)
+1. Create your Azure tenant and test your app.
+1. Create and publish documentation.
+1. Submit your app.
+1. Join the Microsoft partner network.
+
+## What is the Azure AD application gallery?
+
+The [Azure AD app gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) is a catalog of thousands of apps that make it easy to deploy and configure single sign-on (SSO) and automated user provisioning.
 
 Some of the benefits of adding your app to the Azure AD gallery include:
 
@@ -25,6 +39,7 @@ Some of the benefits of adding your app to the Azure AD gallery include:
 - A quick search finds your application in the gallery.
 - Free, Basic, and Premium Azure AD customers can all use this integration.
 - Mutual customers get a step-by-step configuration tutorial.
+- Customers who use the System for Cross-domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) can use provisioning for the same app.
 
 In addition, there are many benefits when your customers use Azure AD as an identity provider for your app. Some of these include:
 
@@ -42,39 +57,18 @@ In addition, there are many benefits when your customers use Azure AD as an iden
 - Add security and convenience when users sign on to applications by using Azure AD SSO and removing the need for separate credentials.
 
 > [!TIP]
-> When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For an overview of this concept, see [Multitenant Applications in Azure](../../dotnet-develop-multitenant-applications.md) and [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md).
-
-> [!IMPORTANT]
-> To publish your app in the Azure AD gallery you must agree to specific terms and conditions. Before you begin, make sure to read and agree to the [terms and conditions](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
-
-The steps to publishing your app in the Azure AD app gallery are:
-1. Choose the right single sign-on standard for your app.
-2. Implement single sign-on in your app.
-3. Create your Azure tenant and test your app.
-4. Create and publish documentation.
-5. Submit your app.
-6. Join the Microsoft partner network.
-
-## What is the Azure AD application gallery?
-
-- Customers find the best possible single sign-on experience.
-- Configuration of the application is simple and minimal.
-- A quick search finds your application in the gallery.
-- Free, Basic, and Premium Azure AD customers can all use this integration.
-- Mutual customers get a step-by-step configuration tutorial.
-- Customers who use the System for Cross-domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) can use provisioning for the same app.
+> When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For an overview of this concept, see [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md).
 
 ## Prerequisites
+To publish your app in the Azure AD gallery you must first read and agree to specific [terms and conditions](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
 You need a permanent account for testing with at least two users registered.
 
 - For federated applications (Open ID and SAML/WS-Fed), the application must support the software-as-a-service (SaaS) model for getting listed in the Azure AD app gallery. The enterprise gallery applications must support multiple customer configurations and not any specific customer.
-- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) must be properly implemented for the application. The user can send the sign-in request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
+- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md) must be properly implemented for the application. The user can send the sign-in request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
 - For SAML 2.0/WS-Fed, your application must have the capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. Make sure this capability is working correctly before you submit the request.
 - For password SSO, make sure that your application supports form authentication so that password vaulting can be done to get single sign-on to work as expected.
 - You need a permanent account for testing with at least two users registered.
-
-**How to get Azure AD for developers?**
 
 You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
@@ -134,7 +128,7 @@ For OAuth and OIDC, see [guidance on authentication patterns](v2-app-types.md) a
 
 For SAML and WS-Fed, your application must have the capability to do SSO integration in SP or IDP mode. Make sure this capability is working correctly before you submit the request.
 
-To learn more about authentication, see [What is authentication?](../azuread-dev/v1-authentication-scenarios.md).
+To learn more about authentication, see [What is authentication?](authentication-vs-authorization.md).
 
 > [!IMPORTANT]
 > For federated applications (OpenID and SAML/WS-Fed), the app must support the Software as a Service (SaaS) model. Azure AD gallery applications must support multiple customer configurations and should not be specific to any single customer.
@@ -291,6 +285,8 @@ The timeline for the process of listing a SAML 2.0 or WS-Fed application in the 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2 to 5 business days.
 
 ![Timeline for listing an OpenID Connect application in the gallery](./media/howto-app-gallery-listing/timeline2.png)
+
+The timeline for the process of listing a SCIM provisioning application in the gallery is variable and depends on numerous factors. 
 
 ### Escalations
 

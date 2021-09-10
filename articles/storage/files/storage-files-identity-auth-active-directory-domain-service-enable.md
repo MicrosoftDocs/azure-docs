@@ -5,7 +5,7 @@ author: roygara
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2021
+ms.date: 07/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
@@ -18,7 +18,8 @@ ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 If you are new to Azure file shares, we recommend reading our [planning guide](storage-files-planning.md) before reading the following series of articles.
 
 > [!NOTE]
-> Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC only. AES Kerberos encryption is not yet supported.
+> Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC and AES-256 encryption.
+>
 > Azure Files supports authentication for Azure AD DS with full synchronization with Azure AD. If you have enabled scoped synchronization in Azure AD DS which only sync a limited set of identities from Azure AD, authentication and authorization is not supported.
 
 ## Applies to
@@ -90,13 +91,14 @@ Keep in mind that you can enable Azure AD DS authentication over SMB only after 
 To enable Azure AD DS authentication over SMB with the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, go to your existing storage account, or [create a storage account](../common/storage-account-create.md).
-1. In the **Settings** section, select **Configuration**.
-1. Under **Identity-based access for file shares** switch the toggle for **Azure Active Directory Domain Service (AAD DS)** to **Enabled**.
+1. In the **File shares** section, select **Active directory: Not Configured**.
+
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png" alt-text="Screenshot of the File shares pane in your storage account, Active directory is highlighted." lightbox="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png":::
+
+1. Select **Azure Active Directory Domain Services** then switch the toggle to **Enabled**.
 1. Select **Save**.
 
-The following image shows how to enable Azure AD DS authentication over SMB for your storage account.
-
-:::image type="content" source="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png" alt-text="Screenshot of the configuration blade in your storage account, Azure Active Directory Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png":::
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-highlight.png" alt-text="Screenshot of the Active Directory pane, Azure Active Directory Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/files-azure-ad-highlight.png":::
 
 # [PowerShell](#tab/azure-powershell)
 

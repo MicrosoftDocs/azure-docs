@@ -1,5 +1,5 @@
 ---
-title: Use Resource Manager templates in Data Factory 
+title: Use Resource Manager templates in Data Factory
 description: Learn how to create and use Azure Resource Manager templates to create Data Factory entities.
 author: dcstwh
 ms.author: weetok
@@ -11,7 +11,7 @@ ms.date: 01/10/2018
 
 # Use templates to create Azure Data Factory entities
 > [!NOTE]
-> This article applies to version 1 of Data Factory. 
+> This article applies to version 1 of Data Factory.
 
 ## Overview
 While using Azure Data Factory for your data integration needs, you may find yourself reusing the same pattern across different environments or implementing the same task repetitively within the same solution. Templates help you implement and manage these scenarios in an easy manner. Templates in Azure Data Factory are ideal for scenarios that involve reusability and repetition.
@@ -37,7 +37,7 @@ Check out the following Azure quickstart templates on GitHub:
 * [Create a Data factory to copy data from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-blob-to-sql-copy)
 * [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-hive-transformation)
 * [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-salesforce-to-blob-copy)
-* [Create a Data factory that chains activities: copies data from an FTP server to Azure Blobs, invokes a hive script on an on-demand HDInsight cluster to transform the data, and copies result into Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.databricks/data-factory-ftp-hive-blob)
+* [Create a Data factory that chains activities: copies data from an FTP server to Azure Blobs, invokes a hive script on an on-demand HDInsight cluster to transform the data, and copies result into Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-ftp-hive-blob)
 
 Feel free to share your Azure Data Factory templates at [Azure quickstart](https://azure.microsoft.com/resources/templates/). Refer to the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) while developing templates that can be shared via this repository.
 
