@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 9/16/2021
 ---
 
-# Introduction to Auto Scaling
+# Introduction to Auto Scaling on Service Fabric managed clusters
 [Auto scaling](../architecture/best-practices/auto-scaling.md) is an additional capability of Service Fabric to dynamically scale your services based on the load that services are reporting, or based on their usage of resources. Auto scaling gives great elasticity and enables provisioning of additional instances or partitions of your service on demand. The entire auto scaling process is automated and transparent, and once you set up your policies on a 
 service there is no need for manual scaling operations at the service level. Auto scaling can be turned on either at service creation 
 time, or at any time by updating the service.
@@ -64,51 +64,51 @@ To disable auto scaling, set the value to `false`
 
 ## Set policies for auto scaling
 
-Service Fabric managed clusters do not configure any [policies for auto scaling](url) by default. You can create and assign policies to secondary node types on a Service Fabric managed cluster resource at initial deployment or anytime after with an additional cluster deployment.
+Service Fabric managed clusters do not configure any [policies for auto scaling](../azure-monitor/autoscale/autoscale-understanding-settings.md) by default. You can create and assign policies to secondary node types on a Service Fabric managed cluster resource at initial deployment or anytime after with an additional cluster deployment.
 
 The following example will set a policy for `VmNodeType1Name` to be at least 3 nodes, but allow scaling up to 50 nodes. It will trigger off of average CPU usage being 70% over a 5 minute window using 1 minute granularity.
 
-```json
-            "type": "Microsoft.Insights/autoscaleSettings",
-            "apiVersion": "2015-04-01",
+```JSON
+    "resources": [
+        ...
+        "type": "Microsoft.Insights/autoscaleSettings",
+        "apiVersion": "2015-04-01",
+        "name": "[concat('Autoscale-', parameters('vmNodeType1Name'))]",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterDnsName'), '/nodetypes/', parameters('vmNodeType1Name'))]"
+        ],
+        "properties": {
             "name": "[concat('Autoscale-', parameters('vmNodeType1Name'))]",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterDnsName'), '/nodetypes/', parameters('vmNodeType1Name'))]"
-            ],
-            "properties": {
-                "name": "[concat('Autoscale-', parameters('vmNodeType1Name'))]",
-                "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.ServiceFabric/managedclusters/', parameters('clusterDnsName'), '/nodetypes/', parameters('vmNodeType1Name'))]",
-                "enabled": "[parameters('enableAutoScale')]",
-                "profiles": [
-                    {
-                        "name": "Autoscale by percentage based on CPU usage",
-                        "capacity": {
-                            "minimum": "3",
-                            "maximum": "50",
-                            "default": "3"
-                        },
-                        "rules": [
+            "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.ServiceFabric/managedclusters/', parameters('clusterDnsName'), '/nodetypes/', parameters('vmNodeType1Name'))]",
+            "enabled": true,
+            "profiles": [
+                {
+                    "name": "Autoscale by percentage based on CPU usage",
+                    "capacity": {
+                        "minimum": "3",
+                        "maximum": "50",
+                        "default": "3"
+                    },
+                    "rules": [
                             {
-                                "metricTrigger": {
-                                    "metricName": "Percentage CPU",
-                                    "metricNamespace": "",
-                                    "metricResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/SFC_', reference(parameters('clusterDnsName')).clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmNodeType1Name'))]",
-                                    "timeGrain": "PT1M",
-                                    "statistic": "Average",
-                                    "timeWindow": "PT5M",
-                                    "timeAggregation": "Average",
-                                    "operator": "LessThan",
-                                    "threshold": 70
-                                },
-                                "scaleAction": {
-                                    "direction": "Increase",
-                                    "type": "ChangeCount",
-                                    "value": "20",
-                                    "cooldown": "PT1M"
-                                }
-
-
+                            "metricTrigger": {
+                                "metricName": "Percentage CPU",
+                                "metricNamespace": "",
+                                "metricResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/SFC_', reference(parameters('clusterDnsName')).clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmNodeType1Name'))]",
+                                "timeGrain": "PT1M",
+                                "statistic": "Average",
+                                "timeWindow": "PT5M",
+                                "timeAggregation": "Average",
+                                "operator": "LessThan",
+                                "threshold": 70
+                            },
+                            "scaleAction": {
+                                "direction": "Increase",
+                                "type": "ChangeCount",
+                                "value": "20",
+                                "cooldown": "PT1M"
+                            }
 ```
 
 
@@ -142,35 +142,34 @@ Full sample template <here> <<cluster.json>>
 
 2) Create resource group in a region
 
-```powershell 
-$location = "eastus2" 
-$resourceGroupName = "myrg" 
+   ```powershell 
+   $location = "eastus2" 
+   $resourceGroupName = "myrg" 
  
-New-AzResourceGroup -Name $resourceGroupName -Location $location 
-```
+   New-AzResourceGroup -Name $resourceGroupName -Location $location 
+   ```
 
 3) Create cluster with auto-scale rules disabled
 
-```powershell
-$clusterDnsName = "mycluster" 
-```
+   ```powershell
+   $clusterDnsName = "mycluster" 
+   ```
+   This deployment will have:
+    - the default VM counts will apply 
+    - Autoscale disabled 
 
-# Defaults: 
-# - default VM counts will apply 
-# - Autoscale disabled 
-
-```powershell
-$parameters = @{ 
-    clusterDnsName = $clusterDnsName 
-    adminPassword = "<password>" 
-    sku="Standard" 
-    clientAdminCertThumbrint="123BDACDCDFB2C7B250192C6078E47D1E1DB119B" 
-} 
+   ```powershell
+   $parameters = @{ 
+       clusterDnsName = $clusterDnsName 
+       adminPassword = "<password>" 
+       sku="Standard" 
+       clientAdminCertThumbrint="123BDACDCDFB2C7B250192C6078E47D1E1DB119B" 
+   } 
  
-$deploymentname="deploy_cluster1" 
+   $deploymentname="deploy_cluster1" 
 
-New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose 
-```
+   New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose 
+   ```
 
 4) Enable Auto Scale
  
@@ -191,7 +190,6 @@ $deploymentname="deploy_cluster2"
 New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose 
 ```
 
-##
 
 ## Next steps
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
