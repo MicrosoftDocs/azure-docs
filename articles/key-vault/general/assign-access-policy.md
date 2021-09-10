@@ -22,7 +22,6 @@ A Key Vault access policy determines whether a given security principal, namely 
 
 # [Azure portal](#tab/azure-portal)
 
-
 ## Assign an access policy
 
 1.	In the [Azure portal](https://portal.azure.com), navigate to the Key Vault resource. 
@@ -102,13 +101,6 @@ Replace `<object-id>` with the object ID of your security principal.
 You need only include `--secret-permissions`, `--key-permissions`, and `--certificate-permissions` when assigning permissions to those particular types. The allowable values for `<secret-permissions>`, `<key-permissions>`, and `<certificate-permissions>` are given in the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) documentation.
 
 # [Azure PowerShell](#tab/azure-powershell)
-
-
-# Assign a Key Vault access policy using Azure PowerShell
-
-A Key Vault access policy determines whether a given security principal, namely a user, application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the [Azure CLI](assign-access-policy-cli.md), or Azure PowerShell (this article).
-
-[!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
 For more information on creating groups in Azure Active Directory using Azure PowerShell, see [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) and [Add-AzADGroupMember](/powershell/module/az.resources/add-azadgroupmember).
 
