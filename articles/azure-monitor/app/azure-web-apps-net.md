@@ -23,7 +23,7 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
-    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Under Settings, choose Application Insights then enable."::: 
+    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Screenshot of Application Insights tab with enable selected.."::: 
 
 2. Choose to create a new resource, or select an existing Application Insights resource for this application. 
 
@@ -36,15 +36,15 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
 
     :::image type="content"source="./media/azure-web-apps-net/instrument-net.png" alt-text="Screenshot shows the Application Insights site extensions page with Create new resource selected."::: 
  
- Below is a summary of data collected for each route:
-        
-| Data | ASP.NET Basic Collection | ASP.NET Recommended collection |
-| --- | --- | --- |
-| Adds CPU, memory, and I/O usage trends |Yes |Yes |
-| Collects usage trends, and enables correlation from availability results to transactions | Yes |Yes |
-| Collects exceptions unhandled by the host process | Yes |Yes |
-| Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
-| Correlates micro-services across request/dependency boundaries | No (single-instance APM capabilities only) |Yes |
+     Below is a summary of data collected for each route:
+            
+    | Data | ASP.NET Basic Collection | ASP.NET Recommended collection |
+    | --- | --- | --- |
+    | Adds CPU, memory, and I/O usage trends |Yes |Yes |
+    | Collects usage trends, and enables correlation from availability results to transactions | Yes |Yes |
+    | Collects exceptions unhandled by the host process | Yes |Yes |
+    | Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
+    | Correlates micro-services across request/dependency boundaries | No (single-instance APM capabilities only) |Yes |
 
 3. To configure sampling, which you could previously control via the applicationinsights.config file you can now interact with it via Application settings with a corresponding prefix. 
 
@@ -72,7 +72,7 @@ To disable client-side monitoring either remove the associated key value pair fr
 
 In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-:::image type="content"source="./media/azure-web-apps-net/application-settings-net.png" alt-text="App Service Application Settings with available Application Insights settings"::: 
+:::image type="content"source="./media/azure-web-apps-net/application-settings-net.png" alt-text="Screenshot of App Service Application Settings with Application Insights settings."::: 
 
 ### Application settings definitions
 
@@ -88,7 +88,7 @@ In order to enable telemetry collection with Application Insights, only the Appl
 
 ## Upgrade monitoring extension/agent - .NET 
 
-### Upgrading from versions 2.8.9 and up
+### Upgrade from versions 2.8.9 and up
 
 Upgrading from version 2.8.9 happens automatically, without any additional actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they will be picked up.
 
@@ -102,9 +102,9 @@ Starting with version 2.8.9 the pre-installed site extension is used. If you are
 
 * [Upgrade by enabling via the portal](#enable-agent-based-monitoring). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes, the old private site extension will be removed.)
 
-* [Upgrade through PowerShell](#enabling-through-powershell):
+* [Upgrade through PowerShell](#enable-through-powershell):
 
-    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through PowerShell](#enabling-through-powershell).
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enable through PowerShell](#enable-through-powershell).
     2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
 If the upgrade is done from a version prior to 2.5.1, check that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](#troubleshooting).

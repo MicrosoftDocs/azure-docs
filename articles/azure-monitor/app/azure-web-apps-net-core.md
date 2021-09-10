@@ -19,7 +19,7 @@ Enabling monitoring on your ASP.NET Core based web applications running on [Azur
 
 Targeting the full framework from ASP.NET Core is **not supported** in Windows. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
-In Windows, only [Framework dependent deployment](/dotnet/core/deploying/#publish-framework-dependent) is supported and [self-contained deployment](/dotnet/core/deploying/#publish-self-contained) is not supported.
+In Windows, only [Framework dependent deployment](/dotnet/core/deploying/#publish-framework-dependent) is supported and [self-contained deployment](/dotnet/core/deploying/#publish-self-contained) isn't supported.
 
 See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
 
@@ -42,7 +42,7 @@ See the [enable monitoring section](#enable-monitoring ) below to begin setting 
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
-    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Under Settings, choose Application Insights then enable."::: 
+    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text=" Screenshot of Application Insights tab with enable selected."::: 
 
 2. Choose to create a new resource, or select an existing Application Insights resource for this application.
 
@@ -53,7 +53,7 @@ See the [enable monitoring section](#enable-monitoring ) below to begin setting 
 
 2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled**.
 
-    :::image type="content"source="./media/azure-web-apps-netcore/instrument-net-core.png" alt-text="Choose options per platform."::: 
+    :::image type="content"source="./media/azure-web-apps-net-core/instrument-net-core.png" alt-text=" Screenshot of instrument your application section."::: 
 
 
 ## Enable client-side monitoring
@@ -74,9 +74,9 @@ If for some reason you would like to disable client-side monitoring:
 
 ## Automate monitoring
 
-In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
+To enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-:::image type="content"source="./media/azure-web-apps-netcore/application-settings-net-core.png" alt-text="App Service Application Settings with available Application Insights settings."::: 
+:::image type="content"source="./media/azure-web-apps-net-core/application-settings-net-core.png" alt-text="Screenshot of App Service Application Settings with Application Insights settings."::: 
 
 
 ### Application settings definitions
@@ -84,7 +84,7 @@ In order to enable telemetry collection with Application Insights, only the Appl
 |App setting name |  Definition | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` for Windows or `~3` for Linux |
-|XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled in order to insure optimal performance. | `disabled` or `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled to insure optimal performance. | `disabled` or `recommended`. |
 |XDT_MicrosoftApplicationInsights_PreemptSdk | For ASP.NET Core apps only. Enables Interop (interoperation) with Application Insights SDK. Loads the extension side-by-side with the SDK and uses it to send telemetry (disables the Application Insights SDK). |`1`|
 
 
@@ -93,9 +93,9 @@ In order to enable telemetry collection with Application Insights, only the Appl
 
 ## Upgrade monitoring extension/agent - .NET 
 
-### Upgrading from versions 2.8.9 and up
+### Upgrade from versions 2.8.9 and up
 
-Upgrading from version 2.8.9 happens automatically, without any additional actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they will be picked up.
+Upgrading from version 2.8.9 happens automatically, without any additional actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they'll be picked up.
 
 To check which version of the extension you're running, go to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
 
@@ -103,13 +103,13 @@ To check which version of the extension you're running, go to `https://yoursiten
 
 ### Upgrade from versions 1.0.0 - 2.6.5
 
-Starting with version 2.8.9 the pre-installed site extension is used. If you are an earlier version, you can update via one of two ways:
+Starting with version 2.8.9 the pre-installed site extension is used. If you're using an earlier version, you can update via one of two ways:
 
 * [Upgrade by enabling via the portal](#enable-agent-based-monitoring). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes, the old private site extension will be removed.)
 
-* [Upgrade through PowerShell](#enabling-through-powershell):
+* [Upgrade through PowerShell](#enable-through-powershell):
 
-    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through PowerShell](#enabling-through-powershell).
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enable through PowerShell](#enable-through-powershell).
     2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
 If the upgrade is done from a version prior to 2.5.1, check that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](#troubleshooting).
@@ -127,21 +127,21 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     
     - Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.` 
     
-         If it is not running, follow the [enable Application Insights monitoring instructions](#enable-agent-based-monitoring).
+         If it isn't running, follow the [enable Application Insights monitoring instructions](#enable-agent-based-monitoring).
 
     - Confirm that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
 
-         If a similar value is not present, it means the application is not currently running or is not supported. To ensure that the application is running, try manually visiting the application url/application endpoints, which will allow the runtime information to become available.
+         If a similar value isn't present, it means the application isn't currently running or isn't supported. To ensure that the application is running, try manually visiting the application url/application endpoints, which will allow the runtime information to become available.
 
     - Confirm that `IKeyExists` is `true`
         If it is `false`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey guid to your application settings.
 
-    -  In case your application refers to any Application Insights packages, for example if you have previously instrumented (or attempted to instrument) your app with the [ASP.NET Core SDK](./asp-net-core.md), enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you will start seeing the data in Application Insights. 
+    -  In case your application refers to any Application Insights packages, for example if you've previously instrumented (or attempted to instrument) your app with the [ASP.NET Core SDK](./asp-net-core.md), enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you'll start seeing the data in Application Insights. 
     - 
         > [!IMPORTANT]
         > This functionality is in preview 
 
-        :::image type="content"source="./media/azure-web-apps-netcore/interop.png" alt-text="Enable the setting the existing app"::: 
+        :::image type="content"source="./media/azure-web-apps-net-core/interop.png" alt-text=" Screenshot of interop setting enabled."::: 
         
         The data is now going to be sent using codeless approach even if Application Insights SDK was originally used or attempted to be used.
 
@@ -228,21 +228,21 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     
     ```
     
-1. Validate that `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_STARTUP_HOOKS` and `APPLICATIONINSIGHTS_CONNECTION_STRING` are set.
+1. Validate that `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_STARTUP_HOOKS`, and `APPLICATIONINSIGHTS_CONNECTION_STRING` are set.
 
 ---
 
 #### Default website deployed with web apps does not support automatic client-side monitoring
 
-When you create a web app with the `ASP.NET Core` runtimes in Azure App Services it deploys a single static HTML page as a starter website. The static webpage also loads a ASP.NET managed web part in IIS. This allows for testing codeless server-side monitoring, but does not support automatic client-side monitoring.
+When you create a web app with the `ASP.NET Core` runtimes in Azure App Services, it deploys a single static HTML page as a starter website. The static webpage also loads a ASP.NET managed web part in IIS. This allows for testing codeless server-side monitoring, but doesn't support automatic client-side monitoring.
 
-If you wish to test out codeless server and client-side monitoring for ASP.NET Core in a Azure App Services web app we recommend following the official guides for [creating a ASP.NET Core web app](../../app-service/quickstart-dotnetcore.md) then use the instructions in the current article to enable monitoring.
+If you wish to test out codeless server and client-side monitoring for ASP.NET Core in an Azure App Services web app, we recommend following the official guides for [creating a ASP.NET Core web app](../../app-service/quickstart-dotnetcore.md). Then use the instructions in the current article to enable monitoring.
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
 ### PHP and WordPress are not supported
 
-PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side JavaScript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
+PHP and WordPress sites aren't supported. There's currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side JavaScript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
 
 The table below provides a more detailed explanation of what these values mean, their underlying causes, and recommended fixes:
 
@@ -255,7 +255,7 @@ The table below provides a more detailed explanation of what these values mean, 
 
 ## Release notes
 
-For the latest updates and bug fixes [consult the release notes](web-app-extension-release-notes.md).
+For the latest updates and bug fixes, [consult the release notes](web-app-extension-release-notes.md).
 
 ## Next steps
 * [Run the profiler on your live app](./profiler.md).

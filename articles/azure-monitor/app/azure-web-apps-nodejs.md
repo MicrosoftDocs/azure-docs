@@ -19,7 +19,7 @@ You can monitor your Node.js apps running in Azure App Service without any code 
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
-    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Under Settings, choose Application Insights then enable."::: 
+    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Screenshot of Application Insights tab with enable selected."::: 
 
 2. Choose to create a new resource, or select an existing Application Insights resource for this application.
 
@@ -42,7 +42,7 @@ To enable client-side monitoring for your Node.js application, you need to [manu
 
 In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-:::image type="content"source="./media/azure-web-apps-nodejs/application-settings-nodejs.png" alt-text="App Service Application Settings with available Application Insights settings."::: 
+:::image type="content"source="./media/azure-web-apps-nodejs/application-settings-nodejs.png" alt-text="Screenshot ot App Service Application Settings with available Application Insights settings."::: 
 
 
 ### Application settings definitions

@@ -146,7 +146,7 @@ Below is a sample, replace all instances of  `AppMonitoredSite` with your site n
 }
 ```
 
-### Enabling through PowerShell
+### Enable through PowerShell
 
 In order to enable the application monitoring through PowerShell, only the underlying application settings need to be changed. Below is a sample, which enables application monitoring for a website called "AppMonitoredSite" in the resource group "AppMonitoredRG", and configures data to be sent to the "012345678-abcd-ef01-2345-6789abcd" instrumentation key.
 
