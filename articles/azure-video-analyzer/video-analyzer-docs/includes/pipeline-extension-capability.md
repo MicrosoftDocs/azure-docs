@@ -5,5 +5,6 @@ ms.topic: include
 ms.date: 09/09/2021
 ms.author: juliako
 ---
+
 > [!NOTE]
 > Capability is currently available only for edge module & not for cloud pipelines.
