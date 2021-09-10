@@ -48,11 +48,10 @@ To access tables in cloud service projects, you need to include the following it
     ```csharp
     string storageConnString = "_AzureStorageConnectionString"
     ```
+
    > [!NOTE]
    > Use all of the above code in front of the code in the following samples.
-   > 
-   > 
-
+   
 3. Get a **TableServiceClient** object to reference the table objects in your storage account.
    
     ```csharp
