@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2021
+ms.date: 09/10/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -64,7 +64,127 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## View the status of your requests for new version
+## Activate a role using Graph API
+
+### Get all eligible roles that you can activate
+
+When a user gets their role eligibility via group membership, this Graph request doesn't return their eligibility.
+
+#### HTTP request
+
+````HTTP
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests/filterByCurrentUser(on='principal')  
+````
+
+#### HTTP response
+
+To save space we're showing only the response for one roles, but all eligible role assignments that you can activate will be listed.
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(unifiedRoleEligibilityScheduleRequest)", 
+    "value": [ 
+        { 
+            "@odata.type": "#microsoft.graph.unifiedRoleEligibilityScheduleRequest", 
+            "id": "0735bd65-1c81-4bb6-b991-f616d6158eef", 
+            "status": "Provisioned", 
+            "createdDateTime": "2021-07-15T19:39:53.33Z", 
+            "completedDateTime": "2021-07-15T19:39:53.383Z", 
+            "approvalId": null, 
+            "customData": null, 
+            "action": "AdminAssign", 
+            "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+            "roleDefinitionId": "cf1c38e5-3621-4004-a7cb-879624dced7c", 
+            "directoryScopeId": "/", 
+            "appScopeId": null, 
+            "isValidationOnly": false, 
+            "targetScheduleId": "0735bd65-1c81-4bb6-b991-f616d6158eef", 
+            "justification": "test", 
+            "createdBy": { 
+                "application": null, 
+                "device": null, 
+                "user": { 
+                    "displayName": null, 
+                    "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
+                } 
+            }, 
+            "scheduleInfo": { 
+                "startDateTime": "2021-07-15T19:39:53.3846704Z", 
+                "recurrence": null, 
+                "expiration": { 
+                    "type": "noExpiration", 
+                    "endDateTime": null, 
+                    "duration": null 
+                } 
+            }, 
+            "ticketInfo": { 
+                "ticketNumber": null, 
+                "ticketSystem": null 
+            } 
+        },
+} 
+````
+
+### Activate a role assignment with justification
+
+#### HTTP request
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+
+{ 
+    "action": "SelfActivate", 
+    "justification": "adssadasasd", 
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+    "directoryScopeId": "/", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b" 
+} 
+````
+
+#### HTTP response
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
+    "id": "f1ccef03-8750-40e0-b488-5aa2f02e2e55", 
+    "status": "PendingApprovalProvisioning", 
+    "createdDateTime": "2021-07-15T19:51:07.1870599Z", 
+    "completedDateTime": "2021-07-15T19:51:17.3903028Z", 
+    "approvalId": "f1ccef03-8750-40e0-b488-5aa2f02e2e55", 
+    "customData": null, 
+    "action": "SelfActivate", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "f1ccef03-8750-40e0-b488-5aa2f02e2e55", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "d96ea738-3b95-4ae7-9e19-78a083066d5b" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": null, 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "afterDuration", 
+            "endDateTime": null, 
+            "duration": "PT5H30M" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
+
+## View the status of activation requests
 
 You can view the status of your pending requests to activate.
 
