@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 09/09/2021
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
@@ -31,6 +31,13 @@ Semantic search is a premium feature. We recommend this article for background, 
 
 Semantic search is collection of features that improve the quality of search results. When enabled on your search service, it extends the query execution pipeline in two ways. First, it adds secondary ranking over an initial result set, promoting the most semantically relevant results to the top of the list. Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
+| Feature | Description |
+|---------|-------------|
+| [Semantic re-ranking](semantic-ranking.md) | Uses the context or semantic meaning to compute a new relevance score over existing results. |
+| [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
+| [Semantic answers](semantic-answers.md) | An optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document have text with the characteristics of an answer. |
+| [Spell check](speller-how-to-add.md) | Corrects typos before the query terms reach the search engine. |
+
 ## How semantic ranking works
 
 *Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds summarizations or *captions* and *answers* within your content and includes them in the response, which can then be rendered on a search results page for a more productive search experience.
@@ -42,17 +49,6 @@ The underlying technology is from Bing and Microsoft Research, and integrated in
 The following video provides an overview of the capabilities.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
-
-## Features in semantic search
-
-Semantic search improves precision and recall through these new capabilities:
-
-| Feature | Description |
-|---------|-------------|
-| [Spell check](speller-how-to-add.md) | Corrects typos before the query terms reach the search engine. |
-| [Semantic ranking](semantic-ranking.md) | Uses the context or semantic meaning to compute a new relevance score. |
-| [Semantic captions and highlights](semantic-how-to-query-request.md) | Sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
-| [Semantic answers](semantic-answers.md) | An optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. |
 
 ### Order of operations
 
@@ -72,15 +68,15 @@ To use semantic capabilities in queries, you'll need to make small modifications
 
 ## Semantic capabilities and limitations
 
-Semantic search is a newer technology so it's important to set expectations about what it can and cannot do. It improves the quality of search results in two ways:
+Semantic search is a newer technology so it's important to set expectations about what it can and cannot do. What it can do is improve the quality of search by:
 
-* First, it promotes matches that are semantically closer to the intent of original query.
+* Promoting matches that are semantically closer to the intent of original query.
 
-* Second, it makes results easier to use when captions, and potentially answers, are present on the page.
+* Finding strings in each result that can be used as captions, and potentially answers, that can be rendered on a search results page.
 
-Semantic search is not beneficial in every scenario, and before you move forward, make sure that you have content that can utilize its capabilities. The language models in semantic search work best on searchable content that is information-rich and structured as prose. For example, when evaluating your content for answers, the models scan for and extract a verbatim string that looks like an answer, but won't compose new strings as answers to a query, or as captions for a matching document. To answer the question  "what car has the best gas mileage", an index should have phrases like "Hybrid cars offer the best gas mileage of any cars on the market".
+What it can't do is rerun the query over the entire corpus to find semantically relevant results. Semantic search re-ranks the *existing* result set, consisting of the top 50 results as scored by the default ranking algorithm. Furthermore, semantic search cannot create new information or strings. Captions and answers are extracted verbatim from your content so if the results do not include answer-like text, the language models will not produce one.
 
-Semantic search cannot correlate or infer information from different pieces of content within the document or corpus of documents. For example, given a query for "resort hotels in a desert" absent any geographical input, the engine won't produce matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return. In Cognitive Search, mechanisms that might be helpful for the above scenarios include [synonym maps](search-synonyms.md) that allow you to build associations among terms that are outwardly different, or [date filters](search-query-odata-filter.md) specified as an OData expression.
+Although semantic search is not beneficial in every scenario, certain content can benefit significantly from its capabilities. The language models in semantic search work best on searchable content that is information-rich and structured as prose. A knowledge base, online documentation, or documents that contain descriptive content see the most gains from semantic search capabilities.
 
 ## Availability and pricing
 

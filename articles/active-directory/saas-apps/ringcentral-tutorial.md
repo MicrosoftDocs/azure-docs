@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 # Tutorial: Integrate RingCentral with Azure Active Directory
@@ -35,6 +35,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * RingCentral supports **IDP** initiated SSO.
+
+* RingCentral supports  [Automated user provisioning](ringcentral-provisioning-tutorial.md).
 
 ## Add RingCentral from the gallery
 
@@ -176,6 +178,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create RingCentral test user
 
 In this section, you create a user called Britta Simon in RingCentral. Work with [RingCentral Client support team](https://success.ringcentral.com/RCContactSupp) to add the users in the RingCentral platform. Users must be created and activated before you use single sign-on.
+
+RingCentral also supports automatic user provisioning, you can find more details [here](./ringcentral-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
