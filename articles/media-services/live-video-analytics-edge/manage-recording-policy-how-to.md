@@ -11,7 +11,7 @@ ms.date: 04/27/2020
 
 You can use Live Video Analytics on IoT Edge for [continuous video recording](continuous-video-recording-concept.md), whereby you can record video into the cloud for weeks or months. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) built into Azure storage.  
 
-Your Media Service account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a Media Service [asset](../latest/assets-concept.md). Each asset is mapped to a container in the storage account. Lifecycle management allows you to define a [policy](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#policy) for a Storage account, wherein you can specify a [rule](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#rules) such as the following.
+Your Media Service account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a Media Service [asset](../latest/assets-concept.md). Each asset is mapped to a container in the storage account. Lifecycle management allows you to define a [policy](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) for a Storage account, wherein you can specify a [rule](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#lifecycle-management-rule-definition) such as the following.
 
 ```
 {

@@ -109,7 +109,7 @@ P1v2  | 8
 P1v3  | 16
 
 > [!NOTE]
-> Your App Service plan can be scaled up and down at any time. [Learn more](../app-service/overview-hosting-plans.md#what-if-my-app-needs-more-capabilities-or-features/).
+> Your App Service plan can be scaled up and down at any time. [Learn more](../app-service/overview-hosting-plans.md#what-if-my-app-needs-more-capabilities-or-features).
 
 ## Next steps
 - [Review](best-practices-assessment.md) best practices for creating assessments. 

@@ -51,7 +51,7 @@ An Azure Sentinel workspace is required in order to ingest CEF data into Log Ana
 
 - You must have read and write permissions on this workspace.
 
-- You must have read permissions to the shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md#obtain-workspace-id-and-key).
+- You must have read permissions to the shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md).
 
 ## Designate a log forwarder and install the Log Analytics agent
 
