@@ -1105,7 +1105,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | Okta_CL |
 | **Azure Function App code** | https://aka.ms/sentineloktaazurefunctioncodev2 |
 | **API credentials** | <li>API Token |
-| **Vendor documentation/<br>installation instructions** | <li>[Okta System Log API Documentation](https://developer.okta.com/docs/reference/api/system-log/)<li>[Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Connect Okta SSO to Azure Sentinel](#okta-single-sign-on-previewokta-single-sign-on-preview) |
+| **Vendor documentation/<br>installation instructions** | <li>[Okta System Log API Documentation](https://developer.okta.com/docs/reference/api/system-log/)<li>[Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Connect Okta SSO to Azure Sentinel](#okta-single-sign-on-preview) |
 | **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>apiToken<li>workspaceID<li>workspaceKey<li>uri (follows schema `https://<OktaDomain>/api/v1/logs?since=`. [Identify your domain namespace](https://developer.okta.com/docs/reference/api-overview/#url-namespace).) <li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
@@ -1606,7 +1606,7 @@ Follow the instructions to obtain the credentials.
 
 Zimperium Mobile Threat Defense data connector connects the Zimperium threat log to Azure Sentinel to view dashboards, create custom alerts, and improve investigation. This connector gives you more insight into your organization's mobile threat landscape and enhances your security operation capabilities. For more instructions, see the .
 
-For more information about connecting to Azure Sentinel, see [Connect Zimperium to Azure Sentinel](#zimperium-mobile-thread-defense-previewzimperium-mobile-thread-defense-preview).
+For more information about connecting to Azure Sentinel, see [Connect Zimperium to Azure Sentinel](#zimperium-mobile-thread-defense-preview).
 
 | Connector attribute | Description |
 | --- | --- |
