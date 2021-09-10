@@ -1,7 +1,7 @@
 ---
 title: Pivot transformation in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Pivot data from rows to columns using Azure Data Factory mapping data flow Pivot Transformation
+description: Pivot data from rows to columns using mapping data flow Pivot Transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -12,7 +12,6 @@ ms.date: 09/09/2021
 ---
 
 # Pivot transformation in mapping data flow
-
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
