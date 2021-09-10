@@ -56,30 +56,29 @@ The following steps will take you step by step through an end to end setup of a 
 
 2) Create cluster resource
 
+   Using the template you downloaded above, execute these commands:
+
    ```powershell
    $parameters = @{ 
        clusterDnsName = "mycluster" 
-    } 
-   
-   Download this [sample ARM template](url) to a local folder that you will use to configure auto scaling using the above parameters.
-
-   New-AzResourceGroupDeployment -Name "deploy_cluster" -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose 
+      } 
+   New-AzResourceGroupDeployment -Name "deploy_cluster" -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose
    ```
 
 3) Configure auto scale rules on a secondary node type
  
+   Download this [sample ARM template](url) that you will use to configure auto scaling with the following commands:
+
    ```powershell
    $parameters = @{ 
        clusterName = $clusterName 
        SecondaryNodeTypeName = $SecondaryNodeTypeName
     } 
-
-   Download this [sample ARM template](url) that will configure auto scaling using the above parameters.
-
    New-AzResourceGroupDeployment -Name "deploy_autoscale" -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose 
    ```
 
-![NOTE] After this deployment completes, future deployments should use -1 for secondary node types that have auto scale rules enabled. This will avoid cluster deployments conflicting with auto scale.
+>![NOTE]
+>After this deployment completes, future deployments should use -1 for secondary node types that have auto scale rules enabled. This will avoid cluster deployments conflicting with auto scale.
 
 
 ## Enable or disable auto scaling in a managed cluster
