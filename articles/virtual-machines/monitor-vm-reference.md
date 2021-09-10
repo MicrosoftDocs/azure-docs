@@ -9,7 +9,7 @@ ms.topic: reference
 
 # Monitoring Azure virtual machines data reference
 
-See [Monitoring AKS](monitor-aks.md) for details on collecting and analyzing monitoring data for AKS.
+See [Monitoring Azure virtual machines](monitor-vm.md) for details on collecting and analyzing monitoring data for virtual machines.
 
 ## Metrics
 
@@ -17,8 +17,6 @@ This section lists all the automatically collected platform metrics collected fo
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Managed Clusters | [Microsoft.ContainerService/managedClusters](/azure/azure-monitor/essentials/metrics-supported#microsoftcontainerservicemanagedclusters)
-| Connected Clusters | [microsoft.kubernetes/connectedClusters](/azure/azure-monitor/essentials/metrics-supported#microsoftkubernetesconnectedclusters)
 | Virtual Machines| [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
 | Virtual Machine ScaleSets | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
 | Virtual Machine ScaleSets Virtual Machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
@@ -35,8 +33,10 @@ AKS has the following dimensions associated with its metrics.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
-| requestKind | Used by metrics such as *Inflight Requests* to split by type of request. |
-| condition | Used by metrics such as *Statuses for various node conditions*, *Number of pods in Ready state* to split by condition type. |
+| LUN | Logical Unit Number |
+| VMName | Used by metrics such as *Statuses for various node conditions*, *Number of pods in Ready state* to split by condition type. |
+
+
 | status | Used by metrics such as *Statuses for various node conditions* to split by status of the condition. |
 | status2 | Used by metrics such as *Statuses for various node conditions* to split by status of the condition.  |
 | node | Used by metrics such as *CPU Usage Millicores* to split by the name of the node. |
@@ -60,11 +60,12 @@ This section lists all the resource log category types collected for AKS.
 
 ## Azure Monitor Logs tables
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to AKS and available for query by Log Analytics. 
+This section refers to all of the Azure Monitor Logs tables relevant to virtual machines and available for query by Log Analytics. 
 
 |Resource Type | Notes |
 |-------|-----|
-| [Kubernetes Services](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services) | |
+| [Virtual machines](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machines) | |
+| [Virtual machine scale sets](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | |
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
@@ -72,50 +73,11 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 
 AKS uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
 
-**Azure Diagnostics**
-<!-- azurediagnostics section in metrics section in portal -->
-| Property | Description |
-|:--- |:---|
-| attrs_s |  |
-| Category | Category of the log entry.  |
-| ccpNamespace_s |  |
-| Cloud_s | Cloud type. |
-| Computer |  |
-| containerID_s |  |
-| CorrelationId |  |
-| Environment_s | Name of the environment  |
-| log_s |  |
-| OperationName | Operation name of the log entry. |
-| pod_s | Name of the pod. |
-| RawData |  |
-| Resource | Name of the cluster. |
-| ResourceGroup | Resource group of the cluster. |
-| ResourceId | Resource ID of the cluster. |
-| ResourceProvider | Resource provider of the log entry. |
-| ResourceType | Resource Type of the log entry.  |
-| ResultDescription |  |
-| ResultType |  |
-| SourceSystem |  |
-| stream_s | Stream type of the log entry.  |
-| SubscriptionId | Subscription ID for the cluster. |
-| TenantId | Tenant ID for the cluster |
-| TimeGenerated | Time of the the log entry. |
-| Type | The name of the table. |
-| UnderlayClass_s | Underlay class.  |
-| UnderlayName_s | Underlay name.  |
-| _ResourceId |  A unique identifier for the resource that the record is associated with |
-| _SubscriptionId | A unique identifier for the subscription that the record is associated with  |
 
-**[TODO Service-specific table]**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
 
 ## Activity log
 
-The following table lists a few example operations related to AKS that may be created in the Activity log.
+The following table lists a few example operations related to virtual machines that may be created in the Activity log.
 
 | Operation | Description |
 |:---|:---|

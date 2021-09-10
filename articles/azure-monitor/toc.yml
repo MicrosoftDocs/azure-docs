@@ -10,17 +10,6 @@
     href: whats-new.md
   - name: Migrate from Operations Manager
     href: azure-monitor-operations-manager.md
-- name: Quickstarts
-  items:
-  - name: Monitor Azure resource
-    href: essentials/quick-monitor-azure-resource.md
-  - name: Send Activity log to a workspace
-    items: 
-    - name: Azure portal
-      href: essentials/quick-collect-activity-log-portal.md
-    - name: ARM template
-      displayName: Resource Manager
-      href: essentials/quick-collect-activity-log-arm.md
   - name: Monitor applications
     items:
     - name: ASP.NET Core application
@@ -41,6 +30,8 @@
     href: essentials/tutorial-resource-logs.md
   - name: Analyze log data
     href: logs/get-started-queries.md
+  - name: Create a log query alert
+    href: alerts/tutorial-log-alert.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
@@ -275,6 +266,9 @@
       - name: Overview
         displayname: log query, log queries, query, queries
         href: logs/log-query-overview.md
+      - name: Get started
+        displayname: log query, log queries, query, queries
+        href: logs/get-started-queries.md
       - name: KQL reference
         href: /azure/data-explorer/kusto/query/
       - name: Sample queries

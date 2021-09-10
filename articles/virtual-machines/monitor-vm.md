@@ -15,66 +15,85 @@ When you have critical applications and business processes relying on Azure reso
 ## What is Azure Monitor?
 [Azure Monitor](/azure/azure-monitor/overview) is a full stack monitoring service that provides a complete set of features to monitor your Azure resources. You don't need to directly interact with Azure Monitor though to perform a variety of monitoring tasks since its features are integrated into the Azure portal for Azure services that it monitors. If you're interested in a general overview of how Azure Monitor works with Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
 
-## Collect guest metrics
-Azure Monitor starts collecting metric data for your virtual machine host automatically. To collect metrics from the guest operating system of the virtual machine though, you must install an agent that can send this data to Azure Monitor. The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) 
+### Overview page
+The **Overview** page in the Azure portal for each virtual machine includes charts that provide common usage metrics such as average CPU and network utilization. Click on any of these charts to open up metrics explorer to drill down further or to analyze them with additional metrics. If you're not familiar with metrics explorer, see A
+
+:::image type="content" source="media/monitor-vm/overview.png" lightbox="media/monitor-vm/overview.png" alt-text="Azure virtual machine overview page":::
+
+
+## Analyze metrics
+Analyze metrics 
+
+
+
+
+
+
+## Collect guest metrics and logs
+Azure Monitor starts collecting metric data for your virtual machine host automatically. To collect metrics and logs from the guest operating system of the virtual machine though, you must install an agent that can send this data to Azure Monitor. Install the [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) on your virtual machine to provide this functionality. 
 
 > [!NOTE]
 > Prior to the Azure Monitor agent, guest metrics for Azure virtual machines were collected with the [Azure diagnostic extension](../azure-monitor/agents/diagnostics-extension-overview.md) for Windows (WAD) and Linux (LAD). These agents are still available and can be configured with the **Diagnostic settings** menu item for the virtual machine, but they are in the process of being replaced with Azure Monitor agent.
 
+You must currently install the Azure Monitor agent from **Monitor** menu in the Azure portal. This functionality is not yet available from the virtual machine's menu. You create a [data collection rule]() that defines the data you want to collect, and the agent is automatically installed on any virtual machines you select.
+
+1. From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and then **Create** to create a new data collection rule.
+
+    :::image type="content" source="media/monitor-vm/data-collection-rule-create.png" lightbox="media/monitor-vm/data-collection-rule-create.png" alt-text="Create data collection rule":::
+
+
+2. On the **Basics** tab, provide the following values:
+
+    - **Rule Name:** The name of the rule displayed in the Azure portal.
+   - **Subscription**: Select the subscription to store the data collection rule. This does not need to be the same subscription same as the resource being monitored.
+   - **Resource Group**: Select an existing resource group or click **Create new** to create a new one. This does not need to be the same resource group same as the resource being monitored.
+   - **Region**: Select an Azure region or create a new one. This does not need to be the same location same as the resource being monitored.
+   - **Platform:** Select with *Windows* or *Linux* depending on the type of virtual machine you're monitoring.
+
+    :::image type="content" source="media/monitor-vm/data-collection-rule-basics.png" lightbox="media/monitor-vm/data-collection-rule-basics.png" alt-text="Data collection rule basics":::
+
+3. On the **Resources** tab, click **Add resources**. Select either your virtual machine or the resource group or subscription where your virtual machine is located. The data collection rule will apply to all virtual machines in the selected scope.
+
+    :::image type="content" source="media/monitor-vm/data-collection-rule-resources.png" lightbox="media/monitor-vm/data-collection-rule-resources.png" alt-text="Data collection rule resources":::
+
+
+4. On the **Collect and deliver** tab, click **Add data source**. For the **Data source type**, select **Performance counters**. Leave the **Basic** setting and select the events that you want to collect. **Custom** allows you to select individual metric values.
+
+    :::image type="content" source="media/monitor-vm/data-collection-rule-data-source.png" lightbox="media/monitor-vm/data-collection-rule-data-source.png" alt-text="Data collection rule data source":::
+
+4. On the **Collect and deliver** tab, click **Add data source**. For the **Data source type**, select **Windows event logs** or **Linux syslog**. Leave the **Basic** setting which allows you to select groups of metric values to collect. **Custom** allows you to select individual metric values.
+
+    :::image type="content" source="media/monitor-vm/data-collection-rule-data-source.png" lightbox="media/monitor-vm/data-collection-rule-data-source.png" alt-text="Data collection rule data source":::
+
+5. Click **Add data source** to add the data source to the data collection rule.
+
+6. Click **Review + create** to create the data collection rule and install the Azure Monitor agent on the selected virtual machines.
 
 
 
-## Analyze virtual machine metrics
 
-### Overview page
-The **Overview** page in the Azure portal for each virtual machine includes charts that provide common usage metrics such as average CPU and network utilization. Click on any of these charts to open up metrics explorer to drill down further or to analyze them with additional metrics.
-
-:::image type="content" source="media/monitor-vm/overview.png" lightbox="media/monitor-vm/overview.png" alt-text="Azure virtual machine overview page":::
-
-### Metrics explorer
-
-[!INCLUDE [View metrics](../../includes/azure-monitor-horizontal-view-metrics.md)]
-
-
-
-## Metric namespaces and values
-
-| Namespace | Description |
-|:---|:---|
-| 
 
 ## VM insights
-Some services in Azure have a customized monitoring experience in Azure Monitor that includes pre-built workbooks and other specialized features for that particular service. These experiences are called *insights*. VM insights provides features such as the following:
+Some services in Azure have a customized monitoring experience in Azure Monitor that includes pre-built workbooks and other specialized features for that particular service. These experiences are called *insights*. VM insights is designed to monitor your entire set of virtual machines together in a single interface. It provides features such as the following:
 
-- Easily deploy the agents required to collect data from the guest operating system of virtual machines.
-- Pre-built workbooks to analyze the performance and availability of each virtual machine.
+- Pre-built workbooks to analyze the performance and availability your virtual machines.
 - View processes running on individual virtual machines and dependencies between them.
+
+> [!NOTE]
+> When you add a virtual machine to VM insights, the [Log Analytics agent]() is automatically installed. This will coexist with the Azure Monitor agent if it's also installed. When VM insights supports the Azure Monitor agent, then this will be the only agent required for all Azure Monitor features.
 
 See [Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal](../azure-monitor/vm/vminsights-enable-portal.md) for quick steps to configure VM insights and enable monitoring for a virtual machine. See [Enable VM insights overview](../azure-monitor/vm/vminsights-enable-overview.md) for general information on enabling insights and different methods for onboarding virtual machines.
 
 ## Monitoring data
 
-Azure virtual machines collect the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). AKS provides a set of metrics for the control plane, including the API Server and cluster autoscaler, and cluster nodes. These metrics allow you to monitor the health of your cluster and troubleshoot issues. You can view the metrics for your cluster using the Azure portal.
-
-
-See [Monitoring *AKS* data reference](monitor-aks-reference.md) for detailed information on the metrics and logs metrics created by AKS.
-
-AKS also provides additional resource logging data, such as [control plane component logs](view-control-plane-logs.md), [kubelet logs](kubelet-logs.md), and [real-time container data](/azure/azure-monitor/containers/container-insights-livedata-overview.md).
-
+Azure virtual machines collect the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). See [Monitoring Azure virtual machines data reference](monitor-aks-reference.md) for detailed information on the metrics and logs metrics created by Azure virtual machines.
 
 
 
 ## Analyzing logs
 
-Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
+Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  For a list of the types of logs collected for virtual machines, see [Monitoring Azure virtual machines data reference](monitor-vm-reference.md#resource-logs)  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for AKS resource logs is found in the [AKS Data Reference](monitor-aks-reference.md#schemas).
-
-The [Activity log](/azure/azure-monitor/platform/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
-
-For a list of the types of resource logs collected for AKS, see [Monitoring AKS data reference](monitor-aks-reference.md#resource-logs)  
-
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring AKS data reference](monitor-aks-reference.md##azure-monitor-logs-tables).
 
 ### Sample Kusto queries
 
