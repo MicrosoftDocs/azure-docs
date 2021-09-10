@@ -196,6 +196,9 @@ For more information, see [Cross-region load balancer](../../load-balancer/cross
 :::image type="content" source="./media/create-public-ip-portal/tier.png" alt-text="Configure tier in the Azure portal" border="true":::
 
 You can associate the above created IP address with a cross-region load balancer. For more information, see [Tutorial: Create a cross-region load balancer using the Azure portal](../../load-balancer/tutorial-cross-region-portal.md).
+
+---
+
 ## Clean up resources
 
 If you're not going to continue to use this application, delete the public IP address with the following steps:
