@@ -92,8 +92,8 @@
   items:
   - name: Authorize access
     items:
-  - name: Assign an access policy
-    href: assign-access-policy.md
+    - name: Assign an access policy
+      href: assign-access-policy.md
     - name: Azure RBAC permission model
       items:
       - name: Use an Azure RBAC for managing access to keys, secrets, and certificates
