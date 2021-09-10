@@ -28999,6 +28999,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-storage-explorer.md",
+      "redirect_url": "/azure/storage/blobs/quickstart-storage-explorer",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/storage/blobs/storage-how-to-use-blobs-cli.md",
       "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
       "redirect_document_id": false

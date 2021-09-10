@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 09/10/2021
 ms.author: tamram
 ---
 
@@ -34,15 +34,13 @@ On first launch, the **Microsoft Azure Storage Explorer - Connect** window is sh
 
 Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen prompts to sign into your Azure account.
 
-![Screenshot that shows the Microsoft Azure Storage Explorer - Connect window.](media/storage-quickstart-blobs-storage-explorer/connect.png)
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-connect.png" alt-text="Screenshot that shows the Microsoft Azure Storage Explorer - Connect window":::
 
-When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
+After Storage Explorer finishes connecting, it displays the **Explorer** tab. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
 
-![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-main-page.png" alt-text="Screenshot showing Storage Explorer main page":::
 
 ## Create a container
-
-Blobs are always uploaded into a container. This allows you to organize groups of blobs like you organize your files on your computer in folders.
 
 To create a container, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click and select **Create Blob Container**. Enter the name for your blob container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming blob containers. When complete, press **Enter** to create the blob container. Once the blob container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
@@ -58,7 +56,7 @@ If uploading a .vhd or .vhdx file, choose **Upload .vhd/.vhdx files as page blob
 
 In the **Upload to folder (optional)** field either a folder name to store the files or folders in a folder under the container. If no folder is chosen, the files are uploaded directly under the container.
 
-![Microsoft Azure Storage Explorer - upload a blob](media/storage-quickstart-blobs-storage-explorer/uploadblob.png)
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-upload-blob.png" alt-text="Microsoft Azure Storage Explorer - upload a blob":::
 
 When you select **OK**, the files selected are queued to upload, each file is uploaded. When the upload is complete, the results are shown in the **Activities** window.
 
@@ -66,7 +64,7 @@ When you select **OK**, the files selected are queued to upload, each file is up
 
 In the **Azure Storage Explorer** application, select a container under a storage account. The main pane shows a list of the blobs in the selected container.
 
-![Screenshot that shows where you select a container in Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-list-blobs.png" alt-text="Screenshot that shows how to select a container in Microsoft Azure Storage Explorer":::
 
 ## Download blobs
 
@@ -76,23 +74,24 @@ To download blobs using **Azure Storage Explorer**, with a blob selected, select
 
 Azure Storage Explorer provides the capability to take and manage [snapshots](./snapshots-overview.md) of your blobs. To take a snapshot of a blob, right-click the blob and select **Create Snapshot**. To view snapshots for a blob, right-click the blob and select **Manage Snapshots**. A list of the snapshots for the blob are shown in the current tab.
 
-![Screenshot that shows a list of blobs in Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-snapshots.png" alt-text="Screenshot showing how to take and manage blob snapshots":::
 
-## Manage access policies
+## Generate a shared access signature
 
-Storage Explorer provides the ability to manage access policies for containers within its user interface. There are two types of secure access policies (SAS), service level and account level. Account level SAS targets the storage account and can apply to multiple services and resources. Service level SAS are defined on a resource under a particular service. To generate a service level SAS, right-click any container and select **Manage Access Policies...**. To generate an account level SAS, right-click on the storage account.
+You can use Storage Explorer to generate a shared access signatures (SAS). Right-click a storage account, container, or blob and choose **Get Shared Access Signature...**. Choose the start and expiry time, and permissions for the SAS URL and select **Create**. Storage Explorer generates the SAS token with the parameters you specified and displays it for copying.
 
-Select **Add** to add a new access policy and define the permissions for the policy. When complete select **Save** to save the access policy. This policy is now available for use when configuring a Shared Access Signature.
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-shared-access-signature.png" alt-text="Screenshot showing how to generate a SAS":::
 
-## Work with Shared Access Signatures
+When you create a SAS for a storage account, Storage Explorer generates an account SAS. For more information about the account SAS, see [Create an account SAS](/rest/api/storageservices/create-account-sas).
 
-Shared Access Signatures (SAS) can be retrieved through Storage Explorer. Right-click a storage account, container, or blob and choose **Get Shared Access Signature...**. Choose the start and expiry time, and permissions for the SAS URL and select **Create**. The full URL with the query string as well as the query string by itself are provided and can be copied from the next screen.
+When you create a SAS for a container or blob, Storage Explorer generates a service SAS. For more information about the service SAS, see [Create a service SAS](/rest/api/storageservices/create-service-sas).
 
-![Microsoft Azure Storage Explorer - list blobs in a container](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
+> [!NOTE]
+> When you create a SAS with Storage Explorer, the SAS is always assigned with the storage account key. Storage Explorer does not currently support creating a user delegation SAS, which is a SAS that is signed with Azure AD credentials.
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using **Azure Storage Explorer**. To learn more about working with Blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using **Azure Storage Explorer**. To learn more about working with Blob storage, continue to the Blob storage overview.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](./storage-quickstart-blobs-powershell.md)
+> [Introduction to Azure Blob Storage](./storage-blobs-introduction.md)
