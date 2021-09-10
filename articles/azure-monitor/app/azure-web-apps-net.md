@@ -23,7 +23,7 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
-    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Screenshot of Application Insights tab with enable selected.."::: 
+    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Screenshot of Application Insights tab with enable selected."::: 
 
 2. Choose to create a new resource, or select an existing Application Insights resource for this application. 
 
