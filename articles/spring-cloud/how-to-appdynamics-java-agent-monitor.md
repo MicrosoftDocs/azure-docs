@@ -30,23 +30,27 @@ The following video introduces AppDynamics Java In-Process Agent.
 
 
 ## Prerequisites
-To monitor your Spring Cloud workloads with AppDynamics, you **must** integrate Agent with your Azure Spring Cloud application. You will need the following to use these features:
+To monitor your Spring Cloud workloads with AppDynamics, you **must** activate Agent with your Azure Spring Cloud application. You will need the following to use these features:
 * AppDynamics account.
 * [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-## Integrate with AppDynamics Java In-Process Agent
+## Activate AppDynamics Java In-Process Agent
 
-![AppDynamics Integration](media/appdynamics-agent/appdynamics_integration.jpg)
+![AppDynamics Activation](media/appdynamics-agent/appdynamics_activation.jpg)
 
 For the whole workflow, you need to:
-* Integrate Azure Spring Cloud with AppDynamics Java In-Process Agent in order to generate application metrics data.
+* Activate AppDynamics Java In-Process in Agent Azure Spring Cloud in order to generate application metrics data.
 * Connect the AppDynamics Agent to the AppDynamics Controller to collect and visualize the data in controller.
 
 ### Prepare variables to connect the AppDynamics Agent to Controller
 
+>Note
+>The following paragraphs related to AppDynamics environemnt variables may be totally moved to AppDynamics Doc. And only keep a link here.   
+Remove this note before publish.
+
 In order to connect the AppDynamics Java In-Process Agent to AppDynamics Controller, you need four required variables: 
 `APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`, `APPDYNAMICS_AGENT_ACCOUNT_NAME`, `APPDYNAMICS_CONTROLLER_HOST_NAME` and `APPDYNAMICS_CONTROLLER_PORT`. Please refer to [AppDynamics Agent to Controller Connections](https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/agent-to-controller-connections) to get their values.
-### Integrate application with AppDynamics Agent by Azure CLI
+### Activate application with AppDynamics Agent by Azure CLI
 
 1. Create a resource group.
 2. Create an instance of Azure Spring Cloud.
@@ -71,9 +75,9 @@ In order to connect the AppDynamics Java In-Process Agent to AppDynamics Control
               APPDYNAMICS_CONTROLLER_PORT=<YOUR_CASE>
     ```
 
-  Azure Spring Cloud pre-installs the AppDynamics Java agent to the path `/opt/agents/appdynamics/java/javaagent.jar`. Customers can integrate the agent from applications' **Jvm Options**, and then configure the agent using the [AppDynamics Java agent environment variables](https://docs.appdynamics.com/21.7/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent/use-environment-variables-for-java-agent-settings). Refer to [Tiers and Nodes](https://docs.appdynamics.com/21.9/en/application-monitoring/tiers-and-nodes) to find how Node and Tier help to view and organize reports in AppDynamics UI.
+  Azure Spring Cloud pre-installs the AppDynamics Java agent to the path `/opt/agents/appdynamics/java/javaagent.jar`. Customers can activate the agent from applications' **Jvm Options**, and then configure the agent using the [AppDynamics Java agent environment variables](https://docs.appdynamics.com/21.7/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent/use-environment-variables-for-java-agent-settings). Refer to [Tiers and Nodes](https://docs.appdynamics.com/21.9/en/application-monitoring/tiers-and-nodes) to find how Node and Tier help to view and organize reports in AppDynamics UI.
 
-### Integrate application with AppDynamics Agent by Azure Portal
+### Activate application with AppDynamics Agent by Azure Portal
 
 1. Find the application from **Settings**/**Apps** in the navigation pane.
 
@@ -185,7 +189,7 @@ The AppDynamics Agent will be upgraded regularly with JDK (quarterly). Agent upg
 For vnet injection instances of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for AppDynamics Agent. Please refer to [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md) for details.
 
 ## Limitaions
-Please refer to [Limitations when integrate azure spring cloud with AppDynamics Java In-Process Agent (**not ready yet**)]()
+Please refer to [Limitations when Monitor Azure Spring Cloud with AppDynamics Java In-Process Agent (**not ready yet**)]()
 
 ## Next Step
 * [Use distributed tracing with Azure Spring Cloud](how-to-distributed-tracing.md)
