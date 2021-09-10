@@ -27,11 +27,11 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
 
     # [Azure Data Factory](#tab/data-factory)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the 'Activity runs' section on the 'All pipeline runs' pane.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the &quot;Activity runs&quot; section on the &quot;All pipeline runs&quot; pane.":::
     
     # [Azure Synapse](#tab/synapse-analytics)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the 'Activity runs' section on the 'All pipeline runs' pane.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the &quot;Activity runs&quot; section on the &quot;All pipeline runs&quot; pane.":::
     
     ---
     
@@ -43,7 +43,7 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
  
    The **Share the self-hosted integration runtime (IR) logs with Microsoft** window opens.
 
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png" alt-text="Screenshot of the "Share the self-hosted integration runtime (IR) logs with Microsoft" window.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png" alt-text="Screenshot of the &quot;Share the self-hosted integration runtime (IR) logs with Microsoft&quot; window.":::
 
 1. Select which logs you want to send. 
     * For a *self-hosted IR*, you can upload logs that are related to the failed activity or all logs on the self-hosted IR node. 
@@ -81,7 +81,7 @@ When you try to increase the concurrent jobs limit from UI, the process hangs in
 
 Example scenario: The maximum concurrent jobs value is currently set to 24, and you want to increase the count so that your jobs can run faster. The minimum value that you can enter is 3, and the maximum value is 32. You increase the value from 24 to 32 and then select the **Update** button. The process gets stuck in *Updating* status, as shown in the following screenshot. You refresh the page, and the value is still displayed as 24. It hasn't been updated to 32 as you had expected.
 
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png" alt-text="Screenshot of the Nodes pane of the integration runtime, displaying the process stuck in "Updating" status.":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png" alt-text="Screenshot of the Nodes pane of the integration runtime, displaying the process stuck in &quot;Updating&quot; status.":::
 
 #### Cause
 
@@ -114,7 +114,7 @@ When you handle cases that are related to an SSL/TLS handshake, you might encoun
        
        b. In File Explorer, on the left pane, search for the certificate that you want to check, right-click it, and then select **All tasks** > **Export**.
     
-        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png" alt-text="Screenshot of the "All Tasks" > "Export" control for a certificate on the "Manage computer certificates" pane.":::
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png" alt-text="Screenshot of the &quot;All Tasks&quot; > &quot;Export&quot; control for a certificate on the &quot;Manage computer certificates&quot; pane.":::
 
     2. Copy the exported certificate to the client machine. 
     3. On the client side, in a Command Prompt window, run the following command. Be sure to replace *\<certificate path>* and *\<output txt file path>* with the actual paths.
@@ -176,7 +176,7 @@ Here is a more specific error message:
 
 In Process Monitor, you can view the following result:
 
-[:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox" alt-text="Screenshot of the Paths list in Process Monitor.](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png)":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox" lightbox="media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png" alt-text="Screenshot of the Paths list in Process Monitor.":::
 
 > [!TIP] 
 > In Process Monitor, you can set filters as shown in following screenshot.
@@ -187,7 +187,7 @@ In Process Monitor, you can view the following result:
 
 <br>
 
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png" alt-text="Screenshot of the "Process Monitor Filter" page, listing the filters for the DLL.":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png" alt-text="Screenshot of the &quot;Process Monitor Filter&quot; page, listing the filters for the DLL.":::
 
 #### Resolution
 
@@ -280,7 +280,7 @@ The only way to avoid this issue is to make sure that the two nodes are in crede
 
    "Failed to change intranet communication encryption mode. It is likely that certificate '\<*certificate name*>' may not have a private key that is capable of key exchange or the process may not have access rights for the private key. Please see inner exception for detail."
 
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png" alt-text="Screenshot of the Integration Runtime Configuration Manager Settings pane, displaying a "private key missing" error message.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png" alt-text="Screenshot of the Integration Runtime Configuration Manager Settings pane, displaying a &quot;private key missing&quot; error message.":::
 
 #### Cause
 
@@ -409,11 +409,11 @@ Go to the integration runtime event log to check the error.
 
     1. Check the *DIAHostService* logon service account in the Windows service panel.
     
-        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="Screenshot of the "Log On" pane for the service account.":::
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="Screenshot of the &quot;Log On&quot; pane for the service account.":::
 
     1. Check to see whether the logon service account has **Log on as a service** permission to start the Windows service:
 
-        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png" alt-text="Screenshot of the "Log on as service" properties pane.":::
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png" alt-text="Screenshot of the &quot;Log on as service&quot; properties pane.":::
 
 #### More information
 
@@ -440,7 +440,7 @@ As of the release of Integration Runtime 3.0, the **Register** button on existin
     > [!IMPORTANT] 
     > In the following process, select **Yes**. Do not keep data during the uninstallation process.
 
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png" alt-text="Screenshot of the "Yes" button for deleting all user data from the integration runtime.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png" alt-text="Screenshot of the &quot;Yes&quot; button for deleting all user data from the integration runtime.":::
 
 1. If you don't have the integration runtime installer MSI file, go to [download center](https://www.microsoft.com/en-sg/download/details.aspx?id=39717) to download the latest integration runtime.
 1. Install the MSI file, and register the integration runtime.
@@ -492,7 +492,7 @@ When you install a self-hosted IR via Microsoft Integration Runtime Configuratio
 
 "Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate '\<*certificate name*>'. Error code 103"
 
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png" alt-text="Screenshot displaying the error message "... Failed to grant Integration Runtime service account certificate access".":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png" alt-text="Screenshot displaying the error message &quot;... Failed to grant Integration Runtime service account certificate access&quot;.":::
 
 #### Cause
 
@@ -549,7 +549,7 @@ When you attempt to register the self-hosted integration runtime, Configuration 
 
 "The Integration Runtime (Self-hosted) node has encountered an error during registration."
 
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png" alt-text="Screenshot of the "The Integration Runtime (Self-hosted) node has encountered an error during registration" message.":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png" alt-text="Screenshot of the &quot;The Integration Runtime (Self-hosted) node has encountered an error during registration&quot; message.":::
 
 #### Cause 
 
@@ -642,7 +642,7 @@ This behavior occurs when nodes can't communicate with each other.
    
 1. If you receive the "Could not open connection to the host" command-line error that's shown in the following screenshot, contact your IT department for help to fix this issue. After you can successfully telnet, contact Microsoft Support if you still have issues with the integration runtime node status.
         
-   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png" alt-text="Screenshot of the "Could not open connection to the host" command-line error.":::
+   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png" alt-text="Screenshot of the &quot;Could not open connection to the host&quot; command-line error.":::
         
 1. Check to see whether the error log contains the following entry:
 
@@ -663,7 +663,7 @@ how to collect the network trace, understand how to use it, and [analyze the Mic
 
 You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory or Azure Synapse instance, as shown in the following screenshot, or between the self-hosted IR and the data source or sink. 
 
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png" alt-text="Screenshot of a "Processed HTTP request failed" message":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png" alt-text="Screenshot of a &quot;Processed HTTP request failed&quot; message":::
 
 In either instance, you might encounter the following errors:
 
@@ -725,7 +725,7 @@ When you encounter the preceding errors, troubleshoot them by following the inst
 
 When you try to telnet **8.8.8.8 888** with the collected Netmon trace, you should see the trace in the following screenshots:
 
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png" alt-text="Screenshot showing "Could not open connection to the host on port 888" error message.":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png" alt-text="Screenshot showing &quot;Could not open connection to the host on port 888&quot; error message.":::
 
 :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png" alt-text="Screenshot showing a description of the Netmon trace.":::
  
