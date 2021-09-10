@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/23/2021
+ms.date: 09/09/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: yuhko, saumadan, marsma
@@ -29,7 +29,7 @@ Follow the guidance here to help reduce your application's attack surface and th
 - Prevent **overprivileged** applications by revoking *unused* and *reducible* permissions
 - Use the identity platform's **consent** framework to require that a human consents to the app's request to access protected data
 - **Build** applications with least privilege in mind during all stages of development
-- **Audit** your organization's applications periodically to identify overprivileged apps
+- **Audit** your deployed applications periodically to identify overprivileged apps
 
 ## What's an *overprivileged* application?
 
@@ -45,7 +45,7 @@ Any application that's been granted an **unused** or **reducible** permission is
 
         - **Security risk**: Unused permissions pose a *horizontal privilege escalation* security risk. An entity that exploits a security vulnerability in your application could use an unused permission to gain access to an API or operation not normally supported or allowed by the application when it's used as intended.
 
-        - **Mitigation**: Revoke any permission not used by any API call your application makes.
+        - **Mitigation**: Remove any permission that isn't used in API calls made by your application.
    :::column-end:::
    :::column span="":::
       ### Reducible permissions
@@ -68,7 +68,7 @@ Most applications you build will require access to protected data, and the owner
 
 Whenever an application that runs in your user's device requests access to protected data, the app should ask for the user's consent before granting access to the protected data. The end user is required to grant (or deny) consent for the requested permission before the application can progress.
 
-:::image type="content" source="./media/least-privilege-best-practice/api-permissions.png" alt-text="Azure portal screenshot showing an app registration's API permissions pane":::)
+:::image type="content" source="./media/least-privilege-best-practice/api-permissions.png" alt-text="Azure portal screenshot showing an app registration's API permissions pane":::
 
 ## Least privilege during app development
 
