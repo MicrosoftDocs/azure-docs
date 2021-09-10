@@ -4,7 +4,7 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 08/03/2021
+ ms.date: 09/10/2021
  ms.author: timlt
  ms.custom: include file
 ---
@@ -14,7 +14,11 @@
 In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to the hub, and send telemetry.
 
 ## Prerequisites
-This quickstart has been tested on the following platforms: Windows 10, Ubuntu 18.04 running on Windows Subsystem for Linux (WSL), and on a Raspberry Pi 3 Model B+ running Raspberry Pi OS version 10 (buster). 
+This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
+
+- Windows 10
+- Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
+- Raspberry Pi OS version 10 (buster) running on a Raspberry Pi 3 Model B+
 
 Install the following prerequisites on your development machine except where noted for Raspberry Pi:
 
@@ -28,7 +32,7 @@ Install the following prerequisites on your development machine except where not
 Install the remaining prerequisites for your operating system.
 
 ### Linux
-To complete this quickstart on Linux, install the following software on your local Linux environment:
+To complete this quickstart on Linux and Raspberry Pi OS, install the following software:
 
 Install **GCC**, **Git**, **cmake**, and the required dependencies using the `apt-get` command:
 
@@ -59,7 +63,7 @@ To complete this quickstart on Windows, install Visual Studio 2019 and add the r
 In this section, you use the C SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
 ### Build the sample
-1. Open a console to install the Azure IoT C device SDK, and run the code sample. For Windows, select **Start**, type *Developer Command Prompt for VS 2019*, and open the console. For Linux, open Bash.
+1. Open a console to install the Azure IoT C device SDK, and run the code sample. For Windows, select **Start**, type *Developer Command Prompt for VS 2019*, and open the console. For Linux and Raspberry Pi OS, open a terminal for Bash commands.
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
