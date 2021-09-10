@@ -51,10 +51,7 @@ The following steps will take you step by step through an end to end setup of a 
    ```powershell 
    Login-AzAccount
    Select-AzSubscription -SubscriptionId $subscriptionid
-   $location = "eastus2" 
-   $resourceGroupName = "myrg" 
- 
-   New-AzResourceGroup -Name $resourceGroupName -Location $location 
+   New-AzResourceGroup -Name $myresourcegroup -Location $location
    ```
 
 2) Create cluster resource
