@@ -4,7 +4,7 @@ description: This article describes how to configure Azure RBAC for FHIR.
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 08/03/2021
+ms.date: 09/10/2021
 ms.author: zxue
 ---
 
@@ -49,4 +49,4 @@ You can verify the role assignment by selecting the **Role assignments** tab fro
 In this article, you've learned how to assign Azure roles for the FHIR data plane. To learn how to access the FHIR service using Postman, see
 
 >[!div class="nextstepaction"]
->[Access FHIR service with Postman](using-postman.md)
+>[Access FHIR service with Postman](../use-postman.md)

@@ -310,7 +310,7 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
             }
    ```
 
-2. Deploy your IPv6 enabled managed cluster. Customize the [sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-IPv6/azuredeploy.json) as needed or build your own.
+2. Deploy your IPv6 enabled managed cluster. Customize the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-IPv6) as needed or build your own.
    In the following example, we'll create a resource group called `MyResourceGroup` in `westus` and deploy a cluster with this feature enabled.
    ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
@@ -414,7 +414,7 @@ This feature allows customers to use an existing virtual network by specifying a
             ...
             }
    ```
-   See the [bring your own VNet cluster sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOVNET/azuredeploy.json) or customize your own.
+   See the [bring your own VNet cluster sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOVNET) or customize your own.
 
 4. Deploy the configured managed cluster Azure Resource Manager (ARM) template.
 
@@ -527,7 +527,7 @@ To configure bring your own load balancer:
 
 5. Optionally configure the managed cluster NSG rules applied to the node type to allow any required traffic that you've configured on the Azure Load Balancer or traffic will be blocked.
 
-   See the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/azuredeploy.json) for an example on how to open inbound rules.
+   See the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) for an example on how to open inbound rules.
 
 6. Deploy the configured managed cluster ARM Template
 
@@ -549,3 +549,4 @@ To configure bring your own load balancer:
 [sfmc-rdp-connect]: ./media/how-to-managed-cluster-networking/sfmc-rdp-connect.png
 [sfmc-byolb-example-1]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-1.png
 [sfmc-byolb-example-2]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-2.png
+
