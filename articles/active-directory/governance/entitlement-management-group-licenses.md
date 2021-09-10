@@ -65,13 +65,11 @@ For more information, see [License requirements](entitlement-management-overview
 
 5.	The following settings allow you to configure how your approvals work for the users you selected in the step above:
 
-    * **Require requestor justification** - sets the Justification field on the requestor form to be required
-    * **How many stages** - Allows you to configure multiple stages of approval for the selected users and groups
-    * **Approver** - this field has two options:
-      * **Manager as approver** - This option allows the requestor's manager to approve the request. You can select some to be the Fallback approver if the system can't find the manager. For this scenario, this should be the option you select.
-      * **Choose specific approvers** - This option allows you to set specific people to be the approver(s)
-    * **Decision must be made in how many days?** - Time limit for approvers
-    * **Require approver justification** - Approvers must fill in the justification field for their approvals in case you want to review later
+    * **Require requestor justification** - sets the Justification field on the requestor form to be required. Leave this as **Yes**.
+    * **How many stages** - Allows you to configure multiple stages of approval for the selected users and groups. Leave this as **1**.
+    * **Approver** - this field has two options. For this scenario, select **Manager as approver**. This option allows the requestor's manager to approve the request. You can select some to be the Fallback approver if the system can't find the manager. For this scenario, this should be the option you select.
+    * **Decision must be made in how many days?** - Time limit for approvers. Leave this as **14**.
+    * **Require approver justification** - Approvers must fill in the justification field for their approvals in case you want to review later. Leave this as **Yes**.
 
 6.	Set **Enable new requests and assignments** to **Yes** to enable this access package to be requested as soon as it's created
 
