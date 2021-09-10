@@ -26,6 +26,23 @@ If you develop your scripts locally, it's recommended to have the same module ve
 > [!NOTE]
 > A new Automation account might not contain the latest modules.
 
+## Use the portal for updates
+
+Only default Az modules will be updated when performing the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Automation account.
+1. Under **Shared Resources**, select **PowerShell Modules**.
+1. Select **Update Az modules**.
+1. Select **Module to Update**. By default, it will show Az module.  
+1. From the drop-down list, select **Module Version**.
+1. Select **Update** to update the Az module to the version that you’ve selected.
+
+If you select a version lower than the existing Az module version imported in the Automation account, the update operation will perform a rollback to the selected lower version.  
+
+You can verify the update operation by checking the Module version and Status property of the updated modules shown in the list of **modules** under **PowerShell modules**. 
+
+The Azure team will regularly update the module version and provide an option to update the **default** Az modules by selecting the module version from the drop-down list.  
+
 ## Obtain a runbook to use for updates
 
 To update the Azure modules in your Automation account, you must use the [Update-AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) runbook, which is available as open source. To start using this runbook to update your Azure modules, download it from the GitHub repository. You can then import it into your Automation account or run it as a script. To learn how to import a runbook in your Automation account, see [Import a runbook](manage-runbooks.md#import-a-runbook).
