@@ -160,4 +160,4 @@ To use an API token when you make a REST API call, your authorization header loo
 
 ## Next steps
 
-Now that you've learned how to authorize REST API calls, a suggested next step is to [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).
+Now that you've learned how to authorize REST API calls, a suggested next step is to [How to use the IoT Central REST API to query devices](howto-query-with-rest-api.md).
