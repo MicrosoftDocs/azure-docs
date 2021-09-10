@@ -33,7 +33,7 @@ where auto scaling is performed by adding or removing [instances](service-fabric
 stateless services, auto scaling can also be performed by adding or removing named [partitions](service-fabric-concepts-partitioning.md) 
 of the service.>
 
-> [!NOTE]
+>[!NOTE]
 > Currently there is only support for policies based on metrics emitted from VMSS and only one scaling trigger per scaling policy.
 
 
@@ -78,7 +78,7 @@ The following steps will take you step by step through an end to end setup of a 
    ```
 
 >![NOTE]
->After this deployment completes, future deployments should use -1 for secondary node types that have auto scale rules enabled. This will avoid cluster deployments conflicting with auto scale.
+> After this deployment completes, future deployments should use -1 for secondary node types that have auto scale rules enabled. This will avoid cluster deployments conflicting with auto scale.
 
 
 ## Enable or disable auto scaling in a managed cluster
