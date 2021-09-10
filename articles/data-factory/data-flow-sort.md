@@ -23,7 +23,7 @@ The sort transformation allows you to sort the incoming rows on the current data
 
 ## Configuration
 
-:::image type="content" source="media/data-flow/sort.png" alt-text="Sort settings" title="Sort":::
+:::image type="content" source="media/data-flow/sort.png" alt-text="Sort settings":::
 
 **Case insensitive:** Whether or not you wish to ignore case when sorting string or text fields
 
@@ -50,7 +50,7 @@ To modify or extract a column value before applying the sort, hover over the col
 
 ### Example
 
-:::image type="content" source="media/data-flow/sort.png" alt-text="Sort settings" title="Sort":::
+:::image type="content" source="media/data-flow/sort.png" alt-text="Sort settings":::
 
 The data flow script for the above sort configuration is in the code snippet below.
 

@@ -25,7 +25,7 @@ Azure Data Factory and Synapse Analytics mapping data flow's debug mode allows y
 
 Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a default 60-minute time to live will be spun up. If you'd like to allow for more idle team before your session times out, you can choose a higher TTL setting. For more information on data flow integration runtimes, see [Integration Runtime performance](concepts-integration-runtime-performance.md).
 
-:::image type="content" source="media/data-flow/debug-new-1.png" alt-text="Debug IR selection" title="Debug IR selection":::
+:::image type="content" source="media/data-flow/debug-new-1.png" alt-text="Debug IR selection":::
 
 When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off. You should be aware of the hourly charges incurred by Azure Databricks during the time that you have the debug session turned on.
 
@@ -52,13 +52,13 @@ When you are finished with your debugging, turn the Debug switch off so that you
 
 Once you turn on debug mode, you can edit how a data flow previews data. Debug settings can be edited by clicking "Debug Settings" on the Data Flow canvas toolbar. You can select the row limit or file source to use for each of your Source transformations here. The row limits in this setting are only for the current debug session. You can also select the staging linked service to be used for an Azure Synapse Analytics source. 
 
-:::image type="content" source="media/data-flow/debug-settings.png" alt-text="Debug settings" title="Debug settings":::
+:::image type="content" source="media/data-flow/debug-settings.png" alt-text="Debug settings":::
 
 If you have parameters in your Data Flow or any of its referenced datasets, you can specify what values to use during debugging by selecting the **Parameters** tab.
 
 Use the sampling settings here to point to sample files or sample tables of data so that you do not have to change your source datasets. By using a sample file or table here, you can maintain the same logic and property settings in your data flow while testing against a subset of data.
 
-:::image type="content" source="media/data-flow/debug-settings2.png" alt-text="Debug settings parameters" title="Debug settings parameters":::
+:::image type="content" source="media/data-flow/debug-settings2.png" alt-text="Debug settings parameters":::
 
 The default IR used for debug mode in data flows is a small 4-core single worker node with a 4-core single driver node. This works fine with smaller samples of data when testing your data flow logic. If you expand the row limits in your debug settings during data preview or set a higher number of sampled rows in your source during pipeline debug, then you may wish to consider setting a larger compute environment in a new Azure Integration Runtime. Then you can restart your debug session using the larger compute environment.
 
@@ -66,7 +66,7 @@ The default IR used for debug mode in data flows is a small 4-core single worker
 
 With debug on, the Data Preview tab will light-up on the bottom panel. Without debug mode on, Data Flow will show you only the current metadata in and out of each of your transformations in the Inspect tab. The data preview will only query the number of rows that you have set as your limit in your debug settings. Click **Refresh** to fetch the data preview.
 
-:::image type="content" source="media/data-flow/datapreview.png" alt-text="Data preview" title="Data preview":::
+:::image type="content" source="media/data-flow/datapreview.png" alt-text="Data preview":::
 
 > [!NOTE]
 > File sources only limit the rows that you see, not the rows being read. For very large datasets, it is recommended that you take a small portion of that file and use it for your testing. You can select a temporary file in Debug Settings for each source that is a file dataset type.
@@ -83,15 +83,15 @@ When unit testing Joins, Exists, or Lookup transformations, make sure that you u
 
 Once you see the data preview, you can generate a quick transformation to typecast, remove, or do a modification on a column. Click on the column header and then select one of the options from the data preview toolbar.
 
-:::image type="content" source="media/data-flow/quick-actions1.png" alt-text="Screenshot shows the data preview toolbar with options: Typecast, Modify, Statistics, and Remove." title="Quick actions":::
+:::image type="content" source="media/data-flow/quick-actions1.png" alt-text="Screenshot shows the data preview toolbar with options: Typecast, Modify, Statistics, and Remove.":::
 
 Once you select a modification, the data preview will immediately refresh. Click **Confirm** in the top-right corner to generate a new transformation.
 
-:::image type="content" source="media/data-flow/quick-actions2.png" alt-text="Screenshot shows the Confirm button." title="Quick actions":::
+:::image type="content" source="media/data-flow/quick-actions2.png" alt-text="Screenshot shows the Confirm button.":::
 
 **Typecast** and **Modify** will generate a Derived Column transformation and **Remove** will generate a Select transformation.
 
-:::image type="content" source="media/data-flow/quick-actions3.png" alt-text="Screenshot shows Derived Column’s Settings." title="Quick actions":::
+:::image type="content" source="media/data-flow/quick-actions3.png" alt-text="Screenshot shows Derived Column’s Settings.":::
 
 > [!NOTE]
 > If you edit your Data Flow, you need to re-fetch the data preview before adding a quick transformation.
@@ -100,7 +100,7 @@ Once you select a modification, the data preview will immediately refresh. Click
 
 Selecting a column in your data preview tab and clicking **Statistics** in the data preview toolbar will pop up a chart on the far-right of your data grid with detailed statistics about each field. The service will make a determination based upon the data sampling of which type of chart to display. High-cardinality fields will default to NULL/NOT NULL charts while categorical and numeric data that has low cardinality will display bar charts showing data value frequency. You'll also see max/len length of string fields, min/max values in numeric fields, standard dev, percentiles, counts, and average.
 
-:::image type="content" source="media/data-flow/stats.png" alt-text="Column statistics" title="Column statistics":::
+:::image type="content" source="media/data-flow/stats.png" alt-text="Column statistics":::
 
 ## Next steps
 

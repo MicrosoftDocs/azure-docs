@@ -56,15 +56,15 @@ When selecting "Entity Reference" both in the Source and Sink transformations, y
 
 * Point to the CDM entity reference file that contains the definition of the entity you would like to write.
 
-:::image type="content" source="media/data-flow/common-data-model-111.png" alt-text="entity settings" title="Entity reference":::
+:::image type="content" source="media/data-flow/common-data-model-111.png" alt-text="entity settings":::
 
 * Define the partition path and format of the output files that you want the service to use for writing your entities.
 
-:::image type="content" source="media/data-flow/common-data-model-222.png" alt-text="entity format" title="Entity format":::
+:::image type="content" source="media/data-flow/common-data-model-222.png" alt-text="entity format":::
 
 * Set the output file location and the location and name for the manifest file.
 
-:::image type="content" source="media/data-flow/common-data-model-333.png" alt-text="cdm location" title="CDM location":::
+:::image type="content" source="media/data-flow/common-data-model-333.png" alt-text="cdm location":::
 
 
 #### Import schema
@@ -73,7 +73,7 @@ CDM is only available as an inline dataset and, by default, doesn't have an asso
 
 When mapping data flow columns to entity properties in the Sink transformation, click on the "Mapping" tab and select "Import Schema". The service will read the entity reference that you pointed to in your Sink options, allowing you to map to the target CDM schema.
 
-:::image type="content" source="media/data-flow/common-data-model-444.png" alt-text="CDM sink settings" title="CDM Mapping":::
+:::image type="content" source="media/data-flow/common-data-model-444.png" alt-text="CDM sink settings":::
 
 > [!NOTE]
 >  When using model.json source type that originates from Power BI or Power Platform dataflows, you may encounter "corpus path is null or empty" errors from the source transformation. This is likely due to formatting issues of the partition location path in the model.json file. To fix this, follow these steps: 

@@ -209,7 +209,7 @@ The below table lists the properties supported by a hive source. You can edit th
 
 Below is an example of a Hive source configuration:
 
-:::image type="content" source="media/data-flow/hive-source.png" alt-text="Hive source example" title="[Hive source example":::
+:::image type="content" source="media/data-flow/hive-source.png" alt-text="Hive source example":::
 
 These settings translate into the following data flow script:
 

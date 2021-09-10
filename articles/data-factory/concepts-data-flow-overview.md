@@ -32,7 +32,7 @@ This action takes you to the data flow canvas, where you can create your transfo
 
 Mapping data flow has a unique authoring canvas designed to make building transformation logic easy. The data flow canvas is separated into three parts: the top bar, the graph, and the configuration panel. 
 
-:::image type="content" source="media/data-flow/canvas-1.png" alt-text="Screenshot shows the data flow canvas with top bar, graph, and configuration panel labeled." title="Canvas":::
+:::image type="content" source="media/data-flow/canvas-1.png" alt-text="Screenshot shows the data flow canvas with top bar, graph, and configuration panel labeled.":::
 
 ### Graph
 
@@ -50,7 +50,7 @@ Each transformation contains at least four configuration tabs.
 
 The first tab in each transformation's configuration pane contains the settings specific to that transformation. For more information, see that transformation's documentation page.
 
-:::image type="content" source="media/data-flow/source1.png" alt-text="Source settings tab" title="Source settings tab":::
+:::image type="content" source="media/data-flow/source1.png" alt-text="Source settings tab":::
 
 #### Optimize
 
@@ -62,7 +62,7 @@ The **Optimize** tab contains settings to configure partitioning schemes. To lea
 
 The **Inspect** tab provides a view into the metadata of the data stream that you're transforming. You can see column counts, the columns changed, the columns added, data types, the column order, and column references. **Inspect** is a read-only view of your metadata. You don't need to have debug mode enabled to see metadata in the **Inspect** pane.
 
-:::image type="content" source="media/data-flow/inspect1.png" alt-text="Inspect" title="Inspect":::
+:::image type="content" source="media/data-flow/inspect1.png" alt-text="Inspect":::
 
 As you change the shape of your data through transformations, you'll see the metadata changes flow in the **Inspect** pane. If there isn't a defined schema in your source transformation, then metadata won't be visible in the **Inspect** pane. Lack of metadata is common in schema drift scenarios.
 

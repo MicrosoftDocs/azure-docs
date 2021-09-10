@@ -697,7 +697,7 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 
 **Stored procedure**: Choose this option if you wish to generate a projection and source data from a stored procedure that is executed from your source database. You can type in the schema, procedure name, and parameters, or click on Refresh to ask the service to discover the schemas and procedure names. Then you can click on Import to import all procedure parameters using the form ``@paraName``.
 
-:::image type="content" source="media/data-flow/stored-procedure-2.png" alt-text="Stored procedure" title="Stored Procedure":::
+:::image type="content" source="media/data-flow/stored-procedure-2.png" alt-text="Stored procedure":::
 
 - SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 - Parameterized SQL Example: ``"select * from {$tablename} where orderyear > {$year}"``
@@ -712,7 +712,7 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 - Serializable
 - None (ignore isolation level)
 
-:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level" title="Isolation Level":::
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
 
 ### Sink transformation
 
@@ -720,7 +720,7 @@ Settings specific to Azure SQL Database are available in the **Settings** tab of
 
 **Update method:** Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.
 
-:::image type="content" source="media/data-flow/keycolumn.png" alt-text="Key Columns" title="Key Columns":::
+:::image type="content" source="media/data-flow/keycolumn.png" alt-text="Key Columns":::
 
 The column name that you pick as the key here will be used by the service as part of the subsequent update, upsert, delete. Therefore, you must pick a column that exists in the Sink mapping. If you wish to not write the value to this key column, then click "Skip writing key columns".
 
@@ -736,11 +736,11 @@ You can parameterize the key column used here for updating your target Azure SQL
 
 **Use TempDB:** By default, the service will use a global temporary table to store data as part of the loading process. You can alternatively uncheck the "Use TempDB" option and instead, ask the service to store the temporary holding table in a user database that is located in the database that is being used for this Sink.
 
-:::image type="content" source="media/data-flow/tempdb.png" alt-text="Use Temp DB" title="Use Temp DB":::
+:::image type="content" source="media/data-flow/tempdb.png" alt-text="Use Temp DB":::
 
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-:::image type="content" source="media/data-flow/prepost1.png" alt-text="pre and post SQL processing scripts" title="SQL processing scripts":::
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="pre and post SQL processing scripts":::
 
 ### Error row handling
 
@@ -758,7 +758,7 @@ By default, a data flow run will fail on the first error it gets. You can choose
 
 **Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
 
-:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Error row handling" title="Error row handling":::
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Error row handling":::
 
 
 ## Data type mapping for Azure SQL Database

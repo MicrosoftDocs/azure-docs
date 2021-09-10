@@ -58,19 +58,19 @@ If you would like to explicitly produce a full cartesian product, use the Derive
 1. Select your **Join type**
 1. Choose which key columns you want to match on for you join condition. By default, data flow looks for equality between one column in each stream. To compare via a computed value, hover over the column dropdown and select **Computed column**.
 
-:::image type="content" source="media/data-flow/join.png" alt-text="Join Transformation" title="Join":::
+:::image type="content" source="media/data-flow/join.png" alt-text="Join Transformation":::
 
 ### Non-equi joins
 
 To use a conditional operator such as not equals (!=) or greater than (>) in your join conditions, change the operator dropdown between the two columns. Non-equi joins require at least one of the two streams to be broadcasted using **Fixed** broadcasting in the **Optimize** tab.
 
-:::image type="content" source="media/data-flow/non-equi-join.png" alt-text="Non-equi join" title="Non-equi join":::
+:::image type="content" source="media/data-flow/non-equi-join.png" alt-text="Non-equi join":::
 
 ## Optimizing join performance
 
 Unlike merge join in tools like SSIS, the join transformation isn't a mandatory merge join operation. The join keys don't require sorting. The join operation occurs based on the optimal join operation in Spark, either broadcast or map-side join.
 
-:::image type="content" source="media/data-flow/joinoptimize.png" alt-text="Join Transformation optimize" title="Join Optimization":::
+:::image type="content" source="media/data-flow/joinoptimize.png" alt-text="Join Transformation optimize":::
 
 In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
 
@@ -80,7 +80,7 @@ It's not recommended to disable broadcasting via the **Off** option unless your 
 
 To self-join a data stream with itself, alias an existing stream with a select transformation. Create a new branch by clicking on the plus icon next to a transformation and selecting **New branch**. Add a select transformation to alias the original stream. Add a join transformation and choose the original stream as the **Left stream** and the select transformation as the **Right stream**.
 
-:::image type="content" source="media/data-flow/selfjoin.png" alt-text="Self-join" title="Self-join":::
+:::image type="content" source="media/data-flow/selfjoin.png" alt-text="Self-join":::
 
 ## Testing join conditions
 
@@ -105,7 +105,7 @@ The below example is a join transformation named `JoinMatchedData` that takes le
 
 In the UI, this transformation looks like the below image:
 
-:::image type="content" source="media/data-flow/join-script1.png" alt-text="Screenshot shows the transformation with the Join Settings tab selected and a Join type of Inner." title="Join example":::
+:::image type="content" source="media/data-flow/join-script1.png" alt-text="Screenshot shows the transformation with the Join Settings tab selected and a Join type of Inner.":::
 
 The data flow script for this transformation is in the snippet below:
 
@@ -127,7 +127,7 @@ The below example is a join transformation named `JoiningColumns` that takes lef
 
 In the UI, this transformation looks like the below image:
 
-:::image type="content" source="media/data-flow/join-script2.png" alt-text="Screenshot shows the transformation with the Join Settings tab selected and a Join type of Custom (cross)." title="Join example":::
+:::image type="content" source="media/data-flow/join-script2.png" alt-text="Screenshot shows the transformation with the Join Settings tab selected and a Join type of Custom (cross).":::
 
 The data flow script for this transformation is in the snippet below:
 

@@ -25,7 +25,7 @@ The pivot transformation requires three different inputs: group by columns, the 
 
 ### Group by
 
-:::image type="content" source="media/data-flow/pivot2.png" alt-text="Group by options" title="Group by options":::
+:::image type="content" source="media/data-flow/pivot2.png" alt-text="Group by options":::
 
 Select which columns to aggregate the pivoted columns over. The output data will group all rows with the same group by values into one row. The aggregation done in the pivoted column will occur over each group.
 
@@ -33,7 +33,7 @@ This section is optional. If no group by columns are selected, the entire data s
 
 ### Pivot key
 
-:::image type="content" source="media/data-flow/pivot3.png" alt-text="Pivot key" title="Pivot key":::
+:::image type="content" source="media/data-flow/pivot3.png" alt-text="Pivot key":::
 
 The pivot key is the column whose row values get pivoted into new columns. By default, the pivot transformation will create a new column for each unique row value.
 
@@ -41,7 +41,7 @@ In the section labeled **Value**, you can enter specific row values to be pivote
 
 ### Pivoted columns
 
-:::image type="content" source="media/data-flow/pivot4.png" alt-text="Pivoted columns" title="Pivoted columns":::
+:::image type="content" source="media/data-flow/pivot4.png" alt-text="Pivoted columns":::
 
 For each unique pivot key value that becomes a column, generate an aggregated row value for each group. You can create multiple columns per pivot key. Each pivot column must contain at least one [aggregate function](data-flow-expression-functions.md#aggregate-functions).
 
@@ -55,7 +55,7 @@ For each unique pivot key value that becomes a column, generate an aggregated ro
 
 The below help graphic shows how the different pivot components interact with one another
 
-:::image type="content" source="media/data-flow/pivot5.png" alt-text="Pivot help graphics" title="Pivot help graphic":::
+:::image type="content" source="media/data-flow/pivot5.png" alt-text="Pivot help graphics":::
 
 ## Pivot metadata
 
@@ -67,7 +67,7 @@ If specific pivot key values are set, the pivoted columns will appear in the met
 
 Pivot generates new column names dynamically based on row values. You can add these new columns into the metadata that can be referenced later in your data flow. To do this, use the [map drifted](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) quick action in data preview. 
 
-:::image type="content" source="media/data-flow/newpivot1.png" alt-text="Pivot columns" title="Map drifted Pivot columns":::
+:::image type="content" source="media/data-flow/newpivot1.png" alt-text="Pivot columns":::
 
 ### Sinking pivoted columns
 

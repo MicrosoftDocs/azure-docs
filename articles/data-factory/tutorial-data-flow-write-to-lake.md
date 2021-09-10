@@ -67,7 +67,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
 You will take any source data (in this tutorial, we'll use a Parquet file source) and use a sink transformation to land the data in Parquet format using the most effective mechanisms for data lake ETL.
 
-:::image type="content" source="media/data-flow/parts-final.png" alt-text="Final flow" title="Final flow":::
+:::image type="content" source="media/data-flow/parts-final.png" alt-text="Final flow":::
 
 ### Tutorial objectives
 
@@ -96,7 +96,7 @@ It is very common to use unique values in your data to create folder hierarchies
 1. When accessing the data partitions in a data flow source, you will point to just the top-level folder above ```releaseyear``` and use a wildcard pattern for each subsequent folder, ex: ```**/**/*.parquet```
 1. To manipulate the data values, or even if need to generate synthetic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
 
-:::image type="content" source="media/data-flow/key-parts.png" alt-text="Key partitioning" title="Key partitioning":::
+:::image type="content" source="media/data-flow/key-parts.png" alt-text="Key partitioning":::
    
 ### Name folder as data values
 
@@ -108,7 +108,7 @@ A slightly better performing sink technique for lake data using ADLS Gen2 that d
 1. Pick the column that you wish to use for generating folder names.
 1. To manipulate the data values, or even if need to generate synthetic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
 
-:::image type="content" source="media/data-flow/folders.png" alt-text="Folder option" title="Folders":::
+:::image type="content" source="media/data-flow/folders.png" alt-text="Folder option":::
 
 ### Name file as data values
 

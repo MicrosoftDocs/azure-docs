@@ -22,7 +22,7 @@ Use the flatten transformation to take array values inside hierarchical structur
 
 The flatten transformation contains the following configuration settings
 
-:::image type="content" source="media/data-flow/flatten1.png" alt-text="Flatten settings" title="Flatten settings":::
+:::image type="content" source="media/data-flow/flatten1.png" alt-text="Flatten settings":::
 
 ### Unroll by
 
@@ -42,7 +42,7 @@ Refer to the inspect tab and data preview to verify your mapping output.
 
 The flatten transformation supports rule-based mapping allowing you to create dynamic and flexible transformations that will flatten arrays based on rules and flatten structures based on hierarchy levels.
 
-:::image type="content" source="media/data-flow/flatten-pattern.png" alt-text="Flatten pattern" title="Flatten patterns":::
+:::image type="content" source="media/data-flow/flatten-pattern.png" alt-text="Flatten pattern":::
 
 ### Matching condition
 
