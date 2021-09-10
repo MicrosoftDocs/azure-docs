@@ -91,7 +91,7 @@ Roles (Users) are global objects and needed to be migrated separately to the new
 To dump all the roles from the source server:
 
 ```azurecli-interactive
-pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser -- dbname=mySourceDB > roles.sql
+pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser --database=mySourceDB > roles.sql
 ```
 
 and restore it using psql to the target server:
