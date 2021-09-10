@@ -58,7 +58,7 @@ To verify and turn on this setting, go to your server > Security > Firewalls and
 1. Go to the [Azure portal](https://portal.azure.com). 
 1. On the left of the Azure portal menu, select **Create a resource** > **Integration** > **Data Factory**. 
 
-   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the "New" pane":::
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 1. On the **New data factory** page, enter **ADFTutorialBulkCopyDF** for **name**. 
  
    The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialBulkCopyDF). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
