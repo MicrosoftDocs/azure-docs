@@ -1,5 +1,5 @@
 ---
-title: Secure hybrid access partner integration
+title: Secure hybrid access with Azure AD partner integration
 description: Help customers discover and migrate SaaS applications into Azure AD and connect apps that use legacy authentication methods with Azure AD.
 services: active-directory
 author: gargi-sinha
@@ -13,7 +13,7 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Secure hybrid access with partner integrations
+# Secure hybrid access with Azure Active Directory partner integrations
 
 Azure Active Directory (Azure AD) supports modern authentication protocols that keep applications secure in a highly connected, cloud-based world. However, many business applications were created to work in a protected corporate network, and some of these applications use legacy authentication methods. As companies look to build a Zero Trust strategy and support hybrid and cloud-first work environments, they need solutions that connect apps to Azure AD and provide modern authentication solutions for legacy applications.
 
