@@ -10750,17 +10750,22 @@
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/resource-group-audit.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/insights-debugging-with-events.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/resource-group-audit.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/view-activity-logs.md",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
