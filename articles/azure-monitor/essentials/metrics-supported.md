@@ -273,6 +273,14 @@ The Azure Monitor Agent replaces the Azure Diagnostics extension and Log Analyti
 |WaitingForStartTaskNodeCount|No|Waiting For Start Task Node Count|Count|Total|Number of nodes waiting for the Start Task to complete|No Dimensions|
 
 
+## Microsoft.BatchAI/workspaces
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BaiClusterEvent|BaiClusterEvent|No|
+|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
+|BaiJobEvent|BaiJobEvent|No|
+
+
 ## microsoft.bing/accounts
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
