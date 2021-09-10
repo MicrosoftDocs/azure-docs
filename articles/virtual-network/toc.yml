@@ -230,48 +230,14 @@
         href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: VM networking
     items:      
-    - name: Create VM - static public IP
+    - name: Add or remove network interfaces
+      href: virtual-network-network-interface-vm.md
+    - name: Create VM - multiple NICs
       items:
-      - name: Azure portal
-        href: virtual-network-deploy-static-pip-arm-portal.md
       - name: Azure PowerShell
-        href: virtual-network-deploy-static-pip-arm-ps.md
+        href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       - name: Azure CLI
-        href: virtual-network-deploy-static-pip-arm-cli.md
-      - name: Add public IP address to existing VM
-        href: associate-public-ip-address-vm.md
-      - name: Dissociate public IP address from a VM
-        href: remove-public-ip-address-vm.md
-    - name: Create VM - static private IP
-      items:
-      - name: Azure portal
-        href: virtual-networks-static-private-ip-arm-pportal.md
-      - name: Azure PowerShell
-        href: virtual-networks-static-private-ip-arm-ps.md
-      - name: Azure CLI
-        href: virtual-networks-static-private-ip-arm-cli.md
-    - name: Create VM - static private IP (classic)
-      items:
-      - name: Azure portal
-        href: virtual-networks-static-private-ip-classic-pportal.md
-      - name: Azure PowerShell
-        href: virtual-networks-static-private-ip-classic-ps.md
-    - name: Create VM - multiple IPs
-      items:
-      - name: Azure portal
-        href: virtual-network-multiple-ip-addresses-portal.md
-      - name: Azure PowerShell
-        href: virtual-network-multiple-ip-addresses-powershell.md
-      - name: Azure CLI
-        href: virtual-network-multiple-ip-addresses-cli.md
-      - name: Add or remove network interfaces
-        href: virtual-network-network-interface-vm.md
-      - name: Create VM - multiple NICs
-        items:
-        - name: Azure PowerShell
-          href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-        - name: Azure CLI
-          href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Create VM - accelerated networking
       items:
       - name: Azure PowerShell
@@ -285,8 +251,6 @@
       href: virtual-network-tcpip-performance-tuning.md
     - name: Virtual machine network throughput
       href: virtual-machine-network-throughput.md
-    - name: Virtual machine scale set with IPv6
-      href: ipv6-virtual-machine-scale-set.md 
   - name: Move across regions
     items:
     - name: Network security groups (NSG)
@@ -294,8 +258,6 @@
     - name: Virtual networks
       href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Network interfaces (NICs)
-      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-    - name: Public IPs
       href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Manual move
       items:
