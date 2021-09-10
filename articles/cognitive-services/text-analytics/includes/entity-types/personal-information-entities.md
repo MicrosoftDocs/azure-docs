@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 08/11/2021
+ms.date: 09/09/2021
 ms.author: aahi
 ---
 
