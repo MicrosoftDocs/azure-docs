@@ -81,7 +81,7 @@ To import a **Transformation** notebook to your Databricks workspace:
    1. Select **Generate New Token** under the **Access Tokens** tab.
    1. Select **Generate**.
 
-    :::image type="content" source="media/solution-template-Databricks-notebook/generate-new-token.png" alt-text=""Generate" button":::
+    :::image type="content" source="media/solution-template-Databricks-notebook/generate-new-token.png" alt-text="&quot;Generate&quot; button":::
 
    *Save the access token* for later use in creating a Databricks linked service. The access token looks something like `dapi32db32cbb4w6eee18b7d87e45exxxxxx`.
 

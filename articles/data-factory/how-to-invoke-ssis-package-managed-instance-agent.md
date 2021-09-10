@@ -147,7 +147,7 @@ To cancel package execution from a SQL Managed Instance Agent job, take the foll
    If your SSIS packages are in SSISDB, then use **ssisdb.internal.execution_parameter_values** as table for job execution. If your SSIS packages are in file system, then use **ssisdb.internal.execution_parameter_values_noncatalog**.
 1. Right-click the SSISDB catalog, and then select **Active Operations**.
 
-   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png" alt-text=""Active Operations" on the shortcut menu for the SSISDB catalog":::
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png" alt-text="&quot;Active Operations&quot; on the shortcut menu for the SSISDB catalog":::
 
 1. Stop the corresponding operation based on **executionId**.
 

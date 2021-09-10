@@ -383,7 +383,7 @@ Use the portal to configure a classic virtual network before you try to join an 
 
    1. On the left menu, select **Access control (IAM)**, and select the **Role assignments** tab. 
 
-       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png" alt-text=""Access control" and "Add" buttons":::
+       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png" alt-text="&quot;Access control&quot; and &quot;Add&quot; buttons":::
 
    1. Select **Add role assignment**.
 
@@ -427,7 +427,7 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
 1. In the Data Factory UI, switch to the **Edit** tab, select **Connections**, and switch to the **Integration Runtimes** tab. 
 
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png" alt-text=""Integration runtimes" tab":::
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png" alt-text="&quot;Integration runtimes&quot; tab":::
 
 1. If your Azure-SSIS IR is running, in the **Integration Runtimes** list, in the **Actions** column, select the **Stop** button for your Azure-SSIS IR. You can't edit your Azure-SSIS IR until you stop it. 
 

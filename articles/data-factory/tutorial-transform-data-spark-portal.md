@@ -82,7 +82,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the "New" pane":::
 1. In the **New data factory** pane, enter **ADFTutorialDataFactory** under **Name**. 
       
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png" alt-text=""New data factory" pane":::
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png" alt-text="&quot;New data factory&quot; pane":::
  
    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **&lt;yourname&gt;ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
   
@@ -122,7 +122,7 @@ You author two linked services in this section:
    :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-connection.png" alt-text="Buttons for creating a new connection":::
 1. In the **New Linked Service** window, select **Data Store** > **Azure Blob Storage**, and then select **Continue**. 
 
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/select-azure-storage.png" alt-text="Selecting the "Azure Blob Storage" tile":::
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/select-azure-storage.png" alt-text="Selecting the &quot;Azure Blob Storage&quot; tile":::
 1. For **Storage account name**, select the name from the list, and then select **Save**. 
 
    :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-storage-linked-service.png" alt-text="Box for specifying the storage account name":::
@@ -186,22 +186,22 @@ You author two linked services in this section:
    
    b. Select **Browse Storage**.
 
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/specify-spark-script.png" alt-text="Specifying the Spark script on the "Script/Jar" tab":::
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/specify-spark-script.png" alt-text="Specifying the Spark script on the &quot;Script/Jar&quot; tab":::
    
    c. Browse to the **adftutorial/spark/script** folder, select **WordCount_Spark.py**, and then select **Finish**.      
 
 1. To validate the pipeline, select the **Validate** button on the toolbar. Select the **>>** (right arrow) button to close the validation window. 
     
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/validate-button.png" alt-text=""Validate" button":::
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/validate-button.png" alt-text="&quot;Validate&quot; button":::
 1. Select **Publish All**. The Data Factory UI publishes entities (linked services and pipeline) to the Azure Data Factory service. 
     
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/publish-button.png" alt-text=""Publish All" button":::
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/publish-button.png" alt-text="&quot;Publish All&quot; button":::
 
 
 ## Trigger a pipeline run
 Select **Add Trigger** on the toolbar, and then select **Trigger Now**. 
 
-:::image type="content" source="./media/tutorial-transform-data-spark-portal/trigger-now-menu.png" alt-text=""Trigger" and "Trigger Now" buttons":::
+:::image type="content" source="./media/tutorial-transform-data-spark-portal/trigger-now-menu.png" alt-text="&quot;Trigger&quot; and &quot;Trigger Now&quot; buttons":::
 
 ## Monitor the pipeline run
 
@@ -217,7 +217,7 @@ Select **Add Trigger** on the toolbar, and then select **Trigger Now**.
 
    You can switch back to the pipeline runs view by selecting the **All Pipeline Runs** link at the top.
 
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/activity-runs.png" alt-text=""Activity Runs" view":::
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/activity-runs.png" alt-text="&quot;Activity Runs&quot; view":::
 
 ## Verify the output
 Verify that the output file is created in the spark/otuputfiles/wordcount folder of the adftutorial container. 

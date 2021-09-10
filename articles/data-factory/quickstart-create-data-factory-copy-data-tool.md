@@ -63,7 +63,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, then select **Next**.
 
-   :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png" alt-text=""Properties" page":::
+   :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png" alt-text="&quot;Properties&quot; page":::
 
 1. On the **Source data store** page, complete the following steps:
 
@@ -100,7 +100,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. On the **Deployment complete** page, select **Monitor** to monitor the pipeline that you created. 
 
-    :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png" alt-text=""Deployment complete" page":::
+    :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png" alt-text="&quot;Deployment complete&quot; page":::
 
 1. The application switches to the **Monitor** tab. You see the status of the pipeline on this tab. Select **Refresh** to refresh the list. Click the link under **Pipeline name** to view activity run details or rerun the pipeline. 
    

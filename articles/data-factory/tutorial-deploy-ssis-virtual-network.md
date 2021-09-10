@@ -86,7 +86,7 @@ Use the Azure portal to configure a virtual network before you try to join an Az
 
    1. On the left, select **Resource providers**, and confirm that **Microsoft.Batch** is a registered provider.
 
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png" alt-text="Confirmation of "Registered" status":::
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png" alt-text="Confirmation of &quot;Registered&quot; status":::
 
    If you don't see **Microsoft.Batch** in the list, to register it, [create an empty Azure Batch account](../batch/batch-account-create-portal.md) in your subscription. You can delete it later.
 
@@ -106,7 +106,7 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
 1. In the Data Factory UI, switch to the **Edit** tab, select **Connections**, and switch to the **Integration Runtimes** tab.
 
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png" alt-text=""Integration runtimes" tab":::
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png" alt-text="&quot;Integration runtimes&quot; tab":::
 
 1. If your Azure-SSIS IR is running, in the **Integration Runtimes** list, in the **Actions** column, select the **Stop** button for your Azure-SSIS IR. You can't edit your Azure-SSIS IR until you stop it.
 
