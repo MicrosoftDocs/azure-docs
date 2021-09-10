@@ -290,8 +290,8 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $dateToString | Yes |
 | $isoDayOfWeek | Yes |
 | $isoWeek | Yes |
-| $dateFromParts | No | 
-| $dateToParts | No |
+| $dateFromParts | Yes | 
+| $dateToParts | Yes |
 | $dateFromString | Yes |
 | $isoWeekYear | Yes |
 
