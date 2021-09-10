@@ -334,7 +334,7 @@ Set-AzStorageBlobImmutabilityPolicy -Container <container> `
 
 ### [Azure CLI](#tab/azure-cli)
 
-To configure a time-based retention policy on a blob version with Azure CLI, you must first install the *storage-blob-preview* extension, version 0.6.1.
+To configure a time-based retention policy on a blob version with Azure CLI, you must first install the *storage-blob-preview* extension, version 0.6.1 or later.
 
 ```azurecli
 az extension add --name storage-blob-preview
