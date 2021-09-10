@@ -35,7 +35,7 @@ For more information about Purview, [see our overview page](overview.md). For mo
   
       Or instead, you can go to the marketplace, search for **Azure Purview**, and select **Create**.
 
-     :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Screenshot showing Azure Purview in the Azure marketplace, with the create button highlighted.":::
+     :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Screenshot showing Azure Purview in the Azure Marketplace, with the create button highlighted.":::
 
 1. On the new Create Purview account page, under the **Basics** tab, select the Azure subscription where you want to create your Purview account.
 
