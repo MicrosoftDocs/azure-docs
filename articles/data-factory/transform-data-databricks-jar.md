@@ -1,7 +1,7 @@
 ---
 title: Transform data with Databricks Jar
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to process or transform data by running a Databricks Jar within an Azure Data Factory pipeline.
+description: Learn how to process or transform data by running a Databricks Jar within an Azure Data Factory or Synapse Analytics pipeline.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse
@@ -15,7 +15,7 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Azure Databricks Jar Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Spark Jar in your Azure Databricks cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
+The Azure Databricks Jar Activity in a [pipeline](concepts-pipelines-activities.md) runs a Spark Jar in your Azure Databricks cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
 For an eleven-minute introduction and demonstration of this feature, watch the following video:
 
