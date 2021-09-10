@@ -205,9 +205,9 @@ sections:
           - [Tutorial: Configure secure LDAP for an Azure Active Directory Domain Services managed domain](../active-directory-domain-services/tutorial-configure-ldaps.md)
       
       - question: |
-          Can I install Data Analyics Studio (DAS) an an ESP cluster?
+          Can I install Data Analytics Studio (DAS) an an ESP cluster?
         answer: |
-            No, DAS is not supported on ESP clusters
+            No, DAS is not supported on ESP clusters.
       
       - question: |
           How can I pull login activity shown in Ranger?
