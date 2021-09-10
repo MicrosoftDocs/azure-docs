@@ -20,7 +20,7 @@ ms.author: b-juche
 
 The Azure Policy built-in definitions for Azure NetApp Files enable organization admins to restrict creation of unsecure volumes or audit existing volumes.  
 
-Two [effects of Azure Policy](../governance/policy/concepts/effects.md) can be applied with Azure NetApp Files:
+Two [effects of Azure Policy](../governance/policy/concepts/effects.md) can be used with Azure NetApp Files:
 
 * *Deny* creation of non-compliant volumes
 * *Audit* existing volumes for compliance
