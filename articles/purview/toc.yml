@@ -10,23 +10,23 @@ items:
   items:
   - name: Create Purview account
     items:
-    - name: Create a Purview account - Azure portal
+    - name: Create Purview account - Portal
       href: create-catalog-portal.md
-    - name: Create a Purview account - Azure PowerShell
+    - name: Create Purview account - PowerShell
       href: create-catalog-powershell.md
-    - name: Create a Purview account - .NET SDK
+    - name: Create Purview account - .NET SDK
       href: create-purview-dotnet.md
-    - name: Create a Purview account - Python
+    - name: Create Purview account - Python
       href: create-purview-python.md
-  - name: Create a collection - Azure Purview Studio
+  - name: Create a collection - Portal
     href: quickstart-create-collection.md
 - name: Tutorials
   items:
-  - name: Onboarding Azure data sources at scale
+  - name: Onboard Azure sources at scale
     items:
-    - name: Azure data sources readiness check at scale
+    - name: Azure source readiness at scale
       href: tutorial-data-sources-readiness.md
-    - name: Azure Purview MSI configuration at scale
+    - name: Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
   - name: Onboard an on-prem SQL server
     href: register-scan-on-premises-sql-server.md
@@ -157,7 +157,7 @@ items:
       href: how-to-browse-catalog.md
     - name: Search Data Catalog
       href: how-to-search-catalog.md
-    - name: View, edit, and delete Catalog assets
+    - name: Manage Catalog assets
       href: catalog-asset-details.md
   - name: Lineage 
     items:
@@ -199,11 +199,11 @@ items:
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md  
-  - name: Bulk edit assets to tag annotations and contacts 
+  - name: Bulk edit assets
     href: how-to-bulk-edit-assets.md
   - name: Classify
     items: 
-    - name: Create custom classification & classification rule
+    - name: Create custom classifications
       href: create-a-custom-classification-and-classification-rule.md
     - name: Apply classifications
       href: apply-classifications.md
