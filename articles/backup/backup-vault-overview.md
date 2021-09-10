@@ -140,11 +140,14 @@ The vault move across subscriptions and resource groups is currently supported i
 
 1. In the vault **Overview** menu, click **Move**, and then select **Move to another resource group**.
 
+   >[!Note]
+   >Only the admin subscription has the required permissions to move a vault.
+
    :::image type="content" source="./media/backup-vault-overview/select-move-to-another-resource-group-inline.png" alt-text="Screenshot showing the option for moving the Backup vault to another resource group." lightbox="./media/backup-vault-overview/select-move-to-another-resource-group-expanded.png":::
 
 1. In the **Resource group** drop-down list, select an existing resource group or select **Create new** to create a new resource group.
 
-   The subscription details to move the vault auto-populate in the **Resource group** drop-down list.
+   The subscription remains the same and gets auto-populated.
 
    :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-inline.png" alt-text="Screenshot showing the selection of an existing resource group or creation of a new resource group." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-expanded.png":::
 
