@@ -291,33 +291,6 @@ This category contains the following entities:
    :::column-end:::
 :::row-end:::
 
-#### Subcategories
-
-The entity in this category can have the following subcategories.
-
-:::row:::
-    :::column span="":::
-        **Entity subcategory**
-
-        Date
-
-    :::column-end:::
-    :::column span="2":::
-        **Details**
-
-        Calender dates. Also returned with `domain=phi`.
-
-        To get this entity category, add `Date` to the `piiCategories` parameter. `Date` will be returned in the API response if detected.
-      
-    :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-      
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
-      
-    :::column-end:::
-:::row-end:::
-
 ### Category: Quantity
 
 This category contains the following entities:
