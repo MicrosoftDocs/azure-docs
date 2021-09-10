@@ -19,7 +19,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
     - This method is the easiest to enable, and no code change or advanced configurations are required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
 
     - The following are support for agent-based monitoring:
-        - [.NET Core](./azure-web-apps-netcore.md)
+        - [.NET Core](./azure-web-apps-net-core.md)
         - [.NET](./azure-web-apps-net.md)
         - [Java](./azure-web-apps-java.md)
         - [Nodejs](./azure-web-apps-nodejs.md)
@@ -37,4 +37,4 @@ There are two ways to enable application monitoring for Azure App Services hoste
 > Snapshot debugger and profiler are only available in .NET and .NET Core
 
 ## Next Steps
-- Learn how to enable agent-based application monitoring for your [.NET Core](./azure-web-apps-netcore.md), [.NET](./azure-web-apps-net.md), [Java](./azure-web-apps-java.md) or [Nodejs](./azure-web-apps-nodejs.md) application running on App Service. 
+- Learn how to enable agent-based application monitoring for your [.NET Core](./azure-web-apps-net-core.md), [.NET](./azure-web-apps-net.md), [Java](./azure-web-apps-java.md) or [Nodejs](./azure-web-apps-nodejs.md) application running on App Service. 

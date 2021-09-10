@@ -15,7 +15,7 @@ Learn more about [Azure Web App Extension for Application Insights](azure-web-ap
 ## Frequently asked questions
 
 - How to find which version of the extension I am currently on?
-    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit the step by step troubleshooting guide for extension/agent based monitoring for [.NET Core](./azure-web-apps-netcore.md#troubleshooting), [.NET](./azure-web-apps-net.md#troubleshooting), [Java](./azure-web-apps-java.md#troubleshooting), or [Node.js](./azure-web-apps-nodejs.md#troubleshooting) ) for more information.
+    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit the step by step troubleshooting guide for extension/agent based monitoring for [ASP.NET Core](./azure-web-apps-net-core.md#troubleshooting), [ASP.NET](./azure-web-apps-net.md#troubleshooting), [Java](./azure-web-apps-java.md#troubleshooting), or [Node.js](./azure-web-apps-nodejs.md#troubleshooting) ) for more information.
 
 - What if I'm using private extensions?
     - Uninstall private site extensions since it's no longer supported.
