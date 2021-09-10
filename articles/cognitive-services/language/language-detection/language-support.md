@@ -27,7 +27,7 @@ If you have content expressed in a less frequently used language, you can try La
 ## Languages supported by Language Detection
 
 | Language | Language Code | Starting with model version: |
-|:-|:-:|:-:|
+|:-:|:-:|:-:|
 |Afrikaans|`af` |    |
 |Albanian|`sq` |    |
 |Amharic|`am` |2021-01-05|
