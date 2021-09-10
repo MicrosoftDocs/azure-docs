@@ -608,7 +608,10 @@
     displayName: import , migrate, export
   - name: Migrate RDS MySQL data with MySQL Workbench
     href: how-to-migrate-rds-mysql-workbench.md
-    displayName: import , migrate, export
+    displayName: migrate, rds, workbench
+  - name: Migrate RDS MySQL data using Data-in replication
+    href: how-to-migrate-rds-mysql-data-in-replication.md
+    displayName: migrate, rds, data-in replication
   - name: Migrate Azure DB for MySQL – Single Server to Azure DB for MySQL – Flexible Server
     href: howto-migrate-single-flexible-minimum-downtime.md
     displayName: migrate, Single to Flexible
