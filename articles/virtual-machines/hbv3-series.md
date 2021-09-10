@@ -12,6 +12,8 @@ ms.reviewer: cynthn
 
 # HBv3-series
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 HBv3-series VMs are optimized for HPC applications such as fluid dynamics, explicit and implicit finite element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation. HBv3 VMs feature up to 120 AMD EPYC™ 7003-series (Milan) CPU cores, 448 GB of RAM, and no hyperthreading. HBv3-series VMs also provide 350 GB/sec of memory bandwidth, up to 32 MB of L3 cache per core, up to 7 GB/s of block device SSD performance, and clock frequencies up to 3.675 GHz. 
 
 All HBv3-series VMs feature 200 Gb/sec HDR InfiniBand from NVIDIA Networking to enable supercomputer-scale MPI workloads. These VMs are connected in a non-blocking fat tree for optimized and consistent RDMA performance. The HDR InfiniBand fabric also supports Adaptive Routing and the Dynamic Connected Transport (DCT, in additional to standard RC and UD transports). These features enhance application performance, scalability, and consistency, and their usage is strongly recommended.
@@ -43,7 +45,7 @@ Learn more about the:
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## Other sizes
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
@@ -51,6 +53,11 @@ Learn more about the:
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
+
 
 ## Next steps
 

@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # Create an Azure Image Builder template 
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 This is the basic template format:
@@ -82,7 +84,7 @@ The location is the region where the custom image will be created. The following
 The Azure VM Image Builder service doesn't store/process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create templates in a different region and geography.
 
 ### Zone Redundancy
-Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type](../disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) if specified.
+Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type](../disks-redundancy.md#zone-redundant-storage-for-managed-disks) if specified.
  
 ## vmProfile
 ## buildVM
@@ -247,6 +249,8 @@ If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will u
 
 If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, do not set it too high because you might have to wait for it to timeout before seeing an error. 
 
+> [!NOTE]
+> If you don't set the value to 0, the minimum supported value is 6 minutes. Using values 1 through 5 will fail.
 
 ## Properties: customize
 
@@ -597,7 +601,7 @@ A Shared Image Gallery is made up of:
 - Image definitions - a conceptual grouping for images. 
 - Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
  
-Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](../shared-images-cli.md). 
+Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](../create-gallery.md). 
 
 ```json
 {

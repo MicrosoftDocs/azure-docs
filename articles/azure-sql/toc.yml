@@ -158,8 +158,6 @@
 
   - name: Shared how-to's
     items:
-    - name: Request quota increases
-      href: database/quota-increase-request.md
     - name: Job automation with elastic jobs
       href: database/job-automation-overview.md
     - name: Job automation with SQL Agent 
@@ -503,6 +501,8 @@
           href: database/private-endpoint-overview.md
         - name: VNet endpoints
           href: database/vnet-service-endpoint-rule-overview.md
+        - name: Server roles
+          href: database/security-server-roles.md
 
     - name: Database sharding
       items:
@@ -1480,6 +1480,8 @@
     href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Troubleshoot
     items:
+    - name: Capacity errors during deployment
+      href: capacity-errors-troubleshoot.md
     - name: Connectivity errors
       href: database/troubleshoot-common-errors-issues.md
     - name: Common connection issues
@@ -1488,6 +1490,8 @@
       href: database/database-import-export-hang.md
     - name: Transaction log errors
       href: database/troubleshoot-transaction-log-errors-issues.md
+    - name: Request quota increases
+      href: database/quota-increase-request.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring

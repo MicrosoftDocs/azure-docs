@@ -36,7 +36,7 @@ landingContent:
           - text: ADF Blog
             url: https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog
           - text: Request a feature
-            url: https://feedback.azure.com/forums/270578-azure-data-factory
+            url: /answers/topics/azure-data-factory.html
   - title: Get started
     linkLists:
       - linkListType: concept

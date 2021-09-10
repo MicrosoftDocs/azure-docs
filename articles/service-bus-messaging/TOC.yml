@@ -267,7 +267,7 @@
       href: service-bus-service-endpoints.md
     - name: Allow access via private endpoints
       href: private-link-service.md
-    - name: Configure customer-managed keys
+    - name: Encrypt data using customer-managed keys
       href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:

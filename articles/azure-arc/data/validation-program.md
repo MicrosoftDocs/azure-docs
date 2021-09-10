@@ -60,7 +60,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ## Data services validation process
 
-The Sonobuoy Arc-enabled data services plug-in automates the provisioning and testing of Azure Arc enabled data services on a Kubernetes cluster.
+The Sonobuoy Azure Arc-enabled data services plug-in automates the provisioning and testing of Azure Arc-enabled data services on a Kubernetes cluster.
 
 ### Prerequisites
 

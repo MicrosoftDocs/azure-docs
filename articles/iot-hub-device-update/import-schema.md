@@ -92,8 +92,8 @@ Authorization URL: https://login.microsoftonline.com/common/oauth2/authorize
 
 | Name | Description |
 | --- | --- |
-| https://api.adu.microsoft.com/user_impersonation | Impersonate your user account |
-| https://api.adu.microsoft.com/.default  | Client credential flows |
+| `https://api.adu.microsoft.com/user_impersonation` | Impersonate your user account |
+| `https://api.adu.microsoft.com/.default`  | Client credential flows |
 
 
 **Permissions**
@@ -120,8 +120,8 @@ az account get-access-token --resource 'https://api.adu.microsoft.com/'
 _Using user credentials_ 
 
 ```powershell
-$clientId = '1e5942b3-36f1-43eb-88d9-98c12d95000b’
-$tenantId = '72f988bf-86f1-41af-91ab-2d7cd011db47’
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
 $authority = "https://login.microsoftonline.com/$tenantId/v2.0"
 $Scope = 'https://api.adu.microsoft.com/user_impersonation'
 

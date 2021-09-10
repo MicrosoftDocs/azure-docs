@@ -12,6 +12,9 @@ ms.custom: mimckitt
 
 ---
 # Design Considerations For Scale Sets
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 This article discusses design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, refer to [Virtual Machine Scale Sets Overview](./overview.md).
 
 ## When to use scale sets instead of virtual machines?
