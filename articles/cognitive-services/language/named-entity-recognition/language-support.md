@@ -17,12 +17,12 @@ ms.author: aahi
 Use this article to learn which natural languages are supported by the NER and PII features of Language Services.
 
 > [!NOTE]
-> Languages are added as new [model versions](../concepts/specify-model-version.md) are released for this feature. The current model version for NER is `2021-06-01`.
-
+> Languages are added as new [model versions](../concepts/specify-model-version.md) are released for these features. 
 ## NER language support
 
 > [!NOTE]
-> Only "Person", "Location" and "Organization" entities are returned for languages marked with *.
+> * Only "Person", "Location" and "Organization" entities are returned for languages marked with *.
+> * The current model version for NER is `2021-06-01`.
 
 | Language               | Language code | v3.x support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
@@ -53,7 +53,7 @@ Use this article to learn which natural languages are supported by the NER and P
 ## PII language support
 
 > [!NOTE]
-> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for PII is `2021-01-15`.
+> The current model version for PII is `2021-01-15`.
 
 | Language               | Language code | v3.x support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
