@@ -67,8 +67,8 @@
       href: cross-region-replication-introduction.md
     - name: Requirements and considerations for cross-region replication
       href: cross-region-replication-requirements-considerations.md
-  - name: Azure Policy built-in definitions for Azure NetApp Files
-    href: azure-policy-built-in.md
+  - name: Azure Policy definitions for Azure NetApp Files
+    href: azure-policy-definitions.md
   - name: Solutions
     items:
     - name: Solution architectures using Azure NetApp Files
