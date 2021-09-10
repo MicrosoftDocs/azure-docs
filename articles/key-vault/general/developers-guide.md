@@ -59,7 +59,7 @@ Recommended security principals per environment:
 
 Above authentications scenarios are supported by **Azure Identity client library** and integrated with Key Vault SDKs. Azure Identity library can be used across different environments and platforms without changing your code. Azure Identity would also automatically retrieve authentication token from logged in to Azure user with Azure CLI, Visual Studio, Visual Studio Code, and others. 
 
-For more information about Azure Identity client libarary, see:
+For more information about Azure Identity client library, see:
 
 **Azure Identity client libraries**
 
@@ -165,7 +165,7 @@ These articles are about other scenarios and services that use or integrate with
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) allows you to manager your own tenant key. For example, instead of Microsoft managing your tenant key (the default), you can manage your own tenant key to comply with specific regulations that apply to your organization. Managing your own tenant key is also referred to as bring your own key, or BYOK.
 - [Azure Private Link Service](private-link-service.md) enables you to access Azure Services (for example, Azure Key Vault, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
 - Key Vault integration with [Event Grid](../../event-grid/event-schema-key-vault.md)  allows users to be notified when the status of a secret  stored in key vault has changed. You can distribute new version of secrets to applications or rotate near expiry secrets to prevent outages.
-- You can protect your [Azure Devops](/azure/devops/pipelines/release/azure-key-vault) secrets from unwanted access in Key Vault.
+- You can protect your [Azure DevOps](/azure/devops/pipelines/release/azure-key-vault) secrets from unwanted access in Key Vault.
 - [Use secret stored in Key Vault in DataBricks to connect to Azure Storage](./integrate-databricks-blob-storage.md)
 - Configure and run the Azure Key Vault provider for the [Secrets Store CSI driver](./key-vault-integrate-kubernetes.md) on Kubernetes
 
