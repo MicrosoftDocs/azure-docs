@@ -35,7 +35,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
    
-   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the "New" pane":::
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 2. In the **New data factory** page, provide values for following fields:
  

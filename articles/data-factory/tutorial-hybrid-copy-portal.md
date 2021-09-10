@@ -103,7 +103,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 1. Open the **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
-   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the "New" pane":::
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 

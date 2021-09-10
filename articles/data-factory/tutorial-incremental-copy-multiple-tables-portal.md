@@ -230,7 +230,7 @@ END
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**: 
    
-   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the "New" pane":::
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 3. In the **New data factory** page, enter **ADFMultiIncCopyTutorialDF** for the **name**. 
  

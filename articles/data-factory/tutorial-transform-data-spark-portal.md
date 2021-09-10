@@ -79,7 +79,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
    
-   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the "New" pane":::
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 1. In the **New data factory** pane, enter **ADFTutorialDataFactory** under **Name**. 
       
    :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png" alt-text="&quot;New data factory&quot; pane":::

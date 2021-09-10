@@ -48,7 +48,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
-   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the "New" pane":::
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 2. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 

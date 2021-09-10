@@ -98,7 +98,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
 
-   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the "New" pane":::
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
 
