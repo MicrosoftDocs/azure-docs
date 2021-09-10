@@ -18,7 +18,7 @@
     displayName: firewall, proxy, open ports
     href: quickstart-system-prerequisites.md
   - name: Get started with Azure Defender for IoT
-    displayName: getting started, registration, onboarding, activation, threat intelligence 
+    displayName: getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription 
     href: getting-started.md
 - name: Tutorial
   expanded: false
@@ -32,7 +32,10 @@
 - name: Concepts
   items:  
     - name: Key concepts
-      href: concept-key-concepts.md    
+      href: concept-key-concepts.md
+    - name: Supported protocols
+      displayNAme: protocol, Horizon, horizon, 
+      href: concept-supported-protocols.md    
 - name: How-to guides
   items:
   - name: Prepare your network

@@ -28,7 +28,7 @@ For more information on consenting to applications, see [Azure Active Directory 
 
 To do the following actions, you must sign in as a global administrator, an application administrator, or a cloud application administrator.
 
-- Set up Azure AD PowerShell. See [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/)
+- Set up Azure AD PowerShell. See [Azure AD PowerShell](/powershell/azure/)
 
 To restrict access to applications, you need to require user assignment and then assign users or groups to the application.  For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md).
 
