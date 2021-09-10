@@ -120,8 +120,6 @@ Using a combination of the sources, processors, and sinks defined above, you can
 * [Event-based video recording](event-based-video-recording-concept.md) 
 * [Video analysis without video recording](analyze-live-video-without-recording.md) 
 
-[!INCLUDE [pipeline-extension-capability](includes/pipeline-extension-capability.md)]	
-
 ## Next steps
 
 To see how you can run motion detection on a live video feed, see [Quickstart: Get started – Azure Video Analyzer](get-started-detect-motion-emit-events.md).
