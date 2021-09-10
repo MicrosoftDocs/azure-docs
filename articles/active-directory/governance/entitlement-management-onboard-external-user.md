@@ -59,7 +59,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 1. Click **Next** to open the **Requests** tab.
 
-On this tab, you create a request policy. A *policy* defines the rules or guardrails to access an access package. You create a policy that allows a specific user in the resource directory to request this access package.
+ On this tab, you create a request policy. A *policy* defines the rules or guardrails to access an access package. You create a policy that allows a specific user in the resource directory to request this access package.
 
 2. In the **Users who can request access** section, click **For users not in your directory** and then click **All users (All connected organizations + any new external users)**.
 
