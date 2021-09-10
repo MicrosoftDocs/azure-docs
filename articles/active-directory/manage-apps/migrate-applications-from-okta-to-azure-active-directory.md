@@ -77,8 +77,8 @@ Now you can print all the applications in your Okta tenant to a JSON format.
 
 ![image to shows list of applications](media/migrate-applications-from-okta-to-azure-active-directory/list-of-applications.png)
 
-It's recommended to copy and convert this JSON list to CSV using a public converter such as <https://konklone.io/json/> or PowerShell using [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1)
-and [ConvertTo-CSV.](/powershell/module/microsoft.powershell.utility/convertto-csv?view=powershell-7.1)
+It's recommended to copy and convert this JSON list to CSV using a public converter such as <https://konklone.io/json/> or PowerShell using [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json)
+and [ConvertTo-CSV.](/powershell/module/microsoft.powershell.utility/convertto-csv)
 
 After Downloading the CSV, the applications in your Okta tenant have been recorded successfully for future reference.
 
@@ -146,7 +146,7 @@ Settings** > **New from Metadata File**
 
     ![image to shows select new identity provider](media/migrate-applications-from-okta-to-azure-active-directory/new-identity-provider.png)
 
-15. If everything has been correctly configured, the user will land at the Salesforce homepage. If there are any issues follow the [debugging guide](./debug-saml-sso-issues.md).
+15. If everything has been correctly configured, the user will land at the Salesforce homepage. If there are any issues follow the [debugging guide](../manage-apps/debug-saml-sso-issues.md).
 
 16. After testing the SSO connection from Azure, return to the enterprise application and assign the remaining users to the Salesforce application with the correct roles.
 

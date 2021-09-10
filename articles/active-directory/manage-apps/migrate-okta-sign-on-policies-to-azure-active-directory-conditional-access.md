@@ -173,7 +173,7 @@ Navigate to <https://aka.ms/mfasetup> after signing in with Okta MFA, you're ins
 >If registration already happened in the past for that user,
 they'll be taken to **My Security** information page after  satisfying the MFA prompt.
 
-See the [end-user documentation for MFA enrollment](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8).
+See the [end-user documentation for MFA enrollment](../user-help/security-info-setup-signin.md).
 
 ## Step 6 - Enable CA policies
 

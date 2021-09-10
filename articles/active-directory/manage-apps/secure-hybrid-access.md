@@ -12,7 +12,6 @@ ms.date: 8/17/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
-
 # Secure hybrid access: Secure legacy apps with Azure Active Directory
 
 You can now protect your on-premises and cloud legacy authentication applications by connecting them to Azure Active Directory (AD) with:
@@ -21,7 +20,7 @@ You can now protect your on-premises and cloud legacy authentication application
 
 - [Secure hybrid access partners](#secure-hybrid-access-through-azure-ad-partner-integrations)
 
-You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like [Azure AD Conditional Access](../conditional-access/overview.md) and [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). By having Azure AD as an Identity provider (IDP), you can use modern authentication and authorization methods like [single sign-on (SSO)](./what-is-single-sign-on.md) and [multifactor authentication (MFA)](../authentication/concept-mfa-howitworks.md) to secure your on-premises legacy applications.
+You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like [Azure AD Conditional Access](../conditional-access/overview.md) and [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). By having Azure AD as an Identity provider (IDP), you can use modern authentication and authorization methods like [single sign-on (SSO)](what-is-single-sign-on.md) and [multifactor authentication (MFA)](../authentication/concept-mfa-howitworks.md) to secure your on-premises legacy applications.
 
 ## Secure hybrid access through Azure AD Application Proxy
   
@@ -41,26 +40,17 @@ The following partners offer pre-built solutions to support conditional access p
 
 - [Datawiza Access Broker](datawiza-with-azure-ad.md)
 
-- [F5 Big-IP APM ADC](./f5-aad-integration.md)
+- [F5 Big-IP APM ADC](../manage-apps/f5-aad-integration.md)
 
-- [F5 Big-IP APM VPN](./f5-aad-password-less-vpn.md)
+- [F5 Big-IP APM VPN](../manage-apps/f5-aad-password-less-vpn.md)
 
 - [Kemp](../saas-apps/kemp-tutorial.md)
 
 - [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 
-- [Silverfort Authentication Platform](./add-application-portal-setup-oidc-sso.md)
-
-- [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
-
-The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD. 
-
-- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
-
-- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
+- [Silverfort Authentication Platform](../manage-apps/add-application-portal-setup-oidc-sso.md)
 
 - [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
-
 - [Pulse Secure Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)
 
 - [Pulse Secure Virtual Traffic Manager (VTM)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)

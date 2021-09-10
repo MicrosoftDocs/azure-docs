@@ -15,7 +15,7 @@ The Azure Arc-enabled servers Connected Machine agent enables you to manage your
 
 ## Agent component details
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Arc-enabled servers agent overview." border="false":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc–enabled servers agent overview." border="false":::
 
 The Azure Connected Machine agent package contains several logical components, which are bundled together.
 
@@ -33,7 +33,7 @@ The Azure Connected Machine agent package contains several logical components, w
 
 ## Instance metadata
 
-Metadata information about the connected machine is collected after the Connected Machine agent registers with Arc-enabled servers. Specifically:
+Metadata information about the connected machine is collected after the Connected Machine agent registers with Azure Arc-enabled servers. Specifically:
 
 * Operating system name, type, and version
 * Computer name
@@ -73,7 +73,7 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 ### Supported environments
 
-Arc-enabled servers support the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. Including virtual machines running on platforms like VMware, Azure Stack HCI, and other cloud environments. Arc-enabled servers do not support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as they are already modeled as Azure VMs.
+Azure Arc-enabled servers support the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. Including virtual machines running on platforms like VMware, Azure Stack HCI, and other cloud environments. Azure Arc-enabled servers do not support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as they are already modeled as Azure VMs.
 
 ### Supported operating systems
 
@@ -91,7 +91,7 @@ The following versions of the Windows and Linux operating system are officially 
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
 
 > [!NOTE]
-> While Arc-enabled servers supports Amazon Linux, the following do not support this distro:
+> While Azure Arc-enabled servers supports Amazon Linux, the following do not support this distro:
 > * Agents used by Azure Monitor (that is, the Log Analytics and Dependency agent)
 > * Azure Automation Update Management
 > * VM insights
@@ -129,7 +129,7 @@ To ensure the security of data in transit to Azure, we strongly encourage you to
 The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine needs to connect through a firewall or proxy server to communicate over the internet, the agent communicates outbound instead using the HTTP protocol. Proxy servers don't make the Connected Machine agent more secure because the traffic is already encrypted.
 
 > [!NOTE]
-> Arc-enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
+> Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
 >
 
 If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. When you only allow the IP ranges or domain names required for the agent to communicate with the service, you need to allow access to the following Service Tags and URLs.
@@ -152,7 +152,7 @@ URLs:
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Guest configuration|
 |`*.his.arc.azure.com`|Hybrid Identity Service|
-|`*.blob.core.windows.net`|Download source for Arc-enabled servers extensions|
+|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
 
 Preview agents (version 0.11 and lower) also require access to the following URLs:
 
@@ -315,7 +315,7 @@ After installing the Connected Machine agent for Linux, the following system-wid
 
 ### Agent resource governance
 
-Arc-enabled servers Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
+Azure Arc-enabled servers Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
 - The Guest Configuration agent limits up to 5% of the CPU to evaluate policies.
 - The Extension Service agent is limited to use up to 5% of the CPU.
@@ -325,8 +325,8 @@ Arc-enabled servers Connected Machine agent is designed to manage agent and syst
 
 ## Next steps
 
-* To begin evaluating Azure Arc-enabled servers, follow the article [Connect hybrid machines with Arc-enabled servers](learn/quick-enable-hybrid-vm.md).
+* To begin evaluating Azure Arc-enabled servers, follow the article [Connect hybrid machines with Azure Arc-enabled servers](learn/quick-enable-hybrid-vm.md).
 
-* Before deploying the Arc-enabled servers agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).
+* Before deploying the Azure Arc-enabled servers agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).
 
 * Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
