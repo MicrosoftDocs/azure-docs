@@ -119,7 +119,7 @@ There's an implicit `dataType`, which can be `protobuf`, `text`, or `binary`, de
 
 * `protobuf`: If you set `send_to_group_message.data.protobuf_data`, the implicit `dataType` is `protobuf`. `protobuf_data` can be of the [Any](https://developers.google.com/protocol-buffers/docs/proto3#any) message type. All other clients receive a protobuf-encoded binary, which can be deserialized by the protobuf SDK. Clients that support only text-based content (for example, `json.webpubsub.azure.v1`) receive a Base64-encoded binary.
 
-* `text`: If you set `send_to_group_message.data.text_data`, the implicit `dataType` is `text`. `text_data` should be a string. All clients with other protocols receive a string encoded with UTF-8 standards.
+* `text`: If you set `send_to_group_message.data.text_data`, the implicit `dataType` is `text`. `text_data` should be a string. All clients with other protocols receive a UTF-8-encoded string.
 
 * `binary`: If you set `send_to_group_message.data.binary_data`, the implicit `dataType` is `binary`. `binary_data` should be a byte array. All clients with other protocols receive a raw binary without protobuf encoding. Clients that support only text-based content (for example, `json.webpubsub.azure.v1`) receive a Base64-encoded binary.
 
