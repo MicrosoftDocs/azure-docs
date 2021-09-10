@@ -142,7 +142,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
     After correctly running the script the following should appear as “Configured”  
     Storage -> Files Shares “Active Directory: Configured”
 
-    ![smb-share-1](media/virtual-machines-shared-sap-high-availability-guide/smb-acl-1.png)
+    ![smb-config-1](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)
 
 4. Basis administrator should complete the tasks below:
     1. [Install the Windows Cluster on ASCS/ERS Nodes and add the Cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
