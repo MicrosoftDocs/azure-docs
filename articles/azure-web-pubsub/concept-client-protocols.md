@@ -13,7 +13,7 @@ ms.date: 08/16/2021
 Clients connect to Azure Web PubSub by using the standard [WebSocket](https://datatracker.ietf.org/doc/html/rfc6455) protocol.
 
 ## Service endpoints
-The service provides two types of endpoints for clients to connect to:
+The Web PubSub service provides two types of endpoints for clients to connect to:
 * `/client/hubs/{hub}`
 * `/client/?hub={hub}`
 
@@ -25,7 +25,7 @@ Clients connect to the service with a JSON Web Token (JWT). The token can be in 
 
 Here is a general authorization workflow:
 
-1. The client negotiates with your application server. The application server has the authorization middleware, which handles the client request and signs a JWT for the client to connect to the service.
+1. The client negotiates with your application server. The application server contains the authorization middleware, which handles the client request and signs a JWT for the client to connect to the service.
 1. The application server returns the JWT and the service URL to the client.
 1. The client tries to connect to the Web PubSub service by using the URL and the JWT that's returned from the application server.
 
@@ -47,7 +47,9 @@ var client2 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', '
 
 ## The PubSub WebSocket client
 
-The PubSub WebSocket client supports two subprotocols, `json.webpubsub.azure.v1` and `protobuf.webpubsub.azure.v1`.
+The PubSub WebSocket client supports two subprotocols:
+* `json.webpubsub.azure.v1`
+* `protobuf.webpubsub.azure.v1`
 
 #### The JSON subprotocol
 
@@ -86,7 +88,7 @@ As you likely noticed in the earlier PubSub WebSocket client description, a clie
 
 For more information about the JSON subprotocol, see [JSON subprotocol](./reference-json-webpubsub-subprotocol.md).
 
-For more information about the Protobuf subprotocol, see [Protobuf subprotocol](./reference-protobuf-webpubsub-subprotocol.md).
+For more information about the protobuf subprotocol, see [Protobuf subprotocol](./reference-protobuf-webpubsub-subprotocol.md).
 
 ## Next steps
 
