@@ -114,7 +114,7 @@ For a specific activation request, this command gets all the approval steps that
 #### HTTP request
 
 ````HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/9f2b5ddb-a50e-44a1-a6f4-f616322262ea 
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID> 
 ````
 
 #### HTTP response
@@ -122,11 +122,11 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentAppr
 ````HTTP
 { 
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentApprovals/$entity", 
-    "id": "9f2b5ddb-a50e-44a1-a6f4-f616322262ea", 
-    "steps@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentApprovals('9f2b5ddb-a50e-44a1-a6f4-f616322262ea')/steps", 
+    "id": "<request-ID-GUID>",
+    "steps@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentApprovals('<request-ID-GUID>')/steps", 
     "steps": [ 
         { 
-            "id": "22fcc414-eada-46e8-b960-74f922e42204", 
+            "id": "<approval-step-ID-GUID>", 
             "displayName": null, 
             "reviewedDateTime": null, 
             "reviewResult": "NotReviewed", 
@@ -145,7 +145,7 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentAppr
 
 ````HTTP
 PATCH 
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/9f2b5ddb-a50e-44a1-a6f4-f616322262ea/steps/22fcc414-eada-46e8-b960-74f922e42204 
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID>/steps/<approval-step-ID-GUID> 
 { 
     "reviewResult": "Approve", 
     "justification": "abcdefg" 

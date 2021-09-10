@@ -86,26 +86,26 @@ To save space we're showing only the response for one roles, but all eligible ro
     "value": [ 
         { 
             "@odata.type": "#microsoft.graph.unifiedRoleEligibilityScheduleRequest", 
-            "id": "0735bd65-1c81-4bb6-b991-f616d6158eef", 
+            "id": "<request-ID-GUID>", 
             "status": "Provisioned", 
             "createdDateTime": "2021-07-15T19:39:53.33Z", 
             "completedDateTime": "2021-07-15T19:39:53.383Z", 
             "approvalId": null, 
             "customData": null, 
             "action": "AdminAssign", 
-            "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
-            "roleDefinitionId": "cf1c38e5-3621-4004-a7cb-879624dced7c", 
+            "principalId": "<principal-ID-GUID>", 
+            "roleDefinitionId": "<definition-ID-GUID>", 
             "directoryScopeId": "/", 
             "appScopeId": null, 
             "isValidationOnly": false, 
-            "targetScheduleId": "0735bd65-1c81-4bb6-b991-f616d6158eef", 
+            "targetScheduleId": "<schedule-ID-GUID>", 
             "justification": "test", 
             "createdBy": { 
                 "application": null, 
                 "device": null, 
                 "user": { 
                     "displayName": null, 
-                    "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
+                    "id": "<user-ID-GUID>" 
                 } 
             }, 
             "scheduleInfo": { 
@@ -135,9 +135,9 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentSch
 { 
     "action": "SelfActivate", 
     "justification": "adssadasasd", 
-    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
     "directoryScopeId": "/", 
-    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b" 
+    "principalId": "<principal-ID-GUID>" 
 } 
 ````
 
@@ -150,22 +150,22 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentSch
     "status": "PendingApprovalProvisioning", 
     "createdDateTime": "2021-07-15T19:51:07.1870599Z", 
     "completedDateTime": "2021-07-15T19:51:17.3903028Z", 
-    "approvalId": "f1ccef03-8750-40e0-b488-5aa2f02e2e55", 
+    "approvalId": "<approval-ID-GUID>", 
     "customData": null, 
     "action": "SelfActivate", 
-    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
-    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
     "directoryScopeId": "/", 
     "appScopeId": null, 
     "isValidationOnly": false, 
-    "targetScheduleId": "f1ccef03-8750-40e0-b488-5aa2f02e2e55", 
+    "targetScheduleId": "<schedule-ID-GUID>", 
     "justification": "test", 
     "createdBy": { 
         "application": null, 
         "device": null, 
         "user": { 
             "displayName": null, 
-            "id": "d96ea738-3b95-4ae7-9e19-78a083066d5b" 
+            "id": "<user-ID-GUID>" 
         } 
     }, 
     "scheduleInfo": { 
