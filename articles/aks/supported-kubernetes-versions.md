@@ -177,7 +177,7 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 **How does Microsoft notify me of new Kubernetes versions?**
 
-The AKS team publishes pre-announcements with planned dates of the new Kubernetes versions in our documentation, our [GitHub](https://github.com/Azure/AKS/releases) as well as emails to subscription administrators who own clusters that are going to fall out of support.  In addition to announcements, AKS also uses [Azure Advisor](../advisor/advisor-overview.md) to notify the customer inside the Azure Portal to alert users if they are out of support, as well as alerting them of deprecated APIs that will affect their application or development process.
+The AKS team publishes pre-announcements with planned dates of the new Kubernetes versions in our documentation, our [GitHub](https://github.com/Azure/AKS/releases) as well as emails to subscription administrators who own clusters that are going to fall out of support.  In addition to announcements, AKS also uses [Azure Advisor](../advisor/advisor-overview.md) to notify the customer inside the Azure portal to alert users if they are out of support, as well as alerting them of deprecated APIs that will affect their application or development process.
 
 **How often should I expect to upgrade Kubernetes versions to stay in support?**
 
