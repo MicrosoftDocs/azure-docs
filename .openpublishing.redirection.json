@@ -2549,6 +2549,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-deployment-managed-batch.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-deployment-batch.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-endpoint-managed-batch.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-endpoint-batch.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-compute.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-compute-aml.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-deployment-k8s-online.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-overview.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-endpoint-k8s-online.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-overview.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/overview-what-is-azure-ml.md",
       "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning",
       "redirect_document_id": true
