@@ -65,7 +65,7 @@ You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addr
 
 ## Change IP address settings
 
-You may need to change the assignment method of an IPv4 address, change the static IPv4 address, or change the public IP address assigned to a network interface. If you're changing the private IPv4 address of a secondary IP configuration associated with a secondary network interface in a virtual machine (learn more about [primary and secondary network interfaces](virtual-network-network-interface-vm.md)), place the virtual machine into the stopped (deallocated) state before completing the following steps:
+You may need to change the assignment method of an IPv4 address, change the static IPv4 address, or change the public IP address assigned to a network interface. If you're changing the private IPv4 address of a secondary IP configuration associated with a secondary network interface in a virtual machine (learn more about [primary and secondary network interfaces](../../virtual-network/virtual-network-network-interface-vm.md)), place the virtual machine into the stopped (deallocated) state before completing the following steps:
 
 1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
 2. Select the network interface that you want to view or change IP address settings for from the list.
