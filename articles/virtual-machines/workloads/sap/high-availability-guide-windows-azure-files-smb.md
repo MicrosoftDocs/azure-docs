@@ -88,17 +88,17 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
 1. The SAP servers must be joined to an Active Directory Domain.
 2. The Active Directory Domain containing the SAP servers must be replicated to Azure Active Directory using Azure AD connect.
 3. It is highly recommended that there is at least one Active Directory Domain controller in the Azure landscape to avoid traversing the Express Route to contact Domain Controllers on-premises.
-4. The Azure support team should review the Azure Files SMB with [Active Directory Integration](../../../storage/files/storage-files-identity-auth-active-directory-enable#videos) documentation.
+4. The Azure support team should review the Azure Files SMB with [Active Directory Integration](../../storage/files/storage-files-identity-auth-active-directory-enable#videos) documentation.
 5. The user executing the Azure Files PowerShell script must have permission to create objects in Active Directory.
 6. **SWPM version 1.0 SP32 and SWPM 2.0 SP09 or higher are required. SAPInst patch must be 749.0.91 or higher.**
 7. An up-to-date release of PowerShell should be installed on the Windows Server where the script is executed. 
 
 ## Installation Sequence
-1. The Active Directory administrator should create in advance 3 Domain users with **Local Administrator** rights and one global group in the **local Windows AD**: **SAPCONT_ADMIN@SAPCONTOSO.local** has Domain Admin rights and is used to run SAPInst, **\<sid>adm** and **SAPService\<SID>** as SAP system users and the **SAP_\<SAPSID>_GlobalAdmin** group. The SAP Installation Guide contains the specific details required for these accounts.  **SAP user accounts should not be Domain Administrator**. It is generally recommended **not to use \<sid>adm to run SAPInst**.
+1. The Active Directory administrator should create in advance 3 Domain users with **Local Administrator** rights and one global group in the **local Windows AD**: **SAPCONT_ADMIN@SAPCONTOSO.local** has Domain Admin rights and is used to run **SAPInst**, **\<sid>adm** and **SAPService\<SID>** as SAP system users and the **SAP_\<SAPSID>_GlobalAdmin** group. The SAP Installation Guide contains the specific details required for these accounts.  **SAP user accounts should not be Domain Administrator**. It is generally recommended **not to use \<sid>adm to run SAPInst**.
 2. The Active Directory administrator or Azure Administrator should check **Azure AD Connect** Synchronization Service Manager. By default it takes approximately 30 minutes to replicate to the **Azure Active Directory**. 
 3. The Azure administrator should complete the following tasks:
    1. Create a Storage Account with either Premium ZRS or LRS. Customers with Zonal deployment should choose ZRS:
-   ![create-sa-1](media/virtual-machines-shared-sap-high-availability-guide/create-sa-1.png)
+   ![This is a more descriptive Text for the picture](media/virtual-machines-shared-sap-high-availability-guide/create-sa-1.png)
    ![create-sa-2](media/virtual-machines-shared-sap-high-availability-guide/create-sa-2.png)
    ![create-sa-4](media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png)
    ![create-sa-3](media/virtual-machines-shared-sap-high-availability-guide/create-sa-3.png)
@@ -124,7 +124,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
        >
          
 
-       ![smb-acl-1](media/virtual-machines-shared-sap-high-availability-guide/smb-acl-1.png)
+       ![ACL Properties](media/virtual-machines-shared-sap-high-availability-guide/smb-acl-1.png)
        The following screenshots show how to add Computer machine accounts by selecting the Object Types -> Computers
        ![add-computer-1](media/virtual-machines-shared-sap-high-availability-guide/add-computer-2.png)
        The DOMAIN\CLUSTER_NAME$ can be found by selecting “Computers” from the “Object Types”  
