@@ -28,6 +28,8 @@
     href: alerts/tutorial-metric-alert.md
   - name: Collect resource logs
     href: essentials/tutorial-resource-logs.md
+  - name: Analyze log data
+    href: logs/tutorial-logs.md
   - name: Create a log query alert
     href: alerts/tutorial-log-alerts.md
   - name: Application Insights

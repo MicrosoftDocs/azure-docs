@@ -1,6 +1,6 @@
 ---
-title: Collect resource logs from an Azure resource
-description: Tutorial to configure diagnostic settings to collect resource logs from an Azure resource into a Log Analytics workspace where they can be analyzed with a log query.
+title: Tutorial - Create a log query alert for an Azure resource
+description: Tutorial to create a log query alert for an Azure resource.
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
@@ -39,15 +39,15 @@ Data is retrieved from a Log Analytics workspace using a log query written in Ku
 
 3. Click **Queries** to view prebuilt queries for the **Resource type**. 
 
-<picture>
+
 
 4. Select **Alerts** to view queries specifically designed for alert rules.
 
-<picture>
+
 
 5. Select a query and click **Run** to load it in the query editor and return results. If you want to view and work with the query before running it, select **Load to editor**.
 
-<picture>
+
 
 6. See [Get started with log queries in Azure Monitor](../logs/get-started-queries.md) for a tutorial on writing log queries.
 
@@ -58,7 +58,7 @@ Data is retrieved from a Log Analytics workspace using a log query written in Ku
 
 1. Select **New alert rule** to create a new alert rule based on the current log query.
 
-<picture>
+
 
 2. The **Scope** will already be set to the current resource. You don't need to change this value.
 
@@ -73,7 +73,6 @@ Data is retrieved from a Log Analytics workspace using a log query written in Ku
 
 If the query includes one or more summarized columns, then you'll have the option to use number of **Table rows** or a calculation based on any of the summarized columns. 
 
-<picture>
 
 ## Configure dimensions
 **Split by dimensions** allows you to create separate alerts for different resources. This setting is useful when you're creating an alert rule that applies to multiple resources. With the scope set to a single resource, this setting typically isn't used.
