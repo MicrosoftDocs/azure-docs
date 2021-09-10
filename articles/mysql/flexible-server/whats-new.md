@@ -41,6 +41,10 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
   The Point-In-Time Restore experience for the service now enables customers to configure availability zone, Co-locating the  database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](https://aka.ms/standby-selection).
 
+- **validate_password and caching_sha2_password plugin available in private preview**
+
+  Flexible Server now supports enabling validate_password and caching_sha2_password plugins in private preview. Please email us at AskAzureDBforMySQL@service.microsoft.com
+
 - **Availability in four additional Azure regions**
 
   The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions [Learn more](overview.md#azure-regions):
@@ -195,7 +199,7 @@ If you have questions about or suggestions for working with Azure Database for M
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- To provide feedback or to request new features, Please email us at AskAzureDBforMySQL@service.microsoft.com.
 
 ## Next steps
 

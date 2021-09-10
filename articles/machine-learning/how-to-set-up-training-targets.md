@@ -130,7 +130,7 @@ If you have command-line arguments you want to pass to your training script, you
 If you want to override the default maximum time allowed for the run, you can do so via the **`max_run_duration_seconds`** parameter. The system will attempt to automatically cancel the run if it takes longer than this value.
 
 ### Specify a distributed job configuration
-If you want to run a distributed training job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration), and [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
+If you want to run a [distributed training](how-to-train-distributed-gpu.md) job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration), and [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 08/25/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -40,11 +40,11 @@ Follow these steps to disable email verification:
 1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **User flows**.
-1. Select the user flow for which you want to disable email verification. For example, *B2C_1_signinsignup*.
+1. Select the user flow for which you want to disable email verification.
 1. Select **Page layouts**.
 1. Select **Local account sign-up page**.
 1. Under **User attributes**, select **Email Address**.
-1. In the **REQUIRES VERIFICATION** drop-down, select **No**.
+1. In the **Requires Verification** drop-down, select **No**.
 1. Select **Save**. Email verification is now disabled for this user flow.
 
 ::: zone-end

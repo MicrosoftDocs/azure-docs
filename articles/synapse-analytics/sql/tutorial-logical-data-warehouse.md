@@ -6,7 +6,7 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/28/2021
+ms.date: 08/20/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick 
 ---
@@ -76,6 +76,18 @@ CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 ```
+
+Any user with the Synapse Administrator role can use these credentials to access Azure Data Lake storage or Cosmos DB analytical storage. 
+If you have low privileged users that do not have Synapse Administrator role, you would need to give them an explicit permission to reference these database scoped credentials:
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::WorkspaceIdentity TO <user>
+GO
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO <user>
+GO
+```
+
+Find more details in [grant DATABASE SCOPED CREDENTIAL permissions](/sql/t-sql/statements/grant-database-scoped-credential-transact-sql) page.
 
 ### Define external file formats
 
@@ -202,7 +214,7 @@ GRANT SELECT ON SCHEMA::ecdc_adls TO [jovan@contoso.com]
 GO
 GRANT SELECT ON OBJECT::ecdc_cosmosDB.cases TO [jovan@contoso.com]
 GO
-GRANT REFERENCES ON CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
 GO
 ```
 

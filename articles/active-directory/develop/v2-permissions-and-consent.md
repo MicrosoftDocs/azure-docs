@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 07/06/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
 ---
 
 # Permissions and consent in the Microsoft identity platform

@@ -21,9 +21,9 @@ ms.author: moagra
 
 Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will cover three built-in policies available for [Traffic Analytics](./traffic-analytics.md) to manage your setup.
 
-If you are creating an Azure policy for the first time, you can read through: 
+If you are creating an Azure Policy definition for the first time, you can read through: 
 - [Azure Policy overview](../governance/policy/overview.md) 
-- [Tutorial for creating policy](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
+- [Tutorial for creating an Azure Policy assignment](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## Locate the policies

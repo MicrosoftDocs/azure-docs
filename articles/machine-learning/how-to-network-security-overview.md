@@ -84,7 +84,7 @@ For detailed instructions on how to complete these steps, see [Secure an Azure M
 ### Limitations
 
 Securing your workspace and associated resources within a virtual network have the following limitations:
-- Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government or Azure China 21Vianet regions.
+- Using an Azure Machine Learning workspace with private endpoint is not available in Azure China 21Vianet regions.
 - All resources must be behind the same VNet. However, subnets within the same VNet are allowed.
 
 ## Secure the training environment
@@ -93,7 +93,7 @@ In this section, you learn how to secure the training environment in Azure Machi
 
 To secure the training environment, use the following steps:
 
-1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](how-to-secure-training-vnet.md#compute-instance) to run the training job.
+1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](how-to-secure-training-vnet.md#compute-cluster) to run the training job.
 1. [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
 
 ![Architecture diagram showing how to secure managed compute clusters and instances](./media/how-to-network-security-overview/secure-training-environment.png)

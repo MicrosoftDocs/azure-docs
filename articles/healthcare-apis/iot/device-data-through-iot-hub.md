@@ -6,11 +6,14 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 08/16/2021
+ms.date: 09/10/2021
 ms.author: rabhaiya
 ---
 
 # Tutorial: Receive device data through Azure IoT Hub
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* provides you the capability to ingest data from Internet of Medical Things (IoMT) devices into FHIR service. Azure IoT Connector for FHIR can also work with devices provisioned and managed through Azure IoT Hub. This tutorial provides the procedure to connect and route device data from Azure IoT Hub to Azure IoT Connector for FHIR.
 
@@ -88,7 +91,7 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 
 ## View device data in FHIR service
 
-You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR on FHIR service using Postman. For information, see [Access the FHIR service using Postman](../fhir/using-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value submitted in the above sample message.
+You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR on FHIR service using Postman. For information, see [Access the FHIR service using Postman](./../use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value submitted in the above sample message.
 
 > [!TIP]
 > Ensure that your user has appropriate access to FHIR service data plane. Use [Azure role-based access control (Azure RBAC)](../azure-api-for-fhir/configure-azure-rbac.md) to assign required data plane roles.
