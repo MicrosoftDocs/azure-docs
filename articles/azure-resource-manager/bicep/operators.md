@@ -33,9 +33,9 @@ The operators below are listed in descending order of precedence (the higher the
 | `?` `:` | Conditional expression (ternary) | Right to left
 | `??` | Coalesce | Left to right
 
-## Parenthesis
+## Parentheses
 
-Enclosing an expression between `(` and `)` allows you to override the default Bicep operator precedence. For example, the expression `x + y / z` evaluates the division first and then the addition. However, the expression `(x + y) / z` evaluates the addition first and division second.
+Enclosing an expression between parentheses allows you to override the default Bicep operator precedence. For example, the expression `x + y / z` evaluates the division first and then the addition. However, the expression `(x + y) / z` evaluates the addition first and division second.
 
 ## Accessor
 
