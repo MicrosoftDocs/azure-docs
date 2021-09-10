@@ -48,16 +48,6 @@ You can open new tabs with the same URL to create additional instances of the di
 
 To run against the Azure Fluid Relay service, you'll need to create a new Azure Fluid Relay service on Azure, and then update your app's configuration to connect to your Azure service instead of your local Tinylicious server.
 
-
-
-you'll make a code change to `app.ts`. The app is currently configured to use a local in-memory service called Tinylicious, which runs on port 7070 by default.
-
-
-
-```typescript
-import { AzureClient, InsecureTokenProvider } from "@fluidframework/azure-client";
-```
-
 ### Create an Azure Fluid Relay service on your Azure account
 
 ???
