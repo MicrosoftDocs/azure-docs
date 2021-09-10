@@ -88,7 +88,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
 1. The SAP servers must be joined to an Active Directory Domain.
 2. The Active Directory Domain containing the SAP servers must be replicated to Azure Active Directory using Azure AD connect.
 3. It is highly recommended that there is at least one Active Directory Domain controller in the Azure landscape to avoid traversing the Express Route to contact Domain Controllers on-premises.
-4. The Azure support team should review the Azure Files SMB with [Active Directory Integration](../../storage/files/storage-files-identity-auth-active-directory-enable#videos) documentation.
+4. The Azure support team should review the Azure Files SMB with [Active Directory Integration](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-enable#videos) documentation. *The video shows additional configuration options which were modified (DNS) and skipped (DFS-N) for simplification reasons.* Nevertheless these are valid configuration options. 
 5. The user executing the Azure Files PowerShell script must have permission to create objects in Active Directory.
 6. **SWPM version 1.0 SP32 and SWPM 2.0 SP09 or higher are required. SAPInst patch must be 749.0.91 or higher.**
 7. An up-to-date release of PowerShell should be installed on the Windows Server where the script is executed. 
