@@ -12,7 +12,6 @@ Azure VMware Solution will apply important updates starting in March 2021. You'l
 
 ## September 10, 2021
 
-Sep 10, 2021
 All new Azure VMware Solution private clouds are now deployed with ESXi version ESXi670-202103001 (Build number: 17700523). 
 ESXi hosts in existing private clouds have been patched to this version.
 
