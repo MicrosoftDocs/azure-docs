@@ -44,7 +44,7 @@ For the whole workflow, you need to:
 
 ### Prepare variables to connect the AppDynamics Agent to Controller
 
->Note
+>[!Note]
 >The following paragraphs related to AppDynamics environemnt variables may be totally moved to AppDynamics Doc. And only keep a link here.   
 Remove this note before publish.
 
@@ -55,7 +55,7 @@ In order to connect the AppDynamics Java In-Process Agent to AppDynamics Control
 1. Create a resource group.
 2. Create an instance of Azure Spring Cloud.
 3. Create an application.
-    ```shell
+    ```azurecli
     az spring-cloud app create --name "appName" --is-public true \
         -s "serviceName" -g "resourceGroupName"
     ```
