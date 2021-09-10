@@ -21,7 +21,7 @@ This article outlines how to use the copy activity in Azure Data Factory to copy
 
 This Amazon RDS for Oracle connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from an Amazon RDS for Oracle database to any supported sink data store. For a list of data stores that are supported as sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
@@ -95,7 +95,7 @@ More connection properties you can set in connection string per your case:
 
 To enable encryption on Amazon RDS for Oracle connection, you have two options:
 
--	To use **Triple-DES Encryption (3DES) and Advanced Encryption Standard (AES)**, on the Amazon RDS for Oracle server side, go to Amazon RDS for Oracle Advanced Security (OAS) and configure the encryption settings. For details, see this [Oracle documentation](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). The Amazon RDS for Oracle Application Development Framework (ADF) connector automatically negotiates the encryption method to use the one you configure in OAS when establishing a connection to Amazon RDS for Oracle.
+-	To use **Triple-DES Encryption (3DES) and Advanced Encryption Standard (AES)**, on the Amazon RDS for Oracle server side, go to Oracle Advanced Security (OAS) and configure the encryption settings. For details, see this [Oracle documentation](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). The Amazon RDS for Oracle Application Development Framework (ADF) connector automatically negotiates the encryption method to use the one you configure in OAS when establishing a connection to Amazon RDS for Oracle.
 
 -	To use **TLS**:
 
@@ -181,14 +181,14 @@ To enable encryption on Amazon RDS for Oracle connection, you have two options:
 
 This section provides a list of properties supported by the Amazon RDS for Oracle dataset. For a full list of sections and properties available for defining datasets, see [Datasets](concepts-datasets-linked-services.md). 
 
-To copy data from and to Amazon RDS for Oracle, set the type property of the dataset to `AmazonRdsForOracleTable`. The following properties are supported.
+To copy data from Amazon RDS for Oracle, set the type property of the dataset to `AmazonRdsForOracleTable`. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to `AmazonRdsForOracleTable`. | Yes |
-| schema | Name of the schema. |No for source  |
-| table | Name of the table/view. |No for source  |
-| tableName | Name of the table/view with schema. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No for source |
+| schema | Name of the schema. | No |
+| table | Name of the table/view. | No |
+| tableName | Name of the table/view with schema. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No |
 
 **Example:**
 
