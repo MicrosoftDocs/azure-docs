@@ -2,7 +2,7 @@
 title: Bicep functions - any
 description: Describes the any function that is available in Bicep to convert types.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/09/2021
 ---
 
 # Any function for Bicep
@@ -10,6 +10,9 @@ ms.date: 06/01/2021
 Bicep supports a function called `any()` to resolve type errors in the Bicep type system. You use this function when the format of the value you provide doesn't match what the type system expects. For example, if the property requires a number but you need to provide it as a string, like `'0.5'`. Use the `any()` function to suppress the error reported by the type system.
 
 This function doesn't exist in the Azure Resource Manager template runtime. It's only used by Bicep and isn't emitted in the JSON for the built template.
+
+> [!NOTE]
+> To help resolve type errors, let us know when missing or incorrect types required you to use the `any()` function. Add your details to the [missing type validation/inaccuracies](https://github.com/Azure/bicep/issues/784) GitHub issue.
 
 ## any
 
