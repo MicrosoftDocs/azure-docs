@@ -46,7 +46,10 @@ To set up the SharePoint Online Indexer, you will need to perform some actions i
 > [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
 ### Step 1 (Optional): Enable system assigned managed identity
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer. This identity is used to automatically detect the tenant the search service is provisioned in. If the SharePoint Online site is in the same tenant as the search service and system-assigned managed identity is enabled, no additional tenant information is required. If the SharePoint Online site is in a different tenant from the search service, system-assigned managed identity doesn't need to be enabled.
+
+When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer. This identity is used to automatically detect the tenant the search service is provisioned in.
+
+If the SharePoint Online site is in the same tenant as the search service you will need to enable the system-assigned managed identity for the search service. If the SharePoint Online site is in a different tenant from the search service, system-assigned managed identity doesn't need to be enabled.
 
 ![Enable system assigned managed identity](media/search-howto-index-sharepoint-online/enable-managed-identity.png "Enable system assigned managed identity")
 
