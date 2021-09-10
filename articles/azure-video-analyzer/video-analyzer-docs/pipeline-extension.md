@@ -19,7 +19,7 @@ Video Analyzer supports the following pipeline extension processors:
 
 The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md)
 
-[!INCLUDE [available-features](../includes/available-features.md)]
+[!INCLUDE [available-features](./includes/available-features.md)]
 
 ## HTTP extension processor
 
