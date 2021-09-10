@@ -4,7 +4,7 @@ description: Describes how to define and consume a module, and how to use module
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 09/10/2021
 ---
 
 # Use Bicep modules
@@ -113,6 +113,8 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
+You can deploy a module multiple times by using loops. For more information, see [Module iteration in Bicep](loop-modules.md).
+
 ## Configure module scopes
 
 When declaring a module, you can supply a _scope_ property to set the scope at which to deploy the module:
@@ -173,3 +175,4 @@ Or, you can use the scope functions to get a valid scope. Those functions are:
 ## Next steps
 
 - To go through a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
+- You can deploy a module multiple times by using loops. For more information, see [Module iteration in Bicep](loop-modules.md).

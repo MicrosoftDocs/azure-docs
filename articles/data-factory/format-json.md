@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 
@@ -218,7 +218,7 @@ The below table lists the properties supported by a json source. You can edit th
 
 Using a JSON dataset as a source in your data flow allows you to set five additional settings. These settings can be found under the **JSON settings** accordion in the **Source Options** tab. For **Document Form** setting, you can select one of **Single document**, **Document per line**  and **Array of documents** types.
 
-![JSON Settings](media/data-flow/json-settings.png "JSON Settings")
+:::image type="content" source="media/data-flow/json-settings.png" alt-text="JSON Settings":::
 
 #### Default
 
@@ -354,11 +354,11 @@ You can add a complex column to your data flow via the derived column expression
 
 In the output schema side pane, hover over a column and click the plus icon. Select **Add subcolumn** to make the column a complex type.
 
-![Add subcolumn](media/data-flow/derive-add-subcolumn.png "Add Subcolumn")
+:::image type="content" source="media/data-flow/derive-add-subcolumn.png" alt-text="Add subcolumn":::
 
 You can add additional columns and subcolumns in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
 
-![Add complex column](media/data-flow/derive-complex-column.png "Add columns")
+:::image type="content" source="media/data-flow/derive-complex-column.png" alt-text="Add complex column":::
 
 #### Entering the JSON structure manually
 
