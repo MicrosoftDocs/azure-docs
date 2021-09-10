@@ -23,7 +23,7 @@ Resource Manager provides several functions for making comparisons in your Azure
 
 Checks whether all parameter values are true.
 
-The `and` function is not supported in Bicep, use the [&& operator](../bicep/operators-logical.md#and-) instead.
+The `and` function isn't supported in Bicep, use the [&& operator](../bicep/operators-logical.md#and-) instead.
 
 ### Parameters
 
@@ -31,7 +31,7 @@ The `and` function is not supported in Bicep, use the [&& operator](../bicep/ope
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |The first value to check whether is true. |
 | arg2 |Yes |boolean |The second value to check whether is true. |
-| additional arguments |No |boolean |Additional arguments to check whether are true. |
+| more arguments |No |boolean |More arguments to check whether are true. |
 
 ### Return value
 
@@ -92,7 +92,7 @@ The output from the preceding example with the default values is:
 
 Returns false.
 
-The `false` function is not available in Bicep.  Use the `false` keyword instead.
+The `false` function isn't available in Bicep.  Use the `false` keyword instead.
 
 ### Parameters
 
@@ -120,7 +120,7 @@ The output from the preceding example is:
 
 Returns a value based on whether a condition is true or false.
 
-The `if` function is not supported in Bicep. Use the [?: operator](../bicep/operators-logical.md#conditional-expression--) instead.
+The `if` function isn't supported in Bicep. Use the [?: operator](../bicep/operators-logical.md#conditional-expression--) instead.
 
 ### Parameters
 
@@ -206,7 +206,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 Converts boolean value to its opposite value.
 
-The `not` function is not supported in Bicep, use the [! operator](../bicep/operators-logical.md#not-) instead.
+The `not` function isn't supported in Bicep, use the [! operator](../bicep/operators-logical.md#not-) instead.
 
 ### Parameters
 
@@ -232,22 +232,9 @@ The output from the preceding example is:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses **not** with [equals](template-functions-comparison.md#equals).
+The following example uses `not` with [equals](template-functions-comparison.md#equals).
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-  ],
-  "outputs": {
-    "checkNotEquals": {
-      "type": "bool",
-      "value": "[not(equals(1, 2))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/not-equals.json":::
 
 The output from the preceding example is:
 
@@ -261,7 +248,7 @@ The output from the preceding example is:
 
 Checks whether any parameter value is true.
 
-The `or` function is not supported in Bicep, use the [|| operator](../bicep/operators-logical.md#or-) instead.
+The `or` function isn't supported in Bicep, use the [|| operator](../bicep/operators-logical.md#or-) instead.
 
 ### Parameters
 
@@ -269,7 +256,7 @@ The `or` function is not supported in Bicep, use the [|| operator](../bicep/oper
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |The first value to check whether is true. |
 | arg2 |Yes |boolean |The second value to check whether is true. |
-| additional arguments |No |boolean |Additional arguments to check whether are true. |
+| more arguments |No |boolean |More arguments to check whether are true. |
 
 ### Return value
 
@@ -295,7 +282,7 @@ The output from the preceding example is:
 
 Returns true.
 
-The `true` function is not available in Bicep.  Use the `true` keyword instead.
+The `true` function isn't available in Bicep.  Use the `true` keyword instead.
 
 ### Parameters
 
