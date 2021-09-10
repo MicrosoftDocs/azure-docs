@@ -62,7 +62,7 @@ Use the following steps to create a standard public IPv4 address named **myStand
 
 5. Select **Create**.
 
-:::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Create standard IP address in Azure portal" border="false":::
+:::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Screenshot of create standard IP address in Azure portal" border="false":::
 
 > [!NOTE]
 > In regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../../availability-zones/az-overview.md).
@@ -103,7 +103,7 @@ In this section, create a basic public IPv4 address named **myBasicPublicIP**.
 
 5. Select **Create**.
 
-:::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Create basic IP address in Azure portal" border="true":::
+:::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Screenshot of create basic IP address in Azure portal" border="true":::
 
 If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the AllocationMethod to **Dynamic**. 
 
@@ -150,7 +150,7 @@ By default, the routing preference for public IP address is set to the Microsoft
 
 5. Select **Create**.
 
-:::image type="content" source="./media/create-public-ip-portal/routing-preference.png" alt-text="Configure routing preference in the Azure portal" border="true":::
+:::image type="content" source="./media/create-public-ip-portal/routing-preference.png" alt-text="Screenshot of configure routing preference in the Azure portal" border="true":::
 
 > [!NOTE]
 > Public IP addresses are created with an IPv4 or IPv6 address. However, routing preference only supports IPV4 currently.
@@ -193,7 +193,7 @@ For more information, see [Cross-region load balancer](../../load-balancer/cross
 
 5. Select **Create**.
 
-:::image type="content" source="./media/create-public-ip-portal/tier.png" alt-text="Configure tier in the Azure portal" border="true":::
+:::image type="content" source="./media/create-public-ip-portal/tier.png" alt-text="Screenshot of configure tier in the Azure portal" border="true":::
 
 You can associate the above created IP address with a cross-region load balancer. For more information, see [Tutorial: Create a cross-region load balancer using the Azure portal](../../load-balancer/tutorial-cross-region-portal.md).
 
