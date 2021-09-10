@@ -48,7 +48,8 @@ One query uses multiple single field indexes where available. You can create up 
 ### Compound indexes (MongoDB server version 3.6+)
 In the API for MongoDB, compound indexes are **required** if your query needs the ability to sort on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a compound index to save on indexing costs. 
 
-Creating a compound index will result in (hidden) single field indexes being created for each field in the compound index if the single field indexes do not already exist to improve filtering performance.
+A compound index or single field indexes for each field in the compound index will result in the same performance for filtering in queries.
+
 
 > [!NOTE]
 > You can't create compound indexes on nested properties or arrays.
