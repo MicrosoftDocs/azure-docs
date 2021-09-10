@@ -21,7 +21,7 @@ From now through 31 August 2024, your Compute Optimized data flows will continue
 1. Create a new Azure Integration Runtime with “General Purpose” or “Memory Optimized” as the compute type.
 2. Set your data flow activity using either of those compute types.
 
-   ![Compute types](media/data-flow/compute-types.png)
+   :::image type="content" source="media/data-flow/compute-types.png" alt-text="Compute types":::
 
 ## Comparison between different compute options 
 
