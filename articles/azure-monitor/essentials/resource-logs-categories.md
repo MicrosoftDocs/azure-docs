@@ -53,6 +53,18 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Signin|Signin|Yes|
 
 
+## Microsoft.AgFoodPlatform/farmBeats
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ApplicationAuditLogs|Application Audit Logs|Yes|
+|FarmManagementLogs|Farm Management Logs|Yes|
+|FarmOperationLogs|Farm Operation Logs|Yes|
+|ProviderAuthLogs|Provider Auth Logs|Yes|
+|SatelliteLogs|Satellite Logs|Yes|
+|WeatherLogs|Weather Logs|Yes|
+
+
 ## Microsoft.AnalysisServices/servers
 
 |Category|Category Display Name|Costs To Export|
@@ -66,6 +78,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |GatewayLogs|Logs related to ApiManagement Gateway|No|
+|WebSocketConnectionLogs|Logs related to Websocket Connections|Yes|
 
 
 ## Microsoft.AppConfiguration/configurationStores
@@ -81,6 +94,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |ApplicationConsole|Application Console|No|
+|IngressLogs|Ingress Logs|Yes|
 |SystemLogs|System Logs|No|
 
 
@@ -98,9 +112,10 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DscNodeStatus|Dsc Node Status|No|
-|JobLogs|Job Logs|No|
-|JobStreams|Job Streams|No|
+|AuditEvent|AuditEvent|Yes|
+|DscNodeStatus|DscNodeStatus|No|
+|JobLogs|JobLogs|No|
+|JobStreams|JobStreams|No|
 
 
 ## Microsoft.AutonomousDevelopmentPlatform/accounts
@@ -110,6 +125,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Audit|Audit|Yes|
 |Operational|Operational|Yes|
 |Request|Request|Yes|
+
+
+## microsoft.avs/privateClouds
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|vmwaresyslog|VMware VCenter Syslog|Yes|
 
 
 ## Microsoft.Batch/batchAccounts
@@ -141,6 +163,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |BotRequest|Requests from the channels to the bot|No|
+
+
+## Microsoft.Cache/redis
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ConnectedClientList|Connected client list|Yes|
 
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -391,6 +420,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Management|Management|No|
 
 
+## Microsoft.DesktopVirtualization/scalingplans
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Autoscaling|Autoscaling logs|Yes|
+
+
 ## Microsoft.DesktopVirtualization/workspaces
 
 |Category|Category Display Name|Costs To Export|
@@ -530,7 +566,16 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|ExPCompute|ExPCompute|Yes|
 |Request|Request|No|
+
+
+## Microsoft.HealthcareApis/services
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditLogs|Audit logs|No|
+|DiagnosticLogs|Diagnostic logs|Yes|
 
 
 ## Microsoft.HealthcareApis/workspaces/dicomservices
@@ -593,6 +638,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Command|Command|No|
 |FailedIngestion|Failed ingest operations|No|
 |IngestionBatching|Ingestion batching|No|
+|Journal|Journal|Yes|
 |Query|Query|No|
 |SucceededIngestion|Successful ingest operations|No|
 |TableDetails|Table details|No|
@@ -651,6 +697,14 @@ If you think there is something is missing, you can open a GitHub comment at the
 |---|---|---|
 |KeyDeliveryRequests|Key Delivery Requests|No|
 |MediaAccount|Media Account Health Status|Yes|
+
+
+## Microsoft.Media/videoanalyzers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|PipelineDiagnostics|Pipeline Diagnostics Logs|Yes|
+|PipelineOperational|Pipeline Operational Logs|Yes|
 
 
 ## Microsoft.Network/applicationgateways
@@ -763,6 +817,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |TunnelDiagnosticLog|Tunnel Diagnostic Logs|No|
 
 
+## Microsoft.NetworkFunction/azureTrafficCollectors
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ExpressRouteCircuitIpfix|Express Route Circuit IPFIX Flow Records|Yes|
+
+
 ## Microsoft.NotificationHubs/namespaces
 
 |Category|Category Display Name|Costs To Export|
@@ -782,6 +843,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Engine|Engine|No|
+
 
 ## Microsoft.PowerBI/tenants/workspaces
 
@@ -803,6 +865,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |---|---|---|
 |DataSensitivityLogEvent|DataSensitivity|Yes|
 |ScanStatusLogEvent|ScanStatus|No|
+|Security|PurviewAccountAuditEvents|Yes|
 
 
 ## Microsoft.RecoveryServices/Vaults
@@ -840,6 +903,14 @@ If you think there is something is missing, you can open a GitHub comment at the
 |OperationLogs|Operation Logs|No|
 
 
+## microsoft.securityinsights/settings
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Analytics|Analytics|Yes|
+|DataConnectors|Data Collection – Connectors|Yes|
+
+
 ## Microsoft.ServiceBus/namespaces
 
 |Category|Category Display Name|Costs To Export|
@@ -858,7 +929,9 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AllLogs|Azure Web PubSub Service Logs.|Yes|
+|ConnectivityLogs|Connectivity logs for Azure Web PubSub Service.|Yes|
+|HttpRequestLogs|Http Request logs for Azure Web PubSub Service.|Yes|
+|MessagingLogs|Messaging logs for Azure Web PubSub Service.|Yes|
 
 
 ## Microsoft.Sql/managedInstances
