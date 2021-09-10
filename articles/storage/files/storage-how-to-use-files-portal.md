@@ -81,7 +81,7 @@ $storageAcct = New-AzStorageAccount `
     -Name $storageAccountName `
     -Location $region `
     -Kind StorageV2 `
-    -SkuName Standard_ZRS `
+    -SkuName Standard_LRS `
     -EnableLargeFileShare
 ```
 
@@ -144,7 +144,7 @@ Share names need to be all lower case letters, numbers, and single hyphens but c
 
 # [PowerShell](#tab/azure-powershell)
 
-Now you can create your first Azure file share. You can create a file share using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named `myshare`.
+Now that you've created a storage account, you can create your first Azure file share. Create a file share by using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named **myshare**.
 
 ```azurepowershell-interactive
 $shareName = "myshare"
@@ -158,7 +158,7 @@ New-AzRmStorageShare `
 
 # [Azure CLI](#tab/azure-cli)
 
-Now, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=false#az_storage_share_rm_create) command. This example creates an Azure file share named *myshare*: 
+Now that you've created a storage account, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=false#az_storage_share_rm_create) command. This example creates an Azure file share named **myshare**: 
 
 ```azurecli-interactive
 shareName="myshare"
@@ -186,7 +186,7 @@ To create a new directory named *myDirectory* at the root of your Azure file sha
 
 # [PowerShell](#tab/azure-powershell)
 
-To create a new directory named *myDirectory* at the root of your Azure file share, use the [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory) cmdlet.
+To create a new directory named **myDirectory** at the root of your Azure file share, use the [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory) cmdlet.
 
 ```azurepowershell-interactive
 New-AzStorageDirectory `
@@ -197,7 +197,7 @@ New-AzStorageDirectory `
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a new directory named *myDirectory* at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory) command:
+To create a new directory named **myDirectory** at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory) command:
 
 ```azurecli-interactive
 az storage directory create \
@@ -217,14 +217,14 @@ az storage directory create \
 
 To demonstrate uploading a file, you first need to create or select a file to be uploaded. You may do this by whatever means you see fit. Once you've selected the file you would like to upload:
 
-1. Click on the **myDirectory** directory. The **myDirectory** panel opens.
+1. Select the **myDirectory** directory. The **myDirectory** panel opens.
 1. In the menu at the top, select **Upload**. The **Upload files** panel opens.  
 	
     ![A screenshot of the upload files panel](media/storage-how-to-use-files-portal/upload-file-1.png)
 
-1. Click on the folder icon to open a window to browse your local files. 
-1. Select a file and then click **Open**. 
-1. In the **Upload files** page, verify the file name and then click **Upload**.
+1. Select the folder icon to open a window to browse your local files. 
+1. Select a file and then select **Open**. 
+1. In the **Upload files** page, verify the file name and then select **Upload**.
 1. When finished, the file should appear in the list on the **myDirectory** page.
 
 # [PowerShell](#tab/azure-powershell)
@@ -246,7 +246,7 @@ Set-AzStorageFileContent `
    -Path "myDirectory\SampleUpload.txt"
 ```   
 
-If you're running PowerShell locally, you should substitute `~/CloudDrive/` with a path that exists on your machine.
+If you're running PowerShell locally, substitute `~/CloudDrive/` with a path that exists on your machine.
 
 After uploading the file, you can use [Get-AzStorageFile](/powershell/module/Az.Storage/Get-AzStorageFile) cmdlet to check to make sure that the file was uploaded to your Azure file share. 
 
@@ -293,7 +293,7 @@ az storage file list \
 #### Download a file
 # [Portal](#tab/azure-portal)
 
-You can download a copy of the file you uploaded by right-clicking on the file. After clicking the download button, the exact experience will depend on the operating system and browser you're using.
+You can download a copy of the file you uploaded by right-clicking on the file. After selecting the download button, the exact experience will depend on the operating system and browser you're using.
 
 
 # [PowerShell](#tab/azure-powershell)
@@ -366,7 +366,7 @@ az group delete --name $resourceGroupName
 ### Using an Azure file share from the Azure portal
 All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access. It is possible to work directly with the File REST protocol (that is, handcrafting REST HTTP calls yourself), but the most common way (beyond using the Azure portal) to use the File REST protocol is to use the [Azure PowerShell module](storage-how-to-use-files-powershell.md), the [Azure CLI](storage-how-to-use-files-cli.md), or an Azure Storage SDK, all of which provide a nice wrapper around the File REST protocol in the scripting/programming language of your choice. 
 
-We expect most users of Azure Files will want to work with their Azure file share over the SMB protocol, as this allows them to use the existing applications and tools they expect to be able to use, but there are several reasons why it is advantageous to use the File REST API rather than SMB, such as:
+We expect most Azure Files users will want to work with their Azure file share over the SMB protocol, as this allows them to use the existing applications and tools they expect to be able to use, but there are several reasons why it is advantageous to use the File REST API rather than SMB, such as:
 
 - You need to make a quick change to your Azure file share from on-the-go, such as from a laptop without SMB access, tablet, or mobile device.
 - You need to execute a script or application from a client which cannot mount an SMB share, such as on-premises clients, which do not have port 445 unblocked.
