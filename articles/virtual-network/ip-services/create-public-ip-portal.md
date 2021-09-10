@@ -22,7 +22,7 @@ In this quickstart, you'll learn how to create an Azure public IP address. Publi
 ## Sign in to Azure
 <!-- Introduction paragraph -->
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ---
 
