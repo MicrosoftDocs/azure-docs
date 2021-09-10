@@ -174,17 +174,17 @@ The following steps demonstrate how to enable a blue-green deployment via the **
 2.	Select **Releases**. Add a new pipeline, and select **Empty job** to edit the job.
 
 3. Create a new job under **Tasks** and search for the *Azure Spring Cloud* template.
-[ ![Create a job](media/spring-cloud-how-to-cicd/Create-new-job.jpg)](media/spring-cloud-how-to-cicd/Create-new-job.jpg#lightbox)
+[ ![Create a job](media/spring-cloud-how-to-cicd/create-new-job.jpg)](media/spring-cloud-how-to-cicd/create-new-job.jpg#lightbox)
 
 4. **Add** the *Azure Spring Cloud* task to the job.
 
 5. Fill this task with your app's information. Disable **Use Staging Deployment**. Enable **Create a new staging deployment if one does not exist.** and enter a name in **Deployment**. Then **Save** this task.
 
 6.  Select **Artifacts** and choose the pipeline that publish the artifact. Then, Navigate to the task in the stage 1, and then Modify "Package or folder" to the artifact address. Save changes.
-[ ![Modify artifact path](media/spring-cloud-how-to-cicd/Change-artifact-path.jpg)](media/spring-cloud-how-to-cicd/Change-artifact-path.jpg#lightbox)
+[ ![Modify artifact path](media/spring-cloud-how-to-cicd/change-artifact-path.jpg)](media/spring-cloud-how-to-cicd/change-artifact-path.jpg#lightbox)
 
 7. Select **Clone stage** and modify its task. Change the action to **Set Production Deployment**. Fill in the blanks of this task.
-[ ![Clone the stage](media/spring-cloud-how-to-cicd/Clone-the-stage.jpg)](media/spring-cloud-how-to-cicd/Clone-the-stage.jpg#lightbox)
+[ ![Clone the stage](media/spring-cloud-how-to-cicd/clone-the-stage.jpg)](media/spring-cloud-how-to-cicd/clone-the-stage.jpg#lightbox)
 
 5.	Select **Create release** and the deployment will automatically start. 
 
