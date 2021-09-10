@@ -12,7 +12,7 @@ ms.date: 08/31/2021
      
 This document describes the subprotocol `protobuf.webpubsub.azure.v1`.
 
-When the client is using this subprotocol, both the outgoing and incoming data frames are expected to be protocol buffers (protobuf) payloads.
+When a client is using this subprotocol, both the outgoing and incoming data frames are expected to be protocol buffers (protobuf) payloads.
 
 ## Overview
 
@@ -32,7 +32,7 @@ For a simple WebSocket client, the server has the *necessary* role of handling e
 
 ## Permissions
 
-In the earlier description of the PubSub WebSocket client, you might have noticed that a client can publish to other clients only when it's *authorized* to do so. The client's roles determine its *initial* permissions, as shown in the following table:
+In the earlier description of the PubSub WebSocket client, you might have noticed that a client can publish to other clients only when it's *authorized* to do so. The client's roles determine its *initial* permissions, as listed in the following table:
 
 | Role | Permission |
 |---|---|
@@ -125,9 +125,9 @@ There's an implicit `dataType`, which can be `protobuf`, `text`, or `binary`, de
 
 #### Case 1: Publish text data
 
-Set `send_to_group_message.group` to `group` and `send_to_group_message.data.text_data` to `"text data"`.
+Set `send_to_group_message.group` to `group`, and set `send_to_group_message.data.text_data` to `"text data"`.
 
-* The protobuf subprotocol client in group `group` receives the binary frame and can use the [DownstreamMessage](#responses) to deserialize.
+* The protobuf subprotocol client in group `group` receives the binary frame and can use [DownstreamMessage](#responses) to deserialize it.
 
 * The JSON subprotocol client in group `group` receives:
 
@@ -155,7 +155,7 @@ message MyMessage {
 
 Set `send_to_group_message.group` to `group` and `send_to_group_message.data.protobuf_data` to `Any.pack(MyMessage)` with `value = 1`.
 
-* The protobuf subprotocol client in group `group` receives the binary frame and can use the [DownstreamMessage](#responses) to deserialize it.
+* The protobuf subprotocol client in group `group` receives the binary frame and can use [DownstreamMessage](#responses) to deserialize it.
 
 * The subprotocol client in group `group` receives:
 
@@ -193,7 +193,7 @@ message MyMessage {
 
 Set `send_to_group_message.group` to `group`, and set `send_to_group_message.data.binary_data` to `[1, 2, 3]`.
 
-* The protobuf subprotocol client in group `group` receives the binary frame and can use the [DownstreamMessage](#responses) to deserialize it.
+* The protobuf subprotocol client in group `group` receives the binary frame and can use [DownstreamMessage](#responses) to deserialize it.
 
 * The JSON subprotocol client in group `group` receives:
 
@@ -207,7 +207,7 @@ Set `send_to_group_message.group` to `group`, and set `send_to_group_message.dat
     }
     ```
 
-    Because the JSON subprotocol client supports only text-based messaging, the binary is always encoded with Base64.
+    Because the JSON subprotocol client supports only text-based messaging, the binary is always Base64-encoded.
 
 * The raw client in group `group` receives the binary data in the binary frame:
 
@@ -222,7 +222,7 @@ There's an implicit `dataType`, which can be `protobuf`, `text`, or `binary`, de
 
 * `protobuf`: If you set `event_message.data.protobuf_data`, the implicit `dataType` is `protobuf`. `protobuf_data` can be any supported protobuf type. The event handler receives the protobuf-encoded binary, which can be deserialized by any protobuf SDK.
 
-* `text`: If you set `event_message.data.text_data`, the implicit is `text`. `text_data` should be a string. The event handler receives a UTF-8 encoded string;
+* `text`: If you set `event_message.data.text_data`, the implicit is `text`. `text_data` should be a string. The event handler receives a UTF-8-encoded string;
 
 * `binary`: If you set `event_message.data.binary_data`, the implicit is `binary`. `binary_data` should be a byte array. The event handler receives the raw binary frame.
 
@@ -392,14 +392,14 @@ Clients can receive messages published from a group that the client has joined. 
 
 You'll always get a `DownstreamMessage.DataMessage` message in the following scenarios:
 
-- When the message is from a group, `from` is `group`. When the message is from the server, `from` is `server`
+- When the message is from a group, `from` is `group`. When the message is from the server, `from` is `server`.
 - When the message is from a group, `group` is the group name.
 
 The sender's `dataType` will cause one of the following messages to be sent: 
-* If it's `text`, use `message_response_message.data.text_data`. 
-* If it's `binary`, use `message_response_message.data.binary_data`. 
-* If it's `protobuf`, use `message_response_message.data.protobuf_data`. 
-* If it's `json`, use `message_response_message.data.text_data`, and the content is a serialized JSON string.
+* If `dataType` is `text`, use `message_response_message.data.text_data`. 
+* If `dataType` is `binary`, use `message_response_message.data.binary_data`. 
+* If `dataType` is `protobuf`, use `message_response_message.data.protobuf_data`. 
+* If `dataType` is `json`, use `message_response_message.data.text_data`, and the content is a serialized JSON string.
 
 ### System response
 
