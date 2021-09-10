@@ -26,7 +26,7 @@ The **Split on** setting determines whether the row of data flows to the first m
 
 Use the data flow expression builder to enter an expression for the split condition. To add a new condition, click on the plus icon in an existing row. A default stream can be added as well for rows that don't match any condition.
 
-![conditional split](media/data-flow/conditionalsplit1.png "conditional split options")
+:::image type="content" source="media/data-flow/conditionalsplit1.png" alt-text="conditional split" title="conditional split options":::
 
 ## Data flow script
 
@@ -48,7 +48,7 @@ The below example is a conditional split transformation named `SplitByYear` that
 
 In the service UI, this transformation looks like the below image:
 
-![conditional split](media/data-flow/conditionalsplit1.png "conditional split options")
+:::image type="content" source="media/data-flow/conditionalsplit1.png" alt-text="conditional split" title="conditional split options":::
 
 The data flow script for this transformation is in the snippet below:
 

@@ -32,7 +32,7 @@ A common scenario involving variables is using a variable as an iterator within 
 
 Below is an example of this pattern:
 
-![Increment variable](media/control-flow-set-variable-activity/increment-variable.png "Increment variable")
+:::image type="content" source="media/control-flow-set-variable-activity/increment-variable.png" alt-text="Increment variable" title="Increment variable":::
 
 ``` json
 {

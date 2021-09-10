@@ -27,7 +27,7 @@ The exists transformation is a row filtering transformation that checks whether 
 1. Select whether or not your want a **Custom expression**.
 1. Choose which key columns you want to compare as your exists conditions. By default, data flow looks for equality between one column in each stream. To compare via a computed value, hover over the column dropdown and select **Computed column**.
 
-![Exists settings](media/data-flow/exists.png "exists 1")
+:::image type="content" source="media/data-flow/exists.png" alt-text="Exists settings" title="exists 1":::
 
 ### Multiple exists conditions
 
@@ -39,11 +39,11 @@ To compare multiple columns from each stream, add a new exists condition by clic
 
 To create a free-form expression that contains operators other than "and" and "equals to", select the **Custom expression** field. Enter a custom expression via the data flow expression builder by clicking on the blue box.
 
-![Exists custom settings](media/data-flow/exists1.png "exists custom")
+:::image type="content" source="media/data-flow/exists1.png" alt-text="Exists custom settings" title="exists custom":::
 
 ## Broadcast optimization
 
-![Broadcast Join](media/data-flow/broadcast.png "Broadcast Join")
+:::image type="content" source="media/data-flow/broadcast.png" alt-text="Broadcast Join" title="Broadcast Join":::
 
 In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
 
@@ -68,7 +68,7 @@ The below example is an exists transformation named `checkForChanges` that takes
 
 In the UI experience, this transformation looks like the below image:
 
-![Exists example](media/data-flow/exists-script.png "Exists example")
+:::image type="content" source="media/data-flow/exists-script.png" alt-text="Exists example" title="Exists example":::
 
 The data flow script for this transformation is in the snippet below:
 

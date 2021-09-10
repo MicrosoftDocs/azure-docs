@@ -902,7 +902,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="pre and post SQL processing scripts" title="SQL processing scripts":::
 
 ### Error row handling
 

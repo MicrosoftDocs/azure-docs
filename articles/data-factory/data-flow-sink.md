@@ -30,7 +30,7 @@ Inline datasets are recommended when you use flexible schemas, one-off sink inst
 
 To use an inline dataset, select the format you want in the **Sink type** selector. Instead of selecting a sink dataset, you select the linked service you want to connect to.
 
-![Screenshot that shows Inline selected.](media/data-flow/inline-selector.png "Screenshot that shows Inline selected.")
+:::image type="content" source="media/data-flow/inline-selector.png" alt-text="Screenshot that shows Inline selected." title="Screenshot that shows Inline selected.":::
 
 ## Workspace DB (Synapse workspaces only)
 
@@ -39,7 +39,7 @@ When using data flows in Azure Synapse workspaces, you will have an additional o
 > [!NOTE]
 > The Azure Synapse Workspace DB connector is currently in public preview and can only work with Spark Lake databases at this time
 
-![Screenshot that shows workspace db selected.](media/data-flow/syms-sink.png "Screenshot that shows Inline selected.")
+:::image type="content" source="media/data-flow/syms-sink.png" alt-text="Screenshot that shows workspace db selected." title="Screenshot that shows Inline selected.":::
 
 ##  <a name="supported-sinks"></a> Supported sink types
 
@@ -71,7 +71,7 @@ The following video explains a number of different sink options for text-delimit
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
-![Screenshot that shows Sink settings.](media/data-flow/sink-settings.png "Screenshot that shows Sink settings.")
+:::image type="content" source="media/data-flow/sink-settings.png" alt-text="Screenshot that shows Sink settings." title="Screenshot that shows Sink settings.":::
 
 **Schema drift**: [Schema drift](concepts-data-flow-schema-drift.md) is the ability of the service to natively handle flexible schemas in your data flows without needing to explicitly define column changes. Enable **Allow schema drift** to write additional columns on top of what's defined in the sink data schema.
 
@@ -85,11 +85,11 @@ A *cache sink* is when a data flow writes data into the Spark cache instead of a
 
 To write to a cache sink, add a sink transformation and select **Cache** as the sink type. Unlike other sink types, you don't need to select a dataset or linked service because you aren't writing to an external store. 
 
-![Select cache sink](media/data-flow/select-cache-sink.png "Select cache sink")
+:::image type="content" source="media/data-flow/select-cache-sink.png" alt-text="Select cache sink" title="Select cache sink":::
 
 In the sink settings, you can optionally specify the key columns of the cache sink. These are used as matching conditions when using the `lookup()` function in a cache lookup. If you specify key columns, you can't use the `outputs()` function in a cache lookup. To learn more about the cache lookup syntax, see [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
 
-![Cache sink key columns](media/data-flow/cache-sink-key-columns.png "Cache sink key columns")
+:::image type="content" source="media/data-flow/cache-sink-key-columns.png" alt-text="Cache sink key columns" title="Cache sink key columns":::
 
 For example, if I specify a single key column of `column1` in a cache sink called `cacheExample`, calling `cacheExample#lookup()` would have one parameter specifies which row in the cache sink to match on. The function outputs a single complex column with subcolumns for each column mapped.
 
@@ -108,12 +108,12 @@ When you turn off automapping, you can add either fixed column-based mappings or
 
 By default, data is written to multiple sinks in a nondeterministic order. The execution engine writes data in parallel as the transformation logic is completed, and the sink ordering might vary each run. To specify an exact sink ordering, enable **Custom sink ordering** on the **General** tab of the data flow. When enabled, sinks are written sequentially in increasing order.
 
-![Screenshot that shows Custom sink ordering.](media/data-flow/custom-sink-ordering.png "Screenshot that shows Custom sink ordering.")
+:::image type="content" source="media/data-flow/custom-sink-ordering.png" alt-text="Screenshot that shows Custom sink ordering." title="Screenshot that shows Custom sink ordering.":::
 
 > [!NOTE]
 > When utilizing [cached lookups](./concepts-data-flow-expression-builder.md#cached-lookup), make sure that your sink ordering has the cached sinks set to 1, the lowest (or first) in ordering.
 
-![Custom sink ordering](media/data-flow/cache-2.png "Custom sink ordering")
+:::image type="content" source="media/data-flow/cache-2.png" alt-text="Custom sink ordering" title="Custom sink ordering":::
 
 ### Sink groups
 

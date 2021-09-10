@@ -23,19 +23,19 @@ Here is a short video walk-through of the union transformation in the mapping da
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vngz]
 
-![Union transformation](media/data-flow/union.png "Union")
+:::image type="content" source="media/data-flow/union.png" alt-text="Union transformation" title="Union":::
 
 In this case, you can combine disparate metadata from multiple sources (in this example, three different source files) and combine them into a single stream:
 
-![Union transformation overview](media/data-flow/union111.png "Union 1")
+:::image type="content" source="media/data-flow/union111.png" alt-text="Union transformation overview" title="Union 1":::
 
 To achieve this, add additional rows in the Union Settings by including all source you wish to add. There is no need for a common lookup or join key:
 
-![Union transformation settings](media/data-flow/unionsettings.png "Union settings")
+:::image type="content" source="media/data-flow/unionsettings.png" alt-text="Union transformation settings" title="Union settings":::
 
 If you set a Select transformation after your Union, you will be able to rename overlapping fields or fields that were not named from headerless sources. Click on "Inspect" to see the combine metadata with 132 total columns in this example from three different sources:
 
-![Union transformation final](media/data-flow/union333.png "Union 3")
+:::image type="content" source="media/data-flow/union333.png" alt-text="Union transformation final" title="Union 3":::
 
 ## Name and position
 
@@ -43,7 +43,7 @@ When you choose "union by name", each column value will drop into the correspond
 
 If you choose "union by position", each column value will drop into the original position from each corresponding source, resulting in a new combined stream of data where the data from each source is added to the same stream:
 
-![Union output](media/data-flow/unionoutput.png "Union Output")
+:::image type="content" source="media/data-flow/unionoutput.png" alt-text="Union output" title="Union Output":::
 
 ## Next steps
 

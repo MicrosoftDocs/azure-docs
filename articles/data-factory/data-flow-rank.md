@@ -22,7 +22,7 @@ Use the rank transformation to generate an ordered ranking based upon sort condi
 
 ## Configuration
 
-![Rank settings](media/data-flow/rank-configuration.png "Rank settings")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="Rank settings" title="Rank settings":::
 
 **Case insensitive:** If a sort column is of type string, case will be factored into the ranking. 
 
@@ -52,7 +52,7 @@ The above configuration takes incoming basketball data and creates a rank column
 
 ### Example
 
-![Rank settings](media/data-flow/rank-configuration.png "Rank settings")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="Rank settings" title="Rank settings":::
 
 The data flow script for the above rank configuration is in the following code snippet.
 

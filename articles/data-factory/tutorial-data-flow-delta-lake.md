@@ -68,7 +68,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
 You will generate two data flows in this tutorial. The fist data flow is a simple source to sink to generate a new Delta Lake from the movies CSV file from above. Lastly, you'll create this flow design below to update data in Delta Lake.
 
-![Final flow](media/data-flow/data-flow-tutorial-6.png "Final flow")
+:::image type="content" source="media/data-flow/data-flow-tutorial-6.png" alt-text="Final flow" title="Final flow":::
 
 ### Tutorial objectives
 
@@ -91,7 +91,7 @@ You will generate two data flows in this tutorial. The fist data flow is a simpl
 1. Add a sink transformation
 1. Delta is an inline dataset type. You will need to point to your ADLS Gen2 storage account.
    
-   ![Inline dataset](media/data-flow/data-flow-tutorial-5.png "Inline dataset")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-5.png" alt-text="Inline dataset" title="Inline dataset":::
 
 1. Choose a folder name in your storage container where you would like ADF to create the Delta Lake
 1. Go back to the pipeline designer and click Debug to execute the pipeline in debug mode with just this data flow activity on the canvas. This will generate your new Delta Lake in ADLS Gen2.
@@ -103,16 +103,16 @@ You will generate two data flows in this tutorial. The fist data flow is a simpl
 1. In that same derived column, create movies for 2021 by taking an existing year and change the year to 2021. Let’s pick 1960.
 1. This is what your three derived columns will look like
 
-   ![Derived column](media/data-flow/data-flow-tutorial-2.png "Derived column")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-2.png" alt-text="Derived column" title="Derived column":::
    
 1. ```Update, insert, delete, and upsert``` policies are created in the alter Row transform. Add an alter row transformation after your derived column.
 1. Your alter row policies should look like this.
 
-   ![Alter row](media/data-flow/data-flow-tutorial-3.png "Alter row")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-3.png" alt-text="Alter row" title="Alter row":::
    
 1. Now that you’ve set the proper policy for each alter row type, check that the proper update rules have been set on the sink transformation
 
-   ![Sink](media/data-flow/data-flow-tutorial-4.png "Sink")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-4.png" alt-text="Sink" title="Sink":::
    
 1. Here we are using the Delta Lake sink to your ADLS Gen2 data lake and allowing inserts, updates, deletes. 
 1. Note that the Key Columns is a composite key made up of the Movie primary key column and year column. This is because we created fake 2021 movies by duplicating the 1960 rows. This avoids collisions when looking up the existing rows by providing uniqueness.
