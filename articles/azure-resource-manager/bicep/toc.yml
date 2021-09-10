@@ -146,6 +146,8 @@
       href: bicep-functions-date.md
     - name: Deployment functions
       href: bicep-functions-deployment.md
+    - name: File functions
+      href: bicep-functions-files.md
     - name: Logical functions
       href: bicep-functions-logical.md
     - name: Numeric functions
