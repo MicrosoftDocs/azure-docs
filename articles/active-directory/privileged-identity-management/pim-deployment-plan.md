@@ -178,7 +178,7 @@ Follow the instructions in the links below:
 
 2.[Allow eligible users to activate their Azure AD role just-in-time](pim-how-to-activate-role.md)
 
-When role nears its expiration, use [PIM to extend or renew the roles](pim-resource-roles-renew-extend.md). Both user-initiated actions require an approval from a Global administrator or Privileged role administrator.  Both user-initiated actions require an approval from a Global administrator or Privileged role administrator. 
+When role nears its expiration, use [PIM to extend or renew the roles](pim-resource-roles-renew-extend.md). Both user-initiated actions require an approval from a Global administrator or Privileged role administrator.
 
 When these important events occur in Azure AD roles, PIM [sends email notifications and weekly digest emails](pim-email-notifications.md) to privilege administrators depending on the role, event, and notification settings. These emails might also include links to relevant tasks, such activating or renewing a role. 
 
