@@ -236,7 +236,9 @@ Troubleshoot the following common issues you might encounter during Backup vault
 
 #### BackupVaultResourceMoveIsNotEnabled 
 
-**Cause**: Resource move for Backup vault is currently not supported in the selected Azure region. 
+**Cause**: Resource move for Backup vault is currently not supported in the selected Azure region.
+
+**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions).
 
 ## Next steps
 
