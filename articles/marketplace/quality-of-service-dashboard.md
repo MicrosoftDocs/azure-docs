@@ -6,12 +6,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: emuench
 ms.author: smannepalle
-ms.date: 08/28/2021
+ms.date: 09/27/2021
 ---
 
 # Quality of service (QoS) dashboard
 
-This dashboard displays the quality of deployments for all your offers. A higher offer deployment success signifies higher quality of service offered to your customers. 
+This dashboard displays the quality of deployments for all your offers. A higher offer deployment success signifies higher quality of service offered to your customers.
 
 View graphical representations of the following items:
 
