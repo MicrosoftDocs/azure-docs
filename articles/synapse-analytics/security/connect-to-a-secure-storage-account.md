@@ -25,7 +25,7 @@ When you create a Synapse workspace, you can choose to enable a Managed virtual 
 Synapse operates from networks that cannot be included in your network rules. The following needs to be done to enable access from your workspace to your secure storage account.
 
 * Create an Azure Synapse workspace with a managed virtual network associated with it and create managed private endpoints from it to the secure storage account. If you use Azure Portal to create your workspace, then you can enable managed virtual network and create a managed private endpoint connection request to the secure storage account as shown below. The storage account owner will need to approve the connection request to establish the private link. Alternatively, Synapse will approve this connection request if the user creating an Apache Spark pool in the workspace has sufficient privileges to approve the connection request.
-![Enable Managed VNet and Managed private endpoint](./media/connect-to-a-secure-storage-account/enable-managedvnet-managedpe.png) 
+![Enable Managed VNet and Managed private endpoint](./media/connect-to-a-secure-storage-account/enable-managed-virtual-network-managed-private-endpoint.png) 
 
 * Grant your Azure Synapse workspace access to your secure storage account as a trusted Azure service. As a trusted service, Azure Synapse will then use strong authentication to securely connect to your storage account.   
 
