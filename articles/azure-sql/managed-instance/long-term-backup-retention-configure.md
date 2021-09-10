@@ -206,7 +206,7 @@ az sql midb ltr-policy show /
 
 ### View LTR backups
 
-Use the [az sql midb ltr-backup show](cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_show) command to list the LTR backups within an instance.
+Use the [az sql midb ltr-backup show](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_show) command to list the LTR backups within an instance.
 
 ```azurecli
 aq sql midb ltr-backup show /
@@ -238,7 +238,7 @@ az sql midb ltr-backup delete /
 
 ### Restore from LTR backups
 
-Run the [az sql midb ltr-backup restore](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_restore) command to restore your database from an LTR backup. You can run [az sql midb ltr-backup show](cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_show) to get the `backup-id`.
+Run the [az sql midb ltr-backup restore](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_restore) command to restore your database from an LTR backup. You can run [az sql midb ltr-backup show](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_show) to get the `backup-id`.
 
 ```azurecli
 --dest-database targetmidb /
