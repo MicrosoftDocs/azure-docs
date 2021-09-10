@@ -161,7 +161,7 @@ The following steps are optional. You need to perform the steps only if you use 
     `id_provider = ad`   
     `krb5_store_password_if_offline = True`   
     `default_shell = /bin/bash`   
-    `ldap_id_mapping = True`   
+    `ldap_id_mapping = False`   
     `use_fully_qualified_names = True`   
     `fallback_homedir = /home/%u@%d`   
     `access_provider = ad`   
