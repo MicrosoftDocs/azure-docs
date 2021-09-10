@@ -56,8 +56,8 @@ This table shows the primary categories and subcategories that map to Microsoft 
 | AI + Machine Learning | AI for Business<br>Bot Apps |
 | Analytics | Advanced Analytics<br>Dashboard & Data Visualization |
 | Collaboration | Chat<br>Contact Management<br>Meeting & Calendar Management<br>Site Design & Management<br>Voice & Video Conferencing |
-| Commerce | E-Commerce, Social Commerce & Marketplaces <br>Loyalty & Gifting<br>Product Information & Content Management<br>Personalization, Ratings, & Reviews <br>Store Management<br>Subscription & Post Purchase Services |
-| Compliance & Legal | Data, Governance & Privacy<br>Health & Safety<br>Legal<br>Tax & Audit |
+| Commerce | E-Commerce, Social Commerce, & Marketplaces <br>Loyalty & Gifting<br>Product Information & Content Management<br>Personalization, Ratings, & Reviews <br>Store Management<br>Subscription & Post Purchase Services |
+| Compliance & Legal | Data, Governance, & Privacy<br>Health & Safety<br>Legal<br>Tax & Audit |
 | Customer Service | Back Office & Employee Service<br>Contact Center<br>Face to Face Service<br>Knowledge & Case Management<br>Social Media & Omnichannel Engagement |
 | Finance | Accounting<br>Analytics, Consolidation & Reporting<br>Asset Management<br>Compliance & Risk Management<br>Payments, Credit, & Collections |
 | Geolocation | Maps<br>News & Weather<br>Address Validation |
