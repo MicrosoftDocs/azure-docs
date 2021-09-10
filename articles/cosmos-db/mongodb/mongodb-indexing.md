@@ -17,11 +17,9 @@ Azure Cosmos DB's API for MongoDB takes advantage of the core index-management c
 
 ## Indexing for MongoDB server version 3.6 and higher
 
-Azure Cosmos DB's API for MongoDB server version 3.6+ automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. In Azure Cosmos DB's API for MongoDB, sharding and indexing are separate concepts. You don't have to index your shard key. However, as with any other property in your document, if this property is a common filter in your queries, we recommend indexing the shard key.
+Azure Cosmos DB's API for MongoDB server version 3.6+ automatically indexes the `_id` field and the shard key (only in sharded collections). The API automatically enforces the uniqueness of the `_id` field per shard key. 
 
-To index additional fields, you apply the MongoDB index-management commands. As in MongoDB, Azure Cosmos DB's API for MongoDB automatically indexes the `_id` field only. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
-
-To apply a sort to a query, you must create an index on the fields used in the sort operation.
+The API for MongoDB behaves differently from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
 ### Editing indexing policy
 
@@ -48,7 +46,7 @@ You could create the same single field index on `name` in the Azure portal:
 One query uses multiple single field indexes where available. You can create up to 500 single field indexes per collection.
 
 ### Compound indexes (MongoDB server version 3.6+)
-In the API for MongoDB, compound indexes are **required** if your query needs the ability to sort on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a compound index. 
+In the API for MongoDB, compound indexes are **required** if your query needs the ability to sort on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a compound index to save on indexing costs. 
 
 Creating a compound index will result in (hidden) single field indexes being created for each field in the compound index if the single field indexes do not already exist to improve filtering performance.
 
