@@ -59,4 +59,6 @@ Example use cases include: confidential multiparty data sharing, fraud detection
 - [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 - [More On Disk Types](./disks-types.md#ultra-disk)
 
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

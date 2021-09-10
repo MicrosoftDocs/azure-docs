@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/02/2020
+ms.date: 09/09/2021
 ---
 
 # Managing the mapping data flow graph
