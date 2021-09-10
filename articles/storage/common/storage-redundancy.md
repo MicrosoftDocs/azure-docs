@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/13/2021
+ms.date: 08/18/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -129,14 +129,11 @@ GZRS and RA-GZRS are supported in the following regions:
 - (Asia Pacific) Asia East
 - (Asia Pacific) Asia Southeast
 - (Asia Pacific) Australia East
-- (Asia Pacific) India Central
 - (Asia Pacific) Japan East
-- (Asia Pacific) Korea Central
 - (Canada) Canada Central
 - (Europe) North Europe
 - (Europe) West Europe
 - (Europe) France Central
-- (Europe) Germany West Central
 - (Europe) Norway East
 - (Europe) UK South
 - (South America) Brazil South

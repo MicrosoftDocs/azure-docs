@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 05/20/2021
+ms.date: 08/26/2021
 ---
 
 # Mapping data flows in Azure Data Factory
@@ -151,7 +151,7 @@ Mapping data flows are available in the following regions in ADF:
 | South Central US	| |
 | South India | |
 | Southeast Asia	| ✓ |
-| Switzerland North	| 	|
+| Switzerland North	| ✓ |
 | Switzerland West | |
 | UAE Central | |
 | UAE North	| ✓ |

@@ -149,7 +149,7 @@ Next comes the first bit of code that interacts with the Azure Digital Twins ser
 
 Paste in the following code under the authorization code you added earlier.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs" id="ClientExcerptModel":::
 
 In your command window, run the program with this command: 
 

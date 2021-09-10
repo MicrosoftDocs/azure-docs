@@ -12,7 +12,7 @@ ms.date: 07/21/2021
 
 #  Data collection best practices
 
-This section reviews best practices for collecting data using Azure Sentinel data connectors. For more information, see [Connect data sources](connect-data-sources.md), [Azure Sentinel partner data connectors](partner-data-connectors.md), and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
+This section reviews best practices for collecting data using Azure Sentinel data connectors. For more information, see [Connect data sources](connect-data-sources.md), [Azure Sentinel data connectors reference](data-connectors-reference.md), and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
 ## Prioritize your data connectors
 
@@ -20,7 +20,7 @@ If it's unclear to you which data connectors will best serve your environment, s
 
 The free data connectors will start showing value from Azure Sentinel as soon as possible, while you continue to plan other data connectors and budgets.
 
-For your [partner](partner-data-connectors.md) and [custom](create-custom-connector.md) data connectors, start by setting up [Syslog](connect-syslog.md) and [CEF](connect-common-event-format.md) connectors, with the highest priority first, as well as any Linux-based devices.
+For your [partner](data-connectors-reference.md) and [custom](create-custom-connector.md) data connectors, start by setting up [Syslog](connect-syslog.md) and [CEF](connect-common-event-format.md) connectors, with the highest priority first, as well as any Linux-based devices.
 
 If your data ingestion becomes too expensive, too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md).
 

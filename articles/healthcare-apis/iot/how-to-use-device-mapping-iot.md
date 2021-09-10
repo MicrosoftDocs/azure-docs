@@ -5,11 +5,14 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 08/06/2021
 ms.author: rabhaiya
 ---
 
 # How to use the device mapping template
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The IoT Connector requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). 
 
@@ -24,12 +27,12 @@ The two types of mapping templates are composed into a JSON document based on th
 
 Device mapping provides mapping functionality to extract device content into a common format for further evaluation. Each message received is evaluated against all templates. This approach allows a single inbound message to be projected to multiple outbound messages, which are later mapped to different observations in FHIR. The result is a normalized data object representing the value or values parsed by the templates. The normalized data model has a few required properties that must be found and extracted:
 
-| Property | Description |
-| - | - |
-|**Type**|The name/type to classify the measurement. This value is used to bind to the required FHIR mapping template.  Multiple templates can output to the same type allowing you to map different representations across multiple devices to a single common output.|
-|**OccurenceTimeUtc**|The time the measurement occurred.|
-|**DeviceId**|The identifier for the device. This value should match an identifier on the device resource that exists on the destination FHIR server.|
- |**Properties**|Extract at least one property so the value can be saved in the Observation resource created.  Properties are a collection of key value pairs extracted during normalization.|
+| Property             | Description                                                                                                                                                                                                                                                   |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Type**             | The name/type to classify the measurement. This value is used to bind to the required FHIR mapping template.  Multiple templates can output to the same type allowing you to map different representations across multiple devices to a single common output. |
+| **OccurenceTimeUtc** | The time the measurement occurred.                                                                                                                                                                                                                            |
+| **DeviceId**         | The identifier for the device. This value should match an identifier on the device resource that exists on the destination FHIR server.                                                                                                                       |
+| **Properties**       | Extract at least one property so the value can be saved in the Observation resource created.  Properties are a collection of key value pairs extracted during normalization.                                                                                  |
 
 Below is a conceptual example of what happens during normalization.
 
@@ -39,19 +42,19 @@ The content payload itself is an Azure Event Hub message, which is composed of t
 
 ```json
 {
-	"Body": {
-		"content": "value"
-	},
-	"Properties": {
-		"key1": "value1",
-		"key2": "value2"
-	},
-	"SystemProperties": {
-		"x-opt-sequence-number": 1,
-		"x-opt-enqueued-time": "2021-02-01T22:46:01.8750000Z",
-		"x-opt-offset": 1,
-		"x-opt-partition-key": "1"
-	}
+    "Body": {
+        "content": "value"
+    },
+    "Properties": {
+        "key1": "value1",
+        "key2": "value2"
+    },
+    "SystemProperties": {
+        "x-opt-sequence-number": 1,
+        "x-opt-enqueued-time": "2021-02-01T22:46:01.8750000Z",
+        "x-opt-offset": 1,
+        "x-opt-partition-key": "1"
+    }
 }
 ```
 ### Mapping with JSON path
@@ -62,8 +65,8 @@ The three device content template types supported today rely on JSON Path to bot
 
 The JsonPathContentTemplate allows matching on and extracting values from an Event Hub message using JSON Path.
 
-| Property | Description |<div style="width:150px">Example</div>
-| --- | --- | --- 
+| Property | Description |Example |
+| --- | --- | --- |
 |**TypeName**|The type to associate with measurements that match the template.|`heartrate`
 |**TypeMatchExpression**|The JSON Path expression that is evaluated against the Event Hub payload. If a matching JToken is found, the template is considered a match. All subsequent expressions are evaluated against the extracted JToken matched here.|`$..[?(@heartRate)]`
 |**TimestampExpression**|The JSON Path expression to extract the timestamp value for the measurement's OccurenceTimeUtc.|`$.endDate`

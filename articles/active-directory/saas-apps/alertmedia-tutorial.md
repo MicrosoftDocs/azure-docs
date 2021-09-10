@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 
@@ -34,6 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * AlertMedia supports **IDP** initiated SSO.
 * AlertMedia supports **Just In Time** user provisioning.
+* AlertMedia supports [Automated user provisioning](alertmedia-provisioning-tutorial.md).
 
 ## Add AlertMedia from the gallery
 

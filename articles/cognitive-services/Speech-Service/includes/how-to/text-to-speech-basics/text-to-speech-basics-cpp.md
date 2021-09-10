@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
-ms.author: lajanuar
+ms.author: pafarley
 ---
 
 In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
@@ -188,7 +188,7 @@ First, create a new XML file for the SSML config in your root project directory,
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -217,7 +217,7 @@ void synthesizeSpeech()
 ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.SetSpeechSynthesisVoiceName("en-US-AriaNeural")`
+> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.SetSpeechSynthesisVoiceName("en-US-ChristopherNeural")`
 
 ## Get facial pose events
 
