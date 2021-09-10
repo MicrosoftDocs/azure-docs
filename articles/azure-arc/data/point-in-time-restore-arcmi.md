@@ -11,6 +11,7 @@ Point-in-time restore can restore a database from:
 
 Point-in-time restore to Azure Arc enabled SQL Managed Instance has the following limitations:
 - Point-in-time restore of a whole Azure Arc enabled SQL Managed Instance is not possible. This article explains only what's possible: point-in-time restore of a database that's hosted on Azure Arc enabled SQL Managed Instance.
+- Currently Point-in-time restore capability does not with with Azure Arc enabled SQL managed instance that has High Availability enabled. 
 
 ## Point-in-time restore
 

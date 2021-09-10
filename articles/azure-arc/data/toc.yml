@@ -205,7 +205,7 @@
         - name: Configure business continuity
           items:
             - name: Restore to a point in time 
-              href: point-in-time-restore.md
+              href: point-in-time-restore-arcmi.md
 - name: Reference
   items:
   - name: azdata
