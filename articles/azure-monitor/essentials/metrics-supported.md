@@ -1300,7 +1300,7 @@ The Azure Monitor Agent replaces the Azure Diagnostics extension and Log Analyti
 |disk_queue_depth|Yes|Disk Queue Depth|Count|Average|Number of outstanding I/O operations to the data disk|No Dimensions|
 |iops|Yes|IOPS|Count|Average|IO Operations per second|No Dimensions|
 |maximum_used_transactionIDs|Yes|Maximum Used Transaction IDs|Count|Average|Maximum Used Transaction IDs|No Dimensions|
-|memory_percent|Yes|Memory percent|Percent|Average|Memory percent||
+|memory_percent|Yes|Memory percent|Percent|Average|Memory percent|No Dimensions|
 |network_bytes_egress|Yes|Network Out|Bytes|Total|Network Out across active connections|No Dimensions|
 |network_bytes_ingress|Yes|Network In|Bytes|Total|Network In across active connections|No Dimensions|
 |read_iops|Yes|Read IOPS|Count|Average|Number of data disk I/O read operations per second|No Dimensions|
@@ -2950,7 +2950,7 @@ The Azure Monitor Agent replaces the Azure Diagnostics extension and Log Analyti
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |ConnectionCount|Yes|Connection Count|Count|Maximum|The amount of user connection.|Endpoint|
-|InboundTraffic|Yes|Inbound Traffic|Bytes|Total|The inbound traffic of serviceNo Dimensions||
+|InboundTraffic|Yes|Inbound Traffic|Bytes|Total|The inbound traffic of service|No Dimensions||
 |MessageCount|Yes|Message Count|Count|Total|The total amount of messages.|No Dimensions|
 |OutboundTraffic|Yes|Outbound Traffic|Bytes|Total|The outbound traffic of service|No Dimensions|
 |SystemErrors|Yes|System Errors|Percent|Maximum|The percentage of system errors|No Dimensions|
