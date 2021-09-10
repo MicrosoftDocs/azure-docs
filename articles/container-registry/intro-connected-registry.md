@@ -41,7 +41,7 @@ The following image shows a typical deployment model for the connected registry.
 
 ### Deployment
 
-Each connected registry is a resource you manage using a cloud-based Azure container registry. The top parent in the connected registry hierarchy is an Azure container registry in an Azure cloud or in a private deployment of [Azure Stack Hub](../azure-stack/operator/azure-stack-overview.md).
+Each connected registry is a resource you manage using a cloud-based Azure container registry. The top parent in the connected registry hierarchy is an Azure container registry in an Azure cloud or in a private deployment of [Azure Stack Hub](/azure-stack/operator/azure-stack-overview).
 
 Use Azure tools to install the connected registry on a server or device on your premises, or an environment that supports container workloads on-premises such as [Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md).
 

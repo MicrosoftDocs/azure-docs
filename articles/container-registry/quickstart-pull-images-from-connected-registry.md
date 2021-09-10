@@ -69,8 +69,10 @@ docker login --username myconnectedregistry-client-token \
 
 For IoT Edge scenarios, be sure to include the port used to reach the connected registry on the device. Example:
 
+```
 docker login --username myconnectedregistry-client-token \
-  --password xxxxxxxxxxx myedgevm.easus.cloudapp.azure.com:8000
+  --password xxxxxxxxxxx myedgevm.eastus.cloudapp.azure.com:8000
+```
 
 Then, use the following command to pull the `hello-world` image:
 

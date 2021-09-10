@@ -10,12 +10,16 @@ ms.custom:
 
 # Quickstart: Deploy a connected registry to an IoT Edge device
 
-In this quickstart, you use the Azure CLI to deploy a [connected registry](intro-connected-registry.md) as a module on an Azure IoT Edge device. 
+In this quickstart, you use the Azure CLI to deploy a [connected registry](intro-connected-registry.md) as a module on an Azure IoT Edge device. The IoT Edge device can access the parent Azure container registry in the cloud.
 
-For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edge.md).
+For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edge.md). This scenario corresponds to a device at the [top layer](overview-connected-registry-and-iot-edge.md#top-layer) of an IoT Edge hierarchy. 
+
 
 [!INCLUDE [Prepare Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
-* Azure IoT Edge device. For deployment steps, see [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](../iot-edge/quickstart-linux.md). 
+* Azure IoT Edge device. For deployment steps, see [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](../iot-edge/quickstart-linux.md).
+  > [!IMPORTANT]
+  > For later access to the modules deployed on the IoT Edge device, make sure that you open the ports 8000, 5671, and 8883 on the device. For configuration steps, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md). 
+
 * Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli]. A connected registry in either `registry` or `mirror` mode can be used in this scenario.
 
 ## Import the connected registry image to your registry
@@ -31,18 +35,16 @@ az acr import \
   --source mcr.microsoft.com/acr/connected-registry:0.3.0
 ```
 
-[TODO: Find out why this tutorial imports tag 0.3.0 but previous one imports 0.2.0 - are both needed? Same question for the iot images]
-
 To learn more about nested IoT Edge scenarios, see [Tutorial: Create a hierarchy of IoT Edge devices](../iot-edge/tutorial-nested-iot-edge.md).
 
-## Import the IotEdge and API Proxy images into your registry
+## Import the IoT Edge and API proxy images into your registry
 
-To support the connected registry on nested IoT Edge, you need to import and set up the IoT and API proxy using the private images from the `acronpremiot` registry.  
+To support the connected registry on nested IoT Edge, you need to import and set up the IoT Edge and API proxy using the private images from the `acronpremiot` registry.
+
+The [IoT Edge API proxy module](../iot-edge/how-to-configure-api-proxy-module.md) allows an IoT Edge device to expose multiple services using HTTPS protocol on the same port such as 443.
 
 > [!NOTE]
 > You can import these images from Microsoft Container Registry if you don't need to create a nested connected registry. 
-
-[TODO - what is different about these images vs. MCR images imported in the previous quickstart?]
 
 ```azurecli
 az acr import \
@@ -63,66 +65,13 @@ az acr import \
 
 ## Create a client token for access to the cloud registry
 
-The IoT Edge runtime will need to authenticate with the cloud registry to pull the images and deploy them. First, use the following command to create a scope map for the required repositories:
+The IoT Edge runtime will need to authenticate with the cloud registry to pull the images and deploy them. In this section, create a client token for the IoT Edge device. You will configure the token credentials in the deployment manifest for the device, shown later in this article.
 
-```azurecli
-az acr scope-map create \
-  --description "Connected registry repo pull scope map" \
-  --name connected-registry-pull \
-  --registry $REGISTRY_NAME \
-  --repository "acr/connected-registry" content/read \
-  --repository "azureiotedge-api-proxy" content/read \
-  --repository "azureiotedge-agent" content/read \
-  --repository "azureiotedge-hub" content/read
-```
-
-Next, use the following command to create a client token for the IoT Edge device and associate it to the scope map:
-
-```azurecli
-az acr token create \
-  --name crimagepulltoken \
-  --registry $REGISTRY_NAME \
-  --scope-map connected-registry-pull
-```
-
-Output includes credential information similar to the following:
-
-```json
-  ...
-  "credentials": {
-    "activeDirectoryObject": null,
-    "certificates": [],
-    "passwords": [
-      {
-        "creationTime": "2020-12-10T00:06:15.356846+00:00",
-        "expiry": null,
-        "name": "password1",
-        "value": "xxxxxxxxxxxxxxxxxxxxx"
-      },
-      {
-        "creationTime": "2020-12-10T00:06:15.356846+00:00",
-        "expiry": null,
-        "name": "password2",
-        "value": "xxxxxxxxxxxxxxxxxxxxx
-      }
-    ],
-    "username": "crimagepulltoken"
-  }
-  ...
-```
-
-You will need the `username` and one of the `passwords` values for the IoT Edge manifest used in a later step in this quickstart.
-
-  > [!IMPORTANT]
-  > Make sure that you save the generated passwords. Those are one-time passwords and cannot be retrieved. You can generate new passwords using the [az acr token credential generate][az-acr-token-credential-generate] command.
-
-For more information about tokens and scope maps, see [Create a token with repository-scoped permissions](container-registry-repository-scoped-permissions.md).
+[!INCLUDE [container-registry-connected-client-token](../../includes/container-registry-connected-client-token.md)]
 
 ## Retrieve connected registry configuration information
 
 Before deploying the connected registry to the IoT Edge device, you need to retrieve the configuration from the connected registry resource in Azure. Use the [az acr connected-registry install renew-credentials][az-acr-connected-registry-install-renew-credentials] command to retrieve the configuration. The following example specifies HTTPS as the parent protocol. This protocol is required when the parent registry is a cloud registry.
-
-[TODO - Why HTTPS when parent in cloud? Does HTTPS require a cert and if so how to obtain and install? Example w/ self-signed?]
 
 ```azurecli
 az acr connected-registry install renew-credentials \
@@ -131,12 +80,12 @@ az acr connected-registry install renew-credentials \
   --parent-protocol https
 ```
 
-This command returns the connection string for the connected registry, including a newly generated password for the sync token.
+This command returns the connection string for the connected registry, including a newly generated password for the sync token. Example:
 
 ```json
 {
-  "ACR_REGISTRY_CONNECTION_STRING": "ConnectedRegistryName=myconnectedregistry;SyncTokenName=myconnectedregistry-sync-token;SyncTokenPassword=xxxxxxxxxxxxxxxx;ParentGatewayEndpoint=$REGISTRY_NAME.westus2.data.azurecr.io;ParentEndpointProtocol=https",
-  "ACR_REGISTRY_LOGIN_SERVER": "<Optional: connected registry login server. More info at https://aka.ms/acr/connected-registry>"
+  "ACR_REGISTRY_CONNECTION_STRING": "ConnectedRegistryName=myconnectedregistry;SyncTokenName=myconnectedregistry-sync-token;SyncTokenPassword=xxxxxxxxxxxxxxxx;ParentGatewayEndpoint=<registry-name>.<region>.data.azurecr.io;ParentEndpointProtocol=https",
+  "ACR_REGISTRY_LOGIN_SERVER": "<Optional: connected registry login server>."
 }
 ```
 
@@ -154,110 +103,16 @@ You will need the information for the following IoT Edge manifest.
 
 A deployment manifest is a JSON document that describes which modules to deploy to the IoT Edge device. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](../iot-edge/module-composition.md).
 
-To deploy the connected registry and API proxy modules using the Azure CLI, save the following deployment manifest locally as a `manifest.json` file. Use the information from the previous sections to update the relevant JSON values
+To deploy the connected registry and API proxy modules using the Azure CLI, save the following deployment manifest locally as a `manifest.json` file. Use the information from the previous sections to update the relevant JSON values.
 
-```json
-{
-    "modulesContent": {
-        "$edgeAgent": {
-            "properties.desired": {
-                "modules": {
-                    "connected-registry": {
-                        "settings": {
-                            "image": "<container-registry-name>.azurecr.io/acr/connected-registry:0.3.0",
-                            "createOptions": "{\"HostConfig\":{\"Binds\":[\"/home/azureuser/connected-registry:/var/acr/data\"],\"PortBindings\":{\"8080/tcp\":[{\"HostPort\":\"8080\"}]}}}"
-                        },
-                        "type": "docker",
-                        "env": {
-                            "ACR_REGISTRY_CONNECTION_STRING": {
-                                "value": "ConnectedRegistryName=myconnectedregistry;SyncTokenName=myconnectedregistry-sync-token;SyncTokenPassword=xxxxxxxxxxxxxxxx;ParentGatewayEndpoint=<container-registry-name>.<registry_region>.data.azurecr.io;ParentEndpointProtocol=https"
-                            }
-                        },
-                        "status": "running",
-                        "restartPolicy": "always",
-                        "version": "1.0"
-                    },
-                    "IoTEdgeAPIProxy": {
-                        "settings": {
-                            "image": "<container-registry-name>.azurecr.io/azureiotedge-api-proxy:9.9.9-dev",
-                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8000/tcp\":[{\"HostPort\":\"8000\"}]}}}"
-                        },
-                        "type": "docker",
-                        "env": {
-                            "NGINX_DEFAULT_PORT": {
-                                "value": "8000"
-                            },
-                            "CONNECTED_ACR_ROUTE_ADDRESS": {
-                                "value": "connected-registry:8080"
-                            },
-                            "BLOB_UPLOAD_ROUTE_ADDRESS": {
-                                "value": "AzureBlobStorageonIoTEdge:11002"
-                            }
-                        },
-                        "status": "running",
-                        "restartPolicy": "always",
-                        "version": "1.0"
-                    }
-                },
-                "runtime": {
-                    "settings": {
-                        "minDockerVersion": "v1.25",
-                        "registryCredentials": {
-                            "tsmregistry": {
-                                "address": "<container-registry-name>.azurecr.io",
-                                "password": "xxxxxxxxxxxxxxxx",
-                                "username": "crimagepulltoken"
-                            }
-                        }
-                    },
-                    "type": "docker"
-                },
-                "schemaVersion": "1.1",
-                "systemModules": {
-                    "edgeAgent": {
-                        "settings": {
-                            "image": "<container-registry-name>.azurecr.io/azureiotedge-agent:20210609.5",
-                            "createOptions": ""
-                        },
-                        "type": "docker",
-                        "env": {
-                            "SendRuntimeQualityTelemetry": {
-                                "value": "false"
-                            }
-                        }
-                    },
-                    "edgeHub": {
-                        "settings": {
-                            "image": "<container-registry-name>.azurecr.io/azureiotedge-hub:20210609.5",
-                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
-                        },
-                        "type": "docker",
-                        "status": "running",
-                        "restartPolicy": "always"
-                    }
-                }
-            }
-        },
-        "$edgeHub": {
-            "properties.desired": {
-                "routes": {
-                    "route": "FROM /messages/* INTO $upstream"
-                },
-                "schemaVersion": "1.1",
-                "storeAndForwardConfiguration": {
-                    "timeToLiveSecs": 7200
-                }
-            }
-        }
-    }
-}
-```
+The API proxy will listen on port 8000 configured as `NGINX_DEFAULT_PORT`. For more information about the API proxy settings, see the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/master/edge-modules/api-proxy-module). 
+
+[!INCLUDE [container-registry-connected-iot-edge-manifest](../../includes/container-registry-connected-iot-edge-manifest.md)]
 
 > [!IMPORTANT]
 > If the connected registry listens on a port different from 80 and 443, the `ACR_REGISTRY_LOGIN_SERVER` value must include the port. Example: `192.168.0.100:8080`.
 
 [TODO: FIND OUT IF ACR_REGISTRY_LOGIN_SERVER should be in manifest?]
-
 
 You will use the file path in the next section when you run the command to apply the configuration to your device.
 
@@ -284,12 +139,6 @@ az acr connected-registry show \
 ```
 
 After successful deployment, the connected registry shows a status of `Online`.
-
-On the IoT Edge device, make sure you open the the ports `8000`, `5671`, and `8883`. The API proxy will listen on port 8000 configured as `NGINX_DEFAULT_PORT`.
-
-[TODO: Where to open the ports?]
-
-For more information about the API Proxy, see the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/master/edge-modules/api-proxy-module).
 
 ## Next steps
 

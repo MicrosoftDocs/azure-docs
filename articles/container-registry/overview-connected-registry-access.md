@@ -36,7 +36,7 @@ Update client tokens, passwords, or scope maps as needed by using [az acr token]
 
 Each connected registry uses a sync token to authenticate with its immediate parent - which could be another connected registry or the cloud registry. The connected registry automatically uses this token when synchronizing content with the parent or performing other updates. 
 
-* The sync token is generated automatically when you create the connected registry resource. You must run the [az acr connected-registry install renew-credentials][az-acr-install-renew-credentials] command to generate the passwords.
+* The sync token is generated automatically when you create the connected registry resource. You must run the [az acr connected-registry install renew-credentials][az-acr-connected-registry-install-renew-credentials] command to generate the passwords.
 * Include sync token credentials in the configuration used to deploy the connected registry on-premises. 
 * By default, the sync token is granted permission to synchronize selected repositories with its parent. You must provide an existing sync token or one or more repositories to sync when you create the connected registry resource.
 * It also has permissions to read and write synchronization messages on a gateway used to communicate with the connected registry's parent. These messages control the synchronization schedule and manage other updates between the connected registry and its parent.
