@@ -135,7 +135,7 @@ If your operation template goes over the quota limit, you can do one of the foll
 Follow these instructions to troubleshoot unsuccessful deployments of Azure Resource Manager templates and PowerShell DSC.
 
 1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md).
-2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../azure-monitor/essentials/activity-log.md).
+2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../../azure-monitor/essentials/activity-log.md).
 3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
