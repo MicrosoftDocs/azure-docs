@@ -77,7 +77,7 @@ In order to connect the AppDynamics Java In-Process Agent to AppDynamics Control
 
   Azure Spring Cloud pre-installs the AppDynamics Java agent to the path `/opt/agents/appdynamics/java/javaagent.jar`. Customers can activate the agent from applications' **Jvm Options**, and then configure the agent using the [AppDynamics Java agent environment variables](https://docs.appdynamics.com/21.7/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent/use-environment-variables-for-java-agent-settings). Refer to [Tiers and Nodes](https://docs.appdynamics.com/21.9/en/application-monitoring/tiers-and-nodes) to find how Node and Tier help to view and organize reports in AppDynamics UI.
 
-### Activate application with AppDynamics Agent by Azure Portal
+### Activate application with AppDynamics Agent by Azure portal
 
 1. Find the application from **Settings**/**Apps** in the navigation pane.
 
@@ -91,7 +91,7 @@ In order to connect the AppDynamics Java In-Process Agent to AppDynamics Control
 
    ![Update environment](media/appdynamics-agent/3.png)
 
-4. Click **General settings** to add/update/delete the **Jvm Option** of the application.
+4. Click **General settings** to add/update/delete the **JVM Option** of the application.
 
    ![Update JVM Option](media/appdynamics-agent/4.png)
 
@@ -145,7 +145,7 @@ To configure the environment variables in an ARM template, add the following cod
 ```
 
 ## Review reports in AppDynamics Dashboard
-1. You can take a overview of your apps in the AppDynamics dashboard
+1. You can take an overview of your apps in the AppDynamics dashboard
    ![appdynamics dashboard birds eye view of apps](media/appdynamics-agent/appdynamics-dashboard-birds-eye-view-of-apps.jpg)
 2. You can find the overall information for your apps
    - `api-gateway`
@@ -171,7 +171,7 @@ To configure the environment variables in an ARM template, add the following cod
 
 By default, Azure Spring Cloud will print the **info** level logs of the AppDynamics Agent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
 
-There are several way to get the logs of AppDynamics Agent:
+There are several ways to get the logs of AppDynamics Agent:
 
 * Azure Spring Cloud Logs.
 * Azure Spring Cloud Application Insights.
@@ -186,10 +186,10 @@ The AppDynamics Agent will be upgraded regularly with JDK (quarterly). Agent upg
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
-For vnet injection instances of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for AppDynamics Agent. Please refer to [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md) for details.
+For vnet injection instances of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for AppDynamics Agent. Refer to [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md) for details.
 
-## Limitaions
-Please refer to [Limitations when Monitor Azure Spring Cloud with AppDynamics Java In-Process Agent (**not ready yet**)]()
+## Limitations
+Refer to [Limitations when Monitor Azure Spring Cloud with AppDynamics Java In-Process Agent (**not ready yet**)]()
 
 ## Next Step
 * [Use distributed tracing with Azure Spring Cloud](how-to-distributed-tracing.md)
