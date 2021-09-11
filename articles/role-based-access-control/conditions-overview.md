@@ -93,7 +93,7 @@ Here is what the condition looks like in code:
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
         AND
-        @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+        SubOperationMatches{'Blob.Read.WithTagConditions'})
     )
     OR
     (

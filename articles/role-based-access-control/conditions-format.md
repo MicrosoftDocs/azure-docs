@@ -97,9 +97,9 @@ The following shows the syntax for a role assignment condition.
 ```
 (
     (
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
         ...
     )
@@ -115,9 +115,9 @@ The following shows the syntax for a role assignment condition.
 AND
 (
     (
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
         ...
     )

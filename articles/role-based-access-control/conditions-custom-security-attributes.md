@@ -51,7 +51,7 @@ Here is what the condition looks like in code:
 ```
 (
  (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
  )
  OR 
  (
@@ -147,7 +147,7 @@ For more information about conditions, see [What is Azure attribute-based access
     ```
     (
      (
-      !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+      !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
      )
      OR 
      (
@@ -206,7 +206,7 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
 1. Set the `Condition` property of the role assignment object.
 
     ```powershell
-    $groupRoleAssignment.Condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:BashABAC_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>]))"
+    $groupRoleAssignment.Condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:BashABAC_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>]))"
     ```
 
 1. Set the `ConditionVersion` property of the role assignment object.
@@ -304,7 +304,7 @@ You can also use Azure CLI to add role assignments conditions. The following com
 1. Update the `condition` property.
 
     ```azurecli
-    "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:BashABAC_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]))",
+    "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:BashABAC_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]))",
     ```
 
 1. Update the `conditionVersion` property.
