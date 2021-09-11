@@ -125,10 +125,10 @@
           href: /azure/developer/java/migration/migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service
           maintainContext: false
         - name: Java web app containerization and migration
-          href: /azure/migrate/tutorial-app-containerization-java-kubernetes
+          href: ../migrate/tutorial-app-containerization-java-kubernetes.md
           maintainContext: false
         - name: ASP.NET app containerization and migration
-          href: /azure/migrate/tutorial-app-containerization-aspnet-kubernetes
+          href: ../migrate/tutorial-app-containerization-aspnet-kubernetes.md
           maintainContext: false
     - name: Supported Kubernetes version
       href: supported-kubernetes-versions.md
