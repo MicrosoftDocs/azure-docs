@@ -120,19 +120,19 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
          > When executing the PowerShell script command **Connect-AzAccount**, it is highly recommended to enter the Azure Active Directory user account that corresponds and maps to the Active Directory Domain user account used to logon to a Windows Server, in this example this is the user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**
          >
          In this example scenario the Active Directory Administrator would logon to the Windows Server as **SAPCONT_ADMIN@SAPCONTOSO.local** and when using the **PS command Connect-AzAccount** connect as user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.  Ideally the Active Directory Administrator and the Azure Administrator should work together on this task.
-   5. Assign SAP users **\<sid>adm**, **SAPService\<SID>** and the **SAP_\<SAPSID>_GlobalAdmin** group to the Azure Files Premium SMB File Share with Role **Storage File Data SMB Share Elevated Contributor** in the Azure Portal 
-   6. Check the ACL on the **sapmnt file share** after the installation and add **DOMAIN\CLUSTER_NAME$** account, **DOMAIN\\\<sid>adm**, **DOMAIN\SAPService\<SID>** and the **Group SAP_\<SID>_GlobalAdmin**. These accounts and group **should have full control of sapmnt directory**.
+         5. Assign SAP users **\<sid>adm**, **SAPService\<SID>** and the **SAP_\<SAPSID>_GlobalAdmin** group to the Azure Files Premium SMB File Share with Role **Storage File Data SMB Share Elevated Contributor** in the Azure Portal 
+         6. Check the ACL on the **sapmnt file share** after the installation and add **DOMAIN\CLUSTER_NAME$** account, **DOMAIN\\\<sid>adm**, **DOMAIN\SAPService\<SID>** and the **Group SAP_\<SID>_GlobalAdmin**. These accounts and group **should have full control of sapmnt directory**.
 
-       > [!IMPORTANT]
-       > This step must be completed before the SAPInst installation or it will be difficult or impossible to change ACLs after SAPInst has created directories and files on the File Share
-       >
-       ![ACL Properties](media/virtual-machines-shared-sap-high-availability-guide/smb-acl-1.png)
-       The following screenshots show how to add Computer machine accounts by selecting the Object Types -> Computers
-       ![add-computer-1](media/virtual-machines-shared-sap-high-availability-guide/add-computer-2.png)
-       The DOMAIN\CLUSTER_NAME$ can be found by selecting “Computers” from the “Object Types”  
-       ![add-computer-3](media/virtual-machines-shared-sap-high-availability-guide/add-computer-3.png)
-       ![add-computer-4](media/virtual-machines-shared-sap-high-availability-guide/add-computer-4.png)
-       ![add-computer-5](media/virtual-machines-shared-sap-high-availability-guide/add-computer-5.png)
+         > [!IMPORTANT]
+         > This step must be completed before the SAPInst installation or it will be difficult or impossible to change ACLs after SAPInst has created directories and files on the File Share
+         >
+         ![ACL Properties](media/virtual-machines-shared-sap-high-availability-guide/smb-acl-1.png)
+         The following screenshots show how to add Computer machine accounts by selecting the Object Types -> Computers
+         ![add-computer-1](media/virtual-machines-shared-sap-high-availability-guide/add-computer-2.png)
+         The DOMAIN\CLUSTER_NAME$ can be found by selecting “Computers” from the “Object Types”  
+         ![add-computer-3](media/virtual-machines-shared-sap-high-availability-guide/add-computer-3.png)
+         ![add-computer-4](media/virtual-machines-shared-sap-high-availability-guide/add-computer-4.png)
+         ![add-computer-5](media/virtual-machines-shared-sap-high-availability-guide/add-computer-5.png)
 
    7. [Configure the Azure Standard Load Balancer for the SAP ASCS/ERS Virtual IP(s) with HA Ports](sap-high-availability-infrastructure-wsfc-shared-disk#fe0bd8b5-2b43-45e3-8295-80bee5415716)
    8. If required move the Computer Account created for Azure Files to an Active Directory Container that does not have account expiry.  The name of the Computer Account will be the short name of the storage account 
@@ -142,7 +142,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
     After correctly running the script the following should appear as “Configured”  
     Storage -> Files Shares “Active Directory: Configured”
 
-    ![smb-config-1](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)
+    ![smb-configured-screenshot](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)
 
 4. Basis administrator should complete the tasks below:
     1. [Install the Windows Cluster on ASCS/ERS Nodes and add the Cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
@@ -157,8 +157,14 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
 ## Disaster Recovery Setup
 Disaster Recovery scenarios or Cross-Region Replication scenarios are supported with Azure Files Premium SMB. All data in Azure Files Premium SMB directories can be continuously synchronized to a DR region storage account using this link. After a Disaster Recovery event and failover of the ASCS instance to the DR region, change the SAPGLOBALHOST profile parameter to the point to Azure Files SMB in the DR region. The same preparation steps should be performed on the DR storage account to join the storage account to Active Directory and assign RBAC roles for SAP users and groups.
 
-## Common Error Messages
-
+## Troubleshooting
+The Powershell scripts downloaded in step 3.c contain a debug script to conduct some basic checks to validate the configuration.
+```powershell
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+![Powershell-script-output](media/virtual-machines-shared-sap-high-availability-guide/smb-val-2.png)
+The following screen shows the technical information after a successful domain join.
+![Powershell-script-technical-info](media/virtual-machines-shared-sap-high-availability-guide/smb-val-1.png)
 ## Useful Links & Resources
 
 * SAP Note [2273806][2273806] SAP support for storage or file system related solutions 
