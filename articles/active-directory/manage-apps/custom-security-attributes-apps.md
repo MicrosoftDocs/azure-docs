@@ -42,7 +42,7 @@ To assign or remove custom security attributes for an application in your Azure 
   
 1. Select **Assign attributes**.
 
-1. Select a custom security attribute set and a custom security attribute.
+1. Select an attribute set and a custom security attribute.
   
 1. Select **Add values** to open **Attribute values** pane and add values.
 
@@ -64,7 +64,7 @@ To assign or remove custom security attributes for an application in your Azure 
 
 1. Find the custom security attribute assignment value you want to update.
 
-    Once you have assigned a custom security attribute to an application, you can only change the value of the custom security attribute. You can't change other properties of the custom security attribute, such as custom security attribute set or custom security attribute name.
+    Once you have assigned a custom security attribute to an application, you can only change the value of the custom security attribute. You can't change other properties of the custom security attribute, such as attribute set or custom security attribute name.
 
 1. Depending on the properties of the selected custom security attribute, you can update a single value, select a value from a predefined list, or update multiple values.
 
@@ -86,7 +86,7 @@ To assign or remove custom security attributes for an application in your Azure 
 
 1. Add check marks next to all the custom security attribute assignments you want to remove.
 
-    Once you have assigned a custom security attribute to an application, you can only change the value of the custom security attribute. You can't change other properties of the custom security attribute, such as custom security attribute set or custom security attribute name.
+    Once you have assigned a custom security attribute to an application, you can only change the value of the custom security attribute. You can't change other properties of the custom security attribute, such as attribute set or custom security attribute name.
 
 1. Select **Remove assignment**.
 

@@ -39,13 +39,13 @@ To add or deactivate custom security attributes, you must have:
 
     If Custom security attributes (Preview) is disabled, make sure you are assigned a custom security attributes role. For more information, see Troubleshoot custom security attributes.
 
-1. On the Custom security attributes page, find an existing custom security attribute set or click **Add** to add a new attribute set.
+1. On the Custom security attributes page, find an existing attribute set or click **Add** to add a new attribute set.
 
-    A custom security attribute set is a group of related attributes. All custom security attributes must be part of a custom security attribute set. Custom security attribute sets cannot be renamed or deleted.
+    An attribute set is a group of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
 
-1. Click to open the selected custom security attribute set.
+1. Click to open the selected attribute set.
  
-1. Click **New attribute** to add a new attribute to the custom security attribute set.
+1. Click **New attribute** to add a new custom security attribute to the attribute set.
 
 1. In the **Attribute name** box, enter a custom security attribute name.
 
@@ -89,7 +89,7 @@ Once you have added a new custom security attribute, you can later edit some of 
 
 1. Click **Custom security attributes (Preview)**.
 
-1. Click the custom security attribute set that includes the custom security attribute you want to edit.
+1. Click the attribute set that includes the custom security attribute you want to edit.
 
 1. In the list of custom security attributes, click the ellipsis for the custom security attribute you want to edit and then click **Edit attribute**.
   
@@ -109,7 +109,7 @@ Once you add a custom security attribute, you can't delete it. However, you can 
 
 1. Click **Custom security attributes (Preview)**.
 
-1. Click the custom security attribute set that includes the custom security attribute you want to deactivate.
+1. Click the attribute set that includes the custom security attribute you want to deactivate.
 
 1. In the list of custom security attributes, add a check mark next to the custom security attribute you want to deactivate.
 

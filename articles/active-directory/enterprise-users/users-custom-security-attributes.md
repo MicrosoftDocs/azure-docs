@@ -47,7 +47,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. Select **Add assignment**.
 
-1. In **Attribute set**, select a custom security attribute set from the list.
+1. In **Attribute set**, select an attribute set from the list.
 
 1. In **Attribute name**, select a custom security attribute from the list.
   
@@ -71,7 +71,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
   
 1. Find the custom security attribute assignment value you want to update.
 
-    Once you have assigned a custom security attribute to a user, you can only change the value of the custom security attribute. You can't change other properties of the custom security attribute, such as custom security attribute set or custom security attribute name.
+    Once you have assigned a custom security attribute to a user, you can only change the value of the custom security attribute. You can't change other properties of the custom security attribute, such as attribute set or attribute name.
 
 1. Depending on the properties of the selected custom security attribute, you can update a single value, select a value from a predefined list, or update multiple values.
 
@@ -103,7 +103,7 @@ You can search and filter the list of custom security attributes assigned to a u
   
 The search box supports a "starts with" search on the custom security attribute names and values assigned to this user. You can enter any custom security attributes into the search box, and the search automatically looks across all these properties to return any matching results of all custom security attributes assigned to this user.
 
-Add filters supports filtering the list of all custom security attributes assigned to this user. You can currently filter the list of custom security attributes by the custom security attribute set. Select the custom security attribute set and enter the first few letters or the entire name of the custom security attribute set.
+Add filters supports filtering the list of all custom security attributes assigned to this user. You can currently filter the list of custom security attributes by the attribute set. Select the attribute set and enter the first few letters or the entire name of the attribute set.
 
 ## PowerShell
 

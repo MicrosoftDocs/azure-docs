@@ -74,7 +74,7 @@ Here are some ways that custom security attributes compare with [directory schem
 
     Add attribute sets to group and manage related custom security attributes. [Learn more](custom-security-attributes-add.md)
 
-    ![Diagram showing adding multiple custom security attribute sets.](./media/custom-security-attributes-overview/attribute-sets.png)
+    ![Diagram showing adding multiple attribute sets.](./media/custom-security-attributes-overview/attribute-sets.png)
 
 1. **Manage attribute sets**
 
@@ -104,21 +104,21 @@ To better understand custom security attributes, you can refer back to the follo
 
 | Term | Definition |
 | --- | --- |
-| custom security attribute definition | The schema of a custom security attribute. For example, the custom security attribute name, description, data type, and values. |
-| custom security attribute set | A collection of custom security attributes that can be delegated to other users for defining and assigning custom security attributes. |
-| custom security attribute name | A unique name of a custom security  attribute within a custom security attribute set. The combination of attribute set and attribute name forms a unique attribute for your tenant. |
-| custom security attribute assignment | The assignment of a custom security attribute to an Azure AD object, such as users, enterprise applications (service principals), and managed identities. |
+| attribute definition | The schema of a custom security attribute. For example, the custom security attribute name, description, data type, and values. |
+| attribute set | A collection of custom security attributes that can be delegated to other users for defining and assigning custom security attributes. |
+| attribute name | A unique name of a custom security attribute within an attribute set. The combination of attribute set and attribute name forms a unique attribute for your tenant. |
+| attribute assignment | The assignment of a custom security attribute to an Azure AD object, such as users, enterprise applications (service principals), and managed identities. |
 
 ## Custom security attribute properties
 
-The following table lists the properties you can specify for custom security attribute sets and custom security attributes. Some properties are immutable and cannot be changed later.
+The following table lists the properties you can specify for attribute sets and custom security attributes. Some properties are immutable and cannot be changed later.
 
 | Property | Required | Can be changed later | Description |
 | --- | --- | --- | --- |
-| Attribute set name  | :heavy_check_mark: |  | Name of the custom security attribute set. |
+| Attribute set name  | :heavy_check_mark: |  | Name of the attribute set. |
 | Attribute set description |  | :heavy_check_mark: | A short description of the custom security attribute. |
-| Maximum number of attributes |  | :heavy_check_mark: | Maximum number of custom security attributes for the custom security attribute set. |
-| Attribute set | :heavy_check_mark: |  | A group of related custom security attributes. Every custom security attribute must be part of a custom security attribute set. |
+| Maximum number of attributes |  | :heavy_check_mark: | Maximum number of custom security attributes for the attribute set. |
+| Attribute set | :heavy_check_mark: |  | A group of related custom security attributes. Every custom security attribute must be part of an attribute set. |
 | Attribute name  | :heavy_check_mark: |  | Name of the custom security attribute. Names cannot include spaces. |
 | Attribute description |  | :heavy_check_mark: | A short description of the custom security attribute. |
 | Data type | :heavy_check_mark: |  | The data type for the custom security attribute values (Boolean, integer, or string). |
@@ -130,18 +130,18 @@ The following table lists the properties you can specify for custom security att
 
 ## Limits and constraints
 
-Here are some of the limits and constraints for a custom security attributes.
+Here are some of the limits and constraints for custom security attributes.
 
 > [!div class="mx-tableFixed"]
 > | Resource | Limit |
 > | --- | --- |
-> | Custom security attribute set name | 32 characters long including Unicode characters |
-> | Custom security attribute set description | 128 characters |
-> | Maximum number of custom security attributes in a custom security attribute set | 500 |
-> | Custom security attribute name | 32 characters long including Unicode characters<br/>Cannot include spaces |
-> | Custom security attribute description | 128 characters |
-> | Maximum number of predefined values per custom security attribute | 100 |
-> | Maximum number of custom security attribute values that can assigned per security principal (values can be distributed across single and multi-valued custom security attributes) | 50 |
+> | Attribute set name | 32 characters long including Unicode characters |
+> | Attribute set description | 128 characters |
+> | Maximum number of attributes in an attribute set | 500 |
+> | Attribute name | 32 characters long including Unicode characters<br/>Cannot include spaces |
+> | Attribute description | 128 characters |
+> | Maximum number of predefined values per attribute | 100 |
+> | Maximum number of attribute values that can assigned per security principal (values can be distributed across single and multi-valued attributes) | 50 |
 
 ## Azure AD roles
 
