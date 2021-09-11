@@ -25,13 +25,10 @@ You can delegate the management of custom security attributes to others in your 
 To manage access to custom security attributes, you must have:
 
 - Azure AD Premium P1 or P2 license
-- An Azure AD role with the following permissions, such as Attribute Assignment Administrator:
+- Attribute Assignment Administrator
 
-    - `microsoft.directory/attributeSets/allProperties/read`
-    - `microsoft.directory/customSecurityAttributeDefinitions/allProperties/read`
-
-    > [!IMPORTANT]
-    > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+> [!IMPORTANT]
+> [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
 ## Manage attributes without delegation
 

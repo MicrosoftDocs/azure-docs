@@ -23,15 +23,11 @@ ms.collection: M365-identity-device-management
 To add or deactivate custom security attributes, you must have:
 
 - Azure AD Premium P1 or P2 license
-- An Azure AD role with the following permissions, such as Attribute Definition Administrator:
-
-    - `microsoft.directory/attributeSets/allProperties/allTasks`
-    - `microsoft.directory/customSecurityAttributeDefinitions/allProperties/allTasks`
-
-    > [!IMPORTANT]
-    > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+- Attribute Definition Administrator
 - [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using PowerShell
 
+> [!IMPORTANT]
+> [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
   
 ## Add a new custom security attribute
 

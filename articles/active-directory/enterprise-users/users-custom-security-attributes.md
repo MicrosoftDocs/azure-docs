@@ -27,16 +27,11 @@ Custom security attributes is a feature of Azure Active Directory (Azure AD) tha
 To assign or remove custom security attributes for a user in your Azure AD tenant, you need:
 
 - Azure AD Premium P1 or P2 license
-- An Azure AD role with the following permissions, such as Attribute Assignment Administrator:
-
-    - `microsoft.directory/attributeSets/allProperties/read`
-    - `microsoft.directory/customSecurityAttributeDefinitions/allProperties/read`
-    - `microsoft.directory/users/customSecurityAttributes/read`
-    - `microsoft.directory/users/customSecurityAttributes/update`
-
-    > [!IMPORTANT]
-    > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+- Attribute Assignment Administrator
 - [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using PowerShell
+
+> [!IMPORTANT]
+> [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
     
 ## Assign custom security attributes to a user
 

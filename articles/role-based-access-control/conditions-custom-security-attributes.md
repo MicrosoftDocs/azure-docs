@@ -29,14 +29,9 @@ In this tutorial, you learn how to:
 
 To assign custom security attributes and add role assignments conditions in your Azure AD tenant, you need:
 
-- Azure AD Premium P1 or P2 license.
-- An Azure AD role with the following permissions, such as Attribute Assignment Administrator:
-    - `microsoft.directory/attributeSets/allProperties/read`
-    - `microsoft.directory/customSecurityAttributeDefinitions/allProperties/read`
-    - `microsoft.directory/users/customSecurityAttributes/read`
-    - `microsoft.directory/users/customSecurityAttributes/update`
-- The following write permission, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner):
-    - `Microsoft.Authorization/roleAssignments/write`
+- Azure AD Premium P1 or P2 license
+- Attribute Assignment Administrator
+- [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 > [!IMPORTANT]
 > [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator), [Global Reader](../active-directory/roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition builder.
