@@ -26,10 +26,10 @@ Follow the guidance here to help reduce your application's attack surface and th
 
 ## Recommendations at a glance
 
-- Prevent **overprivileged** applications by revoking *unused* and *reducible* permissions
-- Use the identity platform's **consent** framework to require that a human consents to the app's request to access protected data
-- **Build** applications with least privilege in mind during all stages of development
-- **Audit** your deployed applications periodically to identify overprivileged apps
+- Prevent **overprivileged** applications by revoking *unused* and *reducible* permissions.
+- Use the identity platform's **consent** framework to require that a human consents to the app's request to access protected data.
+- **Build** applications with least privilege in mind during all stages of development.
+- **Audit** your deployed applications periodically to identify overprivileged apps.
 
 ## What's an *overprivileged* application?
 
@@ -72,23 +72,27 @@ Whenever an application that runs in your user's device requests access to prote
 
 ## Least privilege during app development
 
-When you're developing your application, consider the security of your app's users to be your responsibility. Follow these steps to adopt the principle of least privilege and prevent your application from being overprivileged:
+As a developer building an application, consider the security of your app and its users' data to be *your* responsibility.
 
-- Fully understand the permissions required for the API calls that your application needs to make
-- Understand the least privileged permission for each API call that your app needs to make using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
-- Find the corresponding [permissions](/graph/permissions-reference) from least to most privileged
-- Remove any duplicate sets of permissions in cases where your app makes API calls that have overlapping permissions
-- Apply only the least privileged set of permissions to your application by choosing the least privileged permission in the permission list
+Adhere to these guidelines during application development to help avoid building an overprivileged app:
+
+- Fully understand the permissions required for the API calls that your application needs to make.
+- Understand the least privileged permission for each API call that your app needs to make using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+- Find the corresponding [permissions](/graph/permissions-reference) from least to most privileged.
+- Remove any duplicate sets of permissions in cases where your app makes API calls that have overlapping permissions.
+- Apply only the least privileged set of permissions to your application by choosing the least privileged permission in the permission list.
 
 ## Least privilege for deployed apps
 
-Organizations often hesitate to modify existing applications as it might affect business operations, but that presents a challenge when already granted permissions are overprivileged and need to be revoked. As an organization, it's good practice to check and review your permissions regularly. We recommend you follow these steps to make your applications stay healthy:
+Organizations often hesitate to modify running applications to avoid impacting their normal business operations. However, your organization should consider mitigating the risk of a security incident made possible or more severe by your app's overprivileged permissions to be worthy of a scheduled application update.
 
-- Evaluate the API calls being made from your applications
-- Use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) and the [Microsoft Graph](/graph/overview) documentation for the required and least privileged permissions
-- Audit privileges that are granted to users or applications
-- Update your applications with the least privileged permission set
-- Conduct permissions review regularly to make sure all authorized permissions are still relevant
+Make these standard practices in your organization to help ensure your deployed apps aren't overprivileged and don't become overprivileged over time:
+
+- Evaluate the API calls being made from your applications.
+- Use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) and the [Microsoft Graph](/graph/overview) documentation for the required and least privileged permissions.
+- Audit privileges that are granted to users or applications.
+- Update your applications with the least privileged permission set.
+- Conduct permissions reviews regularly to make sure all authorized permissions are still relevant.
 
 ## Next steps
 
@@ -99,6 +103,4 @@ For more information about configuring access to protected resources and the use
 - [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 - [Understanding Azure AD application consent experiences](../develop/application-consent-experience.md)
 
-**Zero Trust**
-
-Consider employing the least-privilege measures described here as part of your organization's proactive [Zero Trust security strategy](/security/zero-trust/):
+**Zero Trust** - Consider employing the least-privilege measures described here as part of your organization's proactive [Zero Trust security strategy](/security/zero-trust/).
