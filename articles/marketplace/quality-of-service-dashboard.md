@@ -56,11 +56,11 @@ This feature is currently applicable to all partners performing deployment of Az
 
 The following sections describe how to use the Quality-of-Service (QoS) dashboard and how to read the data.
 
-## Month range
+### Month range
 
 There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
 
-## Quality by offers
+### Quality by offers
 
 This graph shows quality-of-service by offers and their corresponding SKUs. It provides metrics and trends for **Total**, **Successful**, and **Failed** offer deployments on a monthly basis. The bar chart represents the count of deployments.
 
@@ -89,7 +89,7 @@ About this graph:
 - When viewing a month-over-month trend for an offer, select a maximum of three SKUs of that offer.
 - The line chart represents the same percentage changes as noted for the prior graph.
 
-## Quality by deployment duration
+### Quality by deployment duration
 
 This graph shows the metric and trend for the average time duration for a successful and failed deployment. View the metrics by selecting an offer in the drop-down menu. Select a SKU in the tabular view or enter it in the search bar. Following are different mean deployments durations (in minutes):
 
@@ -105,7 +105,7 @@ About this graph:
 - The line graph presents the Mean duration of deployments marked as successful, failed, and successful deployments with failed prior attempts.
 - Mean time for first deployment factors the time spent on failure attempts before the deployment is marked as successful.
 
-## Deployment count
+### Deployment count
 
 This graph shows the total deployment of offers. Metrics and growth trends are represented by a line chart. View value for each month by hovering over the line chart.
 
@@ -119,7 +119,7 @@ About this graph:
 - Change in percentage of offer deployments during the selected date range.
 - Month over month trend of total count for offer deployments.
 
-## Deployment count by status
+### Deployment count by status
 
 This graph shows the metric and trend of successful and failed offer deployments by customers for the selected month range. Offer deployments can have two statuses: **Successful** or **Failed**.
 
@@ -131,7 +131,7 @@ About this graph:
 - Change in percentage of successful and failed offer deployments for the selected date range.
 - Month over month trend of successful and failed offer deployment counts.
 
-## Deployment errors codes and resources
+### Deployment errors codes and resources
 
 This graph shows metrics and trends of the offer deployments basis error codes and resources. The tabular section can be pivoted on error codes and resources. The first subtab provides analytics basis error codes, description, and error counts. The second provides analytics basis for the deployment resources. The line chart provides the total error count basis error codes and resources.
 
@@ -147,7 +147,7 @@ About these graphs:
 - When viewing a month-over-month trend by error codes or resources, select a maximum of three items in the table.
 - Sort error codes and resources for deployment failures by basis error count in the table.
 
-## Deployment errors by offer plan
+### Deployment errors by offer plan
 
 On this graph, the Y-axis represents deployment error count and the X-axis represents the percentile of top offer plans (by error count).
 
@@ -158,7 +158,7 @@ About this graph:
 - The bar charts represent the deployment error counts for the selected month range.
 - The values on the line chart represent the cumulative error percentages by offer plan.
 
-## Deployment reliability by location
+### Deployment reliability by location
 
 This graph shows the heat map for successful and failed deployment counts for the selected month range. It also shows failure percentage against each region. The Green to Red color scale represents low to high value of failure rates. Select a record in the table to zoom in on a deployment region.
 
