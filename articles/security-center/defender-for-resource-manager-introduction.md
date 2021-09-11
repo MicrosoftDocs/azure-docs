@@ -69,7 +69,7 @@ To investigate security alerts from Azure Defender for Resource Manager:
 1. Look for suspicious activities.
 
 > [!TIP]
-> For a better, richer investigation experience, stream your Azure activity logs to Azure Sentinel as described in [Connect data from Azure Activity log](../sentinel/connect-azure-activity.md).
+> For a better, richer investigation experience, stream your Azure activity logs to Azure Sentinel as described in [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity).
 
 
 
