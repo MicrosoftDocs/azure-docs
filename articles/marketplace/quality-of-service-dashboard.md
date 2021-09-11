@@ -42,7 +42,7 @@ This feature is currently applicable to all partners performing deployment of Az
 
     [ ![Illustrates the Insights tile in Partner Center.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
-1. In the left menu, select **Insights**.
+1. In the left menu, select **Quality of Service**.
 
 #### [Current view](#tab/old-web-form)
 
