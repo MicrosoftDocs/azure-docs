@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 09/02/2021
+ms.date: 09/13/2021
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: it-pro
@@ -83,9 +83,9 @@ When you assign a role, you specify one of the following types of scope:
 
 If you specify an Azure AD resource as a scope, it can be one of the following:
 
-- Azure AD group
-- Enterprise application
-- Device
+- Azure AD groups
+- Enterprise applications
+- Application registrations
 
 ## License requirements
 
