@@ -36,7 +36,13 @@ This feature is currently applicable to all partners performing deployment of Az
 
 #### [Workspaces view](#tab/new-web-form)
 
-<!--- Content here -->
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home)
+
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile in Partner Center.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Insights**.
 
 #### [Current view](#tab/old-web-form)
 
@@ -46,13 +52,13 @@ This feature is currently applicable to all partners performing deployment of Az
 
 ---
 
-
+## Elements of the Quality of service dashboard
 
 The following sections describe how to use the Quality-of-Service (QoS) dashboard and how to read the data.
 
+## Month range
 
-
-**Month range**: There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
+There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
 
 ## Quality by offers
 
