@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # Resize a virtual machine using the Azure portal or PowerShell
 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how to move a VM to a different [VM size](../sizes.md).
 
 After you create a virtual machine (VM), you can scale the VM up or down by changing the VM size. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM.
@@ -37,7 +39,7 @@ $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 ```
 
-List the VM sizes that are available on the hardware cluster where the VM is hosted. 
+List the VM sizes that are available in the region where the VM is hosted. 
    
 ```powershell
 Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 

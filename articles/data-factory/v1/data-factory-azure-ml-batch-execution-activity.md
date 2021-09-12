@@ -1,6 +1,6 @@
 ---
 title: Create predictive data pipelines using Azure Data Factory 
-description: Describes how to create create predictive pipelines using Azure Data Factory and ML Studio (classic)
+description: Describes how to create create predictive pipelines using Azure Data Factory and Machine Learning Studio (classic)
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ---
 
-# Create predictive pipelines using ML Studio (classic) and Azure Data Factory
+# Create predictive pipelines using Machine Learning Studio (classic) and Azure Data Factory
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive Activity](data-factory-hive-activity.md)
@@ -27,7 +27,7 @@ ms.date: 01/22/2018
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [transform data using machine learning in Data Factory](../transform-data-using-machine-learning.md).
 
-### ML Studio (classic)
+### Machine Learning Studio (classic)
 [ML Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using ML Studio (classic). Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.

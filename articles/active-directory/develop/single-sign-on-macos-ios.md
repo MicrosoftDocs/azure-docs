@@ -16,7 +16,7 @@ ms.reviewer:
 ms.custom: aaddev
 ---
 
-# How to: Configure SSO on macOS and iOS
+# Configure SSO on macOS and iOS
 
 The Microsoft Authentication Library (MSAL) for macOS and iOS supports Single Sign-on (SSO) between macOS/iOS apps and browsers. This article covers the following SSO scenarios:
 

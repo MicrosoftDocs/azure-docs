@@ -24,7 +24,6 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Import an "OpenAPI specification" back-end API
 > * Test the API in the Azure portal
-> * Test the API in the Developer portal
 
 ## Prerequisites
 

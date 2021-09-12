@@ -21,6 +21,9 @@ When planning your Azure Sentinel workspace deployment, you must also design you
 
 For more information, see [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md) and [Sample workspace designs](sample-workspace-designs.md) for common scenarios, and [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
 
+See our video: [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI)
+
+
 ## Tenancy considerations
 
 While fewer workspaces are simpler to manage, you may have specific needs for multiple tenants and workspaces. For example, many organizations have a cloud environment that contains multiple [Azure Active Directory (Azure AD) tenants](../active-directory/develop/quickstart-create-new-tenant.md), resulting from mergers and acquisitions or due to identity separation requirements.
@@ -39,7 +42,7 @@ All connectors based on diagnostics settings, cannot be connected to a workspace
 Use [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) to help manage multiple Azure Sentinel instances in different tenants.
 
 > [!NOTE]
-> [Partner data connectors](partner-data-connectors.md) are typically based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
+> [Partner data connectors](data-connectors-reference.md) are often based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
 >
 
 

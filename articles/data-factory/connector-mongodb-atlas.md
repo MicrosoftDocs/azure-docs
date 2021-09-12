@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/01/2021
+ms.date: 08/30/2021
 ---
 
 # Copy data from or to MongoDB Atlas using Azure Data Factory
@@ -30,6 +30,32 @@ If you use Azure Integration Runtime for copy, make sure you add the effective r
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to MongoDB Atlas using UI
+
+Use the following steps to create a linked service to MongoDB Atlas in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+2. Search for MongoDB and select the MongoDB Atlas connector.
+
+    :::image type="content" source="media/connector-mongodb-atlas/mongodb-atlas-connector.png" alt-text="Select the MongoDB Atlas connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-mongodb-atlas/configure-mongodb-atlas-linked-service.png" alt-text="Configure a linked service to MongoDB Atlas.":::
+
+## Connector configuration details
+
+
 
 The following sections provide details about properties that are used to define Data Factory entities specific to MongoDB Atlas connector.
 

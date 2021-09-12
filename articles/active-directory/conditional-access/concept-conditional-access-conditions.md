@@ -31,7 +31,7 @@ For customers with access to [Identity Protection](../identity-protection/overvi
 
 ## User risk 
 
-For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), user risk can be evaluated as part of a Conditional Access policy. User risk represents the probability that a given identity or account is compromised. More information about user risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md#user-risk) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), user risk can be evaluated as part of a Conditional Access policy. User risk represents the probability that a given identity or account is compromised. More information about user risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## Device platforms
 

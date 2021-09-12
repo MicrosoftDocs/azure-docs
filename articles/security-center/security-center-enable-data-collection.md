@@ -115,7 +115,7 @@ To enable auto provisioning of the Log Analytics agent:
 
         :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="Toggle to enable auto provisioning for K8s policy add-on.":::
 
-    1. Select **Save**. The Azure policy is assigned and a remediation task is created.
+    1. Select **Save**. The Azure Policy definition is assigned and a remediation task is created.
 
         |Extension  |Policy  |
         |---------|---------|

@@ -16,6 +16,8 @@ ms.author: mathapli
 
 # How Azure Hybrid Benefit applies for Linux virtual machines
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud. With this benefit, you pay for only the infrastructure costs of your VM because your RHEL or SLES subscription covers the software fee. The benefit is available for all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
 
 Azure Hybrid Benefit for Linux VMs is now publicly available.
