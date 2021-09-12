@@ -76,7 +76,7 @@ There are no prerequisites of this tutorial.
 
 1. Select **Deploy Changes**.
 
-:::image type="content" source="media/tutorial-qradar/deploy.png" alt-text="Screenshot of Deploy Changes view":::
+   :::image type="content" source="media/tutorial-qradar/deploy.png" alt-text="Screenshot of Deploy Changes view":::
 
 ## Deploy Defender for IoT platform QID
 
