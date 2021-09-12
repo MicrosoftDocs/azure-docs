@@ -14,7 +14,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: System preequisites
+  - name: System prerequisites
     displayName: firewall, proxy, open ports
     href: quickstart-system-prerequisites.md
   - name: Get started with Azure Defender for IoT
