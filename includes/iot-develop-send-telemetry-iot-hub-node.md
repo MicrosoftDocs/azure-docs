@@ -53,7 +53,7 @@ In this section, you'll use the Node.js SDK to send messages from a simulated de
     cd azure-iot-sdk-node\device\samples\pnp
     ```
 
-    **Linux or Raspberry OS**
+    **Linux and Raspberry Pi OS**
     ```console
     cd azure-iot-sdk-node/device/samples/pnp
     ```
