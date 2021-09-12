@@ -16,7 +16,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 
 ## Approved direct CSPs
 
-|Partner Name|
+|Partner name|
 |----------------------------|
 |[10th Magnitude](https://www.10thmagnitude.com)|
 |[12:34 MicroTechnolgies Inc.](https://www.1234micro.com/)|
@@ -432,9 +432,9 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ZR Systems Group LLC](https://zrsystems.com)|
 
 
-## Approved indirect CSP Providers
+## Approved indirect CSPs
 
-|Partner Name|
+|Partner name|
 |----------------------------|
 |[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
 |[Crayon Software Experts LCC](https://www.crayon.com/en-US)|
@@ -449,7 +449,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 
 ## Approved LSPs
 
-|LSP Name|Email|Phone|
+|LSP name|Email|Phone|
 |----------------------------|---------------------------|-----------------------------------|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
@@ -458,9 +458,9 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |SHI, Inc.|msftgov@shi.com|888-764-8888|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
 
-## Approved AOS-G Partners
+## Approved AOS-G partners
 
-|Partner Name|
+|Partner name|
 |----------------------------|
 |[Accenture Federal Service](https://www.accenture.com/us-en/industries/afs-index)|
 |[Agile IT, Inc](https://www.agileit.com)|
