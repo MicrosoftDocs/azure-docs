@@ -623,15 +623,6 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | **Supported by** | [Cyberpion](https://www.cyberpion.com/) |
 | | |
 
-## Domain name server
-
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md#log-analytics-agent-based-connections)** |
-| **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
-| **Supported by** | Microsoft |
-| | |
-
 ## Dynamics 365
 
 | Connector attribute | Description |
@@ -1552,7 +1543,16 @@ Follow the instructions to obtain the credentials.
 | | |
 
 
-## Windows firewall
+## Windows DNS Server (Preview)
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md#log-analytics-agent-based-connections)** |
+| **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
+| **Supported by** | Microsoft |
+| | |
+
+## Windows Firewall
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1561,7 +1561,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | Microsoft |
 | | |
 
-## Windows security events
+## Windows Security Events
 
 | Connector attribute | Description |
 | --- | --- |
