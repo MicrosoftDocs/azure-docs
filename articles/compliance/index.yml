@@ -80,12 +80,15 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-cjis
           itemType: concept
           text: CJIS
+        - url: /azure/compliance/offerings/offering-cmmc
+          itemType: concept
+          text: CMMC
         - url: /azure/compliance/offerings/offering-cnssi-1253
           itemType: concept
           text: CNSSI 1253
         - url: /azure/compliance/offerings/offering-dfars
           itemType: concept
-          text: DFARS + CMMC
+          text: DFARS
         - url: /azure/compliance/offerings/offering-dod-il2
           itemType: concept
           text: DoD IL2
@@ -107,19 +110,25 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-fedramp
           itemType: concept
           text: FedRAMP
+        - url: /azure/compliance/offerings/offering-fips-140-2
+          itemType: concept
+          text: FIPS 140
 
     # Card
     - title: US government
       links:
-        - url: /azure/compliance/offerings/offering-fips-140-2
+        - url: /azure/compliance/offerings/offering-icd-503
           itemType: concept
-          text: FIPS 140
+          text: ICD 503
         - url: /azure/compliance/offerings/offering-irs-1075
           itemType: concept
           text: IRS 1075
         - url: /azure/compliance/offerings/offering-itar
           itemType: concept
           text: ITAR
+        - url: /azure/compliance/offerings/offering-jsig
+          itemType: concept
+          text: JSIG
         - url: /azure/compliance/offerings/offering-ndaa-section-889
           itemType: concept
           text: NDAA Section 889
