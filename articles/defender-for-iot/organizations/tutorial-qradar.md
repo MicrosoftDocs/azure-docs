@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Configure Syslog listener for QRadar
 > * Deploy Defender for IoT platform QID
-> * Set Up QRadar forwarding rules
+> * Setup QRadar forwarding rules
 > * Map notifications to QRadar in the Management Console
 > * Add custom fields to alerts
 
