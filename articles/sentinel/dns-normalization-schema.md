@@ -67,7 +67,7 @@ To use the source-agnostic parsers that unify all of the built-in parsers, and e
 
 The parsers can be deployed from the [Azure Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
 
-### Built-in source specific parsers
+### Built-in source-specific parsers
 
 Azure Sentinel provides the following built-in, product-specific DNS parsers:
 
@@ -214,7 +214,7 @@ The fields below are specific to DNS events. That said, many of them do have sim
 
 ### Deprecated aliases
 
-The following fields are aliases that are currently deprecated but are maintained for backwards compatibility. They will be removed from the schema on December 31st 2021.
+The following fields are aliases that, although currently deprecated, are maintained for backwards compatibility. They will be removed from the schema on December 31st, 2021.
 
 - Query (alias to DnsQuery)
 - QueryType (alias to DnsQueryType)
@@ -229,7 +229,7 @@ The following fields are aliases that are currently deprecated but are maintaine
 ### Added fields
 
 The following fields have been added to version 0.1.2 of the schema:
-- EventSchema - which is currently optional, but will become mandatory on January 1st 2022
+- EventSchema - currently optional, but will become mandatory on January 1st, 2022.
 - Dedicated flag field augmenting the combined **[Flags](#flags)** field: `DnsFlagsAuthoritative`, `DnsFlagsCheckingDisabled`, `DnsFlagsRecursionAvailable`, `DnsFlagsRecursionDesired`, `DnsFlagsTruncates`, and `DnsFlagsZ`.
 
 ### Additional entities
