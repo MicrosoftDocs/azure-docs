@@ -14,7 +14,6 @@ Learn what's new in the service. These items include release notes, videos, blog
 ## Release notes
 
 ### August 2021
-<!-- * [LUIS RBAC](LUIS-RBAC.md)  -->
 * Norway East [publishing region](luis-reference-regions.md#publishing-to-europe).
 * West US 3 [publishing region](luis-reference-regions.md#other-publishing-regions).
 
