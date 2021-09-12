@@ -290,7 +290,7 @@ Optionally, you can use just the base URL of the storage account, without contai
 ??????????????????????????????
 
 ### [Managed Identity](#tab/managed-identity)
-
+ 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using workspace-managed identity.
 
 ```sql
@@ -351,7 +351,8 @@ The following script creates a database-scoped credential that can be used to ac
 -- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
 
 CREATE DATABASE SCOPED CREDENTIAL [<CredentialName>] WITH
-IDENTITY = '<AppID>@<AuthorityUrl>' , SECRET = '<Secret>'
+IDENTITY = '<AppID>@<AuthorityUrl>' 
+, SECRET = '<Secret>'
 GO
 CREATE EXTERNAL DATA SOURCE MyDataSource
 WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
@@ -444,7 +445,11 @@ WITH IDENTITY = 'Managed Identity'
 GO
 CREATE DATABASE SCOPED CREDENTIAL SasCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
-
+GO
+CREATE DATABASE SCOPED CREDENTIAL SPNCredential WITH
+IDENTITY = '**44e*****8f6-ag44-1890-34u4-22r23r771098@https://login.microsoftonline.com/**do99dd-87f3-33da-33gf-3d3rh133ee33/oauth2/token' 
+, SECRET = '.7OaaU_454azar9WWzLL.Ea9ePPZWzQee~'
+GO
 -- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
 
 CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
@@ -455,6 +460,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 
+--,CREDENTIAL = SPNCredential
 )
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
