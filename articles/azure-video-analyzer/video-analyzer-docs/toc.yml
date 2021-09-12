@@ -16,9 +16,9 @@
       items:
       - name: Get started 
         items:
-        - name: Using ARM template
+        - name: Use ARM template
           href: edge/get-started-detect-motion-emit-events.md
-        - name: Using portal
+        - name: Use portal
           href: edge/get-started-detect-motion-emit-events-portal.md
       - name: Detect motion and emit events    
         href: edge/detect-motion-emit-events-quickstart.md
@@ -30,10 +30,10 @@
           href: edge/detect-motion-record-video-clips-cloud.md
       - name: Analyze live video
         items:
-        - name: using gRPC
+        - name: Use gRPC
           displayName: analyze live video
           href: edge/analyze-live-video-use-your-model-grpc.md
-        - name: using HTTP
+        - name: Use HTTP
           displayName: analyze live video
           href: edge/analyze-live-video-use-your-model-http.md
       - name: Track objects in live videos
