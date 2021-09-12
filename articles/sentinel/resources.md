@@ -37,6 +37,24 @@ Create automation in Azure Sentinel using Azure Logic Apps, with a growing galle
 
 For more information, see [Azure Logic Apps connectors](/connectors/).
 
+## Compare playbooks, workbooks, and notebooks
+
+The following table describes the differences between playbooks, workbooks, and notebooks in Azure Sentinel:
+
+|  |Playbooks  |Workbooks  |Notebooks  |
+|---------|---------|---------|---------|
+|**Personas**     |   - SOC engineers <br>- Analysts of all tiers      | -SOC engineers <br>-  Analysts of all tiers       |  - Threat hunters and Tier-2/Tier-3 analysts<br>- Incident investigators <br>- Data scientists <br>- Security researchers       |
+|**Uses**     | Automation of simple, repeatable tasks, such as: <br>- Ingesting external data <br>- Data enrichment with TI, GeoIP lookups, and more <br>- Investigation <br>- Remediation        | Visualization        |   <br>- Querying Azure Sentinel data and external data <br> - Data enrichment with TI, GeoIP lookups, and WhoIs lookups, and more <br>- Investigation <br>- Visualization <br>- Hunting <br>- Machine learning and big data analytics       |
+|**Advantages**     | Best for single, repeatable tasks <br>No coding knowledge required        | Best for a high-level view of Azure Sentinel data <br>No coding knowledge required       | Best for complex chains of repeatable tasks <br>- Ad-hoc, more procedural control <br>- Easier to pivot with interactive functionality <br>- Rich Python libraries for data manipulation and visualization <br>- Machine learning and custom analysis <br> Easy to document and share analysis evidence        |
+|**Challenges**     | Not suitable for ad-hoc and complex chains of tasks <br>Not ideal for documenting and sharing evidence        |   Cannot integrate with external data      |     High learning curve - requires coding knowledge    |
+|     |         |         |         |
+
+For more information, see:
+
+- [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md)
+- [Visualize collected data](get-visibility.md)
+- [Use Jupyter notebooks to hunt for security threats](notebooks.md)
+
 ## Comment on our blogs and forums
 
 We love hearing from our users.
