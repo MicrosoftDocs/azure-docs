@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/30/2021
+ms.date: 09/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -127,8 +127,8 @@ token_result = client.get_token( identity, ["voip"])
 In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revoke_tokens` invalidates all active access tokens, that were issued to the identity.
 
 ```python
-client.revoke_tokens(identity)
-print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.properties['id'])
+client.revoke_tokens(identity_token_result[0])
+print("\nSuccessfully revoked all access tokens for identity with ID: " + identity)
 ```
 
 ## Delete an identity
@@ -136,8 +136,8 @@ print("\nSuccessfully revoked all access tokens for identity with ID: " + identi
 Deleting an identity revokes all active access tokens and prevents you from issuing access tokens for the identity. It also removes all the persisted content associated with the identity.
 
 ```python
-client.delete_user(identity)
-print("\nDeleted the identity with ID: " + identity.properties['id'])
+client.delete_user(identity_token_result[0])
+print("\nDeleted the identity with ID: " + identity)
 ```
 
 ## Run the code
