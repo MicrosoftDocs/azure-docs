@@ -113,7 +113,7 @@ az deployment group create --resource-group myResourceGroup \
 ::: zone pivot="platform-linux"
 Run the code below to create a Python app on Linux. 
 
-Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
+Replace \<app-name\> with a globally unique app name. Valid characters characters are `a-z`, `0-9`, and `-`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -148,7 +148,7 @@ To deploy a different language stack, update <abbr title="This template is compa
 ::: zone pivot="platform-linux"
 <details>
 <summary>How do I deploy a different language stack?</summary>
-To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
+To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name \<app-name\> --query linuxFxVersion`
 
 | Language    | Example                                              |
 |-------------|------------------------------------------------------|

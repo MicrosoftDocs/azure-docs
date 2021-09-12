@@ -9,9 +9,9 @@ ms.date: 04/27/2020
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
-You can use Live Video Analytics on IoT Edge for [continuous video recording](continuous-video-recording-concept.md), whereby you can record video into the cloud for weeks or months. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) built into Azure storage.  
+You can use Live Video Analytics on IoT Edge for [continuous video recording](continuous-video-recording-concept.md), whereby you can record video into the cloud for weeks or months. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) built into Azure storage.  
 
-Your Media Service account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a Media Service [asset](../latest/assets-concept.md). Each asset is mapped to a container in the storage account. Lifecycle management allows you to define a [policy](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) for a Storage account, wherein you can specify a [rule](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) such as the following.
+Your Media Service account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a Media Service [asset](../latest/assets-concept.md). Each asset is mapped to a container in the storage account. Lifecycle management allows you to define a [policy](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) for a Storage account, wherein you can specify a [rule](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#lifecycle-management-rule-definition) such as the following.
 
 ```
 {
@@ -49,7 +49,7 @@ When you use Live Video Analytics to record to an asset, you specify a `segmentL
 Following are some known limitations with lifecycle management:
 
 * You can have at most 100 rules within the policy, and each rule can specify up to 10 containers. So if you needed to have different recording policies (for example, 3-day archive for the camera facing the parking lot, 30 days for the camera in the loading dock, and 180 days for the camera behind the checkout counter), then with one Media Service account you can customize the rules for at most 1000 cameras.
-* Lifecycle management policy updates are not immediate. See [this FAQ section](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#faq) for more details.
+* Lifecycle management policy updates are not immediate. See [this FAQ section](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#faq) for more details.
 * If you choose to apply a policy where blobs get moved to the cool tier, then playback of that portion of the archive may be affected. You may see additional latencies, or sporadic errors. Media Services does not support playback of content in the archive tier.
 
 ## Next steps
