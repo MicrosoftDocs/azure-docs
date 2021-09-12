@@ -23,7 +23,7 @@ The two tabs below show the features of Azure Security Center that are available
 |[Microsoft Defender for Endpoint integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
 |[Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)|✔|✔|✔|Yes|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Yes|
-|[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
+|[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Ye
 |[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Yes|
 |[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Yes|
 |[File integrity monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
