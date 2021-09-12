@@ -173,7 +173,7 @@ Event fields are common to all schemas, and describe the activity itself and the
 | <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   | The hostname of the device on which the process event occurred. <br><br>Example: `ContosoDc.Contoso.Azure`                |
 | <a name ="dvcid"></a>**DvcId**               | Optional    | String     | The unique ID of the device on which the process event occurred. <br><br>Example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
 | <a name=additionalfields></a>**AdditionalFields** | Optional | Dynamic | If your source provides other information worth preserving, either keep it with the original field names or create the **AdditionalFields** dynamic field, and add to the extra information as key/value pairs. |
-| | | | | |
+| | | | |
 
 ### DNS-specific fields
 
@@ -210,7 +210,7 @@ The fields below are specific to DNS events. That said, many of them do have sim
 | **DnsFlagsRecursionDesired** | Optional | Boolean | The DNS `RD` flag indicates in a request that that client would like the server to use recursive queries.   |
 | **DnsFlagsTruncates** | Optional | Boolean | The DNS `TC` flag indicates that a response was truncates as it exceeded the maximum response size.  |
 | **DnsFlagsZ** | Optional | Boolean | The DNS `Z` flag is a deprecated DNS flag, which might be reported by older DNS systems.  |
-| | | | | |
+| | | | |
 
 ### Deprecated aliases
 
