@@ -48,10 +48,10 @@ The DDM recommendations engine, flags certain fields from your database as poten
 
 ## Manage dynamic data masking using T-SQL
 
-- To create a dynamic data mask, see [Creating a Dynamic Data Mask](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking#creating-a-dynamic-data-mask).
-- To add or edit a mask on an existing column, see [Adding or Editing a Mask on an Existing Column](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?#adding-or-editing-a-mask-on-an-existing-column).
-- To grant permissions to view unmasked data, see [Granting Permissions to View Unmasked Data](https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver15#granting-permissions-to-view-unmasked-data).
-- To drop a dynamic data mask, see [Dropping a Dynamic Data Mask](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking#dropping-a-dynamic-data-mask).
+- To create a dynamic data mask, see [Creating a Dynamic Data Mask](/sql/relational-databases/security/dynamic-data-masking#creating-a-dynamic-data-mask).
+- To add or edit a mask on an existing column, see [Adding or Editing a Mask on an Existing Column](/sql/relational-databases/security/dynamic-data-masking#adding-or-editing-a-mask-on-an-existing-column).
+- To grant permissions to view unmasked data, see [Granting Permissions to View Unmasked Data](/sql/relational-databases/security/dynamic-data-masking#granting-permissions-to-view-unmasked-data).
+- To drop a dynamic data mask, see [Dropping a Dynamic Data Mask](/sql/relational-databases/security/dynamic-data-masking#dropping-a-dynamic-data-mask).
 
 ## Set up dynamic data masking for your database using PowerShell cmdlets
 
@@ -97,12 +97,7 @@ Read:
 Write:
 -	Microsoft.Sql/servers/databases/dataMaskingPolicies/write
 
-These are the required permissions when using dynamic data masking with T-SQL command:
-
--	You do not need any special permission to create a table with a dynamic data mask, only the standard CREATE TABLE and ALTER on schema permissions.
--	Adding, replacing, or removing the mask of a column, requires the ALTER ANY MASK permission and ALTER permission on the table. It is appropriate to grant ALTER ANY MASK to a security officer.
--	Users with SELECT permission on a table can view the table data. Columns that are defined as masked, will display the masked data. Grant the UNMASK permission to a user to enable them to retrieve unmasked data from the columns for which masking is defined.
-- The CONTROL permission on the database includes both the ALTER ANY MASK and UNMASK permission.
+To learn more about permissions when using dynamic data masking with T-SQL command, see [Permissions](/sql/relational-databases/security/dynamic-data-masking#permissions)
 
 ## See also
 
