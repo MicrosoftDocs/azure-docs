@@ -19,7 +19,7 @@
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
-  - name: Configure notebooks with MSTICPy
+  - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Azure Sentinel
     href: powerbi.md
@@ -202,6 +202,8 @@
     items:
     - name: Hunt with Jupyter notebooks
       href: notebooks.md
+    - name: Advanced MSTICPy settings for Jupyter notebooks
+      href: notebooks-msticpy-advanced.md
     - name: Hunt with bookmarks
       href: bookmarks.md
     - name: Hunt with livestream
