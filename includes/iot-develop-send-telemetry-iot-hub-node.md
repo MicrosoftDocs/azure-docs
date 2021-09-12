@@ -35,7 +35,7 @@ Install the following prerequisites on your development machine except where not
 ## Run a simulated device
 In this section, you'll use the Node.js SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
-1. Open a new console using Windows CMD, PowerShell, or Bash. You'll use this console in the following steps to install the Python SDK and work with Python sample code.
+1. Open a new console using Windows CMD, PowerShell, or Bash. In the following steps, you'll use this console to install the Node.js SDK and work with Node.js sample code.
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.

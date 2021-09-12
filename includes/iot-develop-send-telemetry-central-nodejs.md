@@ -25,8 +25,6 @@ Install the following prerequisites on your development machine:
 - [Node.js](https://nodejs.org/) version 6 or later. To check your version, run `node --version` in your console app.
 - [Git](https://git-scm.com/downloads).
 
-The shell commands in this quickstart use the standard Linux path separator `/`. If you use Windows, replace these separators with the Windows path separator `\`.
-
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
 ## Run a simulated device
@@ -80,9 +78,17 @@ In this section, you configure your local environment, install the Azure IoT Nod
     ```
 
 1. Navigate to the samples directory.
+
+    **Windows**
+    ```console
+    cd azure-iot-sdk-node\device\samples\pnp
+    ```
+
+    **Linux and Raspberry Pi OS**
     ```console
     cd azure-iot-sdk-node/device/samples/pnp
     ```
+
 1. Install the Azure IoT Node.js SDK and necessary dependencies:
     ```console
     npm install
