@@ -83,8 +83,8 @@ Supported components include, in the following order:
 
 1. **TILookup:** The [TI provider library](notebook-get-started.md#add-threat-intelligence-provider-settings)
 1. **GeoIP:** The [GeoIP provider](notebook-get-started.md#add-geoip-provider-settings) you want to use
-1. **AzureData:** The module you use to query details about [Azure resources](notebook-get-started.md#define-azure-authentication-and-azure-sentinel-apis)
-1. **AzureSentinelAPI:** The module you use to query the [Azure Sentinel API](notebook-get-started.md#define-azure-authentication-and-azure-sentinel-apis)
+1. **AzureData:** The module you use to query details about [Azure resources](#specify-authentication-parameters-for-azure-and-azure-sentinel-apis)
+1. **AzureSentinelAPI:** The module you use to query the [Azure Sentinel API](#specify-authentication-parameters-for-azure-and-azure-sentinel-apis)
 1. **Notebooklets:** Notebooklets from the [msticnb package](https://msticnb.readthedocs.io/en/latest/)
 1. **Pivot:** Pivot functions
 
@@ -110,7 +110,7 @@ Supported components include, in the following order:
       - **auth_methods:** Override the default settings for AzureCLI, and connect using the selected methods.
       - **Auto-connect:** Set to false to load without connecting.
 
-      For more information, see [Define Azure authentication and Azure Sentinel APIs](notebook-get-started.md#define-azure-authentication-and-azure-sentinel-apis-optional).
+      For more information, see [Specify authentication parameters for Azure and Azure Sentinel APIs](#specify-authentication-parameters-for-azure-and-azure-sentinel-apis).
 
    - **Notebooklets**. The **Notebooklets** component has a single parameter block: **AzureSentinel**.
 
