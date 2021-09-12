@@ -32,7 +32,7 @@ This procedure describes how to configure authentication parameters for Azure Se
 
 1. Select the authentication methods to use:
 
-    - While you can use a different set of methods from the [Azure defaults](#specify-the-azure-cloud-and-default-azure-authentication-methods), this isn't a typical configuration.
+    - While you can use a different set of methods from the [Azure defaults](notebook-get-started.md#specify-the-azure-cloud-and-default-azure-authentication-methods), this isn't a typical configuration.
     - Unless you want to use the **env** (environment variable) authentication, leave the **clientId**, **tenantiId**, and **clientSecret** fields empty.
     - While not recommended, MSTICPy also supports using client app IDs and secrets for your authentication. In such cases, define your **clientId**, **tenantId**, and **clientSecret** fields directly in the **Data Providers** tab.
 
@@ -81,10 +81,10 @@ This procedure describes how to define other components that are automatically l
 
 Supported components include, in the following order:
 
-1. **TILookup:** The [TI provider library](#add-threat-intelligence-provider-settings)
-1. **GeoIP:** The [GeoIP provider](#add-geoip-provider-settings) you want to use
-1. **AzureData:** The module you use to query details about [Azure resources](#define-azure-authentication-and-azure-sentinel-apis-optional)
-1. **AzureSentinelAPI:** The module you use to query the [Azure Sentinel API](#define-azure-authentication-and-azure-sentinel-apis-optional)
+1. **TILookup:** The [TI provider library](notebook-get-started.md#add-threat-intelligence-provider-settings)
+1. **GeoIP:** The [GeoIP provider](notebook-get-started.md#add-geoip-provider-settings) you want to use
+1. **AzureData:** The module you use to query details about [Azure resources](notebook-get-started.md#define-azure-authentication-and-azure-sentinel-apis)
+1. **AzureSentinelAPI:** The module you use to query the [Azure Sentinel API](notebook-get-started.md#define-azure-authentication-and-azure-sentinel-apis)
 1. **Notebooklets:** Notebooklets from the [msticnb package](https://msticnb.readthedocs.io/en/latest/)
 1. **Pivot:** Pivot functions
 
@@ -103,14 +103,14 @@ Supported components include, in the following order:
 
 1. In the **Autoload Components** tab, define any parameter values as needed. For example:
 
-   - **GeoIpLookup**.  Enter the name of the GeoIP provider you want to use, either *GeoLiteLookup* or *IPStack*.  For more information, see [Add GeoIP provider settings](#add-geoip-provider-settings).
+   - **GeoIpLookup**.  Enter the name of the GeoIP provider you want to use, either *GeoLiteLookup* or *IPStack*.  For more information, see [Add GeoIP provider settings](notebook-get-started.md#add-geoip-provider-settings).
 
    - **AzureData and AzureSentinelAPI components**.  Define the following values:
 
       - **auth_methods:** Override the default settings for AzureCLI, and connect using the selected methods.
       - **Auto-connect:** Set to false to load without connecting.
 
-      For more information, see [Define Azure authentication and Azure Sentinel APIs](#define-azure-authentication-and-azure-sentinel-apis-optional).
+      For more information, see [Define Azure authentication and Azure Sentinel APIs](notebook-get-started.md#define-azure-authentication-and-azure-sentinel-apis-optional).
 
    - **Notebooklets**. The **Notebooklets** component has a single parameter block: **AzureSentinel**.
 

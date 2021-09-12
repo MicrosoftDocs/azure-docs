@@ -154,7 +154,7 @@ The following sections describe how to add additional configuration details to t
 
 ### Add threat intelligence provider settings
 
-This procedure describes how to store your [VirusTotal API key](#prerequisites) in the **msticpyconfig.yaml** file. You can opt to upload the API key to Azure Key Vault, but you must configure the Key Vault settings first. For more information, see [Key Vault configuration](#key-vault-configuration).
+This procedure describes how to store your [VirusTotal API key](#prerequisites) in the **msticpyconfig.yaml** file. You can opt to upload the API key to Azure Key Vault, but you must configure the Key Vault settings first. For more information, see [Configure Key Vault settings](#configure-key-vault-settings).
 
 **To add VirusTotal details in the MSTICPy settings editor**:
 
@@ -219,7 +219,7 @@ If you need to make any changes because of the validation, save your changes by 
 
 ## Load saved MSTICPy settings
 
-In the [Configure the notebook](#configure-the-notebook) procedure, you saved your settings to your local **msticpyconfig.yaml** file.
+In the [Create your configuration file](#create-your-configuration-file) procedure, you saved your settings to your local **msticpyconfig.yaml** file.
 
 However, MSTICPy doesn't automatically reload these settings until you restart the kernel or run another notebook. To force MSTICPy to reload from the new configuration file, enter the following code in the next code cell and run it:
 
