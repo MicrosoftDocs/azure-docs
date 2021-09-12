@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 08/30/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is risk?
 
-Risk detections in Azure AD Identity Protection include any identified suspicious actions related to user accounts in the directory.
+Risk detections in Azure AD Identity Protection include any identified suspicious actions related to user accounts in the directory. Risk detections (both user and sign-in linked) contribute to the overall user risk score that is found in the Risky Users report.
 
 Identity Protection provides organizations access to powerful resources to see and respond quickly to these suspicious actions. 
 
@@ -28,13 +28,13 @@ Identity Protection provides organizations access to powerful resources to see a
 
 ## Risk types and detection
 
-There are two types of risk **User** and **Sign-in** and two types of detection or calculation **Real-time** and **Offline**.
+Risk can be detected at the **User** and **Sign-in** level and two types of detection or calculation **Real-time** and **Offline**.
 
 Real-time detections may not show up in reporting for five to ten minutes. Offline detections may not show up in reporting for two to twenty-four hours.
 
-### User risk
+### User-linked detections
 
-A user risk represents the probability that a given identity or account is compromised. 
+Risky activity can be detected for a user that is not linked to a specific malicious sign-in but to the user itself. These risk detections are calculated offline using Microsoft's internal and external threat intelligence sources including security researchers, law enforcement professionals, security teams at Microsoft, and other trusted sources.
 
 These risks are calculated offline using Microsoft's internal and external threat intelligence sources including security researchers, law enforcement professionals, security teams at Microsoft, and other trusted sources.
 

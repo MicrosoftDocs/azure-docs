@@ -97,19 +97,18 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Feature  | Supported by Flexible orchestration (Preview)  | Supported by Uniform orchestration (General Availability)  | Supported by AvSets (General Availability)  |
 |-|-|-|-|
 | Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Scale Set specific VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  |
-| Maximum Instance Count  | 1000  | 3000 (1000 per Availability Zone)  | 200  |
 | SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD  | All SKUs  | All SKUs  |
 | Availability Zones  | Optionally specify all instances land in a single availability zone  | Specify instances land across 1, 2 or 3 availability zones  | Not supported  |
 | Fault Domain – Max Spreading (Azure will maximally spread instances)  | Yes  | Yes  | No  |
 | Fault Domain – Fixed Spreading  | 2-3 FDs (depending on regional maximum); 1 for zonal deployments  | 2, 3, 5 FDs; 1, 5 for zonal deployments  | 2-3 FDs (depending on regional maximum)  |
-| Update Domains  | None, platform maintenance performed FD by FD | 5 update domains  | Up to 20 update domains  |
+| Update Domains  | Deprecated, platform maintenance performed FD by FD | 5 update domains  | Up to 20 update domains  |
 | Availability SLA  | Not at this time  | 99.95% for FD>1 in Single Placement Group; 99.99% for instances spread across multiple zones  | 99.95%  |
 | Full control over VM, NICs, Disks  | Yes  | Limited control with virtual machine scale sets VM API  | Yes  |
 | Automatic Scaling (manual, metrics based, schedule based)  | Yes  | Yes  | No  |
 | Assign VM to a Specific Fault Domain  | Yes  | No  | No  |
 | Auto-Remove NICs and Disks when deleting VM instances  | Yes  | Yes  | No  |
 | Upgrade Policy (VM scale sets)  | No, upgrade policy must be null or [] during create  | Automatic, Rolling, Manual  | N/A  |
-| Automatic OS Updates (VM scale sets)  | No  | Yes  | N/A  |
+| Automatic image based OS Updates  | No  | Yes  | N/A  |
 | In Guest Security Patching  | Yes  | No  | Yes  |
 | Terminate Notifications (VM scale sets)  | Yes  | Yes  | N/A  |
 | Instance Repair (VM scale sets)  | Yes  | Yes  | N/A  |
@@ -131,9 +130,8 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | VM Insights  | No  | Yes  | Yes  |
 | Azure Backup  | Yes  | No  | Yes  |
 | Azure Site Recovery  | Yes (via Powershell)  | No  | Yes  |
-| Add/remove existing VM to the group  | No  | No  | No  |
 | Service Fabric  | No  | Yes  | No  |
-| Azure Kubernetes Service (AKS) / AKE / k8s node pool  | No  | Yes  | No  |
+| Azure Kubernetes Service (AKS) / AKE  | No  | Yes  | No  |
 
 
 ## Get started with Flexible orchestration mode
@@ -143,19 +141,24 @@ Register and get started with [Flexible orchestration mode](..\virtual-machines\
 
 ## Frequently asked questions
 
-**How much scale does Flexible orchestration support?**
+- **How much scale does Flexible orchestration support?**
 
-You can add up to 1000 VMs to a scale set in Flexible orchestration mode.
+    You can add up to 1000 VMs to a scale set in Flexible orchestration mode.
 
-**How does availability with Flexible orchestration compare to Availability Sets or Uniform orchestration?**
+- **How does availability with Flexible orchestration compare to Availability Sets or Uniform orchestration?**
 
-| Availability attribute  | Flexible orchestration  | Uniform orchestration  | Availability Sets  |
-|-|-|-|-|
-| Deploy across availability zones  | No  | Yes  | No  |
-| Fault domain availability guarantees within a region  | Yes, up to 1000 instances can be spread across up to 3 fault domains in the region. Maximum fault domain count varies by region  | Yes, up to 100 instances  | Yes, up to 200 instances  |
-| Placement groups  | Flexible mode always uses multiple placement groups (singlePlacementGroup = false)  | You can choose Single Placement Group or Multiple Placement Groups | N/A  |
-| Update domains  | None, maintenance or host updates are done fault domain by fault domain  | Up to 5 update domains  | Up to 20 update domains  |
+    | Availability attribute  | Flexible orchestration  | Uniform orchestration  | Availability Sets  |
+    |-|-|-|-|
+    | Deploy across availability zones  | No  | Yes  | No  |
+    | Fault domain availability guarantees within a region  | Yes, up to 1000 instances can be spread across up to 3 fault domains in the region. Maximum fault domain count varies by region  | Yes, up to 100 instances  | Yes, up to 200 instances  |
+    | Placement groups  | Flexible mode always uses multiple placement groups (singlePlacementGroup = false)  | You can choose Single Placement Group or Multiple Placement Groups | N/A  |
+    | Update domains  | None, maintenance or host updates are done fault domain by fault domain  | Up to 5 update domains  | Up to 20 update domains  |
 
+- **What is the absolute max instance count with guaranteed fault domain availability?**
+
+    | Feature  | Supported by Flexible orchestration (Preview)  | Supported by Uniform orchestration (General Availability)  | Supported by AvSets (General Availability)  |
+    |-|-|-|-|
+    | Maximum Instance Count (with FD availability guarantee)  | 1000  | 3000  | 200  |
 
 ## Troubleshoot scale sets with Flexible orchestration
 Find the right solution to your troubleshooting scenario.

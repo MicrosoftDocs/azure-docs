@@ -301,6 +301,7 @@ CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table
         LOCATION = 'folder_or_filepath',  
         DATA_SOURCE = external_data_source_name,  
         FILE_FORMAT = external_file_format_name
+        [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
     )  
 [;]  
 
@@ -324,6 +325,8 @@ CREATE EXTERNAL TABLE supports the ability to configure column name, data type, 
 
 When reading from Parquet files, you can specify only the columns you want to read and skip the rest.
 
+#### LOCATION
+
 LOCATION = '*folder_or_filepath*'
 
 Specifies the folder or the file path and file name for the actual data in Azure Blob Storage. The location starts from the root folder. The root folder is the data location specified in the external data source.
@@ -334,9 +337,15 @@ Unlike Hadoop external tables, native external tables don't return subfolders un
  
 Both Hadoop and native external tables will skip the files with the names that begin with an underline (_) or a period (.).
 
+#### DATA_SOURCE
+
 DATA_SOURCE = *external_data_source_name* - Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
 FILE_FORMAT = *external_file_format_name* - Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+
+#### TABLE_OPTIONS
+
+TABLE_OPTIONS = *json options* - Specifies the set of options that describe how to read the underlying files. Currently, the only option that is available is `"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]` that instructs the external table to ignore the updates that are made on the underlying files, even if this might cause some inconsistent read operations. Use this option only in special cases where you have frequently appended files. This option is available in serverless SQL pool for CSV format.
 
 ### Permissions CREATE EXTERNAL TABLE
 

@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/15/2021
+ms.date: 08/27/2021
 ms.author: rolyon
 ---
 
@@ -60,13 +60,13 @@ Azure has thousands of permissions that you can potentially include in your cust
 
     When you create a custom role using the Azure portal, you can also determine the resource providers by searching for keywords. This search functionality is described in [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md#step-4-permissions).
 
-    ![Add permissions pane with resource provider](./media/custom-roles-portal/add-permissions-provider.png)
+    ![Add permissions pane with resource provider](./media/shared/add-permissions-provider.png)
 
 - Search the [available permissions](resource-provider-operations.md) to find permissions you want to include.
 
     When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. You can also download all of the permissions as a CSV file and then search this file. This search functionality is described in [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md#step-4-permissions).
 
-    ![Add permissions list](./media/custom-roles-portal/add-permissions-list.png)
+    ![Add permissions list](./media/shared/add-permissions-list.png)
 
 ## Custom role example
 
@@ -142,10 +142,6 @@ The following shows the same custom role as displayed using Azure CLI.
 ]
 ```
 
-When you create a custom role, it appears in the Azure portal with an orange resource icon.
-
-![Custom role icon](./media/custom-roles/roles-custom-role-icon.png)
-
 ## Custom role properties
 
 The following table describes what the custom role properties mean.
@@ -205,7 +201,7 @@ The following list describes the limits for custom roles.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.
 
-For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
+For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
 ## Input and output formats
 

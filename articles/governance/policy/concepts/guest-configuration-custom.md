@@ -89,14 +89,22 @@ the state of the machine.
 1. Last, the provider runs `Get` to return the current state of each setting so
    details are available both about why a machine isn't compliant and to confirm
    that the current state is compliant.
-   
+
 ## Trigger Set from outside machine
 
 A challenge in previous versions of DSC has been correcting drift at scale
 without a lot of custom code and reliance on WinRM remote connections. Guest
 configuration solves this problem. Users of guest configuration have control
 over drift correction through
-[Remediation On Demand](/guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
+[Remediation On Demand](./guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
+
+## Maximum size of custom configuration package
+
+In Azure Automation state configuration, DSC configurations were
+[limited in size](../../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
+Guest configuration supports a total package size of 100MB (before
+compression). There is no specific limit on the size of the MOF file within
+the package.
 
 ## Special requirements for Get
 
@@ -134,7 +142,7 @@ returned as a string value for the **Phrase** property.
 $reasons = @()
 $reasons += @{
   Code = 'Name:Name:ReasonIdentifer'
-  Phrase = 'Explain why the setting isn't compliant'
+  Phrase = 'Explain why the setting is not compliant'
 }
 return @{
     reasons = $reasons
@@ -192,7 +200,7 @@ class Example {
   [Example] Get() {
     # return current current state
   }
-  
+
   [void] Set() {
     # set the state
   }

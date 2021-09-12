@@ -17,7 +17,7 @@ Configure your client connections to retry commands with exponential backoff. Fo
 
 ## Test resiliency
 
-Test your system's resiliency to connection breaks using a [Reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance testing](cache-best-practices-performance.md).
+Test your system's resiliency to connection breaks using a [reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance testing](cache-best-practices-performance.md).
 
 ## Configure appropriate timeouts
 
@@ -40,7 +40,7 @@ Avoid creating many connections at the same time when reconnecting after a conne
 If you're reconnecting many client instances, consider staggering the new connections to avoid a steep spike in the number of connected clients.
 
 > [!NOTE]
-> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](/azure/azure-cache-for-redis/cache-planning-faq#stackexchangeredis-best-practices).
+> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](/azure/azure-cache-for-redis/cache-management-faq#stackexchangeredis-best-practices).
 
 ## Avoid leftover connections
 
@@ -48,7 +48,7 @@ Caches have limits on the number of client connections per cache tier. Ensure th
 
 ## Advance maintenance notification
 
-Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance?](cache-failover.md#can-i-be-notified-in-advance-of-a-planned-maintenance).
+Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance](cache-failover.md#can-i-be-notified-in-advance-of-planned-maintenance).
 
 ## Schedule maintenance window
 
@@ -56,7 +56,7 @@ Adjust your cache settings to accommodate maintenance. For more information abou
 
 ## More design patterns for resilience
 
-Apply design patterns for resiliency. For more information, see [How do I make my application resilient?](cache-failover.md#how-do-i-make-my-application-resilient).
+Apply design patterns for resiliency. For more information, see [How do I make my application resilient](cache-failover.md#how-do-i-make-my-application-resilient).
 
 ## Idle timeout
 
