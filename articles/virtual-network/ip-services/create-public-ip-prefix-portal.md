@@ -21,19 +21,21 @@ When you create a public IP address resource, you can assign a static public IP 
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
+
 ## Create a public IP address prefix
 
-In this section, you'll create the public IP prefix in the Azure portal.
+In this section, you'll create a public IP prefix using the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the search box at the top of the portal, enter **Public IP**.
 
-2. In the search box at the top of the portal, enter **Public IP**.
+2. In the search results, select **Public IP Prefixes**.
 
-3. In the search results, select **Public IP Prefixes**.
+3. Select **+ Create**.
 
-4. Select **+ Create**.
-
-5. In **Create public IP prefix**, enter, or select the following information in the **Basics** tab:
+4. In **Create public IP prefix**, enter, or select the following information in the **Basics** tab:
 
     | Setting | Value |
     | ------- | ----- |
@@ -53,9 +55,9 @@ In this section, you'll create the public IP prefix in the Azure portal.
 
      :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ipv6-prefix.png" alt-text="Create public IPv6 address prefix in Azure portal" border="true":::
 
-6. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
+5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
-7. Select **Create**.
+6. Select **Create**.
 
 ## Create a static public IP address from a prefix
 Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
