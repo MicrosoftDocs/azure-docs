@@ -1,5 +1,5 @@
 ---
-title: Integrate Palo Alto
+title: Integrate Palo Alto with Azure Defender for IoT
 description: Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
 ms.date: 09/12/2021
 ms.topic: tutorial
@@ -192,6 +192,10 @@ You will then need to block the suspicious source.
 1. To automatically block the suspicious source, select **Block Source**.
 
 1. Select **OK.**
+
+## Clean up resources
+
+There are no resources to clean up.
 
 ## Next step
 
