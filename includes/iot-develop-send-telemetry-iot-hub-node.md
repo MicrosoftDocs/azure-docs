@@ -46,8 +46,14 @@ In this section, you'll use the Node.js SDK to send messages from a simulated de
     git clone https://github.com/Azure/azure-iot-sdk-node
     ```
 
-1. Navigate to the *azure-iot-sdk-node/device/samples/pnp* directory:
+1. Navigate to the sample directory:
 
+    **Windows**
+    ```console
+    cd azure-iot-sdk-node\device\samples\pnp
+    ```
+
+    **Linux or Raspberry OS**
     ```console
     cd azure-iot-sdk-node/device/samples/pnp
     ```

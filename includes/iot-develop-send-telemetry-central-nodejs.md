@@ -77,7 +77,7 @@ In this section, you configure your local environment, install the Azure IoT Nod
     git clone https://github.com/Azure/azure-iot-sdk-node
     ```
 
-1. Navigate to the samples directory.
+1. Navigate to the sample directory.
 
     **Windows**
     ```console
