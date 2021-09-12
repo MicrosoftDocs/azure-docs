@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/21/2021
+ms.date: 09/12/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -51,7 +51,7 @@ The following table summarizes the OAuth 2.0 and OpenId Connect application auth
 [On-behalf-of](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| NA | NA | An application invokes a service or web API, which in turn needs to call another service or web API. <br />  <br /> For the middle-tier service to make authenticated requests to the downstream service, pass a *client credential* token in the authorization header. Optionally, you can include a custom header with the Azure AD B2C user's token.  |
 [OpenId Connect](openid-connect.md) | GA | GA | OpenID Connect introduces the concept of an ID token, which is a security token that allows the client to verify the identity of the user. |
 [OpenId Connect hybrid flow](openid-connect.md) | GA | GA | Allows a web application retrieve the ID token on the authorize request along with an authorization code.  |
-[Resource owner password credentials (ROPC)](add-ropc-policy.md) | Preview | Preview | Allows a mobile application to sign in the user by directly handling their password. |
+[Resource owner password credentials (ROPC)](add-ropc-policy.md) | GA | GA | Allows a mobile application to sign in the user by directly handling their password. |
 
 ### OAuth 2.0 options
 
