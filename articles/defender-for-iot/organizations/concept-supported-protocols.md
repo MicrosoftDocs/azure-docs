@@ -53,9 +53,9 @@ The Horizon Protocol SDK allows quick support for 100% of the protocols used in 
 
 Be part of a community that is leading the way toward digital transformation and industry-wide collaboration for protocol support. The Horizon ICS community allows knowledge sharing for domain experts in critical infrastructures, building management, production lines, transportation systems, and other industrial leaders.
 
-The community provides tutorials, discussion forums, instructor-led training, educational white paper, webinars, and more.
+The community provides tutorials, discussion forums, instructor-led training, educational white papers, webinars, and more.
 
-We invite you to join our community here: Horizon-Community@microsoft.com
+We invite you to join our community here: <horizon-community@microsoft.com>
 
 ## Next steps
 

@@ -34,7 +34,7 @@
     - name: Key concepts
       href: concept-key-concepts.md
     - name: Supported protocols
-      displayNAme: protocol, Horizon, horizon, 
+      displayNAme: protocol, Horizon, horizon, SCADA, OT, Industrial IoT
       href: concept-supported-protocols.md    
 - name: How-to guides
   items:
