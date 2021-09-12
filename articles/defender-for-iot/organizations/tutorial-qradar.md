@@ -4,7 +4,7 @@ description: In this tutorial, learn how to integrate Qradar with Azure Defender
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/09/2021
+ms.date: 09/12/2021
 ms.custom: template-tutorial
 ---
 
@@ -32,6 +32,8 @@ In this tutorial, you learn how to:
 > * Set Up QRadar forwarding rules
 > * Map notifications to QRadar in the Management Console
 > * Add custom fields to alerts
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -178,6 +180,10 @@ All of the sensor reports from now on are tagged as Sensor Alerts.
       - Sensor Sender Name RegEx: `senderName=(.*)(?=\t)`
       - Sensor Alert Engine RegEx: `engine =(.*)(?=\t)`
       - Sensor Source Device Name RegEx: `src`
+
+## Clean up resources
+
+There are no resources to clean up.
 
 ## Next steps
 
