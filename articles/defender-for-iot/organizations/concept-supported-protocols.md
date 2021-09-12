@@ -41,7 +41,7 @@ Azure Defender for IoT supports a broad range of protocols across a diverse ente
 
 Horizon community protocol dissectors and proprietary protocol dissectors developed by customers are also supported. See [Horizon proprietary protocol dissector](references-horizon-sdk.md) for details.
 
-## Add support for restricted protocols
+## Quickly add support for proprietary restricted protocols
 
 The Industrial Internet of Things (IIoT) unlocks new levels of productivity. These in turn help organizations improve security, increase output, and maximize revenue. Digitalization is driving deployment of billions of IoT devices, and increases the connectivity between IT, and OT networks. This increase in connectivity increases the attack surface, and allows for a greater risk of dangerous cyberattacks on industrial control systems.
 
@@ -49,7 +49,7 @@ The Horizon Protocol SDK allows quick support for 100% of the protocols used in 
 
 [![The Horizon SDK allows quick support for 100% of the protocols used in IoT, and ICS environments.](media/concept-supported-protocols/sdk-horizon.png)](media/concept-supported-protocols/sdk-horizon-expanded.png#lightbox)
 
-## Collaborate with Horizon community
+## Collaborate with the Horizon community
 
 Be part of a community that is leading the way toward digital transformation and industry-wide collaboration for protocol support. The Horizon ICS community allows knowledge sharing for domain experts in critical infrastructures, building management, production lines, transportation systems, and other industrial leaders.
 
