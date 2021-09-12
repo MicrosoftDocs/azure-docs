@@ -108,7 +108,7 @@ You can use the following combinations of authorization and Azure Storage types:
 | Authorization type  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported      | Not  supported   | Supported     |
-| [Service Principal](?tabs=managed-identity#supported-storage-authorization-types) | Supported  ???    | Supported   ???     | Supported  |
+| [Service Principal](?tabs=managed-identity#supported-storage-authorization-types) | Supported   | Supported      | Supported  |
 | [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported      | Supported        | Supported     |
 | [User Identity](?tabs=user-identity#supported-storage-authorization-types)    | Supported      | Supported        | Supported     |
 
