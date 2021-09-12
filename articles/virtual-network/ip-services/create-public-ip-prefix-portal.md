@@ -1,17 +1,17 @@
 ---
-title: Create a public IP address prefix - Azure portal
+title: 'Quickstart: Create a public IP address prefix - Azure portal'
 titlesuffix: Azure Virtual Network
 description: Learn how to create a public IP address prefix using the Azure portal.
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: how-to
-ms.date: 05/06/2021
+ms.topic: quickstart
+ms.date: 09/12/2021
 ms.author: allensu
 ---
 
-# Create a public IP address prefix using the Azure portal
+# Quickstart: Create a public IP address prefix using the Azure portal
 
 Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix is a contiguous range of standard SKU public IP addresses. 
 
@@ -108,4 +108,6 @@ When you're done with the public IP prefix, delete the resource group and all of
 3. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 ## Next steps
 
-- Learn about scenarios and benefits of using a [public IP prefix](public-ip-address-prefix.md)
+Advance to the next article to learn how to create a public IP address:
+> [!div class="nextstepaction"]
+> [Create public IP address using the Azure portal](create-public-ip-portal.md)
