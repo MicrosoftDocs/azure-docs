@@ -31,7 +31,7 @@ As an alternative, you can make your files publicly available by allowing anonym
 
 ## Supported storage authorization types
 
-A user that has logged into a serverless SQL pool must be authorized to access and query the files in Azure Storage if the files aren't publicly available. You can use three authorization types to access non-public storage - [User Identity](?tabs=user-identity), [Shared access signature](?tabs=shared-access-signature), and [Managed Identity](?tabs=managed-identity).
+A user that has logged into a serverless SQL pool must be authorized to access and query the files in Azure Storage if the files aren't publicly available. You can use four authorization types to access non-public storage - [User Identity](?tabs=user-identity), [Shared access signature](?tabs=shared-access-signature), [Service Principal](#tab/service-principal) and [Managed Identity](?tabs=managed-identity).
 
 > [!NOTE]
 > **Azure AD pass-through** is the default behavior when you create a workspace.
@@ -66,6 +66,15 @@ To enable access using an SAS token, you need to create a database-scoped or ser
 > [!IMPORTANT]
 > You cannnot access private storage accounts with the SAS token. Consider switching to [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Azure AD pass-through](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) authentication to access protected storage.
 
+
+### [Service Principal](#tab/service-principal)
+**Service Principal** is the local representation of a global application object in a particular AAD tenant. This authentication method is appropriate in case when storage access is to be authorized for a user app, service or automation tool. 
+
+The application needs to be registered in Azure Active Directory. For registration process you can consult [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app). Once the application is registered, its Service Principal can be used for authorization. 
+
+Service Principal should be assigned Storage Blob Data Owner/Contributor/Reader role in order for the application to access the data. Even if Service Principal is Owner of a Storage Account, it still needs to be granted an appropriate Storage Blob Data role. As an alternative way of granting access to storage files and folders, fine-grained ACL rules for Service Principal can be defined. 
+To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
+
 ### [Managed Identity](#tab/managed-identity)
 
 **Managed Identity** is also known as MSI. It's a feature of Azure Active Directory (Azure AD) that provides Azure services for serverless SQL pool. Also, it deploys an automatically managed identity in Azure AD. This identity can be used to authorize the request for data access in Azure Storage.
@@ -78,15 +87,19 @@ You can access publicly available files placed on Azure storage accounts that [a
 
 ---
 
+#### Cross-tenant scenarios
+In cases when Azure Storage is in a different tenant from the Synapse serverless SQL pool, authorization via **Service Principal** is the recommended method. **SAS** authorization is also possible, while **Managed Identity** is not supported. 
+
 ### Supported authorization types for databases users
 
-In the table below you can find the available authorization types:
+In the table below you can find the available authorization types for different login methods into Synapse Serverless SQL endpoint:
 
-| Authorization type                    | *SQL user*    | *Azure AD user*     |
-| ------------------------------------- | ------------- | -----------    |
-| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       | Not supported | Supported      |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      |
-| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported | Supported      |
+| Authorization type                    | *SQL user*    | *Azure AD user*     | *Service Principal* |
+| ------------------------------------- | ------------- | -----------    | -------- |
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       |  Not supported | Supported      | Not Supported|
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      | Supported|
+| [Service Principal](?tabs=service-principal#supported-storage-authorization-types) | Supported | Supported      | Supported|
+| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported | Supported      | Supported|
 
 ### Supported storages and authorization types
 
@@ -95,6 +108,7 @@ You can use the following combinations of authorization and Azure Storage types:
 | Authorization type  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported      | Not  supported   | Supported     |
+| [Service Principal](?tabs=managed-identity#supported-storage-authorization-types) | Supported  ???    | Supported   ???     | Supported  |
 | [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported      | Supported        | Supported     |
 | [User Identity](?tabs=user-identity#supported-storage-authorization-types)    | Supported      | Supported        | Supported     |
 
@@ -190,6 +204,12 @@ Follow these steps to configure your storage account firewall and add an excepti
 
 Shared access signatures cannot be used to access firewall-protected storage.
 
+### [Service Principal](#tab/service-principal)
+
+?????
+
+?????
+
 ### [Managed Identity](#tab/managed-identity)
 
 You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. 
@@ -262,6 +282,13 @@ GO
 
 Optionally, you can use just the base URL of the storage account, without container name.
 
+### [Service Principal](#tab/service-principal)
+
+??????????????????????
+?????????????
+
+??????????????????????????????
+
 ### [Managed Identity](#tab/managed-identity)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using workspace-managed identity.
@@ -312,6 +339,23 @@ GO
 CREATE EXTERNAL DATA SOURCE mysample
 WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
           CREDENTIAL = SasToken
+)
+```
+
+
+### [Service Principal](#tab/service-principal)
+The following script creates a database-scoped credential that can be used to access files on storage using Service Principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** ?????????????????????????????????????
+
+```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+
+CREATE DATABASE SCOPED CREDENTIAL [<CredentialName>] WITH
+IDENTITY = '<AppID>@<AuthorityUrl>' , SECRET = '<Secret>'
+GO
+CREATE EXTERNAL DATA SOURCE MyDataSource
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = CredentialName
 )
 ```
 
