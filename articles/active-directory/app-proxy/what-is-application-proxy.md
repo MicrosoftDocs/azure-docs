@@ -72,7 +72,7 @@ Application Proxy is an Azure AD service you configure in the Azure portal. It e
 
 Components of this feature include the Application Proxy service, which runs in the cloud, the Application Proxy connector, which is a lightweight agent that runs on an on-premises server, and Azure AD, which is the identity provider. All three components work together to provide the user with a single sign-on experience to access on-premises web applications.
 
-After signing in, external users can access on-premises web applications by using a familiar URL or [My Apps](../user-help/my-apps-portal-end-user-access.md) from their desktop or iOS/MAC devices. For example, App Proxy can provide remote access and single sign-on to Remote Desktop, SharePoint sites, Tableau, Qlik, Outlook on the web, and line-of-business (LOB) applications.
+After signing in, external users can access on-premises web applications by using a familiar URL or [My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) from their desktop or iOS/MAC devices. For example, App Proxy can provide remote access and single sign-on to Remote Desktop, SharePoint sites, Tableau, Qlik, Outlook on the web, and line-of-business (LOB) applications.
 
 ![Azure AD Application Proxy architecture](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 

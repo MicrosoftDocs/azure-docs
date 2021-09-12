@@ -56,7 +56,6 @@ Standard SKU public IP addresses:
 
 - Always use static allocation method.
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
-- Used with network interfaces, standard public load balancers, or Application Gateways.
 - Designed to align with the "secure by default" model and be closed to inbound traffic when used as a frontend.  Allowlisting data plane traffic with [network security group](./network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).
 - Can be zone-redundant (which is advertised from all three zones), zonal (which is guaranteed in a specific pre-selected availability zone), or "no-zone" (which isn't associated with a specific pre-selected availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where three availability zones](../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant.
 - Can be utilized with the [routing preference](routing-preference-overview.md) to enable more granular control of how traffic is routed between Azure and the Internet.
@@ -83,7 +82,7 @@ Basic SKU addresses:
 
 ## IP address assignment
 
- Standard public IPv4, Basic public IPv4, and Standard public IPv6 addresses all support **static** assignment.  The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted.  
+Standard public IPv4, Basic public IPv4, and Standard public IPv6 addresses all support **static** assignment.  The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted.  
 
 > [!NOTE]
 > Even when you set the allocation method to **static**, you cannot specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.

@@ -516,11 +516,11 @@ Delta Lake support is currently in public preview in serverless SQL pools. There
 - Make sure that you are referencing root Delta Lake folder in the [OPENROWSET](./develop-openrowset.md) function or external table location.
   - Root folder must have a sub-folder named `_delta_log`. The query will fail if there is no `_delta_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) using Apache Spark pools.
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
-- Delta Lake tables created in the Apache Spark pools are not synchronized in serverless SQL pool. You cannot query Apache Spark pools Delta Lake tables using T-SQL language.
+- Delta Lake tables created in the Apache Spark pools are not automatically available in serverless SQL pool. To query such Delta Lake tables using T-SQL language, run the [CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) statement and specify Delta as format.
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds below.
 - Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
-- Serverless SQL pools in Synapse Analytics do not support datasets with the [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+- Serverless SQL pools in Synapse Analytics do not support datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters).
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
 You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
@@ -643,11 +643,11 @@ Azure team will investigate the content of the `delta_log` file and provide more
 ### Resolving delta log on path ... failed with error: Cannot parse JSON object from log file
 
 This error might happen due to the following reasons/unsupported features:
-- [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters) on Delta Lake dataset. Serverless SQL pools in Synapse Analytics do not support datasets with the [BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+- [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters) on Delta Lake dataset. Serverless SQL pools in Synapse Analytics do not support datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters).
 - Float column in Delta Lake data set with statistics.
 - Data set partitioned on a float column.
 
-**Workaround**: [Remove BLOOM filter](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) if you want to read Delta Lake folder using the serverless SQL pool. 
+**Workaround**: [Remove BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) if you want to read Delta Lake folder using the serverless SQL pool. 
 If you have `float` columns that are causing the issue, you would need to re-partition the data set or remove the statistics.
 
 ## Security

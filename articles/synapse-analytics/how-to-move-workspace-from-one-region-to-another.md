@@ -347,7 +347,7 @@ Select-Object Id,Command,JobStateInfo,PSBeginTime,PSEndTime,PSJobTypeName,Error 
 ```
 After the dedicated SQL pool is restored, create all the SQL logins in Azure Synapse. To create all the logins, follow the steps in [Create login](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-## Step 5: Create a serverless SQL pool, Spark pool, and objects
+## Step 5: Create a serverless SQL pool, Spark pool database and objects
 
 You can't back up and restore serverless SQL pool databases and Spark pools. As a possible workaround, you could:
 
