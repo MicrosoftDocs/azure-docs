@@ -1,17 +1,17 @@
 ---
-title: Create a public IP address prefix - Azure CLI
+title: 'Quickstart: Create a public IP address prefix - Azure CLI'
 titlesuffix: Azure Virtual Network
 description: Learn how to create a public IP address prefix using Azure CLI.
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: how-to
-ms.date: 07/13/2021
+ms.topic: quickstart
+ms.date: 09/13/2021
 ms.author: allensu
 ---
 
-# Create a public IP address prefix using Azure CLI
+# Quickstart: Create a public IP address prefix using Azure CLI
 
 Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix is a contiguous range of standard SKU public IP addresses. 
 
