@@ -226,7 +226,7 @@ Having Azure Sentinel notebooks stored in your Azure ML workspace allows you to 
 
 1. Copy the notebooks you want from this folder to your working directory.
 
-1. To update your notebooks with any recent changes from Github, run:
+1. To update your notebooks with any recent changes from GitHub, run:
 
     ```python
     !cd azure-sentinel-nb && git pull

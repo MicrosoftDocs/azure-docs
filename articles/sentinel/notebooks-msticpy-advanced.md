@@ -32,19 +32,19 @@ This procedure describes how to configure authentication parameters for Azure Se
 
 1. Select the authentication methods to use:
 
-    - While you can use a different set of methods from the [Azure defaults](notebook-get-started.md#specify-the-azure-cloud-and-default-azure-authentication-methods), this isn't a typical configuration.
+    - While you can use a different set of methods from the [Azure defaults](notebook-get-started.md#specify-the-azure-cloud-and-default-azure-authentication-methods), this usage isn't a typical configuration.
     - Unless you want to use the **env** (environment variable) authentication, leave the **clientId**, **tenantiId**, and **clientSecret** fields empty.
     - While not recommended, MSTICPy also supports using client app IDs and secrets for your authentication. In such cases, define your **clientId**, **tenantId**, and **clientSecret** fields directly in the **Data Providers** tab.
 
 1. Select **Save File** to save your changes.
 
-## Define auto-loading query providers
+## Define autoloading query providers
 
 Define any query providers that you want to MSTICPy to load automatically when you run the `nbinit.init_notebook` function.
 
-When you frequently author new notebooks, auto-loading query providers can save you time by ensuring that required providers are loaded before other components, such as pivot functions and notebooklets.
+When you frequently author new notebooks, autoloading query providers can save you time by ensuring that required providers are loaded before other components, such as pivot functions and notebooklets.
 
-**To add auto-loading query providers**:
+**To add autoloading query providers**:
 
 1. Enter the following code in an empty code cell and run it:
 
@@ -66,7 +66,7 @@ When you frequently author new notebooks, auto-loading query providers can save 
 
         For example, if you load a query provider for the *ContosoSOC* workspace, this query provider will be created in your notebook environment with the name `qry_ContosoSOC`. Add an alias if you want to use something shorter or easier to type and remember. The provider variable name will be `qry_<alias>`, where `<alias>` is replaced by the alias name that you provided.
 
-        Providers you load by this mechanism are also added to the MSTICPy `current_providers` attribute, which is used for example in the following code:
+        Providers you load by this mechanism are also added to the MSTICPy `current_providers` attribute, which is used, for example, in the following code:
 
         ```python
         import msticpy
@@ -75,7 +75,7 @@ When you frequently author new notebooks, auto-loading query providers can save 
 
 1. Select **Save Settings** to save your changes.
 
-## Define auto-loaded MSTICPy components
+## Define autoloaded MSTICPy components
 
 This procedure describes how to define other components that are automatically loaded by MSTICPy when you run the `nbinit.init_notebook` function.
 
@@ -232,7 +232,7 @@ This procedure describes how to update the **.bashrc** file to set the **MSTICPY
 
 If you need to store your **msticpyconfig.yaml**  file somewhere other than your Azure ML user folder, use one of the following options:
 
-- **An *nbuser_settings.py* file at the root of your user folder**.  While this process is simpler and less intrusive than editing the **kernel.json** file, it's onlysupported when you run the `init_notebook` function at the start of your notebook code. While this is the default behavior, if you run the notebook code without first running `init_notebook`, MSTICPy may not be able to find the configuration file.
+- **An *nbuser_settings.py* file at the root of your user folder**.  While this process is simpler and less intrusive than editing the **kernel.json** file, it's only supported when you run the `init_notebook` function at the start of your notebook code. While this is the default behavior, if you run the notebook code without first running `init_notebook`, MSTICPy may not be able to find the configuration file.
 
     1. In the Azure ML terminal, create the **nbuser_settings.py** file in the root of your user folder, which is the folder with your username.
     1. In the **nbuser_settings.py** file, add the following lines:

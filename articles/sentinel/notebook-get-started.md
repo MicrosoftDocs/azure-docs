@@ -145,7 +145,7 @@ The following sections describe how to add additional configuration details to t
 
     The automatically created **msticpyconfig.yaml** file contains two entires in the Azure Sentinel section. These are both populated with details of the Azure Sentinel workspace that the notebook was cloned from. One entry has the name of your workspace and the other is named **Default**.
 
-    MSTICPy allows you to store configurations for multiple Azure Sentinel workspaces and switch between them. The **Default** entry allows you to authenticate to a your "home" workspace by default, without having to name it explicitly. If you add additional workspaces you can configure any one of them to be the **Default** entry.
+    MSTICPy allows you to store configurations for multiple Azure Sentinel workspaces and switch between them. The **Default** entry allows you to authenticate to your "home" workspace by default, without having to name it explicitly. If you add additional workspaces you can configure any one of them to be the **Default** entry.
 
     > [!NOTE]
     > In the Azure ML environment, the settings editor might take 10-20 seconds to appear.
@@ -295,7 +295,7 @@ Device authorization adds another factor to the authentication by generating a o
 
 To avoid having to re-authenticate if you restart the kernel or run another notebooks, you can cache your sign-in token using Azure CLI.
 
-The Azure CLI component on the the Compute instance caches a *refresh token* that it can reuse until the token times out. MSTICPy automatically uses Azure CLI credentials, if they're available.
+The Azure CLI component on the Compute instance caches a *refresh token* that it can reuse until the token times out. MSTICPy automatically uses Azure CLI credentials, if they're available.
 
 To authenticate using Azure CLI enter the following into an empty cell and run it:
 
@@ -588,7 +588,7 @@ Required settings are all values that you get from the Vault properties, althoug
 - **AzureRegion** is shown as **Location**
 - **Authority** is the cloud for your Azure service.
 
-Only **VaultName**, **TenantId**, and **Authority** values are required to retrieve secrets from the the Vault. The other values are needed if you opt to create a vault from MSTICPy. For more information, see [Specifying secrets as Key Vault secrets](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html#specifying-secrets-as-key-vault-secrets).
+Only **VaultName**, **TenantId**, and **Authority** values are required to retrieve secrets from the Vault. The other values are needed if you opt to create a vault from MSTICPy. For more information, see [Specifying secrets as Key Vault secrets](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html#specifying-secrets-as-key-vault-secrets).
 
 The **Use KeyRing** option is selected by default, and lets you cache Key Vault credentials in a local KeyRing. For more information, see [KeyRing documentation](https://keyring.readthedocs.io/en/latest/index.html).
 
@@ -663,7 +663,7 @@ You can also use these Azure settings to define default preferences for the Azur
     - **env** to store your Azure Credentials in environment variables.
     - **msi** to use Managed Service Identity, which is an identity assigned to the host or virtual machine where the Jupyter hub is running. MSI is not currently supported in Azure ML Compute instances.
     - **cli** to use credentials from an authenticated Azure CLI session.
-    - **interactive** to to use the interactive device authorization flow using a [one-time device code](#authenticate-to-your-azure-sentinel-workspace-from-your-notebook).
+    - **interactive** to use the interactive device authorization flow using a [one-time device code](#authenticate-to-your-azure-sentinel-workspace-from-your-notebook).
 
     > [!TIP]
     > In most cases, we recommend selecting multiple methods, such as both **cli** and **interactive**. Azure authentication will try each of the configured methods in the order listed above until one succeeds.
@@ -673,7 +673,7 @@ You can also use these Azure settings to define default preferences for the Azur
 
 For example:
 
-:::image type="content" source="media/notebook-get-started/settings-for-azure-gov-cloud.png" alt-text="Screenshot of settings defined for the Azure government cloud.":::
+:::image type="content" source="media/notebook-get-started/settings-for-azure-gov-cloud.png" alt-text="Screenshot of settings defined for the Azure Government cloud.":::
 
 
 ## Next steps
@@ -694,7 +694,7 @@ Try out other notebooks stored in the [Azure Sentinel Notebooks GitHub repositor
 
 ### More reading on MSTICPy and notebooks
 
-The following table provide more references for learning about MSTICPy, Azure Sentinel, and Jupyter notebooks.
+The following table lists more references for learning about MSTICPy, Azure Sentinel, and Jupyter notebooks.
 
 |Subject  |More references  |
 |---------|---------|
