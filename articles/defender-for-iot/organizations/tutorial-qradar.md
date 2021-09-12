@@ -49,15 +49,15 @@ There are no prerequisites of this tutorial.
 
 1. In the Data Sources window, select **Log Sources**.
 
-   [:::image type="content" source="media/tutorial-qradar/log.png" alt-text="Select log sources from the available options.":::](media/tutorial-qradar/log.png#lightbox)
+   [:::image type="content" source="media/tutorial-qradar/log.png" alt-text="Screenshot of, selecting a log sources from the available options.":::](media/tutorial-qradar/log.png#lightbox)
 
 1. In the **Modal** window, select **Add**.
 
-    [:::image type="content" source="media/tutorial-qradar/modal.png" alt-text="After selecting Syslog the modal window opens.":::](media/tutorial-qradar/modal.png#lightbox)
+    [:::image type="content" source="media/tutorial-qradar/modal.png" alt-text="Screenshot of, after selecting Syslog the modal window opens.":::](media/tutorial-qradar/modal.png#lightbox)
 
 1. In the **Add a log source** dialog box, set the following parameters:
 
-    :::image type="content" source="media/tutorial-qradar/source.png" alt-text="Add a log source by filling in the appropriate fields.":::
+    :::image type="content" source="media/tutorial-qradar/source.png" alt-text="Screenshot of, adding a log source by filling in the appropriate fields.":::
 
    - **Log Source Name**: `<Sensor name>`
 
@@ -104,7 +104,7 @@ For the integration to work, you will need to setup in the Defender for IoT appl
 
 1. Set the Action to **QRadar**.
 
-    :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Create a Forwarding Rule":::
+    :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of, create a Forwarding Rule window.":::
 
 1. Configure the QRadar IP address, and the timezone.
 
