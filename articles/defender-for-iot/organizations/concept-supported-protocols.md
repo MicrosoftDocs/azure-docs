@@ -39,7 +39,7 @@ Azure Defender for IoT supports a broad range of protocols across a diverse ente
 | GE EGD (GE) | Omron FINS (Omron) | Toshiba Computer Link (Toshiba) | |
 | GE-SRTP (GE) | OSISoft (OSI Soft) | UDP (Generic) | |
 
-Horizon community protocol dissectors and proprietary protocol dissectors developed by customers are also supported. See [Add support for restricted protocols](#add-support-for-restricted-protocols) for details.
+Horizon community protocol dissectors and proprietary protocol dissectors developed by customers are also supported. See [Horizon proprietary protocol dissector](references-horizon-sdk.md) for details.
 
 ## Add support for restricted protocols
 
@@ -47,7 +47,7 @@ The Industrial Internet of Things (IIoT) unlocks new levels of productivity. The
 
 The Horizon Protocol SDK allows quick support for 100% of the protocols used in IoT, and ICS environments. Custom, or proprietary protocols can be limited so that they are not able to be shared outside your organization. Either due to regulations, or corporate policies. The Horizon SDK allows you to write plug-ins that enable Deep Packet Inspection (DPI) on the traffic, and detect threats in real time. The Horizon SDK makes extra customizations possible as well. For example, the Horizon SDK enables asset vendors, partners, or platform owners to localize and customize the text for alerts, events, and protocol parameters.
 
-[![The Horizon SDK allows quick support for 100% of the protocols used in IOT, and ICS environments.](media/concept-supported-protocols/sdk-horizon.png)](media/concept-supported-protocols/sdk-horizon-expanded.png#lightbox)
+[![The Horizon SDK allows quick support for 100% of the protocols used in IoT, and ICS environments.](media/concept-supported-protocols/sdk-horizon.png)](media/concept-supported-protocols/sdk-horizon-expanded.png#lightbox)
 
 ## Collaborate with Horizon community
 
