@@ -295,9 +295,6 @@ If you need to store your **msticpyconfig.yaml**  file somewhere other than your
 
 ## Next steps
 
-
-### More reading on MSTICPy and notebooks
-
 For more information, see:
 
 |Subject  |More references  |

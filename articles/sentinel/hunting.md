@@ -115,52 +115,23 @@ Notebooks may be helpful when your hunting or investigation becomes too large to
 
 For more information, see:
 
-[Use Jupyter Notebook to hunt for security threats](notebooks.md)
-[The Jupyter Project documentation](https://jupyter.org/documentation)
-[Jupyter introductory documentation](https://jupyter.readthedocs.io/en/latest/tryjupyter.html).
-[The Infosec Jupyter Book](https://infosecjupyterbook.com)
-[Real Python tutorials](https://realpython.com)
+- [Use Jupyter Notebook to hunt for security threats](notebooks.md)
+- [The Jupyter Project documentation](https://jupyter.org/documentation)
+- [Jupyter introductory documentation](https://jupyter.readthedocs.io/en/latest/tryjupyter.html).
+- [The Infosec Jupyter Book](https://infosecjupyterbook.com)
+- [Real Python tutorials](https://realpython.com)
 
-### Data persistence, repeatability, and backtracking
+The following table describes some methods of using Juypter notebooks to help your processes in Azure Sentinel:
 
-If you're working with many queries and results sets, you're likely to have some dead ends. You'll need to decide which queries and results to keep, and how to accumulate the useful results in a single report. 
+|Method  |Description  |
+|---------|---------|
+|**Data persistence, repeatability, and backtracking**     |  If you're working with many queries and results sets, you're likely to have some dead ends. You'll need to decide which queries and results to keep, and how to accumulate the useful results in a single report. <br><br> Use Jupyter Notebooks to save queries and data as you go, use variables to rerun queries with different values or dates, or save your queries to rerun on future investigations.       |
+|**Scripting and programming**     |    Use Jupyter Notebooks to add programming to your queries, including: <br><br>- *Declarative* languages like [Kusto Query Language (KQL)](/azure/kusto/query/) or SQL, to encode your logic in a single, possibly complex, statement.<br>- *Procedural* programming languages, to run logic in a series of steps. <br><br>Splitting your logic into steps can help you see and debug intermediate results, add functionality that might not be available in the query language, and reuse partial results in later processing steps.     |
+|**Links to external data**     | While Azure Sentinel tables have most telemetry and event data, Jupyter Notebooks can link to any data that's accessible over your network or from a file. Using Jupyter Notebooks allows you to include data such as: <br><br>- Data in external services that you don't own, such as geolocation data or threat intelligence sources<br>- Sensitive data that's stored only within your organization, such as human resource databases or lists of high-value assets<br>- Data that you haven't yet migrated to the cloud.        |
+|**Specialized data processing, machine learning, and visualization tools**     | Jupyter Notebooks provides additional visualizations, machine learning libraries, and data processing and transformation features. <br><br>For example, use Jupyter Notebooks with the following [Python](https://python.org) capabilities:<br>- [pandas](https://pandas.pydata.org/) for data processing, cleanup, and engineering<br>- [matplotlib](https://matplotlib.org), [holoviews](https://holoviews.org), and [plotly](https://plot.ly) for visualization<br>- [numpy](https://www.numpy.org) and [scipy](https://www.scipy.org) for advanced numerical and scientific processing<br>- [scikit-learn](https://scikit-learn.org/stable/index.html) for machine learning<br>- [tensorflow](https://www.tensorflow.org/), [pytorch](https://pytorch.org), and [keras](https://keras.io/) for deep learning<br><br>**Tip**: Jupyter Notebooks supports multiple language kernels. Use *magics* to mix languages within the same notebook, by allowing the execution of individual cells using another language. For example, you can retrieve data using a PowerShell script cell, process the data in Python, and use JavaScript to render a visualization.        |
+|     |         |
 
-Use Jupyter Notebooks to save queries and data as you go, use variables to rerun queries with different values or dates, or save your queries to rerun on future investigations.
-
-### Scripting and programming
-
-Use Jupyter Notebooks to add programming to your queries, including:
-
-- *Declarative* languages like [Kusto Query Language (KQL)](/azure/kusto/query/) or SQL, to encode your logic in a single, possibly complex, statement.
-- *Procedural* programming languages, to run logic in a series of steps. 
-
-Splitting your logic into steps can help you see and debug intermediate results, add functionality that might not be available in the query language, and reuse partial results in later processing steps.
-
-### Links to external data
-
-While Azure Sentinel tables have most telemetry and event data, Jupyter Notebooks can link to any data that's accessible over your network or from a file. Using Jupyter Notebooks allows you to include data such as:
-- Data in external services that you don't own, such as geolocation data or threat intelligence sources
-- Sensitive data that's stored only within your organization, such as human resource databases or lists of high-value assets
-- Data that you haven't yet migrated to the cloud.
-
-### Specialized data processing, machine learning, and visualization tools
-
-Jupyter Notebooks provides additional visualizations, machine learning libraries, and data processing and transformation features.
-
-For example, use Jupyter Notebooks with the following [Python](https://python.org) capabilities:
-
-- [pandas](https://pandas.pydata.org/) for data processing, cleanup, and engineering
-- [matplotlib](https://matplotlib.org), [holoviews](https://holoviews.org), and [plotly](https://plot.ly) for visualization
-- [numpy](https://www.numpy.org) and [scipy](https://www.scipy.org) for advanced numerical and scientific processing
-- [scikit-learn](https://scikit-learn.org/stable/index.html) for machine learning
-- [tensorflow](https://www.tensorflow.org/), [pytorch](https://pytorch.org), and [keras](https://keras.io/) for deep learning
-
-> [!TIP]
-> Jupyter Notebooks supports multiple language kernels. Use *magics* to mix languages within the same notebook, by allowing the execution of individual cells using another language. For example, you can retrieve data using a PowerShell script cell, process the data in Python, and use JavaScript to render a visualization.
->
-
-
-### MSTIC Jupyter and Python security tools
+### MSTIC, Jupyter, and Python security tools
 
 The [Microsoft Threat Intelligence Center (MSTIC)](https://msrc-blog.microsoft.com/tag/mstic/) is a team of Microsoft security analysts and engineers who author security detections for several Microsoft platforms and work on threat identification and investigation.
 
@@ -176,7 +147,11 @@ For example, MSTICPy can:
 
 MCTICPy also includes some time-saving notebook tools, such as widgets that set query time boundaries, select and display items from lists, and configure the notebook environment.
 
-For more information, see the [MSTICPy documentation](https://msticpy.readthedocs.io/en/latest/).
+For more information, see:
+
+- [MSTICPy documentation](https://msticpy.readthedocs.io/en/latest/)
+- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md)
+- [Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel](notebooks-msticpy-advanced.md)
 
 
 ## Useful operators and functions
