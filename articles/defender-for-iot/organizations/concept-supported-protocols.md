@@ -13,11 +13,11 @@ Azure Defender for IoT provides an open and interoperable Operation Technology (
 
 Azure Defender for IoT supports a broad range of protocols across a diverse enterprise, and includes industrial automation equipment across all industrial sectors, enterprise networks, and building management system (BMS) environments. For custom or proprietary protocols, Microsoft offers an SDK that makes it easy to develop, test, and deploy custom protocol dissectors as plug-ins. The SDK does all this without divulging proprietary information, such as how the protocols are designed, or by sharing PCAPs that may contain sensitive information. The complete list of supported protocols is listed in the table below.
 
-| Supported Protocol | | | |
+| Supported Protocols | | | |
 |--|--|--|--|
 | AMS (Beckhoff) | GOOSE (IoT/OT) | PCCC (Rockwell) | VLAN (Generic) |
 | ARP (Generic) | Honeywell Experion (Honeywell) | PCS7 (Siemens) | Wonderware Suitelink (Schneider Electric/Wonderware) |
-| Asterix (IoT/OT) | HL7 (Generic) | Profinet DCP (Siemens/Generic) | Yokogawa HIS Equalize (Yokogawa) |
+| HL7 (Generic) | Profinet DCP (Siemens/Generic) | Yokogawa HIS Equalize (Yokogawa) |
 | ASTM (Generic) | ICMP (Generic) | Profinet Realtime (Siemens/Generic) | |
 | BACnet (IoT/OT) | IEC 60870 (IEC104/101) (IoT/OT) | RPC (Generic) | |
 | BeckhoffTwincat (Beckhoff) | IPv4 (Generic) | Yokogawa VNet/IP (Yokogawa) | |
@@ -27,7 +27,7 @@ Azure Defender for IoT supports a broad range of protocols across a diverse ente
 | CDP (Cisco) | LLDP (Generic) | Siemens S7 (Siemens) | |
 | CITECTSCADA ODBC SERVICE (Citect) | Lontalk (IoT/OT) | Siemens S7-Plus (Siemens) | |
 | Codesys V3 (Generic) | Mitsubishi Melsec/Melsoft (Mitsubishi) | Siemens SICAM (Siemens) |
-| DICOM (Generic) | MMS (including ABB extension) (ABB / Generic) | Siemens WinCC (Siemens) |
+| MMS (including ABB extension) (ABB / Generic) | Siemens WinCC (Siemens) |
 | DNP3 (IoT/OT) | Modbus over CIP (Rockwell) | SMB / Browse / NBDGM (Generic) | |
 | DNS (Generic) | Modbus RTU (IoT/OT) | SMV (SAMPLED-VALUES) (IoT/OT) |
 | Emerson DeltaV (Emerson) | Modbus Schneider Electric extensions / Unity (Schneider Electric) | SSH (Generic) | |
@@ -37,7 +37,7 @@ Azure Defender for IoT supports a broad range of protocols across a diverse ente
 | EtherNet/IP CIP (including Rockwell extension) (Rockwell) | netbios (Generic) | TDS (Oracle) | |
 | Euromap 63 (IoT/OT) | NTLM (Generic) | TNS (Oracle) | |
 | GE EGD (GE) | Omron FINS (Omron) | Toshiba Computer Link (Toshiba) | |
-| GE-SRTP (GE) | OSISoft (OSI Soft) | UDP (Generic) | |
+| GE-SRTP (GE) | UDP (Generic) | |
 
 ## Add support for restricted protocols
 
