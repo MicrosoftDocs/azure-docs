@@ -14,7 +14,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: System preequisites
+  - name: System prerequisites
     displayName: firewall, proxy, open ports
     href: quickstart-system-prerequisites.md
   - name: Get started with Azure Defender for IoT
@@ -25,6 +25,8 @@
   items:
   - name: Azure Defender for IoT trial setup
     href: tutorial-onboarding.md
+  - name: Integrate Qradar
+    href: tutorial-qradar.md
   - name: Integrate Splunk
     href: tutorial-splunk.md
   - name: Integrate ServiceNow
@@ -34,7 +36,7 @@
     - name: Key concepts
       href: concept-key-concepts.md
     - name: Supported protocols
-      displayNAme: protocol, Horizon, horizon, 
+      displayName: protocol, Horizon, horizon, SCADA, OT, Industrial IoT, proprietary
       href: concept-supported-protocols.md    
 - name: How-to guides
   items:
@@ -189,8 +191,6 @@
       href: integration-fortinet.md
     - name: Palo Alto integration
       href: integration-palo-alto.md
-    - name: Qradar integration
-      href: integration-qradar.md
 - name: Reference
   items:
   - name: Work with Defender for IoT APIs
