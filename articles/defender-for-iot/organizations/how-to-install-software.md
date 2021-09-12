@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 09/02/2021
+ms.date: 09/12/2021
 ms.topic: how-to
 ---
 
@@ -175,7 +175,7 @@ When the connection is established, the BIOS is configurable.
 
 1. [Configure the iDRAC IP address](#configure-idrac-ip-address)
 
-1. [Configure the BIOS](#configuring-bios)
+1. [Configuring the BIOS](#configuring-the-bios)
 
 #### Configure iDRAC IP address
 
@@ -411,7 +411,7 @@ To install the software:
 
     :::image type="content" source="media/tutorial-install-components/select-english-screen.png" alt-text="Selection of English in the CLI window.":::
 
-1. Select **SENSOR-RELEASE-<version> Enterprise**.
+1. Select **SENSOR-RELEASE-\<version> Enterprise**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot of the screen for selecting a version.":::
 
@@ -495,7 +495,7 @@ To install:
 
 1. Select **English**.
 
-1. Select **SENSOR-RELEASE-<version> Enterprise**.
+1. Select **SENSOR-RELEASE-\<version> Enterprise**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows selecting the version.":::
 
@@ -1042,7 +1042,7 @@ The installation process takes approximately 20 minutes. After installation, the
 
 1. Select **English**.
 
-1. Select **XSENSE-RELEASE-<version> Office...**.
+1. Select **XSENSE-RELEASE-\<version> Office...**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select the version of the sensor to install.":::
 
@@ -1142,7 +1142,7 @@ The installation process takes approximately 20 minutes. After installation, the
 
 1. Select **English**.
 
-1. Select **XSENSE-RELEASE-<version> Office...**.
+1. Select **XSENSE-RELEASE-\<version> Office...**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select the version of the sensor to install.":::
 
