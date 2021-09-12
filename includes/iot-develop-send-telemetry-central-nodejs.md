@@ -4,7 +4,7 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 04/28/2021
+ ms.date: 09/10/2021
  ms.author: timlt
  ms.custom: include file
 ---
@@ -14,9 +14,18 @@
 In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to IoT Central, and send telemetry.
 
 ## Prerequisites
+This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
+
+- Windows 10
+- Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
+- Raspberry Pi OS version 10 (buster) running on a Raspberry Pi 3 Model B+
+
+Install the following prerequisites on your development machine:
+
 - [Node.js](https://nodejs.org/) version 6 or later. To check your version, run `node --version` in your console app.
 - [Git](https://git-scm.com/downloads).
-- You can run this quickstart on Linux or Windows. The shell commands use the standard Linux path separator `/`. If you use use Windows, replace these separators with the Windows path separator `\`.
+
+The shell commands in this quickstart use the standard Linux path separator `/`. If you use Windows, replace these separators with the Windows path separator `\`.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
