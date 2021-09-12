@@ -52,6 +52,8 @@ The following table summarizes the OAuth 2.0 and OpenId Connect application auth
 [OpenId Connect](openid-connect.md) | GA | GA | OpenID Connect introduces the concept of an ID token, which is a security token that allows the client to verify the identity of the user. |
 [OpenId Connect hybrid flow](openid-connect.md) | GA | GA | Allows a web application retrieve the ID token on the authorize request along with an authorization code.  |
 [Resource owner password credentials (ROPC)](add-ropc-policy.md) | GA | GA | Allows a mobile application to sign in the user by directly handling their password. |
+| [Sign-out](session-behavior.md#sign-out)| GA | GA | |
+| [Single sign-out](session-behavior.md#sign-out)  | NA | Preview | |
 
 ### OAuth 2.0 options
 
@@ -62,6 +64,7 @@ The following table summarizes the OAuth 2.0 and OpenId Connect application auth
 | Insert JSON into user journey via `client_assertion`| NA| Deprecated |  |
 | Insert JSON into user journey as [id_token_hint](id-token-hint.md) | NA | GA | |
 | [Pass identity provider token to the application](idp-pass-through-user-flow.md)| Preview| Preview| For example, from Facebook to app. |
+| [Keep me signed in (KMSI)](session-behavior.md#enable-keep-me-signed-in-kmsi)| GA| GA| |
 
 ## SAML2 application authentication flows
 
@@ -77,6 +80,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 | [Multi-language support](localization.md)| GA | GA | |
+| [Custom domains](custom-domain.md)| Preview | Preview | |
 | [Custom email verification](custom-email-mailjet.md) | NA | GA| |
 | [Customize the user interface with built-in templates](customize-ui.md) | GA| GA| |
 | [Customize the user interface with custom templates](customize-ui-with-html.md) | GA| GA| By using HTML templates. |
@@ -85,6 +89,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | [Embedded sign-in experience](embedded-login.md) | NA |  Preview| By using the inline frame element `<iframe>`. |
 | [Password complexity](password-complexity.md) | GA | GA | |
 | [Disable email verification](disable-email-verification.md) | GA|  GA| Not recommended for production environments. Disabling email verification in the sign-up process may lead to spam. |
+
 
 
 
@@ -143,7 +148,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA |  |
 | [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) | GA |  |
 | [OAuth SSO Session Provider](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
-| [Single sign-out](session-behavior.md#sign-out)  |  Preview |  |
+
 
 ### Components
 
@@ -155,6 +160,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory | GA |  |
 | [Predicate validations](predicates.md) | GA | For example, password complexity. |
 | [Display controls](display-controls.md) | GA |  |
+| [Sub journeys](subjourneys.md) | GA | |
 
 ### Developer interface
 
