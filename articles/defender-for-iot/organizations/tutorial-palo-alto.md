@@ -1,7 +1,7 @@
 ---
 title: Integrate Palo Alto
 description: Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
-ms.date: 09/06/2021
+ms.date: 09/12/2021
 ms.topic: tutorial
 ---
 
@@ -22,6 +22,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Configure immediate blocking by a specified Palo Alto firewall
 > * Create Panorama blocking policies in Defender for IoT configuration
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
