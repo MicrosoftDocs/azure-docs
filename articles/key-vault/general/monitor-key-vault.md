@@ -81,14 +81,89 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 > [!IMPORTANT]
 > When you select **Logs** from the Key Vault menu, Log Analytics is opened with the query scope set to the current key vault. This means that log queries will only include data from that resource. If you want to run a query that includes data from other key vaults, or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
-<!-- REQUIRED: Include queries that are helpful for figuring out the health and state of your service. Ideally, use some of these queries in the alerts section. It's possible that some of your queries may be in the Log Analytics UI (sample or example queries). Check if so.  -->
+Here are some queries that you can enter into the **Log search** search bar to help you monitor your Key Vault resources. These queries work with the [new language](../azure-monitor/logs/log-query-overview.md).
 
-Following are queries that you can use to help you monitor your Key Vault resource.
+* Are there any slow requests?
 
-<!-- Put in a code section here. -->  
-```Kusto
-   
-```
+    ```Kusto
+    // List of KeyVault requests that took longer than 1sec. 
+    // To create an alert for this query, click '+ New alert rule'
+    let threshold=1000; // let operator defines a constant that can be further used in the query
+    AzureDiagnostics
+    | where ResourceProvider =="MICROSOFT.KEYVAULT" 
+    | where DurationMs > threshold
+    | summarize count() by OperationName, _ResourceId
+    ```
+
+* Are there any failures?
+
+    ```Kusto
+    // Count of failed KeyVault requests by status code. 
+    // To create an alert for this query, click '+ New alert rule'
+    AzureDiagnostics
+    | where ResourceProvider =="MICROSOFT.KEYVAULT" 
+    | where httpStatusCode_d >= 300 and not(OperationName == "Authentication" and httpStatusCode_d == 401)
+    | summarize count() by requestUri_s, ResultSignature, _ResourceId
+    // ResultSignature contains HTTP status, e.g. "OK" or "Forbidden"
+    // httpStatusCode_d contains HTTP status code returned
+    ```
+
+* Input deserialization errors
+
+    ```Kusto
+    // Shows errors caused due to malformed events that could not be deserialized by the job. 
+    // To create an alert for this query, click '+ New alert rule'
+    AzureDiagnostics
+    | where ResourceProvider == "MICROSOFT.KEYVAULT" and parse_json(properties_s).DataErrorType in ("InputDeserializerError.InvalidData", "InputDeserializerError.TypeConversionError", "InputDeserializerError.MissingColumns", "InputDeserializerError.InvalidHeader", "InputDeserializerError.In
+    ```
+
+* How active has this KeyVault been?
+
+    ```Kusto
+    //  
+    // Line chart showing trend of KeyVault requests volume, per operation over time. 
+    // KeyVault diagnostic currently stores logs in AzureDiagnostics table which stores logs for multiple services. 
+    // Filter on ResourceProvider for logs specific to a service.
+    AzureDiagnostics
+    | where ResourceProvider =="MICROSOFT.KEYVAULT" 
+    | summarize count() by bin(TimeGenerated, 1h), OperationName // Aggregate by hour
+    | render timechart
+
+    ```
+
+* Who is calling this KeyVault? 
+
+    ```Kusto
+    // List of callers identified by their IP address with their request count.  
+    // KeyVault diagnostic currently stores logs in AzureDiagnostics table which stores logs for multiple services. 
+    // Filter on ResourceProvider for logs specific to a service.
+    AzureDiagnostics
+    | where ResourceProvider =="MICROSOFT.KEYVAULT"
+    | summarize count() by CallerIPAddress
+    ```
+
+* How fast is this KeyVault serving requests? 
+
+    ```Kusto
+    // Line chart showing trend of request duration over time using different aggregations.  
+    AzureDiagnostics
+    | where ResourceProvider =="MICROSOFT.KEYVAULT" 
+    | summarize avg(DurationMs) by requestUri_s, bin(TimeGenerated, 1h) // requestUri_s contains the URI of the request
+    | render timechart
+    ```
+
+* What changes occurred last month? 
+
+    ```Kusto
+    // Lists all update and patch requests from the last 30 days. 
+    // KeyVault diagnostic currently stores logs in AzureDiagnostics table which stores logs for multiple services. 
+    // Filter on ResourceProvider for logs specific to a service.
+    AzureDiagnostics
+    | where TimeGenerated > ago(30d) // Time range specified in the query. Overrides time picker in portal.
+    | where ResourceProvider =="MICROSOFT.KEYVAULT" 
+    | where OperationName == "VaultPut" or OperationName =
+    ```
+
 
 ## Alerts
 
