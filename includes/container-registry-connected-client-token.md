@@ -58,4 +58,4 @@ You will need the `username` and one of the `passwords` values for the IoT Edge 
   > [!IMPORTANT]
   > Make sure that you save the generated passwords. Those are one-time passwords and cannot be retrieved. You can generate new passwords using the [az acr token credential generate][az-acr-token-credential-generate] command.
 
-For more information about tokens and scope maps, see [Create a token with repository-scoped permissions](container-registry-repository-scoped-permissions.md).
+For more information about tokens and scope maps, see [Create a token with repository-scoped permissions](../articles/container-registry/container-registry-repository-scoped-permissions.md).

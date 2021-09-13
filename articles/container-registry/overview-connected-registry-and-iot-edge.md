@@ -10,11 +10,11 @@ ms.date: 08/24/2021
 
 # Using connected registry with Azure IoT Edge
 
-In this article, you learn about using an Azure[connected registry](intro-connected-registry.md) in hierarchical [IoT Edge](../iot-edge/about-iot-edge.md) scenarios. The connected registry can be deployed as an IoT Edge module and play an essential role in serving container images required by the devices in the hierarchy.
+In this article, you learn about using an Azure [connected registry](intro-connected-registry.md) in hierarchical [IoT Edge](../iot-edge/about-iot-edge.md) scenarios. The connected registry can be deployed as an IoT Edge module and play an essential role in serving container images required by the devices in the hierarchy.
 
 ## What is a hierarchical IoT Edge deployment?
 
-Azure IoT Edge allows you to deploy IoT Edge devices across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it. You can structure a hierarchy of devices so that only the top layer has connectivity to the cloud, and the lower layers can only communicate with adjacent north and south layers. This network layering is the foundation of most industrial networks, which follow the [ISA-95 standard](https://en.wikipedia.org/wiki/ANSI/ISA-95).
+Azure IoT Edge allows you to deploy IoT Edge devices across networks organized in hierarchical layers. Each layer in a hierarchy is a [gateway device](../iot-edge/iot-edge-as-gateway.md) that handles messages and requests from devices in the layer beneath it. You can structure a hierarchy of devices so that only the top layer has connectivity to the cloud, and the lower layers can only communicate with adjacent north and south layers. This network layering is the foundation of most industrial networks, which follow the [ISA-95 standard](https://en.wikipedia.org/wiki/ANSI/ISA-95).
 
 To learn how to create a hierarchy of IoT Edge devices, see [Tutorial: Create a hierarchy of IoT Edge devices][tutorial-nested-iot-edge]
 
@@ -26,7 +26,7 @@ The following image shows how the connected registry can be used to support the 
 
 ### Top layer
 
-The top layer of the architecture, *Layer 5: Enterprise Network*, is managed by IT and can access the container registry for Contoso in the Azure cloud. The connected registry is deployed as an IoT Edge module on the IoT Edge VM and can directly communicate with the cloud registry to pull and push images and artifacts. 
+The top layer of the example architecture, *Layer 5: Enterprise Network*, is managed by IT and can access the container registry for Contoso in the Azure cloud. The connected registry is deployed as an IoT Edge module on the IoT Edge VM and can directly communicate with the cloud registry to pull and push images and artifacts. 
 
 The connected registry is show as working in [registry mode](intro-connected-registry.md#modes). Clients of this connected registry can pull and push images and artifacts to it. Pushed images will be synchronized with the cloud registry. If pushes are not required in that layer, the connected registry can be changed to operate in [mirror mode](intro-connected-registry.md#modes).
 
@@ -44,7 +44,7 @@ For steps to deploy the connected registry on nested IoT Edge devices, see [Quic
 
 ## Next steps
 
-In this overview, you learned about the use of the connected registry in hierarchical IoT Edge scenarios. Continue to the one of the following articles to learn how to configure and deploy a connected registry to your IoT Edge device.
+In this overview, you learned about the use of the connected registry in hierarchical IoT Edge scenarios. Continue to the following articles to learn how to configure and deploy a connected registry to your IoT Edge device.
 
 > [!div class="nextstepaction"]
 > [Quickstart - Create connected registry using the CLI][quickstart-connected-registry-cli]

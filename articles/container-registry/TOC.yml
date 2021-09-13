@@ -246,6 +246,28 @@
         href: container-registry-tasks-pack-build.md
       - name: View task logs
         href: container-registry-tasks-logs.md
+- name: Connected registry
+  expanded: true
+  items:
+  - name: Overview
+    expanded: false
+    items:
+    - name: About connected registry
+      href: intro-connected-registry.md
+    - name: Access to connected registry
+      href: overview-connected-registry-access.md
+    - name: Use with IoT Edge
+      href: overview-connected-registry-and-iot-edge.md
+  - name: Quickstarts
+    expanded: true
+    items:
+    - name: Create connected registry - CLI
+      href: quickstart-connected-registry-cli.md
+    - name: Deploy connected registry to IoT Edge
+      href: quickstart-deploy-connected-registry-iot-edge-cli.md
+    - name: Deploy connected registry to nested IoT Edge
+      href: quickstart-deploy-connected-registry-nested-iot-edge-cli.md
+  - name: Tutorials
 - name: Reference
   expanded: false
   items:

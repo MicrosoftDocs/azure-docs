@@ -2,7 +2,7 @@
 title: Quickstart - Deploy a connected registry to an IoT Edge device
 description: Use Azure Container Registry CLI commands and Azure portal to deploy a connected registry to an Azure IoT Edge device.
 ms.topic: quickstart
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ms.author: memladen
 author: toddysm
 ms.custom:
@@ -41,10 +41,10 @@ To learn more about nested IoT Edge scenarios, see [Tutorial: Create a hierarchy
 
 To support the connected registry on nested IoT Edge, you need to import and set up the IoT Edge and API proxy using the private images from the `acronpremiot` registry.
 
-The [IoT Edge API proxy module](../iot-edge/how-to-configure-api-proxy-module.md) allows an IoT Edge device to expose multiple services using HTTPS protocol on the same port such as 443.
+The [IoT Edge API proxy module](../iot-edge/how-to-configure-api-proxy-module.md) allows an IoT Edge device to expose multiple services using the HTTPS protocol on the same port such as 443.
 
 > [!NOTE]
-> You can import these images from Microsoft Container Registry if you don't need to create a nested connected registry. 
+> You can import these images from Microsoft Container Registry if you don't need to create a nested connected registry. See import commands in [Quickstart: Create a connected registry using the Azure CLI](quickstart-connected-registry-cli.md).
 
 ```azurecli
 az acr import \
@@ -65,7 +65,9 @@ az acr import \
 
 ## Create a client token for access to the cloud registry
 
-The IoT Edge runtime will need to authenticate with the cloud registry to pull the images and deploy them. In this section, create a client token for the IoT Edge device. You will configure the token credentials in the deployment manifest for the device, shown later in this article.
+The IoT Edge runtime will need to authenticate with the cloud registry to pull the images and deploy them. Currently, [token-based authentication](overview-connected-registry-access.md) is used for authentication.
+
+In this section, create a [client token](overview-connected-regstry-access.md#client-tokens) for the IoT Edge device. You will configure the token credentials in the deployment manifest for the device, shown later in this article.
 
 [!INCLUDE [container-registry-connected-client-token](../../includes/container-registry-connected-client-token.md)]
 
@@ -80,16 +82,16 @@ az acr connected-registry install renew-credentials \
   --parent-protocol https
 ```
 
-This command returns the connection string for the connected registry, including a newly generated password for the sync token. Example:
+This command returns the connection string for the connected registry, including a newly generated password for the [sync token](overview-connected-registry-access.md#sync-token). The following example shows the connection string for the *myconnectedregistry* connected registry with parent registry *contosoregistry*:
 
 ```json
 {
-  "ACR_REGISTRY_CONNECTION_STRING": "ConnectedRegistryName=myconnectedregistry;SyncTokenName=myconnectedregistry-sync-token;SyncTokenPassword=xxxxxxxxxxxxxxxx;ParentGatewayEndpoint=<registry-name>.<region>.data.azurecr.io;ParentEndpointProtocol=https",
+  "ACR_REGISTRY_CONNECTION_STRING": "ConnectedRegistryName=myconnectedregistry;SyncTokenName=myconnectedregistry-sync-token;SyncTokenPassword=xxxxxxxxxxxxxxxx;ParentGatewayEndpoint=contosoregistry.eastus.data.azurecr.io;ParentEndpointProtocol=https",
   "ACR_REGISTRY_LOGIN_SERVER": "<Optional: connected registry login server>."
 }
 ```
 
-The preceding JSON lists the environment variables that need to be passed to the connected registry container at run time. The following environment variables are optional:
+The preceding JSON lists the environment variables that need to be passed to the connected registry container at runtime. The following environment variables are optional:
 
 - `ACR_REGISTRY_CERTIFICATE_VOLUME` - Use if your connected registry will be accessible via HTTPS. The volume should point to the location where the HTTPS certificates are stored. If not set, the default location is `/var/acr/certs`.
 - `ACR_REGISTRY_DATA_VOLUME` - Optionally use to overwrite the default location `/var/acr/data` where the images will be stored by the connected registry. This location must match the volume bind for the container.
@@ -103,7 +105,7 @@ You will need the information for the following IoT Edge manifest.
 
 A deployment manifest is a JSON document that describes which modules to deploy to the IoT Edge device. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](../iot-edge/module-composition.md).
 
-To deploy the connected registry and API proxy modules using the Azure CLI, save the following deployment manifest locally as a `manifest.json` file. Use the information from the previous sections to update the relevant JSON values.
+To deploy the connected registry and API proxy modules using the Azure CLI, save the following deployment manifest locally as a `manifest.json` file. Use the information from the previous sections to update the relevant JSON values. You will use the file path in the next section when you run the command to apply the configuration to your device.
 
 The API proxy will listen on port 8000 configured as `NGINX_DEFAULT_PORT`. For more information about the API proxy settings, see the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/master/edge-modules/api-proxy-module). 
 
@@ -113,12 +115,9 @@ The API proxy will listen on port 8000 configured as `NGINX_DEFAULT_PORT`. For m
 > If the connected registry listens on a port different from 80 and 443, the `ACR_REGISTRY_LOGIN_SERVER` value must include the port. Example: `192.168.0.100:8080`.
 
 [TODO: FIND OUT IF ACR_REGISTRY_LOGIN_SERVER should be in manifest?]
-
-You will use the file path in the next section when you run the command to apply the configuration to your device.
-
 ## Deploy the connected registry and API proxy modules on IoT Edge
 
-Use the following command to deploy the connected registry and API proxy modules on the IoT Edge device:
+Use the following command to deploy the connected registry and API proxy modules on the IoT Edge device, using the deployment manifest created in the previous section.
 
 ```azurecli
 az iot edge set-modules \
@@ -129,7 +128,7 @@ az iot edge set-modules \
 
 For details, see [Deploy Azure IoT Edge modules with Azure CLI](../iot-edge/how-to-deploy-modules-cli.md).
 
-To check the status of the connected registry, use the following CLI command:
+To check the status of the connected registry, use the following [az acr connected-registry show][az-acr-connected-registry-show] command:
 
 ```azurecli
 az acr connected-registry show \
@@ -142,14 +141,19 @@ After successful deployment, the connected registry shows a status of `Online`.
 
 ## Next steps
 
-In this quickstart, you learned how to deploy a connected registry to an IoT Edge device. Continue to the next guide to learn how to pull images from the newly deployed connected registry.
+In this quickstart, you learned how to deploy a connected registry to an IoT Edge device. Continue to the next guides to learn how to pull images from the newly deployed connected registry or to deploy the connected registry on nested IoT Edge devices.
 
+
+> [!div class="nextstepaction"]
 > [Quickstart: Pull images from a connected registry][quickstart-pull-images-from-connected-registry]
 
-> [Quickstart: Deploy connected registry on nested IoT Edge device][quickstart-connected-registry-nested]
+
+> [!div class="nextstepaction"]
+> [Quickstart: Deploy connected registry on nested IoT Edge devices][quickstart-connected-registry-nested]
 
 <!-- LINKS - internal -->
 [az-acr-connected-registry-install-renew-credentials]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_install_renew_credentials
+[az-acr-connected-registry-show]: /cli/azure/acr/connected-registr#az_acr_connected_registry_show
 [az-acr-import]:/cli/azure/acr#az_acr_import
 [az-acr-token-credential-generate]: /cli/azure/acr/token/credential?#az_acr_token_credential_generate
 [container-registry-intro]: container-registry-intro.md

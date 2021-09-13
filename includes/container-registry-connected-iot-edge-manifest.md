@@ -19,7 +19,7 @@ ms.author: danlep
                         "type": "docker",
                         "env": {
                             "ACR_REGISTRY_CONNECTION_STRING": {
-                                "value": "ConnectedRegistryName=<REPLACE_WITH_YOUR_CONNECTED_REGISTRY_NAME>;SyncTokenName=<REPLACE_WITH_YOUR_SYNC_TOKEN_NAME>;SyncTokenPassword=xxxxxxxxxxxxxxxx;ParentGatewayEndpoint=<REPLACE_WITH_YOUR_REGISTRY_NAME>.<REPLACE_WITH_YOUR_REGISTRY_REGION>.data.azurecr.io;ParentEndpointProtocol=https"
+                                "value": "ConnectedRegistryName=<REPLACE_WITH_YOUR_CONNECTED_REGISTRY_NAME>;SyncTokenName=<REPLACE_WITH_YOUR_SYNC_TOKEN_NAME>;SyncTokenPassword=REPLACE_WITH_YOUR_SYNC_TOKEN_PASSWORD;ParentGatewayEndpoint=<REPLACE_WITH_YOUR_REGISTRY_NAME>.<REPLACE_WITH_YOUR_REGISTRY_REGION>.data.azurecr.io;ParentEndpointProtocol=https"
                             }
                         },
                         "status": "running",
@@ -54,8 +54,8 @@ ms.author: danlep
                         "registryCredentials": {
                             "tsmregistry": {
                                 "address": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io",
-                                "password": "xxxxxxxxxxxxxxxx",
-                                "username": "<REPLACE_WITH_YOUR_PULL_TOKEN_NAME>"
+                                "password": "<REPLACE_WITH_YOUR_CLIENT_TOKEN_PASSWORD>",
+                                "username": "<REPLACE_WITH_YOUR_CLIENT_TOKEN_NAME>"
                             }
                         }
                     },
