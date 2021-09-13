@@ -95,7 +95,7 @@ Once the status of the restore task says "Completed" the new database should be 
 
 ## Troubleshooting failed restore operations
 
-If the restore task status shows "Failed", run the below command to look for root cause in the events.
+If the restore task status shows **Failed**, run the below command to look for the root cause in the events.
 ```code
 kubectl desctibe sqlmirestoretask <taskname> -n <namespace>
 ```
