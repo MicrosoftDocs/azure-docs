@@ -79,7 +79,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     -VMScaleSetName "myVmss"
     ```
 
-1. Update the scale set to remove association with the Capacity Reservation Group. Setting the `CapacityReservationGroupId` property to empty removes the association of scale set to the Capacity Reservation Group: 
+1. Update the scale set to remove association with the Capacity Reservation Group. Setting the `CapacityReservationGroupId` property to null removes the association of scale set to the Capacity Reservation Group: 
 
     ```powershell-interactive
     $vmss =
@@ -91,7 +91,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     -ResourceGroupName "myResourceGroup"
     -VMScaleSetName "myvmss"
     -VirtualMachineScaleSet $vmss
-    -CapacityReservationGroupId ""
+    -CapacityReservationGroupId $null
     ```
 
 To learn more, go to Azure PowerShell commands [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss), [Get-AzVmss](/powershell/module/az.compute/get-azvmss), and [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
@@ -170,7 +170,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     -CapacityToReserve 0
     ```
 
-2. Update the scale set to remove association with Capacity Reservation Group by setting the `CapacityReservationGroupId` property to empty: 
+2. Update the scale set to remove association with Capacity Reservation Group by setting the `CapacityReservationGroupId` property to null: 
 
     ```powershell-interactive
     $vmss =
@@ -182,7 +182,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     -ResourceGroupName "myResourceGroup"
     -VMScaleSetName "myvmss"
     -VirtualMachineScaleSet $vmss
-    -CapacityReservationGroupId ""
+    -CapacityReservationGroupId $null
     ```
 
 To learn more, go to Azure PowerShell commands [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation), [Get-AzVmss](/powershell/module/az.compute/get-azvmss), and [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
