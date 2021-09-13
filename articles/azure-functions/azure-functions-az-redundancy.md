@@ -15,7 +15,7 @@ Availability Zone (AZ) support for Azure Functions is now available on Elastic P
 
 An [Availability Zone](../availability-zones/az-overview.md#availability-zones) is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there&#39;s a minimum of three separate zones in all enabled regions. You can build high availability into your application architecture by co-locating your compute, storage, networking, and data resources within a zone and replicating in other zones.
 
-A zone redundant Function App will automatically distribute load the instances which your app runs on between the availability zones in the region. For Zone Redundant Elastic Premium apps, the instances the app is running on are still automatically evenly distributed between Availability Zones, even as the app scales in and out.
+A zone redundant Function App will automatically distribute load the instances that your app runs on between the availability zones in the region. For Zone Redundant Elastic Premium apps, even as the app scales in and out, the instances the app is running on are still evenly distributed between Availability Zones.
 
 ## Requirements
 
@@ -44,7 +44,7 @@ A zone redundant Function App will automatically distribute load the instances w
 
 ## How to Deploy a Zone Redundant Premium Functions Plan
 
-For initial creation of a Zone Redundant Elastic Premium Functions plan, you need to deploy via [ARM templates](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md). Then, once successfully created, you can view and interact with the Function Plan via the Azure Portal as well as CLI tooling. An ARM template is only needed for the initial creation of the Function Plan. A guide to hosting Functions on Premium plans can be found [here](functions-infrastructure-as-code.md#deploy-on-premium-plan).
+For initial creation of a Zone Redundant Elastic Premium Functions plan, you need to deploy via [ARM templates](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md). Then, once successfully created, you can view and interact with the Function Plan via the Azure Portal and CLI tooling. An ARM template is only needed for the initial creation of the Function Plan. A guide to hosting Functions on Premium plans can be found [here](functions-infrastructure-as-code.md#deploy-on-premium-plan).
 
 The only properties to be aware of while creating a zone redundant Function plan are the new **zoneRedundant** property and the Function Plan instance count (**capacity**) fields. The **zoneRedundant** property must be set to **true** and the **capacity** property should be set based on the workload requirement, but no less than 3. Choosing the right capacity varies based on several factors and high availability/fault tolerance strategies. A good rule of thumb is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
 
