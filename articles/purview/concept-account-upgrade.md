@@ -67,7 +67,7 @@ To edit role assignments in a collection, select the **Role assignments** tab to
 
 For more information about collections in upgraded accounts, please read our [guide on creating and managing collections](how-to-create-and-manage-collections.md).
 
-### What happens to your collections during upgrade
+### What happens to your collections during upgrade?
 
 1. A root collection is created. The root collection is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it's called Contoso Purview.
 
@@ -75,7 +75,7 @@ For more information about collections in upgraded accounts, please read our [gu
 
 1. Your previously existing collections will be connected to the root collection. You'll see them listed below the root collection, and can interact with them there.
 
-### What happens to your sources during upgrade
+### What happens to your sources during upgrade?
 
 1. Any sources that weren't previously associated with a collection are automatically added to the root collection.
 
@@ -104,6 +104,53 @@ For one-time scans, you'll need to rerun these manually to populate the assets i
 1. Select **Run scan now** to run the scan again.
 
     :::image type="content" source="./media/concept-account-upgrade/run-scan-now.png" alt-text="Screenshot of Purview studio window, opened to a scan, with Run scan now highlighted." border="true":::
+
+### What happens when your upgraded account doesn't have a collection admin?
+
+Your upgraded Purview account will have default collection admin(s) if the process can identify at least one user or group in the following order: 
+
+1. Owner (explicitly assigned)
+
+1. User Access Administrator (explicitly assigned)
+
+1. Data Source Administrator and Data Curator
+
+If your account did not have any user or group matched with the above criteria, the upgraded Purview account will have no collection admin. 
+
+You can still manually add a collection admin by using the management API. The user who calls this API must have Owner or User Access Administrator permission on Purview account to execute a write action. You will need to know the `objectId` of the new collection admin to submit via the API.
+
+#### Request
+
+   ```
+    POST https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Purview/accounts/<accountName>/addRootCollectionAdmin?api-version=2021-07-01
+   ```    
+    
+#### Request body
+
+   ```json
+    {
+        "objectId": "<objectId>"
+    }
+   ```    
+
+`objectId` is the objectId of the new collection admin to add.
+
+#### Response body
+
+If success, you will get an empty body response with `200` code.
+
+If failure, the format of the response body is as follows.
+
+   ```json
+    {
+        "error": {
+            "code": "19000",
+            "message": "The caller does not have Microsoft.Authorization/roleAssignments/write permission on resource: [/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>].",
+            "target": null,
+            "details": []
+        }
+    }
+   ```
 
 ## Permissions
 

@@ -138,7 +138,11 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 
 For inbound calls to an endpoint that's created by a request-based trigger, you can enable [Azure AD OAuth](../active-directory/develop/index.yml) by defining or adding an authorization policy for your logic app. This way, inbound calls use OAuth [access tokens](../active-directory/develop/access-tokens.md) for authorization.
 
-When your logic app receives an inbound request that includes an OAuth access token, the Azure Logic Apps service compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
+When your logic app receives an inbound request that includes an OAuth access token, Azure Logic Apps compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
+
+> [!NOTE]
+> For the **Logic App (Standard)** resource type in single-tenant Azure Logic Apps, Azure AD OAuth is currently 
+> unavailable for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
 
 #### Considerations before you enable Azure AD OAuth
 
@@ -1144,7 +1148,11 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 #### Managed identity authentication
 
-When the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) option is available on the [trigger or action that supports managed identity authentication](#add-authentication-outbound), your logic app can use the system-assigned identity or a *single* manually created user-assigned identity for authenticating access to Azure resources that are protected by Azure Active Directory (Azure AD), rather than credentials, secrets, or Azure AD tokens. Azure manages this identity for you and helps you secure your credentials because you don't have to manage secrets or directly use Azure AD tokens. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+When the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) option is available on the [trigger or action that supports managed identity authentication](#add-authentication-outbound), your logic app can use this identity for authenticating access to Azure resources that are protected by Azure Active Directory (Azure AD), rather than credentials, secrets, or Azure AD tokens. Azure manages this identity for you and helps you secure your credentials because you don't have to manage secrets or directly use Azure AD tokens. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
+* The **Logic App (Consumption)** resource type can use the system-assigned identity or a *single* manually created user-assigned identity.
+
+* The **Logic App (Standard)** resource type can use only the system-assigned identity, which is automatically enabled. The user-assigned identity is currently unavailable.
 
 1. Before your logic app can use a managed identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
@@ -1186,7 +1194,6 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
    | **Connection name** | Yes | <*connection-name*> ||
    | **Managed identity** | Yes | **System-assigned managed identity** <br>or <br> <*user-assigned-managed-identity-name*> | The authentication type to use |
    |||||
-
 
 <a name="block-connections"></a>
 
