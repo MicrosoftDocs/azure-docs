@@ -25,7 +25,7 @@ This article shows Bicep samples for Core (SQL) API accounts. You can also find 
 > * Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
 > * To provision throughput at the database level and share across all containers, apply the throughput values to the database options property.
 
-To create any of the Azure Cosmos DB resources below, copy the following example into a new bicep file. You can optionally create a parameters file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure CLI](../../azure-resource-manager/bicep/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/bicep/deploy-powershell.md) and [CloudShell](../../azure-resource-manager/bicep/deploy-cloud-shell.md).
+To create any of the Azure Cosmos DB resources below, copy the following example into a new bicep file. You can optionally create a parameters file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure CLI](../../azure-resource-manager/bicep/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/bicep/deploy-powershell.md) and [Cloud Shell](../../azure-resource-manager/bicep/deploy-cloud-shell.md).
 
 <a id="create-autoscale"></a>
 

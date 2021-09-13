@@ -9,7 +9,7 @@ ms.date: 09/13/2021
 ms.author: mjbrown
 ---
 
-# Manage an Azure Cosmos account using Azure Portal
+# Manage an Azure Cosmos account using the Azure portal
 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
