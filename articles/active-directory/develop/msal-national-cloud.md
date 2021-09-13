@@ -27,9 +27,11 @@ Including the global Azure, Azure Active Directory (Azure AD) is deployed in
 
 - Azure Government
 - Azure China 21Vianet
-- Azure Germany ([closes on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions))
+- Azure Germany ([Closing on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions))
 
 This guide demonstrates how to sign in to work and school accounts, get an access token, and call the Microsoft Graph API in the [Azure Government cloud](https://azure.microsoft.com/global-infrastructure/government/) environment.
+
+## Azure Germany (Microsoft Cloud Deutschland)
 
 > [!WARNING]
 > Azure Germany (Microsoft Cloud Deutschland) will be [closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Services and applications you choose _not_ to migrate to a region in global Azure before that date will become inaccessible.
