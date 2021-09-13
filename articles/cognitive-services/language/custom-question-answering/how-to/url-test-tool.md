@@ -29,11 +29,11 @@ ms.date: 07/16/2020
 
 
 ## Next steps
-
+<!-- TODO: Replace Link-->
 > [!div class="nextstepaction"]
-> [Test knowledge base with batch file](../how-to/test-knowledge-base.md#batch-test-with-tool)
-
+> [Test knowledge base with batch file](../../../qnamaker/how-to/test-knowledge-base.md#batch-test-with-tool)
+<!-- TODO: Replace Link-->
 Learn more about metadata:
-* [Authoring - add metadata to QnA pair](../How-To/edit-knowledge-base.md#add-metadata)
-* [Query prediction - filter answers by metadata](../How-To/query-knowledge-base-with-metadata.md)
+* [Authoring - add metadata to QnA pair](../../../qnamaker/How-To/edit-knowledge-base.md#add-metadata)
+* [Query prediction - filter answers by metadata](../../../qnamaker/How-To/query-knowledge-base-with-metadata.md)
 
