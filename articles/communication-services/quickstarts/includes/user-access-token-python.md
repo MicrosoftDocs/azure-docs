@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/12/2021
+ms.date: 09/13/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -104,10 +104,10 @@ Use the `create_user_and_token` method to create a Communication Services identi
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity
 identity_token_result = client.create_user_and_token(["voip"])
-identity = identity_token_result[0].properties['id']
+identity = identity_token_result[0]
 token = identity_token_result[1].token
 expires_on = identity_token_result[1].expires_on.strftime("%d/%m/%y %I:%M %S %p")
-print("\nCreated an identity with ID: " + identity)
+print("\nCreated an identity with ID: " + identity.properties['id'])
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token)
 ```
@@ -119,7 +119,7 @@ To refresh an access token, use the `CommunicationUserIdentifier` object to reis
 ```python
 # Value existingIdentity represents identity of Azure Communication Services stored during identity creation
 identity = CommunicationUserIdentifier(existingIdentity)
-token_result = client.get_token( identity, ["voip"])
+token_result = client.get_token(identity, ["voip"])
 ```
 
 ## Revoke access tokens
@@ -127,8 +127,8 @@ token_result = client.get_token( identity, ["voip"])
 In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revoke_tokens` invalidates all active access tokens, that were issued to the identity.
 
 ```python
-client.revoke_tokens(identity_token_result[0])
-print("\nSuccessfully revoked all access tokens for identity with ID: " + identity)
+client.revoke_tokens(identity)
+print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.properties['id'])
 ```
 
 ## Delete an identity
@@ -136,8 +136,8 @@ print("\nSuccessfully revoked all access tokens for identity with ID: " + identi
 Deleting an identity revokes all active access tokens and prevents you from issuing access tokens for the identity. It also removes all the persisted content associated with the identity.
 
 ```python
-client.delete_user(identity_token_result[0])
-print("\nDeleted the identity with ID: " + identity)
+client.delete_user(identity)
+print("\nDeleted the identity with ID: " + identity.properties['id'])
 ```
 
 ## Run the code
