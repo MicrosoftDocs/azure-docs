@@ -3,7 +3,7 @@ title: How to respond to Azure Defender for Key Vault alerts
 description: Learn about the steps necessary for responding to alerts from Azure Defender for Key Vault.
 author: memildin
 ms.author: memildin
-ms.date: 09/12/2021
+ms.date: 09/13/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
@@ -26,7 +26,7 @@ Depending on the *type* of access that occurred, some fields might not be availa
 ## Step 1. Identify the source
 
 1. Verify whether the traffic originated from within your Azure tenant. If the key vault firewall is enabled, it's likely that you've provided access to the user or application that triggered this alert.
-1. If you can't verify the source of the traffic, continue to [Step 2. Immediate mitigation](#step-2-immediate-mitigation).
+1. If you can't verify the source of the traffic, continue to [Step 2. Respond accordingly](#step-2-respond-accordingly).
 1. If you can identify the source of the traffic in your tenant, contact the user or owner of the application. 
 
 > [!CAUTION]
