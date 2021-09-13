@@ -2,7 +2,7 @@
 title: Manage Azure Database for PostgreSQL server 
 description: Learn about managing Azure Database for PostgreSQL server.
 ms.topic: conceptual
-ms.date: 09/06/2021
+ms.date: 09/10/2021
 ---
 
 # Manage Azure Database for PostgreSQL server
@@ -67,6 +67,9 @@ There are three ways by which you can stop protecting an Azure Database for Post
 ## Resume Protection
 
 If you have selected the **Stop Protection and Retain data** option while stopping the data backup, you can resume protection for your Azure Database for PostgreSQL server.
+
+>[!Note]
+>When you start protecting a database, the backup policy is applied to the retained data as well. The recovery points that have expired as per the policy will be cleaned up.
 
 Use the following steps:
 

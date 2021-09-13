@@ -151,7 +151,7 @@ The following Language Understanding **features are not currently available** in
 
 For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../cognitive-services/Speech-Service/sovereign-clouds.md).
 
-### [Cognitive Services: Translator](../cognitive-services/translator/translator-info-overview.md)
+### [Cognitive Services: Translator](../cognitive-services/translator/translator-overview.md)
 
 The following Translator **features are not currently available** in Azure Government:
 
