@@ -1,6 +1,6 @@
 ### YamlMime:Hub
 
-title: Azure Cognitive Service for language
+title: Azure Cognitive Service for language documentation
 summary: Learn how to integrate AI into your applications that can extract information, classify text, understand conversational language, answer questions and more.
 brand: azure
 
@@ -68,15 +68,6 @@ conceptualContent:
           text: Custom language understanding
           url: custom-language-understanding/overview.md 
 
-    - title: Translate text
-      links:
-        - itemType: overview
-          text: Translate text
-          url: ../translator/translator-overview.md
-        - itemType: overview
-          text: Custom translation
-          url: ../translator/custom-translator/overview.md
-      
 tools:
   title: Software Development Kits (SDKs)
   summary: Get started with the Language Services SDK in your favorite programming language.
