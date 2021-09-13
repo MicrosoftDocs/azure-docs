@@ -47,7 +47,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/update?api-version=2021-04-01
     ```
-    In the request body, set the `capacityReservationGroup` property to empty to remove the VM association to the group:
+    In the request body, set the `capacityReservationGroup` property to null to remove the VM association to the group:
 
     ```json
      {
@@ -55,7 +55,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     "properties": {
         "capacityReservation": {
             "capacityReservationGroup": {
-                "id":""
+                "id":null
             }
         }
     }
@@ -140,7 +140,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{VirtualMachineName}/update?api-version=2021-04-01
     ```
 
-    In the request body, set the `capacityReservationGroup` property to empty to remove the association:
+    In the request body, set the `capacityReservationGroup` property to null to remove the association:
     
     ```json
     {
@@ -148,7 +148,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     "properties": {
         "capacityReservation": {
             "capacityReservationGroup": {
-                "id":""
+                "id":null
             }
         }
     }
