@@ -93,7 +93,7 @@
         - name: ASP.NET Core with a container
           href: app-service-sql-github-actions.md
         - name: ASP.NET
-          href: app-service-sql-asp-actions.md
+          href: app-service-sql-asp-github-actions.md
 - name: Samples
   items:
     - name: Azure CLI
