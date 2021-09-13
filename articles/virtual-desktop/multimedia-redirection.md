@@ -102,7 +102,8 @@ To quickly tell if multimedia redirection is active in your browser, we've added
 
 Selecting the icon will display a pop-up menu that has a checkbox you can select to enable or disable multimedia redirection on all websites. It also lists the version numbers for each component of the service.
 
-## Send feedback during public preview
+## Support during public preview
+Microsoft Support is not handling issues for multimedia redirection during public preview.
 
 If you run into any issues, you can tell us in the feedback hub on both the client and VM host.
 

@@ -165,7 +165,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
     :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
 
-# [Cassandra API](#tab/Cassandra-api)
+# [Cassandra API](#tab/cassandra-api)
 
 #### If your application is currently using the primary key
 

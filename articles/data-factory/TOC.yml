@@ -688,9 +688,21 @@ items:
     - name: Monitor visually
       href: monitor-visually.md
     - name: Monitor with Azure Monitor
-      href: monitor-using-azure-monitor.md
-    - name: Monitor SSIS with Azure Monitor
-      href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
+      items:
+      - name: Overview
+        href: monitor-using-azure-monitor.md
+      - name: Azure Data Factory metrics and alerts
+        href: monitor-metrics-alerts.md
+      - name: Configure diagnostics settings and workspace
+        href: monitor-configure-diagnostics.md
+      - name: Setup diagnostics logs via the Azure Monitor REST API
+        href: monitor-logs-rest.md
+      - name: Monitor SSIS operations with Azure Monitor
+        href: monitor-ssis.md
+      - name: Schema of logs and events
+        href: monitor-schema-logs-events.md
+      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
+        href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Monitor integration runtime
@@ -794,6 +806,8 @@ items:
     items:
     - name: Connect a Data Factory to Azure Purview
       href: connect-data-factory-to-azure-purview.md
+    - name: Access a secured Azure Purview account
+      href: ./how-to-access-secured-purview-account.md
     - name: Discover and explore data in ADF using Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios

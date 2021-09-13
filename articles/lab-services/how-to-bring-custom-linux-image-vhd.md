@@ -33,7 +33,7 @@ The following steps show how to create an Ubuntu 16.04\18.04\20.04 image from a 
     - The VM must be created as a **Generation 1** VM.
     - Use the **Default Switch** network configuration option to allow the VM to connect to the internet.
     - In the **Connect Virtual Hard Disk** settings, the disk's **Size** must *not* be greater than 128 GB, as shown in the following image.
-       
+
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Screenshot that shows the Connect Virtual Hard Disk screen.":::
 
     - In the **Installation Options** settings, select the **.iso** file that you previously downloaded from Ubuntu.
@@ -47,7 +47,7 @@ The following steps show how to create an Ubuntu 16.04\18.04\20.04 image from a 
     When you follow the preceding steps, there are a few important points to highlight:
     - The steps create a [generalized](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) image when you run the **deprovision+user** command. But it doesn't guarantee that the image is cleared of all sensitive information or that it's suitable for redistribution.
     - The final step is to convert the **VHDX** file to a **VHD** file. Here are equivalent steps that show how to do it with **Hyper-V Manager**:
-        
+
         1. Go to **Hyper-V Manager** > **Action** > **Edit Disk**.
         1. Next, **Convert** the disk from a VHDX to a VHD.
         1. For the **Disk Type**, select **Fixed size**.
@@ -56,48 +56,47 @@ The following steps show how to create an Ubuntu 16.04\18.04\20.04 image from a 
 
 To help with resizing the VHD and converting to a VHDX, you can also use the following PowerShell cmdlets:
 
-- [Resize-VHD](/powershell/module/hyper-v/resize-vhd?view=windowsserver2019-ps)
-- [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps)
+- [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
+- [Convert-VHD](/powershell/module/hyper-v/convert-vhd)
 
 ## Upload the custom image to a shared image gallery
 
 1. Upload the VHD to Azure to create a managed disk.
     1. You can use either Storage Explorer or AzCopy from the command line, as shown in [Upload a VHD to Azure or copy a managed disk to another region](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
 
-    1. After you've uploaded the VHD, you should now have a managed disk that you can see in the Azure portal. 
-    
+    1. After you've uploaded the VHD, you should now have a managed disk that you can see in the Azure portal.
+
     If your machine goes to sleep or locks, the upload process might get interrupted and fail. Also, make sure that when AzCopy completes, that you revoke SAS access to the disk. Otherwise, when you attempt to create an image from the disk, you'll see the error "Operation 'Create Image' is not supported with disk 'your disk name' in state 'Active Upload'. Error Code: OperationNotAllowed*."
-    
+
     Use the Azure portal's **Size+Performance** tab for the managed disk to change your disk size. As mentioned before, the size must *not* be greater than 128 GB.
 
 1. In a shared image gallery, create an image definition and version:
-    1. [Create an image definition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition):
+    1. [Create an image definition](../virtual-machines/image-version.md):
         - Choose **Gen 1** for the **VM generation**.
         - Choose **Linux** for the **Operating system**.
         - Choose **generalized** for the **Operating system state**.
-     
-    For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions). 
-    
+
+    For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions).
+
     You can also choose to use an existing image definition and create a new version for your custom image.
-    
-1. [Create an image version](../virtual-machines/windows/shared-images-portal.md#create-an-image-version):
-   - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*. When you use Lab Services to create a lab and choose a custom image, the most recent version of the image is automatically used. The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, and then Patch.
+
+1. [Create an image version](../virtual-machines/image-version.md):
+    - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*. When you use Lab Services to create a lab and choose a custom image, the most recent version of the image is automatically used. The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, and then Patch.
     - For the **Source**, select **Disks and/or snapshots** from the dropdown list.
     - For the **OS disk** property, choose the disk that you created in previous steps.
-    
+
     For more information about the values you can specify for an image definition, see [Image versions](../virtual-machines/shared-image-galleries.md#image-versions).
 
 ## Create a lab
-   
+
 [Create the lab](tutorial-setup-classroom-lab.md) in Lab Services and select the custom image from the shared image gallery.
 
-If you expanded the disk *after* the OS was installed on the original Hyper-V VM, you might also need to extend the partition in Linux's filesystem to use the unallocated disk space:
-- Log in to the lab's template VM and follow steps similar to what is shown in [Expand a disk partition and filesystem](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
-    
+If you expanded the disk *after* the OS was installed on the original Hyper-V VM, you might also need to extend the partition in Linux's filesystem to use the unallocated disk space.  Log in to the lab's template VM and follow steps similar to what is shown in [Expand a disk partition and filesystem](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
+
 The OS disk typically exists on the **/dev/sad2** partition. To view the current size of the OS disk's partition, use the command **df -h**.
-    
+
 ## Next steps
 
-* [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
-* [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
-* [Use a shared image gallery](how-to-use-shared-image-gallery.md)
+- [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
+- [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
+- [Use a shared image gallery](how-to-use-shared-image-gallery.md)

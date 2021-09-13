@@ -93,7 +93,7 @@ Perform the following steps to import, publish, and run the runbook to trigger j
 
     ![Add runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. Provide the parameters such as the name of your StorSimple Data Manager service, the associated resource group and the job definition name. **Start** the test. The report is generated when the run is complete. For more information, go to how to [test a runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
+6. Provide the parameters such as the name of your StorSimple Data Manager service, the associated resource group and the job definition name. **Start** the test. The report is generated when the run is complete. For more information, go to how to [test a runbook](../automation/learn/powershell-runbook-managed-identity.md).
 
     ![Add runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 
