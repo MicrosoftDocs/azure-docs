@@ -200,5 +200,4 @@ Your contact information lets Microsoft sales teams and channel resellers reques
 
 - For details about republishing an offer, see [How to review and publish an offer to the commercial marketplace](review-publish-offer.md).
 - For information about commercial marketplace rewards and technical benefits, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
-
 <!--- [Updated for Workspaces]() --->
