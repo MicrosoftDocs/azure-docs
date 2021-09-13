@@ -24,7 +24,7 @@ Blob index tags let you:
 
 - Specify conditional behaviors for blob APIs based on the evaluation of index tags
 
-- Use index tags for advanced controls on features like [blob lifecycle management](storage-lifecycle-management-concepts.md)
+- Use index tags for advanced controls on features like [blob lifecycle management](./lifecycle-management-overview.md)
 
 Consider a scenario where you have millions of blobs in your storage account, accessed by many different applications. You want to find all related data from a single project. You aren't sure what's in scope as the data can be spread across multiple containers with different naming conventions. However, your applications upload all data with tags based on their project. Instead of searching through millions of blobs and comparing names and properties, you can use `Project = Contoso` as your discovery criteria. Blob index will filter all containers across your entire storage account to quickly find and return just the set of 50 blobs from `Project = Contoso`.
 
@@ -175,7 +175,7 @@ The below table shows the valid operators for conditional operations:
 
 ## Platform integrations with blob index tags
 
-Blob index tags not only help you categorize, manage, and search on your blob data, but also provide integration with other Blob Storage features, such as [lifecycle management](storage-lifecycle-management-concepts.md).
+Blob index tags not only help you categorize, manage, and search on your blob data, but also provide integration with other Blob Storage features, such as [lifecycle management](./lifecycle-management-overview.md).
 
 ### Lifecycle management
 
@@ -349,4 +349,4 @@ No, Resource Manager tags help organize control plane resources such as subscrip
 
 For an example of how to use blob index, see [Use blob index to manage and find data](storage-blob-index-how-to.md).
 
-Learn about [lifecycle management](storage-lifecycle-management-concepts.md) and set a rule with blob index matching.
+Learn about [lifecycle management](./lifecycle-management-overview.md) and set a rule with blob index matching.

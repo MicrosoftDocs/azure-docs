@@ -148,7 +148,7 @@ An Azure VM assessment continuously collects performance data of on-premises ser
 
 ## Can I migrate my disks to an Ultra disk by using Azure Migrate?
 
-No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. Find steps to deploy an Ultra disk at [this website](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk).
+No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. Find steps to deploy an Ultra disk at [this website](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk).
 
 ## Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
 

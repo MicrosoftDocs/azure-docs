@@ -44,8 +44,8 @@ The workflow of the migration process is illustrated below.
 
 Azure Database Migration Service prerequisites that are common across all supported migration scenarios include the need to:
 
-* [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio.md)
-* [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension.md) from the Azure Data Studio marketplace
+* [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+* [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Have an Azure account that is assigned to one of the built-in roles listed below:
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Owner or Contributor role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
@@ -79,7 +79,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
     > If your database backup files are already provided in an Azure storage account, self-hosted integration runtime is not required during the migration process.
 
 * When using self-hosted integration runtime, make sure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to allow access to the network file share.
-* If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](/quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
+* If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](/azure/dms/quickstart-create-data-migration-service-portal#register-the-resource-provider)
 
 ### Recommendations for using self-hosted integration runtime for database migrations
 - Use a single self-hosted integration runtime for multiple source SQL Server databases.
