@@ -1,14 +1,14 @@
 ---
 title: Transform data
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Transform data or process data in Azure Data Factory or Azure Synapse Analytics using Hadoop, Azure Machine Learning Studio (classic), or Azure Data Lake Analytics.
+description: Transform data or process data in Azure Data Factory or Azure Synapse Analytics using Hadoop, ML Studio (classic), or Azure Data Lake Analytics.
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 07/31/2018
+ms.date: 09/09/2021
 ---
 
 # Transform data in Azure Data Factory and Azure Synapse Analytics
@@ -20,7 +20,7 @@ ms.date: 07/31/2018
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Azure Machine Learning Studio (classic)](transform-data-using-machine-learning.md) 
+> * [ML Studio (classic)](transform-data-using-machine-learning.md) 
 > * [Stored Procedure](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Azure Synapse notebook](../synapse-analytics/synapse-notebook-activity.md)
@@ -68,12 +68,12 @@ The HDInsight Streaming activity in a pipeline executes Hadoop Streaming program
 ### HDInsight Spark activity
 The HDInsight Spark activity in a pipeline executes Spark programs on your own HDInsight cluster. For details, see [Invoke Spark programs with Azure Data Factory or Azure Synapse Analytics](transform-data-using-spark.md). 
 
-### Azure Machine Learning Studio (classic) activities
-The service enables you to easily create pipelines that use a published Azure Machine Learning Studio (classic) web service for predictive analytics. Using the [Batch Execution activity](transform-data-using-machine-learning.md) in a pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
+### ML Studio (classic) activities
+The service enables you to easily create pipelines that use a published ML Studio (classic) web service for predictive analytics. Using the [Batch Execution activity](transform-data-using-machine-learning.md) in a pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
 
 Over time, the predictive models in the Studio (classic) scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained machine learning model. You can use the [Update Resource activity](update-machine-learning-models.md) to update the web service with the newly trained model.  
 
-See [Use Azure Machine Learning Studio (classic) activities](transform-data-using-machine-learning.md) for details about these Studio (classic) activities. 
+See [Use ML Studio (classic) activities](transform-data-using-machine-learning.md) for details about these Studio (classic) activities. 
 
 ### Stored procedure activity
 You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  

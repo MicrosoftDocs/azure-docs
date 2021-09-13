@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 07/22/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, has-adal-ref
 #Customer intent: As an application developer, I want to learn about the Microsoft Authentication Library so I can decide if this platform meets my application development needs and requirements.
 ---
 

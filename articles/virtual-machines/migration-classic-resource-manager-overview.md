@@ -13,6 +13,8 @@ ms.author: tagore
 ---
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
+
 > [!IMPORTANT]
 > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
@@ -84,7 +86,7 @@ To allow seamless migration, you can deploy Resource Manager VMs in a classic st
 If your storage account does not have any associated disks or Virtual Machines data and only has blobs, files, tables, and queues then the migration to Azure Resource Manager can be done as a standalone migration without dependencies.
 
 > [!NOTE]
-> The Resource Manager deployment model doesn't have the concept of Classic images and disks. When the storage account is migrated, Classic images and disks are not visible in the Resource Manager stack but the backing VHDs remain in the storage account.
+> The Resource Manager deployment model doesn't have the concept of Classic images and disks. When the storage account is migrated, Classic images and disks are no longer visible in the Azure portal, but the backing VHDs remain in the storage account.
 
 The following screenshots show how to upgrade a Classic storage account to an Azure Resource Manager storage account using Azure portal:
 1. Sign in to the [Azure portal](https://portal.azure.com).

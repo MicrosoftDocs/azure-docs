@@ -63,4 +63,5 @@ When you right-click into a container, you'll have a list of gestures that will 
 ## Next steps
 
 * [Learn what is supported between Synapse and Azure Cosmos DB](./synapse-link/concept-synapse-link-cosmos-db-support.md)
-* [Learn how to query an analytical store with Apache Spark for Azure Synapse Analytics](synapse-link/how-to-query-analytical-store-spark.md)
+* [Learn how to query an analytical store with Apache Spark 3 for Azure Synapse Analytics](synapse-link/how-to-query-analytical-store-spark-3.md)
+* [Learn how to query an analytical store with Apache Spark 2 for Azure Synapse Analytics](synapse-link/how-to-query-analytical-store-spark.md)

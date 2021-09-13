@@ -8,10 +8,12 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 09/02/2021
 ms.author: davidmu
 ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
+
+#customer intent: As an admin, I want to enable and create collections for My Apps portal in Azure AD.
 ---
 
 # Create collections on the My Apps portal
@@ -19,7 +21,14 @@ ms.collection: M365-identity-device-management
 Your users can use the My Apps portal to view and start the cloud-based applications they have access to. By default, all the applications a user can access are listed together on a single page. To better organize this page for your users, if you have an Azure AD Premium P1 or P2 license you can set up collections. With a collection, you can group together applications that are related (for example, by job role, task, or project) and display them on a separate tab. A collection essentially applies a filter to the applications a user can already access, so the user sees only those applications in the collection that have been assigned to them.
 
 > [!NOTE]
-> This article covers how an admin can enable and create collections. For information for the end user about how to use the My Apps portal and collections, see [Access and use collections](../user-help/my-applications-portal-workspaces.md).
+> This article covers how an admin can enable and create collections. For information for the end user about how to use the My Apps portal and collections, see [Access and use collections](https://support.microsoft.com/account-billing/organize-apps-using-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d).
+
+## Prerequisites
+
+To create collections on the My Apps portal, you need:
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 ## Enable the latest My Apps features
 
@@ -27,7 +36,7 @@ Your users can use the My Apps portal to view and start the cloud-based applicat
 
 2. Go to **Azure Active Directory** > **User settings**.
 
-3. Under **User feature previews**, select **Manage user feature preview settings**.
+3. Under **User features**, select **Manage user feature settings**.
 
 4. Under **Users can use preview features for My Apps**, choose one of the following options:
    * **Selected** - Enables the features for a specific group. Use the **Select a group** option to select the group for which you want to enable the features.  
@@ -48,21 +57,20 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
 
 4. Select **New collection**. In the **New collection** page, enter a **Name** for the collection (we recommend not using "collection" in the name. Then enter a **Description**.
 
-   ![New collection page](media/acces-panel-collections/new-collection.png)
-
 5. Select the **Applications** tab. Select **+ Add application**, and then in the **Add applications** page, select all the applications you want to add to the collection, or use the **Search** box to find applications.
 
    ![Add an application to the collection](media/acces-panel-collections/add-applications.png)
 
-6. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the up arrows to change the order of applications in the list. To move an application down or to delete it from the collection, select the **More** menu (**...**).
+6. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the up arrows to change the order of applications in the list.
 
 7. Select the **Owners** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign ownership to. When you're finished selecting users and groups, choose **Select**.
 
-9. Select the **Users and groups** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign the collection to. Or use the **Search** box to find users or groups. When you're finished selecting users and groups, choose **Select**.
+8. Select the **Users and groups** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign the collection to. Or use the **Search** box to find users or groups. When you're finished selecting users and groups, choose **Select**.
 
-   ![Add users and groups](media/acces-panel-collections/add-users-and-groups.png)
+9. Select **Review + Create**. The properties for the new collection appear.
 
-11. Select **Review + Create**. The properties for the new collection appear.
+> [!NOTE]
+> Admin collections are managed through the [Azure portal](https://portal.azure.com), not from [My Apps portal](https://myapps.microsoft.com). For example, if you assign users or groups as an owner, then they can only manage the collection through the Azure portal.
 
 ## View audit logs
 
@@ -78,7 +86,7 @@ You can access audit logs in the [Azure portal](https://portal.azure.com) by sel
 
 ## Get support for My Account pages
 
-From the My Apps page, a user can select **My account** > **View my account** to open their account settings. On the Azure AD **My Account** page, users can manage their security info, devices, passwords, and more. They can also access their Office account settings.
+From the My Apps page, a user can select **My account** > **View account** to open their account settings. On the Azure AD **My Account** page, users can manage their security info, devices, passwords, and more. They can also access their Office account settings.
 
 In case you need to submit a support request for an issue with the Azure AD account page or the Office account page, follow these steps so your request is routed properly:
 

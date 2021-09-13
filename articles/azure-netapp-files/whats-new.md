@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/12/2021
+ms.date: 09/08/2021
 ms.author: b-juche
 ---
 
@@ -21,7 +21,17 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## September 2021
+
+* [**Administrators**](create-active-directory-connections.md#create-an-active-directory-connection) option in Active Directory connections (Preview)
+
+    The Active Directory connections page now includes an **Administrators** field. You can specify users or groups that will be given administrator privileges on the volume.
+
 ## August 2021
+
+* Support for [enabling Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
+
+    You can already enable the SMB Continuous Availability (CA) feature when you [create a new SMB volume](azure-netapp-files-create-volumes-smb.md#continuous-availability). You can now also enable SMB CA on an existing SMB volume. See [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md).
 
 * [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) now generally available (GA)  
 
@@ -154,7 +164,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It is determined by the combination of the pool size and the service-level throughput. Alternatively, a capacity pool’s [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) can be auto (automatic), which is the default. In an auto QoS capacity pool, throughput is assigned automatically to the volumes in the pool, proportional to the size quota assigned to the volumes.
 
-* [LDAP signing](azure-netapp-files-create-volumes-smb.md) (Preview)   
+* [LDAP signing](create-active-directory-connections.md#create-an-active-directory-connection) (Preview)   
 
     Azure NetApp Files now supports LDAP signing for secure LDAP lookups between the Azure NetApp Files service and the user-specified Active Directory Domain Services domain controllers. This feature is currently in preview.
 

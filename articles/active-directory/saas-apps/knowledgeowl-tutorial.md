@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 08/11/2021
 ms.author: jeedes
 ---
 
@@ -153,11 +153,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings** and then select **SSO**.
 
-	![Screenshot that shows S S O selected from the Settings menu.](./media/knowledgeowl-tutorial/knowledgeowl-sso-settings-menu.png)
+	![Screenshot shows SSO selected from the Settings menu.](./media/knowledgeowl-tutorial/settings-sso-dropdown.png)
 
 1. In the Scroll to **SAML Settings** tab, perform the following steps:
 
-	![Screenshot that shows making changes to S A M L S S O Integration settings.](./media/knowledgeowl-tutorial/knowledgeowl-required-settings.png)
+	![Screenshot shows SAML S S O Integration where you can make the changes described here.](./media/knowledgeowl-tutorial/sso-settings-required-fields.png)
 
 	a. Select **Enable SAML SSO**.
 
@@ -172,14 +172,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	f. In the **IdP Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
 
 	g. Upload the downloaded certificate form the Azure portal by clicking the **Upload** link beneath **IdP Certificate**.
-	
+
 	h. Click **Save** at the bottom of the page.
-	
-	![Screenshot that shows the Save button for S A M L S S O integration settings.](./media/knowledgeowl-tutorial/knowledgeowl-saml-save.png)
+
+	![Screenshot shows the Save button.](./media/knowledgeowl-tutorial/sso-settings-saml-save.png)
 
 	i. Open the **SAML Attribute Map** tab to map attributes and perform the following steps:
 
-	![Screenshot that shows making changes to the S A M L Attribute Map.](./media/knowledgeowl-tutorial/knowledgeowl-direct-attributes-select.png)
+	![Screenshot shows Map SAML Attributes where you can make the changes described here.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-fields.png)
 
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` into the **SSO ID** textbox.
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` into the **Username/Email** textbox.
@@ -188,7 +188,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	j. Click **Save** at the bottom of the page.
 
-	  ![Screenshot shows the Save button for S A M L Attribute Map settings.](./media/knowledgeowl-tutorial/knowledgeowl-direct-attributes-save.png)
+	![Screenshot shows the Save button1.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-save.png)
 
 ### Create KnowledgeOwl test user
 
@@ -211,7 +211,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in the Azure portal and you should be automatically signed in to the KnowledgeOwl application for which you set up the SSO. 
 
-You can also use the Microsoft My Apps portal to test the application in any mode. When you click the KnowledgeOwl tile in the My Apps portal, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the KnowledgeOwl application for which you set up the SSO. For more information about the My Apps portal, see [Introduction to My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use the Microsoft My Apps portal to test the application in any mode. When you click the KnowledgeOwl tile in the My Apps portal, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the KnowledgeOwl application for which you set up the SSO. For more information about the My Apps portal, see [Introduction to My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
