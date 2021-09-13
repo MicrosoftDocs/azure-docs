@@ -1,6 +1,6 @@
 ---
 title: Migrate knowledge bases - custom question answering
-description: Migrating a knowledge base requires exporting from one knowledge base, then importing into another.
+description: Migrating a custom question answering knowledge base requires exporting from one knowledge base, then importing into another.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
@@ -82,5 +82,6 @@ There is no way to migrate chat logs, since the new knowledge base uses Applicat
 
 ## Next steps
 
+<!-- TODO: Replace Link-->
 > [!div class="nextstepaction"]
-> [Edit a knowledge base](../How-To/edit-knowledge-base.md)
+> [Edit a knowledge base](../../../qnamaker/How-To/edit-knowledge-base.md)
