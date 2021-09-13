@@ -104,6 +104,8 @@ items:
     items:
     - name: Encrypt data at rest
       href: custom-question-answering/how-to/encrypt-data-at-rest.md
+    - name: Migrate knowledge base
+      href: custom-question-answering/how-to/migrate-knowledge-base.md
 - name: Entity linking
   items:
   - name: Overview
