@@ -5,7 +5,7 @@ author: craigktreasure
 manager: rgarcia
 
 ms.author: crtreasu
-ms.date: 09/08/2021
+ms.date: 09/10/2021
 ms.topic: troubleshooting
 ms.service: azure-object-anchors
 #Customer intent: As a developer, I want to fix issues related to detecting an object using Azure Object Anchors.
@@ -20,6 +20,7 @@ loaded the model into an application.
 
 * Ensure that the model you're detecting is within the supported (1-10 meters) size for the best experience.
 * Ensure the room has enough textures by adding a few posters.
+* Remove current holograms to reset the map as described [below](#remove-holograms-to-reset-the-map).
 * Scan the object more completely.
 * Provide a tight bounding box as search area that includes all or most of the object.
 * Clear the spatial mapping cache and rescan the object.
@@ -27,6 +28,22 @@ loaded the model into an application.
 * Visually inspect the detection model as described [below](#visually-inspect-the-detection-models-mesh).
 * Adjust the model query values as described [below](#adjust-object-query-values).
 * Capture diagnostics as described [below](#capture-diagnostics).
+
+### Remove holograms to reset the map
+
+If you're seeing objects being detected with any of the follow issue, removing and resetting the map can fix the issue:
+* Inverted orientation
+* Incorrect pose
+* Tilted model
+
+To remove holograms and reset the map, open the **Settings** app and go to **System** -> **Holograms**. Then, select
+**Remove all holograms** to start with a fresh map.
+
+Clearing the holograms ensures objects can be properly detected in their current positions in case they were recently
+moved.
+
+Rescan your environment by walking around in the environment wearing the HoloLens. Walk around any objects you intend
+to detect a few times from 1-2 meters.
 
 ### Ensure the gravity direction and asset dimension unit are correct
 

@@ -84,6 +84,16 @@ Supported clients:
     >To view recovery points for a different time range, modify the start and the end date accordingly.
 ## Use PowerShell
 
+### Check the archivable status of all the recovery points
+
+You can now check the archivable status of all the recovery points of a backup item using the following cmdlet:
+
+```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() 
+
+$rp | select RecoveryPointId, @{ Label="IsArchivable";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].IsReadyForMove}}, @{ Label="ArchivableInfo";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].AdditionalInfo}}
+```
+
 ### Check archivable recovery points
 
 ```azurepowershell
@@ -144,7 +154,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 For recovery points in archive, Azure Backup provides an integrated restore methodology.
 
-The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
+The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](../storage/blobs/archive-rehydrate-overview.md#rehydration-priority).
 
 >[!NOTE]
 >
@@ -166,6 +176,17 @@ To view the move and restore jobs, use the following PowerShell cmdlet:
 ```azurepowershell
 Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ```
+
+### Move recovery points to archive tier at scale
+
+You can now use sample scripts to perform at scale operations. [Learn more](https://github.com/hiaga/Az.RecoveryServices/blob/master/README.md) about how to run the sample scripts. You can download the scripts from [here](https://github.com/hiaga/Az.RecoveryServices).
+
+You can perform the following operations using the sample scripts provided by Azure Backup:
+
+- Move all eligible recovery points for a particular database/all databases for a SQL server in Azure VM to the archive tier.
+- Move all recommended recovery points for a particular Azure Virtual Machine to the archive tier.
+ 
+You can also write a script as per your requirements or modify the above sample scripts to fetch the required backup items.
 
 ## Use the portal
 
