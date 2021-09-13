@@ -1,6 +1,6 @@
 ---
 title: Windows security event sets that can be sent to Azure Sentinel | Microsoft Docs
-description: Learn to use the Windows Security Events connector to stream all security events from your Windows systems to your Azure Sentinel workspace. 
+description: Learn about the pre-built sets of Windows security events that you can collect and stream from your Windows systems to your Azure Sentinel workspace. 
 services: sentinel
 documentationcenter: na
 author: yelevin

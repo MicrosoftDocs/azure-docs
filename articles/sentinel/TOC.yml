@@ -290,6 +290,8 @@
         href: registry-event-normalization-schema.md
       - name: Legacy network normalization schema
         href: normalization-schema-v1.md
+    - name: Windows security event sets
+      href: windows-security-event-id-reference.md
   - name: Detection and analysis references
     items:
     - name: Top Azure Sentinel workbooks

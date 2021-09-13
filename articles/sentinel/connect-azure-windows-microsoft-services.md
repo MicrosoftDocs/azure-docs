@@ -133,9 +133,6 @@ You can find and query the data for each resource type using the table name that
 
 ### Prerequisites
 
-### Instructions
-
-
 - You must have read and write permissions on the Log Analytics workspace, and any workspace that contains machines you want to collect logs from.
 - You must have the **Log Analytics Contributor** role on the SecurityInsights (Azure Sentinel) solution on those workspaces, in addition to any Azure Sentinel roles.
 
@@ -164,10 +161,9 @@ You can find and query the data for each resource type using the table name that
 For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/agents/agent-windows.md).
 
 
-
 #### Determine the logs to send
 
-For the Windows DNS Server and Windows Firewall connectors, select the **Install solution** button. For the legacy Security Events connector, choose the event set you wish to send and select **Update**.
+For the Windows DNS Server and Windows Firewall connectors, select the **Install solution** button. For the legacy Security Events connector, choose the [**event set**](windows-security-event-id-reference.md) you wish to send and select **Update**.
 
 You can find and query the data for these services using the table names in their respective sections in the [Data connectors reference](data-connectors-reference.md) page.
 
@@ -214,7 +210,7 @@ See below how to create data collection rules.
     Learn more about [data collection rules](../azure-monitor/agents/data-collection-rule-overview.md#create-a-dcr) from the Azure Monitor documentation.
 
     > [!NOTE]
-    > - The Windows Security Events connector offers two other pre-built event sets you can choose to collect: **Common** and **Minimal**.
+    > - The Windows Security Events connector offers two other [**pre-built event sets**](windows-security-event-id-reference.md) you can choose to collect: **Common** and **Minimal**.
     >
     > - The Azure Monitor agent supports XPath queries for **[XPath version 1.0](/windows/win32/wes/consuming-events#xpath-10-limitations) only**.
 

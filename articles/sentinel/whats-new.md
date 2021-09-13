@@ -166,7 +166,7 @@ Azure Sentinel now provides the built-in **Microsoft Threat Intelligence Matchin
 The **Microsoft Threat Intelligence Matching Analytics** rule currently matches domain indicators against the following log sources:
 
 - [CEF](connect-common-event-format.md)
-- [DNS](./data-connectors-reference.md#domain-name-server)
+- [DNS](./data-connectors-reference.md#windows-dns-server-preview)
 - [Syslog](connect-syslog.md)
 
 For more information, see [Detect threats using matching analytics (Public preview)](work-with-threat-indicators.md#detect-threats-using-matching-analytics-public-preview).
