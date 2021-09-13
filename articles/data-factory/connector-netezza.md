@@ -218,7 +218,7 @@ To copy data from Netezza, set the **source** type in Copy Activity to **Netezza
 
 The Data Factory Netezza connector provides built-in data partitioning to copy data from Netezza in parallel. You can find data partitioning options on the **Source** table of the copy activity.
 
-![Screenshot of partition options](./media/connector-netezza/connector-netezza-partition-options.png)
+:::image type="content" source="./media/connector-netezza/connector-netezza-partition-options.png" alt-text="Screenshot of partition options":::
 
 When you enable partitioned copy, the service runs parallel queries against your Netezza source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Netezza database.
 

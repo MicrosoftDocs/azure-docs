@@ -163,11 +163,15 @@
       - name: Datawiza 
         href: datawiza-with-azure-ad.md
       - name: F5 
-        href: f5-aad-integration.md
-      - name: F5 BIG-IP VE deployment in Azure IaaS
-        href: f5-bigip-deployment-guide.md
-      - name: F5 Big-IP passwordless VPN
-        href: f5-aad-password-less-vpn.md
+        items:
+        - name: F5 and Azure AD integration
+          href: f5-aad-integration.md
+        - name: F5 BIG-IP VE deployment in Azure IaaS
+          href: f5-bigip-deployment-guide.md
+        - name: F5 Big-IP passwordless VPN
+          href: f5-aad-password-less-vpn.md
+      - name: Silverfort
+        href: silverfort-azure-ad-integration.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot password-based single sign-on

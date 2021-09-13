@@ -57,7 +57,7 @@ The SharePoint List Online connector uses service principal authentication to co
         </AppPermissionRequests>
         ```
 
-        ![sharepoint grant permission](media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png)
+        :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png" alt-text="sharepoint grant permission":::
 
     3. Click "Trust It" for this app.
 
@@ -228,7 +228,7 @@ When you copy data from SharePoint Online List, the following mappings are used 
 
 You can copy file from SharePoint Online by using **Web activity** to authenticate and grab access token from SPO, then passing to subsequent **Copy activity** to copy data with **HTTP connector as source**.
 
-![sharepoint copy file flow](media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png)
+:::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="sharepoint copy file flow":::
 
 1. Follow the [Prerequisites](#prerequisites) section to create AAD application and grant permission to SharePoint Online. 
 

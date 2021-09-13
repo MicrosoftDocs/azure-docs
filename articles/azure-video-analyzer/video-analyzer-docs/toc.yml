@@ -75,6 +75,9 @@
         href: overview.md
       - name: Export a clip (batch pipeline)
         href: overview.md
+          href: computer-vision-for-spatial-analysis.md
+    - name: Visualize AI inference events
+      href: visualize-ai-events-power-bi.md
 - name: GitHub samples
   items:
     - name: C# sample repository

@@ -225,6 +225,8 @@
           href: sql/cli-samples.md
         - name: Azure Resource Manager
           href: sql/templates-samples-sql.md
+        - name: Bicep
+          href: sql/bicep-samples.md
     - name: Concepts
       items:
         - name: Modeling and partitioning
@@ -1065,6 +1067,8 @@
         - name: Manage using Resource Manager templates
           href: cassandra/templates-samples.md
           displayName: ARM
+        - name: Manage using Bicep
+          href: cassandra/manage-with-bicep.md
         - name: Manage using PowerShell
           href: cassandra/powershell-samples.md
         - name: Manage using Azure CLI
@@ -1205,6 +1209,8 @@
         - name: Manage using Resource Manager templates
           href: mongodb/resource-manager-template-samples.md
           displayName: ARM
+        - name: Manage using Bicep
+          href: mongodb/manage-with-bicep.md
         - name: Manage using PowerShell
           href: mongodb/powershell-samples.md
         - name: Manage using Azure CLI
@@ -1289,6 +1295,8 @@
         - name: Manage using Resource Manager templates
           href: graph/resource-manager-template-samples.md
           displayName: ARM
+        - name: Manage using Bicep
+          href: graph/manage-with-bicep.md
         - name: Manage using PowerShell
           href: graph/powershell-samples.md
         - name: Manage using Azure CLI
@@ -1364,6 +1372,8 @@
           href: table/find-request-unit-charge.md
         - name: Manage using Resource Manager templates
           href: table/resource-manager-templates.md
+        - name: Manage using Bicep
+          href: table/manage-with-bicep.md
           displayName: ARM
         - name: Manage using PowerShell
           href: table/powershell-samples.md
@@ -1402,6 +1412,9 @@
           href: sql/manage-with-powershell.md
         - name: Using Azure CLI
           href: sql/manage-with-cli.md
+        - name: Using Bicep
+          href: sql/manage-with-bicep.md
+          displayName: ARM
         - name: Using Resource Manager templates
           href: sql/manage-with-templates.md
           displayName: ARM
