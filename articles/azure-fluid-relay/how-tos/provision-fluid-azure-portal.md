@@ -75,5 +75,4 @@ Each Azure Fluid Relay server resource provides a tenant for you to use in your 
 8. Confirm that you see the Fluid Relay page similar to this example.
   
 ## Next steps
-You just created a resource group and an provisioned an Azure Fluid Relay resource in that group. Next, you can connect to your Azure Fluid Relay service in your app.
-
+You just created a resource group and an provisioned an Azure Fluid Relay resource in that group. Next, you can [connect to your Azure Fluid Relay service in your app](../quickstarts/quickstart-dice-roll.md).
