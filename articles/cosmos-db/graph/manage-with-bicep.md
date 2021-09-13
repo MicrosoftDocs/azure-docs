@@ -15,7 +15,7 @@ ms.author: mjbrown
 
 In this article, you learn how to use Bicep to deploy and manage your Azure Cosmos DB Gremlin API accounts, databases, and graphs.
 
-This article shows Bicep samples for Gremlin API accounts. You can also find Bicep samples for [SQL](../manage-with-bicep.md), [Cassandra](../cassandra/manage-with-bicep.md), [MongoDB](../mongodb/manage-with-bicep.md), and [Table](../table/manage-with-bicep.md) APIs.
+This article shows Bicep samples for Gremlin API accounts. You can also find Bicep samples for [SQL](../sql/manage-with-bicep.md), [Cassandra](../cassandra/manage-with-bicep.md), [MongoDB](../mongodb/manage-with-bicep.md), and [Table](../table/manage-with-bicep.md) APIs.
 
 > [!IMPORTANT]
 >
