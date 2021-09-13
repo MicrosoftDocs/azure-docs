@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a metrics chart in Azure Monitor
+title: Tutorial - Create a metrics alert for an Azure resource
 description: Learn how to create a metric chart with Azure metrics explorer.
 author: bwren
 ms.author: bwren

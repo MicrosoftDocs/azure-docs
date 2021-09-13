@@ -22,7 +22,7 @@
       href: app/website-monitoring.md 
 - name: Tutorials
   items:
-  - name: Analyze metric data
+  - name: Create a metrics chart
     href: essentials/tutorial-metrics-explorer.md
   - name: Create a metrics alert
     href: alerts/tutorial-metric-alert.md
@@ -31,7 +31,7 @@
   - name: Analyze log data
     href: logs/tutorial-logs.md
   - name: Create a log query alert
-    href: alerts/tutorial-log-alerts.md
+    href: alerts/tutorial-log-alert.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
