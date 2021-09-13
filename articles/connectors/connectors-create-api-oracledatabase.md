@@ -36,7 +36,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
     > [!NOTE]
     > The on-premises data gateway acts as a bridge, and provides a secure data transfer between on-premises data (data that is not in the cloud) and your logic apps. The same gateway can be used with multiple services, and multiple data sources. So, you may only need to install the gateway once.
 
-* Install the Oracle Client on the machine where you installed the on-premises data gateway. Be sure to install the 64-bit Oracle Data Provider for .NET from Oracle and choose a windows installer version since xcopy version does not work with on-premises data gateway:  
+* Install the Oracle Client on the machine where you installed the on-premises data gateway. Make sure that you install the 64-bit Oracle Data Provider for .NET from Oracle, and select the Windows installer version because the `xcopy` version doesn't work with the on-premises data gateway:  
 
   [64-bit ODAC 12c Release 4 (12.1.0.2.4) for Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
