@@ -25,8 +25,6 @@ This article describes updates to Azure Synapse Analytics and lists features tha
 | |  |
 | ---| --- |
 
-#
-
 ## New features
 
 - 
