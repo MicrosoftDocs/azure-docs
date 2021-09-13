@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Evaluation metrics
 
-After you train your model, Custom Text Classification will evaluate your model against a [test set](../how-to/train-model.md#data-groups) generated from your documents at random. 
+After you train your model, Custom Text Classification will evaluate your model against a [test set](../how-to/train-model.md#data-splits) generated from your documents at random. 
 
 Model evaluation in Custom Text Classification uses the following metrics:
 

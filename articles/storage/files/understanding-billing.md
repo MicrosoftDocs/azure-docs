@@ -102,7 +102,7 @@ If your workload needs the extra performance to meet peak demand, your share can
 
 Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 500 baseline IOPS. If actual traffic on the share was 100 IOPS for a specific 1-second interval, then the 400 unused IOPS are credited to a burst bucket. Similarly, an idle 1 TiB share, accrues burst credit at 1,424 IOPS. These credits will then be used later when operations would exceed the baseline IOPS.
 
-Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst at the max allowed peak burst rate. Shares can continue to burst as long as credits are remaining but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to the baseline IOPS.
+Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst up to the max allowed peak burst rate. Shares can continue to burst as long as credits are remaining but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to the baseline IOPS.
 
 Share credits have three states:
 

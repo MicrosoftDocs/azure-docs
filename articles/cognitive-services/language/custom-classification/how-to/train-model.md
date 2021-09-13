@@ -15,23 +15,23 @@ ms.author: aahi
 # How to train your model
 
 
-Training is the process where the model learns what you have [tagged](tag-data.md). Training uses deep learning technology built on top of [Microsoft Turing](https://msturing.org/about). At the end of the training process, your model will be trained to perform custom text classification, and you can [view an evaluation](../how-to/view-model-evaluation.md), and [Improve your model](../how-to/improve-model.md). 
+Training is the process where the model learns from your [tagged data](tag-data.md). Training uses deep learning technology built on top of [Microsoft Turing](https://msturing.org/about). After training is completed you can [view model evaluation](../how-to/view-model-evaluation.md), and [Improve your model](../how-to/improve-model.md). 
 
 > [!NOTE]
-> * You must have minimum of 10 documents in your project for the evaluation process to be successful. While training may run with less than 10 tagged files there will be no evaluation data for the model. 
-> * While there is specific number of tagged files you need per classification, consider starting with 20 files. Training depends on how distinct the entities in your documents are, and how easily they can be differentiated.
+> * You must have a minimum of 10 documents in your project for the evaluation process to be successful. While training may run with less than 10 tagged files there will be no evaluation data for the model. 
+> * While there is no minimum of tagged instances per class, you can start with 20 files per class. Model performance depends on how distinct the entities in your documents are, and how easily they can be differentiated from each other.
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
-## Data groups
+## Data splits
 
 Before starting the training process, files in your dataset are divided into three groups at random: 
 
-* The training set contains 80% of the files in your dataset. It is the main set that is used to train the model.
+* The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model.
 
-* The validation set contains 10% and is introduced to the model during training. Later you can view the incorrect predictions made by the model on this set so you examine your data and tags and make necessary adjustments.
+* The **validation set** contains 10% and is introduced to the model during training. Later you can view the incorrect predictions made by the model on this set so you examine your data and tags and make necessary adjustments.
 
-* The Test set contains 10% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
+* The **test set** contains 10% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
 
 ## Prerequisites
 

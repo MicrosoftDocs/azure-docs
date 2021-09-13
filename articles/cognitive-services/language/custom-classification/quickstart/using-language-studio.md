@@ -18,17 +18,15 @@ In this article, we use the Language studio to demonstrate key concepts of Custo
 
 ## Prerequisites
 
-### Create new resource from Azure portal
+[!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call the custom text classification API.  
+## Upload Sample data to blob container
 
-|Requirement  |Required value  |
-|---------|---------|
-|Location | "West US 2" or "West Europe"         |
-|Pricing tier     | Standard (**S**) pricing tier        |
+After you have created an Azure storage account and linked it to your Language Service resource
 
-> [!IMPORTANT]
-> In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use custom text classification. While you can specify a storage account later, it's easier to do it now. 
+1. [Download sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
+
+2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com), create a new container and upload sample data to it.
 
 ## Create a custom classification project
 
@@ -38,7 +36,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. If you're using a preexisting resource, see [creating Azure resources](../concepts/use-azure-resources.md). When you are done, select **Next**. 
+4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. If you're using a preexisting resource, see [creating Azure resources](../how-to/use-azure-resources.md). When you are done, select **Next**. 
  
     >[!NOTE]
     > * You only need to do this step once for each new resource you use. 
@@ -52,13 +50,9 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 7. Review the data you entered and select **Create Project**.
 
-## Import the example tagged data
+## Tagging your data
 
-Typically, you would import your data and begin [tagging the intents](../how-to/tag-data.md) within it to train the classification model. For this quickstart you will use an example file that already contains tagged data. 
-
-1. [Download the data file](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
-
-2. Select the **Import** button on your project in Language Studio.
+Typically, after creating a project, you would start [tagging your data](../how-to/tag-data.md) before training the classification model. For this quickstart, because you selected choosing an existing tags file, you can see tagged data already. Refer to this [guide](../how-to/tag-data.md) if you  would like to edit the existing tags.
 
 ## Train your model
 
@@ -73,13 +67,13 @@ To start training your model:
 3. Click on the **Train** button at the bottom of the page.
 
     > [!NOTE]
-    > * While training, your data will be spilt into 3 parts; 80% for training, 10% for validation and 10% for testing.
+    > * While training, your data will be spilt into 3 sets; 80% for training, 10% for validation and 10% for testing.
     > * If the model you selected is already trained, a pop-up will appear to confirm overwriting the last model state.
     > * Training can take up to a few hours.
 
 ## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and made adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
+Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and make adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
 
 >[!NOTE]
 >You can only have one deployed model per project. Deploying a new model replaces any existing deployed model.
@@ -102,7 +96,7 @@ Generally after training a model you would review it's [evaluation details](../h
 
     :::image type="content" source="../media/test-model-results.png" alt-text="View the test results" lightbox="../media/test-model-results.png":::
 
-After you've tested your model, you can begin [improving the model's performance](../how-to/improve-model.md), and sending [text classification requests](../how-to/run-inference.md).
+After you've tested your model, you can start sending [text classification requests](../how-to/run-inference.md).
 
 ## Clean up resources
 

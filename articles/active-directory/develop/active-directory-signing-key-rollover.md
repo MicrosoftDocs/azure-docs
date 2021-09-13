@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 8/16/2021
+ms.date: 09/03/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
@@ -40,7 +40,6 @@ How your application handles key rollover depends on variables such as the type 
 * [Web applications protecting resources and created with Visual Studio 2013](#vs2013)
 * Web APIs protecting resources and created with Visual Studio 2013
 * [Web applications protecting resources and created with Visual Studio 2012](#vs2012)
-* [Web applications protecting resources and created with Visual Studio 2010, 2008 o using Windows Identity Foundation](#vs2010)
 * [Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols](#other)
 
 This guidance is **not** applicable for:
@@ -283,20 +282,6 @@ Follow the steps below to verify that the key rollover logic is working.
    ```
 2. In the **\<add thumbprint="">** setting, change the thumbprint value by replacing any character with a different one. Save the **Web.config** file.
 3. Build the application, and then run it. If you can complete the sign-in process, your application is successfully updating the key by downloading the required information from your directory’s federation metadata document. If you are having issues signing in, ensure the changes in your application are correct by reading the [Adding Sign-On to Your Web Application Using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) article, or downloading and inspecting the following code sample: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
-
-### <a name="vs2010"></a>Web applications protecting resources and created with Visual Studio 2008 or 2010 and Windows Identity Foundation (WIF) v1.0 for .NET 3.5
-If you built an application on WIF v1.0, there is no provided mechanism to automatically refresh your application’s configuration to use a new key.
-
-* *Easiest way* Use the FedUtil tooling included in the WIF SDK, which can retrieve the latest metadata document and update your configuration.
-* Update your application to .NET 4.5, which includes the newest version of WIF located in the System namespace. You can then use the [Validating Issuer Name Registry (VINR)](/previous-versions/dotnet/framework/windows-identity-foundation/validating-issuer-name-registry) to perform automatic updates of the application’s configuration.
-* Perform a manual rollover as per the instructions at the end of this guidance document.
-
-Instructions to use the FedUtil to update your configuration:
-
-1. Verify that you have the WIF v1.0 SDK installed on your development machine for Visual Studio 2008 or 2010. You can [download it from here](https://www.microsoft.com/download/details.aspx?id=17331) if you have not yet installed it.
-2. In Visual Studio, open the solution, and then right-click the applicable project and select **Update federation metadata**. If this option is not available, FedUtil and/or the WIF v1.0 SDK has not been installed.
-3. From the prompt, select **Update** to begin updating your federation metadata. If you have access to the server environment where the application is hosted, you can optionally use FedUtil’s [automatic metadata update scheduler](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10)).
-4. Click **Finish** to complete the update process.
 
 ### <a name="other"></a>Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols
 If you are using some other library or manually implemented any of the supported protocols, you'll need to review the library or your implementation to ensure that the key is being retrieved from either the OpenID Connect discovery document or the federation metadata document. One way to check for this is to do a search in your code or the library's code for any calls out to either the OpenID discovery document or the federation metadata document.
