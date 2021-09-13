@@ -11,7 +11,7 @@ ms.topic: quickstart
 author: misliplavo 
 ms.author: mlazic
 ms.reviewer: mathoma
-ms.date: 12/14/2018
+ms.date: 09/13/2021
 ---
 # Quickstart: Restore a database to Azure SQL Managed Instance with SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,86 +38,78 @@ This quickstart:
 > [!NOTE]
 > For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](../../storage/common/storage-sas-overview.md), see [SQL Server Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
-## Restore from a backup file using restore wizard
+## Restore from a backup file by using the restore wizard
 
-In SQL Server Management Studio, follow these steps to restore the Wide World Importers database to SQL Managed Instance using the restore wizard. The database backup file is stored in a pre-configured Azure Blob storage account.
+In SSMS, follow these steps to restore the Wide World Importers database to SQL Managed Instance by using the restore wizard. The database backup file is stored in a pre-configured Azure Blob Storage account.
 
 1. Open SSMS and connect to your managed instance.
-2. In **Object Explorer**, right-click on the databases of your managed instance and select **Restore Database...** to open the restore wizard window.
+2. In **Object Explorer**, right-click the databases of your managed instance and select **Restore Database** to open the restore wizard.
 
-![Open restore wizard](./media/restore-sample-database-quickstart/restore-wizard-start.png)
+    ![Screenshot that shows opening the restore wizard.](./media/restore-sample-database-quickstart/restore-wizard-start.png)
 
-3. On the new restore wizard window press the "..." button to specify the source of the backup file to be used.
+3. In the new restore wizard, select the ellipsis (**...**) to select the source of the backup file to use.
 
-![New restore wizard window](./media/restore-sample-database-quickstart/new_restore_wizard_window.png)
+    ![Screenshot that shows opening a new restore wizard window.](./media/restore-sample-database-quickstart/new-restore-wizard.png)
 
-4. On the "Select backup devices" click on the button "Add". The Backup media type only allow "URL" since this is the only source type supported.
+4. In **Select backup devices**, select **Add**. In **Backup media type**, **URL** is the only option because it is the only source type supported.
 
-![Select device](./media/restore-sample-database-quickstart/restore-wizard-select-device.png)
+    ![Screenshot that shows selecting the device.](./media/restore-sample-database-quickstart/restore-wizard-select-device.png)
 
-5. At the "Select a Backup Location" there are 3 options to provide the information about the location where to find the backup files.
-  - Select a pre-registered storage container from the drop down
-  - Enter a new storage container and a shared access signature (A new SQL Credential will be registered for you) 
-  - Click the Add button to browse more storage containers from your Azure subscription
+5. In **Select a Backup File Location**, you can choose from three options to provide information about backup files are located:
+    - Select a pre-registered storage container from the dropdown.
+    - Enter a new storage container and a shared access signature. (A new SQL credential will be registered for you.) 
+    - Select **Add** to browse more storage containers from your Azure subscription.
 
-![Select Backup file location](./media/restore-sample-database-quickstart/restore-wizard-backup-file-location.png)
+    ![Screenshot that shows selecting the backup file location.](./media/restore-sample-database-quickstart/restore-wizard-backup-file-location.png)
 
-6. The next steps are regarding clicking on the "Add" button on the "Select a Backup File Location", if the method to provide the location is one of the others please jump to step 14.
-7. On the "Connect to a Microsoft Subscription" the first action is to sign in to the Azure subscription by clicking on the "Sign in..." button.
+    Complete the next steps if you select the **Add** button. If you use a different method to provide the backup file location, go to step 12.
+6. In **Connect to a Microsoft Subscription**, select **Sign in** to sign in to your Azure subscription:
 
-![Azure subscription sign in](./media/restore-sample-database-quickstart/restore-wizard-conn-subs-sign-in.png)
+    ![Screenshot that shows Azure subscription sign-in.](./media/restore-sample-database-quickstart/restore-wizard-connect-subscription-sign-in.png)
 
-9. Initiate the session on Azure
+7. Initiate the session on Azure:
 
-![Login Azure session](./media/restore-sample-database-quickstart/restore-wizard-login-session.png)
+    ![Screenshot that shows signing in to the Azure session.](./media/restore-sample-database-quickstart/restore-wizard-sign-in-session.png)
 
-10. After the sign in to Azure select the subscription where the Storage account with the backup file(s) are located.
+8. Select the subscription where the storage account with the backup files is located:
 
-![Select subscription](./media/restore-sample-database-quickstart/restore-wizard-select-subscription.png)
+    ![Screenshot that shows selecting the subscription.](./media/restore-sample-database-quickstart/restore-wizard-select-subscription.png)
 
-11. Select the Azure Storage account where the backup file(s) are located.
+9. Select the Azure Storage account where the backup files are located:
 
-![Storage account](./media/restore-sample-database-quickstart/restore-wizard-select-storage-account.png)
+    ![Screenshot that shows the storage account.](./media/restore-sample-database-quickstart/restore-wizard-select-storage-account.png)
 
-12. Select the Blob container where the backup file(s) are located.
+10. Select the Blob container where the backup files are located:
 
-![Select Blob container](./media/restore-sample-database-quickstart/restore-wizard-select-container.png)
+    ![Select Blob container](./media/restore-sample-database-quickstart/restore-wizard-select-container.png)
 
-13. Specify the expiration date of the Shared Access Policy and click on the "Create Credential" button. This will create a Shared Access Signature with the right permissions.
+11. Specify the expiration date of the shared access policy and select **Create Credential**. A shared access signature with the correct permissions is created. Select **OK**.
 
-![Generate SAS](./media/restore-sample-database-quickstart/restore-wizard-generate-sas.png)
+    ![Screenshot that shows generating the shared access signature.](./media/restore-sample-database-quickstart/restore-wizard-generate-shared-access-signature.png)
 
-14. Now that the storage container and the Shared Access Signature are filled, click on the "OK" button.
+12. In the left pane, expand the folder structure to show the folder where the backup files are located. Select all the backup files that are related to the backup set to be restored, and then select **OK**:
 
-![File location concluded](./media/restore-sample-database-quickstart/restore-wizard-backup-file-location-concluded.png)
+    ![Screenshot that shows the backup file selection.](./media/restore-sample-database-quickstart/restore-wizard-backup-file-selection.png)
 
-15. Expande the folder struture on the left until the folder where the backup file(s) are located and then select all the backup files related to the backup set to be restored.
+    SSMS validates the backup set. The process takes up to a few seconds depending on the size of the backup set.
 
-![Backup file selection](./media/restore-sample-database-quickstart/restore-wizard-backup-file-selection.png)
+    ![Screenshot that shows the backup setting validation.](./media/restore-sample-database-quickstart/restore-wizard-backup-set-validation.png)
 
-16. Everything is set just click on the "OK" button.
+13. If the backup is valid, specify the destination database name or leave it with the database name of the backup set, and then select **OK**:
 
-![Restore is set](./media/restore-sample-database-quickstart/restore-wizard-restore-is-set.png)
+    ![Screenshot that shows starting the restore.](./media/restore-sample-database-quickstart/restore-wizard-start-restore.png)
 
-17. SSMS will validate the backupset, this will take a few seconds depending on the size of the backupset.
+    The restore will start and the duration will depend on the size of the backup set.
 
-![Backupset validation](./media/restore-sample-database-quickstart/restore-wizard-backupset-validation.png)
+    ![Screenshot that shows running the restore.](./media/restore-sample-database-quickstart/restore-wizard-running-restore.png)
 
-18. If the backupset is valid just specify the destination database name or leave it with the database name of the backupset and press the "OK" button.
+14. When the restore finishes, a dialog shows that it was successful. Select **OK**.
 
-![Start restore](./media/restore-sample-database-quickstart/restore-wizard-start-restore.png)
+    ![Screenshot that shows the finished restore.](./media/restore-sample-database-quickstart/restore-wizard-finish-restore.png)
 
-19. The restore will start and the duration will depend on the size of the backupset.
+15. Check the restored database in Object Explorer:
 
-![Running restore](./media/restore-sample-database-quickstart/restore-wizard-running-restore.png)
-
-20. When the restore finish there will be a window showing it was successful.
-
-![Finish restore](./media/restore-sample-database-quickstart/restore-wizard-finish-restore.png)
-
-21. The restored database will be visible on the Object Explorer.
-
-![Restored database](./media/restore-sample-database-quickstart/restore-wizard-restored-db.png)
+    ![Screenshot that shows the restored database.](./media/restore-sample-database-quickstart/restore-wizard-restored-database.png)
 
 
 ## Restore from a backup file using T-SQL
