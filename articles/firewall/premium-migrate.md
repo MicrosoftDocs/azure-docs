@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/07/2021
+ms.date: 09/13/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -34,7 +34,7 @@ Migrate your firewall during a planned maintenance time, as there will be some d
 
 `Transform-Policy.ps1` is an Azure PowerShell script that creates a new Premium policy from an existing Standard policy.
 
-Given a standard firewall policy ID, the script transforms it to a Premium Azure Firewall policy. The script first connects to your Azure account, pulls the policy, transforms/adds various parameters, and then uploads a new Premium policy. The new premium policy is named `<previous_policy_name>_premium`.
+Given a standard firewall policy ID, the script transforms it to a Premium Azure Firewall policy. The script first connects to your Azure account, pulls the policy, transforms/adds various parameters, and then uploads a new Premium policy. The new premium policy is named `<previous_policy_name>_premium`. In case of child policy transformation, link to parent policy will remain.
 
 Usage example:
 

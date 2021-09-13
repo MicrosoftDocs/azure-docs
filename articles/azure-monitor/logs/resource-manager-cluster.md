@@ -63,7 +63,7 @@ The following sample creates a new empty Log Analytics cluster.
     {
       "name": "[parameters('clusterName')]",
       "type": "Microsoft.OperationalInsights/clusters",
-      "apiVersion": "2020-08-01",
+      "apiVersion": "2021-06-01",
       "location": "[resourceGroup().location]",
       "identity": {
         "type": "SystemAssigned"
@@ -139,7 +139,7 @@ The following sample updates a Log Analytics cluster to use customer-managed key
     {
       "name": "[parameters('clusterName')]",
       "type": "Microsoft.OperationalInsights/clusters",
-      "apiVersion": "2020-08-01",
+      "apiVersion": "2021-06-01",
       "location": "[resourceGroup().location]",
       "identity": {
         "type": "SystemAssigned"
