@@ -62,60 +62,60 @@ Perform the following steps to create a hybrid worker group in the Azure porta
 
 1. Navigate to your Automation account. 
 
-1. Under **Process Automation**, select **Hybrid Worker groups**. 
+1. Under **Process Automation**, select **Hybrid worker groups**. 
 
-1. Select **Create Hybrid Worker Group**. 
+1. Select **+ Create hybrid worker group**. 
 
-1. In the **Basics** tab, provide the **Name** of the Hybrid worker group. 
+1. From the **Basics** tab, in the **Name** text box, enter a name for your Hybrid worker group. 
 
-1. Select **Yes** or **No** for **Use run as credential**. If you select **No**, **TBD**. If you select **Yes**, then from the drop-down list, select the credential asset . This account would be used for authentication.  
+1. For the **Use run as credential** option: if you select **No**, **TBD**. If you select **Yes**, then from the drop-down list, select the credential asset . This account would be used for authentication.  
 
-1. Select **Next** to go to the tab **Hybrid worker selection**. You can select Azure virtual machines or Azure Arc-enabled servers to be added to this Hybrid worker group. If you don't select any machines, an empty Hybrid worker group will be created. You can still add machines later. 
+1. Select **Next** to advance to the **Hybrid worker selection** tab. You can select Azure virtual machines or Azure Arc-enabled servers to be added to this Hybrid worker group. If you don't select any machines, an empty Hybrid worker group will be created. You can still add machines later. 
 
-1. Select **Add machines**. You will see all the machines in the selected subscription.  
+1. Select **Add machines** to go to the **Add machines as hybrid worker** page. You will see all the machines in the selected subscription.  
 
-1. Select the machines you want to add to the hybrid worker group by selecting the checkbox. If you don't see your non-Azure machine listed below, ensure Azure Arc Connected Machine agent is installed on the machine.  
+1. Select the checkbox next to the machine(s) you want to add to the hybrid worker group. If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine.  
 
 1. Select **Add**. 
 
-1. Select **Next** to go to the **Review+Create** tab. 
+1. Select **Next** to advance to the **Review + Create** tab. 
 
-1. Select **Create**. This operation will install the hybrid worker extension on the machine and will register the hybrid worker to the hybrid worker group. You can verify that the hybrid worker has been created under the **User hybrid worker groups** in the **Hybrid worker groups** under the **Process Automation** section. If you select the group name, it will show you the hybrid worker details.
+1. Select **Create**. This operation will install the hybrid worker extension on the machine and will register the hybrid worker to the hybrid worker group. You can verify that the hybrid worker has been created under **Process Automation** > **Hybrid worker groups** > **User hybrid worker groups**. You may need to select **Refresh**. If you select the group name, it will show you the hybrid worker details.
 
 > [!NOTE]
-> Selected Machine will not be added to the hybrid worker group if it is already part of another hybrid worker group.
+> The selected machine will not be added to the hybrid worker group if it is already part of another hybrid worker group.
 
 ## Add a machine to the hybrid worker group
 
 You can also create an empty hybrid worker group and then add machines.  
 
-1. Under **Process Automation**, select **Hybrid Worker groups** and then your hybrid worker group. You will be presented with the screen that provides you details about the hybrid worker group.
+1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 
-1. Select **Add machines**. You will see all the machines in the selected subscription.
+1. Select **+ Add** to go to the **Add machines as hybrid worker** page. You will see all the machines in the selected subscription.
 
-1. Select the machine(s) you want to add to the hybrid worker group by selecting the checkbox. If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine.
+1. Select the checkbox next to the machine(s) you want to add to the hybrid worker group. If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine.
 
-1. Select **Add** to add the machine to the group. Once added, you can see the machine type as Azure virtual machine or Arc-enabled server. You also see the **Worker Type** as Hybridv1 or Hybrid V2.
+1. Select **Add** to add the machine to the group. Once added, you can see the machine type as Azure virtual machine or Arc-enabled server. You also see the **Worker Type** as **HybridV1** or **HybridV2**.
 
 ## Delete a Hybrid Runbook Worker
 
 You can delete the Hybrid Runbook Worker from the portal.
 
-1. Under **Process Automation**, select **Hybrid Worker groups** and then your hybrid worker group. You will be presented with the screen that provides you details about the hybrid worker group.
+1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 
-1. Select the hybrid worker you want to delete by selecting the checkbox.
+1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
 
-1. Select **Delete**.  You will be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the hybrid worker v2 (extension-based) and remove the hybrid worker v1 (agent-based) entry from the portal.
+1. Select **Delete**.  You will be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the hybrid worker v2 (extension-based) or remove the hybrid worker v1 (agent-based) entry from the portal.
 
 ## Delete a Hybrid Runbook Worker group
 
 You can delete the Hybrid Runbook Worker group from the portal.
 
-1. Under **Process Automation**, select **Hybrid Worker groups** and then your hybrid worker group. You will be presented with the screen that provides you details about the hybrid worker group.
+1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 
 1. Select **Delete**. You will be presented with a warning in a dialog box to remove any machine that are defined as hybrid workers in the hybrid worker group. 
 
