@@ -516,7 +516,9 @@ For more information, see:
 
 ### Test VirusTotal and GeoLite2
 
-To use the threat intelligence feature to see if an IP address appears in VirusTotal data, run the cell with the following code:
+**To check for an IP address in VirusTotal data**:
+
+To use threat intelligence to see if an IP address appears in VirusTotal data, run the cell with the following code:
 
 ```python
 # Create your TI provider – note you can re-use the TILookup provider (‘ti’) for
@@ -675,9 +677,9 @@ For example:
 
 ## Next steps
 
-This tutorial walked through the basics of installing MSTICPy and setting up configurations.
+This article described the basics of using MSTICPy with Jupyter notebooks in Azure Sentinel.
 
-Try out other notebooks stored in the [Azure Sentinel Notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks), especially:
+Now you can try out other notebooks stored in the [Azure Sentinel Notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks), such as:
 
 - [Tour of the Cybersec features](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/9bba6bb9007212fca76169c3d9a29df2da95582d/A%20Tour%20of%20Cybersec%20notebook%20features.ipynb)
 - [Machine Learning examples](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/9bba6bb9007212fca76169c3d9a29df2da95582d/Machine%20Learning%20in%20Notebooks%20Examples.ipynb)
