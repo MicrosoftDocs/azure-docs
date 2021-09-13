@@ -58,7 +58,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
         3. Enter a description, such as *Test Drive*, and select an appropriate duration. Because the test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key, we recommend using the maximum duration of 24 months.
         4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you leave this blade. You will need this value later when configuring your test drive.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-customer.png" alt-text="Adding a client secret.":::
 
 5. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant.
     1. Open an Administrative-level PowerShell command prompt.
@@ -152,7 +152,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
         3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
         4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you leave this blade. You will need this value later when configuring your test drive.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Shows addition of a client secret.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-operations.png" alt-text="Shows addition of a client secret.":::
 
 4. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant.
     1. Open an Administrative-level PowerShell command prompt.
