@@ -61,8 +61,8 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 >In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
 >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
->- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [US Gov](/azure/azure-government/documentation-government-developer-guide)
+>- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+>- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 The storage FQDNs hit in both the scenarios are same. However, for a Recovery Services vault with private endpoint setup, the name resolution for these should return a private IP address. This can be achieved by using private DNS zones, by creating DNS entries for storage account in host files, or by using conditional forwarders to custom DNS with the respective DNS entries. The private IP mappings for the storage account are listed in the private endpoint blade for the storage account ion the portal.
 
@@ -87,14 +87,14 @@ The workload backup extension and MARS agent run on Azure VM in a VNet or on-pre
 >In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
 >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
->- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [US Gov](/azure/azure-government/documentation-government-developer-guide)
+>- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+>- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 The modified URLs are specific for a vault.  See `<vault_id>` in the URL name. Only extensions and agents registered to this vault can communicate with Azure Backup via these endpoints. This restricts the access to the clients within this VNet. The extension/agent will communicate via `*.privatelink.<geo>.backup.windowsazure.com` that needs to resolve the corresponding private IP in the NIC.
 
 When the private endpoint for Recovery Services vaults is created via Azure portal with the **integrate with private DNS zone** option, the required DNS entries for private IP addresses for Azure Backup services (`*.privatelink.<geo>backup.windowsazure.com`) are created automatically whenever the resource is allocated. Otherwise, you need to create the DNS entries manually for these FQDNs in the custom DNS or in the host files.
 
-For the manual management of DNS records after the VM discovery for communication channel - blob/queue, see [DNS records for blobs and queues (only for custom DNS servers/host files) after the first registration](/azure/backup/private-endpoints#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration). For the manual management of DNS records after the first backup for backup storage account blob, see [DNS records for blobs (only for custom DNS servers/host files) after the first backup](/azure/backup/private-endpoints#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
+For the manual management of DNS records after the VM discovery for communication channel - blob/queue, see [DNS records for blobs and queues (only for custom DNS servers/host files) after the first registration](./private-endpoints.md#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration). For the manual management of DNS records after the first backup for backup storage account blob, see [DNS records for blobs (only for custom DNS servers/host files) after the first backup](./private-endpoints.md#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
 
 >The private IP addresses for the FQDNs can be found in the private endpoint blade for the private endpoint created for the Recovery Services vault.
 

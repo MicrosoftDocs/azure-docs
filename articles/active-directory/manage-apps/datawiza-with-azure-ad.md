@@ -41,7 +41,7 @@ are required to run DAB. Your applications can run on any platform, such as the 
 
 Datawiza integration includes the following components:
 
-- [Azure AD]../fundamentals/active-directory-whatis.md) - Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
+- [Azure AD](../fundamentals/active-directory-whatis.md) - Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
 
 - Datawiza Access Broker (DAB) - The service user sign on and transparently passes identity to applications through HTTP headers.
 

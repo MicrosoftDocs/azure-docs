@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Azure Security Benchmark v1
 description: Details of the Azure Security Benchmark v1 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/03/2021
+ms.date: 09/13/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -20,9 +20,6 @@ are implemented with an [Azure Policy](../overview.md) initiative definition. To
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.
 Then, find and select the **Azure Security Benchmark v1** Regulatory Compliance built-in
 initiative definition.
-
-This built-in initiative is deployed as part of the
-[Azure Security Benchmark v1 blueprint sample](../../blueprints/samples/azure-security-benchmark.md).
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.

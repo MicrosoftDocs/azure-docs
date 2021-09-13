@@ -4,29 +4,12 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/07/2021
+ms.date: 09/10/2021
 
 ---
 # Array functions for Bicep
 
-Resource Manager provides several functions for working with arrays in Bicep:
-
-* [array](#array)
-* [concat](#concat)
-* [contains](#contains)
-* [empty](#empty)
-* [first](#first)
-* [intersection](#intersection)
-* [last](#last)
-* [length](#length)
-* [max](#max)
-* [min](#min)
-* [range](#range)
-* [skip](#skip)
-* [take](#take)
-* [union](#union)
-
-To get an array of string values delimited by a value, see [split](./bicep-functions-string.md#split).
+This article describes the Bicep functions for working with arrays.
 
 ## array
 
@@ -678,4 +661,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+* To get an array of string values delimited by a value, see [split](./bicep-functions-string.md#split).
