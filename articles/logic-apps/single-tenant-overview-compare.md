@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 09/10/2021
 ---
 
 # Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps
@@ -201,10 +201,12 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
   * **Logic app (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
     > [!NOTE]
-    > By default, a **Logic App (Standard)** resource has the [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
+    > By default, the **Logic App (Standard)** resource type has the [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
     > automatically enabled to authenticate connections at run time. This identity differs from the authentication 
     > credentials or connection string that you use when you create a connection. If you disable this identity, 
     > connections won't work at run time. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
+    >
+    > The user-assigned managed identity is currently unavailable on the **Logic App (Standard)** resource type.
 
 * You can locally run, test, and debug your logic apps and their workflows in the Visual Studio Code development environment.
 
@@ -261,7 +263,13 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
     * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
-* For XML transformation, support for referencing assemblies from maps is currently unavailable. Also, only XSLT 1.0 is currently supported.
+* **Authentication**: The following authentication types are currently unavailable for the **Logic App (Standard)** resource type:
+
+  * Azure Active Directory Open Authentication (Azure AD OAuth) for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
+
+  * User-assigned managed identity. Currently, only the system-assigned managed identity is available and automatically enabled.
+
+* **XML transformation**: Support for referencing assemblies from maps is currently unavailable. Also, only XSLT 1.0 is currently supported.
 
 * **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 

@@ -51,7 +51,7 @@
         - name: Create a zonal redundant public Standard Load Balancer (CLI)
           href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
       - name: Load balance VMs across availability zones
-        href: ../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md
+        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
         items:
         - name: Load balance VMs across availability zones with Azure (CLI)
           href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md

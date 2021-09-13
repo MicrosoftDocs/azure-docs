@@ -66,7 +66,7 @@ In this case, you can pass the following value to the parameter.
 
 ### Configure input parameters in graphical runbooks
 
-To illustrate the configuration of input parameters for a graphical runbook, let's create a runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. For details, see [My first graphical runbook](./learn/automation-tutorial-runbook-graphical.md).
+To illustrate the configuration of input parameters for a graphical runbook, let's create a runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. For details, see [My first graphical runbook](./learn/powershell-runbook-managed-identity.md).
 
 A graphical runbook uses these these major runbook activities:
 
@@ -109,7 +109,7 @@ Follow these steps to configure the input parameters.
 Unlike PowerShell, PowerShell Workflow, and graphical runbooks, Python runbooks do not take named parameters. The runbook editor parses all input parameters as an array of argument values. You can access the array by importing the `sys` module into your Python script, and then using the `sys.argv` array. It is important to note that the first element of the array, `sys.argv[0]`, is the name of the script. Therefore the first actual input parameter is `sys.argv[1]`.
 
 For an example of how to use input parameters in a Python runbook, see
-[My first Python runbook in Azure Automation](./learn/automation-tutorial-runbook-textual-python2.md).
+[My first Python runbook in Azure Automation](./learn/automation-tutorial-runbook-textual-python-3.md).
 
 ## Assign values to input parameters in runbooks
 
