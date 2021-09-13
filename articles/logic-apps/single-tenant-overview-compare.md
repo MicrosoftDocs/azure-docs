@@ -120,7 +120,7 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
 
 * *Stateless*
 
-  Create a stateless workflow when you don't need to keep, review, or reference data from previous events in external storage after each run finishes for later review. These workflows save all the inputs and outputs for each action and their states *in memory only*, not in external storage. As a result, stateless workflows have shorter runs that are typically less than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't saved in external storage. However, if outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. These workflows can only run synchronously.
+  Create a stateless workflow when you don't need to keep, review, or reference data from previous events in external storage after each run finishes for later review. These workflows save all the inputs and outputs for each action and their states *in memory only*, not in external storage. As a result, stateless workflows have shorter runs that are typically less than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't saved in external storage. However, if outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs.
 
   > [!IMPORTANT]
   > A stateless workflow provides the best performance when handling data or content, such as a file, that doesn't exceed 64 KB in *total* size. 
