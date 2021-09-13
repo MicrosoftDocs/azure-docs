@@ -70,7 +70,7 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
     :::image type="content" source="media/create-data-explorer-pool-studio/create-data-explorer-pool-basics-studio.png" alt-text="Basics for Synapse Studio new Data Explorer pool":::
 
     > [!IMPORTANT]
-    > Note that there are specific limitations for the names that Data Explorer pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
+    > Note that there are specific limitations for the names that Data Explorer pools can use. Names must contain lowercase letters and numbers only, must be between 4 and 15 characters, and must start with a letter.
 
 1. Select **Next: Additional settings**. Use the following settings and leave the defaults for the remaining settings.
 
