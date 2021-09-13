@@ -76,43 +76,43 @@ DNS is not required in order to mount clients using the NFS protocol and numeric
 
 A round-robin DNS (RRDNS) system automatically routes client requests among multiple addresses.
 
-To set this system up, you must define all of the HPC Cache's mount addresses and create individual names for the cache's mount points, and then configure the DNS server to cycle among all of the entries.
+To set this system up, you need to customize the DNS server's configuration file so that when it gets mount requests to the HPC Cache's main domain address, it assigns the traffic among all of the HPC Cache system's mount points. Clients mount the HPC Cache using its domain name as the server argument, and are routed to the next available mount IP automatically.
 
-For optimal performance, configure your DNS server to handle client-facing cluster addresses as shown in the following diagram.
+There are two main steps to configure RRDNS:
 
-The HPC Cache server is shown on the left, and its mount IP addresses appear in the center. The circles on the right side of the diagram show the corresponding DNS name for each client mount point. Configure each client access point with A records and pointers as illustrated.
+1. Modify your DNS server’s ``named.conf`` file to set cyclic order for queries to your HPC Cache. This option ensures that all of the available values are cycled through. Add a statement like the following:
 
-:::image type="complex" source="media/rrdns-diagram-hpc.png" alt-text="Diagram showing client mount point DNS configuration.":::
-   <The diagram shows connections among three categories of elements: the single HPC Cache entity (at the left), three IP addresses (middle column), and three client interfaces (right column). A single circle at the left labeled "HPC Cache" is connected by arrows pointing toward three circles labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the HPC Cache circle to the three IP circles have the caption "A". Each of the IP address circles is connected by two arrows to a circle labeled as a client interface - the circle with IP 10.0.0.10 is connected to "client-IP-10", the circle with IP 10.0.0.11 is connected to "client-IP-11", and the circle with IP 10.0.0.12 is connected to "client-IP-11". The connections between the IP address circles and the client interface circles are two arrows: one arrow labeled "PTR" that points from the IP address circle to the client interface circle, and one arrow labeled "A" that points from the client interface circle to the IP address circle.>
+   ```bash
+   options {
+       rrset-order {
+           class IN A name "hpccache.contoso.com" order cyclic;
+       };
+   };
+   ```
+
+1. Configure A records and pointers for each available IP address as in the following example.
+
+   These ``nsupdate`` commands provide an example of configuring DNS correctly for an HPC Cache with the domain name hpccache.contoso.com and three mount addresses (10.0.0.10, 10.0.0.11, and 10.0.0.12):
+
+   ```bash
+   update add hpccache.contoso.com. 86400 A 10.0.0.10
+   update add hpccache.contoso.com. 86400 A 10.0.0.11
+   update add hpccache.contoso.com. 86400 A 10.0.0.12
+   update add client-IP-10.contoso.com. 86400 A 10.0.0.10
+   update add client-IP-11.contoso.com. 86400 A 10.0.0.11
+   update add client-IP-12.contoso.com. 86400 A 10.0.0.12
+   update add 10.0.0.10.in-addr.arpa. 86400 PTR client-IP-10.contoso.com
+   update add 11.0.0.10.in-addr.arpa. 86400 PTR client-IP-11.contoso.com
+   update add 12.0.0.10.in-addr.arpa. 86400 PTR client-IP-12.contoso.com
+   ```
+
+   These commands create an A record for each of the HPC Cache's mount addresses, and also set up pointer (PTR) records to support reverse DNS checks appropriately.
+
+   The diagram below shows the basic structure of this configuration.
+
+   :::image type="complex" source="media/rrdns-diagram-hpc.png" alt-text="Diagram showing client mount point DNS configuration.":::
+   <The diagram shows connections among three categories of elements: the single HPC Cache domain name (at the left), three IP addresses (middle column), and three internal-use reverse DNS client interfaces (right column). A single circle at the left labeled "hpccache.contoso.com" is connected by arrows pointing toward three circles labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the hpccache.contoso.com circle to the three IP circles are labeled "A". Each of the IP address circles is connected by two arrows to a circle labeled as a client interface - the circle with IP 10.0.0.10 is connected to "client-IP-10.contoso.com", the circle with IP 10.0.0.11 is connected to "client-IP-11.contoso.com", and the circle with IP 10.0.0.12 is connected to "client-IP-11.contoso.com". The connections between the IP address circles and the client interface circles are two arrows: one arrow labeled "PTR" that points from the IP address circle to the client interface circle, and one arrow labeled "A" that points from the client interface circle to the IP address circle.>
 :::image-end:::
-
-<!-- ![HPC Cache round-robin DNS diagram](media/rrdns-diagram-hpc.png) -->
-
-Each client-facing IP address must have a unique name for internal use by the HPC Cache. Clients mount the cluster using these names as the server argument.
-
-Modify your DNS server’s ``named.conf`` file to set cyclic order for queries to your HPC Cache. This option ensures that all of the available values are cycled through. Add a statement like the following:
-
-```bash
-options {
-    rrset-order {
-        class IN A name "hpccache.example.com" order cyclic;
-    };
-};
-```
-
-The following ``nsupdate`` commands provide an example of configuring DNS correctly:
-
-```bash
-update add hpccache.example.com. 86400 A 10.0.0.10
-update add hpccache.example.com. 86400 A 10.0.0.11
-update add hpccache.example.com. 86400 A 10.0.0.12
-update add client-IP-10.example.com. 86400 A 10.0.0.10
-update add client-IP-11.example.com. 86400 A 10.0.0.11
-update add client-IP-12.example.com. 86400 A 10.0.0.12
-update add 10.0.0.10.in-addr.arpa. 86400 PTR client-IP-10.example.com
-update add 11.0.0.10.in-addr.arpa. 86400 PTR client-IP-11.example.com
-update add 12.0.0.10.in-addr.arpa. 86400 PTR client-IP-12.example.com
-```
 
 ### Configure the HPC Cache to use the custom DNS server
 
