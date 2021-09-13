@@ -135,7 +135,7 @@ Azure Migrate uses a lightweight Azure Migrate appliance. The appliance performs
 
 > [!NOTE]
 > If for some reason you can't set up the appliance using the template, you can set it up using a PowerShell script on an existing Windows Server 2016 server. [Learn more](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/>
-> The option to deploy an appliance using an VHD template isn't supported in Azure Government cloud. [Learn more](/azure/migrate/deploy-appliance-script-government) on how to deploy an appliance for Azure Government cloud.
+> The option to deploy an appliance using an VHD template isn't supported in Azure Government cloud. [Learn more](./deploy-appliance-script-government.md) on how to deploy an appliance for Azure Government cloud.
 
 This tutorial sets up the appliance on a server running in Hyper-V environment, as follows:
 

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 09/10/2021
 ms.author: tamram
 ms.subservice: blobs 
 ---
@@ -130,7 +130,7 @@ To migrate a container to support version-level immutable storage with PowerShel
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
    -StorageAccountName <storage-account> `
    -ContainerName <container> `
-   -ImmutabilityPeriod <retention-interval>
+   -ImmutabilityPeriod <retention-interval-in-days>
 ```
 
 Next, call the **Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration** command to migrate the container. Include the `-AsJob` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
@@ -176,7 +176,7 @@ az storage container immutability-policy create \
     --resource-group <resource-group> \
     --account-name <storage-account> \
     --container-name <container> \
-    --period <retention-interval>
+    --period <retention-interval-in-days>
 ```
 
 Next, call the [az storage container-rm migrate-vlw](/cli/azure/storage/container-rm#az_storage_container_rm_migrate_vlw) command to migrate the container. Include the `--no-wait` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
@@ -234,7 +234,7 @@ To configure a default version-level immutability policy for a container with Po
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
    -StorageAccountName <storage-account> `
    -ContainerName <container> `
-   -ImmutabilityPeriod <retention-period> `
+   -ImmutabilityPeriod <retention-interval-in-days> `
    -AllowProtectedAppendWrite $true
 ```
 
@@ -246,7 +246,7 @@ To configure a default version-level immutability policy for a container with Az
 az storage container immutability-policy create \
     --account-name <storage-account> \
     --container-name <container> \
-    --period 90 \
+    --period <retention-interval-in-days> \
     --allow-protected-append-writes true
 ```
 
@@ -317,6 +317,8 @@ To configure a time-based retention policy on a previous version of a blob, foll
 
 To configure a time-based retention policy on a blob version with PowerShell, call the **Set-AzStorageBlobImmutabilityPolicy** command.
 
+The following example shows how to configure an unlocked policy on the current version of a blob. Remember to replace placeholders in angle brackets with your own values:
+
 ```azurepowershell
 # Get the storage account context
 $ctx = (Get-AzStorageAccount `
@@ -332,7 +334,25 @@ Set-AzStorageBlobImmutabilityPolicy -Container <container> `
 
 ### [Azure CLI](#tab/azure-cli)
 
-N/A
+To configure a time-based retention policy on a blob version with Azure CLI, you must first install the *storage-blob-preview* extension, version 0.6.1 or later.
+
+```azurecli
+az extension add --name storage-blob-preview
+```
+
+For more information about installing Azure CLI extensions, see [How to install and manage Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+
+Next, call the **az storage blob immutability-policy set** command to configure the time-based retention policy. The following example shows how to configure an unlocked policy on the current version of a blob. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+az storage blob immutability-policy set \
+    --expiry-time 2021-09-20T08:00:00Z \
+    --policy-mode Unlocked \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
 
 ---
 
@@ -371,7 +391,7 @@ To delete the unlocked policy, select **Delete** from the **More** menu.
 
 ### [PowerShell](#tab/azure-powershell)
 
-To modify an unlocked time-based retention policy with PowerShell, call the **Set-AzStorageBlobImmutabilityPolicy** command on the blob version with the new date and time for the policy expiration.
+To modify an unlocked time-based retention policy with PowerShell, call the **Set-AzStorageBlobImmutabilityPolicy** command on the blob version with the new date and time for the policy expiration. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurepowershell
 $containerName = "<container>"
@@ -399,7 +419,27 @@ $blobVersion = $blobVersion | Remove-AzStorageBlobImmutabilityPolicy
 
 #### [Azure CLI](#tab/azure-cli)
 
-N/A
+To modify an unlocked time-based retention policy with PowerShell, call the **az storage blob immutability-policy set** command on the blob version with the new date and time for the policy expiration. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+az storage blob immutability-policy set \
+    --expiry-time 2021-10-018:00:00Z \
+    --policy-mode Unlocked \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
+
+To delete an unlocked retention policy, call the **az storage blob immutability-policy delete** command.
+
+```azurecli
+az storage blob immutability-policy delete \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
 
 ---
 
@@ -440,7 +480,17 @@ $blobVersion = $blobVersion |
 
 ### [Azure CLI](#tab/azure-cli)
 
-N/A
+To lock a policy with PowerShell, call the **az storage blob immutability-policy set** command and set the `--policy-mode` parameter to *Locked*. You can also change the expiry at the time that you lock the policy.
+
+```azurecli
+az storage blob immutability-policy set \
+    --expiry-time 2021-10-018:00:00Z \
+    --policy-mode Locked \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
 
 ---
 
@@ -482,7 +532,25 @@ Set-AzStorageBlobLegalHold -Container <container> `
 
 #### [Azure CLI](#tab/azure-cli)
 
-N/A
+To configure or clear a legal hold on a blob version with Azure CLI, call the **az storage blob set-legal-hold** command.
+
+```azurecli
+# Set a legal hold
+az storage blob set-legal-hold \
+    --legal-hold \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <account-name> \
+    --auth-mode login
+
+# Clear a legal hold
+az storage blob set-legal-hold \
+    --legal-hold false \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <account-name> \
+    --auth-mode login
+```
 
 ---
 

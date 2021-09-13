@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: makromer
 ---
 
@@ -52,13 +52,11 @@ Use the following steps to create a REST linked service in the Azure portal UI.
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
-
----
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 2. Search for REST and select the REST connector.
 
@@ -462,7 +460,7 @@ REST is supported in data flows for both integration datasets and inline dataset
 
 You can set the delete, insert, update, and upsert methods as well as the relative row data to send to the REST sink for CRUD operations.
 
-![Data flow REST sink](media/data-flow/data-flow-sink.png)
+:::image type="content" source="media/data-flow/data-flow-sink.png" alt-text="Data flow REST sink":::
 
 ## Sample data flow script
 
@@ -583,22 +581,22 @@ The template defines two parameters:
 ### How to use this solution template
 
 1. Go to the **Copy from REST or HTTP using OAuth** template. Create a new connection for Source Connection. 
-    ![Create new connections](media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png" alt-text="Create new connections":::
 
     Below are key steps for new linked service (REST) settings:
     
      1. Under **Base URL**, specify the url parameter for your own source REST service. 
      2. For **Authentication type**, choose *Anonymous*.
-        ![New REST connection](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
+        :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png" alt-text="New REST connection":::
 
 2. Create a new connection for Destination Connection.  
-    ![New Gen2 connection](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png" alt-text="New Gen2 connection":::
 
 3. Select **Use this template**.
-    ![Use this template](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png" alt-text="Use this template":::
 
 4. You would see the pipeline created as shown in the following example:
-    ![Screenshot shows the pipeline created from the template.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png" alt-text="Screenshot shows the pipeline created from the template.":::
 
 5. Select **Web** activity. In **Settings**, specify the corresponding **URL**, **Method**, **Headers**, and **Body** to retrieve OAuth bearer token from the login API of the service that you want to copy data from. The placeholder in the template showcases a sample of Azure Active Directory (AAD) OAuth. Note AAD authentication is natively supported by REST connector, here is just an example for OAuth flow. 
 
@@ -609,7 +607,7 @@ The template defines two parameters:
     | Headers | Header is user-defined, which references one header name in the HTTP request. | 
     | Body | The body for the HTTP request. | 
 
-    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png" alt-text="Pipeline":::
 
 6. In **Copy data** activity, select *Source* tab, you could see that the bearer token (access_token)  retrieved from previous step would be passed to Copy data activity as **Authorization** under Additional headers. Confirm settings for following properties before starting a pipeline run.
 
@@ -618,21 +616,21 @@ The template defines two parameters:
     | Request method | The HTTP method. Allowed values are **Get** (default) and **Post**. | 
     | Additional headers | Additional HTTP request headers.| 
 
-   ![Copy source Authentication](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png" alt-text="Copy source Authentication":::
 
 7. Select **Debug**, enter the **Parameters**, and then select **Finish**.
-   ![Pipeline run](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png" alt-text="Pipeline run"::: 
 
 8. When the pipeline run completes successfully, you would see the result similar to the following example:
-   ![Pipeline run result](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png" alt-text="Pipeline run result"::: 
 
 9. Click the "Output" icon of WebActivity in **Actions** column, you would see the access_token returned by the service.
 
-   ![Token output](media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png" alt-text="Token output"::: 
 
 10. Click the "Input" icon of CopyActivity in **Actions** column, you would see the access_token retrieved by WebActivity is passed to CopyActivity for authentication. 
 
-    ![Token input](media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png" alt-text="Token input":::
         
     >[!CAUTION] 
     >To avoid token being logged in plain text, enable "Secure output" in Web activity and "Secure input" in Copy activity.
