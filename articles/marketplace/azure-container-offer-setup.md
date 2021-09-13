@@ -79,5 +79,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Configure offer properties](azure-container-properties.md)
+- [Configure offer properties](azure-container-properties.md) 
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)

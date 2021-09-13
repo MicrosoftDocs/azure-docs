@@ -117,19 +117,19 @@ To help support agents troubleshoot your issue, consider attaching an HTTP Archi
 To generate a HAR file using **Microsoft Edge** or **Google Chrome**:
 
 1. Go to the web page where you’re experiencing the issue.
-2. In the top right corner of the window, select the ellipsis icon, then **More tools** > **Developer tools**. You can press F12 as a shortcut.
-3. In the Developer tools pane, select the **Network** tab.
-4. Select **Stop recording network log** and **Clear** to remove existing logs. The record icon will turn grey.
+1. In the top right corner of the window, select the ellipsis icon, then **More tools** > **Developer tools**. You can press F12 as a shortcut.
+1. In the Developer tools pane, select the **Network** tab.
+1. Select **Stop recording network log** and **Clear** to remove existing logs. The record icon will turn grey.
 
     ![How to remove existing logs in Microsoft Edge or Google Chrome](media/support/chromium-stop-clear-session.png)
 
-5. Select **Record network log** to start recording. When you start recording, the record icon will turn red.
+1. Select **Record network log** to start recording. When you start recording, the record icon will turn red.
 
     ![How to start recording in Microsoft Edge or Google Chrome](media/support/chromium-start-session.png)
 
-6. Reproduce the issue you want to troubleshoot.
-7. After you’ve reproduced the issue, select **Stop recording network log**.
-8. Select **Export HAR**, marked with a downward-arrow icon, and save the file.
+1. Reproduce the issue you want to troubleshoot.
+1. After you’ve reproduced the issue, select **Stop recording network log**.
+1. Select **Export HAR**, marked with a downward-arrow icon, and save the file.
 
     ![How to export a HAR file in Microsoft Edge or Google Chrome](media/support/chromium-network-export-har.png)
 

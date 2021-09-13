@@ -62,3 +62,4 @@ In the following example, the signed-in user is part of the three highlighted ac
 ## Next steps
 
 - [Add and manage users for the commercial marketplace](add-manage-users.md)
+<!--- [Updated for Workspaces]() --->

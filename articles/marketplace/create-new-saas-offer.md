@@ -91,8 +91,8 @@ A test drive is a great way to showcase your offer to potential customers by giv
 
 ### To enable a test drive
 
-1.	Under **Test drive**, select the **Enable a test drive** check box.
-1.	Select the test drive type from the list that appears.
+1. Under **Test drive**, select the **Enable a test drive** check box.
+1. Select the test drive type from the list that appears.
 
 ## Configure lead management
 
@@ -112,7 +112,7 @@ You can light up [unified discovery and delivery](plan-SaaS-offer.md) of your Sa
 ### Integrate with Microsoft API
 
 1. If your SaaS offer does not integrate with Microsoft Graph API, select **No**. Continue to Link published Microsoft 365 App consumption clients.  
-1. If your SaaS offer integrates with Microsoft Graph API, select **Yes**, and then provide the Azure Active Directory App ID you have created and registered to integrate with Microsoft Graph API. 
+1. If your SaaS offer integrates with Microsoft Graph API, select **Yes**, and then provide the Azure Active Directory App ID you have created and registered to integrate with Microsoft Graph API.
 
 ### Link published Microsoft 365 App consumption clients
 

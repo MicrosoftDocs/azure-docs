@@ -12,7 +12,7 @@ ms.date: 09/13/2021
 
 # How to create a consulting service offer in the commercial marketplace
 
-This article explains how to create a consulting service offer for the Microsoft commercial marketplace using Partner Center. 
+This article explains how to create a consulting service offer for the Microsoft commercial marketplace using Partner Center.
 
 ## Before you begin
 
@@ -33,31 +33,31 @@ To publish a consulting service offer, you must meet certain eligibility require
 
     [ ![Illustrates the New offer list on the Marketplace offers page.](./media/new-offer-consulting-service-workspaces.png) ](./media/new-offer-consulting-service-workspaces.png#lightbox)
 
-4. In the **New Consulting service** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. In the **New Consulting service** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
     * Each offer in your account must have a unique offer ID.
     * Use only lowercase letters and numbers. The offer ID can include hyphens and underscores, but no spaces, and is limited to 50 characters.
     * The offer ID can't be changed after you select **Create**.
 
-5. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
-6. To generate the offer and continue, select **Create**.
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
+1. To generate the offer and continue, select **Create**.
 
 #### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview tab, select **+ New offer** > **Consulting service**.
+1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+1. On the Overview tab, select **+ New offer** > **Consulting service**.
 
     ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service.png)
 
-4. In the **New offer** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. In the **New offer** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
     * Each offer in your account must have a unique offer ID.
     * Use only lowercase letters and numbers. The offer ID can include hyphens and underscores, but no spaces, and is limited to 50 characters.
     * The offer ID can't be changed after you select **Create**.
 
-5. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
-6. To generate the offer and continue, select **Create**.
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
+1. To generate the offer and continue, select **Create**.
 
 ---
 

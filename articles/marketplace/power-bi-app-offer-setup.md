@@ -89,3 +89,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 ## Next steps
 
 - [Configure offer properties](power-bi-app-properties.md)
+
+<!--- [Updated for Workspaces]() --->

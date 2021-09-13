@@ -232,3 +232,4 @@ Partner Center uses [Azure Active Directory](../active-directory/fundamentals/ac
 ## Next steps
 
 - [Add and manage users](add-manage-users.md)
+<!--- [Updated for Workspaces]() --->

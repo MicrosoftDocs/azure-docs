@@ -100,3 +100,5 @@ For more publisher support options, see [Support for the commercial marketplace 
 
 - Learn about the [Marketplace metering service API](../marketplace-metering-service-apis.md).
 - [Manage metered billing anomalies in Partner Center](../anomaly-detection.md)
+
+<!--- [Updated for Workspaces]() --->

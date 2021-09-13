@@ -238,9 +238,9 @@ The **History** page in Partner Center shows the publishing events for your comm
 To view the history of your offer:
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the navigation menu on the left, select **Commercial Marketplace** > **Overview**.
-3. Select your offer.
-4. Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:
+1. In the navigation menu on the left, select **Commercial Marketplace** > **Overview**.
+1. Select your offer.
+1. Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:
 
 |Event    |Description    |
 |---------|---------------|

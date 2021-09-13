@@ -62,11 +62,11 @@ Follow these steps before importing your solutions from OCP GTM:
 ## Begin the migration of your solutions from OCP GTM
 
 1. Begin the migration [here](https://go.microsoft.com/fwlink/?linkid=2165807).
-2. Select the **Overview** page, then **Click here to get started**.
+1. Select the **Overview** page, then **Click here to get started**.
 
     :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="Displays overview page":::
 
-3. To begin migrating, select the **Solutions** tab, which displays all the solutions associated to your MPN IDs.
+1. To begin migrating, select the **Solutions** tab, which displays all the solutions associated to your MPN IDs.
 
     :::image type="content" source="media/co-sell-migrate/solutions-tab.png" alt-text="Partner Center Overview page, Solutions tab.":::
 
@@ -75,7 +75,7 @@ Follow these steps before importing your solutions from OCP GTM:
 
     Learn more about the solution status by reviewing the tool tips. All solutions pending action are listed under **Action**.<a name="beginmigration"></a>
 
-4. Select **Begin migration** (see image above) for the solution you want to migrate, then select one of the following options:
+1. Select **Begin migration** (see image above) for the solution you want to migrate, then select one of the following options:
 
     :::image type="content" source="media/co-sell-migrate/migration-options.png" alt-text="The three options for migration.":::
 

@@ -197,3 +197,4 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 ## Next steps
 
 - [Set up your Azure subscription](test-drive-azure-subscription-setup.md) -->
+- <!--- [Updated for Workspaces]() --->

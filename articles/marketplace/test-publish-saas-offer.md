@@ -98,3 +98,5 @@ After these validation checks are complete, your offer will be live in the marke
 ## Next steps
 
 - [Access analytic reports for the commercial marketplace in Partner Center](analytics.md)
+
+<!--- [Updated for Workspaces]() --->

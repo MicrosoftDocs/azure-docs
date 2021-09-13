@@ -81,3 +81,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 - [Configure offer properties](iot-edge-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
+
+<!--- [Updated for Workspaces]() --->

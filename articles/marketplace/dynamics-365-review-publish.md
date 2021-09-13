@@ -35,9 +35,9 @@ Your offer's publish status will change as it moves through the publication proc
 
 When you are ready to submit an offer for publishing, select **Review and publish** at the upper-right corner of the portal. You'll see the status of each page for your offer listed as one of the following:
 
-   - **Not started** – The page is incomplete.
-   - **Incomplete** – The page is missing required information or has errors that need to be fixed. You'll need to go back to the page and update it.
-   - **Complete** – The page is complete. All required data has been provided and there are no errors.
+- **Not started** – The page is incomplete.
+- **Incomplete** – The page is missing required information or has errors that need to be fixed. You'll need to go back to the page and update it.
+- **Complete** – The page is complete. All required data has been provided and there are no errors.
 
 If any of the pages have a status other than **Complete**, you need to correct the issue on that page and then return to the **Review and publish** page to confirm the status now shows as **Complete**. Some offer types require testing. If so, you will see a **Notes for certification** field where you need to provide testing instructions to the certification team and any supplementary notes helpful for understanding your app.
 

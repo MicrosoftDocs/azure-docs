@@ -53,3 +53,4 @@ The following table shows all possible co-sell statuses. To learn about the requ
 
 - For information about Co-sell requirements, see [Co-sell ready requirements](co-sell-requirements.md).
 - For help configuring an offer for Co-sell, see [Configure Co-sell for a commercial marketplace offer](co-sell-configure.md).
+<!--- [Updated for Workspaces]() --->

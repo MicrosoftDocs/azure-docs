@@ -41,8 +41,8 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It explains the
 #### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **Dynamics 365 for Business central**.
+1. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
+1. On the Overview page, select **+ New offer** > **Dynamics 365 for Business central**.
 
     :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-business-central.png" alt-text="The left pane menu options and the 'New offer' button.":::
 
