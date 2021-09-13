@@ -258,7 +258,7 @@ There are four types of keys for an Azure Cosmos account (Primary, Secondary, Pr
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup" # Resource Group must already exist
 $accountName = "mycosmosaccount" # Must be all lower case
-$keyKind = "primary" # Other key kinds: secondary, primaryReadOnly, secondaryReadOnly
+$keyKind = "primary" # Other key kinds: secondary, primaryReadonly, secondaryReadonly
 
 New-AzCosmosDBAccountKey `
     -ResourceGroupName $resourceGroupName `

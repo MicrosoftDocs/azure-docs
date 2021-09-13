@@ -250,9 +250,9 @@ The value for this setting indicates a custom package index URL for Python apps.
 
 To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
-## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
+## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES (Preview)
 
-The configuration is specific to Python function apps. It defines the prioritization of module loading order. When your Python function apps face issues related to module collision (e.g. when you're using protobuf, tensorflow, or grpcio in your project), configuring this app setting to `1` should resolve your issue. By default, this value is set to `0`.
+The configuration is specific to Python function apps. It defines the prioritization of module loading order. When your Python function apps face issues related to module collision (e.g. when you're using protobuf, tensorflow, or grpcio in your project), configuring this app setting to `1` should resolve your issue. By default, this value is set to `0`. This flag is currently in Preview.
 
 |Key|Value|Description|
 |---|-----|-----------|

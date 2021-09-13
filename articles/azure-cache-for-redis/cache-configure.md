@@ -66,7 +66,7 @@ You can view and configure the following settings using the **Resource Menu**.
 
 ### Activity log
 
-Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md). For more information on monitoring Azure Cache for Redis events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
+Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md). For more information on monitoring Azure Cache for Redis events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
 ### Access control (IAM)
 
@@ -494,7 +494,7 @@ When using the Redis Console with a premium clustered cache, you can issue comma
 
 If you attempt to access a key that is stored in a different shard than the connected shard, you receive an error message similar to the following message:
 
-```
+```console
 shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```
