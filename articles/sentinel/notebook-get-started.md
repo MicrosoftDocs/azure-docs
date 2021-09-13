@@ -282,9 +282,7 @@ Device authorization adds another factor to the authentication by generating a o
 
     :::image type="content" source="media/notebook-get-started/device-authorization.png" alt-text="Screenshot showing a device authorization code.":::
 
-1. Select and copy the indicated code to your clipboard. Then, go to [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and paste the code in. For example:
-
-   :::image type="content" source="media/notebook-get-started/authorization-process.png" alt-text="Screenshot showing the device authorization process.":::
+1. Select and copy the indicated code to your clipboard. Then, go to [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and paste the code in where prompted.
 
 1. When you see the confirmation message that you've signed in, close the browser tab return to your notebook in Azure Sentinel.
 
