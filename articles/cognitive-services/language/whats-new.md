@@ -24,11 +24,10 @@ Azure Cognitive Service for language is updated on an ongoing basis. To stay up-
     * [Named Entity Recognition (NER), Personally Identifying Information (PII)](/azure/cognitive-services/named-entity-recognition/overview.md)
     * [Language Detection](language-detection/overview.md)
     * [Health specific functions](health/overview.md)
-    * [Question answering](question-answering/overview.md)
     * [Summarization](text-summarization/overview.md)
     * [Custom Named Entity Recognition (Custom NER)](custom-named-entity-recognition/overview.md)
     * [Custom Text Classification](custom-classification/overview.md)
-    * [Conversational Language Understanding](conversational-language-understanding/overview.md)
+    * [Custom Language Understanding](custom-language-understanding/overview.md)
 
 ## Next steps
 
