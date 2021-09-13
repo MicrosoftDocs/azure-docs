@@ -204,23 +204,21 @@ This procedure describes how to store a [MaxMind GeoLite2 account key](#prerequi
 
 ### Configure Azure Cloud settings
 
-If your organization doesn't use the Azure public cloud, you must specify this in your settings to successfully authenticate and use data from Azure Sentinel and Azure. For more information, see [Specify the Azure Cloud and default Azure Authentication methods](#specify-the-azure-cloud-and-default-azure-authentication-methods).
+If your organization doesn't use the Azure public cloud, you must specify this in your settings to successfully authenticate and use data from Azure Sentinel and Azure. For more information, see [Specify the Azure Cloud and default Azure Authentication methods](#specify-the-azure-cloud-and-azure-authentication-methods).
 
 ### Validate settings
 
 Select **Validate settings** in the settings editor.
 
-Warning messages about missing configurations are expected, but you shouldn't have any for threat intelligence provider or GeoIP provider settings. 
+Warning messages about missing configurations are expected, but you shouldn't have any for threat intelligence provider or GeoIP provider settings.
 
-To configure other MSTICPy settings, see:
+Depending on your environment, you may also need to [Configure Key Vault settings](#configure-key-vault-settings) or [Specify the Azure cloud](#specify-the-azure-cloud-and-azure-authentication-methods).
 
-- [Configure Key Vault settings](#configure-key-vault-settings)
-- [Specify the Azure cloud and default Azure authentication methods](#specify-the-azure-cloud-and-default-azure-authentication-methods)
-- [Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel](notebooks-msticpy-advanced.md)
+If you need to make any changes because of the validation, make those changes and then select **Save Settings**.
 
-Select the **Close** button to hide the validation output.
+When you're done, select the **Close** button to hide the validation output.
 
-If you need to make any changes because of the validation, save your changes by selecting **Save Settings**.
+For more information, see: [Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel](notebooks-msticpy-advanced.md)
 
 ## Load saved MSTICPy settings
 
