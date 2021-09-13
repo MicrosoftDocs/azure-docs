@@ -198,6 +198,8 @@ items:
   items:
   - name: Overview
     href: sentiment-opinion-mining/overview.md
+  - name: Language support
+    href: sentiment-opinion-mining/language-support.md
   - name: Quickstart
     href: sentiment-opinion-mining/quickstart.md
   - name: How-to guides
