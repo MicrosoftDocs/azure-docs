@@ -17,6 +17,8 @@ ms.topic: conceptual
 
 Language Studio provides you with a platform to try several service features, and see what they return in a visual manner. It also provides you with an easy-to-use experience to create custom projects and models to work on your data. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
 
+## Get started using Language Studio
+
 [!INCLUDE [deploy an Azure resource](../includes/deploy-azure-resource.md)]
 
 ## Using Language Studio

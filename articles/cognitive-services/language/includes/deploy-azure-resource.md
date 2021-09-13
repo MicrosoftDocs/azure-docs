@@ -10,8 +10,6 @@ ms.author: aahi
 ---
 
 
-## Deploy an Azure resource and get started
-
 Before you can use Language Studio, you need to have an Azure account. You can [create one for free](https://azure.microsoft.com/free/ai/). Once you have an Azure account, you can deploy an Azure resource for language to use Language Studio and individual service features. 
 
 > [!IMPORTANT] 
@@ -24,20 +22,11 @@ Before you can use Language Studio, you need to have an Azure account. You can [
 
    :::image type="content" source="../media/language-resource.png" alt-text="Create Speech resource in Azure portal.":::
 
-2. Select **Create a new language resource**. Then enter information for your new resource:
-
-        
-    |Value  |Description  |
-    |---------|---------|
-    |Azure subscription | The name of your Azure subscription.        |
-    |Azure resource group     | The name of your Azure resource group, which will contain your resource. To create a new one ...        |
-    |Azure resource name | A name for your new resource.       |
-    |Location     | The location where your service requests will be sent. Choose a location near you for lower latency.        |
-    |Pricing tier     | The [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) for your resource. You can select the free (F0) tier if you're trying the service.       |
-    |Managed Identity     | Enables Azure to authenticate to other cloud services. Select this setting when...        |
+2. Select **Create a new language resource**. Then enter information for your new resource, such as a name, location and resource group.
 
     > [!TIP]
-    > * You can only have one resource using the free pricing tier at a time, per subscription.
+    > * When selecting a location for your Azure resource, choose one that's closest to you for better latency.
+    > * The **Managed Identity** option is used for the custom features. If you aren't using a custom feature, you can turn this setting off. 
     > * If you use the free pricing tier, you can keep using the Language service even after your Azure free trial or service credit expires. 
 
 
