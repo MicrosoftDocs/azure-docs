@@ -4,12 +4,15 @@ description: Configure an AKS cluster's service principal with permissions to ac
 ms.topic: article
 author: dlepow
 ms.author: danlep
-ms.date: 05/21/2021
+ms.date: 09/13/2021
 ---
 
 # Pull images from a container registry to an AKS cluster in a different Azure AD tenant
 
 In some cases, you might have your Azure AKS cluster in one Azure Active Directory (Azure AD) tenant and your Azure container registry in a different tenant. This article walks through the steps to enable cross-tenant authentication using the AKS service principal credential to pull from the container registry.
+
+> [!NOTE]
+> You can't use an AKS managed identity for cross-registry authentication.
 
 ## Scenario overview
 Assumptions for this example:
