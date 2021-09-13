@@ -36,7 +36,7 @@ Here is a sample scenario. To copy data from Blob storage to a SQL Database, you
 
 The following diagram shows the relationships among pipeline, activity, dataset, and linked service in the service:
 
-![Relationship between pipeline, activity, dataset, linked services](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png" alt-text="Relationship between pipeline, activity, dataset, linked services":::
 
 ## Linked service JSON
 
