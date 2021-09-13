@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: rsethur
 ms.author: seramasu
-ms.date: 08/03/2021
+ms.date: 09/20/2021
 ms.reviewer: laobri
 ---
 
@@ -20,21 +20,9 @@ ms.reviewer: laobri
 > [!NOTE]
 > A fully specified sample YAML for managed online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
 
-## Schema
-
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json. The schema is provided below in JSON and YAML formats for convenience.
-
-# [JSON](#tab/json)
-
-:::code language="json" source="~/azureml-examples-main/cli/.schemas/jsons/latest/managedOnlineEndpoint.schema.json":::
-
-# [YAML](#tab/yaml)
-
-:::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/managedOnlineEndpoint.schema.yml":::
-
----
-
 ## Remarks
+
+The `az ml online-endpoint` command can be used for managing Azure Machine Learning endpoints.
 
 | Key | Description |
 | --- | --- |
@@ -75,6 +63,24 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | readiness_probe | Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe. |
 | tags | A dictionary of Azure Tags you want associated with the deployment. |
 | description | A description of the deployment. |
+
+## Examples
+
+[TODO]
+
+## Schema
+
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+
+# [JSON](#tab/json)
+
+:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/managedOnlineEndpoint.schema.json":::
+
+# [YAML](#tab/yaml)
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/managedOnlineEndpoint.schema.yml":::
+
+---
 
 ## Next steps
 

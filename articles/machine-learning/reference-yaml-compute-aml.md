@@ -45,22 +45,25 @@ ms.reviewer: laobri
 | `identity.type` | string | The type of managed identity to assign to the compute. If the type is `user_assigned`, the `identity.user_assigned_identities` property must also be specified. | `system_assigned`, `user_assigned` | |
 | `identity.user_assigned_identities` | array | List of fully qualified resource IDs of the user-assigned identities. | | |
 
-
 ## Remarks
 
-The `az ml compute` command can be used for managing Azure Machine Learning compute.
+The `az ml compute` commands can be used for managing Azure Machine Learning compute.
+
+## Examples
+
+[TODO]
 
 ## Schema
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/workspace.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json. The schema is provided below in JSON and YAML formats for convenience.
 
 # [JSON](#tab/json)
 
-:::code language="json" source="~/azureml-examples-main/cli/.schemas/jsons/latest/workspace.schema.json":::
+:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/amlCompute.schema.json":::
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/workspace.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/amlCompute.schema.yml":::
 
 ---
 
