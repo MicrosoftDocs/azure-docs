@@ -782,7 +782,7 @@ items:
       - name: Data flow overview
         href: concepts-data-flow-overview.md
       - name: Debug mode
-        href: ../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
       - name: Schema drift
         href: ../data-factory/concepts-data-flow-schema-drift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Column patterns
@@ -1022,7 +1022,7 @@ items:
       - name: Delete files using delete activity
         href: ../data-factory/delete-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Copy Data tool
-        href: ../data-factory/copy-data-tool.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        href: ../data-factory/copy-data-tool.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
       - name: Format and compression support
         href: ../data-factory/supported-file-formats-and-compression-codecs.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Copy activity performance
@@ -1197,7 +1197,7 @@ items:
       - name: Continuous Integration and Deployment
         href: ../data-factory/ci-cd-github-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Security and access control
-        href: ../data-factory/security-and-access-control-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        href: ../data-factory/security-and-access-control-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
       - name: Self-hosted Integration Runtimes troubleshooting
         href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
 - name: Machine Learning

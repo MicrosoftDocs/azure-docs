@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 09/09/2021
 tags: connectors
 ---
 
@@ -872,7 +872,7 @@ For full error messages, check your SAP Adapter's extended logs. You can also [e
 
     ```xml
     <setting name="SapTraceLevel" serializeAs="String">
-       <value>"Verbose"</value>
+       <value>Verbose</value>
     </setting>
     ```
 
