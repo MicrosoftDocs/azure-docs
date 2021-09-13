@@ -27,7 +27,7 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 
 <a id="create-autoscale"></a>
 
-## Azure Cosmos account for Cassandra API with autoscale provisioned throughput
+## Cassandra API with autoscale provisioned throughput
 
 Create an Azure Cosmos account in two regions with options for consistency and failover, with a keyspace and table configured for autoscale throughput.
 
@@ -35,7 +35,7 @@ Create an Azure Cosmos account in two regions with options for consistency and f
 
 <a id="create-manual"></a>
 
-## Azure Cosmos account for Cassandra API with standard provisioned throughput
+## Cassandra API with standard provisioned throughput
 
 Create an Azure Cosmos account in two regions with options for consistency and failover, with a keyspace and table configured for standard throughput.
 
