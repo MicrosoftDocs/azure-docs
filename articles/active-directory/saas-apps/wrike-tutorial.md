@@ -32,7 +32,7 @@ To configure Azure AD integration with Wrike, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Wrike supports **SP** and **IDP** initiated SSO.
-
+* Wrike supports [**automated** user provisioning and deprovisioning](wrike-provisioning-tutorial.md) (recommended).
 * Wrike supports **Just In Time** user provisioning.
 
 > [!NOTE]

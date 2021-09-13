@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy remove c
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 09/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -83,11 +83,15 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--delete-snapshots** string   By default, the delete operation fails if a blob has snapshots. Specify `include` to remove the root blob and all its snapshots; alternatively specify `only` to remove only the snapshots but keep the root blob.
 
+**--dry-run**                   Prints the path files that would be removed by the command. This flag does not trigger the removal of the files.
+
 **--exclude-path** string   Exclude these paths when removing. This option does not support wildcard characters (*). Checks relative path prefix. For example: `myFolder;myFolder/subDirName/file.pdf`
 
 **--exclude-pattern** string   Exclude files where the name matches the pattern list. For example: `*.jpg`;`*.pdf`;`exactName`
 
 **--force-if-read-only**   When deleting an Azure Files file or folder, force the deletion to work even if the existing object is has its read-only attribute set.
+
+**--from-to** string            Optionally specifies the source destination combination. For Example: BlobTrash, FileTrash, BlobFSTrash
 
 **--help**   help for remove.
 

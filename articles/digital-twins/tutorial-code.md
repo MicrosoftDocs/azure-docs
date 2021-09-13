@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial to write the minimal code for a client app, using the .NET (C#) SDK.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/02/2020
+ms.date: 04/28/2021
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -149,7 +149,7 @@ Next comes the first bit of code that interacts with the Azure Digital Twins ser
 
 Paste in the following code under the authorization code you added earlier.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs" id="ClientExcerptModel":::
 
 In your command window, run the program with this command: 
 

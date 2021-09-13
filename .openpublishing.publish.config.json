@@ -358,6 +358,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-dotnet-core-functions-integration",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
       "branch": "tutorial",
@@ -782,6 +788,12 @@
       "url": "https://github.com/dotnet/samples",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-docs-bicep-samples",
+      "url": "https://github.com/Azure/azure-docs-bicep-samples/",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -810,6 +822,7 @@
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
+    ".openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.iot-hub.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
@@ -823,6 +836,7 @@
     "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
     "articles/iot-central/.openpublishing.redirection.iot-central.json",
     "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
+    "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
     "articles/marketplace/.openpublishing.redirection.marketplace.json",
     "articles/purview/.openpublishing.redirection.purview.json",
     "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",

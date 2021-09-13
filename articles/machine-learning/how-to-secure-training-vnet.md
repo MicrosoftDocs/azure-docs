@@ -84,7 +84,7 @@ In this article you learn how to secure the following training compute resources
 
         :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
 
-    * One public IP address. If you have Azure policy prohibiting Public IP creation then deployment of cluster/instances will fail
+    * One public IP address. If you have Azure Policy assignments prohibiting Public IP creation then deployment of cluster/instances will fail
     * One load balancer
 
     For compute clusters, these resources are deleted every time the cluster scales down to 0 nodes and created when scaling up.
@@ -92,7 +92,7 @@ In this article you learn how to secure the following training compute resources
     For a compute instance, these resources are kept until the instance is deleted. Stopping the instance does not remove the resources. 
 
     > [!IMPORTANT]
-    > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure policy which prohibits creation of network security groups.
+    > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
 
 * If the Azure Storage Accounts for the workspace are also in the virtual network, use the following guidance on subnet limitations:
 
@@ -113,10 +113,12 @@ In this article you learn how to secure the following training compute resources
 * __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
 
     * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
-    * If you are using a private endpoint-enabled workspace, creating the cluster in a different region is __not supported__.
     * You may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
 
     Guidance such as using NSG rules, user-defined routes, and input/output requirements, apply as normal when using a different region than the workspace.
+
+    > [!WARNING]
+    > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__.
 
 ### Azure Databricks
 

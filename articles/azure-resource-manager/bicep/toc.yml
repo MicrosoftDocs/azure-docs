@@ -22,13 +22,10 @@
   - name: Microsoft Learn - Bicep
     href: learn-bicep.md
 - name: How to
-  expanded: true
   items:
   - name: Author
-    expanded: true
     items:
     - name: Resources
-      expanded: true
       items:
       - name: Resource declaration
         href: resource-declaration.md
@@ -58,6 +55,9 @@
       - name: Resources
         displayName: iteration,copy,multiple,batches,child,condition,filter
         href: loop-resources.md
+      - name: Modules
+        displayName: iteration,copy,multiple,batches,condition,filter
+        href: loop-modules.md
       - name: Properties
         displayName: iteration,copy,multiple
         href: loop-properties.md
@@ -74,10 +74,10 @@
         displayName: deployment commands,multiple resource groups
       - name: Subscription
         href: deploy-to-subscription.md
-        displayName: Azure policy,policy,access control
+        displayName: Azure Policy,policy,access control
       - name: Management group
         href: deploy-to-management-group.md
-        displayName: policy,Azure policy
+        displayName: policy,Azure Policy
       - name: Tenant
         href: deploy-to-tenant.md
         displayName: assign role
@@ -85,6 +85,12 @@
       href: linter.md
     - name: Best practices
       href: best-practices.md
+    - name: Patterns
+      items:
+      - name: Configuration set
+        href: patterns-configuration-set.md
+      - name: Shared variable file
+        href: patterns-shared-variable-file.md
   - name: Deploy
     items:
     - name: Predeployment checks
@@ -123,6 +129,8 @@
   - name: Bicep file structure
     displayName: parameters,variables,resources,outputs,condition
     href: file.md
+  - name: Bicep resource reference
+    href: /azure/templates/
   - name: Data types
     href: data-types.md
     displayName: supported types,arrays,booleans,integers,objects,strings,secure,
@@ -165,8 +173,6 @@
   - name: Bicep CLI
     href: bicep-cli.md
     displayName: build,decompile,install,list-versions,list versions,upgrade,version
-  - name: Template reference
-    href: /azure/templates/
   - name: Azure PowerShell
     href: /powershell/module/az.resources
   - name: Azure CLI

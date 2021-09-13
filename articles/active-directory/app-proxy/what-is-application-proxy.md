@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: has-adal-ref
 ---
 
 # Using Azure AD Application Proxy to publish on-premises apps for remote users

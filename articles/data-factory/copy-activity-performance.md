@@ -12,7 +12,7 @@ ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/15/2020
+ms.date: 08/24/2021
 ---
 # Copy activity performance and scalability guide
 

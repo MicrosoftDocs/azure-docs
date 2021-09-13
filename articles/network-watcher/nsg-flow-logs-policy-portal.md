@@ -22,9 +22,9 @@ ms.author: damendo
 ## Overview
 Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will use two built-in policies available for NSG Flow Logs to manage your flow logs setup. The first policy  flags any NSGs without flow logs enabled. The second policy automatically deploys Flow logs for NSGs without Flow logs enabled. 
 
-If you are creating an Azure policy for the first time, you can read through: 
+If you are creating an Azure Policy definition for the first time, you can read through: 
 - [Azure Policy overview](../governance/policy/overview.md) 
-- [Tutorial for creating policy](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
+- [Tutorial for creating an Azure Policy assignment](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## Locate the policies

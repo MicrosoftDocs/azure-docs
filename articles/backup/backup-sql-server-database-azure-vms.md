@@ -2,7 +2,7 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 08/20/2021
 ---
 # Back up multiple SQL Server VMs from the Recovery Services vault
 
@@ -24,6 +24,8 @@ Before you back up a SQL Server database, check the following criteria:
 
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM hosting the SQL Server instance.
 1. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Make sure that the [Azure Virtual Machine Agent](../virtual-machines/extensions/agent-windows.md) is installed on the VM.
+1. Make sure that .NET 4.5.2 version or above is installed on the VM.
 1. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
 1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
 1. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
@@ -90,18 +92,22 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
 
 ### Database naming guidelines for Azure Backup
 
-Avoid using the following elements in database names:
+- Avoid using the following elements in database names:
 
-* Trailing and leading spaces
-* Trailing exclamation marks (!)
-* Closing square brackets (])
-* Semicolon ';'
-* Forward slash '/'
+  - Trailing and leading spaces
+  - Trailing exclamation marks (!)
+  - Closing square brackets (])
+  - Semicolon (;)
+  - Forward slash (/)
 
-Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
+- Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
+
+- Multiple databases on the same SQL instance with casing difference aren't supported.
+
+-	Changing the casing of a SQL database isn't supported after configuring protection.
 
 >[!NOTE]
->The **Configure Protection** operation for databases with special characters like "+" or "&" in their name isn't supported. You can either change the database name or enable **Auto Protection**, which can successfully protect these databases.
+>The **Configure Protection** operation for databases with special characters, such as '+' or '&', in their name isn't supported. You can change the database name or enable **Auto Protection**, which can successfully protect these databases.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

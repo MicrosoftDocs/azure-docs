@@ -149,6 +149,6 @@ The above open-source PWA app is authored in Node.js. If you want to host your o
 
 ## More information
 
-For more information, see [Widevine in the Questions Collection](questions-collection.md#widevine-streaming-for-android).
+For more information, see [Content Protection in the FAQ](frequently-asked-questions.yml).
 
 Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
