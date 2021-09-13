@@ -69,9 +69,9 @@ Azure RBAC permissions could be granted in either *subscription* or *resource gr
 
 ## Create long-term retention policies
 
-# [Portal](#tab/portal)
-
 You can configure SQL Managed Instance to [retain automated backups](../database/long-term-retention-overview.md) for a period longer than the retention period for your service tier.
+
+# [Portal](#tab/portal)
 
 1. In the Azure portal, select your managed instance and then click **Backups**. On the **Retention policies** tab, select the database(s) on which you want to set or modify long-term backup retention policies. Changes will not apply to any databases left unselected. 
 
@@ -158,7 +158,7 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy @LTRPolicy
 
 ---
 
-### View backups and restore from a backup
+## View backups and restore from a backup
 
 # [Portal](#tab/portal)
 
