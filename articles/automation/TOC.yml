@@ -165,7 +165,7 @@
         - name: Work with a Hybrid Runbook Worker
           items:
             - name: Deploy extension-based worker
-              href: extension-based-hrw.md
+              href: extension-based-hrw-install.md
             - name: Deploy agent-based Windows worker
               href: automation-windows-hrw-install.md
             - name: Deploy agent-based Linux worker
