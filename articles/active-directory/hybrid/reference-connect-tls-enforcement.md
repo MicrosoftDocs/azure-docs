@@ -11,9 +11,9 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/28/2018
+ms.date: 9/10/2021
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: rodejo
 
 ms.collection: M365-identity-device-management
 ---
@@ -21,6 +21,9 @@ ms.collection: M365-identity-device-management
 # TLS 1.2 enforcement for Azure AD Connect
 
 Transport Layer Security (TLS) protocol version 1.2 is a cryptography protocol that is designed to provide  secure communications.  The TLS protocol aims primarily to provide privacy and data integrity.  TLS has gone through many iterations with version 1.2 being defined in [RFC 5246](https://tools.ietf.org/html/rfc5246).  Azure Active Directory Connect version 1.2.65.0 and later now fully support using only TLS 1.2 for communications with Azure.  This document will provide information on how to force your Azure AD Connect server to use only TLS 1.2.
+
+>[!NOTE]
+>All versions of Windows Server that are supported for Azure AD Connect V2.0 already default to TLS 1.2. If TLS 1.2 is not enabled on your server you will need to enable this before you can deploy Azure AD Connect V2.0.
 
 ## Update the registry
 In order to force the Azure AD Connect server to only use TLS 1.2 the registry of the Windows server must be updated.  Set the following registry keys on the Azure AD Connect server.

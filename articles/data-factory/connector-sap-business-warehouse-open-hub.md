@@ -43,7 +43,7 @@ Specifically, this SAP Business Warehouse Open Hub connector supports:
 
 SAP BW Open Hub Destination (OHD) defines the target to which the SAP data is relayed. Any objects supported by SAP Data Transfer Process (DTP) can be used as open hub data sources, for example, DSO, InfoCube, DataSource, etc. Open Hub Destination type - where the relayed data is stored - can be database tables (local or remote) and flat files. This SAP BW Open Hub connector support copying data from OHD local table in BW. In case you are using other types, you can directly connect to the database or file system using other connectors.
 
-![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
+:::image type="content" source="./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png" alt-text="SAP BW Open Hub":::
 
 ## Delta extraction flow
 
@@ -60,7 +60,7 @@ Overall, the extraction from SAP InfoProviders consists of two steps:
 1. **Data copy**
    In this step, the Open Hub table is read by the connector 
 
-![Delta extraction flow](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
+:::image type="content" source="media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png" alt-text="Delta extraction flow":::
 
 In the first step, a DTP is executed. Each execution creates a new SAP request ID. The request ID is stored in the Open Hub table and is then used by the connector to identify the delta. The two steps run asynchronously: the DTP is triggered by SAP, and the data copy is triggered through the service. 
 
@@ -78,7 +78,7 @@ To use this SAP Business Warehouse Open Hub connector, you need to:
 
 - Download the **64-bit [SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html)** from SAP's website, and install it on the Self-hosted IR machine. When installing, in the optional setup steps window, make sure you select the **Install Assemblies to GAC** option as shown in the following image. 
 
-    ![Install SAP .NET Connector](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
+    :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Install SAP .NET Connector":::
 
 - SAP user being used in the BW connector needs to have following permissions: 
 
