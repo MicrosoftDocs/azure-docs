@@ -89,7 +89,7 @@ In this tutorial, you will:
 1. In Visual Studio Code, set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. Copy the string from the src/cloud-to-device-console-app/appsettings.json file.
 
     <!-- commenting out the image for now ![Set IoT Hub connection string]()./media/quickstarts/set-iotconnection-string.png-->
-    [!INCLUDE [provide-builtin-endpoint](../../common-includes/provide-builtin-endpoint.md)]
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device `avasample-iot-edge-device`, which should have the following modules deployed:
     - Edge Hub (module name **edgeHub**)
     - Edge Agent (module name **edgeAgent**)
@@ -104,7 +104,7 @@ When you use run this quickstart or tutorial, events will be sent to the IoT Hub
 1. Expand the **Devices** node.
 1. Right-click on `avasample-iot-edge-device`, and select **Start Monitoring Built-in Event Endpoint**.
 
-    [!INCLUDE [provide-builtin-endpoint](../../common-includes/provide-builtin-endpoint.md)]
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 
 
