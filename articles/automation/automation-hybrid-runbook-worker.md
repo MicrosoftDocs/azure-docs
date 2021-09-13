@@ -3,14 +3,31 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: This article provides an overview of the Hybrid Runbook Worker, which you can use to run runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/22/2021
+ms.date: 09/24/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Hybrid Runbook Worker overview
+# Automation Hybrid Runbook Worker overview
 
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
+
+Azure Automation provides native integration of Hybrid Runbook Workers through virtual machine (VM) extensions for both Windows and Linux Azure VMs through Azure Agent & non-Azure machines through Azure Arc connected agent. There are two types of Hybrid Runbook Workers based on its installation method:
+
+| Installation type | Description |
+|---|---|
+|HybridV1 (agent based) |Installed through the traditional approach of using the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md).|
+|HybridV2 (extension based) |Installed through the new approach of [Hybrid worker extension](./extension-based-hrw-install.md), without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace.|
+
+An extension-based approach of onboarding hybrid workers offers you key benefits, such as:  
+
+| Benefit | Description |
+|---|---|
+|Seamless onboarding| Removes dependency on a Log Analytics solution for onboarding hybrid workers, which is a multi-step process, time consuming and error-prone. |
+|Unified onboarding experience| Native to Azure with portal experience and provides a unified onboarding experience for Azure and Non-Azure Machines via Arc enabled servers and Arc enabled private cloud VMs like VMware and SCVMM. |
+|Ease of Manageability| Native integration with ARM identity for Hybrid worker and provides the flexibility for governance at scale through policies and templates. |
+
+In terms of Hybrid Runbook Worker operations after installation, the process of executing runbooks on Hybrid Runbook Workers will be the same. The purpose of the new extension-based approach is to simplify the Hybrid Runbook Worker onboarding and remove much of the manual intervention required in the traditional approach. The new extension-based onboarding does not affect the traditional agent-based onboarding of Hybrid Runbook Workers. Both v1 and v2 workers can co-exist on the same machine. The extension-based onboarding is only for user Hybrid Runbook Workers and does not change the system Hybrid Runbook Worker onboarding for update management scenario in any way. 
 
 ## Runbook Worker types
 
@@ -54,6 +71,7 @@ The process to install a user Hybrid Runbook Worker depends on the operating sys
 |---------|---------|
 |Windows     | [Automated](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Manual](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker)        |
+|Either | For User Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hrw-install.md)|
 
 The recommended installation method for a Windows machine is to use an Azure Automation runbook to completely automate the process of configuring it. If that isn't feasible, you can follow a step-by-step procedure to manually install and configure the role. For Linux machines, you run a Python script to install the agent on the machine.
 
