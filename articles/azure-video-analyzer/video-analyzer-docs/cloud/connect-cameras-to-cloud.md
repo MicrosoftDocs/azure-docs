@@ -13,7 +13,7 @@ Azure Video Analyzer allows users to capture and record directly to the cloud us
 <!--- TODO: add diagram similar to pvt preview just without pvt preview verbage -->
 
 ## Connecting via a transparent gateway
-This method is for cameras to connect to AVA via the AVA Edge module acting as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md). This approach is appropriate for users that are uncomfortable with connecting their cameras directly to the cloud. The Video Analyzer Edge module acting as a transparent gateway will lighten the computational load on the edge device. This method is for users that want to use a lightweight edge device to connect cameras to Video Analyzer and use our [Cloud pipelines]().<!--- TODO: link to cloud pipeline-->
+This method is for cameras to connect to Video Analyzer via the Video Analyzer Edge module acting as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md). This approach is appropriate for users that are uncomfortable with connecting their cameras directly to the cloud. The Video Analyzer Edge module acting as a transparent gateway will lighten the computational load on the edge device. This method is for users that want to use a lightweight edge device to connect cameras to Video Analyzer and use our [Cloud pipelines]().<!--- TODO: link to cloud pipeline-->
 
 ## Connecting behind a firewall using a IoT PnP command <!--- TODO: solidify title - using IoT's Plug and Play, using IoT PnP, etc-->
 This method is for cameras to connect to AVA cloud behind a firewall using IoT’s Plug and Play and eliminates the need for an edge device. This method is for users that can convert their cameras into an IoT device. Currently, this method has only been fully implemented for Axis camera models <!--- TODO: add what models or what firmware the camera must be running --> using the [Video Analyzer ACAP application](). Information for how to connect any device from any manufacturer is [here]().<!--- TODO: link to "connect any device"-->
@@ -24,9 +24,9 @@ This method is for users that are comfortable with connecting their camera direc
 
 
 # Next Steps
-- Follow this how-to guide to connect cameras via a transparent gateway
-- Follow this tutorial to connect an Axis camera
-- Follow this how-to guide for information on connecting devices from other manufactures
-- Follow this how-to guide to connect cameras over the open internet with no firewall
+- Follow [this how-to guide]() <!--- TODO: link to "connect via transparent gateway"-->to connect cameras via a transparent gateway
+- Follow [this tutorial]() <!--- TODO: link to ACAP tutorial--> to connect an Axis camera
+- Follow [this how-to guide]() <!--- TODO: link to "connect any device"--> for information on connecting devices from other manufactures 
+- Follow [this how-to guide]() <!--- TODO: is it appropriate to describe how to connect without firewall in transparent gateway how-to?  --> to connect cameras over the open internet with no firewall
 
 
