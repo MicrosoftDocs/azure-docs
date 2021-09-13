@@ -30,7 +30,7 @@ This article lists limits in different areas of Azure Monitor.
 
 ## Diagnostic Settings
 
-[!INCLUDE [data-collection-rules](../../includes/azure-monitor-diagnostic-settings.md)]
+[!INCLUDE [data-collection-rules](../../includes/azure-monitor-limits-diagnostic-settings.md)]
 
 
 ## Log queries and language
