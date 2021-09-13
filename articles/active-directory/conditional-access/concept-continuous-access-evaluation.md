@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 09/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -206,7 +206,7 @@ To reduce this time a SharePoint Administrator can reduce the maximum lifetime o
 
 ### Enable after a user is disabled
 
-If you enable a user right after disabling, there's some latency before the account is recognized as enabled in downstream Microsoft services.
+If you enable a user right after disabling, there's some latency before the account is recognized as enabled in downstream Microsoft services.
 
 - SharePoint Online and Teams typically have a 15-minute delay. 
 - Exchange Online typically has a 35-40 minute delay. 
