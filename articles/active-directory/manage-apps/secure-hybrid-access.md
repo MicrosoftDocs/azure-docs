@@ -50,7 +50,16 @@ The following partners offer pre-built solutions to support conditional access p
 
 - [Silverfort Authentication Platform](../manage-apps/silverfort-azure-ad-integration.md)
 
+- [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+
+The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD.
+
+- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
+
+- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
+
 - [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
+
 - [Pulse Secure Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)
 
 - [Pulse Secure Virtual Traffic Manager (VTM)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
