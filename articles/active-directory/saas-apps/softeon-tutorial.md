@@ -68,15 +68,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<companyname>.softeon.com/sp`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.softeon.com/<CUSTOM_URL>`
+    
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<companyname>.softeon.com/<instancename>`
 
 	> [!NOTE]
