@@ -112,8 +112,6 @@ landingContent:
             url: reserved-instance.md
       - linkListType: how-to-guide
         links:
-          - text: Configure NSX network components
-            url: configure-nsx-network-components-azure-portal.md
           - text: Configure DHCP server or relay 
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched networks
