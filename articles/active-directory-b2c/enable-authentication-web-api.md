@@ -529,6 +529,10 @@ Try to call the protected web API endpoint without an access token. Open a brows
 
 Continue to configure your app to call the web API. For guidance, see the [Prerequisites](#prerequisites) section.
 
+Watch this video to learn about some best practices when you integrate Azure AD B2C with an API.
+
+>[!Video https://www.youtube.com/embed/wuUu71RcsIo]
+
 ## Next steps
 
 Get the complete example on GitHub:
