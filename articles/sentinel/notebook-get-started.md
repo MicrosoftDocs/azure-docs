@@ -68,17 +68,17 @@ This procedure describes how to launch your notebook and initialize MSTICpy.
 
     Run each cell by selecting the play button to the left of each cell. Depending on the function being performed, the code in the cell may run very quickly, or it may take a few seconds to complete.
 
-    When running, the play button changes to a rotating circle, and a status of `Executing` is displayed at the bottom of the cell, together with the elapsed time.
+    When running, the play button changes to a loading spinner, and a status of `Executing` is displayed at the bottom of the cell, together with the elapsed time.
 
     > [!TIP]
-    > If your notebook doesn't seem to be working as described, restart the kernel and run the notebook from the beginning. For example, if any cell in the *Getting Started Guide* notebook takes longer than a minute to run, try restarting the kernel and re-running the notebook.
+    > If your notebook doesn't seem to be working as described, restart the kernel and run the notebook from the beginning. For example, if any cell in the **Getting Started Guide** notebook takes longer than a minute to run, try restarting the kernel and re-running the notebook.
     >
-    > The *Getting Started Guide* notebook includes instructions for the basic use of Jupyter notebooks, including restarting the Jupyter kernel.
+    > The **Getting Started Guide** notebook includes instructions for the basic use of Jupyter notebooks, including restarting the Jupyter kernel.
     >
 
-    After you've completed reading and running the cells in the *What is a Jupyter Notebook* section, you're ready to start the configuration tasks, beginning in the *Setting up the notebook environment* section.
+    After you've completed reading and running the cells in the **What is a Jupyter Notebook** section, you're ready to start the configuration tasks, beginning in the **Setting up the notebook environment** section.
 
-1. Run the first code cell in the *Setting up the notebook environment* section of your notebook, which includes the following code:
+1. Run the first code cell in the **Setting up the notebook environment** section of your notebook, which includes the following code:
 
     ```python
     # import some modules needed in this cell
@@ -112,7 +112,7 @@ This procedure describes how to launch your notebook and initialize MSTICpy.
 
 ## Create your configuration file
 
-After the basic initialization, you're ready to create your configuration file.
+After the basic initialization, you're ready to create your configuration file with basic settings for working with MSTICPy.
 
 Some notebook components need configuration to connect to the Azure Sentinel workspace and external services. For example, the **Getting Started Guide** notebook uses [VirusTotal](https://www.virustotal.com) (VT) as a threat intelligence source.
 
@@ -210,7 +210,13 @@ If your organization doesn't use the Azure public cloud, you must specify this i
 
 Select **Validate settings** in the settings editor.
 
-Warning messages about missing configurations are expected, but you shouldn't have any for threat intelligence provider or GeoIP provider settings. To configure other MSTICPy settings, see [Extra configurations](#extra-configurations) below.
+Warning messages about missing configurations are expected, but you shouldn't have any for threat intelligence provider or GeoIP provider settings. 
+
+To configure other MSTICPy settings, see:
+
+- [Configure Key Vault settings](#configure-key-vault-settings)
+- [Specify the Azure cloud and default Azure authentication methods](#specify-the-azure-cloud-and-default-azure-authentication-methods)
+- [Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel](notebooks-msticpy-advanced.md)
 
 Select the **Close** button to hide the validation output.
 
@@ -568,13 +574,7 @@ ipaddress
 
 For more information, see [MSTICPy GeoIP Providers](https://msticpy.readthedocs.io/en/latest/data_acquisition/GeoIPLookups.html).
 
-## Extra configurations
-
-This section describes extra configurations that are required only if you're using Azure Key Vault or an Azure cloud other than the Azure global cloud.
-
-For more information, see also [Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel](notebooks-msticpy-advanced.md).
-
-### Configure Key Vault settings
+## Configure Key Vault settings
 
 This section is relevant only when storing secrets in Azure Key Vault.
 
@@ -640,7 +640,7 @@ If you already have the required secrets stored in a Key Vault you can enter the
 
 Fetching settings from a Vault in a different tenant is not currently supported. For more information, see [Specifying secrets as Key Vault secrets](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html#specifying-secrets-as-key-vault-secrets).
 
-### Specify the Azure cloud and default Azure authentication methods
+## Specify the Azure cloud and default Azure authentication methods
 
 If you are using a sovereign or government Azure cloud, rather than the public or global Azure cloud, you must select the appropriate cloud in your settings. For most organizations the global cloud is the default.
 
