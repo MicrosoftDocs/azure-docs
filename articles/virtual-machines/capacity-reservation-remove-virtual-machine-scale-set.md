@@ -154,19 +154,13 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
 
 ### [PowerShell](#tab/powershell2)
 
->[!NOTE]
-> The `Update-AzCapacityReservation` command is not available during the Preview. Use `New-AzCapacityReservation` to modify an existing capacity reservation.
-
 1. Update reserved quantity to zero:
 
     ```powershell-interactive
-    New-AzCapacityReservation
+    Update-AzCapacityReservation
     -ResourceGroupName "myResourceGroup"
-    -Location "eastus"
-    -Zone "1"
     -ReservationGroupName "myCapacityReservationGroup"
     -Name "myCapacityReservation"
-    -Sku "Standard_D2s_v3"
     -CapacityToReserve 0
     ```
 
