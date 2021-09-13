@@ -11,7 +11,7 @@
 - name: Quickstarts
   items:
   - name: 'Quickstart: Dice Roller'
-    href: quickstarts/quickstart-diceroll.md
+    href: quickstarts/quickstart-dice-roll.md
 - name: Resources
   items:
   - name: Fluid Framework home page
