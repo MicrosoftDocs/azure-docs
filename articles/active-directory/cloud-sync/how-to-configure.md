@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -15,7 +15,11 @@ ms.collection: M365-identity-device-management
 
 # Create a new configuration for Azure AD Connect cloud sync
 
-After you've installed the Azure AD Connect provisioning agent, you need to sign in to the Azure portal and configure it. Follow these steps to enable the agent.
+The following document will guide you through configuring Azure AD Connect cloud sync.  For additional information and an example of how to configure cloud sync, see the video below.
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWKact]
+
 
 ## Configure provisioning
 To configure provisioning, follow these steps.

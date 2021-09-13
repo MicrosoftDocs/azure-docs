@@ -6,7 +6,7 @@ manager: virivera
 services: azure-object-anchors
 
 ms.author: crtreasu
-ms.date: 08/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -68,7 +68,7 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 * **Tracker Settings** – Toggles activation of the tracker settings menu.
 * **Search Area Settings** – Toggles activation of the search area settings menu.
 * **Start Tracing** – Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**.
-* **Upload Tracing** – Upload diagnostics data to the Object Anchors service.    
+* **Upload Tracing** – Upload diagnostics data to the Object Anchors service.
 
     :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Unity primary hand menu":::
 
@@ -104,3 +104,6 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 
 > [!div class="nextstepaction"]
 > [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [Troubleshooting object detection](../troubleshoot/object-detection.md)
