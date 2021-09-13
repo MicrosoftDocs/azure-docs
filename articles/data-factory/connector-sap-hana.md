@@ -250,7 +250,7 @@ If you were using `RelationalSource` typed copy source, it is still supported as
 
 The SAP HANA connector provides built-in data partitioning to copy data from SAP HANA in parallel. You can find data partitioning options on the **Source** table of the copy activity.
 
-![Screenshot of partition options](./media/connector-sap-hana/connector-sap-hana-partition-options.png)
+:::image type="content" source="./media/connector-sap-hana/connector-sap-hana-partition-options.png" alt-text="Screenshot of partition options":::
 
 When you enable partitioned copy, the service runs parallel queries against your SAP HANA source to retrieve data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SAP HANA.
 

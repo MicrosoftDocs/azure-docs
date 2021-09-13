@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 09/12/2021
+ms.date: 09/14/2021
 ms.author: allensu
 ---
 
@@ -82,6 +82,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
     >Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](./public-ip-addresses.md#public-ip-addresses).
 
 8. Select **Public IP addresses** in **Settings** to view the created IP address.
+
 ## Delete a prefix
 
 In this section, you'll learn how to view or delete a prefix.
