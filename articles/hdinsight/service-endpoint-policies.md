@@ -128,8 +128,9 @@ Use the following process to create the necessary service endpoint policies:
     # Associate a subnet to the service endpoint policy just created. If there is a delay in updating it to subnet, you can use the Azure portal to associate the policy with the subnet.
     Set-AzVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet -AddressPrefix $subnet.AddressPrefix -ServiceEndpointPolicy $sep
     ```
-[!IMPORTANT] 
-It is recommended that you get the latest [list of service endpoint policy resources](https://github.com/Azure-Samples/hdinsight-enterprise-security/blob/main/hdinsight-service-endpoint-policy-resources.json) on a scheduled basis manually or via automation. This will prevent CRUD issues when additional resource groups are added or removed from the JSON file. 
+> [!IMPORTANT] 
+> It is recommended that you get the latest [list of service endpoint policy resources](https://github.com/Azure-Samples/hdinsight-enterprise-security/blob/main/hdinsight-service-endpoint-policy-resources.json) 
+> on a scheduled basis manually or via automation. This will prevent CRUD issues when additional resource groups are added or removed from the JSON file. 
 
 
 ## Next steps
