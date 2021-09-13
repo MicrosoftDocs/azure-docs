@@ -38,17 +38,21 @@ ms.reviewer: laobri
 
 The `az ml datastore` command can be used for managing Azure Machine Learning datastores.
 
+## Examples
+
+[TODO]
+
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json. The schema is provided below in JSON and YAML formats for convenience.
 
 # [JSON](#tab/json)
 
-:::code language="json" source="~/azureml-examples-main/cli/.schemas/jsons/latest/azureBlob.schema.json":::
+:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/azureBlob.schema.json":::
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/azureBlob.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/azureBlob.schema.yml":::
 
 ---
 

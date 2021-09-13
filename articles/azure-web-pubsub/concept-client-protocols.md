@@ -48,15 +48,27 @@ var client2 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', '
 
 ## The PubSub WebSocket client
 
-The PubSub WebSocket client connects with subprotocol `json.webpubsub.azure.v1`.
+The PubSub WebSocket client supports two subprotocols `json.webpubsub.azure.v1` and `protobuf.webpubsub.azure.v1`
 
-For example, in JS, a PubSub WebSocket client can be created using:
+#### Json subprotocol
+
+For example, in JS, a PubSub WebSocket client with json subprotocol can be created using:
 ```js
 // PubSub WebSocket client
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.webpubsub.azure.v1');
 ```
 
-When the client is using this subprotocol, both outgoing data frame and incoming data frame are expected to be JSON payloads. An auth-ed client can publish messages to other clients directly through the Azure Web PubSub service.
+#### Protobuf subprotocol
+
+Protobuf is a language-neutral, platform-neutral, binary-based protocol, which is very friendly to send binary data. Protobuf provides tools to generate clients for many languages such as Java, Python, Objective-C, C# and C++. [Learn more about protobuf](https://developers.google.com/protocol-buffers).
+
+For example, in JS, a PubSub WebSocket client with protobuf subprotocol can be created using:
+```js
+// PubSub WebSocket client
+var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.webpubsub.azure.v1');
+```
+
+When the client is using a subprotocol, both outgoing data frame and incoming data frame are expected to be JSON payloads. An auth-ed client can publish messages to other clients directly through the Azure Web PubSub service.
 
 ### Permissions
 
@@ -70,7 +82,8 @@ As you may have noticed when we describe the PubSub WebSocket clients, that a cl
 | `webpubsub.joinLeaveGroup.<group>` | The client can join/leave group `<group>`.
 | `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`.
 
-Details of the subprotocol is described in [JSON subprotocol](./reference-json-webpubsub-subprotocol.md).
+* Details of the Json subprotocol is described in [JSON subprotocol](./reference-json-webpubsub-subprotocol.md).
+* Details of the Protobuf subprotocol is described in [Protobuf subprotocol](./reference-protobuf-webpubsub-subprotocol.md).
 
 ## Next steps
 

@@ -46,8 +46,6 @@
       items: 
         - name: Train models with CLI (v2)
           href: how-to-train-cli.md
-        - name: Access resources with managed endpoints
-          href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Jupyter Notebooks
       items:
         - name: Image classification (MNIST data)
@@ -359,7 +357,7 @@
           displayName: github gitlab
           href: concept-train-model-git-integration.md
         - name: How to troubleshoot environments
-          displayName: troubleshoot, envrionment, debug, image
+          displayName: troubleshoot, environment, debug, image
           href: how-to-troubleshoot-environments.md          
     - name: Work with data
       items: 
@@ -486,10 +484,10 @@
           displayName: interpretability
           items: 
             - name: Interpret ML models
-              displayName: SDK, interpret, explain, explanability, interpretability
+              displayName: SDK, interpret, explain, explainability, interpretability
               href: how-to-machine-learning-interpretability-aml.md
             - name: Explain automated ML models
-              displayName: SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml
+              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
               href: how-to-machine-learning-interpretability-automl.md
         - name: Assess and mitigate model fairness
           href: how-to-machine-learning-fairness-aml.md              
@@ -536,14 +534,22 @@
               href: how-to-safely-rollout-managed-endpoints.md
             - name: Use managed online endpoints in studio
               href: how-to-use-managed-online-endpoint-studio.md
+            - name: Access storage with managed online endpoint and managed identity
+              href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Use REST to deploy a model as a managed online endpoint
               href: how-to-deploy-with-rest.md
+            - name: Deploy an AutoML model with a managed online endpoint
+              href: how-to-deploy-automl-endpoint.md
+            - name: Viewing managed online endpoint costs
+              href: how-to-view-online-endpoints-costs.md
             - name: Managed online endpoints VM SKU list
               href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Monitoring managed online endpoints
               href: how-to-monitor-online-endpoints.md
+            - name: Debug managed online endpoints locally VS Code
+              href: how-to-debug-managed-online-endpoints-visual-studio-code.md
             - name: Troubleshoot managed online endpoints
               href: how-to-troubleshoot-managed-online-endpoints.md
           - name: Batch
@@ -612,7 +618,7 @@
       - name: High-performance serving with Triton
         href: how-to-deploy-with-triton.md
       - name: Deploy encrypted inferencing service
-        displayName: homomorhic,encryption,deployment
+        displayName: homomorphic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
       - name: Profile models
         displayName: profile resource requirement
@@ -712,19 +718,31 @@
       items:
         - name: Overview
           href: reference-yaml-overview.md
-        - name: Assets
+        - name: Workspace
+          href: reference-yaml-workspace.md
+        - name: Environment
+          href: reference-yaml-environment.md
+        - name: Dataset
+          href: reference-yaml-dataset.md
+        - name: Model
+          href: reference-yaml-model.md
+        - name: Compute
           items:
-            - name: Workspace
-              href: reference-yaml-workspace.md
-            - name: Compute
-              href: reference-yaml-compute.md
-            - name: Environment
-              href: reference-yaml-environment.md
-            - name: Dataset
-              href: reference-yaml-dataset.md
-            - name: Model
-              href: reference-yaml-model.md
-        - name: Datastores
+            - name: Compute cluster (AmlCompute)
+              href: reference-yaml-compute-aml.md
+            - name: Compute instance
+              href: reference-yaml-compute-instance.md
+            - name: Attached Virtual Machine
+              href: reference-yaml-compute-vm.md
+        - name: Job
+          items:
+            - name: Command
+              href: reference-yaml-job-command.md
+            - name: Sweep
+              href: reference-yaml-job-sweep.md
+            - name: Pipeline
+              href: reference-yaml-job-pipeline.md
+        - name: Datastore
           items:
             - name: Azure Blob
               href: reference-yaml-datastore-blob.md
@@ -734,28 +752,22 @@
               href: reference-yaml-datastore-data-lake-gen1.md
             - name: Azure Data Lake Gen2
               href: reference-yaml-datastore-data-lake-gen2.md
-        - name: Jobs
-          items:
-            - name: Command
-              href: reference-yaml-job-command.md
-            - name: Sweep 
-              href: reference-yaml-job-sweep.md
-        - name: Endpoints
+        - name: Endpoint
           items:
             - name: Managed online (real-time)
               href: reference-yaml-endpoint-managed-online.md
-            - name: Managed batch
-              href: reference-yaml-endpoint-managed-batch.md
-            - name: Kubernetes (k8s) online
-              href: reference-yaml-endpoint-k8s-online.md
-        - name: Deployments
+            - name: Batch
+              href: reference-yaml-endpoint-batch.md
+        - name: Deployment
           items:
             - name: Managed online (real-time)
               href: reference-yaml-deployment-managed-online.md
-            - name: Managed batch
-              href: reference-yaml-deployment-managed-batch.md
-            - name: Kubernetes (k8s) online
-              href: reference-yaml-deployment-k8s-online.md
+            - name: Batch
+              href: reference-yaml-deployment-batch.md
+        - name: Component
+          items:
+            - name: Command
+              href: reference-yaml-component-command.md
     - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
