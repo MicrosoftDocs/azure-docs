@@ -76,7 +76,8 @@ Instructions to edit the above yaml file:
 - destination > dabase - Name of the **destination** database on the Azure Arc enabled SQL managed instance
 
 
-[!NOTE] The name of the source and destination Azure Arc enabled SQL managed instance should be the same.
+> [!NOTE] 
+> The name of the source and destination Azure Arc enabled SQL managed instance should be the same.
 
 (2) Create a task to initiate the point-in-time restore operation
 
