@@ -1,7 +1,7 @@
 ---
 title: Connect machines from Azure Automation Update Management
 description: In this article, you learn how to connect hybrid machines to Azure Arc managed by Automation Update Management.
-ms.date: 08/20/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
 ---
 
@@ -12,6 +12,12 @@ You can enable Azure Arc-enabled servers for one or more of your Windows or Linu
 Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+This method requires that you are a member of the [Automation Job Operator](../../automation/automation-role-based-access-control.md#automation-job-operator) role or higher so you can create runbook jobs in the Automation account. 
+
+If you have enabled Azure Policy to [manage runbook execution](../../automation/enforce-job-execution-hybrid-worker.md) and enforce targeting of runbook execution against a Hybrid Runbook Worker group should be disabled. Otherwise, the runbook jobs which onboard the machine to Arc-enabled servers will fail. 
 
 ## Add machines from the Azure portal
 
