@@ -27,6 +27,10 @@ Normalized security content in Azure Sentinel includes analytics rules, hunting 
 
 This article lists built-in Azure Sentinel content that has been configured to support ASIM.  While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries.
 
+> [!TIP]
+> Also watch the [Deep Dive Webinar on Azure Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). For more information, see [Next steps](#next-steps).
+>
+
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -182,12 +186,13 @@ imDns
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
 ```
 
-## Next steps
+## <a name="next-steps"></a>Next steps
 
 This article discusses the Azure Sentinel Information Model (ASIM) content.
 
 For more information, see:
 
+- Watch the [Deep Dive Webinar on Azure Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
 - [Azure Sentinel Information Model overview](normalization.md)
 - [Azure Sentinel Information Model schemas](normalization-about-schemas.md)
 - [Azure Sentinel Information Model parsers](normalization-about-parsers.md)
