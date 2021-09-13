@@ -140,9 +140,8 @@ For your SQL Server availability group or failover cluster instance, consider th
    - **Lease timeout**: Use this equation to calculate the maximum lease time out value:   
     `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.    
     Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
-   - **Max failures in a specified period**: Set this value to 6.
-   - **Session timeout**: Set this value to 20.
-   - **Healthcheck timeout**: Set this value to 60000 initially, adjust as necessary. 
+   - **Max failures in a specified period**: You can set this value to 6.
+   - **Healthcheck timeout**: You can set this value to 60000 initially, adjust as necessary. 
 * When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
    - If the client does not support `MultiSubnetFailover = True` you may need to set `RegisterAllProvidersIP = 0` and `HostRecordTTL = 300` to cache client credentials for shorter durations. However, doing so may cause additional queries to the DNS server. 
 - To connect to your HADR solution using the distributed network name (DNN), consider the following:
