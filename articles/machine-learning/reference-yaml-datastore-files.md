@@ -7,15 +7,36 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: lostmygithubaccount
-ms.author: copeters
-ms.date: 08/03/2021
+author: ynpandey
+ms.author: yogipandey
+ms.date: 09/20/2021
 ms.reviewer: laobri
 ---
 
 # CLI (v2) Azure Files datastore YAML schema
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+## YAML syntax
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------- |
+| `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
+| `type` | string | **Required.** The type of datastore. | `azure_file` | |
+| `name` | string | **Required.** Name of the datastore. | | |
+| `description` | string | Description of the datastore. | | |
+| `tags` | object | Dictionary of tags for the datastore. | | |
+| `account_name` | string | **Required.** Name of the Azure storage account. | | |
+| `file_share_name` | string | **Required.** Name of the file share. | | |
+| `endpoint` | string | Endpoint of the storage account. | | `core.windows.net` |
+| `protocol` | string | Protocol to use to connect to the file share. | | `https` |
+| `credentials` | object | Credential-based authentication credentials for connecting to the Azure storage account. You can provide either an account key or a shared access signature (SAS) token. | | |
+| `credentials.account_key` | string | The account key for accessing the storage account. **One of `credentials.account_key` or `credentials.sas_token` is required if `credentials` is specified.** | | |
+| `credentials.sas_token` | string | The SAS token for accessing the storage account. **One of `credentials.account_key` or `credentials.sas_token` is required if `credentials` is specified.** | | |
+
+## Remarks
+
+The `az ml datastore` command can be used for managing Azure Machine Learning datastores.
 
 ## Schema
 
@@ -30,10 +51,6 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 :::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/azureFile.schema.yml":::
 
 ---
-
-## Remarks
-
-The `az ml datastore` command can be used for managing Azure Machine Learning datastores.
 
 ## Next steps
 
