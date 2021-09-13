@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/02/2021
+ms.date: 09/13/2021
 ms.author: stmuelle
 
 ---
@@ -88,30 +88,33 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
 1. The SAP servers must be joined to an Active Directory Domain.
 2. The Active Directory Domain containing the SAP servers must be replicated to Azure Active Directory using Azure AD connect.
 3. It is highly recommended that there is at least one Active Directory Domain controller in the Azure landscape to avoid traversing the Express Route to contact Domain Controllers on-premises.
-4. The Azure support team should review the Azure Files SMB with [Active Directory Integration](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-enable#videos) documentation. *The video shows additional configuration options which were modified (DNS) and skipped (DFS-N) for simplification reasons.* Nevertheless these are valid configuration options. 
+4. The Azure support team should review the Azure Files SMB with [Active Directory Integration](/azure/storage/files/storage-files-identity-auth-active-directory-enable.md#videos) documentation. *The video shows additional configuration options which were modified (DNS) and skipped (DFS-N) for simplification reasons.* Nevertheless these are valid configuration options. 
 5. The user executing the Azure Files PowerShell script must have permission to create objects in Active Directory.
 6. **SWPM version 1.0 SP32 and SWPM 2.0 SP09 or higher are required. SAPInst patch must be 749.0.91 or higher.**
 7. An up-to-date release of PowerShell should be installed on the Windows Server where the script is executed. 
 
 ## Installation Sequence
-1. The Active Directory administrator should create in advance 3 Domain users with **Local Administrator** rights and one global group in the **local Windows AD**: **SAPCONT_ADMIN@SAPCONTOSO.local** has Domain Admin rights and is used to run **SAPInst**, **\<sid>adm** and **SAPService\<SID>** as SAP system users and the **SAP_\<SAPSID>_GlobalAdmin** group. The SAP Installation Guide contains the specific details required for these accounts.  **SAP user accounts should not be Domain Administrator**. It is generally recommended **not to use \<sid>adm to run SAPInst**.
-2. The Active Directory administrator or Azure Administrator should check **Azure AD Connect** Synchronization Service Manager. By default it takes approximately 30 minutes to replicate to the **Azure Active Directory**. 
-3. The Azure administrator should complete the following tasks:
+ 1. The Active Directory administrator should create in advance 3 Domain users with **Local Administrator** rights and one global group in the **local Windows AD**: **SAPCONT_ADMIN@SAPCONTOSO.local** has Domain Admin rights and is used to run **SAPInst**, **\<sid>adm** and **SAPService\<SID>** as SAP system users and the **SAP_\<SAPSID>_GlobalAdmin** group. The SAP Installation Guide contains the specific details required for these accounts.  **SAP user accounts should not be Domain Administrator**. It is generally recommended **not to use \<sid>adm to run SAPInst**.
+ 2. The Active Directory administrator or Azure Administrator should check **Azure AD Connect** Synchronization Service Manager. By default it takes approximately 30 minutes to replicate to the **Azure Active Directory**. 
+ 3. The Azure administrator should complete the following tasks:
      1. Create a Storage Account with either **Premium ZRS** or **LRS**. Customers with Zonal deployment should choose ZRS. Here the choice between setting up a **Standard** or **Premium Account** needs to be made:
-     ![create-sa-1](media/virtual-machines-shared-sap-high-availability-guide/create-sa-1.png)
-     > [!IMPORTANT]
-     > For productive use the recommendation is using a **Premium Account**. For non-productive using a **Standard Account** will be sufficient. 
-     >
-     ![create-sa-2](media/virtual-machines-shared-sap-high-availability-guide/create-sa-2.png)Here the default settings should be ok.
-     ![create-sa-4](media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png)In this screen the decision to use a private endpoint is made.
-     ![create-sa-3](media/virtual-machines-shared-sap-high-availability-guide/create-sa-3.png)**Select Private Network Endpoint** for the storage account.
-     If required add a DNS A-Record into Windows DNS for the **<storage_account_name>.file.core.windows.net** (this may need to be in a new DNS Zone).  Discuss this topic with the DNS administrator.  The new zone should not update outside of an organization.    
-     ![pe-dns-1](media/virtual-machines-shared-sap-high-availability-guide/pe-dns-1.png)     
-     2. Create the **sapmnt** File share with an appropriate size.  The suggested size is 256GB which delivers 650 IOPS, 75 MB/sec Egress and 50 MB/sec Ingress.
-     ![create-sa-5](media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png) 
+     ![create-storage-account-1](media/virtual-machines-shared-sap-high-availability-guide/create-sa-1.png)
+         > [!IMPORTANT]
+         > For productive use the recommendation is using a **Premium Account**. For non-productive using a **Standard Account** will be sufficient. 
+         >
+         In this screen the default settings should be ok.
+         ![create-storage-account-2](media/virtual-machines-shared-sap-high-availability-guide/create-sa-2.png)
+         In this screen the decision to use a private endpoint is made.
+         ![create-storage-account-4](media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png)
+     1. **Select Private Network Endpoint** for the storage account.
+     If required add a DNS A-Record into Windows DNS for the **<storage_account_name>.file.core.windows.net** (this may need to be in a new DNS Zone).  Discuss this topic with the DNS administrator.  The new zone should not update outside of an organization.  
+         ![pivate-endpoint-creation](media/virtual-machines-shared-sap-high-availability-guide/create-sa-3.png)
+         ![private-endpoint-dns-1](media/virtual-machines-shared-sap-high-availability-guide/pe-dns-1.png)     
+     1. Create the **sapmnt** File share with an appropriate size.  The suggested size is 256GB which delivers 650 IOPS, 75 MB/sec Egress and 50 MB/sec Ingress.
+         ![create-storage-account-5](media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png) 
       
-     3. Download the [Azure Files Github](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable#download-azfileshybrid-module) content and execute the [script](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable#run-join-azstorageaccountforauth).   
-     4. This script will create either a Computer Account or Service Account in Active Directory.  The user running the script must have the following properties: 
+     1. Download the [Azure Files Github](/azure/storage/files/storage-files-identity-ad-ds-enable.md#download-azfileshybrid-module) content and execute the [script](/azure/storage/files/storage-files-identity-ad-ds-enable.md#run-join-azstorageaccountforauth).   
+     This script will create either a Computer Account or Service Account in Active Directory.  The user running the script must have the following properties: 
          * The user running the script must have permission to create objects in the Active Directory Domain containing the SAP servers. Typically, a domain administrator account is used such as **SAPCONT_ADMIN@SAPCONTOSO.local** 
          * Before executing the script confirm that this Active Directory Domain user account is synchronized with Azure Active Directory (AAD).  An example of this would be to open the Azure Portal and navigate to AAD users and check that the user **SAPCONT_ADMIN@SAPCONTOSO.local** exists and verify the AAD user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.
          * Grant the **Contributor RBAC** role to this Azure Active Directory user account for the Resource Group containing the storage account holding the File Share.  In this example the user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com** is granted **Contributor Role** to the respective Resource Group 
@@ -120,39 +123,44 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
          > When executing the PowerShell script command **Connect-AzAccount**, it is highly recommended to enter the Azure Active Directory user account that corresponds and maps to the Active Directory Domain user account used to logon to a Windows Server, in this example this is the user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**
          >
          In this example scenario the Active Directory Administrator would logon to the Windows Server as **SAPCONT_ADMIN@SAPCONTOSO.local** and when using the **PS command Connect-AzAccount** connect as user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.  Ideally the Active Directory Administrator and the Azure Administrator should work together on this task.
-         5. Assign SAP users **\<sid>adm**, **SAPService\<SID>** and the **SAP_\<SAPSID>_GlobalAdmin** group to the Azure Files Premium SMB File Share with Role **Storage File Data SMB Share Elevated Contributor** in the Azure Portal 
-         6. Check the ACL on the **sapmnt file share** after the installation and add **DOMAIN\CLUSTER_NAME$** account, **DOMAIN\\\<sid>adm**, **DOMAIN\SAPService\<SID>** and the **Group SAP_\<SID>_GlobalAdmin**. These accounts and group **should have full control of sapmnt directory**.
+     1. Assign SAP users **\<sid>adm**, **SAPService\<SID>** and the **SAP_\<SAPSID>_GlobalAdmin** group to the Azure Files Premium SMB File Share with Role **Storage File Data SMB Share Elevated Contributor** in the Azure Portal 
+     1. Check the ACL on the **sapmnt file share** after the installation and add **DOMAIN\CLUSTER_NAME$** account, **DOMAIN\\\<sid>adm**, **DOMAIN\SAPService\<SID>** and the **Group SAP_\<SID>_GlobalAdmin**. These accounts and group **should have full control of sapmnt directory**.
 
          > [!IMPORTANT]
          > This step must be completed before the SAPInst installation or it will be difficult or impossible to change ACLs after SAPInst has created directories and files on the File Share
          >
          ![ACL Properties](media/virtual-machines-shared-sap-high-availability-guide/smb-acl-1.png)
          The following screenshots show how to add Computer machine accounts by selecting the Object Types -> Computers
-         ![add-computer-1](media/virtual-machines-shared-sap-high-availability-guide/add-computer-2.png)
+         ![add-computer-account-1](media/virtual-machines-shared-sap-high-availability-guide/add-computer-2.png)
          The DOMAIN\CLUSTER_NAME$ can be found by selecting “Computers” from the “Object Types”  
-         ![add-computer-3](media/virtual-machines-shared-sap-high-availability-guide/add-computer-3.png)
-         ![add-computer-4](media/virtual-machines-shared-sap-high-availability-guide/add-computer-4.png)
-         ![add-computer-5](media/virtual-machines-shared-sap-high-availability-guide/add-computer-5.png)
+         ![add-computer-account-3](media/virtual-machines-shared-sap-high-availability-guide/add-computer-3.png)
+         ![add-computer-account-4](media/virtual-machines-shared-sap-high-availability-guide/add-computer-4.png)
+         ![add-computer-account-5](media/virtual-machines-shared-sap-high-availability-guide/add-computer-5.png)
 
-   7. [Configure the Azure Standard Load Balancer for the SAP ASCS/ERS Virtual IP(s) with HA Ports](sap-high-availability-infrastructure-wsfc-shared-disk#fe0bd8b5-2b43-45e3-8295-80bee5415716)
-   8. If required move the Computer Account created for Azure Files to an Active Directory Container that does not have account expiry.  The name of the Computer Account will be the short name of the storage account 
+     1. [Configure the Azure Standard Load Balancer for the SAP ASCS/ERS Virtual IP(s) with HA Ports](sap-high-availability-infrastructure-wsfc-shared-disk#fe0bd8b5-2b43-45e3-8295-80bee5415716)
+     8. If required move the Computer Account created for Azure Files to an Active Directory Container that does not have account expiry.  The name of the Computer Account will be the short name of the storage account 
 
-    ![ps-script-1](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png)
+     ![powershell-script-1](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png)
 
-    After correctly running the script the following should appear as “Configured”  
-    Storage -> Files Shares “Active Directory: Configured”
+     After correctly running the script the following should appear as “Configured”  
+     Storage -> Files Shares “Active Directory: Configured”
 
-    ![smb-configured-screenshot](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)
+     ![smb-configured-screenshot](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)
+     > [!IMPORTANT]
+     > In order to initialize the Windows ACL for the SMB share the share needs to be mounted once to a drive letter.
+     >
+     The storage key is the password and the user is **Azure\\\<SMB share name>** as shown here:
+     ![one time net use mount](media/virtual-machines-shared-sap-high-availability-guide/unc-acl-1.png)
 
-4. Basis administrator should complete the tasks below:
-    1. [Install the Windows Cluster on ASCS/ERS Nodes and add the Cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
-    2. The first Cluster Node installation will ask for the Azure Files SMB storage account name.  Enter the FQDN <storage_account_name>.file.core.windows.net.  If SAPInst does not accept >13 characters then the SWPM version is too old.
-    3. [Modify the SAP Profile of the ASCS/SCS Instance](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
-    4. [Update the Probe Port for the SAP \<SID> role in WSFC](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
-    5. Continue with SWPM Installation for the second ASCS/ERS Node. SWPM will only require path of profile directory.  Enter the full UNC path to the profile directory.
-    6. Enter the UNC profile path for the DB and PAS/AAS Installation.
-    7. PAS Installation will ask for Transport hostname. Provide the FQDN of a separate storage account name for transport directory.
-    8. Verify the ACLs on the SID and trans directory.
+ 4. Basis administrator should complete the tasks below:
+     1. [Install the Windows Cluster on ASCS/ERS Nodes and add the Cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
+     2. The first Cluster Node installation will ask for the Azure Files SMB storage account name.  Enter the FQDN <storage_account_name>.file.core.windows.net.  If SAPInst does not accept >13 characters then the SWPM version is too old.
+     3. [Modify the SAP Profile of the ASCS/SCS Instance](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
+     4. [Update the Probe Port for the SAP \<SID> role in WSFC](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
+     5. Continue with SWPM Installation for the second ASCS/ERS Node. SWPM will only require path of profile directory.  Enter the full UNC path to the profile directory.
+     6. Enter the UNC profile path for the DB and PAS/AAS Installation.
+     7. PAS Installation will ask for Transport hostname. Provide the FQDN of a separate storage account name for transport directory.
+     8. Verify the ACLs on the SID and trans directory.
 
 ## Disaster Recovery Setup
 Disaster Recovery scenarios or Cross-Region Replication scenarios are supported with Azure Files Premium SMB. All data in Azure Files Premium SMB directories can be continuously synchronized to a DR region storage account using this link. After a Disaster Recovery event and failover of the ASCS instance to the DR region, change the SAPGLOBALHOST profile parameter to the point to Azure Files SMB in the DR region. The same preparation steps should be performed on the DR storage account to join the storage account to Active Directory and assign RBAC roles for SAP users and groups.
