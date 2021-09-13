@@ -102,8 +102,6 @@
     href: configure-github-enterprise-server.md
   - name: Configure networking
     items:
-    - name: Configure NSX network components
-      href: configure-nsx-network-components-azure-portal.md
     - name: Configure DHCP server or relay
       href: configure-dhcp-azure-vmware-solution.md
     - name: Configure DHCP on L2 stretched networks
@@ -112,6 +110,8 @@
       href: configure-dns-azure-vmware-solution.md
     - name: Configure HCX network extension
       href: configure-hcx-network-extension.md
+    - name: Configure NSX network components
+      href: configure-nsx-network-components-azure-portal.md
     - name: Configure port mirroring
       href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure a site-to-site VPN in vWAN
