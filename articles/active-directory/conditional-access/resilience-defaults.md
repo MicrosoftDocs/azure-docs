@@ -5,7 +5,7 @@ description: Resilience defaults and the Azure AD Backup Authentication Service
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/13/2021
 
 ms.author: joflore
