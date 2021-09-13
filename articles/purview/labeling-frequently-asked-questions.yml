@@ -49,7 +49,7 @@ sections:
       - question: What is the difference between classifications and sensitivity labels in Azure Purview? 
         answer: |
           The following table lists the differences between classifications and sensitivity labels in Azure Purview: 
-           | | Classifications | Sensitivity labels |
+          | | Classifications | Sensitivity labels |
           |:--- |:--- |:--- |
           | **Definition** | Classifications are regular expressions or patterns that can help identify data types that exist inside an asset. | Sensitivity labels are tags that allow organizations to categorize data based on business impact, while abstracting the type of data from the user. |
           | **Examples** | Social Security Number, Drive license number, Bank account number, etc. | Highly confidential, Confidential, General, Public, etc. |
