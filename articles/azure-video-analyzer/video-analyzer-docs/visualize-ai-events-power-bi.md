@@ -33,7 +33,9 @@ In this tutorial, you will:
 - This tutorial is based on using [Line Crossing sample](use-line-crossing.md) to detect when objects cross a virtual line in a live video feed. You can choose to create visualization for other pipelines - **a pipeline with IoT Hub message sink is required**. Make sure to have the live pipeline created, but activate it only after creating a Stream Analytics job.
 
     > [!NOTE]
-    > The [Line Crossing sample](use-line-crossing.md) uses a 5-minute video recording. For best results in visualization, use the 60-minute recording of vehicles on a freeway available in [Other dataset](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset). See in [FAQ](faq-edge.yml) Configuration and deployment section on how to add sample video files to rtsp simulator. Once added, edit your operations.json properties -> paramters -> value to `"value": "rtsp://rtspsim:554/media/camera-3600s.mkv"`
+    > - The [Line Crossing sample](use-line-crossing.md) uses a 5-minute video recording. For best results in visualization, use the 60-minute recording of vehicles on a freeway available in [Other dataset](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset).     
+    > - Refer Configuration and deployment section in [FAQs](faq-edge.yml) on how to add sample video files to rtsp simulator. Once added, edit `rtspUrl` value to point to the new video file.     
+    > - If you followed the Line Crossing sample and are using the [AVA C# sample repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp), then edit operations.json file at properties -> parameters -> value to `"rtsp://rtspsim:554/media/camera-3600s.mkv"` to change video source to 60-minute recording.
 
 - A [Power BI](https://powerbi.microsoft.com/) account.
 
@@ -117,9 +119,9 @@ WHERE InferenceRecords.ArrayValue.subType = 'lineCrossing'
 ```
 
 > [!NOTE]
-> In the above query, the _i_ in FROM clause is syntactically required to fetch value of EventProcessedUtcTime that is not nested in the _inferences_ array.
+> - In the above query, the _i_ in FROM clause is syntactically required to fetch value of EventProcessedUtcTime that is not nested in the _inferences_ array.
 > The above query is customized to get AI inferences for [Line Crossing tutorial](use-line-crossing.md).  
-> If you are running another pipeline, ensure to customize the query according to the pipeline's AI inference schema. Learn more about [Parsing JSON in Stream Analytics job](../../stream-analytics/stream-analytics-parsing-json.md).
+> - If you are running another pipeline, ensure to customize the query according to the pipeline's AI inference schema. Learn more about [Parsing JSON in Stream Analytics job](../../stream-analytics/stream-analytics-parsing-json.md).
 
 3. Replace [YourOutputAlias] with the output alias used in the step to Add an output to the Stream Analytics job such as "powerbioutput". Note the right sequence of output and input aliases.
 4. Replace [YourInputAlias] with the input alias used in the step to Add an input to the Stream Analytics job such as "iothubinput".
@@ -188,8 +190,8 @@ Click **Pin to a dashboard** at the top-right and select where you want to pin t
 
 The line crossing processor node detects when an object crosses a line specified in the topology using lineCoordinates parameter. When objects cross these coordinates, an event is triggered with:
 
-- EventTotal: The total number of line crossings by any object in any direction (clockwise or counterclockwise) so far since beginning of the video. Learn more about [Line Crossing Event inferences](use-line-crossing.md#line-crossing-events)
-- Event Processed UTC Time
+- EventTotal: The total number of line crossings by any object in any direction (clockwise or counterclockwise) so far since beginning of the video. Learn more about [Line Crossing Event inferences](use-line-crossing.md#line-crossing-events).
+- Event Processed UTC Time: The time at which each event was processed by Stream Analytics Job. Alternatively, you can customize the Stream Analytics query to fetch EventEnqueuedUtcTime which denotes the time when the event reached the IoT Hub ready for further processing.
 
 In the above dashboard, you will see an increasing number of **EventTotal** with time as more and more objects cross the virtual line. This visualization enables you to quickly identify that vehicles passing on the freeway have high frequency between 3:52:00 and 3:53:30 PM for example. You can then use these insights to narrow down your analysis on reasons for traffic congestion at certain times on the freeway.
 
