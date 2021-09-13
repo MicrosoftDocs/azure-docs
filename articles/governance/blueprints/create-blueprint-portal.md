@@ -284,9 +284,7 @@ is saved to a subscription, it can only be assigned to that subscription.
 1. For **Assignment name**, provide a unique name for this assignment.
 
 1. In **Location**, select a region for the managed identity and subscription deployment object to
-   be created in. Azure Blueprint uses this managed identity to deploy all artifacts in the assigned
-   blueprint. To learn more, see
-   [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+   be created in. 
 
 1. Leave the **Blueprint definition version** dropdown list selection of **Published** versions on
    the **v1** entry. (The default is the most recently published version.)
@@ -296,7 +294,9 @@ is saved to a subscription, it can only be assigned to that subscription.
 
    :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Screenshot of the Locking assignment and managed identity options for the blueprint assignment." border="false":::
 
-1. Under **Managed Identity**, leave the default of **System assigned**.
+1. Under **Managed Identity**, leave the default of **System assigned**. Azure Blueprint uses this managed identity to deploy all artifacts in the assigned
+   blueprint. To learn more, see
+   [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 1. For the subscription level role assignment **[User group or application name] : Contributor**,
    search for and select a user, app, or group.
