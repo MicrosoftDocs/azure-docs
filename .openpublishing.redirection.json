@@ -14500,32 +14500,32 @@
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/account-management.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/composability.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/index.yml",
-      "redirect_url": "/azure/blockchain",
+      "source_path_from_root": "/articles/blockchain/index.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/index.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/overview.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/templates.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
