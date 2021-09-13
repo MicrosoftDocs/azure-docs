@@ -4,7 +4,7 @@ description: Describes how to use the Azure Spring Cloud task for Azure Pipeline
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 09/13/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
@@ -26,14 +26,11 @@ The following video describes end-to-end automation using tools of your choice, 
 
 ## Create an Azure Resource Manager service connection
 
-To create an Azure Resource Manager service connection to your Azure DevOps project, see [Connect to Microsoft Azure](/azure/devops/pipelines/library/connect-to-azure). Be sure to select the same subscription you're using for your Azure Spring Cloud service instance.
+First, create an Azure Resource Manager service connection to your Azure DevOps project. For instructions, see [Connect to Microsoft Azure](/azure/devops/pipelines/library/connect-to-azure). Be sure to select the same subscription you're using for your Azure Spring Cloud service instance.
 
 ## Build and deploy apps
 
-
-### Deploy artifacts
-
-You can build and deploy your projects using a series of tasks. This snippet defines variables, a .NET Core task to build the application, and an Azure Spring Cloud task to deploy the application.
+You can now build and deploy your projects using a series of tasks. The following Azure Pipelines template defines variables, a .NET Core task to build the application, and an Azure Spring Cloud task to deploy the application.
 
 ```yaml
 variables:
@@ -43,7 +40,6 @@ variables:
   planetAppName: 'planet-weather-provider'
   solarAppName: 'solar-system-weather'
   serviceName: '<your service name>'
-
 
 steps:
 # Restore, build, publish and package the zipped planet app
@@ -88,17 +84,19 @@ steps:
 
 ## Set up an Azure Spring Cloud instance and an Azure DevOps project
 
+First, use the following steps to set up an existing Azure Spring Cloud instance for use with Azure DevOps.
+
 1. Go to your Azure Spring Cloud instance, then create a new app. 
 1. Go to the Azure DevOps portal, then create a new project under your chosen organization. If you don't have an Azure DevOps organization, you can create one for free.
 1. Select **Repos**, then import the [Spring Boot demo code](https://github.com/spring-guides/gs-spring-boot) to the repository.
 
 ## Create an Azure Resource Manager service connection
 
-To create an Azure Resource Manager service connection to your Azure DevOps project, see [Connect to Microsoft Azure](/azure/devops/pipelines/library/connect-to-azure). Be sure to select the same subscription you're using for your Azure Spring Cloud service instance.
+Next, create an Azure Resource Manager service connection to your Azure DevOps project. For instructions, see [Connect to Microsoft Azure](/azure/devops/pipelines/library/connect-to-azure). Be sure to select the same subscription you're using for your Azure Spring Cloud service instance.
 
 ## Build and deploy apps
 
-The following sections show you various options for deploying your app using Azure DevOps.
+You can now build and deploy your projects using a series of tasks. The following sections show you various options for deploying your app using Azure DevOps.
 
 ### Deploy using a pipeline
 
@@ -106,7 +104,6 @@ To deploy using a pipeline, follow these steps:
 
 1. Select **Pipelines**, then create a new pipeline with a Maven template.
 1. Edit the *azure-pipelines.yml* file to set the `mavenPomFile` field to *'complete/pom.xml'*.
-
 1. Select **Show assistant** on the right side, then select the **Azure Spring Cloud** template.
 1. Select the service connection you created for your Azure Subscription, then select your Spring Cloud instance and app instance. 
 1. Disable **Use Staging Deployment**.
@@ -186,7 +183,7 @@ The following steps show you how to enable a blue-green deployment from the **Re
    :::image type="content" source="media/spring-cloud-how-to-cicd/create-new-job.jpg" alt-text="Screenshot of where to select to add a task to a job." lightbox="media/spring-cloud-how-to-cicd/create-new-job.jpg":::
 
    1. Select the + to add a task to the job.
-   1. Search for the *Azure Spring Cloud* template, then select **Add** to add the task to the job.
+   1. Search for the **Azure Spring Cloud** template, then select **Add** to add the task to the job.
    1. Select **Azure Spring Cloud Deploy:** to edit the task.
    1. Fill this task with your app's information, then disable **Use Staging Deployment**.
    1. Enable **Create a new staging deployment if one does not exist**, then enter a name in **Deployment**.
@@ -202,7 +199,6 @@ The following steps show you how to enable a blue-green deployment from the **Re
    :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Modify the artifact path." lightbox="media/spring-cloud-how-to-cicd/change-artifact-path.jpg":::
 
 1. Select **Save**.
-
 1. Navigate to **Stage 1**.
 1. Select **Add**, then select **Clone stage**.
 
