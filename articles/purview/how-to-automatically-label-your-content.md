@@ -4,7 +4,7 @@ description: Learn how to create sensitivity labels and automatically apply them
 author: ajaykar
 ms.author: ajaykar
 ms.service: purview
-ms.subservice: purview-label
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/09/2021
 ---
