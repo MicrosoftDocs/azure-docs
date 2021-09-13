@@ -23,7 +23,7 @@ Web PubSub is an Azure-managed service that helps developers easily build web ap
 [Source code](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/webpubsub/) |
 [Package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub) |
 [API reference documentation](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/api/Microsoft.Azure.WebJobs.Extensions.WebPubSub.netstandard2.0.cs) |
-[Product documentation](https://aka.ms/awps/doc) |
+[Product documentation](./index.yml) |
 [Samples][samples_ref]
 
 ## Add to your Functions app
@@ -43,9 +43,9 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 ```
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
-[Explicitly install extensions]: /azure/azure-functions/functions-bindings-register#explicitly-install-extensions 
+[Explicitly install extensions]: ../azure-functions/functions-bindings-register.md#explicitly-install-extensions 
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
-[Update your extensions]: /azure/azure-functions/functions-bindings-register
+[Update your extensions]: ../azure-functions/functions-bindings-register.md
 
 ## Key concepts
 
@@ -61,7 +61,7 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 
 Use the function trigger to handle requests from Azure Web PubSub service. 
 
-`WebPubSubTrigger` is used when you need to handle requests from service side. The trigger endpoint pattern would be like below which should be set in Web PubSub service side (Portal: settings -> event handler -> URL Template). In the endpoint pattern, the query part `code=<API_KEY>` is **REQUIRED** when you're using Azure Function App for [security](/azure/azure-functions/security-concepts#system-key) reasons. The key can be found in **Azure Portal**. Find your function app resource and navigate to **Functions** -> **App Keys** -> **System Keys** -> **webpubsub_extension** after you deploy the function app to Azure. Though, this key isn't needed when you're working with local functions.
+`WebPubSubTrigger` is used when you need to handle requests from service side. The trigger endpoint pattern would be like below which should be set in Web PubSub service side (Portal: settings -> event handler -> URL Template). In the endpoint pattern, the query part `code=<API_KEY>` is **REQUIRED** when you're using Azure Function App for [security](../azure-functions/security-concepts.md#system-key) reasons. The key can be found in **Azure Portal**. Find your function app resource and navigate to **Functions** -> **App Keys** -> **System Keys** -> **webpubsub_extension** after you deploy the function app to Azure. Though, this key isn't needed when you're working with local functions.
 
 ```
 <Function_App_Url>/runtime/webhooks/webpubsub?code=<API_KEY>
@@ -150,7 +150,7 @@ module.exports = async function (context) {
 
 ### Attributes and annotations
 
-In [C# class libraries](/azure/azure-functions/functions-dotnet-class-library), use the `WebPubSubTrigger` attribute.
+In [C# class libraries](../azure-functions/functions-dotnet-class-library.md), use the `WebPubSubTrigger` attribute.
 
 Here's an `WebPubSubTrigger` attribute in a method signature:
 

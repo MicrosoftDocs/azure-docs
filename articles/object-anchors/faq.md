@@ -5,7 +5,7 @@ author: craigktreasure
 manager: vriveras
 
 ms.author: crtreasu
-ms.date: 09/08/2021
+ms.date: 09/10/2021
 ms.topic: overview
 ms.service: azure-object-anchors
 #Customer intent: Address frequently asked questions regarding Azure Object Anchors.
@@ -137,7 +137,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: Can I use Object Anchors without internet connectivity?**
 
-**A:** 
+**A:**
 * For model conversion and training, connectivity is required as this occurs in the cloud.
 * Runtime sessions are fully on-device and do not require connectivity as all computations occur on the HoloLens 2.
 
@@ -145,3 +145,14 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 **Q: How does Azure Object Anchors store data?**
 
 **A:** We only store System Metadata, which is encrypted at rest with a Microsoft managed data encryption key.
+
+## Next steps
+
+In this article, you learned some answers to common question to get the best results when using Azure Object Anchors.
+Here are some related articles:
+
+> [!div class="nextstepaction"]
+> [Best practices](./best-practices.md)
+
+> [!div class="nextstepaction"]
+> [Troubleshooting object detection](./troubleshoot/object-detection.md)
