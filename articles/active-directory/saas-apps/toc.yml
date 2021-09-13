@@ -89,6 +89,8 @@
         href: alertmedia-tutorial.md
       - name: AlertOps
         href: alertops-tutorial.md
+      - name: AlexisHR
+        href: alexishr-tutorial.md  
       - name: Alibaba Cloud Service (Role-based SSO)
         href: alibaba-cloud-service-role-based-sso-tutorial.md
       - name: Allbound SSO

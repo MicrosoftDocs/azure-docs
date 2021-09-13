@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2021
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Jostle
@@ -32,6 +32,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Jostle supports **SP** initiated SSO.
+
+* Jostle supports [Automated user provisioning](jostle-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -120,6 +122,8 @@ To configure single sign-on on **Jostle** side, you need to send the downloaded 
 ### Create Jostle test user
 
 In this section, you create a user called Britta Simon in Jostle. Work with [Jostle support team](mailto:support@jostle.me) to add the users in the Jostle platform. Users must be created and activated before you use single sign-on.
+
+Jostle also supports automatic user provisioning, you can find more details [here](./jostle-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 > [!NOTE]
 > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.

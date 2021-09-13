@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/22/2021
+ms.date: 08/27/2021
 ms.author: jeedes
 
 ---
@@ -37,8 +37,10 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Clebex supports **Just In Time** user provisioning.
 
+* Clebex supports [Automated user provisioning](clebex-provisioning-tutorial.md).
 
-## Adding Clebex from the gallery
+
+## Add Clebex from the gallery
 
 To configure the integration of Clebex into Azure AD, you need to add Clebex from the gallery to your list of managed SaaS apps.
 
@@ -146,6 +148,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create Clebex test user
 
 In this section, a user called Britta Simon is created in Clebex. Clebex supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Clebex, a new one is created after authentication.
+
+Clebex also supports automatic user provisioning, you can find more details [here](./clebex-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
