@@ -22,52 +22,13 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
 
 * Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli]. A connected registry in either `registry` or `mirror` mode can be used in this scenario.
 
-## Import the connected registry image to your registry
-
-To support nested IoT Edge scenarios, the container image for the connected registry runtime must be available in your private Azure container registry. Use the [az acr import][az-acr-import] command to import the connected registry image into your private registry. 
-
-```azurecli
-# Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the registry
-REGISTRY_NAME=<container-registry-name>
-
-az acr import \
-  --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/acr/connected-registry:0.3.0
-```
-
-To learn more about nested IoT Edge scenarios, see [Tutorial: Create a hierarchy of IoT Edge devices](../iot-edge/tutorial-nested-iot-edge.md).
-
-## Import the IoT Edge and API proxy images into your registry
-
-To support the connected registry on nested IoT Edge, you need to import and set up the IoT Edge and API proxy using the private images from the `acronpremiot` registry.
-
-The [IoT Edge API proxy module](../iot-edge/how-to-configure-api-proxy-module.md) allows an IoT Edge device to expose multiple services using the HTTPS protocol on the same port such as 443.
-
-> [!NOTE]
-> You can import these images from Microsoft Container Registry if you don't need to create a nested connected registry. See import commands in [Quickstart: Create a connected registry using the Azure CLI](quickstart-connected-registry-cli.md).
-
-```azurecli
-az acr import \
-  --name $REGISTRY_NAME \
-  --source acronpremiot.azurecr.io/acr/microsoft/azureiotedge-agent:20210609.5 \
-  --image azureiotedge-agent:20210609.5
-
-az acr import \
-  --name $REGISTRY_NAME \
-  --source acronpremiot.azurecr.io/acr/microsoft/azureiotedge-hub:20210609.5 \
-  --image azureiotedge-hub:20210609.5
-
-az acr import \
-  --name $REGISTRY_NAME \
-  --source acronpremiot.azurecr.io/acr/microsoft/azureiotedge-api-proxy:9.9.9-dev \
-  --image azureiotedge-api-proxy:9.9.9-dev
-```
+[!INCLUDE [container-registry-connected-import-images](../../includes/container-registry-connected-import-images.md)]
 
 ## Create a client token for access to the cloud registry
 
 The IoT Edge runtime will need to authenticate with the cloud registry to pull the images and deploy them. Currently, [token-based authentication](overview-connected-registry-access.md) is used for authentication.
 
-In this section, create a [client token](overview-connected-regstry-access.md#client-tokens) for the IoT Edge device. You will configure the token credentials in the deployment manifest for the device, shown later in this article.
+In this section, create a [client token](overview-connected-registry-access.md#client-tokens) for the IoT Edge device. You will configure the token credentials in the deployment manifest for the device, shown later in this article.
 
 [!INCLUDE [container-registry-connected-client-token](../../includes/container-registry-connected-client-token.md)]
 

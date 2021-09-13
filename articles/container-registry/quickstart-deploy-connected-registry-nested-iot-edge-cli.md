@@ -20,11 +20,13 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
     * For the top layer, the connected registry may be in either `registry` or `mirror` mode
     * For the lower layer, the connected registry must be in `mirror` mode.
 
+[!INCLUDE [container-registry-connected-import-images](../../includes/container-registry-connected-import-images.md)]
+
 ## Create client tokens for access to the parent registries
 
 The IoT Edge runtime on each device will need to authenticate with its parent registry to pull the images and deploy them. rview-connected-registry-access.md) is used for authentication.
 
-In this section, create a [client token](overview-connected-regstry-access.md#client-tokens) for each device. You will configure the token credentials in the deployment manifest for the device, shown later in this article.
+In this section, create a [client token](overview-connected-registry-access.md#client-tokens) for each device. You will configure the token credentials in the deployment manifest for the device, shown later in this article.
 
 [!INCLUDE [container-registry-connected-client-token](../../includes/container-registry-connected-client-token.md)]
 

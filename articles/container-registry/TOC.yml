@@ -267,7 +267,6 @@
       href: quickstart-deploy-connected-registry-iot-edge-cli.md
     - name: Deploy connected registry to nested IoT Edge
       href: quickstart-deploy-connected-registry-nested-iot-edge-cli.md
-  - name: Tutorials
 - name: Reference
   expanded: false
   items:
