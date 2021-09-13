@@ -38,7 +38,7 @@ Azure Resource Manager handles all control plane requests. It automatically appl
 * [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [Management Locks](lock-resources.md)
-* [Activity Logs](view-activity-logs.md)
+* [Activity Logs](../../azure-monitor/essentials/activity-log.md)
 
 After authenticating the request, Azure Resource Manager sends it to the resource provider, which completes the operation.
 

@@ -29,7 +29,7 @@ Required permissions | For permissions required to apply an update, see [account
 
 
 >[!IMPORTANT]
-> **On 31 August 2022, all 1.x versions of Azure Active Directory (Azure AD) Connect will be retired because they include SQL Server 2012 components that will no longer be supported.** Either upgrade to the most recent version of Azure AD Connect (2.x version) by that date, or [evaluate and switch to Azure AD cloud sync](https://docs.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync).
+> **On 31 August 2022, all 1.x versions of Azure Active Directory (Azure AD) Connect will be retired because they include SQL Server 2012 components that will no longer be supported.** Either upgrade to the most recent version of Azure AD Connect (2.x version) by that date, or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
 > 
 > You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
 > 
@@ -62,6 +62,9 @@ If you are still using an older version of Windows Server you should use Azure A
 
 ### Release status
 8/19/2021: Released for download only, not available for auto upgrade.
+
+### Known issues
+ - Under certain circumstances the installer for this version will display an error mentioning that TLS 1.2 is not enabled and will stop the installation. This is due to an error in the code that verifies the registry setting for TLS 1.2. We will correct this in a future release. Customers who see this issue should follow the instructions for enabling TLS 1.2 that can be found in the article "[TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)".
 
 ### Bug fixes
 

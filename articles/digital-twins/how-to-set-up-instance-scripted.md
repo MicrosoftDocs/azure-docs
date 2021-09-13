@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service, by running an automated deployment script
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/23/2020
+ms.date: 9/3/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3

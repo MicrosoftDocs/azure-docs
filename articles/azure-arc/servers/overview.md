@@ -1,7 +1,7 @@
 ---
 title: Azure Arc-enabled servers Overview
 description: Learn how to use Azure Arc-enabled servers to manage servers hosted outside of Azure like an Azure resource.
-ms.date: 08/18/2021
+ms.date: 08/27/2021
 ms.topic: overview
 ---
 
@@ -34,11 +34,15 @@ When you connect your machine to Azure Arc-enabled servers, it enables the abili
 | Azure Monitor | Monitor the connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources using [VM insights](../../azure-monitor/vm/vminsights-overview.md). Collect other log data, such as performance data and events, from the operating system or workload(s) running on the machine with the [Log Analytics agent](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). This data is stored in a [Log Analytics workspace](../../azure-monitor/logs/design-logs-deployment.md). |
 
 > [!NOTE]
-> At this time, enabling Azure Automation Update Management directly from an Arc-enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
+> At this time, enabling Azure Automation Update Management directly from an Azure Arc-enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
 
 Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID, to support [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) log access.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+
+To learn more about how Azure Arc-enabled servers can be used to implement Azure monitoring, security, and update services across hybrid and multicloud environments, see the following video.
+
+> [!VIDEO https://www.youtube.com/embed/mJnmXBrU1ao]
 
 ## Supported regions
 
@@ -57,10 +61,10 @@ For example, if the machine is registered with Azure Arc in the East US region, 
 
 ### Supported environments
 
-Arc-enabled servers support the management of physical servers and virtual machines hosted *outside* of Azure. For specific details of which hybrid cloud environments hosting VMs are supported, see [Connected Machine agent prerequisites](agent-overview.md#supported-environments).
+Azure Arc-enabled servers support the management of physical servers and virtual machines hosted *outside* of Azure. For specific details of which hybrid cloud environments hosting VMs are supported, see [Connected Machine agent prerequisites](agent-overview.md#supported-environments).
 
 > [!NOTE]
-> Arc-enabled servers is not designed or supported to enable management of virtual machines running in Azure.
+> Azure Arc-enabled servers is not designed or supported to enable management of virtual machines running in Azure.
 
 ### Agent status
 
@@ -68,6 +72,6 @@ The Connected Machine agent sends a regular heartbeat message to the service eve
 
 ## Next steps
 
-* Before evaluating or enabling Arc-enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
+* Before evaluating or enabling Azure Arc-enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.

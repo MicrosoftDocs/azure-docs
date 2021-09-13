@@ -3,13 +3,13 @@ title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: references_regions
 ---
 
@@ -216,17 +216,18 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (United States) | `en-US` | Female | `en-US-AriaNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-JennyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-GuyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| English (United States) | `en-US` | Female | `en-US-AmberNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-AshleyNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-CoraNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-ElizabethNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-MichelleNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-MonicaNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Kid | `en-US-AnaNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-BrandonNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-ChristopherNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-JacobNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-EricNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-SaraNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-AmberNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-AshleyNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-CoraNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-ElizabethNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-MichelleNeural`| General |
+| English (United States) | `en-US` | Female | `en-US-MonicaNeural` | General |
+| English (United States) | `en-US` | Kid | `en-US-AnaNeural`| General |
+| English (United States) | `en-US` | Male | `en-US-BrandonNeural` | General |
+| English (United States) | `en-US` | Male | `en-US-ChristopherNeural`  | General |
+| English (United States) | `en-US` | Male | `en-US-JacobNeural` | General |
+| English (United States) | `en-US` | Male | `en-US-EricNeural` | General |
 | Estonian (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
 | Estonian (Estonia) | `et-EE` | Male | `et-EE-KertNeural` | General |
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |

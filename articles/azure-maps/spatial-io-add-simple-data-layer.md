@@ -6,8 +6,6 @@ ms.author: v-stharr
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-
 ms.custom: devx-track-js
 #Customer intent: As an Azure Maps web sdk user, I want to add simple data layer so that I can render styled features on the map.
 ---
@@ -53,7 +51,7 @@ The following code renders the above point feature using the simple data layer.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Use the Simple data layer" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" scrolling="no" title="Use the Simple data layer" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 The real power of the simple data layer comes when:
@@ -66,7 +64,7 @@ For example when parsing XML data feeds, you may not know the exact styles and g
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height="700" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
