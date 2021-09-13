@@ -26,8 +26,6 @@ This article assumes that:
 - You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - You have already created an Azure file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
 - You allow domain traffic to the following, see [Azure service endpoints](../file-sync/file-sync-firewall-and-proxy#firewall):
- 
-
 
 Additionally:
 - If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
