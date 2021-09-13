@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 08/27/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * BrowserStack Single Sign-on supports **SP and IDP** initiated SSO.
+* BrowserStack Single Sign-on supports [Automated user provisioning](browserstack-single-sign-on-provisioning-tutorial.md).
 
 ## Add BrowserStack Single Sign-on from the gallery
 
@@ -125,6 +126,8 @@ To configure single sign-on on **BrowserStack Single Sign-on** side, you need to
 ### Create BrowserStack Single Sign-on test user
 
 In this section, you create a user called B.Simon in BrowserStack Single Sign-on. Work with [BrowserStack Single Sign-on support team](mailto:support@browserstack.com) to add the users in the BrowserStack Single Sign-on platform. Users must be created and activated before you use single sign-on.
+
+BrowserStack Single Sign-on also supports automatic user provisioning, you can find more details [here](./browserstack-single-sign-on-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

@@ -19,7 +19,7 @@ jobs:
         close-pr-label: auto-close
         exempt-pr-labels: keep-open
         operations-per-run: 1000
-        ascending: true
+        ascending: false
         start-date: '2019-05-30'
         stale-pr-message: >
           This pull request has been inactive for at least 14 days.
