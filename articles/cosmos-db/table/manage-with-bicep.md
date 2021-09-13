@@ -15,7 +15,7 @@ ms.author: mjbrown
 
 In this article, you learn how to use Bicep to help deploy and manage your Azure Cosmos DB Table API accounts and tables.
 
-This article has examples for Table API accounts only. You can also find Bicep samples for [Cassandra](../cassandra/manage-with-bicep.md), [Gremlin](../graph/manage-with-bicep.md), [MongoDB](../mongodb/manage-with-bicep.md), [SQL](../manage-with-bicep.md) articles.
+This article has examples for Table API accounts only. You can also find Bicep samples for [Cassandra](../cassandra/manage-with-bicep.md), [Gremlin](../graph/manage-with-bicep.md), [MongoDB](../mongodb/manage-with-bicep.md), [SQL](../sql/manage-with-bicep.md) articles.
 
 > [!IMPORTANT]
 >

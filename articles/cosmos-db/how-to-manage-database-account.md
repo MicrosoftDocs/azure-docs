@@ -86,7 +86,7 @@ After a Cosmos account is configured for automatic failover, the failover priori
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Automatic failover portal menu":::
 
-## Perform manual failover on an Azure Cosmos account
+## <a id="manual-failover"></a>Perform manual failover on an Azure Cosmos account
 
 > [!IMPORTANT]
 > The Azure Cosmos account must be configured for manual failover for this operation to succeed.
