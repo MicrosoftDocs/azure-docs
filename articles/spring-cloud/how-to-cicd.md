@@ -201,7 +201,7 @@ The following steps show you how to enable a blue-green deployment from the **Re
 
    :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Modify the artifact path." lightbox="media/spring-cloud-how-to-cicd/change-artifact-path.jpg":::
 
-1. **Save** the changes.
+1. Select **Save**.
 
 1. Navigate to **Stage 1**.
 1. Select **Add**, then select **Clone stage**.
