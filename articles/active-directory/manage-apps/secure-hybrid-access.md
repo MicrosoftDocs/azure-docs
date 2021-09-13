@@ -28,7 +28,7 @@ Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can pro
 
 ## Secure hybrid access through Azure AD partner integrations  
 
-In addition to [Azure AD Application Proxy](https://aka.ms/whyappproxy), Microsoft partners with third-party providers to enable secure access to your on-premises applications and applications that use legacy authentication.
+In addition to [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md), Microsoft partners with third-party providers to enable secure access to your on-premises applications and applications that use legacy authentication.
 
 ![Image shows secure hybrid access with app proxy and partners](./media/secure-hybrid-access/secure-hybrid-access.png)
 
@@ -50,16 +50,7 @@ The following partners offer pre-built solutions to support conditional access p
 
 - [Silverfort Authentication Platform](../manage-apps/add-application-portal-setup-oidc-sso.md)
 
-- [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
-
-The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD. 
-
-- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
-
-- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
-
 - [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
-
 - [Pulse Secure Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)
 
 - [Pulse Secure Virtual Traffic Manager (VTM)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
