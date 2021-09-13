@@ -13,39 +13,39 @@ ms.topic: article
 In this step, we will create an AAD Application, which we will later use to authenticate against our AAD.
 
 First, we will open our Azure Active Directory resource in the Azure Portal. From there, we will click `App registrations`:  
-![The Azure Active Directory overview page. Click "App registrations"](images/arm-api/02.png)
+![The Azure Active Directory overview page. Click "App registrations"](media/arm-api/app-registrations-menu.png)
 
 Next, click "New application registration":  
-![Click "New application registration"](images/arm-api/03.png)
+![Click "New application registration"](media/arm-api/new-app-registration-menu.png)
 
 Give your application a `name`. Make sure the application type is set to `Web app/API`. Finally, choose a sign-on URL. If you have a forwarding URL, use it here. Otherwise, you can put in a placeholder such as the `http://localhost:3000/login` seen in the screenshot below. Finally press "create".  
-![Fill in the name, application type, and sign-on URL](images/arm-api/04.png)
+![Fill in the name, application type, and sign-on URL](media/arm-api/app-details.png)
 
 We'll need to modify a few additional settings on the app we just created. Back on the App registrations page, find the app we just created, and click on it to open it's details page:  
-![Find the just-created app and click on it to open it's details](images/arm-api/26.png)
+![Find the just-created app and click on it to open it's details](media/arm-api/app-registrations.png)
 
-First, take note of the Application ID. We'll need it later. Then, click `Required permissions`: ![Write down the application ID, and click "required permissions"](images/arm-api/061.png)
+First, take note of the Application ID. We'll need it later. Then, click `Required permissions`: ![Write down the application ID, and click "required permissions"](media/arm-api/required-permissions-menu.png)
 
-On the required permissions page, press `add`: ![On the required permissions page, press add](images/arm-api/071.png)
+On the required permissions page, press `add`: ![On the required permissions page, press add](media/arm-api/add-api-access-button.png)
 
 On the Add API Access page, start by completing step 1: finding and selecting the Service Principal we created in step 1.1, "Log Analytics API". Next, in step 2, ensure that `Read Log Analytics data as user` is checked under delegated permissions. Press "select" and then complete the add API access process by pressing "done".  
-![Read Log Analytics data as user](images/arm-api/081.png)
+![Read Log Analytics data as user](media/arm-api/delegated-permissions.png)
 
 The last step to get our AAD Application configured is to create an API access key. Back in the settings page for our AAD Application, click on "Keys". Give your key a name and an expiry date. Then, press save:  
-![Generating an API key](images/arm-api/091.png)
+![Generating an API key](media/arm-api/generate-api-key.png)
 
 As soon as you press save, your API Key will be generated. *Make sure to copy it down*\! It will disappear as soon as you navigate away from the page.  
-![Copy the API Key generated](images/arm-api/101.png)
+![Copy the API Key generated](media/arm-api/copy-api-key.png)
 
 We now have an application that will allow us to authenticate against our Azure Active Directory\!
 
 ## 1.2 Give the AAD Application access to our Log Analytics Workspace
 
 The final step is to ensure that users that authenticated against our Azure Active Directory Application will have access to our Log Analytics resource. Start by finding your Log Analytics resource on the Azure Portal. While here, jot down the `workspace ID`. We'll need it later.  
-![Copy the Workspace ID on the Log Analytics overview page](images/arm-api/111.png)
+![Copy the Workspace ID on the Log Analytics overview page](media/arm-api/copy-workspace-id.png)
 
 Next, press "Access Control (IAM)", and "Add". Set role to "Log Analytics Reader", find the AAD Application we created, click on it, make sure it appears under "selected members", and press "save":  
-![Press "Access Control (IAM)" and then "Add"](images/arm-api/131.png)
+![Press "Access Control (IAM)" and then "Add"](media/arm-api/add-permissions.png)
 
 ## 2. Calling the API
 
@@ -56,7 +56,7 @@ Now that our Azure Active Directory resource is configured, an AAD Application i
 ```
 
 And returns the following results:  
-![Results from the sample query shown in the Log Search page](images/arm-api/14.png)
+![Results from the sample query shown in the Log Search page](media/arm-api/14.png)
 
 ## 2.1 Preparing to call the API
 

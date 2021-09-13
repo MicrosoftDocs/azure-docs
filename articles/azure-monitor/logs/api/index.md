@@ -8,7 +8,7 @@ ms.topic: article
 ---
 # Azure Log Analytics queries
 
-[Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics) is a service that monitors your cloud and on-premises environments to maintain their availability, performance, and other aspects. As part of the service, powerful interactive query capabilities are available that allow you to ask advanced questions specific to your data. While a comprehensive IDE is available to execute these queries, it is sometimes necessary to access the data programmatically. This website outlines the API that lets you do just that: programatically execute your Azure Log Analytics queries.
+Log Analytics in Azure Monitor monitors your cloud and on-premises environments to maintain their availability, performance, and other aspects. As part of the service, powerful interactive query capabilities are available that allow you to ask advanced questions specific to your data. While a comprehensive IDE is available to execute these queries, it is sometimes necessary to access the data programmatically. This website outlines the API that lets you do just that: programatically execute your Azure Log Analytics queries.
 
 ## Calling the API 101
 

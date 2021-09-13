@@ -8,7 +8,7 @@ ms.topic: article
 ---
 # Authorization
 
-The Log Analytics API supports using [Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/) authentication to query your workspace data, or an API key to query sample workspace data.
+The Log Analytics API supports using [Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-whatis/) authentication to query your workspace data, or an API key to query sample workspace data.
 
 ## AAD authentication to your data
 

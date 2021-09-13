@@ -16,10 +16,9 @@ Direct: [https://api.loganalytics.io/{api-version}/workspaces/query](https://api
 
 ARM: [https://management.azure.com/subscriptions/{guid}/resourceGroups/{name}/providers/Microsoft.OperationalInsights/workspaces/{name}?api-version={api-version}](https://management.azure.com/subscriptions/%7Bguid%7D/resourceGroups/%7Bname%7D/providers/Microsoft.OperationalInsights/workspaces/%7Bname%7D?api-version=%7Bapi-version%7D)
 
-# Current Versions
+## Current Versions
 
-|      |            |                    |
+| Version     | Direct API | ARM API      |
 | ---- | ---------- | ------------------ |
-|      | Direct API | ARM API            |
 | v1   | v1         | 2017-10-01         |
 | Beta | beta       | 2017-01-01-preview |

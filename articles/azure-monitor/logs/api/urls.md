@@ -8,7 +8,7 @@ ms.topic: article
 ---
 # URL formats
 
-There are two endpoints through which you can address the Log Analytics API. We offer [api.loganalytics.io](http://api.loganalytics.io/) as a direct URL for the API, and we offer access to the API through Azure Resource Manager (ARM). The query parameters are the same for each endpoint, but the URLs differ.
+There are two endpoints through which you can address the Log Analytics API. We offer [api.loganalytics.io](https://api.loganalytics.io/) as a direct URL for the API, and we offer access to the API through Azure Resource Manager (ARM). The query parameters are the same for each endpoint, but the URLs differ.
 
 Both endpoints require authorization through Azure Active Directory (AAD).
 
@@ -22,7 +22,7 @@ It has the format:
 
 For the Public API format, the components of URL are:
 
-1.  **hostname**: [api.loganalytics.io](http://api.loganalytics.io/)
+1.  **hostname**: [api.loganalytics.io](https://api.loganalytics.io/)
 2.  **resource**: this is your Workspace ID.
 3.  **api-version**: the API versions required to use in the path, for example "v1"
 4.  **area**: we support query and metadata endpoints.
@@ -39,7 +39,7 @@ The format of this API is:
 
 For the Azure API format, the components of URL are:
 
-1.  **hostname**: [management.azure.com](http://management.azure.com/)
+1.  **hostname**: [management.azure.com](https://management.azure.com/)
 2.  **resource**: this is Azure path of your Application Insights resource of the form `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/workspaces/{workspace-name}`
 3.  **api-version**: the API versions used in the query string, for example `2017-01-01-preview`, are defined [here](https://dev.loganalytics.io/documentation/Overview/API-Version)
 4.  **area**: the base supported query paths are query and metadata.

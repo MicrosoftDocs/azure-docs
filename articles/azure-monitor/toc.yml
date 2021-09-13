@@ -359,7 +359,7 @@
           - name: Errors
             href: logs/api/errors.md
         - name: Tools
-          href: tools.md
+          href: logs/api/tools.md
           items:
           - name: "C# SDK"
             href: logs/api/csharp-sdk.md

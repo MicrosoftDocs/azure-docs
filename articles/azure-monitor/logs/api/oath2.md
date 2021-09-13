@@ -1,6 +1,6 @@
 ---
 title: AAD OAuth2 Flows
-description: We support three OAuth2 flows: authorization code grant, implicit grant, and client credentials grant.
+description: We support three OAuth2 flows- authorization code grant, implicit grant, and client credentials grant.
 author: bwren
 ms.author: bwren
 ms.date: 08/18/2021
