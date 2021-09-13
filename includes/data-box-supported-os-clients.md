@@ -11,6 +11,6 @@ Here is a list of the supported operating systems for the data copy operation vi
 
 | **Operating system** | **Versions** |
 | --- | --- |
-| Windows Server |2016 RS1 and later<br> 2019 RS5 and later</br>With earlier editions of these operating systems, you may have issues using RoboCopy to copy extended attributes with files.<!--Ramkumar reviewing this info.--> |
+| Windows Server |2016 RS1 and later<br> 2019 RS5 and later</br>With earlier editions of these operating systems, RoboCopy does not reliably copy files with Access Control Lists (ACLs) that have extended attributes.<!--Ramkumar reviewing this info.--> |
 | Windows |7, 8, 10 |
 | Linux    |         |
