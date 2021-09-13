@@ -37,6 +37,8 @@ For more information, see [Use notebooks to power investigations](hunting.md#use
 
 - To perform the steps in this tutorial, you'll need Python 3.6 or later. In Azure ML you can use either a Python 3.8 kernel (recommended) or a Python 3.6 kernel.
 
+- This notebook uses the [MaxMind GeoLite2](https://www.maxmind.com) geolocation lookup service for IP addresses. To use the MaxMind GeoLite2 service, you'll need an account key. You can sign up for a free account and key at the [Maxmind signup page](https://www.maxmind.com/en/geolite2/signup).
+
 - This notebook uses [VirusTotal](https://www.virustotal.com) (VT) as a threat intelligence source. To use VirusTotal threat intelligence lookup, you'll need a VirusTotal account and API key.
 
     You can sign up for a free VT account at the [VirusTotal getting started page](https://developers.virustotal.com/v3.0/reference#getting-started). If you're already a VirusTotal user, you can use your existing key.
@@ -45,9 +47,6 @@ For more information, see [Use notebooks to power investigations](hunting.md#use
     > If you're using a VT enterprise key, store it in Azure Key Vault instead of the **msticpyconfig.yaml** file. For more information, see [Specify secrets as Key Vault secrets](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html#specifying-secrets-as-key-vault-secrets) in the MSTICPY documentation.
     >
     > If you don’t want to set up an Azure Key Vault right now, sign up for and use a free account until you can set up Key Vault storage.
-
-- An account key for a geolocation lookup service for IP addresses, such as [MaxMind GeoLite2](https://www.maxmind.com). For example, sign up for a free account and key at the [Maxmind signup page](https://www.maxmind.com/en/geolite2/signup).
-
 
 ## Run and initialize the Getting Started Guide notebook
 
