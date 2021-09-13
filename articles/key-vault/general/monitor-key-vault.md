@@ -167,16 +167,12 @@ Here are some queries that you can enter into the **Log search** search bar to h
 
 ## Alerts
 
-<!-- SUGGESTED: Include useful alerts on metrics, logs, log conditions or activity log. Ask your PMs if you don't know. 
-This information is the BIGGEST request we get in Azure Monitor so do not avoid it long term. People don't know what to monitor for best results. Be prescriptive  
--->
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../../azure-monitor/platform/alerts-metric-overview.md), [logs](../../azure-monitor/platform/alerts-unified-log.md), and the [activity log](../../azure-monitor/platform/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
 
-<!-- only include next line if applications run on your service and work with App Insights. --> If you are creating or running an application which run on <*service*> [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) may offer additional types of alerts.
-<!-- end -->
+If you are creating or running an application which run on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/overview#application-insights.md) may offer additional types of alerts.
 
-The following table lists common and recommended alert rules for [service-name].
+The following table lists common and recommended alert rules for Azure Key Vault.
 
 <!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
 | Alert type | Condition | Description  |
@@ -184,73 +180,6 @@ The following table lists common and recommended alert rules for [service-name].
 | | | |
 | | | |
 
-## Overview
-
-Once you have started to use key vault to store your production secrets, it is important to monitor the health of your key vault to make sure your service operates as intended. As you start to scale your service the number of requests sent to your key vault will rise. This has a potential to increase the latency of your requests and in extreme cases, cause your requests to be throttled which will impact the performance of your service. You also need to be alerted if your key vault is sending an unusual number of error codes, so you can be quickly notified of any access policy or firewall configuration issues. 
-This document will cover the following topics:
-
-+ Basic Key Vault metrics to monitor
-+ How to configure metrics and create a dashboard
-+ How to create alerts at specified thresholds
-
-Azure Monitor for Key Vault combines both logs and metrics to provide a global monitoring solution. [Learn more about Azure Monitor for Key Vault here](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights)
-
-## Basic Key Vault metrics to monitor
-
-+ Vault Availability  
-+ Vault Saturation
-+ Service API Latency
-+ Total Service API Hits (Filter by Activity Type)
-+ Error Codes (Filter by Status Code)
-
-**Vault Availability** -  This metric should always be at 100% this is an important metric to monitor, since it can quickly show you if your key vault experienced an outage. 
-
-**Vault Saturation** – The number of requests per second that a key vault can serve is based on the type of operation being performed. Some vault operations have a lower requests-per-second threshold. This metric aggregates the total usage of your key vault across all operation types to come up with a percentage value that indicates your current key vault usage. For a full list of key vault service limits, see the following document. [Azure Key Vault Service Limits](service-limits.md)
-
-**Service API Latency** - This metric shows the average latency of calls to key vault, measured at the service. It does not include time consumed by client or by the network between client and service.
-
-**Total API Hits** - This metric shows all of the calls made to your key vault. This will help you identify which applications are calling your key vault. 
-
-**Error Codes** – This metric will show you if your key vault is experiencing an unusual amount of errors. For a full list of error codes and troubleshooting guidance, see the following document. [Azure Key Vault REST API Error Codes](rest-error-codes.md)
-
-## How to configure metrics and create a dashboard
-
-1. Login to the Azure portal
-2. Navigate to your Key Vault
-3. Select **Metrics** under **Monitoring** 
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that highlights the Metrics option under the Monitoring section.](../media/alert-1.png)
-
-4. Update the title of the chart to what you want to see on your dashboard. 
-5. Select the scope. In this example we will select a single key vault. 
-6. Select the Metric **Overall Vault Availability** and Aggregation **Avg** 
-7. Update the time range to the Last 24 Hours and update the time granularity to 1 minute. 
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the Overall Vault Availablility metric.](../media/alert-2.png)
-
-8. Repeat the steps above for the Vault Saturation and Service API Latency metrics. Select **Pin to Dashboard** to save your metrics into a dashboard. 
-
-> [!IMPORTANT]
-> Select "Pin to Dashboard" and save every metric you configure. If you leave the page and return to it without saving, your configuration changes will be lost. 
-
-9. To monitor all of the types of operations on the key vault, use the **Total Service API Hits** Metric, and Select **Apply Splitting by Activity Type**
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the Apply Splitting button.](../media/alert-3.png)
-
-10. To monitor for error codes on the key vault, use the **Total Service API Results** Metric, and Select **Apply Splitting by Activity Type**
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the selected Total Service API Results metric.](../media/alert-4.png)
-
-Now you will have a dashboard that looks like this. You can click the 3 dots on the top right of each tile and you can rearrange and resize the tiles as you need. 
-
-Once you save and publish the dashboard, it will create a new resource in your Azure subscription. You will be able to see it at anytime by searching for "shared dashboard". 
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the published dashboard.](../media/alert-5.png)
 
 ## Next steps
 
