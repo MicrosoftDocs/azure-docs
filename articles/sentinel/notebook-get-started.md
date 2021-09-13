@@ -677,9 +677,9 @@ For example:
 
 ## Next steps
 
-This article described the basics of using MSTICPy with Jupyter notebooks in Azure Sentinel.
+This article described the basics of using MSTICPy with Jupyter notebooks in Azure Sentinel. For more information, see [Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel](notebooks-msticpy-advanced.md).
 
-Now you can try out other notebooks stored in the [Azure Sentinel Notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks), such as:
+You can also try out other notebooks stored in the [Azure Sentinel Notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks), such as:
 
 - [Tour of the Cybersec features](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/9bba6bb9007212fca76169c3d9a29df2da95582d/A%20Tour%20of%20Cybersec%20notebook%20features.ipynb)
 - [Machine Learning examples](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/9bba6bb9007212fca76169c3d9a29df2da95582d/Machine%20Learning%20in%20Notebooks%20Examples.ipynb)
