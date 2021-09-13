@@ -52,7 +52,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
-    In the request body, set the `capacityReservationGroup` property to empty to remove the virtual machine scale set association to the group:
+    In the request body, set the `capacityReservationGroup` property to null to remove the virtual machine scale set association to the group:
 
     ```json
     {
@@ -61,7 +61,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
         "virtualMachineProfile": {
             "capacityReservation": {
                 "capacityReservationGroup":{
-                    "id":""    
+                    "id":null    
                 }
             }
         }
@@ -135,7 +135,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
 
-    In the request body, set the `capacityReservationGroup` property to empty to remove the association:
+    In the request body, set the `capacityReservationGroup` property to null to remove the association:
     
     ```json
     {
@@ -144,7 +144,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
         "virtualMachineProfile": {
             "capacityReservation": {
                 "capacityReservationGroup":{
-                    "id":""
+                    "id":null
                 }
             }
         }
