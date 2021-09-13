@@ -98,7 +98,7 @@ By default, IoT Hub supports service API access through both Azure AD and [share
 
 1. Ensure that your service clients and users have [sufficient access](#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment) to your IoT hub. Follow the [principle of least privilege](../security/fundamentals/identity-management-best-practices.md).
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
-1. In the left pane, select **Shared access policies**.
+1. On the left pane, select **Shared access policies**.
 1. Under **Connect using shared access policies**, select **Deny**.
     :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot that shows how to turn off IoT Hub shared access policies.":::
 1. Review the warning, and then select **Save**.
@@ -109,7 +109,7 @@ Your IoT Hub service APIs can now be accessed only through Azure AD and RBAC.
 
 When you try to access IoT Hub, the Azure portal first checks whether you've been assigned an Azure role with `Microsoft.Devices/iotHubs/listkeys/action`. If you have, the Azure portal uses the keys from shared access policies to access IoT Hub. If not, the Azure portal tries to access data by using your Azure AD account. 
 
-To access IoT Hub from the Azure portal by using your Azure AD account, you need permissions to access IoT Hub data resources (like devices and twins). You also need permissions to go to the IoT Hub resource in the Azure portal. The built-in roles provided by IoT Hub grant access to resources like devices and twin. But they don't grant access to the IoT Hub resource. So access to the portal also requires the assignment of an Azure Resource Manager (ARM) role like [Reader](../role-based-access-control/built-in-roles.md#reader). The Reader role is a good choice because it's the most restricted role that lets you navigate the portal. It doesn't include the `Microsoft.Devices/iotHubs/listkeys/action` permission (which provides access to all IoT Hub data resources via shared access policies). 
+To access IoT Hub from the Azure portal by using your Azure AD account, you need permissions to access IoT Hub data resources (like devices and twins). You also need permissions to go to the IoT Hub resource in the Azure portal. The built-in roles provided by IoT Hub grant access to resources like devices and twin. But they don't grant access to the IoT Hub resource. So access to the portal also requires the assignment of an Azure Resource Manager role like [Reader](../role-based-access-control/built-in-roles.md#reader). The Reader role is a good choice because it's the most restricted role that lets you navigate the portal. It doesn't include the `Microsoft.Devices/iotHubs/listkeys/action` permission (which provides access to all IoT Hub data resources via shared access policies). 
 
 To ensure an account doesn't have access outside of the assigned permissions, don't include the `Microsoft.Devices/iotHubs/listkeys/action` permission when you create a custom role. For example, to create a custom role that can read device identities but can't create or delete devices, create a custom role that:
 - Has the `Microsoft.Devices/IotHubs/devices/read` data action.
