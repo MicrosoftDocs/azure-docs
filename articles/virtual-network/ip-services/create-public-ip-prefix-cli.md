@@ -84,7 +84,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
-# [Non-zonal IPv4 prefix](#tab/ipv4-non-zonal)
+# [**Non-zonal IPv4 prefix**](#tab/ipv4-non-zonal)
 
 To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** parameter. Remove the **`--zone`** parameter to create a non-zonal IP prefix.
 
@@ -107,7 +107,7 @@ The removal of the **`--zone`** parameter is the default selection for standard 
 
 ## IPv6
 
-# [Zone redundant IPv6 prefix](#tab/ipv6-zone-redundant)
+# [**Zone redundant IPv6 prefix**](#tab/ipv6-zone-redundant)
 
 To create a IPv4 public IP prefix, enter **IPv6** in the **`--version`** parameter. To create a zone redundant IPv6 prefix, enter **1,2,3** in the **`--zone`** parameter.
 
@@ -121,7 +121,7 @@ To create a IPv4 public IP prefix, enter **IPv6** in the **`--version`** paramet
     --zone 1 2 3
 ```
 
-# [Zonal IPv6 prefix](#tab/ipv6-zonal)
+# [**Zonal IPv6 prefix**](#tab/ipv6-zonal)
 
 To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** parameter. Enter **2** in the **`--zone`** parameter to create a zonal IP prefix in zone 2.
 
@@ -138,7 +138,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
-# [Non-zonal IPv6 prefix](#tab/ipv6-non-zonal)
+# [**Non-zonal IPv6 prefix**](#tab/ipv6-non-zonal)
 
 To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** parameter. Remove the **`--zone`** parameter to create a non-zonal IP prefix.
 
@@ -165,7 +165,7 @@ Create a public IP address with [az network public-ip create](/cli/azure/network
 
 ---
 
-# [IPv4 address](#tab/ipv4-address)
+# [**IPv4 address**](#tab/ipv4-address)
 
 To create a IPv4 public IP address, enter **IPv4** in the **`--version`** parameter.
 
@@ -179,7 +179,7 @@ To create a IPv4 public IP address, enter **IPv4** in the **`--version`** parame
     --version IPv4
 ```
 
-# [IPv6 address](#tab/ipv6-address)
+# [**IPv6 address**](#tab/ipv6-address)
 
 To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** parameter.
 
