@@ -56,20 +56,13 @@ Standard SKU public IP addresses:
 
 - Always use static allocation method.
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
-- Secure by default and closed to inbound traffic. Allowlist inbound traffic with a [network security group](./network-security-groups-overview.md#network-security-groups).
-- Assigned to network interfaces, standard public load balancers, or Application Gateways. For more information about Azure load balancer, see [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Designed to align with the "secure by default" model and be closed to inbound traffic when used as a frontend.  Allowlisting data plane traffic with [network security group](./network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).
 - Can be zone-redundant (which is advertised from all three zones), zonal (which is guaranteed in a specific pre-selected availability zone), or "no-zone" (which isn't associated with a specific pre-selected availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where three availability zones](../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant.
 - Can be utilized with the [routing preference](routing-preference-overview.md) to enable more granular control of how traffic is routed between Azure and the Internet.
 - Can be used as anycast frontend IPs for [cross-region load balancers](../load-balancer/cross-region-overview.md) (preview functionality).
  
 > [!NOTE]
-> Inbound communication with a standard SKU resource fails until you create and associate a [network security group](./network-security-groups-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
-
-> [!NOTE]
-> Only public IP addresses with basic SKU are available when using [instance metadata service IMDS](../virtual-machines/windows/instance-metadata-service.md). Standard SKU is not supported.
-
-> [!NOTE]
-> Diagnostic settings don't appear under the resource blade when using a standard SKU public IP address. To enable logging on your standard public IP address resource, navigate to diagnostic settings under the Azure Monitor blade and select your IP address resource.
+> Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](./network-security-groups-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
 
 ### Basic
 
@@ -82,14 +75,14 @@ Basic SKU addresses:
 - Don't support [routing preference](routing-preference-overview.md) or [cross-region load balancers](../load-balancer/cross-region-overview.md) functionality.
 
 > [!NOTE]
-> Basic SKU IPv4 addresses can be upgraded after creation to standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](./public-ip-upgrade-portal.md).
+> Basic SKU IPv4 addresses can be upgraded after creation to Standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](./public-ip-upgrade-portal.md).
 
 >[!IMPORTANT]
-> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
+> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of Basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
 
 ## IP address assignment
 
- Standard public IPv4, Basic public IPv4, and Standard public IPv6 addresses all support **static** assignment.  The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted.  
+Standard public IPv4, Basic public IPv4, and Standard public IPv6 addresses all support **static** assignment.  The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted.  
 
 > [!NOTE]
 > Even when you set the allocation method to **static**, you cannot specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
@@ -110,11 +103,7 @@ Basic public IPv4 and IPv6 addresses support a **dynamic** assignment.  The IP a
 
 ## DNS Name Label
 
-Select this option to specify a DNS label for a public IP resource. This functionality works for both IPv4 addresses (32-bit A records) and IPv6 addresses (128-bit AAAA records).
-
-### DNS hostname resolution
-
-This selection creates a mapping for **domainnamelabel**.**location**.cloudapp.azure.com to the public IP in the Azure-managed DNS. 
+Select this option to specify a DNS label for a public IP resource. This functionality works for both IPv4 addresses (32-bit A records) and IPv6 addresses (128-bit AAAA records).  This selection creates a mapping for **domainnamelabel**.**location**.cloudapp.azure.com to the public IP in the Azure-managed DNS. 
 
 For instance, creation of a public IP with:
 
@@ -126,11 +115,7 @@ The fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** res
 > [!IMPORTANT]
 > Each domain name label created must be unique within its Azure location.  
 
-### DNS Recommendations
-
-You can't migrate the FQDN of your public IP between regions. Use the FQDN to create a custom CNAME record pointing to the public IP address. If a move to a different public IP is required, update the CNAME record.
-
-You can use [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
+If a custom domain is desired for services that use a Public IP, you can use [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
 
 ## Other public IP address features
 

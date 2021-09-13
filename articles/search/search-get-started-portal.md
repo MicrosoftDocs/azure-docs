@@ -1,5 +1,5 @@
 ---
-title: Create a search index in the Azure portal
+title: "Quickstart: Create a search index in the Azure portal"
 titleSuffix: Azure Cognitive Search
 description: Create, load, and query your first search index using the Import Data wizard in the Azure portal. This quickstart uses a fictitious hotel dataset for sample data.
 
@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/02/2021
+ms.date: 08/24/2021
 ---
 # Quickstart: Create an Azure Cognitive Search index in the Azure portal
 
@@ -42,7 +42,7 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index.
 
-   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Import data command":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
 1. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 

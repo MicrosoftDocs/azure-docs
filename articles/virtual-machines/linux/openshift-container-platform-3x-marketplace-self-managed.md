@@ -15,6 +15,8 @@ ms.author: haroldw
 
 # Configure prerequisites
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Before using the Marketplace offer to deploy a self-managed OpenShift Container Platform 3.11 cluster in Azure, a few prerequisites must be configured.  Read the [OpenShift prerequisites](./openshift-container-platform-3x-prerequisites.md) article for instructions to create an ssh key (without a passphrase), Azure key vault, key vault secret, and a service principal.
 
  
