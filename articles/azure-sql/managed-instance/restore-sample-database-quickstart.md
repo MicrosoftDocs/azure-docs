@@ -38,7 +38,7 @@ This quickstart:
 > [!NOTE]
 > For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](../../storage/common/storage-sas-overview.md), see [SQL Server Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
-## Restore from a backup file by using the restore wizard
+## Restore from a backup file using the restore wizard
 
 In SSMS, follow these steps to restore the Wide World Importers database to SQL Managed Instance by using the restore wizard. The database backup file is stored in a pre-configured Azure Blob Storage account.
 
@@ -51,7 +51,7 @@ In SSMS, follow these steps to restore the Wide World Importers database to SQL 
 
     ![Screenshot that shows opening a new restore wizard window.](./media/restore-sample-database-quickstart/new-restore-wizard.png)
 
-4. In **Select backup devices**, select **Add**. In **Backup media type**, **URL** is the only option because it is the only source type supported.
+4. In **Select backup devices**, select **Add**. In **Backup media type**, **URL** is the only option because it is the only source type supported. Select **OK**.
 
     ![Screenshot that shows selecting the device.](./media/restore-sample-database-quickstart/restore-wizard-select-device.png)
 
@@ -67,7 +67,7 @@ In SSMS, follow these steps to restore the Wide World Importers database to SQL 
 
     ![Screenshot that shows Azure subscription sign-in.](./media/restore-sample-database-quickstart/restore-wizard-connect-subscription-sign-in.png)
 
-7. Initiate the session on Azure:
+7. Sign in to your Microsoft Account to initiate the session in Azure:
 
     ![Screenshot that shows signing in to the Azure session.](./media/restore-sample-database-quickstart/restore-wizard-sign-in-session.png)
 
@@ -75,11 +75,11 @@ In SSMS, follow these steps to restore the Wide World Importers database to SQL 
 
     ![Screenshot that shows selecting the subscription.](./media/restore-sample-database-quickstart/restore-wizard-select-subscription.png)
 
-9. Select the Azure Storage account where the backup files are located:
+9. Select the storage account where the backup files are located:
 
     ![Screenshot that shows the storage account.](./media/restore-sample-database-quickstart/restore-wizard-select-storage-account.png)
 
-10. Select the Blob container where the backup files are located:
+10. Select the blob container where the backup files are located:
 
     ![Select Blob container](./media/restore-sample-database-quickstart/restore-wizard-select-container.png)
 
@@ -93,13 +93,11 @@ In SSMS, follow these steps to restore the Wide World Importers database to SQL 
 
     SSMS validates the backup set. The process takes up to a few seconds depending on the size of the backup set.
 
-    ![Screenshot that shows the backup setting validation.](./media/restore-sample-database-quickstart/restore-wizard-backup-set-validation.png)
-
-13. If the backup is valid, specify the destination database name or leave it with the database name of the backup set, and then select **OK**:
+13. If the backup is validated, specify the destination database name or leave the database name of the backup set, and then select **OK**:
 
     ![Screenshot that shows starting the restore.](./media/restore-sample-database-quickstart/restore-wizard-start-restore.png)
 
-    The restore will start and the duration will depend on the size of the backup set.
+    The restore starts. The duration depends on the size of the backup set.
 
     ![Screenshot that shows running the restore.](./media/restore-sample-database-quickstart/restore-wizard-running-restore.png)
 
