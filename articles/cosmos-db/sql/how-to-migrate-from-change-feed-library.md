@@ -33,7 +33,11 @@ The migrated code will look like:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorMigrated)]
 
-For the delegate, you can have a static method to receive the events, that also has access to contextual information like the previous `IChangeFeedObserverContext`:
+For the delegate, you can have a static method to receive the events. If you were consuming information from the `IChangeFeedObserverContext` you can migrate to use the `ChangeFeedProcessorContext`:
+
+* `ChangeFeedProcessorContext.LeaseToken` can be used instead of `IChangeFeedObserverContext.PartitionKeyRangeId`
+* `ChangeFeedProcessorContext.Headers` can be used instead of `IChangeFeedObserverContext.FeedResponse`
+* `ChangeFeedProcessorContext.Diagnostics` contains detailed information about request latency for troubleshooting
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=Delegate)]
 
