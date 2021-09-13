@@ -26,7 +26,7 @@ Here's one scenario that explains why your company would set a custom home page:
 - You want to set `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` as the home page URL instead, so an external user sees the sign-in page first.
 
 > [!NOTE]
-> When you give users access to published apps, the apps are displayed in [My Apps](../user-help/my-apps-portal-end-user-access.md) and the [Office 365 app launcher](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> When you give users access to published apps, the apps are displayed in [My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) and the [Office 365 app launcher](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## Before you start
 

@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/10/2021
+ms.date: 08/26/2021
 ms.author: amsriva
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
@@ -74,7 +74,7 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 1. In PowerShell, run the following command:
 
-     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`              
 
 #### Grant Azure Front Door access to your key vault
  
@@ -82,7 +82,7 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
 
 1. In your key vault account, under SETTINGS, select **Access policies**. Then select **Add new** to create a new policy.
 
-1. In **Select principal**, search for **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**, and choose ** Microsoft.AzureFrontDoor-Cdn**. Click **Select**.
+1. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, and choose **Microsoft.AzureFrontDoor-Cdn**. Click **Select**.
 
 1. In **Secret permissions**, select **Get** to allow Front Door to retrieve the certificate.
 

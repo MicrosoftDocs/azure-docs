@@ -140,6 +140,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
 |[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
 |[DynTek](https://www.dyntek.com)|
+|[ECS Federal, LLC](https://ecstech.com/)|
 |eFibernet Inc.|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
 |[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|
@@ -201,7 +202,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Indicium Technologies Inc](https://www.istech-corp.com/)|
 |[Info Gain Consulting LLC](http://infogainconsulting.com/)|
 |[Infocone Inc.](https://www.infocone.com/)|
-|[Inforeliance LLC](https://www.inforeliance.com/)|
 |[Infosys Public Services, Inc.](https://www.infosyspublicservices.com/)|
 |[InnovaSystems International](https://www.innovasi.com/)|
 |[Innovia Consulting](https://www.innovia.com/)|
@@ -418,7 +418,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Vidizmo LLC](https://www.vidizmo.com)|
 |[Virsage Solutions](https://www.virsage.com/)|
 |[ViON Corp.](https://www.vion.com/)|
-|[Viscon Networking Innovations Inc.](https://www.visconni.com/)|
 |[VisioLogix Corporation](https://www.visiologix.com)|
 |[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |Vistronix, LLC|

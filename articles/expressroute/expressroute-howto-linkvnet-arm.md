@@ -214,11 +214,10 @@ Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -Pr
 ```
 
 > [!NOTE] 
-> If you already have FathPath configured and want to enroll in the preview feature, you need to do the following:
-> 1. Delete the connection that has FastPath enabled.
-> 1. Enroll in the FathPath preview feature with the Azure PowerShell command above.
-> 1. Recreate the connection with FathPath enabled.
->
+> Any connections configured for FastPath in the target subscription will be enrolled in this preview. We do not advise enabling this preview in production subscriptions.
+> If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
+> 1. Enroll in the FastPath preview feature with the Azure PowerShell command above.
+> 1. Disable and then re-enable FastPath on the target connection.
 
 ## Clean up resources
 

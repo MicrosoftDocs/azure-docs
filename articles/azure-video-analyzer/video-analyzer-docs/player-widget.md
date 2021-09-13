@@ -73,7 +73,7 @@ The application builds and runs. After it builds, it creates a self-signed certi
 
 - `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
 
-Be sure to copy these values for later use.
+**Be sure to copy and save these values for later use.**
 
 ## Create an access policy
 
