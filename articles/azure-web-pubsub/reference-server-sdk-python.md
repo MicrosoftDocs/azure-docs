@@ -1,6 +1,6 @@
 ---
-title: Reference - Python server SDK for Azure Web PubSub service
-description: The reference describes the Python server SDK for Azure Web PubSub service
+title: Reference - Python server SDK for Azure Web PubSub
+description: This reference describes the Python server SDK for the Azure Web PubSub service.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
@@ -8,36 +8,36 @@ ms.topic: conceptual
 ms.date: 08/26/2021
 ---
 
-# Python server SDK for Azure Web PubSub service
+# Python server SDK for Azure Web PubSub
 
-Use the library to:
+You can use this library to:
 
-- Send messages to hubs and groups.
+- Send messages to hubs and groups. 
 - Send messages to particular users and connections.
 - Organize users and connections into groups.
-- Close connections
-- Grant/revoke/check permissions for an existing connection
+- Close connections.
+- Grant, revoke, and check permissions for an existing connection.
 
 [Source code](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/webpubsub/azure-messaging-webpubsubservice) | [Package (Pypi)][package] | [API reference documentation](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/webpubsub/azure-messaging-webpubsubservice) | [Product documentation][webpubsubservice_docs] |
 [Samples][samples_ref]
 
-## Getting started
+## Get started
 
-### Installations the package
+Install the package as follows:
 
 ```bash
 python -m pip install azure-messaging-webpubsubservice
 ```
 
-#### Prerequisites
+### Prerequisites
 
-- Python 2.7, or 3.6 or later is required to use this package.
-- You need an [Azure subscription][azure_sub], and an [Azure WebPubSub service instance][webpubsubservice_docs] to use this package.
+- Python 2.7, or 3.6 or later, is required to use this package.
+- An [Azure subscription][azure_sub].
 - An existing Azure Web PubSub service instance.
 
-### Authenticating the client
+### Authenticate the client
 
-In order to interact with the Azure WebPubSub service, you'll need to create an instance of the [WebPubSubServiceClient][webpubsubservice_client_class] class. In order to authenticate against the service, you need to pass in an AzureKeyCredential instance with endpoint and access key. The endpoint and access key can be found on Azure portal.
+To interact with the Azure WebPubSub service, you need to create an instance of the [`WebPubSubServiceClient`][webpubsubservice_client_class] class. To authenticate against the service, you need to pass in an 'AzureKeyCredential' instance with endpoint and access key. You can find the endpoint and access key on the Azure portal.
 
 ```python
 >>> from azure.messaging.webpubsubservice import WebPubSubServiceClient
@@ -77,10 +77,7 @@ In order to interact with the Azure WebPubSub service, you'll need to create an 
 
 ## Troubleshooting
 
-### Logging
-
-This SDK uses Python standard logging library.
-You can configure logging print debugging information to the stdout or anywhere you want.
+This SDK uses the standard logging library of Python. You can configure logging print debugging information to the `stdout`, or anywhere you want.
 
 ```python
 import logging
@@ -88,9 +85,9 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-Http request and response details are printed to stdout with this logging config.
+The HTTP request and response details are printed to `stdout` with this logging configuration.
 
-[webpubsubservice_docs]: https://aka.ms/awps/doc
+[webpubsubservice_docs]: ./index.yml
 [azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [webpubsubservice_client_class]: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/webpubsub/azure-messaging-webpubsubservice/azure/messaging/webpubsubservice/__init__.py

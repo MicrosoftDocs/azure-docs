@@ -44,4 +44,4 @@ For export orders, following table shows the supported storage accounts.
 > - Data uploaded to page blobs must be 512 bytes aligned such as VHDs.
 > - A maximum of 80 TB can be exported.
 > - File history and blob snapshots are not exported.
-> - Archive blobs are not supported for export. Rehydrate the blobs in archive tier before you export. For more information, see [Rehydrate an archived blob to an online tier](../articles/storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
+> - Archive blobs are not supported for export. Rehydrate the blobs in archive tier before you export. For more information, see [Rehydrate an archived blob to an online tier](../articles/storage/blobs/archive-rehydrate-overview.md).
