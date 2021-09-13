@@ -183,11 +183,10 @@ To create an Azure Files share that's enabled for Active Directory authenticatio
 
 To use an Azure NetApp Files share in Azure Lab Services:
 
-1. Get access to [Azure NetApp Files](https://aka.ms/azurenetappfiles), if needed.
-2. To create a NetApp Files capacity pool and one or more NFS volumes, see [set up Azure NetApp Files and NFS volume](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md). For information about service levels, see [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md).
-3. [Peer the virtual network](how-to-connect-peer-virtual-network.md) for the NetApp Files capacity pool to the lab account.
-4. [Create the classroom lab](how-to-manage-classroom-labs.md).
-5. On the template VM, install the components necessary to use NFS file shares.
+1. To create a NetApp Files capacity pool and one or more NFS volumes, see [set up Azure NetApp Files and NFS volume](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md). For information about service levels, see [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md).
+2. [Peer the virtual network](how-to-connect-peer-virtual-network.md) for the NetApp Files capacity pool to the lab account.
+3. [Create the classroom lab](how-to-manage-classroom-labs.md).
+4. On the template VM, install the components necessary to use NFS file shares.
     - Ubuntu:
 
         ```bash
@@ -201,7 +200,7 @@ To use an Azure NetApp Files share in Azure Lab Services:
         sudo yum install nfs-utils
         ```
 
-6. On the template VM, save the following script as `mount_fileshare.sh` to [mount the NetApp Files share](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). Assign the `capacity_pool_ipaddress` variable the mount target IP address for the capacity pool. Get the mount instructions for the volume to find the appropriate value. The script expects the path name of the NetApp Files volume. To ensure that users can run the script, run `chmod u+x mount_fileshare.sh`.
+5. On the template VM, save the following script as `mount_fileshare.sh` to [mount the NetApp Files share](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). Assign the `capacity_pool_ipaddress` variable the mount target IP address for the capacity pool. Get the mount instructions for the volume to find the appropriate value. The script expects the path name of the NetApp Files volume. To ensure that users can run the script, run `chmod u+x mount_fileshare.sh`.
 
     ```bash
     #!/bin/bash
@@ -225,10 +224,10 @@ To use an Azure NetApp Files share in Azure Lab Services:
     sudo bash -c "echo ""$capacity_pool_ipaddress:/$volume_name /$mount_directory/$volume_name nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0"" >> /etc/fstab"
     ```
 
-7. If all students are sharing access to the same NetApp Files volume, you can run the `mount_fileshare.sh` script on the template machine before publishing. If students each get their own volume, save the script to be run later by the student.
-8. [Publish](how-to-create-manage-template.md#publish-the-template-vm) the template VM.
-9. [Configure the policy](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) for the file share. The export policy can allow for a single VM or multiple VMs to have access to a volume. You can grant read-only or read/write access.
-10. Students must start their VM and run the script to mount the file share. They'll only have to run the script once. The command will look like the following: `./mount_fileshare.sh myvolumename`.
+6. If all students are sharing access to the same NetApp Files volume, you can run the `mount_fileshare.sh` script on the template machine before publishing. If students each get their own volume, save the script to be run later by the student.
+7. [Publish](how-to-create-manage-template.md#publish-the-template-vm) the template VM.
+8. [Configure the policy](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) for the file share. The export policy can allow for a single VM or multiple VMs to have access to a volume. You can grant read-only or read/write access.
+9. Students must start their VM and run the script to mount the file share. They'll only have to run the script once. The command will look like the following: `./mount_fileshare.sh myvolumename`.
 
 ## Next steps
 

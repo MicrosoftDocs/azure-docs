@@ -128,7 +128,7 @@ The following diagram shows a volume reverting to an earlier snapshot:
 ![Diagram that shows a volume reverting to an earlier snapshot](../media/azure-netapp-files/snapshot-volume-revert.png)
 
 > [!IMPORTANT]
-> Active filesystem data that was written and snapshots that were taken after the selected snapshot was taken will be lost. The snapshot revert operation will replace all the data in the targeted volume with the data in the selected snapshot. You should pay attention to the snapshot contents and creation date when you select a snapshot. You cannot undo the snapshot revert operation.  
+> Active filesystem data that was written and snapshots that were taken after the selected snapshot will be lost. The snapshot revert operation will replace all the data in the targeted volume with the data in the selected snapshot. You should pay attention to the snapshot contents and creation date when you select a snapshot. You cannot undo the snapshot revert operation.  
 
 See [Revert a volume using snapshot revert](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert) about how to use this feature.
 

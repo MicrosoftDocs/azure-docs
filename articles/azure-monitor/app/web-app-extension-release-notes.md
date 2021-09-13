@@ -2,8 +2,6 @@
 title: Release Notes for Azure web app extension - Application Insights
 description: Releases notes for Azure Web Apps Extension for runtime instrumentation with Application Insights.
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
 ms.date: 06/26/2020
 
 ---
@@ -12,12 +10,12 @@ ms.date: 06/26/2020
 
 This article contains the releases notes for Azure Web Apps Extension for runtime instrumentation with Application Insights. This is applicable only for pre-installed extensions.
 
-[Learn](azure-web-apps.md) more about Azure Web App Extension for Application Insights.
+Learn more about [Azure Web App Extension for Application Insights](azure-web-apps.md)).
 
 ## Frequently asked questions
 
 - How to find which version of the extension I am currently on?
-    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit [the step by step troubleshooting guide for extension/agent based monitoring](./azure-web-apps.md?tabs=net#troubleshooting) for more information.
+    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit the step by step troubleshooting guide for extension/agent based monitoring for [ASP.NET Core](./azure-web-apps-net-core.md#troubleshooting), [ASP.NET](./azure-web-apps-net.md#troubleshooting), [Java](./azure-web-apps-java.md#troubleshooting), or [Node.js](./azure-web-apps-nodejs.md#troubleshooting) ) for more information.
 
 - What if I'm using private extensions?
     - Uninstall private site extensions since it's no longer supported.
@@ -32,7 +30,7 @@ This article contains the releases notes for Azure Web Apps Extension for runtim
 
 ### 2.8.37
 
-- AppSvc Windows extension: Made .Net Core work with any version of System.Diagnostics.DiagnosticSource.dll.
+- AppSvc Windows extension: Made .NET Core work with any version of System.Diagnostics.DiagnosticSource.dll.
 
 ### 2.8.36
 
@@ -89,4 +87,4 @@ This article contains the releases notes for Azure Web Apps Extension for runtim
 
 ## Next steps
 
-- Visit the [Azure App Service documentation](azure-web-apps.md) for more information on how to configuring monitoring for Azure App Services. 
+- Visit the [Application Monitoring for Azure App Service documentation](azure-web-apps.md) for more information on how to configuring monitoring for Azure App Services. 

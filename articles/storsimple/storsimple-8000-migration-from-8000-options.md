@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 08/17/2021 
+ms.date: 09/02/2021 
 ms.author: alkohli
 
 ---
@@ -30,6 +30,13 @@ This brand new migration option enables customers to store their organization's 
 
 For more information on how to migrate data to Azure File Sync, go to [StorSimple 8100 and 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
+#### Migrate to Azure NetApp Files
+
+StorSimple 8000 Series customers can migrate to Azure NetApp Files (ANF) paired with NetApp Global File Cache (GFC) to continue storing critical data in Azure while maintaining content at remote sites. Customers can streamline and simplify IT storage and infrastructure by centralizing unstructured data in Microsoft Azure using Azure NetApp Files to provide fast local and geographically distributed access with NetApp Global File Cache.
+
+For an overview of capabilities, deployment methodologies, and migration, see [Reference Architecture: Globally Distributed
+Enterprise File Sharing with Azure NetApp Files and NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf), from NetApp.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
+
 ### Third-party options
 
 #### Migrate to Panzura Freedom NAS
@@ -43,14 +50,6 @@ This migration is supported by Panzura and customers can get started by requesti
 Moving your entire StorSimple environment to a stable, secure, high-performance file services platform is easy with Nasuni. Nasuni offers the security and performance of on-premises file storage while combining it with the scalability and durability of Azure. As a leading Azure independent software vendor (ISV), Nasuni brings all the tools necessary to move your StorSimple data to a modern platform that lets you share and collaborate with your files across multiple locations.
 
 Get started today: [Nasuni website](https://info.nasuni.com/storsimple8000-webinar).
-
-#### Migrate to NetApp
-
-StorSimple 8000 Series customers can migrate to Azure NetApp Files (ANF) paired with NetApp Global File Cache (GFC) to continue storing critical data in Azure while maintaining content at remote sites. Customers can streamline and simplify IT storage and infrastructure by centralizing unstructured data in Microsoft Azure using Azure NetApp Files to provide fast local and geographically distributed access with NetApp Global File Cache.
-
-For an overview of capabilities, deployment methodologies, and migration, see [Reference Architecture: Globally Distributed
-Enterprise File Sharing with Azure NetApp Files and NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf), from NetApp.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
-
 
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity

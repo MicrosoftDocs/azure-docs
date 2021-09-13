@@ -119,7 +119,7 @@ Create a test user named **Britta Simon** in Splan Visitor. Work with the [Spla
 Test your Azure AD single sign-on configuration with one of the following options:
 
 * **Azure portal**: Select **Test this application** to automatically sign in to the Splan Visitor for which you set up SSO.
-* **Microsoft My Apps portal**: Select the **Splan Visitor** tile to automatically sign in to the Splan Visitor for which you set up SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+* **Microsoft My Apps portal**: Select the **Splan Visitor** tile to automatically sign in to the Splan Visitor for which you set up SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
