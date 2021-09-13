@@ -108,5 +108,4 @@ Connect your customer relationship management (CRM) system with your commercial 
 ## Next steps
 
 - [Configure Azure application properties](azure-app-properties.md)
-
 <!--- [Updated for Workspaces]() --->
