@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
-title: Language service documentation
-summary: Learn how to integrate AI that works on written text into your applications.
+title: Azure Cognitive Service for language
+summary: Learn how to integrate AI into your applications that can extract information, classify text, understand conversational language, answer questions and more.
 brand: azure
 
 metadata:
@@ -29,7 +29,7 @@ highlightedContent:
       itemType: get-started
       url: overview.md
     - title: Responsible use of AI
-      itemType: overview
+      itemType: concept
       url: /legal/cognitive-services/text-analytics/transparency-note
 
 conceptualContent:
@@ -98,11 +98,8 @@ additionalContent:
   sections:
     - items:
       - title: Translate text 
-        links:
-        - text: Translator
-          url: ../translator/translator-overview.md
-        - text: Custom Translator
-          url: ../translator/custom-translator/overview.md
+        summary: Explore Translator, a cloud-based machine translation service. 
+        url: ../translator/translator-overview.md
     - items:
       - title: Resources
         links:
