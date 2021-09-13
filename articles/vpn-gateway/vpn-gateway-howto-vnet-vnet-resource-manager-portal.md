@@ -37,7 +37,7 @@ The following sections describe the different ways to connect virtual networks.
 
 Configuring a VNet-to-VNet connection is a simple way to connect VNets. When you connect a virtual network to another virtual network with a VNet-to-VNet connection type (VNet2VNet), it's similar to creating a Site-to-Site IPsec connection to an on-premises location. Both connection types use a VPN gateway to provide a secure tunnel with IPsec/IKE and function the same way when communicating. However, they differ in the way the local network gateway is configured. 
 
-When you create a VNet-to-VNet connection, the local network gateway address space is automatically created and populated. If you update the address space for one VNet, the other VNet automatically routes to the updated address space. It's typically faster and easier to create a VNet-to-VNet connection than a Site-to-Site connection.
+When you create a VNet-to-VNet connection, the local network gateway address space is automatically created and populated. If you update the address space for one VNet, the other VNet automatically routes to the updated address space. It's typically faster and easier to create a VNet-to-VNet connection than a Site-to-Site connection. The local network gateway created automatically for a VNet-to-VNet connection will not include any Point-to-Site client pool address space. If you need transitive routing for the Point-to-Site clients please use a Site-to-Site connection between the Virtual Network Gateways for peering.
 
 ### Site-to-Site (IPsec)
 
