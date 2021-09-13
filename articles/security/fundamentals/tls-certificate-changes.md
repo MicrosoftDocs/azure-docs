@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 09/13/2021
 ms.author: mbaldwin
 
 ---
@@ -30,7 +30,7 @@ All Azure services are impacted by this change. Here are some additional details
 - Azure Instance Metadata Service will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
-> Customers may need to update their application(s) after this change to prevent connectivity failures when attempting to connect to Azure services.
+> Customers may need to update their application(s) after this change to prevent connectivity failures when attempting to connect to Azure Storage.
 https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581
 ## What is changing?
 
