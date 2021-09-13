@@ -46,11 +46,7 @@ You can open new tabs with the same URL to create additional instances of the di
 
 ## Upgrading to Azure Fluid Relay
 
-To run against the Azure Fluid Relay service, you'll need to create a new Azure Fluid Relay service on Azure, and then update your app's configuration to connect to your Azure service instead of your local Tinylicious server.
-
-### Create an Azure Fluid Relay service on your Azure account
-
-???
+To run against the Azure Fluid Relay service, you'll need to update your app's configuration to connect to your Azure service instead of your local Tinylicious server.
 
 ### Remove the Tinylicious client from the app
 
