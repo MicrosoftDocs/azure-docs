@@ -294,7 +294,7 @@ The JSON response uses the same schema as the published knowledge base query.
     }
     ```
 
-    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions, as well as the metadata property containing the Chit-chat metadata tag information.
+    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions, and the metadata property containing the Chit-chat metadata tag information.
 
 ## Use threshold and default answer
 
@@ -370,7 +370,7 @@ You can request a minimum threshold for the answer. If the threshold is not met,
     ```
 ## Use unstructured data sources
     
-We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query.
+We now support the ability to add unstructured documents that can't be used to extract QnAs. The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query.
 
 1. Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
 
