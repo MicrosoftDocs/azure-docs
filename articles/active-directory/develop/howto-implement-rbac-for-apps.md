@@ -110,3 +110,4 @@ Implementing RBAC in a Node.js with express application involves the use of MSAL
 ## Next steps
 
 - Read more on [permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md).
+- Read more on [role-based access control for application developers](./custom-rbac-for-developers.md).
