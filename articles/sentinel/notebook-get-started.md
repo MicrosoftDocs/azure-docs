@@ -284,13 +284,11 @@ Device authorization adds another factor to the authentication by generating a o
 
     :::image type="content" source="media/notebook-get-started/device-authorization.png" alt-text="Screenshot showing a device authorization code.":::
 
-1. Select and copy the indicated code to your clipboard. Then, go to [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and paste the code in.
-
-1. Authenticate with your Azure credentials as shown in the following sequence:
+1. Select and copy the indicated code to your clipboard. Then, go to [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and paste the code in. For example:
 
    :::image type="content" source="media/notebook-get-started/authorization-process.png" alt-text="Screenshot showing the device authorization process.":::
 
-1. When you see the final confirmation message, close the browser tab return to your notebook in Azure Sentinel.
+1. When you see the confirmation message that you've signed in, close the browser tab return to your notebook in Azure Sentinel.
 
    Output similar to the following is displayed in your notebook:
 
@@ -447,9 +445,11 @@ signins_df = qry_prov.Azure.list_all_signins_geo()
 signins_df.head()
 ```
 
-The output displays the first five rows of results. If there's no data, only the column headings display. For example:
+The output displays the first five rows of results. For example:
 
 :::image type="content" source="media/notebook-get-started/run-query-with-built-in-time-range.png" alt-text="Screenshot of a query run with the built-in time range.":::
+
+If there's no data, only the column headings display.
 
 ### Run a query using a custom time range
 
@@ -640,7 +640,7 @@ If you already have the required secrets stored in a Key Vault you can enter the
 
 Fetching settings from a Vault in a different tenant is not currently supported. For more information, see [Specifying secrets as Key Vault secrets](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html#specifying-secrets-as-key-vault-secrets).
 
-## Specify the Azure cloud and default Azure authentication methods
+## Specify the Azure cloud and Azure authentication methods
 
 If you are using a sovereign or government Azure cloud, rather than the public or global Azure cloud, you must select the appropriate cloud in your settings. For most organizations the global cloud is the default.
 
