@@ -286,7 +286,7 @@ Type the following code in a text file, and save it as **test.json** somewhere o
 
 ### Create the runbook
 
-Create a new PowerShell runbook named **Test-Json** in Azure Automation. See [My first PowerShell runbook](./learn/automation-tutorial-runbook-textual-powershell.md).
+Create a new PowerShell runbook named **Test-Json** in Azure Automation.
 
 To accept the JSON data, the runbook must take an object as an input parameter. The runbook can then use the properties defined in the JSON file.
 
