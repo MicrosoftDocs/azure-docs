@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/25/2021
+ms.date: 08/30/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -652,6 +652,28 @@ Requires one string argument. Returns the string, but with any diacritical chara
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String | Usually a first name or last name attribute. |
+
+
+| Character with Diacritic  | Normalized character | Character with Diacritic  | Normalized character | 
+| --- | --- | --- | --- | 
+| ä, à, â, ã, å, á, ą, ă | a | Ä, À, Â, Ã, Å, Á, Ą, Ă | A | 
+| æ | ae | Æ | AE | 
+| ç, č, ć | c | Ç, Č, Ć | C | 
+| ď | d | Ď | D | 
+| ë, è, é, ê, ę, ě, ė | e | Ë, È, É, Ê, Ę, Ě, Ė | E | 
+| ğ | g | Ğ | G | 
+| Ï, Î, Ì, Í, İ | I | ï, î, ì, í, ı | i | 
+| ľ, ł | l |  Ł, Ľ | L | 
+| ñ, ń, ň | n |  Ñ, Ń, Ň | N | 
+| ö, ò, ő, õ, ô, ó | o |  Ö, Ò, Ő, Õ, Ô, Ó | O | 
+| ø | oe |  Ø | OE | 
+| ř | r |  Ř | R | 
+| ß | ss | | | 
+| š, ś, ș, ş | s |  Š, Ś, Ș, Ş | S | 
+| ť, ț | t | Ť, Ț | T | 
+| ü, ù, û, ú, ů, ű | u |  Ü, Ù, Û, Ú, Ů, Ű | U | 
+| ÿ, ý | y | Ÿ, Ý | Y | 
+| ź, ž, ż | z | Ź, Ž, Ż | Z | 
 
 
 #### Remove diacritics from a string

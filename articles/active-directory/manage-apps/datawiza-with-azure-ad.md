@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 8/30/2021
+ms.date: 8/27/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -28,7 +28,7 @@ To get started, you'll need:
 
 - An Azure subscription. If you don\'t have a subscription, you can get a [trial account](https://azure.microsoft.com/free/).
 
-- An [Azure AD tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- An [Azure AD tenant](../fundamentals/active-directory-access-create-new-tenant.md)
 that's linked to your Azure subscription.
 
 - [Docker](https://docs.docker.com/get-docker/) and
@@ -41,7 +41,7 @@ are required to run DAB. Your applications can run on any platform, such as the 
 
 Datawiza integration includes the following components:
 
-- [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) - Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
+- [Azure AD](../fundamentals/active-directory-whatis.md) - Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
 
 - Datawiza Access Broker (DAB) - The service user sign on and transparently passes identity to applications through HTTP headers.
 
@@ -82,22 +82,22 @@ Instead, if you want to use an existing web application in your Azure AD tenant,
 integration](https://docs.datawiza.com/step-by-step/step3.html). [Deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html). A sample docker image `docker-compose.yml` file is provided for you to download and use. [Log in to the container registry](https://docs.datawiza.com/step-by-step/step3.html#important-step) to download the images of DAB and the header-based application.
 
     ```YML
-    services:\
-      datawiza-access-broker:\
-      image: registry.gitlab.com/datawiza/access-broker\
-      container\_name: datawiza-access-broker\
-      restart: always\
-      ports:\
-      - \"9772:9772\"\
-      environment:\
-      PROVISIONING\_KEY: \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
-      PROVISIONING\_SECRET: \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
-      \
-      header-based-app:\
-      image: registry.gitlab.com/datawiza/header-based-app\
-      restart: always\
-     ports:\
-     - \"3001:3001\"
+    services:
+      datawiza-access-broker:
+      image: registry.gitlab.com/datawiza/access-broker
+      container_name: datawiza-access-broker
+      restart: always
+      ports:
+      - "9772:9772"
+      environment:
+      PROVISIONING_KEY: #############################################
+      PROVISIONING_SECRET: ##############################################
+      
+      header-based-app:
+      image: registry.gitlab.com/datawiza/header-based-app
+      restart: always
+     ports:
+     - "3001:3001"
    ```
 
 2. After executing `docker-compose -f docker-compose.yml up`, the
@@ -127,6 +127,6 @@ header-based application should have SSO enabled with Azure AD. Open a browser a
 
 ## Next steps
 
-- [Configure Datawiza with Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/partner-datawiza)
+- [Configure Datawiza with Azure AD B2C](../../active-directory-b2c/partner-datawiza.md)
 
 - [Datawiza documentation](https://docs.datawiza.com)

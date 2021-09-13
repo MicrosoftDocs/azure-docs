@@ -19,7 +19,7 @@ Azure Functions requires an Azure Storage account when you create a function app
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  Used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
-> When using the Consumption/Premium hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
+> When using the Consumption/Premium hosting plan, your function code and binding configuration files are stored in Azure Files in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
 
 ## Storage account requirements
 

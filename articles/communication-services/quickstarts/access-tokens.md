@@ -5,6 +5,7 @@ description: Learn how to manage identities and access tokens using the Azure Co
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
+
 ms.author: tchladek
 ms.date: 06/30/2021
 ms.topic: quickstart

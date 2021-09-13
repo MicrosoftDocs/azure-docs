@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 09/01/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -103,7 +103,7 @@ However, you cannot create Azure policies (custom naming policies) on the Azure 
 
 ### When I delete an Azure NetApp Files volume, is the data deleted safely? 
 
-Deletion of an Azure NetApp Files volume is performed in the backend (physical infrastructure layer) programmatically with immediate effect. The delete operation includes deleting keys used for encrypting data at rest. There is no option for any scenario to recover a deleted volume once the delete operation is executed successfully (via interfaces such as the Azure portal and the API.)
+Deletion of an Azure NetApp Files volume is performed programmatically with immediate effect. The delete operation includes deleting keys used for encrypting data at rest. There is no option for any scenario to recover a deleted volume once the delete operation is executed successfully (via interfaces such as the Azure portal and the API.)
 
 ## Performance FAQs
 

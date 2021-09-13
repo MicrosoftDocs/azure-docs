@@ -11,7 +11,7 @@ keywords: powershell,  runbook, json, azure automation
 
 # Deploy an Azure Resource Manager template in a PowerShell runbook
 
-You can write an [Azure Automation PowerShell runbook](./learn/automation-tutorial-runbook-textual-powershell.md)
+You can write an [Azure Automation PowerShell runbook](./learn/powershell-runbook-managed-identity.md)
 that deploys an Azure resource by using an [Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). The templates allow you to use Azure Automation to automate deployment of your Azure resources. You can maintain your Resource Manager templates in a central, secure location, such as Azure Storage.
 
 In this article, we create a PowerShell runbook that uses a Resource Manager template stored in [Azure Storage](../storage/common/storage-introduction.md) to deploy a new Azure Storage account.
@@ -83,9 +83,9 @@ In a text editor, copy the following text:
 
 Save the file locally as **TemplateTest.json**.
 
-## Save the Resource Manager template in Azure Storage
+## Save the Resource Manager template in Azure Files
 
-Now we use PowerShell to create an Azure Storage file share and upload the **TemplateTest.json** file. For instructions on how to create a file share and upload a file in the Azure portal, see [Get started with Azure File storage on Windows](../storage/files/storage-dotnet-how-to-use-files.md).
+Now we use PowerShell to create an Azure file share and upload the **TemplateTest.json** file. For instructions on how to create a file share and upload a file in the Azure portal, see [Get started with Azure Files on Windows](../storage/files/storage-files-quick-create-use-windows.md).
 
 Launch PowerShell on your local machine, and run the following commands to create a file share and upload the Resource Manager template to that file share.
 
