@@ -4,7 +4,7 @@ description: This article tracks FedRAMP and DoD compliance scope for Azure, Dyn
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
-ms.date: 08/27/2021
+ms.date: 09/07/2021
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -49,7 +49,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: August 2021*
+*Last updated: September 2021*
 
 ### Terminology used
 
@@ -110,6 +110,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Azure Healthcare APIs](https://azure.microsoft.com/services/healthcare-apis/) (formerly Azure API for FHIR) | &#x2705; | &#x2705; | |
 | [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache/) | &#x2705; | &#x2705; | |
+| [Azure Immersive Reader](https://azure.microsoft.com/services/immersive-reader/) | &#x2705; | &#x2705; | |
 | [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) | &#x2705; | &#x2705; | |
 | [Azure Internet Analyzer](https://azure.microsoft.com/services/internet-analyzer/) | &#x2705; | &#x2705; | |
 | [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) | | | &#x2705; |
@@ -149,10 +150,11 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; | |
 | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | &#x2705; | &#x2705; | |
 | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | &#x2705; | &#x2705; | |
+| [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) | &#x2705; | &#x2705; | |
 | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) | &#x2705; | &#x2705; | |
 | [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer/) | &#x2705; | &#x2705; | |
 | [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; | |
-| [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware/) | | | &#x2705; |
+| [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware/) | &#x2705; | &#x2705; | |
 | [Azure Web Application Firewall)](https://azure.microsoft.com/services/web-application-firewall/) | &#x2705; | &#x2705; | |
 | [Batch](https://azure.microsoft.com/services/batch/) | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
@@ -181,8 +183,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Dynamics 365 Field Service](https://dynamics.microsoft.com/field-service/overview/)| &#x2705; | &#x2705; | |
 | [Dynamics 365 Finance](https://dynamics.microsoft.com/finance/overview/)| &#x2705; | &#x2705; | |
 | [Dynamics 365 Guides](https://dynamics.microsoft.com/mixed-reality/guides/)| &#x2705; | &#x2705; | |
-| [Dynamics 365 Sales](https://dynamics.microsoft.com/sales/overview/) | | | &#x2705; |
-| [Dynamics 365 Sales Professional](https://dynamics.microsoft.com/sales/professional/) | | | &#x2705; |
+| [Dynamics 365 Sales](https://dynamics.microsoft.com/sales/overview/) | &#x2705; | &#x2705; | |
+| [Dynamics 365 Sales Professional](https://dynamics.microsoft.com/sales/professional/) | &#x2705; | &#x2705; | |
 | [Dynamics 365 Supply Chain Management](https://dynamics.microsoft.com/supply-chain-management/overview/)| &#x2705; | &#x2705; | |
 | [Event Grid](https://azure.microsoft.com/services/event-grid/) | &#x2705; | &#x2705; | |
 | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | &#x2705; | &#x2705; | |
@@ -240,7 +242,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
 ## Azure Government services by audit scope
-*Last updated: August 2021*
+*Last updated: September 2021*
 
 ### Terminology used
 
@@ -296,6 +298,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure File Sync](../../storage/file-sync/file-sync-introduction.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Firewall Manager](https://azure.microsoft.com/services/firewall-manager/#overview) | &#x2705; | &#x2705; | | | |
 | [Azure Form Recognizer](https://azure.microsoft.com/services/form-recognizer/) | &#x2705; | &#x2705; | | | |
 | [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Functions](https://azure.microsoft.com/services/functions/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

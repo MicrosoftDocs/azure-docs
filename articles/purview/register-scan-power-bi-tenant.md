@@ -177,7 +177,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
    
    4. Construct tenant-specific sign-in URL for your service principal by running the following url in your web browser:
    
-     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonece=67890
+     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
     
     Make sure you replace the parameters with correct information:
     <purview_tenant_id> is the Azure Active Directory tenant ID (GUID) where Azure Purview account is provisioned.

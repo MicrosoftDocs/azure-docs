@@ -253,7 +253,7 @@ The following resources can use Basic Load Balancers which means you cannot reac
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
-- API Management
+- API Management (stv1)
 - Active Directory Domain Service (ADDS)
 - Logic Apps
 - HDInsight

@@ -13,13 +13,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/18/2021
+ms.date: 09/08/2021
 ms.author: b-juche
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## September 2021
+
+* [**Administrators**](create-active-directory-connections.md#create-an-active-directory-connection) option in Active Directory connections (Preview)
+
+    The Active Directory connections page now includes an **Administrators** field. You can specify users or groups that will be given administrator privileges on the volume.
 
 ## August 2021
 

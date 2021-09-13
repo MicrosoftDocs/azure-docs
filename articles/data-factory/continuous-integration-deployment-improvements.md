@@ -40,7 +40,7 @@ The automated publish feature takes the **Validate all** and **Export ARM templa
 1. Users must load the Data Factory UI and select **Publish** to deploy changes to Data Factory and generate the ARM templates in the publish branch.
 1. The DevOps Release pipeline is configured to create a new release and deploy the ARM template each time a new change is pushed to the publish branch.
 
-![Diagram that shows the current CI/CD flow.](media/continuous-integration-deployment-improvements/current-ci-cd-flow.png)
+:::image type="content" source="media/continuous-integration-deployment-improvements/current-ci-cd-flow.png" alt-text="Diagram that shows the current CI/CD flow.":::
 
 ### Manual step
 
@@ -53,7 +53,7 @@ In the current CI/CD flow, the user experience is the intermediary to create the
 1. The Azure DevOps pipeline build is triggered every time a new commit is made to master. It validates the resources and generates an ARM template as an artifact if validation succeeds.
 1. The DevOps Release pipeline is configured to create a new release and deploy the ARM template each time a new build is available.
 
-![Diagram that shows the new CI/CD flow.](media/continuous-integration-deployment-improvements/new-ci-cd-flow.png)
+:::image type="content" source="media/continuous-integration-deployment-improvements/new-ci-cd-flow.png" alt-text="Diagram that shows the new CI/CD flow.":::
 
 ### What changed?
 
@@ -106,7 +106,7 @@ Follow these steps to get started:
 
 1. Open an Azure DevOps project, and go to **Pipelines**. Select **New Pipeline**.
 
-   ![Screenshot that shows the New pipeline button.](media/continuous-integration-deployment-improvements/new-pipeline.png)
+   :::image type="content" source="media/continuous-integration-deployment-improvements/new-pipeline.png" alt-text="Screenshot that shows the New pipeline button.":::
 
 2. Select the repository where you want to save your pipeline YAML script. We recommend saving it in a build folder in the same repository of your Data Factory resources. Ensure there's a *package.json* file in the repository that contains the package name, as shown in the following example:
 
@@ -123,7 +123,7 @@ Follow these steps to get started:
 
 3. Select **Starter pipeline**. If you've uploaded or merged the YAML file, as shown in the following example, you can also point directly at that and edit it.
 
-   ![Screenshot that shows Starter pipeline.](media/continuous-integration-deployment-improvements/starter-pipeline.png)
+   :::image type="content" source="media/continuous-integration-deployment-improvements/starter-pipeline.png" alt-text="Screenshot that shows Starter pipeline.":::
 
    ```yaml
    # Sample YAML file to validate and export an ARM template into a build artifact
