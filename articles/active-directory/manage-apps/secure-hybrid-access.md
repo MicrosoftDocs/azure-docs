@@ -32,7 +32,7 @@ In addition to [Azure AD Application Proxy](../app-proxy/what-is-application-pro
 
 ![Image shows secure hybrid access with app proxy and partners](./media/secure-hybrid-access/secure-hybrid-access.png)
 
-The following partners offer pre-built solutions to support conditional access policies per application and provide detailed guidance for integrating with Azure AD. 
+The following partners offer pre-built solutions to support **conditional access policies per application** and provide detailed guidance for integrating with Azure AD. 
 
 - [Akamai Enterprise Application Access](../saas-apps/akamai-tutorial.md)
 
