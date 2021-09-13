@@ -1,7 +1,7 @@
 ---
-title: 'CLI (v2) workspace YAML schema'
+title: 'CLI (v2) compute cluster (AmlCompute) YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) workspace YAML schema.
+description: Reference documentation for the CLI (v2) compute cluster (AmlCompute) YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -33,16 +33,16 @@ ms.reviewer: laobri
 | `max_instances` | integer | The maximum number of nodes to use on the cluster. | | `4` |
 | `idle_time_before_scale_down` | integer | Node idle time in seconds before scaling down the cluster. | | `1800` |
 | `ssh_public_access_enabled` | boolean | Whether to enable public SSH access on the nodes of the cluster. | | `false` |
-| `ssh_settings` | object | TODO | | |
+| `ssh_settings` | object | SSH settings for connecting to the cluster. | | |
 | `ssh_settings.admin_username` | string | The name of the administrator user account that can be used to SSH into nodes. | | |
 | `ssh_settings.admin_password` | string | The password of the administrator user account. **One of `admin_password` or `ssh_key_value` is required.** | | |
 | `ssh_settings.ssh_key_value` | string | The SSH public key of the administrator user account. **One of `admin_password` or `ssh_key_value` is required.** | | |
-| `network_settings` | object | | | |
+| `network_settings` | object | Network security settings. | | |
 | `network_settings.vnet_name` | string | Name of the virtual network (VNet) when creating a new one or referencing an existing one. | | |
 | `network_settings.subnet` | string | Either the name of the subnet when creating a new VNet or referencing an existing one, or the fully qualified resource ID of a subnet in an existing VNet. Do not specify `network_settings.vnet_name` if the subnet ID is specified. The subnet ID can refer to a VNet/subnet in another resource group. | | |
-| `network_settings.private_ip_only` | boolean | ?? | | ?? |
+| `network_settings.private_ip_only` | boolean | Whether to remove the public IP address from the compute nodes. | | `false` |
 | `identity` | object | The managed identity configuration to assign to the compute. AmlCompute clusters support only one system-assigned identity or multiple user-assigned identities, not both concurrently. | | |
-| `identity.type` | string | The type of managed identity to assign to the compute. If the type is `user_assigned` the `identity.user_assigned_identities` property must also be specified. | `system_assigned`, `user_assigned` | |
+| `identity.type` | string | The type of managed identity to assign to the compute. If the type is `user_assigned`, the `identity.user_assigned_identities` property must also be specified. | `system_assigned`, `user_assigned` | |
 | `identity.user_assigned_identities` | array | List of fully qualified resource IDs of the user-assigned identities. | | |
 
 
