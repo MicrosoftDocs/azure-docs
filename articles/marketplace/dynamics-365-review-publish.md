@@ -43,7 +43,7 @@ If any of the pages have a status other than **Complete**, you need to correct t
 
 After all pages are complete and you have entered applicable testing notes, select **Publish** to submit your offer. We will email you when a preview version of your offer is available to approve. At that time complete the following steps:
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Return to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 1. On the Home page, select the **Marketplace offers** tile.
@@ -54,7 +54,7 @@ After all pages are complete and you have entered applicable testing notes, sele
 1. Select **Review and publish**.
 1. Select **Go live** to make your offer publicly available.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Return to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 1. Select the **Overview** tab in the left-nav menu bar.

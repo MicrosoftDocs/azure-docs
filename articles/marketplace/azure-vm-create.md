@@ -21,9 +21,9 @@ If you haven't done so yet, review [Plan a virtual machine offer](marketplace-vi
 
 ## Create a new offer
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 
@@ -50,7 +50,7 @@ Enter an **Offer alias**. The offer alias is the name that's used for the offer 
 
 Select **Create** to generate the offer and continue. Partner Center opens the **Offer setup** page.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. On the left pane, select **Commercial Marketplace** > **Overview**.

@@ -23,9 +23,9 @@ To help ensure that your customers are billed correctly, use the **Anomaly detec
 
 ## View and manage metered usage anomalies
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
@@ -67,7 +67,7 @@ To help ensure that your customers are billed correctly, use the **Anomaly detec
    [![Illustrates the Mark as an anomaly dialog box.](./media/anomaly-detection/mark-as-anomaly-workspaces.png)](./media/anomaly-detection/mark-as-anomaly-workspaces.png#lightbox)<br>
    ***Figure: 6: Mark as anomaly dialog box***
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign-in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Analyze** > **Usage**.

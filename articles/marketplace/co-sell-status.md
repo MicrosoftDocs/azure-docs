@@ -16,9 +16,9 @@ You can verify the Co-sell status for an offer on the **Offer overview** page of
 
 ## Verify Co-sell status
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Marketplace offers** tile.
@@ -29,7 +29,7 @@ You can verify the Co-sell status for an offer on the **Offer overview** page of
 
     [![Illustrates the co-sell status in the Marketplace Programs of the Overview page in Partner Center.](./media/co-sell/co-sell-status.png)](./media/co-sell/co-sell-status.png#lightbox)
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.

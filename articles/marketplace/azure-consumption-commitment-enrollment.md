@@ -30,9 +30,9 @@ An offer must meet the following requirements to be enrolled in the MACC program
 
 ## How to see if your offer is enrolled in the MACC program
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Marketplace offers** tile.
@@ -49,7 +49,7 @@ An offer must meet the following requirements to be enrolled in the MACC program
 > [!NOTE]
 > MACC program status for offers published to Azure Marketplace is updated weekly on Mondays. This means that if you publish an offer that meets the eligibility requirements for the MACC program, the status in Partner Center will not show the Enrolled status until the following Monday.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.

@@ -25,9 +25,9 @@ You will receive a pop-up notification containing a link to the **Downloads** da
 
 ## Access the Downloads dashboard
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
@@ -36,7 +36,7 @@ You will receive a pop-up notification containing a link to the **Downloads** da
 
 1. In the left menu, select **Downloads**.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Downloads**.
@@ -63,11 +63,11 @@ Support for Lifetime Export Capability of Analytics reports:
 
 A user can schedule asynchronous downloads of reports from the Downloads dashboard.
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 [![scheduling asynchronous downloads of reports from the Downloads page](media/downloads-dashboard/download-reports-workspaces.png)](media/downloads-dashboard/download-reports.png#lightbox)
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 [![scheduling asynchronous downloads of reports from the Downloads section](media/downloads-dashboard/download-reports.png)](media/downloads-dashboard/download-reports.png#lightbox)
 

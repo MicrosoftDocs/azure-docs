@@ -15,9 +15,9 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 ## Configure for Dynamics 365 Customer Engagement & Power Apps
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
@@ -58,7 +58,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
     - **User manual** – A PDF user manual that helps test drive users understand how to use your app (required).
     - **Test drive demo video** – A video that showcases your app (optional).
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
@@ -117,9 +117,9 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 ## Configure for Dynamics 365 Operations
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
@@ -155,7 +155,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
     - **User manual** – A PDF user manual that helps test drive users understand how to use your app (required).
     - **Test drive demo video** – A video that showcases your app (optional).
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.

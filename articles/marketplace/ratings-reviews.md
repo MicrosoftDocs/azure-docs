@@ -22,9 +22,9 @@ This article provides information on the Ratings & Reviews dashboard in Partner 
 
 ## Access the Ratings & reviews dashboard
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
@@ -33,7 +33,7 @@ This article provides information on the Ratings & Reviews dashboard in Partner 
 
 1. In the left menu, select **Ratings & reviews**.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 In the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center, expand the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** section and select **Ratings & Reviews**.
 
@@ -69,7 +69,7 @@ You can respond to reviews from users and the response will be visible on either
 
 To respond to a review, follow these steps:
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
 
@@ -79,7 +79,7 @@ To respond to a review, follow these steps:
 
 The response will appear under the text of the original review in the product detail page in AppSource, and Azure Marketplace online storefront.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
 

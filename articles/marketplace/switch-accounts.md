@@ -21,9 +21,9 @@ You can be part of more than one account. This article describes how to see if y
 
 ## View and switch accounts
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 You can check to see if you are part of multiple accounts by the presence of the _account picker_. In the top-right, select the your account icon as seen highlighted in the following screenshot.
 
@@ -40,7 +40,7 @@ In the following example, the signed-in user is part of the four highlighted acc
 
 [ ![Screenshot of accounts that can be selected with the account picker.](./media/manage-accounts/account-picker-two-workspaces.png) ](./media/manage-accounts/account-picker-two-workspaces.png#lightbox)
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 You can check to see if you are part of multiple accounts by the presence of the *account picker* in the left navigation menu, as seen highlighted in the following screenshot.
 

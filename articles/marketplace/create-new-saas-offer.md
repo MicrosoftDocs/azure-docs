@@ -23,9 +23,9 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
 
 ## Create a SaaS offer
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -48,7 +48,7 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
    + The offer alias can't be changed after you select **Create**.
 1. To generate the offer and continue, select **Create**.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.

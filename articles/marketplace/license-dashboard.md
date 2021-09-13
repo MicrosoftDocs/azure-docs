@@ -22,9 +22,9 @@ This article provides information about the License dashboard in the commercial 
 
 ## Check license usage
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 To check license usage of ISV apps in Partner Center, do the following:
 
@@ -37,7 +37,7 @@ To check license usage of ISV apps in Partner Center, do the following:
 
     [ ![Screenshot of the License dashboard in Partner Center.](./media/license-dashboard/license-dashboard-workspaces.png) ](./media/license-dashboard/license-dashboard-workspaces.png#lightbox)
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 To check license usage of ISV apps in Partner Center, do the following:
 
@@ -56,11 +56,11 @@ The following sections describe how to use the License dashboard and how to read
 
 You can find a month range selection at the top-right corner of the page. Customize the output of the widgets on the page by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
-#### [Preview interface](#tab/new-web-form) 
+#### [Workspaces view](#tab/new-web-form) 
 
 [ ![Screenshot of the month range selections on the License dashboard in Partner Center.](./media/license-dashboard/license-workspace-filters.png) ](./media/license-dashboard/license-workspace-filters.png#lightbox)
 
-#### [Current interface](#tab/old-web-form) 
+#### [Current view](#tab/old-web-form) 
 
 :::image type="content" source="./media/license-dashboard/month-range.png" alt-text="Screenshot of the month range selections on the License dashboard in Partner Center.":::
 

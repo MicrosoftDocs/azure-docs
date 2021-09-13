@@ -19,7 +19,7 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 ## Get help or open a support ticket
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
 
@@ -53,7 +53,7 @@ If you cannot find your answer in the self help, select **Provide issue details*
 >[!Note]
 >If you have not signed in to Partner Center, you may be required to sign in before you can create a ticket.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
 
@@ -91,7 +91,7 @@ If you cannot find your answer in the self help, select **Provide issue details*
 
 ## Track your existing support requests
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. To review your open and closed tickets, sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
 
@@ -99,7 +99,7 @@ If you cannot find your answer in the self help, select **Provide issue details*
 
     [ ![Illustrates the Partner Center Home page with the Help + support tile highlighted.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 To review your open and closed tickets, in the left-navigation menu, select **Commercial Marketplace** > **Support**.
 

@@ -30,9 +30,9 @@ The Co-sell option is available for the following offer types.
 
 ## Go to the Co-sell with Microsoft tab
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -52,7 +52,7 @@ The Co-sell option is available for the following offer types.
 
     [ ![Illustrates the Co-sell with Microsoft page.](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png) ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png#lightbox)
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
