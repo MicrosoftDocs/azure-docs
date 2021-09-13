@@ -225,6 +225,8 @@ You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/
 
 You can also access the Microsoft 365 activity logs programmatically by using the [Office 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview).
 
+Note: For most of standalone or bundled M365 subscriptions, there are backend dependencies on some sub-systems within M365 data center boundary, which require to write-back some information to keep directories in sync, which essentially help in enabling hassle free onboarding when a subscription opt for Exchange Online. Hence, you will see audit log entries with actions taken by “Microsoft Substrate Management” for such write-backs. These audit log entries refer to create/update/delete operations executed by EXO to AAD. These entries are informational in nature and do not require any action.
+
 ## Next steps
 
 - [Azure AD audit activity reference](reference-audit-activities.md)
