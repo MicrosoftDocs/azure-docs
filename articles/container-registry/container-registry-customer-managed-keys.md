@@ -2,7 +2,7 @@
 title: Encrypt registry with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/13/2021
 ms.custom: subject-rbac-steps
 ---
 
@@ -559,6 +559,12 @@ If this issue occurs with a system-assigned identity, please [create an Azure su
 If you enable a key vault firewall or virtual network after creating an encrypted registry, you might see HTTP 403 or other errors with image import or automated key rotation. To correct this problem, reconfigure the managed identity and key you used initially for encryption. See steps in [Rotate key](#rotate-key). 
 
 If the problem persists, please contact Azure Support.
+
+### Accidental deletion of key vault or key
+
+Deletion of the key vault, or the key, used to encrypt a registry with a customer-managed key will make the registry's content inaccessible. Use the key vault's [soft-delete](../key-vault/general/soft-delete-overview.md) feature, enabled by default, to recover a deleted vault or key vault object and resume registry operations.
+
+For key vault deletion and recovery scenarios, see [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md).
 
 ## Next steps
 
