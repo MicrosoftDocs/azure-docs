@@ -5,7 +5,8 @@ description: Use Azure Communication Services SDKs to manage call recording on t
 author: probableprime
 ms.author: rifox
 ms.service: azure-communication-services
-ms.topic: how-to 
+ms.topic: how-to
+ms.subservice: calling 
 ms.date: 08/10/2021
 ms.custom: template-how-to
 zone_pivot_groups: acs-web-ios-android

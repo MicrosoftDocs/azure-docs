@@ -9,6 +9,7 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: pstn
 ---
 # List of Session Border Controllers certified for Azure Communication Services direct routing
 This document contains a list of Session Border Controllers certified for Azure Communication Services direct routing. It also includes known limitations.

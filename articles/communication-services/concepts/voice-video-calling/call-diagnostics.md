@@ -10,6 +10,7 @@ services: azure-communication-services
 ms.date: 08/17/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 
 # Call diagnostics
