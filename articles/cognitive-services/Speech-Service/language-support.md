@@ -339,6 +339,10 @@ Below neural voices are in public preview.
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | English (United States) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>New</sup> | General，multi-lingual capabilities available [using SSML](speech-synthesis-markup.md#create-an-ssml-document) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>New</sup> | Optimized for spontaneous conversation |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyanNeural` <sup>New</sup> | Optimized for customer service |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural` <sup>New</sup> | Child voice，optimized for child story and chat; multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)|
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural` <sup>New</sup> | Optimized for narrating |
 
 > [!IMPORTANT]
 > Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
