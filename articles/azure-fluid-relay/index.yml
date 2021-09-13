@@ -29,4 +29,4 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: 'Quickstart: Dice Roller'
-            url: quickstarts/quickstart-diceroll.md
+            url: quickstarts/quickstart-dice-roll.md
