@@ -88,7 +88,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
 1. The SAP servers must be joined to an Active Directory Domain.
 2. The Active Directory Domain containing the SAP servers must be replicated to Azure Active Directory using Azure AD connect.
 3. It is highly recommended that there is at least one Active Directory Domain controller in the Azure landscape to avoid traversing the Express Route to contact Domain Controllers on-premises.
-4. The Azure support team should review the Azure Files SMB with [Active Directory Integration](/azure/storage/files/storage-files-identity-auth-active-directory-enable.md#videos) documentation. *The video shows additional configuration options which were modified (DNS) and skipped (DFS-N) for simplification reasons.* Nevertheless these are valid configuration options. 
+4. The Azure support team should review the Azure Files SMB with [Active Directory Integration](/azure/storage/files/storage-files-identity-auth-active-directory-enable#videos) documentation. *The video shows additional configuration options which were modified (DNS) and skipped (DFS-N) for simplification reasons.* Nevertheless these are valid configuration options. 
 5. The user executing the Azure Files PowerShell script must have permission to create objects in Active Directory.
 6. **SWPM version 1.0 SP32 and SWPM 2.0 SP09 or higher are required. SAPInst patch must be 749.0.91 or higher.**
 7. An up-to-date release of PowerShell should be installed on the Windows Server where the script is executed. 
@@ -113,7 +113,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
      1. Create the **sapmnt** File share with an appropriate size.  The suggested size is 256GB which delivers 650 IOPS, 75 MB/sec Egress and 50 MB/sec Ingress.
          ![create-storage-account-5](media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png) 
       
-     1. Download the [Azure Files Github](/azure/storage/files/storage-files-identity-ad-ds-enable.md#download-azfileshybrid-module) content and execute the [script](/azure/storage/files/storage-files-identity-ad-ds-enable.md#run-join-azstorageaccountforauth).   
+     1. Download the [Azure Files Github](/azure/storage/files/storage-files-identity-ad-ds-enable#download-azfileshybrid-module) content and execute the [script](/azure/storage/files/storage-files-identity-ad-ds-enable#run-join-azstorageaccountforauth).   
      This script will create either a Computer Account or Service Account in Active Directory.  The user running the script must have the following properties: 
          * The user running the script must have permission to create objects in the Active Directory Domain containing the SAP servers. Typically, a domain administrator account is used such as **SAPCONT_ADMIN@SAPCONTOSO.local** 
          * Before executing the script confirm that this Active Directory Domain user account is synchronized with Azure Active Directory (AAD).  An example of this would be to open the Azure Portal and navigate to AAD users and check that the user **SAPCONT_ADMIN@SAPCONTOSO.local** exists and verify the AAD user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.
@@ -153,7 +153,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
      ![one time net use mount](media/virtual-machines-shared-sap-high-availability-guide/unc-acl-1.png)
 
  4. Basis administrator should complete the tasks below:
-     1. [Install the Windows Cluster on ASCS/ERS Nodes and add the Cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
+     1. [Install the Windows Cluster on ASCS/ERS Nodes and add the Cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716)
      2. The first Cluster Node installation will ask for the Azure Files SMB storage account name.  Enter the FQDN <storage_account_name>.file.core.windows.net.  If SAPInst does not accept >13 characters then the SWPM version is too old.
      3. [Modify the SAP Profile of the ASCS/SCS Instance](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
      4. [Update the Probe Port for the SAP \<SID> role in WSFC](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
