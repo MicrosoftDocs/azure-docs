@@ -27,7 +27,7 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 
 <a id="create-autoscale"></a>
 
-## Azure Cosmos DB account for Gremlin API with autoscale provisioned throughput
+## Gremlin API with autoscale provisioned throughput
 
 Create an Azure Cosmos account for Gremlin API with a database and graph with autoscale throughput.
 
@@ -35,7 +35,7 @@ Create an Azure Cosmos account for Gremlin API with a database and graph with au
 
 <a id="create-manual"></a>
 
-## Azure Cosmos DB account for Gremlin API with standard provisioned throughput
+## Gremlin API with standard provisioned throughput
 
 Create an Azure Cosmos account for Gremlin API with a database and graph with standard provisioned throughput.
 

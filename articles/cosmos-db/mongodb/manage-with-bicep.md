@@ -27,7 +27,7 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 
 <a id="create-autoscale"></a>
 
-## Azure Cosmos account for MongoDB API with autoscale provisioned throughput
+## MongoDB API with autoscale provisioned throughput
 
 This template will create an Azure Cosmos account for MongoDB API (3.2, 3.6 or 4.0) with two collections that share autoscale throughput at the database level.
 
@@ -35,7 +35,7 @@ This template will create an Azure Cosmos account for MongoDB API (3.2, 3.6 or 4
 
 <a id="create-manual"></a>
 
-## Azure Cosmos account for MongoDB API with standard provisioned throughput
+## MongoDB API with standard provisioned throughput
 
 Create an Azure Cosmos account for MongoDB API (3.2, 3.6 or 4.0) with two collections that share 400 RU/s standard (manual) throughput at the database level.
 
