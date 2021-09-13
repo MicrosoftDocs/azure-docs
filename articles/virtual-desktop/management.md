@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Desktop management - Azure
-description: How to manage your Azure Virtual Desktop environment.
+title: Manage your Azure Virtual Desktop deployment - Azure
+description: Recommended ways for you to manage your Azure Virtual Desktop environment.
 author: heidilohr
 
 ms.topic: conceptual
