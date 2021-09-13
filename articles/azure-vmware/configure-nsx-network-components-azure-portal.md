@@ -16,7 +16,7 @@ After deploying Azure VMware Solution, you can configure the necessary NSX-T obj
 
 You'll have four options to configure NSX-T components in the Azure VMware Solution console:
 
-- **Segments** - Create segments that display in NSX-T Manager and vCenter. For more information, see [Use Azure portal to add an NSX-T segment](tutorial-nsx-t-network-segment.md#use-azure-portal-to-add-an-nsx-t-segment).
+- **Segments** - Create segments that display in NSX-T Manager and vCenter. For more information, see [Add an NSX-T segment using the Azure portal](tutorial-nsx-t-network-segment.md#use-azure-portal-to-add-an-nsx-t-segment).
 
 - **DHCP** - Create a DHCP server or DHCP relay if you plan to use DHCP.  For more information, see [Create a DHCP server or DHCP relay using the Azure portal](configure-dhcp-azure-vmware-solution.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal).
 
