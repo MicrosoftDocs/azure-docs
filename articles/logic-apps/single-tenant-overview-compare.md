@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/13/2021
 ---
 
 # Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps
@@ -124,6 +124,12 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
   > A stateless workflow provides the best performance when handling data or content, such as a file, that doesn't exceed 64 KB in *total* size. 
   > Larger content sizes, such as multiple large attachments, might significantly slow your workflow's performance or even cause your workflow to 
   > crash due to out-of-memory exceptions. If your workflow might have to handle larger content sizes, use a stateful workflow instead.
+
+  > [!IMPORTANT]
+  > A stateless workflow doesn't implement an asynchronous operation pattern. HTTP-based actions returning a
+  > ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response will proceed to the next step in the workflow
+  > execution. If the response includes a location header, stateless workflow won't poll that URI. Use stateful workflow to benefit from the
+  > standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply) by Azure Logic Apps.
 
   For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
