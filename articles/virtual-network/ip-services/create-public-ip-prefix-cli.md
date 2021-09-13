@@ -49,8 +49,6 @@ For more information on available prefix sizes, see [Prefix sizes](public-ip-add
 
 Create a public IP prefix with [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create) named **myPublicIpPrefix** in the **eastus2** location.
 
----
-
 ## IPv4
 
 # [**Zone redundant IPv4 prefix**](#tab/ipv4-zone-redundant)
@@ -103,7 +101,7 @@ The removal of the **`--zone`** parameter is the default selection for standard 
 
 ---
 
----
+
 
 ## IPv6
 
@@ -162,8 +160,6 @@ The removal of the **`--zone`** parameter is the default selection for standard 
 Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
 
 Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) in the **myPublicIpPrefix** prefix.
-
----
 
 # [**IPv4 address**](#tab/ipv4-address)
 
