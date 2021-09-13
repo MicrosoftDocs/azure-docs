@@ -29,7 +29,9 @@ There's also a [CLI-based version](create-first-function-cli-csharp.md) of this 
 
 Before you get started, make sure you have the following requirements in place:
 
-# [In-process](#tab/in-process)    
+# [In-process](#tab/in-process)
+
++ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.x.
 
