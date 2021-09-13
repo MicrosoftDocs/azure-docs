@@ -34,7 +34,7 @@ Follow these steps to create a new service client.
 
 ## API permissions
 
-For more details, visit [Configure Azure RBAC for FHIR](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac).
+Permissions for Azure API for FHIR are managed through RBAC. For more details, visit [Configure Azure RBAC for FHIR](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac).
 
 >[!NOTE]
 >Use  grant_type of client_credentials when trying to otain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/tutorial-web-app-test-postman).
