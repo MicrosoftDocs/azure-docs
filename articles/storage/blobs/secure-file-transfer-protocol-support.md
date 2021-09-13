@@ -16,7 +16,8 @@ ms.reviewer: ylunagaria
 Blob storage now supports the Secure File Transfer (SFTP) protocol. You can use an SFTP client to securely connect to an Azure Storage account, and then manage your objects by using file system semantics.
 
 > [!IMPORTANT]
-> SFTP protocol support is currently in PREVIEW and is available in the blah, blah, and blah regions. Need region info.
+> SFTP protocol support is currently in PREVIEW and is available in the following regions: Central US, East US, Canada, West Europe, Australia, East Asia, and North Europe.
+>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > To enroll in the preview, see [this form](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
