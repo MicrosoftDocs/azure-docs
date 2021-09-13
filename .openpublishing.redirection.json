@@ -316,6 +316,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/static-web-apps/github-actions-workflow.md",
+      "redirect_url": "/azure/static-web-apps/build-configuration",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
       "redirect_document_id": false
@@ -10745,17 +10750,22 @@
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/resource-group-audit.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/insights-debugging-with-events.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/resource-group-audit.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/view-activity-logs.md",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
@@ -14072,7 +14082,7 @@
       "source_path_from_root": "/articles/azure-vmware/deploy-zerto-disaster-recovery.md",
       "redirect_url": "/azure/azure-vmware/introduction",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
@@ -15774,6 +15784,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-data-guidelines.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-document-type-url.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-question-answer-set.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-role-based-access-control.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/log-query/log-search-transition.md",
       "redirect_url": "/azure/data-explorer/kusto/query/",
       "redirect_document_id": false
@@ -16631,6 +16661,11 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-palo-alto.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-palo-alto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-qradar.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-qradar",
       "redirect_document_id": false
     },
     {
@@ -28971,6 +29006,11 @@
     {
       "source_path_from_root": "/articles/storage/storage-python-how-to-use-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-python-how-to-use-blob-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-storage-explorer.md",
+      "redirect_url": "/azure/storage/blobs/quickstart-storage-explorer",
       "redirect_document_id": true
     },
     {
@@ -57031,6 +57071,11 @@
     {
       "source_path_from_root": "/articles/azure-cache-for-redis/cache-best-practices.md",
       "redirect_url": "/azure/azure-cache-for-redis/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/normalization-schema.md",
+      "redirect_url": "/azure/sentinel/network-normalization-schema",
       "redirect_document_id": false
     }
   ]
