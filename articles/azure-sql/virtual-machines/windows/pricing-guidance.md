@@ -95,7 +95,7 @@ To create an Azure VM running SQL Server 2017 with one of these pay-as-you-go im
 **Bringing your own SQL Server license through License Mobility**, also referred to as **BYOL**, means using an existing SQL Server Volume License with Software Assurance in an Azure VM. A SQL Server VM using BYOL only charges for the cost of running the VM, not for SQL Server licensing, given that you have already acquired licenses and Software Assurance through a Volume Licensing program or through a Cloud Solution Partner (CSP).
 
 > [!NOTE]
-> The BYOL images are currently only available for Windows virtual machines. However, you can manually install SQL Server on a Linux-only VM. See the guidelines in the [SQL Server on a Linux VM FAQ](../linux/frequently-asked-questions-faq.md).
+> The BYOL images are currently only available for Windows virtual machines. However, you can manually install SQL Server on a Linux-only VM. See the guidelines in the [SQL Server on a Linux VM FAQ](../linux/frequently-asked-questions-faq.yml).
 
 Bringing your own SQL Server licensing through License Mobility is recommended for:
 

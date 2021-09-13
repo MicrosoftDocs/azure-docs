@@ -186,7 +186,7 @@ The HADR Users Guide details the setup and configuration of a 2 node SAP ASE “
 > The only supported configuration on Azure is using Fault Manager without Floating IP.  The Floating IP Address method will not work on Azure. 
 
 ### Third node for disaster recovery
-Beyond using SAP ASE Always-On for local high availability, you might want to extend the configuration to an asynchronously replicated node in another Azure region. Documentation for such a scenario can be found [here](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
+Beyond using SAP ASE Always-On for local high availability, you might want to extend the configuration to an asynchronously replicated node in another Azure region. For more information, see [Installation Procedure for Sybase 16. 3 Patch Level 3 Always-on + DR on Suse 12.3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
 
 ## SAP ASE database encryption & SSL 
 SAP Software provisioning Manager (SWPM) is giving an option to encrypt the database during installation.  If you want to use encryption, it is recommended to use SAP Full Database Encryption.  See details documented in:
@@ -243,7 +243,6 @@ If you deployed the VM in a Cloud-Only scenario without cross-premises connectiv
 > 
 > 
 
-More details related to the DNS name can be found [here][virtual-machines-azurerm-versus-azuresm].
 
 Setting the SAP profile parameter icm/host_name_full to the DNS name of the Azure VM the link might look similar to:
 

@@ -1,33 +1,33 @@
 ---
 title: 'About Azure Point-to-Site VPN connections'
 titleSuffix: Azure VPN Gateway
-description: Learn about Point-to-Site connections and which P2S VPN Gateway authentication type to use.
+description: Learn about Point-to-Site VPN.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 07/28/2021
 ms.author: cherylmc
 
 ---
 # About Point-to-Site VPN
 
-A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure VNets from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect to a VNet. This article applies to the Resource Manager deployment model.
+A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure VNets from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect to a VNet. This article applies to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="protocol"></a>What protocol does P2S use?
 
 Point-to-site VPN can use one of the following protocols:
 
-* **OpenVPN® Protocol**, an SSL/TLS based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (OSX versions 10.13 and above).
+* **OpenVPN® Protocol**, an SSL/TLS based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 10.13 and above).
 
-* Secure Socket Tunneling Protocol (SSTP), a proprietary TLS-based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
+* Secure Socket Tunneling Protocol (SSTP), a proprietary TLS-based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP and support TLS 1.2 (Windows 8.1 and later).
 
-* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
+* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
 
 
 >[!NOTE]
->IKEv2 and OpenVPN for P2S are available for the Resource Manager deployment model only. They are not available for the classic deployment model.
+>IKEv2 and OpenVPN for P2S are available for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not available for the classic deployment model.
 >
 
 ## <a name="authentication"></a>How are P2S VPN clients authenticated?
@@ -165,20 +165,28 @@ A P2S configuration requires quite a few specific steps. The following articles 
 
 ### To remove the configuration of a P2S connection
 
-For steps, see the [FAQ](#removeconfig), below.
+You can remove the configuration of a connection by using PowerShell or CLI. For examples, see the [FAQ](vpn-gateway-vpn-faq.md#removeconfig).
+
+## How does P2S routing work?
+
+See the following articles:
+
+* [About Point-to-Site VPN routing](vpn-gateway-about-point-to-site-routing.md)
+
+* [How to advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md)
+
+## FAQs
+
+There are multiple FAQ sections for P2S, based on authentication.
+
+* [FAQ - Certificate authentication](vpn-gateway-vpn-faq.md#P2S)
+
+* [FAQ - RADIUS authentication](vpn-gateway-vpn-faq.md#P2SRADIUS)
  
-## <a name="faqcert"></a>FAQ for native Azure certificate authentication
-
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
-
-## <a name="faqradius"></a>FAQ for RADIUS authentication
-
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
-
 ## Next Steps
 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
-* [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a P2S connection - Azure certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**

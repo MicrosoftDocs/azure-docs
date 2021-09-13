@@ -47,12 +47,12 @@ When filtering is enabled, the control includes a text box for adding the filter
     "placeholder": "",
     "defaultValue": "Value two",
     "toolTip": "",
-    "multiselect": true,  
-    "selectAll": true,  
-    "filter": true,  
-    "filterPlaceholder": "Filter items ...",  
-    "multiLine": true,  
-    "defaultDescription": "A value for selection",  
+    "multiselect": true,
+    "selectAll": true,
+    "filter": true,
+    "filterPlaceholder": "Filter items ...",
+    "multiLine": true,
+    "defaultDescription": "A value for selection",
     "constraints": {
         "allowedValues": [
             {

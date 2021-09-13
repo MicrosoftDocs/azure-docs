@@ -1,6 +1,6 @@
 ---
-title: Azure Blob storage monitoring data reference | Microsoft Docs
-description: Log and metrics reference for monitoring data from Azure Blob storage.
+title: Azure Blob Storage monitoring data reference | Microsoft Docs
+description: Log and metrics reference for monitoring data from Azure Blob Storage.
 author: normesta
 services: azure-monitor
 ms.service: azure-monitor
@@ -11,7 +11,7 @@ ms.subservice: logs
 ms.custom: subject-monitoring
 ---
 
-# Azure Blob storage monitoring data reference
+# Azure Blob Storage monitoring data reference
 
 See [Monitoring Azure Storage](monitor-blob-storage.md) for details on collecting and analyzing monitoring data for Azure Storage.
 
@@ -69,7 +69,7 @@ For the metrics supporting dimensions, you need to specify the dimension value t
 ## Resource logs (preview)
 
 > [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview, and is available for preview testing in all public cloud regions. This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1 and general-purpose v2 storage accounts. Classic storage accounts are not supported.
+> Azure Storage logs in Azure Monitor is in public preview, and is available for preview testing in all public and US Government cloud regions. This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1 and general-purpose v2 storage accounts. Classic storage accounts are not supported.
 
 The following table lists the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
 

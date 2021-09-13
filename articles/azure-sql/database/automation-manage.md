@@ -3,13 +3,13 @@ title: Manage databases with Azure Automation
 description: Learn about how the Azure Automation service can be used to manage Azure SQL Database at scale.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 
@@ -40,4 +40,4 @@ The runbook and module galleries for [Azure Automation](../../automation/automat
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure SQL Database, follow these links to learn more about Azure Automation.
 
 - [Azure Automation Overview](../../automation/automation-intro.md)
-- [My first runbook](../../automation/learn/automation-tutorial-runbook-graphical.md)
+- [My first runbook](../../automation/learn/powershell-runbook-managed-identity.md)

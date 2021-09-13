@@ -107,7 +107,7 @@ The Notification is sent to the webhook url if a webhook was specified.  If an e
 
 We recommend you to use web hooks because they're extensively supported by various apps like Azure Logic Apps and Slack.  Webhooks allow you to implement your own way for sending notifications. As an example, this article walks you through how to configure autoshutdown notification to send an email to the VM owner by using Azure Logic Apps. First, let's quickly go through the basic steps to enable autoshutdown notification in your lab.
 
-### Create a logic app that receives email notifications
+### Create a logic app that sends email notifications
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) provides many connectors that makes it easy to integrate a service with other clients, like Office 365 and Twitter. At the high level, the steps to set up a Logic App for email notification can be divided into four phases:
 

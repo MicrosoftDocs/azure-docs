@@ -196,8 +196,8 @@ From the Bash shell, enter `uname -r` and confirm that the kernel version is one
 
 * **Ubuntu 16.04**: 4.11.0-1013
 * **SLES SP3**: 4.4.92-6.18
-* **RHEL**: 7.4.2017120423
-* **CentOS**: 7.4.20171206
+* **RHEL**: 3.10.0-693
+* **CentOS**: 3.10.0-693
 
 
 Confirm the Mellanox VF device is exposed to the VM with the `lspci` command. The returned output is similar to the following output:

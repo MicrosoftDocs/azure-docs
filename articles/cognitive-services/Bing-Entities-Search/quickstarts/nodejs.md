@@ -46,8 +46,8 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
-    let host = 'api.cognitive.microsoft.com';
-    let path = '/bing/v7.0/entities';
+    let host = 'api.bing.microsoft.com';
+    let path = '/v7.0/search';
     
     let mkt = 'en-US';
     let q = 'italian restaurant near me';

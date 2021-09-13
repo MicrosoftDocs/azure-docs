@@ -8,11 +8,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
-ms.date: 04/23/2020
+ms.date: 05/25/2021
 ---
 # Deploy a self-hosted gateway to Kubernetes
 
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster.
+
+> [!NOTE]
+> You can also deploy self-hosted gateway to an [Azure Arc enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md) as a [cluster extension](../azure-arc/kubernetes/extensions.md).
 
 ## Prerequisites
 
@@ -59,13 +62,13 @@ This article describes the steps for deploying the self-hosted gateway component
 ### Access token
 Without a valid access token, a self-hosted gateway can't access and download configuration data from the endpoint of the associated API Management service. The access token can be valid for a maximum of 30 days. It must be regenerated, and the cluster configured with a fresh token, either manually or via automation before it expires.
 
-When you're automating token refresh, use [this management API operation](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) to generate a new token. For information on managing Kubernetes secrets, see the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret).
+When you're automating token refresh, use [this management API operation](/rest/api/apimanagement/2020-12-01/gateway/generate-token) to generate a new token. For information on managing Kubernetes secrets, see the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ### Namespace
 Kubernetes [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) help with dividing a single cluster among multiple teams, projects, or applications. Namespaces provide a scope for resources and names. They can be associated with a resource quota and access control policies.
 
 The Azure portal provides commands to create self-hosted gateway resources in the **default** namespace. This namespace is automatically created, exists in every cluster, and can't be deleted.
-Consider [creating and deploying](https://kubernetesbyexample.com/ns/) a self-hosted gateway into a separate namespace in production.
+Consider [creating and deploying](https://www.kubernetesbyexample.com/) a self-hosted gateway into a separate namespace in production.
 
 ### Number of replicas
 The minimum number of replicas suitable for production is two.
@@ -124,3 +127,4 @@ Consider [setting up local monitoring](how-to-configure-local-metrics-logs.md) t
 ## Next steps
 
 * To learn more about the self-hosted gateway, see [Self-hosted gateway overview](self-hosted-gateway-overview.md).
+* Learn [how to deploy API Management self-hosted gateway to Azure Arc enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md).

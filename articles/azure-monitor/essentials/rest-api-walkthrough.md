@@ -3,7 +3,7 @@ title: Azure Monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
 
 # Azure Monitoring REST API walkthrough
@@ -724,6 +724,11 @@ Get Activity Logs without filter or select:
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
+
+## Troubleshooting
+
+If you receive a 429, 503, or 504 error, please retry the API in one minute.
+
 
 ## Next steps
 

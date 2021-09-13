@@ -54,9 +54,9 @@ A lab in Azure DevTest Labs acts as a great container for transient activities l
 
 - [Policies](devtest-lab-set-lab-policy.md) ensure trainees only get the number of resources, such as virtual machines, that they need.
 - Pre-configured and created machines are [claimed](devtest-lab-add-claimable-vm.md) with single action from trainee.
-- Labs are shared with trainees by accessing [URL for the lab](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab).
+- Labs are shared with trainees by accessing [URL for the lab](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab).
 - [Expiration dates](devtest-lab-add-vm.md#steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs) on virtual machines ensure that machines are deleted after they are no longer needed.
-- It’s easy to [delete a lab](devtest-lab-delete-lab-vm.md#delete-a-lab) and all [related resources](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) when the training is over.
+- It’s easy to [delete a lab](devtest-lab-delete-lab-vm.md#delete-a-lab) and all [related resources](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) when the training is over.
 
 For more information, see [Use Azure DevTest Labs for training](devtest-lab-training-lab.md).  
 
@@ -71,5 +71,4 @@ A **proof of concept** deployment focuses on a concentrated effort from a single
 Read the following articles:
 
 - [DevTest Labs concepts](devtest-lab-concepts.md)
-- [DevTest Labs FAQ](devtest-lab-faq.md)
-
+- [DevTest Labs FAQ](devtest-lab-faq.yml)

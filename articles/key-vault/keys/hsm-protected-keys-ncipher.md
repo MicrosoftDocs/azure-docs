@@ -2,7 +2,7 @@
 title: How to generate and transfer HSM-protected keys for Azure Key Vault - Azure Key Vault
 description: Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. Also known as BYOK or bring your own key.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 manager: devtiw
 tags: azure-resource-manager
 
@@ -10,7 +10,8 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.author: ambapat
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -449,7 +450,7 @@ When you run this command, use these instructions:
 
 * The parameter *protect* must be set to the value **module**, as shown. This creates a module-protected key. The BYOK toolset does not support OCS-protected keys.
 * Replace the value of *contosokey* for the **ident** and **plainname** with any string value. To minimize administrative overheads and reduce the risk of errors, we recommend that you use the same value for both. The **ident** value must contain only numbers, dashes, and lower case letters.
-* The pubexp is left blank (default) in this example, but you can specify specific values. For more information, see the [nCipher documentation.](https://www.entrust.com/-/media/documentation/brochures/entrust-nshield-general-purpose-hsms-br-a4.pdf)
+* The pubexp is left blank (default) in this example, but you can specify specific values. For more information, see the [nCipher documentation.](https://go.ncipher.com/rs/104-QOX-775/images/nShield-family-br-A4.pdf)
 
 This command creates a Tokenized Key file in your %NFAST_KMDATA%\local folder with a name starting with **key_simple_**, followed by the **ident** that was specified in the command. For example: **key_simple_contosokey**. This file contains an encrypted key.
 

@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/15/2020
 ms.author: duau
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Getting ARP tables in the Resource Manager deployment model

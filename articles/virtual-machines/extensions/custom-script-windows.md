@@ -7,7 +7,8 @@ ms.subservice: extensions
 ms.author: amjads
 author: amjads1
 ms.collection: windows
-ms.date: 08/31/2020
+ms.date: 08/31/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Custom Script Extension for Windows

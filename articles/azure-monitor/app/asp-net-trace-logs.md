@@ -137,7 +137,7 @@ For example:
 ```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 var telemetryClient = new TelemetryClient(configuration);
-telemetry.TrackTrace("Slow response - database01");
+telemetryClient.TrackTrace("Slow response - database01");
 ```
 
 An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.
@@ -191,7 +191,7 @@ You can, for example:
 ### How do I do this for Java?
 In Java codeless instrumentation (recommended) the logs are collected out of the box, use [Java 3.0 agent](./java-in-process-agent.md).
 
-If you are using the Java SDK, use the [Java log adapters](./java-trace-logs.md).
+If you are using the Java SDK, use the [Java log adapters](java-2x-trace-logs.md).
 
 ### There's no Application Insights option on the project context menu
 * Make sure that Developer Analytics Tools is installed on the development machine. At Visual Studio **Tools** > **Extensions and Updates**, look for **Developer Analytics Tools**. If it isn't on the **Installed** tab, open the **Online** tab and install it.
@@ -227,6 +227,6 @@ If your application sends voluminous amounts of data and you're using the Applic
 [diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
+[qna]: ../faq.yml
 [start]: ./app-insights-overview.md
 

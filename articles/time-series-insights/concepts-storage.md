@@ -1,8 +1,8 @@
 ---
 title: 'Storage overview - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about data storage in Azure Time Series Insights Gen2.
-author: deepakpalled
-ms.author: dpalled
+author: tedvilutis
+ms.author: tvilutis
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
@@ -38,7 +38,9 @@ When an event is ingested, it is indexed in both warm store (if enabled) and col
 Azure Time Series Insights Gen2 partitions and indexes data for optimum query performance. Data becomes available to query from both warm (if enabled) and cold store after it's indexed. The amount of data that's being ingested and the per-partition throughput rate can affect availability. Review the event source [throughput limitations](./concepts-streaming-ingress-throughput-limits.md) and [best practices](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) for best performance. You can also configure a lag [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data.
 
 > [!IMPORTANT]
-> You might experience a period of up to 60 seconds before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
+> You might experience a period of up to 60 seconds before data becomes available via the [Time Series Query APIs](./concepts-query-overview.md). If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
+> 
+> You might experience a period of up to 5 minutes before data becomes available when directly accessing the Parquet files outside of Azure Time Series Insights Gen2. See the [Parquet file format](#parquet-file-format-and-folder-structure) section for more information.
 
 ## Warm store
 
@@ -91,32 +93,26 @@ For more information about the Parquet file type, read the [Parquet documentatio
 
 Azure Time Series Insights Gen2 stores copies of your data as follows:
 
-* The first, initial copy is partitioned by ingestion time and stores data roughly in order of arrival. This data resides in the `PT=Time` folder:
+* The `PT=Time` folder is partitioned by ingestion time and stores data roughly in order of arrival. This data is preserved over time and you can directly access it from outside of Azure Time Series Insight Gen2, such as from your Spark notebooks. The timestamp `<YYYYMMDDHHMMSSfff>` corresponds to the ingestion time of the data. The `<MinEventTimeStamp>` and `<MaxEventTimeStamp>` correspond to the range of event timestamps included in the file. The path and filename are formatted as:
 
-  `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+  `V=1/PT=Time/Y=<YYYY>/M=<MM>/<BlobCreationTimestamp>_<MinEventTimestamp>_<MaxEventTimestamp>_<TsiInternalSuffix>.parquet`
 
-* The second, repartitioned copy is grouped by Time Series IDs and resides in the `PT=TsId` folder:
-
-  `V=1/PT=TsId/<TSI_INTERNAL_NAME>.parquet`
-
-The timestamp in the blob names in the `PT=Time` folder corresponds to the arrival time of the data to Azure Time Series Insights Gen2 and not the timestamp of the events.
-
-Data in the `PT=TsId` folder will be optimized for query over time and is not static. During repartitioning, some events might be present in multiple blobs. The naming of the blobs in this folder is not guaranteed to remain the same.
-
-In general, if you need to access data directly via Parquet files, use the `PT=Time` folder.  Future functionality will enable efficient access to the `PT=TsId` folder.
+* The `PT=Live` and `PT=Tsid` folders contain a second copy of your data, repartitioned for time series query performance at scale. This data is optimized over time and is not static. During repartitioning, some events could be present in multiple blobs and the blob names might change.  These folders are used by Azure Time Series Insights Gen2 and should not be accessed directly; you should only use `PT=Time` for that purpose.
 
 > [!NOTE]
 >
+> Data in the `PT=Time` folder from before June 2021 could have a filename format with no event time ranges: `V=1/PT=Time/Y=<YYYY>/M=<MM>/<BlobCreationTimestamp>_<TsiInternalSuffix>.parquet`.  The internal file format is the same and files with both naming schemes can be used together. 
+>
 > * `<YYYY>` maps to a four-digit year representation.
 > * `<MM>` maps to a two-digit month representation.
-> * `<YYYYMMDDHHMMSSfff>` maps to a time-stamp representation with four-digit year (`YYYY`), two-digit month (`MM`), two-digit day (`DD`), two-digit hour (`HH`), two-digit minute (`MM`), two-digit second (`SS`), and three-digit millisecond (`fff`).
+> * The `<YYYYMMDDHHMMSSfff>` format of the timestamps map to a four-digit year (`YYYY`), two-digit month (`MM`), two-digit day (`DD`), two-digit hour (`HH`), two-digit minute (`MM`), two-digit second (`SS`), and three-digit millisecond (`fff`).
 
 Azure Time Series Insights Gen2 events are mapped to Parquet file contents as follows:
 
 * Each event maps to a single row.
 * Every row includes the **timestamp** column with an event time stamp. The time-stamp property is never null. It defaults to the **event enqueued time** if the time stamp property isn't specified in the event source. The stored time-stamp is always in UTC.
 * Every row includes the Time Series ID (TSID) column(s) as defined when the Azure Time Series Insights Gen2 environment is created. The TSID property name includes the `_string` suffix.
-* All other properties sent as telemetry data are mapped to column names that end with `_bool` (boolean), `_datetime` (time stamp), `_long` (long), `_double` (double), `_string` (string), or `dynamic` (dynamic), depending on the property type.  For more information, read about [Supported data types](./concepts-supported-data-types.md).
+* All other properties sent as telemetry data are mapped to column names that end with `_bool` (boolean), `_datetime` (time stamp), `_long` (long), `_double` (double), `_string` (string), or `_dynamic` (dynamic), depending on the property type.  For more information, read about [Supported data types](./concepts-supported-data-types.md).
 * This mapping schema applies to the first version of the file format, referenced as **V=1**, and stored in the base folder of the same name. As this feature evolves, this mapping schema might change and the reference name incremented.
 
 ## Next steps

@@ -1,9 +1,9 @@
 ---
-title: Quickstart - Enroll TPM device to Azure Device Provisioning Service using Python
-description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service (DPS) using Python provisioning service SDK. This quickstart uses individual enrollments.
+title: Quickstart - Create Device Provisioning Service (DPS) enrollments using Python
+description: Quickstart - Create Device Provisioning Service (DPS) using Python provisioning service SDK. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 06/21/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
@@ -11,11 +11,11 @@ ms.devlang: python
 ms.custom: mvc, devx-track-python
 ---
 
-# Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Python provisioning service SDK
+# Quickstart: Create DPS enrollments using Python service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-In this quickstart, you programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service, using the Python Provisioning Service SDK with the help of a sample Python application.
+In this quickstart, you programmatically create an individual device enrollment in the Azure IoT Hub Device Provisioning Service (DPS). The Python Provisioning Service SDK will be used to create the enrollment. 
 
 ## Prerequisites
 
@@ -44,34 +44,92 @@ In this quickstart, you programmatically create an individual enrollment for a T
         pip install azure-iothub-provisioningserviceclient
         ```
 
-1. You need the endorsement key for your device. If you have followed the [Create and provision a simulated device](quick-create-simulated-device.md) quickstart to create a simulated TPM device, use the key created for that device. Otherwise, you can use the following endorsement key supplied with the SDK:
+1. This topic demonstrates both symmetric key and TPM enrollments from the tabs below. 
+ 
+    # [Symmetric Key](#tab/symmetrickey)
+    
+    For symmetric key device enrollments, you need a primary and secondary key for your device. If you don't have a valid symmetric key, you can use the following example keys for this example:
+
+    *Primary Symmetric key*
+
+    ```
+    UmorGiEVPNIQuaWGXXbe8v9gWayS7XtOZmNMo6DEaEXP65GvhuK3OeRf8RVZ9BymBCHxNg3oRTey0pUHUwwYKQ==
+    ```
+
+    *Secondary Symmetric key*
+
+    ```
+    Zx8/eE7PUBmnouB1qlNQxI7fcQ2HbJX+y96F1uCVQvDj88jFL+q6L9YWLLi4jqTmkRPOulHlSbSv2uFgj4vKtw==
+    ```
+    
+    # [TPM](#tab/tpm)
+    
+    For TPM enrollments, you need the endorsement key for your device. If you have followed the [Create and provision a simulated device](quick-create-simulated-device.md) quickstart to create a simulated TPM device, use the key created for that device. Otherwise, you can use the following endorsement key supplied with the SDK:
 
     ```
     AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAtW6MOyCu/Nih47atIIoZtlYkhLeCTiSrtRN3q6hqgOllA979No4BOcDWF90OyzJvjQknMfXS/Dx/IJIBnORgCg1YX/j4EEtO7Ase29Xd63HjvG8M94+u2XINu79rkTxeueqW7gPeRZQPnl1xYmqawYcyzJS6GKWKdoIdS+UWu6bJr58V3xwvOQI4NibXKD7htvz07jLItWTFhsWnTdZbJ7PnmfCa2vbRH/9pZIow+CcAL9mNTNNN4FdzYwapNVO+6SY/W4XU0Q+dLMCKYarqVNH5GzAWDfKT8nKzg69yQejJM8oeUWag/8odWOfbszA+iFjw3wVNrA5n8grUieRkPQ==
     ```
-
+    
+    ---
 
 ## Modify the Python sample code
 
-This section shows how to add the provisioning details of your TPM device to the sample code. 
+This section shows how to add the provisioning details of your individual enrollment to the sample code. 
 
-1. Using a text editor, create a new **TpmEnrollment.py** file.
+1. Using a text editor, create a new **Enrollment.py** file.
 
-1. Add the following `import` statements and variables at the start of the **TpmEnrollment.py** file. Then replace `dpsConnectionString` with your connection string found under **Shared access policies** in your **Device Provisioning Service** on the **Azure portal**. Replace `endorsementKey` with the value noted previously in [Prepare the environment](quick-enroll-device-tpm-python.md#prepareenvironment). Finally, create a unique `registrationid` and be sure that it only consists of lower-case alphanumerics and hyphens.  
+1. Add the following `import` statements and variables at the start of the **Enrollment.py** file. Then replace `dpsConnectionString` with your connection string found under **Shared access policies** in your **Device Provisioning Service** on the **Azure portal**. Replace key(s) for your device with the value noted previously in [Prepare the environment](quick-enroll-device-tpm-python.md#prepareenvironment). Finally, create a unique `registrationid` and be sure that it only consists of lower-case alphanumerics and hyphens.  
+
+    # [Symmetric Key](#tab/symmetrickey)
+
+    ```python
+    from provisioningserviceclient import ProvisioningServiceClient
+    from provisioningserviceclient.models import IndividualEnrollment, AttestationMechanism
+    from provisioningserviceclient.protocol.models import SymmetricKeyAttestation
+
+    CONNECTION_STRING = "Enter your DPS connection string"
+    PRIMARY_KEY = "Add a valid key"
+    SECONDARY_KEY = "Add a valid key"
+    REGISTRATION_ID = "Enter a registration ID"
+    ```
+
+    # [TPM](#tab/tpm)
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient
     from provisioningserviceclient.models import IndividualEnrollment, AttestationMechanism
 
-    CONNECTION_STRING = "{dpsConnectionString}"
-
-    ENDORSEMENT_KEY = "{endorsementKey}"
-
-    REGISTRATION_ID = "{registrationid}"
+    CONNECTION_STRING = "Enter your DPS connection string"
+    ENDORSEMENT_KEY = "Enter the endorsement key for your device"
+    REGISTRATION_ID = "Enter a registration ID"
     ```
 
-1. Add the following function and function call to implement the group enrollment creation:
+    ---
+
+1. Add the following function and function call to implement the creation of the individual enrollment:
    
+    # [Symmetric Key](#tab/symmetrickey)
+
+    ```python
+    def main():
+        print ( "Starting individual enrollment..." )
+
+        psc = ProvisioningServiceClient.create_from_connection_string(CONNECTION_STRING)
+
+        symAtt = SymmetricKeyAttestation(primary_key=PRIMARY_KEY, secondary_key=SECONDARY_KEY)
+        att = AttestationMechanism(type="symmetricKey", symmetric_key=symAtt)
+        ie = IndividualEnrollment.create(REGISTRATION_ID, att)
+
+        ie = psc.create_or_update(ie)
+	
+        print ( "Individual enrollment successful." )
+    
+    if __name__ == '__main__':
+        main()
+    ```
+
+    # [TPM](#tab/tpm)
+
     ```python
     def main():
         print ( "Starting individual enrollment..." )
@@ -89,20 +147,22 @@ This section shows how to add the provisioning details of your TPM device to the
         main()
     ```
 
-1. Save and close the **TpmEnrollment.py** file.
+    ---
+
+1. Save and close the **Enrollment.py** file.
  
 
-## Run the sample TPM enrollment
+## Run the sample to create an enrollment
 
 1. Open a command prompt, and run the script.
 
     ```cmd/sh
-    python TpmEnrollment.py
+    python Enrollment.py
     ```
 
 1. Observe the output for the successful enrollment.
 
-1. Navigate to your provisioning service in the Azure portal. Select **Manage enrollments**. Notice that your TPM device appears under the **Individual Enrollments** tab, with the name `registrationid` created earlier. 
+1. Navigate to your provisioning service in the Azure portal. Select **Manage enrollments**. Notice that your device enrollment appears under the **Individual Enrollments** tab, with the name `registrationid` created earlier. 
 
     ![Verify successful TPM enrollment in portal](./media/quick-enroll-device-tpm-python/1.png)  
 
@@ -116,7 +176,7 @@ If you plan to explore the Java service sample, do not clean up the resources cr
 
 
 ## Next steps
-In this quickstart, you’ve programmatically created an individual enrollment entry for a TPM device, and, optionally, created a TPM simulated device on your machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal.
+In this quickstart, you’ve programmatically created an individual enrollment entry for a device. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal.
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)

@@ -6,7 +6,7 @@ author: v-amallick
 manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 10/18/2018
+ms.date: 06/01/2021
 ms.author: v-amallick
 ms.custom: include file
 ---
@@ -19,23 +19,21 @@ To create a Recovery Services vault, follow these steps.
 
 1. Sign in to your subscription in the [Azure portal](https://portal.azure.com/).
 
-1. On the left menu, select **All services**.
+1. Search for **Backup center** in the Azure portal, and navigate to the **Backup Center** dashboard.
 
-    ![Select All services](./media/backup-create-rs-vault/click-all-services.png)
+    ![Select Backup center](../includes/media/backup-create-rs-vault/backup-center-search-backup-center.png)
 
-1. In the **All services** dialog box, enter *Recovery Services*. The list of resources filters according to your input. In the list of resources, select **Recovery Services vaults**.
+1. Select **+Vault** from the **Overview** tab.
 
-    ![Enter and choose Recovery Services vaults](./media/backup-create-rs-vault/all-services.png)
+    ![Create a vault](./media/backup-create-rs-vault/backup-center-create-vault.png) 
 
-    The list of Recovery Services vaults in the subscription appears.
+1. Select **Recovery Services vault** and click **Continue**.
 
-1. On the **Recovery Services vaults** dashboard, select **Add**.
+    ![Select Recovery Services vault](./media/backup-create-rs-vault/backup-center-select-recovery-services-vault.png) 
 
-    ![Add a Recovery Services vault](./media/backup-create-rs-vault/add-button-create-vault.png)
+1. The **Recovery Services vault** dialog box opens. Provide values for the **Name**, **Subscription**, **Resource group**, and **Location**.
 
-    The **Recovery Services vault** dialog box opens. Provide values for the **Name**, **Subscription**, **Resource group**, and **Location**.
-
-    ![Configure the Recovery Services vault](./media/backup-create-rs-vault/create-new-vault-dialog.png)
+    ![Configure the Recovery Services vault](./media/backup-create-rs-vault/backup-center-add-vault-details.png)
 
    - **Name**: Enter a friendly name to identify the vault. The name must be unique to the Azure subscription. Specify a name that has at least 2 but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens.
    - **Subscription**: Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If you're not sure which subscription to use, use the default (suggested) subscription. There are multiple choices only if your work or school account is associated with more than one Azure subscription.

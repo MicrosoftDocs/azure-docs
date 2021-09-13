@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
 
 ---
@@ -17,7 +17,7 @@ This article helps you connect virtual networks (VNets) by using the VNet-to-VNe
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram":::
 
-The steps in this article apply to the Azure Resource Manager deployment model and use the Azure portal. You can create this configuration with a different deployment tool or model by using options that are described in the following articles:
+The steps in this article apply to the Azure [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and use the Azure portal. You can create this configuration with a different deployment tool or model by using options that are described in the following articles:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -83,10 +83,10 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 * **Virtual network gateway settings**
   * **Name**: VNet1GW
   * **Resource group**: East US
-  * **Generation**: Generation 1
+  * **Generation**: Generation 2
   * **Gateway type**: Select **VPN**.
-  * **VPN type**: Select **Route*based**.
-  * **SKU**: VpnGw1
+  * **VPN type**: Select **Route-based**.
+  * **SKU**: VpnGw2
   * **Virtual network**: VNet1
   * **Gateway subnet address range**: 10.1.255.0/27
   * **Public IP address**: Create new
@@ -111,10 +111,10 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 * **Virtual network gateway settings**
   * **Name**: VNet4GW
   * **Resource group**: West US
-  * **Generation**: Generation 1
+  * **Generation**: Generation 2
   * **Gateway type**: Select **VPN**.
   * **VPN type**: Select **Route-based**.
-  * **SKU**: VpnGw1
+  * **SKU**: VpnGw2
   * **Virtual network**: VNet4
   * **Gateway subnet address range**: 10.41.255.0/27
   * **Public IP address**: Create new
@@ -142,7 +142,10 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 ### To create a virtual network gateway
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+You can see the deployment status on the Overview page for your gateway. A gateway can take 45 minutes or more to fully create and deploy. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -157,10 +160,10 @@ When the virtual network gateways for both VNet1 and VNet4 have completed, you c
 1. In the Azure portal, select **All resources**, enter *virtual network gateway* in the search box, and then navigate to the virtual network gateway for your VNet. For example, **VNet1GW**. Select the gateway to open the **Virtual network gateway** page.
 1. On the gateway page, go  to **Settings ->Connections**. Then, select **+Add**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="Connections page":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="Screenshot showing the connections page." border="false":::
 1. The **Add connection** page opens.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="Add connection":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="Screenshot showing the Add connection page.":::
 
    On the **Add connection** page, fill in the values for your connection:
 
@@ -172,7 +175,7 @@ When the virtual network gateways for both VNet1 and VNet4 have completed, you c
 
    * **Second virtual network gateway**: This field is the virtual network gateway of the VNet that you want to create a connection to. Select **Choose another virtual network gateway** to open the **Choose virtual network gateway** page.
 
-      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="Choose a gateway":::
+      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="Screenshot showing Choose a virtual network gateway page with another gateway selected.":::
 
      * View the virtual network gateways that are listed on this page. Notice that only virtual network gateways that are in your subscription are listed. If you want to connect to a virtual network gateway that isn't in your subscription, use the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
@@ -190,10 +193,10 @@ Next, create a connection from VNet4 to VNet1. In the portal, locate the virtual
 1. Locate the virtual network gateway in the Azure portal. 
 1. On the **Virtual network gateway** page, select **Connections** to view the **Connections** page for the virtual network gateway. After the connection is established, you'll see the **Status** values change to **Connected**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Verify connections":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Screenshot showing the Connections page to verify the connections." border="false":::
 1. Under the **Name** column, select one of the connections to view more information. When data begins flowing, you'll see values for **Data in** and **Data out**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="Screenshot shows a resource group with values for Data in and Data out":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="Screenshot shows a resource group with values for Data in and Data out" border="false":::
 
 ## Add additional connections
 

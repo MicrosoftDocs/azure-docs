@@ -12,8 +12,6 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: View your apps
-      href: view-applications-portal.md
     - name: Add an app
       href: add-application-portal.md
     - name: Configure an app
@@ -24,6 +22,8 @@
       href: add-application-portal-setup-sso.md
     - name: Set up OIDC-based single sign-on
       href: add-application-portal-setup-oidc-sso.md
+    - name: View your apps
+      href: view-applications-portal.md
     - name: Delete an app
       href: delete-application-portal.md
   - name: Tutorials
@@ -32,52 +32,16 @@
       href: /azure/active-directory/saas-apps/
   - name: Samples
     items: 
-    - name: App Management PowerShell samples
-      items:
-      - name: Overview of App Management samples
-        href: app-management-powershell-samples.md
-      - name: Export secrets and certs (app registrations)
-        href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
-      - name: Export secrets and certs (enterprise apps)
-        href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
-      - name: Export expiring secrets and certs
-        href: ./scripts/powershell-export-apps-with-expriring-secrets.md
-      - name: Export secrets and certs expiring beyond required date
-        href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
-    - name: App Proxy PowerShell samples
-      items:
-      - name: Overview of App Proxy samples
-        href: application-proxy-powershell-samples.md
-      - name: List basic info about apps
-        href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
-      - name: List extended info about apps
-        href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
-      - name: List apps by connector group
-        href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
-      - name: List apps with token lifetime policy
-        href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
-      - name: List connector groups and connectors
-        href: ./scripts/powershell-get-all-connectors.md
-      - name: Move apps between connector groups
-        href: ./scripts/powershell-move-all-apps-to-connector-group.md
-      - name: List users and groups assigned to app
-        href: ./scripts/powershell-display-users-group-of-app.md
-      - name: Assign user to an app
-        href: ./scripts/powershell-assign-user-to-app.md
-      - name: Assign group to an app
-        href: ./scripts/powershell-assign-group-to-app.md
-      - name: List apps using default domains
-        href: ./scripts/powershell-get-all-default-domain-apps.md
-      - name: List apps using wildcard publishing
-        href: ./scripts/powershell-get-all-wildcard-apps.md
-      - name: List all custom domains and certs
-        href: ./scripts/powershell-get-all-custom-domains-and-certs.md
-      - name: List apps without certs
-        href: ./scripts/powershell-get-all-custom-domain-no-cert.md
-      - name: List apps with identical certs
-        href: ./scripts/powershell-get-custom-domain-identical-cert.md
-      - name: Replace identical certs
-        href: ./scripts/powershell-get-custom-domain-replace-cert.md
+    - name: Overview of App Management samples
+      href: app-management-powershell-samples.md
+    - name: Export secrets and certs (app registrations)
+      href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+    - name: Export secrets and certs (enterprise apps)
+      href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+    - name: Export expiring secrets and certs
+      href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+    - name: Export secrets and certs expiring beyond required date
+      href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
   - name: Concepts
     expanded: true
     items: 
@@ -106,7 +70,7 @@
       - name: Linked-based SSO
         href: configure-linked-sign-on.md
       - name: Header-based SSO (on-prem apps)
-        href: application-proxy-configure-single-sign-on-with-headers.md
+        href: ../app-proxy/application-proxy-configure-single-sign-on-with-headers.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security
@@ -117,6 +81,8 @@
         href: certificate-signing-options.md
       - name: Manage certificates
         href: manage-certificates-for-federated-single-sign-on.md
+      - name: Protect against consent phishing
+        href: protect-against-consent-phishing.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
       - name: Configure SAML token encryption
@@ -125,14 +91,12 @@
         href: end-user-experiences.md
       - name: Cloud app visibility and control
         href: cloud-app-security.md
-    - name: Application Proxy for on-premises apps
-      items:
-      - name: Comparison of remote access solutions
-        href: application-proxy-migration.md
   - name: How-to guides
     expanded: false
     items:
-    - name: Assign users and manage access to apps
+    - name: Assign owners
+      href: assign-app-owners.md
+    - name: Manage access
       items:
       - name: Consent and permissions
         items:
@@ -152,25 +116,25 @@
           href: grant-admin-consent.md
         - name: Review permissions granted to apps
           href: manage-application-permissions.md
-      - name: Manage user assignment for an app
+      - name: Manage user assignment
         href: assign-user-or-group-access-portal.md
       - name: Create collections on My Apps
         href: access-panel-collections.md
       - name: Use self-service app access
         href: access-panel-manage-self-service-access.md
-      - name: Methods for removing a user's access to an app
+      - name: Remove user access
         href: methods-for-removing-user-access.md
-      - name: Hide app from a user
+      - name: Hide an app
         href: hide-application-from-user-portal.md
       - name: Disable user sign-on
         href: disable-user-sign-in-portal.md
-      - name: Configure self-service app assignment
+      - name: Configure self-service assignment
         href: manage-self-service-access.md
-      - name: Force auto-acceleration through Home Realm Discovery policy
+      - name: Force auto-acceleration
         href: configure-authentication-for-federated-users-portal.md
-      - name: Prevent sign-in auto-acceleration using Home Realm Discovery policy
+      - name: Prevent sign-in auto-acceleration
         href: prevent-domain-hints-with-home-realm-discovery.md
-    - name: Migrate identity management to Azure AD
+    - name: Migrate applications
       items:
       - name: Migration resources
         href: migration-resources.md
@@ -180,18 +144,34 @@
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
-    - name: Configure on-premises app access
-      items:
-      - name: Secure legacy apps 
+      - name: Migrate applications from Okta to Azure AD 
         items:
-        - name: Secure hybrid access with Azure AD 
-          href: secure-hybrid-access.md
+        - name: Migrate applications from Okta to Azure AD
+          href: migrate-applications-from-okta-to-azure-active-directory.md
+        - name: Migrate Okta sign on policies to Azure AD Conditional Access
+          href: migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md
+        - name: Migrate Okta sync provisioning to Azure AD Connect based synchronization
+          href: migrate-okta-sync-provisioning-to-azure-active-directory.md
+        - name: Migrate Okta federation to Azure AD managed authentication
+          href: migrate-okta-federation-to-azure-active-directory.md
+    - name: Secure legacy apps 
+      items:
+      - name: Secure hybrid access with Azure AD 
+        href: secure-hybrid-access.md
+      - name: Secure hybrid access with partner integrations
+        href: secure-hybrid-access-integrations.md
+      - name: Datawiza 
+        href: datawiza-with-azure-ad.md
+      - name: F5 
+        items:
         - name: F5 and Azure AD integration
           href: f5-aad-integration.md
         - name: F5 BIG-IP VE deployment in Azure IaaS
           href: f5-bigip-deployment-guide.md
-        - name: F5 Big-IP with Azure AD for passwordless VPN
+        - name: F5 Big-IP passwordless VPN
           href: f5-aad-password-less-vpn.md
+      - name: Silverfort
+        href: silverfort-azure-ad-integration.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot password-based single sign-on
@@ -200,18 +180,16 @@
         href: troubleshoot-saml-based-sso.md
       - name: Debug SAML-based single sign-on
         href: debug-saml-sso-issues.md
-      - name: Troubleshoot user sign-in
-        items:
-        - name: Unexpected consent prompt
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: User consent error
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problems signing in from My Apps
-          href: application-sign-in-other-problem-access-panel.md
-        - name: Error on application sign-in page
-          href: application-sign-in-problem-application-error.md
-        - name: Problem signing into a Microsoft app
-          href: application-sign-in-problem-first-party-microsoft.md
+      - name: Unexpected consent prompt
+        href: application-sign-in-unexpected-user-consent-prompt.md
+      - name: User consent error
+        href: application-sign-in-unexpected-user-consent-error.md
+      - name: Problems signing in from My Apps
+        href: application-sign-in-other-problem-access-panel.md
+      - name: Error on application sign-in page
+        href: application-sign-in-problem-application-error.md
+      - name: Problem signing into a Microsoft app
+        href: application-sign-in-problem-first-party-microsoft.md
   - name: Reference
     items:
     - name: App Management certificates FAQ

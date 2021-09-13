@@ -26,6 +26,8 @@ This article provides step-by-step instructions to build a translation system wi
 3. When you have both of the above, sign in to the
     [Custom Translator](https://portal.customtranslator.azure.ai) portal to create workspaces, projects, upload files and create/deploy models.
 
+You can also view a full, start to finish walkthrough video of Custom Translator on [YouTube](https://www.youtube.com/watch?v=TykB6WDTkRc&t=3s).
+
 >[!Note]
 >Custom Translator does not support creating workspace for Translator Text API resource that was created inside [Enabled VNET](../../../api-management/api-management-using-with-vnet.md).
 

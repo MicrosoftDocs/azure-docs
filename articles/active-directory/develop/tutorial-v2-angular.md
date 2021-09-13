@@ -3,7 +3,7 @@ title: "Tutorial: Create an Angular app that uses the Microsoft identity platfor
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you build an Angular single-page app (SPA) that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
-author: hamiltonha
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +11,9 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
-ms.author: hahamil
+ms.author: henrymbugua
 ms.custom: aaddev, identityplatformtop40, devx-track-js
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application
@@ -60,7 +61,7 @@ npm install -g @angular/cli@8                    # Install the Angular CLI
 ng new my-application --routing=true --style=css # Generate a new Angular app
 cd my-application                                # Change to the app directory
 npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
-npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
+npm install msal @azure/msal-angular@1           # Install MSAL and MSAL Angular in your application
 ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
 

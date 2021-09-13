@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: sstein, jovanpop
-ms.date: 07/21/2020
+ms.reviewer: mathoma, jovanpop
+ms.date: 06/01/2021
 ---
 
 # Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance
@@ -144,7 +144,10 @@ If the certificate is kept in the SQL Server local machine certificate store, it
 2. Once all preparation steps are done, run the following commands to upload base-64 encoded certificate to the target managed instance:
 
    ```azurepowershell
+   # If you are using PowerShell 6.0 or higher, run this command:
    $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -AsByteStream
+   # If you are using PowerShell 5.x, uncomment and run this command instead of the one above:
+   # $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
    $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "<password>"

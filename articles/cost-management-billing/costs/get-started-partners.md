@@ -3,7 +3,7 @@ title: Get started with Azure Cost Management for partners
 description: This article explains how partners use Azure Cost Management features and how they enable Cost Management access for their customers.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/27/2021
+ms.date: 07/01/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -17,7 +17,7 @@ Azure Cost Management is natively available for direct partners who have onboard
 
 For direct partners and indirect providers, the global admin and admin agents, can access Cost Management in the partner tenant and manage costs at invoiced prices.
 
-Resellers and customers can access Cost Management in the customer tenant and view consumption costs for the subscriptions, where costs are computed and shown at retail rates. However, they must have Azure RBAC access to the subscription in the customer tenant to view costs. The cost visibility policy must be enabled by the provider for the customer tenant.
+Resellers and customers can access Cost Management in the customer tenant and view consumption costs for each individual subscription, where costs are computed and shown at retail rates. However, they must have Azure RBAC access to the subscription in the customer tenant to view costs. The cost visibility policy must be enabled by the provider for the customer tenant.
 
 Customers can use Cost Management features when enabled by their CSP partner.
 
@@ -105,7 +105,13 @@ Partners can use the scope to reconcile to invoices. And, they use the scope to 
 
 Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pre-tax costs for a specific customer in a billing currency. You can also filter the pre-tax costs for a specific subscription, resource group, or resource.
 
-The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement. Entitlement costs, not Azure usage, for current CSP offer customers are available at the billing account and billing profile scopes when you apply the customer filter. The budgets set at this scope are in the billing currency.
+The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement.
+
+Entitlement costs, not Azure usage, for current CSP offer customers are available at the billing account and billing profile scopes when you apply the customer filter. The budgets set at this scope are in the billing currency.
+
+To view costs at the customer scope, in the partner tenant navigate to Cost analysis, select the scope picker and then select the specific customer in the list of scopes. Here's an example for the *Contoso Services* customer.
+
+:::image type="content" source="./media/get-started-partners/customer-scope.png" alt-text="Screenshot showing selecting a customer scope." lightbox="./media/get-started-partners/customer-scope.png" :::
 
 ## Partner access to billing scopes in Cost Management
 
@@ -142,7 +148,7 @@ When the cost visibility policy is enabled, all services that have subscription 
 
 ### View subscription costs in the customer tenant
 
-To view costs for a subscription, open **Cost Management + Billing** in the customer's Azure tenant. Select **Cost analysis** the required subscription to start reviewing costs. You can view consumption costs for each subscription individually in the customer tenant.
+To view costs for a subscription, open **Cost Management + Billing** in the customer's Azure tenant. Select **Cost analysis** and then the required subscription to start reviewing costs. You can view consumption costs for each subscription individually in the customer tenant.
 
 [![View cost analysis as a customer ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
@@ -156,7 +162,7 @@ The retail rates used to compute costs shown in the view are the same prices sho
 
 ## Analyze costs in cost analysis
 
-Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) and export data to [CSV and PNG files](quick-acm-cost-analysis.md#download-usage-data).
+Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views).
 
 Azure RBAC users with access to the subscription in the customer tenant can also analyze retail costs for subscriptions in the customer tenant, save views, and export data to CSV and PNG files.
 

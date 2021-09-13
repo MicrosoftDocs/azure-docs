@@ -9,20 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/20/2021
 ms.author: v-jansk
 ---
 
 # Cancel translation
 
-Cancel a currently processing or queued operation. An operation won't be canceled if it is already completed or failed or canceling. A bad request will be returned. All documents that have completed translation won't be canceled and will be charged. All pending documents will be canceled if possible.
+Cancel a currently processing or queued operation. An operation won't be canceled if it is already completed, has failed, or is canceling. A bad request will be returned. All documents that have completed translation won't be canceled and will be charged. All pending documents will be canceled if possible.
 
 ## Request URL
 
 Send a `DELETE` request to:
 
 ```DELETE HTTP
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -38,7 +38,7 @@ Request parameters passed on the query string are:
 
 |Query parameter|Required|Description|
 |-----|-----|-----|
-|id|True|The operation-id.|
+|id|True|The operation-ID.|
 
 ## Request headers
 
@@ -88,9 +88,10 @@ The following information is returned in a successful response.
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
 |target|string|Gets the source of the error. For example, it would be "documents" or "document id" for an invalid document.|
-|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message, and optional properties target, details(key value pair), inner error (can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message, and optional properties target, details (key value pair), inner error (this can be nested).|
 |innerError.code|string|Gets code error string.|
-|inner.Eroor.message|string|Gets high-level error message.|
+|innerError.message|string|Gets high-level error message.|
+|innerError.target|string|Gets the source of the error. For example, it would be "documents" or "document ID" if there was an invalid document.|
 
 ## Examples
 

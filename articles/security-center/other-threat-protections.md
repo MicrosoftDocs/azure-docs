@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 04/29/2021
+ms.date: 09/05/2021
 ms.author: memildin
 ---
 
@@ -14,9 +14,6 @@ As well as the built-in [Azure Defender protections](azure-defender.md), Azure S
 
 > [!TIP]
 > To enable Security Center's threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads.
->
-> You can enable threat protection for **Azure Database for MariaDB/MySQL/PostgreSQL** at the resource level only.
-
 
 ## Threat protection for Azure network layer <a name="network-layer"></a>
 Security Center network-layer analytics are based on sample [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), which are packet headers collected by Azure core routers. Based on this data feed, Security Center uses machine learning models to identify and flag malicious traffic activities. Security Center also uses the Microsoft Threat Intelligence database to enrich IP addresses.
@@ -26,16 +23,6 @@ Some network configurations restrict Security Center from generating alerts on s
 - Your virtual machine's network egress traffic isn't blocked by an external IDS solution.
 
 For a list of the Azure network layer alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azurenetlayer).
-
-
->[!NOTE]
-> Some of these analytics are powered by Microsoft Cloud App Security. To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
->
-> 1. From Security Center's menu, select **Pricing & settings**.
-> 1. Select the subscription you want to change.
-> 1. Select **Threat detection**.
-> 1. Clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
-
 
 >[!NOTE]
 > Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).

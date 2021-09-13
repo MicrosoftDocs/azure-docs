@@ -58,8 +58,8 @@ Although this application is written in C#, the API is a RESTful Web service com
     {
         class Program
         {
-            static string host = "https://api.cognitive.microsoft.com";
-            static string path = "/bing/v7.0/entities";
+            static string host = "https://api.bing.microsoft.com";
+            static string path = "/v7.0/search";
     
             static string market = "en-US";
     

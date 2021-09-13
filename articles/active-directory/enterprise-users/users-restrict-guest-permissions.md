@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 01/14/2020
+ms.date: 06/01/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -15,9 +15,9 @@ ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
-# Restrict guest access permissions (preview) in Azure Active Directory
+# Restrict guest access permissions in Azure Active Directory
 
-Azure Active Directory (Azure AD) allows you to restrict what external guest users can see in their organization in Azure AD. Guest users are set to a limited permission level by default in Azure AD, while the default for member users is the full set of default user permissions. This is a preview of a new guest user permission level in your Azure AD organization's external collaboration settings for even more restricted access, so your guest access choices now are:
+Azure Active Directory (Azure AD) allows you to restrict what external guest users can see in their organization in Azure AD. Guest users are set to a limited permission level by default in Azure AD, while the default for member users is the full set of user permissions. This is a new guest user permission level in your Azure AD organization's external collaboration settings for even more restricted access, so your guest access levels are:
 
 Permission level         | Access level | Value
 ----------------         | ------------ | -----
@@ -29,7 +29,7 @@ When guest access is restricted, guests can view only their own user profile. Pe
 
 ## Permissions and licenses
 
-You must be in the Global Administrator role to configure the external collaboration settings. There are no additional licensing requirements to restrict guest access.
+You must be in the Global Administrator or Privileged Role Administrator role to configure guest user access. There are no additional licensing requirements to restrict guest access.
 
 ## Update in the Azure portal
 

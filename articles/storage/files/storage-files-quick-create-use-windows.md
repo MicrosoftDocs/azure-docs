@@ -1,20 +1,27 @@
 ---
-title: Create and use an Azure Files share on Windows VMs
-description: Create and use an Azure Files share in the Azure portal. Connect it to a Windows VM, connect to the Files share, and upload a file to the Files share.
+title: Create and use an Azure file shares on Windows VMs
+description: Create and use an Azure files shares in the Azure portal. Connect it to a Windows VM, connect to the Files share, and upload a file to the Files share.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/15/2021
+ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
 ---
 
-# Quickstart: Create and manage Azure Files share with Windows virtual machines
+# Quickstart: Create and manage Azure file shares with Windows virtual machines
 
 The article demonstrates the basic steps for creating and using an Azure Files share. In this quickstart, the emphasis is on quickly setting up an Azure Files share so you can experience how the service works. If you need more detailed instructions for creating and using Azure file shares in your own environment, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Sign in to Azure
 
@@ -59,13 +66,14 @@ So far, you've created an Azure storage account and a file share with one file i
 ### Deploy a VM
 
 1. Next, expand the menu on the left side of the portal and choose **Create a resource** in the upper left-hand corner of the Azure portal.
-1. In the search box above the list of **Azure Marketplace** resources, search for and select **Windows Server 2016 Datacenter**.
+1. Under **Popular services** select **Virtual machine**.
 1. In the **Basics** tab, under **Project details**, select the resource group you created for this quickstart.
 
    ![Enter basic information about your VM in the portal blade.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. Under **Instance details**, name the VM *qsVM*.
-1. Leave the default settings for **Region**, **Availability options**, **Image**, and **Size**.
+1. For **Image** select **Windows Server 2016 Datacenter - Gen2**.
+1. Leave the default settings for **Region**, **Availability options**, and **Size**.
 1. Under **Administrator account**, add a **Username** and enter a **Password** for the VM.
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
 1. Select **Review + create**.

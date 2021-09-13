@@ -1,37 +1,39 @@
 ---
-title: Application Insights availability overview 
+title: Application Insights availability tests 
 description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 07/13/2021
 
 ---
 
-# Availability tests overview
+# Application Insights availability tests
 
-After you've deployed your web app/website, you can set up recurring tests to monitor availability and responsiveness. [Application Insights](./app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
+After you've deployed your web app or website, you can set up recurring tests to monitor availability and responsiveness. [Application Insights](./app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding or responds too slowly.
 
-You can set up availability tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to make any changes to the website you're testing. In fact, it doesn't even have to be a site you own. You can test the availability of a REST API that your service depends on.
+You can set up availability tests for any HTTP or HTTPS endpoint that's accessible from the public internet. You don't have to make any changes to the website you're testing. In fact, it doesn't even have to be a site that you own. You can test the availability of a REST API that your service depends on.
 
-## Types of availability tests
+## Types of tests
 
-There are three types of availability tests:
+There are four types of availability tests:
 
-* [URL ping test](monitor-web-app-availability.md): This category has two simple tests you can create through the portal.
-* [Multi-step web test](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
-* [Custom Track Availability Tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
+* [URL ping test (classic)](monitor-web-app-availability.md): You can create this simple test through the portal to validate whether an endpoint is responding and measure performance associated with that response. You can also set custom success criteria coupled with more advanced features, like parsing dependent requests and allowing for retries.
+* [Standard test (Preview)](availability-standard-tests.md): This single request test is similar to the URL ping test. It includes SSL certificate validity, proactive lifetime check, HTTP request verb (for example `GET`, `HEAD`, or `POST`), custom headers, and custom data associated with your HTTP request.
+* [Multi-step web test (classic)](availability-multistep.md): You can play back this recording of a sequence of web requests to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal, where you can run them.
+* [Custom TrackAvailability test](availability-azure-functions.md): If you decide to create a custom application to run availability tests, you can use the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method to send the results to Application Insights.
 
 > [!IMPORTANT]
-> Both, [URL ping test](monitor-web-app-availability.md) and [multi-step web test](availability-multistep.md) rely on the public internet DNS infrastructure to resolve the domain names of the tested endpoints. This means that if you are using Private DNS, you must either ensure that every domain name of your test is also resolvable by the public domain name servers or, when it is not possible, you can use [custom track availability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
+> Both the [URL ping test](monitor-web-app-availability.md) and the [multi-step web test](availability-multistep.md) rely on the DNS infrastructure of the public internet to resolve the domain names of the tested endpoints. If you're using private DNS, you must ensure that the public domain name servers can remove every domain name of your test. When that's not possible, you can use [custom TrackAvailability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
 
-**You can create up to 100 availability tests per Application Insights resource.**
+You can create up to 100 availability tests per Application Insights resource.
 
 ## Troubleshooting
 
-Dedicated [troubleshooting article](troubleshoot-availability.md).
+See the dedicated [troubleshooting article](troubleshoot-availability.md).
 
-## Next step
+## Next steps
 
-* [Availability Alerts](availability-alerts.md)
+* [Availability alerts](availability-alerts.md)
 * [Multi-step web tests](availability-multistep.md)
 * [URL tests](monitor-web-app-availability.md)
-* [Create and run custom availability tests using Azure Functions.](availability-azure-functions.md)
+* [Create and run custom availability tests using Azure Functions](availability-azure-functions.md)
+* [Web Tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)

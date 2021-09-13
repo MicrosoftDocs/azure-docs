@@ -4,13 +4,13 @@ description: This topic shows you how to use .NET Core to create a program that 
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: "sqldbrb=2, devx-track-csharp"
 ms.devlang: dotnet
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 05/29/2020
 ---
 # Quickstart: Use .NET Core (C#) to query a database

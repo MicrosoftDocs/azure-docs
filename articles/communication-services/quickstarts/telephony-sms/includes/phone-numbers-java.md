@@ -1,3 +1,6 @@
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/PhoneNumbers)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -21,6 +24,12 @@ You'll notice that the 'generate' task created a directory with the same name as
 Open the **pom.xml** file in your text editor. Add the following dependency elements to the group of dependencies.
 
 ```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-communication-common</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
@@ -48,10 +57,13 @@ Use the following code to begin:
 ```java
 import com.azure.communication.phonenumbers.*;
 import com.azure.communication.phonenumbers.models.*;
-import java.io.*;
+import com.azure.core.http.rest.*;
 import com.azure.core.util.Context;
+import com.azure.core.util.polling.LongRunningOperationStatus;
 import com.azure.core.util.polling.PollResponse;
+import com.azure.core.util.polling.SyncPoller;
 import com.azure.identity.*;
+import java.io.*;
 
 public class App
 {
@@ -81,7 +93,7 @@ Alternatively, using the endpoint and access key from the communication resource
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L30-L41 -->
 ```java
 // You can find your connection string from your resource in the Azure portal
-String connectionString = "https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<ACCESS_KEY>";
+String connectionString = "endpoint=https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<ACCESS_KEY>";
 
 PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .connectionString(connectionString)
@@ -100,13 +112,18 @@ In order to purchase phone numbers, you must first search for available phone nu
     .setSms(PhoneNumberCapabilityType.INBOUND_OUTBOUND);
 PhoneNumberSearchOptions searchOptions = new PhoneNumberSearchOptions().setAreaCode("833").setQuantity(1);
 
-PhoneNumberSearchResult searchResult = phoneNumberClient
-    .beginSearchAvailablePhoneNumbers("US", PhoneNumberType.TOLL_FREE, PhoneNumberAssignmentType.APPLICATION, capabilities,  searchOptions, Context.NONE)
-    .getFinalResult();
+SyncPoller<PhoneNumberOperation, PhoneNumberSearchResult> poller = phoneNumberClient
+    .beginSearchAvailablePhoneNumbers("US", PhoneNumberType.TOLL_FREE, PhoneNumberAssignmentType.APPLICATION, capabilities, searchOptions, Context.NONE);
+PollResponse<PhoneNumberOperation> response = poller.waitForCompletion();
+String searchId = "";
 
-System.out.println("Searched phone numbers: " + searchResult.getPhoneNumbers());
-System.out.println("Search expires by: " + searchResult.getSearchExpiresBy());
-System.out.println("Phone number costs:" + searchResult.getCost().getAmount());
+if (LongRunningOperationStatus.SUCCESSFULLY_COMPLETED == response.getStatus()) {
+    PhoneNumberSearchResult searchResult = poller.getFinalResult();
+    searchId = searchResult.getSearchId();
+    System.out.println("Searched phone numbers: " + searchResult.getPhoneNumbers());
+    System.out.println("Search expires by: " + searchResult.getSearchExpiresBy());
+    System.out.println("Phone number costs:" + searchResult.getCost().getAmount());
+}
 ```
 
 ### Purchase Phone Numbers
@@ -114,7 +131,7 @@ System.out.println("Phone number costs:" + searchResult.getCost().getAmount());
 The result of searching for phone numbers is a PhoneNumberSearchResult. This contains a `searchId` which can be passed to the purchase numbers API to acquire the numbers in the search. Note that calling the purchase phone numbers API will result in a charge to your Azure Account.
 
 ```java
-PollResponse<PhoneNumberOperation> purchaseResponse = phoneNumberClient.beginPurchasePhoneNumbers(searchResult.getSearchId(), Context.NONE).waitForCompletion();
+PollResponse<PhoneNumberOperation> purchaseResponse = phoneNumberClient.beginPurchasePhoneNumbers(searchId, Context.NONE).waitForCompletion();
 System.out.println("Purchase phone numbers operation is: " + purchaseResponse.getStatus());
 ```
 
@@ -141,10 +158,14 @@ PhoneNumberCapabilities capabilities = new PhoneNumberCapabilities();
 capabilities
     .setCalling(PhoneNumberCapabilityType.INBOUND)
     .setSms(PhoneNumberCapabilityType.INBOUND_OUTBOUND);
-PurchasedPhoneNumber phoneNumber = phoneNumberClient.beginUpdatePhoneNumberCapabilities("+14255550123", capabilities, Context.NONE).getFinalResult();
 
-System.out.println("Phone Number Calling capabilities: " + phoneNumber.getCapabilities().getCalling()); //Phone Number Calling capabilities: inbound
-System.out.println("Phone Number SMS capabilities: " + phoneNumber.getCapabilities().getSms()); //Phone Number SMS capabilities: inbound+outbound
+SyncPoller<PhoneNumberOperation, PurchasedPhoneNumber> poller = phoneNumberClient.beginUpdatePhoneNumberCapabilities("+18001234567", capabilities, Context.NONE);
+PollResponse<PhoneNumberOperation> response = poller.waitForCompletion();
+if (LongRunningOperationStatus.SUCCESSFULLY_COMPLETED == response.getStatus()) {
+    PurchasedPhoneNumber phoneNumber = poller.getFinalResult();
+    System.out.println("Phone Number Calling capabilities: " + phoneNumber.getCapabilities().getCalling()); //Phone Number Calling capabilities: inbound
+    System.out.println("Phone Number SMS capabilities: " + phoneNumber.getCapabilities().getSms()); //Phone Number SMS capabilities: inbound+outbound
+}
 ```
 
 ### Release Phone Number

@@ -1,10 +1,10 @@
 ---
 author: MashaMSFT
 ms.service: sql-database
-ms.subservice: single-database  
+ms.subservice: service-overview  
 ms.topic: include
 ms.date: 03/10/2020
-ms.author: sstein
+ms.author: mathoma
 ms.reviewer: vanto
 ---
 

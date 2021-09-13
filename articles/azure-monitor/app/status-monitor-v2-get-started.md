@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!NOTE]
 > As of April 2020, PowerShell Gallery has deprecated TLS 1.1 and 1.0.
 >
-> For additionnal prerequisites that you might need, see [PowerShell Gallery TLS Support](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
+> For additional prerequisites that you might need, see [PowerShell Gallery TLS Support](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
 >
 
 Run PowerShell as Admin.
@@ -47,11 +47,17 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ```	
 
+> [!NOTE]
+> `AllowPrerelease` switch in `Install-Module` cmdlet allows installation of beta release. 
+>
+> For additional information, see [Install-Module](/powershell/module/powershellget/install-module?view=powershell-7.1#parameters).
+>
+
 ### Enable monitoring
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 	
 		
@@ -70,7 +76,7 @@ Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ### Enable monitoring
 
 ```powershell
-Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 
 

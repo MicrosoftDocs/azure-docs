@@ -22,23 +22,24 @@ As an organization that uses Azure Active Directory (Azure AD) B2B collaboration
 
 ## Access to SAML apps
 
-If your on-premises app uses SAML-based authentication, you can easily make these apps available to your Azure AD B2B collaboration users through the Azure portal.
+If your on-premises app uses SAML-based authentication, you can easily make these apps available to your Azure AD B2B collaboration users through the Azure portal using Azure AD Application Proxy.
 
-You must do both of the following:
+You must do the following :
 
-- Integrate the app using SAML as described in [Configure SAML-based single sign-on](../manage-apps/configure-saml-single-sign-on.md). Make sure to note what you use for the **Sign-on URL** value.
--  Use Azure AD Application Proxy to publish the on-premises app, with **Azure Active Directory** configured as the authentication source. For instructions, see [Publish applications using Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md). 
+- Enable Application Proxy and install a connector. For instructions, see [Publish applications using Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md).
+- Publish the on-premises SAML-based application through Azure AD Application Proxy by following the instructions in [SAML single sign-on for on-premises applications with Application Proxy](../app-proxy/application-proxy-configure-single-sign-on-on-premises-apps.md).
+- Assign Azure AD B2B Users to the SAML Application.
 
-   When you configure the **Internal Url** setting, use the sign-on URL that you specified in the non-gallery application template. In this way, users can access the app from outside the organization boundary. Application Proxy performs the SAML single sign-on for the on-premises app.
- 
-   ![Shows on-premises app settings internal URL and authentication](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
+When you've completed the steps above, your app should be up and running. To test Azure AD B2B access:
+1.	Open a browser and navigate to the external URL that you created when you published the app.
+2.	Sign in with the Azure AD B2B account that you assigned to the app. You should be able to open the app and access it with single sign-on.
 
 ## Access to IWA and KCD apps
 
 To provide B2B users access to on-premises applications that are secured with Integrated Windows Authentication and Kerberos constrained delegation, you need the following components:
 
 - **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Tutorial: Add an on-premises application for remote access through Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md).
-- **Authorization via a B2B user object in the on-premises directory**. The application must be able to perform user access checks, and grant access to the correct resources. IWA and KCD require a user object in the on-premises Windows Server Active Directory to complete this authorization. As described in [How single sign-on with KCD works](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy needs this user object to impersonate the user and get a Kerberos token to the app. 
+- **Authorization via a B2B user object in the on-premises directory**. The application must be able to perform user access checks, and grant access to the correct resources. IWA and KCD require a user object in the on-premises Windows Server Active Directory to complete this authorization. As described in [How single sign-on with KCD works](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy needs this user object to impersonate the user and get a Kerberos token to the app. 
 
    > [!NOTE]
    > When you configure the Azure AD Application Proxy, ensure that **Delegated Logon Identity** is set to **User principal name** (default) in the single sign-on configuration for Integrated Windows Authentication (IWA).

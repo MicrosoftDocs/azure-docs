@@ -44,6 +44,8 @@ This error message contains metrics that can help point you to the cause and pos
 | wr |There's an active writer (meaning the 6 unsent requests aren't being ignored) bytes/activewriters |
 | in |There are no active readers and zero bytes are available to be read on the NIC bytes/activereaders |
 
+In the preceding exception example, the `IOCP` and `WORKER` sections each include a `Busy` value that is greater than the `Min` value. The difference means that you should adjust your `ThreadPool` settings. You can [configure your ThreadPool settings](cache-management-faq.yml#important-details-about-threadpool-growth) to ensure that your thread pool scales up quickly under burst scenarios.
+
 You can use the following steps to investigate possible root causes.
 
 1. As a best practice, make sure you're using the following pattern to connect when using the StackExchange.Redis client.
@@ -68,10 +70,10 @@ You can use the following steps to investigate possible root causes.
 
 1. Ensure that your server and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you're debugging from your local development machine. 
 
-    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 5000-ms interval by including a `synctimeout` property in the connection string. The following example shows a snippet of a connection string for StackExchange.Redis provided by Azure Cache for Redis with a `synctimeout` of 2000 ms.
+    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 5000-ms interval by including a `synctimeout` property in the connection string. The following example shows a snippet of a connection string for StackExchange.Redis provided by Azure Cache for Redis with a `synctimeout` of 8000 ms.
 
     ```output
-    synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    synctimeout=8000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
     ```
 
 1. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
@@ -115,5 +117,5 @@ You can use the following steps to investigate possible root causes.
 
 - [Troubleshoot Azure Cache for Redis client-side issues](cache-troubleshoot-client.md)
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
-- [How can I benchmark and test the performance of my cache?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [How can I benchmark and test the performance of my cache?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
 - [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)

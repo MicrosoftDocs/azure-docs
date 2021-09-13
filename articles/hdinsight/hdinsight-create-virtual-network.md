@@ -3,8 +3,8 @@ title: Create virtual networks for Azure HDInsight clusters
 description: Learn how to create an Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 04/16/2020
+ms.custom: hdinsightactive, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 05/12/2021
 ---
 
 # Create virtual networks for Azure HDInsight clusters
@@ -29,11 +29,11 @@ Other prerequisites for the samples in this article include the following items:
 
 The examples in this section demonstrate how to create network security group rules. The rules allow HDInsight to communicate with the Azure management services. Before using the examples, adjust the IP addresses to match the ones for the Azure region you're using. You can find this information in [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
 
-### Azure Resource Management template
+### Azure Resource Manager template
 
-The following Resource Management template creates a virtual network that restricts inbound traffic, but allows traffic from the IP addresses required by HDInsight. This template also creates an HDInsight cluster in the virtual network.
+The following Resource Manager template creates a virtual network that restricts inbound traffic, but allows traffic from the IP addresses required by HDInsight. This template also creates an HDInsight cluster in the virtual network.
 
-* [Deploy a secured Azure Virtual Network and an HDInsight Hadoop cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+* [Deploy a secured Azure Virtual Network and an HDInsight Hadoop cluster](https://azure.microsoft.com/resources/templates/hdinsight-secure-vnet/)
 
 ### Azure PowerShell
 
@@ -361,6 +361,60 @@ This example makes the following assumptions:
 4. To use the configuration, restart Bind. For example, `sudo service bind9 restart` on both DNS servers.
 
 After completing these steps, you can connect to resources in the virtual network using fully qualified domain names (FQDN). You can now install HDInsight into the virtual network.
+
+## Test your settings before deploying an HDInsight cluster
+
+Before deploying your cluster, you can check that your many of your network configuration settings are correct by running the [networkValidator tool](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/blob/main/HDInsightNetworkValidator) on a virtual machine in the same VNet and subnet as the planned cluster.
+
+**To deploy a Virtual Machine to run the networkValidator.sh script**
+
+1. Open the [Azure portal Ubuntu Server 18.04 LTS page](https://portal.azure.com/?feature.customportal=false#create/Canonical.UbuntuServer1804LTS-ARM) and click **Create** .
+
+1. In the **Basics** tab, under **Project details**, select your subscription, and choose an existing Resource group or create a new one.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine.":::
+
+1. Under **Instance details**, enter a unique **Virtual machine name**, select the same **Region** as your VNet, choose *No infrastructure redundancy required* for **Availability options**, choose *Ubuntu 18.04 LTS* for your **Image**, leave **Azure Spot instance** blank, and choose Standard_B1s (or larger) for the **Size**.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
+
+1. Under **Administrator account**, select **Password** and enter a username and password for the administrator account. 
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/administrator-account.png" alt-text="Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials.":::
+
+1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** from the drop-down, and then click **Next: Disks >**
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/inbound-port-rules.png" alt-text="Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on.":::
+
+1. Under **Disk options**, choose *Standard SSD for the OS disk type*, and then click **Next: Networking >**.
+
+1. On the **Networking** page, under **Network interface**, select the **Virtual Network** and the **Subnet** in which you plan to add the HDInsight cluster to, and then select the **Review + create** button at the bottom of the page.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/vnet.png" alt-text="Screenshot of the network interface section where you select the VNet and subnet in which to add the virtual machine.":::
+
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+
+1. When the deployment is finished, select **Go to resource**.
+
+1. On the page for your new VM, select the public IP address and copy it to your clipboard.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/ip-address.png" alt-text="Screenshot showing how to copy the IP address for the virtual machine.":::
+
+**Run the /networkValidator.sh script**
+
+1. SSH to the new virtual machine.
+1. Copy all the files from [github](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/tree/main/HDInsightNetworkValidator) to the virtual machine with the following command:
+
+    `wget -i https://raw.githubusercontent.com/Azure-Samples/hdinsight-diagnostic-scripts/main/HDInsightNetworkValidator/all.txt`
+
+1. Open the params.txt file in a text editor, and add values to all the variables. Use an empty string  ("") when you want to omit the related validation.
+1. Run `sudo chmod +x ./setup.sh` to make setup.sh executable and run it with `sudo ./setup.sh` to install pip for Python 2.x and install the required Python 2.x modules.
+1. Run the main script with `sudo python2 ./networkValidator.py`.
+1. Once the script completes, the Summary section indicates whether the checks were successful and you can create the cluster, or it will indicate if any issues were encountered, in which case you should review the error output and related documentation to fix the error.
+
+    Once you attempt to fix the error/s, you can run the script again to check your progress.
+1. After you have completed your checks and the summary says "SUCCESS: You can create your HDInsight cluster in this VNet/Subnet." you can create your cluster. 
+1. Delete the new virtual machine when you are done running the validation script. 
 
 ## Next steps
 

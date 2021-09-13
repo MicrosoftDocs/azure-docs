@@ -7,9 +7,9 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 09/25/2018
 ---
 # Building scalable cloud databases
@@ -39,7 +39,7 @@ To download:
 13. [Elastic Database client library with Dapper](elastic-scale-working-with-dapper.md)
 14. [Split-merge tool](elastic-scale-overview-split-and-merge.md)
 15. [Performance counters for shard map manager](elastic-database-client-library.md) 
-16. [FAQ for Elastic Database tools](elastic-scale-faq.md)
+16. [FAQ for Elastic Database tools](elastic-scale-faq.yml)
 
 ## Client capabilities
 

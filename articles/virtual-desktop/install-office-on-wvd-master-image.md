@@ -1,6 +1,6 @@
 ---
 title: Install Office on a master VHD image - Azure
-description: How to install and customize Office on a Windows Virtual Desktop master image to Azure.
+description: How to install and customize Office on a Azure Virtual Desktop master image to Azure.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/02/2019
@@ -16,7 +16,7 @@ This article assumes you've already created a virtual machine (VM). If not, see 
 This article also assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager. If not, see [Elevate access to manage all Azure subscription and management groups](../role-based-access-control/elevate-access-global-admin.md).
 
 >[!NOTE]
->These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+>These instructions are for a Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 ## Install Office in shared computer activation mode
 
@@ -38,7 +38,7 @@ This sample configuration XML we've provided will do the following things:
    - Enable shared computer activation.
 
 >[!NOTE]
->Visio's stencil search feature may not work as expected in Windows Virtual Desktop.
+>Visio's stencil search feature may not work as expected in Azure Virtual Desktop.
 
 Here's what this sample configuration XML won't do:
 
@@ -151,9 +151,9 @@ Here's how to install OneDrive in per-machine mode:
 
 ## Microsoft Teams and Skype for Business
 
-Windows Virtual Desktop doesn't support Skype for Business.
+Azure Virtual Desktop doesn't support Skype for Business.
 
-For help with installing Microsoft Teams, see [Use Microsoft Teams on Windows Virtual desktop](teams-on-wvd.md). Media optimization for Microsoft Teams on Windows Virtual Desktop is available in preview.
+For help with installing Microsoft Teams, see [Use Microsoft Teams on Azure Virtual desktop](./teams-on-avd.md). 
 
 ## Next steps
 

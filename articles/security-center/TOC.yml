@@ -71,6 +71,10 @@
   - name: Investigate the health of your resources
     href: investigate-resource-health.md
 
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 
 - name: Concepts
   items:
@@ -170,7 +174,7 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-  - name: Protect your SQL resources
+  - name: Protect your databases
     items:
     - name: Overview of Azure Defender for SQL
       displayName: database
@@ -178,12 +182,15 @@
     - name: Enable Defender for SQL servers on machines
       href: defender-for-sql-usage.md
       displayName: hybrid, arc, Azure Defender
+    - name: Overview of Azure Defender for open-source relational databases
+      displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+      href: defender-for-databases-introduction.md
+    - name: Enable Defender for OS RDBs and respond to alerts
+      displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
+      href: defender-for-databases-usage.md
     - name: Scan your SQL resources for vulnerabilities
       href: defender-for-sql-on-machines-vulnerability-assessment.md
-      displayName: hybrid, arc, Azure Defender
-    - name: Disable a vulnerability finding on SQL servers
-      displayName: VA, registry, vulnerabilities
-      href: defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview
+      displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
     - name: Customize SQL information protection policy
       displayName: sql, database, data discovery
       href: security-center-info-protection-policy.md
@@ -202,6 +209,9 @@
     - name: Scan your registry images for vulnerabilities
       displayName: ACR, registry, images, qualys
       href: defender-for-container-registries-usage.md
+    - name: Scan images in your CI/CD workflows
+      displayName: ACR, registry, images, trevi, vulnerabilities, scanner
+      href: defender-for-container-registries-cicd.md
     - name: Disable specific image vulnerability findings
       displayName: ACR, registry, images, qualys
       href: defender-for-container-registries-usage.md#disable-specific-findings-preview
@@ -217,7 +227,7 @@
   - name: Protect your Azure Storage accounts
     displayName: blob, adls, files, Azure Defender for Storage, Defender for Storage
     href: defender-for-storage-introduction.md
-  - name: Protect your Key Vault keys and secrets 
+  - name: Protect your Key Vault keys and secrets
     items:
     - name: Overview of Azure Defender for Key Vault
       displayName: KV, akv
@@ -307,15 +317,15 @@
   - name: FAQ for Azure Security Center
     items:
     - name: General questions
-      href: faq-general.md
+      href: faq-general.yml
     - name: Permissions questions
-      href: faq-permissions.md
+      href: faq-permissions.yml
     - name: Data collection and agent questions
-      href: faq-data-collection-agents.md
+      href: faq-data-collection-agents.yml
     - name: Virtual Machines questions
-      href: faq-vms.md
+      href: faq-vms.yml
     - name: Existing users of Azure Log Analytics
-      href: faq-azure-monitor-logs.md
+      href: faq-azure-monitor-logs.yml
   - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md
@@ -325,6 +335,8 @@
     href: security-center-endpoint-protection.md
   - name: Azure CLI
     href: /cli/azure/security
+  - name: Azure PowerShell
+    href: /powershell/module/az.security/
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

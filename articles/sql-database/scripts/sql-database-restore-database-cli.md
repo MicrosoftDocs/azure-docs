@@ -3,12 +3,12 @@ title: "Azure CLI: Restore a backup"
 description: Azure CLI example script to restore a database in Azure SQL Database to an earlier point in time from automatic backups. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: mashamsft
-ms.author: mathoma
+author: SQLSourabh
+ms.author: sourabha
 ms.reviewer: carlrab
 ms.date: 03/27/2019
 ---

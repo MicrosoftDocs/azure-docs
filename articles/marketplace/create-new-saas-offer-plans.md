@@ -1,30 +1,27 @@
 ---
-title: How to create plans for your SaaS offer in Microsoft Partner Center 
-description: How to create plans for a new software as a service (SaaS) offer using the Microsoft commercial marketplace portal in Partner Center. 
+title: Create plans for a SaaS offer in Azure Marketplace 
+description: Create plans for a new software as a service (SaaS) offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 07/05/2021
 ---
 
-# How to create plans for your SaaS offer
+# Create plans for a SaaS offer
 
 Offers sold through the Microsoft commercial marketplace must have at least one plan. You can create a variety of plans with different options within the same offer. These plans (sometimes referred to as SKUs) can differ in terms of version, monetization, or tiers of service. For detailed guidance on plans, see [Plans and pricing for commercial marketplace offers](plans-pricing.md).
 
 > [!NOTE]
-> If you choose to process transactions independently, you will not see this option. Instead, skip to [How to sell your SaaS offer](create-new-saas-offer-marketing.md).
+> If you choose to process transactions independently, you will not see this option. Instead, skip to [Sell a SaaS offer](create-new-saas-offer-marketing.md).
 
 ## Create a plan
 
 1. Near the top of the **Plan overview** tab, select **+ Create new plan**.
-
 1. In the dialog box that appears, in the **Plan ID** box, enter a unique plan ID. Use up to 50 lowercase alphanumeric characters, dashes, or underscores. You cannot modify the plan ID after you select **Create**.
-
 1. In the **Plan name** box, enter a unique name for this plan. Use a maximum of 50 characters.
-
 1. Select **Create**.
 
 ## Define the plan listing
@@ -32,7 +29,6 @@ Offers sold through the Microsoft commercial marketplace must have at least one 
 On the **Plan listing** tab, you can define the plan name and description as you want them to appear in the commercial marketplace.
 
 1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the commercial marketplace as the title of your offer's software plan.
-
 1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 500 characters.
 1. Select **Save draft** before continuing to the next tab: **Pricing and availability**.
 
@@ -143,13 +139,13 @@ After you create one or more plans, you'll see your plan name, plan ID, pricing 
 The actions that are available in the **Action** column of the **Plan overview** tab vary depending on the status of your plan, and may include the following:
 
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
-- If the plan status is **Live**, the link in the **Action** column will be either **Stop sell plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
+- If the plan status is **Live**, the link in the **Action** column will be either **Stop distribution of a plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
 
 ## Before you publish your offer
 
-If you haven't already done so, create a development and test (DEV) offer to test your offer before publishing your production offer live. To learn more, see [Create a development and test offer](create-saas-dev-test-offer.md).
+If you haven't already done so, create a development and test (DEV) offer to test your offer before publishing your production offer live. To learn more, see [Create a test SaaS offer](create-saas-dev-test-offer.md).
 
 ## Next steps
 
-- Learn [How to sell your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
-- [How to test and publish a SaaS offer to the commercial marketplace](test-publish-saas-offer.md).
+- [Sell your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
+- [Test and publish a SaaS offer](test-publish-saas-offer.md).

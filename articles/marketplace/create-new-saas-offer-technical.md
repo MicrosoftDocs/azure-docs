@@ -1,6 +1,6 @@
 ---
-title: How to add technical details for your SaaS offer in Microsoft Partner Center
-description: Learn how to provide technical details for your software as a service (SaaS) offer for the Microsoft commercial marketplace. 
+title: Add technical details for a SaaS offer in Azure Marketplace
+description: Provide technical details for a software as a service (SaaS) offer in Azure Marketplace. 
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ---
 
-# How to add technical details for your SaaS offer
+# Add technical details for a SaaS offer
 
 This article describes how to enter technical details that help the Microsoft commercial marketplace connect to your solution. This connection enables us to provision your offer for the customer if they choose to acquire and manage it. For more details about these settings, see [Technical information](plan-saas-offer.md#technical-information).
 
@@ -39,4 +39,4 @@ Select **Save draft** before continuing to the next tab: Plan overview.
 
 ## Next steps
 
-- [How to create plans for your SaaS offer](create-new-saas-offer-plans.md).
+- [Create plans for a SaaS offer](create-new-saas-offer-plans.md).

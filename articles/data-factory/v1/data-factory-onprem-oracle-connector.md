@@ -24,11 +24,11 @@ This article explains how to use Copy Activity in Azure Data Factory to move dat
 
 You can copy data *from an Oracle database* to the following data stores:
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores *to an Oracle database*:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## Prerequisites
 
@@ -116,7 +116,7 @@ The following table describes JSON elements that are specific to the Oracle link
 
 **Example: Using the ODP driver**
 
-To learn about allowed formats, see [Oracle data provider for .NET ODP](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
+To learn about allowed formats, see [Oracle data provider for .NET ODP](https://www.oracle.com/in/database/technologies/appdev/dotnet/odp.html).
 
 ```json
 {

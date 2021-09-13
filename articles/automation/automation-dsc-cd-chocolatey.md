@@ -112,7 +112,7 @@ Australia Southeast, Canada Central, North Europe.
 
 Details for VM registration (using the PowerShell DSC VM extension) provided in this [Azure
 Quickstart
-Template](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
+Template](https://azure.microsoft.com/blog/automating-vm-configuration-using-powershell-dsc-extension/).
 This step registers your new VM with the pull server in the list of State Configuration Nodes. Part of this
 registration is specifying the node configuration to be applied to the node. This node
 configuration doesn't have to exist yet in the pull server, so it's fine that step 4 is where this is

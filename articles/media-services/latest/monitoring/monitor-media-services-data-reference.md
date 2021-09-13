@@ -52,7 +52,7 @@ Media Services supports the following resource logs:
 
 For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../../azure-monitor/essentials/resource-logs-schema.md).
 
-## Key delivery log schema properties
+### Key delivery 
 
 These properties are specific to the key delivery log schema.
 

@@ -8,7 +8,8 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick 
+ms.reviewer: jrasnick  
+ms.custom: devx-track-azurepowershell
 ---
 
 # Control storage account access for serverless SQL pool in Azure Synapse Analytics
@@ -41,7 +42,7 @@ A user that has logged into a serverless SQL pool must be authorized to access a
 serverless SQL pool is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table below, it's not supported for the SQL user type.
 
 > [!IMPORTANT]
-> AAD authentication token might be cached by the client applications. For example PowerBI caches AAD token and reuses the same token for an hour. The long runing queries might fail if the token expires in the middle of the query execution. If you are experiencing query failures caused by the AAD access token that expires in the middle of the query, consider switching to [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+> AAD authentication token might be cached by the client applications. For example PowerBI caches AAD token and reuses the same token for an hour. The long running queries might fail if the token expires in the middle of the query execution. If you are experiencing query failures caused by the AAD access token that expires in the middle of the query, consider switching to [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
 
 You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data. As an alternative, you can specify fine-grained ACL rules to access files and folders. Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
 To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
@@ -93,24 +94,23 @@ You can use the following combinations of authorization and Azure Storage types:
 
 | Authorization type  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported\*      | Not  supported   | Supported\*     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported      | Not  supported   | Supported     |
 | [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported      | Supported        | Supported     |
-| [User Identity](?tabs=user-identity#supported-storage-authorization-types)    | Supported\*      | Supported\*        | Supported\*     |
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)    | Supported      | Supported        | Supported     |
 
-\* SAS token and Azure AD Identity can be used to access storage that is not protected with firewall.
+## Firewall protected storage
 
-
-### Querying firewall protected storage
-
+You can configure storage accounts to allow access to specific serverless SQL pool by creating a [resource instance rule](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-from-azure-resource-instances-preview).
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
 > [!NOTE]
 > The firewall feature on Storage is in public preview and is available in all public cloud regions. 
 
-#### User Identity
+
+### [User Identity](#tab/user-identity)
 
 To access storage that is protected with the firewall via User Identity, you can use Azure portal UI or PowerShell module Az.Storage.
-#### Configuration via Azure portal
+### Configuration via Azure portal
 
 1. Search for your Storage Account in Azure portal.
 1. Go to Networking under section Settings.
@@ -119,7 +119,7 @@ To access storage that is protected with the firewall via User Identity, you can
 1. Select name of your workspace as an Instance name.
 1. Click Save.
 
-#### Configuration via PowerShell
+### Configuration via PowerShell
 
 Follow these steps to configure your storage account firewall and add an exception for Synapse workspace.
 
@@ -186,9 +186,20 @@ Follow these steps to configure your storage account firewall and add an excepti
         }
     ```
 
-#### Managed Identity
-You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. 
+### [Shared access signature](#tab/shared-access-signature)
+
+Shared access signatures cannot be used to access firewall-protected storage.
+
+### [Managed Identity](#tab/managed-identity)
+
+You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. 
 In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+
+### [Anonymous access](#tab/public-access)
+
+You cannot access firewall-protected storage using anonymous access.
+
+---
 
 ## Credentials
 

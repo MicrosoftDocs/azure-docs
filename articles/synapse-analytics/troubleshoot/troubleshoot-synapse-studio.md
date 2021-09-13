@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Synapse Studio
-description: Troubleshoot Azure Synapse Studio
+description: Troubleshoot Synapse Studio
 author: julieMSFT 
 ms.service: synapse-analytics 
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Studio troubleshooting
+# Synapse Studio troubleshooting
 
 This trouble-shooting guide provides instruction on what information to provide when opening a support ticket on network connectivity issues. With the proper information, we can possibly resolve the issue more quickly.
 
@@ -38,7 +38,7 @@ Open the "Diagnostic Info" panel, select the "Download Diagnostic" button. Keep 
 
 ![diagnostic-info](media/troubleshooting-synapse-studio/diagnostic-info-download.png)
 
-To begin troubleshooting, retry the operation you performed in Azure Synapse Studio.
+To begin troubleshooting, retry the operation you performed in Synapse Studio.
 
 - For symptom 1, select the "Refresh" button to the right of the "Use database" dropdown in the "SQL script" tab and check whether you can see "serverless SQL pool".
 - For symptom 2, try running the query again to see if it executes successfully.

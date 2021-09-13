@@ -1,21 +1,16 @@
 ---
-title: High availability and load balancing - Azure AD Application Proxy
+title: High availability and load balancing - Azure Active Directory Application Proxy
 description: How traffic distribution works with your Application Proxy deployment. Includes tips for how to optimize connector performance and use load balancing for back-end servers.
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-proxy
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 04/29/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
 ---
 
 # High availability and load balancing of your Application Proxy connectors and applications
@@ -92,6 +87,6 @@ Refer to your software vendor's documentation to understand the load-balancing r
 
 - [Enable Application Proxy](application-proxy-add-on-premises-application.md)
 - [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Enable Conditional Access](../manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+- [Enable Conditional Access](./application-proxy-integrate-with-sharepoint-server.md)
 - [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
 - [Learn how Azure AD architecture supports high availability](../fundamentals/active-directory-architecture.md)

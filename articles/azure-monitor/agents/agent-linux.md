@@ -52,7 +52,7 @@ If you are using an older version of the agent, you must have the Virtual Machin
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+Again, only if you are using an older version of the agent, the python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
 
 1. Run the following command to remove any existing aliases.
  

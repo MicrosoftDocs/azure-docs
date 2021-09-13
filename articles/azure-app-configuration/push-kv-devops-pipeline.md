@@ -22,36 +22,12 @@ The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?it
 
 ## Create a service connection
 
-A [service connection](/azure/devops/pipelines/library/service-endpoints) allows you to access resources in your Azure subscription from your Azure DevOps project.
-
-1. In Azure DevOps, go to the project containing your target pipeline and open the **Project settings** at the bottom left.
-1. Under **Pipelines** select **Service connections** and select **New service connection** in the top right.
-1. Select **Azure Resource Manager**.
-![Screenshot shows selecting Azure Resource Manager from the New service connection dropdown list.](./media/new-service-connection.png)
-1. In the **Authentication method** dialog, select **Service principal (automatic)** to create a new service principal or select **Service principal (manual)** to [use an existing service principal](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#use-spn).
-1. Fill in your subscription and resource. Give your service connection a name.
-
-If you created a new service principal, find the name of the service principal assigned to the service connection. You'll add a new role assignment to this service principal in the next step.
-
-1. Go to **Project Settings** > **Service connections**.
-1. Select the service connection that you created in the previous section.
-1. Select **Manage Service Principal**.
-1. Note the **Display name** listed.
-![Screenshot shows the service principal display name.](./media/service-principal-display-name.png)
+[!INCLUDE [azure-app-configuration-service-connection](../../includes/azure-app-configuration-service-connection.md)]
 
 ## Add role assignment
 
-Assign the proper App Configuration role assignments to the credentials being used within the task so that the task can access the App Configuration store.
+[!INCLUDE [azure-app-configuration-role-assignment](../../includes/azure-app-configuration-role-assignment.md)]
 
-1. Navigate to your target App Configuration store. 
-1. On the left, select **Access control (IAM)**.
-1. On the right side, click the **Add role assignments** button.
-![Screenshot shows the Add role assignments button.](./media/add-role-assignment-button.png)
-1. Under **Role**, select **App Configuration Data Owner**. This role allows the task to read from and write to the App Configuration store. 
-1. Select the service principal associated with the service connection that you created in the previous section.
-![Screenshot shows the Add role assignment dialog.](./media/add-role-assignment.png)
-
-  
 ## Use in builds
 
 This section will cover how to use the Azure App Configuration Push task in an Azure DevOps build pipeline.
@@ -118,6 +94,10 @@ If an unexpected error occurs, debug logs can be enabled by setting the pipeline
 **How can I upload multiple configuration files?**
 
 Create multiple instances of the Azure App Configuration Push task within the same pipeline to push multiple configuration files to the App Configuration store.
+
+**How can I create Key Vault references using this task?**
+
+To create Key Vault references, set the "Content Type" parameter to *application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8*. If not all key-values in a configuration file are Key Vault references, put Key Vault references and normal key-values in separate configuration files, and push them separately.
 
 **Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
 

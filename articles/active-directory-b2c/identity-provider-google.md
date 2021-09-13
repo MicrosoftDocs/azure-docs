@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 07/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -19,6 +19,10 @@ zone_pivot_groups: b2c-policy-type
 # Set up sign-up and sign-in with a Google account using Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+> [!IMPORTANT]
+> **Starting September 30, 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with Azure AD B2C, Google Gmail users won't be able to authenticate. [Learn more](../active-directory/external-identities/google-federation.md#deprecation-of-web-view-sign-in-support).
+
 
 ::: zone pivot="b2c-custom-policy"
 
