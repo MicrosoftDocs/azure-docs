@@ -171,7 +171,7 @@ steps:
 
 The following steps show you how to enable a blue-green deployment from the **Releases** section.
 
-1.  Select **Pipelines** and create a new pipeline for your Maven build and publish artifact.
+1. Select **Pipelines** and create a new pipeline for your Maven build and publish artifact.
    1. Select **Azure Repos Git** for your code location.
    1. Select a repository where your code is located.
    1. Select the **Maven** template and modify the file to set the `mavenPomFile` field to *`complete/pom.xml`*.
