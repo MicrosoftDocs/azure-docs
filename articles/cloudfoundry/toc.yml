@@ -1,7 +1,5 @@
 - name: Cloud Foundry documentation
   href: index.yml
-- name: Quickstarts
-  expanded: true
 - name: Tutorials
   items:
   - name: Create CF on Azure
