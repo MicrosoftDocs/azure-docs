@@ -2,7 +2,7 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources. 
 ms.topic: conceptual
-ms.date: 08/19/2021 
+ms.date: 09/14/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -521,7 +521,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 To configure a proxy server for Azure VM or on-premises machine, follow these steps:
 
-1. Add the following domains in the exception and bypass the proxy server.
+1. Add the following domains that need to be accessed from the proxy server.
    
    | Service | Domain names | Port |
    | ------- | ------ | ---- |
@@ -531,7 +531,15 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
 
 1. Allow access to these domains in the proxy server and link private DNS zone ( `*.privatelink.<geo>.backup.windowsazure.com`, `*.privatelink.blob.core.windows.net`, `*.privatelink.queue.core.windows.net`) with the VNET where proxy server is created or uses a custom DNS server with the respective DNS entries. <br><br> The VNET where proxy server is running and the VNET where private endpoint NIC is created should be peered, which would allow the proxy server to redirect the requests to private IP. 
 
-The following diagram shows a setup with a proxy server whose VNet is linked to a private DNS zone with required DNS entries. Proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 169.63.129.16.
+   >[!NOTE]
+   >In the above text, `<geo>` refers to the region code (for example *eus* and *ne* for East US and North Europe respectively). Refer to the following lists for regions codes:
+>
+   >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
+   >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+   >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+   >- [US Gov](../azure-government/documentation-government-developer-guide.md)
+
+The following diagram shows a setup (while using the Azure Private DNS zones) with a proxy server, whose VNet is linked to a private DNS zone with required DNS entries. The proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 169.63.129.16. If you're using a custom DNS server/host file for DNS resolution, see the sections on [managing DNS entries](/azure/backup/private-endpoints#manage-dns-records) and [configuring protection](/azure/backup/private-endpoints#configure-backup).
 
 :::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="Diagram showing a setup with a proxy server." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
 
