@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 
 ---
@@ -34,6 +34,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * CheckProof supports **IDP** initiated SSO.
+* CheckProof supports [Automated user provisioning](checkproof-provisioning-tutorial.md).
 
 ## Add CheckProof from the gallery
 
@@ -132,6 +133,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **CREATE USER** page, fill the required fields and click on **SAVE**.
 
     ![CheckProof create user page.](./media/checkproof-tutorial/user.png)
+
+> [!NOTE]
+>CheckProof also supports automatic user provisioning, you can find more details [here](./checkproof-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
