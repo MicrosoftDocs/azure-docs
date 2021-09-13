@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: lostmygithubaccount
-ms.author: copeters
-ms.date: 08/03/2021
+author: ynpandey
+ms.author: yogipandey
+ms.date: 09/20/2021
 ms.reviewer: laobri
 ---
 
