@@ -8,7 +8,7 @@ ms.date: 11/01/2021
 
 # Connect cameras to the cloud
 
-Connecting cameras to Video Analyzer's cloud service will either reduce the computational load on your edge device or eliminate the need for an edge device overall. Video Analyzer currrently supports three different methods for connecting cameras to the cloud: connecting via a transparent gateway, connecting behind a firewall, and connecting over the open internet without a firewall.
+Azure Video Analyzer allows users to capture and record directly to the cloud using cloud pipelines. Connecting cameras to Video Analyzer will either reduce the computational load on your edge device or eliminate the need for an edge device overall. Video Analyzer currrently supports three different methods for connecting cameras to the cloud: connecting via a transparent gateway, connecting behind a firewall, and connecting over the open internet without a firewall.
 
 <!--- TODO: add diagram similar to pvt preview just without pvt preview verbage -->
 
