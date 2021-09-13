@@ -15,7 +15,8 @@ ms.date: 09/13/2021
 
 In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMware Solution in one of the following two ways: 
 
-- [Use the Azure portal to create a DHCP server or DHCP relay](#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal)
+
+- [Use the Azure portal to create a DHCP server or relay](#use-the-azure-portal-to-create-a-dhcp-server-or-relay)
 
 - [Use NSX-T to host your DHCP server](#use-nsx-t-to-host-your-dhcp-server)
 

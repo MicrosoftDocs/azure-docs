@@ -18,7 +18,7 @@ You'll have four options to configure NSX-T components in the Azure VMware Solut
 
 - **Segments** - Create segments that display in NSX-T Manager and vCenter. For more information, see [Add an NSX-T segment using the Azure portal](tutorial-nsx-t-network-segment.md#use-azure-portal-to-add-an-nsx-t-segment).
 
-- **DHCP** - Create a DHCP server or DHCP relay if you plan to use DHCP.  For more information, see [Create a DHCP server or DHCP relay using the Azure portal](configure-dhcp-azure-vmware-solution.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal).
+- **DHCP** - Create a DHCP server or DHCP relay if you plan to use DHCP.  For more information, see [Use the Azure portal to create a DHCP server or relay](configure-dhcp-azure-vmware-solution.md#use-the-azure-portal-to-create-a-dhcp-server-or-relay).
 
 - **Port mirroring** – Create port mirroring to help troubleshoot network issues. For more information, see [Configure port mirroring in the Azure portal](configure-port-mirroring-azure-vmware-solution.md).
 
