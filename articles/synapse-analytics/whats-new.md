@@ -12,7 +12,7 @@ ms.date: 08/24/2021
 
 # What's new in Azure Synapse Analytics?
 
-This article lists Azure SQL Database and Azure SQL Managed Instance features that are currently in public preview. For SQL Database and SQL Managed Instance updates and improvements, see [SQL Database & SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database). For updates and improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
+This article describes updates to Azure Synapse Analytics and lists features that are currently in public preview.
 
 ## What's new?
 
