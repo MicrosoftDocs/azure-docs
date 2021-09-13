@@ -15,16 +15,24 @@ This article explains how to configure and work with Azure Functions Proxies. Wi
 > [!NOTE] 
 > Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
+> [!NOTE] 
+> Not every type of Function App allows you to create proxies.
+> When you create one, select:
+> Publish: "Code",
+> Runtime stack: ".NET",
+> Operating System: "Windows".
+
+
 ## <a name="create"></a>Create a proxy
 
 This section shows you how to create a proxy in the Functions portal.
 
 1. Open the [Azure portal], and then go to your function app.
-2. In the left pane, select **New proxy**.
-3. Provide a name for your proxy.
-4. Configure the endpoint that's exposed on this function app by specifying the **route template** and **HTTP methods**. These parameters behave according to the rules for [HTTP triggers].
-5. Set the **backend URL** to another endpoint. This endpoint could be a function in another function app, or it could be any other API. The value does not need to be static, and it can reference [application settings] and [parameters from the original client request].
-6. Click **Create**.
+3. In the left pane, select **New proxy**.
+4. Provide a name for your proxy.
+5. Configure the endpoint that's exposed on this function app by specifying the **route template** and **HTTP methods**. These parameters behave according to the rules for [HTTP triggers].
+6. Set the **backend URL** to another endpoint. This endpoint could be a function in another function app, or it could be any other API. The value does not need to be static, and it can reference [application settings] and [parameters from the original client request].
+7. Click **Create**.
 
 Your proxy now exists as a new endpoint on your function app. From a client perspective, it is equivalent to an HttpTrigger in Azure Functions. You can try out your new proxy by copying the Proxy URL and testing it with your favorite HTTP client.
 
