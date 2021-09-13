@@ -24,7 +24,7 @@ Including the global Azure, Azure Active Directory (Azure AD) is deployed in
 
 - Azure Government
 - Azure China 21Vianet
-- Azure Germany ([Closing on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions)). [Find more details below](authentication-national-cloud.md#azure-germany-microsoft-cloud-deutschland)
+- Azure Germany ([Closing on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions)). [Find more details below](authentication-national-cloud.md#azure-germany-microsoft-cloud-deutschland).
 
 National clouds are unique and a separate environment from global Azure. It's important to be aware of key differences while developing your application for these environments. Differences include registering applications, acquiring tokens, and configuring endpoints.
 
