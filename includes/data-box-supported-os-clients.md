@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
-ms.date: 07/10/2019
+ms.date: 09/13/2021
 ms.author: alkohli
 ---
 
@@ -11,6 +11,6 @@ Here is a list of the supported operating systems for the data copy operation vi
 
 | **Operating system** | **Versions** |
 | --- | --- |
-| Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 <br> 2019 |
+| Windows Server |2016 RS1 and later<br> 2019 RS5 and later</br>With earlier editions of these operating systems, you may have issues using RoboCopy to copy extended attributes with files.<!--Ramkumar reviewing this info.--> |
 | Windows |7, 8, 10 |
 | Linux    |         |
