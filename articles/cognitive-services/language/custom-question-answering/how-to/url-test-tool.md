@@ -1,7 +1,7 @@
 ---
 title: Use URL tool to get answer from knowledge base - custom question answering
 titleSuffix: Azure Cognitive Services
-description: This article walks you through getting an answer from your knowledge base using a URL test tool such as cURL or Postman.
+description: This article walks you through getting an answer from your knowledge base using a URL test tool such as cURL or Postman with custom question answering.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services

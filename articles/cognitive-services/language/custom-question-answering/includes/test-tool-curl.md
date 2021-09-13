@@ -19,12 +19,12 @@ This cURL-based quickstart walks you through getting an answer from your knowled
     * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 > * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
+<!-- TODO: Replace Link-->
+   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../../../qnamaker/Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
 
-   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
-
-
+<!-- TODO: Replace Link-->
 > [!NOTE]
-> When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **cURL** tab shows the settings required to generate an answer from the command-line tool.
+> When you are ready to generate an answer to a question from your knowledge base, you must [train](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **cURL** tab shows the settings required to generate an answer from the command-line tool.
 
 ## Use metadata to filter answer
 
