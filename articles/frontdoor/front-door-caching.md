@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/03/2021
+ms.date: 09/13/2021
 ms.author: duau
 ---
 
@@ -130,7 +130,9 @@ Cache behavior and duration can be configured in both the Front Door designer ro
     * When *Use cache default duration* is set to **No**, Front Door will always override with the *cache duration* (required fields), meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. 
 
 > [!NOTE]
-> The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override won't work if the cache control header from the origin has a greater TTL than the override value.
+> * The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override won't work if the cache control header from the origin has a greater TTL than the override value.
+> * Cached contents may be evicted from the Azure Front Door before they are expired if the contents are not requested as frequently to make room for more frequently requested contents.
+>
 
 ## Next steps
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 08/11/2021
+ms.date: 09/09/2021
 ms.author: aahi
 ---
 
@@ -150,78 +150,6 @@ This category contains the following entity:
 
 :::row-end:::
 
-#### Subcategories
-
-The entity in this category can have the following subcategories.
-
-:::row:::
-    :::column span="":::
-        **Entity subcategory**
-
-        Medical    
-
-    :::column-end:::
-    :::column span="2":::
-        **Details**
-
-        Medical companies and groups.
-
-        To get this entity category, add `OrganizationMedical` to the `piiCategories` parameter. `OrganizationMedical` will be returned in the API response if detected.
-      
-    :::column-end:::
-
-    :::column span="":::
-      **Supported document languages**
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-:::row:::
-    :::column span="":::
-
-        Stock exchange
-
-    :::column-end:::
-    :::column span="2":::
-
-        Stock exchange groups. 
-
-        To get this entity category, add `OrganizationStockExchange` to the `piiCategories` parameter. `OrganizationStockExchange` will be returned in the API response if detected.
-      
-    :::column-end:::
-
-    :::column span="":::
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-:::row:::
-    :::column span="":::
-
-        Sports
-
-    :::column-end:::
-    :::column span="2":::
-
-        Sports-related organizations.
-
-        To get this entity category, add `OrganizationSports` to the `piiCategories` parameter. `OrganizationSports` will be returned in the API response if detected.
-      
-    :::column-end:::
-
-    :::column span="":::
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-
-
 ### Category: Address
 
 This category contains the following entity:
@@ -361,33 +289,6 @@ This category contains the following entities:
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
    :::column-end:::
-:::row-end:::
-
-#### Subcategories
-
-The entity in this category can have the following subcategories.
-
-:::row:::
-    :::column span="":::
-        **Entity subcategory**
-
-        Date
-
-    :::column-end:::
-    :::column span="2":::
-        **Details**
-
-        Calender dates. Also returned with `domain=phi`.
-
-        To get this entity category, add `Date` to the `piiCategories` parameter. `Date` will be returned in the API response if detected.
-      
-    :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-      
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
-      
-    :::column-end:::
 :::row-end:::
 
 ### Category: Quantity
