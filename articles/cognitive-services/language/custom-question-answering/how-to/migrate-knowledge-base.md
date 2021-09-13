@@ -6,7 +6,7 @@ ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 08/25/2021
 ---
-# Migrate a knowledge base using export-import
+# Migrate a knowledge base
 
 You may want to create a copy of your knowledge base for several reasons:
 
@@ -19,8 +19,10 @@ You may want to create a copy of your knowledge base for several reasons:
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
-> * Set up [Custom question answering](../How-To/set-up-qnamaker-service-azure.md)
 
+<!-- TODO: Replace Link
+> * Set up [Custom question answering](../How-To/set-up-qnamaker-service-azure.md)
+-->
 ## Export a knowledge base
 1. Sign in to [QnA Maker portal](https://qnamaker.ai).
 1. Select the knowledge base you want to migrate.
@@ -32,9 +34,9 @@ You may want to create a copy of your knowledge base for several reasons:
    4. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you can choose this option.
 
 ## Import a knowledge base
-1. Click **Create a knowledge base** from the top menu of the qnamaker.ai portal and then create an _empty_ knowledge base by not adding any URLs or files. Set the name of your choice for the new knowledge base and then Click **Create your KB**. 
+1. Select **Create a knowledge base** from the top menu of the qnamaker.ai portal and then create an _empty_ knowledge base by not adding any URLs or files. Set the name of your choice for the new knowledge base and then select **Create your KB**. 
 
-1. In this new knowledge base, open the **Settings** tab and and under _Import knowledge base_ select one of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
+1. In this new knowledge base, open the **Settings** tab and under _Import knowledge base_ select one of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
 
    1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer [SampleQnAs.xlsx](https://aka.ms/qnamaker-sampleqnas), [SampleQnAs.tsv](https://aka.ms/qnamaker-sampleqnastsv) to import QnAs.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer [SampleSynonyms.xlsx](https://aka.ms/qnamaker-samplesynonyms), [SampleSynonyms.tsv](https://aka.ms/qnamaker-samplesynonymstsv) to import synonyms.
@@ -52,9 +54,12 @@ You may want to create a copy of your knowledge base for several reasons:
          |DefaultAnswerforMultiturn|Yes|Yes|
          |Language|No|No|
 
-1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 
-1. **Publish** the knowledge base and create a chat bot. Learn how to [publish your knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+<!-- TODO: Replace Link-->
+1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../../../qnamaker/How-To/test-knowledge-base.md).
+
+<!-- TODO: Replace Link-->
+1. **Publish** the knowledge base and create a chat bot. Learn how to [publish your knowledge base](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
    > [!div class="mx-imgBorder"]
    > ![Migrate knowledge base](../media/migrate-knowledge-base/import-export-kb.png)
