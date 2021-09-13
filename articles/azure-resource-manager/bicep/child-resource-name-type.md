@@ -13,33 +13,35 @@ Child resources are resources that exist only within the context of another reso
 
 Each parent resource accepts only certain resource types as child resources. The hierarchy of resource types is available in the [Bicep resource reference](/azure/templates/).
 
+This article show different ways you can declare a child resource.
+
 ### Microsoft Learn
 
 To learn more about child resources, and for hands-on guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
 
 ## Name and type pattern
 
-In Bicep, you can specify the child resource either within the parent resource or outside of the parent resource. The values you provide for the resource name and resource type vary based on whether the child resource is defined inside or outside of the parent resource. However, the full name and type always resolve to the same pattern. 
+In Bicep, you can specify the child resource either within the parent resource or outside of the parent resource. The values you provide for the resource name and resource type vary based on how you declare the child resource. However, the full name and type always resolve to the same pattern. 
 
-The **full name** of the child resource is in the pattern of:
+The **full name** of the child resource uses the pattern:
 
 ```bicep
 {parent-resource-name}/{child-resource-name}
 ```
 
-If there are more than two levels in the hierarchy, the pattern is:
+If you have more two levels in the hierarchy, keep repeating parent names:
 
 ```bicep
 {parent-resource-name}/{child-level1-resource-name}/{child-level2-resource-name}
 ```
 
-The **full type** of the child resource is in the pattern of:
+The **full type** of the child resource uses the pattern:
 
 ```bicep
 {resource-provider-namespace}/{parent-resource-type}/{child-resource-type}
 ```
 
-If there are more than two levels in the hierarchy, the pattern is:
+If you have more than two levels in the hierarchy, keep repeating parent resource types:
 
 ```bicep
 {resource-provider-namespace}/{parent-resource-type}/{child-level1-resource-type}/{child-level2-resource-type}
@@ -63,7 +65,7 @@ resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {
 
 A nested resource declaration must appear at the top level of syntax of the parent resource. Declarations may be nested arbitrarily deep, as long as each level is a child type of its parent resource.
 
-When defined within the parent resource type, you format the type and name values as a single segment without slashes. The following example shows a storage account with a file service and file share. The file service's name is set to `default` and its type is set to `fileServices`. The file share's name is set `exampleshare` and its type is set to `shares`.
+When defined within the parent resource type, you format the type and name values as a single segment without slashes. The following example shows a storage account with a child resource for the file service, and the file service has a child resource for the file share. The file service's name is set to `default` and its type is set to `fileServices`. The file share's name is set `exampleshare` and its type is set to `shares`.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/insidedeclaration.bicep" highlight="9,12":::
 
@@ -109,6 +111,9 @@ Referencing the child resource symbolic name works the same as referencing the p
 You can also use the full resource name and type when declaring the child resource outside the parent. You don't set the parent property on the child resource. Because the dependency can't be inferred, you must set it explicitly.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/fullnamedeclaration.bicep" highlight="10,11,17,18":::
+
+> [!IMPORTANT]
+> Setting the full resource name and type isn't the recommended approach. It's not as type safe as using one of the other approaches.
 
 ## Next steps
 
