@@ -112,7 +112,7 @@ func new --name OnAir --template "HTTP trigger" --authlevel "anonymous"
 
 ## Configure the functions project
 
-### Add items to the .csproj file
+### Install Media Services and other extensions
 
 Run the dotnet add package command in the Terminal window to install the extension packages that you need in your project. The following command installs the Media Services and Azure Identity packages.
 
@@ -140,7 +140,7 @@ using System.Threading.Tasks;
 
 namespace MediaServicesLiveMonitor
 {
-    public static class LatestAsset
+    public static class OnAir
     {
         [FunctionName("OnAir")]
         public static async Task<IActionResult> Run(
