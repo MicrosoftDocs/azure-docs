@@ -184,7 +184,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 2. Go to Pulse Secure PCS Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Pulse Secure PCS tile in the Access Panel, this will redirect to Pulse Secure PCS Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+3. You can use Microsoft Access Panel. When you click the Pulse Secure PCS tile in the Access Panel, this will redirect to Pulse Secure PCS Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
