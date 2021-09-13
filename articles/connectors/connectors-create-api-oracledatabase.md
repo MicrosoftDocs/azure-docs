@@ -29,7 +29,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 * Supported Oracle versions: 
     * Oracle 9 and later
-    * Oracle Data Access Client (ODAC) software 11.2 and later
+    * Oracle Data Access Client (ODAC) 11.2 and later
 
 * Install the on-premises data gateway. [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md) lists the steps. The gateway is required to connect to an on-premises Oracle Database, or an Azure VM with Oracle DB installed. 
 
