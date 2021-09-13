@@ -23,7 +23,7 @@ Follow these steps to configure the necessary information in Synapse Studio.
 
 Consult one of the following resources to create this workspace:
 - [Create a workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md)
-- [Create a workspace with Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md)
+- [Create a workspace with Azure CLI](../../azure-monitor/logs/resource-manager-workspace.md)
 - [Create and configure a workspace in Azure Monitor by using PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)
 
 ### Step 2: Prepare a Apache Spark configuration file

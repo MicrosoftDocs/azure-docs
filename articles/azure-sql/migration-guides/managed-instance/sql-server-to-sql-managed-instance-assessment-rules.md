@@ -12,7 +12,7 @@ ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
 ---
 # Assessment rules for SQL Server to  Azure SQL Managed Instance migration
-[!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Migration tools validate your source SQL Server instance by running a number of assessment rules to identify issues that must be addressed before migrating your SQL Server database to Azure SQL Managed Instance. 
 

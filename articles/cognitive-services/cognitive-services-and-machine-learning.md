@@ -97,7 +97,7 @@ The following data categorizes each service by which kind of data it allows or r
 |[Speech Speech-to-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
 |[Text Analytics](./text-analytics/overview.md)|x|||
-|[Translator](./translator/translator-info-overview.md)|x|||
+|[Translator](./translator/translator-overview.md)|x|||
 |[Translator - custom translator](./translator/custom-translator/overview.md)||x||
 
 *Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
