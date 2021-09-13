@@ -30,7 +30,7 @@ ms.reviewer: laobri
 | `file_share_name` | string | **Required.** Name of the file share. | | |
 | `endpoint` | string | Endpoint of the storage account. | | `core.windows.net` |
 | `protocol` | string | Protocol to use to connect to the file share. | | `https` |
-| `credentials` | object | Credential-based authentication credentials for connecting to the Azure storage account. You can provide either an account key or a shared access signature (SAS) token. | | |
+| `credentials` | object | Credential-based authentication credentials for connecting to the Azure storage account. You can provide either an account key or a shared access signature (SAS) token. Credential secrets are stored in the workspace key vault. | | |
 | `credentials.account_key` | string | The account key for accessing the storage account. **One of `credentials.account_key` or `credentials.sas_token` is required if `credentials` is specified.** | | |
 | `credentials.sas_token` | string | The SAS token for accessing the storage account. **One of `credentials.account_key` or `credentials.sas_token` is required if `credentials` is specified.** | | |
 
