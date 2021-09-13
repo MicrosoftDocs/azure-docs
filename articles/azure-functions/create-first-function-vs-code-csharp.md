@@ -43,6 +43,8 @@ Before you get started, make sure you have the following requirements in place:
 
 + [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 
++ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). Required by the build process.
+
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.x.
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
