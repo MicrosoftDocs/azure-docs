@@ -22,13 +22,18 @@ The same API is also available for external tools such as [Jupyter](https://jupy
 
 For example, use notebooks to:
 
-- Perform analytics that aren't built-in to Azure Sentinel, such as some Python machine learning features
-- Create data visualizations that aren't built-in to Azure Sentinel, such as custom timelines and process trees
-- Integrate data sources outside of Azure Sentinel, such as an on-premises data set.
+- **Perform analytics** that aren't built-in to Azure Sentinel, such as some Python machine learning features
+- **Create data visualizations** that aren't built-in to Azure Sentinel, such as custom timelines and process trees
+- **Integrate data sources** outside of Azure Sentinel, such as an on-premises data set.
 
-We've integrated the Jupyter experience into the Azure portal, making it easy for you to create and run notebooks to analyze your data. The *Kqlmagic* library provides the glue that lets you take queries from Azure Sentinel and run them directly inside a notebook. Queries use the [Kusto Query Language](https://kusto.azurewebsites.net/docs/kusto/query/index.html). Several notebooks, developed by some of Microsoft's security analysts, are packaged with Azure Sentinel. Some of these notebooks are built for a specific scenario and can be used as-is. Others are intended as samples to illustrate techniques and features that you can copy or adapt for use in your own notebooks. Other notebooks may also be imported from the Azure Sentinel Community GitHub.
+We've integrated the Jupyter experience into the Azure portal, making it easy for you to create and run notebooks to analyze your data. The *Kqlmagic* library provides the glue that lets you take [KQL](https://kusto.azurewebsites.net/docs/kusto/query/index.html) queries from Azure Sentinel and run them directly inside a notebook.
 
-The integrated Jupyter experience uses [Azure Notebooks](https://notebooks.azure.com/) to store, share, and execute notebooks. You can also run these notebooks locally if you have a Python environment and Jupyter on your computer, or in other JupyterHub environments such as Azure Databricks.
+Several notebooks, developed by some of Microsoft's security analysts, are packaged with Azure Sentinel:
+
+- Some of these notebooks are built for a specific scenario and can be used as-is.
+- Others are intended as samples to illustrate techniques and features that you can copy or adapt for use in your own notebooks.
+
+Still other notebooks may also be imported from the [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel-Notebooks/).
 
 
 ## Notebook components
@@ -49,15 +54,19 @@ The Azure Sentinel notebooks use many popular Python libraries such as *pandas*,
 
 To avoid having to type or paste complex and repetitive code into notebook cells, most Python notebooks rely on third-party libraries called *packages*. To use a package in a notebook, you need to both install and import the package. Azure ML Compute has most common packages pre-installed. Make sure that you import the package, or the relevant part of the package, such as a module, file, function, or class.
 
-Azure Sentinel notebooks use a Python package called [msticpy](https://github.com/Microsoft/msticpy/), which is a collection of cybersecurity tools for data retrieval, analysis, enrichment, and visualization. 
+Azure Sentinel notebooks use a Python package called [MSTICPy](https://github.com/Microsoft/msticpy/), which is a collection of cybersecurity tools for data retrieval, analysis, enrichment, and visualization. 
 
-MSTICpy tools are designed specifically to help with creating notebooks for hunting and investigation and we're actively working on new features and improvements. For more information, see the [MSTIC Jupyter and Python Security Tools documentation](https://msticpy.readthedocs.io/).
+MSTICPy tools are designed specifically to help with creating notebooks for hunting and investigation and we're actively working on new features and improvements. For more information, see:
 
-The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
+- [MSTIC Jupyter and Python Security Tools documentation](https://msticpy.readthedocs.io/)
+- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md)
+- [Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel](notebooks-msticpy-advanced.md)
+
+The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks/) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
 
 ## Manage access to Azure Sentinel notebooks
 
-To use the notebooks, you must first have the right permissions, depending on your user role.
+To use Jupyter notebooks in Azure Sentinel, you must first have the right permissions, depending on your user role.
 
 While you can run Azure Sentinel notebooks in JupyterLab or Jupyter classic, in Azure Sentinel, notebooks are run on an [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (Azure ML) platform. To run notebooks in Azure Sentinel, you must have appropriate access to both Azure Sentinel workspace and an [Azure ML workspace](../machine-learning/concept-workspace.md).
 
@@ -212,7 +221,7 @@ The output is:
 
 ## Download all Azure Sentinel notebooks
 
-This section describes how to use Git to download all the notebooks available in the Azure Sentinel GitHub repository, from inside an Azure Sentinel notebook, directly to your Azure ML workspace.
+This section describes how to use Git to download all the notebooks available in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks/), from inside an Azure Sentinel notebook, directly to your Azure ML workspace.
 
 Having Azure Sentinel notebooks stored in your Azure ML workspace allows you to keep them updated easily.
 
@@ -245,9 +254,7 @@ By default, user accounts and credentials are not cached between notebook runs, 
 
 **To force caching for the duration of your session**:
 
-1. Authenticate using Azure CLI.
-
-1. In an empty notebook cell, enter and run the following code:
+1. Authenticate using Azure CLI. In an empty notebook cell, enter and run the following code:
 
     ```python
     !az login
@@ -323,29 +330,27 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
 
 ## Next steps
 
-- Learn more about using notebooks in threat hunting and investigation by exploring some notebook templates, such as [**Credential Scan on Azure Log Analytics**](https://www.youtube.com/watch?v=OWjXee8o04M) and **Guided Investigation - Process Alerts**. 
+The notebooks shared in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) are intended as useful tools, illustrations, and code samples that you can use when developing your own notebooks.
 
-    Find notebook templates in the Azure Sentinel > **Notebooks** > **Templates** tab.
+We welcome feedback, suggestions, requests for features, contributed notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
 
-- Find more in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks):
+- **Learn more** about using notebooks in threat hunting and investigation by exploring some notebook templates, such as [**Credential Scan on Azure Log Analytics**](https://www.youtube.com/watch?v=OWjXee8o04M) and **Guided Investigation - Process Alerts**.
+
+    Find more notebook templates in the Azure Sentinel > **Notebooks** > **Templates** tab.
+
+- **Find more notebooks** in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks):
 
     - The [**Sample-Notebooks**](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/Sample-Notebooks) directory includes sample notebooks that are saved with data that you can use to show intended output.
 
     - The [**HowTos**](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/HowTos) directory includes notebooks that describe concepts such as setting your default Python version, creating Azure Sentinel bookmarks from a notebook, and more.
 
-    For more information, see the [Getting Started with Azure ML Notebooks and Azure Sentinel](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/A%20Getting%20Started%20Guide%20For%20Azure%20Sentinel%20ML%20Notebooks.ipynb) guide.
-
-> [!NOTE]
-> The notebooks shared in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) are intended as useful tools, illustrations, and code samples that you can use when developing your own notebooks.
->
-> We welcome feedback, suggestions, requests for features, contributed notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
->
 
 For more information, see:
 
+  - [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md)
+- [Tutorial: Azure Sentinel notebooks - Getting started](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) (Video)
+- [Tutorial: Edit and run Jupyter notebooks without leaving Azure ML studio](https://www.youtube.com/watch?v=AAj-Fz0uCNk) (Video)
 - [Webinar: Azure Sentinel notebooks fundamentals](https://www.youtube.com/watch?v=rewdNeX6H94)
-- [Tutorial: Azure Sentinel notebooks - Getting started](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks)
 - [Proactively hunt for threats](hunting.md)
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
 - [Jupyter, msticpy and Azure Sentinel](https://msticpy.readthedocs.io/en/latest/getting_started/JupyterAndAzureSentinel.html)
-- [Tutorial: Edit and run Jupyter notebooks without leaving Azure ML studio](https://www.youtube.com/watch?v=AAj-Fz0uCNk)
