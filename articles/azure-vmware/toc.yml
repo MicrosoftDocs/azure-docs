@@ -102,6 +102,8 @@
     href: configure-github-enterprise-server.md
   - name: Configure networking
     items:
+    - name: Configure NSX network components
+      href: configure-nsx-network-components-azure-portal.md
     - name: Configure DHCP server or relay
       href: configure-dhcp-azure-vmware-solution.md
     - name: Configure DHCP on L2 stretched networks

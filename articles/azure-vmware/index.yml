@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 08/31/2021 
+  ms.date: 09/13/2021 
 
 
 # card 1
@@ -112,6 +112,8 @@ landingContent:
             url: reserved-instance.md
       - linkListType: how-to-guide
         links:
+          - text: Configure NSX network components
+            url: configure-nsx-network-components-azure-portal.md
           - text: Configure DHCP server or relay 
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched networks
