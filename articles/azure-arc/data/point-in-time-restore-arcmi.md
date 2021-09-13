@@ -91,7 +91,7 @@ Run the below command to check the status of the restore operation.
 kubectl get sqlmirestoretask -n <namespace>
 ```
 
-Once the status of the restore task says "Completed" the new database should be available. 
+Once the status of the restore task shows **Completed**, the new database should be available. 
 
 ## Troubleshooting failed restore operations
 
