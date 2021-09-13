@@ -87,7 +87,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
 
     Once the status changes to **Stopped (deallocated)**, the virtual machine is deallocated.
 
-1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to empty:
+1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to null:
 
     ```powershell-interactive
     $VirtualMachine =
@@ -98,7 +98,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     Update-AzVM
     -ResourceGroupName "myResourceGroup"
     -VM $VirtualMachine
-    -CapacityReservationGroupId " "
+    -CapacityReservationGroupId $null
     ```
 
 To learn more, go to Azure PowerShell commands [Stop-AzVM](/powershell/module/az.compute/stop-azvm), [Get-AzVM](/powershell/module/az.compute/get-azvm), and [Update-AzVM](/powershell/module/az.compute/update-azvm).
@@ -188,7 +188,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     -CapacityToReserve 0
     ```
 
-1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to empty:
+1. Update the VM to remove association with the Capacity Reservation Group by setting the `CapacityReservationGroupId` property to null:
 
     ```powershell-interactive
     $VirtualMachine =
@@ -199,7 +199,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     Update-AzVM
     -ResourceGroupName "myResourceGroup"
     -VM $VirtualMachine
-    -CapacityReservationGroupId " "
+    -CapacityReservationGroupId $null
     ```
 
 To learn more, go to Azure PowerShell commands [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation), [Get-AzVM](/powershell/module/az.compute/get-azvm), and [Update-AzVM](/powershell/module/az.compute/update-azvm).
