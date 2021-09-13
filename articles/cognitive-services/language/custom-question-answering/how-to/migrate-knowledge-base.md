@@ -56,10 +56,10 @@ You may want to create a copy of your knowledge base for several reasons:
 
 
 <!-- TODO: Replace Link-->
-1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../../../qnamaker/How-To/test-knowledge-base.md).
+3. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../../../qnamaker/How-To/test-knowledge-base.md).
 
 <!-- TODO: Replace Link-->
-1. **Publish** the knowledge base and create a chat bot. Learn how to [publish your knowledge base](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+4. **Publish** the knowledge base and create a chat bot. Learn how to [publish your knowledge base](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
    > [!div class="mx-imgBorder"]
    > ![Migrate knowledge base](../media/migrate-knowledge-base/import-export-kb.png)
