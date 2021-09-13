@@ -119,21 +119,21 @@ To deploy using a pipeline, follow these steps:
 
    You can also build and deploy your projects using following pipeline template. This example first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Cloud task for Azure Pipelines.
 
-```yaml
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'complete/pom.xml'
-- task: AzureSpringCloud@0
-  inputs:
-    azureSubscription: '<your service connection name>'
-    Action: 'Deploy'
-    AzureSpringCloud: <your Azure Spring Cloud service>
-    AppName: <app-name>
-    UseStagingDeployment: false
-    DeploymentName: 'default'
-    Package: ./target/your-result-jar.jar
-```
+   ```yaml
+   steps:
+   - task: Maven@3
+     inputs:
+       mavenPomFile: 'complete/pom.xml'
+   - task: AzureSpringCloud@0
+     inputs:
+       azureSubscription: '<your service connection name>'
+       Action: 'Deploy'
+       AzureSpringCloud: <your Azure Spring Cloud service>
+       AppName: <app-name>
+       UseStagingDeployment: false
+       DeploymentName: 'default'
+       Package: ./target/your-result-jar.jar
+   ```
 
 3. Select **Save and run**, then wait for job to finish.
 
@@ -196,14 +196,14 @@ The following steps show you how to enable a blue-green deployment from the **Re
    1. Under **Source (build pipeline)** select the pipeline created previously.
    1. Select **Add**, then **Save**.
 1. Select **1 job, 1 task** under **Stages**.
-1. Navigate to the **Azure Spring Cloud Deploy** task in Stage 1, then select the ellipsis next to **Package or folder**.
+1. Navigate to the **Azure Spring Cloud Deploy** task in **Stage 1**, then select the ellipsis next to **Package or folder**.
 1. Select *spring-boot-complete-0.0.1-SNAPSHOT.jar* in the dialog, then select **OK**.
 
    :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Modify the artifact path." lightbox="media/spring-cloud-how-to-cicd/change-artifact-path.jpg":::
 
 1. **Save** the changes.
 
-1. Navigate to **Stage One**.
+1. Navigate to **Stage 1**.
 1. Select **Add**, then select **Clone stage**.
 
    :::image type="content" source="media/spring-cloud-how-to-cicd/clone-the-stage.jpg" alt-text="Dialog to clone the stage to update to production deployment." lightbox="media/spring-cloud-how-to-cicd/clone-the-stage.jpg":::
