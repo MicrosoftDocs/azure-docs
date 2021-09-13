@@ -38,7 +38,7 @@ Use this procedure to configure Postman, then read each subsequent section to co
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|This is the HTTP method and route for the URL.|
     |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|This is the host of the URL. Concatenate the Host and Post values to get the complete generateAnswer URL.|
-    |`Authorization`|`EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|The header value to authorize your request to Azure. |
+    |`Authorization`|`EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|The header value for to authorize your request to Azure. |
     |`Content-type`|`application/json`|The header value for your content.|
     ||`{"question":"<Your question>"}`|The body of the POST request as a JSON object. This value will change in each following section depending on what the query is meant to do.|
 
@@ -321,7 +321,7 @@ The JSON response uses the same schema as the published knowledge base query.
     }
     ```
 
-    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions, and the metadata property containing the Chit-chat metadata tag information.
+    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions, as well as the metadata property containing the Chit-chat metadata tag information.
 
 ## Use threshold and default answer
 
@@ -405,6 +405,6 @@ You can request a minimum threshold for the answer. If the threshold is not met,
     ```
 ## Use unstructured data sources.
     
-We now support the ability to add unstructured documents that can't be used to extract QnAs. The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query. We don't support unstructured data sets in the GA service. It is only supported in custom question answering.
+We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query. We don't support unstructured data sets in the GA service. It is only supported in custom question answering.
 
 

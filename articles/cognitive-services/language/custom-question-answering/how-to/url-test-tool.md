@@ -1,5 +1,5 @@
 ---
-title: Use URL tool to get answer from knowledge base - QnA Maker
+title: Use URL tool to get answer from knowledge base - custom question answering
 titleSuffix: Azure Cognitive Services
 description: This article walks you through getting an answer from your knowledge base using a URL test tool such as cURL or Postman.
 services: cognitive-services
@@ -17,13 +17,13 @@ ms.date: 07/16/2020
 
 ::: zone pivot="url-test-tool-curl"
 
-[!INCLUDE [Get answer using cURL](../includes/quickstart-test-tool-curl.md)]
+[!INCLUDE [Get answer using cURL](../includes/test-tool-curl.md)]
 
 ::: zone-end
 
 ::: zone pivot="url-test-tool-postman"
 
-[!INCLUDE [Get answer using Postman](../includes/quickstart-test-tool-Postman.md)]
+[!INCLUDE [Get answer using Postman](../includes/test-tool-Postman.md)]
 
 ::: zone-end
 

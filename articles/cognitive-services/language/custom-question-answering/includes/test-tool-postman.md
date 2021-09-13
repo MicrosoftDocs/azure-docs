@@ -7,39 +7,65 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 11/09/2020
+ms.date: 08/25/2021
 ---
 
-This cURL-based quickstart walks you through getting an answer from your knowledge base.
+This Postman-based quickstart walks you through getting an answer from your knowledge base.
 
 ## Prerequisites
 
 * You must have
-    * Latest [**cURL**](https://curl.haxx.se/).
+    * Latest [**Postman**](https://www.getpostman.com/).
     * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
-> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
 
    * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
 
 
 > [!NOTE]
-> When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **cURL** tab shows the settings required to generate an answer from the command-line tool.
+> When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **Postman** tab shows the settings required to generate an answer.
+
+## Set up Postman for requests
+
+This quickstart uses the same settings for the Postman **POST** request then configures to POST body JSON sent to the service based on what you are trying to query for.
+
+Use this procedure to configure Postman, then read each subsequent section to configure the POST body JSON.
+
+1. From the knowledge base's **Settings** page, select the **Postman** tab to see the configuration used to generate an answer from the knowledge base. Copy the following information to use in Postman.
+
+    |Name|Setting|Purpose and value|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|This is the HTTP method and route for the URL.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|This is the host of the URL. Concatenate the Host and Post values to get the complete generateAnswer URL.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|The header value for to authorize your request. |
+    |`Content-type`|`application/json`|The header value for your content.|
+    ||`{"question":"<Your question>"}`|The body of the POST request as a JSON object. This value will change in each following section depending on what the query is meant to do.|
+
+1. Open Postman and create a new basic **POST** request with your published knowledge base settings. In the following sections, alter the POST body JSON to change the query to your knowledge base.
 
 ## Use metadata to filter answer
 
-Use the knowledge base from the previous quick to query for an answer based on metadata.
+In a previous quickstart, metadata was added to two QnA pairs to distinguish between two different questions. Add the metadata to the query to restrict the filter to just the relevant QnA pair.
 
-1. From the knowledge base's **Settings** page, select the **CURL** tab to see an example cURL command used to generate an answer from the knowledge base.
-1. Copy the command to an editable environment (such as a text file) so you can edit the command. Edit the question value as follows so that the metadata of `service:qna_maker` is used as a filter for the QnA pairs.
+1. In Postman, change only the query JSON by adding the `strictFilters` property with the name/value pair of `service:qna_maker`. The body JSON should be:
 
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
+    ```json
+    {
+        'question':'size',
+        'strictFilters': [
+            {
+                'name':'service','value':'qna_maker'
+            }
+        ]
+    }
     ```
 
-    The question is just a single word, `size`, which can return either of the two QnA pairs. The `strictFilters` array tells the response to reduce to just the `qna_maker` answers.
+    The question is just a single word, `size`, which can return either of the two question and answer pairs. The `strictFilters` array tells the response to reduce to just the `qna_maker` answers.
 
-1. The response includes only the answer that meets the filter criteria. The following cURL response has been formatted for readability:
+1. The response includes only the answer that meets the filter criteria.
+
+    The following response has been formatted for readability:
 
     ```JSON
     {
@@ -77,22 +103,25 @@ Use the knowledge base from the previous quick to query for an answer based on m
     If there is a question and answer pair that didn't meet the search term but did meet the filter, it would not be returned. Instead, the general answer `No good match found in KB.` is returned.
 
 ## Use debug query property
+
 > [!NOTE]
 >We don't recommend to use Debug property for any dependency. This property has been added to help the product team in troubleshooting.
 
 Debug information helps you understand how the returned answer was determined. While it is helpful, it is not necessary. To generate an answer with debug information, add the `debug` property:
 
-```json
-Debug: {Enable:true}
-```
+1. In Postman, change only the body JSON by adding the `debug` property. The JSON should be:
 
-1. Edit the cURL command to include the debug property to see more information.
+    ```json
+    {
+        'question':'size',
+        'Debug': {
+            'Enable':true
+        }
 
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
+    }
     ```
 
-1. The response includes the relevant information about the answer. In the following JSON output, some debug details have been replaced with ellipsis for brevity.
+1. The response includes the relevant information about the answer. In the following JSON output, some debug details have been replaced with ellipsis.
 
     ```console
     {
@@ -101,7 +130,7 @@ Debug: {Enable:true}
                 "questions": [
                     "How do I share a knowledge base with others?"
                 ],
-                "answer": "Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/collaborate-knowledge-base) to learn how to collaborate on a knowledge base.",
+                "answer": "Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/collaborate-knowledge-base) how to collaborate on a knowledge base.",
                 "score": 56.07,
                 "id": 5,
                 "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
@@ -186,16 +215,13 @@ Debug: {Enable:true}
 
 If you want to get an answer from the test knowledge base, use the `isTest` body property.
 
-The property is a boolean value.
+In Postman, change only the body JSON by adding the `isTest` property. The JSON should be:
 
 ```json
-isTest:true
-```
-
-The cURL command looks like:
-
-```bash
-curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
+{
+    'question':'size',
+    'isTest': true
+}
 ```
 
 The JSON response uses the same schema as the published knowledge base query.
@@ -203,15 +229,17 @@ The JSON response uses the same schema as the published knowledge base query.
 > [!NOTE]
 > If the test and published knowledge bases are exactly the same, there may still be some slight variation because the test index is shared among all knowledge bases in the resource.
 
-## Use cURL to query for a Chit-chat answer
+## Query for a Chit-chat answer
 
-1. In the cURL-enabled terminal, use a bot conversation-ending statement from the user, such as `Thank you` as the question. There aren't any other properties to set.
+1. In Postman, change only the body JSON to a conversation-ending statement from the user. The JSON should be:
 
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
+    ```json
+    {
+        'question':'thank you'
+    }
     ```
 
-1. Run the cURL command and receive the JSON response, including the score and answer.
+1. The response includes the score and answer.
 
     ```json
     {
@@ -299,13 +327,18 @@ The JSON response uses the same schema as the published knowledge base query.
 
 You can request a minimum threshold for the answer. If the threshold is not met, the default answer is returned.
 
-1. Add the `threshold` property to ask for an answer to `size` with a threshold of 80% or better. The knowledge base should not find that answer because the question's score is 71%. The result returns the default answer you provided when you created the knowledge base.
+1. In Postman, change only the body JSON to a conversation-ending statement from the user. The JSON should be:
 
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
+    ```json
+    {
+        'question':'size',
+        'scoreThreshold':80.00
+    }
     ```
 
-1. Run the cURL command and receive the JSON response.
+    The knowledge base should not find that answer because the question's score is 71%, and instead return the default answer you provided when you created the knowledge base.
+
+    The returned JSON response, including the score and answer is:
 
     ```json
     {
@@ -327,9 +360,12 @@ You can request a minimum threshold for the answer. If the threshold is not met,
     QnA Maker returned a score of `0`, which means no confidence. It also returned the default answer.
 
 1. Change the threshold value to 60% and request the query again:
-    
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
+
+    ```json
+    {
+        'question':'size',
+        'scoreThreshold':60.00
+    }
     ```
 
     The returned JSON found the answer.
@@ -367,6 +403,47 @@ You can request a minimum threshold for the answer. If the threshold is not met,
         "activeLearningEnabled": true
     }
     ```
-## Use unstructured data sources
+## Use unstructured data sources.
     
-We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query. We don't support unstructured data sets in the GA service, this is only included in custom question answering.
+We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query.
+
+1. Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
+   ```json
+    {
+       "question": "what is Surface Headphones 2+ priced at?",
+       "includeUnstructuredSources":true,
+       "top": 2
+    }
+    ```
+2. The response includes the source of answer. 
+    ```json
+       {
+     "answers": [
+       {
+         "questions": [],
+         "answer": "Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.\n\nMicrosoft Modern USB and Wireless Headsets:\n\nCertified for Microsoft Teams, these Microsoft Modern headsets enable greater focus and call privacy, especially in shared workspaces.",
+         "score": 82.11,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": [],
+         "answerSpan": {
+           "text": "$299.99 USD",
+           "score": 0.0,
+           "startIndex": 34,
+           "endIndex": 45
+         }
+       },
+       {
+         "questions": [],
+         "answer": "Now certified for Microsoft Teams with the included dongle, Surface Headphones 2+ provides an even more robust meeting experience with on‐ear Teams controls and improved remote calling. Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.",
+         "score": 81.95,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": []
+       }
+     ],
+     "activeLearningEnabled": true
+   }
+    ```
