@@ -1,4 +1,4 @@
----
+GIT UN---
 title: Migrate your block data to Azure with Cirrus Data
 titleSuffix: Azure Storage
 description: Provides quick start guide to implement Cirrus Migrate Cloud, and migrate your data to Azure 
@@ -73,7 +73,8 @@ Before starting the migration, make sure the following prerequisites have been m
 1. **Start the migration to the destination virtual machine** using **Migrate Host Volumes** from the CMC web-based management portal. Follow the instructions for remote location. Use the CMC portal to **Auto allocate destination volumes** on the right of the screen. 
  
 1. Next, we need to add Azure Credentials to allow connectivity and disk provisioning using the **Integrations** tab on the CMC portal. Fill in the required fields using your private company’s values for Azure: **Integration Name**, **Tenant ID**, **Client/Application ID**, and **Secret**. Press **Save**. 
-_Note_: Don't press the **Auto allocate destination volumes** button for a new allocation. Instead press **Continue**.
+<br>
+_Note_: Since you selected **Auto allocate destination volumes** on the previous step, don't press it again for a new allocation. If you do, it will output and error. Instead press **Continue**.
 
     :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-migration-4.jpg" alt-text="Screenshot that shows entering Azure credentials":::
 
