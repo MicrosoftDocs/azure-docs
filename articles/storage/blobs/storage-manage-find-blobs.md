@@ -24,7 +24,7 @@ Blob index tags let you:
 
 - Specify conditional behaviors for blob APIs based on the evaluation of index tags
 
-- Use index tags for advanced controls on features like [blob lifecycle management](storage-lifecycle-management-concepts.md)
+- Use index tags for advanced controls on features like [blob lifecycle management](./lifecycle-management-overview.md)
 
 Consider a scenario where you have millions of blobs in your storage account, accessed by many different applications. You want to find all related data from a single project. You aren't sure what's in scope as the data can be spread across multiple containers with different naming conventions. However, your applications upload all data with tags based on their project. Instead of searching through millions of blobs and comparing names and properties, you can use `Project = Contoso` as your discovery criteria. Blob index will filter all containers across your entire storage account to quickly find and return just the set of 50 blobs from `Project = Contoso`.
 
@@ -175,7 +175,7 @@ The below table shows the valid operators for conditional operations:
 
 ## Platform integrations with blob index tags
 
-Blob index tags not only help you categorize, manage, and search on your blob data, but also provide integration with other Blob Storage features, such as [lifecycle management](storage-lifecycle-management-concepts.md).
+Blob index tags not only help you categorize, manage, and search on your blob data, but also provide integration with other Blob Storage features, such as [lifecycle management](./lifecycle-management-overview.md).
 
 ### Lifecycle management
 
@@ -302,18 +302,18 @@ The following table summarizes the differences between metadata and blob index t
 
 You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blog Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## Regional availability and storage account support
+<a id="regional-availability-and-storage-account-support"></a>
 
-Blob index tags are only available on general-purpose v2 accounts with hierarchical namespace (HNS) disabled. General-purpose v1 accounts aren't supported, but you can upgrade any general-purpose v1 account to a general-purpose v2 account.
+## Feature support
 
-Index tags aren't supported on Premium storage accounts. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
 
-Blob index tags are currently available in all public regions.
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| Premium block blobs          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
-To get started, see [Use blob index tags to manage and find data](storage-blob-index-how-to.md).
-
-> [!IMPORTANT]
-> See the [Conditions and known issues](#conditions-and-known-issues) section of this article.
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
 
 ## Conditions and known issues
 
@@ -349,4 +349,4 @@ No, Resource Manager tags help organize control plane resources such as subscrip
 
 For an example of how to use blob index, see [Use blob index to manage and find data](storage-blob-index-how-to.md).
 
-Learn about [lifecycle management](storage-lifecycle-management-concepts.md) and set a rule with blob index matching.
+Learn about [lifecycle management](./lifecycle-management-overview.md) and set a rule with blob index matching.

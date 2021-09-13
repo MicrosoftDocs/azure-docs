@@ -1,6 +1,6 @@
 ---
-title: Reference - JavaScript SDK for the Azure Web PubSub service
-description: The reference describes the JavaScript SDK for the Azure Web PubSub service
+title: Reference - JavaScript SDK for Azure Web PubSub
+description: This reference describes the JavaScript SDK for the Azure Web PubSub service.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
@@ -8,54 +8,41 @@ ms.topic: conceptual
 ms.date: 08/26/2021
 ---
 
-# JavaScript SDK for the Azure Web PubSub service
+# JavaScript SDK for Azure Web PubSub
 
-There are 2 libraries offered for JavaScript:
-- [Service client library](#service-client-library) to
-    - Send messages to hubs and groups.
-    - Send messages to particular users and connections.
-    - Organize users and connections into groups.
-    - Close connections
-    - Grant/revoke/check permissions for an existing connection
-- [Express middleware](#express) to handle incoming client events
-  - Handle abuse validation requests
-  - Handle client events requests
+There are two libraries offered for JavaScript: the service client library and express middleware. The following sections contain more information about these libraries.
 
 <a name="service-client-library"></a>
 
 ## Azure Web PubSub service client library for JavaScript
-Use the library to:
 
-- Send messages to hubs and groups.
+You can use this library to:
+- Send messages to hubs and groups. 
 - Send messages to particular users and connections.
 - Organize users and connections into groups.
-- Close connections
-- Grant/revoke/check permissions for an existing connection
+- Close connections.
+- Grant, revoke, and check permissions for an existing connection.
 
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/web-pubsub/web-pubsub) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub) |
 [API reference documentation](/javascript/api/@azure/web-pubsub/) |
-[Product documentation](https://aka.ms/awps/doc) |
+[Product documentation](./index.yml) |
 [Samples][samples_ref]
 
-### Getting started
+### Get started
 
-#### Currently supported environments
-
-- [Node.js](https://nodejs.org/) version 8.x.x or higher
-
-#### Prerequisites
+Use [Node.js](https://nodejs.org/) version 8.x.x or later. Additionally, make sure you have the following prerequisites:
 
 - An [Azure subscription][azure_sub].
 - An existing Azure Web PubSub service instance.
 
-#### 1. Install the `@azure/web-pubsub` package
+#### Install the `@azure/web-pubsub` package
 
 ```bash
 npm install @azure/web-pubsub
 ```
 
-#### 2. Create and authenticate a WebPubSubServiceClient
+#### Create and authenticate `WebPubSubServiceClient`
 
 ```js
 const { WebPubSubServiceClient } = require("@azure/web-pubsub");
@@ -63,7 +50,7 @@ const { WebPubSubServiceClient } = require("@azure/web-pubsub");
 const serviceClient = new WebPubSubServiceClient("<ConnectionString>", "<hubName>");
 ```
 
-You can also authenticate the `WebPubSubServiceClient` using an endpoint and an `AzureKeyCredential`:
+You can also authenticate `WebPubSubServiceClient` by using an endpoint and an `AzureKeyCredential`:
 
 ```js
 const { WebPubSubServiceClient, AzureKeyCredential } = require("@azure/web-pubsub");
@@ -109,9 +96,7 @@ await serviceClient.sendToAll(payload.buffer);
 
 ### Troubleshooting
 
-#### Enable logs
-
-You can set the following environment variable to get the debug logs when using this library.
+You can set the following environment variable to get the debug logs when you're using this library:
 
 - Getting debug logs from the SignalR client library
 
@@ -119,42 +104,37 @@ You can set the following environment variable to get the debug logs when using 
 export AZURE_LOG_LEVEL=verbose
 ```
 
-For more detailed instructions on how to enable logs, you can look at the [@azure/logger package docs](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core/logger).
+For more detailed instructions on how to enable logs, see the [@azure/logger package docs](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core/logger).
 
 <a name="express"></a>
 
-## Azure Web PubSub CloudEvents handlers for Express
+## Azure Web PubSub CloudEvents handlers for express
 
-Use the express library to:
-- Add Web PubSub CloudEvents middleware to handle incoming client events
-  - Handle abuse validation requests
-  - Handle client events requests
+You can use the express library to:
+- Add Web PubSub CloudEvents middleware to handle incoming client events.
+  - Handle abuse validation requests.
+  - Handle client events requests.
 
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/web-pubsub/web-pubsub-express) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub-express) |
 [API reference documentation](/javascript/api/@azure/web-pubsub-express/) |
-[Product documentation](https://aka.ms/awps/doc) |
+[Product documentation](./index.yml) |
 [Samples][samples_ref]
 
-### Getting started
+### Get started
 
-#### Currently supported environments
-
-- [Node.js](https://nodejs.org/) version 8.x.x or higher
-- [Express](https://expressjs.com/) version 4.x.x or higher
-
-#### Prerequisites
+Use [Node.js](https://nodejs.org/) version 8.x.x or later, or [Express](https://expressjs.com/) version 4.x.x or later. Additionally, make sure you have the following prerequisites:
 
 - An [Azure subscription][azure_sub].
 - An existing Azure Web PubSub endpoint.
 
-#### 1. Install the `@azure/web-pubsub-express` package
+#### Install the `@azure/web-pubsub-express` package
 
 ```bash
 npm install @azure/web-pubsub-express
 ```
 
-#### 2. Create a WebPubSubEventHandler
+#### Create `WebPubSubEventHandler`
 
 ```js
 const express = require("express");
@@ -184,13 +164,13 @@ app.listen(3000, () =>
 
 ### Key concepts
 
-#### Client Events
+- **Client events:** A client creates events during the lifecycle of a connection. For example, a simple WebSocket client connection creates the following events:
+  - A `connect` event when it tries to connect to the service.
+  - A `connected` event when it successfully connects to the service.
+  - A `message` event when it sends messages to the service.
+  - A `disconnected` event when it disconnects from the service.
 
-Events are created during the lifecycle of a client connection. For example, a simple WebSocket client connection creates a `connect` event when it tries to connect to the service, a `connected` event when it successfully connected to the service, a `message` event when it sends messages to the service and a `disconnected` event when it disconnects from the service.
-
-#### Event Handler
-
-Event handler contains the logic to handle the client events. Event handler needs to be registered and configured in the service through the portal or Azure CLI beforehand. The place to host the event handler logic is generally considered as the server-side.
+- **Event handler:** An event handler contains the logic to handle the client events. The event handler needs to be registered and configured in the service beforehand, through the Azure portal or the Azure CLI. The server generally hosts the event handler logic.
 
 ### Troubleshooting
 

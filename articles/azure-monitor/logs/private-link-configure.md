@@ -94,7 +94,7 @@ Go to the Azure portal. In your resource's menu, there's a menu item called **Ne
 
 
 > [!NOTE]
-> Starting August 16, 2021, Network Isolation will be strictly enforced. Resources set to block queries from public networks, and that aren't connected to any private network (through an AMPLS) will stop accepting queries from any network.
+> Starting September, 2021, Network Isolation will be strictly enforced. Resources set to block queries from public networks, and that aren't connected to any private network (through an AMPLS) will stop accepting queries from any network.
 
 ![LA Network Isolation](./media/private-link-security/ampls-network-isolation.png)
 
@@ -155,7 +155,7 @@ The below Azure Resource Manager template creates:
 * A Log Analytics workspace named "my-workspace"
 * Add a scoped resource to the "my-scope" AMPLS, named "my-workspace-connection"
 > [!NOTE]
-> The below ARM template uses API version "2019-04-01", which doesn't support setting the AMPLS access modes. When using the below template, the resulting AMPLS is set with QueryAccessMode="Open" and IngestionAccessMode="PrivateOnly", meaning it allows queries to run on resources both in and out of the AMPLS, but limits ingestion to reach only Private Link resources.
+> The below ARM template uses an old API version which doesn't support setting the AMPLS access modes. When using the below template, the resulting AMPLS is set with QueryAccessMode="Open" and IngestionAccessMode="PrivateOnly", meaning it allows queries to run on resources both in and out of the AMPLS, but limits ingestion to reach only Private Link resources.
 
 ```
 {
@@ -209,8 +209,10 @@ The below Azure Resource Manager template creates:
 }
 ```
 
-### Set AMPLS access flags - PowerShell example
+### Set AMPLS access modes - PowerShell example
 To set the access mode flags on your AMPLS, you can use the following PowerShell script. The following script sets the flags to Open. To use the Private Only mode, use the value "PrivateOnly".
+
+Allow ~10 minutes for the AMPLS access modes update to take effect.
 
 ```
 # scope details

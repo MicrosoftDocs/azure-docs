@@ -40,4 +40,4 @@ The runbook and module galleries for [Azure Automation](../../automation/automat
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure SQL Database, follow these links to learn more about Azure Automation.
 
 - [Azure Automation Overview](../../automation/automation-intro.md)
-- [My first runbook](../../automation/learn/automation-tutorial-runbook-graphical.md)
+- [My first runbook](../../automation/learn/powershell-runbook-managed-identity.md)
