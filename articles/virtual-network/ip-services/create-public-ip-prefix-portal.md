@@ -48,18 +48,19 @@ In this section, you'll create a public IP prefix using the Azure portal.
     | IP version | Leave the default of **IPv4**. |
     | Prefix size | Select your prefix size. |
 
-    :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ip-prefix.png" alt-text="Create public IP address prefix in Azure portal" border="true":::
+    :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ip-prefix.png" alt-text="Screenshot of create public IP address prefix in the Azure portal" border="true":::
     
     > [!NOTE]
     >To create an IPv6 prefix, choose **IPv6** for the **IP Version**.
 
-     :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ipv6-prefix.png" alt-text="Create public IPv6 address prefix in Azure portal" border="true":::
+     :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ipv6-prefix.png" alt-text="Screenshot of create public IPv6 address prefix in the Azure portal" border="true":::
 
 5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
 6. Select **Create**.
 
 ## Create a static public IP address from a prefix
+
 Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
 
 1. In the search box at the top of the portal, enter **Public IP**.
@@ -70,7 +71,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 4. In **Overview** of **myPublicIPPrefix**, select **+ Add IP address**.
 
-    :::image type="content" source="./media/create-public-ip-prefix-portal/add-ip-address.png" alt-text="Create public IP address from prefix in Azure portal" border="true":::
+    :::image type="content" source="./media/create-public-ip-prefix-portal/add-ip-address.png" alt-text="Screenshot of create public IP address from prefix in the Azure portal" border="true":::
 
 5. Enter **myPublicIP** in **Name**. 
 
