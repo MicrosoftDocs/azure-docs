@@ -1021,10 +1021,6 @@
       items:
       - name: Continuous export
         href: app/export-telemetry.md
-      - name: Export to Stream Analytics
-        href: app/export-stream-analytics.md
-      - name: Export to SQL using Stream Analytics
-        href: app/code-sample-export-sql-stream-analytics.md
       - name: Export data model
         href: app/export-data-model.md
     - name: Visual Studio
