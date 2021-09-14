@@ -124,7 +124,7 @@ Start Device Update Agent on your new Software Devices.
 
 Replace `<device connection string>` with your connection string
 ```shell
-./AducIotAgentSim-microsoft-swupdate -c '<device connection string>'
+sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
 ```
 
 or
