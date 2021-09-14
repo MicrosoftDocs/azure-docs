@@ -55,7 +55,7 @@ The `az ml compute` command can be used for managing Azure Machine Learning comp
 
 ## Schema
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/workspace.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json. The schema is provided below in JSON and YAML formats for convenience.
 
 # [JSON](#tab/json)
 
