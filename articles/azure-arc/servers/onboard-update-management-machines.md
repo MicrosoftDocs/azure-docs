@@ -19,11 +19,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This method requires that you are a member of the [Automation Job Operator](../../automation/automation-role-based-access-control.md#automation-job-operator) role or higher so you can create runbook jobs in the Automation account. 
 
-If you have enabled Azure Policy to [manage runbook execution](../../automation/enforce-job-execution-hybrid-worker.md) and enforce targeting of runbook execution against a Hybrid Runbook Worker group, this policy needs to be disabled. Otherwise, the runbook jobs which onboard the machine(s) to Arc-enabled servers will fail. 
+If you have enabled Azure Policy to [manage runbook execution](../../automation/enforce-job-execution-hybrid-worker.md) and enforce targeting of runbook execution against a Hybrid Runbook Worker group, this policy must be disabled. Otherwise, the runbook jobs that onboard the machine(s) to Arc-enabled servers will fail. 
 
 ## Add machines from the Azure portal
 
-Perform the following steps to configure the hybrid machine with Arc-enabled servers. The server or machine needs to be powered on and online in order for the process to complete successfully.
+Perform the following steps to configure the hybrid machine with Arc-enabled servers. The server or machine must be powered on and online in order for the process to complete successfully.
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
