@@ -275,7 +275,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
     Pass the current folder (`.`) and the API folder (`api`) to the CLI.
      
     ```bash
-    swa start . --api api
+    swa start src --api api
     ```
 
     # [Angular](#tab/angular)
