@@ -272,8 +272,8 @@ When one or more IP address blocks are specified, requests originating from IP a
 
 ## Authentication 
 
-* For [default authentication providers](authentication-authorization.md#login), you don't need to provide any settings in the configuration file. 
-* For custom authentication providers, [learn how to configure](authentication-custom.md) the `authentication` property of the settings file. 
+* [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
+* [Custom authentication providers](authentication-custom.md) use the `authentication` property of the settings file. 
 
 ## Example configuration file
 
