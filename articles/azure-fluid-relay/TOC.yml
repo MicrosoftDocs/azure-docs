@@ -8,6 +8,10 @@
     href: concepts/architecture.md
   - name: Container runtime
     href: concepts/containers-runtime.md
+- name: How-to guides
+  items:
+    - name: 'How to: Provision an Azure Fluid Relay service'
+      href: how-tos/provision-fluid-azure-portal.md
 - name: Quickstarts
   items:
   - name: 'Quickstart: Dice Roller'
