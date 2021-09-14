@@ -14,10 +14,10 @@ You can add a runbook to Azure Automation by either creating a new one or import
 
 ## Create a runbook
 
-Create a new runbook in Azure Automation using the Azure portal or Windows PowerShell. Once the runbook has been created, you can edit it using information in:
+Create a new runbook in Azure Automation using the Azure portal or PowerShell. Once the runbook has been created, you can edit it using information in:
 
 * [Edit textual runbook in Azure Automation](automation-edit-textual-runbook.md)
-* [Learn key Windows PowerShell Workflow concepts for Automation runbooks](automation-powershell-workflow.md)
+* [Learn key PowerShell Workflow concepts for Automation runbooks](automation-powershell-workflow.md)
 * [Manage Python 2 packages in Azure Automation](python-packages.md)
 * [Manage Python 3 packages (preview) in Azure Automation](python-3-packages.md)
 
@@ -79,7 +79,7 @@ You can use the following procedure to import a script file into Azure Automatio
 > [!NOTE]
 > After you import a graphical runbook, you can convert it to another type. However, you can't convert a graphical runbook to a textual runbook.
 
-### Import a runbook with Windows PowerShell
+### Import a runbook with PowerShell
 
 Use the [Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook) cmdlet to import a script file as a draft runbook. If the runbook already exists, the import fails unless you use the `Force` parameter with the cmdlet.
 
