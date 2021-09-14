@@ -31,6 +31,12 @@ Face landmarks are a set of easy-to-find points on a face, such as the pupils or
 
 The coordinates of the points are returned in units of pixels.
 
+See the below images for a comparison of the Detection_03 model's face landmark technology with competing AI services. 
+
+:::image type="content" source="../Images/landmark-compare-1.png" alt-text="face landmarks comparison":::
+
+:::image type="content" source="../Images/landmark-compare-2.png" alt-text="face landmarks comparison":::
+
 ## Attributes
 
 Attributes are a set of features that can optionally be detected by the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. The following attributes can be detected:
