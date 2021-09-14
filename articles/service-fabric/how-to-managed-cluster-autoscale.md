@@ -6,17 +6,15 @@ ms.date: 9/16/2021
 ---
 
 # Introduction to Auto Scaling on Service Fabric managed clusters
-[Auto scaling](../architecture/best-practices/auto-scaling.md) is an additional capability of Service Fabric to dynamically scale your services based on the load that services are reporting, or based on their usage of resources. Auto scaling gives great elasticity and enables provisioning of additional instances or partitions of your service on demand. The entire auto scaling process is automated and transparent, and once you set up your policies on a 
-service there is no need for manual scaling operations at the service level. Auto scaling can be turned on either at service creation 
-time, or at any time by updating the service.
+[Auto scaling](../architecture/best-practices/auto-scaling.md) is an additional capability of a Service Fabric managed cluster to dynamically scale your resources based on the usage of resources. Auto scaling gives great elasticity and enables provisioning of additional or reduction of instances on demand. The entire auto scaling process is automated and transparent, and once you set up your policies for a secondary node type there is no need for manual scaling operations. Auto scaling can be turned on either at secondary node type creation time, or at any time by updating the node type.
 
 A common scenario where auto-scaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like:
 * If all instances of my gateway are using more than two cores on average, then scale the gateway service out by adding one more instance. Do this every hour, but never have more than seven instances in total.
 * If all instances of my gateway are using less than 0.5 cores on average, then scale the service in by removing one instance. Do this every hour, but never have fewer than three instances in total.
 
-Auto scaling is supported for both containers and regular Service Fabric services. In order to use auto scaling on managed clusters, you need to be using API version `2021-07-01-preview` or higher. 
+Auto scaling is supported for both containers and regular Service Fabric services as it's based purely on resource usage of the underlying resources. In order to use auto scaling on managed clusters, you need to be using API version `2021-07-01-preview` or higher. 
 
-The rest of this article describes how to enable or disable auto scaling, set policies, and walks through a full example.
+The rest of this article describes an example deployment, how to enable or disable auto scaling, and set example auto scale policies.
 
 ## Describing auto scaling
 Auto scaling policies can be defined for each service in a Service Fabric cluster. Each scaling policy consists of two parts:
@@ -36,13 +34,15 @@ of the service.>
 >[!NOTE]
 > Currently there is only support for policies based on metrics emitted from VMSS and only one scaling trigger per scaling policy.
 
-
 ## Example auto scale deployment
 
-In this example we'll use this [ARM template sample](url) which will create a SFMC cluster with two node types. One primary and one secondary in one availability zone.
+This example will walk through: 
+* Creating a Standard SKU Service Fabric managed cluster with two node types on one availability zone. 
+* Adding auto scale rules to the secondary node type
 
-Auto-scale of the node type is done based on managed VMSS CPU host metrics. 
-VMSS resource is auto-resolved in the template. 
+>![NOTE] 
+> Auto-scale of the node type is done based on managed VMSS CPU host metrics. 
+> VMSS resource is auto-resolved in the template. 
 
 The following steps will take you step by step through an end to end setup of a cluster with auto scale configured.
 
@@ -56,25 +56,23 @@ The following steps will take you step by step through an end to end setup of a 
 
 2) Create cluster resource
 
-   Using the template you downloaded above, execute these commands:
+   Download this sample [[Standard SKU Service Fabric managed cluster sample](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT) and edit the parameters as necessary. 
+   Execute this command to deploy the cluster resource:
 
    ```powershell
-   $parameters = @{ 
-       clusterDnsName = "mycluster" 
-      } 
-   New-AzResourceGroupDeployment -Name "deploy_cluster" -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose
+   New-AzResourceGroupDeployment -Name "deploy_cluster" -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterObject .\azuredeploy.parameters.json -Verbose
    ```
 
 3) Configure auto scale rules on a secondary node type
  
-   Download this [sample ARM template](url) that you will use to configure auto scaling with the following commands:
+   Download the [SF-Managed-Standard-SKU-autoscale sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale) that you will use to configure auto scaling with the following commands:
 
    ```powershell
    $parameters = @{ 
        clusterName = $clusterName 
        SecondaryNodeTypeName = $SecondaryNodeTypeName
     } 
-   New-AzResourceGroupDeployment -Name "deploy_autoscale" -ResourceGroupName $resourceGroupName -TemplateFile .\cluster.json -TemplateParameterObject $parameters -Verbose 
+   New-AzResourceGroupDeployment -Name "deploy_autoscale" -ResourceGroupName $resourceGroupName -TemplateFile .\sfmc-autoscale-enable.json -TemplateParameterObject $parameters -Verbose 
    ```
 
 >![NOTE]
@@ -117,56 +115,94 @@ The following example will set a policy for `VmNodeType1Name` to be at least 3 n
 
 ```JSON
     "resources": [
-        ...
-        "type": "Microsoft.Insights/autoscaleSettings",
-        "apiVersion": "2015-04-01",
-        "name": "[concat('Autoscale-', parameters('vmNodeType1Name'))]",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterDnsName'), '/nodetypes/', parameters('vmNodeType1Name'))]"
-        ],
-        "properties": {
+            {
+            "type": "Microsoft.Insights/autoscaleSettings",
+            "apiVersion": "2015-04-01",
             "name": "[concat('Autoscale-', parameters('vmNodeType1Name'))]",
-            "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.ServiceFabric/managedclusters/', parameters('clusterDnsName'), '/nodetypes/', parameters('vmNodeType1Name'))]",
-            "enabled": true,
-            "profiles": [
-                {
-                    "name": "Autoscale by percentage based on CPU usage",
-                    "capacity": {
-                        "minimum": "3",
-                        "maximum": "50",
-                        "default": "3"
-                    },
-                    "rules": [
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterDnsName'), '/nodetypes/', parameters('vmNodeType1Name'))]"
+            ],
+            "properties": {
+                "name": "[concat('Autoscale-', parameters('vmNodeType1Name'))]",
+                "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.ServiceFabric/managedclusters/', parameters('clusterDnsName'), '/nodetypes/', parameters('vmNodeType1Name'))]",
+                "enabled": "[parameters('enableAutoScale')]",
+                "profiles": [
+                    {
+                        "name": "Autoscale by percentage based on CPU usage",
+                        "capacity": {
+                            "minimum": "3",
+                            "maximum": "50",
+                            "default": "3"
+                        },
+                        "rules": [
                             {
-                            "metricTrigger": {
-                                "metricName": "Percentage CPU",
-                                "metricNamespace": "",
-                                "metricResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/SFC_', reference(parameters('clusterDnsName')).clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmNodeType1Name'))]",
-                                "timeGrain": "PT1M",
-                                "statistic": "Average",
-                                "timeWindow": "PT5M",
-                                "timeAggregation": "Average",
-                                "operator": "LessThan",
-                                "threshold": 70
+                                "metricTrigger": {
+                                  "metricName": "Percentage CPU",
+                                  "metricNamespace": "",
+                                  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/<this_vmss_name>",
+                                  "timeGrain": "PT5M",
+                                  "statistic": "Average",
+                                  "timeWindow": "PT30M",
+                                  "timeAggregation": "Average",
+                                  "operator": "GreaterThan",
+                                  "threshold": 70
+                                },
+                                "scaleAction": {
+                                  "direction": "Increase",
+                                  "type": "ChangeCount",
+                                  "value": "5",
+                                  "cooldown": "PT5M"
+                                }
                             },
-                            "scaleAction": {
-                                "direction": "Increase",
-                                "type": "ChangeCount",
-                                "value": "20",
-                                "cooldown": "PT1M"
+                            {
+                                "metricTrigger": {
+                                  "metricName": "Percentage CPU",
+                                  "metricNamespace": "",
+                                  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/<this_vmss_name>",
+                                  "timeGrain": "PT5M",
+                                  "statistic": "Average",
+                                  "timeWindow": "PT30M",
+                                  "timeAggregation": "Average",
+                                  "operator": "LessThan",
+                                  "threshold": 40
+                                },
+                                "scaleAction": {
+                                  "direction": "Decrease",
+                                  "type": "ChangeCount",
+                                  "value": "5",
+                                  "cooldown": "PT5M"
+                                }
                             }
+                            ]
+                        }
+                    ]
+                }
+            }
+        
+    ]                           
 ```
 
+## View and configure the scale definition of your managed cluster secondary node resource
 
-## Review deployed auto scale rules
+We recommend using [Azure Resource Explorer](https://resources.azure.com/) to view and configure autoscale settings for a secondary node type as an alternative to ARM templates.
 
-Todo: Document how to visualize
-To visualize your settings
-https://resources.azure.com navigate to subscription -> SFMC resource group -> microsoft.insights -> autoscalesettings -> Auto Scale policy 'Name'
+1) Go to [Azure Resource Explorer](https://resources.azure.com/)
 
-Use ARM client (powershell examples). Retrieve via what commands
+2) Navigate to subscriptionID -> SFMC resource group created above -> microsoft.insights -> autoscalesettings -> Auto Scale policy 'Name'. You'll see the following `autoscalesettings` under Microsoft.Insights node.
+
+<screenshot>
+
+On the right-hand side, you can view the full definition of this autoscale setting. In this example, auto scale is configured with a CPU% based scale-out and scale-in rule.
+
+<screenshot>
+
+3) You can [edit auto scale settings based on specific requirements by following this walkthrough](https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-virtual-machine-scale-sets). To understand profiles and rules in autoscale, review [Autoscale Best Practices](https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-best-practices).
+
+4) Any changes made will be reflected after you save them.
 
 
 ## Next steps
+[Autoscale a scale set with with an Azure template](./virtual-machine-scale-sets/tutorial-autoscale-template)
+[Autoscale a scale set with Azure Powershell](./virtual-machine-scale-sets/tutorial-autoscale-powershell)
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
