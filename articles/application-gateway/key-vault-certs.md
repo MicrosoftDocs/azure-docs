@@ -84,6 +84,12 @@ Application Gateway integration with Key Vault requires a three-step configurati
 
    ![Key vault certificates](media/key-vault-certs/ag-kv.png)
 
+## Investigating and resolving Key Vault errors
+
+Azure Application Gateway not only polls for the renewed certificate version on Key Vault at every 4-hour interval, but also logs any error and is integrated with Azure Advisor to surface any misconfiguration as a recommendation. The details of the recommendation contain the exact issue and the associated Key Vault resource. You can use this information along with the [troubleshooting guide](../application-gateway/application-gateway-key-vault-common-errors.md) to quickly resolve such configuration error. 
+
+It is strongly recommended that you [configure Advisor Alerts](../advisor/advisor-alerts-portal.md) to stay updated in the event such a problem is detected. To set an alert for this specific case, use the Recommendation Type as "Resolve Azure Key Vault issue for your Application Gateway". 
+
 ## Next steps
 
 [Configure TLS termination with Key Vault certificates by using Azure PowerShell](configure-keyvault-ps.md)
