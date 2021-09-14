@@ -1,7 +1,7 @@
 ---
-title: Common Azure Key Vault errors in Application Gateway
+title: Common key vault errors in Application Gateway
 titleSuffix: Azure Application Gateway
-description: This article identifies Key Vault-related problems, and helps you resolve them for smooth operations of Application Gateway.
+description: This article identifies key vault-related problems, and helps you resolve them for smooth operations of Application Gateway.
 services: application-gateway
 author: jaesoni
 ms.service: application-gateway
@@ -11,26 +11,26 @@ ms.author: jaysoni
 
 ---
 
-# Common Azure Key Vault errors in Azure Application Gateway
+# Common key vault errors in Azure Application Gateway
 
-This article helps you understand the details of Azure Key Vault error codes you might encounter, including their cause and the associated Key Vault resource that's causing the problem. This article also contains steps to resolve such misconfigurations.
+This article helps you understand the details of key vault error codes you might encounter, including their cause and the associated key vault resource that's causing the problem. This article also contains steps to resolve such misconfigurations.
 
 > [!TIP]
-> Use a secret identifier that doesn't specify a version. This way, Azure Application Gateway will automatically rotate the certificate, if a newer version is available in Key Vault. An example of a secret URI without a version is: `https://myvault.vault.azure.net/secrets/mysecret/`.
+> Use a secret identifier that doesn't specify a version. This way, Azure Application Gateway will automatically rotate the certificate, if a newer version is available in Azure Key Vault. An example of a secret URI without a version is: `https://myvault.vault.azure.net/secrets/mysecret/`.
 
 ## List of error codes and their details
 
 The following sections cover various errors you might encounter.
 
 > [!NOTE]
-> Azure Application Gateway generates logs for Key Vault diagnostics every four hours. If the diagnostic continues to show the error after you have fixed the configuration, you might have to wait for the logs to be refreshed.
+> Azure Application Gateway generates logs for key vault diagnostics every four hours. If the diagnostic continues to show the error after you have fixed the configuration, you might have to wait for the logs to be refreshed.
 
 [comment]: # (Error Code 1)
 ### Error code: UserAssignedIdentityDoesNotHaveGetPermissionOnKeyVault 
 
 **Description:** The associated user-assigned managed identity doesn't have the "Get" permission. 
 
-**Resolution:** Configure the access policy of Key Vault to grant this permission on secrets. 
+**Resolution:** Configure the access policy of Key Vault to grant the user-assigned managed identity this permission on secrets. 
 1. Go to the linked key vault in the Azure portal.
 1. Open the **Access policies** pane.
 1. For **Permission model**, select **Vault access policy**.
