@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.date: 02/05/2021
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Run batch predictions using Azure Machine Learning designer
@@ -25,6 +25,8 @@ In this how-to, you learn to do the following tasks:
 > * Manage endpoint versions
 
 To learn how to set up batch scoring services using the SDK, see the accompanying [how-to](./tutorial-pipeline-batch-scoring-classification.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Prerequisites
 

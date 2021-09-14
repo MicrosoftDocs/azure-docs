@@ -30,7 +30,7 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`. Make sure that your user account has the [Storage Blob Data Contributor role](../common/storage-auth-aad-rbac-portal.md) assigned to it.
+* Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`. Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
    See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 

@@ -3,7 +3,7 @@ title: Use dynamic groups with Azure Automation Update Management
 description: This article tells how to use dynamic groups with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 06/22/2021
 ms.topic: conceptual
 ---
 
@@ -41,6 +41,9 @@ To preview the results of your dynamic group query, click **Preview**. The previ
 A dynamic group for non-Azure machines uses saved searches, also called computer groups. To learn how to create a saved search, see [Creating a computer group](../../azure-monitor/logs/computer-groups.md#creating-a-computer-group). Once your saved search is created, you can select it from the list of saved searches in **Update management** in the Azure portal. Click **Preview** to preview the computers in the saved search.
 
 ![Screenshot shows the Select groups page for Non-Azure (Preview) and the Preview pane on the right side.](./media/configure-groups/select-groups-2.png)
+
+> [!NOTE]
+> A saved search that [queries data stored across multiple Log Analytics workspaces](../../azure-monitor/logs/cross-workspace-query.md) is not supported.
 
 ## Next steps
 

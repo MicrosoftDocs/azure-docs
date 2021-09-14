@@ -63,7 +63,7 @@ Continuous Export is supported in the following regions:
 * Japan West
 
 > [!NOTE]
-> Applications already configured in **West Europe** and **East US** are supported but onboarding of new applications in those regions is not supported.
+> Continuous Export will continue to work for Applications in **East US** and **West Europe** if the export was configured before February 23, 2021. New Continuous Export rules cannot be configured on any application in **East US** or **West Europe**, regardless of when the application was created.
 
 ## Continuous Export advanced storage configuration
 

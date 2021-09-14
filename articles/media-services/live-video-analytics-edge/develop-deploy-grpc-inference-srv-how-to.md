@@ -1,12 +1,14 @@
 ---
-title: Develop and deploy a gRPC inference server - Azure
-description: This article provides guidance on how to develop and deploy a gRPC inference server.
+title: Develop and deploy a gRPC inference server with Live Video Analytics - Azure
+description: This article provides guidance on how to develop and deploy a gRPC inference server with Live Video Analytics.
 ms.topic: how-to
 ms.date: 12/02/2020
 
 ---
 
-# How-to-Guide – Develop and deploy a gRPC inference server
+# Develop and deploy a gRPC inference server with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## Overview
 

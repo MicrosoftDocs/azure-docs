@@ -36,7 +36,7 @@ For a workflow targeting AKS, the file has three sections:
 
 ## Create a service principal
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
@@ -93,14 +93,14 @@ jobs:
     steps:
     - uses: actions/checkout@main
     
-    # Connect to Azure Container registry (ACR)
+    # Connect to Azure Container Registry (ACR)
     - uses: azure/docker-login@v1
       with:
         login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }} 
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    # Container build and push to a Azure Container registry (ACR)
+    # Container build and push to a Azure Container Registry (ACR)
     - run: |
         docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
@@ -119,6 +119,8 @@ To deploy a container image to AKS, you will need to use the `Azure/k8s-deploy@v
 | **imagepullsecrets** | (Optional) Name of a docker-registry secret that has already been set up within the cluster. Each of these secret names is added under imagePullSecrets field for the workloads found in the input manifest files |
 | **kubectl-version** | (Optional) Installs a specific version of kubectl binary |
 
+> [!NOTE]
+> The manifest files should be created manually by you. Currently there are no tools that will generate such files in an automated way, for more information see [this sample repository with example manifest files](https://github.com/MicrosoftDocs/mslearn-aks-deploy-container-app/tree/master/kubernetes).
 
 Before you can deploy to AKS, you'll need to set target Kubernetes namespace and create an image pull secret. See [Pull images from an Azure container registry to a Kubernetes cluster](../container-registry/container-registry-auth-kubernetes.md), to learn more about how pulling images works. 
 
@@ -135,7 +137,7 @@ Before you can deploy to AKS, you'll need to set target Kubernetes namespace and
       container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
       secret-name: ${{ env.SECRET }}
       namespace: ${{ env.NAMESPACE }}
-      force: true
+      arguments: --force true
 ```
 
 
@@ -160,14 +162,14 @@ jobs:
     steps:
     - uses: actions/checkout@main
     
-    # Connect to Azure Container registry (ACR)
+    # Connect to Azure Container Registry (ACR)
     - uses: azure/docker-login@v1
       with:
         login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }} 
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    # Container build and push to a Azure Container registry (ACR)
+    # Container build and push to a Azure Container Registry (ACR)
     - run: |
         docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
@@ -214,6 +216,9 @@ When your Kubernetes cluster, container registry, and repository are no longer n
 
 > [!div class="nextstepaction"]
 > [Learn about Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-start-here)
+
+> [!div class="nextstepaction"]
+> [Learn how to create multiple pipelines on GitHub Actions with AKS](/learn/modules/aks-deployment-pipeline-github-actions)
 
 ### More Kubernetes GitHub Actions
 

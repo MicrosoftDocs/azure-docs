@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 08/10/2021
 ---
 
 # Field mappings and transformations using Azure Cognitive Search indexers
@@ -25,8 +25,10 @@ Some situations where field mappings are useful:
 * You want to populate an index field with data from more than one data source, and the data sources each use different field names.
 * You need to Base64 encode or decode your data. Field mappings support several **mapping functions**, including functions for Base64 encoding and decoding.
 
+Field mappings in indexers are a simple way to map data fields to index fields, with some ability for light-weight data conversion. More complex data might require pre-processing to reshape it into a form that's conducive to indexing. One option you might consider is [Azure Data Factory](../data-factory/index.yml).
+
 > [!NOTE]
-> Field mappings in indexers are a simple way to map data fields to index fields, with some ability for light-weight data conversion. More complex data might require pre-processing to reshape it into a form that's conducive to indexing. One option you might consider is [Azure Data Factory](../data-factory/index.yml).
+> Field mappings apply to search indexes only. For indexers that create [knowledge stores](knowledge-store-concept-intro.md), field mappings are ignored.
 
 ## Set up field mappings
 

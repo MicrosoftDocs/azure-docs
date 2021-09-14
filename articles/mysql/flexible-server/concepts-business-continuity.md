@@ -10,6 +10,8 @@ ms.date: 09/21/2020
 
 # Overview of business continuity with Azure Database for MySQL - Flexible Server (Preview)
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 

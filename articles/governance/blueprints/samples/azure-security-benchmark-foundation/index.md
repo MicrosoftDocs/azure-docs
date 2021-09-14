@@ -1,7 +1,7 @@
 ---
 title: Azure Security Benchmark Foundation blueprint sample overview
 description: Overview and architecture of the Azure Security Benchmark Foundation blueprint sample.
-ms.date: 03/12/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # Overview of the Azure Security Benchmark Foundation blueprint sample
@@ -9,9 +9,8 @@ ms.topic: sample
 The Azure Security Benchmark Foundation blueprint sample provides a set of baseline infrastructure
 patterns to help you build a secure and compliant Azure environment. The blueprint helps you deploy
 a cloud-based architecture that offers solutions to scenarios that have accreditation or compliance
-requirements. This foundational blueprint sample is an extension of the [Azure Security Benchmark
-sample blueprint](../azure-security-benchmark.md). It deploys and configures network boundaries,
-monitoring, and other resources in alignment with the policies and other guardrails defined in the
+requirements. It deploys and configures network boundaries, monitoring, and other resources in
+alignment with the policies and other guardrails defined in the
 [Azure Security Benchmark](../../../../security/benchmarks/index.yml).
 
 ## Architecture
@@ -69,14 +68,15 @@ foundation. This environment is composed of:
   enable encrypted traffic between an Azure virtual network and an on-premises location over the
   public Internet.
 
-> [!NOTE] 
+> [!NOTE]
 > The Azure Security Benchmark Foundation lays out a foundational architecture for
 > workloads. The architecture diagram above includes several notional resources to demonstrate
 > potential use of subnets. You still need to deploy workloads on this foundational architecture.
 
 ## Next steps
 
-You've reviewed the overview and architecture of the Azure Security Benchmark Foundation blueprint sample.
+You've reviewed the overview and architecture of the Azure Security Benchmark Foundation blueprint
+sample.
 
 > [!div class="nextstepaction"]
 > [Azure Security Benchmark Foundation blueprint - Deploy steps](./deploy.md)

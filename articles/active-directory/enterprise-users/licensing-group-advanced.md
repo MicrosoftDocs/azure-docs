@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 05/28/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -23,12 +23,12 @@ Use the following information and examples to gain a more advanced understanding
 
 ## Usage location
 
-Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify usage location in **User** &gt; **Profile** &gt; **Settings**.
+Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify usage location in **User** &gt; **Profile** &gt; **Settings**.
 
 For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses.
 
 > [!NOTE]
-> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (e.g. via AAD Connect configuration) - that will ensure the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
+> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via AAD Connect configuration) - that will ensure the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
 
 ## Use group-based licensing with dynamic groups
 
@@ -58,40 +58,34 @@ For this example, modify one user and set their extensionAttribute1 to the value
 
 > [!WARNING]
 > Use caution when modifying an existing group’s membership rule. When a rule is changed, the membership of the group will be re-evaluated and users who no longer match the new rule will be removed (users who still match the new rule will not be affected during this process). Those users will have their licenses removed during the process which may result in loss of service, or in some cases, loss of data.
-> 
+>
 > If you have a large dynamic group you depend on for license assignment, consider validating any major changes on a smaller test group before applying them to the main group.
 
 ## Multiple groups and multiple licenses
 
 A user can be a member of multiple groups with licenses. Here are some things to consider:
 
-- Multiple licenses for the same product can overlap, and they result in all enabled services being applied to the user. The following example shows two licensing groups: *E3 base services* contains the foundation services to deploy first, to all users. And *E3 extended services* contains additional services (Sway and Planner) to deploy only to some users. In this example, the user was added to both groups:
-
-  ![Screenshot of enabled services](./media/licensing-group-advanced/view-enabled-services.png)
-
-  As a result, the user has 7 of the 12 services in the product enabled, while using only one license for this product.
+- Multiple licenses for the same product can overlap, and they result in all enabled services being applied to the user. An example could be that *E3 base services* contains the foundation services to deploy first, to all users, and *E3 extended services* contains additional services (Sway and Planner) to deploy only to some users. You can add the user to both groups. As a result, the user has 7 of the 12 services in the product enabled, while using only one license for this product.
 
 - Selecting the *E3* license shows more details, including information about which services are enabled for the user by by the group license assignment.
 
 ## Direct licenses coexist with group licenses
 
-When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. Changes must be made in the group and then propagated to all users.
+When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. You can change the license assignment only in the group and the changes are then propagated to all users. If you need to assign any additional features to a user that has their license from a group license assignment you must create another group to assign the additional features to the user.
 
-It is possible, however, to assign the same product license directly to the user, in addition to the inherited license. You can enable additional services from the product just for one user, without affecting other users.
-
-Directly assigned licenses can be removed, and don’t affect inherited licenses. Consider the user who inherits an Office 365 Enterprise E3 license from a group.
+Directly assigned licenses can be removed, and don’t affect a user's inherited licenses. Consider the user who inherits an Office 365 Enterprise E3 license from a group.
 
 Initially, the user inherits the license only from the *E3 basic services* group, which enables four service plans.
 
-1. Select **Assign** to directly assign an E3 license to the user. In this case, you are going to disable all service plans except Yammer Enterprise.
+1. Select **Assign** to directly assign an E3 license to the user. For example, if you want to disable all service plans except Yammer Enterprise.
 
-    As a result, the user still uses only one license of the E3 product. But the direct assignment enables the Yammer Enterprise service for that user only. You can see which services are enabled by the group membership versus the direct assignment.
+   As a result, the user still uses only one license of the E3 product. But the direct assignment enables the Yammer Enterprise service for that user only. You can see which services are enabled by the group membership versus the direct assignment.
 
 1. When you use direct assignment, the following operations are allowed:
 
-   - Yammer Enterprise can be turned off on the user resource directly. The **On/Off** toggle in the illustration was enabled for this service, as opposed to the other service toggles. Because the service is enabled directly on the user, it can be modified.
+   - Yammer Enterprise can be turned off for a individual user. Because the service is assigned directly to the user, it can be changed.
    - Additional services can be enabled as well, as part of the directly assigned license.
-   - The **Remove** button can be used to remove the direct license from the user. You can see that the user now only has the inherited group license and only the original services remain enabled:
+   - The **Remove** button can be used to remove the direct license from the user. You can see that the user then has the inherited group license and only the original services remain enabled.
 
 ## Managing new services added to products
 
@@ -133,7 +127,7 @@ You can use a PowerShell script to check if users have a license assigned direct
 
 ## Use Audit logs to monitor group-based licensing activity
 
-You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md#audit-logs) to see all activity related to group-based licensing, including:
+You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md) to see all activity related to group-based licensing, including:
 - who changed licenses on groups
 - when the system started processing a group license change, and when it finished
 - what license changes were made to a user as a result of a group license assignment.

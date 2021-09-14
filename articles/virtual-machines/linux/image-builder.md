@@ -1,16 +1,18 @@
 ---
-title: Use Azure Image Builder with an image gallery for Linux VMs (preview)
+title: Use Azure Image Builder with an image gallery for Linux VMs
 description: Create Linux VM images with Azure Image Builder and Shared Image Gallery.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: danis
+
 ---
-# Preview: Create a Linux image and distribute it to a Shared Image Gallery by using Azure CLI
+# Create a Linux image and distribute it to a Shared Image Gallery by using Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in a [Shared Image Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
@@ -19,23 +21,9 @@ We will be using a sample .json template to configure the image. The .json file 
 
 To distribute the image to a Shared Image Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Register the features
-To use Azure Image Builder during the preview, you need to register the new feature.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview -o json | grep state
-```
+To use Azure Image Builder, you need to register the new feature.
 
 Check your registration.
 
@@ -61,7 +49,7 @@ az provider register -n Microsoft.Network
 
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
-For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
+Image builder only supports creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
 ```azurecli-interactive
 # Resource group name - we are using ibLinuxGalleryRG in this example
@@ -78,10 +66,10 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Create a variable for your subscription ID. You can get this using `az account show -o json | grep id`.
+Create a variable for your subscription ID.
 
 ```azurecli-interactive
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 Create the resource group.
@@ -99,7 +87,7 @@ identityName=aibBuiUserId$(date +'%s')
 az identity create -g $sigResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName -o json | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName

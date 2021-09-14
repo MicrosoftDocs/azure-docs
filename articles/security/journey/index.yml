@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Cloud security journey documentation
+title: Azure security documentation for every cloud adoption phase
 summary: Whether you're considering a move to the cloud or have already migrated to the cloud, here you'll find guidance for every phase of your cloud security journey.
 
 metadata:
@@ -13,7 +13,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 04/11/2021
+  ms.date: 04/30/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -21,7 +21,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure security
+  - title: Understand security advantages in Azure
     linkLists:
       - linkListType: overview
         links:
@@ -37,7 +37,7 @@ landingContent:
             url: ../fundamentals/platform.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   # Card
-  - title: Get started
+  - title: Prepare to securely migrate to the cloud
     linkLists:
       - linkListType: overview
         links:
@@ -47,11 +47,23 @@ landingContent:
         links:
           - text: Design a secure architecture
             url: /azure/architecture/framework/security/security-principles?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Enterprise-scale security, governance, and compliance
+            url: /azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+# Card
+  - title: Migrate your business to the cloud
+    linkLists:
+      - linkListType: concept
+        links:
           - text: Migrate secure workloads
             url: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
-
-  # Card
-  - title: Secure your cloud workloads
+      - linkListType: overview
+        links:
+          - text: Governance or compliance strategy
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+  
+# Card
+  - title: Secure and protect your cloud workloads
     linkLists:
       - linkListType: overview
         links:
@@ -73,7 +85,7 @@ landingContent:
             url: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   # Card
-  - title: Mitigate threats
+  - title: Detect, analyze, and mitigate threats
     linkLists:
       - linkListType: concept
         links:
@@ -83,7 +95,7 @@ landingContent:
             url: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   # Card
-  - title: Know what's happening in your environment
+  - title: Investigate suspicious activity
     linkLists:
       - linkListType: concept
         links:
@@ -93,3 +105,13 @@ landingContent:
             url: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
           - text: Identity and network risks
             url: /azure/architecture/framework/security/monitor-identity-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+# Card
+  - title: Optimize your security investments
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Governance, risk, compliance
+            url: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Identity and network risks
+            url: /azure/architecture/framework/security/monitor-test?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json

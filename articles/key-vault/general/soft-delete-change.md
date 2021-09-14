@@ -2,14 +2,13 @@
 title: Enable soft-delete on all key vault objects - Azure Key Vault | Microsoft Docs
 description: Use this document to adopt soft-delete for all key vaults and to make application and administration changes to avoid conflict errors.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.author: sudbalas
+ms.date: 03/31/2021
+ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
 ---
@@ -54,7 +53,7 @@ If your application assumes that soft-delete isn't enabled and expects that dele
 
 Security principals that need access to permanently delete secrets must be granted more access policy permissions to purge these secrets and the key vault.
 
-Disable any Azure policy on your key vaults that mandates that soft-delete is turned off. You might need to escalate this issue to an administrator who controls Azure policies applied to your environment. If this policy isn't disabled, you might lose the ability to create new key vaults in the scope of the applied policy.
+Disable any Azure Policy assignments on your key vaults that mandates that soft-delete is turned off. You might need to escalate this issue to an administrator who controls Azure Policy assignments applied to your environment. If this policy assignment isn't disabled, you might lose the ability to create new key vaults in the scope of the applied policy assignment.
 
 If your organization is subject to legal compliance requirements and can't allow deleted key vaults and secrets to remain in a recoverable state for an extended period of time, you'll have to adjust the retention period of soft-delete to meet your organization's standards. You can configure the retention period to last from 7 to 90 days.
 

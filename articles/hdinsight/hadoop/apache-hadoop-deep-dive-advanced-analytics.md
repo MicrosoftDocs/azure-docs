@@ -47,7 +47,6 @@ Along with selecting the best-fitting algorithm(s), you need to consider whether
 HDInsight has several machine learning options for an advanced analytics workflow:
 
 * Machine Learning and Apache Spark
-* R and ML Services
 * Azure Machine Learning and Apache Hive
 * Apache Spark and Deep learning
 
@@ -60,10 +59,6 @@ There are three scalable machine learning libraries that bring algorithmic model
 * [**MLlib**](https://spark.apache.org/docs/latest/ml-guide.html) - MLlib contains the original API built on top of Spark RDDs.
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) - SparkML is a newer package that provides a higher-level API built on top of Spark DataFrames for constructing ML pipelines.
 * [**MMLSpark**](https://github.com/Azure/mmlspark)  - The Microsoft Machine Learning library for Apache Spark (MMLSpark) is designed to make data scientists more productive on Spark, to increase the rate of experimentation, and to leverage cutting-edge machine learning techniques, including deep learning, on very large datasets. The MMLSpark library simplifies common modeling tasks for building models in PySpark.
-
-### R and ML Services
-
-As part of HDInsight, you can create an HDInsight cluster with [ML Services](../r-server/r-server-overview.md) ready to be used with massive datasets and models. This new capability provides data scientists and statisticians with a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance.
 
 ### Azure Machine Learning and Apache Hive
 
@@ -110,12 +105,12 @@ Follow [this tutorial](../spark/apache-spark-microsoft-cognitive-toolkit.md) to 
 
 Apache Hive and Azure Machine Learning
 
-* [Apache Hive and Azure Machine Learning end-to-end](../../machine-learning/team-data-science-process/hive-walkthrough.md)
-* [Using an Azure HDInsight Hadoop Cluster on a 1-TB dataset](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
+* [Apache Hive and Azure Machine Learning end-to-end](/azure/architecture/data-science-process/hive-walkthrough)
+* [Using an Azure HDInsight Hadoop Cluster on a 1-TB dataset](/azure/architecture/data-science-process/hive-criteo-walkthrough)
 
 Apache Spark and MLLib
 
-* [Machine learning with Apache Spark on HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
+* [Machine learning with Apache Spark on HDInsight](/azure/architecture/data-science-process/spark-overview)
 * [Apache Spark with Machine Learning: Use Apache Spark in HDInsight for analyzing building temperature using HVAC data](../spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark with Machine Learning: Use Apache Spark in HDInsight to predict food inspection results](../spark/apache-spark-machine-learning-mllib-ipython.md)
 

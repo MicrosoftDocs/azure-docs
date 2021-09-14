@@ -9,9 +9,9 @@ metadata:
   services: api-management
   ms.service: api-management
   ms.topic: landing-page
-  author: georgewallace
-  ms.author: gwallace
-  ms.date: 03/08/2020
+  author: dlepow
+  ms.author: danlep
+  ms.date: 05/13/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -23,9 +23,12 @@ landingContent:
         links:
           - text: What is API Management?
             url: api-management-key-concepts.md
-          - text: Features availability
+          - text: Service tiers and features
             url: api-management-features.md
-
+      - linkListType: architecture
+        links:
+          - text: Basic enterprise integration
+            url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
   # Card (optional)
   - title: Create an instance
     linkLists:
@@ -80,10 +83,17 @@ landingContent:
           - text: Azure Policy built-ins
             url: ./policy-reference.md
 
-  # Card
-  - title: Architecture
+# Card
+  - title: Enable hybrid and multi-cloud management
     linkLists:
-      - linkListType: architecture
+      - linkListType: overview
         links:
-          - text: Basic enterprise integration
-            url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
+          - text: Self-hosted gateway overview
+            url: self-hosted-gateway-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Host gateway on Azure Arc
+            url: how-to-deploy-self-hosted-gateway-azure-arc.md
+          - text: Host gateway on Kubernetes
+            url: how-to-deploy-self-hosted-gateway-kubernetes.md
+  

@@ -152,6 +152,20 @@ conceptualContent:
         url: ../service-bus-messaging/index.yml
         text: See more
     # Card
+    - title: Event Grid on Kubernetes with Azure Arc (Preview)
+      links:
+        - url: ../event-grid/kubernetes/overview.md
+          itemType: overview
+          text: What is Event Grid on Kubernetes?
+        - url: ../event-grid/kubernetes/create-topic-subscription.md
+          itemType: quickstart
+          text: Create a topic and a subscription
+      # footerLink
+      footerLink:
+        url: ../event-grid/kubernetes/index.yml
+        text: See more
+
+    # Card
     - title: Send and receive messages - queues
       links:
         - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md

@@ -20,6 +20,9 @@ There are two main deployment types for Azure App Service:
 
 The features you use will depend on whether you're in the multitenant service or in an ASE. 
 
+> [!NOTE]
+> Networking features are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
+
 ## Multitenant App Service networking features 
 
 Azure App Service is a distributed system. The roles that handle incoming HTTP or HTTPS requests are called *front ends*. The roles that host the customer workload are called *workers*. All the roles in an App Service deployment exist in a multitenant network. Because there are many different customers in the same App Service scale unit, you can't connect the App Service network directly to your network. 
@@ -44,7 +47,7 @@ For any given use case, there might be a few ways to solve the problem. Choosing
 | Support IP-based SSL needs for your app | App-assigned address |
 | Support unshared dedicated inbound address for your app | App-assigned address |
 | Restrict access to your app from a set of well-defined addresses | Access restrictions |
-| Restrict access to your app from resources in a virtual network | Service endpoints </br> ILB ASE </br> Private endpoints |
+| Restrict access to your app from resources in a virtual network | Service endpoints </br> Internal Load Balancer (ILB) ASE </br> Private endpoints |
 | Expose your app on a private IP in your virtual network | ILB ASE </br> Private endpoints </br> Private IP for inbound traffic on an Application Gateway instance with service endpoints |
 | Protect your app with a web application firewall (WAF) | Application Gateway and ILB ASE </br> Application Gateway with private endpoints </br> Application Gateway with service endpoints </br> Azure Front Door with access restrictions |
 | Load balance traffic to your apps in different regions | Azure Front Door with access restrictions | 
@@ -96,7 +99,7 @@ To learn how to set an address on your app, see [Add a TLS/SSL certificate in Az
 
 Access restrictions let you filter *inbound* requests. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Because the front-end roles are upstream from the workers, you can think of access restrictions as network-level protection for your apps. 
 
-This feature allows you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking. You can use this feature in an ASE or in the multitenant service. When you use it with an ILB ASE or private endpoint, you can restrict access from private address blocks.
+This feature allows you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking. You can use this feature in an ASE or in the multitenant service. When you use it with an ILB ASE, you can restrict access from private address blocks.
 > [!NOTE]
 > Up to 512 access restriction rules can be configured per app. 
 
@@ -221,20 +224,18 @@ An App Service Environment (ASE) is a single-tenant deployment of the Azure App 
 * Access resources across ExpressRoute.
 * Expose your apps with a private address in your virtual network. 
 * Access resources across service endpoints. 
+* Access resources across private endpoints. 
 
-With an ASE, you don't need to use features like VNet Integration or service endpoints because the ASE is already in your virtual network. If you want to access resources like SQL or Azure Storage over service endpoints, enable service endpoints on the ASE subnet. If you want to access resources in the virtual network, you don't need to do any additional configuration. If you want to access resources across ExpressRoute, you're already in the virtual network and don't need to configure anything on the ASE or the apps in it. 
+With an ASE, you don't need to use VNet Integration because the ASE is already in your virtual network. If you want to access resources like SQL or Azure Storage over service endpoints, enable service endpoints on the ASE subnet. If you want to access resources in the virtual network or private endpoints in the virtual network, you don't need to do any additional configuration. If you want to access resources across ExpressRoute, you're already in the virtual network and don't need to configure anything on the ASE or the apps in it. 
 
 Because the apps in an ILB ASE can be exposed on a private IP address, you can easily add WAF devices to expose just the apps that you want to the internet and help keep the rest secure. This feature can help make the development of multitier applications easier. 
 
 Some things aren't currently possible from the multitenant service but are possible from an ASE. Here are some examples:
 
-* Expose your apps on a private IP address.
-* Help secure all outbound traffic with network controls that aren't a part of your app.
 * Host your apps in a single-tenant service. 
 * Scale up to many more instances than are possible in the multitenant service. 
 * Load private CA client certificates for use by your apps with private CA-secured endpoints.
 * Force TLS 1.1 across all apps hosted in the system without any ability to disable it at the app level. 
-* Provide a dedicated outbound address for all the apps in your ASE that aren't shared with customers. 
 
 ![Diagram that illustrates an ASE in a virtual network.](media/networking-features/app-service-environment.png)
 
@@ -293,7 +294,7 @@ Line-of-business (LOB) applications are internal applications that aren't normal
 
 If neither of these needs apply, you're better off using private endpoints. With private endpoints available in App Service, you can expose your apps on private addresses in your virtual network. The private endpoint you place in your virtual network can be reached across ExpressRoute and VPN connections. 
 
-Configuring private endpoints will expose your apps on a private address, but you'll need to configure DNS to reach that address from on-premises. To make this configuration work, you'll need to forward the Azure DNS private zone that contains your private endpoints to your on-premises DNS servers. Azure DNS private zones don't support zone forwarding, but you can support zone forwarding by using a DNS server for that purpose. The [DNS Forwarder](https://azure.microsoft.com/resources/templates/301-dns-forwarder/) template makes it easier to forward your Azure DNS private zone to your on-premises DNS servers.
+Configuring private endpoints will expose your apps on a private address, but you'll need to configure DNS to reach that address from on-premises. To make this configuration work, you'll need to forward the Azure DNS private zone that contains your private endpoints to your on-premises DNS servers. Azure DNS private zones don't support zone forwarding, but you can support zone forwarding by using a DNS server for that purpose. The [DNS Forwarder](https://azure.microsoft.com/resources/templates/dns-forwarder/) template makes it easier to forward your Azure DNS private zone to your on-premises DNS servers.
 
 ## App Service ports
 
@@ -303,7 +304,7 @@ If you scan App Service, you'll find several ports that are exposed for inbound 
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Management | 454, 455 |
-|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  FTP/FTPS    | 21, 990, 10001-10300 |
 |  Visual Studio remote debugging  |  4020, 4022, 4024 |
 |  Web Deploy service | 8172 |
 |  Infrastructure use | 7654, 1221 |

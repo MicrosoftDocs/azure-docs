@@ -218,7 +218,11 @@ docker stop updatedapp
 
 ## Next steps
 
-In this tutorial, you learned how to use a task to automatically trigger container image builds when the image's base image has been updated. Now, move on to the next tutorial to learn how to trigger tasks on a defined schedule.
+In this tutorial, you learned how to use a task to automatically trigger container image builds when the image's base image has been updated.
+
+For a complete workflow to manage base images originating from a public source, see [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md). 
+
+Now, move on to the next tutorial to learn how to trigger tasks on a defined schedule.
 
 > [!div class="nextstepaction"]
 > [Run a task on a schedule](container-registry-tasks-scheduled.md)
@@ -231,10 +235,10 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-update]: /cli/azure/acr/task#az_acr_task_update
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-task-list-runs]: /cli/azure/acr
 [az-acr-task]: /cli/azure/acr

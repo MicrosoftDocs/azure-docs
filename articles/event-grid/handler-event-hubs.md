@@ -16,9 +16,9 @@ See the following examples:
 |Title  |Description  |
 |---------|---------|
 | [Quickstart: Route custom events to Azure Event Hubs with Azure CLI](custom-event-to-eventhub.md) | Sends a custom event to an event hub for processing by an application. |
-| [Resource Manager template: Create an Event Grid custom topic and send events to an event hub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
+| [Resource Manager template: Create an Event Grid custom topic and send events to an event hub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
 
-[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
+[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
 
 
 ## REST examples (for PUT)
@@ -28,18 +28,18 @@ See the following examples:
 
 ```json
 {
-	"properties": 
-	{
-		"destination": 
-		{
-			"endpointType": "EventHub",
-			"properties": 
-			{
-				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
-			}
-		},
-		"eventDeliverySchema": "EventGridSchema"
-	}
+  "properties": 
+  {
+    "destination": 
+    {
+      "endpointType": "EventHub",
+      "properties": 
+      {
+        "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+      }
+    },
+    "eventDeliverySchema": "EventGridSchema"
+  }
 }
 ```
 
@@ -47,24 +47,24 @@ See the following examples:
 
 ```json
 {
-	"properties": {
-		"deliveryWithResourceIdentity": 
-		{
-			"identity": 
-			{
-				"type": "SystemAssigned"
-			},
-			"destination": 
-			{
-				"endpointType": "EventHub",
-				"properties": 
-				{
-					"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
-				}
-			}
-		},
-		"eventDeliverySchema": "EventGridSchema"
-	}
+  "properties": {
+    "deliveryWithResourceIdentity": 
+    {
+      "identity": 
+      {
+        "type": "SystemAssigned"
+      },
+      "destination": 
+      {
+        "endpointType": "EventHub",
+        "properties": 
+        {
+          "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+        }
+      }
+    },
+    "eventDeliverySchema": "EventGridSchema"
+  }
 }
 ```
 

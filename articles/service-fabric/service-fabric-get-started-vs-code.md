@@ -38,13 +38,13 @@ The following prerequisites must be installed on all environments.
 
 The following prerequisites must be installed for Java development:
 
-* [Java SDK](/azure/developer/java/fundamentals/java-jdk-long-term-support) (version 1.8)
+* [Java SDK](/azure/developer/java/fundamentals/java-support-on-azure) (version 1.8)
 * [Gradle](https://gradle.org/install/)
 * [Debugger for Java VS Code extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Needed to debug Java services. Debugging Java services is supported on Linux only. You can install either by clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 
 The following prerequisites must be installed for .NET Core/C# development:
 
-* [.NET Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 or later)
+* [.NET Core](https://dotnet.microsoft.com/download) (version 2.0.0 or later)
 * [C# for Visual Studio Code (powered by OmniSharp) VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Needed to debug C# services. You can install either by clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 
 ## Setup

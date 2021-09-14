@@ -37,7 +37,7 @@ These roles can be assigned to your security principal in any of these scopes:
 - Resource group
 - Subscription
 
-To learn how to verify and assign roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](./storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn how to verify and assign roles, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
 > [!NOTE]
 > Keep in mind that Azure role assignments can take up to five minutes to propagate.
@@ -154,7 +154,7 @@ Replace the `<application-id>` placeholder with the application ID of your servi
 
 If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to log in.
 
-In addition to uploading your certificate to your app registration, you'll also need to have a copy of the certificate saved to the machine or VM where AzCopy will be running. This copy of the certificate should be in .PFX or .PEM format, and must include the private key. The private key should be password-protected. If you're using Windows, and your certificate exists only in a certificate store, make sure to export that certificate to a PFX file (including the private key). For guidance, see [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate)
+In addition to uploading your certificate to your app registration, you'll also need to have a copy of the certificate saved to the machine or VM where AzCopy will be running. This copy of the certificate should be in .PFX or .PEM format, and must include the private key. The private key should be password-protected. If you're using Windows, and your certificate exists only in a certificate store, make sure to export that certificate to a PFX file (including the private key). For guidance, see [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate)
 
 Next, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate password.
 

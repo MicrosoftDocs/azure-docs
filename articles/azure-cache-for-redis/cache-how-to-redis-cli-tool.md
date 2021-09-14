@@ -6,7 +6,8 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/08/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 
@@ -22,7 +23,7 @@ If you want to run the command-line tool on another platform, download Azure Cac
 
 You can gather the information needed to access the cache using three methods:
 
-1. Azure CLI using [az redis list-keys](/cli/azure/redis#az-redis-list-keys)
+1. Azure CLI using [az redis list-keys](/cli/azure/redis#az_redis_list_keys)
 2. Azure PowerShell using [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Using the Azure portal.
 
@@ -41,9 +42,9 @@ With Azure Cache for Redis, only the TLS port (6380) is enabled by default. The 
 
     Run **stunnel GUI Start** to start the server.
 
-    Right-click the taskbar icon for the stunnel server and click **Show Log Window**.
+    Right-click the taskbar icon for the stunnel server and select **Show Log Window**.
 
-    On the stunnel Log Window menu, click **Configuration** > **Edit Configuration** to open the current configuration file.
+    On the stunnel Log Window menu, select **Configuration** > **Edit Configuration** to open the current configuration file.
 
     Add the following entry for *redis-cli.exe* under the **Service definitions** section. Insert your actual cache name in place of `yourcachename`. 
 
@@ -56,7 +57,7 @@ With Azure Cache for Redis, only the TLS port (6380) is enabled by default. The 
 
     Save and close the configuration file. 
   
-    On the stunnel Log Window menu, click **Configuration** > **Reload Configuration**.
+    On the stunnel Log Window menu, select **Configuration** > **Reload Configuration**.
 
 
 ## Connect using the Redis command-line tool.

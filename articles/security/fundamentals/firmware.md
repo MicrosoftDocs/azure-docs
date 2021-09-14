@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
+ms.date: 06/24/2021
 ---
 
 # Firmware security
@@ -45,6 +45,7 @@ Cloud hardware suppliers and vendors for Azure are also required to adhere to su
 ## Next steps
 To learn more about what we do to drive platform integrity and security, see:
 
+- [Platform code integrity](code-integrity.md)
 - [Secure boot](secure-boot.md)
 - [Measured boot and host attestation](measured-boot-host-attestation.md)
 - [Project Cerberus](project-cerberus.md)

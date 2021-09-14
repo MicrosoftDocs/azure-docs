@@ -4,13 +4,13 @@ description: How to use Node.js to create a program that connects to a database 
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.devlang: nodejs
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: v-masebo
-ms.date: 05/29/2020
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma, v-masebo
+ms.date: 05/19/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
 ---
 # Quickstart: Use Node.js to query a database in Azure SQL Database or Azure SQL Managed Instance
@@ -108,6 +108,35 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
         encrypt: true
       }
     };
+    
+    /* 
+        //Use Azure VM Managed Identity to connect to the SQL database
+        const config = {
+            server: process.env["db_server"],
+            authentication: {
+                type: 'azure-active-directory-msi-vm',
+            },
+            options: {
+                database: process.env["db_database"],
+                encrypt: true,
+                port: 1433
+            }
+        };
+        
+        //Use Azure App Service Managed Identity to connect to the SQL database
+        const config = {
+            server: process.env["db_server"],
+            authentication: {
+                type: 'azure-active-directory-msi-app-service',
+            },
+            options: {
+                database: process.env["db_database"],
+                encrypt: true,
+                port: 1433
+            }
+        });
+
+    */
 
     const connection = new Connection(config);
 
@@ -119,6 +148,8 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
         queryDatabase();
       }
     });
+    
+    connection.connect();
 
     function queryDatabase() {
       console.log("Reading rows from the Table...");
@@ -147,6 +178,9 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
       connection.execSql(request);
     }
     ```
+
+> [!NOTE]
+> For more information about using managed identity for authentication, complete the tutorial to [access data via managed identity](../../app-service/app-service-web-tutorial-connect-msi.md).
 
 > [!NOTE]
 > The code example uses the **AdventureWorksLT** sample database in Azure SQL Database.

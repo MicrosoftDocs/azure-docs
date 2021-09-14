@@ -11,6 +11,10 @@ An event handler is the place where the event is sent. The handler takes some fu
 You can use a Service queue or topic as a handler for events from Event Grid. 
 
 ## Service Bus queues
+
+> [!NOTE]
+> Session enabled queues are not supported as event handlers for Azure Event Grid events
+ 
 You can route events in Event Grid directly to Service Bus queues for use in buffering or command & control scenarios in enterprise applications.
 
 In the Azure portal, while creating an event subscription, select **Service Bus Queue** as endpoint type and then click **select an endpoint** to choose a Service Bus queue.
@@ -45,7 +49,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
+[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
 
 When sending an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is an internal system ID.
 

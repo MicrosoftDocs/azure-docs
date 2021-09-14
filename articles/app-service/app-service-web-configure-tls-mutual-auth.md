@@ -40,11 +40,11 @@ When you enable mutual auth for your application, all paths under the root of yo
 
 1. Next to **Client exclusion paths**, click the edit icon.
 
-1. Click **New path**, specify a path, and click **OK**.
+1. Click **New path**, specify a path, or a list of paths separated by `,` or `;`, and click **OK**.
 
 1. Click **Save** at the top of the page.
 
-In the following screenshot, anything under the `/public` path for your app does not request a client certificate.
+In the following screenshot, any path for your app that starts with `/public` does not request a client certificate. Path matching is case-insensitive.
 
 ![Certificate Exclusion Paths][exclusion-paths]
 
@@ -56,7 +56,71 @@ For ASP.NET, the client certificate is available through the **HttpRequest.Clien
 
 For other application stacks (Node.js, PHP, etc.), the client cert is available in your app through a base64 encoded value in the `X-ARR-ClientCert` request header.
 
-## ASP.NET sample
+## ASP.NET 5+, ASP.NET Core 3.1 sample
+
+For ASP.NET Core, middleware is provided to parse forwarded certificates. Separate middleware is provided to use the forwarded protocol headers. Both must be present for forwarded certificates to be accepted. You can place custom certificate validation logic in the [CertificateAuthentication options](/aspnet/core/security/authentication/certauth).
+
+```csharp
+public class Startup
+{
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public IConfiguration Configuration { get; }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        // Configure the application to use the protocol and client ip address forwared by the frontend load balancer
+        services.Configure<ForwardedHeadersOptions>(options =>
+        {
+            options.ForwardedHeaders =
+                ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+        });       
+        
+        // Configure the application to client certificate forwarded the frontend load balancer
+        services.AddCertificateForwarding(options => { options.CertificateHeader = "X-ARR-ClientCert"; });
+
+        // Add certificate authentication so when authorization is performed the user will be created from the certificate
+        services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate();
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts();
+        }
+        
+        app.UseForwardedHeaders();
+        app.UseCertificateForwarding();
+        app.UseHttpsRedirection();
+
+        app.UseAuthentication()
+        app.UseAuthorization();
+
+        app.UseStaticFiles();
+
+        app.UseRouting();
+        
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+        });
+    }
+}
+```
+
+## ASP.NET WebForms sample
 
 ```csharp
     using System;

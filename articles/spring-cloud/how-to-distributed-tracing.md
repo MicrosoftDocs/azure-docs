@@ -1,11 +1,11 @@
 ---
 title: "Use Distributed Tracing with Azure Spring Cloud"
 description: Learn how to use Spring Cloud's distributed tracing through Azure Application Insights
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -87,7 +87,7 @@ For example, *appsettings.json* would include the following properties:
   }
 ```
 
-For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://steeltoe.io/docs/3/tracing/distributed-tracing) in the Steeltoe documentation.
+For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) in the Steeltoe documentation.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 In this article, you learn how to:
@@ -100,7 +100,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
+To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Azure Spring Cloud application](./quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
 
 ## Add dependencies
 
@@ -166,7 +166,6 @@ To follow these procedures, you need an Azure Spring Cloud service that is alrea
       </dependencies>
       ```
 
-
 1. Build and deploy again for your Azure Spring Cloud service to reflect these changes.
 
 ## Modify the sample rate
@@ -209,4 +208,4 @@ Application Insights provides monitoring capabilities in addition to the applica
 
 ## Next steps
 
-In this article, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](spring-cloud-howto-bind-cosmos.md).
+In this article, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](./how-to-bind-cosmos.md).

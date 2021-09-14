@@ -66,7 +66,7 @@ By default, you create a node pool with a *priority* of *Regular* in your AKS cl
 The command also enables the [cluster autoscaler][cluster-autoscaler], which is recommended to use with spot node pools. Based on the workloads running in your cluster, the cluster autoscaler scales up and scales down the number of nodes in the node pool. For spot node pools, the cluster autoscaler will scale up the number of nodes after an eviction if additional nodes are still needed. If you change the maximum number of nodes a node pool can have, you also need to adjust the `maxCount` value associated with the cluster autoscaler. If you do not use a cluster autoscaler, upon eviction, the spot pool will eventually decrease to zero and require a manual operation to receive any additional spot nodes.
 
 > [!Important]
-> Only schedule workloads on spot node pools that can handle interruptions, such as batch processing jobs and testing environments. It is recommended that you set up [taints and tolerations][taints-tolerations] on your spot node pool to ensure that only workloads that can handle node evictions are scheduled on a spot node pool. For example, the above command ny default adds a taint of *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* so only pods with a corresponding toleration are scheduled on this node.
+> Only schedule workloads on spot node pools that can handle interruptions, such as batch processing jobs and testing environments. It is recommended that you set up [taints and tolerations][taints-tolerations] on your spot node pool to ensure that only workloads that can handle node evictions are scheduled on a spot node pool. For example, the above command by default adds a taint of *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* so only pods with a corresponding toleration are scheduled on this node.
 
 ## Verify the spot node pool
 
@@ -110,7 +110,7 @@ In this article, you learned how to add a spot node pool to an AKS cluster. For 
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [cluster-autoscaler]: cluster-autoscaler.md
 [eviction-policy]: ../virtual-machine-scale-sets/use-spot.md#eviction-policy
 [kubernetes-concepts]: concepts-clusters-workloads.md

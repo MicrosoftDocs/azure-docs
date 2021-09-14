@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 08/23/2021
 ms.custom: references_regions 
 ---
 
@@ -64,7 +64,7 @@ Here's what's supported if you want to back up Linux machines.
 
 **Action** | **Support**
 --- | ---
-Back up Linux Azure VMs with the Linux Azure VM agent | File consistent backup.<br/><br/> App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.
+Back up Linux Azure VMs with the Linux Azure VM agent | File consistent backup.<br/><br/> App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk, and use it to replace a disk on an existing VM. You can also restore individual files and folders.
 Back up Linux Azure VMs with MARS agent | Not supported.<br/><br/> The MARS agent can only be installed on Windows machines.
 Back up Linux Azure VMs with DPM/MABS | Not supported.
 Backup Linux Azure VMs with docker mount points | Currently, Azure Backup doesn’t support exclusion of docker mount points as these are mounted at different paths every time.
@@ -141,14 +141,15 @@ Back up VMs that are deployed from [Azure Marketplace](https://azuremarketplace.
 Back up VMs that are deployed from a custom image (third-party) |Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are migrated to Azure| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.
 Back up Multi-VM consistency | Azure Backup doesn't provide data and application consistency across multiple VMs.
-Backup with [Diagnostic Settings](../azure-monitor/essentials/platform-logs-overview.md)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
+Backup with [Diagnostic Settings](../azure-monitor/essentials/platform-logs-overview.md)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using the [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
 Restore of Zone-pinned VMs | Supported (for a VM that's backed-up after Jan 2019 and where [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone that's pinned in VMs. However, if the zone is unavailable due to an outage, the restore will fail.
 Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). When these VMs are restored from Recovery point, they're restored as [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Supported for managed VMs.
 [Spot VMs](../virtual-machines/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
-[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Supported
+[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Supported<br></br>While restoring an Azure VM through the [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, though the restore gets successful, Azure VM can't be restored in the dedicated host. To achieve this, we recommend you to restore as disks. While [restoring as disks](backup-azure-arm-restore-vms.md#restore-disks) with the template, create a VM in dedicated host, and then attach the disks.<br></br>This is not applicable in secondary region, while performing [Cross Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore).
 Windows Storage Spaces configuration of standalone Azure VMs | Supported
-[Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Supported for both uniform and flexible orchestration models to back up and restore Single Azure VM.
+[Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Supported for flexible orchestration model to back up and restore Single Azure VM.
+Restore with Managed identities | Yes, supported for managed Azure VMs, and not supported for classic and unmanaged Azure VMs.  <br><br> Cross Region Restore isn't supported with managed identities. <br><br> Currently, this is available in all Azure public and national cloud regions.   <br><br> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
 
 ## VM storage support
 
@@ -159,7 +160,7 @@ Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can't be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
-Disks with Write Accelerator enabled | As of November 23, 2020, supported only in the Korea Central (KRC) and South Africa North (SAN) regions for a limited number of subscriptions. For those supported subscriptions, Azure Backup will back up the virtual machines having disks that are Write Accelerated (WA) enabled during backup.<br><br>For the unsupported regions, internet connectivity is required on the VM to take snapshots of Virtual Machines with WA enabled.<br><br> **Important note**: In those unsupported regions, virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
+Disks with Write Accelerator enabled | Currently, Azure VM with WA disk backup is previewed in all Azure public regions. <br><br> (Quota is exceeded and no further change to the approved list is possible until GA) <br><br> Snapshots don’t include WA disk snapshots for unsupported subscriptions as WA disk will be excluded. <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
 Back up & Restore deduplicated VMs/disks | Azure Backup doesn't support deduplication. For more information, see this [article](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  - Azure Backup doesn't deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored because the vault doesn't understand the format. However, you can successfully perform the full VM restore.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
@@ -167,7 +168,8 @@ Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out Fi
 [Shared disks](../virtual-machines/disks-shared-enable.md) | Not supported.
 Ultra SSD disks | Not supported. For more information, see these [limitations](selective-disk-backup-restore.md#limitations).
 [Temporary disks](../virtual-machines/managed-disks-overview.md#temporary-disk) | Temporary disks aren't backed up by Azure Backup.
-NVMe/ephemeral disks | Not supported.
+NVMe/[ephemeral disks](../virtual-machines/ephemeral-os-disks.md) | Not supported.
+[ReFS](/windows-server/storage/refs/refs-overview) restore | Supported. VSS supports app-consistent backups on ReFS also like NFS.
 
 ## VM network support
 

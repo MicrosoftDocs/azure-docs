@@ -10,9 +10,9 @@ ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
-# Set up local development for Azure Static Web Apps Preview
+# Set up local development for Azure Static Web Apps
 
-When published to the cloud, an Azure Static Web Apps site has many services that work together as if they're the same application. These services include:
+When published to the cloud, an Azure Static Web Apps site links together many services that work together as if they're the same application. These services include:
 
 - The static web app
 - Azure Functions API
@@ -30,6 +30,9 @@ To provide a similar experience as to what you get in Azure, the [Azure Static W
 - A proxy to your API endpoints - available through Azure Functions Core Tools
 - A mock authentication and authorization server
 - Local routes and configuration settings enforcement
+
+> [!NOTE]
+> Often sites built with a front-end framework require a proxy configuration setting to correctly handle requests under the `api` route. When using the Azure Static Web Apps CLI the proxy location value is `/api`, and without the CLI the value is `http://localhost:7071/api`.
 
 ## How it works
 
@@ -56,6 +59,9 @@ The following chart shows how requests are handled locally.
 - **[Node.js](https://nodejs.org) with npm**: Run the [Node.js LTS](https://nodejs.org) version, which includes access to [npm](https://www.npmjs.com/).
 - **[Visual Studio Code](https://code.visualstudio.com/)**: Used for debugging the API application, but not required for the CLI.
 
+> [!NOTE]
+> In order to run `swa` with an [API locally](add-api.md#run-the-frontend-and-api-locally), the Azure Functions Core Tools are required.
+
 ## Get started
 
 Open a terminal to the root folder of your existing Azure Static Web Apps site.
@@ -74,7 +80,7 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
     `swa start`
 
-1. Navigate to http://localhost:4280 to view the app in the browser.
+1. Navigate to `http://localhost:4280` to view the app in the browser.
 
 ### Other ways to start the CLI
 
@@ -108,7 +114,7 @@ Once logged in:
 
 - You can use the `/.auth/me` endpoint, or a function endpoint to retrieve the user's [client principal](./user-information.md).
 
-- Navigating to `./auth/logout` clears the client principal and logs out the mock user.
+- Navigating to `/.auth/logout` clears the client principal and logs out the mock user.
 
 ## Debugging
 

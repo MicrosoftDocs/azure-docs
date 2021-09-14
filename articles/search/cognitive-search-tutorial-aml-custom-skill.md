@@ -26,7 +26,7 @@ There are two datasets provided. If you wish to train the model yourself, the ho
 > * Ingest output from deployed model as a custom skill
 
 > [!IMPORTANT] 
-> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no .NET SDK support.
+> This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this skill.
 
 ## Prerequisites
 

@@ -1,14 +1,18 @@
 ---
-title: Quickstart - Add joining a teams meeting to an iOS app using Azure Communication Services
+title: Quickstart - Add joining a Microsoft Teams meeting to an iOS app using Azure Communication Services
 description: In this quickstart, you'll learn how to use the Azure Communication Services Teams Embed library for iOS.
 author: palatter
 ms.author: palatter
-ms.date: 01/25/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Teams Embed library for iOS.
+In this quickstart, you'll learn how to join a Microsoft Teams meeting using the Azure Communication Services Teams Embed library for iOS.
+
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-ios-getting-started).
 
 ## Prerequisites
 
@@ -41,11 +45,11 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'TeamsEmbedGettingStarted' do
-    pod 'AzureCommunication', '~> 1.0.0-beta.8'
+    pod 'AzureCommunicationCommon', '1.0.0'
 end
 
 azure_libs = [
-'AzureCommunication',
+'AzureCommunicationCommon',
 'AzureCore']
 
 post_install do |installer|
@@ -71,60 +75,36 @@ To access the device's hardware, update your app's Information Property List. Se
 Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines the top level `<dict>` section, and then save the file.
 
 ```xml
-<key>NSBluetoothAlwaysUsageDescription</key>
-<string></string>
-<key>NSBluetoothPeripheralUsageDescription</key>
-<string></string>
 <key>NSCameraUsageDescription</key>
 <string></string>
 <key>NSContactsUsageDescription</key>
 <string></string>
 <key>NSMicrophoneUsageDescription</key>
 <string></string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string></string>
 ```
 
 ### Add the Teams Embed framework
 
-1. Download the framework.
-2. Create a `Frameworks` folder in the the project root. Ex. `\TeamsEmbedGettingStarted\Frameworks\`
-3. Copy the downloaded `TeamsAppSDK.framework` and `MeetingUIClient.framework` frameworks to this folder.
-4. Add the `TeamsAppSDK.framework` and the `MeetingUIClient.framework` to the project target under the general tab. Use the `Add Other` -> `Add Files...` to navigate to the framework files and add them.
+1. Download the `Teams Embed iOS SDK Bundle` and uncompress it.
+2. Create a `Frameworks` folder in the project root. Ex. `\TeamsEmbedGettingStarted\Frameworks\`
+3. Copy the downloaded `AzureMeetingUIClient.xcframework` and `TeamsAppSDK.xcframework` and other frameworks provided in the release bundle to the folder mentioned above.
+4. Add the frameworks to the project target under the general tab. Use the `Add Other` -> `Add Files...` to navigate to the framework files and add them. 
+5. Select `Embed & Sign` for all of the added frameworks. 
 
 :::image type="content" source="../media/ios/xcode-add-frameworks.png" alt-text="Screenshot showing the added frameworks in Xcode.":::
 
-5. If it isn't already, add `$(PROJECT_DIR)/Frameworks` to `Framework Search Paths` under the project target build settings tab. To find the setting, you have change the filter from `basic` to `all`, you can also use the search bar on the right.
+5. If it isn't already, add `$(PROJECT_DIR)/Frameworks` to `Framework Search Paths` under the project target build settings tab. To find the setting, change the filter from `basic` to `all`. You can also use the search bar on the right.
 
 :::image type="content" source="../media/ios/xcode-add-framework-search-path.png" alt-text="Screenshot showing the framework search path in Xcode.":::
 
 ### Turn off Bitcode
 
-Set `Enable Bitcode` option to `No` in the project build settings. To find the setting, you have change the filter from `basic` to `all`, you can also use the search bar on the right.
+Set `Enable Bitcode` option to `No` in the project `Build Settings`. To find the setting, you have to change the filter from `Basic` to `All`, you can also use the search bar on the right.
 
 :::image type="content" source="../media/ios/xcode-bitcode-option.png" alt-text="Screenshot showing the BitCode option in Xcode.":::
 
-### Add framework signing script
-
-Select your app target and choose the `Build Phases` tab.  Then click the `+`, followed by `New Run Script Phase`. Ensure this new phase occurs after the `Embed Frameworks` phases.
-
-
-
-:::image type="content" source="../media/ios/xcode-build-script.png" alt-text="Screenshot showing adding the build script in Xcode.":::
-
-```bash
-#!/bin/sh
-if [ -d "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks ]; then
-    pushd "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks
-    for EACH in *.framework; do
-        echo "-- signing ${EACH}"
-        /usr/bin/codesign --force --deep --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --entitlements "${TARGET_TEMP_DIR}/${PRODUCT_NAME}.app.xcent" --timestamp=none $EACH
-        echo "-- moving ${EACH}"
-        mv -nv ${EACH} ../../
-    done
-    rm -rf "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks
-    popd
-    echo "BUILD DIR ${TARGET_BUILD_DIR}"
-fi
-```
 
 ### Turn on Voice over IP background mode.
 
@@ -163,6 +143,7 @@ override func viewDidLoad() {
     self.view.addSubview(button)
     button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+}
 ```
 
 Create an outlet for the button in **ViewController.swift**.
@@ -175,12 +156,12 @@ Create an outlet for the button in **ViewController.swift**.
 
 ### Set up the app framework
 
-Open your project's **ViewController.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunication library` and the `MeetingUIClient`. 
+Open your project's **ViewController.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunicationCommon library` and the `MeetingUIClient`. 
 
 ```swift
 import UIKit
-import AzureCommunication
-import MeetingUIClient
+import AzureCommunicationCommon
+import AzureMeetingUIClient
 ```
 
 Replace the implementation of the `ViewController` class with a simple button to allow the user to join a meeting. We will attach business logic to the button in this quickstart.
@@ -189,6 +170,7 @@ Replace the implementation of the `ViewController` class with a simple button to
 class ViewController: UIViewController {
 
     private var meetingUIClient: MeetingUIClient?
+    private var meetingUIClientCall: MeetingUIClientCall?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -213,18 +195,29 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | MeetingUIClient | The MeetingUIClient is the main entry point to the Teams Embed library. |
-| MeetingUIClientDelegate | The MeetingUIClientDelegate is used to receive events, such as changes in call state. |
-| MeetingJoinOptions | MeetingJoinOptions are used for configurable options such as display name. | 
-| CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
+| MeetingUIClientMeetingJoinOptions | MeetingUIClientMeetingJoinOptions are used for configurable options such as display name. |
+| MeetingUIClientGroupCallJoinOptions | MeetingUIClientGroupCallJoinOptions are used for configurable options such as display name. |
+| MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting. |
+| MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator is used for setting the group ID to join. |
+| MeetingUIClientIconType | MeetingUIClientIconType is used to specify which icons could be replaced with app-specific icon. |
+| MeetingUIClientCall | MeetingUIClientCall describes the call and provides APIs to control it. |
+| MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `connecting`, `waitingInLobby`, `connected`, and `ended`. |
+| MeetingUIClientAudioRoute | MeetingUIClientAudioRoute is used for local audio routes like `Earpiece` or `SpeakerOn`. |
+| MeetingUIClientLayoutMode | MeetingUIClientLayoutMode is used for allowing to select different in call UI modes. |
+| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize is an enum to denote different avatar sizes that can be requested by MeetingUIClientCallIdentityProvider. |
+| MeetingUIClientCallDelegate | The MeetingUIClientDelegate is used to receive events, such as changes in call state. |
+| MeetingUIClientCallIdentityProviderDelegate | The MeetingUIClientIdentityProviderDelegate is used to map user details to the users in a meeting. |
+| MeetingUIClientCallUserEventDelegate | The MeetingUIClientUserEventDelegate provides information about user actions in the UI. |
+| MeetingUIClientCallRosterDelegate | The MeetingUIClientCallRosterDelegate provides information about call roster. |
 
 ## Create and Authenticate the client
 
-Initialize a `MeetingUIClient` instance with a User Access Token which will enable us to join meetings. Add the following code to the `viewDidLoad` callback in **ViewController.swift**:
+Initialize a `MeetingUIClient` instance with a User Access Token, which will enable us to join meetings. Add the following code to the `viewDidLoad` callback in **ViewController.swift**:
 
 ```swift
 do {
     let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: "<USER_ACCESS_TOKEN>", refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
-    let credential = try CommunicationTokenCredential(with: communicationTokenRefreshOptions)
+	let credential = try CommunicationTokenCredential(withOptions: communicationTokenRefreshOptions)
     meetingUIClient = MeetingUIClient(with: credential)
 }
 catch {
@@ -239,7 +232,7 @@ Replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. 
 Create a `fetchTokenAsync` method. Then add your `fetchToken` logic to get the user token.
 
 ```swift
-private func fetchTokenAsync(completionHandler: @escaping TokenRefreshOnCompletion) {
+private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
     func getTokenFromServer(completionHandler: @escaping (String) -> Void) {
         completionHandler("<USER_ACCESS_TOKEN>")
     }
@@ -253,26 +246,32 @@ Replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource.
 
 ## Join a meeting
 
-The `joinMeeting` method is set as the action that will be performed when the *Join Meeting* button is tapped. Update the implementation to join a meeting with the `MeetingUIClient`:
+The `join` method is set as the action that will be performed when the *Join Meeting* button is tapped. Update the implementation to join a meeting with the `MeetingUIClient`:
 
 ```swift
 private func joinMeeting() {
-    let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
-        
-    meetingUIClient?.join(meetingUrl: "<MEETING_URL>", meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: false, enableNamePlateOptionsClickDelegate: false, enableCallStagingScreen: false, enableCallRosterDelegate: false)
+    let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
+    meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
         if (error != nil) {
             print("Join meeting failed: \(error!)")
+        }
+        else {
+            if (meetingUIClientCall != nil) {
+                self.meetingUIClientCall? = meetingUIClientCall
+            }
         }
     })
 }
 ```
+Note to replace `<MEETING URL>` with a Microsoft Teams meeting link.
 
-Replace `<MEETING URL>` with a teams meeting link.
+The completion handler will return error in case the operation fails or it will return `MeetingUIClientCall` if it succeeded. Use the `MeetingUIClientCall` to control the call. 
 
-### Get a Teams meeting link
+### Get a Microsoft Teams meeting link
 
-A Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+A Microsoft Teams meeting link can be retrieved using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+The Communication Services Calling SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## Run the code
@@ -295,50 +294,3 @@ The Microsoft Teams SDK supports over 100 strings and resources. The framework b
 1. Determine what kind of localizations your application supports from the app Xcode Project > Info > Localizations list
 2. Unzip the Localizations.zip included with the package
 3. Copy the localization folders from the unzipped folder based on what your app supports to the root of the TeamsAppSDK.framework
-
-## Preparation for App Store upload
-
-Remove i386 and x86_64 architectures from the frameworks in case of archiving.
-
-Add the `i386` and `x86_64` architectures removing script to the Build Phases before the framework codesign phase if you'd like to archive your application.
-
-In the Project Navigator, select your project. In the Editor pane, go to Build Phases → Click on + sign → Create a New Run Script Phase.
-
-```bash
-echo "Target architectures: $ARCHS"
-APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
-find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
-do
-FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
-FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
-echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"
-echo $(lipo -info "$FRAMEWORK_EXECUTABLE_PATH")
-FRAMEWORK_TMP_PATH="$FRAMEWORK_EXECUTABLE_PATH-tmp"
-# remove simulator's archs if location is not simulator's directory
-case "${TARGET_BUILD_DIR}" in
-*"iphonesimulator")
-    echo "No need to remove archs"
-    ;;
-*)
-    if $(lipo "$FRAMEWORK_EXECUTABLE_PATH" -verify_arch "i386") ; then
-    lipo -output "$FRAMEWORK_TMP_PATH" -remove "i386" "$FRAMEWORK_EXECUTABLE_PATH"
-    echo "i386 architecture removed"
-    rm "$FRAMEWORK_EXECUTABLE_PATH"
-    mv "$FRAMEWORK_TMP_PATH" "$FRAMEWORK_EXECUTABLE_PATH"
-    fi
-    if $(lipo "$FRAMEWORK_EXECUTABLE_PATH" -verify_arch "x86_64") ; then
-    lipo -output "$FRAMEWORK_TMP_PATH" -remove "x86_64" "$FRAMEWORK_EXECUTABLE_PATH"
-    echo "x86_64 architecture removed"
-    rm "$FRAMEWORK_EXECUTABLE_PATH"
-    mv "$FRAMEWORK_TMP_PATH" "$FRAMEWORK_EXECUTABLE_PATH"
-    fi
-    ;;
-esac
-echo "Completed for executable $FRAMEWORK_EXECUTABLE_PATH"
-echo $(lipo -info "$FRAMEWORK_EXECUTABLE_PATH")
-done
-```
-
-## Sample Code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-ios-getting-started)

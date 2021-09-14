@@ -55,26 +55,28 @@ Application Insights
 
 2. Start the guided deployment, the script will collect the required information, such as Azure account, subscription, target resource and group and application name.
 
-On Windows:
-    ```
-    .\deploy
-    ```
+    On Windows:
+        ```
+        .\deploy -version <version>
+        ```
 
-On Linux or Mac:
-    ```
-    ./deploy.sh
-    ```
+    On Linux or Mac:
+        ```
+        ./deploy.sh -version <version>
+        ```
+
+    Replace \<version> with the version you want to deploy.
 
 3. The microservices and the UI are web applications that require authentication, this requires three app registrations in the AAD. If the required rights are missing, there are two possible solutions:
 
-- Ask the AAD admin to grant tenant-wide admin consent for the application
-- An AAD admin can create the AAD applications. The deploy/scripts folder contains the aad- register.ps1 script to perform the AAD registration separately from the deployment. The output of the script is a file containing the relevant information to be used as part of deployment and must be passed to the deploy.ps1 script in the same folder using the -
-aadConfig argument.
-    ```bash
-    cd deploy/scripts
-    ./aad-register.ps1 -Name <application-name> -Output aad.json
-    ./deploy.ps1 -aadConfig aad.json
-    ```
+    - Ask the AAD admin to grant tenant-wide admin consent for the application
+    - An AAD admin can create the AAD applications. The deploy/scripts folder contains the aad- register.ps1 script to perform the AAD registration separately from the deployment. The output of the script is a file containing the relevant information to be used as part of deployment and must be passed to the deploy.ps1 script in the same folder using the -
+    aadConfig argument.
+        ```bash
+        cd deploy/scripts
+        ./aad-register.ps1 -Name <application-name> -Output aad.json
+        ./deploy.ps1 -aadConfig aad.json
+        ```
 
 For production deployments that require staging, rollback, scaling, and resilience, the platform can be deployed into [Azure Kubernetes Service (AKS)](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)
 

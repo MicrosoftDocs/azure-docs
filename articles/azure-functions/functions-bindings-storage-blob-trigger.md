@@ -30,15 +30,26 @@ Polling works as a hybrid between inspecting logs and running periodic container
 
 ### Event Grid trigger
 
+> [!NOTE]
+> When using Storage Extensions 5.x and higher, the Blob trigger has built-in support for an Event Grid based Blob trigger. For more information, see the [Storage extension 5.x and higher](#storage-extension-5x-and-higher) section below.
+
 The [Event Grid trigger](functions-bindings-event-grid.md) also has built-in support for [blob events](../storage/blobs/storage-blob-event-overview.md). Use Event Grid instead of the Blob storage trigger for the following scenarios:
 
 - **Blob-only storage accounts**: [Blob-only storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts) are supported for blob input and output bindings but not for blob triggers.
 
 - **High-scale**: High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
 
+- **Existing Blobs**: The blob trigger will process all existing blobs in the container when you set up the trigger. If you have a container with many existing blobs and only want to trigger for new blobs, use the Event Grid trigger.
+
 - **Minimizing latency**: If your function app is on the Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. To avoid this latency, you can switch to an App Service plan with Always On enabled. You can also use an [Event Grid trigger](functions-bindings-event-grid.md) with your Blob storage account. For an example, see the [Event Grid tutorial](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
 
 See the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial of an Event Grid example.
+
+#### Storage Extension 5.x and higher
+
+When using the preview storage extension, there is built-in support for Event Grid in the Blob trigger which requires setting the `source` parameter to Event Grid in your existing Blob trigger. 
+
+For more information on how to use the Blob Trigger based on Event Grid, refer to the [Event Grid Blob Trigger guide](./functions-event-grid-blob-trigger.md).
 
 ### Queue storage trigger
 

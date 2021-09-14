@@ -23,7 +23,7 @@ ms.author: yelevin
 
 ## Entity types and identifiers
 
-The following table shows the **entity types** currently available for mapping in Azure Sentinel, and the **attributes** available as **identifiers** for each entity type - which appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](tutorial-detect-threats-custom.md).
+The following table shows the **entity types** currently available for mapping in Azure Sentinel, and the **attributes** available as **identifiers** for each entity type - which appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](detect-threats-custom.md).
 
 Each one of the identifiers in the **required identifiers** column is minimally necessary to identify its entity. However, a required identifier might not, by itself, be sufficient to provide *unique* identification. The more identifiers used, the greater the likelihood of unique identification. You can use up to three identifiers for a single entity mapping.
 
@@ -136,7 +136,7 @@ Weak identifiers of a host entity:
 | ----- | ---- | ----------- |
 | Type | String | ‘ip’ |
 | Address | String | The IP address as string, e.g. 127.0.0.1 (either in IPv4 or IPv6). |
-| Location | GeoLocation | The geo-location context attached to the IP entity. |
+| Location | GeoLocation | The geo-location context attached to the IP entity. <br><br>For more information, see also [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md). |
 |
 
 Strong identifiers of an IP entity:
@@ -380,7 +380,7 @@ Strong identifiers of a mailbox entity:
 *Entity name: MailCluster*
 
 > [!NOTE]
-> **MDO** = **Microsoft Defender for Office 365**, formerly known as Office 365 Advanced Threat Protection (O365 ATP).
+> **Microsoft Defender for Office 365** was formerly known as Office 365 Advanced Threat Protection (O365 ATP).
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -396,10 +396,10 @@ Strong identifiers of a mailbox entity:
 | IsVolumeAnomaly | Bool? | Determines whether this is a volume anomaly mail cluster. |
 | Source | String | The source of the mail cluster (default is 'O365 ATP'). |
 | ClusterSourceIdentifier | String | The network message ID of the mail that is the source of this mail cluster. |
-| ClusterSourceType | String | The source type of the mail cluster. This maps to the MailClusterSourceType setting from MDO (see note above). |
-| ClusterQueryStartTime | DateTime? | Cluster start time - used as start time for cluster counts query. Usually dates to the End time minus DaysToLookBack setting from MDO (see note above). |
+| ClusterSourceType | String | The source type of the mail cluster. This maps to the MailClusterSourceType setting from Microsoft Defender for Office 365 (see note above). |
+| ClusterQueryStartTime | DateTime? | Cluster start time - used as start time for cluster counts query. Usually dates to the End time minus DaysToLookBack setting from Microsoft Defender for Office 365 (see note above). |
 | ClusterQueryEndTime | DateTime? | Cluster end time - used as end time for cluster counts query. Usually the mail data's received time. |
-| ClusterGroup | String | Corresponds to the Kusto query key used on MDO (see note above). |
+| ClusterGroup | String | Corresponds to the Kusto query key used on Microsoft Defender for Office 365 (see note above). |
 |
 
 Strong identifiers of a mail cluster entity:

@@ -3,12 +3,12 @@ title: Users are not being provisioned in my application
 description: How to troubleshoot common issues faced when you don't see users appearing in an Azure AD Gallery Application you have configured for user provisioning with Azure AD
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---

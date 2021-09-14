@@ -867,16 +867,16 @@ MATCH_RECOGNIZE (
 		First(Warning.Operation_Id) AS First_Warning_Operation_id,
 		First(Warning.Time) AS Warning_Time
 	AFTER MATCH SKIP TO NEXT ROW
-	PATTERN (Success* Warning{2,})
+	PATTERN (Success+ Warning{2,})
 	DEFINE
 		Success AS Succes.Return_Code = 'Success',
-		Failure AS Warning.Return_Code <> 'Success'
+		Warning AS Warning.Return_Code <> 'Success'
 ) AS patternMatch
 ```
 
 This query matches at least two consecutive failure events and generate an alarm when the conditions are met.
-**PATTERN** defines the regular expression to be used on the matching, in this case, any number of successful operations followed by at least two consecutive failures.
-Success and Failure are defined using Return_Code value and once the condition is met, the **MEASURES** are projected with *ATM_id*, the first warning operation and first warning time.
+**PATTERN** defines the regular expression to be used on the matching, in this case, at least two consecutive warnings after at least one successful operation.
+Success and Warning are defined using Return_Code value and once the condition is met, the **MEASURES** are projected with *ATM_id*, the first warning operation and first warning time.
 
 For more information, refer to [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 

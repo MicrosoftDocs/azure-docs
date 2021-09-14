@@ -12,7 +12,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy an IPv6 dual stack application in Azure - PowerShell

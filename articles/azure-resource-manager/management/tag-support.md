@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 07/20/2021
 ---
 
 # Tag support for Azure resources
@@ -934,7 +934,7 @@ Jump to a resource provider namespace:
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | No | No |
 
 > [!NOTE]
-> You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with [Set-AzVm -Generalized](/powershell/module/Az.Compute/Set-AzVM) or [az vm generalize](/cli/azure/vm#az-vm-generalize).
+> You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with [Set-AzVm -Generalized](/powershell/module/Az.Compute/Set-AzVM) or [az vm generalize](/cli/azure/vm#az_vm_generalize).
 
 ## Microsoft.ConnectedCache
 
@@ -1188,8 +1188,8 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | DatabaseMigrations | No | No |
-> | services | No | No |
-> | services / projects | No | No |
+> | services | Yes | Yes |
+> | services / projects | Yes | Yes |
 > | SqlMigrationServices | Yes | Yes |
 
 ## Microsoft.DataProtection
@@ -1614,7 +1614,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | actionGroups | Yes | Yes |
+> | actionGroups | Yes | No |
 > | activityLogAlerts | Yes | Yes |
 > | alertrules | Yes | Yes |
 > | autoscalesettings | Yes | Yes |
@@ -1957,7 +1957,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | Yes | No |
 > | netAppAccounts / accountBackups | No | No |
-> | netAppAccounts / capacityPools | Yes | No |
+> | netAppAccounts / capacityPools | Yes | Yes |
 > | netAppAccounts / capacityPools / volumes | Yes | No |
 > | netAppAccounts / capacityPools / volumes / snapshots | No | No |
 > | netAppAccounts / volumeGroups | No | No |

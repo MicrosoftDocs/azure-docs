@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform desktop app | Azure"
+title: "Quickstart: Sign in users and call Microsoft Graph in a Windows desktop app | Azure"
 description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by the Microsoft identity platform.
 services: active-directory
 author: jmprieur
@@ -129,8 +129,7 @@ using Microsoft.Identity.Client;
 Then, initialize MSAL using the following code:
 
 ```csharp
-public static IPublicClientApplication PublicClientApp;
-PublicClientApplicationBuilder.Create(ClientId)
+IPublicClientApplication publicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                 .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
                 .Build();

@@ -18,6 +18,9 @@ This topic shows you how to create a managed identity for App Service and Azure 
 > [!Important] 
 > Managed identities for App Service and Azure Functions won't behave as expected if your app is migrated across subscriptions/tenants. The app needs to obtain a new identity, which is done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources also need to have access policies updated to use the new identity.
 
+> [!NOTE]
+> Managed identities are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
+
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 ## Add a system-assigned identity
@@ -53,7 +56,7 @@ To set up a managed identity using the Azure CLI, you will need to use the `az w
 
 The following steps will walk you through creating a web app and assigning it an identity using the CLI:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account that's associated with the Azure subscription under which you would like to deploy the application:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that's associated with the Azure subscription under which you would like to deploy the application:
 
     ```azurecli-interactive
     az login

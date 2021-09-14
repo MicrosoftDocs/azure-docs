@@ -28,7 +28,7 @@ The `mq/om` parameter controls the upper limit of the capacity of the internal m
 
 * decrease the IoT Hub send interval (`si`)
 
-* increase the IoT Hub message size (`ms`, the maximum this can be set to is 256 KB)
+* increase the IoT Hub message size (`ms`, the maximum this can be set to is 256 KB). In version 2.7 or later the default value is already set to 256 KB.
 
 If the queue keeps growing even though the `si` and `ms` parameters have been adjusted, eventually the maximum queue capacity will be reached and messages will be lost. This is due to the fact that both the `si` and `ms` parameter have physical limits and the Internet connection between OPC Publisher and IoT Hub is not fast enough for the number of messages that must be sent in a given scenario. In that case, only setting up several, parallel OPC Publishers will help. The `mq/om` parameter also has the biggest impact on the memory consumption by OPC Publisher. 
 
@@ -36,7 +36,7 @@ The `si` parameter forces OPC Publisher to send messages to IoT Hub at the speci
 
 The `ms` parameter enables batching of messages sent to IoT Hub. In most network setups, the latency of sending a single message to IoT Hub is high, compared to the time it takes to transmit the payload. This is mainly due to Quality of Service (QoS) requirements, since messages are acknowledged only once they have been processed by IoT Hub). Therefore, if a delay for the data to arrive at IoT Hub is acceptable, OPC Publisher should be configured to use the maximal message size of 256 KB by setting the `ms` parameter to 0. It is also the most cost-effective way to use OPC Publisher.
 
-The default configuration sends data to IoT Hub every 10 seconds (`si=10`) or when 256 KB of IoT Hub message data is available (`ms=0`). This adds a maximum delay of 10 seconds, but has low probability of losing data because of the large message size. The metric `monitored item notifications enqueue failure`  in OPC Publisher version 2.5 and below and `messages lost` in OPC Publisher version 2.7 shows how many messages were lost.
+In version 2.5 the default configuration sends data to IoT Hub every 10 seconds (`si=10`) or when 256 KB of IoT Hub message data is available (`ms=0`). This adds a maximum delay of 10 seconds, but has low probability of losing data because of the large message size. In version 2.7 or later the default configuration is 500 ms for orchestrated mode and 0 for standalone mode (no send interval). The metric `monitored item notifications enqueue failure`  in OPC Publisher version 2.5 and below and `messages lost` in OPC Publisher version 2.7 shows how many messages were lost.
 
 When both `si` and `ms` parameters are set to 0, OPC Publisher sends a message to IoT Hub as soon as data is available. This results in an average IoT Hub message size of just over 200 bytes. However, the advantage of this configuration is that OPC Publisher sends the data from the connected asset without delay. The number of lost messages will be high for use cases where a large amount of data must be published and hence this is not recommended for these scenarios.
 

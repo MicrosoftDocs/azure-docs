@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
-ms.custom: aaddev, devx-track-java
+ms.custom: aaddev, devx-track-java, has-adal-ref
 #Customer intent: As an Java application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
 
@@ -31,6 +31,8 @@ MSAL offers the following benefits:
 - Your application can enable incremental consent, and supporting conditional access is easier.
 
 MSAL for Java is the auth library we recommend you use with the Microsoft identity platform. No new features will be implemented on ADAL4J. All efforts going forward are focused on improving MSAL.
+
+You can learn more about MSAL and get started with an [overview of the Microsoft Authentication Library](msal-overview.md).
 
 ## Differences
 

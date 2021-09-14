@@ -7,7 +7,7 @@ ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # High-density hosting on Azure App Service using per-app scaling
@@ -20,7 +20,7 @@ When using App Service, you can scale your apps by scaling the [App Service plan
 App Service plan that hosts it. This way, an App Service plan can be scaled to 10 instances, but an app can be set to use only five.
 
 > [!NOTE]
-> Per-app scaling is available only for **Standard**, **Premium**, **Premium V2** and **Isolated** pricing tiers.
+> Per-app scaling is available only for **Standard**, **Premium**, **Premium V2**, **Premium V3**, and **Isolated** pricing tiers.
 >
 
 Apps are allocated to available App Service plan using a best effort approach for an even distribution across instances. While an even distribution is not guaranteed, the platform will make sure that two instances of the same app will not be hosted on the same App Service plan instance.

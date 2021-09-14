@@ -16,11 +16,15 @@
 - name: Concepts
   items:
   - name: Security baseline
-    href: security-baseline.md
+    href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
 - name: Tutorials
   items:
   - name: Get started with Advisor
     href: advisor-get-started.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: How-to guides
   items:
   - name: Reliability

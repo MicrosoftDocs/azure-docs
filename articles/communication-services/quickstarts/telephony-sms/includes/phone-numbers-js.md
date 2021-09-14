@@ -1,3 +1,6 @@
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/phone-numbers-quickstart)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -90,7 +93,7 @@ const searchRequest = {
 const searchPoller = await phoneNumbersClient.beginSearchAvailablePhoneNumbers(searchRequest);
 
 // The search is underway. Wait to receive searchId.
-const { searchId, phoneNumbers } = searchPoller.pollUntilDone();
+const { searchId, phoneNumbers } = await searchPoller.pollUntilDone();
 const phoneNumber = phoneNumbers[0];
 
 console.log(`Found phone number: ${phoneNumber}`);
@@ -151,15 +154,15 @@ After a purchasing number, you can retrieve it from the client. Add the followin
  */
 
 const { capabilities } = await phoneNumbersClient.getPurchasedPhoneNumber(phoneNumber);
-console.log(`These capabilities: ${capabilities}, should be the same as these: ${updateRequest}.`);
+console.log("These capabilities:", capabilities, "should be the same as these:", updateRequest, ".");
 ```
 
 You can also retrieve all the purchased phone numbers.
 
 ```javascript
-const phoneNumbers = await phoneNumbersClient.listPurchasedPhoneNumbers();
+const purchasedPhoneNumbers = await phoneNumbersClient.listPurchasedPhoneNumbers();
 
-for await (const purchasedPhoneNumber of phoneNumbers) {
+for await (const purchasedPhoneNumber of purchasedPhoneNumbers) {
   console.log(`Phone number: ${purchasedPhoneNumber.phoneNumber}, country code: ${purchasedPhoneNumber.countryCode}.`);
 }
 ```
@@ -173,7 +176,7 @@ You can now release the purchased phone number. Add the code snippet below to yo
  * Release Purchased Phone Number
  */
 
-const releasePoller = await client.beginReleasePhoneNumber(phoneNumber);
+const releasePoller = await phoneNumbersClient.beginReleasePhoneNumber(phoneNumber);
 
 // Release is underway.
 await releasePoller.pollUntilDone();

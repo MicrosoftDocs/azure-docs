@@ -2,16 +2,15 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 09/09/2021
 ---
+
 # Date functions for ARM templates
 
 Resource Manager provides the following functions for working with dates in your Azure Resource Manager template (ARM template):
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## dateTimeAdd
 
@@ -35,56 +34,7 @@ The datetime value that results from adding the duration value to the base value
 
 The following example template shows different ways of adding time values.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "baseTime": {
-      "type": "string",
-      "defaultValue": "[utcNow('u')]"
-    }
-  },
-  "variables": {
-    "add3Years": "[dateTimeAdd(parameters('baseTime'), 'P3Y')]",
-    "subtract9Days": "[dateTimeAdd(parameters('baseTime'), '-P9D')]",
-    "add1Hour": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
-  },
-  "resources": [],
-  "outputs": {
-    "add3YearsOutput": {
-      "value": "[variables('add3Years')]",
-      "type": "string"
-    },
-    "subtract9DaysOutput": {
-      "value": "[variables('subtract9Days')]",
-      "type": "string"
-    },
-    "add1HourOutput": {
-      "value": "[variables('add1Hour')]",
-      "type": "string"
-    },
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-param baseTime string = utcNow('u')
-
-var add3Years = dateTimeAdd(baseTime, 'P3Y')
-var subtract9Days = dateTimeAdd(baseTime, '-P9D')
-var add1Hour = dateTimeAdd(baseTime, 'PT1H')
-
-output add3YearsOutput string = add3Years
-output subtract9DaysOutput string = subtract9Days
-output add1HourOutput string = add1Hour
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd.json":::
 
 When the preceding template is deployed with a base time of `2020-04-07 14:53:14Z`, the output is:
 
@@ -96,81 +46,7 @@ When the preceding template is deployed with a base time of `2020-04-07 14:53:14
 
 The next example template shows how to set the start time for an Automation schedule.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "omsAutomationAccountName": {
-      "type": "string",
-      "defaultValue": "demoAutomation",
-      "metadata": {
-        "description": "Use an existing Automation account."
-      }
-    },
-    "scheduleName": {
-      "type": "string",
-      "defaultValue": "demoSchedule1",
-      "metadata": {
-        "description": "Name of the new schedule."
-      }
-    },
-    "baseTime": {
-      "type": "string",
-      "defaultValue": "[utcNow('u')]",
-      "metadata": {
-        "description": "Schedule will start one hour from this time."
-      }
-    }
-  },
-  "variables": {
-    "startTime": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
-  },
-  "resources": [
-    ...
-    {
-      "type": "Microsoft.Automation/automationAccounts/schedules",
-      "apiVersion": "2015-10-31",
-      "name": "[concat(parameters('omsAutomationAccountName'), '/', parameters('scheduleName'))]",
-
-      "properties": {
-        "description": "Demo Scheduler",
-        "startTime": "[variables('startTime')]",
-        "interval": 1,
-        "frequency": "Hour"
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-param omsAutomationAccountName string = 'demoAutomation'
-param scheduleName string = 'demSchedule1'
-param baseTime string = utcNow('u')
-
-var startTime = dateTimeAdd(baseTime, 'PT1H')
-
-...
-
-resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31' = {
-  name: concat(omsAutomationAccountName, '/', scheduleName)
-  properties: {
-    description: 'Demo Scheduler'
-    startTime: startTime
-    interval: 1
-    frequency: 'Hour'
-  }
-}
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd-automation.json":::
 
 ## utcNow
 
@@ -200,58 +76,7 @@ The current UTC datetime value.
 
 The following example template shows different formats for the datetime value.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "utcValue": {
-      "type": "string",
-      "defaultValue": "[utcNow()]"
-    },
-    "utcShortValue": {
-      "type": "string",
-      "defaultValue": "[utcNow('d')]"
-    },
-    "utcCustomValue": {
-      "type": "string",
-      "defaultValue": "[utcNow('M d')]"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "utcOutput": {
-      "type": "string",
-      "value": "[parameters('utcValue')]"
-    },
-    "utcShortOutput": {
-      "type": "string",
-      "value": "[parameters('utcShortValue')]"
-    },
-    "utcCustomOutput": {
-      "type": "string",
-      "value": "[parameters('utcCustomValue')]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-param utcValue string = utcNow()
-param utcShortValue string = utcNow('d')
-param utcCustomValue string = utcNow('M d')
-
-output utcOutput string = utcValue
-output utcShortOutput string = utcShortValue
-output utcCustomOutput string = utcCustomValue
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/utcnow.json":::
 
 The output from the preceding example varies for each deployment but will be similar to:
 
@@ -263,61 +88,8 @@ The output from the preceding example varies for each deployment but will be sim
 
 The next example shows how to use a value from the function when setting a tag value.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "utcShort": {
-      "type": "string",
-      "defaultValue": "[utcNow('d')]"
-    },
-    "rgName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
-      "name": "[parameters('rgName')]",
-      "location": "westeurope",
-      "tags": {
-        "createdDate": "[parameters('utcShort')]"
-      },
-      "properties": {}
-    }
-  ],
-  "outputs": {
-    "utcShortOutput": {
-      "type": "string",
-      "value": "[parameters('utcShort')]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-param utcShort string = utcNow('d')
-param rgName string
-
-resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
-  name: rgName
-  location: 'westeurope'
-  tags: {
-    createdDate: utcShort
-  }
-}
-
-output utcShortOutput string = utcShort
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/utcnow-tag.json":::
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).

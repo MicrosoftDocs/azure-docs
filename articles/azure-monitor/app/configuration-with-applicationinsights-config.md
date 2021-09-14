@@ -300,6 +300,5 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 [exceptions]: ./asp-net-exceptions.md
 [netlogs]: ./asp-net-trace-logs.md
 [new]: ./create-new-resource.md
-[redfield]: ./monitor-performance-live-website-now.md
+[redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md
-

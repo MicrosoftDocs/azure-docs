@@ -64,7 +64,7 @@ Azure AD also includes a full suite of [identity management capabilities](./iden
 
 - [Multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 - [Self-service password management](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
-- [Self-service group management](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
+- [Self-service group management](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)
 - [Privileged account management](../../active-directory/privileged-identity-management/pim-configure.md)
 - [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 - [Application usage monitoring](../../active-directory/hybrid/whatis-hybrid-identity.md)
@@ -175,15 +175,15 @@ DevOps enables teams to deliver more secure, higher-quality solutions faster and
 
 Cloud platforms such as Microsoft Azure have removed traditional bottlenecks and helped commoditize infrastructure. Software reigns in every business as the key differentiator and factor in business outcomes. No organization, developer, or IT worker can or should avoid the DevOps movement.
 
-Mature DevOps practitioners adopt several of the following practices. These practices [involve people](/azure/devops/learn/what-is-devops-culture) to form strategies based on the business scenarios. Tooling can help automate the various practices.
+Mature DevOps practitioners adopt several of the following practices. These practices [involve people](/devops/what-is-devops) to form strategies based on the business scenarios. Tooling can help automate the various practices.
 
 - [Agile planning and project management](https://www.visualstudio.com/learn/what-is-agile/) techniques are used to plan and isolate work into sprints, manage team capacity, and help teams quickly adapt to changing business needs.
-- [Version control, usually with Git](/azure/devops/learn/git/what-is-git), enables teams located anywhere in the world to share source and integrate with software development tools to automate the release pipeline.
-- [Continuous integration](/azure/devops/learn/what-is-continuous-integration) drives the ongoing merging and testing of code, which leads to finding defects early.  Other benefits include less time wasted on fighting merge issues and rapid feedback for development teams.
-- [Continuous delivery](/azure/devops/learn/what-is-continuous-delivery) of software solutions to production and testing environments helps organizations quickly fix bugs and respond to ever-changing business requirements.
-- [Monitoring](/azure/devops/learn/what-is-monitoring) of running applications--including production environments for application health, as well as customer usage--helps organizations form a hypothesis and quickly validate or disprove strategies.  Rich data is captured and stored in various logging formats.
-- [Infrastructure as Code (IaC)](/azure/devops/learn/what-is-infrastructure-as-code) is a practice that enables the automation and validation of creation and teardown of networks and virtual machines to help with delivering secure, stable application hosting platforms.
-- [Microservices](/azure/devops/learn/what-are-microservices) architecture is used to isolate business use cases into small reusable services.  This architecture enables scalability and efficiency.
+- [Version control, usually with Git](/devops/develop/git/what-is-git), enables teams located anywhere in the world to share source and integrate with software development tools to automate the release pipeline.
+- [Continuous integration](/devops/develop/what-is-continuous-integration) drives the ongoing merging and testing of code, which leads to finding defects early.  Other benefits include less time wasted on fighting merge issues and rapid feedback for development teams.
+- [Continuous delivery](/devops/deliver/what-is-continuous-delivery) of software solutions to production and testing environments helps organizations quickly fix bugs and respond to ever-changing business requirements.
+- [Monitoring](/devops/operate/what-is-monitoring) of running applications--including production environments for application health, as well as customer usage--helps organizations form a hypothesis and quickly validate or disprove strategies.  Rich data is captured and stored in various logging formats.
+- [Infrastructure as Code (IaC)](/devops/deliver/what-is-infrastructure-as-code) is a practice that enables the automation and validation of creation and teardown of networks and virtual machines to help with delivering secure, stable application hosting platforms.
+- [Microservices](/devops/deliver/what-are-microservices) architecture is used to isolate business use cases into small reusable services.  This architecture enables scalability and efficiency.
 
 ## Next steps
 

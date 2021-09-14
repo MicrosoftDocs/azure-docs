@@ -25,7 +25,7 @@ The VNet Integration features:
 There are some things that VNet Integration doesn't support, like:
 
 * Mounting a drive.
-* Active Directory integration.
+* Windows Server Active Directory integration.
 * NetBIOS.
 
 Gateway-required VNet Integration provides access to resources only in the target VNet or in networks connected to the target VNet with peering or VPNs. Gateway-required VNet Integration doesn't enable access to resources available across Azure ExpressRoute connections or work with service endpoints.

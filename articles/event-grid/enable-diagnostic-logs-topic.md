@@ -2,11 +2,15 @@
 title: Azure Event Grid - Enable diagnostic logs for topics or domains
 description: This article provides step-by-step instructions on how to enable diagnostic logs for an Azure event grid topic.
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 06/25/2021
 ---
 
 #  Enable Diagnostic logs for Azure event grid topics or domains
 This article provides step-by-step instructions to enable diagnostic settings for Event Grid topics or domains.  These settings allow you to capture and view **publish and delivery failure** logs. 
+
+> [!IMPORTANT]
+> For the schema for diagnostic logs, see [Diagnostic logs](diagnostic-logs.md). 
+
 
 ## Prerequisites
 
@@ -100,5 +104,99 @@ This article provides step-by-step instructions to enable diagnostic settings fo
         "message": "Message:outcome=NotFound, latencyInMs=2635, id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx, systemId=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
     }
     ```
+
+## Use Azure Resource Manager template
+Here's a sample Azure Resource Manager template to enable diagnostic settings for an event grid topic. When you deploy this sample template, the following resources are created.
+
+- An event grid topic
+- A Log Analytics workspace
+
+Then, it creates a diagnostic setting on the topic to send diagnostic information to the Log Analytics workspace. 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "topic_name": {
+            "defaultValue": "spegrid0917topic",
+            "type": "String"
+        },
+        "log_analytics_workspace_name": {
+            "defaultValue": "splogaw0625",
+            "type": "String"
+        },
+        "location": {
+            "defaultValue": "eastus",
+            "type": "String"
+        },
+        "sku": {
+            "defaultValue": "Free",
+            "type": "String"
+        }				
+    },	
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.EventGrid/topics",
+            "apiVersion": "2020-10-15-preview",
+            "name": "[parameters('topic_name')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Basic"
+            },
+            "kind": "Azure",
+            "identity": {
+                "type": "None"
+            },
+            "properties": {
+                "inputSchema": "EventGridSchema",
+                "publicNetworkAccess": "Enabled"
+            }
+        },
+        {
+            "apiVersion": "2017-03-15-preview",
+            "name": "[parameters('log_analytics_workspace_name')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "properties": {
+                "sku": {
+                    "name": "[parameters('sku')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.EventGrid/topics/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(parameters('topic_name'), '/', 'Microsoft.Insights/', parameters('log_analytics_workspace_name'))]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.EventGrid/topics', parameters('topic_name'))]",
+                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('log_analytics_workspace_name'))]"			
+            ],
+            "properties": {
+                "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('log_analytics_workspace_name'))]",
+                "metrics": [
+                    {
+                        "category": "AllMetrics",
+                        "enabled": true
+                    }
+                ],
+                "logs": [
+                    {
+                        "category": "DeliveryFailures",
+                        "enabled": true
+                    },
+                    {
+                        "category": "PublishFailures",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
 ## Next steps
 For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](diagnostic-logs.md).

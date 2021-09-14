@@ -4,7 +4,7 @@ description: Understand how to use C# to develop and publish code as class libra
 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 07/24/2020
+ms.date: 07/24/2021
 
 ---
 # Develop C# class library functions using Azure Functions
@@ -24,22 +24,7 @@ As a C# developer, you may also be interested in one of the following articles:
 
 Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in the Azure portal](functions-create-function-app-portal.md), see [C# script (.csx) developer reference](functions-reference-csharp.md).
 
-## Supported versions
-
-Versions of the Functions runtime work with specific versions of .NET. To learn more about Functions versions, see [Azure Functions runtime versions overview](functions-versions.md)
-
-The following table shows the highest level of .NET Core or .NET Framework that can be used with a specific version of Functions. 
-
-| Functions runtime version | Max .NET version |
-| ---- | ---- |
-| Functions 3.x | .NET Core 3.1<br/>.NET 5.0<sup>1</sup> |
-| Functions 2.x | .NET Core 2.2<sup>2</sup> |
-| Functions 1.x | .NET Framework 4.7 |
-
-<sup>1</sup> Must run [out-of-process](dotnet-isolated-process-guide.md).  
-<sup>2</sup> For details, see [Functions v2.x considerations](#functions-v2x-considerations).   
-
-For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
+[!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
 ### Functions v2.x considerations
 
@@ -59,7 +44,7 @@ When running on Linux in a Premium or dedicated (App Service) plan, you pin your
 In Visual Studio, the **Azure Functions** project template creates a C# class library project that contains the following files:
 
 * [host.json](functions-host-json.md) - stores configuration settings that affect all functions in the project when running locally or in Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally. This file contains secrets and isn't published to your function app in Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-develop-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally. This file contains secrets and isn't published to your function app in Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
 
 When you build the project, a folder structure that looks like the following example is generated in the build output directory:
 
@@ -217,11 +202,11 @@ The `Sdk` package also depends on [Newtonsoft.Json](https://www.nuget.org/packag
 
 The source code for `Microsoft.NET.Sdk.Functions` is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## Runtime version
+## Local runtime version
 
-Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects. The Core Tools is a command-line interface for the Functions runtime.
+Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects on your local computer. The Core Tools is a command-line interface for the Functions runtime.
 
-If you install the Core Tools by using npm, that doesn't affect the Core Tools version used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores Core Tools versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 2.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension. For both 1.x and 2.x, you can see what version is being used in the console output when you run a Functions project:
+If you install the Core Tools using the Windows installer (MSI) package or by using npm, that doesn't affect the Core Tools version used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores Core Tools versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 2.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension. For both 1.x and 2.x, you can see what version is being used in the console output when you run a Functions project:
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
@@ -476,7 +461,7 @@ namespace functionapp0915
 
 In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) documentation in Application Insights. 
 
-When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-run-local.md#local-settings-file) file.
+When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
 
 # [v1.x](#tab/v1)

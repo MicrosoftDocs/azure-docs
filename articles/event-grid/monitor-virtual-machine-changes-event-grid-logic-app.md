@@ -232,7 +232,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. To check that your logic app is getting the specified events, update your virtual machine.
 
-   For example, you can resize your virtual machine in the Azure portal or [resize your VM with Azure PowerShell](../virtual-machines/windows/resize-vm.md).
+   For example, you can [resize your virtual machine](../virtual-machines/resize-vm.md).
 
    After a few moments, you should get an email. For example:
 
@@ -271,3 +271,11 @@ This tutorial uses resources and performs actions that incur charges on your Azu
 ## Next steps
 
 * [Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
+
+See the following samples to learn about publishing events to and consuming events from Event Grid using different programming languages. 
+
+- [Azure Event Grid samples for .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Azure Event Grid samples for Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Azure Event Grid samples for Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [Azure Event Grid samples for JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [Azure Event Grid samples for TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

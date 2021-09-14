@@ -2,22 +2,25 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: rifox
 ---
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat).
 
 ## Prerequisites
 Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
 - Create *three* ACS Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
 
 ## Setting up
@@ -121,7 +124,7 @@ let userAccessToken = '<USER_ACCESS_TOKEN>';
 let chatClient = new ChatClient(endpointUrl, new AzureCommunicationTokenCredential(userAccessToken));
 console.log('Azure Communication Chat client created!');
 ```
-- Replace **endpointUrl** with the Communication Services resource endpoint, see [Create an Azure Communication Resource](../../create-communication-resource.md) if you have not already done so.
+- Replace **endpointUrl** with the Communication Services resource endpoint, see [Create an Azure Communication Services resource](../../create-communication-resource.md) if you have not already done so.
 - Replace **userAccessToken** with the token that you issued.
 
 
@@ -143,8 +146,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ChatClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
-| ChatThreadClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts, subscribe chat events. |
+| ChatClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get, delete threads, and subscribe to chat events. |
+| ChatThreadClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
 
 
 ## Start a chat thread
@@ -166,12 +169,12 @@ async function createChatThread() {
   const createChatThreadOptions = {
     participants: [
       {
-        id: '<USER_ID>',
+        id: { communicationUserId: '<USER_ID>' },
         displayName: '<USER_DISPLAY_NAME>'
       }
     ]
   };
-  const createChatTtreadResult = await chatClient.createChatThread(
+  const createChatThreadResult = await chatClient.createChatThread(
     createChatThreadRequest,
     createChatThreadOptions
   );
@@ -235,21 +238,27 @@ Use `sendMessage` method to sends a message to a thread identified by threadId.
 
 - Use `senderDisplayName` to specify the display name of the sender;
 - Use `type` to specify the message type, such as 'text' or 'html' ;
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
 
 `SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
 
 ```JavaScript
 const sendMessageRequest =
 {
-  content: 'Hello Geeta! Can you share the deck for the conference?'
+  content: 'Please take a look at the attachment'
 };
 let sendMessageOptions =
 {
   senderDisplayName : 'Jack',
-  type: 'text'
+  type: 'text',
+  metadata: {
+    'hasAttachment': 'true',
+    'attachmentUrl': 'https://contoso.com/files/attachment.docx'
+  }
 };
 const sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 const messageId = sendChatMessageResult.id;
+console.log(`Message sent!, message id:${messageId}`);
 ```
 
 Add this code in place of the `<SEND MESSAGE TO A CHAT THREAD>` comment in **client.js**, refresh your browser tab and check the console.

@@ -6,17 +6,19 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/06/2021
+ms.date: 04/29/2021
 ms.author: mbullwin
 ---
 
-Get started with the Anomaly Detector multivariate client library for .NET. Follow these steps to install the package and start using the algorithms provided by the service. The new multivariate anomaly detection APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
+Get started with the Anomaly Detector multivariate client library for C#. Follow these steps to install the package and start using the algorithms provided by the service. The new multivariate anomaly detection APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
 
-Use the Anomaly Detector multivariate client library for .NET to:
+Use the Anomaly Detector multivariate client library for C# to:
 
 * Detect system level anomalies from a group of time series.
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
+
+[Library reference documentation](/dotnet/api/azure.ai.anomalydetector) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3)
 
 ## Prerequisites
 
@@ -81,13 +83,27 @@ using NUnit.Framework;
 
 In the application's `main()` method, create variables for your resource's Azure endpoint, your API key, and a custom datasource.
 
+> [!NOTE]
+> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
+
 ```csharp
 string endpoint = "YOUR_API_KEY";
 string apiKey =  "YOUR_ENDPOINT";
 string datasource = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
 ```
 
- To use the Anomaly Detector multivariate APIs, we need to train our own model before using detection. Data used for training is a batch of time series, each time series should be in CSV format with two columns, timestamp and value. All of the time series should be zipped into one zip file and uploaded to [Azure Blob storage](../../../../storage/blobs/storage-blobs-introduction.md#blobs). By default the file name will be used to represent the variable for the time series. Alternatively, an extra meta.json file can be included in the zip file if you wish the name of the variable to be different from the .zip file name. Once we generate a [blob SAS (Shared access signatures) URL](../../../../storage/common/storage-sas-overview.md), we can use the url to the zip file for training.
+To use the Anomaly Detector multivariate APIs, you need to first train your own models. Training data is a set of multiple time series that meet the following requirements:
+
+Each time series should be a CSV file with two (and only two) columns, "timestamp" and "value" (all in lowercase) as the header row. The "timestamp" values should conform to ISO 8601; the "value" could be integers or decimals with any number of decimal places. For example:
+
+|timestamp | value|
+|-------|-------|
+|2019-04-01T00:00:00Z| 5|
+|2019-04-01T00:01:00Z| 3.6|
+|2019-04-01T00:02:00Z| 4|
+|`...`| `...` |
+
+Each CSV file should be named after a different variable that will be used for model training. For example, "temperature.csv" and "humidity.csv". All the CSV files should be zipped into one zip file without any subfolders. The zip file can have whatever name you want. The zip file should be uploaded to Azure Blob storage. Once you generate the blob SAS (Shared access signatures) URL for the zip file, it can be used for training. Refer to this document for how to generate SAS URLs from Azure Blob Storage.
 
 ## Code examples
 
@@ -115,7 +131,7 @@ AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential
 Create a new private async task as below to handle training your model. You will use `TrainMultivariateModel` to train the model and `GetMultivariateModelAysnc` to check when training is complete.
 
 ```csharp
-private async Task trainAsync(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
+private async Task<Guid?> trainAsync(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time)
 {
     try
     {
@@ -132,27 +148,23 @@ private async Task trainAsync(AnomalyDetectorClient client, string datasource, D
 
         // Wait until the model is ready. It usually takes several minutes
         Response<Model> get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-        ModelStatus? model_status = null;
-        int tryout_count = 0;
-        TimeSpan create_limit = new TimeSpan(0, 3, 0);
-        while (tryout_count < max_tryout & model_status != ModelStatus.Ready)
+        while (get_response.Value.ModelInfo.Status != ModelStatus.Ready & get_response.Value.ModelInfo.Status != ModelStatus.Failed)
         {
             System.Threading.Thread.Sleep(10000);
             get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-            ModelInfo model_info = get_response.Value.ModelInfo;
-            Console.WriteLine(String.Format("model_id: {0}, createdTime: {1}, lastUpdateTime: {2}, status: {3}.", get_response.Value.ModelId, get_response.Value.CreatedTime, get_response.Value.LastUpdatedTime, model_info.Status));
+            Console.WriteLine(String.Format("model_id: {0}, createdTime: {1}, lastUpdateTime: {2}, status: {3}.", get_response.Value.ModelId, get_response.Value.CreatedTime, get_response.Value.LastUpdatedTime, get_response.Value.ModelInfo.Status));
+        }
 
-            if (model_info != null)
-            {
-                model_status = model_info.Status;
-            }
-            tryout_count += 1;
-        };
-        get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-
-        if (model_status != ModelStatus.Ready)
+        if (get_response.Value.ModelInfo.Status != ModelStatus.Ready)
         {
-            Console.WriteLine(String.Format("Request timeout after {0} tryouts", max_tryout));
+            Console.WriteLine(String.Format("Trainig failed."));
+            IReadOnlyList<ErrorResponse> errors = get_response.Value.ModelInfo.Errors;
+            foreach (ErrorResponse error in errors)
+            {
+                Console.WriteLine(String.Format("Error code: {0}.", error.Code));
+                Console.WriteLine(String.Format("Error message: {0}.", error.Message));
+            }
+            throw new Exception("Training failed.");
         }
 
         model_number = await getModelNumberAsync(client).ConfigureAwait(false);
@@ -172,7 +184,7 @@ private async Task trainAsync(AnomalyDetectorClient client, string datasource, D
 To detect anomalies using your newly trained model, create a `private async Task` named `detectAsync`. You will create a new `DetectionRequest` and pass that as a parameter to `DetectAnomalyAsync`.
 
 ```csharp
-private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, string datasource, Guid model_id, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
+private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, string datasource, Guid model_id,DateTimeOffset start_time, DateTimeOffset end_time)
 {
     try
     {
@@ -185,17 +197,21 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
         Guid result_id = Guid.Parse(result_id_path.Split('/').LastOrDefault());
         // get detection result
         Response<DetectionResult> result = await client.GetDetectionResultAsync(result_id).ConfigureAwait(false);
-        int tryout_count = 0;
-        while (result.Value.Summary.Status != DetectionStatus.Ready & tryout_count < max_tryout)
+        while (result.Value.Summary.Status != DetectionStatus.Ready & result.Value.Summary.Status != DetectionStatus.Failed)
         {
             System.Threading.Thread.Sleep(2000);
             result = await client.GetDetectionResultAsync(result_id).ConfigureAwait(false);
-            tryout_count += 1;
         }
 
         if (result.Value.Summary.Status != DetectionStatus.Ready)
         {
-            Console.WriteLine(String.Format("Request timeout after {0} tryouts", max_tryout));
+            Console.WriteLine(String.Format("Inference failed."));
+            IReadOnlyList<ErrorResponse> errors = result.Value.Summary.Errors;
+            foreach (ErrorResponse error in errors)
+            {
+                Console.WriteLine(String.Format("Error code: {0}.", error.Code));
+                Console.WriteLine(String.Format("Error message: {0}.", error.Message));
+            }
             return null;
         }
 
@@ -211,6 +227,9 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
 
 ## Export model
 
+> [!NOTE]
+> The export command is intended to be used to allow running Anomaly Detector multivariate models in a containerized environment. This is not currently not supported for multivariate, but support will be added in the future.
+
 To export the model you trained previously, create a `private async Task` named `exportAysnc`. You will use `ExportModelAsync` and pass the model ID of the model you wish to export.
 
 ```csharp
@@ -218,11 +237,9 @@ private async Task exportAsync(AnomalyDetectorClient client, Guid model_id, stri
 {
     try
     {
-        Response model_response = await client.ExportModelAsync(model_id).ConfigureAwait(false);
-        Stream model;
-        if (model_response.ContentStream != null)
+        Stream model = await client.ExportModelAsync(model_id).ConfigureAwait(false);
+        if (model != null)
         {
-            model = model_response.ContentStream;
             var fileStream = File.Create(model_path);
             model.Seek(0, SeekOrigin.Begin);
             model.CopyTo(fileStream);
@@ -332,7 +349,14 @@ Run the application with the `dotnet run` command from your application director
 ```dotnetcli
 dotnet run
 ```
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
-* [Anomaly Detector multivariate best practices](../../concepts/best-practices-multivariate.md)
+* [What is the Anomaly Detector API?](../../overview-multivariate.md)
+* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md)

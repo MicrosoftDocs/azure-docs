@@ -13,9 +13,9 @@ All the latest generation of VM sizes support encryption at host:
 
 |Type  |Not Supported  |Supported  |
 |---------|---------|---------|
-|General purpose     | Dv3, Dv2, Av2        | B, DSv2, Dsv3, DC, DCv2, Dav4, Dasv4        |
+|General purpose     | Dv3, Dv2, Av2        | B, DSv2, Dsv3, DC, DCv2, Dav4, Dasv4, Ddv4, Ddsv4       |
 |Compute optimized     |         | Fsv2        |
-|Memory optimized     | Ev3        | DSv2, Esv3, M, Mv2, Eav4, Easv4        |
+|Memory optimized     | Ev3        | Esv3, M, Mv2, Eav4, Easv4, Edv4, Edsv4        |
 |Storage optimized     |         | Ls, Lsv2 (NVMe disks not encrypted)        |
 |GPU     | NC, NV        | NCv2, NCv3, ND, NVv3, NVv4, NDv2 (preview)        |
 |High performance compute     | H        | HB, HC, HBv2        |

@@ -21,9 +21,12 @@ Click the **Status** to drill in to see logs and further details, which may help
 ## Not collecting state 
 The monitoring machine has a state of *Not collecting* if there's no data in *InsightsMetrics* for SQL in the last 10 minutes. 
 
+> [!NOTE]
+> Please verify that your are trying to collect data from a [supported version of SQL](sql-insights-overview.md#supported-versions). For example, attempting to collect data with a valid profile and connection string but from an unsupported version of Azure SQL Database will result in a not collecting state.
+
 SQL insights uses the following query to retrieve this information:
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
@@ -78,7 +81,7 @@ To see error messages from telegraf service run it manually with the following c
 
 ### mdsd service logs 
 
-Check [Current Limitations](../agents/azure-monitor-agent-overview.md#current-limitations) for the Azure Monitor agent. 
+Check [prerequisites](../agents/azure-monitor-agent-install.md#prerequisites) for the Azure Monitor agent. 
 
 
 Service logs:  
@@ -159,14 +162,14 @@ The monitoring machine will be in state *Collecting with errors* if there's at l
 
 SQL insights uses the following queries to retrieve this information:
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
     | where TimeGenerated > ago(240m) and isnotempty(SqlInstance) and Namespace == 'sqlserver_server_properties' and Name == 'uptime' 
 ```
 
-```
+```kusto
 WorkloadDiagnosticLogs
 | summarize Errors = countif(Status == 'Error')
 ```

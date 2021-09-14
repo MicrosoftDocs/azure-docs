@@ -8,7 +8,8 @@ ms.service: databox
 ms.subservice: gateway
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.author: alkohli
+ms.author: alkohli 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage access, power, and connectivity mode for your Azure Data Box Gateway

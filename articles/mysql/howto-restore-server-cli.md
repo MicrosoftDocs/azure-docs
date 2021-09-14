@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 ---
 # How to back up and restore a server in Azure Database for MySQL using the Azure CLI
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database for MySQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
 
 ## Prerequisites
@@ -50,7 +52,7 @@ The backup retention period governs how far back in time a point-in-time restore
 ## Server point-in-time restore
 You can restore the server to a previous point in time. The restored data is copied to a new server, and the existing server is left as is. For example, if a table is accidentally dropped at noon today, you can restore to the time just before noon. Then, you can retrieve the missing table and data from the restored copy of the server. 
 
-To restore the server, use the Azure CLI [az mysql server restore](/cli/azure/mysql/server#az-mysql-server-restore) command.
+To restore the server, use the Azure CLI [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) command.
 
 ### Run the restore command
 

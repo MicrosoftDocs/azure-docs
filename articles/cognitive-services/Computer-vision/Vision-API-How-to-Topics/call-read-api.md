@@ -21,6 +21,8 @@ This guide assumes you have already <a href="https://portal.azure.com/#create/Mi
 
 ## Submit data to the service
 
+You submit either a local image or a remote image to the Read API. For local, you put the binary image data in the HTTP request body. For remote, you specify the image's URL by formatting the request body like the following: `{"url":"http://example.com/images/test.jpg"}`.
+
 The Read API's [Read call](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously.
 
 `https://{endpoint}/vision/v3.2/read/analyze[?language][&pages][&readingOrder]`
@@ -43,24 +45,24 @@ The call returns with a response header field called `Operation-Location`. The `
 The [Read](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) call has an optional request parameter for language. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the document to be processed as that specific language.
 
 ### Natural reading order output (Latin languages only)
+
 Specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
-:::image border type="content" source="../Images/ocr-reading-order-example.png" alt-text="OCR Reading order example":::
-
-
+:::image type="content" source="../Images/ocr-reading-order-example.png" alt-text="OCR Reading order example" border="true" :::
 
 ### Select page(s) or page ranges for text extraction
+
 For large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
-:::image border type="content" source="../Images/ocr-select-pages.png" alt-text="Selected pages output":::
+:::image type="content" source="../Images/ocr-select-pages.png" alt-text="Selected pages output" border="true" :::
 
 ## Get results from the service
 
-The second step is to call [Get Read Results](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d9869604be85dee480c8750) operation. This operation takes as input the operation ID that was created by the Read operation. 
+The second step is to call [Get Read Results](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d9869604be85dee480c8750) operation. This operation takes as input the operation ID that was created by the Read operation.
 
 `https://{endpoint}/vision/v3.2/read/analyzeResults/{operationId}`
 
-It returns a JSON response that contains a **status** field with the following possible values. 
+It returns a JSON response that contains a **status** field with the following possible values.
 
 |Value | Meaning |
 |:-----|:----|
@@ -155,9 +157,10 @@ See the following example of a successful JSON response:
 ```
 
 ### Handwritten classification for text lines (Latin languages only)
+
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
 
-:::image border type="content" source="../Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example":::
+:::image type="content" source="../Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example" border="true" :::
 
 ## Next steps
 

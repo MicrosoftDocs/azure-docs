@@ -125,4 +125,4 @@ The `model` object can now be used to make predictions. For the  full sample of 
 
 ## See also
 
-* [Data Science using Scala and Apache Spark on Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Data Science using Scala and Apache Spark on Azure](/azure/architecture/data-science-process/scala-walkthrough)

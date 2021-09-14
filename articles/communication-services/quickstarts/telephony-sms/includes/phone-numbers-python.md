@@ -1,3 +1,6 @@
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/phone-numbers-quickstart)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -45,6 +48,8 @@ pip install azure-identity
 ```
 
 Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` already set as environment variables with their corresponding values from your registered Azure AD application.
+
+For a quick ramp-up on how to get these environment variables, you can follow the [Set up service principals from CLI quickstart](../../identity/service-principal-from-cli.md).
 
 Once you have installed the `azure-identity` library, we can continue authenticating the client.
 
@@ -103,7 +108,7 @@ try:
         calling = PhoneNumberCapabilityType.INBOUND,
         sms = PhoneNumberCapabilityType.INBOUND_OUTBOUND
     )
-    search_poller = self.phone_number_client.begin_search_available_phone_numbers(
+    search_poller = phone_numbers_client.begin_search_available_phone_numbers(
         "US",
         PhoneNumberType.TOLL_FREE,
         PhoneNumberAssignmentType.APPLICATION,
@@ -218,5 +223,5 @@ print('Status of the operation: ' + release_poller.status())
 From a console prompt, navigate to the directory containing the phone_numbers_sample.py file, then execute the following python command to run the app.
 
 ```console
-./phone_numbers_sample.py
+python phone_numbers_sample.py
 ```

@@ -65,7 +65,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## Specify an IP address
 
-If you would like to use a specific IP address with the internal load balancer, add the *loadBalancerIP* property to the load balancer YAML manifest. In this scenario, the specified IP address must reside in the same subnet as the AKS cluster and must not already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet.
+If you would like to use a specific IP address with the internal load balancer, add the *loadBalancerIP* property to the load balancer YAML manifest. In this scenario, the specified IP address must reside in the same subnet as the AKS cluster but can't already be assigned to a resource. For example, an IP address in the range designated for the Kubernetes subnet within the AKS cluster shouldn't be used.
 
 ```yaml
 apiVersion: v1
@@ -147,8 +147,8 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [azure-lb-comparison]: ../load-balancer/skus.md
 [use-kubenet]: configure-kubenet.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md

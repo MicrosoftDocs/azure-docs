@@ -2,14 +2,16 @@
 title: Troubleshoot FabricInternalServerError or ServiceAllocationFailure when deploying a Cloud service (classic) to Azure | Microsoft Docs
 description: This article shows how to resolve a FabricInternalServerError or ServiceAllocationFailure exception when deploying a Cloud service (classic) to Azure.
 services: cloud-services
-author: mibufo
-ms.author: v-mibufo
+author: hirenshah1
+ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ---
 
 # Troubleshoot FabricInternalServerError or ServiceAllocationFailure when deploying a Cloud service (classic) to Azure
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 In this article, you'll troubleshoot allocation failures where the fabric controller cannot allocate when deploying an Azure Cloud service (classic).
 

@@ -6,7 +6,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/07/2020
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Throughput (RU/s) operations with PowerShell for a keyspace or table for Azure Cosmos DB - Cassandra API

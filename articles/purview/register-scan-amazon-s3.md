@@ -1,43 +1,39 @@
 ---
-title: How to scan Amazon S3 buckets
+title: Amazon S3 Multi-Cloud Scanning Connector for Azure Purview
 description: This how-to guide describes details of how to scan Amazon S3 buckets.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 06/17/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
 
-# Azure Purview connector for Amazon S3
+# Amazon S3 Multi-Cloud Scanning Connector for Azure Purview
 
-This how-to guide provides an explanation of how to use Azure Purview to scan your unstructured data currently stored in Amazon S3 standard buckets and discover what types of sensitive information exists in your data. This how-to guide also describes how to identify the Amazon S3 Buckets where the data is currently stored for easy information protection and data compliance.
+The Multi-Cloud Scanning Connector for Azure Purview allows you to explore your organizational data across cloud providers, including Amazon Web Services in addition to Azure storage services.
 
-For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Purview scanner will run. The Purview scanner uses this access to your Amazon S3 buckets to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
+This article describes how to use Azure Purview to scan your unstructured data currently stored in Amazon S3 standard buckets, and discover what types of sensitive information exists in your data. This how-to guide also describes how to identify the Amazon S3 Buckets where the data is currently stored for easy information protection and data compliance.
 
-In this how-to guide, you'll learn about how to add Amazon S3 buckets as Purview resources and create a scan for your Amazon S3 data.
+For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connector for Azure Purview will run. The Multi-Cloud Scanning Connector for Azure Purview uses this access to your Amazon S3 buckets to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
+
+> [!IMPORTANT]
+> The Multi-Cloud Scanning Connector for Azure Purview is a separate add-on to Azure Purview. The terms and conditions for the Multi-Cloud Scanning Connector for Azure Purview are contained in the agreement under which you obtained Microsoft Azure Services. For more information, see Microsoft Azure Legal Information at https://azure.microsoft.com/support/legal/.
+>
 
 ## Purview scope for Amazon S3
 
-The following scope is specific for the registering and scanning Amazon S3 buckets as Purview data sources.
-
-|Scope  |Description  |
-|---------|---------|
-|**Data limits**     |    The Purview scanner service currently supports scanning Amazon S3 buckets for up to 100 GB of data per tenant.     |
-|**File types**     | The Purview scanner service currently supports the following file types: <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
-|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed only in the **AWS US East (Ohio)** and **Europe (Frankfurt)** regions. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
-|     |         |
-
-For more information, see the documented Purview limits at:
+For information about Purview limits, see:
 
 - [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
 - [Supported data sources and file types in Azure Purview](sources-and-scans.md)
 - [Use private endpoints for your Purview account](catalog-private-link.md)
+
 ### Storage and scanning regions
 
-The following table maps the regions where you data is stored to the region where it would be scanned by Azure Purview.
+The Purview connector for the Amazon S3 service is currently deployed in specific regions only. The following table maps the regions where you data is stored to the region where it would be scanned by Azure Purview.
 
 > [!IMPORTANT]
 > Customers will be charged for all related data transfer charges according to the region of their bucket.
@@ -46,25 +42,25 @@ The following table maps the regions where you data is stored to the region wher
 | Storage region | Scanning region |
 | ------------------------------- | ------------------------------------- |
 | US East (Ohio)                  | US East (Ohio)                        |
-| US East (N. Virginia)           | US East (Ohio) or US East (N. Virginia)                       |
-| US West (N. California)         | US East (Ohio)                        |
-| US West (Oregon)                | US East (Ohio)                        |
+| US East (N. Virginia)           | US East (N. Virginia)                       |
+| US West (N. California)         | US West (N. California)                        |
+| US West (Oregon)                | US West (Oregon)                      |
 | Africa (Cape Town)              | Europe (Frankfurt)                    |
-| Asia Pacific (Hong Kong)        | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Mumbai)           | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Osaka-Local)      | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Seoul)            | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Singapore)        | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Sydney)           | Europe (Frankfurt)  or Asia Pacific (Sydney)                  |
-| Asia Pacific (Tokyo)            | Europe (Frankfurt) or Asia Pacific (Sydney)                 |
+| Asia Pacific (Hong Kong)        | Asia Pacific (Tokyo)                |
+| Asia Pacific (Mumbai)           | Asia Pacific (Singapore)                |
+| Asia Pacific (Osaka-Local)      | Asia Pacific (Tokyo)                 |
+| Asia Pacific (Seoul)            | Asia Pacific (Tokyo)                 |
+| Asia Pacific (Singapore)        | Asia Pacific (Singapore)                 |
+| Asia Pacific (Sydney)           | Asia Pacific (Sydney)                  |
+| Asia Pacific (Tokyo)            | Asia Pacific (Tokyo)                |
 | Canada (Central)                | US East (Ohio)                        |
 | China (Beijing)                 | Not supported                    |
 | China (Ningxia)                 | Not supported                   |
 | Europe (Frankfurt)              | Europe (Frankfurt)                    |
-| Europe (Ireland)                | Europe (Frankfurt) or Europe (Ireland)                   |
-| Europe (London)                 | Europe (Frankfurt) or Europe (Ireland)                   |
-| Europe (Milan)                  | Europe (Frankfurt)                    |
-| Europe (Paris)                  | Europe (Frankfurt)                    |
+| Europe (Ireland)                | Europe (Ireland)                   |
+| Europe (London)                 | Europe (London)                 |
+| Europe (Milan)                  | Europe (Paris)                    |
+| Europe (Paris)                  | Europe (Paris)                   |
 | Europe (Stockholm)              | Europe (Frankfurt)                    |
 | Middle East (Bahrain)           | Europe (Frankfurt)                    |
 | South America (São Paulo)       | US East (Ohio)                        |
@@ -107,7 +103,7 @@ This procedure describes how to create a new Purview credential to use when scan
     |**Authentication method**     |Select **Role ARN**, since you're using a role ARN to access your bucket.         |
     |**Microsoft account ID**     |Click to copy this value to the clipboard. Use this value as the **Microsoft account ID** when [creating your Role ARN in AWS](#create-a-new-aws-role-for-purview).           |
     |**External ID**     |Click to copy this value to the clipboard. Use this value as the **External ID** when [creating your Role ARN in AWS.](#create-a-new-aws-role-for-purview)        |
-    |**Role ARN**     | Once you've [created your Amazon IAM role](#create-a-new-aws-role-for-purview), navigate to your role in the IAM area, copy the **Role ARN** value, and enter it here. For example: `arn:aws:iam::284759281674:role/S3Role`. <br><br>For more information, see [Retrieve your new Role ARN](#retrieve-your-new-role-arn). |
+    |**Role ARN**     | Once you've [created your Amazon IAM role](#create-a-new-aws-role-for-purview), navigate to your role in the IAM area, copy the **Role ARN** value, and enter it here. For example: `arn:aws:iam::181328463391:role/S3Role`. <br><br>For more information, see [Retrieve your new Role ARN](#retrieve-your-new-role-arn). |
     | | |
 
     Select **Create** when you're done to finish creating the credential.
@@ -301,7 +297,7 @@ Use this procedure if you only have a single S3 bucket that you want to register
 
     ![Launch the Purview portal.](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
 
-1. Navigate to the Azure Purview **Sources** page, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continue**.
+1. Navigate to the Azure Purview **Data Map** page, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continue**.
 
     ![Add an Amazon AWS bucket as a Purview data source.](./media/register-scan-amazon-s3/add-s3-datasource-to-purview.png)
 
@@ -333,7 +329,7 @@ When [configuring your scan](#create-a-scan-for-one-or-more-amazon-s3-buckets), 
 
     ![Launch Connector for Amazon S3 dedicated Purview portal](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
 
-1. Navigate to the Azure Purview **Sources** page, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon accounts** > **Continue**.
+1. Navigate to the Azure Purview **Data Map** page, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon accounts** > **Continue**.
 
     ![Add an Amazon account as a Purview data source.](./media/register-scan-amazon-s3/add-s3-account-to-purview.png)
 
@@ -358,7 +354,7 @@ Continue with [Create a scan for one or more Amazon S3 buckets](#create-a-scan-f
 
 Once you've added your buckets as Purview data sources, you can configure a scan to run at scheduled intervals or immediately.
 
-1. Navigate to the Azure Purview **Sources** area, and then do one of the following:
+1. Select the **Data Map** tab on the left pane in the Purview Studio, and then do one of the following:
 
     - In the **Map view**, select **New scan** ![New scan icon.](./media/register-scan-amazon-s3/new-scan-button.png) in your data source box.
     - In the **List view**, hover over the row for your data source, and select **New scan** ![New scan icon.](./media/register-scan-amazon-s3/new-scan-button.png).
@@ -407,7 +403,7 @@ For more information, see [Explore Purview scanning results](#explore-purview-sc
 
 ## Explore Purview scanning results
 
-Once a Purview scan is complete on your Amazon S3 buckets, drill down in the Purview **Sources** area to view the scan history.
+Once a Purview scan is complete on your Amazon S3 buckets, drill down in the Purview **Data Map**  area to view the scan history.
 
 Select a data source to view its details, and then select the **Scans** tab to view any currently running or completed scans.
 If you've added an AWS account with multiple buckets, the scan history for each bucket is shown under the account.

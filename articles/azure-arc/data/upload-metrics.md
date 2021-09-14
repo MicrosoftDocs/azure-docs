@@ -1,13 +1,13 @@
 ---
 title: Upload metrics to Azure Monitor
-description: Upload Azure Arc enabled data services metrics to Azure Monitor
+description: Upload Azure Arc-enabled data services metrics to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
@@ -16,10 +16,6 @@ zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 
 Periodically, you can export monitoring metrics and then upload them to Azure. The export and upload of data also creates and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
-> [!NOTE] 
-> During the preview period, there is no cost for using Azure Arc enabled data services.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 
@@ -102,32 +98,35 @@ echo %SPN_AUTHORITY%
 
 ## Upload metrics to Azure Monitor
 
-To upload metrics for your Azure arc enabled SQL managed instances and Azure Arc enabled PostgreSQL Hyperscale server groups run, the following CLI commands:
+To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run, the following CLI commands:
 
 1. Log in to the data controller with `azdata`.
  
 1. Export all metrics to the specified file:
 
-   ```console
-   azdata arc dc export --type metrics --path metrics.json
+> [!NOTE]
+> Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
+
+   ```azurecli
+   az arcdata dc export --type metrics --path metrics.json
    ```
 
 2. Upload metrics to Azure monitor:
 
-   ```console
-   azdata arc dc upload --path metrics.json
+   ```azurecli
+   az arcdata dc upload --path metrics.json
    ```
 
    >[!NOTE]
-   >Wait for at least 30 mins after the Azure Arc enabled data instances are created for the first upload.
+   >Wait for at least 30 mins after the Azure Arc-enabled data instances are created for the first upload.
    >
    >Make sure `upload` the metrics right away after `export` as Azure Monitor only accepts metrics for the last 30 minutes. [Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
 
 
 If you see any errors indicating "Failure to get metrics" during export, check if data collection is set to `true` by running the following command:
 
-```console
-azdata arc dc config show
+```azurecli
+az arcdata dc config show
 ```
 
 Look under "security section"
@@ -170,9 +169,9 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+```azurecli
+az arcdata dc export --type metrics --path metrics.json --force
+az arcdata dc upload --path metrics.json
 ```
 
 Make the script file executable
@@ -191,9 +190,9 @@ You could also use a job scheduler like cron or Windows Task Scheduler or an orc
 
 ## General guidance on exporting and uploading usage, metrics
 
-Create, read, update, and delete (CRUD) operations on Azure Arc enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. 
+Create, read, update, and delete (CRUD) operations on Azure Arc-enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. 
 
-During preview, this process happens nightly. The general guidance is to upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
+Upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
 
 For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 

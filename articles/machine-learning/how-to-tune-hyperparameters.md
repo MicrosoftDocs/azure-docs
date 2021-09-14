@@ -9,8 +9,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 02/26/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
 
 ---
 
@@ -180,7 +180,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 The training script calculates the `val_accuracy` and logs it as the primary metric "accuracy". Each time the metric is logged, it's received by the hyperparameter tuning service. It's up to you to determine the frequency of reporting.
 
-For more information on logging values in model training runs, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
+For more information on logging values in model training runs, see [Enable logging in Azure ML training runs](how-to-log-view-metrics.md).
 
 ## <a name="early-termination"></a> Specify early termination policy
 
@@ -422,13 +422,13 @@ You can visualize your hyperparameter tuning runs in the Azure Machine Learning 
 
 ### Studio
 
-You can visualize all of your hyperparameter tuning runs in the [Azure Machine Learning studio](https://ml.azure.com). For more information on how to view an experiment in the portal, see [View run records in the studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+You can visualize all of your hyperparameter tuning runs in the [Azure Machine Learning studio](https://ml.azure.com). For more information on how to view an experiment in the portal, see [View run records in the studio](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal).
 
 - **Metrics chart**: This visualization tracks the metrics logged for each hyperdrive child run over the duration of hyperparameter tuning. Each line represents a child run, and each point measures the primary metric value at that iteration of runtime.  
 
     :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Hyperparameter tuning metrics chart":::
 
-- **Parallel Coordinates Chart**: This visualization shows the correlation between primary metric performance and individual hyperparameter values. The chart is interactive via movement of axes (click and drag by the axis label), and by highlighting values across a single axis (click and drag vertically along a single axis to highlight a range of desired values).
+- **Parallel Coordinates Chart**: This visualization shows the correlation between primary metric performance and individual hyperparameter values. The chart is interactive via movement of axes (click and drag by the axis label), and by highlighting values across a single axis (click and drag vertically along a single axis to highlight a range of desired values). The parallel coordinates chart includes an axis on the right most portion of the chart that plots the best metric value corresponding to the hyperparameters set for that run instance. This axis is provided in order to project the chart gradient legend onto the data in a more readable fashion.
 
     :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Hyperparameter tuning parallel coordinates chart":::
 
@@ -462,7 +462,7 @@ Once all of the hyperparameter tuning runs have completed, identify the best per
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
 best_run_metrics = best_run.get_metrics()
-parameter_values = best_run.get_details()['runDefinition']['Arguments']
+parameter_values = best_run.get_details()['runDefinition']['arguments']
 
 print('Best Run Id: ', best_run.id)
 print('\n Accuracy:', best_run_metrics['accuracy'])
@@ -479,5 +479,5 @@ Refer to train-hyperparameter-* notebooks in this folder:
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
-* [Track an experiment](how-to-track-experiments.md)
+* [Track an experiment](how-to-log-view-metrics.md)
 * [Deploy a trained model](how-to-deploy-and-where.md)

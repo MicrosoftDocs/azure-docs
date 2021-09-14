@@ -3,7 +3,8 @@ author: tamram
 ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tamram
+ms.author: tamram 
+ms.custom: devx-track-azurepowershell
 ---
 ## Sign in to Azure
 

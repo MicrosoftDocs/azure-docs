@@ -3,14 +3,16 @@ title: Troubleshoot OverconstrainedAllocationRequest when deploying a Cloud serv
 description: This article shows how to resolve an OverconstrainedAllocationRequest exception when deploying a Cloud service (classic) to Azure.
 services: cloud-services
 documentationcenter: ''
-author: mibufo
-ms.author: v-mibufo
+author: hirenshah1
+ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ---
 
 # Troubleshoot OverconstrainedAllocationRequest when deploying Cloud services (classic) to Azure
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 In this article, you'll troubleshoot over constrained allocation failures that prevent deployment of Azure Cloud Services (classic).
 

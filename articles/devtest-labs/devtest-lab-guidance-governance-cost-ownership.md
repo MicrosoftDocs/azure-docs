@@ -1,7 +1,7 @@
 ---
-title: Manage cost and ownership in Azure DevTest Labs
+title: Manage cost and ownership
 description: This article provides information that helps you optimize for cost and align ownership across your environment.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ---

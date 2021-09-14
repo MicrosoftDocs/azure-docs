@@ -10,7 +10,7 @@ ms.author: jgol
 
 # Configuring JMX metrics
 
-Application insights Java 3.0 agent collects some of the JMX metrics by default, but in many cases this is not enough. This document describes the JMX configuration option in details.
+Application Insights Java 3.x collects some of the JMX metrics by default, but in many cases this is not enough. This document describes the JMX configuration option in details.
 
 ## How do I collect additional JMX metrics?
 

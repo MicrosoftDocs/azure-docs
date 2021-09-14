@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2021
+ms.date: 07/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -128,7 +128,7 @@ The user info UserJourney specifies:
         }
         ```
     
-1.  The OutputClaims element of the **UserInfoAuthorization** technical profile specifies the attributes you want to read from the access token. The **ClaimTypeReferenceId** is the reference to a claim type. The optional **PartnerClaimType** is the name of the of the claim defined in the access token.
+1.  The OutputClaims element of the **UserInfoAuthorization** technical profile specifies the attributes you want to read from the access token. The **ClaimTypeReferenceId** is the reference to a claim type. The optional **PartnerClaimType** is the name of the claim defined in the access token.
 
 
 
@@ -262,6 +262,43 @@ A successful response would look like:
     "signInNames.emailAddress": "john.s@contoso.com"
 }
 ```
+
+## Provide optional claims
+
+To provide more claims to your app, follow these steps:
+
+1. [Add user attributes and customize user input](configure-user-input.md).
+1. Modify the [Relying party policy technical profile](relyingparty.md#technicalprofile) OutputClaims element with the claims you want to provide. Use the `DefaultValue` attribute to set a default value. You can also set the default value to a [claim resolver](claim-resolver-overview.md), such as `{Context:CorrelationId}`. To force the use of the default value, set the `AlwaysUseDefaultValue` attribute to `true`. The following example adds the city claim with a default value.
+    
+    ```xml
+    <RelyingParty>
+      ...
+      <TechnicalProfile Id="PolicyProfile">
+        ...
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="city" DefaultValue="Berlin" />
+        </OutputClaims>
+        ...
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+  
+1. Modify the UserInfoIssuer technical profile  InputClaims element with the claims you want to provide. Use the `PartnerClaimType` attribute to change the name of the claim return to your app. The following example adds the city claim and change the name of some of the claims.
+
+    ```xml
+    <TechnicalProfile Id="UserInfoIssuer">
+      ...
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" />
+        <InputClaim ClaimTypeReferenceId="city" />
+        <InputClaim ClaimTypeReferenceId="givenName" />
+        <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="familyName" />
+        <InputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+        <InputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
+      </InputClaims>
+      ...
+    </TechnicalProfile>
+    ```
 
 ## Next Steps
 

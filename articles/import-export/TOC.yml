@@ -10,7 +10,7 @@
   - name: Review requirements
     href: storage-import-export-requirements.md
   - name: FAQ
-    href: storage-import-export-service-faq.md
+    href: storage-import-export-service-faq.yml
 - name: How to
   expanded: true
   items:
@@ -26,7 +26,7 @@
     href: storage-import-export-encryption-key-portal.md
   - name: Monitor
     items:
-    - name: View drive status
+    - name: View job, drive status
       href: storage-import-export-view-drive-status.md
     - name: Review job status
       href: storage-import-export-tool-reviewing-job-status-v1.md

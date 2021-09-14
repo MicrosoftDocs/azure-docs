@@ -6,14 +6,11 @@ author: ddematheu2
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
 ---
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
-
 
 The Azure Communication Services **Group Calling Hero Sample for Android** demonstrates how the Communication Services Calling Android SDK can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
 
@@ -50,7 +47,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio) running on your computer
-- An Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).
+- An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
 - An Azure Function running the [Authentication Endpoint](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
 
 ## Running sample locally
@@ -136,5 +133,5 @@ For more information, see the following articles:
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
 - [Samples](./../overview.md) - Find more samples and examples on our samples overview page.
-- [Azure Communication Calling Features](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) - To learn more about the calling Android sdk
+- [Azure Communication Calling Features](../../concepts/voice-video-calling/calling-sdk-features.md) - To learn more about the calling Android sdk
 -[Azure Communication Android Calling SDK](https://search.maven.org/artifact/com.azure.android/azure-communication-calling)

@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: damendo
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 
 ---
 # View relative latency to Azure regions from specific locations

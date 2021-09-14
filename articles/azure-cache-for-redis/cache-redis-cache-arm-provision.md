@@ -5,8 +5,8 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.custom: subject-armqs
-ms.date: 08/18/2020
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.date: 04/28/2021
 ---
 
 # Quickstart: Create an Azure Cache for Redis using an ARM template
@@ -17,7 +17,7 @@ Learn how to create an Azure Resource Manager template (ARM template) that deplo
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cache%2Fredis-cache%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-redis-cache/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/redis-cache/).
 
-:::code language="json" source="~/quickstart-templates/101-redis-cache/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cache/redis-cache/azuredeploy.json":::
 
 The following resources are defined in the template:
 
@@ -37,17 +37,17 @@ The following resources are defined in the template:
 
 Resource Manager templates for the new [Premium tier](cache-overview.md#service-tiers) are also available.
 
-* [Create a Premium Azure Cache for Redis with clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-* [Create Premium Azure Cache for Redis with data persistence](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-* [Create Premium Redis Cache deployed into a Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+* [Create a Premium Azure Cache for Redis with clustering](https://azure.microsoft.com/resources/templates/redis-premium-cluster-diagnostics/)
+* [Create Premium Azure Cache for Redis with data persistence](https://azure.microsoft.com/resources/templates/redis-premium-persistence/)
+* [Create Premium Redis Cache deployed into a Virtual Network](https://azure.microsoft.com/resources/templates/redis-premium-vnet/)
 
-To check for the latest templates, see [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) and search for _Azure Cache for Redis_.
+To check for the latest templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/) and search for _Azure Cache for Redis_.
 
 ## Deploy the template
 
 1. Select the following image to sign in to Azure and open the template.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cache%2Fredis-cache%2Fazuredeploy.json)
 1. Select or enter the following values:
 
     * **Subscription**: select an Azure subscription used to create the data share and the other resources.

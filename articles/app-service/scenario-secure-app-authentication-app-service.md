@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 04/02/2021
+ms.date: 06/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
@@ -65,6 +65,10 @@ At the bottom of the **Add an identity provider** page, click **Add** to enable 
 :::image type="content" alt-text="Screenshot that shows configuring authentication." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 You now have an app that's secured by the App Service authentication and authorization.
+
+> [!NOTE]
+> To allow accounts from other tenants, change the 'Issuer URL' to 'https://login.microsoftonline.com/common/v2.0' by editing your 'Identity Provider' from the 'Authentication' blade.
+>
 
 ## Verify limited access to the web app
 

@@ -2,7 +2,7 @@
 title: What is Azure Event Grid? 
 description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
 ms.topic: overview
-ms.date: 01/28/2021
+ms.date: 07/27/2021
 ---
 
 # What is Azure Event Grid?
@@ -40,6 +40,7 @@ Currently, the following Azure services support sending events to Event Grid. Fo
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Azure subscriptions](event-schema-subscriptions.md)
 - [Azure Cache for Redis](event-schema-azure-cache.md)
+- [Azure Kubernetes Service (preview)](event-schema-aks.md)
 
 ## Event handlers
 

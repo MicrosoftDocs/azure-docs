@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 07/28/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Securing security info registration
 
-Securing when and how users register for Azure AD Multi-Factor Authentication and self-service password reset is possible with user actions in a Conditional Access policy. This feature is available to organizations who have enabled the [combined registration](../authentication/concept-registration-mfa-sspr-combined.md). This functionality allows organizations to treat the registration process like any application in a Conditional Access policy and use the full power of Conditional Access to secure the experience. 
+Securing when and how users register for Azure AD Multi-Factor Authentication and self-service password reset is possible with user actions in a Conditional Access policy. This feature is available to organizations who have enabled the [combined registration](../authentication/concept-registration-mfa-sspr-combined.md). This functionality allows organizations to treat the registration process like any application in a Conditional Access policy and use the full power of Conditional Access to secure the experience. Users signing in to the Microsoft Authenticator app or enabling passwordless phone sign-in are subject to this policy.
 
 Some organizations in the past may have used trusted network location or device compliance as a means to secure the registration experience. With the addition of [Temporary Access Pass](../authentication/howto-authentication-temporary-access-pass.md) in Azure AD, administrators can provision time-limited credentials to their users that allow them to register from any device or location. Temporary Access Pass credentials satisfy Conditional Access requirements for multi-factor authentication.
 
@@ -82,3 +82,5 @@ For [guest users](../external-identities/what-is-b2b.md) who need to register fo
 [Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+
+[Require users to reconfirm authentication information](../authentication/concept-sspr-howitworks.md#reconfirm-authentication-information)

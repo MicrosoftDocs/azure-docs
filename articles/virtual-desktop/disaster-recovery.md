@@ -1,6 +1,6 @@
 ---
-title: Set up Windows Virtual Desktop disaster recovery plan - Azure
-description: How to set up a business continuity and disaster recovery plan for your Windows Virtual Desktop deployment.
+title: Set up Azure Virtual Desktop disaster recovery plan - Azure
+description: How to set up a business continuity and disaster recovery plan for your Azure Virtual Desktop deployment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -15,7 +15,7 @@ manager: femila
 
 To keep your organization's data safe, you may need to adopt a business continuity and disaster recovery (BCDR) strategy. A sound BCDR strategy keeps your apps and workload up and running during planned and unplanned service or Azure outages.
 
-Windows Virtual Desktop offers BCDR for the Windows Virtual Desktop service to preserve customer metadata during outages. When an outage occurs in a region, the service infrastructure components will fail over to the secondary location and continue functioning as normal. You can still access service-related metadata, and users can still connect to available hosts. End-user connections will stay online as long as the tenant environment or hosts remain accessible.
+Azure Virtual Desktop offers BCDR for the Azure Virtual Desktop service to preserve customer metadata during outages. When an outage occurs in a region, the service infrastructure components will fail over to the secondary location and continue functioning as normal. You can still access service-related metadata, and users can still connect to available hosts. End-user connections will stay online as long as the tenant environment or hosts remain accessible.
 
 To make sure users can still connect during a region outage, you need to replicate their virtual machines (VMs) in a different location. During outages, the primary site fails over to the replicated VMs in the secondary location. Users can continue to access apps from the secondary location without interruption. On top of VM replication, you'll need to keep user identities accessible at the secondary location. If you're using profile containers, you'll also need to replicate them. Finally, make sure your business apps that rely on data in the primary location can fail over with the rest of the data.
 
@@ -36,17 +36,17 @@ First, you'll need to replicate your VMs to the secondary location. Your options
 
 We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs in other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using Azure Site Recovery for personal host pools, because Azure Site Recovery supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
-If you use Azure Site Recovery, you won't need to register these VMs manually. The Windows Virtual Desktop agent in the secondary VM will automatically use the latest security token to connect to the service instance closest to it. The VM (session host) in the secondary location will automatically become part of the host pool. The end-user will have to reconnect during the process, but apart from that, there are no other manual operations.
+If you use Azure Site Recovery, you won't need to register these VMs manually. The Azure Virtual Desktop agent in the secondary VM will automatically use the latest security token to connect to the service instance closest to it. The VM (session host) in the secondary location will automatically become part of the host pool. The end-user will have to reconnect during the process, but apart from that, there are no other manual operations.
 
 If there are existing user connections during the outage, before the admin can start failover to the secondary region, you need to end the user connections in the current region.
 
-To disconnect users in Windows Virtual Desktop (classic), run this cmdlet:
+To disconnect users in Azure Virtual Desktop (classic), run this cmdlet:
 
 ```powershell
 Invoke-RdsUserSessionLogoff
 ```
 
-To disconnect users in the Azure-integrated version of Windows Virtual Desktop, run this cmdlet:
+To disconnect users in the Azure-integrated version of Azure Virtual Desktop, run this cmdlet:
 
 ```powershell
 Remove-AzWvdUserSession
@@ -80,7 +80,7 @@ If you're using profile containers, the next step is to set up data replication 
    - Azure NetApp Files
    - Cloud Cache for replication
 
-For more information, check out [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).
+For more information, check out [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
 
 If you're setting up disaster recovery for profiles, these are your options:
 

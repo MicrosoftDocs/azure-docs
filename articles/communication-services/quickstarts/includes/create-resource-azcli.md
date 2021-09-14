@@ -1,17 +1,17 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
-ms.author: mikben
+ms.date: 06/30/2021
+ms.author: rifox
 ---
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
+- Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
 
-## Create Azure Communication Resource
+## Create Azure Communication Services resource
 
 To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can do this through the terminal using the ```az login``` command and providing your credentials. Run the following command to create the resource:
 
@@ -46,4 +46,4 @@ az communication show --name "<communicationName>" --resource-group "<resourceGr
 az communication show --name "<communicationName>" --resource-group "<resourceGroup>" --subscription "<subscriptionID>"
 ```
 
-For information on additional commands, see [az communication](/cli/azure/ext/communication/communication).
+For information on additional commands, see [az communication](/cli/azure/communication).

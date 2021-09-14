@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/23/2021
+ms.date: 09/10/2021
 ---
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
 
@@ -13,7 +13,7 @@ ms.date: 02/23/2021
 
 Azure Data Share supports snapshot-based sharing from a storage account. This article explains how to share and receive data from Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2.
 
-Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. Only block blobs are currently supported. Data shared from these sources can be received by Azure Data Lake Gen2 or Azure Blob Storage.
+Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. You can share block, append, or page blobs, and they are received as block blobs. Data shared from these sources can be received by Azure Data Lake Gen2 or Azure Blob Storage.
 
 When file systems, containers, or folders are shared in snapshot-based sharing, data consumers can choose to make a full copy of the share data. Or they can use the incremental snapshot capability to copy only new or updated files. The incremental snapshot capability is based on the last modified time of the files. 
 
@@ -137,6 +137,8 @@ You can open an invitation from email or directly from the Azure portal.
 1. To open an invitation from email, check your inbox for an invitation from your data provider. The invitation from Microsoft Azure is titled "Azure Data Share invitation from *\<yourdataprovider\@domain.com>*". Select **View invitation** to see your invitation in Azure. 
 
    To open an invitation from the Azure portal, search for *Data Share invitations*. You see a list of Data Share invitations.
+
+   If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it is valid for 12 months.
 
    ![Screenshot showing the list of invitations in the Azure portal.](./media/invitations.png "List of invitations.") 
 
