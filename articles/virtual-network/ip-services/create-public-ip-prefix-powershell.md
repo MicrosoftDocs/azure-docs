@@ -1,17 +1,17 @@
 ---
-title: Create a public IP address prefix - PowerShell
+title: 'Quickstart: Create a public IP address prefix - PowerShell'
 titlesuffix: Azure Virtual Network
 description: Learn how to create a public IP address prefix using PowerShell.
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: how-to
-ms.date: 07/12/2021
+ms.topic: quickstart
+ms.date: 09/14/2021
 ms.author: allensu
 ---
 
-# Create a public IP address prefix using PowerShell
+# Quickstart: Create a public IP address prefix using PowerShell
 
 Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix is a contiguous range of standard SKU public IP addresses. 
 
