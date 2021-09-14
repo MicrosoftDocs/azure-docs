@@ -27,11 +27,11 @@ When you create a public IP address resource, you can assign a static public IP 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create) named **myResourceGroup** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az_group_create) named **QuickStartCreateIPPrefix-rg** in the **eastus2** location.
 
 ```azurecli-interactive
   az group create \
-    --name myResourceGroup \
+    --name QuickStartCreateIPPrefix-rg \
     --location eastus2
 ```
 
@@ -59,7 +59,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
   az network public-ip prefix create \
     --length 28 \
     --name myPublicIpPrefix \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIPPrefix-rg \
     --location eastus2 \
     --version IPv4 \
     --zone 1 2 3
@@ -73,7 +73,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
   az network public-ip prefix create \
     --length 28 \
     --name myPublicIpPrefix-zonal \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIPPrefix-rg \
     --location eastus2 \
     --version IPv4 \
     --zone 2
@@ -90,7 +90,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
   az network public-ip prefix create \
     --length 28 \
     --name myPublicIpPrefix-nozone \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIPPrefix-rg \
     --location eastus2 \
     --version IPv4
 ```
@@ -113,7 +113,7 @@ To create a IPv4 public IP prefix, enter **IPv6** in the **`--version`** paramet
   az network public-ip prefix create \
     --length 124 \
     --name myPublicIpPrefix \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIPPrefix-rg \
     --location eastus2 \
     --version IPv6 \
     --zone 1 2 3
@@ -127,7 +127,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
   az network public-ip prefix create \
     --length 124 \
     --name myPublicIpPrefix-zonal \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIPPrefix-rg \
     --location eastus2 \
     --version IPv6 \
     --zone 2
@@ -144,7 +144,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
   az network public-ip prefix create \
     --length 124 \
     --name myPublicIpPrefix-nozone \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIPPrefix-rg \
     --location eastus2 \
     --version IPv6
 ```
@@ -168,7 +168,7 @@ To create a IPv4 public IP address, enter **IPv4** in the **`--version`** parame
 ```azurecli-interactive
   az network public-ip create \
     --name myPublicIP \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIPPrefix-rg \
     --allocation-method Static \
     --public-ip-prefix myPublicIpPrefix \
     --sku Standard \
@@ -182,7 +182,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
 ```azurecli-interactive
   az network public-ip create \
     --name myPublicIP \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIPPrefix-rg \
     --allocation-method Static \
     --public-ip-prefix myPublicIpPrefix \
     --sku Standard \
@@ -203,7 +203,7 @@ To delete a public IP prefix, use [az network public-ip prefix delete](/cli/azur
 ```azurecli-interactive
   az network public-ip prefix delete \
     --name myPublicIpPrefix \
-    --resource-group myResourceGroup
+    --resource-group QuickStartCreateIPPrefix-rg
 ```
 
 >[!NOTE]
@@ -218,7 +218,7 @@ When you're done with the public IP prefix, delete the resource group and all of
 
 ```azurecli-interactive
   az group delete \
-    --name myResourceGroup
+    --name QuickStartCreateIPPrefix-rg
 ```
 
 ## Next steps
