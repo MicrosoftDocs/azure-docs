@@ -18,8 +18,7 @@ This cURL-based quickstart walks you through getting an answer from your knowled
     * Latest [**cURL**](https://curl.haxx.se/).
     * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
-> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
-<!-- TODO: Replace Link-->
+ * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
    * A trained and published knowledge base with questions and answers, from the previous [quickstart](../../../qnamaker/Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
 
 <!-- TODO: Replace Link-->
