@@ -9,13 +9,15 @@ ms.date: 09/14/2021
 
 # Use Bicep modules
 
-Bicep enables you to break down a complex solution into modules. A Bicep module is a set of one or more resources to be deployed together. Modules abstract away complex details of the raw resource declaration, which can increase readability. You can reuse these modules, and share them with other people. Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template) for deployment.
+Bicep enables you to break down a complex solution into modules. A Bicep module is just a Bicep file that is deployed from another Bicep file. You can encapsulate complex details of the resource declaration in a module, which improves readability of files that use the module. You can reuse these modules, and share them with other people. Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template) for deployment.
+
+This article describes how to define and consume modules.
 
 For a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
 
 ## Define modules
 
-Every Bicep file can be consumed as a module. A module only exposes parameters and outputs as contract to other Bicep files. Both parameters and outputs are optional.
+Every Bicep file can be used as a module. A module only exposes parameters and outputs as a contract to other Bicep files. Parameters and outputs are optional.
 
 The following Bicep file can be deployed directly to create a storage account or be used as a module.  The next section shows you how to consume modules:
 
@@ -66,7 +68,7 @@ Use the _module_ keyword to consume a module. The following Bicep file deploys t
 param namePrefix string
 param location string = resourceGroup().location
 
-module stgModule './storageAccount.bicep' = {
+module stgModule 'storageAccount.bicep' = {
   name: 'storageDeploy'
   params: {
     storagePrefix: namePrefix
@@ -117,7 +119,7 @@ You can deploy a module multiple times by using loops. For more information, see
 
 ## Configure module scopes
 
-When declaring a module, you can supply a _scope_ property to set the scope at which to deploy the module. The _scope_ property can be omitted when the module's target scope and the parent's target scope are the same. When the scope property isn't provided, the module is deployed at the parent's target scope.
+When declaring a module, you can set a scope for the module that is different than the scope for the containing Bicep file. Use the `scope` property to set the scope for the module. When the scope property isn't provided, the module is deployed at the parent's target scope.
 
 The following Bicep file shows how to create a resource group and deploy a module to the resource group:
 
