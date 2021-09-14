@@ -97,4 +97,3 @@ Now that you've learned about the Run command concepts, you can use the Run comm
 
 - [Configure external identity source for vCenter (Run command)](configure-identity-source-vcenter.md) - Configure Active Directory over LDAP or LDAPS for vCenter, which enables the use of an external identity source as an Active Directory. Then, you can add groups from the external identity source to the CloudAdmin role.
 
-
