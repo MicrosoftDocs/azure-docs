@@ -81,7 +81,7 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
     For more information, see [Label priority (order matters)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) in the Microsoft 365 documentation.
 
-Continue by [scanning your data to apply labels automatically](#Scan-your-data-to-apply-sensitivity-labels-automatically), and then:
+Continue by [scanning your data to apply labels automatically](#scan-your-data-to-apply-sensitivity-labels-automatically), and then:
 
 - [View labels on assets](#view-labels-on-assets)
 - [View Insight reports for the classifications and sensitivity labels](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
