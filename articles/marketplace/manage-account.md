@@ -20,16 +20,16 @@ Once you've [created a Partner Center account](./create-account.md), you can use
 
 ## Access your account settings
 
-If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/management) for your Partner Center account.
+If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#developer) for your Partner Center account.
 
 1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
 1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
 
-   [ ! [Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account.png) ](./media/manage-accounts/settings-account.png#lightbox)
+   [Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account.png)
 
 1. Under **Account settings** select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
 
-    [Screenshot of the developer tab on the legal page in Account settings.](./media/manage-accounts/developer-tab.png#lightbox)
+    [! [Screenshot of the developer tab on the legal page in Account settings.](./media/manage-accounts/developer-tab.png)](./media/manage-accounts/developer-tab.png#lightbox)
 
 ### Account settings page
 
