@@ -22,10 +22,12 @@
       href: app/website-monitoring.md 
 - name: Tutorials
   items:
-  - name: Create a metrics chart
+  - name: Analyze metric data
     href: essentials/tutorial-metrics-explorer.md
   - name: Create a metrics alert
     href: alerts/tutorial-metric-alert.md
+  - name: Create Log Analytics workspace
+    href: logs/tutorial-create-workspace.md
   - name: Collect resource logs
     href: essentials/tutorial-resource-logs.md
   - name: Analyze log data
