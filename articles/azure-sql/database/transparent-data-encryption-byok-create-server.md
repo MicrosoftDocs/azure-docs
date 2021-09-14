@@ -106,6 +106,7 @@ az sql server create \
     --identity-type $identitytype
     --user-assigned-identity-id $identityid
     --primary-user-assigned-identity-id $primaryidentityid
+    --key-id $keyid
  
 ```
 Create a database with the [az sql db create](/cli/azure/sql/db) command. 
