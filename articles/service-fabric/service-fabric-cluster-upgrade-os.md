@@ -16,7 +16,7 @@ The general approach is to:
 
 1. Switch the Service Fabric cluster ARM resource "vmImage" to "Ubuntu18_04" to pull future code upgrades for this OS version. This temporary OS mismatch against existing node types will block automatic code upgrade rollouts to ensure safe rollover.
 
-    * Avoid issuing manual SF cluster code upgrades during the OS migration as this may cause the old node type nodes to enter a state that will require human intervention.
+    * Avoid issuing manual SF cluster code upgrades during the OS migration. Doing so may cause the old node type nodes to enter a state that will require human intervention.
 
 2. For each node type in the cluster, create another node type targeting the Ubuntu 18.04 OS image for the underlying Virtual Machine Scale Set (VMSS). Each new node type will assume the role of its old counterpart.
 
@@ -24,7 +24,7 @@ The general approach is to:
     
     * For each additional non-primary node type, these nodes types will similarly be marked "isPrimary": false.
 
-    * Ensure after new node type with the target OS is created that existing workloads continue to function correctly. If issues are observed, address the changes required in the app or pre-installed machine packages before proceding with removing the old node type.
+    * Ensure after the new target OS node type is created that existing workloads continue to function correctly. If issues are observed, address the changes required in the app or pre-installed machine packages before proceding with removing the old node type.
 3. Mark the old primary node type "isPrimary": false. This will result in a long-running set of upgrades to transition all seed nodes.
 4. (For Bronze durability node types ONLY): Connect to the cluster via [sfctl](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl) / [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/?view=azureservicefabricps) / [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) and disable all nodes in the old node type.
 5. Remove the old node types.
