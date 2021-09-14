@@ -35,8 +35,6 @@ ms.reviewer: laobri
 | `identity.type` | string | The type of managed identity. If the type is `user_assigned`, the `identity.user_assigned_identities` property must also be specified. | `system_assigned`, `user_assigned` | |
 | `identity.user_assigned_identities` | array | List of fully qualified resource IDs of the user-assigned identities. | | |
 
-TODO: does auth_mode have a default?
-
 ## Remarks
 
 The `az ml online-endpoint` commands can be used for managing Azure Machine Learning online endpoints.
