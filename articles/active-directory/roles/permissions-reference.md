@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 07/26/2021
+ms.date: 09/14/2021
 ms.author: rolyon
-ms.reviewer: vincesm
+ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
 ---
@@ -130,9 +130,11 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/applications/basic/update | Update basic properties for applications |
 > | microsoft.directory/applications/credentials/update | Update application credentials |
 > | microsoft.directory/applications/extensionProperties/update | Update extension properties on applications |
+> | microsoft.directory/applications/notes/update | Update notes of applications |
 > | microsoft.directory/applications/owners/update | Update owners of applications |
 > | microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications |
 > | microsoft.directory/applications/policies/update | Update policies of applications |
+> | microsoft.directory/applications/tag/update | Update tags of applications |
 > | microsoft.directory/applications/verification/update | Update applicationsverification property |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
@@ -169,6 +171,7 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
 > | microsoft.directory/servicePrincipals/basic/update | Update basic properties on service principals |
 > | microsoft.directory/servicePrincipals/credentials/update | Update credentials of service principals |
+> | microsoft.directory/servicePrincipals/notes/update | Update notes of service principals |
 > | microsoft.directory/servicePrincipals/owners/update | Update owners of service principals |
 > | microsoft.directory/servicePrincipals/permissions/update | Update permissions of service principals |
 > | microsoft.directory/servicePrincipals/policies/update | Update policies of service principals |
@@ -242,8 +245,12 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/users/authenticationMethods/create | Create authentication methods for users |
+> | microsoft.directory/users/authenticationMethods/delete | Delete authentication methods for users |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Read standard properties of authentication methods that do not include personally identifiable information |
+> | microsoft.directory/users/authenticationMethods/basic/update | Update basic properties of authentication methods for users |
 > | microsoft.directory/users/invalidateAllRefreshTokens | Force sign-out by invalidating user refresh tokens |
-> | microsoft.directory/users/strongAuthentication/update | Update the strong authentication property for users |
+> | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
@@ -395,9 +402,11 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/applications/basic/update | Update basic properties for applications |
 > | microsoft.directory/applications/credentials/update | Update application credentials |
 > | microsoft.directory/applications/extensionProperties/update | Update extension properties on applications |
+> | microsoft.directory/applications/notes/update | Update notes of applications |
 > | microsoft.directory/applications/owners/update | Update owners of applications |
 > | microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications |
 > | microsoft.directory/applications/policies/update | Update policies of applications |
+> | microsoft.directory/applications/tag/update | Update tags of applications |
 > | microsoft.directory/applications/verification/update | Update applicationsverification property |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
@@ -428,6 +437,7 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
 > | microsoft.directory/servicePrincipals/basic/update | Update basic properties on service principals |
 > | microsoft.directory/servicePrincipals/credentials/update | Update credentials of service principals |
+> | microsoft.directory/servicePrincipals/notes/update | Update notes of service principals |
 > | microsoft.directory/servicePrincipals/owners/update | Update owners of service principals |
 > | microsoft.directory/servicePrincipals/permissions/update | Update permissions of service principals |
 > | microsoft.directory/servicePrincipals/policies/update | Update policies of service principals |
@@ -633,9 +643,11 @@ Do not use. This role is automatically assigned to the Azure AD Connect service,
 > | microsoft.directory/applications/authentication/update | Update authentication on all types of applications |
 > | microsoft.directory/applications/basic/update | Update basic properties for applications |
 > | microsoft.directory/applications/credentials/update | Update application credentials |
+> | microsoft.directory/applications/notes/update | Update notes of applications |
 > | microsoft.directory/applications/owners/update | Update owners of applications |
 > | microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications |
 > | microsoft.directory/applications/policies/update | Update policies of applications |
+> | microsoft.directory/applications/tag/update | Update tags of applications |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policies |
 > | microsoft.directory/organization/dirSync/update | Update the organization directory sync property |
 > | microsoft.directory/policies/create | Create policies in Azure AD |
@@ -665,6 +677,7 @@ Do not use. This role is automatically assigned to the Azure AD Connect service,
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
 > | microsoft.directory/servicePrincipals/basic/update | Update basic properties on service principals |
 > | microsoft.directory/servicePrincipals/credentials/update | Update credentials of service principals |
+> | microsoft.directory/servicePrincipals/notes/update | Update notes of service principals |
 > | microsoft.directory/servicePrincipals/owners/update | Update owners of service principals |
 > | microsoft.directory/servicePrincipals/permissions/update | Update permissions of service principals |
 > | microsoft.directory/servicePrincipals/policies/update | Update policies of service principals |
@@ -817,12 +830,16 @@ Users with this role have access to all administrative features in Azure Active 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/allProperties/allTasks | Create and delete access reviews, and read and update all properties of access reviews in Azure AD |
+> | microsoft.directory/accessReviews/allProperties/allTasks | Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Azure AD |
 > | microsoft.directory/administrativeUnits/allProperties/allTasks | Create and manage administrative units (including members) |
 > | microsoft.directory/applications/allProperties/allTasks | Create and delete applications, and read and update all properties |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/users/authenticationMethods/create | Create authentication methods for users |
+> | microsoft.directory/users/authenticationMethods/delete | Delete authentication methods for users |
+> | microsoft.directory/users/authenticationMethods/standard/read | Read standard properties of authentication methods for users |
+> | microsoft.directory/users/authenticationMethods/basic/update | Update basic properties of authentication methods for users |
 > | microsoft.directory/authorizationPolicy/allProperties/allTasks | Manage all aspects of authorization policies |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
 > | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Cloud App Security |
@@ -896,8 +913,10 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks |  |
 > | microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing |
 > | microsoft.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365 |
+> | microsoft.edge/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Edge |
 > | microsoft.flow/allEntities/allTasks | Manage all aspects of Microsoft Power Automate |
 > | microsoft.intune/allEntities/allTasks | Manage all aspects of Microsoft Intune |
 > | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
@@ -948,51 +967,54 @@ Users in this role can read settings and administrative information across Micro
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/allProperties/read |  |
-> | microsoft.directory/administrativeUnits/allProperties/read |  |
+> | microsoft.directory/accessReviews/allProperties/read | Read all properties of access reviews |
+> | microsoft.directory/administrativeUnits/allProperties/read | Read all properties of administrative units |
 > | microsoft.directory/applications/allProperties/read | Read all properties (including privileged properties) on all types of applications |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Read standard properties of authentication methods that do not include personally identifiable information |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policies |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
-> | microsoft.directory/cloudAppSecurity/allProperties/read |  |
+> | microsoft.directory/cloudAppSecurity/allProperties/read | Read all properties for Cloud app security |
 > | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors |
 > | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups |
-> | microsoft.directory/contacts/allProperties/read |  |
+> | microsoft.directory/contacts/allProperties/read | Read all properties for contacts |
 > | microsoft.directory/devices/allProperties/read | Read all properties on devices |
-> | microsoft.directory/directoryRoles/allProperties/read |  |
-> | microsoft.directory/directoryRoleTemplates/allProperties/read |  |
+> | microsoft.directory/directoryRoles/allProperties/read | Read all properties for Azure AD roles |
+> | microsoft.directory/directoryRoleTemplates/allProperties/read | Read all properties for role templates |
 > | microsoft.directory/domains/allProperties/read | Read all properties of domains |
 > | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
 > | microsoft.directory/groups/allProperties/read | Read all properties (including privileged properties) on Security groups and Microsoft 365 groups, including role-assignable groups |
-> | microsoft.directory/groupSettings/allProperties/read |  |
-> | microsoft.directory/groupSettingTemplates/allProperties/read |  |
+> | microsoft.directory/groupSettings/allProperties/read | Read all properties of group settings |
+> | microsoft.directory/groupSettingTemplates/allProperties/read | Read all properties of group setting templates |
 > | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
-> | microsoft.directory/loginOrganizationBranding/allProperties/read |  |
-> | microsoft.directory/oAuth2PermissionGrants/allProperties/read |  |
-> | microsoft.directory/organization/allProperties/read |  |
+> | microsoft.directory/loginOrganizationBranding/allProperties/read | Read all properties for your organization's branded sign-in page |
+> | microsoft.directory/oAuth2PermissionGrants/allProperties/read | Read all properties of OAuth 2.0 permission grants |
+> | microsoft.directory/organization/allProperties/read | Read all properties for an organization |
 > | microsoft.directory/permissionGrantPolicies/standard/read | Read standard properties of permission grant policies |
-> | microsoft.directory/policies/allProperties/read |  |
-> | microsoft.directory/conditionalAccessPolicies/allProperties/read |  |
-> | microsoft.directory/crossTenantAccessPolicies/allProperties/read |  |
+> | microsoft.directory/policies/allProperties/read | Read all properties of policies |
+> | microsoft.directory/conditionalAccessPolicies/allProperties/read | Read all properties of conditional access policies |
+> | microsoft.directory/crossTenantAccessPolicies/allProperties/read | Read all properties of cross-tenant policies |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
-> | microsoft.directory/roleAssignments/allProperties/read |  |
-> | microsoft.directory/roleDefinitions/allProperties/read |  |
-> | microsoft.directory/scopedRoleMemberships/allProperties/read |  |
+> | microsoft.directory/roleAssignments/allProperties/read | Read all properties of role assignments |
+> | microsoft.directory/roleDefinitions/allProperties/read | Read all properties of role definitions |
+> | microsoft.directory/scopedRoleMemberships/allProperties/read | View members in administrative units |
 > | microsoft.directory/serviceAction/getAvailableExtentionProperties | Can perform the getAvailableExtentionProperties service action |
 > | microsoft.directory/servicePrincipals/allProperties/read | Read all properties (including privileged properties) on servicePrincipals |
 > | microsoft.directory/servicePrincipalCreationPolicies/standard/read | Read standard properties of service principal creation policies |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
-> | microsoft.directory/subscribedSkus/allProperties/read |  |
+> | microsoft.directory/subscribedSkus/allProperties/read | Read all properties of product subscriptions |
 > | microsoft.directory/users/allProperties/read | Read all properties of users |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/allProperties/read | Read a verifiable credential card |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/allProperties/read | Read a verifiable credential contract |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | Read configuration required to create and manage verifiable credentials |
+> | microsoft.cloudPC/allEntities/allProperties/read |  |
 > | microsoft.commerce.billing/allEntities/read | Read all resources of Office 365 billing |
+> | microsoft.edge/allEntities/allProperties/read | Read all aspects of Microsoft Edge |
 > | microsoft.office365.exchange/allEntities/standard/read | Read all resources of Exchange Online |
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
 > | microsoft.office365.messageCenter/securityMessages/read | Read security messages in Message Center in the Microsoft 365 admin center |
@@ -1097,9 +1119,11 @@ Users in this role can create, manage and deploy provisioning configuration setu
 > | microsoft.directory/applications/authentication/update | Update authentication on all types of applications |
 > | microsoft.directory/applications/basic/update | Update basic properties for applications |
 > | microsoft.directory/applications/credentials/update | Update application credentials |
+> | microsoft.directory/applications/notes/update | Update notes of applications |
 > | microsoft.directory/applications/owners/update | Update owners of applications |
 > | microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications |
 > | microsoft.directory/applications/policies/update | Update policies of applications |
+> | microsoft.directory/applications/tag/update | Update tags of applications |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
@@ -1121,6 +1145,7 @@ Users in this role can create, manage and deploy provisioning configuration setu
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
 > | microsoft.directory/servicePrincipals/basic/update | Update basic properties on service principals |
 > | microsoft.directory/servicePrincipals/credentials/update | Update credentials of service principals |
+> | microsoft.directory/servicePrincipals/notes/update | Update notes of service principals |
 > | microsoft.directory/servicePrincipals/owners/update | Update owners of service principals |
 > | microsoft.directory/servicePrincipals/permissions/update | Update permissions of service principals |
 > | microsoft.directory/servicePrincipals/policies/update | Update policies of service principals |
@@ -1142,7 +1167,6 @@ Users with this role can manage Azure AD identity governance configuration, incl
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/accessReviews/allProperties/allTasks | Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Azure AD |
-> | microsoft.directory/accessReviews/definitions.applications/allTasks  | Manage access reviews of application role assignments in Azure AD | 
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
 > | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
@@ -1212,6 +1236,7 @@ This role can create and manage all security groups. However, Intune Administrat
 > | microsoft.directory/users/manager/update | Update manager for users |
 > | microsoft.directory/users/photo/update | Update photo of users |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks |  |
 > | microsoft.intune/allEntities/allTasks | Manage all aspects of Microsoft Intune |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
@@ -1372,9 +1397,11 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 > | microsoft.directory/applications/authentication/update | Update authentication on all types of applications |
 > | microsoft.directory/applications/basic/update | Update basic properties for applications |
 > | microsoft.directory/applications/credentials/update | Update application credentials |
+> | microsoft.directory/applications/notes/update | Update notes of applications |
 > | microsoft.directory/applications/owners/update | Update owners of applications |
 > | microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications |
 > | microsoft.directory/applications/policies/update | Update policies of applications |
+> | microsoft.directory/applications/tag/update | Update tags of applications |
 > | microsoft.directory/contacts/create | Create contacts |
 > | microsoft.directory/contacts/delete | Delete contacts |
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
@@ -1418,9 +1445,11 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 > | microsoft.directory/applications/authentication/update | Update authentication on all types of applications |
 > | microsoft.directory/applications/basic/update | Update basic properties for applications |
 > | microsoft.directory/applications/credentials/update | Update application credentials |
+> | microsoft.directory/applications/notes/update | Update notes of applications |
 > | microsoft.directory/applications/owners/update | Update owners of applications |
 > | microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications |
 > | microsoft.directory/applications/policies/update | Update policies of applications |
+> | microsoft.directory/applications/tag/update | Update tags of applications |
 > | microsoft.directory/contacts/create | Create contacts |
 > | microsoft.directory/contacts/delete | Delete contacts |
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
@@ -1550,8 +1579,12 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/users/authenticationMethods/create | Create authentication methods for users |
+> | microsoft.directory/users/authenticationMethods/delete | Delete authentication methods for users |
+> | microsoft.directory/users/authenticationMethods/standard/read | Read standard properties of authentication methods for users |
+> | microsoft.directory/users/authenticationMethods/basic/update | Update basic properties of authentication methods for users |
 > | microsoft.directory/users/invalidateAllRefreshTokens | Force sign-out by invalidating user refresh tokens |
-> | microsoft.directory/users/strongAuthentication/update | Update the strong authentication property for users |
+> | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
