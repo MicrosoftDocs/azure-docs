@@ -138,7 +138,7 @@ After you create your Stream Analytics job in the Azure portal, configure it wit
    | Field | Value |
    | --- | --- |
    | Output alias | A friendly name used in queries to direct the query output to this blob storage. |
-   | Storage account | The name of the storage account where you're sending your output. An example is *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com*. |
+   | Storage account | The name of the storage account where you're sending your output. An example is `<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com`. |
    | Storage account key | The secret key associated with the storage account. This option is automatically populated unless you select the option to provide the blob storage settings manually. |
 
 > [!NOTE]
