@@ -95,11 +95,9 @@ If it's acceptable for the IP address to change over time, **Dynamic** IP assign
 
 ---
 
-## Create a zonal or no-zone IP address
+## Create a zonal or no-zone public IP address
 
 In this section, you'll learn how to create a zonal or no-zone public IP address.
-
----
 
 # [**Zonal**](#tab/create-public-ip-zonal)
 
@@ -121,7 +119,6 @@ New-AzPublicIpAddress @ip
 ```
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
-
 
 # [**Non-zonal**](#tab/create-public-ip-non-zonal)
 
@@ -154,8 +151,6 @@ The removal of the **zone** parameter is the default selection for standard publ
 ## Routing Preference and Tier
 
 Standard SKU static public IPv4 addresses support Routing Preference or the Global Tier feature.
-
----
 
 # [**Routing Preference**](#tab/routing-preference)
 
