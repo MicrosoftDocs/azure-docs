@@ -177,7 +177,7 @@ NAT gateways take precedence over outbound scenarios of the subnet. Basic load b
 #### Zone isolation with zonal stacks
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network NAT with zone isolation, creating multiple 'zonal stacks'">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network NAT with zone isolation, creating multiple zonal stacks">
 </p>
 
 *Figure: Virtual Network NAT with zone isolation, creating multiple "zonal stacks"*
