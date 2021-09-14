@@ -46,7 +46,7 @@ The system-managed identity option is located in the **Advanced** tab of instanc
 
 In this tab, select the **On** option for **System managed identity** to turn on this feature.
 
-:::image type="content" source="media/how-to-enable-managed-identities/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. System managed identity is turned on.":::
+:::image type="content" source="media/how-to-route-with-managed-identity/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. System managed identity is turned on.":::
 
 You can then use the bottom navigation buttons to continue with the rest of instance setup.
    
@@ -78,7 +78,7 @@ Start by opening the [Azure portal](https://portal.azure.com) in a browser.
 
 1. Select the **Save** button, and **Yes** to confirm.
 
-    :::image type="content" source="media/how-to-enable-managed-identities/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity page for an Azure Digital Twins instance.":::
+    :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity page for an Azure Digital Twins instance.":::
 
 After the change is saved, more fields will appear on this page for the new identity's **Object ID** and **Permissions**.
 
