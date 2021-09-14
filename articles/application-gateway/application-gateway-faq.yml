@@ -80,7 +80,7 @@ sections:
         answer: No. There is no way to rename an Application Gateway resource. You must create a new resource with a different name. 
         
       - question: Is there a way to restore an Application Gateway and its public IP if it has been deleted?
-        answer: No. There is no way to restore an Application Gateway resource or its pubilc ip once deleted. You must create a new resource.
+        answer: No. There is no way to restore an Application Gateway resource or its public IP once deleted. You must create a new resource.
         
       - question: Does the IP or DNS name change over the lifetime of the application gateway?
         answer: In Application Gateway V1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway V2 SKU, you can set the IP address as static, so IP and DNS name will not change over the lifetime of the application gateway. 
