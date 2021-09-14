@@ -41,10 +41,10 @@ Deploying a solution makes any included security content, such as data connector
 
 |Name  |Description  |Includes  |Categories  |
 |---------|---------|---------|---------|
-|**Azure Firewall Solution for Sentinel**     |  Provides built-in, customizable threat detection for Azure Firewall.   | Workbook, detections, hunting queries, and playbooks        |         |
-|**Azure Sentinel 4 Dynamics 365**     | Enables you to collect Dynamics 365 logs, gain visibility, and analyze data to detect threats and malicious activities.        |    Data connector, workbooks, analytics rules, and hunting queries     |         |
-|**Azure Sentinel for SQL PaaS**     | Provides built-in, customizable threat detection for Azure SQL PaaS, based on SQL Audit logs, and with seamless integration to alerts from Azure Defender for SQL.        |         |         |
-|**Azure Sentinel for Teams**     | Provides human and automated analysis for logs and real-time meeting monitoring.         | Analytics rules, hunting queries, and playbooks        |         |
+|**Azure Firewall Solution for Sentinel**     |  Provides built-in, customizable threat detection for Azure Firewall. <br><br>**Supported by**: Microsoft  | Workbook, detections, hunting queries, and playbooks.        |         |
+|**Azure Sentinel 4 Dynamics 365**     | Enables you to collect Dynamics 365 logs, gain visibility, and analyze data to detect threats and malicious activities. <br><br>**Supported by**: Microsoft       |    Data connector, workbooks, analytics rules, and hunting queries     |         |
+|**Azure Sentinel for SQL PaaS**     | Provides built-in, customizable threat detection for Azure SQL PaaS, based on SQL Audit logs, and with seamless integration to alerts from Azure Defender for SQL.   <br><br>**Supported by**: Microsoft     |         |         |
+|**Azure Sentinel for Teams**     | Provides human and automated analysis for logs and real-time meeting monitoring.   <br><br>**Supported by**: Microsoft      | Analytics rules, hunting queries, and playbooks        |         |
 |     |         |         |         |
 
 
