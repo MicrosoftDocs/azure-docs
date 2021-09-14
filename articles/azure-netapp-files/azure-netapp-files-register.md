@@ -82,4 +82,5 @@ To use the Azure NetApp Files service, you need to register the NetApp Resource 
 
 ## Next steps
 
-[Create a NetApp account](azure-netapp-files-create-netapp-account.md)
+* [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
+* [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
