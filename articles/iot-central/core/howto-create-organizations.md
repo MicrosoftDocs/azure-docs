@@ -140,6 +140,13 @@ When you start adding organizations, all existing devices, users, and experience
 - You can assign users to a new organization and unassign them from the root.
 - You can recreate experience such as dashboards, device groups, and jobs and associate them with organizations in the hierarchy.
 
+## Limits
+
+To following limits apply to organizations:
+
+- The hierarchy can be no more than five levels deep.
+- The total number of organization cannot be more than 200. Each node in the hierarchy counts as an organization.
+
 ## Next steps
 
 Now that you've learned how to manage Azure IoT Central organizations, the suggested next step is learn how to [Export IoT data to cloud destinations using data export](howto-export-data.md).
