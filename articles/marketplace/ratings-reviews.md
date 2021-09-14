@@ -71,13 +71,9 @@ To respond to a review, follow these steps:
 
 #### [Workspaces view](#tab/new-web-form)
 
-<<<<<<< HEAD
-1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
-=======
-1. Select **Ratings & reviews** from the left-menu, then either the **AppSource** or **Azure Marketplace** tab. Select **filters** to narrow the list of reviews, for example, to show only reviews with a specific star rating.
->>>>>>> 1266ec4f8080f171dd4b58edfb53e15cba7ec817
+1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating.
 
-    [ ![Illustrates the ratings and review page.](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png) ](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png#lightbox)
+    [![Illustrates the ratings and review page.](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png)](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png#lightbox)
 
 1. Select the **Reply** link for the review you wish to respond, type your reply on the **text box**, then select **Send reply**.
 
@@ -93,13 +89,9 @@ The response will appear under the text of the original review in the product de
 
 The response will appear under the text of the original review in the product detail page in AppSource, and Azure Marketplace online storefront.
 
-<<<<<<< HEAD
 ---
 
-#### Appsource
-=======
 #### AppSource
->>>>>>> 1266ec4f8080f171dd4b58edfb53e15cba7ec817
 
 :::image type="content" source="media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png" alt-text="Illustrates AppSource review response" lightbox="media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png":::
 

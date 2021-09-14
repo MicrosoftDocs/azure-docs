@@ -9,11 +9,7 @@ ms.author: vamahtan
 ms.date: 09/13/2021
 ---
 
-<<<<<<< HEAD
 # Create a Dynamics 365 for Customer Engagement & PowerApps offer
-=======
-# How to create a Dynamics 365 for Customer Engagement & Power Apps offer
->>>>>>> 1266ec4f8080f171dd4b58edfb53e15cba7ec817
 
 This article describes how to create a Dynamics 365 for Customer Engagement & Power Apps offer. All offers for Dynamics 365 go through our certification process. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
 
