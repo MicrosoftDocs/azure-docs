@@ -58,23 +58,33 @@ The Marketplace Insights **Visitors** chart displays a count of _Page visits_ an
 
 ### Call to actions trend
 
-This number represents the count of **Call to Action** button clicks completed on the offer listing page (product detail page). _Calls to action_ are counted when users select the **Get It Now**, **Free Trial**, **Contact Me**, or **Test Drive** buttons.
+This number represents the count of **Call to Action** button clicks completed on the offer listing page (product detail page). _Calls to action_ are counted when users select the **Get It Now**, **Free Trial**, **Contact Me**, or **Test Drive** buttons. *Consent given* represents the total count of clicks for customer-provided consent to Microsoft or the partner, and equals the number of customers acquired for your offers. The following two examples show where *Consent given* clicks appear:
 
-[![Illustrates the Call to action chart on the Marketplace Insights dashboard.](./media/insights-dashboard/call-to-actions-trend.png)](./media/insights-dashboard/call-to-actions-trend.png#lightbox)
+:::image type="content" source="./media/insights-dashboard/consent-screen.png" alt-text="Illustrates a location where a consent button is selected.":::
 
-### Page visits and Call to actions against offers, Referral domains, and Campaign IDs
+The following graph shows the *CTA* vs. *Consent given* metric:
 
-**Referral Domains**: Selecting a specific referral domain shows the monthly trend of page visits and calls to action on the chart to the right.
+:::image type="content" source="./media/insights-dashboard/consent-given-graph.png" alt-text="Shows a sample graph of Calls to Action vs. Consent Given.":::
 
-:::image type="content" source="./media/insights-dashboard/referral-domain.png" alt-text="Illustrates the Referral domain chart on the Marketplace Insights dashboard.":::
+### Page visits and Call to actions against offers, referral domains, and campaign IDs
 
-**Offers**: Select a specific offer, to see the monthly trend of page visits and calls to action on the chart to the right.
+#### Offers
 
-:::image type="content" source="./media/insights-dashboard/offer-alias.png" alt-text="Illustrates the offer alias chart on the Marketplace Insights dashboard.":::
+Select a specific offer to see the monthly trend of page visits, calls to action, and consent-given clicks on the chart.
 
-**Campaign IDs**: By selecting a specific campaign ID, you should be able to understand the success of the campaign. For each campaign, you should be able to see the monthly trend of page visits and calls to action on the chart to the right.
+:::image type="content" source="./media/insights-dashboard/offers-funnel-graph.png" alt-text="Shows a sample funnel graph of offers.":::
 
-:::image type="content" source="./media/insights-dashboard/campaign.png" alt-text="Illustrates the campaign chart on the Marketplace Insights dashboard.":::
+#### Referral domains
+
+Selecting a specific referral domain shows the monthly trend of page visits, calls to action, and consent clicks on the chart to the right. Additionally, there is a column for Platform – website and client, displays for AppSource offers only. The funnel view depicts the conversions rates among page views, calls to action, and consent-given clicks on the chart.
+
+:::image type="content" source="./media/insights-dashboard/referral-domains-funnel-graph.png" alt-text="Shows a sample funnel graph of referral domains.":::
+
+#### Campaign IDs
+
+By selecting a specific campaign ID, you should be able to understand the success of the campaign. For each campaign, you should be able to see the monthly trend of page visits, calls to action, and consent-given clicks on the chart.
+
+:::image type="content" source="./media/insights-dashboard/campaign-id-funnel-graph.png" alt-text="Illustrates the campaign chart on the Marketplace Insights dashboard.":::
 
 ### Marketplace Insights by geography
 
@@ -112,6 +122,8 @@ This table provides a list view of the page visits and the calls to action of yo
 | Test Drive | Test Drive | The number of clicks to the “Test Drive” CTA on the offer’s page for a particular date. | TestDrive |
 | Free Trial | Free Trial | The number of clicks to the “Free Trial” CTA on the offer’s page for a particular date. | FreeTrial |
 | Campaign | Name of the Campaign | Ability to understand web telemetry (page visit and CTA clicks) against the campaign name. | Campaign |
+| Consent given | Consent given | Total count of clicks for customer-provided consent to Microsoft or the partner | consentGivenCount |
+| Platform | Platform | Indicates website or client (in-product store) as the source for page view, CTA, or consent clicks | platforms |
 | n/a | Site | The name of the storefront from which the page visit or CTA click occurred. The possible values are:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Site |
 |
 

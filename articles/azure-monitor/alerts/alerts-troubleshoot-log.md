@@ -151,7 +151,7 @@ The total number of log search alert rules is displayed above the rules list.
 
 ## Activity log example when rule is disabled
 
-If query fails for seven days continuously, Azure Monitor disables the log alert and stops the billing of the rule. You can see the exact time when Azure Monitor disabled the log alert in the [Azure activity log](../../azure-resource-manager/management/view-activity-logs.md). 
+If query fails for seven days continuously, Azure Monitor disables the log alert and stops the billing of the rule. You can see the exact time when Azure Monitor disabled the log alert in the [Azure activity log](../../azure-monitor/essentials/activity-log.md). 
 
 See this example:
 
