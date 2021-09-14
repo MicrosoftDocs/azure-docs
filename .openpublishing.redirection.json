@@ -14074,11 +14074,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/deploy-disaster-recovery-using-jetstream.md",
-      "redirect_url": "/azure/azure-vmware/concepts-run-command",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-vmware/deploy-zerto-disaster-recovery.md",
       "redirect_url": "/azure/azure-vmware/introduction",
       "redirect_document_id": false
@@ -14241,6 +14236,11 @@
     {
       "source_path_from_root": "/articles/azure-vmware/vrealize-operations-for-avs.md",
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/deploy-disaster-recovery-using-jetstream.md",
+      "redirect_url": "/azure/azure-vmware/concepts-run-command",
       "redirect_document_id": false
     },
     {
@@ -14500,32 +14500,32 @@
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/account-management.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/composability.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/index.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/index.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/overview.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/templates.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {

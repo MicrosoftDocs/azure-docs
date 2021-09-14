@@ -40,7 +40,7 @@ The job preparation task is executed only on nodes that are scheduled to run a t
 > [!NOTE]
 > [JobPreparationTask](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) differs from [CloudPool.StartTask](/dotnet/api/microsoft.azure.batch.cloudpool.starttask) in that JobPreparationTask executes at the start of each job, whereas StartTask executes only when a compute node first joins a pool or restarts.
 
->## Job release task
+## Job release task
 
 Once a job is marked as completed, the job release task runs on each node in the pool that executed at least one task. You mark a job as completed by issuing a terminate request. This request sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
 
