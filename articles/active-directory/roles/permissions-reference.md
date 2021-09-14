@@ -221,7 +221,7 @@ Users in this role can create and manage all aspects of attack simulation creati
 
 Users with this role can assign and unassign custom security attribute keys and values to Azure AD objects such as users, service principals, and devices.
 
-[Global Administrator](#global-administrator), [Global Reader](#global-reader), [Privileged Role Administrator](#privileged-role-administrator), and [User Administrator](#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+[Global Administrator](#global-administrator), [Global Reader](#global-reader), [Privileged Role Administrator](#privileged-role-administrator), and [User Administrator](#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. To work with [custom security attributes](../fundamentals/custom-security-attributes-overview.md), you must be assigned one of the custom security attribute roles.
 
 
 > [!div class="mx-tableFixed"]
@@ -240,7 +240,7 @@ Users with this role can assign and unassign custom security attribute keys and 
 
 Users with this role can read custom security attribute keys and values for Azure AD objects.
 
-[Global Administrator](#global-administrator), [Global Reader](#global-reader), [Privileged Role Administrator](#privileged-role-administrator), and [User Administrator](#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+[Global Administrator](#global-administrator), [Global Reader](#global-reader), [Privileged Role Administrator](#privileged-role-administrator), and [User Administrator](#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. To work with [custom security attributes](../fundamentals/custom-security-attributes-overview.md), you must be assigned one of the custom security attribute roles.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -255,7 +255,7 @@ Users with this role can read custom security attribute keys and values for Azur
 
 Users with this role can define a valid set of custom security attributes that can be assigned to various Azure AD objects. This role can also activate and deactivate custom security attributes.
 
-[Global Administrator](#global-administrator), [Global Reader](#global-reader), [Privileged Role Administrator](#privileged-role-administrator), and [User Administrator](#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+[Global Administrator](#global-administrator), [Global Reader](#global-reader), [Privileged Role Administrator](#privileged-role-administrator), and [User Administrator](#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. To work with [custom security attributes](../fundamentals/custom-security-attributes-overview.md), you must be assigned one of the custom security attribute roles.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -267,7 +267,7 @@ Users with this role can define a valid set of custom security attributes that c
 
 Users with this role can read the definition of custom security attributes.
 
-[Global Administrator](#global-administrator), [Global Reader](#global-reader), [Privileged Role Administrator](#privileged-role-administrator), and [User Administrator](#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+[Global Administrator](#global-administrator), [Global Reader](#global-reader), [Privileged Role Administrator](#privileged-role-administrator), and [User Administrator](#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. To work with [custom security attributes](../fundamentals/custom-security-attributes-overview.md), you must be assigned one of the custom security attribute roles.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
