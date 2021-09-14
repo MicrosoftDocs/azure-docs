@@ -13,7 +13,7 @@ ms.topic: conceptual
 ---
 # What is an Azure Machine Learning component (preview)?
 
-An Azure Machine Learning component (previously known as a module) is a self-contained piece of code that performs one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines (see [Create and run machine learning pipelines with the Azure Machine Learning CLI](how-to-create-pipelines-cli.md)). Components can perform tasks such as data processing, model training, model scoring, and so on.
+An Azure Machine Learning component (previously known as a module) is a self-contained piece of code that does one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines (see [Create and run machine learning pipelines with the Azure Machine Learning CLI](how-to-create-pipelines-cli.md)). Components can do tasks such as data processing, model training, model scoring, and so on.
 
 A component is analogous to a function - it has a name, parameters, expects input, and returns output. For more information on creating a component, see [create a component](#define-a-component-preview).
 
@@ -30,10 +30,10 @@ Components let you manage and reuse common logic across pipelines.
 
 ## Define a component (preview)
 
-To define an Azure Machine Learning component, you must provide 2 files:
+To define an Azure Machine Learning component, you must provide two files:
 
-- A component specification in the valid [YAML component specification format](reference-component-yaml.md). This file specifies the following:
-  - Metadata: name, display_name, version, type, etc.
+- A component specification in the valid [YAML component specification format](reference-component-yaml.md). This file specifies the following information:
+  - Metadata: name, display_name, version, type, and so on.
   - Interface: inputs and outputs
   - Command, code, & environment: The command, code, and environment used to run the component
 - A Python script to provide the actual execution logic.
@@ -42,7 +42,7 @@ To define an Azure Machine Learning component, you must provide 2 files:
 
 The component specification file defines the metadata and execution parameters for a component. The component spec tells Azure Machine Learning how to run the Python script that you provide.
 
-The following is an example component specification for a training component.
+The following example is a component specification for a training component.
 
 ```yaml
 name: Example Train
@@ -80,17 +80,17 @@ command: >-
   --model_output {outputs.model_output}
 ```
 
-The following table explains the fields in the the example. For a full list of available fields, see the [YAML component specification reference page](reference-component-yaml.md).
+The following table explains the fields in the example. For a full list of available fields, see the [YAML component specification reference page](reference-component-yaml.md).
 
 | Name                | Type                                                     | Required | Description                                                  |
 | ------------------- | -------------------------------------------------------- | -------- | ------------------------------------------------------------ |
-| name                | string                                                   | Yes      | Name of the component. This must be a unique identifier of the component. It must start with number or letter, and only contain letters, numbers, `_`, and `-`. |
+| name                | string                                                   | Yes      | Name of the component. Must be a unique identifier of the component. Must start with number or letter, and only contain letters, numbers, `_`, and `-`. |
 | version             | integer                                                  | Yes      | Version of the component. Must be an integer. |
 | display_name        | string                                                   | No       | Display name of the component. Defaults to same as `name`. |
 | type                | string                                                   | No       | The type of the component. Currently, this value must be `command_component`.|
 | description         | string                                                   | No       | Detailed description of the component. |
 | tags                | Dictionary&lt;string&gt;                                       | No | A list of key-value pairs to describe different perspectives of the component. Each tag's key and value should be one word or a short phrase, for example, `Product:Office`, `Domain:NLP`, `Scenario:Image Classification`. |
-| is_deterministic    | boolean                                                  | No       | Whether the component will always generate the same result when given the same input data. The default is `True`. Should be set to `False` for components which will load data from external resources, for instance, importing data from a given url, since the data may be updated. |
+| is_deterministic    | boolean                                                  | No       | Whether the component will always generate the same result when given the same input data. The default is `True`. Should be set to `False` for components that will load data from external resources, for instance, importing data from a given url, since the data may be updated. |
 | inputs              | Dictionary&lt;string, [Input](reference-component-yaml.md#inputs)&gt; | No       | Defines input ports and parameters of the component. The string key is the name of the input, which must be a valid Python variable name. |
 | outputs             | Dictionary&lt;string, [Output](reference-component-yaml.md#outputs)&gt;                    | No       | Defines output ports of the component. The string key is the name of the output, which must be a valid Python variable name. |
 | code                | string                                                   | No       | Path to the source code. |
@@ -101,7 +101,7 @@ The following table explains the fields in the the example. For a full list of a
 
 Your Python script contains the executable logic for your component. Your script tells Azure Machine Learning what you want your component to do.
 
-In order to run, you must match the arguments for your Python script with those you defined in the YAML specification. The following example is a Python training script that matches the YAML specification from the previous section.
+To run, you must match the arguments for your Python script with the arguments you defined in the YAML specification. The following example is a Python training script that matches the YAML specification from the previous section.
 
 ```python
 ## Required imports 
