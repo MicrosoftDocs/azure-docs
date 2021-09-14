@@ -7,34 +7,12 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 09/14/2021
 ---
 
 # Add schemas to validate XML in Azure Logic Apps
 
-To check that documents use valid XML and have the expected data in the predefined format for enterprise integration scenarios in Azure Logic Apps, your logic app can use schemas. A schema can also validate messages that logic apps exchange in business-to-business (B2B) scenarios.
-
-If you're new to logic apps, review the following documentation:
-
-* [What is Azure Logic Apps - Resource type and host environments](logic-apps-overview.md#resource-type-and-host-environment-differences)
-
-* [Create an integration workflow with single-tenant Azure Logic Apps (Standard)](create-single-tenant-workflows-azure-portal.md)
-
-* [Create single-tenant logic app workflows](create-single-tenant-workflows-azure-portal.md)
-
-* [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
-
-## Limits
-
-* For **Standard** logic app resources, no limits exist for schema file sizes.
-
-* For **Consumption** logic app resources, limits exist for integration accounts and artifacts such as schemas. For more information, review [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
-
-  Usually, when you're using an integration account with your workflow and you want to validate XML, you add or upload the schema to that account. If you're referencing or importing a schema that's not in your integration account, you might receive the following error when you use the element `xsd:redefine`:
-
-  `An error occurred while processing the XML schemas: ''SchemaLocation' must successfully resolve if <redefine> contains any child other than <annotation>.'.`
-
-  To resolve this error, you need to use the element `xsd:import` or `xsd:include` instead of `xsd:redefine`, or use a URI.
+To check that documents use valid XML and have the expected data in the predefined format for enterprise integration scenarios in Azure Logic Apps, your logic app can use schemas. A schema can also validate messages that logic apps exchange in business-to-business (B2B) scenarios. If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md#resource-type-and-host-environment-differences).
 
 ## Prerequisites
 
@@ -61,11 +39,11 @@ If you're new to logic apps, review the following documentation:
 
   * Exists in the same location or Azure region as your logic app resource where you plan to use the **XML Validation** action.
 
-  * If you use the **Logic App (Consumption)** resource type, you have to [link your integration account to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use your artifacts.
+  * If you use the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you have to [link your integration account to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use your artifacts.
 
-    To create and add schemas for use in Consumption logic app workflows, you don't need a logic app resource yet. However, when you're ready to use those schemas in your workflows, your logic app resource requires a linked integration account that stores those schemas.
+    To create and add schemas for use in **Logic App (Consumption)** workflows, you don't need a logic app resource yet. However, when you're ready to use those schemas in your workflows, your logic app resource requires a linked integration account that stores those schemas.
 
-  * If you use the **Logic App (Standard)** resource type, you don't store schemas and maps in your integration account. Instead, you can add schemas directly to your logic app resource in either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
+  * If you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you don't store schemas and maps in your integration account. Instead, you can add schemas directly to your logic app resource in either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
 
     You still need an integration account for your partners, agreements, and certificates along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so this capability doesn't exist. Your integration account has to still meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
 
@@ -78,7 +56,19 @@ If you're new to logic apps, review the following documentation:
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, choose a step: <p>- In the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. <p>- For the desktop version, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md).  |
     |||
 
-  To add larger maps for Consumption logic app resources, you can also use the [Azure Logic Apps REST API - Schemas](/rest/api/logic/schemas/create-or-update). However, for Standard logic app resources, the Azure Logic Apps REST API is currently unavailable.
+  To add larger schemas for the **Logic App (Consumption)** resource type, you can also use the [Azure Logic Apps REST API - Schemas](/rest/api/logic/schemas/create-or-update). However, for the **Logic App (Standard)** resource type, the Azure Logic Apps REST API is currently unavailable.
+
+## Limits
+
+* For **Logic App (Standard)**, no limits exist for schema file sizes.
+
+* For **Logic App (Consumption)**, limits exist for integration accounts and artifacts such as schemas. For more information, review [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+
+  Usually, when you're using an integration account with your workflow and you want to validate XML, you add or upload the schema to that account. If you're referencing or importing a schema that's not in your integration account, you might receive the following error when you use the element `xsd:redefine`:
+
+  `An error occurred while processing the XML schemas: ''SchemaLocation' must successfully resolve if <redefine> contains any child other than <annotation>.'.`
+
+  To resolve this error, you need to use the element `xsd:import` or `xsd:include` instead of `xsd:redefine`, or use a URI.
 
 <a name="add-schemas"></a>
 
