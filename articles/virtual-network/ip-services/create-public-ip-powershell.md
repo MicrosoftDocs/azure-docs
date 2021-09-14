@@ -69,6 +69,9 @@ New-AzPublicIpAddress @ip
 
 # [**Basic SKU**](#tab/create-public-ip-basic)
 
+>[!NOTE]
+>Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
+
 ## Create a basic SKU public IP
 
 In this section, you'll create a basic IP. Basic public IPs don't support availability zones.
