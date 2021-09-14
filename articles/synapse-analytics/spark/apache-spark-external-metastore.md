@@ -5,6 +5,8 @@ keywords: external Hive metastore,share,Synapse
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
+ms.author: yanacai 
+author: yanancai
 ms.date: 09/08/2021
 ---
 
@@ -141,7 +143,7 @@ If the underlying data of your Hive tables are stored in Azure Blob storage acco
 3.	Provide **Name** of the linked service. Record the name of the linked service, this info will be used in Spark session configuration shortly.
 4.	Select the Azure Blob Storage account. Make sure Authentication method is **Account key**. Currently Spark pool can only access Blob Storage account via account key.
 5.	**Test connection** and click **Create**.
-6.	After creating the linked service to Blob Storage account, when you run Spark queries, make sure you run below Spark code in the notebook to get access to the the Blob Storage account for the Spark session. Learn more about why you need to do this [here](../synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary.md).
+6.	After creating the linked service to Blob Storage account, when you run Spark queries, make sure you run below Spark code in the notebook to get access to the the Blob Storage account for the Spark session. Learn more about why you need to do this [here](./apache-spark-secure-credentials-with-tokenlibrary.md).
 
 ```
 %%pyspark
@@ -159,7 +161,7 @@ After setting up storage connections, you can query the existing tables in the H
 ## Known limitations
 
 - Synapse Studio object explorer will continue to show objects in managed Synapse metastore instead of the external HMS, we are improving the experience of this.
-- [SQL <-> spark synchronization](../synapse-analytics/sql/develop-storage-files-spark-tables.md) doesn’t work when using external HMS.  
+- [SQL <-> spark synchronization](../sql/develop-storage-files-spark-tables.md) doesn’t work when using external HMS.  
 - Only Azure SQL Database is supported as external Hive Metastore database. Only SQL authorization is supported.
 - Currently Spark only works external Hive tables and non-transactional/non-ACID managed Hive tables. It doesn’t support Hive ACID/transactional tables now.
 - Apache Ranger integration is not supported as of now.
@@ -206,7 +208,7 @@ spark.hadoop.hive.metastore.schema.verification false
 spark.hadoop.hive.synapse.externalmetastore.schema.usedefault false
 ```
 
-If you need to migrate your HMS version, we recommend using [hive schema tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool). And if the HMS has been used by HDInsight clusters, we suggest using [HDI provided version](./interactive-query/apache-hive-migrate-workloads.md). 
+If you need to migrate your HMS version, we recommend using [hive schema tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool). And if the HMS has been used by HDInsight clusters, we suggest using [HDI provided version](../hdinsight/interactive-query/apache-hive-migrate-workloads.md). 
 
 ### When sharing the metastore with HDInsight 4.0 Spark clusters, I cannot see the tables
 If you want to share the Hive catalog with a spark cluster in HDInsight 4.0, please ensure your property `spark.hadoop.metastore.catalog.default` in Synapse spark aligns with the value in HDInsight spark. The default value is `Spark`.
