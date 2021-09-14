@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a public IP address prefix - Azure CLI'
 titlesuffix: Azure Virtual Network
-description: Learn how to create a public IP address prefix using Azure CLI.
+description: Learn how to create a public IP address prefix using the Azure CLI.
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
@@ -11,7 +11,7 @@ ms.date: 09/14/2021
 ms.author: allensu
 ---
 
-# Quickstart: Create a public IP address prefix using Azure CLI
+# Quickstart: Create a public IP address prefix using the Azure CLI
 
 Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix is a contiguous range of standard SKU public IP addresses. 
 
@@ -72,7 +72,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 28 \
-    --name myPublicIpPrefix \
+    --name myPublicIpPrefix-zonal \
     --resource-group myResourceGroup \
     --location eastus2 \
     --version IPv4 \
@@ -89,7 +89,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 28 \
-    --name myPublicIpPrefix \
+    --name myPublicIpPrefix-nozone \
     --resource-group myResourceGroup \
     --location eastus2 \
     --version IPv4
@@ -126,7 +126,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 124 \
-    --name myPublicIpPrefix \
+    --name myPublicIpPrefix-zonal \
     --resource-group myResourceGroup \
     --location eastus2 \
     --version IPv6 \
@@ -143,7 +143,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 124 \
-    --name myPublicIpPrefix \
+    --name myPublicIpPrefix-nozone \
     --resource-group myResourceGroup \
     --location eastus2 \
     --version IPv6
@@ -225,4 +225,4 @@ When you're done with the public IP prefix, delete the resource group and all of
 
 Advance to the next article to learn how to create a public IP prefix using Azure PowerShell:
 > [!div class="nextstepaction"]
-> [Create public IP prefix using Azure PowerShell](create-public-ip-prefix-powershell.md)
+> [Create public IP using the Azure CLI](create-public-ip-cli.md)

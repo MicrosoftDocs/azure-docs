@@ -200,7 +200,7 @@ New-AzPublicIpAddress @ipv4
 
 # [**IPv6 address**](#tab/ipv6-address)
 
-To create a IPv6 public IP prefix, enter **IPv6** in the **`-IpAddressVersion`** parameter.
+To create a IPv6 public IP address, enter **IPv6** in the **`-IpAddressVersion`** parameter.
 ```azurepowershell-interactive
 $pf =@{
     Name = 'myPublicIpPrefix'
