@@ -28,11 +28,11 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named **myResourceGroup** in the **eastus2** location.
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named **QuickStartCreateIPPrefix-rg** in the **eastus2** location.
 
 ```azurepowershell-interactive
 $rg =@{
-    Name = 'myResourceGroup'
+    Name = 'QuickStartCreateIPPrefix-rg'
     Location = 'eastus2'
 }
 New-AzResourceGroup @rg
@@ -61,7 +61,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`-IpAddressVersion`**
 ```azurepowershell-interactive
 $ipv4 =@{
     Name = 'myPublicIpPrefix'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
     Location = 'eastus2'
     PrefixLength = '28'
     IpAddressVersion = 'IPv4'
@@ -77,7 +77,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`-IpAddressVersion`**
 ```azurepowershell-interactive
 $ipv4 =@{
     Name = 'myPublicIpPrefix-zonal'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
     Location = 'eastus2'
     PrefixLength = '28'
     IpAddressVersion = 'IPv4'
@@ -96,7 +96,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`-IpAddressVersion`**
 ```azurepowershell-interactive
 $ipv4 =@{
     Name = 'myPublicIpPrefix-nozone'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
     Location = 'eastus2'
     PrefixLength = '28'
     IpAddressVersion = 'IPv4'
@@ -119,7 +119,7 @@ To create a IPv4 public IP prefix, enter **IPv6** in the **`-IpAddressVersion`**
 ```azurepowershell-interactive
 $ipv6 =@{
     Name = 'myPublicIpPrefix'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
     Location = 'eastus2'
     PrefixLength = '124'
     IpAddressVersion = 'IPv6'
@@ -135,7 +135,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`-IpAddressVersion`**
 ```azurepowershell-interactive
 $ipv6 =@{
     Name = 'myPublicIpPrefix-zonal'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
     Location = 'eastus2'
     PrefixLength = '124'
     IpAddressVersion = 'IPv6'
@@ -154,7 +154,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`-IpAddressVersion`**
 ```azurepowershell-interactive
 $ipv6 =@{
     Name = 'myPublicIpPrefix-nozone'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
     Location = 'eastus2'
     PrefixLength = '124'
     IpAddressVersion = 'IPv6'
@@ -181,13 +181,13 @@ To create a IPv4 public IP address, enter **IPv4** in the **`-IpAddressVersion`*
 ```azurepowershell-interactive
 $pf =@{
     Name = 'myPublicIpPrefix'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
 }
 $prefix = Get-AzPublicIpPrefix @pf
 
 $ipv4 =@{
     Name = 'myPublicIpAddress'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
     Location = 'eastus2'
     Sku = 'Standard'
     Tier = 'Regional'
@@ -204,13 +204,13 @@ To create a IPv6 public IP address, enter **IPv6** in the **`-IpAddressVersion`*
 ```azurepowershell-interactive
 $pf =@{
     Name = 'myPublicIpPrefix'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
 }
 $prefix = Get-AzPublicIpPrefix @pf
 
 $ipv6 =@{
     Name = 'myPublicIpAddress'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
     Location = 'eastus2'
     Sku = 'Standard'
     Tier = 'Regional'
@@ -235,7 +235,7 @@ To delete a public IP prefix, use [Remove-AzPublicIpPrefix](/powershell/module/a
 ```azurepowershell-interactive
 $pr =@{
     Name = 'myPublicIpPrefix'
-    ResourceGroupName = 'myResourceGroup'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
 }
 Remove-AzPublicIpPrefix @pr
 ```
@@ -250,7 +250,7 @@ In this article, you created a public IP prefix and a public IP from that prefix
 When you're done with the public IP prefix, delete the resource group and all of the resources it contains:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -ResourceGroupName 'myResourceGroup'
+Remove-AzResourceGroup -ResourceGroupName 'QuickStartCreateIPPrefix-rg'
 ```
 
 ## Next steps
