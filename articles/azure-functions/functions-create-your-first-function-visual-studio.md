@@ -153,13 +153,13 @@ Before you can publish your project, you must have a function app in your Azure 
 
 1. Right-click the function app and choose **Open in Browser**. This opens the root of your function app in your default web browser and displays the page that indicates your function app is running. 
 
-::: zone pivot="programming-runtime-functions-v3"
+    ::: zone pivot="programming-runtime-functions-v3"
     :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="Function app running":::
-::: zone-end
+    ::: zone-end
     
-::: zone pivot="programming-runtime-functions-v4"
+    ::: zone pivot="programming-runtime-functions-v4"
     :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure-v4.png" alt-text="Function app running":::
-::: zone-end
+    ::: zone-end
 
 1. In the address bar in the browser, append the string `/api/HttpExample?name=Functions` to the base URL and run the request.
 
