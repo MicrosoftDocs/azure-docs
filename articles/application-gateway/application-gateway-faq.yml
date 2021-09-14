@@ -76,10 +76,10 @@ sections:
           Set-AzPublicIpAddress -PublicIpAddress $publicIP
           ```
  
-       - question: Can I rename my Application Gateway resource?
+      - question: Can I rename my Application Gateway resource?
         answer: No. There is no way to rename an Application Gateway resource. You must create a new resource with a different name. 
         
-       - question: Is there a way to restore an Application Gateway and its public IP if it has been deleted?
+      - question: Is there a way to restore an Application Gateway and its public IP if it has been deleted?
         answer: No. There is no way to restore an Application Gateway resource or its pubilc ip once deleted. You must create a new resource.
         
       - question: Does the IP or DNS name change over the lifetime of the application gateway?
