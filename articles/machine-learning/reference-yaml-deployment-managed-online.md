@@ -17,32 +17,47 @@ ms.reviewer: laobri
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-### YAML syntax [ TO DO ]
- 
-| Key | Description |
-| --- | --- |
-| name  | The name of the deployment. |
-| model | The name of the registered model version in the form `model: azureml:my-model:1`. You can also specify model properties inline: `name`, `version`, and `local_path`. The model files will be uploaded and registered automatically. A downside of inline specification is that you must increment the version manually if you want to update the model files.|
-| code_configuration.code.local_path | The directory that contains all the Python source code for scoring the model. Nested directories/packages are supported. |
-| code_configuration.scoring_script | The Python file in the above scoring directory. This Python code must have an `init()` function and a `run()` function. The function `init()` will be called after the model is created or updated (you can use it to cache the model in memory, and so forth). The `run()` function is called at every invocation of the endpoint to do the actual scoring/prediction. |
-| environment | Contains the details of the Azure Machine Learning environment to host the model and code. As a best practice for production, you should separately register the model and environment and specify the registered name and version in the YAML. For example, `environment: azureml:my-env:1`. |
-| instance_type | The VM SKU to host your deployment instances. For more information, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md).|
-| scale_settings.scale_type | Currently, this value must be `manual`. To scale up or scale down after the endpoint and deployment are created, update the `instance_count` in the YAML and run the command `az ml endpoint update -n $ENDPOINT_NAME --file <yaml filepath>`. |
-| scale_settings.instance_count | The number of instances in the deployment. Base the value on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. |
-| scale_settings.min_instances | The minimum number of instances to always be present. |
-| scale_settings.max_instances | The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances. |
-| request_settings.request_timeout_ms | The scoring timeout in milliseconds. The default value is 5000 for managed online endpoints. |
-| request_settings.max_concurrent_requests_per_instance | The number of maximum concurrent requests per node allowed per deployment. Defaults to 1. __Do not change this setting from the default value of 1 unless instructed by Microsoft Technical Support or a member of Azure Machine Learning team.__ |
-| request_settings.max_queue_wait_ms | The maximum amount of time a request will stay in the queue (in milliseconds). Defaults to 500. |
-| liveness_probe | Liveness probe monitors the health of the container regularly. |
-| liveness_probe.period | How often (in seconds) to perform the liveness probe. Defaults to 10 seconds. Minimum value is 1. |
-| liveness_probe.initial_delay | The number of seconds after the container has started before liveness probes are initiated. Defaults to 10. |
-| liveness_probe.timeout | The number of seconds after which the liveness probe times out. Defaults to 2 seconds. Minimum value is 1. |
-| liveness_probe.failure_threshold | The system will try failure_threshold times before giving up. Defaults to 30. Minimum value is 1. |
-| liveness_probe.success_threshold | The minimum consecutive successes for the liveness probe to be considered successful after having failed. Defaults to 1. Minimum value is 1. |
-| readiness_probe | Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe. |
-| tags | A dictionary of Azure Tags you want associated with the deployment. |
-| description | A description of the deployment. |
+## YAML syntax
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
+| `name` | string | **Required.** Name of the deployment. | | |
+| `description` | string | Description of the deployment. | | |
+| `tags` | object | Dictionary of tags for the deployment. | | |
+| `endpoint_name` | string | **Required.** Name of the endpoint to create the deployment under. | | |
+| `model` | string or object | **Required.** The model to use for the deployment. This can be either a reference to an existing versioned model in the workspace or an inline model specification. <br><br> To reference an existing model use the `azureml:<model-name>:<model-version>` syntax. <br><br> To define a model inline please follow the [Model schema](reference-yaml-model.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the model separately and reference it here. | | |
+| `model_mount_path` | string | The path to mount the model in a custom container. | | |
+| `code_configuration` | object | Configuration for the scoring code logic. | | |
+| `code_configuration.code.local_path` | string | Local path to the source code directory for scoring the model. | | |
+| `code_configuration.scoring_script` | string | Relative path to the scoring file in the source code directory. | | |
+| `environment` | string or object | The environment to use for the deployment. This can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline please follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
+| `instance_type` | string | **Required.** The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md). | | |
+| `instance_count` | string | **Required.** The number of instances to use for the deployment. Specify the value based on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. `instance_count` can be updated after deployment creation using `az ml online-deployment update` command. | | |
+| `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
+| `scale_settings` | object | The scale settings for the deployment. Currently only the `default` scale type is supported, so you do not need to specify this property. For this scale type you can manually scale the instance count up and down after deployment creation by updating the `instance_count` property. | | |
+| `scale_settings.type` | string | The scale type. | `default` | `default` |
+| `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
+| `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
+| `readiness_probe` | object | Readiness probe settings for validating if the container is ready to serve traffic. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
+
+### RequestSettings
+
+| Key | Type | Description | Default value |
+| --- | ---- | ----------- | ------------- |
+| `request_timeout_ms` | integer | The scoring timeout in milliseconds. | `5000` |
+| `max_concurrent_requests_per_instance` | integer | The maximum number of concurrent requests per instance allowed for the deployment. **Do not change this setting from the default value unless instructed by Microsoft Technical Support or a member of the Azure ML team.** | `1` |
+| `max_queue_wait_ms` | integer | The maximum amount of time in milliseconds a request will stay in the queue. | `500` |
+
+### ProbeSettings
+
+| Key | Type | Description | Default value |
+| --- | ---- | ----------- | ------------- |
+| `period` | integer | How often (in seconds) to perform the probe. | `10` |
+| `initial_delay` | integer | The number of seconds after the container has started before the probe is initiated. Minimum value is `1`. | `10` |
+| `timeout` | integer | The number of seconds after which the probe times out. Minimum value is `1`. | `2` |
+| `success_threshold` | integer | The minimum consecutive successes for the probe to be considered successful after having failed. Minimum value is `1`. | `1` |
+| `failure_threshold` | integer | When a probe fails, the system will try `failure_threshold` times before giving up. Giving up in case of liveness probe means restarting the container. In case of readiness probe the container will be marked Unready. Minimum value is `1`. | `30` |
 
 ## Remarks
 
