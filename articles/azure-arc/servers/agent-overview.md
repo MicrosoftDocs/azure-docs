@@ -172,7 +172,7 @@ Azure Arc-enabled servers depend on the following Azure resource providers in yo
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
 
-If they are not registered, you can register them using the followin commands:
+If they are not registered, you can register them using the following commands:
 
 Azure PowerShell:
 
@@ -322,12 +322,12 @@ Azure Arc-enabled servers Connected Machine agent is designed to manage agent an
 - The Extension Service agent is limited to use up to 5% of the CPU.
 
    - This only applies to install/uninstall/upgrade operations. Once installed, extensions are responsible for their own resource utilization and the 5% CPU limit does not apply.
-   - The Log Analytics agent and Azure Monitor Agent is allowed to use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) on these systems.
+   - The Log Analytics agent and Azure Monitor Agent are allowed to use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) on these systems.
 
 ## Next steps
 
 * To begin evaluating Azure Arc-enabled servers, follow the article [Connect hybrid machines with Azure Arc-enabled servers](learn/quick-enable-hybrid-vm.md).
 
-* Before deploying the Azure Arc-enabled servers agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).
+* Before you deploy the Azure Arc-enabled servers agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).
 
 * Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
