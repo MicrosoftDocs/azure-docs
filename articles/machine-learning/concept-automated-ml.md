@@ -124,9 +124,25 @@ See examples of regression and automated machine learning for predictions in the
 AutoML for Images adds support for computer vision tasks, allowing data scientists to easily generate models trained on image data for scenarios like Image Classification, Object Detection and Instance Segmentation. 
 
 Customers across various industries are looking to leverage machine learning to build models that can process image data. Applications range from image classification of fashion photos to PPE detection in industrial environments. Typical manual methods for building computer vision models can involve a tedious process of iteratively finding the right set of model algorithms and hyperparameters, requiring significant data scientist time and effort. 
-With AutoML for Images, Azure ML customers can easily build models trained on image data, without writing any training code. They can seamlessly integrate with Azure ML's Data Labeling capability and use this labeled data for generating image models. They can optimize model performance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging AzureML MLOps and ML Pipelines capabilities.
+With AutoML for Images, Azure ML customers can easily build models trained on image data, without writing any training code. They can seamlessly integrate with Azure ML's Data Labeling capability and use this labeled data for generating image models. They can optimize model performance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging AzureML [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities.
+
 AutoML for Images supports the following computer vision tasks -
 
+####Multi-class Image Classification
+Tasks where an image is classified with only a single label from a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'
+
+####Multi-label Image Classification
+Tasks where an image could have one or more labels from a set of labels - e.g. an image could be labeled with both 'cat' and 'dog'
+
+####Object Detection
+Tasks to identify objects in an image and locate each object with a bounding box e.g. locate all dogs and cats in an image and draw a bounding box around each.
+
+####Instance Segmentation
+Tasks to identify objects in an image at the pixel level, drawing a polygon around each object in the image.
+
+Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation runs, models and outputs can be accessed from the Azure ML Studio UI.
+
+Learn more about AutoML for Images capabilities in this how-to guide: 'How to auto-train an image model' <insert link to the how-to>
 
 ## How automated ML works
 
