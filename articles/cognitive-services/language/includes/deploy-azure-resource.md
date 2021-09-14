@@ -12,7 +12,7 @@ ms.author: aahi
 To use Language Studio, you will need an Azure resource for language for authentication. You can also use this resource to call the feature REST APIs and client libraries. Follow these steps to get started. 
 
 > [!IMPORTANT] 
-> If you want to use one of the custom features, we recommend following the associated quickstart article.The setup process and requirements for these features are different, and the articles linked above will help you get started more easily.  
+> The setup process and requirements for the custom features are different. If you're using one of the custom features, we recommend following one of the quickstart articles linked below to get started more easily.  
 > * [Conversational Language Understanding](../custom-language-understanding/quickstart.md)
 > * [Custom Text Classification](../custom-classification/quickstart/using-language-studio.md)
 > * [Custom Named Entity Recognition (NER)](../custom-named-entity-recognition/quickstart.md) 

@@ -50,10 +50,12 @@ We offer quickstarts in several popular programming languages, each designed to 
 
 * [Sentiment Analysis and Opinion Mining quickstart](sentiment-opinion-mining/quickstart.md)
 * [NER and PII quickstart](named-entity-recognition/quickstart.md)
-* [Summarization quickstart](text-summarization/quickstart.md)
+* [Text summarization quickstart](text-summarization/quickstart.md)
 * Question answering quickstart
 * [Custom classification quickstart](custom-question-answering/overview.md)
 * [Custom conversational language understanding quickstart](custom-language-understanding/quickstart.md) 
+
+## Tutorials
 
 After you've had a chance to get started with the Language service, try our tutorials that show you how to solve various scenarios.
 
@@ -61,13 +63,14 @@ After you've had a chance to get started with the Language service, try our tuto
 * Tutorial: Extract information in Excel with the Language SDK, C#
 * Tutorial: Add knowledge bases in multiple languages with Language SDK, C# 
 
-## Get sample code
+## Additional sample code
 
-Sample code is available on GitHub for the Language service. These samples cover common scenarios like creating a knowledgebase, getting answers to a question, and working with custom models. Use these links to view SDK and REST samples:
-* Question Answering samples (SDK)
-* Information extraction (PII, key phrases, linked/named entities, custom text) samples (SDK)
-* Text Classification (sentiment analysis, language detection, custom classification) samples (SDK)
-* Conversational Language Understanding samples (SDK) 
+You can find additional code samples on GitHub for the following languages:
+
+* [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+* [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+* [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples)
+* [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 ## Deploy on premises using Docker containers 
 Use Language service containers to deploy API features on-premises. These Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. The Language service offers the following containers:
