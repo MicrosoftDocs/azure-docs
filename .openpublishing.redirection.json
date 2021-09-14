@@ -57177,6 +57177,20 @@
       "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-53-r4.md",
       "redirect_url": "/azure/governance/policy/samples/nist-sp-800-53-r4",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/export-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-stream-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/code-sample-export-sql-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-sql-stream-analytics",
+      "redirect_document_id": false
     }
   ]
 }
+
+
+
+ 
