@@ -97,7 +97,7 @@ This CloudFormation template is available for download from the Microsoft Downlo
 
 **To prepare your RDS database with a CloudFormation template**:
 
-1. Download the CloudFormation .yaml template required for this procedure from the Microsoft Download site: <x>.
+1. Download the CloudFormation .yaml template required for this procedure from the Microsoft Download site.
 
 1. In the AWS portal, navigate to the **CloudFormation** service and select **Create stack**.
 
