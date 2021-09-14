@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 To add or deactivate custom security attributes, you must have:
 
 - Azure AD Premium P1 or P2 license
-- Attribute Definition Administrator
+- [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
 - [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using PowerShell
 
 > [!IMPORTANT]

@@ -25,7 +25,7 @@ You can delegate the management of custom security attributes to others in your 
 To manage access to custom security attributes, you must have:
 
 - Azure AD Premium P1 or P2 license
-- Attribute Assignment Administrator
+- [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
 
 > [!IMPORTANT]
 > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
@@ -117,10 +117,10 @@ The following table lists which roles to assign and the scope to read, manage, a
 
 1. Add assignments to one of the following roles:
 
-    - Attribute Assignment Administrator
-    - Attribute Assignment Reader
-    - Attribute Definition Administrator
-    - Attribute Definition Reader
+    - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
+    - [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader)
+    - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
+    - [Attribute Definition Reader](../roles/permissions-reference.md#attribute-definition-reader)
 
     > [!NOTE]
     > If you are using Azure AD Privileged Identity Management (PIM), eligible role assignments at attribute set scope currently aren't supported. Permanent role assignments at attribute set scope are supported, but the **Assigned roles** page for a user doesn't list the role assignments.
@@ -140,10 +140,10 @@ The following table lists which roles to assign and the scope to read, manage, a
 
 1. Add assignments to one of the following roles:
 
-    - Attribute Assignment Administrator
-    - Attribute Assignment Reader
-    - Attribute Definition Administrator
-    - Attribute Definition Reader
+    - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
+    - [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader)
+    - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
+    - [Attribute Definition Reader](../roles/permissions-reference.md#attribute-definition-reader)
 
 ## Next steps
 

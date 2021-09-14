@@ -51,7 +51,7 @@ Just like role assignments, to add or update conditions, you must be signed in t
 To use principal attributes, you must have **all** of the following:
 
 - Azure AD Premium P1 or P2 license
-- Attribute Assignment Administrator
+- [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
 - Custom security attributes defined in Azure AD
 
 For more information about custom security attributes, see:

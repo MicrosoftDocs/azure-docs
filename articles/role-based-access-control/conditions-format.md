@@ -158,7 +158,7 @@ Depending on the selected actions, the attribute might be found in different pla
 To use principal attributes, you must have **all** of the following:
 
 - Azure AD Premium P1 or P2 license
-- Azure AD permissions for signed-in user, such as the Attribute Assignment Administrator role
+- Azure AD permissions for signed-in user, such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role
 - Custom security attributes defined in Azure AD
 
 For more information about custom security attributes, see:

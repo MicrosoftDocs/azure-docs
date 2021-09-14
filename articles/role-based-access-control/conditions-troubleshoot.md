@@ -69,7 +69,7 @@ When you try to add a role assignment with a condition, **Principal** does not a
 
 Instead, you see the message:
 
-To use principal (user) attributes, you must have all of the following: Azure AD Premium P1 or P2 license, Azure AD permissions (such as the Attribute Assignment Administrator), and custom security attributes defined in Azure AD.
+To use principal (user) attributes, you must have all of the following: Azure AD Premium P1 or P2 license, Azure AD permissions (such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role), and custom security attributes defined in Azure AD.
 
 ![Screenshot showing principal message when adding a condition.](./media/conditions-troubleshoot/condition-principal-attribute-message.png)
 
@@ -78,7 +78,7 @@ To use principal (user) attributes, you must have all of the following: Azure AD
 You don't meet the prerequisites. To use principal attributes, you must have **all** of the following:
 
 - Azure AD Premium P1 or P2 license
-- Azure AD permissions for signed-in user, such as the Attribute Assignment Administrator role
+- Azure AD permissions for signed-in user, such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role
 - Custom security attributes defined in Azure AD
 
 > [!IMPORTANT]

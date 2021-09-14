@@ -27,7 +27,7 @@ Custom security attributes is a feature of Azure Active Directory (Azure AD) tha
 To assign or remove custom security attributes for a user in your Azure AD tenant, you need:
 
 - Azure AD Premium P1 or P2 license
-- Attribute Assignment Administrator
+- [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
 - [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using PowerShell
 
 > [!IMPORTANT]

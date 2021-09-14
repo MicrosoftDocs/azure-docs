@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 To assign custom security attributes and add role assignments conditions in your Azure AD tenant, you need:
 
 - Azure AD Premium P1 or P2 license
-- Attribute Assignment Administrator
+- [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
 - [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 > [!IMPORTANT]
