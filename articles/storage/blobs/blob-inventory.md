@@ -352,4 +352,4 @@ An object replication policy can prevent an inventory job from writing inventory
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
-- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

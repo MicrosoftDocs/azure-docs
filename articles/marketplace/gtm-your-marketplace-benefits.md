@@ -15,6 +15,9 @@ You've published to Microsoft's commercial marketplace, now you want to see your
 
 Once your offer is live on Microsoft AppSource or Azure Marketplace, go to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165457) to access and activate your eligible marketing, sales, and technical benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
 
+> [!NOTE]
+> Currencies ($) referenced in images in this article are Marketplace Reward benefit tiers, which are based on cumulative billed sales or seats sold through Microsoft AppSource and Azure Marketplace.
+
 ## Marketplace Rewards
 
 Marketplace Rewards is designed to support you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the commercial marketplace, you unlock new benefits designed to help you convert customers and close deals.
