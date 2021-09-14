@@ -1,17 +1,17 @@
 ---
-title: Create a public IP using a Resource Manager template
+title: 'Quickstart: Create a public IP using a Resource Manager template'
 titleSuffix: Azure Virtual Network
 description: Learn how to create a public IP using a Resource Manager template
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: how-to
-ms.date: 05/20/2021
+ms.topic: quickstart
+ms.date: 09/20/2021
 ms.author: allensu
 
 ---
-# Create a public IP address using a Resource Manager template
+# Quickstart: Create a public IP address using a Resource Manager template
 
 This article shows how to create a public IP address resource within a Resource Manager template.
 
@@ -29,9 +29,9 @@ In this section, you'll create a public IP with zones. Public IP addresses can b
 
 ### Zone redundant
 
-The code in this section creates a standard zone-redundant public IPv4 address named **myStandardZRPublicIP**.
+The code in this section creates a standard zone-redundant public IPv4 address named **myStandardPublicIP**.
 
-To create an IPv6 address, modify the **publicIPAddressVersion** parameter to **IPv6**.
+To create an IPv6 address, modify the **`publicIPAddressVersion`** parameter to **IPv6**.
 
 Template section to add:
 
@@ -39,7 +39,7 @@ Template section to add:
     {
       "apiVersion": "2020-08-01",
       "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardZRPublicIP",
+      "name": "myStandardPublicIP",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard"
@@ -63,7 +63,7 @@ Template section to add:
 
 ### Zonal
 
-The code in this section creates a standard zonal public IPv4 address named **myStandardZonalPublicIP**. 
+The code in this section creates a standard zonal public IPv4 address named **myStandardPublicIP-zonal**. 
 
 To create a standard zonal public IP address in Zone 2, the **"zones"** property contains a '2'.
 
@@ -73,7 +73,7 @@ Template section to add:
     {
       "apiVersion": "2020-08-01",
       "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardZonalPublicIP",
+      "name": "myStandardPublicIP-zonal",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard"
@@ -104,7 +104,7 @@ Template section to add:
     {
       "apiVersion": "2020-08-01",
       "type": "Microsoft.Network/publicIPAddresses",
-      "name": "myStandardPublicIP",
+      "name": "myStandardPublicIP-nozone",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard"
