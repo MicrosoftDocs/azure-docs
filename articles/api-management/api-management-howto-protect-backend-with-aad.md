@@ -51,7 +51,7 @@ For details about app registration, see [Quickstart: Configure an application to
    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, such as *backend-app*. 
    - In the **Supported account types** section, select an option that suits your scenario. 
 
-1. Leave the **Redirect URI** section empty.
+1. Leave the [**Redirect URI**](https://docs.microsoft.com/azure/active-directory/develop/reply-url) section empty.
 
 1. Select **Register** to create the application. 
 
@@ -113,7 +113,9 @@ Now that you have registered two applications to represent the API and the Devel
 
 1. Under **Select an API**, select **My APIs**, and then find and select your backend-app.
 
-1. Under **Delegated Permissions**, select the appropriate permissions to your backend-app, then select **Add permissions**.
+1. Select **Delegated Permissions**, then select the appropriate permissions to your backend-app.
+
+1. Select **Add permissions**.
 
 Optionally:
 1. Navigate to your client app's **API permissions** page.
@@ -125,11 +127,16 @@ At this point, you have created your applications in Azure AD, and have granted 
 
 In this example, you enable OAuth 2.0 user authorization in the Developer Console (the client app).
 
-1. In Azure portal, browse to your API Management instance.
+1. In the Azure portal, find and the **Authorization endpoint URL** and **Token endpoint URL** and save them for later. 
+    1. Open the **App registrations** page. 
+    1. Select **Endpoints**.
+    1. Copy the **OAuth 2.0 Authorization Endpoint** and the **OAuth 2.0 Token Endpoint**. 
+
+1. Browse to your API Management instance.
 
 1. Under the **Developer portal** section in the side menu, select **OAuth 2.0 + OpenID Connect**. 
 
-1. Under **OAuth 2.0**, select **Add**.
+1. Under the **OAuth 2.0** tab, select **Add**.
 
 1. Provide a **Display name** and **Description**.
 
@@ -139,19 +146,17 @@ In this example, you enable OAuth 2.0 user authorization in the Developer Consol
 
 1. For **Authorization grant types**, select **Authorization code**.
 
-1. Specify the **Authorization endpoint URL** and **Token endpoint URL**: 
-    1. Open the **App registrations** page in a new tab. 
-    1. Select **Endpoints**.
+1. Specify the **Authorization endpoint URL** and **Token endpoint URL** you saved earlier: 
     1. Copy and paste the **OAuth 2.0 Authorization Endpoint** into the **Authorization endpoint URL** text box. 
     1. Select **POST** under Authorization request method.
-    1. Copy the **OAuth 2.0 Token Endpoint**, and paste it into the **Token endpoint URL** text box. 
+    1. Enter the  the **OAuth 2.0 Token Endpoint**, and paste it into the **Token endpoint URL** text box. 
         * If you use the **v1** endpoint:
           * Add a body parameter named **resource**.
           * Enter the back-end app **Application ID** for the value.
         * If you use the **v2** endpoint:
           * Use the back-end app scope you created in the **Default scope** field.
           * Set the value for the [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) property to `2` in your [application manifest](../active-directory/develop/reference-app-manifest.md).
-          * 
+          
 
    >[!IMPORTANT]
    > While you can use either **v1** or **v2** endpoints, we recommend using v2 endpoints. 
@@ -160,23 +165,23 @@ In this example, you enable OAuth 2.0 user authorization in the Developer Consol
     * For **Client ID**, use the **Application ID** of the client-app.
     * For **Client secret**, use the key you created for the client-app earlier. 
 
-1. Make note of the **redirect_url** for the authorization code grant type.
+1. Make note of the **Redirect URI** for the authorization code grant type.
 
 1. Select **Create**.
 
 1. Return to your client-app registration. 
-1. 
+ 
 1. Under **Manage**, select **Authentication**.
 
 1. Under **Platform configurations**:
     * Click on **Add a platform**.
     * Select the type as **Web**. 
-    * Paste the **redirect_url** under **Redirect URI**.
+    * Paste the redirect URI you saved earlier under **Redirect URIs**.
     * Click on **Configure** button to save.
 
 Now that the Developer Console can obtain access tokens from Azure AD via your OAuth 2.0 authorization server, enable OAuth 2.0 user authorization for your API. This enables the Developer Console to know that it needs to obtain an access token on behalf of the user, before making calls to your API.
 
-1. Browse to your API Management instance, and go to **APIs**.
+14. Browse to your API Management instance, and go to **APIs**.
 
 1. Select the API you want to protect. For example, `Echo API`.
 
