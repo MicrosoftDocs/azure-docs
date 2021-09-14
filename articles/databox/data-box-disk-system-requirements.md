@@ -59,8 +59,8 @@ For Windows client, following should also be installed.
 
 For Linux client, the Data Box Disk toolset installs the following required software:
 
-- dislocker
-- OpenSSL
+- `Dislocker`
+- `OpenSSL`
 
 ## Supported connection
 
