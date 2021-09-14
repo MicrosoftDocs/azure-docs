@@ -1,5 +1,5 @@
 ---
-title: How to backup and recover speech customization resources
+title: How to back up and recover speech customization resources
 titleSuffix: Azure Cognitive Services
 description: Learn how to prepare for service outages with Custom Speech and Custom Voice. 
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 07/28/2021
 ms.author: mitagaki
 ---
 
-# Backup and recover speech customization resources
+# Back up and recover speech customization resources
 
-The Speech service is [available in various regions](/azure/cognitive-services/speech-service/regions). Service subscription keys are tied to a single region. When you acquire a key, you select a specific region, where your data, model and deployments reside.
+The Speech service is [available in various regions](./regions.md). Service subscription keys are tied to a single region. When you acquire a key, you select a specific region, where your data, model and deployments reside.
 
 Datasets for customer-created data assets, such as customized speech models and custom voice fonts, are also **available only within the service-deployed region**. Such assets are:
 
@@ -39,14 +39,14 @@ If you use our default endpoints, you should configure your client code to monit
 
 Follow these steps to configure your client to monitor for errors:
 
-1.  Find the [list of regionally available endpoints in our documentation](/azure/cognitive-services/speech-service/rest-speech-to-text).
+1.  Find the [list of regionally available endpoints in our documentation](./rest-speech-to-text.md).
 2.  Select a primary and one or more secondary/backup regions from the list.
 3. From Azure portal, create Speech Service resources for each region.
-    -  If you have set a specific quota, you may also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits).
+    -  If you have set a specific quota, you may also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](./speech-services-quotas-and-limits.md).
 
 4.  Note that each region has its own STS token service. For the primary region and any backup regions your client configuration file needs to know the:
     -  Regional Speech service endpoints
-    -  [Regional subscription key and the region code](/azure/cognitive-services/speech-service/rest-speech-to-text)
+    -  [Regional subscription key and the region code](./rest-speech-to-text.md)
 
 5.  Configure your code to monitor for connectivity errors (typically connection timeouts and service unavailability errors). Here is sample code in C#: [GitHub: Adding Sample for showing a possible candidate for switching regions](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/fa6428a0837779cbeae172688e0286625e340942/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L965).
 
@@ -67,8 +67,8 @@ Custom Speech Service does not support automatic failover. We suggest the follow
 
 1.  Create your custom model in one main region (Primary).
 2.  Run the [Model Copy API](https://eastus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to replicate the custom model to all prepared regions (Secondary).
-3.  Go to Speech Studio to load the copied model and create a new endpoint in the secondary region. See how to deploy a new model in [Train and deploy a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model).
-    -  If you have set a specific quota, also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits).
+3.  Go to Speech Studio to load the copied model and create a new endpoint in the secondary region. See how to deploy a new model in [Train and deploy a Custom Speech model](./how-to-custom-speech-train-model.md).
+    -  If you have set a specific quota, also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](./speech-services-quotas-and-limits.md).
 4.  Configure your client to fail over on persistent errors as with the default endpoints usage.
 
 Your client code can monitor availability of your deployed models in your primary region, and redirect their audio traffic to the secondary region when the primary fails. If you do not require real-time failover, you can still follow these steps to prepare for a manual failover.
@@ -77,7 +77,7 @@ Your client code can monitor availability of your deployed models in your primar
 
 If you do not require real-time failover you can decide to import your data, create and deploy your models in the secondary region at a later time with the understanding that these tasks will take time to complete.
 
-#### Failover Tests
+#### Failover time requirements
 
 This section provides general guidance about timing. The times were recorded to estimate offline failover using a [representative test data set](https://github.com/microsoft/Cognitive-Custom-Speech-Service).
 
@@ -98,7 +98,7 @@ Custom Voice does not support automatic failover. Handle real-time synthesis fai
 
 When custom voice real-time synthesis fails, fail over to a public voice (client sample code: [GitHub: custom voice failover to public voice](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs#L899)).
 
-Check the [public voices available](/azure/cognitive-services/speech-service/language-support#neural-voices). You can also change the sample code above if you would like to fail over to a different voice or in a different region.
+Check the [public voices available](./language-support.md#neural-voices). You can also change the sample code above if you would like to fail over to a different voice or in a different region.
 
 **Option 2: Fail over to custom voice on another region.**
 

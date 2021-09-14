@@ -91,7 +91,7 @@ Roles (Users) are global objects and needed to be migrated separately to the new
 To dump all the roles from the source server:
 
 ```azurecli-interactive
-pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser -- dbname=mySourceDB > roles.sql
+pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser --database=mySourceDB > roles.sql
 ```
 
 and restore it using psql to the target server:
@@ -193,6 +193,14 @@ You can consider this method if you have few larger tables in your database and 
 
 > [!TIP]
 > The process mentioned in this document can also be used to upgrade your Azure Database for PostgreSQL - Flexible server, which is in Preview. The main difference is the connection string for the flexible server target is without the `@dbName`.  For example, if the user name is `pg`, the single server’s username in the connect string will be `pg@pg-95`, while with flexible server, you can simply use `pg`.
+
+## Post upgrade/migrate
+After the major version upgrade is complete, we recommend to run the `ANALYZE` command  in each database to refresh the `pg_statistic` table. Otherwise, you may run into performance issues.
+
+```SQL
+postgres=> analyze;
+ANALYZE
+```
 
 ## Next steps
 
