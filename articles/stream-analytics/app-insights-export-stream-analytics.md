@@ -42,7 +42,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
 1. In the Azure portal, browse to the Application Insights resource you created for your application.
    
-    ![Choose Browse, Application Insights, your application](./media/eapp-insights-export-stream-analyticss/050.png)
+    ![Choose Browse, Application Insights, your application](./media/app-insights-export-stream-analytics/050.png)
 2. Create a continuous export.
    
     ![Choose Settings, Continuous Export, Add](./media/app-insights-export-stream-analytics/060.png)
@@ -70,7 +70,7 @@ The events are written to blob files in JSON format. Each file may contain one o
 
 From the [Azure portal](https://portal.azure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
 
-![Screenshot that shows the main page for creating Stream Analytics job in the Azure portal.](./media/app-insights-export-stream-analyticss/SA001.png)
+![Screenshot that shows the main page for creating Stream Analytics job in the Azure portal.](./media/app-insights-export-stream-analytics/SA001.png)
 
 ![Screenshot that shows the details needed when creating a new Stream Analytics job.](./media/app-insights-export-stream-analytics/SA002.png)
 
@@ -80,7 +80,7 @@ When the new job is created, select **Go to resource**.
 
 ### Add a new input
 
-![Screenshot that shows how to add inputs to the Stream Analytics job.](./media/app-insights-export-stream-analyticsSA004.png)
+![Screenshot that shows how to add inputs to the Stream Analytics job.](./media/app-insights-export-stream-analytics/SA004.png)
 
 Set it to take input from your Continuous Export blob:
 
@@ -184,7 +184,7 @@ FROM flat
 
 You can select a date in the past to start the job from.
 
-![Select the job and click Query. Paste the sample below.](./media/app-insights-export-stream-analyticss/SA008.png)
+![Select the job and click Query. Paste the sample below.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Wait until the job is Running.
 
