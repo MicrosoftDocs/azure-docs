@@ -1,7 +1,7 @@
 ---
 title: How to work with your management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 06/11/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Manage your resources with management groups

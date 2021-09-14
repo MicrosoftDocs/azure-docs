@@ -12,6 +12,10 @@
   items:
   - name: Restrict network access
     href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Concepts
   expanded: true
   items:

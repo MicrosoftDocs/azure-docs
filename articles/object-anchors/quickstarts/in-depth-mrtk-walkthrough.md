@@ -13,7 +13,7 @@ ms.service: azure-object-anchors
 
 This guide provides an in-depth coverage of the [Azure Object Anchors MRTK Unity sample application](get-started-unity-hololens-mrtk.md). It's intended to provide insight into the design of the sample. By reading this guide, developers can accelerate their understanding of key Azure Object Anchors concepts in the sample.
 
-## Project Layout
+## Project layout
 
 Assets created for the Azure Object Anchors MRTK Unity sample are stored in `Assets\MixedReality.AzureObjectAnchors`. Subfolders are as follows:
 
@@ -30,7 +30,7 @@ Assets created for the Azure Object Anchors MRTK Unity sample are stored in `Ass
 - **Scripts**
   - Contains the scripts written for the sample.
 
-## Unity Scene
+## Unity scene
 
 **Mixed Reality Play Space** –  Mostly boilerplate MRTK
 
@@ -47,7 +47,7 @@ Assets created for the Azure Object Anchors MRTK Unity sample are stored in `Ass
   - Contains MRTK scripts associated with controlling a bounding box.
   - Also contains a `ModelVis` child object, which is used for visualizing the Azure Object Anchors model before a detection has occurred to help alignment during tricky detections.
 
-## Menu Walkthrough
+## Menu walkthrough
 
 Before diving into the scripts, let us first go through the menu items. This way we can reference how these menu items interact with the scripts.
 

@@ -12,6 +12,8 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 
 # Create a Windows virtual machine from a Resource Manager template
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 Learn how to create a Windows virtual machine by using an Azure Resource Manager template and Azure PowerShell from the Azure Cloud shell. The template used in this article deploys a single virtual machine running Windows Server in a new virtual network with a single subnet. For creating a Linux virtual machine, see [How to create a Linux virtual machine with Azure Resource Manager templates](../linux/create-ssh-secured-vm-from-template.md).
 
 An alternative is to deploy the template from the Azure portal. To open the template in the portal, select the **Deploy to Azure** button.

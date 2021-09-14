@@ -4,7 +4,7 @@ description: Learn how to add managed disks to an Azure disk pool or disable iSC
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
 ---

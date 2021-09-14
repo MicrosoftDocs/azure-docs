@@ -2,14 +2,14 @@
 title: Quickstart - Provision and activate an Azure Managed HSM
 description: Quickstart showing how to provision and activate a managed HSM using Azure CLI
 services: key-vault
-author: amitbapat
+author: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 06/21/2021
-ms.author: ambapat
+ms.author: mbaldwin
 
 #Customer intent:As a security admin who is new to Azure, I want to provision and activate a managed HSM
 ---
@@ -26,7 +26,6 @@ To complete the steps in this article, you must have the following items:
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-* A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

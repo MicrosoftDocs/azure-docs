@@ -22,13 +22,13 @@ This article helps you troubleshoot Microsoft Customer Agreement (MCA) billing i
 
 By using the information from your usage files, you can get a better understanding of usage issues and diagnose them. Usage files are generated in comma delimited (CSV) format. Because the usage files might be large CSV files, they're easier to manipulate and view as pivot tables in a spreadsheet application like Excel. Examples in this article use Excel, but you can use any spreadsheet application that you want.
 
-Only Billing profile owners, Contributors, Readers, or Invoice Managers have access to download usage files. For more information, see [Download usage for your Microsoft Customer Agreement](./download-azure-invoice-daily-usage-date.md#download-usage-for-your-microsoft-customer-agreement). 
+Only Billing profile owners, Contributors, Readers, or Invoice Managers have access to download usage files. For more information, see [Download usage for your Microsoft Customer Agreement](../understand/download-azure-daily-usage.md). 
 
 ## Get the data and format it
 
 Because Azure usage files are in CSV format, you need to prepare the data for use in Excel. Use the following steps to format the data as a table.
 
-1. Download the usage file using the instructions at [Download usage in Azure portal](./download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal).
+1. Download the usage file using the instructions at [Download usage in Azure portal](../understand/download-azure-daily-usage.md).
 1. Open the file in Excel.
 1. The unformatted data resembles the following example.  
     :::image type="content" source="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/raw-csv-data-mca.png" alt-text="Example showing unformatted data" lightbox="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/raw-csv-data-mca.png" :::

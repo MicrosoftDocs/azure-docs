@@ -23,6 +23,8 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on yo
 > [!TIP]
 > Deploying a model from a Jupyter Notebook on a compute instance, to a web service on the same VM is a _local deployment_. In this case, the 'local' computer is the compute instance. For more information on deployments, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
+
 ## Prerequisites
 
 - An Azure Machine Learning workspace with a compute instance running. For more information, see [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).

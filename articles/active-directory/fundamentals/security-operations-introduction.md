@@ -87,7 +87,7 @@ Microsoft has many products and services that enable you to customize your IT en
 
    * [Investigate risk with Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
 
-   * [Connect Azure AD Identity Protection data to Azure Sentinel](../../sentinel/connect-azure-ad-identity-protection.md)
+   * [Connect Azure AD Identity Protection data to Azure Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
 
 * Active Directory Domain Services (AD DS)
 
@@ -105,7 +105,7 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -139,7 +139,7 @@ For the best results, we recommend that you monitor your domain controllers usin
 
 * [Connect Microsoft Defender for Identity to Active Directory quickstart](/defender-for-identity/install-step2)
 
-If you do not plan to use Microsoft Defender for identity, you can monitor your domain controllers either by event log messages or by running PowerShell cmdlets. 
+If you do not plan to use Microsoft Defender for identity, you can [monitor your domain controllers either by event log messages](/windows-server/identity/ad-ds/plan/security-best-practices/monitoring-active-directory-for-signs-of-compromise) or by [running PowerShell cmdlets](/windows-server/identity/ad-ds/deploy/troubleshooting-domain-controller-deployment). 
 
 ## Components of hybrid authentication
 

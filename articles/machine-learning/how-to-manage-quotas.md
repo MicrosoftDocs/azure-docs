@@ -18,7 +18,7 @@ ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 Azure uses limits and quotas to prevent budget overruns due to fraud, and to honor Azure capacity constraints. Consider these limits as you scale for production workloads. In this article, you learn about:
 
 > [!div class="checklist"]
-> + Default limits on Azure resources related to [Azure Machine Learning](overview-what-is-azure-ml.md).
+> + Default limits on Azure resources related to [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
 > + Creating workspace-level quotas.
 > + Viewing your quotas and limits.
 > + Requesting quota increases.

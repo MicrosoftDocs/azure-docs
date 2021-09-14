@@ -4,7 +4,7 @@ description: Learn how to get the most performance out of an Azure disk pool.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -60,8 +60,6 @@ If your disk pool becomes inaccessible to your Azure VMware Solution cloud for a
 - All datastores associated to the disk pool will no longer be accessible.
 - All VMware VMs hosted in this Azure VMware Solution cloud what is using the impacted datastores will be in an unhealthy state.
 - The health of clusters in this Azure VMware Solution cloud won't be impacted, except for one operation: You won't be able to place a host into maintenance mode. Azure VMware Solution will handle this failure and attempt recovery by disconnecting the impacted datastores.
-
-If you enter this state, follow these [steps](disks-pools-troubleshoot.md#recover-a-disk-pool-or-an-iscsi-target) to recover your disk pool.
 
 ## Next steps
 

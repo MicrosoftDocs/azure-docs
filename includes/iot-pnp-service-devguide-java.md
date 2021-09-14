@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 10/20/2020
 ---
@@ -14,7 +14,7 @@ The following resources are also available:
 
 ## IoT Hub service client examples
 
-This section shows Java examples using the IoT Hub service client and the **DeviceTwin** and **DeviceMethod** classes from the **com.microsoft.azure.sdk.iot.service.devicetwin** namespace. You use the **DeviceTwin** class to interact with the device state using device twins. You can also use the **DeviceTwin** class to [query device registrations](../articles/iot-hub/iot-hub-devguide-query-language.md) in your IoT Hub. You use the **DeviceMethod** class to call commands on the device. The [DTDL](../articles/iot-pnp/concepts-digital-twin.md) model for the device defines the properties and commands the device implements. In the code snippets, the `deviceId` variable holds the device ID of the IoT Plug and Play device registered with your IoT hub.
+This section shows Java examples using the IoT Hub service client and the **DeviceTwin** and **DeviceMethod** classes from the **com.microsoft.azure.sdk.iot.service.devicetwin** namespace. You use the **DeviceTwin** class to interact with the device state using device twins. You can also use the **DeviceTwin** class to [query device registrations](../articles/iot-hub/iot-hub-devguide-query-language.md) in your IoT Hub. You use the **DeviceMethod** class to call commands on the device. The [DTDL](../articles/iot-develop/concepts-digital-twin.md) model for the device defines the properties and commands the device implements. In the code snippets, the `deviceId` variable holds the device ID of the IoT Plug and Play device registered with your IoT hub.
 
 ### Get the device twin and model ID
 
@@ -110,7 +110,7 @@ System.out.println("Method result status is: " + result.getStatus());
 
 ## IoT Hub digital twin examples
 
-You use the **DigitalTwinAsyncClient** class in the **com.microsoft.azure.sdk.iot.service.digitaltwin** namespace to interact with the device state using digital twins. The following examples also use the **UpdateOperationUtility** and **BasicDigitalTwin** classes from the same namespace. The [DTDL](../articles/iot-pnp/concepts-digital-twin.md) model for the device defines the properties and commands the device implements.
+You use the **DigitalTwinAsyncClient** class in the **com.microsoft.azure.sdk.iot.service.digitaltwin** namespace to interact with the device state using digital twins. The following examples also use the **UpdateOperationUtility** and **BasicDigitalTwin** classes from the same namespace. The [DTDL](../articles/iot-develop/concepts-digital-twin.md) model for the device defines the properties and commands the device implements.
 
 The `digitalTwinid` variable holds the device ID of the IoT Plug and Play device registered with your IoT hub.
 

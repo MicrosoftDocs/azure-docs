@@ -43,7 +43,7 @@ Spark provides two types of tables that Azure Synapse exposes in SQL automatical
 
   Spark also provides ways to create external tables over existing data, either by providing the `LOCATION` option or using the Hive format. Such external tables can be over a variety of data formats, including Parquet.
 
-Azure Synapse currently only shares managed and external Spark tables that store their data in Parquet format with the SQL engines. Tables backed by other formats are not automatically synced. You may be able to sync such tables explicitly yourself as an external table in your own SQL database if the SQL engine supports the table's underlying format.
+Azure Synapse currently only shares managed and external Spark tables that store their data in Parquet or CSV format with the SQL engines. Tables backed by other formats are not automatically synced. You may be able to sync such tables explicitly yourself as an external table in your own SQL database if the SQL engine supports the table's underlying format.
 
 ### Share Spark tables
 
@@ -74,8 +74,6 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 | `array`     |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
 | `map`       |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
 | `struct`    |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
-
-<!-- TODO: Add precision and scale to the types mentioned above -->
 
 ## Security model
 
@@ -162,7 +160,7 @@ CREATE TABLE mytestdb.myexternalparquettable
 
 Replace the placeholder `<fs>` with the file system name that is the workspace default file system and the placeholder `<synapse_ws>` with the name of the synapse workspace you're using to run this example.
 
-The previous example creates the table `myextneralparquettable` in the database `mytestdb`. After a short delay, you can see the table in your serverless SQL pool. For example, run the following statement from your serverless SQL pool.
+The previous example creates the table `myexternalparquettable` in the database `mytestdb`. After a short delay, you can see the table in your serverless SQL pool. For example, run the following statement from your serverless SQL pool.
 
 ```sql
 USE mytestdb;
@@ -189,5 +187,3 @@ id | name | birthdate
 
 - [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
 - [Learn more about Azure Synapse Analytics' shared metadata database](database.md)
-
-

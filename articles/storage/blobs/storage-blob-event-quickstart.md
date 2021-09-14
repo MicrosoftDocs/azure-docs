@@ -4,7 +4,7 @@ description: Use Azure Event Grid to subscribe to Blob storage events. Send the 
 author: normesta
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 03/05/2020
+ms.date: 08/11/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs 
@@ -155,3 +155,4 @@ Now that you know how to create topics and event subscriptions, learn more about
 
 - [Reacting to Blob storage events](storage-blob-event-overview.md)
 - [About Event Grid](../../event-grid/overview.md)
+- [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md)

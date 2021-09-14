@@ -2,8 +2,7 @@
 title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 ms.topic: article
-ms.date: 03/09/2021
-ms.custom: devx-track-csharp
+ms.date: 08/30/2021
 ---
 
 # Best Practices for performance improvements using Service Bus Messaging
@@ -63,7 +62,7 @@ You can also utilize Azure Monitor to [automatically scale the Service Bus names
 
 ### Sharding across namespaces
 
-While scaling up Compute (Messaging Units) allocated to the namespace is an easier solution, it **may not** provide a linear increase in the throughput. This is because of Service Bus internals (storage, network, etc.) which may be limiting the throughput.
+While scaling up Compute (Messaging Units) allocated to the namespace is an easier solution, it **may not** provide a linear increase in the throughput. This is because of Service Bus internals (storage, network, etc.), which may be limiting the throughput.
 
 The cleaner solution in this case is to shard your entities (queues, and topics) across different Service Bus Premium namespaces. You may also consider sharding across different namespaces in different Azure regions.
 
@@ -109,7 +108,7 @@ Service Bus client objects, such as `QueueClient` or `MessageSender`, are create
 The following note applies to all SDKs:
 
 > [!NOTE]
-> Establishing a connection is an expensive operation that you can avoid by reusing the same factory and client objects for multiple operations. You can safely use these client objects for concurrent asynchronous operations and from multiple threads.
+> Establishing a connection is an expensive operation that you can avoid by reusing the same factory or client objects for multiple operations. You can safely use these client objects for concurrent asynchronous operations and from multiple threads.
 
 ## Concurrent operations
 Operations such as send, receive, delete, and so on, take some time. This time includes the time that the Service Bus service takes to process the operation and the latency of the request and the response. To increase the number of operations per time, operations must execute concurrently.

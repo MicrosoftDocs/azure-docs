@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 07/19/2021
 ms.custom: devx-track-js
 ---
 

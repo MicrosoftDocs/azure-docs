@@ -1,22 +1,24 @@
 ---
 title: Transform data using Spark activity
-description: Learn how to transform data by running Spark programs from an Azure Data Factory pipeline using the Spark Activity. 
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to transform data by running Spark programs from an Azure Data Factory or Synapse Analytics pipeline using the Spark Activity. 
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
-ms.date: 06/09/2021
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
-# Transform data using Spark activity in Azure Data Factory
+# Transform data using Spark activity in Azure Data Factory and Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-spark.md)
 > * [Current version](transform-data-using-spark.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Spark activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, Data Factory automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
+The Spark activity in a data factory and Synapse [pipelines](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, the service automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
 
 
 ## Spark activity properties
@@ -69,7 +71,7 @@ The following table describes the JSON properties used in the JSON definition:
 ## Folder structure
 Spark jobs are more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the java CLASSPATH), python files (placed on the PYTHONPATH), and any other files.
 
-Create the following folder structure in the Azure Blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate sub folders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, Data Factory service expects the following folder structure in the Azure Blob storage:     
+Create the following folder structure in the Azure Blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate sub folders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, the service expects the following folder structure in the Azure Blob storage:     
 
 | Path                  | Description                              | Required | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
@@ -122,5 +124,5 @@ See the following articles that explain how to transform data in other ways:
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
 * [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Azure Machine Learning Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
+* [ML Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

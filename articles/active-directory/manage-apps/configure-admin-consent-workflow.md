@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: davidmu
-ms.reviewer: luleon
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ---
 
@@ -121,7 +121,7 @@ The table below outlines the scenarios and audit values available for the admin 
 
 **I turned on this workflow, but when testing out the functionality, why can’t I see the new “Approval required” prompt allowing me to request access?**
 
-After turning on the feature, it may take up to 60 minutes for end users to see the update. You can verify that the configuration has properly taken effect by viewing the **EnableAdminConsentRequests** value in the `https://graph.microsoft.com/beta/settings` API.
+After turning on the feature, it may take up to 60 minutes for end users to see the update, though it's usually available to all users within a few minutes.
 
 **As a reviewer, why can’t I see all pending requests?**
 

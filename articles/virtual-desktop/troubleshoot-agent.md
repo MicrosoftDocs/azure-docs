@@ -138,7 +138,7 @@ To resolve this issue:
 3. Make sure the [agent service is running](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) and the [stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
 4. Make sure [the agent can connect to the broker](#error-agent-cannot-connect-to-broker-with-invalid_form).
 5. Make sure [your VM has a valid registration token](#error-invalid_registration_token).
-6. Make sure [the VM registration token hasn't expired](faq.md#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
+6. Make sure [the VM registration token hasn't expired](/azure/virtual-desktop/faq#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
 
 ## Error: InstallMsiException
 
@@ -375,5 +375,5 @@ If the issue continues, create a support case and include detailed information a
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

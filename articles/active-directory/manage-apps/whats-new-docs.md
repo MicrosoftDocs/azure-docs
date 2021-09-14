@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 07/12/2021
+ms.date: 09/08/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,11 +9,50 @@ ms.workload: identity
 ms.author: davidmu
 author: davidmu1
 manager: CelesteDG
+reviewer: napuri
 ---
 
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## August 2021
+
+### New articles
+
+- [Protecting against consent phishing](protect-against-consent-phishing.md)
+
+### Updated articles
+
+- [Configure permission classifications](configure-permission-classifications.md)
+- [Configure group owner consent to apps accessing group data](configure-user-consent-groups.md)
+- [Take action on over privileged or suspicious applications in Azure Active Directory](manage-application-permissions.md)
+- [Managing consent to applications and evaluating consent requests](manage-consent-requests.md)
+- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
+- [Quickstart: Add an application to your tenant](add-application-portal.md)
+- [Assign users and groups to an enterprise application](assign-user-or-group-access-portal.md)
+- [Managing access to apps](what-is-access-management.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Plan Azure Active Directory My Apps configuration](my-apps-deployment-plan.md)
+- [Advanced certificate signing options in a SAML token](certificate-signing-options.md)
+- [Create collections on the My Apps portal](access-panel-collections.md)
+
+
+## July 2021
+
+### Updated articles
+
+- [Create collections on the My Apps portal](access-panel-collections.md)
+- [Quickstart: Assign users to an application](add-application-portal-assign-users.md)
+- [Quickstart: Configure properties for an application](add-application-portal-configure.md)
+- [Quickstart: Set up OIDC-based single sign-on for an application](add-application-portal-setup-oidc-sso.md)
+- [Quickstart: Set up SAML-based single sign-on for an application](add-application-portal-setup-sso.md)
+- [Quickstart: Add an application to your tenant](add-application-portal.md)
+- [Quickstart: Delete an application from your tenant](delete-application-portal.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Quickstart: View the list of applications that are using your Azure Active Directory (Azure AD) tenant for identity management](view-applications-portal.md)
+- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
+
 
 ## June 2021
 

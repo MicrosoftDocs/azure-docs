@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Arc-enabled SQL Managed Instance with hig
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
@@ -81,26 +81,26 @@ Capabilities that availability groups enable:
 To deploy a managed instance with availability groups, run the following command.
 
 ```azurecli
-az sql mi-arc create -n <name of instance> --replicas 3
+az sql mi-arc create -n <name of instance> --replicas 3 --k8s-namespace <namespace> --use-k8s
 ```
 
 ### Check status
 Once the instance has been deployed, run the following commands to check the status of your instance:
 
 ```azurecli
-az sql mi-arc list
-az sql mi-arc show -n <name of instance>
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
+az sql mi-arc show -n <name of instance> --k8s-namespace <namespace> --use-k8s
 ```
 
 Example output:
 
 ```output
-user@pc:/# az sql mi-arc list
+user@pc:/# az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ExternalEndpoint    Name    Replicas    State
 ------------------  ------  ----------  -------
 20.131.31.58,1433   sql2    3/3         Ready
 
-user@pc:/#  az sql mi-arc show -n sql2
+user@pc:/#  az sql mi-arc show -n sql2 --k8s-namespace <namespace> --use-k8s
 {
 ...
   "status": {

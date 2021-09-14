@@ -1,15 +1,17 @@
 ---
 title: Copy data from Amazon Simple Storage Service (S3)
-description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores by using Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores using Azure Data Factory or Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
-# Copy data from Amazon Simple Storage Service by using Azure Data Factory
+# Copy data from Amazon Simple Storage Service using Azure Data Factory or Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 >
 > * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
@@ -17,10 +19,10 @@ ms.date: 03/17/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data from Amazon Simple Storage Service (Amazon S3). To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to copy data from Amazon Simple Storage Service (Amazon S3). To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!TIP]
->To learn more about the data migration scenario from Amazon S3 to Azure Storage, see [Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md).
+>To learn more about the data migration scenario from Amazon S3 to Azure Storage, see [Migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md).
 
 ## Supported capabilities
 
@@ -48,6 +50,30 @@ For the full list of Amazon S3 permissions, see [Specifying Permissions in a Pol
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
 
+## Create an Amazon Simple Storage Service (S3) linked service using UI
+
+Use the following steps to create an Amazon S3 linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Amazon and select the Amazon S3 connector.
+
+    :::image type="content" source="media/connector-amazon-simple-storage-service/amazon-simple-storage-service-connector.png" alt-text="Screenshot of the Amazon S3 connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-amazon-simple-storage-service/configure-amazon-simple-storage-service-linked-service.png" alt-text="Screenshot of configuration for an Amazon S3 linked service.":::
+
+## Connector configuration details
+
 The following sections provide details about properties that are used to define Data Factory entities specific to Amazon S3.
 
 ## Linked service properties
@@ -59,8 +85,8 @@ The following properties are supported for an Amazon S3 linked service:
 | type | The **type** property must be set to **AmazonS3**. | Yes |
 | authenticationType | Specify the authentication type used to connect to Amazon S3. You can choose to use access keys for an AWS Identity and Access Management (IAM) account, or [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).<br>Allowed values are: `AccessKey` (default) and `TemporarySecurityCredentials`. |No |
 | accessKeyId | ID of the secret access key. |Yes |
-| secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| sessionToken | Applicable when using [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) authentication. Learn how to [request temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) from AWS.<br>Note AWS temporary credential expires between 15 minutes to 36 hours based on settings. Make sure your credential is valid when activity executes， especially for operationalized workload - for example, you can refresh it periodically and store it in Azure Key Vault.<br>Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| sessionToken | Applicable when using [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) authentication. Learn how to [request temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) from AWS.<br>Note AWS temporary credential expires between 15 minutes to 36 hours based on settings. Make sure your credential is valid when activity executes， especially for operationalized workload - for example, you can refresh it periodically and store it in Azure Key Vault.<br>Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | serviceUrl | Specify the custom S3 endpoint `https://<service url>`. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
@@ -243,7 +269,7 @@ This section describes the resulting behavior of using a file list path in a Cop
 
 Assume that you have the following source folder structure and want to copy the files in bold:
 
-| Sample source structure                                      | Content in FileListToCopy.txt                             | Data Factory configuration                                            |
+| Sample source structure                                      | Content in FileListToCopy.txt                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Bucket: `bucket`<br>- Folder path: `FolderA`<br><br>**In Copy activity source:**<br>- File list path: `bucket/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line, with the relative path to the path configured in the dataset. |
 
@@ -266,7 +292,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as is for backward compatibility. We suggest that you use the new model mentioned earlier. The Data Factory authoring UI has switched to generating the new model.
+>The following models are still supported as is for backward compatibility. We suggest that you use the new model mentioned earlier. The authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -389,4 +415,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ```
 
 ## Next steps
-For a list of data stores that the Copy activity in Azure Data Factory supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that the Copy activity supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

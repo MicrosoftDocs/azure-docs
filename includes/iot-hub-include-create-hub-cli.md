@@ -39,7 +39,7 @@ To create an IoT hub and a resource group:
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
     ```
     > [!TIP]
-    > After creating an IoT hub, in the rest of this quickstart you can continue to use CLI commands to interact with the hub. Optionally, you could use Azure IoT Explorer in place of the CLI commands. IoT Explorer is a GUI application that lets you connect to an existing IoT Hub and add, manage, and monitor devices. To learn more, see [Install and use Azure IoT explorer](../articles/iot-pnp/howto-use-iot-explorer.md).
+    > After creating an IoT hub, in the rest of this quickstart you can continue to use CLI commands to interact with the hub. Optionally, you could use Azure IoT Explorer in place of the CLI commands. IoT Explorer is a GUI application that lets you connect to an existing IoT Hub and add, manage, and monitor devices. To learn more, see [Install and use Azure IoT explorer](../articles/iot-fundamentals/howto-use-iot-explorer.md).
 
 ## Create a simulated device
 In this section, you create a simulated IoT device that is connected to your IoT hub. 

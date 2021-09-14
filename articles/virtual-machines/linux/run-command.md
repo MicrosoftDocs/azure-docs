@@ -13,6 +13,8 @@ manager: carmonm
 ---
 # Run shell scripts in your Linux VM by using Run Command
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 The Run Command feature uses the virtual machine (VM) agent to run shell scripts within an Azure Linux VM. You can use these scripts for general machine or application management. They can help you to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
 ## Benefits

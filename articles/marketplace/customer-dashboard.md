@@ -4,9 +4,10 @@ description: Learn how to access information about your customers, including gro
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
 ---
 
 # Customers dashboard in commercial marketplace analytics

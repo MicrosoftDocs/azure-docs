@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: dominicbetts
   ms.author: dobett
-  manager: philmea
+  
   ms.date: 09/16/2019
 
 landingContent:
@@ -30,11 +30,11 @@ landingContent:
           - text: Industrial IoT overview
             url: overview-iot-industrial.md
           - text: OPC Twin overview
-            url: overview-opc-twin.md
+            url: /previous-versions/azure/iot-accelerators/overview-opc-twin
           - text: OPC Vault overview
-            url: overview-opc-vault.md
+            url: /previous-versions/azure/iot-accelerators/overview-opc-vault
           - text: OPC Publisher overview
-            url: overview-opc-publisher.md
+            url: /previous-versions/azure/iot-accelerators/overview-opc-publisher
           - text: What is industrial IoT?
             url: iot-accelerators-connected-factory-features.md
       - linkListType: quickstart

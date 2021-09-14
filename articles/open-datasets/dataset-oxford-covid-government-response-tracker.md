@@ -140,7 +140,6 @@ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.h
 
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
 
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html (use lines=True for json lines)
 
 Start by loading the dataset file into a pandas dataframe and view some sample rows
 

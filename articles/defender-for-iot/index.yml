@@ -25,8 +25,8 @@ highlightedContent:
     - title: What's new for organizations?
       itemType: whats-new
       url: organizations/release-notes.md
-    - title: Agentless solution for organizations
-      itemType: overview
+    - title: Agentless solution architecture for organizations
+      itemType: architecture 
       url: organizations/architecture.md
     - title: What is Azure Defender for IoT for device builders?
       itemType: overview
@@ -34,8 +34,8 @@ highlightedContent:
     - title: What's new for device builders?
       itemType: whats-new
       url: device-builders/release-notes.md
-    - title: Agent-based solution for device builders
-      itemType: overview
+    - title: Agent-based solution architecture for device builders
+      itemType: architecture
       url: device-builders/architecture-agent-based.md
 
 conceptualContent:
