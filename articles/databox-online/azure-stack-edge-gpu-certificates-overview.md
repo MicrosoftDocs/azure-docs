@@ -177,7 +177,7 @@ The following Kubernetes certificates may be used with your Azure Stack Edge dev
 
 ## VPN certificates
 
-If VPN (Point-to-site) is configured on your  device, you can bring your own VPN certificate to ensure the communication is trusted. The root certificate is installed on the Azure VPN Gateway and the client certificates are installed on each client computer that connects to a VNet using Point-to-Site.
+If VPN (Point-to-site) is configured on your  device, you can bring your own VPN certificate to ensure the communication is trusted. The root certificate is installed on the Azure VPN Gateway and the client certificates are installed on each client computer that connects to a virtual network using Point-to-Site.
 
 #### Caveats
 
