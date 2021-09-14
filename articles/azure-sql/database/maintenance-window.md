@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 09/08/2021
+ms.date: 09/14/2021
 ---
 
 # Maintenance window (Preview)
@@ -75,7 +75,7 @@ Choosing a maintenance window other than the default is currently available in t
 |:---|:---|:---|:---|
 | Australia East | Yes | Yes | Yes |
 | Australia Southeast | Yes | Yes | |
-| Brazil South | Yes | Yes | Yes |
+| Brazil South | Yes | Yes |  |
 | Canada Central | Yes | Yes | Yes |
 | Canada East | Yes | Yes | |
 | Central India | Yes | Yes | |
