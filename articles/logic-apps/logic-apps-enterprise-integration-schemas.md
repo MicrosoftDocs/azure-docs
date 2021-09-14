@@ -40,7 +40,20 @@ If you're new to logic apps, review the following documentation:
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* If you're using the **Logic App (Standard)** resource type, you don't need an integration account. Instead, you can add schemas directly to your logic app resource in either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
+* To create schemas, you can use the following tools:
+
+  * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
+
+  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) extension.
+
+   > [!IMPORTANT]
+   > Don't install the extension alongside the BizTalk Server extension. Having both extensions might 
+   > produce unexpected behavior. Make sure that you only have one of these extensions installed.
+
+   > [!NOTE]
+   > On high resolution monitors, you might experience a [display problem with the map designer](/visualstudio/designers/disable-dpi-awareness) 
+   > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
+   > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
 * If you're using the **Logic App (Consumption)** resource type, you need to have an [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you can store your schemas and other artifacts to use in enterprise integration and business-to-business (B2B) solutions. This resource has to meet the following requirements:
 
@@ -51,6 +64,10 @@ If you're new to logic apps, review the following documentation:
   * Is [linked](logic-apps-enterprise-integration-create-integration-account.md#link-account) to your logic app resource when you want to use schemas.
 
     To create and add schemas for use in Consumption logic app workflows, you don't need a logic app resource yet. However, when you're ready to use those schemas in your workflows, your logic app resource requires a linked integration account that stores those schemas.
+
+* If you're using the **Logic App (Standard)** resource type, you don't store schemas and maps in your integration account. Instead, you can add maps directly to your logic app resource in either the Azure portal or Visual Studio Code. Only XSLT 1.0 is currently supported. You can then use these maps across multiple workflows within the *same logic app resource*.
+
+  You still need an integration account for your partners, agreements, and certificates along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so this capability doesn't exist. Your integration account has to still meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
 
 * If your schema is [2 MB or smaller](#smaller-schema), you can add your schema to your integration account *directly* from the Azure portal. However, if your schema is bigger than 2 MB but not bigger than the [size limit for schemas](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), you can upload your schema to an Azure storage account. To add that schema to your integration account, you can then link to your storage account from your integration account. For this task, here are the items you need:
 
