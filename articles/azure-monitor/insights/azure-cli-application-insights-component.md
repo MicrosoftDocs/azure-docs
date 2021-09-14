@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 
 # Manage Application Insights components by using Azure CLI
 
-In Azure Monitor, components are independently deployable parts of your distributed ormicroservices application. Use these Azure CLI commands to manage components in Application Insights.
+In Azure Monitor, components are independently deployable parts of your distributed or microservices application. Use these Azure CLI commands to manage components in Application Insights.
 
 - Create a component.
 - Connect a component to a webapp.
@@ -129,7 +129,5 @@ az group delete --name ContosoAppInsightRG
 - [az storage container create](/cli/azure/storage/container#az_storage_container_create)
 - [az storage container show](/cli/azure/storage/container#az_storage_container_show)
 - [az webapp create](/cli/azure/webapp#az_webapp_create)
-
-
 
 ## Next steps
