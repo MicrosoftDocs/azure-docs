@@ -11,6 +11,20 @@
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
       href: concept-azure-machine-learning-architecture.md
+    - name: "Migrate from ML Studio (classic)"
+      items: 
+        - name: Migration overview
+          href: migrate-overview.md
+        - name: Migrate datasets
+          href: migrate-register-dataset.md
+        - name: Rebuild experiments
+          href: migrate-rebuild-experiment.md
+        - name: Rebuild web services
+          href: migrate-rebuild-web-service.md
+        - name: Migrate client applications
+          href: migrate-rebuild-integrate-with-client-app.md
+        - name: Rebuild Execute R Script components
+          href: migrate-execute-r-script.md
 - name: Quickstart
   expanded: true
   items: 
@@ -249,8 +263,9 @@
             - name: Configure secure web services
               displayName: ssl, tls
               href: how-to-secure-web-service.md
-            - name: Configure Firewall
+            - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
+              displayName: firewall, user-defined route, udr
         - name: Data protection
           items:
             - name: Failover & disaster recovery
@@ -535,6 +550,8 @@
             items:
             - name: Batch scoring with batch endpoints
               href: how-to-use-batch-endpoint.md
+            - name: Batch endpoints in studio
+              href: how-to-use-batch-endpoints-studio.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
       - name: Deployment targets

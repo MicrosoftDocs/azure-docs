@@ -2,11 +2,11 @@
 title: SDKs and REST APIs for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn more about Azure Communication Services SDKs and REST APIs.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services

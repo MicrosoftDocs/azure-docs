@@ -16,7 +16,7 @@ ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
 ---
 
-# How to: Add app roles to your application and receive them in the token
+# Add app roles to your application and receive them in the token
 
 Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to roles, and not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 

@@ -6,7 +6,7 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 01/14/2021
+  ms.date: 09/07/2021
   ms.author: alkohli
   ms.subservice: common
     
@@ -95,14 +95,16 @@ sections:
       - question: |
           Do I have to ship my drives using FedEx or DHL?
         answer: |
-          You can ship drives to the Azure datacenter using any known carrier like FedEx, DHL, UPS, or US Postal Service. However, for return shipment of drives to you from the datacenter, you must provide:
+          You can ship drives to the Azure datacenter using any known carrier. We recommend that you use FedEx, DHL, or UPS. If you use the US Postal Service, be aware that the device is delivered to the nearest US Post Office instead of the datacenter, which can lead to significant delays.
+    
+          For return shipment of drives to you from the datacenter, you must provide: 
           
           - A FedEx account number in the US and EU, or
           - A DHL account number in the Asia and Australia regions.
-          
+
           > [!NOTE]
           > The datacenters in India require a declaration letter on your letterhead (delivery challan) to return the drives. To arrange the required entry pass, you must also book the pick up with your selected carrier and share the details with the datacenter.
-          
+              
       - question: |
           Are there any restrictions with shipping and returning my drive internationally?
         answer: |
@@ -127,6 +129,12 @@ sections:
           When shipping my drive, the carrier asks for the data center contact address and phone number. What should I provide?
         answer: |
           The phone number and DC address is provided as part of job creation.
+
+      - question: |
+          Why is my order status still Shipping when my device has already been delivered?
+        answer: |
+          After the carrier delivers a physical device, it takes 1 to 3 business days for the delivery to be processed in Azure Import/Export. When processing completes, the order's status will change to Received.
+
 
   - name: Miscellaneous
     questions:
