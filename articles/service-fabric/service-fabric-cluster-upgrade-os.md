@@ -45,6 +45,7 @@ Important notes to keep in mind:
 
     [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps):
     ```powershell
+    # Replace subscriptionId, resourceGroup, clusterName with ones corresponding to your cluster.
     $subscriptionId="cea219db-0593-4b27-8bfa-a703332bf433"
     Login-AzAccount; Select-AzSubscription -SubscriptionId $subscriptionId
 
@@ -58,6 +59,7 @@ Important notes to keep in mind:
 
     ```powershell
     $nodeTypeName="nt1u18"
+    # You can customize this to fetch a password from a secure store.
     $securePassword = ConvertTo-SecureString -String 'Yourpassword123!@#' -AsPlainText -Force
 
     # Ensure last upgrade is done - Ready means the next command can be issued.
