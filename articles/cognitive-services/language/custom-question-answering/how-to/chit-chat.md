@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/25/2021
 ---
 
-# Add Chit-chat to a knowledge base
+# Use Chit-chat with a knowledge base
 
 Adding chit-chat to your bot makes it more conversational and engaging. The chit-chat feature in custom question answering allows you to easily add a pre-populated set of the top chit-chat, into your knowledge base (KB). This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch.
 
@@ -75,8 +75,8 @@ Select your KB, and navigate to the **Settings** page. Your specific chit-chat s
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Import a knowledge base](../Tutorials/migrate-knowledge-base.md)
+> [Import a knowledge base](./migrate-knowledge-base.md)
 
 ## See also
-
-[QnA Maker overview](../Overview/overview.md)
+<!-- TODO: Replace Link-->
+[QnA Maker overview](../../../qnamaker/Overview/overview.md)
