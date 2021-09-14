@@ -28,12 +28,12 @@ Prior to following the steps in this article, you must have:
 
 ## Overview
 
-The following is a quick overview of the steps:
+:::image type="content" source="media/api-management-howto-protect-backend-with-aad/overview-graphic-2021.png" alt-text="Overview graphic to visually conceptualize the following flow.":::
 
 1. Register an application (backend-app) in Azure AD to represent the API.
 1. Register another application (client-app) in Azure AD to represent a client application that needs to call the API.
 1. In Azure AD, grant permissions to allow the client-app to call the backend-app.
-1. Configure the Developer Console to call the API using OAuth 2.0 user authorization.
+1. Configure the Developer Console in the developer portal to call the API using OAuth 2.0 user authorization.
 1. Add the **validate-jwt** policy to validate the OAuth token for every incoming request.
 
 ## 1. Register an application in Azure AD to represent the API
