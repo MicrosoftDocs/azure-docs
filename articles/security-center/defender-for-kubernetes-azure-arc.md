@@ -49,7 +49,7 @@ Before deploying the extension, ensure you:
         - *.ods.opinsights.azure.us
         - *.oms.opinsights.azure.us
         - :::no-loc text="login.microsoftonline.us":::
-    - For clusters on any other cloud deployment:
+    - For clusters on other Azure cloud deployments:
         - *.ods.opinsights.azure.com
         - *.oms.opinsights.azure.com
         - :::no-loc text="login.microsoftonline.com":::
