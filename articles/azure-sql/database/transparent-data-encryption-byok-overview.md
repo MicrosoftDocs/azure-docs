@@ -130,27 +130,6 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 - To remove a potentially compromised key during a security incident without the risk of data loss, follow the steps from the [Remove a potentially compromised key](transparent-data-encryption-byok-remove-tde-protector.md).
 
 
-## Rotation of TDE protector
-
-Rotating the logical TDE Protector for a server means switching to a new asymmetric key that protects the databases on the server. Key rotation is an online operation and should only take a few seconds to complete. The operation only decrypts and re-encrypts the database encryption key, not the entire database.
-
-Rotation of the TDE Protector can either be done manually or by using the autorotation feature. 
-
-[Automatic rotation of the TDE Protector](transparent-data-encryption-byok-key-rotation.md#automatic-key-rotation) can be enabled when configuring the TDE Protector for the server. Automatic rotation is disabled by default. When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE Protector. If a new version of the key is detected, the TDE Protector on the server will be automatically rotated to the latest key version within 60 minutes. 
-
-> [!NOTE]
-> Automatic rotation of the TDE Protector feature is currently in public preview for Azure SQL Database and Managed Instance.
-
-### GeoDR considerations when enabling autorotation of the TDE Protector
-
-To avoid issues while establishing or during geo-replication, when automatic rotation of the TDE Protector is enabled on the primary or secondary server, it's important to follow these rules when configuring geo-replication:
-
-- Both primary and secondary servers must be connected to the same key vault.
-
-- For a server with autorotation enabled, before initiating geo-replication, the encryption key and key vault being used as TDE Protector on the primary server must be set as the TDE Protector on the secondary server as well.
-
-- For an existing geo-replication setup, prior to enabling autorotation on the primary server, the secondary server's TDE Protector must be updated to use the same encryption key and key vault being used as TDE Protector on the primary. 
-
 ## Inaccessible TDE protector
 
 When TDE is configured to use a customer-managed key, continuous access to the TDE protector is required for the database to stay online. If the server loses access to the customer-managed TDE protector in AKV, in up to 10 minutes a database will start denying all connections with the corresponding error message and change its state to *Inaccessible*. The only action allowed on a database in the Inaccessible state is deleting it.
