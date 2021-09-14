@@ -180,7 +180,8 @@ You can also create data collection rules using the API ([see schema](/rest/api/
 ```http
 PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule?api-version=2019-11-01-preview
 ```
-**Request URL and header**
+
+**Request body**
 
 ```json
 {
