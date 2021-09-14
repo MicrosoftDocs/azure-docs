@@ -33,9 +33,7 @@ $rg =@{
 }
 New-AzResourceGroup @rg
 ```
-## Create standard SKU public IP with zones
-
-In this section, you'll create a public IP with zones. Public IP addresses can be zone-redundant or zonal.
+## Create public IP
 
 # [**Standard SKU**](#tab/create-public-ip-standard)
 
@@ -71,7 +69,10 @@ New-AzPublicIpAddress @ip
 
 # [**Basic SKU**](#tab/create-public-ip-basic)
 
-## Create a basic public IP
+>[!NOTE]
+>Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
+
+## Create a basic SKU public IP
 
 In this section, you'll create a basic IP. Basic public IPs don't support availability zones.
 
@@ -97,11 +98,9 @@ If it's acceptable for the IP address to change over time, **Dynamic** IP assign
 
 ---
 
-## Create a zonal or no-zone IP address
+## Create a zonal or no-zone public IP address
 
 In this section, you'll learn how to create a zonal or no-zone public IP address.
-
----
 
 # [**Zonal**](#tab/create-public-ip-zonal)
 
@@ -111,7 +110,7 @@ To create an IPv6 address, modify the **`--IpAddressVersion`** parameter to **IP
 
 ```azurepowershell-interactive
 $ip = @{
-    Name = 'myStandardZonalPublicIP'
+    Name = 'myStandardPublicIP'
     ResourceGroupName = 'QuickStartCreateIP-rg'
     Location = 'eastus2'
     Sku = 'Standard'
@@ -123,7 +122,6 @@ New-AzPublicIpAddress @ip
 ```
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
-
 
 # [**Non-zonal**](#tab/create-public-ip-non-zonal)
 
@@ -157,8 +155,6 @@ The removal of the **zone** parameter is the default selection for standard publ
 
 Standard SKU static public IPv4 addresses support Routing Preference or the Global Tier feature.
 
----
-
 # [**Routing Preference**](#tab/routing-preference)
 
 By default, the routing preference for public IP addresses is set to "Microsoft network", which delivers traffic over Microsoft's global wide area network to the user.  
@@ -179,7 +175,7 @@ $ipTag = New-AzPublicIpTag @tag
 
 ## Create IP. ##
 $ip = @{
-    Name = 'myStandardPublicIP'
+    Name = 'myStandardPublicIP-RP'
     ResourceGroupName = 'QuickStartCreateIP-rg'
     Location = 'eastus2'
     Sku = 'Standard'
