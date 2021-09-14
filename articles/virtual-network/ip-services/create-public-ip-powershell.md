@@ -145,9 +145,9 @@ $ip = @{
 }
 New-AzPublicIpAddress @ip
 ```
-The removal of the **zone** parameter in the command is valid in all regions.  
+The removal of the **`-Zone`** parameter in the command is valid in all regions.  
 
-The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ---
 
