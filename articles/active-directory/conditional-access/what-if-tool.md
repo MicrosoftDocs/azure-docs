@@ -66,6 +66,9 @@ You can only select one user. This is the only required field.
 
 The default for this setting is **All cloud apps**. The default setting performs an evaluation of all available policies in your environment. You can narrow down the scope to policies affecting specific cloud apps.
 
+> [!NOTE]
+> When using the What If tool, it does not test for [Conditional Access service dependencies](service-dependencies.md). For example, if you are using What If to test a Conditional Access policy for Microsoft Teams, the result will not take into consideration any policy that would apply to Office 365 Exchange Online, a Conditional Access service dependency for Microsoft Teams.
+
 ### IP address
 
 The IP address is a single IPv4 address to mimic the [location condition](location-condition.md). The address represents Internet facing address of the device used by your user to sign in. You can verify the IP address of a device by, for example, navigating to [What is my IP address](https://whatismyipaddress.com).    
