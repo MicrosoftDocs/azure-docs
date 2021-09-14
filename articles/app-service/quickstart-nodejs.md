@@ -40,7 +40,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 ## Create your Node.js application
 
-In this step, you create a simple Node.js application and make sure it runs on your computer.
+In this step, you create a starter Node.js application and make sure it runs on your computer.
 
 > [!TIP]
 > If you have already completed the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), you can skip ahead to [Deploy to Azure](#deploy-to-azure).
@@ -111,7 +111,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 3. Choose **Create new Web App**. A Linux container is used by default.
 1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
 1. In Select a runtime stack, select the Node.js version you want. An **LTS** version is recommended.
-1. In Select a pricing tier, select **Free (F1)** and wait for to provision the resources.
+1. In Select a pricing tier, select **Free (F1)** and wait for the the resources to be provisioned in Azure.
 1. In the popup **Always deploy the workspace "myExpressApp" to \<app-name>"**, select **Yes**. This way, as long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
 
     While Visual Studio Code provisions the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
@@ -127,7 +127,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 1. Select **Windows** for the operating system.
 1. Select the location you want to serve your app from. For example, *West Europe*.
 1. Select **Create new App Service plan**, then enter a name for the plan (such as *AppServiceQS-plan*), then select **F1 Free** for the pricing tier.
-1. For **Select an Application Insights resource for your app**, select **Skip for now** and wait for to provision the resources.
+1. For **Select an Application Insights resource for your app**, select **Skip for now** and wait the resources to be provisioned in Azure.
 1. In the popup **Always deploy the workspace "myExpressApp" to \<app-name>"**, select **Yes**. This way, as long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
 
     While Visual Studio Code provisions the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
@@ -179,7 +179,7 @@ az webapp up --sku F1 --name <app-name> --os-type Windows
 - The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument. 
 - If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
 
-The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, then performing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
+The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
 
 <pre>
 The webapp '&lt;app-name>' doesn't exist
@@ -213,7 +213,7 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 
 ## Redeploy updates
 
-You can deploy changes to this app by making edits in Visual Studio Code, saving your files, and then using the same process as before only choosing the existing app rather than creating a new one. For example:
+You can deploy changes to this app by making edits in Visual Studio Code, saving your files, and then redeploy to your Azure app. For example:
 
 1. From the sample project, open *views/index.pug* and change
 
@@ -243,7 +243,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
     az webapp up
     ```
     
-    This command uses values that are cached locally in the *.azure/config* file, including the app name, resource group, and App Service plan.
+    This command uses values that are cached locally in the *.azure/config* file, such as the app name, resource group, and App Service plan.
     
 1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
 
@@ -307,7 +307,7 @@ In the preceding steps, you created Azure resources in a resource group. The cre
 
 1. Expand the subscription, right-click the resource group you created earlier, and select **Delete**.
 
-    :::image type="content" source="media/quickstart-nodejs/clean-up.png" alt-text="Screenshot of the Visual Studio Code prompt to enable logging and restart the application with the Yes button selected.":::
+    :::image type="content" source="media/quickstart-nodejs/clean-up.png" alt-text="Screenshot of the Visual Studio Code navigation to delete a resource that contains App Service resources.":::
 
 1. When prompted, confirm your deletion by entering the name of the resource group you're deleting. Once you confirm, the resource group is deleted, and you see a [notification](https://code.visualstudio.com/api/references/extension-guidelines#notifications) when it's done.
 
