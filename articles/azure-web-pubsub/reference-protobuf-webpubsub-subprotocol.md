@@ -384,7 +384,7 @@ If the request contains `ackId`, the service returns an ack response for this re
 * Waiting for the ack response for an `async` `await` operation. 
 * Having a timeout check when the ack response isn't received during a certain period.
 
-The client implementation should always check first to see whether the `success` status is `true` or `false`. Only when `success` is `false` the client reads from `error`.
+The client implementation should always check first to see whether the `success` status is `true` or `false`. When the `success` status is `false`, the client can read from the `error` property for error details.
 
 ### Message response
 
