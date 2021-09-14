@@ -17,7 +17,7 @@ Use API to programmatically query, create submissions for, and publish offers. A
 
 There are two sets of submission API available:
 
-- **Partner Center submission API** – The common set of APIs that work across consumer and commercial products to publish through Partner Center. New capabilities are continuously added to this set of APIs. For more information on how to integrate with this API, see [Partner Center submission API prerequisites](need-link.md). 
+- **Partner Center submission API** – The common set of APIs that work across consumer and commercial products to publish through Partner Center. New capabilities are continuously added to this set of APIs. For more information on how to integrate with this API, see [Partner Center submission API onboarding](submission-api-onboard.md). 
 - **Legacy Cloud Partner Portal API** – The APIs carried over from the deprecated Cloud Partner Portal; it is integrated with and continues to work in Partner Center. This set of APIs is in maintenance mode only; new capabilities introduced in Partner Center are not supported, and it should only be used for existing products that were already integrated before transition to Partner Center. For more information on how to continue to use the Cloud Partner Portal APIs, see [Cloud Partner Portal API Reference](cloud-partner-portal-api-overview.md). 
 
 Not all offer types are supported by both sets of APIs. Refer to the following table for supported submission APIs for each offer type.
