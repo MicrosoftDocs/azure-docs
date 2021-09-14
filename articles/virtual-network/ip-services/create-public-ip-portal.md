@@ -138,7 +138,7 @@ By default, the routing preference for public IP address is set to the Microsoft
     | IP Version              | Select IPv4              |    
     | SKU                     | Select **Standard**         |
     | Tier                   | Select **Regional**     |
-    | Name                    | Enter **myStandardPublicIP**          |
+    | Name                    | Enter **myStandardPublicIP-RP**          |
     | IP address assignment   | Locked as **Static**                |
     | Routing Preference     | Select **Internet**. |
     | Idle Timeout (minutes)  | Leave the default of **4**.        |
@@ -181,7 +181,7 @@ For more information, see [Cross-region load balancer](../../load-balancer/cross
     | IP Version              | Select IPv4              |    
     | SKU                     | Select **Standard**         |
     | Tier                   | Select **Global**     |
-    | Name                    | Enter **myStandardPublicIP**          |
+    | Name                    | Enter **myStandardPublicIP-Global**          |
     | IP address assignment   | Locked as **Static**                |
     | Routing Preference     | Select **Microsoft**. |
     | Idle Timeout (minutes)  | Leave the default of **4**.        |
