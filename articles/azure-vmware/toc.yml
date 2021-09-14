@@ -128,8 +128,6 @@
     href: connect-multiple-private-clouds-same-region.md
   - name: Deploy disaster recovery
     items:
-    - name: Deploy JetStream DR
-      href: deploy-disaster-recovery-using-jetstream.md
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery

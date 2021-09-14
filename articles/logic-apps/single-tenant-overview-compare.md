@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/13/2021
 ---
 
 # Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps
@@ -116,14 +116,18 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
 
   Create a stateful workflow when you need to keep, review, or reference data from previous events. These workflows save and transfer all the inputs and outputs for each action and their states to external storage, which makes reviewing the run details and history possible after each run finishes. Stateful workflows provide high resiliency if outages happen. After services and systems are restored, you can reconstruct interrupted runs from the saved state and rerun the workflows to completion. Stateful workflows can continue running for much longer than stateless workflows.
 
+  By default, stateful workflows in both multi-tenant and single-tenant Azure Logic Apps run asynchronously. All HTTP-based actions follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply). This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URI and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+
 * *Stateless*
 
-  Create a stateless workflow when you don't need to keep, review, or reference data from previous events in external storage after each run finishes for later review. These workflows save all the inputs and outputs for each action and their states *in memory only*, not in external storage. As a result, stateless workflows have shorter runs that are typically less than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't saved in external storage. However, if outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. These workflows can only run synchronously.
+  Create a stateless workflow when you don't need to keep, review, or reference data from previous events in external storage after each run finishes for later review. These workflows save all the inputs and outputs for each action and their states *in memory only*, not in external storage. As a result, stateless workflows have shorter runs that are typically less than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't saved in external storage. However, if outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs.
 
   > [!IMPORTANT]
   > A stateless workflow provides the best performance when handling data or content, such as a file, that doesn't exceed 64 KB in *total* size. 
   > Larger content sizes, such as multiple large attachments, might significantly slow your workflow's performance or even cause your workflow to 
   > crash due to out-of-memory exceptions. If your workflow might have to handle larger content sizes, use a stateful workflow instead.
+
+  Stateless workflows only run synchronously, so they don't use the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply) used by stateful workflows. Instead, all HTTP-based actions that return a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response proceed to the next step in the workflow execution. If the response includes a `location` header, a stateless workflow won't poll the specified URI to check the status. To follow the standard asynchronous operation pattern, use a stateful workflow instead.
 
   For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
