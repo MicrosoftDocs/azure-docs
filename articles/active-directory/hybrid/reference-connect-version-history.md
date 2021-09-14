@@ -65,7 +65,7 @@ If you are still using an older version of Windows Server you should use Azure A
  - We fixed a security issue where an unquoted path was used to point to the Azure AD Connect service. This path is now a quoted path.
  - Fixing an import config issue with writeback enabled when using the existing AD connector account.
  - We fixed an issue in Set-ADSyncExchangeHybridPermissions and other related cmdlets, which were broken from 1.6 due to an invalid inheritance type.
- - The cmdlet we publish to set the TLS version had an issue where it overwrites the keys, destroying any values that were in them. We fixed this byonly creating a new key if one does not already exist. A warning is also added to let users know the TLS changes not AADC exclusive changes.
+ - The cmdlet we publish to set the TLS version had an issue where it overwrites the keys, destroying any values that were in them. We fixed this by only creating a new key if one does not already exist. A warning is also added to let users know the TLS registry changes are not exclusive to Azure AD Connect and may impact other applications on the same server as well.
  - We added a check to enforce auto upgrade for V2.0 to require Windows Server 2016 or newer.
  - We added 'Replicating Directory Changes' permission in the Set-ADSyncBasicReadPermissions cmdlet.
  - We made a change to prevent UseExistingDatabase and import configuration from being used together since these could contain conflicting configuration settings.
@@ -73,7 +73,9 @@ If you are still using an older version of Windows Server you should use Azure A
  - We removed the '(Preview)' label from the labels of Import/Export settings - this functionality has been in General Availability for some time now.
  - We change some label that still refered to "Company Administrator" - we now use the role name "Global Administrator".
  - We created new AAD Kerberos PowerShell cmdlets "\*-AADKerberosServer" to add a Claims Transform rule to the AAD Service Principal.
- - We added the latest versions of MIM Connectors (1.1.1610.0).
+
+### Functional changes
+ - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
 
 ## 2.0.10.0
 
