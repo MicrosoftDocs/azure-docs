@@ -107,7 +107,7 @@ To create an IPv6 address, modify the **`--IpAddressVersion`** parameter to **IP
 
 ```azurepowershell-interactive
 $ip = @{
-    Name = 'myStandardZonalPublicIP'
+    Name = 'myStandardPublicIP'
     ResourceGroupName = 'QuickStartCreateIP-rg'
     Location = 'eastus2'
     Sku = 'Standard'
@@ -172,7 +172,7 @@ $ipTag = New-AzPublicIpTag @tag
 
 ## Create IP. ##
 $ip = @{
-    Name = 'myStandardPublicIP'
+    Name = 'myStandardPublicIP-RP'
     ResourceGroupName = 'QuickStartCreateIP-rg'
     Location = 'eastus2'
     Sku = 'Standard'
