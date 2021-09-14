@@ -137,7 +137,7 @@ If [host.json] includes multiple logs that start with the same string, the more 
 
 You can use a log level setting of `None` prevent any logs from being written for a category. 
 
-> [!CAUTION] Azure Functions integrates with Application Insights by storing telemetry events in Application Insights tables, setting a category log level to any value different from `Information` will prevent the telemetry to flow to those tables, as consequency, you will not be able to see the related data in Application Insights or Function Monitor tab.
+> [!CAUTION] Azure Functions integrates with Application Insights by storing telemetry events in Application Insights tables, setting a category log level to any value different from `Information` will prevent the telemetry to flow to those tables, as outcome, you will not be able to see the related data in Application Insights or Function Monitor tab.
 >
 > From above samples:
 > * If `Host.Results` category is set to `Error` log level, it will stop gathering host execution telemetry events in the `requests` table, preventing to display host execution details in both Application Insights and Function Monitor tab.
