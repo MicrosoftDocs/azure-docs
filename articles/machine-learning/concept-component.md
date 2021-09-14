@@ -8,12 +8,12 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: laobri
-ms.date: 09/05/2021
+ms.date: 09/25/2021
 ms.topic: conceptual
 ---
 # What is an Azure Machine Learning component (preview)?
 
-An Azure Machine Learning component (previously known as a module) is a self-contained piece of code that performs one step in a machine learning pipeline. Components are the building blocks of pipelines and can perform tasks such as data processing, model training, model scoring, and so on.
+An Azure Machine Learning component (previously known as a module) is a self-contained piece of code that performs one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines (see [Create and run machine learning pipelines with the Azure Machine Learning CLI](how-to-create-pipelines-cli.md)). Components can perform tasks such as data processing, model training, model scoring, and so on.
 
 A component is analogous to a function - it has a name, parameters, expects input, and returns output. For more information on creating a component, see [create a component](#define-a-component-preview).
 
@@ -173,13 +173,13 @@ You can create a component in **Components** page in the studio UI.
 
 1. Click **New Component** in the component page.
 
-:::imaqe type="content" source="./media/concept-component/ui-create-component.png" lightbox="./media/concept-component/ui-create-component.png" alt-text="Screenshot showing new component button":::
+:::image type="content" source="./media/concept-component/ui-create-component.png" lightbox="./media/concept-component/ui-create-component.png" alt-text="Screenshot showing new component button":::
 
 1. Follow the wizard to finish the creation process.
 
 ## Use components to build ML pipelines
 
-You can use the Azure CLI 2.0 to create a pipeline job. See "Create and run ML pipelines (CLI)".
+You can use the Azure CLI 2.0 to create a pipeline job. See [Create and run ML pipelines (CLI)](how-to-create-pipelines-cli.md).
 
 ## Manage components
 
@@ -217,5 +217,5 @@ You can also select a component and archive it.
 ## Next steps
 
 - [Component YAML reference](reference-component-yaml.md)
-- Create and run ML pipelines (CLI)
+- [Create and run ML pipelines (CLI)](how-to-create-pipelines-cli.md)
 - [Build machine learning pipelines in the designer](tutorial-designer-automobile-price-train-score.md)
