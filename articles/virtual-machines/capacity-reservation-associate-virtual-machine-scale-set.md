@@ -28,10 +28,6 @@ To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration
 
 Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
 
-> [!NOTE]
-> On-demand Capacity Reservation is available for virtual machine scale sets in Uniform orchestration mode only in select regions. To check if your region is supported, go to [Uniform virtual machine scale set deployment tracker](https://aka.ms/vmssuniformdeploymenttracker).
-
-
 ## Limitations of scale sets in Uniform Orchestration 
 
 - For Virtual Machine Scale Sets in Uniform orchestration to be compatible with Capacity Reservation, the `singlePlacementGroup` property must be set to *False*. 
