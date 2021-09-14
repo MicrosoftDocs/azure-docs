@@ -120,6 +120,14 @@ Advanced forecasting configuration includes:
 
 See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Beverage Production Forecast](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
+### AutoML for Images
+AutoML for Images adds support for computer vision tasks, allowing data scientists to easily generate models trained on image data for scenarios like Image Classification, Object Detection and Instance Segmentation. 
+
+Customers across various industries are looking to leverage machine learning to build models that can process image data. Applications range from image classification of fashion photos to PPE detection in industrial environments. Typical manual methods for building computer vision models can involve a tedious process of iteratively finding the right set of model algorithms and hyperparameters, requiring significant data scientist time and effort. 
+With AutoML for Images, Azure ML customers can easily build models trained on image data, without writing any training code. They can seamlessly integrate with Azure ML's Data Labeling capability and use this labeled data for generating image models. They can optimize model performance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging AzureML MLOps and ML Pipelines capabilities.
+AutoML for Images supports the following computer vision tasks -
+
+
 ## How automated ML works
 
 During training, Azure Machine Learning creates a number of pipelines in parallel that try different algorithms and parameters for you. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The higher the score, the better the model is considered to "fit" your data.  It will stop once it hits the exit criteria defined in the experiment. 
