@@ -43,7 +43,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. Find and select the user you want to assign custom security attributes to.
 
-1. In the Manage section, select **Custom attributes (preview)**.
+1. In the Manage section, select **Custom security attributes (Preview)**.
 
 1. Select **Add assignment**.
 
@@ -67,7 +67,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. Find and select the user that has a custom security attribute assignment value you want to update.
 
-1. In the Manage section, select **Custom attributes (preview)**.
+1. In the Manage section, select **Custom security attributes (preview)**.
   
 1. Find the custom security attribute assignment value you want to update.
 
@@ -89,7 +89,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. Find and select the user that has the custom security attribute assignments you want to remove.
 
-1. In the Manage section, select **Custom attributes (preview)**.
+1. In the Manage section, select **Custom security attributes (Preview)**.
 
 1. Add check marks next to all the custom security attribute assignments you want to remove.
 
