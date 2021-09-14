@@ -52,8 +52,9 @@ For this service, use Purview to provide a Microsoft account with secure access 
 - **Known issues**: Known issues for the public preview include:
 
     - The **Test connection** button is unavailable for the public preview. The scan status messages will indicate any errors related to connection setup.
-
     - Selecting specific tables in your database to scan is not supported for the public preview.
+    - [Data lineage](concept-data-lineage.md) is not supported for the RDS public preview.
+
 
 For more information, see:
 
@@ -81,6 +82,7 @@ The following diagram shows the components in both your customer account and Mic
 
 :::image type="content" source="media/register-scan-amazon-rds/vpc-architecture.png" alt-text="Diagram of the Multi-Cloud Scanning Connectors for Azure Purview service in a VPC architecture." border="false":::
 
+
 > [!IMPORTANT]
 > Any AWS resources created for a customer's private network will incur extra costs on the customer's AWS bill.
 >
@@ -91,8 +93,15 @@ The following procedure describes how to use an AWS CloudFormation template to p
 
 This CloudFormation template is available for download from the Microsoft Download site, and will help you create a target group, load balancer, and endpoint service.
 
-> [!NOTE]
-> You can perform this procedure automatically or manually. For more information, see [Prepare your RDS database manually (advanced)](#prepare-your-rds-database-manually-advanced).
+- **If you have multiple RDS servers in the same VPC**, perform this procedure once, [specifying all RDS server IP addresses and ports](#parameters). In this case, the CloudFormation output will include different ports for each RDS server.
+
+    When [registering these RDS servers as data sources in Purview](#register-an-amazon-rds-data-source), use the ports included in the output instead of the real RDS server ports.
+
+- **If you have RDS servers in multiple VPCs**, perform this procedure for each of the VPCs.
+
+
+> [!TIP]
+> You can also perform this procedure manually. For more information, see [Prepare your RDS database manually (advanced)](#prepare-your-rds-database-manually-advanced).
 >
 
 **To prepare your RDS database with a CloudFormation template**:
@@ -107,7 +116,7 @@ This CloudFormation template is available for download from the Microsoft Downlo
 
 1. Select **Next** and then, in the **Stack name** section, enter a name for your stack.
 
-1. In the **Parameters** area, enter the following values, using data available from your RDS database page in AWS:
+<a name="parameters"></a>1. In the **Parameters** area, enter the following values, using data available from your RDS database page in AWS:
 
     |Name  |Description  |
     |---------|---------|
@@ -137,23 +146,14 @@ This CloudFormation template is available for download from the Microsoft Downlo
 
 1. Enter the details for your source:
 
-    - **Name**: Enter a meaningful name for your source, such as `AmazonPostgreSql-Ups`
-
-    - **Server name**: Enter the name of your RDS database in the following syntax: `<instance identifier>.<xxxxxxxxxxxx>.<region>.rds.amazonaws.com`
-
-        > [!NOTE]
-        > We recommend that you copy this URL from the Amazon RDS portal, and make sure that the URL includes the AWS region.
-        >
-
-    - **Port** : Enter the port used to connect to the RDS database:
-        - PostgreSQL: `5432`
-        - Microsoft SQL: `1433`
-
-    - **Connect to private network via endpoint service**: Enter the **EndpointService** key value obtained at the end of the [Prepare your RDS database using a CloudFormation template](#prepare-your-rds-database-using-a-cloudformation-template) procedure above.
-
-        If you've prepared your RDS database manually, use the **Service Name** value obtained at the end of [Step 5: Create an endpoint service](#step-5-create-an-endpoint-service).
-
-    - **Collection** (optional): Select a collection to add your data source to. For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
+    |Field  |Description  |
+    |---------|---------|
+    |**Name**     |  Enter a meaningful name for your source, such as `AmazonPostgreSql-Ups`       |
+    |**Server name**     | Enter the name of your RDS database in the following syntax: `<instance identifier>.<xxxxxxxxxxxx>.<region>.rds.amazonaws.com`  <br><br>We recommend that you copy this URL from the Amazon RDS portal, and make sure that the URL includes the AWS region.      |
+    |**Port**     |  Enter the port used to connect to the RDS database:<br><br>        - PostgreSQL: `5432`<br> - Microsoft SQL: `1433`<br><br>        If you've [prepared your RDS database using a CloudFormation template](#prepare-your-rds-database-using-a-cloudformation-template) and have multiple RDS servers in the same VPC, use the ports listed in the CloudFormation output instead of the read RDS server ports.       |
+    |**Connect to private network via endpoint service**     |  Enter the **EndpointService** key value obtained at the end of the [Prepare your RDS database using a CloudFormation template](#prepare-your-rds-database-using-a-cloudformation-template) procedure above. <br><br>If you've prepared your RDS database manually, use the **Service Name** value obtained at the end of [Step 5: Create an endpoint service](#step-5-create-an-endpoint-service).       |
+    |**Collection** (optional)     |  Select a collection to add your data source to. For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).       |
+    |     |         |
 
 1. Select **Register** when you’re ready to continue.
 
