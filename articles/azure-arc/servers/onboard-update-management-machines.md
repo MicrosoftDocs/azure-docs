@@ -9,6 +9,8 @@ ms.topic: conceptual
 
 You can enable Azure Arc-enabled servers for one or more of your Windows or Linux virtual machines or physical servers hosted on-premises or other cloud environment that are managed with Azure Automation Update Management. This onboarding process automates the download and installation of the [Connected Machine agent](agent-overview.md). To connect the machines to Azure Arc-enabled servers, an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) is used instead of your privileged identity to [interactively connect](onboard-portal.md) the machine. This service principal is created automatically as part of the onboarding process for these machines.
 
+Installing and configuring the Connected Machine agent on the target machine is performed by a master runbook named **Add-AzureConnectedMachines**, which runs in the Azure sandbox and detects the machines operating system.  It launches a child runbook named **Add-AzureConnectedMachineWindows** or **Add-AzureConnectedMachineLinux** that runs under the system [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) role directly on the machine. 
+
 Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -17,7 +19,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This method requires that you are a member of the [Automation Job Operator](../../automation/automation-role-based-access-control.md#automation-job-operator) role or higher so you can create runbook jobs in the Automation account. 
 
-If you have enabled Azure Policy to [manage runbook execution](../../automation/enforce-job-execution-hybrid-worker.md) and enforce targeting of runbook execution against a Hybrid Runbook Worker group should be disabled. Otherwise, the runbook jobs which onboard the machine to Arc-enabled servers will fail. 
+If you have enabled Azure Policy to [manage runbook execution](../../automation/enforce-job-execution-hybrid-worker.md) and enforce targeting of runbook execution against a Hybrid Runbook Worker group, this policy needs to be disabled. Otherwise, the runbook jobs which onboard the machine(s) to Arc-enabled servers will fail. 
 
 ## Add machines from the Azure portal
 
