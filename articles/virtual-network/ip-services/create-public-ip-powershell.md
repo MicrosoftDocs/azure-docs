@@ -33,9 +33,7 @@ $rg =@{
 }
 New-AzResourceGroup @rg
 ```
-## Create standard SKU public IP with zones
-
-In this section, you'll create a public IP with zones. Public IP addresses can be zone-redundant or zonal.
+## Create public IP
 
 # [**Standard SKU**](#tab/create-public-ip-standard)
 
@@ -71,7 +69,7 @@ New-AzPublicIpAddress @ip
 
 # [**Basic SKU**](#tab/create-public-ip-basic)
 
-## Create a basic public IP
+## Create a basic SKU public IP
 
 In this section, you'll create a basic IP. Basic public IPs don't support availability zones.
 
