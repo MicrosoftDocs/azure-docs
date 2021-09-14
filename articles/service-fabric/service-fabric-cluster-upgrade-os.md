@@ -14,25 +14,22 @@ This document describes the guide to migrate your Azure Service Fabric for Linux
 
 The general approach is to:
 
-1. Switch the Service Fabric cluster ARM resource "vmImage" to "Ubuntu18_04" to pull future code upgrades for this OS version. This temporary OS mismatch against existing node types will block automatic code upgrade rollouts to ensure safe rollover. See **NOTE 1** below.
-2. For each node type in the cluster, create another node type with the underlying VMSS (virtual machine scale set) OS targeting the Ubuntu 18.04 OS image. Each new node type will assume the role of its old counterpart. See **NOTE 2** & **NOTE 3** below.
+1. Switch the Service Fabric cluster ARM resource "vmImage" to "Ubuntu18_04" to pull future code upgrades for this OS version. This temporary OS mismatch against existing node types will block automatic code upgrade rollouts to ensure safe rollover.
 
-    a) A new primary node type will have to be created to replace the old node type marked as "isPrimary": true.
+    * Avoid issuing manual SF cluster code upgrades during the OS migration as this may cause the old node type nodes to enter a state that will require human intervention.
+
+2. For each node type in the cluster, create another node type targeting the Ubuntu 18.04 OS image for the underlying Virtual Machine Scale Set (VMSS). Each new node type will assume the role of its old counterpart.
+
+    * A new primary node type will have to be created to replace the old node type marked as "isPrimary": true.
     
-    b) For each additional non-primary node type, these nodes types will similarly be marked "isPrimary": false.
+    * For each additional non-primary node type, these nodes types will similarly be marked "isPrimary": false.
+
+    * Ensure after new node type with the target OS is created that existing workloads continue to function correctly. If issues are observed, address the changes required in the app or pre-installed machine packages before proceding with removing the old node type.
 3. Mark the old primary node type "isPrimary": false. This will result in a long-running set of upgrades to transition all seed nodes.
 4. (For Bronze durability node types ONLY): Connect to the cluster via [sfctl](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl) / [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/?view=azureservicefabricps) / [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) and disable all nodes in the old node type.
 5. Remove the old node types.
 
-Important notes to keep in mind:
-
-> [!NOTE 1]
-> Avoid issuing manual SF cluster code upgrades during the OS migration as this may cause the old node type nodes to enter a state that will require human intervention.
-
-> [!NOTE 2]
-> Ensure after new node type with the target OS is created that existing workloads continue to function correctly. If issues are observed, address the changes required in the app or pre-installed machine packages before proceding with removing the old node type.
-
-> [!NOTE 3]
+> [!NOTE]
 > Az PowerShell generates a new dns name for the added node type so external traffic will have to be redirected to this endpoint.
 
 
@@ -82,7 +79,7 @@ Important notes to keep in mind:
     $oldNodeTypeName="nt1"
     Update-AzServiceFabricNodeType -ResourceGroupName $resourceGroup -ClusterName $clusterName -IsPrimaryNodeType $false -NodeType $oldNodeTypeName -Verbose
 
-    # Ensure node type is marked isPrimary: False before proceeding.
+    # Ensure node type is showing isPrimary: False before proceeding.
     Get-AzServiceFabricCluster -ResourceGroupName $resourceGroup
     ```
 
@@ -150,14 +147,14 @@ Important notes to keep in mind:
     for n in $nodes; do echo "Disabling $n"; sfctl node disable --node-name $n --deactivation-intent RemoveNode --timeout 300; done
     ```
 
-5. Remove the previous node type by removing the SF cluster resource node type attribute and decommissioning the associated VMSS & networking resources.
+5. Remove the previous node type by removing the SF cluster resource node type attribute and decommissioning the associated VM Scale Set & networking resources.
 
     ```powershell
     $resourceGroup="Group1"
     $clusterName="Contoso01SFCluster"
     $oldNodeTypeName="nt1"
 
-    # Remove the Service Fabric node type, associated VMSS resource, and any trailing networking resources that are no longer used. 
+    # Remove the Service Fabric node type, associated VM Scale Set resource, and any trailing networking resources that are no longer used. 
     Remove-AzServiceFabricNodeType -ResourceGroupName $resourceGroup -ClusterName $clusterName -NodeType $oldNodeTypeName
     ```
 
