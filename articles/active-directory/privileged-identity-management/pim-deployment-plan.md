@@ -147,7 +147,7 @@ Follow these tasks to prepare PIM to manage Azure AD roles.
 
 List who has privileged roles in your organization. Review the users assigned, identify administrators who no longer need the role, and remove them from their assignments. 
 
-You can use [Azure AD roles access reviews](pim-how-to-start-security-review.md) to automate the discovery, review, and approval or removal of assignments.
+You can use [Azure AD roles access reviews](./pim-create-azure-ad-roles-and-resource-roles-review.md) to automate the discovery, review, and approval or removal of assignments.
 
 ### Determine roles to be managed by PIM
 
@@ -178,7 +178,7 @@ Follow the instructions in the links below:
 
 2.[Allow eligible users to activate their Azure AD role just-in-time](pim-how-to-activate-role.md)
 
-When role nears its expiration, use [PIM to extend or renew the roles](pim-resource-roles-renew-extend.md). Both user-initiated actions require an approval from a Global administrator or Privileged role administrator.  Both user-initiated actions require an approval from a Global administrator or Privileged role administrator. 
+When role nears its expiration, use [PIM to extend or renew the roles](pim-resource-roles-renew-extend.md). Both user-initiated actions require an approval from a Global administrator or Privileged role administrator.
 
 When these important events occur in Azure AD roles, PIM [sends email notifications and weekly digest emails](pim-email-notifications.md) to privilege administrators depending on the role, event, and notification settings. These emails might also include links to relevant tasks, such activating or renewing a role. 
 
@@ -209,7 +209,7 @@ Minimize Owner and User Access Administrator assignments attached to each subscr
 
 As a Global Administrator you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md). You can then find each subscription owner and work with them to remove unnecessary assignments within their subscriptions.
 
-Use [access reviews for Azure resources](pim-resource-roles-start-access-review.md) to audit and remove unnecessary role assignments. 
+Use [access reviews for Azure resources](./pim-create-azure-ad-roles-and-resource-roles-review.md) to audit and remove unnecessary role assignments. 
 
 ### Determine roles to be managed by PIM
 
@@ -313,6 +313,4 @@ Configure privileged access group members and owners to require approval for act
 * If there is PIM-related issues, see [Troubleshooting a problem with PIM](pim-troubleshoot.md).
 
 * [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
-
- 
 

@@ -79,7 +79,7 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
 
 \*\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations).
 
-\*\*\*\*Microosft Edge based on Chromium
+\*\*\*\*Microsoft Edge based on Chromium
 
 ## Next steps
 
