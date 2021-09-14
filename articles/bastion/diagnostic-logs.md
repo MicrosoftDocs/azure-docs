@@ -37,7 +37,7 @@ To access your diagnostics logs, you can directly use the storage account that y
 1. Navigate to your storage account resource, then to **Containers**. You see the **insights-logs-bastionauditlogs** blob created in your storage account blob container.
 
    ![diagnostics settings](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. As you navigate to inside the container, you see various folders in your blog. These folders indicate the resource hierarchy for your Azure Bastion resource.
+2. As you navigate to inside the container, you see various folders in your blob. These folders indicate the resource hierarchy for your Azure Bastion resource.
 
    ![add diagnostic setting](./media/diagnostic-logs/2-resource-h.png)
 3. Navigate to the full hierarchy of your Azure Bastion resource whose diagnostics logs you wish to access/view. The 'y=', 'm=', 'd=', 'h=' and 'm=' indicate the year, month, day, hour, and minute respectively for the resource logs.

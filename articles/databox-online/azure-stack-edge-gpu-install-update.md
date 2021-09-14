@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/12/2021
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -19,8 +19,8 @@ This article describes the steps required to install update on your Azure Stack 
 The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version.
 
 > [!IMPORTANT]
-> - Update **2105** is the current update and corresponds to:
->   - Device software version - **2.2.1606.3320**
+> - Update **2106** is the current update and corresponds to:
+>   - Device software version - **2.2.1636.3457**
 >   - Kubernetes server version - **v1.20.2**
 >   - IoT Edge version: **0.1.0-beta14**
 >   - GPU driver version: **460.32.03**
@@ -156,7 +156,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
-4. Select **Download**. There are two packages to download: <!--KB 4616970 and KB 4616971--> one for the device software updates (*SoftwareUpdatePackage.exe*) and toher for the Kubernetes updates (*Kubernetes_Package.exe*) respectively. Download the packages to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
+4. Select **Download**. There are two packages to download: <!--KB 4616970 and KB 4616971--> one for the device software updates (*SoftwareUpdatePackage.exe*) and another for the Kubernetes updates (*Kubernetes_Package.exe*), respectively. Download the packages to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
 
 ### Install the update or the hotfix
 

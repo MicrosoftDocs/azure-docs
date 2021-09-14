@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019

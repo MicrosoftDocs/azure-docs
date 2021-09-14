@@ -371,7 +371,7 @@ module.exports = function(context, req) {
 
 # [PowerShell](#tab/powershell)
 
-The following example shows a trigger binding in a *function.json* file and a [PowerShell function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows a trigger binding in a *function.json* file and a [PowerShell function](functions-reference-powershell.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```json
 {

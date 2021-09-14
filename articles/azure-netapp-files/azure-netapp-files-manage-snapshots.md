@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 08/12/2021
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files

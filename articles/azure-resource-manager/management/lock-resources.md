@@ -2,7 +2,7 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -57,6 +57,10 @@ Applying locks can lead to unexpected results because some operations that don't
 - A cannot-delete lock on a **resource group** prevents **Azure Machine Learning** from autoscaling [Azure Machine Learning compute clusters](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) to remove unused nodes.
 
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
+
+- A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses POST](/rest/api/application-gateway/application-gateways/backend-health), which is blocked by the read-only lock.
+
+- A read-only lock on a **AKS cluster** prevents all users from accessing any cluster resources from the **Kubernetes Resources** section of AKS cluster left-side blade on the Azure portal. These operations require a POST request for authentication.
 
 ## Who can create or delete locks
 
@@ -227,7 +231,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 
 When applying a lock to a **resource** within the resource group, add the scope property. Set scope to the name of the resource to lock.
 
-The following example shows a template that creates an app service plan, a website, and a lock on the website. The scope of the lock is set to the website.
+The following [example](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/lock.json) shows a template that creates an app service plan, a website, and a lock on the website. The scope of the lock is set to the website.
 
 # [JSON](#tab/json)
 

@@ -1,16 +1,19 @@
 ---
 title: Azure Image Builder Service networking options
 description: Understand the networking options when deploying Azure VM Image Builder Service
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
+
 ---
 
 # Azure Image Builder Service networking options
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 You need to choose to deploy Azure Image Builder with or without an existing VNET.
 

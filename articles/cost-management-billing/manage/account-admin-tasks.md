@@ -21,6 +21,11 @@ This article explains how to perform the following tasks in the Azure portal:
 
 You must be the Account Administrator to perform any of these tasks.
 
+## Accounts portal is retiring
+
+Accounts portal will retire and customers will be redirected to the Azure portal by December 31, 2021. The features supported in the Accounts portal will be migrated to the Azure portal. This article explains how to perform some of the most common operations in the Azure portal.
+
+
 ## Navigate to your subscription's payment methods
 
 1. Sign in to the Azure portal as the Account Administrator.

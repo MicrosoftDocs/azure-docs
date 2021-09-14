@@ -1,5 +1,5 @@
 ---
-title: 'Train models (create jobs) with the 2.0 CLI'
+title: 'Train models (create jobs) with the CLI (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to train models (create jobs) using Azure CLI extension for Machine Learning.
 services: machine-learning
@@ -10,17 +10,14 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 06/18/2021
 ms.reviewer: laobri
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devplatv2
 ---
 
-# Train models (create jobs) with the 2.0 CLI (preview)
+# Train models (create jobs) with the CLI (v2)
 
-The Azure 2.0 CLI extension for Machine Learning (preview) enables you to accelerate the model training process while scaling up and out on Azure compute, with the model lifecycle tracked and auditable.
+The Azure Machine Learning CLI (v2) is an Azure CLI extension enabling you to accelerate the model training process while scaling up and out on Azure compute, with the model lifecycle tracked and auditable.
 
 Training a machine learning model is typically an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. Previously tedious manual processes like hyperparameter tuning and even algorithm selection are often automated. With the Azure Machine Learning CLI you can track your jobs (and models) in a [workspace](concept-workspace.md) with hyperparameter sweeps, scale-up on high-performance Azure compute, and scale-out utilizing distributed training.
-
-> [!TIP]
-> For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vscode.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -28,16 +25,35 @@ Training a machine learning model is typically an iterative process. Modern tool
 
 - To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
-- Clone the examples repository:
 
-    ```azurecli-interactive
-    git clone https://github.com/Azure/azureml-examples --depth 1
-    cd azureml-examples/cli
-    ```
+> [!TIP]
+> For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vscode.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
+
+### Clone examples repository
+
+To run the training examples, first clone the examples repository and change into the `cli` directory:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
+
+Note that `--depth 1` clones only the latest commit to the repository which reduces time to complete the operation.
+
+### Create compute
+
+You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
+
+Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+
+The following example jobs in this article use one of `cpu-cluster` or `gpu-cluster`. Adjust these as needed to the name of your cluster(s).
+
+Use `az ml compute create -h` for more details on compute create options.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## Introducing jobs
 
-For the Azure Machine Learning CLI, jobs are authored in YAML format. A job aggregates:
+For the Azure Machine Learning CLI (v2), jobs are authored in YAML format. A job aggregates:
 
 - What to run
 - How to run it
@@ -45,9 +61,13 @@ For the Azure Machine Learning CLI, jobs are authored in YAML format. A job aggr
 
 The "hello world" job has all three:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/misc/hello-world.yml":::
 
-This is just an example job which doesn't output anything other than a line in the log file. Typically you want to generate additional artifacts, such as model binaries and accompanying metadata, in addition to the system-generated logs.
+Which you can run:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world":::
+
+However this is just an example job which doesn't output anything other than a line in the log file. Typically you want to generate additional artifacts, such as model binaries and accompanying metadata, in addition to the system-generated logs.
 
 Azure Machine Learning captures the following artifacts automatically:
 
@@ -68,43 +88,17 @@ For instance, look at the `jobs/train/lightgbm/iris` project directory in the ex
 
 This directory contains two job files and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
 
-The basic command job is configured via the `job.yml`:
+The command job is configured via the `job.yml`:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
-This job can be created and run via `az ml job create` using the `--file/-f` parameter. However, the job targets a compute named `cpu-cluster` which does not yet exist. To run the job locally first, you can override the compute target with `--set`:
+Which you can run:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_local":::
-
-While running this job locally is slower than running `python main.py` in a local Python environment with the required packages, the above allows you to:
-
-- Save the run history in the Azure Machine Learning studio
-- Reproduce the run on remote compute targets (scale up, scale out, sweep hyperparameters)
-- Track run submission details, including source code git repository and commit
-- Track model metrics, metadata, and artifacts
-- Avoid installation and package management in your local environment
-
-> [!IMPORTANT]
-> [Docker](https://docker.io) needs to be installed and running locally. Python needs to be installed in the job's environment. For local runs which use `inputs`, the Python package `azureml-dataprep` needs to be installed in the job's environment.
-
-> [!TIP]
-> This will take a few minutes to pull the base Docker image. Use prebuilt Docker images to avoid the image build time.
-
-## Create compute
-
-You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
-
-Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
-
-Use `az ml compute create -h` for more details on compute create options.
-
-[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris":::
 
 ## Basic Python training job
 
-With `cpu-cluster` created you can run the basic training job, which outputs a model and accompanying metadata. Let's review the job YAML file in detail:
+Let's review the job YAML file in detail:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
@@ -164,7 +158,7 @@ Create job and open in the studio:
 
 ## Distributed training
 
-You can specify the `distributed` section in a command job. Azure ML supports distributed training for PyTorch, Tensorflow, and MPI compatible frameworks. PyTorch and TensorFlow enable native distributed training for the respective frameworks, such as `tf.distributed.Strategy` APIs for TensorFlow.
+You can specify the `distribution` section in a command job. Azure ML supports distributed training for PyTorch, Tensorflow, and MPI compatible frameworks. PyTorch and TensorFlow enable native distributed training for the respective frameworks, such as `tf.distributed.Strategy` APIs for TensorFlow.
 
 Be sure to set the `compute.instance_count`, which defaults to 1, to the desired number of nodes for the job.
 

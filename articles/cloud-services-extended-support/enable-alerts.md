@@ -35,5 +35,5 @@ This article explains how to enable alerts on existing Cloud Service (extended s
 6. When you have finished setting up alerts, save the changes and based on the metrics configured you will begin to see the **Alerts** blade populate over time.
 
 ## Next steps 
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

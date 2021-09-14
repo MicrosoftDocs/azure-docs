@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/03/2020
 ms.author: marsma
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ms.reviewer: celested
 ---
 

@@ -181,3 +181,4 @@ To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Ja
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [FAQ : App Service Certificates](./faq-configuration-and-management.yml)
+* [Environment variables and app settings reference](reference-app-settings.md)

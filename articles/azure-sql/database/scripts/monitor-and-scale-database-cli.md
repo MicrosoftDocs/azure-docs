@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/25/2019
 ---
 

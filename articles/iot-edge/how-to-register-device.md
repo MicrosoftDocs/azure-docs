@@ -2,7 +2,7 @@
 title: Register a new device - Azure IoT Edge | Microsoft Docs
 description: Register a single IoT Edge device in IoT Hub for manual provisioning with either symmetric keys or X.509 certificates
 author: kgremban
-manager: philmea
+
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge
