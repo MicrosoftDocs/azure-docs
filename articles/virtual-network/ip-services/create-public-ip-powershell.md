@@ -91,7 +91,7 @@ $ip = @{
 }
 New-AzPublicIpAddress @ip
 ```
-If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the AllocationMethod to **Dynamic**. 
+If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the **`-AllocationMethod`** to **Dynamic**. 
 
 >[!NOTE]
 > A basic IPv6 address must always be 'Dynamic'.
@@ -104,7 +104,7 @@ In this section, you'll learn how to create a zonal or no-zone public IP address
 
 # [**Zonal**](#tab/create-public-ip-zonal)
 
-To create a standard zonal public IPv4 address in Zone 2 named **myStandardZonalPublicIP** in **QuickStartCreateIP-rg**, use the following command.
+To create a standard zonal public IPv4 address in Zone 2 named **myStandardPublicIP-zonal** in **QuickStartCreateIP-rg**, use the following command.
 
 To create an IPv6 address, modify the **`--IpAddressVersion`** parameter to **IPv6**.
 
@@ -130,7 +130,7 @@ In this section, you'll create a non-zonal IP address.
 >[!NOTE]
 >The following command works for Az.Network module version 4.5.0 or later.  For more information about the PowerShell modules currently being used, please refer to the [PowerShellGet documentation](/powershell/module/powershellget/).
 
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP** in **QuickStartCreateIP-rg**. 
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP-nozone** in **QuickStartCreateIP-rg**. 
 
 To create an IPv6 address, modify the **`-IpAddressVersion`** parameter to **IPv6**.
 
