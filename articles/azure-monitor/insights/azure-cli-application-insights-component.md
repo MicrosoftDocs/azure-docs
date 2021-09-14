@@ -18,7 +18,7 @@ In Azure Monitor, components are independently deployable parts of your distribu
 - Link a component to a storage account with a component.
 - Create a continuous export configuration for a component.
 
-[!INCLUDE [Prepare your Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare your Azure CLI environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Create a component
 
@@ -80,7 +80,7 @@ az monitor app-insights component linked-storage unlink  --resource-group Contos
 Continuous export saves events from Application Insights portal in a storage container in JSON format.
 
 > [!NOTE]
-> Continuous export is only supported for classic Application Insights resources. [Workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
+> Continuous export is only supported for classic Application Insights resources. [Workspace-based Application Insights resources](../app/create-workspace-resource.md) must use [diagnostic settings](../app/create-workspace-resource.md#export-telemetry).
 >
 
 To create a storage container, run the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command. Use the 
