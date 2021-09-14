@@ -85,14 +85,29 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ## Full mode
 
-To register your SQL Server VM directly in full mode, use the following Azure PowerShell command:
+To register your SQL Server VM directly in full mode
+
+# [Azure CLI](#tab/bash)
+
+Register a SQL Server VM in FULL mode with the Azure CLI:
+
+  ```azurecli-interactive
+  # Register Enterprise or Standard self-installed VM in Lightweight mode
+  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type <license_type> --sql-mgmt-type Full
+  ```
+
+# [Azure PowerShell](#tab/powershell)
+
+Register a SQL Server VM in FULL mode with Azure PowerShell:
 
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
 
   # Register with SQL IaaS Agent extension in full mode
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+  -LicenseType <license_type> -SqlManagementType Full
+
   
   ```
 
