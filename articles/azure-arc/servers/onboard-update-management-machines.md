@@ -1,7 +1,7 @@
 ---
 title: Connect machines from Azure Automation Update Management
 description: In this article, you learn how to connect hybrid machines to Azure Arc managed by Automation Update Management.
-ms.date: 09/13/2021
+ms.date: 09/14/2021
 ms.topic: conceptual
 ---
 
@@ -9,11 +9,17 @@ ms.topic: conceptual
 
 You can enable Azure Arc-enabled servers for one or more of your Windows or Linux virtual machines or physical servers hosted on-premises or other cloud environment that are managed with Azure Automation Update Management. This onboarding process automates the download and installation of the [Connected Machine agent](agent-overview.md). To connect the machines to Azure Arc-enabled servers, an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) is used instead of your privileged identity to [interactively connect](onboard-portal.md) the machine. This service principal is created automatically as part of the onboarding process for these machines.
 
-Installing and configuring the Connected Machine agent on the target machine is performed by a master runbook named **Add-AzureConnectedMachines**, which runs in the Azure sandbox and detects the machines operating system.  It launches a child runbook named **Add-AzureConnectedMachineWindows** or **Add-AzureConnectedMachineLinux** that runs under the system [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) role directly on the machine. 
-
 Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## How it works
+
+When the onboarding process is launched, an Active Directory [service principal](../../active-directory/fundamentals/service-accounts-principal.md) is first created in the tenant. 
+
+To install and configure the Connected Machine agent on the target machine, a master runbook named **Add-AzureConnectedMachines** runs in the Azure sandbox. Based on the operating system detected ont he machine, the master runbook calls a child runbook named **Add-AzureConnectedMachineWindows** or **Add-AzureConnectedMachineLinux** that runs under the system [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) role directly on the machine. Runbook job output is written to the job history, and you can view their [status summary](../../automation/automation-runbook-execution.md#job-statuses) or drill into details of a specific runbook job in the [Azure portal](../../automation/manage-runbooks.md#view-statuses-in-the-azure-portal) or using [Azure PowerShell](../../automation/manage-runbooks.md#retrieve-job-statuses-using-powershell). Execution of runbooks in Azure Automation writes details in an activity log for the Automation account. For details of using the log, see [Retrieve details from Activity log](../../automation/manage-runbooks.md#retrieve-details-from-activity-log).
+
+The final step establishes the connection to Azure Arc using the `azcmagent` command using the service principal to register the machine as a resource in Azure.
 
 ## Prerequisites
 
