@@ -14,7 +14,7 @@ This document describes the guide to migrate your Azure Service Fabric for Linux
 
 The general approach is to:
 
-1. Switch the Service Fabric cluster ARM resource "vmImage" to "Ubuntu18_04" to pull future code upgrades for this OS version. This temporary OS mismatch against existing node types will block automatic code upgrade rollouts to ensure safe rollover.
+1. Switch the Service Fabric cluster ARM (Azure Resource Manager) resource "vmImage" to "Ubuntu18_04" to pull future code upgrades for this OS version. This temporary OS mismatch against existing node types will block automatic code upgrade rollouts to ensure safe rollover.
 
     * Avoid issuing manual SF cluster code upgrades during the OS migration. Doing so may cause the old node type nodes to enter a state that will require human intervention.
 
@@ -147,14 +147,14 @@ The general approach is to:
     for n in $nodes; do echo "Disabling $n"; sfctl node disable --node-name $n --deactivation-intent RemoveNode --timeout 300; done
     ```
 
-5. Remove the previous node type by removing the SF cluster resource node type attribute and decommissioning the associated VM Scale Set & networking resources.
+5. Remove the previous node type by removing the SF cluster resource node type attribute and decommissioning the associated virtual machine scale set & networking resources.
 
     ```powershell
     $resourceGroup="Group1"
     $clusterName="Contoso01SFCluster"
     $oldNodeTypeName="nt1"
 
-    # Remove the Service Fabric node type, associated VM Scale Set resource, and any trailing networking resources that are no longer used. 
+    # Remove the Service Fabric node type, associated virtual machine scale set resource, and any trailing networking resources that are no longer used. 
     Remove-AzServiceFabricNodeType -ResourceGroupName $resourceGroup -ClusterName $clusterName -NodeType $oldNodeTypeName
     ```
 
