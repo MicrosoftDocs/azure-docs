@@ -45,7 +45,13 @@ The `az ml compute` command can be used for managing Azure Machine Learning comp
 
 ## Examples
 
-[TODO]
+### Minimal
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-minimal.yml":::
+
+### Basic
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-basic.yml":::
 
 ## Schema
 
