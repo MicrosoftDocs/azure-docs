@@ -48,7 +48,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 5. Select **Extended Maintenance** > **Change**. 
 6. Select the profile parameter "service/protectedwebmethods" and modify to have the following value, then click Copy:  
 
-`SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList`
+   `SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList`
 
 7. Go back and select **Profile** > **Save**.
 8. After saving the changes for this parameter, please restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux))
@@ -57,15 +57,17 @@ To fetch specific metrics, you need to unprotect some methods for the current re
    8b. On Linux systems, use the command:  `sapcontrol -nr <NN> -function RestartService`, where NN is the SAP instance number to restart the host which is logged into.
    
 9. Once the SAP service is restarted, please check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
-`sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user "<adminUser>" "<adminPassword>"`
-The output should look like :-
-![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png)
+   `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user "<adminUser>" "<adminPassword>"`
+
+   The output should look like :-
+   ![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png)
 
 10. To conclude and validate, a test query can be done against web methods to validate the connection by logging into each instance and running the following commands:
-For all instances : `sapcontrol -nr <NN> -function GetProcessList`
-For the ENQUE instance : `sapcontrol -nr <NN> -function EnqGetStatistic`
-For ABAP instances : `sapcontrol -nr <NN> -function ABAPGetWPTable`
-For ABAP/J2EE/JEE instances : `sapcontrol -nr <NN> -function GetQueueStatistic`
+
+    - For all instances : `sapcontrol -nr <NN> -function GetProcessList`
+    - For the ENQUE instance : `sapcontrol -nr <NN> -function EnqGetStatistic`
+    - For ABAP instances : `sapcontrol -nr <NN> -function ABAPGetWPTable`
+    - For ABAP/J2EE/JEE instances : `sapcontrol -nr <NN> -function GetQueueStatistic`
 
 >[!Important] 
 >It is critical that the sapstartsrv service is restarted on each instance of the SAP system for the SAPControl web methods to be unprotected.  These read-only SOAP API are required for the NetWeaver provider to fetch metric data from the SAP System and failure to unprotect these methods will lead to empty or missing visualizations on the NetWeaver metric workbook.
