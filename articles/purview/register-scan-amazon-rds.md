@@ -49,6 +49,12 @@ For this service, use Purview to provide a Microsoft account with secure access 
     - Europe (London)
     - Europe (Paris)
 
+- **Known issues**: Known issues for the public preview include:
+
+    - The **Test connection** button is unavailable for the public preview. The scan status messages will indicate any errors related to connection setup.
+
+    - Selecting specific tables in your database to scan is not supported for the public preview.
+
 For more information, see:
 
 - [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
@@ -75,10 +81,13 @@ The following diagram shows the components in both your customer account and Mic
 
 :::image type="content" source="media/register-scan-amazon-rds/vpc-architecture.png" alt-text="Diagram of the Multi-Cloud Scanning Connectors for Azure Purview service in a VPC architecture." border="false":::
 
+> [!IMPORTANT]
+> Any AWS resources created for a customer's private network will incur extra costs on the customer's AWS bill.
+>
 
 ### Prepare your RDS database using a CloudFormation template
 
-The following procedure describes how to use an AWS CloudFormation template to prepare your RDS database in a VPC to connect to Azure to Azure Purview. 
+The following procedure describes how to use an AWS CloudFormation template to prepare your RDS database in a VPC to connect to Azure to Azure Purview.
 
 This CloudFormation template is available for download from the Microsoft Download site, and will help you create a target group, load balancer, and endpoint service.
 
@@ -197,8 +206,6 @@ To configure an Azure Purview scan for your RDS database:
     - **Name**: Enter a meaningful name for your scan.
     - **Database name**: Enter the name of the database you want to scan. You’ll need to find the names available from outside Purview, and create a separate scan for each database in the registered RDS server.
     - **Credential**: Select the credential you created earlier for the Multi-Cloud Scanning Connectors for Azure Purview to access the RDS database.
-
-1.	In the **Scope your scan** pane, select the tables you want to scan and then select **Continue**.
 
 1.	In the **Select a scan rule set** pane, select the scan rule set you want to use, or create a new one. For more information, see [Create a scan rule set](create-a-scan-rule-set.md).
 
