@@ -5,7 +5,7 @@ description: Learn how to create a public IP using the Azure CLI
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: allensu
 
@@ -188,4 +188,4 @@ If you're not going to continue to use this application, delete the public IP ad
 
 Advance to the next article to learn how to create a public IP prefix:
 > [!div class="nextstepaction"]
-> [Create public IP prefix using the Azure portal](create-public-ip-prefix-portal.md)
+> [Create public IP prefix using the Azure CLI](create-public-ip-prefix-cli.md)
