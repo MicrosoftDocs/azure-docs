@@ -176,9 +176,7 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
      ```
    * A call to `livePipelineActivate` to start the live pipeline and to start the flow of video and then pauses for you to select **Enter** in the **Terminal** window
 1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Do not select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked.
-1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Video Analyzer edge module.
-
-These messages are discussed in the following section.
+1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Video Analyzer edge module. These messages are discussed in the following section.
 1. The live pipeline continues to run and record the video. The RTSP simulator keeps looping the source video. To stop recording, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
 
    * A call to `livePipelineDeactivate` to deactivate the live pipeline.
