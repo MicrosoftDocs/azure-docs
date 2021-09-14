@@ -1,7 +1,7 @@
 ---
 title: CMMC Level 3 blueprint sample
 description: Overview of the CMMC Level 3 blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 03/24/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # CMMC Level 3 blueprint sample

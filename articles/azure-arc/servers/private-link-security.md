@@ -2,7 +2,7 @@
 title: Use Azure Private Link to securely connect networks to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.date: 07/20/2021
+ms.date: 09/14/2021
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Arc
@@ -60,9 +60,9 @@ The Azure Arc-enabled servers Private Link Scope object has a number of limits y
 
 - All on-premises machines need to use the same private endpoint by resolving the correct private endpoint information (FQDN record name and private IP address) using the same DNS forwarder. For more information, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
 
-- The Azure Arc-enabled machine or server, Azure Arc Private Link Scope, and virtual network must be in the same Azure region.
+- The Azure Arc-enabled server and Azure Arc Private Link Scope must be in the same Azure region. The Private Endpoint and the virtual network must also be in the same Azure region, but this region can be different from that of your Azure Arc Private Link Scope and Arc-enabled server.
 
-- Traffic to Azure Active Directory and Azure Resource Manager service tags must be allowed through your on-premises network firewall during the preview. 
+- Traffic to Azure Active Directory and Azure Resource Manager service tags must be allowed through your on-premises network firewall during the preview.
 
 - Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
 
