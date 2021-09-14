@@ -208,7 +208,7 @@ spark.hadoop.hive.metastore.schema.verification false
 spark.hadoop.hive.synapse.externalmetastore.schema.usedefault false
 ```
 
-If you need to migrate your HMS version, we recommend using [hive schema tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool). And if the HMS has been used by HDInsight clusters, we suggest using [HDI provided version](../hdinsight/interactive-query/apache-hive-migrate-workloads.md). 
+If you need to migrate your HMS version, we recommend using [hive schema tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool). And if the HMS has been used by HDInsight clusters, we suggest using [HDI provided version](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-migrate-workloads). 
 
 ### When sharing the metastore with HDInsight 4.0 Spark clusters, I cannot see the tables
 If you want to share the Hive catalog with a spark cluster in HDInsight 4.0, please ensure your property `spark.hadoop.metastore.catalog.default` in Synapse spark aligns with the value in HDInsight spark. The default value is `Spark`.
