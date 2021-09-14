@@ -706,11 +706,13 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
 3.  Finally update the `onConnected` handler to broadcast the connected event to all clients so they can see who joined the chat room.
 
     ```csharp
+    
     app.UseEndpoints(endpoints =>
     {
         // abuse protection
         endpoints.Map("/eventhandler", async context =>
         {
+            var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
             if (context.Request.Method == "OPTIONS")
             {
                 if (context.Request.Headers["WebHook-Request-Origin"].Count > 0)
@@ -729,6 +731,13 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
                     // the connected event
                     Console.WriteLine($"{userId} connected");
                     await serviceClient.SendToAllAsync($"[SYSTEM] {userId} joined.");
+                    context.Response.StatusCode = 200;
+                    return;
+                }
+                else if (context.Request.Headers["ce-type"] == "azure.webpubsub.user.message")
+                {
+                    using var stream = new StreamReader(context.Request.Body);
+                    await serviceClient.SendToAllAsync($"[{userId}] {await stream.ReadToEndAsync()}");
                     context.Response.StatusCode = 200;
                     return;
                 }
