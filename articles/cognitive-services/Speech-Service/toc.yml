@@ -618,6 +618,8 @@
       items:
         - name: Speech Studio overview
           href: speech-studio-overview.md
+        - name: Role-based access control in Speech Studio
+          href: speech-studio-role-based-access-control.md
     - name: Enterprise readiness
       items:
       - name: Region support

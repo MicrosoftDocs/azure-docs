@@ -114,6 +114,8 @@ items:
       href: custom-question-answering/how-to/migrate-knowledge-base.md
     - name: Add chit-chat
       href: custom-question-answering/how-to/chit-chat.md
+    - name: Change default answer
+      href: custom-question-answering/how-to/change-default-answer.md
 - name: Entity linking
   items:
   - name: Overview
@@ -246,5 +248,7 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-
-  
+- name: Resources
+  items:
+    - name: Support and help options
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language/context/context

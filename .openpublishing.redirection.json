@@ -21,7 +21,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/articles/active-directory/user-help/active-directory-passwords-reset-register.md",
+      "source_path": "articles/active-directory/user-help/index.yml",
+      "redirect_url": "https://support.microsoft.com/en-us/account-billing/work-or-school-account-help-718b3d92-a8a7-4656-8a05-c0228d346b7d",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/active-directory-passwords-reset-register.md",
       "redirect_url": "https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a",
       "redirect_document_id": false
     },
@@ -57102,6 +57107,90 @@
       "source_path_from_root": "/articles/sentinel/normalization-schema.md",
       "redirect_url": "/azure/sentinel/network-normalization-schema",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/azure-security-benchmark.md",
+      "redirect_url": "/azure/governance/policy/samples/azure-security-benchmark",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/index.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/index.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/index.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/index.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-53-r4.md",
+      "redirect_url": "/azure/governance/policy/samples/nist-sp-800-53-r4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/export-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-stream-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/code-sample-export-sql-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-sql-stream-analytics",
+      "redirect_document_id": false
     }
   ]
 }
+
+
+
+ 

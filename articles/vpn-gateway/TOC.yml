@@ -261,7 +261,7 @@
     href: create-zone-redundant-vnet-gateway.md
   - name: Configure packet captures 
     href: packet-capture.md
-  - name: Health monitoring
+  - name: Monitoring
     items:
     - name: Monitoring VPN Gateway
       href: monitor-vpn-gateway.md

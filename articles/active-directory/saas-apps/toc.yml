@@ -716,6 +716,8 @@
         href: fabric-tutorial.md
       - name: F5
         href: headerf5-tutorial.md
+      - name: Facebook Work Accounts
+        href: facebook-work-accounts-tutorial.md  
       - name: FactSet
         href: factset-tutorial.md
       - name: Fastly Edge Cloud
@@ -2128,6 +2130,8 @@
         href: velpicsaml-tutorial.md
       - name: Veracode
         href: veracode-tutorial.md
+      - name: VergeSense
+        href: vergesense-tutorial.md  
       - name: Veritas Enterprise Vault.cloud SSO
         href: veritas-tutorial.md
       - name: Verkada Command
