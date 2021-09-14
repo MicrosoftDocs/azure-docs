@@ -31,7 +31,7 @@ Follow below steps to set up a linked service to the external Hive metastore in 
 
 1.	Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
 
-    :::image type="content" source="./media/share-hive-metastore-with-synapse/set-up-hive-metastore-linked-service.png" alt-text="Set up Hive Metastore linked service" border="true":::
+    :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Set up Hive Metastore linked service" border="true":::
 
 2.	Choose **Azure SQL Database**, click **Continue**.
 
@@ -82,7 +82,7 @@ Here are the configurations and descriptions:
 ### Configure Spark pool 
 When creating the Spark pool, under **Additional Settings** tab, put below configurations in a text file and upload it in **Apache Spark configuration** section. You can also use the context menu for an existing Spark pool, choose Apache Spark configuration to add these configurations.
 
-   :::image type="content" source="./media/share-hive-metastore-with-synapse/config-spark-pool.png" alt-text="Configure the Spark pool":::
+   :::image type="content" source="./media/use-external-metastore/config-spark-pool.png" alt-text="Configure the Spark pool":::
 
 Update metastore version and linked service name, and save below configs in a text file for Spark pool configuration:
 
@@ -135,7 +135,7 @@ If the underlying data of your Hive tables are stored in Azure Blob storage acco
 
 1.	Open Synapse Studio, go to **Data > Linked tab > Add** button > **Connect to external data**.
 
-    :::image type="content" source="./media/share-hive-metastore-with-synapse/connect-to-storage-account.png" alt-text="Connect to storage account" border="true":::
+    :::image type="content" source="./media/use-external-metastore/connect-to-storage-account.png" alt-text="Connect to storage account" border="true":::
 
 2.	Choose **Azure Blob Storage** and click **Continue**.
 3.	Provide **Name** of the linked service. Record the name of the linked service, this info will be used in Spark session configuration shortly.
