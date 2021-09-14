@@ -86,7 +86,9 @@ To disable a backup policy, do these steps:
     1. Click the policy again to open the **Schedules** dialog box. 
     1. Click the schedule you want to disable to open **Configure schedule**. In the **Status** field, select **Disabled**.
 
-    ![Illustration showing steps to disable a schedule for a backup policy on a StorSimple device. Each step is numbered.](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png)
+    <!--![Illustration showing steps to disable a schedule for a backup policy on a StorSimple device. Each step is numbered.](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png)-->
+
+    [ ![Illustration showing steps to disable a schedule for a backup policy on a StorSimple device. Each step is numbered.](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png) ](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png#lightbox)
 
 ## Add or remove a volume
 
