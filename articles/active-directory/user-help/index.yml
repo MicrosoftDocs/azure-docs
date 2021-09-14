@@ -100,7 +100,5 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Sign up for password reset
-            url: active-directory-passwords-reset-register.md
           - text: Reset your password
             url: active-directory-passwords-update-your-own-password.md
