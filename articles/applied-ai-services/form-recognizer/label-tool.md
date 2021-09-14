@@ -195,12 +195,16 @@ The following value types and variations are currently supported:
 
 * `number`
   * default, `currency`
+  * Formatted as a Floating point value. 
+  * Example:1234.98 on the document will be formatted into 1234.98 on the output
 
 * `date`
   * default, `dmy`, `mdy`, `ymd`
 
 * `time`
 * `integer`
+  * Formatted as a Integer value. 
+  * Example:1234.98 on the document will be formatted into 123498 on the output
 * `selectionMark`
 
 > [!NOTE]

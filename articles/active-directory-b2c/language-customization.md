@@ -34,6 +34,10 @@ You might not need that level of control over what languages your customer sees.
 > [!NOTE]
 > If you're using custom user attributes, you need to provide your own translations. For more information, see [Customize your strings](#customize-your-strings).
 
+Watch this video to learn how to localize or customize language using Azure AD B2C.
+
+>[!Video https://www.youtube.com/embed/yqrX5_tA7Ms]
+
 ::: zone pivot="b2c-custom-policy"
 
 Localization requires three steps: 

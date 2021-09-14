@@ -103,7 +103,7 @@ To deploy the extension for Linux:
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(parameters('VMName'), '/AzurePolicyforLinux')]",
-  "apiVersion": "2019-07-01",
+  "apiVersion": "2020-12-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -125,7 +125,7 @@ To deploy the extension for Windows:
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(parameters('VMName'), '/AzurePolicyforWindows')]",
-  "apiVersion": "2019-07-01",
+  "apiVersion": "2020-12-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -137,6 +137,50 @@ To deploy the extension for Windows:
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
+  }
+}
+```
+
+### Bicep
+
+To deploy the extension for Linux:
+
+```bicep
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2021-03-01' existing = {
+  name: 'VMName'
+}
+resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
+  parent: virtualMachine
+  name: 'AzurePolicyforLinux'
+  location: resourceGroup().location
+  properties: {
+    publisher: 'Microsoft.GuestConfiguration'
+    type: 'ConfigurationforLinux'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    settings: {}
+    protectedSettings: {}
+  }
+}
+```
+
+To deploy the extension for Windows:
+
+```bicep
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2021-03-01' existing = {
+  name: 'VMName'
+}
+resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
+  parent: virtualMachine
+  name: 'AzurePolicyforWindows'
+  location: resourceGroup().location
+  properties: {
+    publisher: 'Microsoft.GuestConfiguration'
+    type: 'ConfigurationforWindows'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    settings: {}
+    protectedSettings: {}
   }
 }
 ```

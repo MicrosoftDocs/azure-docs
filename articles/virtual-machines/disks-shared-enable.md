@@ -4,7 +4,7 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -57,9 +57,9 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 
     :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Screenshot of the create a managed disk pane, change size highlighted.." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
 
-1. Select the premium SSD size that you want and select **OK**.
+1. Select the premium SSD size and SKU that you want and select **OK**.
 
-    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Screenshot of the disk SKU, premium SSD highlighted." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Screenshot of the disk SKU, premium LRS and ZRS SSD SKUs highlighted." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
 
 1. Proceed through the deployment until you get to the **Advanced** pane.
 1. Select **Yes** for **Enable shared disk** and select the amount of **Max shares** you want.
@@ -100,7 +100,23 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 
 # [Portal](#tab/azure-portal)
 
-You cannot currently deploy a shared standard SSD via the Azure portal. Use either the Azure CLI, the Azure PowerShell module, or an Azure Resource Manager template.
+1. Sign in to the Azure portal. 
+1. Search for and Select **Disks**.
+1. Select **+ Create** to create a new disk.
+1. Fill in the details and select an appropriate region, then select **Change size**.
+
+    :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Screenshot of the create a managed disk pane, change size highlighted.." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
+
+1. Select the standard SSD size and SKU that you want and select **OK**.
+
+    :::image type="content" source="media/disks-shared-enable/select-standard-ssd-shared-disk.png" alt-text="Screenshot of the disk SKU, standard SSD LRS and ZRS SKUs highlighted." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+
+1. Proceed through the deployment until you get to the **Advanced** pane.
+1. Select **Yes** for **Enable shared disk** and select the amount of **Max shares** you want.
+
+    :::image type="content" source="media/disks-shared-enable/enable-premium-shared-disk.png" alt-text="Screenshot of the Advanced pane, Enable shared disk highlighted and set to yes." lightbox="media/disks-shared-enable/enable-premium-shared-disk.png":::
+
+1. Select **Review + Create**.
 
 # [Azure CLI](#tab/azure-cli)
 

@@ -87,8 +87,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: View activity logs
-            url: view-activity-logs.md
           - text: Request limits and throttling
             url: request-limits-and-throttling.md
           - text: Asynchronous operations

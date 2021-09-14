@@ -21,7 +21,7 @@ ms.date: 08/25/2021
 | Azure Database for Maria DB \* | Yes | 
 | Azure Database for MySQL \* | Yes | 
 | Azure Database for PostgreSQL \* | Yes |
-| Azure File Storage | Yes | 
+| Azure Files | Yes | 
 | Azure SQL Database \* | Yes | 
 | Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes | 
@@ -47,7 +47,7 @@ Currently, if you use the following copy activity features, the lineage is not y
 
 In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
 
-- CSV and Parquet files on Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2, and Amazon S3
+- CSV and Parquet files on Azure Blob, Azure Files, ADLS Gen1, ADLS Gen2, and Amazon S3
 - Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
 
 ### Data Flow support

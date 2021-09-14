@@ -41,7 +41,7 @@ Reservation discounts don't apply for the following:
 
 - **Clouds** - Reservations aren't available for purchase in Germany or China regions.
 
-- **Insufficient quota** - A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new reserved instance. For example, if the target subscription has a quota limit of 10 vCPUs for DSv3-Series, then you can't buy a reservation dedicated hosts supporting this series. The quota check for reservations includes the VMs and dedicated hosts already deployed in the subscription. You can [create quota increase request](../azure-portal/supportability/resource-manager-core-quotas-request.md) to resolve this issue.
+- **Insufficient quota** - A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new reserved instance. For example, if the target subscription has a quota limit of 10 vCPUs for DSv3-Series, then you can't buy a reservation dedicated hosts supporting this series. The quota check for reservations includes the VMs and dedicated hosts already deployed in the subscription. You can [create quota increase request](../azure-portal/supportability/regional-quota-requests.md) to resolve this issue.
 
 - **Capacity restrictions** - In rare circumstances, Azure limits the purchase of new reservations for subset of dedicated host SKUs, because of low capacity in a region.
 

@@ -123,6 +123,35 @@ You can specify the pattern that the files must satisfy in order to be reference
 > [!NOTE]
 > The table is created on partitioned folder structure, but you cannot leverage some partition elimination. If you want to get better performance by skipping the files that do not satisfy some criterion (like specific year or month in this case), use [views on external data](create-use-views.md#partitioned-views).
 
+## External table on appendable files
+
+The files that are referenced by an external table should not be changed while the query is running. In the long-running query, SQL pool may retry reads, read parts of the files, or even read the file multiple times. Changes of the file content would cause wrong results. Therefore, the SQL pool fails the query if detects that the modification time of any file is changed during the query execution.
+In some scenarios you might want to create a table on the files that are constantly appended. To avoid the query failures due to constantly appended files, you can specify that the external table should ignore potentially inconsistent reads using the `TABLE_OPTIONS` setting.
+
+
+```sql
+CREATE EXTERNAL TABLE populationExternalTable
+(
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
+)
+WITH (
+    LOCATION = 'csv/population/population.csv',
+    DATA_SOURCE = sqlondemanddemo,
+    FILE_FORMAT = QuotedCSVWithHeaderFormat,
+    TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+);
+```
+
+The `ALLOW_INCONSISTENT_READS` read option will disable file modification time check during the query lifecycle and read whatever is available in the files that are referenced by the external table. In appendable files, the existing content is not updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors.
+
+This option is available only in the external tables created on CSV file format.
+
+> [!NOTE]
+> As the option name implies, the creator of the table accepts a risk that the results might not be consistent. In the appendable files, you might get incorrect results if you force multiple read of the underlying files by self-joining the table. In most of the "classic" queries, the external table will just ignore some rows that are appended while the query was running.
+
 ## Delta Lake external table
 
 External tables can be created on top of a Delta Lake folder. The only difference between the external tables created on a [single file](#external-table-on-a-file) or a [file set](#external-table-on-a-set-of-files) and the external tables created on a Delta Lake format is that in Delta Lake external table you need to reference a folder containing the Delta Lake structure.
