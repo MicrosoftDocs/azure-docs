@@ -61,6 +61,9 @@ However, if you’d like all the latest features and updates, the best way to se
 >[!NOTE] 
 > This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer and fixes a security issue that is present in version 2.0 of Azure AD Connect, as well as some other bug fixes.
 
+### Release status
+9/14/2021: Released for download only, not available for auto upgrade.
+
 ### Bug fixes
 
  - We fixed a security issue where an unquoted path was used to point to the Azure AD Connect service. This path is now a quoted path.
