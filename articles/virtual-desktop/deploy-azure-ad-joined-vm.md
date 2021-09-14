@@ -7,20 +7,18 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 09/15/2021
 ms.author: helohr
 ---
 # Deploy Azure AD joined virtual machines in Azure Virtual Desktop
-
-> [!IMPORTANT]
-> Azure AD joined VM support is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article will walk you through the process of deploying and accessing Azure Active Directory joined virtual machines in Azure Virtual Desktop. Azure AD-joined VMs remove the need to have line-of-sight from the VM to an on-premise or virtualized Active Directory Domain Controller (DC) or to deploy Azure AD Domain services (Azure AD DS). In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
 
 > [!NOTE]
 > Azure Virtual Desktop (Classic) doesn't support this feature.
+
+> [!NOTE]
+> Azure AD-joined VMs are currently only supported in the Azure Commercial cloud.
 
 ## Supported configurations
 
@@ -33,9 +31,6 @@ The following configurations are currently supported with Azure AD-joined VMs:
 User accounts can be cloud-only or hybrid users from the same Azure AD tenant. External users aren't supported at this time.
 
 ## Deploy Azure AD-joined VMs
-
-> [!IMPORTANT]
-> During public preview, you must configure your host pool to be in the [validation environment](create-validation-host-pool.md).
 
 You can deploy Azure AD-joined VMs directly from the Azure portal when [creating a new host pool](create-host-pools-azure-marketplace.md) or [expanding an existing host pool](expand-existing-host-pool.md). On the Virtual Machines tab, select whether to join the VM to Active Directory or Azure Active Directory. Selecting **Azure Active Directory** gives you the option to **Enroll the VM with Intune** automatically so you can easily manage [Windows 10 Enterprise](/mem/intune/fundamentals/windows-virtual-desktop) and [Windows 10 Enterprise multi-session](/mem/intune/fundamentals/windows-virtual-desktop-multi-session) VMs. Keep in mind that the Azure Active Directory option will join VMs to the same Azure AD tenant as the subscription you're in.
 
@@ -78,7 +73,7 @@ To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you
 
 ### Enabling MFA for Azure AD joined VMs
 
-You can enable [multifactor authentication](set-up-mfa.md) for Azure AD joined VMs by setting a Conditional Access policy on the Azure Virtual Desktop app. For connections to succeed, [disable the legacy per-user multifactor authentication](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#using-conditional-access). If you don't want to restrict signing in to strong authentication methods like Windows Hello for Business, you'll also need to [exclude the Azure Windows VM Sign-In app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) from your Conditional Access policy.
+You can enable [multifactor authentication](set-up-mfa.md) for Azure AD-joined VMs by setting a Conditional Access policy on the Azure Virtual Desktop app. For connections to succeed, you must [disable the legacy per-user multifactor authentication](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required). If you don't want to restrict signing in to strong authentication methods like Windows Hello for Business, you'll also need to [exclude the Azure Windows VM Sign-In app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) from your Conditional Access policy.
 
 ## User profiles
 
