@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 09/30/2020
+ ms.date: 09/07/2021
  ms.author: tamram
  ms.custom: include file
 ---
@@ -28,6 +28,8 @@ The following table describes default limits for Azure general-purpose v1, v2, B
 | Maximum egress for general-purpose v1 storage accounts (non-US regions) | 10 Gbps if RA-GRS/GRS is enabled, 15 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum number of virtual network rules per storage account | 200 |
 | Maximum number of IP address rules per storage account | 200 |
+| Maximum number of resource instance rules per storage account | 200 |
+| Maximum number of private endpoints per storage account | 200 |
 
 <sup>1</sup> Azure Storage standard accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 

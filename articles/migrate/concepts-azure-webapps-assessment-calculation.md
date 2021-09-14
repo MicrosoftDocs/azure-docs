@@ -88,7 +88,7 @@ Premium plans are for production workloads and run on dedicated Virtual Machine 
 
 ### Azure App Service Plan
 
-In App Service, an app always runs in an [App Service plan](/azure/app-service/overview-hosting-plans). An App Service plan defines a set of compute resources for a web app to run. At a high level, plan/SKU is determined as per below table.
+In App Service, an app always runs in an [App Service plan](../app-service/overview-hosting-plans.md). An App Service plan defines a set of compute resources for a web app to run. At a high level, plan/SKU is determined as per below table.
 
 **Isolation required** | **Reserved instance** | **App Service plan/ SKU**
 --- | --- | ---
@@ -99,7 +99,7 @@ No  | No | P1v2
 
 ### Azure App Service cost details
 
-An [App Service plan](/azure/app-service/overview-hosting-plans) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses. In App Service, you pay charges per App Service plans and not per web app. One or more apps can be configured to run on the same computing resources (or in the same App Service plan). Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan.
+An [App Service plan](../app-service/overview-hosting-plans.md) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses. In App Service, you pay charges per App Service plans and not per web app. One or more apps can be configured to run on the same computing resources (or in the same App Service plan). Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan.
 To optimize cost, Azure Migrate assessment allocates multiple web apps to each recommended App Service plan. Number of web apps allocated to each plan instance is as per below table.
 
 **App Service plan** | **Web apps per App Service plan**
@@ -109,7 +109,7 @@ P1v2  | 8
 P1v3  | 16
 
 > [!NOTE]
-> Your App Service plan can be scaled up and down at any time. [Learn more](/azure/app-service/overview-hosting-plans#what-if-my-app-needs-more-capabilities-or-features/).
+> Your App Service plan can be scaled up and down at any time. [Learn more](../app-service/overview-hosting-plans.md#what-if-my-app-needs-more-capabilities-or-features).
 
 ## Next steps
 - [Review](best-practices-assessment.md) best practices for creating assessments. 

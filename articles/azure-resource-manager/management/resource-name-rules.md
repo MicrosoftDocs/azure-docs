@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 09/03/2021
+ms.date: 09/09/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -21,6 +21,9 @@ In the following tables, the term alphanumeric refers to:
 * **a** through **z** (lowercase letters)
 * **A** through **Z** (uppercase letters)
 * **0** through **9** (numbers)
+
+> [!NOTE]
+> All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](resource-name-rules.md).
 
 ## Microsoft.AnalysisServices
 
@@ -617,6 +620,30 @@ In the following tables, the term alphanumeric refers to:
 > | tagNames / tagValues | tag name | 1-256 | All characters. |
 > | templateSpecs | resource group | 1-90 | Alphanumerics, underscores, parentheses, hyphens, and periods. |
 
+## Microsoft.Security
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | advancedThreatProtectionSettings | resource group | see value | Must be `current` |
+> | alertsSuppressionRules | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | assessmentMetadata | assessment type | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | assessments | assessment type | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | automations | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | autoProvisioningSettings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | connectors | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | deviceSecurityGroups | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | informationProtectionPolicies | resource group | see values | Use one of:<br>`custom`<br>`effective` | 
+> | iotSecuritySolutions | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | locations / applicationWhitelistings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | locations / jitNetworkAccessPolicies | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | ingestionSettings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | pricings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | securityContacts | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
+> | settings | subscription | see values | Use one of:<br>`MCAS`<br>`Sentinel`<br>`WDATP`<br>`WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW` |
+> | serverVulnerabilityAssessments | resource type | see value | Must be `Default` |
+> | sqlVulnerabilityAssessments / baselineRules | Vulnerability assessment | 1-260 | Alphanumerics, underscores, and hyphens. |
+
 ## Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
@@ -729,4 +756,6 @@ In the following tables, the term alphanumeric refers to:
 
 ## Next steps
 
-For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+* For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+
+* All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](resource-name-rules.md).

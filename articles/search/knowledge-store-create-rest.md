@@ -192,7 +192,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                 { "name": "languageCode", "source": "/document/language" }
             ],
             "outputs": [
-                { "name": "score", "targetName": "sentiment" }
+                { "name": "sentiment", "targetName": "sentiment" }
             ]
         },
         {
@@ -252,7 +252,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                     "source": "/document/reviews_text/pages/*/translated_text"
                     },
                     { 
-                    "name": "sentimentScore",
+                    "name": "sentiment",
                     "source": "/document/reviews_text/pages/*/sentiment"
                     },
                     {
@@ -299,7 +299,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
                     { 
                         "tableName": "hotelReviews5InlineProjectionPages", "generatedKeyName": "Pagesid", "sourceContext": "/document/reviews_text/pages/*",
                         "inputs": [
-                            { "name": "SentimentScore", "source": "/document/reviews_text/pages/*/sentiment"},
+                            { "name": "Sentiment", "source": "/document/reviews_text/pages/*/sentiment"},
                             { "name": "LanguageCode", "source": "/document/language"},
                             { "name": "Keyphrases", "source": "/document/reviews_text/pages/*/keyphrases"},
                             { "name": "TranslatedText", "source": "/document/reviews_text/pages/*/translated_text"},
@@ -375,7 +375,7 @@ Each table is generated with the IDs necessary for cross-linking the tables in q
 
    :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
 
-In this walkthrough, the knowledge store is composed of a various tables showing different ways of shaping and structuring a table. The first set of three demonstrate tables that use output from a Shaper skill to determine the columns and rows. The second set demonstrates inline shaping commands, embedded within the projection itself. You can use either approach to achieve the same outcome.
+In this walkthrough, the knowledge store is composed of a various tables showing different ways of shaping and structuring a table. Tables one through three use output from a Shaper skill to determine the columns and rows. Tables four through six are created from inline shaping instructions, embedded within the projection itself. You can use either approach to achieve the same outcome.
 
 | Table | Description |
 |-------|-------------|
