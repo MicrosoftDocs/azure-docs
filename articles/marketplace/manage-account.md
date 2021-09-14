@@ -22,7 +22,7 @@ Once you've [created a Partner Center account](./create-account.md), you can use
 
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#developer) for your Partner Center account.
 
-1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
+1. Sign in to the [commercial marketplace dashboard](https://go.microsoft.com/fwlink/?linkid=2165290) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
 1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
 
 :::image type="content" source="media/manage-accounts/settings-account.png" alt-text="Displays the Account Settings option in Partner Center":::
