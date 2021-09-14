@@ -20,6 +20,8 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
 
 If your VM uses Premium Storage, make sure that you choose an **s** version of the size to get Premium Storage support. For example, choose Standard_E4**s**_v3 instead of Standard_E4_v3.
 
+## Change the VM size
+
 ### [Portal](#tab/portal)
 
 1. Open the [Azure portal](https://portal.azure.com).
@@ -171,6 +173,8 @@ $virtualMachines | Foreach-Object { $_.HardwareProfile.VmSize = $newSize }
 $virtualMachines | Update-AzVM
 $virtualMachines | Start-AzVM
 ```
+
+---
 
 ## Next steps
 
