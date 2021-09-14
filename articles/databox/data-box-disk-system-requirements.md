@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/14/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.localizationpriority: high 
 ---
@@ -59,8 +59,8 @@ For Windows client, following should also be installed.
 
 For Linux client, the Data Box Disk toolset installs the following required software:
 
-- `Dislocker`
-- `OpenSSL`
+- dislocker
+- OpenSSL
 
 ## Supported connection
 
