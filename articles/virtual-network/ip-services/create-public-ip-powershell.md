@@ -40,8 +40,6 @@ New-AzResourceGroup @rg
 >[!NOTE]
 >Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
 
-## Create standard SKU public IP
-
 In this section, you'll create a public IP with zones. Public IP addresses can be zone-redundant or zonal.
 
 >[!NOTE]
@@ -71,8 +69,6 @@ New-AzPublicIpAddress @ip
 
 >[!NOTE]
 >Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
-
-## Create a basic SKU public IP
 
 In this section, you'll create a basic IP. Basic public IPs don't support availability zones.
 
