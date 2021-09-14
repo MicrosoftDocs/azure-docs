@@ -27,13 +27,6 @@ Version 1.5
 - New `-json` parameter to direct output results in JSON format (when used with -useStderr).
 - Collect other instance metadata - Manufacturer, model, and cluster resource ID (for Azure Stack HCI nodes).
  
-## Next steps
-
-- Before evaluating or enabling Azure Arc-enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
-
-- Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
-
-
 ## March 2021
 
 Version 1.4
