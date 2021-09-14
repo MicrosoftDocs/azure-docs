@@ -1,18 +1,18 @@
 ---
-title: Create a public IP - Azure CLI
+title: 'Quickstart: Create a public IP - Azure CLI'
 titleSuffix: Azure Virtual Network
-description: Learn how to create a public IP using Azure CLI
+description: Learn how to create a public IP using the Azure CLI
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 09/14/2021
 ms.author: allensu
 
 ---
-# Create a public IP address using Azure CLI
+# Quickstart: Create a public IP address using the Azure CLI
 
-This article shows you how to create a public IP address resource using Azure CLI. 
+This article shows you how to create a public IP address resource using the Azure CLI. 
 
 For more information on resources that support public IPs, see [Public IP addresses](./public-ip-addresses.md).
 
@@ -39,7 +39,7 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 >[!NOTE]
 >Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
 
-### Zone redundant
+## Create a standard SKU public IP
 
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
@@ -62,7 +62,7 @@ To create an IPv6 address, modify the **version** parameter to **IPv6**.
 
 # [**Basic SKU**](#tab/create-public-ip-basic)
 
-## Create a basic public IP
+## Create a basic SKU public IP
 
 In this section, you'll create a basic IP. Basic public IPs don't support availability zones.
 
