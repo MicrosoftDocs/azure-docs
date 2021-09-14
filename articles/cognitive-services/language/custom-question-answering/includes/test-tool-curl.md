@@ -14,8 +14,8 @@ This cURL-based quickstart walks you through getting an answer from your knowled
 
 ## Prerequisites
 
-* You must have
-    * Latest [**cURL**](https://curl.haxx.se/).
+* You must have:
+    * The latest version of [**cURL**](https://curl.haxx.se/).
     * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
  * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
