@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 03/09/2020
 ---
 
-# Tutorial: Create a metrics chart in Azure Monitor
+# Tutorial: Analyze metrics for an Azure resource
 Metrics explorer is a feature of Azure Monitor in the Azure portal that allows you to create charts from metric values, visually correlate trends, and investigate spikes and dips in metric values. Use the metrics explorer to investigate the health and utilization of your Azure resources or to plot charts from custom metrics. 
 
 In this tutorial, you learn how to:
@@ -22,44 +22,40 @@ Following is a video that shows a more extensive scenario than the procedure out
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
 ## Prerequisites
+To complete this tutorial you need the following: 
 
-To complete this tutorial you need an Azure resource to monitor. You can use any resource in your Azure subscription that supports metrics. To determine whether a resource supports metrics, go to its menu in the Azure portal and verify that there's a **Metrics** option in the **Monitoring** section of the menu.
+- An Azure resource to monitor. You can use any resource in your Azure subscription that supports metrics. To determine whether a resource supports metrics, go to its menu in the Azure portal and verify that there's a **Metrics** option in the **Monitoring** section of the menu.
 
-
-## Log in to Azure
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Open metrics explorer and select a scope
 You can open metrics explorer either from the Azure Monitor menu or from a resource's menu in the Azure portal. Metrics from all resources are available regardless of which option you use. 
 
-1. Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu.
+Select **Metrics** from the **Monitoring** section of your resource's menu. The scope is already populated. The example below is for a Storage account, but this will look similar for other Azure services.
 
-1. Select the **Scope**, which is the resource you want to see metrics for. The scope is already populated if you opened metrics explorer from a resource's menu. To learn more about the various capabilities of the resource scope picker, visit [this article](../essentials/metrics-charts.md#resource-scope-picker).
+:::image type="content" source="media/tutorial-metrics/metrics-menu.png" lightbox="media/tutorial-metrics/metrics-menu.png" alt-text="Metrics menu item":::
 
-    ![Select a scope](media/tutorial-metrics-explorer/scope-picker.png)
+Select a **Namespace** if the scope has more than one. The namespace is just a way to organize metrics so that you can easily find them. For example, storage accounts have separate namespaces for storing Files, Tables, Blobs, and Queues metrics. Many resource types only have one namespace.
 
-2. Select a **Namespace** if the scope has more than one. The namespace is just a way to organize metrics so that you can easily find them. For example, storage accounts have separate namespaces for storing Files, Tables, Blobs, and Queues metrics. Many resource types only have one namespace.
+Select a metric from a list of available metrics for the selected scope and namespace.
 
-3. Select a metric from a list of available metrics for the selected scope and namespace.
+:::image type="content" source="media/tutorial-metrics/metric-picker.png" lightbox="media/tutorial-metrics/metric-picker.png" alt-text="Select namespace and metric":::
 
-    ![Select a metric](media/tutorial-metrics-explorer/metric-picker.png)
+Optionally, change the metric **Aggregation**. This defines how the metric values will aggregated across the time granularity for the graph. For example, if the time granularity is set to 15 minutes and the aggregation is set to sum, then each point in the graph will be the sum of all collected values over each 15 minute segment.
 
-4. Optionally, change the metric **Aggregation**. This defines how the metric values will aggregated across the time granularity for the graph. For example, if the time granularity is set to 15 minutes and the aggregation is set to sum, then each point in the graph will be the sum of all collected values over each 15 minute segment.
+:::image type="content" source="media/tutorial-metrics/chart.png" lightbox="media/tutorial-metrics/chart.png" alt-text="Screenshot shows a chart titled Sum Ingress for contosoretailweb":::
 
-    ![Screenshot shows a chart titled Sum Ingress for contosoretailweb.](media/tutorial-metrics-explorer/chart.png)
 
-5. Use the **Add metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, select the **New chart** button.
+Use the **Add metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, select the **New chart** button.
 
 ## Select a time range and granularity
 
 By default, the chart shows the most recent 24 hours of metrics data. Use the time picker to change the **Time range** for the chart or the **Time granularity** which defines the time range for each data point. The chart uses the specified aggregation to calculate all sampled values over the time granularity specified.
 
-![Change time range panel](media/tutorial-metrics-explorer/time-picker.png)
-
+:::image type="content" source="media/tutorial-metrics/time-picker.png" lightbox="media/tutorial-metrics/time-picker.png" alt-text="Change time range panel":::
 
 Use the **time brush** to investigate an interesting area of the chart such as a spike or a dip. Put the mouse pointer at the beginning of the area, click and hold the left mouse button, drag to the other side of area, and release the button. The chart will zoom in on that time range. 
 
-![Time brush](media/tutorial-metrics-explorer/time-brush.png)
+:::image type="content" source="media/tutorial-metrics/time-brush.png" lightbox="media/tutorial-metrics/time-brush.png" alt-text="Time brush":::
 
 ## Apply dimension filters and splitting
 See the following references for advanced features that allow you to perform additional analysis on your metrics and identify potential outliers in your data.
@@ -79,5 +75,5 @@ You can customize chart style, title, and modify advanced chart settings. When d
 Now that you've learned how to work with metrics in Azure Monitor, learn how to use metrics to send proactive alerts.
 
 > [!div class="nextstepaction"]
-> [Create a metric alert using Azure Monitor](../alerts/tutorial-metric-alerts.md)
+> [Create a metric alert in Azure Monitor](../alerts/tutorial-metric-alerts.md)
 
