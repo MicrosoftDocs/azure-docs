@@ -116,7 +116,7 @@ This CloudFormation template is available for download from the Microsoft Downlo
 
 1. Select **Next** and then, in the **Stack name** section, enter a name for your stack.
 
-<a name="parameters"></a>1. In the **Parameters** area, enter the following values, using data available from your RDS database page in AWS:
+1. <a name="parameters"></a>In the **Parameters** area, enter the following values, using data available from your RDS database page in AWS:
 
     |Name  |Description  |
     |---------|---------|
