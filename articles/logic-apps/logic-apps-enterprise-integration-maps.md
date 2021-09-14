@@ -16,7 +16,7 @@ To transfer XML data between formats for enterprise integration scenarios in Azu
 
 For example, suppose you regularly receive B2B orders or invoices from a customer who uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can define and use a map that transforms the YYYYMMDD format to the MMDDYYYY format before storing the order or invoice details in your customer activity database.
 
-With a map, you can define a simple transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.
+With a map, you can define a basic transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.
 
 > [!NOTE]
 > Azure Logic Apps allocates finite memory for processing XML transformations. If you create logic apps based on the 
@@ -221,7 +221,7 @@ The following example shows a map that references an assembly named `XslUtilitie
 
 * Operations or functions for multiple maps are available, including string functions, date time functions, and so on.
 
-* To add a sample XML message, you can use the map testing capability. With just one click, you can test the map you created, and review the generated output.
+* To add a sample XML message, you can use the map testing capability. With just one gesture, you can test the map you created, and review the generated output.
 
 ## Add maps
 
