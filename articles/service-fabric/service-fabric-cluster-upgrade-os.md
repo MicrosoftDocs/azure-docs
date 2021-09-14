@@ -18,7 +18,7 @@ The general approach is to:
 
     * Avoid issuing manual SF cluster code upgrades during the OS migration. Doing so may cause the old node type nodes to enter a state that will require human intervention.
 
-2. For each node type in the cluster, create another node type targeting the Ubuntu 18.04 OS image for the underlying Virtual Machine Scale Set (VMSS). Each new node type will assume the role of its old counterpart.
+2. For each node type in the cluster, create another node type targeting the Ubuntu 18.04 OS image for the underlying Virtual Machine Scale Set. Each new node type will assume the role of its old counterpart.
 
     * A new primary node type will have to be created to replace the old node type marked as "isPrimary": true.
     
