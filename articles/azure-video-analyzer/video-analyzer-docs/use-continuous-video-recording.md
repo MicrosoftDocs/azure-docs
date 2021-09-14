@@ -106,8 +106,6 @@ When you use run this quickstart or tutorial, events will be sent to the IoT Hub
 
     [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
-
-
 ## Examine the sample files
 
 In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Here you'll see the appsettings.json file that you created along with a few other files:
@@ -177,20 +175,19 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
      }
      ```
    * A call to `livePipelineActivate` to start the live pipeline and to start the flow of video and then pauses for you to select **Enter** in the **Terminal** window
-   * A second call to `livePipelineList` to show that the live pipeline is in the running state 
 1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Do not select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Video Analyzer edge module.
 
-
-   These messages are discussed in the following section.
+These messages are discussed in the following section.
 1. The live pipeline continues to run and record the video. The RTSP simulator keeps looping the source video. To stop recording, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
 
    * A call to `livePipelineDeactivate` to deactivate the live pipeline.
    * A call to `livePipelineDelete` to delete the live pipeline.
+   * A second call to `livePipelineList` to show that the live pipeline is in the running state.
    * A call to `pipelineTopologyDelete` to delete the topology.
    * A final call to `pipelineTopologyList` to show that the list is now empty.
 
-## Interpret the results 
+## Interpret the results
 
 When you run the live pipeline, the Video Analyzer edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a `body` section and an `applicationProperties` section. To understand what these sections represent, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
