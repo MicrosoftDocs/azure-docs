@@ -126,7 +126,7 @@ Instead, you can use **<https://aka.ms/mfaportal>**.
 6. Ensure the **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)** boxes are unchecked and then select **Save**.
 
    >[!NOTE]
-   >See [best practices for configuring MFA prompt settings](https://aka.ms/mfaprompts).
+   >See [best practices for configuring MFA prompt settings](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
    ![image shows uncheck fields in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
 

@@ -112,10 +112,7 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 
 #### Configure storage (Azure Stack HCI with AKS-HCI)
 
-If you are using Azure Stack HCI with AKS-HCI, do one of the following, depending on your Azure stack HCA AKS-HCI version:
-
-- For version 1.20 and above, create a custom storage class with `fsGroupPolicy:File` (For details - https://kubernetes-csi.github.io/docs/support-fsgroup.html). 
-- For version 1.19, use: 
+If you are using Azure Stack HCI with AKS-HCI, create a custom storage class with `fsType`.
 
    ```json
    fsType: ext4
@@ -227,7 +224,7 @@ By default, the kubeadm deployment profile uses a storage class called `local-st
 If you want to customize your deployment profile to specify a specific storage class and/or service type, start by creating a new custom deployment profile file based on the kubeadm deployment profile by running the following command. This command will create a directory `custom` in your current working directory and a custom deployment profile file `control.json` in that directory.
 
 ```azurecli
-az arcdata dc config init --source azure-arc-kubeadm --path ./custom --k8s-namespace <namespace> --use-k8s
+az arcdata dc config init --source azure-arc-kubeadm --path ./custom 
 ```
 
 You can look up the available storage classes by running the following command.

@@ -18,7 +18,7 @@ ms.custom: devx-track-python
 In this article, learn about the network communication requirements when securing Azure Machine Learning workspace in a virtual network (VNet). This includes how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
 
 > [!NOTE]
-> The information in this article applies to Azure Machine Learning workspace whether it uses a private endpoint or a service endpoint.
+> The information in this article applies to Azure Machine Learning workspace configured with a private endpoint.
 
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
