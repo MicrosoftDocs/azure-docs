@@ -144,7 +144,7 @@ Create the virtual network to which the function app integrates:
 
 Azure private endpoints are used to connect to specific Azure resources by using a private IP address. This connection ensures that network traffic remains within the chosen virtual network and access is available only for specific resources. 
 
-Create the private endpoints for Azure Files storage and Azure Blob Storage by using your storage account:
+Create the private endpoints for Azure Files Storage, Azure Blob Storage and Azure Table Storage by using your storage account:
 
 1. In your new storage account, in the menu on the left, select **Networking**.
 
@@ -183,6 +183,15 @@ Create the private endpoints for Azure Files storage and Azure Blob Storage by u
     | **Name** | blob-endpoint | The name of the private endpoint for blobs from your storage account. |
     | **Resource** | mysecurestorage | The storage account you created. |
     | **Target sub-resource** | blob | The private endpoint that will be used for blobs from the storage account. |
+1. Create another private endpoint for tables. On the **Resources** tab, use the settings shown in the following table. For all other settings, use the same values you used to create the private endpoint for files.
+
+    | Setting      | Suggested value  | Description      |
+    | ------------ | ---------------- | ---------------- |
+    | **Subscription** | Your subscription | The subscription under which your resources are created. | 
+    | **Resource type**  | Microsoft.Storage/storageAccounts | The resource type for storage accounts. |
+    | **Name** | table-endpoint | The name of the private endpoint for blobs from your storage account. |
+    | **Resource** | mysecurestorage | The storage account you created. |
+    | **Target sub-resource** | table | The private endpoint that will be used for tables from the storage account. |
 1. After the private endpoints are created, return to the **Firewalls and virtual networks** section of your storage account.  
 1. Ensure **Selected networks** is selected.  It's not necessary to add an existing virtual network.
 

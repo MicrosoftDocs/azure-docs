@@ -9,14 +9,12 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021 
+ms.date: 07/14/2021 
 ---
 # Enable Intel SGX for Always Encrypted for your Azure SQL Database 
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-> [!NOTE]
-> Always Encrypted with secure enclaves for Azure SQL Database is currently in **public preview**.
 
 [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database uses [Intel Software Guard Extensions (Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) enclaves. For Intel SGX to be available, the database must use the [vCore model](service-tiers-vcore.md) and the [DC-series](service-tiers-sql-database-vcore.md#dc-series) hardware generation.
 

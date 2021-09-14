@@ -132,8 +132,6 @@
       href: container-instances-log-analytics.md
     - name: View an instance's state
       href: container-state.md
-    - name: Scan images using Azure Container Scan action
-      href: container-instances-github-action-scan.md  
   - name: Troubleshoot
     items:
     - name: Troubleshoot common issues
@@ -180,6 +178,6 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
   - name: FAQ
-    href: container-instances-faq.md
+    href: container-instances-faq.yml
 - name: Support and troubleshooting
   href: container-instances-support-help.md

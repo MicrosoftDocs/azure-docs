@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 01/03/2019
 ---
 # Reporting across scaled-out cloud databases (preview)
@@ -45,9 +45,8 @@ The credential is used by the elastic query to connect to your remote databases.
 
 ```sql
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
-CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
-SECRET = '<password>'
-[;]
+CREATE DATABASE SCOPED CREDENTIAL [<credential_name>]  WITH IDENTITY = '<username>',  
+SECRET = '<password>';
 ```
 
 > [!NOTE]
@@ -57,7 +56,7 @@ SECRET = '<password>'
 
 Syntax:
 
-```sql
+```syntaxsql
 <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
         (TYPE = SHARD_MAP_MANAGER,
@@ -95,7 +94,7 @@ The same credentials are used to read the shard map and to access the data on th
 
 Syntax:  
 
-```sql
+```syntaxsql
 CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
     ( { <column_definition> } [ ,...n ])
     { WITH ( <sharded_external_table_options> ) }
@@ -141,7 +140,7 @@ SELECT * from sys.external_tables;
 
 To drop external tables:
 
-```sql
+```syntaxsql
 DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
 ```
 

@@ -42,7 +42,7 @@ sections:
         answer: |
           Sentiment analysis and key phrase extraction are available for a [select number of languages](./language-support.md). Natural language processing is complex and requires substantial testing before new functionality can be released. For this reason, we avoid pre-announcing support so that no one takes a dependency on functionality that needs more time to mature. 
           
-          To help us prioritize which languages to work on next, vote for specific languages on [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
+          To help us prioritize which languages to work on next, vote for specific languages on [User Voice](https://www.uservoice.com/). 
           
       - question: |
           Why does key phrase extraction return some words but not others?
@@ -72,7 +72,7 @@ additionalContent: |
 
   ## Next steps
 
-  Is your question about a missing feature or functionality? Consider requesting or voting for it on our [UserVoice web site](https://cognitive.uservoice.com/forums/555922-text-analytics).
+  Is your question about a missing feature or functionality? Consider requesting or voting for it on our [UserVoice web site](https://www.uservoice.com/).
           
   ## See also
 

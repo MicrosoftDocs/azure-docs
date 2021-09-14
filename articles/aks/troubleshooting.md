@@ -17,7 +17,7 @@ There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-ha
 
 ## I'm getting a `quota exceeded` error during creation or upgrade. What should I do? 
 
- [Request more cores](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+ [Request more cores](../azure-portal/supportability/regional-quota-requests.md).
 
 ## I'm getting an `insufficientSubnetSize` error while deploying an AKS cluster with advanced networking. What should I do?
 
@@ -57,7 +57,7 @@ There might be various reasons for the pod being stuck in that mode. You might l
 * The pod itself, by using `kubectl describe pod <pod-name>`.
 * The logs, by using `kubectl logs <pod-name>`.
 
-For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+For more information about how to troubleshoot pod problems, see [Debugging Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods) in the Kubernetes documentation.
 
 ## I'm receiving `TCP timeouts` when using `kubectl` or other third-party tools connecting to the API server
 AKS has HA control planes that scale vertically according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
@@ -99,7 +99,7 @@ You might be getting this error because you've modified the tags in the agent no
 This error occurs when clusters enter a failed state for multiple reasons. Follow the steps below to resolve your cluster failed state before retrying the previously failed operation:
 
 1. Until the cluster is out of `failed` state, `upgrade` and `scale` operations won't succeed. Common root issues and resolutions include:
-    * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-portal/supportability/resource-manager-core-quotas-request.md) before trying to scale up again beyond initial quota limits.
+    * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-portal/supportability/regional-quota-requests.md) before trying to scale up again beyond initial quota limits.
     * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/templates/error-resource-quota.md#solution) before trying to scale up again beyond initial quota limits.
 2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
 
@@ -451,5 +451,5 @@ AKS is investigating the capability to mutate active labels on a node pool to im
 
 
 <!-- LINKS - internal -->
-[view-master-logs]: ./view-control-plane-logs.md
+[view-master-logs]: monitor-aks-reference.md#resource-logs
 [cluster-autoscaler]: cluster-autoscaler.md

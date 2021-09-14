@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, has-adal-ref
 ---
 
 # Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app

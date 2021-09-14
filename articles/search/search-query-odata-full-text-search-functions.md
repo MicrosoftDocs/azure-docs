@@ -123,6 +123,12 @@ Find documents where the terms "hotel" and "airport" are within 5 words from eac
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
 ```
 
+Find documents that have a word that starts with the letters "lux" in the Description field. This query uses [prefix search](query-simple-syntax.md#prefix-queries) in combination with `search.ismatch`.
+
+```odata-filter-expr
+    search.ismatch('lux*', 'Description')
+```
+
 ## Next steps  
 
 - [Filters in Azure Cognitive Search](search-filters.md)

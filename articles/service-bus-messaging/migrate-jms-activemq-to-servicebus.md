@@ -92,7 +92,7 @@ Service Bus enables various enterprise security and high availability features. 
 
 For each Service Bus namespace, you publish metrics onto Azure Monitor. You can use these metrics for alerting and dynamic scaling of resources allocated to the namespace.
 
-For more information about the different metrics and how to set up alerts on them, see [Service Bus metrics in Azure Monitor](monitor-service-bus-reference.md). You can also find out more about [client side tracing for data operations](service-bus-end-to-end-tracing.md) and [operational/diagnostic logging for management operations](service-bus-diagnostic-logs.md).
+For more information about the different metrics and how to set up alerts on them, see [Service Bus metrics in Azure Monitor](monitor-service-bus-reference.md). You can also find out more about [client side tracing for data operations](service-bus-end-to-end-tracing.md) and [operational/diagnostic logging for management operations](monitor-service-bus-reference.md#resource-logs).
 
 ### Metrics - New Relic
 

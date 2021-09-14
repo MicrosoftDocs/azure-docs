@@ -18,14 +18,6 @@ ms.subservice: B2C
 
 When you set up an identity provider for sign-up and sign-in in your Azure Active Directory B2C (Azure AD B2C) application, you need to specify a redirect URL. You should no longer reference *login.microsoftonline.com* in your applications and APIs for authenticating users with Azure AD B2C. Instead, use *b2clogin.com* for all new applications, and migrate existing applications from *login.microsoftonline.com* to *b2clogin.com*.
 
-## Deprecation of login.microsoftonline.com
-
-**October 2020 update:** We're extending a grace period for tenants who are unable to meet the originally announced deprecation date of 04 December 2020. Retirement of login.microsoftonline.com will now occur no earlier than **14 January 2021.**
-
-**Background**: On 04 December 2019, we originally [announced](https://azure.microsoft.com/updates/b2c-deprecate-msol/) the scheduled retirement of login.microsoftonline.com support in Azure AD B2C on 04 December 2020. This provided existing tenants one (1) year to migrate to b2clogin.com. New tenants created after 04 December 2019 will not accept requests from login.microsoftonline.com. All functionality remains the same on the b2clogin.com endpoint.
-
-The deprecation of login.microsoftonline.com does not impact Azure Active Directory tenants. Only Azure Active Directory B2C tenants are affected by this change.
-
 ## What endpoints does this apply to
 The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies (user flows or custom policies) to authenticate users. These endpoints have a `<policy-name>` parameter which specifies the policy Azure AD B2C should use. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 

@@ -3,6 +3,7 @@ metadata:
   title: Labs in Azure Lab Services — FAQ | Microsoft Docs
   description: This article provides answers to frequently asked questions (FAQ) about labs in Azure Lab Services.
   ms.topic: article
+  ms.service: lab-services
   ms.date: 06/26/2020
     
 title: Labs in Azure Lab Services — Frequently asked questions (FAQ)

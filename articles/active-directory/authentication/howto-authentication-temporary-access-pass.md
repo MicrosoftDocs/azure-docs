@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 08/11/2021
 
 ms.author: justinha
 author: justinha
@@ -121,8 +121,9 @@ The most common use for a Temporary Access Pass is for a user to register authen
 
 The user is now signed in and can update or register a method such as FIDO2 security key. 
 Users who update their authentication methods due to losing their credentials or device should make sure they remove the old authentication methods.
+Users can also continue to sign-in by using their password; a TAP doesn’t replace a user’s password.
 
-Users can also use their Temporary Access Pass to register for Passwordless phone sign-in directly from the Authenticator app. For more information, see [Add your work or school account to the Microsoft Authenticator app](../user-help/user-help-auth-app-add-work-school-account.md).
+Users can also use their Temporary Access Pass to register for Passwordless phone sign-in directly from the Authenticator app. For more information, see [Add your work or school account to the Microsoft Authenticator app](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c).
 
 ![Screenshot of how to enter a Temporary Access Pass using work or school account](./media/how-to-authentication-temporary-access-pass/enter-work-school.png)
 
@@ -171,8 +172,8 @@ Users in scope for these policies will get redirected to the [Interrupt mode of 
 - If **Temporary Access Pass sign in was blocked due to User Credential Policy** appears during sign-in with a Temporary Access Pass, check the following:
   - The user has a multi-use Temporary Access Pass while the authentication method policy requires a one-time Temporary Access Pass.
   - A one-time Temporary Access Pass was already used.
+- If Temporary Access Pass sign-in was blocked due to User Credential Policy, check that the user is in scope for the TAP policy.
 
 ## Next steps
 
 - [Plan a passwordless authentication deployment in Azure Active Directory](howto-authentication-passwordless-deployment.md)
-

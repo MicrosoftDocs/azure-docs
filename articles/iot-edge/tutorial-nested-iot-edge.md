@@ -2,7 +2,7 @@
 title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge devices using gateways.
 author: v-tcassi
-manager: philmea
+
 ms.author: v-tcassi
 ms.date: 2/26/2021
 ms.topic: tutorial

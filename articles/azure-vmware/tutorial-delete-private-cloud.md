@@ -7,21 +7,29 @@ ms.date: 03/13/2021
 
 # Tutorial: Delete an Azure VMware Solution private cloud
 
-If you have an Azure VMware Solution private cloud that you no longer need, you can delete it. The private cloud includes an isolated network domain, one or more provisioned vSphere clusters on dedicated server hosts, and several virtual machines (VMs). When you delete a private cloud, all of the VMs, their data, and clusters are deleted. The dedicated Azure VMware Solution hosts are securely wiped and returned to the free pool. The network address space provisioned is also deleted.  
+If you have an Azure VMware Solution private cloud that you no longer need, you can delete it. The private cloud includes:
+
+* An isolated network domain
+
+* One or more provisioned vSphere clusters on dedicated server hosts
+
+* Several virtual machines (VMs)
+
+When you delete a private cloud, all VMs, their data, clusters, and network address space provisioned get deleted. The dedicated Azure VMware Solution hosts are securely wiped and returned to the free pool.   
 
 > [!CAUTION]
-> Deleting the private cloud is an irreversible operation. Once the private cloud is deleted, the data cannot be recovered, as it terminates all running workloads and components and destroys all private cloud data and configuration settings, including public IP addresses.
+> Deleting the private cloud terminates all running workloads and components and is an irreversible operation. Once you delete the private cloud, you cannot recover the data.
 
 ## Prerequisites
 
-If you require the VMs and their data later, make sure to back up the data before you delete the private cloud.  There's no way to recover the VMs and their data.
+If you require the VMs and their data later, make sure to back up the data before you delete the private cloud.  Unfortunately, there's no way to recover the VMs and their data.
 
 
 ## Delete the private cloud
 
 1. Access the Azure VMware Solutions console in the [Azure portal](https://portal.azure.com).
 
-2. Select the private cloud to be deleted.
+2. Select the private cloud you want to delete.
  
 3. Enter the name of the private cloud and select **Yes**. 
 

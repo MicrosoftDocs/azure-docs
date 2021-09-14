@@ -73,7 +73,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     device_id = context.get_input()
 
     # Step 1: Create an installation package in blob storage and return a SAS URL.
-    sas_url = yield context.call_activity"CreateInstallationPackage", device_id)
+    sas_url = yield context.call_activity("CreateInstallationPackage", device_id)
 
     # Step 2: Notify the device that the installation package is ready.
     yield context.call_activity("SendPackageUrlToDevice", { "id": device_id, "url": sas_url })
@@ -155,7 +155,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     provisioning_tasks = []
     id_ = 0
     for device_id in device_IDs:
-        child_id = context.instance_id + ":" + id_
+        child_id = f"{context.instance_id}:{id_}"
         provision_task = context.call_sub_orchestrator("DeviceProvisioningOrchestration", device_id, child_id)
         provisioning_tasks.append(provision_task)
         id_ += 1

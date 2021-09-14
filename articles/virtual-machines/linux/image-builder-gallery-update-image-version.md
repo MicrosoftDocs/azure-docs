@@ -1,16 +1,18 @@
 ---
 title: Create a new VM image version from an existing image version using Azure Image Builder
 description: Create a new VM image version from an existing image version using Azure Image Builder in Linux.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: danis
+
 ---
 # Create a new VM image version from an existing image version using Azure Image Builder in Linux
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article shows you how to take an existing image version in a [Shared Image Gallery](../shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
@@ -61,10 +63,10 @@ imageDefName=myIbImageDef
 runOutputName=aibSIGLinuxUpdate
 ```
 
-Create a variable for your subscription ID. You can get this using `az account show | grep id`.
+Create a variable for your subscription ID.
 
 ```console
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 Get the image version that you want to update.
@@ -74,7 +76,7 @@ sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
+   --subscription $subscriptionID --query [].'id' -o tsv)
 ```
 
 ## Create a user-assigned identity and set permissions on the resource group

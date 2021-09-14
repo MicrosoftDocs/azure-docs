@@ -245,6 +245,10 @@ To create the device certificates signed by the intermediate certificate in the 
 
 ## Verify ownership of the root certificate
 
+> [!NOTE]
+> As of July 1st, 2021, you can perform automatic verification of certificate via [automatic verification](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation)
+>
+
 1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`) and get a verification code from DPS.
 
 2. Once you have a verification code from DPS for the root certificate, run the following command from your certificate script working directory to generate a verification certificate.

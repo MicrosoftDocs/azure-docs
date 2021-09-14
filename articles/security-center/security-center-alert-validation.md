@@ -28,7 +28,7 @@ Use sample alerts to:
 
 To create sample alerts:
 
-1. As a user with the role **Security admin** or **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
+1. As a user with the role **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
 1. Select the subscription.
 1. Select the relevant Azure Defender plan/s for which you want to see alerts. 
 1. Select **Create sample alerts**.

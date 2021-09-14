@@ -45,4 +45,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/?service=azure-peering
   - name: FAQs
-    href: faq.md
+    href: faq.yml

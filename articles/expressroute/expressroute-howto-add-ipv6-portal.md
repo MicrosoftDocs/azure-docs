@@ -13,24 +13,6 @@ ms.author: duau
 
 This article describes how to add IPv6 support to connect via ExpressRoute to your resources in Azure using the Azure portal. 
 
-## Register for Public Preview
-Before adding IPv6 support, you must first enroll your subscription. To enroll, run the following commands via Azure PowerShell:
-
-1.  Sign into Azure and select the subscription. Run these commands for the subscription containing your ExpressRoute circuit, and the subscription containing your Azure deployments (if they're different).
-
-    ```azurepowershell-interactive
-    Connect-AzAccount 
-
-    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
-    ```
-
-1. Register your subscription for Public Preview using the following command:
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -FeatureName AllowIpv6PrivatePeering -ProviderNamespace Microsoft.Network
-    ```
-
-Your request will then be approved by the ExpressRoute team within 2-3 business days.
-
 ## Sign in to the Azure portal
 
 From a browser, go to the [Azure portal](https://portal.azure.com), and then sign in with your Azure account.
@@ -74,6 +56,9 @@ Follow the steps below if you have an existing environment of Azure resources th
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
+    
+>[!NOTE]
+> If you have an existing gateway that is not zone-redundant (meaning it is Standard, High Performance, or Ultra Performance SKU), you will need to delete and [recreate the gateway](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway) using any SKU and a Standard, Static public IP address.
 
 ## Create a connection to a new virtual network
 

@@ -16,7 +16,7 @@ The *host.json* metadata file contains global configuration options that affect 
 > [!NOTE]
 > This article is for Azure Functions 2.x and later versions.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
-Other function app configuration options are managed in your [app settings](functions-app-settings.md) (for deployed apps) or your [local.settings.json](functions-run-local.md#local-settings-file) file (for local development).
+Other function app configuration options are managed in your [app settings](functions-app-settings.md) (for deployed apps) or your [local.settings.json](functions-develop-local.md#local-settings-file) file (for local development).
 
 Configurations in host.json related to bindings are applied equally to each function in the function app. 
 
@@ -216,6 +216,28 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 
 Configuration settings can be found in [Storage blob triggers and bindings](functions-bindings-storage-blob.md#hostjson-settings).  
 
+## console
+
+This setting is a child of [logging](#logging). It controls the console logging when not in debugging mode.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": false,
+          "DisableColors": true
+        },
+    ...
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|DisableColors|false| Supresses log formatting in the container logs on Linux. Set to true if you are seeing unwanted ANSI control characters in the container logs when running on Linux. |
+|isEnabled|false|Enables or disables console logging.| 
+
 ## cosmosDb
 
 Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
@@ -343,26 +365,6 @@ Controls the logging behaviors of the function app, including Application Insigh
 |logLevel|n/a|Object that defines the log category filtering for functions in the app. This setting lets you filter logging for specific functions. For more information, see [Configure log levels](configure-monitoring.md#configure-log-levels). |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
-
-## console
-
-This setting is a child of [logging](#logging). It controls the console logging when not in debugging mode.
-
-```json
-{
-    "logging": {
-    ...
-        "console": {
-          "isEnabled": "false"
-        },
-    ...
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|isEnabled|false|Enables or disables console logging.| 
 
 ## managedDependency
 

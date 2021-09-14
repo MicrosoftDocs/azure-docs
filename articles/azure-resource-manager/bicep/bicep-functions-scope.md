@@ -2,17 +2,12 @@
 title: Bicep functions - scopes
 description: Describes the functions to use in a Bicep file to retrieve values about deployment scopes.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/10/2021
 ---
 
 # Scope functions for Bicep
 
-Resource Manager provides the following functions for getting scope values in your Bicep file:
-
-* [managementGroup](#managementgroup)
-* [resourceGroup](#resourcegroup)
-* [subscription](#subscription)
-* [tenant](#tenant)
+This article describes the Bicep functions for getting scope values.
 
 ## managementGroup
 
