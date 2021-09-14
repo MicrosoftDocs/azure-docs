@@ -5,7 +5,7 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 09/11/2021
 ms.author: amverma
 ms.reviewer: jushiman
 ---
@@ -42,7 +42,7 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 
 ## Software specifications
 
-| Software Specifications     |HC-series VM           |
+| Software Specifications     |H-series VM           |
 |-----------------------------|-----------------------|
 | Max MPI Job Size            | 4800 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true)  |
 | MPI Support                 | Intel MPI 5.x, MS-MPI  |
