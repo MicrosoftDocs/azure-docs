@@ -48,6 +48,9 @@ conceptualContent:
         - itemType: overview
           text: Custom text extraction
           url:  custom-named-entity-recognition/overview.md
+        - itemType: overview
+          text: Get information from healthcare-related text
+          url:  health/overview.md
 
     - title: Classify Text
       links:
@@ -67,6 +70,12 @@ conceptualContent:
         - itemType: overview
           text: Custom language understanding
           url: custom-language-understanding/overview.md 
+    
+    - title: Summarize text
+      links:
+        - itemType: overview
+          text: Text summarization
+          url: text-summarization/overview.md 
 
 tools:
   title: Software Development Kits (SDKs)
