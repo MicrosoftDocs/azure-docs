@@ -21,7 +21,7 @@ The general approach is to:
     
     b) For each additional non-primary node type, these nodes types will similarly be marked "isPrimary": false.
 3. Mark the old primary node type "isPrimary": false. This will result in a long-running set of upgrades to transition all seed nodes.
-4. (For Bronze durability node types ONLY): Connect to the cluster via [sfctl](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl) / [PowerShell](https://docs.microsoft.com/en-us/powershell/module/ServiceFabric/?view=azureservicefabricps) / [FabricClient](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) and disable all nodes in the old node type.
+4. (For Bronze durability node types ONLY): Connect to the cluster via [sfctl](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl) / [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/?view=azureservicefabricps) / [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) and disable all nodes in the old node type.
 5. Remove the old node types.
 
 Important notes to keep in mind:
@@ -36,14 +36,14 @@ Important notes to keep in mind:
 > Az PowerShell generates a new dns name for the added node type so external traffic will have to be redirected to this endpoint.
 
 
-# Ease of use steps for non-production clusters
+## Ease of use steps for non-production clusters
 
 > [!NOTE]
 > The steps below demonstrate how to quickly prototype the node type migration via Az PowerShell cmdlets in a TEST-only cluster. For production clusters facing real business traffic, the same steps are expected to be done by issuing ARM upgrades, to preserve replayability & a consistent declarative source of truth.
 
-1. Update vmImage setting on Service Fabric cluster resource using [Update-AzServiceFabricVmImage](https://docs.microsoft.com/en-us/powershell/module/az.servicefabric/update-azservicefabricvmimage?view=azps-6.3.0):
+1. Update vmImage setting on Service Fabric cluster resource using [Update-AzServiceFabricVmImage](https://docs.microsoft.com/powershell/module/az.servicefabric/update-azservicefabricvmimage):
 
-    [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps):
+    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps):
     ```powershell
     # Replace subscriptionId, resourceGroup, clusterName with ones corresponding to your cluster.
     $subscriptionId="cea219db-0593-4b27-8bfa-a703332bf433"
