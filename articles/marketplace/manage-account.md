@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
-ms.date: 09/13/2021
+ms.date: 09/14/2021
 ---
 
 # Manage your commercial marketplace account in Partner Center
