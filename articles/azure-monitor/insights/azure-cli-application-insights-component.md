@@ -13,6 +13,8 @@ ms.custom: devx-track-azurecli
 
 In Azure Monitor, components are independently deployable parts of your distributed or microservices application. Use these Azure CLI commands to manage components in Application Insights.
 
+The examples in this article do the following management tasks:
+
 - Create a component.
 - Connect a component to a webapp.
 - Link a component to a storage account with a component.
@@ -83,7 +85,7 @@ Continuous export saves events from Application Insights portal in a storage con
 > Continuous export is only supported for classic Application Insights resources. [Workspace-based Application Insights resources](../app/create-workspace-resource.md) must use [diagnostic settings](../app/create-workspace-resource.md#export-telemetry).
 >
 
-To create a storage container, run the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command. Use the 
+To create a storage container, run the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command. 
 
 ```azurecli
 az storage container create --name contosostoragecontainer --account-name contosolinkedstorage --public-access blob 
@@ -95,17 +97,22 @@ Run the [az storage container show](/cli/azure/storage/container#az_storage_cont
 az storage container list --account-name contosostoragecontainer
 ```
 
+To create a continuous export, run the [az monitor app-insights component continues-export create](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_create) command:
+
 ```azurecli
 az monitor app-insights component continues-export create --resource-group ContosoAppInsightRG --app ContosoApp --record-types Event --dest-account contosolinkedstorage --dest-container contosostoragecontainer --dest-sub-id 00000000-0000-0000-0000-000000000000 --dest-sas sp=w&st=2021-08-16T22:42:01Z&se=2021-08-17T06:42:01Z&spr=https&sv=2020-08-04&sr=c&sig=00000000000000000000000000000000000000000000000000
 ```
 
-[az monitor app-insights component continues-export delete](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_delete)
+You can delete a configured continuous export by using the [az monitor app-insights component continues-export delete](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_delete) command: 
+
 ```azurecli
 az monitor app-insights component continues-export list --resource-group ContosoAppInsightRG --app ContosoApp
 az monitor app-insights component continues-export delete --resource-group ContosoAppInsightRG --app ContosoApp --id
 ```
 
 ## Clean up deployment
+
+If you created a resource group to test these commands, you can remove the resource group and all its contents by using the [az group delete](/cli/azure/group#az_group_delete) command:
 
 ```azurecli
 az group delete --name ContosoAppInsightRG 
@@ -118,7 +125,7 @@ az group delete --name ContosoAppInsightRG
 - [az group delete](/cli/azure/group#az_group_delete)
 - [az monitor app-insights component connect-webapp](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_connect_webapp)
 - [az monitor app-insights component continues-export create](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_create)
-[az monitor app-insights component continues-export delete](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_delete)
+- [az monitor app-insights component continues-export delete](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_delete)
 - [az monitor app-insights component continues-export list](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_list)
 - [az monitor app-insights component create](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create)
 - [az monitor app-insights component linked-storage link](/cli/azure/monitor/app-insights/component/linked-storage#az_monitor_app_insights_component_linked_storage_link)
@@ -131,3 +138,9 @@ az group delete --name ContosoAppInsightRG
 - [az webapp create](/cli/azure/webapp#az_webapp_create)
 
 ## Next steps
+
+[Azure Monitor CLI samples](../cli-samples.md)
+
+[Find and diagnose performance issues](../app/app/tutorial-performance.md)
+
+[Monitor and alert on application health](../app/tutorial-alert.md)
