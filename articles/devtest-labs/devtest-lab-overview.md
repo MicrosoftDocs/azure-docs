@@ -1,7 +1,7 @@
 ---
-title: About Azure DevTest Labs | Microsoft Docs
+title: About Azure DevTest Labs
 description: Learn how DevTest Labs can make it easy to create, manage, and monitor Azure virtual machines
-ms.topic: article
+ms.topic: overview
 ms.date: 08/20/2021
 ---
 
