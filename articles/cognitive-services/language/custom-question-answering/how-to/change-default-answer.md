@@ -1,5 +1,5 @@
 ---
-title: Get default answer - QnA Maker
+title: Get default answer - custom question answering
 description: The default answer is returned when there is no match to the question. You may want to change the default answer from the standard default answer.
 ms.service: cognitive-services
 ms.subservice: qna-maker
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 11/09/2020
 ---
 
-# Change default answer for a QnA Maker resource
+# Change default answer for custom question answering
 
 The default answer for a knowledge base is meant to be returned when an answer is not found. If you are using a client application, such as the [Azure Bot service](/azure/bot-service/bot-builder-howto-qna), it may also have a separate default answer, indicating no answer met the score threshold.
 
@@ -17,8 +17,8 @@ There are two types of default answer in your knowledge base. It is important to
 
 |Types of default answers|Description of answer|
 |--|--|
-|KB answer when no answer is determined|`No good match found in KB.` - When the [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) finds no matching answer to the question, the `DefaultAnswer` setting of the App service is returned. All knowledge bases in the same QnA Maker resource share the same default answer text.<br>You can manage the setting in the Azure portal, via the App service, or with the REST APIs for [getting](/rest/api/appservice/webapps/listapplicationsettings) or [updating](/rest/api/appservice/webapps/updateapplicationsettings) the setting.|
-|Follow-up prompt instruction text|When using a follow-up prompt in a conversation flow, you may not need an answer in the QnA pair because you want the user to select from the follow-up prompts. In this case, set specific text by setting the default answer text, which is returned with each prediction for follow-up prompts. The text is meant to display as instructional text to the selection of follow-up prompts. An example for this default answer text is `Please select from the following choices`. This configuration is explained in the next few sections of this document. Can also set as part of knowledge base definition of `defaultAnswerUsedForExtraction` using [REST API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+|KB answer when no answer is determined|`No good match found in KB.` - When the [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) finds no matching answer to the question it displays a default text response. In Custom question answering (Preview) you can set this text in the **Settings** of your knowledge base. <br><br> ![QnA Maker managed (Preview) set default answer](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
+|Follow-up prompt instruction text|When using a follow-up prompt in a conversation flow, you may not need an answer in the QnA pair because you want the user to select from the follow-up prompts. In this case, set specific text by setting the default answer text, which is returned with each prediction for follow-up prompts. The text is meant to display as instructional text to the selection of follow-up prompts. An example for this default answer text is `Please select from the following choices`. This configuration is explained in the next few sections of this document. You can also set this as part of a knowledge base definition with `defaultAnswerUsedForExtraction` using the [REST API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ### Client application integration
 
