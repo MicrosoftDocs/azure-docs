@@ -109,7 +109,7 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 #### Hello world with MLflow and Python
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world-python.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world-python-mlflow.yml":::
 
 ### Single-node
 
