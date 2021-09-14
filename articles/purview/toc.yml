@@ -233,12 +233,10 @@ items:
       items:
       - name: Private endpoints overview
         href: catalog-private-link.md
-      - name: Isolate network for Purview account and portal
-        href: catalog-private-link-account-portal.md
-      - name: Isolate network for scans
-        href: catalog-private-link-ingestion.md
       - name: End-to-end network isolation
         href: catalog-private-link-end-to-end.md
+      - name: Isolate network for Purview account and portal
+        href: catalog-private-link-account-portal.md
       - name: Configure DNS for private endpoint
         href: catalog-private-link-name-resolution.md
       - name: Troubleshoot private endpoints

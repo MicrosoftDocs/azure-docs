@@ -1,15 +1,15 @@
 ---
 title: Manage role permissions and security in Azure Automation
 description: This article describes how to use Azure role-based access control (Azure RBAC), which enables access management for Azure resources.
-keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 08/26/2021
-ms.topic: conceptual 
+ms.date: 09/10/2021
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
+#Customer intent: As an administrator, I want to understand permissions so that I use the least necessary set of permissions.
 ---
 
-# Manage role permissions and security
+# Manage role permissions and security in Automation
 
 Azure role-based access control (Azure RBAC) enables access management for Azure resources. Using [Azure RBAC](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users, groups, and applications that they need to perform their jobs. You can grant role-based access to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
@@ -75,6 +75,12 @@ An Automation Contributor can manage all resources in the Automation account exc
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Read resource group deployments.|
 |Microsoft.Support/*|Create and manage support tickets.|
+|Microsoft.Insights/ActionGroups/*|Read/write/delete action groups.|
+|Microsoft.Insights/ActivityLogAlerts/*|Read/write/delete activity log alerts.|
+|Microsoft.Insights/diagnosticSettings/*|Read/write/delete diagnostic settings.|
+|Microsoft.Insights/MetricAlerts/*|Read/write/delete near real-time metric alerts.|
+|Microsoft.Insights/ScheduledQueryRules/*|Read/write/delete log alerts in Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|List keys for a Log Analytics workspace|
 
 > [!NOTE]
 > The Automation Contributor role can be used to access any resource using the managed identity, if appropriate permissions are set on the target resource, or using a Run As account. An Automation Run As account are by default, configured with Contributor rights on the subscription. Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.
