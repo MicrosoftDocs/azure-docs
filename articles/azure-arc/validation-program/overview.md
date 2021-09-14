@@ -1,6 +1,6 @@
 ---
 title: Azure Arc-enabled services validation overview
-description: Explains the Azure Arc validation process to conform to the Arc-enabled Kubernetes, Data Services, and cluster extensions.
+description: Explains the Azure Arc validation process to conform to the Azure Arc-enabled Kubernetes, Data Services, and cluster extensions.
 ms.date: 07/30/2021
 ms.topic: overview
 ---
@@ -13,7 +13,7 @@ Currently, validated solutions are available from partners for Kubernetes and da
 
 ## Kubernetes
 
-Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. The Azure Arc team has worked with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their [Kubernetes distributions](../kubernetes/validation-program.md). Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc enabled Kubernetes.
+Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. The Azure Arc team has worked with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their [Kubernetes distributions](../kubernetes/validation-program.md). Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc-enabled Kubernetes.
 
 ## Data services
 
