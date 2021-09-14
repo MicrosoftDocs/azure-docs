@@ -239,5 +239,7 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-
-  
+- name: Resources
+  items:
+    - name: Support and help options
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language/context/context
