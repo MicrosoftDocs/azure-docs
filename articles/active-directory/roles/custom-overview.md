@@ -87,6 +87,8 @@ If you specify an Azure AD resource as a scope, it can be one of the following:
 - Enterprise applications
 - Application registrations
 
+For more information, see [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md).
+
 ## License requirements
 
 Using built-in roles in Azure AD is free, while custom roles requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
