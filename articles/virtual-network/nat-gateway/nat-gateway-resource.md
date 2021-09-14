@@ -256,7 +256,7 @@ The destination will see the source of the flow as 65.52.0.1 (SNAT source tuple)
 
 #### source (SNAT) port reuse
 
-NAT gateways opportunistically reuse source (SNAT) ports.  The following illustrates this concept as an additional flow for the preceeding set of flows.  The VM in the example is a flow to 65.52.0.2.
+NAT gateways opportunistically reuse source (SNAT) ports.  The following illustrates this concept as an additional flow for the preceding set of flows.  The VM in the example is a flow to 65.52.0.2.
 
 | Flow | Source tuple | Destination tuple |
 |:---:|:---:|:---:|
