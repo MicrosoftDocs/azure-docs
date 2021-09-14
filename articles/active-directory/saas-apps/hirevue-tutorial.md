@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with HireVue | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with HireVue'
 description: Learn how to configure single sign-on between Azure Active Directory and HireVue.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 09/13/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with HireVue
+# Tutorial: Azure AD SSO integration with HireVue
 
 In this tutorial, you'll learn how to integrate HireVue with Azure Active Directory (Azure AD). When you integrate HireVue with Azure AD, you can:
 
@@ -26,6 +26,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * HireVue single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -134,7 +137,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to HireVue Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the HireVue tile in the My Apps, this will redirect to HireVue Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* You can use Microsoft My Apps. When you click the HireVue tile in the My Apps, this will redirect to HireVue Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

@@ -232,7 +232,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. To check that your logic app is getting the specified events, update your virtual machine.
 
-   For example, you can resize your virtual machine in the Azure portal or [resize your VM with Azure PowerShell](../virtual-machines/windows/resize-vm.md).
+   For example, you can [resize your virtual machine](../virtual-machines/resize-vm.md).
 
    After a few moments, you should get an email. For example:
 

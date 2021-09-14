@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2021
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Zenya supports **SP** initiated SSO.
+* Zenya supports [Automated user provisioning](iprova-provisioning-tutorial.md).
 
 ## Add Zenya from the gallery
 
@@ -192,6 +193,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 9. In the **E-mail address** box, enter the email address of user like `B.Simon@contoso.com`.
 
 10. Scroll down to the end of the page, and select **Finish**.
+
+> [!NOTE]
+> Zenya also supports automatic user provisioning, you can find more details [here](./iprova-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
