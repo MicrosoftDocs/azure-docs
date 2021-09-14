@@ -201,5 +201,3 @@ sections:
       - question: Does Video Analyzer for Media offer a free trial?
         answer: Yes, Video Analyzer for Media offers a free trial that gives full service and API functionality. There is a quota of 600 minutes worth of videos for web-based interface users and 2,400 minutes for API users. 
 
-  - name: Next steps
-    questions:
