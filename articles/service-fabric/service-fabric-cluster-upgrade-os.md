@@ -21,7 +21,7 @@ The general approach is to:
     
     b) For each additional non-primary node type, these nodes types will similarly be marked "isPrimary": false.
 3. Mark the old primary node type "isPrimary": false. This will result in a long-running set of upgrades to transition all seed nodes.
-4. (For Bronze durability node types ONLY): Connect to the cluster using a FabricClient and disable all nodes in the old node type.
+4. (For Bronze durability node types ONLY): Connect to the cluster via [sfctl](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl) / [powershell](https://docs.microsoft.com/en-us/powershell/module/ServiceFabric/?view=azureservicefabricps) / [FabricClient](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) and disable all nodes in the old node type.
 5. Remove the old node types.
 
 Important notes to keep in mind:
