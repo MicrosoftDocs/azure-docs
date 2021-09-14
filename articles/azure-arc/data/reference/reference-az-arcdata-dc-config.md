@@ -40,7 +40,7 @@ az arcdata dc config init --source azure-arc-kubeadm --path custom
 ```
 ### Optional Parameters
 #### `--path -p`
-File path of where you would like the config profile placed, defaults to <cwd>/custom.
+File path of where you would like the config profile placed, defaults to \<cwd\>/custom.
 #### `--source -s`
 Config profile source: ['azure-arc-gke', 'azure-arc-eks', 'azure-arc-kubeadm', 'azure-arc-aks-default-storage', 'azure-arc-azure-openshift', 'azure-arc-ake', 'azure-arc-openshift', 'azure-arc-aks-dev-test', 'azure-arc-aks-hci', 'azure-arc-kubeadm-dev-test', 'azure-arc-aks-premium-storage']
 #### `--force -f`
