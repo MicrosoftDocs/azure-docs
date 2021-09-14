@@ -119,7 +119,7 @@ To learn more, see [Azure Blob Storage: hot, cool, and archive access tiers](../
 
 Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
 
-To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
+To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/lifecycle-management-overview.md?tabs=azure-portal)
 
 ## Create budgets
 
