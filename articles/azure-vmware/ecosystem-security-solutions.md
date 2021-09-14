@@ -6,7 +6,7 @@ ms.date: 09/14/2021
 ---
 # Security solutions for Azure VMware Solution
 
-A fundamental part of Azure VMware Solution is security, it allows customers to run their VMware-based workloads in a safe and trustable environment.
+A fundamental part of Azure VMware Solution is security. It allows customers to run their VMware-based workloads in a safe and trustable environment.
 
 Our security partners have industry-leading solutions in VMware-based environments that cover many aspects of the security ecosystem like threat protection and security scanning. Our customers have adopted many of these solutions integrated with VMware NSX-T for their on-premises deployments, as one our key principles we want to enable them continue to use their investments and VMware solutions running on Azure. Many of these Independent Software Vendors (ISV) have validated their solutions with Azure VMware Solution.
 
