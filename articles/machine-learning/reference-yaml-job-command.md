@@ -131,7 +131,6 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
 
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json. The schema is provided below in JSON and YAML formats for convenience.
