@@ -119,6 +119,8 @@
     href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
   - name: Export and import registrations in bulk
     href: export-modify-registrations-bulk.md
+  - name: Move resources between regions
+    href: move-registrations.md
   - name: Create notification hub using SDKs
     items:
     - name: Create notification hub - .NET

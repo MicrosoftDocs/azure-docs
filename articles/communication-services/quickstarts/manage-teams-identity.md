@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: tchladek
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 # Quickstart: Set up and manage Teams access tokens
@@ -186,6 +186,9 @@ While you're still in the application directory, install the Azure Communication
 dotnet add package Azure.Communication.Identity
 dotnet add package Microsoft.Identity.Client
 ```
+
+> [!NOTE]
+> Packages for private preview aren't available in official package repositories as NPM or NuGet.org. You can find SDKs in the following package repositories [.net](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&package=Azure.Communication.Identity&protocolType=NuGet&version=1.1.0-alpha.20210531.2) and [javascript](https://www.npmjs.com/package/@azure/communication-identity/v/1.1.0-alpha.20210531.1).
 
 #### Set up the app framework
 

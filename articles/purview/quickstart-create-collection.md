@@ -6,16 +6,18 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: quickstart
-ms.date: 08/18/2021
+ms.date: 09/10/2021
 ms.custom: template-quickstart 
 ---
 
 # Quickstart: Create a collection and assign permissions in Purview
 
 > [!NOTE]
-> At this time, this quickstart only applies for Purview instances created on or after August 18, 2021. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instance created before August 18, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
+> At this time, this quickstart only applies for Azure Purview instances created on or after August 18, 2021. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instance created before August 18, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
+> 
+> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. For information about what will change when your account is upgraded, see our [upgraded accounts guide](concept-account-upgrade.md).
 
-Collections are Purview's tool to manage ownership and access control across assets, sources, and information. They also organize your sources and assets into categories that are customized to match your management experience with your data. This guide will take you through setting up your first collection and collection admin to prepare your Purview environment for your organization.
+Collections are Azure Purview's tool to manage ownership and access control across assets, sources, and information. They also organize your sources and assets into categories that are customized to match your management experience with your data. This guide will take you through setting up your first collection and collection admin to prepare your Purview environment for your organization.
 
 ## Prerequisites
 

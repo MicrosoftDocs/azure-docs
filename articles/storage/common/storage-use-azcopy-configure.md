@@ -15,7 +15,7 @@ ms.reviewer: dineshm
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you use logs to diagnose errors, and then use plan files to resume jobs. This article also shows how to configure log and plan files by changing their verbosity level, and the default location where they are stored.
 
 > [!NOTE]
-> If you're looking for content to help you get started with AzCopy, see [Get started with AzCopy](storage-use-azcopy-v10.md).
+> If you're looking for content to help you get started with AzCopy, see [Get started with AzCopy](storage-use-azcopy-v10.md). This article applies to AzCopy **V10** as is this is the currently supported version of AzCopy. If you need to use a previous version of AzCopy, see [Use the previous version of AzCopy](storage-use-azcopy-v10.md#previous-version).
 
 ## Log and plan files
 
@@ -69,8 +69,7 @@ azcopy jobs show <job-id> --with-status=Failed
 Use the following command to resume a failed/canceled job. This command uses its identifier along with the SAS token as it isn't persistent for security reasons:
 
 ```
-azcopy jobs resume <job-id> --source-sas="<sas-token>"
-azcopy jobs resume <job-id> --destination-sas="<sas-token>"
+azcopy jobs resume <job-id> --source-sas="<sas-token>" --destination-sas="<sas-token>"
 ```
 
 > [!TIP]

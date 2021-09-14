@@ -1,11 +1,9 @@
 ---
 title: Troubleshoot Python function apps in Azure Functions
 description: Learn how to troubleshoot Python functions.
-author: Hazhzeng
 
 ms.topic: article
 ms.date: 07/29/2020
-ms.author: hazeng
 ms.custom: devx-track-python
 ---
 

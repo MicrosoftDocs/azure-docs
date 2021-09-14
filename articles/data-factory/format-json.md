@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 
@@ -17,7 +17,7 @@ ms.author: jianleishen
 
 Follow this article when you want to **parse the JSON files or write the data into JSON format**. 
 
-JSON format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
+JSON format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
 
 ## Dataset properties
 
@@ -218,7 +218,7 @@ The below table lists the properties supported by a json source. You can edit th
 
 Using a JSON dataset as a source in your data flow allows you to set five additional settings. These settings can be found under the **JSON settings** accordion in the **Source Options** tab. For **Document Form** setting, you can select one of **Single document**, **Document per line**  and **Array of documents** types.
 
-![JSON Settings](media/data-flow/json-settings.png "JSON Settings")
+:::image type="content" source="media/data-flow/json-settings.png" alt-text="JSON Settings":::
 
 #### Default
 
@@ -354,11 +354,11 @@ You can add a complex column to your data flow via the derived column expression
 
 In the output schema side pane, hover over a column and click the plus icon. Select **Add subcolumn** to make the column a complex type.
 
-![Add subcolumn](media/data-flow/derive-add-subcolumn.png "Add Subcolumn")
+:::image type="content" source="media/data-flow/derive-add-subcolumn.png" alt-text="Add subcolumn":::
 
 You can add additional columns and subcolumns in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
 
-![Add complex column](media/data-flow/derive-complex-column.png "Add columns")
+:::image type="content" source="media/data-flow/derive-complex-column.png" alt-text="Add complex column":::
 
 #### Entering the JSON structure manually
 

@@ -12,7 +12,10 @@ ms.custom: avverma
 ---
 
 # Troubleshooting autoscale with Virtual Machine Scale Sets
-**Problem** – you've created an autoscaling infrastructure in Azure Resource Manager using virtual machine scale sets –  for example, by deploying a template like this one: https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json  – you have your scale rules defined and it works great, except no matter how much load you put on the VMs, it doesn't autoscale.
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
+**Problem** – you’ve created an autoscaling infrastructure in Azure Resource Manager using virtual machine scale sets –  for example, by deploying a template like this one: https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json  – you have your scale rules defined and it works great, except no matter how much load you put on the VMs, it doesn't autoscale.
 
 ## Troubleshooting steps
 Some things to consider include:
