@@ -21,7 +21,7 @@ In this quickstart, you deploy a WordPress application on Azure Kubernetes Servi
 > - Azure Database for MySQL Flexible Server is currently in public preview
 > - This quickstart assumes a basic understanding of Kubernetes concepts, WordPress and MySQL.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 

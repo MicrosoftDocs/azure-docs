@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/18/2021
+ms.date: 09/02/2021
 ms.author: aahi
 ---
 
@@ -45,6 +45,22 @@ This command:
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 - Accepts the end user license agreement (Eula) and responsible AI (RAI) terms
 - Automatically removes the container after it exits. The container image is still available on the host computer.
+
+### Run the container with Client library support
+
+Starting with container version `3.0.017010001-onprem-amd64` (or if you use the `latest` container), you can run the Text Analytics for health container to work with the Text Analytics [client library](../quickstarts/client-libraries-rest-api.md) health operation. To do so, add the following parameter to the `docker run` command:
+
+`enablelro=true`
+
+Afterwards when you authenticate the Text Analytics client, use the endpoint that your container is running on:
+
+`http://localhost:5000`
+
+For example, if you're using C# you would use the following code:
+
+```csharp
+var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analytics-key");
+```
 
 ### Demo UI to visualize output
 

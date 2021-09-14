@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/03/2021
+ms.date: 09/13/2021
 ms.author: yitoh
 ms.custom: subject-policy-reference
 ms.topic: include
