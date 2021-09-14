@@ -5,7 +5,7 @@ description: Learn how to create a public IP using Azure PowerShell
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: allensu
 
@@ -110,7 +110,7 @@ To create an IPv6 address, modify the **`--IpAddressVersion`** parameter to **IP
 
 ```azurepowershell-interactive
 $ip = @{
-    Name = 'myStandardPublicIP'
+    Name = 'myStandardPublicIP-zonal'
     ResourceGroupName = 'QuickStartCreateIP-rg'
     Location = 'eastus2'
     Sku = 'Standard'
@@ -136,7 +136,7 @@ To create an IPv6 address, modify the **`-IpAddressVersion`** parameter to **IPv
 
 ```azurepowershell-interactive
 $ip = @{
-    Name = 'myStandardPublicIP'
+    Name = 'myStandardPublicIP-nozone'
     ResourceGroupName = 'QuickStartCreateIP-rg'
     Location = 'eastus2'
     Sku = 'Standard'
@@ -230,4 +230,4 @@ If you're not going to continue to use this application, delete the public IP ad
 
 Advance to the next article to learn how to create a public IP prefix:
 > [!div class="nextstepaction"]
-> [Create public IP prefix using the Azure portal](create-public-ip-prefix-portal.md)
+> [Create public IP prefix using PowerShell](create-public-ip-prefix-powershell.md)
