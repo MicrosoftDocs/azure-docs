@@ -57102,6 +57102,76 @@
       "source_path_from_root": "/articles/sentinel/normalization-schema.md",
       "redirect_url": "/azure/sentinel/network-normalization-schema",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/azure-security-benchmark.md",
+      "redirect_url": "/azure/governance/policy/samples/azure-security-benchmark",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/index.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/index.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/index.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/index.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-53-r4.md",
+      "redirect_url": "/azure/governance/policy/samples/nist-sp-800-53-r4",
+      "redirect_document_id": false
     }
   ]
 }
