@@ -17,9 +17,9 @@ keywords: anomaly detection, machine learning, algorithms
 
 The new **multivariate anomaly detection** APIs further enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between up to 300 different signals are now automatically counted as key factors. This new capability helps you to proactively protect your complex systems such as software applications, servers, factory machines, spacecraft, or even your business, from failures.
 
-![Multiple time series line graphs for variables of: vibration, temperature, pressure, velocity, rotation speed with anomalies highlighted in orange](./media/multivariate-graph.png)
+![Multiple time series line graphs for variables of: rotation, optical filter, pressure, bearing with anomalies highlighted in orange](./media/multivariate-graph.png)
 
-Imagine 20 sensors from an auto engine generating 20 different signals like vibration, temperature, fuel pressure, etc. The readings of those signals individually may not tell you much about system level issues, but together they can represent the health of the engine. When the interaction of those signals deviates outside the usual range, the multivariate anomaly detection feature can sense the anomaly like a seasoned expert. The underlying AI models are trained and customized using your data such that it understands the unique needs of your business. With the new APIs in Anomaly Detector, developers can now easily integrate the multivariate time series anomaly detection capabilities into predictive maintenance solutions, AIOps monitoring solutions for complex enterprise software, or business intelligence tools.
+Imagine 20 sensors from an auto engine generating 20 different signals like rotation, fuel pressure, bearing, etc. The readings of those signals individually may not tell you much about system level issues, but together they can represent the health of the engine. When the interaction of those signals deviates outside the usual range, the multivariate anomaly detection feature can sense the anomaly like a seasoned expert. The underlying AI models are trained and customized using your data such that it understands the unique needs of your business. With the new APIs in Anomaly Detector, developers can now easily integrate the multivariate time series anomaly detection capabilities into predictive maintenance solutions, AIOps monitoring solutions for complex enterprise software, or business intelligence tools.
 
 ## When to use **multivariate** versus **univariate**
 
@@ -29,14 +29,13 @@ If your goal is to detect system level anomalies from a group of time series dat
 
 ## Notebook
 
-To learn how to call the Anomaly Detector API (multivariate), try this [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb). This Jupyter Notebook shows you how to send an API request and visualize the result.
+To learn how to call the Anomaly Detector API (multivariate), try this [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb). This Jupyter Notebook shows you how to send an API request and visualize the result.
 
 To run the Notebook, you should get a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
 
-
 ## Region support
 
-The preview of Anomaly Detector multivariate is currently available in six regions: West US2, West Europe, East US2, South Central US, East US, and UK South.
+The preview of Anomaly Detector multivariate is currently available in 10 Azure regions: Southeast Asia, Australia East, Canada Central, North Europe, West Europe, East US, East US 2, South Central US, West US 2, and UK South.
 
 ## Algorithms
 

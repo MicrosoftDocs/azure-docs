@@ -2,8 +2,8 @@
 title: Data sources gallery
 titleSuffix: Azure Cognitive Search
 description: Lists all of the supported data sources for importing into an Azure Cognitive Search index.
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
@@ -149,21 +149,6 @@ by [Cognitive Search](search-what-is-azure-search.md)
 Connect to Cosmos DB through the Gremlin API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
 [More details](search-howto-index-cosmosdb-gremlin.md)
-
-:::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
-
-:::column-end:::
-:::column span="":::
-
----
-
-### Cosmos DB (Cassandra API)
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Connect to Cosmos DB through the Cassandra API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
-
-[More details](search-howto-index-cosmosdb.md)
 
 :::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
 
@@ -446,7 +431,7 @@ The Adobe Experience Manager connector enables indexing of content managed by th
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from the Adobe Active Experience Manager (AEM) and intelligently searching it with Azure Cognitive Search. It robustly indexes pages, attachments and other generated document types from Adobe AEM in near real time. The connector fully supports Adobe AEM’s permission model, its built-in user and group management, as well as AEM installations based on Active Directory or other directory services.
+Secure enterprise search connector for reliably indexing content from the Adobe Active Experience Manager (AEM) and intelligently searching it with Azure Cognitive Search. It robustly indexes pages, attachments, and other generated document types from Adobe AEM in near real time. The connector fully supports Adobe AEM’s permission model, its built-in user and group management, and AEM installations based on Active Directory or other directory services.
 
 [More details](https://www.raytion.com/connectors/adobe-experience-manager-aem)
 
@@ -472,7 +457,7 @@ The Alfresco Connector is built on the BAI connector framework, which is the pla
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Alfresco One and intelligently searching it with Azure Cognitive Search. It robustly indexes files, folders and user profiles from Alfresco One in near real time. The connector fully supports Alfresco One’s permission model, its built-in user and group management, as well as Alfresco One installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from Alfresco One and intelligently searching it with Azure Cognitive Search. It robustly indexes files, folders, and user profiles from Alfresco One in near real time. The connector fully supports Alfresco One’s permission model, its built-in user and group management, as well as Alfresco One installations based on Active Directory and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-alfresco-connector)
 
@@ -609,7 +594,7 @@ Secure enterprise search connector for reliably indexing content from Microsoft 
 
 by [Accenture](https://www.accenture.com)
 
-Provides the ability to crawl content from an Azure Blob container, allowing incremental crawling, document level security, as well as access to folders and subfolders.
+Provides the ability to crawl content from an Azure Blob container, allowing incremental crawling, document level security, and access to folders and subfolders.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Azure+Blob+Storage+Connector)
 
@@ -746,7 +731,7 @@ Secure enterprise search connector for reliably indexing content from Box and in
 
 by [Accenture](https://www.accenture.com)
 
-The Confluence connector will crawl content from any Confluence content repository. The connector will retrieve spaces, pages, blogs, attachments and comments through a REST API, allowing incremental crawling, fetching ACLs, support for HTTP and HTTPS, and more.
+The Confluence connector will crawl content from any Confluence content repository. The connector will retrieve spaces, pages, blogs, attachments, and comments through a REST API, allowing incremental crawling, fetching ACLs, support for HTTP and HTTPS, and more.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Atlassian+Confluence+Connector)
 

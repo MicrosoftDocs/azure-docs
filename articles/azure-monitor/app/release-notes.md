@@ -31,7 +31,7 @@ Read also our [blogs](https://azure.microsoft.com/blog/tag/application-insights/
 Get started with codeless monitor codeless monitoring:
 
 * [Azure VM and Azure virtual machine scale set IIS-hosted apps](./azure-vm-vmss-apps.md)
-* [IIS server](./monitor-performance-live-website-now.md)
+* [IIS server](./status-monitor-v2-overview.md)
 * [Azure Web Apps](./azure-web-apps.md)
 
 Get started with code-based monitoring:
@@ -41,4 +41,3 @@ Get started with code-based monitoring:
 * [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
-

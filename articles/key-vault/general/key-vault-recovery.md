@@ -30,7 +30,7 @@ For more information about Key Vault, see
   |Microsoft.KeyVault/locations/deletedVaults/read|View the properties of a soft deleted key vault|
   |Microsoft.KeyVault/locations/deletedVaults/purge/action|Purge a soft deleted key vault|
   |Microsoft.KeyVault/locations/operationResults/read| To check purging state of vault|
-  |[Key Vault Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor)|To recover soft-deleted vault|
+  |[Key Vault Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor)|To recover soft-deleted vault|
 
 
 ## What are soft-delete and purge protection

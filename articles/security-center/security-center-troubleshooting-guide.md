@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 08/15/2021
 ms.author: memildin
 
 ---
@@ -14,6 +14,14 @@ ms.author: memildin
 This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations are using Azure Security Center and need to troubleshoot Security Center related issues.
 
 Security Center uses the Log Analytics agent to collect and store data. See [Azure Security Center Platform Migration](./security-center-enable-data-collection.md) to learn more. The information in this article represents Security Center functionality after transition to the Log Analytics agent.
+
+> [!TIP]
+> A, dedicated area of the Security Center pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Security Center and Azure Defender.
+> 
+> When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is good place to look for solutions:
+> 
+> :::image type="content" source="media/release-notes/solve-problems.png" alt-text="Security Center's 'Diagnose and solve problems' page":::
+
 
 ## Troubleshooting guide
 
@@ -81,8 +89,8 @@ There are two installation scenarios that can produce different results when ins
 | Power state off | The VM is stopped.  The Log Analytics agent can only be installed on a VM that is running. | Restart the VM. |
 | Missing or invalid Azure VM agent | The Log Analytics agent is not installed yet.  For Security Center to install the extension a valid Azure VM agent is required. | Install, reinstall or upgrade the Azure VM agent on the VM. |
 | VM state not ready for installation  | The Log Analytics agent is not installed yet because the VM is not ready for installation. The VM is not ready for installation due to a problem with the VM agent or VM provisioning. | Check the status of your VM. Return to **Virtual Machines** in the portal and select the VM for status information. |
-|Installation failed - general error | The Log Analytics agent was installed but failed due to an error. | [Manually install the extension](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) or uninstall the extension so Security Center will try to install again. |
-| Installation failed -  local agent already installed | Log Analytics agent install failed. Security Center identified a local agent (Log Analytics or System Center Operations Manager) already installed on the VM. To avoid multi-homing configuration, where the VM is reporting to two separate workspaces, the Log Analytics agent installation stopped. | There are two ways to resolve: [manually install the extension](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) and connect it to your desired workspace. Or, set your desired workspace as your default workspace and enable automatic provisioning of the agent.  See [enable automatic provisioning](security-center-enable-data-collection.md). |
+|Installation failed - general error | The Log Analytics agent was installed but failed due to an error. | [Manually install the extension](../azure-monitor/vm/monitor-virtual-machine.md#agents) or uninstall the extension so Security Center will try to install again. |
+| Installation failed -  local agent already installed | Log Analytics agent install failed. Security Center identified a local agent (Log Analytics or System Center Operations Manager) already installed on the VM. To avoid multi-homing configuration, where the VM is reporting to two separate workspaces, the Log Analytics agent installation stopped. | There are two ways to resolve: [manually install the extension](../azure-monitor/vm/monitor-virtual-machine.md#agents) and connect it to your desired workspace. Or, set your desired workspace as your default workspace and enable automatic provisioning of the agent.  See [enable automatic provisioning](security-center-enable-data-collection.md). |
 | Agent cannot connect to workspace | Log Analytics agent installed but failed due to network connectivity.  Check that there is  internet access or that a valid HTTP proxy has been configured for the agent. | See monitoring agent network requirements. |
 | Agent connected to missing or unknown workspace | Security Center identified that the Log Analytics agent installed on the VM is connected to a workspace which it doesn't have access to. | This can happen in two cases. The workspace was deleted and no longer exists. Reinstall the agent with the correct workspace or uninstall the agent and allow Security Center to complete its automatic provisioning installation. The second case is where the workspace is part of a subscription that Security Center does not have permissions to. Security Center requires subscriptions to allow the Microsoft Security Resource Provider to access them. To enable, register the subscription to the Microsoft Security Resource Provider. This can be done by API, PowerShell, portal or by simply filtering on the subscription in the Security Center **Overview** dashboard. See [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for more information. |
 | Agent not responsive or missing ID | Security Center is unable to retrieve security data scanned from the VM, even though the agent is installed. | The agent is not reporting any data, including heartbeat. The agent might be damaged or something is blocking traffic. Or, the agent is reporting data but is missing an Azure resource ID so it's impossible to match the data to the Azure VM. To troubleshoot Linux, see [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). To troubleshoot Windows, see [Troubleshooting Windows Virtual Machines](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support). |

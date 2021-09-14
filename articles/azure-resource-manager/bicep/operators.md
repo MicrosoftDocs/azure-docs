@@ -4,20 +4,49 @@ description: Describes the Bicep operators available for Azure Resource Manager 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 09/10/2021
 ---
 
 # Bicep operators
 
-This article describes the Bicep operators that are available when you create a Bicep template and use Azure Resource Manager to deploy resources. Operators are used to calculate values, compare values, or evaluate conditions. There are three types of Bicep operators:
+This article describes the Bicep operators. Operators are used to calculate values, compare values, or evaluate conditions. There are four types of Bicep operators:
 
+- [accessor](#accessor)
 - [comparison](#comparison)
 - [logical](#logical)
 - [numeric](#numeric)
 
-Enclosing an expression between `(` and `)` allows you to override the default Bicep operator precedence. For example, the expression x + y / z evaluates the division first and then the addition. However, the expression (x + y) / z evaluates the addition first and division second.
+## Operator precedence and associativity
 
-For information about accessing a resource through the `::` operator, see [Set name and type for child resources in Bicep](child-resource-name-type.md).
+The operators below are listed in descending order of precedence (the higher the position the higher the precedence). Operators listed at the same level have equal precedence.
+
+| Symbol | Type of Operation | Associativity |
+|:-|:-|:-|
+| `(` `)` `[` `]` `.` `::` | Parentheses, array indexers, property accessors, and nested resource accessor  | Left to right |
+| `!` `-` | Unary | Right to left |
+| `%` `*` `/` | Multiplicative | Left to right |
+| `+` `-` | Additive | Left to right |
+| `<=` `<` `>` `>=` | Relational | Left to right |
+| `==` `!=` `=~` `!~` | Equality | Left to right |
+| `&&` | Logical AND | Left to right |
+| `||` | Logical OR | Left to right |
+| `?` `:` | Conditional expression (ternary) | Right to left
+| `??` | Coalesce | Left to right
+
+## Parentheses
+
+Enclosing an expression between parentheses allows you to override the default Bicep operator precedence. For example, the expression `x + y / z` evaluates the division first and then the addition. However, the expression `(x + y) / z` evaluates the addition first and division second.
+
+## Accessor
+
+The accessor operators are used to access nested resources and properties on objects.
+
+| Operator | Name | Description |
+| ---- | ---- | ---- |
+| `[]` | [Index accessor](./operators-access.md#index-accessor) | Access an element of an array or property on an object. |
+| `.` | [Function accessor](./operators-access.md#function-accessor) | Call a function on a resource. |
+| `::` | [Nested resource accessor](./operators-access.md#nested-resource-accessor) | Access a nested resource from outside of the parent resource. |
+| `.` | [Property accessor](./operators-access.md#property-accessor) | Access properties of an object. |
 
 ## Comparison
 
@@ -42,7 +71,7 @@ The logical operators evaluate boolean values, return non-null values, or evalua
 | ---- | ---- | ---- |
 | `&&` | [And](./operators-logical.md#and-) | Returns `true` if all values are true. |
 | `||`| [Or](./operators-logical.md#or-) | Returns `true` if either value is true. |
-| `!` | [Not](./operators-logical.md#not-) | Negates a boolean value. |
+| `!` | [Not](./operators-logical.md#not-) | Negates a boolean value. Takes one operand. |
 | `??` | [Coalesce](./operators-logical.md#coalesce-) | Returns the first non-null value. |
 | `?` `:` | [Conditional expression](./operators-logical.md#conditional-expression--) | Evaluates a condition for true or false and returns a value. |
 
@@ -56,29 +85,13 @@ The numeric operators use integers to do calculations and return integer values.
 | `/` | [Divide](./operators-numeric.md#divide-) | Divides an integer by an integer. |
 | `%` | [Modulo](./operators-numeric.md#modulo-) | Divides an integer by an integer and returns the remainder. |
 | `+` | [Add](./operators-numeric.md#add-) | Adds two integers. |
-| `-` | [Subtract](./operators-numeric.md#subtract--) | Subtracts an integer from an integer. |
-| `-` | [Minus](./operators-numeric.md#minus--) | Multiplies an integer by `-1`. |
+| `-` | [Subtract](./operators-numeric.md#subtract--) | Subtracts one integer from another integer. Takes two operands. |
+| `-` | [Minus](./operators-numeric.md#minus--) (unary) | Multiplies an integer by `-1`. Takes one operand. |
 
 > [!NOTE]
 > Subtract and minus use the same operator. The functionality is different because subtract uses two
 > operands and minus uses one operand.
 
-## Operator precedence and associativity
-
-The operators below are listed in descending order of precedence (the higher the position the higher the precedence). Operators listed at the same level have equal precedence.
-
-| Symbol | Type of Operation | Associativity |
-|:-|:-|:-|
-| `(` `)` `[` `]` `.` `::` | Parentheses, array indexers, property accessors, and nested resource accessor  | Left to right |
-| `!` `-` | Unary | Right to left |
-| `%` `*` `/` | Multiplicative | Left to right |
-| `+` `-` | Additive | Left to right |
-| `<=` `<` `>` `>=` | Relational | Left to right |
-| `==` `!=` `=~` `!~` | Equality | Left to right |
-| `&&` | Logical AND | Left to right |
-| `\|\|` | Logical OR | Left to right |
-| `?` `:` | Conditional expression (ternary) | Right to left
-| `??` | Coalesce | Left to right
 
 ## Next steps
 

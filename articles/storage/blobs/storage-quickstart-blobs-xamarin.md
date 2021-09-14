@@ -30,8 +30,6 @@ Reference links:
 * [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
 * [Sample](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)

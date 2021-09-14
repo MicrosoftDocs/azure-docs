@@ -1,15 +1,18 @@
 ---
 title: Add an NSX-T network segment
-description: Steps to add an NSX-T network segment for Azure VMware Solution.
+description: Steps to add an NSX-T network segment for Azure VMware Solution in NSX-T Manager.
 ms.topic: include
 ms.date: 03/13/2021
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
 ---
 
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
 1. In NSX-T Manager, select **Networking** > **Segments**, and then select **Add Segment**. 
 
-   :::image type="content" source="../media/nsxt/nsxt-segments-overview.png" alt-text="Screenshot showing how to add a new segment":::
+   :::image type="content" source="../media/nsxt/nsxt-segments-overview.png" alt-text="Screenshot showing how to add a new segment in NSX-T Manager.":::
 
 1. Enter a name for the segment.
 
@@ -30,12 +33,4 @@ ms.date: 03/13/2021
 
 1. Select **No** to decline the option to continue configuring the segment. 
 
-1. Confirm the presence of the new network segment. In this example, **ls01** is the new network segment.
 
-   1. In NSX-T Manager, select **Networking** > **Segments**. 
-
-      :::image type="content" source="../media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Screenshot showing the confirmation and status of the new network segment is present in NSX-T.":::
-
-   1. In vCenter, select **Networking** > **SDDC-Datacenter**.
-
-      :::image type="content" source="../media/nsxt/vcenter-with-ls01-2.png" alt-text="Screenshot showing the confirmation that the new network segment is present in vCenter.":::

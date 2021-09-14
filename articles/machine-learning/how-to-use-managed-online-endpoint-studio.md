@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: how-to, managed online endpoints
+ms.custom: how-to, managed online endpoints, devplatv2
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: peterlu
@@ -51,9 +51,9 @@ You can also create a managed online endpoint from the **Models** page in the st
 1. Select a model by checking the circle next to the model name.
 1. Select **Deploy** > **Deploy to endpoint (preview)**.
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/models-create-managed-online-endpoint.png" alt-text="Create a managed online endpoint from the Models tab":::
-
 Follow the setup wizard to configure your managed online endpoint.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/models-page-deployment-latest.png" alt-text="Create a managed online endpoint from the Models tab":::
 
 ## View managed online endpoints (preview)
 

@@ -9,7 +9,7 @@ ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/27/2019
+ms.date: 08/31/2021
 ms.author: billmath
 author: billmath
 ---
@@ -26,6 +26,7 @@ Azure Active Directory can provide a users group membership information in token
 >
 > - Support for use of sAMAccountName and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from AD FS and other identity providers. Groups managed in Azure AD do not contain the attributes necessary to emit these claims.
 > - In larger organizations the number of groups a user is a member of may exceed the limit that Azure Active Directory will add to a token. 150 groups for a SAML token, and 200 for a JWT. This can lead to unpredictable results. If your users have large numbers of group memberships, we recommend using the option to restrict the groups emitted in claims to the relevant groups for the application.
+> - Group claims have a 5-group limit if the token is issued through the implicit flow. Tokens requested via the implicit flow will only have a "hasgroups":true claim if the user is in more than 5 groups.
 > - For new application development, or in cases where the application can be configured for it, and where nested group support isn't required, we recommend that in-app authorization is based on application roles rather than groups.  This limits the amount of information that needs to go into the token, is more secure, and separates user assignment from app configuration.
 
 ## Group claims for applications migrating from AD FS and other identity providers

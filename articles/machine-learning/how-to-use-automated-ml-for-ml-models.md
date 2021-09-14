@@ -109,7 +109,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
     Select **Next**.
 
-1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) for more information.
+1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting) for more information.
 
     1. For **classification**, you can also enable deep learning.
     
@@ -170,10 +170,13 @@ The **Models** tab contains a list of the models created ordered by the metric s
 
 ### View training run details
 
-Drill down on any of the completed models to see training run details, like a model summary on the **Model** tab or performance metric charts on the **Metrics** tab. [Learn more about charts](how-to-understand-automated-ml.md).
+Drill down on any of the completed models to see training run details. On the **Model** tab view details like a model summary and the hyperparameters used for the selected model. 
 
-[![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+[![Hyperparameter details](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png)
 
+ You can also see model specific performance metric charts on the **Metrics** tab. [Learn more about charts](how-to-understand-automated-ml.md).
+
+![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
 On the Data transformation tab, you can see a diagram of what data preprocessing, feature engineering, scaling techniques and the machine learning algorithm that were applied to generate this model.
 

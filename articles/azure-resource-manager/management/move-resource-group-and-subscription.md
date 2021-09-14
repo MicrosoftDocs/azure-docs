@@ -229,7 +229,7 @@ To move to a new subscription, provide the `--destination-subscription-id` param
 
 ### Validate
 
-The [validate move operation](/rest/api/resources/resources/moveresources) lets you test your move scenario without actually moving the resources. Use this operation to check if the move will succeed. Validation is automatically called when you send a move request. Use this operation only when you need to predetermine the results. To run this operation, you need the:
+The [validate move operation](/rest/api/resources/resources/validate-move-resources) lets you test your move scenario without actually moving the resources. Use this operation to check if the move will succeed. Validation is automatically called when you send a move request. Use this operation only when you need to predetermine the results. To run this operation, you need the:
 
 * name of the source resource group
 * resource ID of the target resource group

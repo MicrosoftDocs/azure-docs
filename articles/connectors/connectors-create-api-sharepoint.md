@@ -1,15 +1,15 @@
 ---
-title: Connect to SharePoint from Azure Logic Apps
+title: Connect to SharePoint
 description: Monitor and manage resources in SharePoint Online or SharePoint Server on premises by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 08/11/2021
 tags: connectors
 ---
 
-# Connect to SharePoint resources with Azure Logic Apps
+# Connect to SharePoint resources using Azure Logic Apps
 
 To automate tasks that monitor and manage resources, such as files, folders, lists, and items, in SharePoint Online or in on-premises SharePoint Server, you can create automated integration workflows by using Azure Logic Apps and the SharePoint connector.
 
@@ -31,9 +31,17 @@ In your logic app workflow, you can use a trigger that monitors events in ShareP
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* Your Microsoft Office 365 account credentials that you use with SharePoint where you sign in with a [work or school account](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool).
 
-* Your SharePoint site address and user credentials. You need these credentials so that you can authorize your workflow to access your your SharePoint account.
+  You need these credentials so that you can authorize your workflow to access your SharePoint account.
+
+  > [!NOTE]
+  > If you're using [Microsoft Azure operated by 21Vianet](https://portal.azure.cn), Azure Active Directory (Azure AD) authentication 
+  > works only with an account for Microsoft Office 365 operated by 21Vianet (.cn), not .com accounts.
+
+* Your SharePoint site address
+
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * For connections to an on-premises SharePoint server, you need to [install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer and a [data gateway resource that's already created in Azure](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -44,13 +52,17 @@ In your logic app workflow, you can use a trigger that monitors events in ShareP
   * To start the workflow with a SharePoint trigger, you need a blank logic app workflow.
   * To add a SharePoint action, your workflow needs to already have a trigger.
 
+## Connector reference
+
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, review the [connector's reference page](/connectors/sharepoint/).
+
 ## Connect to SharePoint
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 ## Add a trigger
 
-1. From the Azure portal, Visual Studio Code, or Visual Studio, open your logic app workflow in the Logic App Designer, if not open already.
+1. From the Azure portal, Visual Studio Code, or Visual Studio, open your logic app workflow in the visual designer, if not open already.
 
 1. On the designer, in the search box, enter `sharepoint` as the search term. Select the **SharePoint** connector.
 
@@ -69,7 +81,7 @@ In your logic app workflow, you can use a trigger that monitors events in ShareP
 
 ## Add an action
 
-1. From the Azure portal, Visual Studio Code, or Visual Studio, open your logic app workflow in the Logic App Designer, if not open already.
+1. From the Azure portal, Visual Studio Code, or Visual Studio, open your logic app workflow in the visual designer, if not open already.
 
 1. Choose one of the following options:
 
@@ -90,10 +102,6 @@ In your logic app workflow, you can use a trigger that monitors events in ShareP
    After your workflow successfully creates the connection, your selected action appears.
 
 1. Provide the information to set up the action and continue building your workflow.
-
-## Connector reference
-
-For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, review the [connector's reference page](/connectors/sharepoint/).
 
 ## Next steps
 

@@ -11,10 +11,10 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Manage zone redundant high availability in Azure Database for MySQL Flexible Server with Azure CLI
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!NOTE]
-> Azure Database for MySQL Flexible Server is in public preview. 
+> Azure Database for MySQL Flexible Server is in public preview.
 
 The article describes how you can enable or disable zone redundant high availability configuration at the time of server creation in your flexible server. You can disable zone redundant high availability after server creation too. Enabling zone redundant high availability after server creation is not supported.
 
@@ -25,7 +25,9 @@ High availability feature provisions physically separate primary and standby rep
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+- An Azure account with an active subscription. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
 - Login to Azure account using [az login](/cli/azure/reference-index#az_login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 

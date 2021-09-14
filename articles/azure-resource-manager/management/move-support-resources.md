@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 09/08/2021
 ---
 
 # Move operation support for resources
@@ -826,7 +826,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | backupvaults | No | No | No |
+> | backupvaults | [Yes](../../backup/backup-vault-overview.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [Yes](../../backup/backup-vault-overview.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
 
 ## Microsoft.DataShare
 
@@ -906,7 +906,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | controllers | Yes | Yes | No |
-> | AKS cluster | **pending** | **pending** | No<br/><br/> [Learn more](../../dev-spaces/index.yml) about moving to another region.
+> | AKS cluster | **pending** | **pending** | No<br/><br/> [Learn more](/previous-versions/azure/dev-spaces/) about moving to another region.
 
 ## Microsoft.DevTestLab
 
@@ -1573,7 +1573,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | accounts | **pending** | **pending** | No |
+> | accounts | Yes | Yes | No |
 
 ## Microsoft.ProviderHub
 
@@ -1593,8 +1593,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.RecoveryServices
 
-> [!IMPORTANT]
-> See [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+>[!IMPORTANT]
+>- See [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+>- See [Continue backups in Recovery Services vault after moving resources across regions](../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -2017,6 +2018,7 @@ Jump to a resource provider namespace:
 > | availablestacks | No | No | No |
 > | billingmeters | No | No | No |
 > | certificates | No | Yes | No |
+> | certificates (managed) | No | No | No |
 > | connectiongateways | Yes | Yes | No |
 > | connections | Yes | Yes | No |
 > | customapis | Yes | Yes | No |

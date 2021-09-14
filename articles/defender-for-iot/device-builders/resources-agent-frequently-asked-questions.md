@@ -1,24 +1,21 @@
 ---
-title: Azure Defender for IoT agent frequently asked questions
+title: Azure Defender for IoT for device builders frequently asked questions
 description: Find answers to the most frequently asked questions about Azure Defender for IoT agent.
 ms.topic: conceptual
-ms.date: 04/25/2021
+ms.date: 07/07/2021
 ---
 
-# Azure Defender for IoT agent frequently asked questions
+# Azure Defender for IoT for device builders frequently asked questions
 
 This article provides a list of frequently asked questions and answers about the Defender for IoT agent.
 
 ## Do I have to install an embedded security agent?
 
-Agent installation on your IoT devices isn't mandatory in order to enable Defender for IoT. You can choose between the following three options, gaining different levels of security monitoring and management capabilities according to your selection:
+Agent installation on your IoT devices isn't mandatory in order to enable Defender for IoT. You can choose between the following two options There are four different levels of security monitoring, and management capabilities which will provide different levels of protection:
 
-- Passive, non-invasive (agentless) deployment using NTA (Network Traffic Analysis) sensors to monitor and provide deep visibility into IoT/OT risk with zero performance impact on the network and devices
 - Install the Defender for IoT embedded security agent with or without modifications. This option provides the highest level of enhanced security insights into device behavior and access.
 
-- Create your own agent and implement the Defender for IoT security message schema. This option enables usage of Defender for IoT analysis tools on top of your device security agent.
-
-- No security agent installation on your IoT devices. This option enables IoT Hub communication monitoring, with reduced security monitoring  and management capabilities.
+- No security agent installation on your IoT devices. This option enables IoT Hub communication monitoring, with reduced security monitoring, and management capabilities.
 
 ## What does the Defender for IoT agent do?
 

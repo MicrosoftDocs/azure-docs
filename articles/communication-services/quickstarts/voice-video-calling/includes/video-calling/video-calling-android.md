@@ -1,9 +1,9 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
-ms.author: mikben
+ms.author: rifox
 ---
 
 Get started with Azure Communication Services by using the Communication Services calling client library to add 1 on 1 video calling to your app. You'll learn how to start and answer a video call using the Azure Communication Services Calling SDK for Android.
@@ -224,6 +224,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -294,6 +295,8 @@ public class MainActivity extends AppCompatActivity {
         startVideo.setOnClickListener(l -> turnOnLocalVideo());
         Button stopVideo = findViewById(R.id.hide_preview);
         stopVideo.setOnClickListener(l -> turnOffLocalVideo());
+        
+        setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
     }
 
     /**

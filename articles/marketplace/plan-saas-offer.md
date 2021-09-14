@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/31/2021
 ---
 
 # How to plan a SaaS offer for the commercial marketplace
@@ -22,10 +22,10 @@ The following table shows the listing options for SaaS offers in the commercial 
 
 | Listing option | Transaction process |
 | ------------ | ------------- |
-| Contact me | The customer contacts you directly from information in your listing.``*`` |
-| Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*`` |
-| Get it now (Free) | The customer is redirected to your target URL via Azure AD.``*`` |
-| Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers using the pricing model you choose, and manage customer transactions on your behalf. Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [SaaS billing](#saas-billing) below.  |
+| Contact me | The customer contacts you directly from information in your listing.``*``<br>You can change to a different listing option after publishing the offer. |
+| Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*``<br>You can change to a different listing option after publishing the offer. |
+| Get it now (Free) | The customer is redirected to your target URL via Azure AD.``*``<br>You can change to a different listing option after publishing the offer. |
+| Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers using the pricing model you choose, and manage customer transactions on your behalf. Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [SaaS billing](#saas-billing) below.<br><br>**Note**: You cannot change this option once your offer is published.  |
 |||
 
 ``*`` Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to order, fulfillment, metering, billing, invoicing, payment, and collection.

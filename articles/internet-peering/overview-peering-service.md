@@ -44,7 +44,7 @@ In the figure above each branch office of a global enterprise connects to the ne
 * Partner can utilize their existing peering to support Peering Service if it meets the requirement.
 
 ## FAQ
-For frequently asked questions, see [Peering Service - FAQ](service-faqs.md).
+For frequently asked questions, see [Peering Service - FAQ](service-faqs.yml).
 
 ## Next steps
 

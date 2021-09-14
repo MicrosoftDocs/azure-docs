@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 07/20/2021
 ---
 
 # Tag support for Azure resources
@@ -2562,7 +2562,7 @@ Jump to a resource provider namespace:
 > | servers / restorableDroppedDatabases | No | No |
 > | servers / serviceobjectives | No | No |
 > | servers / tdeCertificates | No | No |
-> | virtualClusters | Yes | Yes |
+> | virtualClusters | No | No |
 
 <a id="sqlnote"></a>
 

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.custom: [devx-track-azurecli, devx-track-azurepowershell]
 ---
 
-# Manage IoT Central from Azure CLI or Powershell
+# Manage IoT Central from Azure CLI or PowerShell
 
 Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use [Azure CLI](/cli/azure/) or [Azure PowerShell](/powershell/azure/) to manage your applications.
 
@@ -72,7 +72,7 @@ These commands first create a resource group in the east US region for the appli
 | ----------------- | ----------- |
 | resource-group    | The resource group that contains the application. This resource group must already exist in your subscription. |
 | location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. |
-| name              | The name of the application in the Azure portal. |
+| name              | The name of the application in the Azure portal. Avoid special characters - instead, use lower case letters (a-z), numbers (0-9), and dashes (-).|
 | subdomain         | The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
 | sku               | Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
 | template          | The application template to use. For more information, see the following table. |
@@ -102,7 +102,7 @@ The script first creates a resource group in the east US region for the applicat
 |------------------|------------|
 |ResourceGroupName |The resource group that contains the application. This resource group must already exist in your subscription. |
 |Location |By default, this cmdlet uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. |
-|Name              |The name of the application in the Azure portal. |
+|Name              |The name of the application in the Azure portal. Avoid special characters - instead, use lower case letters (a-z), numbers (0-9), and dashes (-). |
 |Subdomain         |The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
 |Sku               |Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Template          | The application template to use. For more information, see the following table. |
@@ -114,7 +114,7 @@ The script first creates a resource group in the east US region for the applicat
 
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
 
-If you've created your own application template, you can use it to create a new application. When asked for an application template, enter the app ID shown in the exported app's URL shareable link under the [Application template export](howto-use-app-templates.md#create-an-application-template) section of your app.
+If you've created your own application template, you can use it to create a new application. When asked for an application template, enter the app ID shown in the exported app's URL shareable link under the [Application template export](howto-create-iot-central-application.md#create-and-use-a-custom-application-template) section of your app.
 
 ## View applications
 

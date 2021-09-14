@@ -100,7 +100,7 @@ az aks update \
 
 ## How many node pools can I create?
 
-The AKS cluster can have a maximum of 10 node pools. You can have a maximum of 1000 nodes across those node pools. [Node pool limitations][nodepool-limitations].
+The AKS cluster can have a maximum of 100 node pools. You can have a maximum of 1000 nodes across those node pools. [Node pool limitations][nodepool-limitations].
 
 ## What can I name my Windows node pools?
 

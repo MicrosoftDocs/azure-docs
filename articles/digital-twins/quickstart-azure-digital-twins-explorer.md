@@ -302,4 +302,4 @@ You may also want to delete the sample project folder from your local machine.
 Next, continue on to the Azure Digital Twins tutorials to build out your own Azure Digital Twins scenario and interaction tools.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Code a client app](tutorial-code.md)
+> [Code a client app](tutorial-code.md)

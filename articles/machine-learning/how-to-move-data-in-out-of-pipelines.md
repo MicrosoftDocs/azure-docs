@@ -169,7 +169,7 @@ dataprep_step = PythonScriptStep(
 ```
 
 > [!NOTE]
-> Concurrent writes to a `OutputFileDatasetConfig` will fail. Do not attempt to use a single `OutputFileDatasetConfig` concurrently. Do not share a single `OutputFileDatasetConfig` in a multiprocessing situation, such as when using distributed training. 
+> Concurrent writes to a `OutputFileDatasetConfig` will fail. Do not attempt to use a single `OutputFileDatasetConfig` concurrently. Do not share a single `OutputFileDatasetConfig` in a multiprocessing situation, such as when using [distributed training](how-to-train-distributed-gpu.md). 
 
 ### Use `OutputFileDatasetConfig` as outputs of a training step
 
@@ -234,7 +234,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Azure does not automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
 
 * Programmatically delete intermediate data at the end of a pipeline run, when it is no longer needed
-* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)) 
+* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal)) 
 * Regularly review and delete no-longer-needed data
 
 For more information, see [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md).

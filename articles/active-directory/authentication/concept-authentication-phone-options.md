@@ -20,7 +20,10 @@ ms.collection: M365-identity-device-management
 
 For direct authentication using text message, you can [Configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md). SMS-based sign-in is great for Frontline workers. With SMS-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
 
-Users can also verify themselves using a mobile phone or office phone as secondary form of authentication used during Azure AD Multi-Factor Authentication or self-service password reset (SSPR). Phone call verification is not available for Azure AD tenants with trial subscriptions. 
+Users can also verify themselves using a mobile phone or office phone as secondary form of authentication used during Azure AD Multi-Factor Authentication or self-service password reset (SSPR). 
+
+> [!NOTE]
+> Phone call verification is not available for Azure AD tenants with trial subscriptions.  For example, signing up for a trial EMS licenses, will not provide the capability for phone call verification.
 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*.
 
