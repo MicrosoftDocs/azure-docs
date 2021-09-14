@@ -75,7 +75,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **.NET version** | **.NET 6 (Isolated)** | This value creates a function project that runs in an isolated process, which supports .NET 6.0. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).   |
+    | **.NET version** | **.NET 5 (Isolated)** | This value creates a function project that runs in an isolated process. You'll update the target framework to .NET 6 in a later step. |
     | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
@@ -92,6 +92,22 @@ The Azure Functions project template in Visual Studio creates a C# class library
 ::: zone-end
 
 Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The boilerplate code sends an HTTP response that includes a value from the request body or query string. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. 
+
+::: zone pivot="programming-runtime-functions-v4"
+## Update the .NET and Functions runtime versions
+
+1. In **Solution Explorer**, right-click the project and select **Edit project file**.
+
+1. In the project file update the following properties.
+
+    | Property | Value |
+    | -------- | ----- |
+    | TargetFramework | net6.0 |
+    | AzureFunctionsVersion | v4 |
+
+1. Save the file. When prompted, reload the project.
+
+::: zone-end
 
 ## Rename the function
 
@@ -137,7 +153,13 @@ Before you can publish your project, you must have a function app in your Azure 
 
 1. Right-click the function app and choose **Open in Browser**. This opens the root of your function app in your default web browser and displays the page that indicates your function app is running. 
 
+::: zone pivot="programming-runtime-functions-v3"
     :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="Function app running":::
+::: zone-end
+    
+::: zone pivot="programming-runtime-functions-v4"
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure-v4.png" alt-text="Function app running":::
+::: zone-end
 
 1. In the address bar in the browser, append the string `/api/HttpExample?name=Functions` to the base URL and run the request.
 
