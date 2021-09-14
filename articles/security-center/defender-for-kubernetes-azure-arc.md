@@ -44,13 +44,15 @@ This diagram shows the interaction between Azure Defender for Kubernetes and the
 Before deploying the extension, ensure you:
 - [Connect the Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - Complete the [pre-requisites listed under the generic cluster extensions documentation](../azure-arc/kubernetes/extensions.md#prerequisites).
-- Configure port 443 on the following endpoints for outbound access:
-    - *.ods.opinsights.azure.com
-    - *.oms.opinsights.azure.com
-    - :::no-loc text="login.microsoftonline.com":::
-- (Azure Government cloud users only) Also configure port 443 on these endpoints for outbound access:
-    - *.ods.opinsights.azure.us
-    - *.oms.opinsights.azure.us
+- Configure **port 443** on the following endpoints for outbound access:
+    - For clusters on Azure Government cloud:
+        - *.ods.opinsights.azure.us
+        - *.oms.opinsights.azure.us
+        - :::no-loc text="login.microsoftonline.us":::
+    - For clusters on any other cloud deployment:
+        - *.ods.opinsights.azure.com
+        - *.oms.opinsights.azure.com
+        - :::no-loc text="login.microsoftonline.com":::
 
 ## Deploy the Azure Defender extension
 
