@@ -1,18 +1,18 @@
 ---
-title: Create or manage B2B integration accounts
-description: Create, link, and manage integration accounts for enterprise integration with Azure Logic Apps
+title: Create and manage integration accounts
+description: Create and manage integration accounts for B2B enterprise integration workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2020
 ---
 
-# Create and manage integration accounts for B2B enterprise integrations in Azure Logic Apps
+# Create and manage integration accounts for B2B enterprise integration workflows in Azure Logic Apps
 
-Before you can build [enterprise integration and B2B solutions](../logic-apps/logic-apps-enterprise-integration-overview.md) by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you need to create an integration account, which is a separate Azure resource that provides a secure, scalable, and manageable container for the integration artifacts that you define and use with your logic app workflows. For example, you can create, store, and manage B2B artifacts, such as trading partners, agreements, maps, schemas, certificates, and batch configurations.
+Before you can build [enterprise integration and B2B solutions](logic-apps-enterprise-integration-overview.md) by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you need to create an integration account, which is a separate Azure resource that provides a secure, scalable, and manageable container for the integration artifacts that you define and use with your logic app workflows. For example, you can create, store, and manage B2B artifacts, such as trading partners, agreements, maps, schemas, certificates, and batch configurations. For more information about B2B enterprise integration, review []
 
 The following table describes available integration account levels or tiers, which [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/):
 
