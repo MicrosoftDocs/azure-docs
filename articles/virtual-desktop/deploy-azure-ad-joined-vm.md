@@ -29,7 +29,7 @@ The following configurations are currently supported with Azure AD-joined VMs:
 
 User accounts can be cloud-only or hybrid users from the same Azure AD tenant.
 
-## Known Limitations
+## Known limitations
 
 The following known limitations may impact access to your on-premises or Active Directory domain-joined resources and should be considered when deciding whether Azure AD-joined VMs are right for your environment. We currently recommend Azure AD-joined VMs for scenarios where users only need access to cloud-based resources or Azure AD-based authentication.
 - Azure Virtual Desktop (classic) doesn't support Azure AD-joined VMs. 
@@ -51,6 +51,7 @@ You can deploy Azure AD-joined VMs directly from the Azure portal when [creating
 > - The host pool VMs must be Windows 10 single-session or multi-session, version 2004 or later.
 
 ### Assign user access to host pools
+
 After you've created your host pool, you must assign users access to let them access to their resources. To grant access to resources, add each user to the app group. Follow the instructions in [Manage app groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
 
 For Azure AD-joined VMs, you'll need to do two extra things on top of the requirements for Active Directory or Azure Active Directory Domain Services-based deployments:  
