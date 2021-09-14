@@ -27,9 +27,13 @@ If you have not already done so, you (or your organization's administrator) shou
 
    [Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account.png)
 
+:::image type="content" source="media/manage-accounts/settings-account.png" alt-text="Displays the Account Settings option in Partner Center":::
+
 1. Under **Account settings** select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
 
     [! [Screenshot of the developer tab on the legal page in Account settings.](./media/manage-accounts/developer-tab.png)](./media/manage-accounts/developer-tab.png#lightbox)
+
+:::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="Image shows developer tab" lightbox="media/manage-accounts/developer-tab.png":::
 
 ### Account settings page
 
