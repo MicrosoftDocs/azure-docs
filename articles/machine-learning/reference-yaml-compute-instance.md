@@ -41,7 +41,7 @@ ms.reviewer: laobri
 
 ## Remarks
 
-The `az ml compute` commands can be used for managing Azure Machine Learning compute.
+The `az ml compute` command can be used for managing Azure Machine Learning compute instances.
 
 ## Examples
 
@@ -53,11 +53,11 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 # [JSON](#tab/json)
 
-:::code language="json" source="~/azureml-examples-main/cli/.schemas/jsons/latest/workspace.schema.json":::
+:::code language="json" source="~/azureml-examples-cli-preview/cli/.schemas/jsons/latest/computeInstance.schema.json":::
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/workspace.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/.schemas/yamls/latest/computeInstance.schema.yml":::
 
 ---
 

@@ -47,7 +47,7 @@ ms.reviewer: laobri
 
 ## Remarks
 
-The `az ml compute` commands can be used for managing Azure Machine Learning compute.
+The `az ml compute` command can be used for managing Azure Machine Learning compute clusters (AmlCompute).
 
 ## Examples
 
