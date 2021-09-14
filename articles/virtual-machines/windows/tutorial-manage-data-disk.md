@@ -30,18 +30,18 @@ An Azure account with an active subscription. If you don't have an Azure subscri
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Create and attach disks
+## Create and attach a disk
 
 When a VM is provisioned, two disks are automatically created and attached.
 
 - An **operating system disk** hosts the VM's operating system.
 - A **temporary disk** is primarily used for operations such as temporary data processing.
 
-If you need to increase disk storage for your VMs, you can expand an existing disk or create and attach additional disks. We recommend that applications and data not be hosted on the OS disk when possible. Instead, you should usually create and attach data disks when durable and responsive data storage is needed.
+If you need to increase disk storage for your VMs, you can expand an existing disk or create and attach additional disks. We recommend the separation of application and user data at OS-related data when possible. In most cases, you should create and attach data disks when durable and responsive data storage is needed.
 
-### Create the VM
+### Create a VM
 
-Use the following sample to create a VM for this tutorial. You'll be prompted to enter username and password values for the VM's local administrator account. In the following example, the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet creates a new VM with the name **myTestVM** in a new resource group named **myTestResourceGroup**. The `-Location` parameter value ensures that all resources will be created in the `Central US` region.
+First, create a VM for this tutorial. In the following example, the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet creates a VM with the name **myTestVM**. Because the `ResourceGroupName` parameter value is added, a new resource group named **myTestResourceGroup** is created for the VM. The `-Location` parameter value ensures that resources will be created in the **Central US** region. You are prompted for username and password values for the VM's local administrator account.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -50,7 +50,7 @@ New-AzVm `
     -Location "Central US"
 ```
 
-After a prompt for local administrator account credentials, the output confirms the VM's successful creation. Because the `-Size` parameter value was not supplied, the general-purpose `Standard_D2s_v3` size is used by default. Because no specific values are supplied for optional parameters, the following resources leverage the VM's `-Name` parameter value during creation:
+The output confirms the VM's successful creation. Because the `-Size` parameter value was not supplied, the general-purpose `Standard_D2s_v3` size is used by default. Because no specific values are supplied for optional parameters, the following resources leverage the VM's `-Name` parameter value during creation:
 
 - The network interface
 - The virtual network
@@ -75,14 +75,14 @@ FullyQualifiedDomainName : mytestvm-abc123.Central US.cloudapp.azure.com
 
 ### Create a data disk
 
-If you need to store user or application data on your VM, create and attach additional disks. Azure provides four types of disks:
+If you need to store user or application data on your VM, you can create and attach additional data disks. Azure provides four types of disks:
 
 - **Standard hard disk drives** - Hard disk drives (HDDs) deliver cost-effective storage while still remaining performant. Standard disks are ideal for development and test workloads.
 - **Standard solid-state drives** - Compared to standard HDDs, solid-state drives (SSDs) deliver better availability, consistency, reliability, and latency. Standard SSDs are suitable for web servers, application servers not requiring high input/output operations per second (IOPS), and lightly-used enterprise applications.
-- **Premium solid-state drives** - Premium SSDs deliver higher performance and lower latency disk support for VMs with input/output (IO)-intensive workloads. Premium SSDs are suitable for mission-critical production applications, but can only be used with VMs that are premium storage-compatible.
+- **Premium solid-state drives** - Premium SSDs deliver higher performance and lower latency for VMs with input/output (IO)-intensive workloads. Premium SSDs are suitable for mission-critical production applications, but can only be used with VMs that are premium storage-compatible.
 - **Ultra disks** - Ultra disks deliver high throughput, high IOPS, and consistent low-latency disk storage for Azure IaaS VMs. Ultra disks provide the ability to tune disk performance in response to your workloads without requiring a VM restart. Ultra disks are suited for data-intensive workloads, top-tier databases, and transaction-heavy workloads. They are only available in regions that support availability zones.
 
-1. Before creating a data disk, you must first create a disk object with the [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) cmdlet. The following example configures a disk object that is 128 gigabytes in size. Since no value for the `-SkuName` parameter is specified, disks created from this object will have the default Sku name **Standard_LRS**.
+1. Before creating a data disk, you must first create a disk object with the [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) cmdlet. The following example configures a disk object that is 128 gigabytes in size. Since no value for the `-SkuName` parameter is specified, disks created from this object will have the default **Standard_LRS** SKU name.
 
     ```azurepowershell-interactive
     $diskConfig = New-AzDiskConfig `
@@ -110,7 +110,7 @@ If you need to store user or application data on your VM, create and attach addi
     $vm = Get-AzVM -ResourceGroupName "myTestResourceGroup" -Name "myTestVM"
     ```
 
-1. Now attach the data disk to the virtual machine configuration with the [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk) cmdlet.
+1. Next, attach the data disk to the virtual machine configuration with the [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk) cmdlet.
 
     ```azurepowershell-interactive
     $vm = Add-AzVMDataDisk `
@@ -139,15 +139,16 @@ If you need to store user or application data on your VM, create and attach addi
 
 ## Initialize a data disk
 
-Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to manually configure the first disk added to the VM.
+Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to connect to the remote VM and configure the first disk added.
 
 1. Log into the [Azure portal](https://portal.azure.com).
-1. Locate the VM to which you have attached the newly-created data disk and connect to it using a remote desktop protocol (RDP) connection. If you no longer have access to an administrative account, create a credential object for a specified user name and password with the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
+
+1. Locate the VM to which you have attached the data disk and connect to it using a remote desktop protocol (RDP) connection. If you no longer have access to an administrative account, create a credential object for a specified user name and password with the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
 1. After you've established an RDP connection to the remote VM, select the Windows **Start** menu. Enter **PowerShell** in the search box and select **Windows PowerShell** to open a PowerShell window.
 
     [![Image alt text.](media\tutorial-manage-data-disk\initialize-disk-sml.png)](media\tutorial-manage-data-disk\initialize-disk-lrg.png#lightbox)
 
-1. Open PowerShell and run this script.
+1. Open PowerShell and run the following script.
 
     ```azurepowershell
     Get-Disk | Where PartitionStyle -eq 'raw' |
@@ -205,7 +206,7 @@ Follow the steps below to resize a disk.
 1. Before you can resize a VM's disk, you must stop the VM. Use the `Stop-AzVM` cmdlet to stop the VM. You will be prompted for confirmation.
 
     > [!IMPORTANT]
-    > Always confirm that there are no important resources or data that could be lost by a shutdown before you proceed.
+    > Before you initiate a VM shutdown, always confirm that there are no important resources or data that could be lost.
 
     ```azurepowershell-interactive
     Stop-AzVM `
