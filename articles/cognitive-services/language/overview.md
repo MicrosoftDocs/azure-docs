@@ -20,46 +20,21 @@ The service is the unification of several Cognitive Services offerings, such as 
 
 ## Available features
 
-Azure Cognitive Service for language provides the following features, categorized by 
-
-
-### Extract information
+Azure Cognitive Service for language provides the following features:
 
 |Feature  |Description  |
 |---------|---------|
-| Extract sensitive information (PII)     | This pre-configured feature identifies and redacts Personally Identifiable Information (PII) in text across several pre-defined categories, and categorizes them. For example: names, addresses, phone numbers, and passport numbers.        |
-| Key phrase extraction     | This pre-configured feature evaluates unstructured text, and for each input document, returns a list of key phrases and main points in the text. |
-|Entity linking    | This pre-configured feature disambiguates the identity of an entity found in text and provides links to the entity on Wikipedia.        |
-|Named Entity Recognition (NER)    | This prebuilt feature identifies entities in text and categorizes them into pre-defined classes such as: names, locations, and organizations.        |
-| Extract information from healthcare-related text    | This pre-configured feature extracts information from unstructured medical texts, such as clinical notes and doctor's notes.  |
-| Custom NER    | Build an AI model to extract custom entity categories, using unstructured text that you provide. |
-
-
-### Classify text
-
-
-|Feature |Description  |
-|---------|---------|
-|Analyze sentiment and opinions     | This pre-configured feature provides sentiment labels (such as "*negative*", "*neutral*" and "*positive*") for sentences and documents. This feature can additionally provide granular information about the opinions related to words that appear in the text, such as the attributes of products or services. |
-|Language detection    | This pre-configured feature evaluates text, and determines the language it was written in. It returns a language identifier and a score that indicates the strength of the analysis.        |
-|Custom text classification    | Build an AI model to classify unstructured text into custom classes that you define.         |
-
-### Summarize Text
-
-|Feature |Description  |
-|---------|---------|
-| Text Summarization     | This pre-configured feature extracts key sentences that collectively convey the essence of a document. |
-
-### Understand conversational language
- 
-|Feature |Description  |
-|---------|---------|
-| Custom conversational language understanding     | Build an AI model to bring the ability to understand natural language into apps, bots, and IoT devices. |
-
-### Answer questions
-
-|Feature |Description  |
-|---------|---------|
+| [Extract sensitive information (PII)](named-entity-recognition/overview.md)     | This pre-configured feature identifies and redacts Personally Identifiable Information (PII) in text across several pre-defined categories, and categorizes them. For example: names, addresses, phone numbers, and passport numbers.        |
+| [Key phrase extraction](key-phrase-extraction/overview.md)     | This pre-configured feature evaluates unstructured text, and for each input document, returns a list of key phrases and main points in the text. |
+|[Entity linking](entity-linking/overview.md)    | This pre-configured feature disambiguates the identity of an entity found in text and provides links to the entity on Wikipedia.        |
+|[Named Entity Recognition (NER)](named-entity-recognition/overview.md)      | This prebuilt feature identifies entities in text and categorizes them into pre-defined classes such as: names, locations, and organizations.        |
+| [Extract information from healthcare-related text](health/overview.md)    | This pre-configured feature extracts information from unstructured medical texts, such as clinical notes and doctor's notes.  |
+| [Custom NER](custom-named-entity-recognition/overview.md)    | Build an AI model to extract custom entity categories, using unstructured text that you provide. |
+| [Analyze sentiment and opinions](sentiment-opinion-mining/overview.md)     | This pre-configured feature provides sentiment labels (such as "*negative*", "*neutral*" and "*positive*") for sentences and documents. This feature can additionally provide granular information about the opinions related to words that appear in the text, such as the attributes of products or services. |
+|[Language detection](language-detection/overview.md)    | This pre-configured feature evaluates text, and determines the language it was written in. It returns a language identifier and a score that indicates the strength of the analysis.        |
+|[Custom text classification](custom-classification/overview.md)    | Build an AI model to classify unstructured text into custom classes that you define.         |
+| [Text Summarization](text-summarization/overview.md)     | This pre-configured feature extracts key sentences that collectively convey the essence of a document. |
+| [Custom conversational language understanding](custom-language-understanding/overview.md)   | Build an AI model to bring the ability to understand natural language into apps, bots, and IoT devices. |
 | Question answering     | This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents. |
 | Custom question answering     | Customize conversational question and answer responses, using over your data. |
 
@@ -71,14 +46,14 @@ Azure Cognitive Services for language provides Language Studio, which is a set o
 
 ## Complete a quickstart  
 
-We offer quickstarts in most popular programming languages, each designed to teach you basic design patterns, and have you running code in less than 10 minutes. See the following list for the quickstart for each feature.
+We offer quickstarts in several popular programming languages, each designed to teach you basic implementations of the features listed here. See the following list for the quickstart for each feature.
 
-* Sentiment Analysis quickstart
-* NER and PII quickstart
-* Summarization quickstart
+* [Sentiment Analysis and Opinion Mining quickstart](sentiment-opinion-mining/quickstart.md)
+* [NER and PII quickstart](named-entity-recognition/quickstart.md)
+* [Summarization quickstart](text-summarization/quickstart.md)
 * Question answering quickstart
-* Custom classification quickstart
-* Custom conversational language understanding quickstart 
+* [Custom classification quickstart](custom-question-answering/overview.md)
+* [Custom conversational language understanding quickstart](custom-language-understanding/quickstart.md) 
 
 After you've had a chance to get started with the Language service, try our tutorials that show you how to solve various scenarios.
 
@@ -95,12 +70,12 @@ Sample code is available on GitHub for the Language service. These samples cover
 * Conversational Language Understanding samples (SDK) 
 
 ## Deploy on premises using Docker containers 
-Use Language service containers  to deploy API features on-premises. These Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. The Language service offers the following containers:
+Use Language service containers to deploy API features on-premises. These Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. The Language service offers the following containers:
 
-* Sentiment analysis
-* Language detection
-* Key phrase extraction 
-* Text Analytics for health
+* [Sentiment analysis](sentiment-opinion-mining/how-to/use-containers.md)
+* [Language detection](language-detection/how-to/use-containers.md)
+* [Key phrase extraction](key-phrase-extraction/how-to/use-containers.md) 
+* [Health feature](health/how-to/use-containers.md)
 
 
 ## Responsible AI 
