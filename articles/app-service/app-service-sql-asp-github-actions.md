@@ -41,7 +41,7 @@ https://github.com/Azure-Samples/dotnetcore-sqldb-ghactions
 
 ## Create the resource group
 
-Open the Azure Cloud Shell at https://shell.azure.com. You can alternately use the Azure CLI if you've installed it locally. (For more information on Cloud Shell, see the Cloud Shell Overview.)
+Open the Azure Cloud Shell at https://shell.azure.com. You can alternately use the Azure CLI if you've installed it locally. (For more information on Cloud Shell, see the [Cloud Shell Overview](../cloud-shell/overview.md).)
 
 ```azurecli-interactive
 az group create --name {resource-group-name} --location {resource-group-location}
@@ -75,7 +75,7 @@ To use [user-level credentials](#generate-deployment-credentials), paste the ent
 
 ## Add GitHub secrets for your build
 
-1. Create [three new secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) in your GitHub repository for `SQLADMIN_PASS` and `SQLADMIN_LOGIN`. Make sure you choose a complex password, otherwise the create step for the SQL database server will fail. You won't be able to access this password again so save it separately.
+1. Create [two new secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) in your GitHub repository for `SQLADMIN_PASS` and `SQLADMIN_LOGIN`. Make sure you choose a complex password, otherwise the create step for the SQL database server will fail. You won't be able to access this password again so save it separately.
 
 2. Create an `AZURE_SUBSCRIPTION_ID` secret for your Azure subscription ID. If you do not know your subscription ID, use this command in the Azure Shell to find it. Copy the value in the `SubscriptionId` column.
     ```azurecli
@@ -96,7 +96,8 @@ To run the create Azure resources workflow:
 
 1. Update the value of `AZURE_RESOURCE_GROUP` to your resource group name.
 
-1. Set the input for `region` in your ARM Deploy actions to your region.
+1. Set the input for `region` in your ARM Deploy actions to your region. 
+    1. Open `templates/azuredeploy.resourcegroup.parameters.json` and update the `rgLocation` property to your region.
  
 1. Go to **Actions** and select **Run workflow**.
 
