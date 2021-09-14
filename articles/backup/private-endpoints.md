@@ -533,7 +533,7 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
 
    >[!NOTE]
    >In the above text, `<geo>` refers to the region code (for example *eus* and *ne* for East US and North Europe respectively). Refer to the following lists for regions codes:
->
+   >
    >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
    >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
    >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
