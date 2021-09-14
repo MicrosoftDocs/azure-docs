@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/16/2021
+ms.date: 08/26/2021
 ms.author: jeedes
 
 ---
@@ -34,6 +34,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Exium supports **SP** initiated SSO.
+* Exium supports [Automated user provisioning](exium-provisioning-tutorial.md).
 
 ## Adding Exium from the gallery
 
@@ -147,6 +148,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Enter the required fields in the following page and click on **Save**.
 
     ![screenshot for create test user fields with save button](./media/exium-tutorial/add-user-2.png)
+
+> [!NOTE]
+>Exium also supports automatic user provisioning, you can find more details [here](./exium-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
