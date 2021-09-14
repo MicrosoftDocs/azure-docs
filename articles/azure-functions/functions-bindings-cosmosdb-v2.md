@@ -53,7 +53,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 A new version of the Cosmos DB bindings extension is available as a [preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.0.0-preview1). This preview introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For .NET applications, it also changes the types that you can bind to, replacing the types from the v2 SDK `Microsoft.Azure.DocumentDB` with newer types from the v3 SDK [Microsoft.Azure.Cosmos](../cosmos-db/sql/sql-api-sdk-dotnet-standard.md). Learn more about how these new types are different and how to migrate to them from the [SDK migration guide](../cosmos-db/sql/migrate-dotnet-v3.md), [trigger](./functions-bindings-cosmosdb-v2-trigger.md), [input binding](./functions-bindings-cosmosdb-v2-input.md), and [output binding](./functions-bindings-cosmosdb-v2-output.md) examples.
 
 > [!NOTE]
-> Currently, authentication with an identity instead of a secret using the 4.x preview extension is only available for Elastic Premium plans. Support for all plans will be added in the future.
+> Currently, authentication with an identity instead of a secret using the 4.x preview extension is only available for Elastic Premium plans. 
 
 ### Functions 1.x
 
