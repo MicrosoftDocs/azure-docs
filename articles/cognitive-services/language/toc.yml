@@ -206,11 +206,6 @@ items:
         href: sentiment-opinion-mining/how-to/use-containers.md
       - name: Configure containers
         href: concepts/configure-containers.md
-  - name: Responsible Use of AI
-    items:
-    - name: For Sentiment Analysis
-      href: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language/context/context
-      displayName: Transparency note for Text Analytics Sentiment Analysis, Text Analytics Transparency for Sentiment Analysis, Responsible AI, Responsible use of AI, Text Analytics Sentiment Analysis, Sentiment Analysis Transparency Note
 - name: Text summarization
   items:
   - name: Overview
