@@ -17,11 +17,11 @@ ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: yelevin
 ---
-# Discover and deploy Azure Sentinel solutions
+# Discover and deploy Azure Sentinel solutions (Public preview)
 
 > [!IMPORTANT]
 >
-> The Azure Sentinel solutions experience is currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Azure Sentinel solutions experience and the Azure Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Sentinel solutions provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Azure Sentinel. This experience is powered by [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) for solutions’ discoverability, deployment, and enablement, and by [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
 
@@ -35,33 +35,29 @@ Solutions can consist of any or all of the following components:
 
 ## Find your solution
 
-1. From the Azure Sentinel navigation menu, select **Solutions (Preview)**.
+1. From the Azure Sentinel navigation menu, under **Content management**, select **Content Hub (Preview)**.
 
-1. The **Solutions** blade displays a searchable list of solutions.
+1. The **Content Hub** displays a searchable and filterable list of solutions.
 
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Solutions list":::
 
-    - If you scroll to the bottom of the list but don't find what you're looking for, select the **Load more** link at the bottom to expand the list.
+    Filter the list displayed by either entering any part of the name in the **Search** field, or selecting specific values from the filters. The search functionality only recognizes whole words.
 
-        :::image type="content" source="./media/sentinel-solutions-deploy/load-more.png" alt-text="Load more solutions":::
+    If a solution that you've deployed has updates since you deployed it, an orange triangle will indicate that you have updates to deploy.
 
-1. To narrow down your choices and find the solution you want more easily, type any part of the solution's name in the **Search** field at the top of the list. (The search engine will only recognize whole words.)
-
-    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-search-1.png" alt-text="Search solutions":::
-
-1. Select your desired solution from the list to deploy it. The solution's details page will open on the **Overview** tab, which displays essential and important information about the solution.
+1. Select a solution for more information. On the right then, either select **View Solution Details**, **Deploy Solution**, or **Update Solution**.
 
     :::image type="content" source="./media/sentinel-solutions-deploy/proofpoint-tap-solution.png" alt-text="Proofpoint Tap solution":::
 
-1. You can view other useful information about your solution in the **Plans** and **Usage Information + Support** tabs, and you can get other customers' impressions in the **Reviews** tab.
+## Deploy or update a solution
 
-## Deploy your solution
+**To deploy or update a solution in your workspace**:
 
-1. Select the **Create** button to launch the solution deployment wizard, which will open on the **Basics** tab.
+1. In the solution details pane on the right of the **Content Hub**, or on the solution details page, select **Deploy Solution** or **Update Solution**.
 
     :::image type="content" source="./media/sentinel-solutions-deploy/wizard-basics.png" alt-text="deployment wizard basics tab":::
 
-1. Enter the subscription, resource group, and workspace to which you want to deploy the solution. 
+1. Enter the subscription, resource group, and workspace to which you want to deploy the solution.
 
 1. Select **Next** to cycle through the remaining tabs (corresponding to the components included in the solution), where you can learn about, and in some cases configure, each of the components.
 
