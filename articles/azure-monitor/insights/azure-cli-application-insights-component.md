@@ -91,11 +91,7 @@ To create a storage container, run the [az storage container create](/cli/azure/
 az storage container create --name contosostoragecontainer --account-name contosolinkedstorage --public-access blob 
 ```
 
-Run the [az storage container show](/cli/azure/storage/container#az_storage_container_show) command to get values to supply to the next command:
-
-```azurecli
-az storage container list --account-name contosostoragecontainer
-```
+You need access for the container to be write only. You can set that from the Azure portal. You can also generate an SAS key for use in the next command.
 
 To create a continuous export, run the [az monitor app-insights component continues-export create](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_create) command:
 
@@ -107,7 +103,7 @@ You can delete a configured continuous export by using the [az monitor app-insig
 
 ```azurecli
 az monitor app-insights component continues-export list --resource-group ContosoAppInsightRG --app ContosoApp
-az monitor app-insights component continues-export delete --resource-group ContosoAppInsightRG --app ContosoApp --id
+az monitor app-insights component continues-export delete --resource-group ContosoAppInsightRG --app ContosoApp --id abcdefghijklmnopqrstuvwxyz=
 ```
 
 ## Clean up deployment
@@ -134,13 +130,12 @@ az group delete --name ContosoAppInsightRG
 - [az monitor log-analytics workspace create](/cli/azure/monitor/log-analytics/workspace#az_monitor_log_analytics_workspace_create)
 - [az storage account create](/cli/azure/storage/account#az_storage_account_create)
 - [az storage container create](/cli/azure/storage/container#az_storage_container_create)
-- [az storage container show](/cli/azure/storage/container#az_storage_container_show)
 - [az webapp create](/cli/azure/webapp#az_webapp_create)
 
 ## Next steps
 
 [Azure Monitor CLI samples](../cli-samples.md)
 
-[Find and diagnose performance issues](../app/app/tutorial-performance.md)
+[Find and diagnose performance issues](../app/tutorial-performance.md)
 
 [Monitor and alert on application health](../app/tutorial-alert.md)
