@@ -10,7 +10,7 @@ ms.date: 09/09/2021
 
 There are a number of benefits to defining your Azure resources in Bicep including: simpler syntax, modularization, automatic dependency management, type validation and IntelliSense, and an improved authoring experience.
 
-When you have existing JSON ARM templates and/or deployed resources, and you want to safely migrate those to Bicep, we suggest following a recommended workflow, consisting of five phases:
+When you have existing JSON Azure Resource Manager templates (ARM templates) and/or deployed resources, and you want to safely migrate those to Bicep, we suggest following a recommended workflow, consisting of five phases:
 
 :::image type="content" source="./media/migrate/five-phases.png" alt-text="Diagram of the five phases for migrating Azure resources to Bicep: convert, migrate, refactor, test, and deploy." border="false":::
 
@@ -18,7 +18,7 @@ The first step in the process is to capture your Azure resources as a JSON file,
 
 :::image type="content" source="./media/migrate/migrate-bicep.png" alt-text="Diagram of the recommended workflow for migrating Azure resources to Bicep." border="false":::
 
-In this document we summarize this recommended workflow. For detailed guidance, see [Migrate Azure resources and JSON ARM templates to use Bicep](/learn/modules/migrate-azure-resources-bicep/) on Microsoft Learn.
+In this article we summarize this recommended workflow. For detailed guidance, see [Migrate Azure resources and JSON ARM templates to use Bicep](/learn/modules/migrate-azure-resources-bicep/) on Microsoft Learn.
 
 ## Phase 1: Convert
 
@@ -40,7 +40,7 @@ The migrate phase consists of three steps, which you complete in sequence:
 
 1. **Copy each resource from your decompiled template.** Copy each resource individually from the converted Bicep file to the new Bicep file. This process helps you resolve any issues on a per-resource basis and to avoid any confusion as your template grows in size.
 
-1. **Identify and recreate any missing resources.** Not all Azure resource types can be exported through the Azure portal, Azure CLI, or Azure PowerShell. For example, virtual machine extensions such as the DependencyAgentWindows and MMAExtension (Microsoft Monitoring Agent) aren't supported resource types for export. For any resource that wasn't exported, such as virtual machine extensions, you'll need to recreate those resources in your new Bicep file. There are several tools and approaches you can use to recreate resources, including [Azure Resource Explorer](/azure/azure-resource-manager/templates/view-resources?azure-portal=true#use-resource-explorer), the [ARM template reference documentation](/azure/templates/?azure-portal=true), and the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates?azure-portal=true) site.
+1. **Identify and recreate any missing resources.** Not all Azure resource types can be exported through the Azure portal, Azure CLI, or Azure PowerShell. For example, virtual machine extensions such as the DependencyAgentWindows and MMAExtension (Microsoft Monitoring Agent) aren't supported resource types for export. For any resource that wasn't exported, such as virtual machine extensions, you'll need to recreate those resources in your new Bicep file. There are several tools and approaches you can use to recreate resources, including [Azure Resource Explorer](/azure/azure-resource-manager/templates/view-resources?azure-portal=true#use-resource-explorer), the [Bicep and ARM template reference documentation](/azure/templates/?azure-portal=true), and the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates?azure-portal=true) site.
 
 ## Phase 3: Refactor
 
@@ -87,7 +87,7 @@ The deploy phase consists of four steps, which you complete in sequence:
 
 1. **Run the what-if operation against production.** Before deploying your final Bicep file to production, run the what-if operation against your production environment, making sure to use production parameter values, and consider documenting the results.
 
-1. **Deploy manually.** **Deploy manually.** If you're going to use the converted template in a pipeline, such as [Azure DevOps](add-template-to-azure-pipelines.md) or [GitHub Actions](deploy-github-actions.md), consider running the deployment from your local machine first. It is better to verify the functionality of the template before adding it to your production pipeline. That way, you can respond quickly if there's a problem.
+1. **Deploy manually.** If you're going to use the converted template in a pipeline, such as [Azure DevOps](add-template-to-azure-pipelines.md) or [GitHub Actions](deploy-github-actions.md), consider running the deployment from your local machine first. It is better to verify the functionality of the template before adding it to your production pipeline. That way, you can respond quickly if there's a problem.
 
 1. **Run smoke tests.** After your deployment completes, it is a good idea to run a series of *smoke tests* - simple checks that validate that your application or workload is functioning properly. For example, test to see if your web app is accessible through normal access channels, such as the public Internet or across a corporate VPN. For databases, attempt to make a database connection and execute a series of queries. With virtual machines, log in to the virtual machine and make sure that all services are up and running.
 
