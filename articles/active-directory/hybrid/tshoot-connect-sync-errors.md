@@ -183,6 +183,8 @@ a. Ensure that the userPrincipalName attribute has supported characters and requ
 
 Azure Active Directory protects cloud only objects from being updated through Azure AD Connect. While it is not possible to update these objects through Azure AD Connect, calls can be made directly to the AADConnect cloud side backend to attempt to change cloud only objects. When doing so, the following errors can be returned:
 
+* This synchronization operation, Delete, is not valid. Contact Technical Support.
+* Unable to process this update as one or more cloud only users credential update is included in current request.
 * Deleting a cloud only object is not supported. Please contact Microsoft Customer Support.
 * The password change request cannot be executed since it contains changes to one or more cloud only user objects, which is not supported. Please contact Microsoft Customer Support.
 
