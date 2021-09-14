@@ -162,7 +162,7 @@ az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --outpu
  ```
 
 #### Method 2: Set the DNS label using helm chart settings
-You can pass an annotation setting to your helm chard configuration by using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter.  This can be set either when the ingress controller is first deployed, or it can be configured later.
+You can pass an annotation setting to your helm chart configuration by using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter.  This can be set either when the ingress controller is first deployed, or it can be configured later.
 The following example shows how to update this setting after the controller has been deployed.
 
 ```
