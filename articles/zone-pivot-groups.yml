@@ -448,6 +448,15 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+#Owner: antchu
+- id: runtime-version-programming-functions
+  title: Azure Functions Version
+  prompt: Choose an Azure Functions runtime
+  pivots:
+  - id: programming-runtime-functions-v3
+    title: 3.x (.NET Core 3.1, .NET 5)
+  - id: programming-runtime-functions-v4
+    title: 4.x (.NET 6)
 - id: programming-languages-metrics-monitor
   title: Programming languages
   prompt: Choose a programming language.
