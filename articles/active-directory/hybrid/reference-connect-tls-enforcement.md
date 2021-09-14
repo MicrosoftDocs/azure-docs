@@ -20,16 +20,16 @@ ms.collection: M365-identity-device-management
 
 # TLS 1.2 enforcement for Azure AD Connect
 
-Transport Layer Security (TLS) protocol version 1.2 is a cryptography protocol that is designed to provide  secure communications.  The TLS protocol aims primarily to provide privacy and data integrity.  TLS has gone through many iterations with version 1.2 being defined in [RFC 5246](https://tools.ietf.org/html/rfc5246).  Azure Active Directory Connect version 1.2.65.0 and later now fully support using only TLS 1.2 for communications with Azure.  This document will provide information on how to force your Azure AD Connect server to use only TLS 1.2.
+Transport Layer Security (TLS) protocol version 1.2 is a cryptography protocol that is designed to provide  secure communications. The TLS protocol aims primarily to provide privacy and data integrity. TLS has gone through many iterations, with version 1.2 being defined in [RFC 5246](https://tools.ietf.org/html/rfc5246). Azure Active Directory Connect version 1.2.65.0 and later now fully support using only TLS 1.2 for communications with Azure. This article provides information about how to force your Azure AD Connect server to use only TLS 1.2.
 
->[!NOTE]
->All versions of Windows Server that are supported for Azure AD Connect V2.0 already default to TLS 1.2. If TLS 1.2 is not enabled on your server you will need to enable this before you can deploy Azure AD Connect V2.0.
+> [!NOTE]
+> All versions of Windows Server that are supported for Azure AD Connect V2.0 already default to TLS 1.2. If TLS 1.2 is not enabled on your server you will need to enable this before you can deploy Azure AD Connect V2.0.
 
 ## Update the registry
-In order to force the Azure AD Connect server to only use TLS 1.2 the registry of the Windows server must be updated.  Set the following registry keys on the Azure AD Connect server.
+In order to force the Azure AD Connect server to only use TLS 1.2, the registry of the Windows server must be updated. Set the following registry keys on the Azure AD Connect server.
 
->[!IMPORTANT]
->After you have updated the registry, you must restart the Windows server for the changes to take affect.
+> [!IMPORTANT]
+> After you have updated the registry, you must restart the Windows server for the changes to take affect.
 
 
 ### Enable TLS 1.2
@@ -49,7 +49,7 @@ In order to force the Azure AD Connect server to only use TLS 1.2 the registry o
   - "DisabledByDefault"=dword:00000000
 
 ### PowerShell cmdlet to check TLS 1.2
-You can use the following [Get-ADSyncToolsTls12](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-adsynctools#get-adsynctoolstls12) PowerShell cmdlet to check the current TLS 1.2 settings on your Azure AD Connect server.
+You can use the following [Get-ADSyncToolsTls12](reference-connect-adsynctools.md#get-adsynctoolstls12) PowerShell cmdlet to check the current TLS 1.2 settings on your Azure AD Connect server.
 
 ```powershell
     Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
@@ -57,7 +57,7 @@ You can use the following [Get-ADSyncToolsTls12](https://docs.microsoft.com/en-u
 ```
 
 ### PowerShell cmdlet to enable TLS 1.2
-You can use the following [Set-ADSyncToolsTls12](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-adsynctools#set-adsynctoolstls12) PowerShell cmdlet to enforce TLS 1.2 on your Azure AD Connect server.
+You can use the following [Set-ADSyncToolsTls12](reference-connect-adsynctools.md#set-adsynctoolstls12) PowerShell cmdlet to enforce TLS 1.2 on your Azure AD Connect server.
 
 ```powershell
     Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
@@ -81,7 +81,7 @@ You can use the following [Set-ADSyncToolsTls12](https://docs.microsoft.com/en-u
   - "DisabledByDefault"=dword:00000001 
 
 ### PowerShell script to disable TLS 1.2 (not recommended)
-You can use the following [Set-ADSyncToolsTls12](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-adsynctools#set-adsynctoolstls12) PowerShell cmdlet to disable TLS 1.2 on your Azure AD Connect server.
+You can use the following [Set-ADSyncToolsTls12](reference-connect-adsynctools.md#set-adsynctoolstls12) PowerShell cmdlet to disable TLS 1.2 on your Azure AD Connect server.
 
 ```powershell
     Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
