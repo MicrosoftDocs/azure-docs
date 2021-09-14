@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Create a public IP - Azure PowerShell'
+title: 'Quickstart: Create a public IP - PowerShell'
 titleSuffix: Azure Virtual Network
-description: Learn how to create a public IP using Azure PowerShell
-services: virtual-network
+description: In this quickstart, learn how to create a public IP using Azure PowerShell
 author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: allensu
 
 ---
-# Quickstart: Create a public IP address using Azure PowerShell
+# Quickstart: Create a public IP address using PowerShell
 
 In this quickstart, you'll learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs, basic, and standard. Two tiers of public IP addresses are available, regional, and global. The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
 
