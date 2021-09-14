@@ -1,5 +1,5 @@
 ---
-title: Use Azure AD groups to manage role assignments (preview) - Azure Active Directory
+title: Use Azure AD groups to manage role assignments - Azure Active Directory
 description: Use Azure AD groups to simplify role assignment management in Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 06/24/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -16,11 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Use Azure AD groups to manage role assignments (preview)
-
-> [!IMPORTANT]
-> Role-assignable groups is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Use Azure AD groups to manage role assignments
 
 Azure Active Directory (Azure AD) lets you target Azure AD groups for role assignments. Assigning roles to groups can simplify the management of role assignments in Azure AD with minimal effort from your Global Administrators and Privileged Role Administrators.
 
@@ -54,6 +50,7 @@ Role-assignable groups are designed to help prevent potential breaches by having
 - Only Global Administrators and Privileged Role Administrators can create a role-assignable group.
 - The membership type for role-assignable groups must be Assigned and can't be an Azure AD dynamic group. Automated population of dynamic groups could lead to an unwanted account being added to the group and thus assigned to the role.
 - By default, only Global Administrators and Privileged Role Administrators can manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
+- RoleManagement.ReadWrite.All Microsoft Graph permission is required to be able to be able to manage the membership of such groups; Group.ReadWrite.All won't work.
 - To prevent elevation of privilege, only a Privileged Authentication Administrator or a Global Administrator can change the credentials or reset MFA for members and owners of a role-assignable group.
 - Group nesting is not supported. A group can't be added as a member of a role-assignable group.
 
@@ -78,7 +75,6 @@ The following are known issues with role-assignable groups:
 - Use the new [Exchange admin center](https://admin.exchange.microsoft.com/) for role assignments via group membership. The old Exchange admin center doesn't support this feature yet. Exchange PowerShell cmdlets will work as expected.
 - Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. You can [migrate to the unified sensitivity labeling platform](/azure/information-protection/configure-policy-migrate-labels) and then use the Office 365 Security & Compliance center to use group assignments to manage roles.
 - [Apps admin center](https://config.office.com/) doesn't support this feature yet. Assign users directly to Office Apps Administrator role.
-- [Microsoft 365 Compliance Center](https://compliance.microsoft.com/) doesn't support this feature yet. Assign users directly to appropriate Azure AD roles to use this portal.
 
 ## License requirements
 

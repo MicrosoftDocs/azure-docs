@@ -26,9 +26,9 @@ This article is a companion to the [Integrate Azure API Management with Event Hu
 For detailed steps on how to create an event hub and get connection strings that you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md).
 
 ## Create an API Management logger
-Now that you have an Event Hub, the next step is to configure a [Logger](/rest/api/apimanagement/2019-12-01/logger) in your API Management service so that it can log events to the Event Hub.
+Now that you have an Event Hub, the next step is to configure a [Logger](/rest/api/apimanagement/2020-12-01/logger) in your API Management service so that it can log events to the Event Hub.
 
-API Management loggers are configured using the [API Management REST API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). For detailed request examples, see [how to create Loggers](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+API Management loggers are configured using the [API Management REST API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). For detailed request examples, see [how to create Loggers](/rest/api/apimanagement/2020-12-01/logger/create-or-update).
 
 ## Configure log-to-eventhub policies
 
@@ -81,7 +81,7 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
   * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
-  * [Logger entity reference](/rest/api/apimanagement/2019-12-01/logger)
+  * [Logger entity reference](/rest/api/apimanagement/2020-12-01/logger)
   * [log-to-eventhub policy reference](./api-management-advanced-policies.md#log-to-eventhub)
   * [Monitor your APIs with Azure API Management, Event Hubs, and Moesif](api-management-log-to-eventhub-sample.md)  
 * Learn more about [integration with Azure Application Insights](api-management-howto-app-insights.md)

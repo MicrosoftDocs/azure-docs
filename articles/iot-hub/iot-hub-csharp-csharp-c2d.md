@@ -2,7 +2,7 @@
 title: Cloud-to-device messages with Azure IoT Hub (.NET) | Microsoft Docs
 description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for .NET. You modify a device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
 author: robinsh
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp

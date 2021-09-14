@@ -3,9 +3,8 @@ title: Incremental enrichment concepts (preview)
 titleSuffix: Azure Cognitive Search
 description: Cache intermediate content and incremental changes from AI enrichment pipeline in Azure Storage to preserve investments in existing processed documents. This feature is currently in public preview.
 
-manager: nitinme
-author: Vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
@@ -32,7 +31,7 @@ For more information about steps and considerations when working with an existin
 
 ## Indexer cache
 
-Incremental enrichment adds a cache to the enrichment pipeline. The indexer caches the results from document cracking plus the outputs of each skill for every document. When a skillset is updated, only the changed, or downstream, skills are rerun. The updated results are written to the cache and the document is updated in the search index or the knowledge store.
+Incremental enrichment adds a cache to the enrichment pipeline. The indexer caches the results from [document cracking](search-indexer-overview.md#document-cracking) plus the outputs of each skill for every document. When a skillset is updated, only the changed, or downstream, skills are rerun. The updated results are written to the cache and the document is updated in the search index or the knowledge store.
 
 Physically, the cache is stored in a blob container in your Azure Storage account. The cache also uses table storage for an internal record of processing updates. All indexes within a search service may share the same storage account for the indexer cache. Each indexer is assigned a unique and immutable cache identifier to the container it is using.
 

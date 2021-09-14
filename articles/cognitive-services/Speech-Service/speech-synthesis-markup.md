@@ -3,13 +3,13 @@ title: Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
-author: trevorbye
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: trbye
+ms.author: pafarley
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -17,7 +17,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech using the text-to-speech service. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled.
 
-The Speech service implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/speech-synthesis).
+The Speech service implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/).
 
 > [!IMPORTANT]
 > Chinese, Japanese, and Korean characters count as two characters for billing. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -81,11 +81,11 @@ The `voice` element is required. It is used to specify the voice that is used fo
 **Example**
 
 > [!NOTE]
-> This example uses the `en-US-JennyNeural` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
+> This example uses the `en-US-ChristopherNeural` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -108,7 +108,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
     <voice name="en-US-JennyNeural">
         Good morning!
     </voice>
-    <voice name="en-US-GuyNeural">
+    <voice name="en-US-ChristopherNeural">
         Good morning to you too Jenny!
     </voice>
 </speak>
@@ -122,6 +122,7 @@ Currently, speaking style adjustments are supported for the following neural voi
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
+* `en-US-SaraNeural`
 * `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
@@ -131,6 +132,7 @@ Currently, speaking style adjustments are supported for the following neural voi
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 * `zh-CN-XiaoruiNeural`
+* `zh-CN-XiaoshuangNeural`
 
 The intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. Currently, speaking style adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
 
@@ -178,6 +180,9 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
 |                         | `style="newscast"`        | Expresses a versatile and casual tone for general news delivery   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
+| `en-US-SaraNeural`      | `style="cheerful"`        | Expresses a positive and happy tone    |
+|                         | `style="sad"`             | Expresses a sorrowful tone   |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone   |
 | `pt-BR-FranciscaNeural` | `style="calm"`            | Expresses a cool, collected, and composed attitude when speaking. Tone, pitch, prosody is much more uniform compared to other types of speech.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
@@ -238,6 +243,7 @@ Use this table to determine which speaking styles are supported for each neural 
 | `zh-CN-XiaoruiNeural`   | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.         |
 |                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
 |                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                       |
+| `zh-CN-XiaoshuangNeural`   | `style="chat"` | Expresses a casual and relaxed tone. |
 
 Use this table to check the supported roles and their definitions.
 
@@ -390,7 +396,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-ChristopherNeural">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -420,7 +426,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-<voice name="en-US-AriaNeural">
+<voice name="en-US-ChristopherNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
@@ -447,7 +453,7 @@ The `s` element can contain text and the following elements: `audio`, `break`, `
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -486,7 +492,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <phoneme alphabet="ipa" ph="təˈmeɪtoʊ"> tomato </phoneme>
     </voice>
 </speak>
@@ -494,7 +500,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -502,7 +508,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -599,7 +605,7 @@ After you've published your custom lexicon, you can reference it from your SSML.
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
           xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <lexicon uri="http://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -673,7 +679,7 @@ Speaking rate can be applied to Neural voices and standard voices at the word or
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-GuyNeural">
+    <voice name="en-US-ChristopherNeural">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -689,7 +695,7 @@ Volume changes can be applied to standard voices at the word or sentence-level. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -705,7 +711,7 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-ChristopherNeural">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>
@@ -720,7 +726,7 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-ChristopherNeural">
         <prosody contour="(60%,-60%) (100%,+80%)" >
             Were you the only person in the room?
         </prosody>
@@ -772,7 +778,7 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -810,7 +816,7 @@ Any audio included in the SSML document must meet these requirements:
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -850,7 +856,7 @@ Only one background audio file is allowed per SSML document. However, you can in
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>

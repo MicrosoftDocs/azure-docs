@@ -94,7 +94,7 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.0.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -287,13 +287,7 @@ Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-15
 
 ## Deploy the app
 
-The Maven plugin uses account credentials from the Azure CLI to deploy to App Services. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing.
-
-```azurecli-interactive
-az login
-```
-
-Then you can deploy your Java app to Azure using the following command.
+With all the configuration ready in your pom file, you can deploy your Java app to Azure with one single command.
 
 ```azurecli-interactive
 mvn package azure-webapp:deploy

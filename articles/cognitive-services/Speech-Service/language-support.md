@@ -3,13 +3,13 @@ title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
-author: trevorbye
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: trbye
+ms.author: pafarley
 ms.custom: references_regions
 ---
 
@@ -99,6 +99,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Maltese (Malta)                    | `mt-MT` | Text                                   |                           |                          |
 | Marathi (India)                    | `mr-IN` | Text                                   |                           |                          |
 | Norwegian (Bokmål, Norway)         | `nb-NO` | Text                                   |     Yes                      |                          |
+| Persian (Iran)                     | `fa-IR` | Text                                   |                           |                          |
 | Polish (Poland)                    | `pl-PL` | Text                                   |       Yes                    |                          |
 | Portuguese (Brazil)                | `pt-BR` | Audio (20190620, 20201015)<br>Text<br>Pronunciation|          Yes                 |                          |
 | Portuguese (Portugal)              | `pt-PT` | Text<br>Pronunciation                  |             Yes              |                          |
@@ -128,6 +129,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Spanish (Uruguay)                  | `es-UY` | Text<br>Pronunciation                  |                           |                          |
 | Spanish (USA)                      | `es-US` | Text<br>Pronunciation                  |                           |                          |
 | Spanish (Venezuela)                | `es-VE` | Text<br>Pronunciation                  |                           |                          |
+| Swahili (Kenya)                    | `sw-KE` | Text<br>Pronunciation                  |                           |                          |
 | Swedish (Sweden)                   | `sv-SE` | Text                                   |   Yes                        |                          |
 | Tamil (India)                      | `ta-IN` | Text                                   |                           |                          |
 | Telugu (India)                     | `te-IN` | Text                                   |                           |                          |
@@ -151,7 +153,6 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 > [!NOTE]
 > Neural voices are created from samples that use a 24 khz sample rate.
 > All voices can upsample or downsample to other sample rates when synthesizing.
-
 
 | Language | Locale | Gender | Voice name | Style support |
 |---|---|---|---|---|
@@ -209,11 +210,24 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (South Africa) | `en-ZA` | Female | `en-ZA-LeahNeural` <sup>New</sup> | General |
 | English (South Africa) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-SoniaNeural` <sup>New</sup> | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` <sup>Retires Oct 15, see below</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-RyanNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-AriaNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| English (United States) | `en-US` | Female | `en-US-JennyNeural` | General |
-| English (United States) | `en-US` | Male | `en-US-GuyNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-JennyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-GuyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-SaraNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-AmberNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-AshleyNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-CoraNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-ElizabethNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-MichelleNeural`| General |
+| English (United States) | `en-US` | Female | `en-US-MonicaNeural` | General |
+| English (United States) | `en-US` | Kid | `en-US-AnaNeural`| General |
+| English (United States) | `en-US` | Male | `en-US-BrandonNeural` | General |
+| English (United States) | `en-US` | Male | `en-US-ChristopherNeural`  | General |
+| English (United States) | `en-US` | Male | `en-US-JacobNeural` | General |
+| English (United States) | `en-US` | Male | `en-US-EricNeural` | General |
 | Estonian (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
 | Estonian (Estonia) | `et-EE` | Male | `et-EE-KertNeural` | General |
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
@@ -318,24 +332,20 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Welsh (United Kingdom) | `cy-GB` | Female | `cy-GB-NiaNeural` | General | 
 | Welsh (United Kingdom) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
 
+> [!IMPORTANT]
+> The English (United Kingdom) voice `en-GB-MiaNeural` will be retired on **October 15th, 2021**. All service requests to `en-GB-MiaNeural` will be re-directed to `en-GB-SoniaNeural` automatically after **October 15th, 2021**.
+
 #### Neural voices in preview
 
 Below neural voices are in public preview. 
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| English (United States) | `en-US` | Female | `en-US-AmberNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-AshleyNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-CoraNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-ElizabethNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>New</sup> | General，multi-lingual capabilities available [using SSML](speech-synthesis-markup.md#create-an-ssml-document) |
-| English (United States) | `en-US` | Female | `en-US-MichelleNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-MonicaNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Kid | `en-US-AnaNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-BrandonNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-ChristopherNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-JacobNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-EricNeural` <sup>New</sup> | General |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>New</sup> | Optimized for spontaneous conversation |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyanNeural` <sup>New</sup> | Optimized for customer service |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural` <sup>New</sup> | Child voice，optimized for child story and chat; multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)|
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural` <sup>New</sup> | Optimized for narrating |
 
 > [!IMPORTANT]
 > Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
@@ -351,11 +361,14 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 > The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".
 
 > [!TIP]
-> You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" in your speech synthesis requests.
+> You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)" in your speech synthesis requests.
 
 ### Standard voices
 
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#neural-and-standard-voices).
+
+> [!IMPORTANT]
+> We are retiring the standard voices on **31st August 2024** and they will no longer be supported after that date. We announced this in emails sent to all existing Speech subscriptions created before **31st August 2021**. During the retiring period (**31st August 2021** - **31st August 2024**), existing standard voice users can continue to use standard voices, but all new users/new speech resources must choose neural voices.
 
 > [!NOTE]
 > With two exceptions, standard voices are created from samples that use a 16 khz sample rate.
@@ -473,6 +486,7 @@ Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based
 | Korean (Korea) | `ko-KR` | Yes | Yes |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Yes | No |
 | Portuguese (Brazil) | `pt-BR` | Yes | Yes |
+| Russian (Russia) | `ru-RU` | Yes | Yes |
 | Spanish (Mexico) | `es-MX` | Yes | Yes |
 | Spanish (Spain) | `es-ES` | Yes | Yes |
 

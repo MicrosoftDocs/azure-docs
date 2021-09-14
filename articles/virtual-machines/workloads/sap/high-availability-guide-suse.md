@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/12/2021
+ms.date: 08/11/2021
 ms.author: radeltch
 
 ---
@@ -1128,10 +1128,14 @@ The following tests are a copy of the test cases in the best practices guides of
 
    Run the following commands as root on the node where the ASCS instance is running to kill the enqueue server.
 
-   <pre><code>nw1-cl-0:~ # pgrep en.sapNW1 | xargs kill -9
+   <pre><code>nw1-cl-0:~ # 
+   #If using ENSA1
+   pgrep en.sapNW1 | xargs kill -9
+   #If using ENSA2
+   pgrep -f enq.sapNW1 | xargs kill -9
    </code></pre>
 
-   The ASCS instance should immediately fail over to the other node. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+   The ASCS instance should immediately fail over to the other node, in the case of ENSA1. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02

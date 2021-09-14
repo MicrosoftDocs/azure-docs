@@ -1,9 +1,10 @@
 ---
 title: Security considerations
 description: Describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data.  
-ms.author: abnarain
-author: nabhishek
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: security
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/03/2021
@@ -107,7 +108,7 @@ Salesforce supports Shield Platform Encryption that allows encryption of all fil
 
 Hybrid scenarios require self-hosted integration runtime to be installed in an on-premises network, inside a virtual network (Azure), or inside a virtual private cloud (Amazon). The self-hosted integration runtime must be able to access the local data stores. For more information about self-hosted integration runtime, see [How to create and configure self-hosted integration runtime](./create-self-hosted-integration-runtime.md). 
 
-![self-hosted integration runtime channels](media/data-movement-security-considerations/data-management-gateway-channels.png)
+:::image type="content" source="media/data-movement-security-considerations/data-management-gateway-channels.png" alt-text="self-hosted integration runtime channels":::
 
 The command channel allows communication between data movement services in Data Factory and self-hosted integration runtime. The communication contains information related to the activity. The data channel is used for transferring data between on-premises data stores and cloud data stores.    
 
@@ -151,11 +152,11 @@ The following images show the use of self-hosted integration runtime for moving 
 
 #### Express Route
 
-![Use ExpressRoute with gateway](media/data-movement-security-considerations/express-route-for-gateway.png) 
+:::image type="content" source="media/data-movement-security-considerations/express-route-for-gateway.png" alt-text="Use ExpressRoute with gateway"::: 
 
 #### IPSec VPN
 
-![IPSec VPN with gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+:::image type="content" source="media/data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="IPSec VPN with gateway":::
 
 ### Firewall configurations and allow list setting up for IP addresses
 
@@ -182,7 +183,7 @@ The following table provides inbound port requirements for Windows Firewall:
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Required by the PowerShell encryption cmdlet as described in [Encrypt credentials for on-premises data stores in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), and by the credential manager application to securely set credentials for on-premises data stores on the self-hosted integration runtime. |
 
-![Gateway port requirements](media/data-movement-security-considerations/gateway-port-requirements.png) 
+:::image type="content" source="media/data-movement-security-considerations/gateway-port-requirements.png" alt-text="Gateway port requirements"::: 
 
 #### IP configurations and allow list setting up in data stores
 

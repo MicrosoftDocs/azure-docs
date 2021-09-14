@@ -1,5 +1,5 @@
 ---
-title: "Troubleshoot common Azure Arc enabled Kubernetes issues"
+title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -7,11 +7,11 @@ ms.date: 05/21/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: "Troubleshooting common issues with Arc enabled Kubernetes clusters."
+description: "Troubleshooting common issues with Azure Arc-enabled Kubernetes clusters."
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
-# Azure Arc enabled Kubernetes troubleshooting
+# Azure Arc-enabled Kubernetes troubleshooting
 
 This document provides troubleshooting guides for issues with connectivity, permissions, and agents.
 
@@ -28,7 +28,7 @@ az account show
 
 ### Azure Arc agents
 
-All agents for Azure Arc enabled Kubernetes are deployed as pods in the `azure-arc` namespace. All pods should be running and passing their health checks.
+All agents for Azure Arc-enabled Kubernetes are deployed as pods in the `azure-arc` namespace. All pods should be running and passing their health checks.
 
 First, verify the Azure Arc helm release:
 
@@ -87,9 +87,22 @@ Error: list: failed to list: secrets is forbidden: User "myuser" cannot list res
 
 The user connecting the cluster to Azure Arc should have `cluster-admin` role assigned to them on the cluster.
 
+
+### Unable to connect OpenShift cluster to Azure Arc
+
+If `az connectedk8s connect` is timing out and failing when connecting an OpenShift cluster to Azure Arc, check the following:
+
+1. The OpenShift cluster needs to meet the version prerequisites: 4.5.41+ or 4.6.35+ or 4.7.18+.
+
+1. Before running `az connectedk8s connnect`, the following command needs to be run on the cluster:
+
+    ```console
+    oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
+    ```
+
 ### Installation timeouts
 
-Connecting a Kubernetes cluster to Azure Arc enabled Kubernetes requires installation of Azure Arc agents on the cluster. If the cluster is running over a slow internet connection, the container image pull for agents may take longer than the Azure CLI timeouts.
+Connecting a Kubernetes cluster to Azure Arc-enabled Kubernetes requires installation of Azure Arc agents on the cluster. If the cluster is running over a slow internet connection, the container image pull for agents may take longer than the Azure CLI timeouts.
 
 ```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -112,7 +125,7 @@ ValidationError: Unable to install helm release: Error: customresourcedefinition
 
 To recover from this issue, follow these steps:
 
-1. Delete the Azure Arc enabled Kubernetes resource in the Azure portal.
+1. Delete the Azure Arc-enabled Kubernetes resource in the Azure portal.
 2. Run the following commands on your machine:
     
     ```console
@@ -136,7 +149,7 @@ az k8s-configuration create <parameters> --debug
 
 ### Create configurations
 
-Write permissions on the Azure Arc enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
+Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
 
 ### Configuration remains `Pending`
 
@@ -212,7 +225,7 @@ The above warning is observed when you have used a service principal to log into
         az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
         ```
 
-    - If you are enabling custom locations feature on an existing Arc enabled Kubernetes cluster, run the following command:
+    - If you are enabling custom locations feature on an existing Azure Arc-enabled Kubernetes cluster, run the following command:
 
         ```console
         az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
@@ -220,7 +233,7 @@ The above warning is observed when you have used a service principal to log into
 
 Once above permissions are granted, you can now proceed to [enabling the custom location feature](custom-locations.md#enable-custom-locations-on-cluster) on the cluster.
 
-## Arc enabled Open Service Mesh
+## Azure Arc-enabled Open Service Mesh
 
 The following troubleshooting steps provide guidance on validating the deployment of all the Open Service Mesh extension components on your cluster.
 

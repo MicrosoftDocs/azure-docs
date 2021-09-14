@@ -3,7 +3,7 @@ title: Remove user-assigned managed identity for Azure Automation account (previ
 description: This article explains how to remove a user-assigned managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/13/2021
+ms.date: 07/24/2021
 ms.topic: conceptual
 ---
 
@@ -69,9 +69,7 @@ You can remove a user-assigned managed identity from the Automation account by u
 
 ### Request body
 
-Scenario: System-assigned managed identity is enabled or is to be enabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity`.
-
-PATCH
+Scenario: System-assigned managed identity is enabled or is to be enabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity` using the HTTP **PATCH** method.
 
 ```json
 {
@@ -84,9 +82,7 @@ PATCH
 }
 ```
 
-Scenario: System-assigned managed identity is enabled or is to be enabled. All user-assigned managed identities are to be removed.
-
-PUT
+Scenario: System-assigned managed identity is enabled or is to be enabled. All user-assigned managed identities are to be removed using the HTTP **PUT** method.
 
 ```json
 {
@@ -96,9 +92,7 @@ PUT
 }
 ```
 
-Scenario: System-assigned managed identity is disabled or is to be disabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity`.
-
-PATCH
+Scenario: System-assigned managed identity is disabled or is to be disabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity` using the HTTP **PATCH** method.
 
 ```json
 {
@@ -112,9 +106,7 @@ PATCH
 
 ```
 
-Scenario: System-assigned managed identity is disabled or is to be disabled. All user-assigned managed identities are to be removed.
-
-PUT
+Scenario: System-assigned managed identity is disabled or is to be disabled. All user-assigned managed identities are to be removed using the HTTP **PUT** method.
 
 ```json
 {

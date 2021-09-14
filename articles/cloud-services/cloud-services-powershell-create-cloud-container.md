@@ -12,8 +12,7 @@ ms.custom:
 
 # Use an Azure PowerShell command to create an empty cloud service (classic) container
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This article explains how to quickly create a Cloud Services container using Azure PowerShell cmdlets. Please follow the steps below:
 

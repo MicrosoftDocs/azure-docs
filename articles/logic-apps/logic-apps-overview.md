@@ -3,10 +3,10 @@ title: Overview for Azure Logic Apps
 description: Azure Logic Apps is a cloud platform for automating workflows that integrate apps, data, services, and systems using little to no code. Workflows can run in a multi-tenant, single-tenant, or dedicated environment.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q4
-ms.date: 06/22/2021
+ms.date: 08/18/2021
 ---
 
 # What is Azure Logic Apps?
@@ -16,20 +16,27 @@ ms.date: 06/22/2021
 The following list describes just a few example tasks, business processes, and workloads that you can automate using the Logic Apps service:
 
 * Schedule and send email notifications using Office 365 when a specific event happens, for example, a new file is uploaded.
+
 * Route and process customer orders across on-premises systems and cloud services.
+
 * Move uploaded files from an SFTP or FTP server to Azure Storage.
+
 * Monitor tweets, analyze the sentiment, and create alerts or tasks for items that need review.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-Based on the logic app resource type that you choose and create, your logic apps run in either a multi-tenant, single-tenant, or dedicated integration service environment. For example, when you containerize single-tenant based logic apps, you can deploy your apps as containers and run them anywhere that Azure Functions can run. For more information, review [Resource type and host environment differences for logic apps](#resource-environment-differences).
+Based on the logic app resource type that you choose and create, your logic apps run in multi-tenant Azure Logic Apps, [single-tenant Azure Logic Apps](single-tenant-overview-compare.md), or a dedicated [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md) when accessing an Azure virtual network. To run logic apps in containers, [create single-tenant based logic apps using Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, review [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md) and [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
 To securely access and run operations in real time on various data sources, you can choose [*managed connectors*](#managed-connector) from a [400+ and growing Azure connectors ecosystem](/connectors/connector-reference/connector-reference-logicapps-connectors) to use in your workflows, for example:
 
 * Azure services such as Blob Storage and Service Bus
+
 * Office 365 services such as Outlook, Excel, and SharePoint
+
 * Database servers such as SQL and Oracle
+
 * Enterprise systems such as SAP and IBM MQ
+
 * File shares such as FTP and SFTP
 
 To communicate with any service endpoint, run your own code, organize your workflow, or manipulate data, you can use [*built-in*](#built-in-operations) triggers and actions, which run natively within the Logic Apps service. For example, built-in triggers include Request, HTTP, and Recurrence. Built-in actions include Condition, For each, Execute JavaScript code, and operations that call Azure functions, web apps or API apps hosted in Azure, and other Logic Apps workflows.
@@ -39,8 +46,11 @@ For B2B integration scenarios, Logic Apps includes capabilities from [BizTalk Se
 For more information about the ways workflows can access and work with apps, data, services, and systems, review the following documentation:
 
 * [Connectors for Azure Logic Apps](../connectors/apis-list.md)
+
 * [Managed connectors for Azure Logic Apps](../connectors/built-in.md)
+
 * [Built-in triggers and actions for Azure Logic Apps](../connectors/managed.md)
+
 * [B2B enterprise integration solutions with Azure Logic Apps](logic-apps-enterprise-integration-overview.md)
 
 <a name="logic-app-concepts"></a>
@@ -57,7 +67,7 @@ A *logic app* is the Azure resource you create when you want to develop a workfl
 
 A *workflow* is a series of steps that defines a task or process. Each workflow starts with a single trigger, after which you must add one or more actions.
 
-### Trigger 
+### Trigger
 
 A *trigger* is always the first step in any workflow and specifies the condition for running any further steps in that workflow. For example, a trigger event might be getting an email in your inbox or detecting a new file in a storage account.
 
@@ -71,8 +81,7 @@ A *built-in* trigger or action is an operation that runs natively in Azure Logic
 
 Most built-in operations aren't associated with any service or system, but some built-in operations are available for specific services, such as Azure Functions or Azure App Service. Many also don't require that you first create a connection from your workflow and authenticate your identity. For more information and examples, review [Built-in operations for Azure Logic Apps](../connectors/built-in.md).
 
-For example, you can start almost any workflow on a schedule when you use the Recurrence trigger. Or, you can have your workflow wait until called when you use the Request trigger. 
- 
+For example, you can start almost any workflow on a schedule when you use the Recurrence trigger. Or, you can have your workflow wait until called when you use the Request trigger.
 
 ### Managed connector
 
@@ -94,12 +103,17 @@ In a logic app, each workflow always starts with a single [trigger](#trigger). A
 
 The following screenshot shows part of an example enterprise workflow. This workflow uses conditions and switches to determine the next action. Let's say you have an order system, and your workflow processes incoming orders. You want to review orders above a certain cost manually. Your workflow already has previous steps that determine how much an incoming order costs. So, you create an initial condition based on that cost value. For example:
 
-- If the order is above a certain amount, the condition is false. So, the workflow processes the order.
-- If the condition is true, the workflow sends an email for manual review. A switch determines the next step. 
-  - If the reviewer approves, the workflow continues to process the order.
-  - If the reviewer escalates, the workflow sends an escalation email to get more information about the order. 
-      - If the escalation requirements are met, the response condition is true. So, the order is processed. 
-      - If the response condition is false, an email is sent regarding the problem.
+* If the order is below a certain amount, the condition is false. So, the workflow processes the order.
+
+* If the condition is true, the workflow sends an email for manual review. A switch determines the next step.
+
+  * If the reviewer approves, the workflow continues to process the order.
+
+  * If the reviewer escalates, the workflow sends an escalation email to get more information about the order.
+
+    * If the escalation requirements are met, the response condition is true. So, the order is processed.
+
+    * If the response condition is false, an email is sent regarding the problem.
 
 :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot that shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
@@ -148,8 +162,11 @@ Businesses and organizations electronically communicate with each other by using
 You can start small with your current systems and services, and then grow incrementally at your own pace. When you're ready, the Logic Apps platform helps you implement and scale up to more mature integration scenarios by providing these capabilities and more:
 
 * Integrate and build off [Microsoft BizTalk Server](/biztalk/core/introducing-biztalk-server), [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), [Azure Functions](../azure-functions/functions-overview.md), [Azure API Management](../api-management/api-management-key-concepts.md), and more.
+
 * Exchange messages using [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](../logic-apps/logic-apps-enterprise-integration-x12.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) protocols.
+
 * Process [XML messages](../logic-apps/logic-apps-enterprise-integration-xml.md) and [flat files](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
+
 * Create an [integration account](./logic-apps-enterprise-integration-create-integration-account.md) to store and manage B2B artifacts, such as [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md), [agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md), [transform maps](../logic-apps/logic-apps-enterprise-integration-maps.md), [validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md), and more.
 
 For example, if you use Microsoft BizTalk Server, your workflows can communicate with your BizTalk Server using the [BizTalk Server connector](../connectors/managed.md#on-premises-connectors). You can then run or extend BizTalk-like operations in your workflows by using [integration account connectors](../connectors/managed.md#integration-account-connectors). Going in the other direction, BizTalk Server can communicate with your workflows by using the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn how to [set up and use the BizTalk Server Adapter](/biztalk/core/logic-app-adapter) in your BizTalk Server.
@@ -180,19 +197,21 @@ All these services help you connect and bring together disparate systems. Each s
 
 ## Get started
 
-Before you can start with Azure Logic Apps, you need an Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
+Before you can start with Azure Logic Apps, you need an Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 When you're ready, try one or more of the following quickstart guides for Logic Apps. Learn how to create a basic workflow that monitors an RSS feed and sends an email for new content.
 
 * [Create a multi-tenant based logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
 * [Create a multi-tenant based logic app in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
+
 * [Create a multi-tenant based logic app in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
 You might also want to explore other quickstart guides for Logic Apps:
 
 * [Create a multi-tenant based logic app using an ARM template](quickstart-create-deploy-azure-resource-manager-template.md)
-* [Create a multi-tenant based logic app using the Azure CLI](quickstart-create-deploy-azure-resource-manager-template.md)
 
+* [Create a multi-tenant based logic app using the Azure CLI](quickstart-create-deploy-azure-resource-manager-template.md)
 
 ## Other resources
 

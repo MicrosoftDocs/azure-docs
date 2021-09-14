@@ -37,7 +37,7 @@ On the **Express Settings** page, select **Customize** to start a customized-set
 - [Sync](#sync-pages)
 
 ### Install required components
-When you install the synchronization services, you can leave the optional configuration section unselected. Azure AD Connect sets up everything automatically. It sets up a SQL Server 2012 Express LocalDB instance, creates the appropriate groups, and assign permissions. If you want to change the defaults, clear the appropriate boxes.  The following table summarizes these options and provides links to additional information. 
+When you install the synchronization services, you can leave the optional configuration section unselected. Azure AD Connect sets up everything automatically. It sets up a SQL Server 2019 Express LocalDB instance, creates the appropriate groups, and assign permissions. If you want to change the defaults, clear the appropriate boxes.  The following table summarizes these options and provides links to additional information. 
 
 ![Screenshot showing optional selections for the required installation components in Azure AD Connect.](./media/how-to-connect-install-custom/requiredcomponents2.png)
 

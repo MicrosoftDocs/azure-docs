@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant'
+title: 'Quickstart: Set up OIDC-based single sign-on for an application'
+titleSuffix: Azure AD
 description: This quickstart walks through the process of setting up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: davidmu1
@@ -8,11 +9,12 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 07/23/2020
 ms.author: davidmu
+ms.reviewer: ergreenl
 ---
 
-# Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant
+# Quickstart: Set up OIDC-based single sign-on for an application
 
 Get started with simplified user logins by setting up single sign-on (SSO) for an application that you added to your Azure Active Directory (Azure AD) tenant. After you set up SSO, your users can sign in to an application by using their Azure AD credentials. SSO is included in the free edition of Azure AD.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Explorer Insights (ADX Insights preview)| Microsoft Docs
+title: Azure Data Explorer Insights (ADX Insights)| Microsoft Docs
 description: This article describes Azure Data Explorer Insights (ADX Insights)
 services: azure-monitor 
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.author: lagayhar
 
 ---
 
-# Azure Data Explorer Insights (preview)
+# Azure Data Explorer Insights
 
-Azure Data Explorer Insights (preview) provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures.
-This article will help you understand how to onboard and use Azure Data Explorer Insights (preview).
+Azure Data Explorer Insights provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures.
+This article will help you understand how to onboard and use Azure Data Explorer Insights.
 
-## Introduction to Azure Data Explorer Insights (preview)
+## Introduction to Azure Data Explorer Insights
 
 Before jumping into the experience, you should understand how it presents and visualizes information.
 -    **At scale perspective** showing a snapshot view of your clusters' primary metrics, to easily track performance of queries, ingestion, and export operations.
@@ -29,7 +29,7 @@ To view the performance of your clusters across all your subscriptions, perform 
 
 1. Sign into the [Azure portal](https://portal.azure.com/)
 
-2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights Hub section, select **Azure Data Explorer Clusters (preview)**.
+2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights Hub section, select **Azure Data Explorer Clusters**.
 
 ![Screenshot of overview experience with multiple graphs](./media/data-explorer/insights-hub.png)
 
@@ -73,11 +73,12 @@ To access Azure Data Explorer Insights directly from an Azure Data Explorer Clus
 
 1. In the Azure portal, select **Azure Data Explorer Clusters**.
 
-2. From the list, choose an Azure Data Explorer Cluster. In the monitoring section, choose **Insights (preview)**.
+2. From the list, choose an Azure Data Explorer Cluster. In the monitoring section, choose **Insights**.
 
 These views are also accessible by selecting the resource name of an Azure Data Explorer cluster from within the Azure Monitor insights view.
 
-Azure Data Explorer Insights combines both logs and metrics to provide a global monitoring solution. The inclusion of logs-based visualizations requires users to [enable diagnostic logging of their Azure Data Explorer cluster and send them to a Log Analytics workspace.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). The diagnostic logs that should be enabled are: **Command**, **Query**, **TableDetails**, and **TableUsageStatistics**.
+> [!NOTE]
+> Azure Data Explorer Insights combines both logs and metrics to provide a global monitoring solution. The inclusion of logs-based visualizations requires users to [enable diagnostic logging of their Azure Data Explorer cluster and send them to a Log Analytics workspace.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). The diagnostic logs that should be enabled are: **Command**, **Query**, **SucceededIngestion**, **FailedIngestion**, **IngestionBatching**, **TableDetails**, and **TableUsageStatistics** (enabling SucceededIngestion logs might be costly. Only enable it if you need to monitor successful ingestions).
 
 ![Screenshot of blue button that displays the text "Enable Logs for Monitoring"](./media/data-explorer/enable-logs.png)
 
@@ -144,7 +145,7 @@ Customizations are saved to a custom workbook to prevent overwriting the default
 
 For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
 
-This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Data Explorer Insights (preview). Use the list below to locate the information relevant to your specific issue.
+This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Data Explorer Insights. Use the list below to locate the information relevant to your specific issue.
 
 ### Why don't I see all my subscriptions in the subscription picker?
 

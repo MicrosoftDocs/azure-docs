@@ -2,7 +2,7 @@
 title: Template test cases for test toolkit
 description: Describes the template tests that are run by the Azure Resource Manager template test toolkit.
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 07/30/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -454,6 +454,34 @@ Test name: **Variables Must Be Referenced**
 
 This test finds variables that aren't used in the template or aren't used in a valid expression. To reduce confusion in your template, delete any variables that are defined but not used.
 
+Variables that use the `copy` element to iterate values must be referenced. For more information, see [Variable iteration in ARM templates](copy-variables.md).
+
+The following example **fails** because the variable that uses the `copy` element isn't referenced.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "itemCount": {
+      "type": "int",
+      "defaultValue": 5
+    }
+  },
+  "variables": {
+    "copy": [
+      {
+        "name": "stringArray",
+        "count": "[parameters('itemCount')]",
+        "input": "[concat('item', copyIndex('stringArray', 1))]"
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {}
+}
+```
+
 The following example **fails** because the expression that references a variable is missing the leading square bracket (`[`).
 
 ```json
@@ -461,6 +489,37 @@ The following example **fails** because the expression that references a variabl
   "outputVariable": {
     "type": "string",
     "value": " variables('varExample')]"
+  }
+}
+```
+
+The following example **passes** because the variable is referenced in `outputs`.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "itemCount": {
+      "type": "int",
+      "defaultValue": 5
+    }
+  },
+  "variables": {
+    "copy": [
+      {
+        "name": "stringArray",
+        "count": "[parameters('itemCount')]",
+        "input": "[concat('item', copyIndex('stringArray', 1))]"
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "arrayResult": {
+      "type": "array",
+      "value": "[variables('stringArray')]"
+    }
   }
 }
 ```
@@ -522,7 +581,11 @@ The following example **passes**. The `currentImage` variable is dynamically set
 
 Test name: **apiVersions Should Be Recent**
 
-The API version for each resource should use a recent version that's hard-coded as a string. The test evaluates the version you use against the versions available for that resource type. An API version that's less than two years old from the date the test was run is considered recent. Don't use a preview version when a more recent version is available.
+The API version for each resource should use a recent version that's hard-coded as a string. The test evaluates the API version in your template against the resource provider's versions in the toolkit's cache. An API version that's less than two years old from the date the test was run is considered recent. Don't use a preview version when a more recent version is available.
+
+A warning that an API version wasn't found only indicates the version isn't included in the toolkit's cache. Using the latest version of an API, which is recommended, can generate the warning.
+
+Learn more about the [toolkit cache](https://github.com/Azure/arm-ttk/tree/master/arm-ttk/cache).
 
 The following example **fails** because the API version is more than two years old.
 
@@ -599,6 +662,8 @@ Test name: **Template Should Not Contain Blanks**
 
 Don't hard-code properties to an empty value. Empty values include null and empty strings, objects, or arrays. If a property is set to an empty value, remove that property from your template. You can set a property to an empty value during deployment, such as through a parameter.
 
+The `template` property in a [nested template](linked-templates.md#nested-template) can include empty properties. For more information about nested templates, see [Microsoft.Resources deployments](/azure/templates/microsoft.resources/deployments).
+
 The following example **fails** because there are empty properties.
 
 ```json
@@ -614,7 +679,7 @@ The following example **fails** because there are empty properties.
 ]
 ```
 
-The following example **passes**.
+The following example **passes** because the properties include values.
 
 ```json
 "resources": [
@@ -951,7 +1016,11 @@ The following example **passes** because `protectedSettings` uses `commandToExec
 
 Test name: **apiVersions Should Be Recent In Reference Functions**
 
-Ensures the `apiVersions` used in [reference](template-functions-resource.md#reference) functions are recent and aren't preview versions. The test evaluates API versions against the resource providers available versions. An API version that's less than two years old from the date the test was run is considered recent.
+The API version used in a [reference](template-functions-resource.md#reference) function must be recent and not a preview version. The test evaluates the API version in your template against the resource provider's versions in the toolkit's cache. An API version that's less than two years old from the date the test was run is considered recent.
+
+A warning that an API version wasn't found only indicates the version isn't included in the toolkit's cache. Using the latest version of an API, which is recommended, can generate the warning.
+
+Learn more about the [toolkit cache](https://github.com/Azure/arm-ttk/tree/master/arm-ttk/cache).
 
 The following example **fails** because the API version is more than two years old.
 
@@ -1006,7 +1075,7 @@ Test name: **Secure Params In Nested Deployments**
 
 Use the nested template's `expressionEvaluationOptions` object with `inner` scope to evaluate expressions that contain secure parameters of type `secureString` or `secureObject` or [list*](template-functions-resource.md#list) functions such as `listKeys`. If the `outer` scope is used, expressions are evaluated in clear text within the parent template's scope. The secure value is then visible to anyone with access to the deployment history. The default value of `expressionEvaluationOptions` is `outer`.
 
-For more information about nested templates, see [Microsoft.Resources/deployments](/azure/templates/microsoft.resources/deployments) and [Expression evaluation scope in nested templates](linked-templates.md#expression-evaluation-scope-in-nested-templates).
+For more information about nested templates, see [Microsoft.Resources deployments](/azure/templates/microsoft.resources/deployments) and [Expression evaluation scope in nested templates](linked-templates.md#expression-evaluation-scope-in-nested-templates).
 
 The following example **fails** because `expressionEvaluationOptions` uses `outer` scope to evaluate secure parameters or `list*` functions.
 

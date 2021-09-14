@@ -6,9 +6,9 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/11/2020
+ms.date: 08/28/2021
 ms.topic: how-to
-manager: philmea
+
 ---
 
 # Create and manage an Azure IoT Central application from the CSP portal
