@@ -32,7 +32,8 @@ In this article, you learn how to transfer the logs to an Azure Log Analytics wo
 > When you plan to transfer Azure AD B2C logs to different monitoring solutions, or repository, consider the following. Azure AD B2C logs contain personal data. Such data should be processed in a manner that ensures appropriate security of the personal data, including protection against unauthorized or unlawful processing, using appropriate technical or organizational measures.
 
 Watch this video to learn how to configure monitoring for Azure AD B2C using Azure Monitor.  
-[!Video https://www.youtube.com/embed/tF2JS6TGc3g]
+
+>[!Video https://www.youtube.com/embed/tF2JS6TGc3g]
 
 ## Deployment overview
 
