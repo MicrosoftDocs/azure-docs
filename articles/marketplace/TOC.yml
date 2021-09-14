@@ -487,17 +487,17 @@
   items:
   - name: Guide to Marketplace APIs
     href: marketplace-apis-guide.md
-  - name: Marketplace submission API reference
+  - name: Marketplace submission APIs
     items:
     - name: Marketplace submission API overview
       href: submission-api-overview.md
-    - name: Partner Center submission API 
-      items: 
+    - name: Partner Center submission APIs 
+      items:
       - name: API prerequisites
-        href: azure-app-apis.md (leverage)
-      - name: New topic
+        href: submission-api-onboard.md
+      - name: Partner Center submission APIs
         href: https://apidocs.microsoft.com/services/partneringestion/
-    - name: Legacy ingestion API 
+    - name: Legacy submission APIs
       items: 
       - name: Legacy API overview
         href: cloud-partner-portal-api-overview.md

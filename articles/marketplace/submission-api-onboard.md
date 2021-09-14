@@ -1,15 +1,15 @@
 ---
-title: Overview of submission APIs to onboard Azure apps in Partner Center
-description: Gain an overview submission APIs to onboard Azure apps in Partner Center (Azure Marketplace).
+title: Overview of Partner Center submission API onboarding
+description: An overview of Partner Center submission API onboarding (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ---
 
-# Onboarding submission APIs to Azure apps in Partner Center
+# Partner Center submission API onboarding
 
 Use the Partner Center submission API to programmatically query, create submissions for, and publish commercial marketplace offers. This API is useful if your account manages many offers and you want to automate and optimize the submission process for these offers.
 

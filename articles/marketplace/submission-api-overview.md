@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ---
 
 # Commercial marketplace submission API overview
@@ -22,18 +22,21 @@ There are two sets of submission API available:
 
 Not all offer types are supported by both sets of APIs. Refer to the following table for supported submission APIs for each offer type.
 
-| Offer type | Legacy Cloud Partner Portal API Support |	Partner Center submission API support |
+| Offer type | Legacy Cloud Partner Portal API Support | Partner Center submission API support |
 | --- | :---: | :---: |
-| Software as a Service |  | &#x2714; |
 | Azure Application |  | &#x2714; |
-| Dynamics 365 |  | &#x2714; |
-| Consulting Service | &#x2714; |  |
 | Azure Container | &#x2714; |  |
+| Azure Virtual Machine | &#x2714; |  |
+| Consulting Service | &#x2714; |  |
+| Dynamics 365 |  | &#x2714; |
 | IoT Edge Module | &#x2714; |  |
+| M365 Office add-in |  |  |
+| M365 Teams app |  |  |
+| M365 SharePoint solutions |  |  |
 | Managed Service | &#x2714; |  |
 | Power BI App | &#x2714; |  |
 | Power BI Visual |  |  |
-| Azure Virtual Machine | &#x2714; |  |
+| Software as a Service |  | &#x2714; |
 |
 
 ## Next steps
