@@ -5,13 +5,22 @@ author: vhorne
 ms.author: victorh
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 09/03/2021
+ms.date: 09/14/2021
 ms.custom: template-how-to
 ---
 
 # Configure Azure DDoS Protection Plan using Azure Firewall Manager
 
-Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. Under a single tenant, DDoS protection plans can be applied to virtual networks across multiple subscriptions. For more information about DDoS protection plans, see  [Azure DDoS Protection Standard overview](../ddos-protection/ddos-protection-overview.md).
+Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. 
+
+> [!TIP]
+> DDoS Protection Plans are not yet available for virtual WANs. However, you can workaround this limitation by force tunneling Internet traffic to an Azure Firewall in a virtual network that has a DDoS Protection Plan associated with it.
+
+Under a single tenant, DDoS protection plans can be applied to virtual networks across multiple subscriptions. For more information about DDoS protection plans, see  [Azure DDoS Protection Standard overview](../ddos-protection/ddos-protection-overview.md).
+
+
+
+To see how this works, you'll create a firewall policy and then a virtual network secured with an Azure Firewall. Then you'll create a DDoS Protection Plan and then associate it with the virtual network.
 
 ## Create a firewall policy
 
@@ -47,7 +56,9 @@ Use Firewall Manager to create a secured virtual network.
 
 ## Create a DDoS Protection Plan
 
-Create a DDoS Protection Plan using Firewall Manager.
+Create a DDoS Protection Plan using Firewall Manager. You can use the **DDoS Protection Plans** page to create and manage your Azure DDoS Protection Plans.
+
+:::image type="content" source="media/configure-ddos/firewall-ddos.png" alt-text="Screenshot of the Firewall Manager DDoS Protection Plans page":::
 
 1. Open Firewall Manager.
 1. Select **DDoS Protection Plans**.
@@ -57,7 +68,7 @@ Create a DDoS Protection Plan using Firewall Manager.
 1. Under **Instance details**, **Name**, type **DDoS-plan-01**.
 1. For **Region**, select **(US) West US 2**.
 1. Select **Review + create**.
-1. Select **Create**.## Assign a DDoS Protection Plan to the virtual network
+1. Select **Create**.
 
 ## Associate a DDoS Protection Plan
 
