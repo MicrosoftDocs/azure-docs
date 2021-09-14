@@ -76,7 +76,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`-IpAddressVersion`**
 
 ```azurepowershell-interactive
 $ipv4 =@{
-    Name = 'myPublicIpPrefix'
+    Name = 'myPublicIpPrefix-zonal'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus2'
     PrefixLength = '28'
@@ -95,7 +95,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`-IpAddressVersion`**
 
 ```azurepowershell-interactive
 $ipv4 =@{
-    Name = 'myPublicIpPrefix'
+    Name = 'myPublicIpPrefix-nozone'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus2'
     PrefixLength = '28'
@@ -104,9 +104,9 @@ $ipv4 =@{
 New-AzPublicIpPrefix @ipv4
 ```
 
-The removal of the **zone** parameter in the command is valid in all regions.  
+The removal of the **`-Zone`** parameter in the command is valid in all regions.  
 
-The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ---
 
@@ -134,7 +134,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`-IpAddressVersion`**
 
 ```azurepowershell-interactive
 $ipv6 =@{
-    Name = 'myPublicIpPrefix'
+    Name = 'myPublicIpPrefix-zonal'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus2'
     PrefixLength = '124'
@@ -153,7 +153,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`-IpAddressVersion`**
 
 ```azurepowershell-interactive
 $ipv6 =@{
-    Name = 'myPublicIpPrefix'
+    Name = 'myPublicIpPrefix-nozone'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus2'
     PrefixLength = '124'
@@ -162,9 +162,9 @@ $ipv6 =@{
 New-AzPublicIpPrefix @ipv6
 ```
 
-The removal of the **zone** parameter in the command is valid in all regions.  
+The removal of the **`-Zone`** parameter in the command is valid in all regions.  
 
-The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ---
 
@@ -257,4 +257,4 @@ Remove-AzResourceGroup -ResourceGroupName 'myResourceGroup'
 
 Advance to the next article to learn how to create a public IP prefix using the Azure CLI:
 > [!div class="nextstepaction"]
-> [Create public IP prefix using the Azure CLI](create-public-ip-prefix-cli.md)
+> [Create public IP using PowerShell](create-public-ip-powershell.md)
