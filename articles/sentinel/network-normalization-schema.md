@@ -102,7 +102,19 @@ To use a source-agnostic parser that unifies all built-in parsers, and ensure th
 
 Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelNetworkSession).
 
-## Add your own normalized parsers
+### Built-in source-specific parsers
+
+Azure Sentinel provides the following built-in, product-specific Network Session parsers:
+
+- Source specific parsers:
+  - **Microsoft 365 Defender for Endpoints** - vimNetworkSessionMicrosoft365Defender
+  - **Microsoft Defender for IoT - Endpoint (MD4IoT)** - vimNetworkSessionMD4IoT
+  - **Microsoft Sysmon for Linux** - vimNetworkSessionSysmonLinux
+  - **Windows Events Firewall** - Windows firewall activity as collected using Windows Events 515x, collected using either the Log Analytics Agent or the Azure Monitor Agent into either the Event or the WindowsEvent table, vimNetworkSessionMicrosoftWindowsEventFirewall 
+
+The parsers can be deployed from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelNetworkSession).
+
+### Add your own normalized parsers
 
 When implementing custom parsers for the Network Session information model, name your KQL functions using the following syntax: `imNetworkSession<vendor><Product>`. This function should map all fields relevant for the source.
 
