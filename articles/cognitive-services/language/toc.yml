@@ -106,6 +106,8 @@ items:
     href: custom-question-answering/quickstart/sdk.md
   - name: How-to guides
     items:
+    - name: Query with REST APIs
+      href: custom-question-answering/how-to/url-test-tool.md
     - name: Encrypt data at rest
       href: custom-question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base

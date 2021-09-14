@@ -7,7 +7,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 09/13/2021
+ms.date: 08/25/2021
 ---
 
 This Postman-based quickstart walks you through getting an answer from your knowledge base.
@@ -17,14 +17,12 @@ This Postman-based quickstart walks you through getting an answer from your know
 * You must have
     * Latest [**Postman**](https://www.getpostman.com/).
     * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+   * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) <!-- TODO: Replace Link-->with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
+   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../../../qnamaker/Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
 
-> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
-
-   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
-
-
+<!-- TODO: Replace Link-->
 > [!NOTE]
-> When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **Postman** tab shows the settings required to generate an answer.
+> When you are ready to generate an answer to a question from your knowledge base, you must [train](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **Postman** tab shows the settings required to generate an answer.
 
 ## Set up Postman for requests
 
@@ -37,8 +35,8 @@ Use this procedure to configure Postman, then read each subsequent section to co
     |Name|Setting|Purpose and value|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|This is the HTTP method and route for the URL.|
-    |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|This is the host of the URL. Concatenate the Host and Post values to get the complete generateAnswer URL.|
-    |`Authorization`|`EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|The header value to authorize your request to Azure. |
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|This is the host of the URL. Concatenate the Host and Post values to get the complete generateAnswer URL.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|The header value for to authorize your request. |
     |`Content-type`|`application/json`|The header value for your content.|
     ||`{"question":"<Your question>"}`|The body of the POST request as a JSON object. This value will change in each following section depending on what the query is meant to do.|
 
@@ -405,6 +403,45 @@ You can request a minimum threshold for the answer. If the threshold is not met,
     ```
 ## Use unstructured data sources.
     
-We now support the ability to add unstructured documents that can't be used to extract QnAs. The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query. We don't support unstructured data sets in the GA service. It is only supported in custom question answering.
+We now support the ability to add unstructured documents that can't be used to extract QnAs. The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query.
 
-
+1. Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
+   ```json
+    {
+       "question": "what is Surface Headphones 2+ priced at?",
+       "includeUnstructuredSources":true,
+       "top": 2
+    }
+    ```
+2. The response includes the source of answer. 
+    ```json
+       {
+     "answers": [
+       {
+         "questions": [],
+         "answer": "Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.\n\nMicrosoft Modern USB and Wireless Headsets:\n\nCertified for Microsoft Teams, these Microsoft Modern headsets enable greater focus and call privacy, especially in shared workspaces.",
+         "score": 82.11,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": [],
+         "answerSpan": {
+           "text": "$299.99 USD",
+           "score": 0.0,
+           "startIndex": 34,
+           "endIndex": 45
+         }
+       },
+       {
+         "questions": [],
+         "answer": "Now certified for Microsoft Teams with the included dongle, Surface Headphones 2+ provides an even more robust meeting experience with on‐ear Teams controls and improved remote calling. Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.",
+         "score": 81.95,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": []
+       }
+     ],
+     "activeLearningEnabled": true
+   }
+    ```
