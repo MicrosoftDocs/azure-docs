@@ -67,6 +67,7 @@ To set up self-service password reset for the sign-up or sign-in user flow:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal toolbar, select the **Directories + Subscriptions** icon.
 1. In the **Portal settings | Directories + subscriptions** pane, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Select a sign-up or sign-in user flow (of type **Recommended**) that you want to customize.
 1. In the menu under **Settings**, select **Properties**.
@@ -264,6 +265,7 @@ Your application might need to detect whether the user signed in by using the Fo
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal toolbar, select the **Directories + Subscriptions** icon.
 1. In the **Portal settings | Directories + subscriptions** pane, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the menu under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**. In the following order, upload the two policy files that you changed:
    1. The extension policy, for example, *TrustFrameworkExtensions.xml*.
