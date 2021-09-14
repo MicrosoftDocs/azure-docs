@@ -63,6 +63,9 @@ If you are still using an older version of Windows Server you should use Azure A
 ### Release status
 8/19/2021: Released for download only, not available for auto upgrade.
 
+### Known issues
+ - Under certain circumstances the installer for this version will display an error mentioning that TLS 1.2 is not enabled and will stop the installation. This is due to an error in the code that verifies the registry setting for TLS 1.2. We will correct this in a future release. Customers who see this issue should follow the instructions for enabling TLS 1.2 that can be found in the article "[TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)".
+
 ### Bug fixes
 
  - We fixed a bug where, when a domain is renamed, Password Hash Sync would fail with an error indicating "a specified cast is not valid" in the Event log. This is a regression from earlier builds.

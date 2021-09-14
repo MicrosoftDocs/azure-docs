@@ -67,9 +67,3 @@
     href: https://stackoverflow.com/questions/tagged/azure-blockchain-workbench
   - name: Product feedback
     href: https://aka.ms/blockchainuservoice
-- name: Solution templates
-  items:
-  - name: Ethereum Proof-of-Authority consortium
-    href: ../templates/ethereum-poa-deployment.md
-  - name: Hyperledger Fabric consortium Azure Kubernetes Service
-    href: ../templates/hyperledger-fabric-consortium-azure-kubernetes-service.md

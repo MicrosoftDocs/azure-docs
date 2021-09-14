@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 09/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -65,14 +65,14 @@ In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary 
 
 ## What is the lifetime of a PRT?
 
-Once issued, a PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device.  
+Once issued, a PRT is valid for 90 days and is continuously renewed as long as the user actively uses the device.  
 
 ## How is a PRT used?
 
 A PRT is used by two key components in Windows:
 
 * **Azure AD CloudAP plugin**: During Windows sign in, the Azure AD CloudAP plugin requests a PRT from Azure AD using the credentials provided by the user. It also caches the PRT to enable cached sign in when the user does not have access to an internet connection.
-* **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 is supported on Microsoft Edge (natively), Chrome (via the [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) or [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) extensions) or Mozilla Firefox v91+ (via [Windows SSO setting](https://support.mozilla.org/en-US/kb/windows-sso))
+* **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 is supported on Microsoft Edge (natively), Chrome (via the [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) or [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) extensions) or Mozilla Firefox v91+ (Firefox [Windows SSO setting](https://support.mozilla.org/kb/windows-sso))
 
 ## How is a PRT renewed?
 

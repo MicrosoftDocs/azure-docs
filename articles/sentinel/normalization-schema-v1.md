@@ -26,7 +26,7 @@ The network normalization schema is used to describe reported network events, an
 For more information, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> This article relates to version 0.1 of the network normalization schema, which was released as a preview before ASIM was available. Version 0.2 of the network normalization schema aligns with ASIM and provides other enhancements.
+> This article relates to version 0.1 of the network normalization schema, which was released as a preview before ASIM was available. [Version 0.2](network-normalization-schema.md) of the network normalization schema aligns with ASIM and provides other enhancements.
 >
 > For more information, see [Differences between network normalization schema versions](#changes)
 >
