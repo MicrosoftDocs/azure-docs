@@ -10,56 +10,52 @@ items:
   items:
   - name: Create Purview account
     items:
-    - name: Create Purview account - Portal
+    - name: Create a Purview account - Azure portal
       href: create-catalog-portal.md
-    - name: Create Purview account - PowerShell
+    - name: Create a Purview account - Azure PowerShell
       href: create-catalog-powershell.md
-    - name: Create Purview account - .NET SDK
+    - name: Create a Purview account - .NET SDK
       href: create-purview-dotnet.md
-    - name: Create Purview account - Python
+    - name: Create a Purview account - Python
       href: create-purview-python.md
-  - name: Create a collection - Portal
+  - name: Create a collection - Azure Purview Studio
     href: quickstart-create-collection.md
 - name: Tutorials
   items:
-  - name: Onboard Azure sources at scale
+  - name: Onboarding Azure data sources at scale
     items:
-    - name: Azure source readiness at scale
+    - name: Azure data sources readiness check at scale
       href: tutorial-data-sources-readiness.md
-    - name: Purview MSI configuration at scale
+    - name: Azure Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
-  - name: Onboard an on-prem SQL server
+  - name: Register and scan an on-prem SQL server
     href: register-scan-on-premises-sql-server.md
-  - name: Use catalog REST APIs
+  - name: Call the REST APIs for the catalog
     href: tutorial-using-rest-apis.md
 - name: Concepts
   items:
-  - name: Deployment best practices
-    href: deployment-best-practices.md
   - name: Use Purview Studio
     href: use-purview-studio.md
-  - name: Purview permissions
+  - name: Deployment best practices
+    href: deployment-best-practices.md
+  - name: Azure Purview limits
+    href: how-to-manage-quotas.md
+  - name: Scans and ingestion
+    href: concept-scans-and-ingestion.md
+  - name: Elastic Data Map
+    href: concept-elastic-data-map.md
+  - name: Understanding resource sets
+    href: concept-resource-sets.md
+  - name: Data lineage
+    href: concept-data-lineage.md
+  - name: Supported data sources and file types
+    href: sources-and-scans.md
+  - name: Catalog permissions
     href: catalog-permissions.md
-  - name: Data map
-    items:
-    - name: Elastic data map
-      href: concept-elastic-data-map.md
-    - name: Collections
-      href: concept-collection.md
-    - name: Resource sets
-      href: concept-resource-sets.md
-    - name: Scans and ingestion
-      href: concept-scans-and-ingestion.md
-    - name: Data lineage
-      href: concept-data-lineage.md
-  - name: Data catalog
-    items:
-    - name: Catalog search
-      href: concept-search.md
-    - name: Business glossary
-      href: concept-business-glossary.md 
-    - name: Asset normalization
-      href: concept-asset-normalization.md
+  - name: Catalog search
+    href: concept-search.md
+  - name: Business glossary
+    href: concept-business-glossary.md 
   - name: Data insights
     href: concept-insights.md
   - name: Supported Browsers
@@ -67,30 +63,32 @@ items:
   - name: Asset normalization
     href: concept-asset-normalization.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.yml
-  - name: Assets
-    href: concept-assets.md
-  - name: Data sharing
-    href: concept-data-sharing.md
-  - name: Understand pricing
-    href: concept-pricing.md
+    href: ./frequently-asked-questions.yml
   - name: Upgraded Purview accounts
     href: concept-account-upgrade.md
 - name: How-to guides
   items:
   - name: Create and manage collections
     href: how-to-create-and-manage-collections.md
-  - name: Manage sources
-    items: 
-    - name: Supported sources
-      href: purview-connector-overview.md
-    - name: Manage data sources
-      href: manage-data-sources.md
+  - name: Register & scan
+    items:
     - name: Manage Credentials
       href: manage-credentials.md
       displayName: Create and manage Credentials
+    - name: Create a scan rule set
+      href: create-a-scan-rule-set.md
+    - name: Manage integration runtimes
+      href: manage-integration-runtimes.md
+    - name: Troubleshoot connection issues
+      href: troubleshoot-connections.md
+    - name: Resource set pattern rules
+      href: how-to-resource-set-pattern-rules.md
     - name: Sources
-      items: 
+      items:
+      - name: Manage data sources
+        href: manage-data-sources.md
+      - name: Azure Purview Connectors
+        href: purview-connector-overview.md
       - name: Azure Multiple Source
         href: register-scan-azure-multiple-sources.md
       - name: Azure Synapse Analytics workspaces
@@ -151,9 +149,15 @@ items:
         href: register-scan-teradata-source.md
       - name: Amazon S3
         href: register-scan-amazon-s3.md
-  - name: Manage assets
-    href: how-to-manage-assets.md
-  - name: Scan
+      # - name: Power BI tenant - PowerShell
+        # href: powershell-register-scan-power-bi.md
+  - name: Business glossary
+    items:
+    - name: Create, import, & export glossary terms
+      href: how-to-create-import-export-glossary.md
+    - name: Manage term templates
+      href: how-to-manage-term-templates.md  
+  - name: Bulk edit
     items:
     - name: Bulk edit assets to tag annotations and contacts 
       href: how-to-bulk-edit-assets.md
@@ -165,19 +169,13 @@ items:
       href: apply-classifications.md
     - name: Automatically label your content
       href: create-sensitivity-label.md
-  - name: Label
-    items:
-      - name: How to automatically label your content
-        href: how-to-automatically-label-your-content.md
-      - name: Sensitivity labels FAQs
-        href: labeling-frequently-asked-questions.yml
   - name: Search & browse
     items:
     - name: Browse Data Catalog
       href: how-to-browse-catalog.md
     - name: Search Data Catalog
       href: how-to-search-catalog.md
-    - name: Manage catalog assets
+    - name: View, edit, and delete Catalog assets
       href: catalog-asset-details.md
   - name: Lineage 
     items:
@@ -209,28 +207,12 @@ items:
       href: how-to-lineage-spark-atlas-connector.md
     - name: SQL Server Integration Services lineage
       href: how-to-lineage-sql-server-integration-services.md
-    - name: SQL provenance
-      href: how-to-sql-provenance.md
     - name: Teradata lineage
       href: how-to-lineage-teradata.md
-  - name: Business glossary
+  - name: Monitor
     items:
-    - name: Create, import, & export glossary terms
-      href: how-to-create-import-export-glossary.md
-    - name: Manage term templates
-      href: how-to-manage-term-templates.md  
-  - name: Bulk edit assets
-    href: how-to-bulk-edit-assets.md
-  - name: Classify
-    items: 
-    - name: Create custom classifications
-      href: create-a-custom-classification-and-classification-rule.md
-    - name: Apply classifications
-      href: apply-classifications.md
-  - name: Label
-    items: 
-    - name: Automatically label your content
-      href: create-sensitivity-label.md
+    - name: Monitor with Azure Monitor
+      href: how-to-monitor-with-azure-monitor.md
   - name: Insights
     items:
     - name: View asset insights
@@ -269,20 +251,8 @@ items:
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
     href: disaster-recovery.md
-  - name: Monitor with Azure Monitor
-    href: how-to-monitor-with-azure-monitor.md
 - name: Reference
   items:
-    - name: Azure Purview product glossary
-      href: reference-purview-glossary.md
-    - name: Supported browsers
-      href: supported-browsers.md
-    - name: Supported data sources and file types
-      href: sources-and-scans.md
-    - name: Supported classifications
-      href: supported-classifications.md
-    - name: Azure Purview limits
-      href: how-to-manage-quotas.md
     - name: Java
       href: /samples/browse/?products=azure&languages=java&terms=purview
     - name: .NET
@@ -291,10 +261,12 @@ items:
       href: /python/api/azure-mgmt-purview/
     - name: REST
       href: /rest/api/purview/
+    - name: Supported classifications
+      href: supported-classifications.md
+    - name: Azure Purview product glossary
+      href: reference-purview-glossary.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
-    - name: Frequently asked questions
-      href: ./frequently-asked-questions.yml
 - name: Resources
   items:
     - name: Pricing calculator
