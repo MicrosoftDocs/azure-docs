@@ -19,16 +19,6 @@ In this guide, learn how to set up an AutoML training run with the [Azure Machin
 
 For an end to end example, see [Tutorial: AutoML- train regression model](tutorial-auto-train-models.md).
 
-Configuration options available in automated ML:
-
-* Select your experiment type: Classification, Regression, or Time Series Forecasting
-* Data source, formats, and fetch data
-* Choose your compute target: local or remote
-* Automated machine learning experiment settings
-* Run an automated ML experiment
-* Explore model metrics
-* Register and deploy model
-
 If you prefer a no-code experience, you can also [Set up no-code AutoML training in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## Prerequisites
@@ -141,42 +131,17 @@ Next determine where the model will be trained. An automated ML training experim
 
 There are several options that you can use to configure your automated ML experiment. These parameters are set by instantiating an `AutoMLConfig` object. See the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) for a full list of parameters.
 
-Some examples include:
-
-1. Classification experiment using AUC weighted as the primary metric with experiment timeout minutes set to 30 minutes and 2 cross-validation folds.
-
-   ```python
-       automl_classifier=AutoMLConfig(task='classification',
-                                      primary_metric='AUC_weighted',
-                                      experiment_timeout_minutes=30,
-                                      blocked_models=['XGBoostClassifier'],
-                                      training_data=train_data,
-                                      label_column_name=label,
-                                      n_cross_validations=2)
-   ```
-1. The following example is a regression experiment set to end after 60 minutes with five validation cross folds.
-
-   ```python
-      automl_regressor = AutoMLConfig(task='regression',
-                                      experiment_timeout_minutes=60,
-                                      allowed_models=['KNN'],
-                                      primary_metric='r2_score',
-                                      training_data=train_data,
-                                      label_column_name=label,
-                                      n_cross_validations=5)
-   ```
-
-
-1. Forecasting tasks require extra setup, see the [Set up AutoML for time-series forecasting](how-to-auto-train-forecast.md) article for more details. 
+Fore example, forecasting tasks require extra setup, see the [Set up AutoML for time-series forecasting](how-to-auto-train-forecast.md) article for more details. 
 
     ```python
     time_series_settings = {
-        'time_column_name': time_column_name,
-        'time_series_id_column_names': time_series_id_column_names,
-        'forecast_horizon': n_test_periods
-    }
+                            'time_column_name': time_column_name,
+                            'time_series_id_column_names': time_series_id_column_names,
+                            'forecast_horizon': n_test_periods
+                           }
     
-    automl_config = AutoMLConfig(task = 'forecasting',
+    automl_config = AutoMLConfig(
+                                 task = 'forecasting',
                                  debug_log='automl_oj_sales_errors.log',
                                  primary_metric='normalized_root_mean_squared_error',
                                  experiment_timeout_minutes=20,
@@ -185,7 +150,8 @@ Some examples include:
                                  n_cross_validations=5,
                                  path=project_folder,
                                  verbosity=logging.INFO,
-                                 **time_series_settings)
+                                 **time_series_settings
+                                )
     ```
     
 ### Supported models
@@ -220,21 +186,15 @@ Classification | Regression | Time Series Forecasting
 ||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
 
 ### Primary Metric
+
 The `primary metric` parameter determines the metric to be used during model training for optimization. The available metrics you can select is determined by the task type you choose, and the following table shows valid primary metrics for each task type.
 
 Choosing a primary metric for automated ML to optimize depends on many factors. We recommend your primary consideration be to choose a metric which best represents your business needs. Then consider if the metric is suitable for your dataset profile (data size, range, class distribution, etc.).
 
 Learn about the specific definitions of these metrics in [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
-|Classification | Regression | Time Series Forecasting
-|--|--|--
-|`accuracy`| `spearman_correlation` | `normalized_root_mean_squared_error`
-|`AUC_weighted` | `normalized_root_mean_squared_error` | `r2_score`
-|`average_precision_score_weighted` | `r2_score` | `normalized_mean_absolute_error`
-|`norm_macro_recall` | `normalized_mean_absolute_error` | 
-|`precision_score_weighted` |
-
 #### Metrics for classification scenarios 
+
 Post-thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets which are small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated ML completes, you can choose the winning model based on the metric best suited to your business needs.
 
 | Metric | Example use case(s) |
