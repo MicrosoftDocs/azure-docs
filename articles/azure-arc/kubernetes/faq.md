@@ -77,7 +77,7 @@ For Azure Arc-enabled Kubernetes, since Azure Resource Manager manages your conf
 
 This feature applies baseline configurations (like network policies, role bindings, and pod security policies) across the entire Kubernetes cluster inventory to meet compliance and governance requirements.
 
-## Does Arc enabled Kubernetes store any customer data outside of the cluster's region?
+## Does Azure Arc-enabled Kubernetes store any customer data outside of the cluster's region?
 
 The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
