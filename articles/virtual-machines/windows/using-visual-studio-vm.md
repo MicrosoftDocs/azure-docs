@@ -76,7 +76,7 @@ Azure offers a full range of virtual machine sizes. Because Visual Studio is a p
     
 For more information on the latest machine sizes, see [Sizes for Windows virtual machines in Azure](../sizes.md).
 
-With Azure, you can rebalance your initial choice by resizing the VM. You can either provision a new VM with a more appropriate size, or resize your existing VM to different underlying hardware. For more information, see [Resize a Windows VM](./resize-vm.md).
+With Azure, you can rebalance your initial choice by resizing the VM. You can either provision a new VM with a more appropriate size, or resize your existing VM to different underlying hardware. For more information, see [Resize a Windows VM](../resize-vm.md).
 
 ## After the VM is running, what's next?
 Visual Studio follows the “bring your own license” model in Azure. As with an installation on proprietary hardware, one of the first steps is licensing your Visual Studio installation. To unlock Visual Studio, either:
