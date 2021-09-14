@@ -78,10 +78,10 @@ runOutputName=aibWindows
 imageName=aibWinImage
 ```
 
-Create a variable for your subscription ID. You can get this using `az account show | grep id`.
+Create a variable for your subscription ID.
 
 ```azurecli-interactive
-subscriptionID=<Your subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 ## Create a resource group
 This resource group is used to store the image configuration template artifact and the image.
@@ -97,14 +97,14 @@ Image Builder will use the [user-identity](../../active-directory/managed-identi
 ## Create user-assigned managed identity and grant permissions 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
-idenityName=aibBuiUserId$(date +'%s')
-az identity create -g $imageResourceGroup -n $idenityName
+identityName=aibBuiUserId$(date +'%s')
+az identity create -g $imageResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
-imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
 
 # download preconfigured role definition example
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
@@ -182,7 +182,7 @@ If the service reports a failure during the image configuration template submiss
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
+    -n helloImageTemplateWin01
 ```
 
 ## Start the image build

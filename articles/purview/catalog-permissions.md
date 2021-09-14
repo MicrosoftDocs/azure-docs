@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 08/18/2021
 ---
 
 # Access control in Azure Purview
@@ -15,6 +15,8 @@ Azure Purview uses **Collections** to organize and manage access across its sour
 
 > [!NOTE]
 > At this time, this information only applies for Purview accounts created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on access control for a Purview instance created before August 18, see our [**legacy permission guide**](#legacy-permission-guide) at the bottom of the page.
+>
+> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. For information about what will change when your account is upgraded, see our [upgraded accounts guide](concept-account-upgrade.md).
 
 ## Collections
 
@@ -40,6 +42,8 @@ Azure Purview uses a set of predefined roles to control who can access what with
 |I need to set up scans via the Purview Studio|Data Source Admin, plus at least Data Reader **or** Data Curator on the collection where the source is registered.|
 |I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data Source Admin|
 |I need to put users into roles in Azure Purview | Collection Admin |
+
+:::image type="content" source="./media/catalog-permissions/collection-permissions-roles.png" alt-text="Chart showing Purview roles" lightbox="./media/catalog-permissions/collection-permissions-roles.png":::
 
 ## Understand how to use Azure Purview's roles and collections
 
@@ -151,6 +155,8 @@ For users who have access to their company's [Azure portal](https://portal.azure
 |I need to set up scans via the Purview Studio|Purview Data Source Administrator Role plus at least one of Purview Data Reader Role or Purview Data Curator Role|
 |I need to enable a Service Principal or other programmatic identity to set up and monitor scans in Azure Purview without allowing the programmatic identity to access the catalog's information |Purview Data Source Administrator Role|
 |I need to put users into roles in Azure Purview | Owner or User Access Administrator |
+
+:::image type="content" source="./media/catalog-permissions/collection-permissions-roles-legacy.png" alt-text="Chart showing Purview legacy roles" lightbox="./media/catalog-permissions/collection-permissions-roles-legacy.png":::
 
 ## Next steps
 

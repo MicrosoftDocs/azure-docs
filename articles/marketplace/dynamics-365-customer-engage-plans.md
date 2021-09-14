@@ -1,6 +1,6 @@
 ---
 title: Create Dynamics 365 for Customer Engagement & Power Apps plans on Microsoft AppSource (Azure Marketplace).
-description: Configure Dynamics 365 for Customer Engagement & PowerApps offer plans if you chose to enable your offer for third-party app management.
+description: Configure Dynamics 365 for Customer Engagement & Power Apps offer plans if you chose to enable your offer for third-party app management.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

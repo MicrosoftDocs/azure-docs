@@ -183,6 +183,7 @@ With Azure Synapse, you can create server-less SQL pool to query log data when y
 ## See also
 
 - [Monitoring Azure Blob Storage](monitor-blob-storage.md).
+- [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md)
 - [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 - [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 

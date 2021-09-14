@@ -60,33 +60,32 @@ To save compute costs, you can delete one of the cloud services (designated as a
 
 ## REST API
 
-To use the REST API to swap to a new cloud services deployment in Azure Cloud Services (extended support), use the following command and JSON configuration:
+To use the [REST API](https://review.docs.microsoft.com/rest/api/compute/load-balancers/swap-public-ip-addresses?branch=net202102) to swap to a new cloud services deployment in Azure Cloud Services (extended support), use the following command and JSON configuration:
 
 ```http
-POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Network/locations/region/setLoadBalancerFrontendPublicIpAddresses?api-version=2020-11-01
+POST https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/westus/setLoadBalancerFrontendPublicIpAddresses?api-version=2021-02-01
 ```
 
 ```json
 {
   "frontendIPConfigurations": [
- 	{
- 	"id": "#LBFE1#",
- 	"properties": {
- 	"publicIPAddress": {
- 	"id": "#PIP2#"
- 	}
+    {
+      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb1/frontendIPConfigurations/lbfe1",
+      "properties": {
+        "publicIPAddress": {
+          "id": "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/publicIPAddresses/pip2"
+        }
       }
     },
-   {
- 	"id": "#LBFE2#",
- 	"properties": {
- 	"publicIPAddress": {
- 	"id": "#PIP1#"
-	 }
-       }
+    {
+      "id": "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/loadBalancers/lb2/frontendIPConfigurations/lbfe2",
+      "properties": {
+        "publicIPAddress": {
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pip1"
+        }
+      }
     }
   ]
- }
 }
 ```
 

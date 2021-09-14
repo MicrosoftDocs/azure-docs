@@ -1,21 +1,21 @@
 ---
 title: Copy and transform data in Azure SQL Managed Instance
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy and transform data in Azure SQL Managed Instance by using Azure Data Factory.
+description: Learn how to copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics pipelines.
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 06/15/2021
+ms.date: 09/09/2021
 ---
 
-# Copy and transform data in Azure SQL Managed Instance by using Azure Data Factory
+# Copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure SQL Managed Instance, and use Data Flow to transform data in Azure SQL Managed Instance. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity to copy data from and to Azure SQL Managed Instance, and use Data Flow to transform data in Azure SQL Managed Instance. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 
@@ -34,13 +34,37 @@ For Copy activity, this Azure SQL Database connector supports these functions:
 
 ## Prerequisites
 
-To access the SQL Managed Instance [public endpoint](../azure-sql/managed-instance/public-endpoint-overview.md), you can use an Azure Data Factory managed Azure integration runtime. Make sure that you enable the public endpoint and also allow public endpoint traffic on the network security group so that Azure Data Factory can connect to your database. For more information, see [this guidance](../azure-sql/managed-instance/public-endpoint-configure.md).
+To access the SQL Managed Instance [public endpoint](../azure-sql/managed-instance/public-endpoint-overview.md), you can use a managed Azure integration runtime. Make sure that you enable the public endpoint and also allow public endpoint traffic on the network security group so that the service can connect to your database. For more information, see [this guidance](../azure-sql/managed-instance/public-endpoint-configure.md).
 
 To access the SQL Managed Instance private endpoint, set up a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) that can access the database. If you provision the self-hosted integration runtime in the same virtual network as your managed instance, make sure that your integration runtime machine is in a different subnet than your managed instance. If you provision your self-hosted integration runtime in a different virtual network than your managed instance, you can use either a virtual network peering or a virtual network to virtual network connection. For more information, see [Connect your application to SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
 
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to an Azure SQL Managed instance using UI
+
+Use the following steps to create a linked service to an SQL Managed instance in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for SQL and select the Azure SQL Server Managed Instance connector.
+
+    :::image type="content" source="media/connector-azure-sql-managed-instance/azure-sql-managed-instance-connector.png" alt-text="Screenshot of the Azure SQL Server Managed Instance connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-sql-managed-instance/configure-azure-sql-managed-instance-linked-service.png" alt-text="Screenshot of linked service configuration for a SQL Managed instance.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Azure Data Factory entities specific to the SQL Managed Instance connector.
 
@@ -53,11 +77,11 @@ The following properties are supported for the SQL Managed Instance linked servi
 | type | The type property must be set to **AzureSqlMI**. | Yes |
 | connectionString |This property specifies the **connectionString** information that's needed to connect to SQL Managed Instance by using SQL authentication. For more information, see the following examples. <br/>The default port is 1433. If you're using SQL Managed Instance with a public endpoint, explicitly specify port 3342.<br> You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal |
-| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Azure Data Factory or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal |
+| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal |
 | tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
-| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your managed instance has a public endpoint and allows Azure Data Factory to access it. If not specified, the default Azure integration runtime is used. |Yes |
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your managed instance has a public endpoint and allows the service to access it. If not specified, the default Azure integration runtime is used. |Yes |
 
 > [!NOTE]
 > SQL Managed Instance [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is not supported in data flow. 
@@ -152,25 +176,25 @@ To use a service principal-based Azure AD application token authentication, foll
     - Application key
     - Tenant ID
 
-3. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the Azure Data Factory managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
+3. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-4. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the Azure Data Factory managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+4. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-5. Grant the Data Factory managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
+5. Grant the managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
     ```
 
-6. Configure a SQL Managed Instance linked service in Azure Data Factory.
+6. Configure a SQL Managed Instance linked service.
 
 **Example: use service principal authentication**
 
@@ -198,31 +222,31 @@ To use a service principal-based Azure AD application token authentication, foll
 
 ### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
-A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific data factory. You can use this managed identity for SQL Managed Instance authentication. The designated factory can access and copy data from or to your database by using this identity.
+A data factory or Synapse workspace can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the service for authentication to other Azure services. You can use this managed identity for SQL Managed Instance authentication. The designated service can access and copy data from or to your database by using this identity.
 
 To use managed identity authentication, follow these steps.
 
 1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
-2. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the Azure Data Factory managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
+2. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
 
     ```sql
-    CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
+    CREATE LOGIN [your_factory_or_workspace_ name] FROM EXTERNAL PROVIDER
     ```
 
-3. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the Azure Data Factory managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+3. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
   
     ```sql
-    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
+    CREATE USER [your_factory_or_workspace_name] FROM EXTERNAL PROVIDER
     ```
 
-4. Grant the Data Factory managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
+4. Grant the managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
 
     ```sql
-    ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
+    ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your_factory_or_workspace_name]
     ```
 
-5. Configure a SQL Managed Instance linked service in Azure Data Factory.
+5. Configure a SQL Managed Instance linked service.
 
 **Example: uses managed identity authentication**
 
@@ -409,7 +433,7 @@ To copy data to SQL Managed Instance, the following properties are supported in 
 | storedProcedureTableTypeParameterName |The parameter name of the table type specified in the stored procedure.  |No |
 | sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
-| writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size.  |No |
+| writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, the service dynamically determines the appropriate batch size based on the row size.  |No |
 | writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the timespan. An example is "00:30:00," which is 30 minutes. |No |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
@@ -490,17 +514,17 @@ Learn more details from [Invoke a stored procedure from a SQL MI sink](#invoke-a
 
 The Azure SQL Managed Instance connector in copy activity provides built-in data partitioning to copy data in parallel. You can find data partitioning options on the **Source** tab of the copy activity.
 
-![Screenshot of partition options](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Screenshot of partition options":::
 
-When you enable partitioned copy, copy activity runs parallel queries against your SQL MI source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SQL MI.
+When you enable partitioned copy, copy activity runs parallel queries against your SQL MI source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SQL MI.
 
 You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your SQL MI. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommended to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Full load from large table, with physical partitions.        | **Partition option**: Physical partitions of table. <br><br/>During execution, Data Factory automatically detects the physical partitions, and copies data by partitions. <br><br/>To check if your table has physical partition or not, you can refer to [this query](#sample-query-to-check-physical-partition). |
-| Full load from large table, without physical partitions, while with an integer or datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Partition column** (optional): Specify the column used to partition data. If not specified, the index or primary key column is used.<br/>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the table will be partitioned and copied. If not specified, copy activity auto detect the values.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, Data Factory retrieves data by 4 partitions - IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
-| Load a large amount of data by using a custom query, without physical partitions, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, Data Factory replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to SQL MI. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, Data Factory retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| Full load from large table, with physical partitions.        | **Partition option**: Physical partitions of table. <br><br/>During execution, the service automatically detects the physical partitions, and copies data by partitions. <br><br/>To check if your table has physical partition or not, you can refer to [this query](#sample-query-to-check-physical-partition). |
+| Full load from large table, without physical partitions, while with an integer or datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Partition column** (optional): Specify the column used to partition data. If not specified, the index or primary key column is used.<br/>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the table will be partitioned and copied. If not specified, copy activity auto detect the values.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions - IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
+| Load a large amount of data by using a custom query, without physical partitions, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, the service replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to SQL MI. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 Best practices to load data with partition option:
@@ -551,7 +575,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 If the table has physical partition, you would see "HasPartition" as "yes" like the following.
 
-![Sql query result](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="Sql query result":::
 
 ## Best practice for loading data into SQL Managed Instance
 
@@ -562,11 +586,11 @@ When you copy data into SQL Managed Instance, you might require different write 
 - [Overwrite](#overwrite-the-entire-table): I want to reload the entire dimension table each time.
 - [Write with custom logic](#write-data-with-custom-logic): I need extra processing before the final insertion into the destination table. 
 
-See the respective sections for how to configure in Azure Data Factory and best practices.
+See the respective sections for how to configure and best practices.
 
 ### Append data
 
-Appending data is the default behavior of the SQL Managed Instance sink connector. Azure Data Factory does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
+Appending data is the default behavior of the SQL Managed Instance sink connector. The service does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
 
 ### Upsert data
 
@@ -574,9 +598,9 @@ Appending data is the default behavior of the SQL Managed Instance sink connecto
 
 Copy activity currently doesn't natively support loading data into a database temporary table. There is an advanced way to set it up with a combination of multiple activities, refer to [Optimize SQL Database Bulk Upsert scenarios](https://github.com/scoriani/azuresqlbulkupsert). Below shows a sample of using a permanent table as staging.
 
-As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into an Azure SQL Managed Instance staging table, for example, **UpsertStagingTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the staging table into the target table and clean up the staging table.
+As an example, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into an Azure SQL Managed Instance staging table, for example, **UpsertStagingTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the staging table into the target table and clean up the staging table.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 In your database, define a stored procedure with MERGE logic, like the following example, which is pointed to from the previous stored procedure activity. Assume that the target is the **Marketing** table with three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column.
 
@@ -601,7 +625,7 @@ END
 
 ### Overwrite the entire table
 
-You can configure the **preCopyScript** property in a copy activity sink. In this case, for each copy activity that runs, Azure Data Factory runs the script first. Then it runs the copy to insert the data. For example, to overwrite the entire table with the latest data, specify a script to first delete all the records before you bulk load the new data from the source.
+You can configure the **preCopyScript** property in a copy activity sink. In this case, for each copy activity that runs, the service runs the script first. Then it runs the copy to insert the data. For example, to overwrite the entire table with the latest data, specify a script to first delete all the records before you bulk load the new data from the source.
 
 ### Write data with custom logic
 
@@ -642,7 +666,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     END
     ```
 
-3. In Azure Data Factory, define the **SQL MI sink** section in the copy activity as follows:
+3. In your pipeline, define the **SQL MI sink** section in the copy activity as follows:
 
     ```json
     "sink": {
@@ -726,9 +750,9 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 
 ## Data type mapping for SQL Managed Instance
 
-When data is copied to and from SQL Managed Instance using copy activity, the following mappings are used from SQL Managed Instance data types to Azure Data Factory interim data types. To learn how the copy activity maps from the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When data is copied to and from SQL Managed Instance using copy activity, the following mappings are used from SQL Managed Instance data types to interim data types used internally within the service. To learn how the copy activity maps from the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| SQL Managed Instance data type | Azure Data Factory interim data type |
+| SQL Managed Instance data type | Interim service data type |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -783,4 +807,4 @@ When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-da
 >3. Both source and sink data stores are using the same service principal as key provider authentication type.
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

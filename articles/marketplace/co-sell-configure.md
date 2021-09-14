@@ -4,10 +4,14 @@ description: The information you provide on the Co-sell with Microsoft tab for y
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: palanis-MSFT
-ms.author: palanis
+author: sharath-satish-msft
+ms.author: shsatish
 ms.reviewer: stmummer
+<<<<<<< HEAD
 ms.date: 09/13/2021
+=======
+ms.date: 09/03/2021
+>>>>>>> 1266ec4f8080f171dd4b58edfb53e15cba7ec817
 ---
 
 # Configure co-sell for a commercial marketplace offer
@@ -20,7 +24,7 @@ The Co-sell option is available for the following offer types.
 - Azure Container
 - Azure Virtual Machine
 - Consulting service
-- Dynamics 365 for Customer Engagement & PowerApps
+- Dynamics 365 for Customer Engagement & Power Apps
 - Dynamics 365 for operations
 - Dynamics 365 business central
 - IoT Edge Module
@@ -100,11 +104,11 @@ Solution types help define the scenarios that your offer is designed to address.
 
 ### Select solution areas
 
-Solution areas help to further define your solution. This helps Microsoft sales teams find and understand your solution’s value proposition. You must select at least one and up to a maximum of three solution areas for your offer. For each solution area, you can further choose up to two solution sub-areas.
+Solution areas help to further define your solution. This helps Microsoft sales teams find and understand your solution’s value proposition. You must select at least one and up to a maximum of five solution areas for your offer. For each solution area, you can further choose up to five solution sub-areas.
 
-1. Select the **+ Add solution area (3 Max)** link.
+1. Select the **+ Add solution area (5 Max)** link.
 1. Select a solution area from the drop-down list that appears.
-1. Select at least one and up to two solution sub-areas. To select multiple sub-areas, use the `Ctrl` key (on Windows) or `Command` key (on macOS).
+1. Select at least one and up to five solution sub-areas. To select multiple sub-areas, use the `Ctrl` key (on Windows) or `Command` key (on macOS).
 1. To add another solution area, repeat steps 1 through 3.
 
 ## Upload documents
@@ -200,4 +204,7 @@ Your contact information lets Microsoft sales teams and channel resellers reques
 
 - For details about republishing an offer, see [How to review and publish an offer to the commercial marketplace](review-publish-offer.md).
 - For information about commercial marketplace rewards and technical benefits, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
+<<<<<<< HEAD
 <!--- [Updated for Workspaces]() --->
+=======
+>>>>>>> 1266ec4f8080f171dd4b58edfb53e15cba7ec817

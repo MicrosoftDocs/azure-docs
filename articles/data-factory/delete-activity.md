@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/09/2021
 ---
 
 # Delete Activity in Azure Data Factory and Azure Synapse Analytics
@@ -37,7 +37,7 @@ Here are some recommendations for using the Delete activity:
 -   [Azure Blob storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Azure File Storage](connector-azure-file-storage.md)
+-   [Azure Files](connector-azure-file-storage.md)
 -   [File System](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)

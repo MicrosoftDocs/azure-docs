@@ -39,9 +39,9 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 When configuring these accounts, the following requirements must be met:
 
 - The emergency access accounts should not be associated with any individual user in the organization. Make sure that your accounts are not connected with any employee-supplied mobile phones, hardware tokens that travel with individual employees, or other employee-specific credentials. This precaution covers instances where an individual employee is unreachable when the credential is needed. It is important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD.
-- The authentication mechanism used for an emergency access account should be distinct from that used by your other administrative accounts, including other emergency access accounts.  For example, if your normal administrator sign-in is via on-premises MFA, then Azure AD MFA would be a different mechanism.  However if Azure AD MFA is your primary part of authentication for your administrative accounts, then consider a different approach for these, such as using Conditional Access with a third-party MFA provider via Custom controls.
+- Use strong authentication for your emergency access accounts and make sure it doesn’t use the same authentication methods as your other administrative accounts. For example, if your normal administrator account uses the Microsoft Authenticator app for strong authentication, use a FIDO2 security key for your emergency accounts. Consider the [dependencies of various authentication methods](../fundamentals/resilience-in-credentials.md), to avoid adding external requirements into the authentication process.
 - The device or credential must not expire or be in scope of automated cleanup due to lack of use.  
-- You should make the Global Administrator role assignment permanent for your emergency access accounts. 
+- In Azure AD Privileged Identity Management, you should make the Global Administrator role assignment permanent rather than eligible for your emergency access accounts. 
 
 ### Exclude at least one account from phone-based multi-factor authentication
 
@@ -51,11 +51,11 @@ However, at least one of your emergency access accounts should not have the same
 
 ### Exclude at least one account from Conditional Access policies
 
-During an emergency, you do not want a policy to potentially block your access to fix an issue. At least one emergency access account should be excluded from all Conditional Access policies.
+During an emergency, you do not want a policy to potentially block your access to fix an issue. If you use Conditional Access, at least one emergency access account needs to be excluded from all Conditional Access policies.
 
 ## Federation guidance
 
-Some organizations use AD Domain Services and ADFS or similar identity provider to federate to Azure AD. [There should be no on-premises accounts with administrative privileges](../fundamentals/protect-m365-from-on-premises-attacks.md). Mastering and or sourcing authentication for  accounts with administrative privilege outside Azure AD adds unnecessary risk in the event of an outage or compromise of those system(s).
+Some organizations use AD Domain Services and AD FS or similar identity provider to federate to Azure AD. The emergency access for on-premises systems and the emergency access for cloud services should be kept distinct, with no dependency of one on the other. Mastering and or sourcing authentication for accounts with emergency access privileges from other systems adds unnecessary risk in the event of an outage of those system(s).
 
 ## Store account credentials safely
 
@@ -153,4 +153,4 @@ These steps should be performed at regular intervals and for key changes:
 - [Sign up for Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), if you haven’t signed up already
 - [How to require two-step verification for a user](../authentication/howto-mfa-userstates.md)
 - [Configure additional protections for Global Administrators in Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts), if you are using Microsoft 365
-- [Start an access review of Global Administrators](../privileged-identity-management/pim-how-to-start-security-review.md) and [transition existing Global Administrators to more specific administrator roles](permissions-reference.md)
+- [Start an access review of Global Administrators](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) and [transition existing Global Administrators to more specific administrator roles](permissions-reference.md)
