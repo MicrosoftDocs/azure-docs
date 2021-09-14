@@ -1,6 +1,6 @@
 ---
 title: Azure Policy definitions for Azure NetApp Files  | Microsoft Docs
-description: Describes the Azure Policy built-in definitions and custom definitions that you can use with Azure NetApp Files. 
+description: Describes the Azure Policy custom definitions and built-in definitions that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -22,9 +22,9 @@ ms.author: b-juche
 
 Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. Policy definitions for these common use cases are already available in your Azure environment as built-ins to help you get started.
 
-The process of creating and implementing a policy in Azure Policy begins with creating a (built-in or custom) [policy definition](../governance/policy/overview.md#policy-definition). Every policy definition has conditions under which it's enforced. It also has a defined [*effect*](../governance/policy/concepts/effects.md) that takes place if the conditions are met. Azure NetApp Files is supported with both Azure Policy built-in and custom policy definitions.
+The process of creating and implementing a policy in Azure Policy begins with creating a (built-in or custom) [policy definition](../governance/policy/overview.md#policy-definition). Every policy definition has conditions under which it's enforced. It also has a defined [*effect*](../governance/policy/concepts/effects.md) that takes place if the conditions are met. Azure NetApp Files is supported with both Azure Policy custom and built-in policy definitions.
 
-## Custom policy definitions for Azure NetApp Files
+## Custom policy definitions
 
 Azure NetApp Files supports Azure Policy. You can integrate Azure NetApp Files with Azure Policy through [creating custom policy definitions](../governance/policy/tutorials/create-custom-policy-definition.md). You can find examples in [Enforce Snapshot Policies with Azure Policy](https://anfcommunity.com/2021/08/30/enforce-snapshot-policies-with-azure-policy/) and [Azure Policy now available for Azure NetApp Files](https://anfcommunity.com/2021/04/19/azure-policy-now-available-for-azure-netapp-files/).
 
