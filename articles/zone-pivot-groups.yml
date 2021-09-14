@@ -857,7 +857,15 @@ groups:
   - id: development-environment-vscode
     title: Visual Studio Code
   - id: development-environment-cli
-    title: Command line interface
+    title: Command-line interface
+- id: app-service-ide-oss
+  title: Development environment
+  prompt: Choose a development environment
+  pivots:
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Command-line interface
 - id: app-service-platform-windows-linux
   title: App Service platform
   prompt: Choose a hosting platform

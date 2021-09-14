@@ -3,10 +3,10 @@ title: 'Quickstart: Create a Node.js web app'
 description: Deploy your first Node.js Hello World to Azure App Service in minutes.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 08/01/2020
+ms.date: 09/14/2021
 ms.custom: mvc, devcenter, seodec18
 #zone_pivot_groups: app-service-platform-windows-linux
-zone_pivot_groups: app-service-ide
+zone_pivot_groups: app-service-ide-oss
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -22,9 +22,9 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 :::zone target="docs" pivot="development-environment-vscode"
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-- [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
-- [Visual Studio Code](https://code.visualstudio.com/).
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- Install [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
+- Install [Visual Studio Code](https://code.visualstudio.com/).
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
  <!-- - <a href="https://git-scm.com/" target="_blank">Install Git</a> -->
 
@@ -32,7 +32,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 :::zone target="docs" pivot="development-environment-cli"
 
-- Have Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - Install [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to provision and configure Azure resources.
 
@@ -73,7 +73,7 @@ In this step, you create a simple Node.js application and make sure it runs on y
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 ::: zone-end
 
-## Deploy the app to Azure
+## Deploy to Azure
 
 Before you continue, ensure that you have all the prerequisites installed and configured.
 
@@ -87,9 +87,9 @@ Before you continue, ensure that you have all the prerequisites installed and co
     code .
     ```
 
-1. In Visual Studio Code, in the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), select the Azure logo.
+1. In Visual Studio Code, in the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), select the **Azure** logo.
 
-1. In the **AZURE APP SERVICE** explorer, select **Sign in to Azure...** and follow the instructions.
+1. In the **App Service** explorer, select **Sign in to Azure...** and follow the instructions.
 
     In Visual Studio Code, you should see your Azure email address in the Status Bar and your subscription in the **AZURE APP SERVICE** explorer.
 
@@ -106,7 +106,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
         
 1. Choose the *myExpressApp* folder.
 
-# [Deploy to Linux host](#tab/linux)
+# [Deploy to Linux](#tab/linux)
 
 3. Choose **Create new Web App**. A Linux container is used by default.
 1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
@@ -118,15 +118,15 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 1. Once deployment completes, select **Browse Website** in the notification popup. The browser should display the Express default page.
 
-# [Deploy to Windows host](#tab/windows)
+# [Deploy to Windows](#tab/windows)
 
-1. Choose **Create new Web App... Advanced**.
+3. Choose **Create new Web App... Advanced**.
 1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
-1. Select **Create a new resource group**, then enter a name for the resource group, such as `AppServiceQS-rg`.
+1. Select **Create a new resource group**, then enter a name for the resource group, such as *AppServiceQS-rg*.
 1. Select the Node.js version you want. An **LTS** version is recommended.
 1. Select **Windows** for the operating system.
-1. Select the location you want to serve your app from. For example, `West Europe`.
-1. Select **Create new App Service plan**, then enter a name for the plan (such as `AppServiceQS-plan`), then select **F1 Free** for the pricing tier.
+1. Select the location you want to serve your app from. For example, *West Europe*.
+1. Select **Create new App Service plan**, then enter a name for the plan (such as *AppServiceQS-plan*), then select **F1 Free** for the pricing tier.
 1. For **Select an Application Insights resource for your app**, select **Skip for now** and wait for to provision the resources.
 1. In the popup **Always deploy the workspace "myExpressApp" to \<app-name>"**, select **Yes**. This way, as long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
 
@@ -147,7 +147,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 -----
 
 > [!TIP]
-> Your Node.js application needs to listen on the port provided by the `PORT` environment variable. In your basic Express app, this port is used in the startup script `bin/www` (search for `process.env.PORT`).
+> Your Node.js application needs to listen on the port provided by the `PORT` environment variable. In your basic Express app, this port is used in the startup script *bin/www* (search for `process.env.PORT`).
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
@@ -158,13 +158,13 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 In the terminal, make sure you're in the *myExpressApp* directory, and deploy the code in your local folder (*myExpressApp*) using the `az webapp up` command:
 
-# [Deploy to Linux host](#tab/linux)
+# [Deploy to Linux](#tab/linux)
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
 ```
 
-# [Deploy to Windows host](#tab/windows)
+# [Deploy to Windows](#tab/windows)
 
 ```azurecli
 az webapp up --sku F1 --name <app-name> --os-type Windows
@@ -211,7 +211,7 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 
 ::: zone-end
 
-### Update the app
+## Redeploy updates
 
 You can deploy changes to this app by making edits in Visual Studio Code, saving your files, and then using the same process as before only choosing the existing app rather than creating a new one. For example:
 
@@ -249,17 +249,17 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 ::: zone-end
 
-## Viewing Logs
+## Stream Logs
 
 :::zone target="docs" pivot="development-environment-vscode"
 
-You can view log output (calls to `console.log()`) from the app directly in the Visual Studio Code output window.
+You can stream log output (calls to `console.log()`) from the Azure app directly in the Visual Studio Code output window.
 
 1. In the **App Service** explorer, right-click the app node and choose **Start Streaming Logs**.
 
     ![Start Streaming Logs](media/quickstart-nodejs/view-logs.png)
 
-1. When prompted, choose to enable logging and restart the application. Once the app is restarted, the Visual Studio Code output window opens with a connection to the log stream. 
+1. When prompted, choose to enable logging and restart the app. Once the app is restarted, the Visual Studio Code output window opens with a connection to the log stream. 
 
     :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot of the Visual Studio Code prompt to enable logging and restart the application with the Yes button selected.":::
 
@@ -307,7 +307,7 @@ In the preceding steps, you created Azure resources in a resource group. The cre
 
 1. Expand the subscription, right-click the resource group you created earlier, and select **Delete**.
 
-    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot of the Visual Studio Code prompt to enable logging and restart the application with the Yes button selected.":::
+    :::image type="content" source="media/quickstart-nodejs/clean-up.png" alt-text="Screenshot of the Visual Studio Code prompt to enable logging and restart the application with the Yes button selected.":::
 
 1. When prompted, confirm your deletion by entering the name of the resource group you're deleting. Once you confirm, the resource group is deleted, and you see a [notification](https://code.visualstudio.com/api/references/extension-guidelines#notifications) when it's done.
 
