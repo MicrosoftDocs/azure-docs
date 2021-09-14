@@ -48,7 +48,7 @@ After the email is verified, the user can still select **Change email**, enter a
 </style>
 ```
 
-The default name of the **Change email** button in selfAsserted.html is **changeclaims**. To find the button name, on the sign-up page, inspect the page source by using a browser tool like Inspect.
+The default name of the **Change email** button in *selfAsserted.html* is **changeclaims**. To find the button name, on the sign-up page, inspect the page source by using a browser tool like Inspect.
 
 ## Prerequisites
 
@@ -155,7 +155,7 @@ A claims transformation technical profile initiates the **isForgotPassword** cla
 </ClaimsProviders> -->
 ```
 
-The **SelfAsserted-LocalAccountSignin-Email** technical profile **setting.forgotPasswordLinkOverride** defines the password reset claims exchange that execute in your user journey.
+The **SelfAsserted-LocalAccountSignin-Email** technical profile **setting.forgotPasswordLinkOverride** defines the password reset claims exchange that executes in your user journey.
 
 ### Add the password reset sub journey
 
@@ -308,7 +308,7 @@ To let your application users reset their passwords, create a password reset use
 1. Under **Select a version**, select **Recommended**, and then select **Create**.
 1. For **Name**, enter a name for the user flow. For example, *passwordreset1*.
 1. For **Identity providers**, enable **Reset password using username** or **Reset password using email address**.
-1. Under **Multifactor authentication**, if you want to require users to verify their identities by using a second authentication method, select the method type and when to enforce multi-factor authentication. [Learn more](multi-factor-authentication.md).
+1. Under **Multifactor authentication**, if you want to require users to verify their identities by using a second authentication method, select the method type and when to enforce multifactor authentication. [Learn more](multi-factor-authentication.md).
 1. Under **Conditional access**, if you've configured conditional access policies for your Azure AD B2C tenant and you want to use them in this user flow, select the **Enforce conditional access policies** checkbox. You don't need to specify a policy name. [Learn more](conditional-access-user-flow.md?pivots=b2c-user-flow).
 1. Under **Application claims**, select **Show more**. Choose the claims you want returned in the authorization tokens that are sent back to your application. For example, select **User's Object ID**.
 1. Select **OK**.
