@@ -23,6 +23,10 @@ ms.author: ofshezaf
 
 In Azure Sentinel, parsing and [normalizing](normalization.md) happen at query time. Parsers are built as [KQL user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) that transform data in existing tables, such as **CommonSecurityLog**, custom logs tables, or Syslog, into the normalized schema. Once the parser is saved as a workspace function, it can be used like any Azure Sentinel table.
 
+> [!TIP]
+> Also watch the [Deep Dive Webinar on Azure Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). For more information, see [Next steps](#next-steps).
+>
+
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -274,12 +278,13 @@ For more information, see the [generic parser ARM template](https://github.com/A
 >
 
 
-## Next steps
+## <a name="next-steps"></a>Next steps
 
 This article discusses the Azure Sentinel Information Model (ASIM) parsers.
 
 For more information, see:
 
+- Watch the [Deep Dive Webinar on Azure Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
 - [Azure Sentinel Information Model overview](normalization.md)
 - [Azure Sentinel Information Model schemas](normalization-about-schemas.md)
 - [Azure Sentinel Information Model content](normalization-content.md)
