@@ -259,7 +259,7 @@ For details on known impacted scenarios as well as what experience your users ca
 - Previously, the presence of the banner recommending the use of collections caused content to scroll behind the header. This issue has been resolved. 
 - Previously, there was another issue when adding apps to a collection, the order of apps in All Apps collection would get randomly reordered. This issue has also been resolved. 
 
-For more information on My Apps, read [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+For more information on My Apps, read [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ---
 
@@ -323,7 +323,7 @@ The onPremisesPublishing resource type now includes the property, "isBackendCert
  
 Users can now use their existing authentication methods to directly sign into the Microsoft Authenticator app to set up their credential. Users don't need to scan a QR Code anymore and can use a Temporary Access Pass (TAP) or Password + SMS (or other authentication method) to configure their account in the Authenticator app.
 
-This improves the user credential provisioning process for the Microsoft Authenticator app and gives the end user a self-service method to provision the app. [Learn more](../user-help/user-help-auth-app-add-work-school-account.md#sign-in-with-your-credentials).
+This improves the user credential provisioning process for the Microsoft Authenticator app and gives the end user a self-service method to provision the app. [Learn more](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c#sign-in-with-your-credentials).
  
 ---
 
@@ -440,7 +440,7 @@ For the Risky users, Risky sign-ins, and Risk detections reports in Identity Pro
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
- You can use Azure AD access reviews to review service principal's access to privileged Azure AD and Azure resource roles. [Learn more](../privileged-identity-management/pim-how-to-start-security-review.md#open-access-reviews).
+ You can use Azure AD access reviews to review service principal's access to privileged Azure AD and Azure resource roles. [Learn more](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md#create-access-reviews).
  
 ---
 
@@ -460,7 +460,7 @@ Now group owners in Azure AD can create and manage Azure AD access reviews on th
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
-When admins create access reviews of assignments to privileged roles, they can scope the reviews to only eligibly assigned users or only actively assigned users. [Learn more](../privileged-identity-management/pim-how-to-start-security-review.md).
+When admins create access reviews of assignments to privileged roles, they can scope the reviews to only eligibly assigned users or only actively assigned users. [Learn more](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
  
 ---
 
@@ -1220,4 +1220,3 @@ Two-way SMS for MFA Server was originally deprecated in 2018, and will not be su
 Email notifications and Azure portal Service Health notifications were sent to affected admins on December 8, 2020 and January 28, 2021. The alerts went to the Owner, Co-Owner, Admin, and Service Admin RBAC roles tied to the subscriptions. [Learn more](../authentication/how-to-authentication-two-way-sms-unsupported.md).
  
 ---
-

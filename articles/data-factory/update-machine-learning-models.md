@@ -27,7 +27,7 @@ Retraining may occur frequently. With Batch Execution activity and Update Resour
 
 The following picture depicts the relationship between training and predictive Web Services.
 
-![Web services](./media/update-machine-learning-models/web-services.png)
+:::image type="content" source="./media/update-machine-learning-models/web-services.png" alt-text="Web services":::
 
 ## Azure Machine Learning Studio (classic) update resource activity
 
