@@ -112,6 +112,8 @@ items:
       href: custom-question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
       href: custom-question-answering/how-to/migrate-knowledge-base.md
+    - name: Change default answer
+      href: custom-question-answering/how-to/change-default-answer.md
 - name: Entity linking
   items:
   - name: Overview
