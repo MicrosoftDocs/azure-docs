@@ -22,7 +22,7 @@ When you're finished, you'll see that the event data has been sent to the web ap
 
 ## Create an Azure Cache for Redis cache instance
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
 ## Create a message endpoint
 
