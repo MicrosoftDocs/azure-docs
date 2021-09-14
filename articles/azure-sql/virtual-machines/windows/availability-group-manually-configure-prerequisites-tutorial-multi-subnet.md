@@ -24,7 +24,7 @@ ms.reviewer: mathoma
 > [!TIP]
 > Eliminate the need for an Azure Load Balancer for your Always On availability group by creating your SQL Server VMs in multiple subnets within the same Azure virtual network.
 
-In this tutorial, complete the prerequisites for creating an [Always On availability group for SQL Server on AzureVirtual Machines (VMs) in multiple subnets](availability-group-manually-configure-tutorial-multiple-subnet.md). At the end of the tutorial, you will have a domain controller on two Azure virtual machines, two SQL Server VMs in multiple subnets, and a storage account in a single resource group. 
+In this tutorial, complete the prerequisites for creating an [Always On availability group for SQL Server on AzureVirtual Machines (VMs) in multiple subnets](availability-group-manually-configure-tutorial-multiple-subnet.md). At the end of this tutorial, you will have a domain controller on two Azure virtual machines, two SQL Server VMs in multiple subnets, and a storage account in a single resource group. 
 
 **Time estimate**: This tutorial may take several hours to complete, as creating resources can be time-intensive. 
 
@@ -397,9 +397,15 @@ Use the following table to fill out the values on the **Create a virtual machine
 After VM creation completes, configure your SQL Server VMs by adding a secondary IP address to each VM, and joining them to the domain. 
 
 
-###  Add IPs to SQL Server VMs
+### Add IPs to SQL Server VMs
 
-In the multi-subnet environment, assign two **unused** secondary IP addresses to each SQL Server VM so that one can be used for the Windows Server Failover Cluster IP, and the other is used for the availability group listener. Doing this negates the need for an Azure Load Balancer, as is the requirement in a single subnet environment. 
+In the multi-subnet environment, assign secondary IP addresses to each SQL Server VM to use for the availability group listener, and for Windows Server 2016 and earlier, assign secondary IP addresses to each SQL Server VM for the cluster IP address as well. Doing this negates the need for an Azure Load Balancer, as is the requirement in a single subnet environment.  
+
+On Windows Server 2016 and earlier, you need to assign an additional secondary IP address to each SQL Server VM to use for the windows cluster IP since the cluster uses the **Cluster Network Name** rather than the default Distributed Network Name (DNN) introduced in Windows Server 2019. With a DNN, the cluster name object (CNO) is automatically registered with the IP addresses for all the nodes of the cluster, eliminating the need for a dedicated windows cluster IP address.
+
+If you're on Windows Server 2016 and prior, follow the steps in this section to assign a secondary IP address to each SQL Server VM for *both* the availability group listener, *and* the cluster. 
+
+If you're on Windows Server 2019 or later, only assign a secondary IP address for the availability group listener, and skip the steps to assign a windows cluster IP, unless you plan to configure your cluster with a virtual network name (VNN), in which case assign both IP addresses to each SQL Server VM as you would for Windows Server 2016. 
 
 To assign additional secondary IPs to the VMs, follow these steps: 
 
