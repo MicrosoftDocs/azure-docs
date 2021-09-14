@@ -69,13 +69,13 @@ However, if you’d like all the latest features and updates, the best way to se
  - We fixed a security issue where an unquoted path was used to point to the Azure AD Connect service. This path is now a quoted path.
  - Fixing an import config issue with writeback enabled when using the existing AD connector account.
  - We fixed an issue in Set-ADSyncExchangeHybridPermissions and other related cmdlets, which were broken from 1.6 due to an invalid inheritance type.
- - The cmdlet we publish to set the TLS version had an issue where it overwrites the keys, destroying any values that were in them. We fixed this by only creating a new key if one does not already exist. A warning is also added to let users know the TLS registry changes are not exclusive to Azure AD Connect and may impact other applications on the same server as well.
+ - The cmdlet we published in a previous release to set the TLS version had an issue where it overwrites the keys, destroying any values that were in them. We fixed this by only creating a new key if one does not already exist. A warning is also added to let users know the TLS registry changes are not exclusive to Azure AD Connect and may impact other applications on the same server as well.
  - We added a check to enforce auto upgrade for V2.0 to require Windows Server 2016 or newer.
  - We added 'Replicating Directory Changes' permission in the Set-ADSyncBasicReadPermissions cmdlet.
  - We made a change to prevent UseExistingDatabase and import configuration from being used together since these could contain conflicting configuration settings.
  - We made a change to allow a user with the Application Admin role to change the App Proxy service configuration.
  - We removed the '(Preview)' label from the labels of Import/Export settings - this functionality has been in General Availability for some time now.
- - We change some label that still refered to "Company Administrator" - we now use the role name "Global Administrator".
+ - We change some labels that still refered to "Company Administrator" - we now use the role name "Global Administrator".
  - We created new AAD Kerberos PowerShell cmdlets "\*-AADKerberosServer" to add a Claims Transform rule to the AAD Service Principal.
 
 ### Functional changes
