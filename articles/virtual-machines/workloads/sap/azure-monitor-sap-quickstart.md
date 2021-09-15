@@ -48,15 +48,25 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 5. Select **Extended Maintenance** > **Change**. 
 6. Select the profile parameter "service/protectedwebmethods" and modify to have the following value, then click Copy:  
 
-   `SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList`
+   ```service/protectedwebmethods instruction
+      SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList```
 
 7. Go back and select **Profile** > **Save**.
 8. After saving the changes for this parameter, please restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux))
    8a. On Windows systems, this can be done in a single window using the SAP Microsoft Management Console (MMC) / SAP Management Console(MC).  Right-click on each instance and choose All Tasks -> Restart Service.
 ![MMC](https://user-images.githubusercontent.com/75772258/126453939-daf1cf6b-a940-41f6-98b5-3abb69883520.png)
-   8b. On Linux systems, use the command:  `sapcontrol -nr <NN> -function RestartService`, where NN is the SAP instance number to restart the host which is logged into.
+
+   8b. On Linux systems, use the below command where NN is the SAP instance number to restart the host which is logged into.
+   
+   ```RestartService
+   sapcontrol -nr <NN> -function RestartService```
    
 9. Once the SAP service is restarted, please check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
+
+**Logged as <sidadm>** 
+   `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods`
+
+**Logged as different user** 
    `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user "<adminUser>" "<adminPassword>"`
 
    The output should look like :-

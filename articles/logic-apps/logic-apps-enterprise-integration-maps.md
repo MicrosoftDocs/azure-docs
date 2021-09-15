@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 09/14/2021
 ---
 
 # Add XSLT maps for XML transformation in Azure Logic Apps
@@ -16,52 +16,56 @@ To transfer XML data between formats for enterprise integration scenarios in Azu
 
 For example, suppose you regularly receive B2B orders or invoices from a customer who uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can define and use a map that transforms the YYYYMMDD format to the MMDDYYYY format before storing the order or invoice details in your customer activity database.
 
-With a map, you can define a simple transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.
+With a map, you can define a basic transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.
 
 > [!NOTE]
 > Azure Logic Apps allocates finite memory for processing XML transformations. If you create logic apps based on the 
-> **Logic App (Consumption)** resource type, and your map or payload transformations have high memory consumption, 
-> such transformations might fail, resulting in out of memory errors. To avoid this scenario, consider these options:
+> [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), 
+> and your map or payload transformations have high memory consumption, such transformations might fail, resulting in 
+> out of memory errors. To avoid this scenario, consider these options:
 >
 > * Edit your maps or payloads to reduce memory consumption.
 >
-> * Create your logic apps using the **Logic App (Standard)** resource type instead.
+> * Create your logic apps using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences) instead.
 >
 >   These workflows run in single-tenant Azure Logic Apps, which offers dedicated and flexible options for compute and memory resources. 
 >   However, the Standard logic app resource type currently doesn't support referencing external assemblies from maps. Also, only Extensible 
 >   Stylesheet Language Transformation (XSLT) 1.0 is currently supported.
 
-If you're new to logic apps, review the following documentation:
-
-* [What is Azure Logic Apps - Resource type and host environments](logic-apps-overview.md#resource-type-and-host-environment-differences)
-
-* [Create an integration workflow with single-tenant Azure Logic Apps (Standard)](create-single-tenant-workflows-azure-portal.md)
-
-* [Create single-tenant logic app workflows](create-single-tenant-workflows-azure-portal.md)
-
-* [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
-
-## Limits
-
-* For **Standard** logic app resources, no limits exist for map file sizes.
-
-* For **Consumption** logic app resources, limits exist for integration accounts and artifacts such as maps. For more information, review [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* If you're using the **Logic App (Standard)** resource type, you don't need an integration account. Instead, you can add maps directly to your logic app resource in either the Azure portal or Visual Studio Code. Only XSLT 1.0 is currently supported. You can then use these maps across multiple workflows within the *same logic app resource*.
+* To create maps, you can use the following tools:
 
-* If you're using the **Logic App (Consumption)** resource type, you need to have an [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you can store your maps and other artifacts to use in enterprise integration and business-to-business (B2B) solutions. This resource has to meet the following requirements:
+  * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
+
+  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) extension.
+
+   > [!IMPORTANT]
+   > Don't install the extension alongside the BizTalk Server extension. Having both extensions might 
+   > produce unexpected behavior. Make sure that you only have one of these extensions installed.
+
+   > [!NOTE]
+   > On high resolution monitors, you might experience a [display problem with the map designer](/visualstudio/designers/disable-dpi-awareness) 
+   > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
+   > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
+
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts for use in your enterprise integration and business-to-business (B2B) workflows. This resource has to meet the following requirements:
 
   * Is associated with the same Azure subscription as your logic app resource.
 
   * Exists in the same location or Azure region as your logic app resource where you plan to use the **Transform XML** action.
 
-  * Is [linked](logic-apps-enterprise-integration-create-integration-account.md#link-account) to your logic app resource where you want to use maps.
+  * If you use the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you have to [link your integration account to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use your artifacts in your workflow.
 
-    To create and add maps for use in Consumption logic app workflows, you don't need a logic app resource yet. However, when you're ready to use those maps in your workflows, your logic app resource requires a linked integration account that stores those maps.
+    To create and add maps for use in **Logic App (Consumption)** workflows, you don't need a logic app resource yet. However, when you're ready to use those maps in your workflows, your logic app resource requires a linked integration account that stores those maps.
+
+  * If you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you need an existing logic app resource because you don't store maps in your integration account. Instead, you can directly add maps to your logic app resource using either the Azure portal or Visual Studio Code. Only XSLT 1.0 is currently supported. You can then use these maps across multiple workflows within the *same logic app resource*.
+
+    You still need an integration account for your partners, agreements, and certificates along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account has to still meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
 
 * While **Logic App (Consumption)** supports referencing external assemblies from maps, **Logic App (Standard)** currently doesn't support this capability. Referencing an assembly enables direct calls from XSLT maps to custom .NET code.
 
@@ -78,7 +82,13 @@ If you're new to logic apps, review the following documentation:
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md). <p>Or, in the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. |
     |||
 
-  * To add larger maps for Consumption logic app resources, you can also use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). However, for Standard logic app resources, the Azure Logic Apps REST API is currently unavailable.
+  * To add larger maps for the **Logic App (Consumption)** resource type, you can also use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). However, for the **Logic App (Standard)** resource type, the Azure Logic Apps REST API is currently unavailable.
+
+## Limits
+
+* With **Logic App (Standard)**, no limits exist for map file sizes.
+
+* With **Logic App (Consumption)**, limits exist for integration accounts and artifacts such as maps. For more information, review [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 <a name="add-assembly"></a>
 
@@ -147,7 +157,7 @@ To add larger assemblies, you can upload your assembly to an Azure blob containe
 
 1. In the **Content URI** box, paste your assembly's URL. Finish adding your assembly.
 
-   After your assembly finishes uploading, the schema appears in the **Assemblies** list. On your integration account's **Overview** pane, under **Artifacts**, your uploaded assembly also appears.
+   After your assembly finishes uploading, the assembly appears in the **Assemblies** list. On your integration account's **Overview** pane, under **Artifacts**, your uploaded assembly also appears.
 
 <a name="no-public-access-assemblies"></a>
 
@@ -165,7 +175,7 @@ To add larger assemblies, you can upload your assembly to an Azure blob containe
 
 1. In the **Content URI** box, paste the SAS URI that you previously generated. Finish adding your assembly.
 
-After your assembly finishes uploading, the assembly appears in the **Schemas** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded assembly also appears.
+After your assembly finishes uploading, the assembly appears in the **Assemblies** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded assembly also appears.
 
 <a name="create-maps"></a>
 
@@ -208,11 +218,11 @@ The following example shows a map that references an assembly named `XslUtilitie
 
 * When you create a map using Visual Studio and the [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas), you work with a graphical representation of the map, which shows all the relationships and links you create.
 
-* You can make a direct data copy between schemas. The [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas) for Visual Studio includes a mapper that makes this task as simple as drawing a line that connects the elements in the source XML schema with their counterparts in the target XML schema.
+* You can make a direct data copy between the XML schemas that you use to create the map. The [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas) for Visual Studio includes a mapper that makes this task as simple as drawing a line that connects the elements in the source XML schema with their counterparts in the target XML schema.
 
-* Operations or functions for multiple maps are available, including string functions, date time functions, and so on.  
+* Operations or functions for multiple maps are available, including string functions, date time functions, and so on.
 
-* To add a sample XML message, you can use the map testing capability. With just one click, you can test the map you created, and review the generated output.
+* To add a sample XML message, you can use the map testing capability. With just one gesture, you can test the map you created, and review the generated output.
 
 ## Add maps
 
