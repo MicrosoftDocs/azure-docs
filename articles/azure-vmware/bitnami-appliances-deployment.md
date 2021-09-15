@@ -179,8 +179,3 @@ In this step, you'll enable SSH on your virtual appliance for remote access cont
 
 
 
-
-
-## Step 6. Connect to PhpMyAdmin 
-
-[do all of the virtual appliances need to connect to this? so far, only Lamp but the instructions are "find your bitnami credentials" and "log into PhpMyAdmin with bitnami credentials".  I guess I'm not sure the purpose of this section if it's just those two steps.] 
