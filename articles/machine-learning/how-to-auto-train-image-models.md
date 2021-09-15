@@ -9,33 +9,30 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom:  automl
-ms.date: 
+ms.date: 10/06/20 21
 ---
 
 # Set up AutoML to train an image model with Python 
 In this article, you learn how to train computer vision models on image data using Azure Machine Learning Automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
 To do so, you will 
-<ul>
-<li>Select the task type</li>
-<li>Specify the training and validation data</li>
-<li>Learn about data augmentations for image tasks</li>
-<li>Choose your compute target</li>
-<li>Configure model algorithms and hyperparameters</li>
-<li>Optionally, perform a hyperparameter sweep to optimize model performance</li>
-<li>Run an AutoML experiment to train an image model</li>
-<li>Explore model metrics</li>
-<li>Register and deploy model</li>
-</ul>
+
+* Select the task type
+* Specify the training and validation data
+* Learn about data augmentations for image tasks
+* Choose your compute target
+* Configure model algorithms and hyperparameters
+* Optionally, perform a hyperparameter sweep to optimize model performance
+* Run an AutoML experiment to train an image model
+* Explore model metrics
+* Register and deploy model
 
 ## What is AutoML for Images?
 AutoML for Images supports computer vision tasks such as Image Classification, Object Detection and Instance Segmentation.
 
-![Computer Vision Tasks](ComputerVisionTasks.jpg)
-
 [Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf]
 
-With AutoML support for vision tasks, customers can easily build models trained on image data, without writing any training code. They can seamlessly integrate with Azure ML's Data Labeling capability and use this labeled data for generating image models. They can optimize model perfromance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging AzureML [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
+With AutoML support for vision tasks, customers can easily build models trained on image data, without writing any training code. They can seamlessly integrate with Azure ML's Data Labeling capability and use this labeled data for generating image models. They can optimize model performance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging AzureML [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
 
 Authoring AutoML models for vision tasks is currently supported via the Azure ML Python SDK. The resulting experimentation runs, models and outputs will be accessible from the Azure ML Studio UI.
 
@@ -177,9 +174,10 @@ automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 <!--TODO - add a section on data augmentations for OD and IC-->
 
 ### Compute to run experiment
-You will need to provide a [Compute Target](concept-azure-machine-learning-architecture#compute-target) that will be used for your AutoML model training. AutoML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend using the NCsv3-series (with v100 GPUs) for faster training. Using a compute target with a multi-GPU VM SKU will leverage the multiple GPUs to speed up training. Additionally, setting up a compute target with multiple nodes will allow for faster model training by leveraging parallelism, when tuning hyperparameters for your model.
 
-The compute target is a required parameter and is passed in using the `compute_target` parameter of the AutoMLImageConfig. For example:
+You need to provide a [Compute Target](concept-azure-machine-learning-architecture.md#compute-target) that will be used for your AutoML model training. AutoML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend using the NCsv3-series (with v100 GPUs) for faster training. Using a compute target with a multi-GPU VM SKU will leverage the multiple GPUs to speed up training. Additionally, setting up a compute target with multiple nodes will allow for faster model training by leveraging parallelism, when tuning hyperparameters for your model.
+
+The compute target is a required parameter and is passed in using the `compute_target` parameter of the `AutoMLImageConfig`. For example:
 
 ```python
 from azureml.train.automl import AutoMLImageConfig
@@ -206,7 +204,7 @@ The following tables list out the details of the hyperparameters  and their defa
 
 <b>Model-agnostic hyperparameters</b>
 
-| Parameter Name       | Description           | Default  |
+| Parameter Name| Description   | Default  |
 | ------------- |-------------| -----|
 | number_of_epochs | Number of training epochs <br> `Optional, Positive Integer` |  all (except yolov5) : 15 <br>yolov5: 30 |
 | training_batch_size | Training batch size <br> *Note: the defaults are largest batch size <br>which can be used on 12GiB GPU memory* <br> `Optional, Positive Integer` | multi-class / multi-label: 78 <br>OD (except yolov5) / IS: 2 <br>yolov5: 16 |
@@ -236,7 +234,7 @@ The following tables list out the details of the hyperparameters  and their defa
 <b>Task-specific hyperparameters</b>
 <br>
 <br>
-<b> For Image Classifcation (Multi-class and Multi-label):</b>
+<b> For Image Classification (Multi-class and Multi-label):</b>
 
 | Parameter Name       | Description           | Default  |
 | ------------- |-------------| -----|
