@@ -19,7 +19,7 @@ A collection is a also a logical and security boundary of your metadata in data 
 
 ## Intended audience
 
-- Data architect team 
+- Data architecture team 
 - Data governance and management teams
 - Data security team
 
