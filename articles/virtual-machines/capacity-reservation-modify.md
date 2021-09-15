@@ -67,17 +67,14 @@ Note that the `capacity` property is set to 5 now in this example.
 In order to update the quantity reserved, use `New-AzCapacityReservation` with the updated `capacityToReserve` property.
 
 ```powershell-interactive
-New-AzCapacityReservation
+Update-AzCapacityReservation
 -ResourceGroupName "myResourceGroup"
--Location "eastus"
--Zone "1"
 -ReservationGroupName "myCapacityReservationGroup"
 -Name "myCapacityReservation"
--Sku "Standard_D2s_v3"
 -CapacityToReserve 5
 ```
 
-To learn more, go to Azure PowerShell command [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
+To learn more, go to Azure PowerShell command [Update-AzCapacityReservation](/powershell/module/az.compute/update-azcapacityreservation).
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
@@ -148,7 +145,7 @@ Check if the target size is part of the reservation group:
 
 1. Consider the following: 
     1. If the target VM size isn't part of the group, [create a new capacity reservation](capacity-reservation-create.md) for the target VM 
-    1. If the target VM size already exists in the group, [resize the virtual machine](.\windows\resize-vm.md) 
+    1. If the target VM size already exists in the group, [resize the virtual machine](resize-vm.md) 
 
 ### [Portal](#tab/portal2)
 
@@ -158,7 +155,7 @@ Check if the target size is part of the reservation group:
 1. Select **Reservations** 
 1. Look at the *VM size* reserved for each reservation 
     1. If the target VM size isn't part of the group, [create a new capacity reservation](capacity-reservation-create.md) for the target VM 
-    1. If the target VM size already exists in the group, [resize the virtual machine](.\windows\resize-vm.md) 
+    1. If the target VM size already exists in the group, [resize the virtual machine](resize-vm.md) 
 
 ### [PowerShell](#tab/powershell2)
 
@@ -186,7 +183,7 @@ Check if the target size is part of the reservation group:
 
 1. Consider the following: 
     1. If the target VM size isn't part of the group, [create a new capacity reservation](capacity-reservation-create.md) for the target VM 
-    1. If the target VM size already exists in the group, [resize the virtual machine](.\windows\resize-vm.md) 
+    1. If the target VM size already exists in the group, [resize the virtual machine](resize-vm.md) 
 
 
 To learn more, go to Azure PowerShell commands [Get-AzCapacityReservationGroup](/powershell/module/az.compute/get-azcapacityreservationgroup) and [Get-AzCapacityReservation](/powershell/module/az.compute/get-azcapacityreservation).

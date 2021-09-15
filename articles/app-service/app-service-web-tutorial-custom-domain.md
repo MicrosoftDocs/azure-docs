@@ -159,8 +159,8 @@ For a subdomain like `www` in `www.contoso.com`, create two records according to
 
     |Record type|Host|Value|
     |--- |--- |--- |
-    |A|<subdomain> (for example, www)|IP address from Copy the app's IP address|
-    |TXT|asuid.<subdomain> (for example, asuid.www)|The verification ID you got earlier|
+    |A|\<subdomain\> (for example, www)|IP address from Copy the app's IP address|
+    |TXT|asuid.\<subdomain\> (for example, asuid.www)|The verification ID you got earlier|
     
 # [Wildcard (CNAME)](#tab/wildcard)
 
