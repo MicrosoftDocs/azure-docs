@@ -254,7 +254,7 @@ You can view html output of pandas dataframe as the default output, notebook wil
 
    ![Panda graph example.](./media/apache-spark-data-viz/panda.png#lightbox)
 
-```
+```python
 import pandas as pd 
 import numpy as np 
 
