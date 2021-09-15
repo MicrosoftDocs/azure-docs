@@ -34,21 +34,20 @@ Read these articles before you begin:
 
 Prerequisites for this tutorial are:
 [!INCLUDE [prerequisites](./includes/common-includes/csharp-prerequisites.md)]
-* The camera should be capable of supporting two concurrent RTSP streams.
-* The camera should be configured to a maximum bitrate under 3 Mbps.
-* <!-- TODO: do we need steps for setting up actual camera? -->
-
-------------------------------
-
+* IP camera with RTSP stream configured
+  * The camera should be capable of supporting two concurrent RTSP streams.
+  * The camera should be configured to a maximum bitrate under 3 Mbps.
 
 ## Set up Azure resources
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 [!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
+<!-- TODO: should this be used? -->
 
 ## Concepts
 
-
+To accomplish low latency video streaming with an edge device, you need to be able to connect your camera to the cloud to utilize Video Analyzer's cloud pipelines. Cameras can be connected to the cloud using an edge device as a transparent gateway. <!-- TODO: link to transparent gateway -->
+------------------------------
 
 ## Set up your development environment
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
