@@ -69,6 +69,32 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
 > [!NOTE]
 > Private links are not supported with the preview release.
 
+## Folder exclusions from Antivirus program
+
+### If Antivirus Software is active on appliance
+
+Exclude following folders from Antivirus software for smooth replication and to avoid connectivity issues.
+
+C:\ProgramData\Microsoft Azure <br>
+C:\ProgramData\ASRLogs <br>
+C:\Windows\Temp\MicrosoftAzure 
+C:\Program Files\Microsoft Azure Appliance Auto Update <br>
+C:\Program Files\Microsoft Azure Appliance Configuration Manager <br>
+C:\Program Files\Microsoft Azure Push Install Agent <br>
+C:\Program Files\Microsoft Azure RCM Proxy Agent <br>
+C:\Program Files\Microsoft Azure Recovery Services Agent <br>
+C:\Program Files\Microsoft Azure Server Discovery Service <br>
+C:\Program Files\Microsoft Azure Site Recovery Process Server <br>
+C:\Program Files\Microsoft Azure Site Recovery Provider <br>
+C:\Program Files\Microsoft Azure to On-Premise Reprotect agent <br>
+C:\Program Files\Microsoft Azure VMware Discovery Service <br>
+C:\Program Files\Microsoft On-Premise to Azure Replication agent <br>
+E:\ <br>
+
+### If Antivirus software is active on Source machine
+
+If source machine has an Antivirus software active, installation folder should be excluded. So, exclude folder C:\ProgramData\ASR\agent for smooth replication.
+
 ## Prepare Azure account
 
 To create and register the Azure Site Recovery replication appliance, you need an Azure account with:

@@ -15,7 +15,7 @@ ms.date: 09/07/2021
 
 In this article, learn how to connect to and explore a knowledge store using Power Query in the Power BI Desktop app. You can get started faster with templates, or build a custom dashboard from scratch.
 
-A knowledge store composed of tables in Azure Storage works best in Power BI. If the tables contain projections from the same skillset and projection group, you can easily build table visualizations that combine fields from related tables.
+A knowledge store that's composed of tables in Azure Storage work best in Power BI. If the tables contain projections from the same skillset and projection group, you can easily "join" them to build table visualizations that include fields from related tables.
 
 Follow along with the steps in this article using the sample data and knowledge store [created in the Azure portal](knowledge-store-create-portal.md) or through [Postman and REST APIs](knowledge-store-create-rest.md). 
 
