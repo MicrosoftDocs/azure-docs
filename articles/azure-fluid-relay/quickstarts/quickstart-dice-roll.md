@@ -16,7 +16,9 @@ The sample code used in this quickstart is available [here](https://github.com/m
 
 ## Set up your development environment
 
-To follow along with this quickstart, you need the following installed.
+To follow along with this quickstart, you'll need an Azure account an [Azure Fluid Relay service provisioned](../how-tos/provision-fluid-azure-portal.md). If you don't have an account, you can [try Azure for free](https://azure.com/free).
+
+You'll also need the following software installed on your computer.
 
 - A code editor -- We recommend [Visual Studio Code](https://code.visualstudio.com/).
 - [Git](https://git-scm.com/downloads)
