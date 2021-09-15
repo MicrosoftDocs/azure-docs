@@ -1,7 +1,7 @@
 ---
 title: Integrate Azure DevTest Labs into your Azure Pipelines
 description: Learn how to integrate Azure DevTest Labs into your Azure Pipelines continuous integration and delivery pipeline
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
