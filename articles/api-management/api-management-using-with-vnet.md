@@ -331,7 +331,7 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
   | **Required** | Select to review the required Azure services connectivity for API Management. Failure indicates that the instance is unable to perform core operations to manage APIs. |
   | **Optional** | Select to review the optional services connectivity. Failure indicates only that the specific functionality will not work (for example, SMTP). Failure may lead to degradation in using and monitoring the API Management instance and providing the committed SLA. |
 
-  To address connectivity issues, review [network configuration settings](#network-configuration) and fix required network settings.
+  To address connectivity issues, review [network configuration settings](#network-configuration-issues) and fix required network settings.
 
 * **Incremental updates**  
   When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
