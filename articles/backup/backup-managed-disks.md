@@ -152,7 +152,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
    If the _Role assignment not done_ error message displays in the **Backup readiness** column, the Backup vault managed identity needs role permissions on the selected disk(s) and/or   on the Snapshot resource group. 
 
-   :::image type="content" source="./media/backup-managed-disks/role-assignmemt-not-done-error-inline.png" alt-text="Screenshot showing the "Role assignment not done" error message." lightbox="./media/backup-managed-disks/role-assignmemt-not-done-error-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/role-assignmemt-not-done-error-inline.png" alt-text="Screenshot showing the Role assignment not done error message." lightbox="./media/backup-managed-disks/role-assignmemt-not-done-error-expanded.png":::
 
    To configure backup of managed disks, the following prerequisites are required::
 

@@ -168,7 +168,7 @@ To configure backup of managed disks, ensure the following prerequisites:
      >[!Tip}
      >Type the Backup vault name to select the vault’s managed identity.
 
-  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-inline.png" alt-text="Screenshot showing the process to assign the "Disk Backup Reader" role to Backup vault’s managed identity on the Source disk that needs to be backed up." lightbox="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-expanded.png":::
+  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-inline.png" alt-text="Screenshot showing the process to assign the Disk Backup Reader role to Backup vault’s managed identity on the Source disk that needs to be backed up." lightbox="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-expanded.png":::
 
 - Assign the **Disk Snapshot Contributor** role to the Backup vault’s managed identity on the Resource group, where backups are created and managed by the Azure Backup service. The disk snapshots are stored in a resource group within your subscription. To allow Azure Backup service to create, store, and manage snapshots, you need to provide permissions to the backup vault.
 
@@ -180,7 +180,7 @@ To configure backup of managed disks, ensure the following prerequisites:
      >[!Tip]
      >Type the backup vault name to select the vault’s managed identity.
 
-  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-inline.png" alt-text="Screenshot showing the process to assign the "Disk Snapshot Contributor" role to the Backup vault’s managed identity on the resource group." lightbox="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-expanded.png":::
+  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-inline.png" alt-text="Screenshot showing the process to assign the Disk Snapshot Contributor role to the Backup vault’s managed identity on the resource group." lightbox="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-expanded.png":::
 
 - Verify that the backup vault's managed identity has the right set of role assignments on the source disk and resource group that serves as the snapshot datastore.
 
