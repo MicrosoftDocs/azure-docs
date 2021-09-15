@@ -39,7 +39,7 @@ Point-in-time restore is the ability to restore the database to a specific point
 :::image type="content" source="media/point-in-time-restore/point-in-time-restore.png" alt-text="Point in time restore":::
 
 
-Azure Arc enabled SQL managed instance comes with built-in capability to do a point-in-time restore. Whenever a new database is created or restored on to an Azue Arc enabled SQL managed instance, backups are automatically taken. 
+Azure Arc enabled SQL Managed Instance comes with built-in capability to do a point-in-time restore. Whenever a new database is created or restored on to an Azure Arc enabled SQL Managed Instance, backups are automatically taken. 
 
 There are two parameters that affect the point-in-time rstore capability - (1) recovery point objective and (2) retention days.
 
