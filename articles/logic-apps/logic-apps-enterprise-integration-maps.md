@@ -20,18 +20,19 @@ With a map, you can define a basic transformation, such as copying a name and ad
 
 > [!NOTE]
 > Azure Logic Apps allocates finite memory for processing XML transformations. If you create logic apps based on the 
-> **Logic App (Consumption)** resource type, and your map or payload transformations have high memory consumption, 
-> such transformations might fail, resulting in out of memory errors. To avoid this scenario, consider these options:
+> [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), 
+> and your map or payload transformations have high memory consumption, such transformations might fail, resulting in 
+> out of memory errors. To avoid this scenario, consider these options:
 >
 > * Edit your maps or payloads to reduce memory consumption.
 >
-> * Create your logic apps using the **Logic App (Standard)** resource type instead.
+> * Create your logic apps using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences) instead.
 >
 >   These workflows run in single-tenant Azure Logic Apps, which offers dedicated and flexible options for compute and memory resources. 
 >   However, the Standard logic app resource type currently doesn't support referencing external assemblies from maps. Also, only Extensible 
 >   Stylesheet Language Transformation (XSLT) 1.0 is currently supported.
 
-If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md#resource-type-and-host-environment-differences).
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## Prerequisites
 
@@ -52,7 +53,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
    > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
    > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
-* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you can store your maps and other artifacts that you want to use in your enterprise integration and business-to-business (B2B) workflows. This resource has to meet the following requirements:
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts for use in your enterprise integration and business-to-business (B2B) workflows. This resource has to meet the following requirements:
 
   * Is associated with the same Azure subscription as your logic app resource.
 
@@ -62,7 +63,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
     To create and add maps for use in **Logic App (Consumption)** workflows, you don't need a logic app resource yet. However, when you're ready to use those maps in your workflows, your logic app resource requires a linked integration account that stores those maps.
 
-  * If you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you don't store schemas and maps in your integration account. Instead, you can directly add maps to your logic app resource using either the Azure portal or Visual Studio Code. Only XSLT 1.0 is currently supported. You can then use these maps across multiple workflows within the *same logic app resource*.
+  * If you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you need an existing logic app resource because you don't store maps in your integration account. Instead, you can directly add maps to your logic app resource using either the Azure portal or Visual Studio Code. Only XSLT 1.0 is currently supported. You can then use these maps across multiple workflows within the *same logic app resource*.
 
     You still need an integration account for your partners, agreements, and certificates along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account has to still meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
 
