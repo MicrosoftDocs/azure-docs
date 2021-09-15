@@ -5,12 +5,12 @@ description: Learn about the currently known issues with Azure SQL Managed Insta
 services: sql-database
 author: MashaMSFT
 ms.author: mathoma
-ms.service: sql-db-mi
+ms.service: sql-managed-instance
 ms.subservice: service-overview
-ms.custom: sqldbrb=2, references_regions
+ms.custom: references_regions
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 09/21/2021
 ---
 # Known issues with Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

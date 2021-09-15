@@ -5,12 +5,12 @@ description: Learn about the new features and documentation improvements for Azu
 services: sql-database
 author: MashaMSFT
 ms.author: mathoma
-ms.service: sql-db-mi
+ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: sqldbrb=2, references_regions
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 09/21/2021
 ---
 # What's new in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

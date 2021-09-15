@@ -5,12 +5,12 @@ description: Learn about the new features and documentation improvements for Azu
 services: sql-database
 author: MashaMSFT
 ms.author: mathoma
-ms.service: sql-db-mi
+ms.service: sql-managed-instance
 ms.subservice: service-overview
-ms.custom: sqldbrb=2, references_regions
+ms.custom:  references_regions
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 09/21/2021
 ---
 # What's new in Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -22,7 +22,7 @@ For Azure SQL Database, see [What's new](../database/doc-changes-updates-release
 
 ## Feature availability
 
-The following two sections list the features of Azure SQL Managed Instance that are currently in public preview or in general availability. To provide feedback directly to the product group, see [https://aka.ms/sqlfeedback](https://aka.ms/sqlfeedback). 
+The following two sections list the features of Azure SQL Managed Instance that are currently in public preview or in general availability. 
 
 ### Public preview
 
