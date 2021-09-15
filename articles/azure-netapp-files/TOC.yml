@@ -89,7 +89,7 @@
     href: storage-service-add-ons.md
   - name: What changing to volume hard quota means
     href: volume-hard-quota-guidelines.md
-  - name: Azure NetApp Files for Azure Government US
+  - name: Azure NetApp Files for Azure Government
     href: azure-government.md
 - name: How-to guides
   items:
