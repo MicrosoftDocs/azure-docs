@@ -6,7 +6,7 @@ ms.author: jowaddel
 ms.topic: conceptual
 ms.date: 09/09/2021
 ---
-# Migrating to Bicep
+# Migrate to Bicep
 
 There are a number of benefits to defining your Azure resources in Bicep including: simpler syntax, modularization, automatic dependency management, type validation and IntelliSense, and an improved authoring experience.
 
