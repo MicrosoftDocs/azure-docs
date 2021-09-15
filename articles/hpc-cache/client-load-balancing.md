@@ -72,7 +72,7 @@ This document does not include instructions for setting up and managing a DNS se
 
 DNS is not required in order to mount clients using the NFS protocol and IP addresses. DNS *is* needed if you want to use domain names instead of IP addresses to reach hardware NAS systems, or if your workflow includes certain advanced protocol settings.
 
-The DNS system that you use to distribute addresses to clients does not need to be accessed by the HPC Cache. In some situations you might want to use a custom DNS system for the cache itself, but configuring a system for the cache is much more complicated than this client round-robin system. It is important to consult Azure support if you are thinking about changing your main HPC Cache DNS system to a custom configuration.
+The DNS system that you use to distribute addresses to clients does not need to be accessed by the HPC Cache. In some situations you might want to use a custom DNS system for the cache itself, but configuring that system is much more complicated than setting up this kind of client round-robin system. You must consult Azure support if you are thinking about [changing your *HPC Cache's* DNS server](configuration.md#set-a-custom-dns-configuration) to a custom system.
 
 ### Configure round-robin distribution for cache mount points
 
