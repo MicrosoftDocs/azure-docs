@@ -8,7 +8,7 @@ ms.date: 09/15/2021
 ms.author: v-erkel
 ---
 
-# Load balance HPC Cache traffic
+# Load balance HPC Cache client traffic
 
 This article explains some basic methods for balancing client traffic to all of the mount points on your Azure HPC Cache.
 
@@ -68,9 +68,11 @@ mount -o hard,proto=tcp,mountproto=tcp,retry=30 $(X=(10.7.0.{1..3});echo ${X[$((
 
 This section explains the basics of configuring a DNS system to distribute client connections to all of the mount points on your Azure HPC Cache. This method doesn't account for the amount of traffic each client generates, but it does make sure that clients are evenly spread out over all of the cache's interfaces instead of just using one or two.
 
-This document does not include instructions for setting up and managing a DNS server in the Azure environment. Check with your Azure representative to learn how to configure forwarding so that your cache can still contact necessary Azure infrastructure.
+This document does not include instructions for setting up and managing a DNS server for your clients in the Azure environment.
 
-DNS is not required in order to mount clients using the NFS protocol and IP addresses. DNS *is* needed if you want to use domain names instead of IP addresses to reach hardware NAS systems, or if your workflow includes certain advanced protocol settings. Read [Storage target DNS access](hpc-cache-prerequisites.md#dns-access) for more information.
+DNS is not required in order to mount clients using the NFS protocol and IP addresses. DNS *is* needed if you want to use domain names instead of IP addresses to reach hardware NAS systems, or if your workflow includes certain advanced protocol settings.
+
+The DNS system that you use to distribute addresses to clients does not need to be accessed by the HPC Cache. In some situations you might want to use a custom DNS system for the cache itself, but configuring a system for the cache is much more complicated than this client round-robin system. It is important to consult Azure support if you are thinking about changing your main HPC Cache DNS system to a custom configuration.
 
 ### Configure round-robin distribution for cache mount points
 
@@ -114,9 +116,7 @@ There are two main steps to configure RRDNS:
    <The diagram shows connections among three categories of elements: the single HPC Cache domain name (at the left), three IP addresses (middle column), and three internal-use reverse DNS client interfaces (right column). A single oval at the left labeled "hpccache.contoso.com" is connected by arrows pointing toward three ovals labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the hpccache.contoso.com oval to the three IP ovals are labeled "A". Each of the IP address ovals is connected by two arrows to an oval labeled as a client interface - the oval with IP 10.0.0.10 is connected to "client-IP-10.contoso.com", the oval with IP 10.0.0.11 is connected to "client-IP-11.contoso.com", and the oval with IP 10.0.0.12 is connected to "client-IP-11.contoso.com". The connections between the IP address ovals and the client interface ovals are two arrows: one arrow labeled "PTR" that points from the IP address oval to the client interface oval, and one arrow labeled "A" that points from the client interface oval to the IP address oval.>
 :::image-end:::
 
-### Configure the HPC Cache to use the custom DNS server
-
-When your DNS system is ready, use the **Networking** page in the portal to tell the cache to use it. Follow the instructions in [Set a custom DNS configuration](configuration.md#set-a-custom-dns-configuration).
+After the RRDNS system is configured, tell your client machines to use it to resolve the HPC Cache address in their mount commands.
 
 ## Next steps
 
