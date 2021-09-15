@@ -340,8 +340,7 @@ After you've verified that the test migration works as expected, you can migrate
     ![Replicating servers](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
-3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
-    - If you don't want to shut down the VM, select **No**.
+3. In **Migrate** > Shut down the server manually to minimize data loss, and then initiate migration. Automatic shutdown is not supported for physical servers and virtual machines from other clouds.
 4. A migration job starts for the VM. You can view the job status by clicking the notification bell icon on the top right of the portal page or by going to the jobs page of the Server Migration tool (Click Overview on the tool tile > Select Jobs from the left menu).
 5. After the job finishes, you can view and manage the VM from the Virtual Machines page.
 
