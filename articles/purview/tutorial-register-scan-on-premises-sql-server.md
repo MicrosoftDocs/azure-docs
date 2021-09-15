@@ -95,11 +95,11 @@ In order to create and manage collections in Purview, you will need to be a **Co
 
 This tutorial assumes the machine where you'll install your self-hosted integration runtime is able to make network connections to the internet. If your machine has a restricted firewall, or if you would like to secure your firewall, look into the [network requirements for the self-hosted integration runtime](manage-integration-runtimes.md#networking-requirements).
 
-1. On the home page of Purview Studio, select **Management Center** from the left navigation pane.
+1. On the home page of Purview Studio, select **Data Map** from the left navigation pane.
 
-1. Under **Sources and scanning** on the left pane, select **Integration runtimes**, and then select **+ New**.
-<!-- Fix Image -->
-   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Click on IR.":::
+1. Under **Source management** on the left pane, select **Integration runtimes**, and then select **+ New**.
+
+      :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-integration-runtime.png" alt-text="Select the Integration Runtimes button.":::
 
 1. On the **Integration runtime setup** page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
 <!-- Fix Image -->
@@ -142,8 +142,8 @@ If you plan to use an existing server admin (sa) user to scan your on-premises S
 1. `sa` is not a Windows authentication account.
 
 1. The server level login that you are planning to use must have server roles of public and sysadmin. You can verify this by connecting to the server, navigating to SQL Server Management Studio (SSMS), navigating to security, selecting the login you are planning to use, right-clicking **Properties** and then selecting **Server roles**.
-<!-- Fix Image -->
-   :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Server level login.":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/server-level-login.png" alt-text="Server level login.":::
 
 #### Creating a new login and user
 
@@ -153,24 +153,24 @@ If you would like to create a new login and user to be able to scan your SQL ser
    > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
 
 1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, right-click on login and create New login. Make sure to select SQL authentication.
-<!-- Fix Image -->
-   :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Create new login and user.":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Create new login and user.":::
 
 1. Select Server roles on the left navigation and ensure that public role is assigned.
 
 1. Select User mapping on the left navigation, select all the databases in the map and select the Database role: **db_datareader**.
-<!-- Fix Image -->
-   :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="user mapping.":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/user-mapping.png" alt-text="user mapping.":::
 
 1. Click OK to save.
 
 1. Navigate again to the user you created, by right clicking and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
-<!-- Fix Image -->
-   :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="change password.":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/change-password.png" alt-text="change password.":::
 
 #### Storing your SQL login password in a key vault and creating a credential in Purview
 
-1. Navigate to your key vault in the Azure portal1. Select **Settings > Secrets**
+1. Navigate to your key vault in the Azure portal. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your SQL server login
 1. Select **Create** to complete
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
@@ -199,8 +199,8 @@ If you would like to create a new login and user to be able to scan your SQL ser
 1. Select **Register**
 
 1. Select **SQL server** and then **Continue**
-<!-- Fix Image -->
-   :::image type="content" source="media/register-scan-on-premises-sql-server/set-up-sql-data-source.png" alt-text="Set up the SQL data source.":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/set-up-sql-data-source.png" alt-text="Set up the SQL data source.":::
 
 1. Provide a friendly name and server endpoint and then select **Finish** to register the data source. If, for example, your SQL server FQDN is **foobar.database.windows.net**, then enter *foobar* as the server endpoint.
 
@@ -213,20 +213,20 @@ To create and run a new scan, do the following:
 1. Select **New scan**
 
 1. Select the credential to connect to your data source.
-<!-- Fix Image -->
-   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-set-up-scan.png" alt-text="Set up scan":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/on-premises-sql-set-up-scan.png" alt-text="Set up scan":::
 
 1. You can scope your scan to specific tables by choosing the appropriate items in the list.
-<!-- Fix Image -->
-   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scope-your-scan.png" alt-text="Scope your scan":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/on-premises-sql-scope-your-scan.png" alt-text="Scope your scan":::
 
 1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
-<!-- Fix Image -->
-   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scan-rule-set.png" alt-text="Scan rule set":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/on-premises-sql-scan-rule-set.png" alt-text="Scan rule set":::
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
-<!-- Fix Image -->
-   :::image type="content" source="media/register-scan-on-premises-sql-server/trigger-scan.png" alt-text="trigger":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/trigger-scan.png" alt-text="trigger":::
 
 1. Review your scan and select **Save and run**.
 
@@ -252,6 +252,16 @@ If you're not going to continue to use this application, delete
 
 ### Remove SHIR from Purview
 
+1. On the home page of Purview Studio, select **Data Map** from the left navigation pane.
+
+1. Under **Source management** on the left pane, select **Integration runtimes**.
+
+      :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-integration-runtime.png" alt-text="Select the Integration Runtimes button.":::
+
+1. Select the checkbox next to your integration runtime, then select the **delete** button.
+
+<!-- 7. Add image -->
+
 ### Remove SQL Credentials
 
 ### Uninstall self-hosted integration runtime
@@ -265,8 +275,17 @@ If you're not going to continue to use this application, delete
 <!-- Fix Image -->
 :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png" alt-text="Screenshot of the "Yes" button for deleting all user data from the integration runtime.":::
 
-### Delete Purview Resource
+### Delete Purview account
 
+If you would like to delete your Purview account after completing this tutorial, follow these steps.
+
+1. Go to the [Azure portal](https://portal.azure.com) and navigate to your purview account.
+
+1. At the top of the page, select the **Delete** button.
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/trigger-scan.png" alt-text="Delete button on the Purview account page in the azure portal is selected.":::
+
+1. When the process is complete, you will receive a notification in the Azure Portal.
 
 ## Next steps
 
