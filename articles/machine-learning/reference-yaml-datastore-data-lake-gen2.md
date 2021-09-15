@@ -27,7 +27,7 @@ ms.reviewer: laobri
 | `description` | string | Description of the datastore. | | |
 | `tags` | object | Dictionary of tags for the datastore. | | |
 | `account_name` | string | **Required.** Name of the Azure storage account. | | |
-| `filesystem` | string | **Required.** Name of the file system. | | |
+| `filesystem` | string | **Required.** Name of the file system. The parent directory that contains the files and folders. This is equivalent to a container in Azure Blob storage. | | |
 | `endpoint` | string | Endpoint suffix of the storage service, which is used for creating the storage account endpoint URL by combining the storage account name and `endpoint`. Example storage account URL: `https://<storage-account-name>.dfs.core.windows.net`. | | `core.windows.net` |
 | `protocol` | string | Protocol to use to connect to the file system. | `https`, `abfss` | `https` |
 | `credentials` | object | Service principal credentials for connecting to the Azure storage account. Credential secrets are stored in the workspace key vault. | | |
