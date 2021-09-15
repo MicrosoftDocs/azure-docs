@@ -1,7 +1,7 @@
 ---
 title: Language support - custom question answering
 titleSuffix: Azure Cognitive Services
-description: A list of culture, natural languages supported by QnA Maker for your knowledge base. Do not mix languages in the same knowledge base.
+description: A list of culture, natural languages supported by custom question answering for your knowledge base. Do not mix languages in the same knowledge base.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -20,7 +20,7 @@ This setting gives the flexibility to users to have multiple knowledge bases wit
 ## Single language per resource
 
 > [!div class="mx-imgBorder"]
-> ![Multi-lingual knowledge base selection](../media/language-support/language-support-custom-qna.png)
+> ![Multi-lingual knowledge base selection](../../qnamaker/media/language-support/language-support-custom-qna.png)
 
 If you **don't select the checkbox to enable knowledge-bases in multiple languages**, consider the following: 
 * A Text Analytics service, and all its knowledge bases, will support one language only.
@@ -29,14 +29,14 @@ If you **don't select the checkbox to enable knowledge-bases in multiple languag
 * The language can't be changed for any other knowledge bases in the service
 * The language is used by the Cognitive Search service (ranker #1) and Custom question answering (ranker #2) to generate the best answer to a query
 
-## Supporting multiple languages in one QnA Maker resource
+## Supporting multiple languages in one custom question answering enabled resource
 
 * When you are creating the first knowledge base in your service, you get a choice to enable multiple languages per service. Select the checkbox, to create knowledge bases belonging to different languages within one service.
 * Language setting option cannot be modified for the service, once the first knowledge base is created.
 * If you enable multiple languages for the knowledge base, then instead of having one test index for the service you will have one test index per knowledge base. 
 
 > [!div class="mx-imgBorder"]
-> ![Multi-lingual knowledge base setting](../media/language-support/language-support-custom-qna-chkd.png)
+> ![Multi-lingual knowledge base setting](../../qnamaker/media/language-support/language-support-custom-qna-chkd.png)
 
 ## Supporting multiple languages in one knowledge base
 
@@ -44,7 +44,6 @@ If you need to support a knowledge base system, which includes several languages
 
 * Use the [Translator service](../../translator/translator-info-overview.md) to translate a question into a single language before sending the question to your knowledge base. This allows you to focus on the quality of a single language and the quality of the alternate questions and answers.
 * Create a QnA Maker resource, and a knowledge base inside that resource, for every language. This allows you to manage separate alternate questions and answer text that is more nuanced for each language. This gives you much more flexibility but requires a much higher maintenance cost when the questions or answers change across all languages.
-
 
 ## Languages supported
 
@@ -107,7 +106,7 @@ The following list contains the languages supported for a QnA Maker resource.
 | Vietnamese |
 
 ## Query matching and relevance
-QnA Maker depends on [Azure Cognitive Search language analyzers](/rest/api/searchservice/language-support) for providing results.
+Custom question answering depends on [Azure Cognitive Search language analyzers](/rest/api/searchservice/language-support) for providing results.
 
 While the Azure Cognitive Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages.
 
@@ -128,7 +127,7 @@ While the Azure Cognitive Search capabilities are on par for supported languages
 |Spanish|
 |Swedish|
 
-This additional ranking is an internal working of the QnA Maker's ranker.
+This additional ranking is an internal working of the custom question answering's ranker.
 
 ## Next steps
 
