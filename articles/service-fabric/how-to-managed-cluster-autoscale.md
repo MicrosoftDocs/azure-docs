@@ -6,13 +6,13 @@ ms.date: 9/16/2021
 ---
 
 # Introduction to Auto Scaling on Service Fabric managed clusters
-[Auto scaling](./azure-monitor/autoscale/autoscale-overview) is an additional capability of a Service Fabric managed cluster to dynamically scale your resources based on the usage of resources. Auto scaling gives great elasticity and enables provisioning of additional or reduction of instances on demand. Auto scaling is an automated and transparent capability supported for secondary node types eliminating any need for manual scaling operations. Auto scaling can be enabled at any time for a secondary node type that is configured and available.
+[Auto scaling](../azure-monitor/autoscale/autoscale-overview.md) is an additional capability of a Service Fabric managed cluster to dynamically scale your resources based on the usage of resources. Auto scaling gives great elasticity and enables provisioning of additional or reduction of instances on demand. Auto scaling is an automated and transparent capability supported for secondary node types eliminating any need for manual scaling operations. Auto scaling can be enabled at any time for a secondary node type that is configured and available.
 
 Requirements and supported Metrics:
 * In order to use auto scaling on managed clusters, you need to be using API version `2021-07-01-preview` or higher. 
 * Only the Service Fabric managed cluster standard SKU is supported for auto scale.
 * Auto scaling is supported for both containers and regular Service Fabric services as it's based on resource usage of the underlying resources. 
-* Supported auto scale rules are based on [Azure Monitor published metrics](./azure-monitor/essentials/metrics-supported.md)
+* Supported auto scale rules are based on [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md)
 
 A common scenario where auto-scaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like:
 * If all instances of my gateway are using more than 70% on average, then scale the gateway service out by adding two more instance. Do this every hour, but never have more than twenty instances in total.
@@ -93,7 +93,7 @@ To disable auto scaling, set the value to `false`
 
 ## Set policies for auto scaling
 
-Service Fabric managed clusters do not configure any [policies for auto scaling](./azure-monitor/autoscale/autoscale-understanding-settings.md) by default. You can create and assign policies to secondary node types on a Service Fabric managed cluster resource at initial deployment or anytime after with an additional cluster deployment.
+Service Fabric managed clusters do not configure any [policies for auto scaling](../azure-monitor/autoscale/autoscale-understanding-settings.md) by default. You can create and assign policies to secondary node types on a Service Fabric managed cluster resource at initial deployment or anytime after with an additional cluster deployment.
 
 The following example will set a policy for `VmNodeType1Name` to be at least 3 nodes, but allow scaling up to 50 nodes. It will trigger scaling up off of average CPU usage being 70% over a 5 minute window using 1 minute granularity. It will also trigger to scale down if... xyz
 
@@ -181,12 +181,12 @@ On the right-hand side, you can view the full definition of this autoscale setti
 
 <screenshot>
 
-3) You can [edit auto scale settings based on specific requirements by following this walkthrough](https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-virtual-machine-scale-sets). To understand profiles and rules in autoscale, review [Autoscale Best Practices](https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-best-practices).
+3) You can [edit auto scale settings based on specific requirements by following this walkthrough](../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md). To understand profiles and rules in autoscale, review [Autoscale Best Practices](../azure-monitor/autoscale/autoscale-best-practices.md).
 
 4) Any changes made will be reflected after you save them.
 
 
 ## Next steps
-[Autoscale a scale set with with an Azure template](./virtual-machine-scale-sets/tutorial-autoscale-template)
-[Autoscale a scale set with Azure Powershell](./virtual-machine-scale-sets/tutorial-autoscale-powershell)
+[Autoscale a scale set with with an Azure template](../virtual-machine-scale-sets/tutorial-autoscale-template.md)
+[Autoscale a scale set with Azure Powershell](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
