@@ -42,7 +42,7 @@ Consider deploying collections in your Azure Purview to fulfill the following re
 
 - Collections can hold data sources, scans, assets and role assignments.
 
-- A collection can have as many child collections, however, each collection can only have one parent collection. You cannot deploy any collections above root collection.
+- A collection can have as many child collections as needed. However, each collection can only have one parent collection. You cannot deploy any collections above root collection.
 
 - Data sources, scans, and assets can belong only to one collection. 
 
