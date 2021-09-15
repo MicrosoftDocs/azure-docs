@@ -308,7 +308,7 @@ for (String repositoryName : client.listRepositoryNames()) {
 
 ## Get started
 
-[Source code][javascript_source] | [Package (npm))][javascript_package] | [API reference][javascript_docs] | [Samples][javascript_samples]
+[Source code][javascript_source] | [Package (npm)][javascript_package] | [API reference][javascript_docs] | [Samples][javascript_samples]
 
 ### Currently supported environments
 
@@ -555,4 +555,4 @@ In this quickstart, you learned about using the Azure Container Registry client 
 [python_samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry/azure-containerregistry/samples
 [pip_link]: https://pypi.org
 [python_identity]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity
-
+[python_source]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry/azure-containerregistry
