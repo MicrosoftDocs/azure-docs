@@ -172,6 +172,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Configure Single Sign-On User Provisioning Enabled](./media/salesforce-tutorial/salesforcexml.png)
 
+Note: If you configured SAML JIT, then you need to perform addditional step in the **[Configure Azure AD SSO](#configure-azure-ad-sso)**. 
+Salesforce application expects specific SAML assertions, which requires you to have specific attributes in your SAML token attributes configuration. The following screenshot shows the list of required attributes by Salesforce.
+
+![SalesForceJITRequiredAttributes](https://user-images.githubusercontent.com/28261714/133499531-f75417d4-ad84-4ebc-abc5-ae39fdb579b9.png)
+
+Please look at the Salesforce documentation [Just-in-Time Provisioning Requirements and SAML Assertion Fields](https://help.salesforce.com/s/articleView?id=sf.sso_jit_requirements.htm&type=5) if you still have issues with getting users provisioned with SAML JIT. Generally when JIT fails you may see error like **We can't log you in because of an issue with single sign-on. Contact your Salesforce admin for help.  **
+
+
 1. On the left navigation pane in Salesforce, click **Company Settings** to expand the related section, and then click **My Domain**.
 
     ![Configure Single Sign-On My Domain](./media/salesforce-tutorial/sf-my-domain.png)
