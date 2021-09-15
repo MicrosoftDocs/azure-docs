@@ -17,7 +17,7 @@ Azure provides a global [role-based access control (RBAC) authorization system](
 
 + Use the generally available roles for service administration, such as adding capacity, monitoring health, or rotating keys. Generally available roles include Owner, Contributor, Reader, and Search Service Contributor.
 
-  Search Service Contributor includes a subset of actions that target content (for example, creating and loading indexes). To enable this subset of actions on Search Service Contributor, follow the steps for preview sign up.
+  Search Service Contributor includes a subset of actions that target content (for example, creating and loading indexes). To enable this subset of actions on Search Service Contributor, follow the steps for preview sign-up.
 
 + Use the new preview roles for content tasks. Preview roles include Search Index Data Contributor and Search Index Data Reader. This capability is currently in public preview ([by request](https://aka.ms/azure-cognitive-search/rbac-preview)). After enrollment, follow the instructions in this article to use preview roles.
 
@@ -25,7 +25,7 @@ Azure provides a global [role-based access control (RBAC) authorization system](
 
 This article focuses on the first two bullets: generally available and preview roles. For more information about outbound indexer calls, start with [Configure a managed identity](search-howto-managed-identities-data-sources.md).
 
-A few RBAC scenarios are **not** directly supported, and these include:
+A few RBAC scenarios are **not** directly supported:
 
 + [Custom roles](../role-based-access-control/custom-roles.md)
 
@@ -202,7 +202,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ### [**.NET SDK**](#tab/test-dotnet)
 
-The Azure SDK for .NET supports an authorization header in the [NuGet Gallery | Azure.Search.Documents 11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2)package.
+The Azure SDK for .NET supports an authorization header in the [NuGet Gallery | Azure.Search.Documents 11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2) package.
 
 Additional configuration is required to register an application with Azure Active Directory, and to obtain and pass authorization tokens.
 
@@ -226,12 +226,47 @@ SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCred
 
 API keys cannot be deleted, but they can be disabled on your service. If you are using Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Azure AD authentication, you can disable API keys, causing the search service to refuse all data-related requests that pass an API key in the header.
 
-Use the preview Management REST API, version 2021-04-01-preview, for this task.
++ Management REST API version 2021-04-01-Preview provides this option
+
++ Owner or Contributor permissions are required to disable features
 
 1. Set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`.
 
-1. [Assign roles](#assign-roles) and verify they are working correctly.
+    ```http
+    PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "location": "{{region}}",
+      "sku": {
+        "name": "standard"
+      },
+      "properties": {
+        "authOptions": {
+          "aadOrApiKey": {
+            "aadAuthFailureMode": "http401WithBearerChallenge"
+          }
+        }
+      }
+   }
+    ```
 
-1. Set `disableLocalAuth` to **True**.
+1. [Assign roles](#assign-roles) on the service and verify they are working correctly.
 
-If you revert the last step, setting `disableLocalAuth` to **False**, the search service will resume acceptance of API keys on the request automatically (assuming they are specified).
+1. Set [disableLocalAuth](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) to **True**.
+
+    ```http
+    PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "location": "{{region}}",
+      "sku": {
+        "name": "standard"
+      },
+      "properties": {
+        "disableLocalAuth": true
+      }
+    }
+    ```
+
+To re-enable key authentication, rerun the last request, setting "disableLocalAuth" to false. The search service will resume acceptance of API keys on the request automatically (assuming they are specified).
+
+> [!TIP]
+> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principle and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
