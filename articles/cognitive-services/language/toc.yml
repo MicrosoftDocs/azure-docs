@@ -100,7 +100,7 @@ items:
     items:
       - name: Backwards compatibility
         href: custom-language-understanding/concepts/backwards-compatibility.md
-- name: Custom question answering
+- name: Question answering
   items:
   - name: Quickstart
     href: custom-question-answering/quickstart/sdk.md
