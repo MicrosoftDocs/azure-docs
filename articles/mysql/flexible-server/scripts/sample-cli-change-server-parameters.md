@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 09/13/2021
+ms.date: 09/15/2021
 ---
 
 # List and change server parameters of an Azure Database for MySQL - Flexible Server (Preview) using Azure CLI
 
-This sample CLI script lists all available server parameters as well as their allowable values for Azure Database for MySQL - Flexible Server, and sets the *max_connections* and global *time_zone* parameters to values other than the default ones.
+This sample CLI script lists all available [server parameters](../concepts-server-parameters.md) as well as their allowable values for Azure Database for MySQL - Flexible Server, and sets the *max_connections* and global *time_zone* parameters to values other than the default ones.
 
 [!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
@@ -20,18 +20,104 @@ This sample CLI script lists all available server parameters as well as their al
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
-# Sample Script
+## Sample Script
 
-In this sample script, edit the highlighted lines to update the variable values.
+Update the script with your values for variables in **Set up variables** section. 
+
+```azurecli
+#!/bin/bash
+
+# Change server parameters for Azure Database for MySQL - Flexible Server
+
+# Set up variables
+RESOURCE_GROUP="myresourcegroup" 
+SERVER_NAME="mydemoserver" # Substitute with preferred name for MySQL Flexible Server. 
+LOCATION="westus" 
+ADMIN_USER="mysqladmin" 
+PASSWORD="" # Enter your server admin password
+IP_ADDRESS= # Enter your IP Address for Public Access - https://whatismyipaddress.com
+
+# 1. Create a resource group
+az group create \
+--name $RESOURCE_GROUP \
+--location $LOCATION
+
+# 2. Create a MySQL Flexible server in the resource group
+
+az mysql flexible-server create \
+--name $SERVER_NAME \
+--resource-group $RESOURCE_GROUP \
+--location $LOCATION \
+--admin-user $ADMIN_USER \
+--admin-password $PASSWORD \
+--public-access $IP_ADDRESS
+
+# 3. List all Flexible Server parameters with their values and parameter descriptions
+az mysql flexible-server parameter list \
+--resource-group $RESOURCE_GROUP \
+--server-name $SERVER_NAME
+
+# 4. Set and check parameter values
+
+# Set value of max_connections parameter
+az mysql flexible-server parameter set \
+--resource-group $RESOURCE_GROUP \
+--server-name $SERVER_NAME \
+--name max_connections \
+--value 250
+
+# Check value of max_connections paramater
+
+az mysql flexible-server parameter show \
+--resource-group $RESOURCE_GROUP \
+--server-name $SERVER_NAME \
+--name max_connections
+
+# Set value of max_connections parameter back to default
+
+az mysql flexible-server parameter set \
+--resource-group $RESOURCE_GROUP \
+--server-name $SERVER_NAME \
+--name max_connections 
+
+# Set global level time zone
+az mysql flexible-server parameter set \
+--resource-group $RESOURCE_GROUP \
+--server-name $SERVER_NAME \
+--name time_zone \
+--value "+02:00"
+
+# Check global level time zone
+
+az mysql flexible-server parameter show \
+--resource-group $RESOURCE_GROUP \
+--server-name $SERVER_NAME \
+--name time_zone
+```
 
 
-
-# Clean up deployment
+## Clean up deployment
 
 After the sample script has been run, the following code snippet can be used to clean up the resources.
 
+```azurecli
+#!/bin/bash
 
-# Script explanation
+RESOURCE_GROUP="myresourcegroup"
+SERVER_NAME="mydemoserver" # Enter your server name
+
+# Delete MySQL Flexible Server
+az mysql flexible-server delete \
+--resource-group $RESOURCE_GROUP 
+--name $SERVER_NAME
+
+# Optional : Delete resource group
+
+az group delete --name $RESOURCE_GROUP
+
+```
+
+## Script explanation
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
@@ -45,5 +131,7 @@ This script uses the following commands. Each command in the table links to comm
 |[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete)|Deletes a Flexible Server.|
 |[az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources.|
 
-# Next Steps
+## Next Steps
 
+- Try additional scripts: [Azure CLI samples for Azure Database for MySQL - Flexible Server (Preview)](../sample-scripts-azure-cli.md)
+- For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

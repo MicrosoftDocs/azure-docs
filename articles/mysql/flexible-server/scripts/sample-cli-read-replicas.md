@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 09/13/2021
+ms.date: 09/15/2021
 ---
 
 # Create and manage read replicas in an Azure Database for MySQL - Flexible Server (Preview) using Azure CLI
 
-This sample CLI script creates and manages read replicas in an Azure Database for MySQL - Flexible Server.
+This sample CLI script creates and manages [read replicas](../concepts-read-replicas.md) in an Azure Database for MySQL - Flexible Server.
 
 >[!IMPORTANT]
 >When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
@@ -25,14 +25,82 @@ This sample CLI script creates and manages read replicas in an Azure Database fo
 
 ## Sample Script
 
-In this sample script, edit the highlighted lines to update the variable values.
+Update the script with your values for variables in **Set up variables** section.
 
+```azurecli
+#!/bin/bash
 
+# Create and manage Flexible Server Read Replicas
+
+# Set up variables
+RESOURCE_GROUP="myresourcegroup" 
+SOURCE_SERVER="mydemoserver" # Substitute with preferred name for MySQL Flexible Server. 
+LOCATION="westus" 
+ADMIN_USER="mysqladmin" 
+PASSWORD="" # Enter your server admin password
+IP_ADDRESS= # Enter your IP Address for Public Access - https://whatismyipaddress.com
+REPLICA_NAME="mydemoserver-replica" # Substitute with preferred name for the replica server. 
+
+# 1. Create resource group
+az group create \
+--name $RESOURCE_GROUP \
+--location $LOCATION
+
+# 2. Create a MySQL Flexible server in the resource group
+
+az mysql flexible-server create \
+--name $SOURCE_SERVER \
+--resource-group $RESOURCE_GROUP \
+--location $LOCATION \
+--admin-user $ADMIN_USER \
+--admin-password $PASSWORD \
+--public-access $IP_ADDRESS \
+--sku-name Standard_D2ds_v4 \
+--tier GeneralPurpose \
+--storage-size 64
+
+# 3. Create Replica Server
+az mysql flexible-server replica create \
+--replica-name $REPLICA_NAME \
+--source-server $SOURCE_SERVER \
+--resource-group $RESOURCE_GROUP
+
+# 4. List all read replicas for the source server
+
+az mysql flexible-server replica list \
+--resource-group $RESOURCE_GROUP \
+--name $SOURCE_SERVER 
+
+# 5. Stop replication to a read replica and make it a read/write server.
+
+az mysql flexible-server replica stop-replication \
+--resource-group $RESOURCE_GROUP \
+--name $REPLICA_NAME
+```
 
 ## Clean up deployment
 
 After the sample script has been run, the following code snippet can be used to clean up the resources.
 
+```azurecli
+#!/bin/bash
+
+RESOURCE_GROUP="myresourcegroup"
+SOURCE_SERVER="mydemoserver" # Enter source server name.
+REPLICA_NAME="mydemoserver-replica" # Enter replica server name. 
+
+#Delete Source Server and Replicas
+az mysql flexible-server delete \
+--resource-group $RESOURCE_GROUP 
+--name $SOURCE_SERVER
+
+az mysql flexible-server delete \
+--resource-group $RESOURCE_GROUP 
+--name $REPLICA_NAME
+
+# Optional : Delete resource group
+az group delete --name $RESOURCE_GROUP
+```
 
 ## Script explanation
 
@@ -50,3 +118,5 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next Steps
 
+- Try additional scripts: [Azure CLI samples for Azure Database for MySQL - Flexible Server (Preview)](../sample-scripts-azure-cli.md)
+- For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
