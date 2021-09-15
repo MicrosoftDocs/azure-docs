@@ -9,8 +9,8 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/04/2021
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.date: 09/03/2021
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
 
 ---
 
@@ -46,7 +46,7 @@ In this article you learn how to secure the following training compute resources
 
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
-    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This is not needed for ARM template deployments
+    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This is not needed for Azure Resource Manager (ARM) template deployments
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
@@ -84,7 +84,10 @@ In this article you learn how to secure the following training compute resources
 
         :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
 
-    * One public IP address. If you have Azure Policy assignments prohibiting Public IP creation then deployment of cluster/instances will fail
+
+    * For compute clusters and instances, one public IP address. If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute will fail.
+
+
     * One load balancer
 
     For compute clusters, these resources are deleted every time the cluster scales down to 0 nodes and created when scaling up.
@@ -137,7 +140,7 @@ For more information on using Azure Databricks in a virtual network, see [Deploy
 
 For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 
-## <a name="compute-instance"></a>Compute clusters & instances 
+## <a name="compute-cluster"></a>Compute clusters
 
 Use the tabs below to select how you plan to create a compute cluster:
 
@@ -156,10 +159,11 @@ Use the following steps to create a compute cluster in the Azure Machine Learnin
 
 1. From the __Configure Settings__ section, set the __Compute name__, __Virtual network__, and __Subnet__.
 
+    :::image type="content" source="media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Screenshot shows setting compute name, virtual network, and subnet.":::
+
     > [!TIP]
     > If your workspace uses a private endpoint to connect to the virtual network, the __Virtual network__ selection field is greyed out.
-
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Screenshot of virtual network settings":::
+    > 
 
 1. Select __Create__ to create the compute cluster.
 
@@ -208,7 +212,11 @@ When the creation process finishes, you train your model by using the cluster in
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### Inbound traffic
+## Compute instance
+
+For steps on how to create a compute instance deployed in a virtual network, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+
+## Inbound traffic
 
 [!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
 

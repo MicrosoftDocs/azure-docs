@@ -278,4 +278,3 @@ Get-AzStorageAccount
 * To learn more about Resource Manager templates, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 * To get started with Azure Storage, see [Introduction to Azure Storage](../storage/common/storage-introduction.md).
 * To find other useful Azure Automation runbooks, see [Use runbooks and modules in Azure Automation](automation-runbook-gallery.md).
-
