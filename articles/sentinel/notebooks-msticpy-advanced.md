@@ -15,13 +15,17 @@ This article describes advanced configurations for working with Jupyter notebook
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md).
 
+## Prerequisites
+
+This article is a continuation on from [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md). We recommend that you perform the tutorial before continuing with the advanced procedures described below.
+
 ## Specify authentication parameters for Azure and Azure Sentinel APIs
 
 This procedure describes how to configure authentication parameters for Azure Sentinel and other Azure API resources in your **msticpyconfig.yaml** file.
 
 **To add Azure authentication and Azure Sentinel API settings in the MSTICPy settings editor**:
 
-1. Enter the following code in an empty code cell and run it:
+1. Proceed to the next cell, with the following code, and run it:
 
     ```python
     mpedit.set_tab("Data Providers")
@@ -46,7 +50,7 @@ When you frequently author new notebooks, autoloading query providers can save y
 
 **To add autoloading query providers**:
 
-1. Enter the following code in an empty code cell and run it:
+1. Proceed to the next cell, with the following code, and run it:
 
     ```python
     mpedit.set_tab("Autoload QueryProvs")
@@ -94,7 +98,7 @@ Supported components include, in the following order:
 
 **To define auto-loaded MSTICPy components**:
 
-1. Enter the following code in an empty code cell and run it:
+1. Proceed to the next cell, with the following code, and run it:
 
    ```python
    mpedit.set_tab("Autoload Components")
@@ -167,11 +171,11 @@ Use multiple configuration files, with multiple environment variables, if you wa
 
 1. Decide on a location for your **msticpyconfig.yaml** file, such as in **~/.msticpyconfig.yaml** or **%userprofile%/msticpyconfig.yaml**.
 
-   If you're working in Azure ML, you may want to leave your **msticpyconfig.yaml** file in the Azure ML file storage, or you might want to move it to your Compute instance.
+    **Azure ML users**: If you store your configuration file in your Azure ML user folder, the MSTICPy `init_notebook` function (run in the initialization cell) will automatically find and use the file, and you do not need to set a **MSTICPYCONFIG** environment variable.
 
-   If you leave it in the Azure ML file storage, the `nb_check.check_versions` function at the start of the notebook automatically finds the file in your root folder using the **MSTICPYCONFIG** environment variable. However, if you are storing any secret keys in your **msticpyconfig.yaml** file, we recommend that you store it on your Compute instance. The Azure ML file storage is shared, while the Compute instance is accessible only to the user who created it.
+    However, if you also have secrets stored in the file, we recommend storing the configuration file on the compute local drive. The compute internal storage is accessible only to the person who created the compute, whereas the shared storage is accessible to anyone with access to your Azure ML workspace.
 
-   For more information, see [What is an Azure Machine Learning compute instance?](/azure/machine-learning/concept-compute-instance).
+    For more information, see [What is an Azure Machine Learning compute instance?](/azure/machine-learning/concept-compute-instance).
 
 1. If needed, copy your **msticpyconfig.yaml** file to your selected location.
 

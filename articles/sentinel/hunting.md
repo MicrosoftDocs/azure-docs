@@ -145,7 +145,7 @@ For example, MSTICPy can:
 - Do sophisticated analyses such as anomalous session detection and time series decomposition.
 - Visualize data using interactive timelines, process trees, and multi-dimensional Morph Charts.
 
-MCTICPy also includes some time-saving notebook tools, such as widgets that set query time boundaries, select and display items from lists, and configure the notebook environment.
+MSTICPy also includes some time-saving notebook tools, such as widgets that set query time boundaries, select and display items from lists, and configure the notebook environment.
 
 For more information, see:
 
