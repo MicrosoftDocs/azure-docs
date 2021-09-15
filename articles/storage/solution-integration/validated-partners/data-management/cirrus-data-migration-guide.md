@@ -73,8 +73,9 @@ Before starting the migration, make sure the following prerequisites have been m
 1. **Start the migration to the destination virtual machine** using **Migrate Host Volumes** from the CMC web-based management portal. Follow the instructions for remote location. Use the CMC portal to **Auto allocate destination volumes** on the right of the screen. 
  
 1. Next, we need to add Azure Credentials to allow connectivity and disk provisioning using the **Integrations** tab on the CMC portal. Fill in the required fields using your private company’s values for Azure: **Integration Name**, **Tenant ID**, **Client/Application ID**, and **Secret**. Press **Save**. 
-<br>
-[!NOTE]: Since you selected **Auto allocate destination volumes** on the previous step, don't press it again for a new allocation. If you do, it will output and error. Instead press **Continue**.
+
+>[!NOTE]
+>Since you selected **Auto allocate destination volumes** on the previous step, don't press it again for a new allocation. If you do, it will output and error. Instead press **Continue**.
 
     :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-migration-4.jpg" alt-text="Screenshot that shows entering Azure credentials":::
 
