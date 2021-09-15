@@ -1,5 +1,5 @@
 ---
-title: Metadata with GenerateAnswer API - QnA Maker
+title: Metadata with GenerateAnswer API - custom question answering
 titleSuffix: Azure Cognitive Services
 description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer pairs. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
 services: cognitive-services
@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 08/25/2021
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -30,10 +30,11 @@ After you publish your knowledge base, either from the [QnA Maker portal](https:
 To get your endpoint details:
 1. Sign in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. In **My knowledge bases**, select **View Code** for your knowledge base.
-    ![Screenshot of My knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+    ![Screenshot of My knowledge bases](../media/generate-answermy-knowledge-bases.png)
 1. Get your GenerateAnswer endpoint details.
 
-    ![Screenshot of endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    ![Screenshot of endpoint details managed](../media/generate-answerview-code-managed.png)
 
 You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
@@ -124,6 +125,7 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 }
 
 ```
+
 ## Use QnA Maker with a bot in C#
 
 The bot framework provides access to the QnA Maker's properties with the [getAnswer API](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
@@ -163,7 +165,42 @@ The previous JSON requested only answers that are at 30% or above the threshold 
 
 ## Get precise answers with GenerateAnswer API
 
-We offer precise answer feature only with the QnA Maker managed version.
+The user can enable [precise answers](../reference-precise-answering.md) when using the Text Analytics resource with Custom question answering feature. The answerSpanRequest parameter has to be updated for the same.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
+}
+```
+
+Similarly, the users can choose to disable precise answers by not setting the answerSpanRequest parameter.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3
+}
+```
+
+### Bot settings
+
+If you want to configure precise answer settings for your bot service, navigate to the App service resource for you bot. Then you have to update the configurations by adding the following setting.
+
+- EnablePreciseAnswer
+- DisplayPreciseAnswerOnly
+
+|Display configuration|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
+|:--|--|--|
+|Precise Answers Only|true|true|
+|Long Answers Only|false|false|
+|Both Long and Precise Answers|true|false|
+
+---
 
 ## Common HTTP errors
 

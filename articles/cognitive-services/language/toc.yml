@@ -114,6 +114,14 @@ items:
       href: custom-question-answering/how-to/migrate-knowledge-base.md
     - name: Change default answer
       href: custom-question-answering/how-to/change-default-answer.md
+    - name: Configure resources
+      href: custom-question-answering/how-to/configure-resources.md
+    - name: Analytics
+      href: custom-question-answering/how-to/analytics.md
+    - name: Manage knowledge base
+      href: custom-question-answering/how-to/manage-knowledge-base.md
+    - name: Generate answer
+      href: custom-question-answering/how-to/generate-answer.md
 - name: Entity linking
   items:
   - name: Overview
