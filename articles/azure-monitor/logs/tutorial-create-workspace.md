@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create Log Analytics workspace in Azure Azure Monitor
-description: Tutorial to configure diagnostic settings to collect resource logs from an Azure resource into a Log Analytics workspace where they can be analyzed with a log query.
+description: Tutorial to create a Log Analytics workspace required to collect log data in Azure Monitor.
 ms.topic: tutorial
 author: bwren
 ms.author: bwren

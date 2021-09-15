@@ -35,7 +35,7 @@ Data is retrieved from a Log Analytics workspace using a log query written in Ku
     > [!NOTE]
     > If you opened Logs from the Azure Monitor menu, the scope would be set to the Log Analytics workspace. In this case, any queries will include all records in the workspace.
    
-    ![Screenshot shows Logs for a logic app displaying a new query with the logic app name highlighted.](media/tutorial-resource-logs/logs.png)
+    ![Screenshot shows Logs for a logic app displaying a new query with the logic app name highlighted.](media/tutorial-log-alert/logs.png)
 
 3. Click **Queries** to view prebuilt queries for the **Resource type**. 
 
@@ -51,7 +51,7 @@ Data is retrieved from a Log Analytics workspace using a log query written in Ku
 
 6. See [Get started with log queries in Azure Monitor](../logs/get-started-queries.md) for a tutorial on writing log queries.
 
-    ![Log query](media/tutorial-resource-logs/log-query-1.png)
+    ![Log query](media/tutorial-log-alert/log-query-1.png)
 
 
 ## Create alert rule

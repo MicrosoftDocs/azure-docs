@@ -13,13 +13,19 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Access prebuilt log queries designed to suppoer alert rules for different kinds of resources
-> * Create a log query alert rule
-> * Create an action group to define notification details
+> * Understand agents required to collect guest data from Azure virtual machines
+> * Create a data collection rule to define collection details
+> * Verify that metrics and logs are being collected
 
 
-## Collect guest metrics
-Azure Monitor starts collecting metric data for your virtual machine host automatically. To collect metrics from the guest operating system of the virtual machine though, you must install an agent that can send this data to Azure Monitor. Install the [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) on your virtual machine to provide this functionality. 
+## Azure Monitor agent
+Azure Monitor starts collecting metric data for your virtual machine host automatically. To collect metrics and logs from the guest operating system of the virtual machine though, you must install an agent that can send this data to Azure Monitor. 
+
+The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) is installed on Azure Monitor virtual machines and allows you to collect metrics and logs. You define the data to collect with a data collection rule, and this process will automatically install the Azure Monitor agent.
+
+
+## Create data collection rule
+
 
 > [!NOTE]
 > Prior to the Azure Monitor agent, guest metrics for Azure virtual machines were collected with the [Azure diagnostic extension](../azure-monitor/agents/diagnostics-extension-overview.md) for Windows (WAD) and Linux (LAD). These agents are still available and can be configured with the **Diagnostic settings** menu item for the virtual machine, but they are in the process of being replaced with Azure Monitor agent.

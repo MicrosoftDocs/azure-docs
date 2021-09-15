@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a metrics alert for an Azure resource
+title: Tutorial - Create a metric alert for an Azure resource
 description: Learn how to create a metric chart with Azure metrics explorer.
 author: bwren
 ms.author: bwren
@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 03/09/2020
 ---
 
-# Tutorial: Create a metric alert in Azure Monitor
+# Tutorial: Create a metric alert for an Azure resoource
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. Metric alert rules create an alert when a metric value from an Azure resource exceeds a threshold.
 
 In this tutorial, you learn how to:
@@ -26,46 +26,46 @@ To complete this tutorial you need the following:
 ## Create new alert rule
 From metrics explorer, click **New alert rule**. The rule will be preconfigured with the target object and the metric that you selected in metrics explorer.
 
-:::image type="content" source="media/tutorial-metric-alerts/new-alert-rule.png" alt-text="New alert rule" lightbox="media/tutorial-metric-alerts/new-alert-rule.png":::
+:::image type="content" source="media/tutorial-metric-alert/new-alert-rule.png" alt-text="New alert rule" lightbox="media/tutorial-metric-alert/new-alert-rule.png":::
 
 ## Configure alert logic
 The resource will already be selected. You need to modify the signal logic to specify the threshold value and any other details for the alert rule. 
 
 Click on the **Condition name** to view these settings. 
 
-    :::image type="content" source="./media/tutorial-metric-alerts/configuration.png" lightbox="./media/tutorial-metric-alerts/configuration.png" alt-text="Alert rule configuration":::
+:::image type="content" source="./media/tutorial-metric-alert/configuration.png" lightbox="./media/tutorial-metric-alert/configuration.png" alt-text="Alert rule configuration":::
 
 The chart shows the value of the selected signal over time so that you can see when the alert would have been fired. This chart will update as you specify the signal logic.
 
-    :::image type="content" source="./media/tutorial-metric-alerts/signal-logic.png" lightbox="./media/tutorial-metric-alerts/signal-logic.png" alt-text="Alert rule signal logic":::
+:::image type="content" source="./media/tutorial-metric-alert/signal-logic.png" lightbox="./media/tutorial-metric-alert/signal-logic.png" alt-text="Alert rule signal logic":::
 
 The **Alert logic** is defined by the condition and the evaluation time. The alert fires when this condition is true. Provide a **Threshold value** for your alert rule and modify the **Operator** and **Aggregation type** as needed.
 
-    :::image type="content" source="./media/tutorial-metric-alerts/alert-logic.png" lightbox="./media/tutorial-metric-alerts/alert-logic.png" alt-text="Alert rule alert logic":::
+:::image type="content" source="./media/tutorial-metric-alert/alert-logic.png" lightbox="./media/tutorial-metric-alert/alert-logic.png" alt-text="Alert rule alert logic":::
 
 You can accept the default time granularity or modify it to your requirements. **Frequency of evaluation** defines how often the alert logic is evaluated. **Aggregation granularity** defines the time interval over which the collected values are aggregated.
 
 Click **Done** when you're done configuring the signal logic.
 
 ## Add action group
-[Action groups](../articles/azure-monitor/alerts/action-groups.md) define a set of actions to take when an alert is fired such as sending an email or an SMS message.
+[Action groups](../alerts/action-groups.md) define a set of actions to take when an alert is fired such as sending an email or an SMS message.
 
 Click **Add action groups** to add one to the alert rule.
 
-:::image type="content" source="./media/tutorial-metric-alerts/add-action-group.png" lightbox="./media/tutorial-metric-alerts/add-action-group.png" alt-text="Add action group":::
+:::image type="content" source="./media/tutorial-metric-alert/add-action-group.png" lightbox="./media/tutorial-metric-alert/add-action-group.png" alt-text="Add action group":::
 
 
 If you don't already have an action group in your subscription to select, then click **Create action group** to create a new one.
 
-:::image type="content" source="./media/tutorial-metric-alerts/create-action-group.png" lightbox="./media/tutorial-metric-alerts/create-action-group.png" alt-text="Create action group":::
+:::image type="content" source="./media/tutorial-metric-alert/create-action-group.png" lightbox="./media/tutorial-metric-alert/create-action-group.png" alt-text="Create action group":::
 
 Select a **Subscription** and **Resource group** for the action group and give it an **Action group name** that will appear in the portal and a **Display name** that will appear in email and SMS notifications.
 
-:::image type="content" source="./media/tutorial-metric-alerts/action-group-basics.png" lightbox="./media/tutorial-metric-alerts/create-action-basics.png" alt-text="Action group basics":::
+:::image type="content" source="./media/tutorial-metric-alert/action-group-basics.png" lightbox="./media/tutorial-metric-alert/create-action-basics.png" alt-text="Action group basics":::
 
 Select **Notifications** and add one or mre methods to notify appropriate people when the alert is fired.
 
-:::image type="content" source="./media/tutorial-metric-alerts/action-group-notifications.png" lightbox="./media/tutorial-metric-alerts/action-group-notifications.png" alt-text="Action group notifications":::
+:::image type="content" source="./media/tutorial-metric-alert/action-group-notifications.png" lightbox="./media/tutorial-metric-alert/action-group-notifications.png" alt-text="Action group notifications":::
 
 ## Configure alert rule details
 
@@ -91,19 +91,19 @@ Select **Alerts** from the resource's menu.
 
 If there are any open alerts for the resources, they will be included in the view.
 
-:::image type="content" source="./media/tutorial-metric-alerts/alerts-view.png" lightbox="./media/tutorial-metric-alerts/alerts-view.png" alt-text="Alerts view":::
+:::image type="content" source="./media/tutorial-metric-alert/alerts-view.png" lightbox="./media/tutorial-metric-alert/alerts-view.png" alt-text="Alerts view":::
 
 Click on a severity to show the alerts with that severity.
 
-:::image type="content" source="./media/tutorial-metric-alerts/alert-severity.png" lightbox="./media/tutorial-metric-alerts/alert-severity.png" alt-text="Alert severity":::
+:::image type="content" source="./media/tutorial-metric-alert/alert-severity.png" lightbox="./media/tutorial-metric-alert/alert-severity.png" alt-text="Alert severity":::
 
 Select the **Alert state** and unselect **Closed** to view only open alerts.
 
-:::image type="content" source="./media/tutorial-metric-alerts/alert-state.png" lightbox="./media/tutorial-metric-alerts/alert-state.png" alt-text="Alert state filter":::
+:::image type="content" source="./media/tutorial-metric-alert/alert-state.png" lightbox="./media/tutorial-metric-alert/alert-state.png" alt-text="Alert state filter":::
 
 Click on the name of an alert to view its detail.
 
-:::image type="content" source="./media/tutorial-metric-alerts/alert-detail.png" lightbox="./media/tutorial-metric-alerts/alert-detail.png" alt-text="Alert detail":::
+:::image type="content" source="./media/tutorial-metric-alert/alert-detail.png" lightbox="./media/tutorial-metric-alert/alert-detail.png" alt-text="Alert detail":::
 
 
 ## Next steps

@@ -25,13 +25,15 @@
   - name: Monitor Azure resource
     href: essentials/monitor-azure-resource.md
   - name: Analyze metric data
-    href: essentials/tutorial-metrics-explorer.md
-  - name: Create a metrics alert
+    href: essentials/tutorial-metrics.md
+  - name: Create a metric alert
     href: alerts/tutorial-metric-alert.md
   - name: Create Log Analytics workspace
     href: logs/tutorial-create-workspace.md
   - name: Collect resource logs
     href: essentials/tutorial-resource-logs.md
+  - name: Collect guest metics and logs from Azure VM
+    href: vm/tutorial-data-collection-rule-vm.md
   - name: Analyze log data
     href: logs/tutorial-logs.md
   - name: Create a log query alert
