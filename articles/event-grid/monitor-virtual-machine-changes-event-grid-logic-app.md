@@ -25,7 +25,7 @@ For example, here are some events that publishers can send to subscribers throug
 
 * A new message appears in a queue.
 
-This tutorial creates a logic app resource that runs in [*multi-tenant* Azure Logic Apps](logic-apps-overview.md) and is based on the [Consumption pricing model](logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through an event grid to the workflow. For more information about multi-tenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+This tutorial creates a logic app resource that runs in [*multi-tenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through an event grid to the workflow. For more information about multi-tenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
 
 ![Screenshot showing the workflow designer with a workflow that monitors a virtual machine using Azure Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
@@ -52,7 +52,7 @@ In this tutorial, you learn how to:
 
 * A [virtual machine](https://azure.microsoft.com/services/virtual-machines) that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the [Create a VM tutorial](../virtual-machines/windows/quick-create-portal.md). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).
 
-* If you have a firewall that limits traffic to specific IP addresses, set up your firewall to allow access for both the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by Azure Logic Apps in the Azure region where you create your logic app workflow.
+* If you have a firewall that limits traffic to specific IP addresses, set up your firewall to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by Azure Logic Apps in the Azure region where you create your logic app workflow.
 
   This example uses managed connectors that require your firewall to allow access for *all* the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses) in the Azure region for your logic app resource.
 
@@ -82,7 +82,7 @@ In this tutorial, you learn how to:
 
    ![Screenshot of Logic Apps templates, showing selection to create a blank logic app.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   The workflow designer now shows you the [*triggers*](logic-apps-overview.md#logic-app-concepts) that you can use to start your logic app. Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, Azure Logic Apps creates a workflow instance that runs your logic app.
+   The workflow designer now shows you the [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) that you can use to start your logic app. Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, Azure Logic Apps creates a workflow instance that runs your logic app.
 
 ## Add an Event Grid trigger
 
@@ -176,7 +176,7 @@ If you want to your logic app to run only when a specific event or operation hap
 
 ## Send email notifications
 
-Now add an [*action*](logic-apps-overview.md#logic-app-concepts) so that you can receive an email when the specified condition is true.
+Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) so that you can receive an email when the specified condition is true.
 
 1. In the condition's **If true** box, select **Add an action**.
 
