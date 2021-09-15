@@ -226,7 +226,7 @@ For more information, see: [Advanced configurations for Jupyter notebooks and MS
 
 In the [Create your configuration file](#create-your-configuration-file) procedure, you saved your settings to your local **msticpyconfig.yaml** file.
 
-However, MSTICPy doesn't automatically reload these settings until you restart the kernel or run another notebook. To force MSTICPy to reload from the new configuration file, enter the following code in the next code cell and run it:
+However, MSTICPy doesn't automatically reload these settings until you restart the kernel or run another notebook. To force MSTICPy to reload from the new configuration file, proceed to the next code cell, with the following code, and run it:
 
 ```python
 import msticpy

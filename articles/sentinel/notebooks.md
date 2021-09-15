@@ -295,7 +295,7 @@ By default, user accounts and credentials are not cached between notebook runs, 
 
 If the *Runtime dependency of PyGObject is missing* error appears when you load a query provider, try troubleshooting using the following steps:
 
-1. Enter the following code in an empty cell and run it:
+1. Proceed to the cell with the following code and run it:
 
     ```python
     qry_prov = QueryProvider("AzureSentinel")
