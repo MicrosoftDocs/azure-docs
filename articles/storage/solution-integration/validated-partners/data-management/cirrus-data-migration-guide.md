@@ -22,9 +22,9 @@ The solution uses distributed Migration Agents running on every host that allows
 
 This document covers a generic migration case for moving the application from one virtual machine (running on-premises or in another cloud provider) to a virtual machine in Azure. For deeper step-by-step guides in various use cases, you can learn more on the following links:
 
-1. [Moving the workload to Azure with cMotion](https://support.cirrusdata.cloud/en/article/howto-cirrus-migrate-cloud-on-premises-to-azure-1xo3nuf/)
-2. [Moving from Premium Disks to Ultra Disks](https://support.cirrusdata.cloud/en/article/howto-cirrus-migrate-cloud-migration-between-azure-tiers-sxhppt/)
-3. [Moving from AWS to Azure](https://support.cirrusdata.cloud/en/article/howto-cirrus-migrate-cloud-migration-from-aws-to-azure-weegd9/.)
+- [Moving the workload to Azure with cMotion](https://support.cirrusdata.cloud/en/article/howto-cirrus-migrate-cloud-on-premises-to-azure-1xo3nuf/)
+- [Moving from Premium Disks to Ultra Disks](https://support.cirrusdata.cloud/en/article/howto-cirrus-migrate-cloud-migration-between-azure-tiers-sxhppt/)
+- [Moving from AWS to Azure](https://support.cirrusdata.cloud/en/article/howto-cirrus-migrate-cloud-migration-from-aws-to-azure-weegd9/.)
 
 ## Components
 
@@ -74,7 +74,7 @@ Before starting the migration, make sure the following prerequisites have been m
  
 1. Next, we need to add Azure Credentials to allow connectivity and disk provisioning using the **Integrations** tab on the CMC portal. Fill in the required fields using your private company’s values for Azure: **Integration Name**, **Tenant ID**, **Client/Application ID**, and **Secret**. Press **Save**. 
 <br>
-_Note_: Since you selected **Auto allocate destination volumes** on the previous step, don't press it again for a new allocation. If you do, it will output and error. Instead press **Continue**.
+[!NOTE]: Since you selected **Auto allocate destination volumes** on the previous step, don't press it again for a new allocation. If you do, it will output and error. Instead press **Continue**.
 
     :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-migration-4.jpg" alt-text="Screenshot that shows entering Azure credentials":::
 
