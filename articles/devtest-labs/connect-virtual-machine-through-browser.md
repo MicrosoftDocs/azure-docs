@@ -1,7 +1,7 @@
 ---
-title: Connect to your virtual machines through a browser - Azure | Microsoft Docs
+title: Connect to your virtual machines through a browser
 description: Learn how to connect to your virtual machines through a browser.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
