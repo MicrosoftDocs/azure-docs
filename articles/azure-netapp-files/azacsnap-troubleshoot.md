@@ -64,7 +64,7 @@ You can test the Service Principal is configured correctly by using Cloud Shell 
 
 **Solution:**
 
-1. Open a [Cloud Shell](/cloud-shell/overview.md) session in your Azure Portal. 
+1. Open a [Cloud Shell](/azure/cloud-shell/overview) session in your Azure Portal. 
 1. Make a test directory (e.g. `mkdir azacsnap`)
 1. cd to the azacsnap directory and download the latest version of azacsnap tool.
     
