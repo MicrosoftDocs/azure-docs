@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 09/09/2021
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -330,10 +330,6 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
-## Purview limits
-
-The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md)
-
 ### Traffic Manager limits
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
@@ -357,6 +353,10 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 ## Notification Hubs limits
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
+
+## Purview limits
+
+The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md).
 
 ## Service Bus limits
 

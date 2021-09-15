@@ -104,9 +104,6 @@ How `Rooms/Description` is stored for full-text search:
 
 So unlike the filter above, which basically says "match documents where a room has `Type` equal to 'Deluxe Room' and **that same room** has `BaseRate` less than 100", the search query says "match documents where `Rooms/Type` has the term "deluxe" and `Rooms/Description` has the phrase "city view". There's no concept of individual rooms whose fields can be correlated in the latter case.
 
-> [!NOTE]
-> If you would like to see support for correlated search added to Azure Cognitive Search, please vote for [this User Voice item](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
-
 ## Inverted indexes and collections
 
 You may have noticed that there are far fewer restrictions on lambda expressions over complex collections than there are for simple collections like `Collection(Edm.Int32)`, `Collection(Edm.GeographyPoint)`, and so on. This is because Azure Cognitive Search stores complex collections as actual collections of sub-documents, while simple collections aren't stored as collections at all.

@@ -156,7 +156,7 @@ And for plans with more than 4GB memory, ensure the Bitness Platform Setting is 
 
 ## Region Max Scale Out
 
-Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration. To request an increase, you can open a support ticket.
+Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration.
 
 See the complete regional availability of Functions on the [Azure web site](https://azure.microsoft.com/global-infrastructure/services/?products=functions).
 

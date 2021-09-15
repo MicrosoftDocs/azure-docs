@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 08/24/2021
+ms.date: 09/14/2021
 ---
 
 # Maintenance window (Preview)
@@ -71,32 +71,40 @@ Choosing a maintenance window other than the default is available on all SLOs **
 
 Choosing a maintenance window other than the default is currently available in the following regions:
 
-- Australia East
-- Australia SouthEast
-- Brazil South
-- Canada Central
-- Canada East
-- Central India
-- Central US
-- East US
-- East US2
-- East Asia
-- France South
-- Germany West Central
-- Japan East
-- Korea Central*
-- NorthCentral US
-- North Europe
-- SouthCentral US
-- SouthEast Asia
-- UK South
-- UK West
-- West Central US
-- West Europe
-- West US
-- West US2
-
-*Available only for Azure SQL Managed Instance
+| Azure Region | SQL Managed Instance | SQL Database | SQL Database in an [Azure Availability Zone](high-availability-sla.md) | 
+|:---|:---|:---|:---|
+| Australia East | Yes | Yes | Yes |
+| Australia Southeast | Yes | Yes | |
+| Brazil South | Yes | Yes |  |
+| Canada Central | Yes | Yes | Yes |
+| Canada East | Yes | Yes | |
+| Central India | Yes | Yes | |
+| Central US | Yes | Yes | Yes |
+| China East 2 |Yes | Yes ||
+| China North 2 |Yes|Yes ||
+| East US | Yes | Yes | Yes |
+| East US 2 | Yes | Yes | Yes |
+| East Asia | Yes | Yes | |
+| France South | Yes | Yes | |
+| Germany West Central | Yes | Yes |  |
+| Japan East | Yes | Yes | Yes |
+| Japan West | Yes | Yes | |
+| Korea Central | Yes | | |
+| Korea South | Yes | | |
+| North Central US | Yes | Yes | |
+| North Europe | Yes | Yes | Yes |
+| South Africa North | Yes | | | 
+| South Central US | Yes | Yes | Yes |
+| Southeast Asia | Yes | Yes | Yes |
+| Switzerland North | Yes | Yes | |
+| UAE Central | Yes | | |
+| UK South | Yes | Yes | Yes |
+| UK West | Yes | Yes | |
+| West Central US | Yes | Yes | |
+| West Europe | Yes | Yes | Yes |
+| West US | Yes | Yes |  |
+| West US 2 | Yes | Yes | Yes |
+| | | | | 
 
 ## Gateway maintenance for Azure SQL Database
 
@@ -108,7 +116,7 @@ To get the maximum benefit from maintenance windows, make sure your client appli
 
 For more on the client connection policy in Azure SQL Database, see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy). 
 
-For more on the client connection policy in Azure SQL Managed Instance see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
+For more on the client connection policy in Azure SQL Managed Instance, see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
 
 ## Considerations for Azure SQL Managed Instance
 

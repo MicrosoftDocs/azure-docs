@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Deploy Azure Machine Learning as an IoT Edge module (preview)
