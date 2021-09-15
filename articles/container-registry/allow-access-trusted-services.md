@@ -40,7 +40,7 @@ Where indicated, access by the trusted service requires additional configuration
 | Azure Security Center | Vulnerability scanning by [Azure Defender for container registries](scan-images-defender.md) | No |
 |ACR Tasks     | [Access the parent registry or a different registry from an ACR Task](container-registry-tasks-cross-registry-authentication.md)       | Yes |
 |Machine Learning | [Deploy](../machine-learning/how-to-deploy-custom-container.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image | Yes |
-|Azure Container Registry | [Import images from another Azure container registry](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | No |
+|Azure Container Registry | [Import images](container-registry-import-images.md) to or from a network-restricted Azure container registry | No |
 
 > [!NOTE]
 > Curently, enabling the allow trusted services setting doesn't apply to certain other managed Azure services including App Service and Azure Container Instances.
