@@ -25,7 +25,6 @@ ms.reviewer: laobri
 | `type` | string | **Required.** The type of compute. | `virtualmachine` | |
 | `name` | string | **Required.** Name of the compute. | | |
 | `description` | string | Description of the compute. | | |
-| `tags` | object | Dictionary of tags for the compute. | | |
 | `resource_id` | string | **Required.** Fully qualified resource ID of the Azure Virtual Machine to attach to the workspace as a compute target. | | |
 
 ## Remarks
