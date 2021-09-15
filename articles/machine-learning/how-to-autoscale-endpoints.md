@@ -55,11 +55,11 @@ A common scaling out rule is one that increases the number of VM instances when 
 ```azurecli
 az monitor autoscale rule create \
   --autoscale-name my-scale-settings \
-  --condition "Percentage CPU > 70 avg 3m" \
+  --condition "Percentage CPU > 70 avg 5m" \
   --scale out 2
 ```
 
-The rule is part of the `my-scale-settings` profile (`autoscale-name` matches the `name` of the profile). The value of its `condition` argument says the rule should trigger when "The average CPU consumption among the VM instances exceeds 70% for three minutes." When that condition is satisfied, two more VM instances are allocated. 
+The rule is part of the `my-scale-settings` profile (`autoscale-name` matches the `name` of the profile). The value of its `condition` argument says the rule should trigger when "The average CPU consumption among the VM instances exceeds 70% for five minutes." When that condition is satisfied, two more VM instances are allocated. 
 
 ## Create a rule to scale in
 
@@ -68,7 +68,7 @@ When load is light, a scaling in rule can reduce the number of VM instances. The
 ```azurecli
 az monitor autoscale rule create \
   --autoscale-name my-scale-settings \
-  --condition "Percentage CPU < 30 avg 3m" \
+  --condition "Percentage CPU < 30 avg 5m" \
   --scale in 1
 ```
 
@@ -84,20 +84,41 @@ In Azure Machine Learning studio:
 :::image type="content" source="media/how-to-autoscale-endpoints/endpoints-portal.png" alt-text="Screenshot showing Endpoints page of Azure Machine Learning studio":::
 
 In the endpoint details screen, in the Details tab, select the deployment in which you're interested. In the deployment details section, select "Configure autoscaling" to open the autoscaling wizard.
+{>>TODO: PII <<}
 
 :::image type="content" source="media/how-to-autoscale-endpoints/configure-autoscale.png" lightbox="media/how-to-autoscale-endpoints/configure-autoscale.png" alt-text="Screenshot showing link to configure autoscaling":::
 
+In the Scale Out page, choose the "Custom autoscale" option to begin the configuration. 
+
 :::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" lightbox="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot showing custom autoscale choice":::
+
+In the "Instance limits" section, set the minimum, maximum, and default number of nodes. For instance, the following image specifies a maximum of five nodes, and a minimum and default of two nodes.
 
 :::image type="content" source="media/how-to-autoscale-endpoints/set-instance-limits.png" lightbox="media/how-to-autoscale-endpoints/set-instance-limits.png" alt-text="Screenshot showing set limits UI":::
 
-:::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.ping" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.ping" alt-text="Screenshot showing scale out rule >70% CPU for 5 minutes":::
+In the "Rules" section, choose "Add a rule". The "Scale rule" page will show.
+
+1. Set the "Operator" to "Greater than" and set the "Metric threshold" to 70
+1. Set "Duration (minutes)" to 5. Leave the "Time grain statistic" as "Average"
+1. Set "Operation" to "Increase count by" and set "Instance count" to 2
+1. Choose the "Add" button to create the rule
+
+:::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.png" alt-text="Screenshot showing scale out rule >70% CPU for 5 minutes":::
+
+You have just specified that if the CPUs average a load of greater than 70% for five minutes, the system should allocate two additional nodes up to the maximum set for autoscale.
+
+Now create a rule for scaling in. Choose "New rule." In the "Scale rule" page:
+
+1. Set the "Operator" to "Less than" and the "Metric threshold" to 30
+1. Set the "Duration (minutes)" to 5
+1. Set the "Operation" to "Decrease count by" and set "Intsance count" to 1
+1. Choose the "Add" button to create the rule
 
 :::image type="content" source="media/how-to-autoscale-endpoints/scale-in-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-in-rule.png" alt-text="Screenshot showing scale-in rule":::
 
+Once you have created both rules, your autoscale rules should look like the following image. You've specified that if average CPU load exceeds 70% for 5 minutes, 2 additional nodes should be allocated, up to the limit of 5. If CPU load is less than 30% for 5 minutes, a single node should be released, down to the minimum of 2. 
+
 :::image type="content" source="media/how-to-autoscale-endpoints/autoscale-rules-final.png" lightbox="media/how-to-autoscale-endpoints/autoscale-rules-final.png" alt-text="Screenshot showing autoscale settings including rules":::
-
-
 
 ## Next steps
 
