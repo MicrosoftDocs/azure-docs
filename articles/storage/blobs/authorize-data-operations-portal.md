@@ -48,7 +48,7 @@ To access blob data from the Azure portal using your Azure AD account, both of t
 - You have been assigned either a built-in or custom role that provides access to blob data.
 - You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
 
-The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to blob containers in the Azure portal.
+The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Storage Blob Data Reader** role is necessary so that users can navigate to blob containers in the Azure portal.
 
 For information about the built-in roles that support access to blob data, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md).
 
