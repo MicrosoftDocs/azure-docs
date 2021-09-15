@@ -104,6 +104,8 @@ items:
   items:
   - name: Quickstart
     href: custom-question-answering/quickstart/sdk.md
+  - name: Language support
+    href: custom-question-answering/language-support.md
   - name: How-to guides
     items:
     - name: Query with REST APIs
