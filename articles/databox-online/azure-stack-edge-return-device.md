@@ -83,9 +83,9 @@ To begin the return process, take the following steps.
 
 7. Once the Azure Stack Edge operations team receives the email, they will send you a reverse shipment label. When you receive this label, you can schedule the device pickup with the carrier. 
 
-## Schedule a pickup
+## Pack the device
 
-To schedule a pickup, take the following steps.
+To pack the device, take the following steps.
 
 1. Shut down the device. In the local web UI, go to **Maintenance > Power settings**.
 2. Select **Shut down**. When prompted for confirmation, click **Yes** to continue. For more information, see [Manage power](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
@@ -101,6 +101,12 @@ To schedule a pickup, take the following steps.
     > [!IMPORTANT]
     > If proper guidelines to prepare the return shipment aren't observed, it could lead to a damaged device and fines may apply. Review the [Product Terms of service](https://www.microsoft.com/licensing/product-licensing/products) and [damaged device charges](https://azure.microsoft.com/pricing/details/databox/edge/).
  
+
+
+## Schedule a pickup
+
+To schedule a pickup, take the following steps.
+
 1. Schedule a pickup with your regional carrier. If returning the device in US, your carrier could be UPS or FedEx. To schedule a pickup with UPS:
 
     1. Call the local UPS (country/region-specific toll free number).
