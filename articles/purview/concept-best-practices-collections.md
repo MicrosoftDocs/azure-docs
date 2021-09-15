@@ -189,7 +189,7 @@ The collection hierarchy consists of the following verticals:
 - Geos (Mid-level collections based on geographical locations where data sources and data owners are located)
 - Data Transformation Stages (Raw, Refine, Produce/ curated) 
 
-Data scientists and data engineers can have data curators role on their corresponding zones to perform curation of metadata. Data Reader access to the curated zone can be granted to entire data personas and business users. 
+Data scientists and data engineers can have the _data curators_ role on their corresponding zones to perform curation of metadata. _Data reader_ access to the curated zone can be granted to entire data personas and business users. 
 
 :::image type="content" source="media/concept-best-practices/collection-example3.png" alt-text="Screenshot that shows an example of Azure Purview collection example 3.":::
 
