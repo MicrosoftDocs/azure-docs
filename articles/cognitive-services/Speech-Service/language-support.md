@@ -333,7 +333,7 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Welsh (United Kingdom) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
 
 > [!IMPORTANT]
-> The English (United Kingdom) voice `en-GB-MiaNeural` will be retired on **October 15th, 2021**. All service requests to `en-GB-MiaNeural` will be re-directed to `en-GB-SoniaNeural` automatically after **October 15th, 2021**.
+> The English (United Kingdom) voice `en-GB-MiaNeural` will be retired on **October 30th, 2021**. All service requests to `en-GB-MiaNeural` will be re-directed to `en-GB-SoniaNeural` automatically after **October 30th, 2021**.
 
 #### Neural voices in preview
 

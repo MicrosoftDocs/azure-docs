@@ -25,6 +25,8 @@
   items:
   - name: Azure Defender for IoT trial setup
     href: tutorial-onboarding.md
+  - name: Integrate Forescout
+    href: tutorial-forescout.md
   - name: Integrate Palo Alto
     href: tutorial-palo-alto.md
   - name: Integrate Qradar
@@ -187,8 +189,6 @@
     displayName: health
   - name: Integrate with partners
     items:
-    - name: Forescout integration
-      href: integration-forescout.md
     - name: Fortinet integration
       href: integration-fortinet.md
 - name: Reference

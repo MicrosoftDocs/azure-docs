@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 01/13/2021 
+ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -68,8 +68,8 @@ For templates, use:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  ...
 }
 ```
 
@@ -77,8 +77,8 @@ The schema for a parameter file is the same for all deployment scopes. For param
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  ...
 }
 ```
 
@@ -94,7 +94,7 @@ For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az_deplo
 az deployment sub create \
   --name demoSubDeployment \
   --location centralus \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyrg.json" \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
@@ -106,7 +106,7 @@ For the PowerShell deployment command, use [New-AzDeployment](/powershell/module
 New-AzSubscriptionDeployment `
   -Name demoSubDeployment `
   -Location centralus `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyrg.json" `
   -rgName demoResourceGroup `
   -rgLocation centralus
 ```
@@ -205,7 +205,7 @@ The following template creates an empty resource group.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -236,7 +236,7 @@ Use the [copy element](copy-resources.md) with resource groups to create more th
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -280,14 +280,14 @@ The following example creates a resource group, and deploys a storage account to
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -303,7 +303,7 @@ The following example creates a resource group, and deploys a storage account to
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2019-06-01",
+              "apiVersion": "2021-04-01",
               "name": "[variables('storageName')]",
               "location": "[parameters('rgLocation')]",
               "sku": {
@@ -347,7 +347,7 @@ The following example assigns an existing policy definition to the subscription.
   "resources": [
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2020-09-01",
       "name": "[parameters('policyName')]",
       "properties": {
         "scope": "[subscription().id]",
@@ -402,7 +402,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
   "resources": [
     {
       "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-09-01",
       "name": "locationpolicy",
       "properties": {
         "policyType": "Custom",
@@ -420,7 +420,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
     },
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-09-01",
       "name": "location-lock",
       "dependsOn": [
         "locationpolicy"
@@ -480,7 +480,7 @@ New-AzSubscriptionDeployment `
 
 ## Access control
 
-To learn about assigning roles, see [Add Azure role assignments using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+To learn about assigning roles, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 
 The following example creates a resource group, applies a lock to it, and assigns a role to a principal.
 
