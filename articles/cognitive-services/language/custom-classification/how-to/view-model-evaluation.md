@@ -22,8 +22,6 @@ After model training is completed, you can view the model details and see how we
 
 * Completed [model training](train-model.md) successfully.
 
-# [Using Language Studio](#tab/language-studio)
-
 ## View the model details using Language Studio
 
 1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
@@ -52,76 +50,6 @@ Under the **Test set confusion matrix**, you can find the confusion matrix for t
 **Multiple Label Classification**
 
 :::image type="content" source="../media/conf-matrix-multi.png" alt-text="Confusion matrix for multiple class classification" lightbox="../media/conf-matrix-multi.png":::
-
-# [Using APIs](#tab/api)
-
-## View evaluation details using APIs
-
-### Get your resource keys endpoint
-
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
-
-2. From the menu on the left side, select **Keys and Endpoint**. Use the endpoint for the API requests. You will need the key for `Ocp-Apim-Subscription-Key` header.
-
-    :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
-
-### Get evaluation details
-
-Use this [**GET**] request to get you model evaluation results `{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/evaluation`.
-Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName}` with your project name. Pass `trainingModelName` as a parameter and for the value indicate the model name you are requesting evaluation for (model name is case-sensitive). For your request to be successful, make sure that the model has completed training successfully on more than 10 files to be able to query evaluation results. Evaluation is performed only on the [test set](train-model.md#data-splits).
-
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
-
-#### Response Body
-
-```json
-    "modelType": "MultiClassification",
-    "singleClassificationEvaluation": null,
-    "multiClassificationEvaluation": {
-        "classes": {
-            "Class_1": {
-                "f1": 0,
-                "precision": 0,
-                "recall": 0,
-                "countTruePositives": 0,
-                "countTrueNegatives": 0,
-                "countFalsePositives": 0,
-                "countFalseNegatives": 1
-            },
-            "Class_2": {
-                "f1": 1,
-                "precision": 1,
-                "recall": 1,
-                "countTruePositives": 0,
-                "countTrueNegatives": 0,
-                "countFalsePositives": 0,
-                "countFalseNegatives": 0
-            }
-        },
-        "microF1": 0.33333334,
-        "microPrecision": 0.2857143,
-        "microRecall": 0.4,
-        "macroF1": 0.26666668,
-        "macroPrecision": 0.2,
-        "macroRecall": 0.4
-    }
-}
-```
-
-|Key|Sample Value|Description|
-|--|--|--|
-|modelType|`MultiClassification`|Type of the model. This value can be `SingleClassification` based on model type|
-|`multiClassificationEvaluation`|{}| Object for `multiClassification` results of the test set|
-|`singleClassificationEvaluation`|{}| Object for `singleClassification` results of the test set|
-|classes|[]| list of all classes with their class-level evaluation metrics. |
-|`microF1`, `microPrecision`, `microRecall`|0.33, 0.28, 0.4| These are model-level evaluation metrics. |
-|`macroF1`, `macroPrecision`, `macroRecall`|0.26, 0.2, 0.4|These are model-level evaluation metrics. Macro metrics are calculated as the average of class-level metrics for all classes.|
-
----
 
 ## Next steps
 
