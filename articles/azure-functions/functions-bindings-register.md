@@ -16,7 +16,7 @@ Starting with Azure Functions version 2.x, the functions runtime only includes H
 
 The following table indicates when and how you register bindings.
 
-| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x and later  |
+| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x or later  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|Automatic|Automatic<sup>*</sup>|
 |Non-.NET languages|Automatic|Use [extension bundles](#extension-bundles) (recommended) or [explicitly install extensions](#explicitly-install-extensions)|
