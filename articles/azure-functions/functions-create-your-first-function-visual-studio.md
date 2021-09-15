@@ -81,23 +81,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 ::: zone-end
 
-Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The boilerplate code sends an HTTP response that includes a value from the request body or query string. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. 
-
-::: zone pivot="programming-runtime-functions-v4"
-## Update the .NET and Functions runtime versions
-
-1. In **Solution Explorer**, right-click the project and select **Edit project file**.
-
-1. In the project file update the following properties.
-
-    | Property | Value |
-    | -------- | ----- |
-    | TargetFramework | net6.0 |
-    | AzureFunctionsVersion | v4 |
-
-1. Save the file. When prompted, reload the project.
-
-::: zone-end
+Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The boilerplate code sends an HTTP response that includes a value from the request body or query string. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request.
 
 ## Rename the function
 
