@@ -23,10 +23,16 @@ In this article, you learn how to:
 > * Run your code locally to verify function behavior.
 > * Deploy your code project to Azure Functions.
  
+::: zone pivot="programming-runtime-functions-v3"
 This article supports creating both types of compiled C# functions: 
 
 + [In-process](functions-create-your-first-function-visual-studio.md?tabs=in-process) - runs in the same process as the Functions host process. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 + [Isolated process](functions-create-your-first-function-visual-studio.md?tabs=isolated-process) - runs in a separate .NET worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+::: zone-end
+::: zone pivot="programming-runtime-functions-v4"
+> [!NOTE]
+> Visual Studio currently supports .NET 6 function apps with the in-process execution model. Support for the isolated process model is coming soon.
+::: zone-end
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -60,8 +66,6 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 1. For the **Create a new Azure Functions application** settings, use the values in the following table:
 
-    # [In-process](#tab/in-process) 
-
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
     | **.NET version** | **.NET 6** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. Azure Functions 1.x supports the .NET Framework. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).   |
@@ -70,20 +74,6 @@ The Azure Functions project template in Visual Studio creates a C# class library
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
     
     :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4.png" alt-text="Azure Functions project settings":::
-
-    # [Isolated process](#tab/isolated-process)
-
-    | Setting      | Value  | Description                      |
-    | ------------ |  ------- |----------------------------------------- |
-    | **.NET version** | **.NET 5 (Isolated)** | This value creates a function project that runs in an isolated process. You'll update the target framework to .NET 6 in a later step. |
-    | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
-    | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
-    | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
-    
-    
-    ![Azure Functions project settings](../../includes/media/functions-vs-tools-create/functions-project-settings-isolated.png)
-
-    ---
 
     Make sure you set the **Authorization level** to **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](./functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint.
 
@@ -121,15 +111,7 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 Your function definition should now look like the following code:
 
-# [In-process](#tab/in-process) 
-
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="15-18"::: 
-
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13"::: 
-
----
 
 Now that you've renamed the function, you can test it on your local computer.
 
