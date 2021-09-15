@@ -109,7 +109,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
    >[!Note]
    >While the portal allows you to select multiple disks and configure backup, each disk is an individual backup instance. Currently, Azure Disk Backup only supports backup of individual disks. Point-in-time backup of multiple disks attached to a virtual machine isn't supported.
 
-   In the Azure  portal, y0ou can only select disks within the same subscription. If you have several disks to be backed up or if the disks reside in different subscriptions, you can use scripts ([PowerShell](/azure/backup/backup-managed-disks-ps)/[CLI](/azure/backup/backup-managed-disks-cli)) to automate. 
+   In the Azure  portal, you can only select disks within the same subscription. If you have several disks to be backed up or if the disks reside in different subscriptions, you can use scripts ([PowerShell](/azure/backup/backup-managed-disks-ps)/[CLI](/azure/backup/backup-managed-disks-cli)) to automate. 
 
    See the [support matrix](/azure/backup/disk-backup-support-matrix) for more information on the Azure Disk backup region availability, supported scenarios, and limitations.
 

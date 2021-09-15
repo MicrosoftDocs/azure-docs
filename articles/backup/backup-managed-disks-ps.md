@@ -108,7 +108,7 @@ Azure Disk Backup offers multiple backups per day. If you require more frequent 
    >[!NOTE]
    > Although the selected vault may have the global-redundancy setting, currently Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to backup vault storage.
 
-To know more details about policy creation, refer to the [azure disk backup policy](backup-managed-disks.md#create-backup-policy) document.
+To know more details about policy creation, refer to the [Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy) document.
 
 If you want to edit the hourly frequency or the retention period, use the [Edit-AzDataProtectionPolicyTriggerClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject?view=azps-5.7.0&preserve-view=true) and/or [Edit-AzDataProtectionPolicyRetentionRuleClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject?view=azps-5.7.0&preserve-view=true) commands. Once the policy object has all the desired values, proceed to create a new policy from the policy object using the [New-AzDataProtectionBackupPolicy](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy?view=azps-5.7.0&preserve-view=true).
 
@@ -156,7 +156,7 @@ Backup vault uses managed identity to access other Azure resources. To configure
 
 A system-assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
 
-To configure backup of managed disks, ensure the following prerequistes:
+To configure backup of managed disks, ensure the following prerequisites:
 
 - Assign the **Disk Backup Reader** role to Backup vault’s managed identity on the Source disk that needs to be backed up.
 
