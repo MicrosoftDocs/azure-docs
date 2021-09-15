@@ -35,7 +35,7 @@ To get a list of all workload groups(including system workload groups) and assoc
 4)	In the left side pane, select **Workload Management** under **Settings**
 5)	Under **Workload Groups** section, all workloads are listed. Note, by default only **User-Defined Workload groups** are listed. To view list of all Workload groups, edit filter and **Select All**.
 
-![query results](./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/filter-all-workload-groups.png)
+![Workload Group List](./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/filter-all-workload-groups.png)
 
 **Catalog views:** To view Workload groups using T-SQL, [connect to  Dedicated SQL Pool using SSMS](../sql/get-started-ssms.md) and issue following query:
  
@@ -46,7 +46,7 @@ select * FROM sys.workload_management_workload_groups
 ### Workload Classifiers
 
 To list all Workload classifiers(including inbuilt classifiers) by workload group in Azure portal, select numbers listed in Classifiers column in Workload Group table. 
-![query results](./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/view-workload-classifiers.png)
+![Classifier List](./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/view-workload-classifiers.png)
 
 To get the list of all Workload Classifiers(including System defined) using T-SQL, use following query:
 
@@ -105,7 +105,7 @@ Consider a scenario where System Administrator or dbo has either created a workl
 
 **Recommendation**: Service Administrators can't change their default workload group as documented [here](resource-classes-for-workload-management.md#default-resource-class). Service administrator is the user or role specified during SQL Pool provisioning process, and this user can either be a Server Admin Login or Active Directory admin. To identify service administrator, go to properties section of the dedicated SQL Pool and look for **Workspace SQL Admin Login** field, as shown below:
 
-![query results](./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png)
+![Identifying SQL Admin](./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png)
 
 Similarly dbo and db_owner roles are not allowed to change their default resource class. If a user is either dbo or added under db_owner role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However if a user who is part of this role would like to classify their queries to a different workload group, they can use MEMBERNAME option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
 
