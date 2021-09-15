@@ -182,7 +182,7 @@ The following steps show you how to enable a blue-green deployment from the **Re
 
    :::image type="content" source="media/spring-cloud-how-to-cicd/create-new-job.jpg" alt-text="Screenshot of where to select to add a task to a job." lightbox="media/spring-cloud-how-to-cicd/create-new-job.jpg":::
 
-   1. Select the + to add a task to the job.
+   1. Select the **+** to add a task to the job.
    1. Search for the **Azure Spring Cloud** template, then select **Add** to add the task to the job.
    1. Select **Azure Spring Cloud Deploy:** to edit the task.
    1. Fill this task with your app's information, then disable **Use Staging Deployment**.
@@ -198,14 +198,9 @@ The following steps show you how to enable a blue-green deployment from the **Re
 
    :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Modify the artifact path." lightbox="media/spring-cloud-how-to-cicd/change-artifact-path.jpg":::
 
-1. Select **Save**.
-1. Navigate to **Stage 1**.
-1. Select **Add**, then select **Clone stage**.
-
-   :::image type="content" source="media/spring-cloud-how-to-cicd/clone-the-stage.jpg" alt-text="Dialog to clone the stage to update to production deployment." lightbox="media/spring-cloud-how-to-cicd/clone-the-stage.jpg":::
-
-1. Select the task in the clone, then change the action to **Set Production Deployment**.
-1. Select **Save**, then **Create release** to automatically start the deployment. 
+1. Select the **+** to add another **Azure Spring Cloud** task to the job.
+2. Change the action to **Set Production Deployment**.
+3. Select **Save**, then **Create release** to automatically start the deployment. 
 
 To verify your app's current release status, select **View release**. After this task is finished, visit the Azure portal to verify your app status.
 
