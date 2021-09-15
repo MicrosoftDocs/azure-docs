@@ -23,7 +23,7 @@ A collection is a also a logical and security boundary of your metadata in data 
 - Data governance and management teams
 - Data security team
 
-## Why do you need to define collections and authorization model for your Azure Purview account? 
+## Why do you need to define collections and an authorization model for your Azure Purview account? 
 
 Consider deploying collections in your Azure Purview to fulfill the following requirements: 
 
