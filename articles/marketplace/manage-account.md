@@ -25,11 +25,11 @@ If you have not already done so, you (or your organization's administrator) shou
 1. Sign in to the [commercial marketplace dashboard](https://go.microsoft.com/fwlink/?linkid=2165290) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
 1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
 
-:::image type="content" source="media/manage-accounts/settings-account.png" alt-text="Displays the Account Settings option in Partner Center":::
+   :::image type="content" source="media/manage-accounts/settings-account.png" alt-text="Screenshot showing the Account Settings option in Partner Center.":::
 
 1. Under **Account settings** select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
 
-:::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="Image shows developer tab" lightbox="media/manage-accounts/developer-tab.png":::
+   :::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="Screenshot showing the Developer tab." lightbox="media/manage-accounts/developer-tab.png":::
 
 ### Account settings page
 
