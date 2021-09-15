@@ -82,7 +82,7 @@ In this step, you choose your Azure AD B2C tenant as a **service provider**. You
 First, get the **Tenant ID** of your Azure AD B2C directory (also known as the directory ID).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select **Azure Active Directory**, select **Overview**.
 1. Record the **Tenant ID**.
@@ -163,7 +163,7 @@ You're ready to [create diagnostic settings](../active-directory/reports-monitor
 To configure monitoring settings for Azure AD B2C activity logs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure AD B2C administrative account. This account must be a member of the security group you specified in the [Select a security group](#32-select-a-security-group) step.
-1. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select **Azure Active Directory**
 1. Under **Monitoring**, select **Diagnostic settings**.
