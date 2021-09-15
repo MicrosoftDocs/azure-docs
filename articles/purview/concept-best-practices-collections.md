@@ -4,7 +4,7 @@ description: This article explains Purview collections architecture and best pra
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 09/15/2021
 ---
