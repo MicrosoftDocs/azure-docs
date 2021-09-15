@@ -104,7 +104,8 @@ Once you've connected your API Management service to the VNET, you can access ba
 
 :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="Add API from VNET":::
 
-## Network configuration
+## <a name="network-configuration-issues"> </a>Common Network Configuration Issues
+
 Review the following sections for more network configuration settings. 
 
 These settings address common misconfiguration issues that can occur while deploying API Management service into a VNET.
