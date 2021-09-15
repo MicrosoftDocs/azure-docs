@@ -119,7 +119,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Screenshot of the Create App Role dialog with the fields filled out as described. ](./media/appneta-tutorial/create-app-role.png)
 
 1. After creating the roles, you need to map them to your users/groups. Navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manger** > **Users and groups**.
-1. Select a user/group and then assign your desired role (created in the previous step).
+1. Select a user/group and then assign your desired App role (created in the previous step).
+1. Once you have mapped the App roles, navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manager** > **Single sign-on**.
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
    ![The Certificate download link](common/metadataxml.png)
