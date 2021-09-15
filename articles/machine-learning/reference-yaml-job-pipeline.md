@@ -22,14 +22,14 @@ ms.reviewer: laobri
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
-| `type` | const | The type of job. | `pipeline` | `pipeline` |
+| `type` | const | **Required.** The type of job. | `pipeline` | |
 | `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate the name. | | |
 | `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, will default to the same value as `name`. | | |
 | `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
 | `description` | string | Description of the job. | | |
 | `tags` | object | Dictionary of tags for the job. | | |
-| `defaults` | object | Default settings for the pipeline job. TODO | | |
-| `jobs` | object | Dictionary of the set of individual jobs to run as steps within the pipeline. These jobs are considered child jobs of the parent pipeline job. <br><br> The key is the name of the step within the context of the pipeline job. Note that this name is different from the unique job name of the child job. The value is the job specification, which can follow the [Command job schema](). Currently only command jobs and component jobs running command components can be run in a pipeline. Later releases will have support for additional job types. | | |
+| `defaults` | object | Default settings for the pipeline job. See [Attributes of the `defaults` key](#attributes-of-the-defaults-key) for the set of configurable properties. | | |
+| `jobs` | object | **Required.** Dictionary of the set of individual jobs to run as steps within the pipeline. These jobs are considered child jobs of the parent pipeline job. <br><br> The key is the name of the step within the context of the pipeline job. Note that this name is different from the unique job name of the child job. The value is the job specification, which can follow the [Command job schema](). Currently only command jobs and component jobs running command components can be run in a pipeline. Later releases will have support for additional job types. | | |
 | `inputs` | object | Dictionary of inputs to the pipeline job. The key is a name for the input within the context of the job and the value is the input value. <br><br> These pipeline inputs can be referenced by the inputs of an individual step job in the pipeline using the `${{ inputs.<input_name> }}` expression. | | |
 | `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string), [JobInputUri](#jobinputuri), or [JobInputDataset](#jobinputdataset). | | |
 | `outputs` | object | Dictionary of output configurations of the pipeline job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> These pipeline outputs can be referenced by the outputs of an individual step job in the pipeline using the `${{ outputs.<output_name> }}` expression. | |
