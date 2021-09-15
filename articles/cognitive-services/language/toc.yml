@@ -234,6 +234,8 @@ items:
     href: text-summarization/overview.md
   - name: Language support
     href: text-summarization/language-support.md
+  - name: Quickstart
+    href: text-summarization/quickstart.md
   - name: How-to guides
     items:
     - name: Call the Text Summarization API
