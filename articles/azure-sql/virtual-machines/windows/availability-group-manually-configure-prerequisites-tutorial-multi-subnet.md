@@ -29,8 +29,6 @@ In this tutorial, complete the prerequisites for creating an [Always On availabi
 **Time estimate**: This tutorial may take several hours to complete, as creating resources can be time-intensive. 
 
 
-
-
 The following diagram illustrates the resources you deploy in this tutorial: 
 
 :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/multi-subnet-availability-group-diagram.png" alt-text="New object":::
