@@ -6,14 +6,14 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, azla
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 07/01/2021
 ---
 
 # Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps
 
-To monitor and respond to specific events that happen in Azure resources or third-party resources, you can automate and run tasks as a workflow by creating a [logic app](../logic-apps/logic-apps-overview.md) that uses minimal code. These resources can publish events to an [Azure event grid](../event-grid/overview.md). In turn, the event grid pushes those events to subscribers that have queues, webhooks, or [event hubs](../event-hubs/event-hubs-about.md) as endpoints. As a subscriber, your logic app can wait for those events from the event grid before running automated workflows to perform tasks.
+To monitor and respond to specific events that happen in Azure resources or third-party resources, you can create an automated [logic app workflow](../logic-apps/logic-apps-overview.md) with minimal code using Azure Logic Apps. You can have these resources publish events to an [Azure event grid](../event-grid/overview.md). In turn, the event grid pushes those events to subscribers that have queues, webhooks, or [event hubs](../event-hubs/event-hubs-about.md) as endpoints. As a subscriber, your workflow waits for these events to arrive in the event grid before running the steps to process the events.
 
 For example, here are some events that publishers can send to subscribers through the Azure Event Grid service:
 
@@ -25,22 +25,22 @@ For example, here are some events that publishers can send to subscribers throug
 
 * A new message appears in a queue.
 
-This tutorial creates a logic app that monitors changes to a virtual machine, and sends emails about those changes. When you create a logic app with an event subscription for an Azure resource, events flow from that resource through an event grid to the logic app. The tutorial walks you through building this logic app:
+This tutorial creates a logic app resource that runs in [*multi-tenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through an event grid to the workflow. For more information about multi-tenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
 
-![Screenshot of Logic Apps Designer, showing workflow to monitor VM with Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
+![Screenshot showing the workflow designer with a workflow that monitors a virtual machine using Azure Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a logic app that monitors events from an event grid.
+> * Create a logic app resource and workflow that monitors events from an event grid.
 > * Add a condition that specifically checks for virtual machine changes.
 > * Send email when your virtual machine changes.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An email account from an email provider supported by Logic Apps for sending notifications, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/).
+* An email account from an email service that works with Azure Logic Apps for sending notifications, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/).
 
   This tutorial uses an Office 365 Outlook account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
@@ -52,9 +52,13 @@ In this tutorial, you learn how to:
 
 * A [virtual machine](https://azure.microsoft.com/services/virtual-machines) that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the [Create a VM tutorial](../virtual-machines/windows/quick-create-portal.md). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).
 
-## Create blank logic app
+* If you have a firewall that limits traffic to specific IP addresses, set up your firewall to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by Azure Logic Apps in the Azure region where you create your logic app workflow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
+  This example uses managed connectors that require your firewall to allow access for *all* the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses) in the Azure region for your logic app resource.
+
+## Create logic app resource
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
 
