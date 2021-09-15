@@ -7,7 +7,6 @@ ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: "devx-track-python, devx-track-azurepowershell"
-
 ---
 
 # Quickstart: Microsoft Azure Confidential Ledger client library for Python
@@ -95,7 +94,7 @@ credential = DefaultAzureCredential()
 We'll finish setup by setting some variables for use in your application: the resource group (myResourceGroup), the name of ledger you want to create, and two urls to be used by the data plane client library.
 
   > [!Important]
-  > Each ledger must have a globally unique name. Replace <your-unique-keyvault-name> with the name of your ledger in the following example.
+  > Each ledger must have a globally unique name. Replace \<your-unique-keyvault-name\> with the name of your ledger in the following example.
 
 ```python
 resource_group = "myResourceGroup"
