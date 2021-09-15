@@ -7,10 +7,13 @@ ms.date: 06/01/2021
 ---
 # Pipeline
 
-An Azure Video Analyzer pipeline lets you define where input data should be captured from, how it should be processed, and where the results should be delivered. A pipeline consists of nodes that are connected to achieve the desired flow of data. The diagram below provides a graphical representation of a pipeline.
+An Azure Video Analyzer pipeline lets you define where input data should be captured from, how it should be processed, and where the results should be delivered. A pipeline consists of nodes that are connected to achieve the desired flow of data. The diagrams below provides a graphical representation of a pipeline.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/pipeline/pipeline-representation.svg" alt-text="Representation of a pipeline":::
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/pipeline/cloud-pipeline.svg" alt-text="Representation of a cloud pipeline":::
 
 A pipeline supports different types of nodes
 
@@ -25,29 +28,54 @@ A pipeline supports different types of nodes
 
 ## Pipeline topologies
 
-A pipeline topology enables you to describe how live video should be processed and analyzed for your custom needs through a set of interconnected nodes. You can create different topologies for different scenarios by selecting which nodes are in the topology, how they are connected, with parameters as placeholders for values. A pipeline is an individual instance of a specific pipeline topology. A pipeline is where media is actually processed. Pipelines can be associated with individual cameras (as well as other aspects) through user defined parameters declared in the pipeline topology.
+A pipeline topology enables you to describe how live video or [recorded videos] (terminology.md) should be processed and analyzed for your custom needs through a set of interconnected nodes. Video analyzer supports two kinds of topologies: live and batch. Live topologies, as the name suggests, are used with live video from cameras. Batch topologies are used to process recorded videos.
+
+You can create different topologies for different scenarios by selecting which nodes are in the topology, how they are connected, with parameters as placeholders for values. A pipeline is an individual instance of a specific pipeline topology. A pipeline is where media is actually processed. Pipelines can be associated with individual cameras or recorded videos through user defined parameters declared in the pipeline topology. Instances of a live topologies are called live pipelines, and instances of a batch topology are referred to as pipeline jobs.
 
 As an example, if you want to record videos from multiple IP cameras, you can define a pipeline topology consisting of an RTSP source node and a video sink node. The RTSP source node can have RTSP URL, username, and password as parameters. The video sink node can have the video name as a parameter. Values for these parameters can be provided when creating multiple pipelines from the same topology - one pipeline per camera.
 
+> [!NOTE]
+> Batch topologies are supported only in Cloud Video Analyzer service (and not in the Video Analyzer edge module). Live pipelines are supported in both.
+
 ## Pipeline states
 
-The lifecycle of a pipeline is represented in the diagram below.
+You start with creating the pipeline topology. Once the topology is defined, you can create pipelines by providing values for the parameters.
+
+### Live pipeline
+
+The lifecycle of a  pipeline is represented in the diagram below.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/pipeline/pipeline-activation.svg" alt-text="Lifecycle of a pipeline":::
 
-You start with creating the pipeline topology. Once the topology is defined, you can create pipelines by providing values for the parameters. Upon successful creation a pipeline is in the “Inactive” state. Upon activation, a pipeline enters the “Activating” state and then “Active” state. 
-
+Upon successful creation a pipeline is in the “Inactive” state. Upon activation, a pipeline enters the “Activating” state and then “Active” state.
 Data (live video) starts flowing through the pipeline when it reaches the “Active” state. Upon deactivation, an active pipeline enters the “Deactivating” state and then “Inactive” state. Only inactive pipelines can be deleted.
 
-Multiple pipelines can be created from a single topology by supplying different values for the parameters in the topology. A topology can be deleted when all pipelines have been deleted.
+Live pipelines are designed to remain active, once activated, and keep processing the live video from the source (camera). An explicit deactivate command is required in order to stop the processing.
 
 > [!NOTE]
 > A pipeline can be active without data flowing through it (for example, the input video source goes offline). Your Azure subscription will be billed when the pipeline is in the active state.
 
+### Batch pipeline
+
+The lifecycle of a pipeline job is represented in the diagram below.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/pipeline/batch-pipeline-lifecycle.svg" alt-text="Lifecycle of a pipeline":::
+
+Upon successful creation of pipeline job, it is in the “processing” state. If the job completes successfully it goes into a “completed” state, else if it fails it goes to the “failed” state. Alternatively, while the pipeline job is in progress, a cancel request can be issued. In that case, the job will go to a temporary “Cancelling” state and then a “Cancelled” state if request is executed successfully.
+
+> [!NOTE]
+> Your Azure subscription will only be billed if the pipeline job completes successfully.
+
+Multiple pipelines can be created from a single topology by supplying different values for the parameters in the topology. For example you can submit pipeline jobs with the same topology for different video recordings. A topology can be deleted when all pipelines have been deleted.
+
 ## Sources, processors, and sinks
 
-Video Analyzer edge module supports the following types of nodes within a pipeline:
+Video Analyzer edge module supports the following types of nodes within a pipeline.
+
+> [!NOTE]
+> Not all nodes are available in both Video Analyzer edge module and service. Please see <TODO: link to section below in this doc>
 
 ### Sources
 
@@ -60,6 +88,10 @@ An RTSP source node enables you to capture media from a RTSP server. The RTSP pr
 Like other [IoT Edge modules](../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-device), Azure Video Analyzer module can receive messages via the [IoT Edge hub](../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub). Messages can be sent from other modules, or apps running on the Edge device, or from the cloud. Such messages can be delivered (routed) to a [named input](../../iot-edge/module-composition.md?view=iotedge-2020-11&preserve-view=true#sink) on the video analyzer module. An IoT Hub message source node enables the ingestion of such messages into a pipeline. Messages can then be used in a pipeline to activate a signal gate (see [signal gates](#signal-gate-processor) below).
 
 For example, you could have an IoT Edge module that generates a message when a door is opened. The message from that module can be routed to IoT Edge hub, from where it can be then routed to the IoT hub message source of a pipeline. Within the pipeline, the message can be passed from the IoT hub message source to a signal gate processor, which can then turn on recording of the video from an RTSP source into a file.
+
+#### Video Source
+
+Allows a Video Analyzer video recording to be used as a source. The node requires you to specify the name of the video resource, as well as the start and end time of the portion(s) of the recorded video to be processed.
 
 ### Processors
 
@@ -91,6 +123,10 @@ The object tracker processor node enables you to track objects detected in an up
 
 The line crossing processor node enables you to detect when an object crosses a line defined by you. In addition to that, it also maintains a count of the number of objects that cross the line (from the time a pipeline is activated). This node must be used downstream of an object tracker processor node.
 
+#### Encoder processor
+
+The encoder processor node allows user to specify encoding properties when converting the recorded video into the desired format for downstream processing. For example video recorded from a camera configured for [4K resolution](https://en.wikipedia.org/wiki/4K_resolution) may need to be resized to [Full HD (1920x1080)](https://en.wikipedia.org/wiki/1080p) resolution before it is exported to a file.
+
 ### Sinks
 
 #### Video sink
@@ -110,7 +146,7 @@ An IoT Hub message sink node enables you to publish events to IoT Edge hub. The 
 
 ## Rules on the use of nodes
 
-See [limitations on pipelines](quotas-limitations.md#limitations-on-pipeline-topologies) for additional rules on how different nodes can be used within a pipeline.
+See [limitations on pipelines](quotas-limitations.md#limitations-on-pipeline-topologies) for additional rules on how different nodes can be used within a topology, the differences between live and batch topologies, and between Video Analyzer edge module and service.
 
 ## Scenarios
 
