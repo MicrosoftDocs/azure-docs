@@ -1,5 +1,5 @@
 ---
-title: Azure NetApp Files with Azure Government | Microsoft Docs
+title: Azure NetApp Files for Azure Government  | Microsoft Docs
 description: This article outlines how to connect to Azure Government US to use with Azure NetApp Files
 services: azure-netapp-files
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 09/15/2021
 ms.author: b-juche
 ---
 
-# Azure NetApp Files with Azure Government
+# Azure NetApp Files for Azure Government 
 
 [Microsoft Azure Government](../azure-government/documentation-government-welcome.md) delivers a dedicated cloud enabling government agencies and their partners to transform mission-critical workloads to the cloud.  
 
