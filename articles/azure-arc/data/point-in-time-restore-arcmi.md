@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Restore a database in Azure Arc enabled SQL Managed Instance to a previous point in time 
 
-Use the point-in-time restore (PITR) to create a database as a copy of another database from some time in the past. This article describes how to do a point-in-time restore of a database in Azure Arc enabled SQL managed instance.
+Use the point-in-time restore (PITR) to create a database as a copy of another database from some time in the past. This article describes how to do a point-in-time restore of a database in Azure Arc enabled SQL Managed Instance.
 
 Point-in-time restore can restore a database from:
 - an existing database
