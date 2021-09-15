@@ -4,7 +4,7 @@ description: How to configure a DNS server for round-robin load balancing for Az
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 09/15/2021
 ms.author: v-erkel
 ---
 
@@ -34,7 +34,7 @@ Read [Mount the Azure HPC Cache](hpc-cache-mount.md) for details.
 
 There are several ways to programmatically rotate client mounts among the available IP addresses.
 
-This example mount command uses the hash function ``cksum`` and the client host name to automatically distribute the client connections among all available IP addresses on your HPC Cache. As long as all of your client machines have unique hostnames, this command can be run on each of them to make sure that all available mount points are used.
+This example mount command uses the hash function ``cksum`` and the client host name to automatically distribute the client connections among all available IP addresses on your HPC Cache. If all of the client machines have unique host names, you can run this command on each client to ensure that all available mount points are used.
 
 ``
 mount -o hard,proto=tcp,mountproto=tcp,retry=30 $(X=(10.0.0.{1..3});echo ${X[$(($(hostname|cksum|cut -f 1 -d ' ')%3))]}):/${NAMESPACE} /mnt
@@ -50,7 +50,7 @@ To use this example in your workflow, customize these terms:
 
   For example, use ``%9`` if your cache exposes nine client mount IP addresses.
 
-* For the expression ``${NAMESPACE}`` use the storage target namespace path that the client will access.
+* For the expression ``${NAMESPACE}``, use the storage target namespace path that the client will access.
 
   You can use a variable that you have defined (*NAMESPACE* in the example), or pass the literal value instead.
   
@@ -66,21 +66,21 @@ mount -o hard,proto=tcp,mountproto=tcp,retry=30 $(X=(10.7.0.{1..3});echo ${X[$((
 
 ## Use DNS load balancing
 
-This section explains the basics of configuring a DNS system to load balance client traffic to all of the mount points on your Azure HPC Cache.
+This section explains the basics of configuring a DNS system to distribute client connections to all of the mount points on your Azure HPC Cache. This method doesn't account for the amount of traffic each client generates, but it does make sure that clients are evenly spread out over all of the cache's interfaces instead of just using one or two.
 
-This document *does not include* instructions for setting up and managing a DNS server in the Azure environment. ***[ can you do it with built-in Azure DNS? ]***
+This document does not include instructions for setting up and managing a DNS server in the Azure environment. Check with your Azure representative to learn how to configure forwarding so that your cache can still contact necessary Azure infrastructure.
 
-DNS is not required in order to mount clients using the NFS protocol and numeric IP addresses. DNS *is* needed if you want to use domain names instead of IP addresses to reach hardware NAS systems, or if your workflow includes certain advanced protocol settings. Read [Storage target DNS access](hpc-cache-prerequisites.md#dns-access) for more information.
+DNS is not required in order to mount clients using the NFS protocol and IP addresses. DNS *is* needed if you want to use domain names instead of IP addresses to reach hardware NAS systems, or if your workflow includes certain advanced protocol settings. Read [Storage target DNS access](hpc-cache-prerequisites.md#dns-access) for more information.
 
 ### Configure round-robin distribution for cache mount points
 
 A round-robin DNS (RRDNS) system automatically routes client requests among multiple addresses.
 
-To set this system up, you need to customize the DNS server's configuration file so that when it gets mount requests to the HPC Cache's main domain address, it assigns the traffic among all of the HPC Cache system's mount points. Clients mount the HPC Cache using its domain name as the server argument, and are routed to the next available mount IP automatically.
+To set this system up, you need to customize the DNS server's configuration file so that when it gets mount requests to the HPC Cache's main domain address, it assigns the traffic among all of the HPC Cache system's mount points. Clients mount the HPC Cache using its domain name as the server argument, and are routed to the next mount IP automatically.
 
 There are two main steps to configure RRDNS:
 
-1. Modify your DNS server’s ``named.conf`` file to set cyclic order for queries to your HPC Cache. This option ensures that all of the available values are cycled through. Add a statement like the following:
+1. Modify your DNS server’s ``named.conf`` file to set cyclic order for queries to your HPC Cache. This option causes the server to cycle through all of the available IP values. Add a statement like the following:
 
    ```bash
    options {
@@ -90,7 +90,7 @@ There are two main steps to configure RRDNS:
    };
    ```
 
-1. Configure A records and pointers for each available IP address as in the following example.
+1. Configure A records and pointer (PTR) records for each available IP address as in the following example.
 
    These ``nsupdate`` commands provide an example of configuring DNS correctly for an HPC Cache with the domain name hpccache.contoso.com and three mount addresses (10.0.0.10, 10.0.0.11, and 10.0.0.12):
 
@@ -106,12 +106,12 @@ There are two main steps to configure RRDNS:
    update add 12.0.0.10.in-addr.arpa. 86400 PTR client-IP-12.contoso.com
    ```
 
-   These commands create an A record for each of the HPC Cache's mount addresses, and also set up pointer (PTR) records to support reverse DNS checks appropriately.
+   These commands create an A record for each of the HPC Cache's mount addresses, and also set up pointer records to support reverse DNS checks appropriately.
 
    The diagram below shows the basic structure of this configuration.
 
    :::image type="complex" source="media/rrdns-diagram-hpc.png" alt-text="Diagram showing client mount point DNS configuration.":::
-   <The diagram shows connections among three categories of elements: the single HPC Cache domain name (at the left), three IP addresses (middle column), and three internal-use reverse DNS client interfaces (right column). A single circle at the left labeled "hpccache.contoso.com" is connected by arrows pointing toward three circles labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the hpccache.contoso.com circle to the three IP circles are labeled "A". Each of the IP address circles is connected by two arrows to a circle labeled as a client interface - the circle with IP 10.0.0.10 is connected to "client-IP-10.contoso.com", the circle with IP 10.0.0.11 is connected to "client-IP-11.contoso.com", and the circle with IP 10.0.0.12 is connected to "client-IP-11.contoso.com". The connections between the IP address circles and the client interface circles are two arrows: one arrow labeled "PTR" that points from the IP address circle to the client interface circle, and one arrow labeled "A" that points from the client interface circle to the IP address circle.>
+   <The diagram shows connections among three categories of elements: the single HPC Cache domain name (at the left), three IP addresses (middle column), and three internal-use reverse DNS client interfaces (right column). A single oval at the left labeled "hpccache.contoso.com" is connected by arrows pointing toward three ovals labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the hpccache.contoso.com oval to the three IP ovals are labeled "A". Each of the IP address ovals is connected by two arrows to an oval labeled as a client interface - the oval with IP 10.0.0.10 is connected to "client-IP-10.contoso.com", the oval with IP 10.0.0.11 is connected to "client-IP-11.contoso.com", and the oval with IP 10.0.0.12 is connected to "client-IP-11.contoso.com". The connections between the IP address ovals and the client interface ovals are two arrows: one arrow labeled "PTR" that points from the IP address oval to the client interface oval, and one arrow labeled "A" that points from the client interface oval to the IP address oval.>
 :::image-end:::
 
 ### Configure the HPC Cache to use the custom DNS server
