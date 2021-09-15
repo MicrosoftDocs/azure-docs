@@ -21,8 +21,6 @@ Notifications can be configured so you can get texts, emails, Azure push notific
 
 Advance notifications cannot be configured for the **System default** maintenance window option. Choose a maintenance window other than the **System default** to configure and enable Advance notifications.
 
-> [!NOTE]
-> While the ability to choose a maintenance window is available for Azure SQL managed instances, advance notifications are not currently available for Azure SQL managed instances. 
 
 ## Create an advance notification
 
