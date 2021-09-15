@@ -1,7 +1,6 @@
 - name: Bicep documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What is Bicep?
     href: overview.md
@@ -35,9 +34,9 @@
       - name: Conditional deployment
         href: conditional-resource-deployment.md
         displayName: runtime
-      - name: Child resource name and type
+      - name: Child resources
         href: child-resource-name-type.md
-        displayName: parent,parent resource
+        displayName: parent,parent resource,sub,nested
       - name: Extension resources
         href: scope-extension-resources.md
     - name: Parameters
@@ -121,8 +120,10 @@
         href: add-template-to-azure-pipelines.md
       - name: Bicep with GitHub Actions
         href: deploy-github-actions.md
-  - name: Use Bicep CLI
+  - name: Migrate to Bicep
     items:
+    - name: Recommended workflow
+      href: migrate.md
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground

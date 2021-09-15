@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 09/03/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -90,13 +90,13 @@ Do the following steps to prepare the drives.
 5. Use the `PrepImport` option to copy and prepare data to the disk drive. For the first copy session to copy directories and/or files with a new copy session, run the following command:
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
+    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
     ```
 
    An import example is shown below.
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+    .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
     ```
 
 6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files aren't processed.

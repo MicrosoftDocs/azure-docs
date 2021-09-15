@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 09/09/2021
+ms.date: 09/13/2021
 tags: connectors
 ---
 
@@ -1852,6 +1852,8 @@ Here are the currently known issues and limitations for the managed (non-ISE) SA
   * For stateful SAP actions, use the data gateway either in non-cluster mode or in a cluster that's set up for failover only.
 
 * The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system you want to connect.
+
+* In the **\[BAPI] Call method in SAP** action, the auto-commit feature won't commit the BAPI changes if at least one warning exists in the **CallBapiResponse** object returned by the action. To commit BAPI changes despite any warnings, create a session explicitly with the **\[BAPI - RFC] Create stateful session** action, disable the auto-commit feature in the **\[BAPI] Call method in SAP** action, and call the **\[BAPI] Commit transaction** action instead.
 
 * For [logic apps in an ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 

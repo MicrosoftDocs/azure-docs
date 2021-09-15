@@ -79,6 +79,12 @@ Feature registration can take up to 15 minutes. To check the registration status
 Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
 ```
 
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
 ### Azure CLI 2.0
 Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription.
 
@@ -95,6 +101,11 @@ Feature registration can take up to 15 minutes. To check the registration status
 az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 ```
 
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
 
 ## Get started with Flexible orchestration mode
 
