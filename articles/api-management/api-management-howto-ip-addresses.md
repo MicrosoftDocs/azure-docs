@@ -9,6 +9,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
 ms.author: apimpm
+ms.custom: fasttrack-edit
 ---
 
 # IP addresses of Azure API Management
