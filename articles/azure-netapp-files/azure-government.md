@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files with Azure Government
-description: This guide outlines how to connect to Azure Government US to use with Azure NetApp Files
+title: Azure NetApp Files with Azure Government | Microsoft Docs
+description: This article outlines how to connect to Azure Government US to use with Azure NetApp Files
 services: azure-netapp-files
 documentationcenter: ''
 services: azure-netapp-files
@@ -22,11 +22,11 @@ This article shows you how to access the Azure NetApp Files service within Azure
 
 Azure Government users can access Azure NetApp Files by pointing their browsers to **portal.azure.us**.  The portal site name is **Microsoft Azure Government**.   
 
-![Screenshot of the Azure Government portal highlighting portal.azure.us as the URL])(./media/index/anf-azuregov.jpg)
+![Screenshot of the Azure Government portal highlighting portal.azure.us as the URL])(../media/azure-netapp-files/anf-azuregov.jpg)
 
 From the Microsoft Azure Government portal, you can access Azure NetApp Files the same way you would in the public Azure portal. For example, you can enter **Azure NetApp** Files in the portal’s Search Resources box, and then select **Azure NetApp Files** from the list that appears.  
 
-You can follow [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/) documentation for details about using the service.
+You can follow [Azure NetApp Files](/azure/azure-netapp-files/) documentation for details about using the service.
 
 ## CLI 
 
@@ -46,13 +46,13 @@ az cloud list --output table
 
 ``` 
 
-This will produce a table with Azure cloud locations. The `isActive` column entry for AzureUSGovernment should read true.  
+This command will produce a table with Azure cloud locations. The `isActive` column entry for `AzureUSGovernment` should read `true`.  
 
-For more on using the CLI with Azure Government, refer to [Connect to Azure Government with Azure CLI](../azure-government/documentation-government-get-started-connect-with-cli.md)
+For more information on using the CLI with Azure Government, see [Connect to Azure Government with Azure CLI](../azure-government/documentation-government-get-started-connect-with-cli.md)
 
 ## REST API
 
-Endpoints for Azure Government are different from commercial Azure endpoints. For a list of different endpoints, refer to Azure Government’s [Guidance for Developers](../azure-government/compare-azure-government-global-azure#guidance-for-developers.md).
+Endpoints for Azure Government are different from commercial Azure endpoints. For a list of different endpoints, see Azure Government’s [Guidance for Developers](../azure-government/compare-azure-government-global-azure#guidance-for-developers.md).
 
 ## PowerShell
 
