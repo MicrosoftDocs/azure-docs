@@ -87,6 +87,18 @@ In the endpoint details screen, in the Details tab, select the deployment in whi
 
 :::image type="content" source="media/how-to-autoscale-endpoints/configure-autoscale.png" lightbox="media/how-to-autoscale-endpoints/configure-autoscale.png" alt-text="Screenshot showing link to configure autoscaling":::
 
+:::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" lightbox="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot showing custom autoscale choice":::
+
+:::image type="content" source="media/how-to-autoscale-endpoints/set-instance-limits.png" lightbox="media/how-to-autoscale-endpoints/set-instance-limits.png" alt-text="Screenshot showing set limits UI":::
+
+:::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.ping" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.ping" alt-text="Screenshot showing scale out rule >70% CPU for 5 minutes":::
+
+:::image type="content" source="media/how-to-autoscale-endpoints/scale-in-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-in-rule.png" alt-text="Screenshot showing scale-in rule":::
+
+:::image type="content" source="media/how-to-autoscale-endpoints/autoscale-rules-final.png" lightbox="media/how-to-autoscale-endpoints/autoscale-rules-final.png" alt-text="Screenshot showing autoscale settings including rules":::
+
+
+
 ## Next steps
 
 - [Understand autoscale settings](/autoscale/autoscale-understand-settings)
