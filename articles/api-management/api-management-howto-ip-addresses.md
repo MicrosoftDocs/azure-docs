@@ -81,7 +81,9 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 }
 ```
 
-API Management uses a public IP address for connections outside the VNet and a private IP address for connections within the VNet.
+API Management uses a public IP address for connections outside the VNet and a private IP address for connections within the VNet. 
+
+For the purposes of "allow listing" access from API Management within the VNET (or a connected network) ensure the APIM subnet prefix and not just the private IP address associated to the APIM resource, is allowed. An example would be a NSG on the subnet for the backend service which is set to only accept http traffic from API Management. The rule to allow APIM traffic should have a source IP range set to the APIM subnet prefix.
 
 ## IP addresses of Consumption tier API Management service
 
