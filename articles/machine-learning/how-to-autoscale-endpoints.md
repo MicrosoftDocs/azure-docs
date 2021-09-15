@@ -104,7 +104,7 @@ In the "Rules" section, choose "Add a rule". The "Scale rule" page will show.
 
 :::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.png" alt-text="Screenshot showing scale out rule >70% CPU for 5 minutes":::
 
-You have just specified that if the CPUs average a load of greater than 70% for five minutes, the system should allocate two additional nodes up to the maximum set for autoscale.
+You have specified that if the CPUs average a load of greater than 70% for five minutes, the system should allocate two more nodes up to the maximum set for autoscale.
 
 Now create a rule for scaling in. Choose "New rule." In the "Scale rule" page:
 
@@ -115,7 +115,7 @@ Now create a rule for scaling in. Choose "New rule." In the "Scale rule" page:
 
 :::image type="content" source="media/how-to-autoscale-endpoints/scale-in-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-in-rule.png" alt-text="Screenshot showing scale-in rule":::
 
-Once you have created both rules, your autoscale rules should look like the following image. You've specified that if average CPU load exceeds 70% for 5 minutes, 2 additional nodes should be allocated, up to the limit of 5. If CPU load is less than 30% for 5 minutes, a single node should be released, down to the minimum of 2. 
+Once you have created both rules, your autoscale rules should look like the following image. You've specified that if average CPU load exceeds 70% for 5 minutes, 2 more nodes should be allocated, up to the limit of 5. If CPU load is less than 30% for 5 minutes, a single node should be released, down to the minimum of 2. 
 
 :::image type="content" source="media/how-to-autoscale-endpoints/autoscale-rules-final.png" lightbox="media/how-to-autoscale-endpoints/autoscale-rules-final.png" alt-text="Screenshot showing autoscale settings including rules":::
 
