@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with LinkedIn Learning | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with LinkedIn Learning'
 description: Learn how to configure single sign-on between Azure Active Directory and LinkedIn Learning.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2021
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with LinkedIn Learning
+# Tutorial: Azure AD SSO integration with LinkedIn Learning
 
 In this tutorial, you'll learn how to integrate LinkedIn Learning with Azure Active Directory (Azure AD). When you integrate LinkedIn Learning with Azure AD, you can:
 
@@ -34,6 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * LinkedIn Learning supports **SP and IDP** initiated SSO.
 * LinkedIn Learning supports **Just In Time** user provisioning.
+* LinkedIn Learning supports [Automated user provisioning](linkedin-learning-provisioning-tutorial.md).
 
 ## Add LinkedIn Learning from the gallery
 

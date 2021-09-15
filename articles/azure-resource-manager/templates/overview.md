@@ -31,7 +31,7 @@ If you're trying to decide between using ARM templates and one of the other infr
 
    ![Template deployment comparison](./media/overview/template-processing.png)
 
-* **Modular files**: You can break your templates into smaller, reusable components and link them together at deployment time. You can also nest one template inside another templates.
+* **Modular files**: You can break your templates into smaller, reusable components and link them together at deployment time. You can also nest one template inside another template.
 
 * **Create any Azure resource**: You can immediately use new Azure services and features in templates. As soon as a resource provider introduces new resources, you can deploy those resources through templates. You don't have to wait for tools or modules to be updated before using the new services.
 
