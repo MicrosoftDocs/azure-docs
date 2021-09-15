@@ -29,7 +29,7 @@ ms.reviewer: laobri
 | `size` | string | The VM size to use for the cluster. For more information, see [Supported VM series and sizes](concept-compute-target.md#supported-vm-series-and-sizes). Note that not all sizes are available in all regions. | For the list of supported sizes in a given region, please use `az ml compute list-sizes`.  | `??` |
 | `tier` | string | The VM priority tier to use for the cluster. Low-priority VMs are pre-emptible but come at a reduced cost compared to dedicated VMs. | `dedicated`, `low_priority` | `dedicated` |
 | `min_instances` | integer | The minimum number of nodes to use on the cluster. Setting the minimum number of nodes to `0` allows Azure ML to autoscale the cluster down to zero nodes when not in use. Any value larger than `0` will keep that number of nodes running, even if the cluster is not in use. | | `0` |
-| `max_instances` | integer | The maximum number of nodes to use on the cluster. | | `4` |
+| `max_instances` | integer | The maximum number of nodes to use on the cluster. | | `1` |
 | `idle_time_before_scale_down` | integer | Node idle time in seconds before scaling down the cluster. | | `120` |
 | `ssh_public_access_enabled` | boolean | Whether to enable public SSH access on the nodes of the cluster. | | `false` |
 | `ssh_settings` | object | SSH settings for connecting to the cluster. | | |
