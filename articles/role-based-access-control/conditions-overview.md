@@ -49,6 +49,7 @@ There are several scenarios where you might want to add a condition to your role
 - Read access to blobs in containers named blobs-example-container with a path of readonly
 - Write access to blobs in containers named Contosocorp with a path of uploads/contoso
 - Read access to blobs with the tag Program=Alpine and a path of logs
+- Read access to blobs with the tag Project=Baker and the user has a matching attribute Project=Baker
 
 For more information about how to create these examples, see [Examples of Azure role assignment conditions](../storage/common/storage-auth-abac-examples.md).
 
