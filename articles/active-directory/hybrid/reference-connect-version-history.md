@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/14/2021
+ms.date: 09/15/2021
 ms.subservice: hybrid
 ms.author: rodejo
 ms.custom: has-adal-ref
