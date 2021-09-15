@@ -1,7 +1,7 @@
 ---
-title: Create a lab in Azure DevTest Labs | Microsoft Docs
+title: Create a lab
 description: This article walks you through the process of creating a lab using the Azure portal and Azure DevTest Labs. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/12/2020
 ---
 
@@ -93,4 +93,3 @@ Once you've created your lab, here are some next steps to consider:
 * [Create a lab template](devtest-lab-create-template.md)
 * [Create custom artifacts for your VMs](devtest-lab-artifact-author.md)
 * [Add a VM to a lab](devtest-lab-add-vm.md)
-

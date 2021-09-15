@@ -44,13 +44,13 @@ You need the account name and account key of your Azure storage account to do th
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **All services** on the left menu and select **Storage Accounts**.
 
-    ![Browse - Storage accounts](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
+    :::image type="content" source="media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png" alt-text="Browse - Storage accounts":::
 3. In the **Storage Accounts** blade, select the **Azure storage account** that you want to use in this tutorial.
 4. Select **Access keys** link under **SETTINGS**.
 5. Click **copy** (image) button next to **Storage account name** text box and save/paste it somewhere (for example: in a text file).
 6. Repeat the previous step to copy or note down the **key1**.
 
-    ![Storage access key](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    :::image type="content" source="media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png" alt-text="Storage access key":::
 7. Close all the blades by clicking **X**.
 
 ## Collect SQL server, database, user names

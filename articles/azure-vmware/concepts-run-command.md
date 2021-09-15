@@ -2,7 +2,7 @@
 title: Concepts - Run command in Azure VMware Solution (Preview) 
 description: Learn about using run commands in Azure VMware Solution. 
 ms.topic: conceptual 
-ms.date: 08/31/2021
+ms.date: 09/17/2021
 ---
 
 
@@ -12,11 +12,11 @@ In Azure VMware Solution, vCenter has a built-in local user called *cloudadmin* 
 
 Azure VMware Solution supports the following operations:
 
-- [Install and uninstall the JetStream DR solution](deploy-disaster-recovery-using-jetstream.md)
-
 - [Configure an external identity source](configure-identity-source-vcenter.md)
 
 - [View and set storage policies](configure-storage-policy.md) 
+
+- [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md)
 
 
 >[!NOTE]
