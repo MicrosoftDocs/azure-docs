@@ -43,7 +43,7 @@ Alternatively, you create a storage account first with the specified access tier
 
 Once the data from Data Box device is uploaded to the default tier, you may want to move the data to a non-default tier. There are two ways to move this data to a non-default tier.
 
-- **Azure Blob storage lifecycle management** - You can use a policy-based approach to automatically tier data or expire at the end of its lifecycle. For more information, go to [Managing the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Azure Blob storage lifecycle management** - You can use a policy-based approach to automatically tier data or expire at the end of its lifecycle. For more information, go to [Managing the Azure Blob storage lifecycle](../storage/blobs/lifecycle-management-overview.md).
 - **Scripting** - You could use a scripted approach via Azure PowerShell to enable blob-level tiering. You can call the `SetBlobTier` operation to set the tier on the blob.
 
 ## Use Azure PowerShell to set the blob tier
@@ -112,4 +112,4 @@ Following steps describe how you can set the blob tier to Archive using an Azure
 
 ## Next steps
 
--  Learn how to address the [common data tiering scenarios with lifecycle policy rules](../storage/blobs/storage-lifecycle-management-concepts.md#examples)
+-  Learn how to address the [common data tiering scenarios with lifecycle policy rules](../storage/blobs/lifecycle-management-overview.md#examples-of-lifecycle-policies)

@@ -88,7 +88,7 @@ The Azure Sentinel Information Model uses the following terms:
 
 To start using ASIM:
 
-1. Deploy the ASIM parsers from the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers), from the folders starting with `ASim*`.
+1. Deploy all ASIM parsers quickly from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelASim).
 
 1. Activate analytics rule templates that use ASIM. For more information, see the [Azure Sentinel Information Model (ASIM) content list](normalization-content.md#builtin).
 
@@ -100,7 +100,7 @@ To start using ASIM:
 
     - Enable your custom data to use built-in analytics by [writing parsers](normalization-about-parsers.md) for your custom sources and [adding](normalization-about-parsers.md#include) them to the relevant source agnostic parser.
 
-## Next steps
+## <a name="next-steps"></a>Next steps
 
 This article provides an overview of normalization in Azure Sentinel and the Azure Sentinel Information Model.
 

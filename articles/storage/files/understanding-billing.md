@@ -88,9 +88,9 @@ The following table illustrates a few examples of these formulae for the provisi
 |-|-|-|-|-|-|
 | 100 | 500 | Up to 4,000 | 14,400,000 | 44 | 66 |
 | 500 | 900 | Up to 4,000 | 14,400,000 | 60 | 90 |
-| 1,024 | 1,424 | Up to 4,000 | 14,400,000 | 81 | 122 |
-| 5,120 | 5,520 | Up to 15,360 | 55,296,000 | 245 | 368 |
-| 10,240 | 10,640 | Up to 30,720 | 110,592,000 | 450 | 675 |
+| 1,024 | 1,424 | Up to 4,272 | 15,379,200 | 81 | 122 |
+| 5,120 | 5,520 | Up to 16,560 | 59,616,000 | 245 | 368 |
+| 10,240 | 10,640 | Up to 31,920 | 114,912,000 | 450 | 675 |
 | 33,792 | 34,192 | Up to 100,000 | 360,000,000 | 1,392 | 2,088 |
 | 51,200 | 51,600 | Up to 100,000 | 360,000,000 | 2,088 | 3,132 |
 | 102,400 | 100,000 | Up to 100,000 | 360,000,000 | 4,136 | 6,204 |
@@ -102,7 +102,7 @@ If your workload needs the extra performance to meet peak demand, your share can
 
 Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 500 baseline IOPS. If actual traffic on the share was 100 IOPS for a specific 1-second interval, then the 400 unused IOPS are credited to a burst bucket. Similarly, an idle 1 TiB share, accrues burst credit at 1,424 IOPS. These credits will then be used later when operations would exceed the baseline IOPS.
 
-Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst at the max allowed peak burst rate. Shares can continue to burst as long as credits are remaining but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to the baseline IOPS.
+Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst up to the max allowed peak burst rate. Shares can continue to burst as long as credits are remaining but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to the baseline IOPS.
 
 Share credits have three states:
 

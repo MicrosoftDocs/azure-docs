@@ -224,6 +224,14 @@ The following example shows the results of an entity recognition skill that dete
 
 :::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="Screenshot of a document in Search Explorer.":::
 
+## Tips for a first skillset
+
++ Assemble a representative sample of your content in Blob Storage or another supported indexer data source and run the **Import data** wizard to create the skillset, index, indexer, and data source object. 
+
+  The wizard automates several steps that can be challenging the first time around, including defining the fields in an index, defining output filed mappings in an indexer, and projections in a knowledge store if you are using one. For some skills, such as OCR or image analysis, the wizard will add utility skills that merge image and text content that was separated during document cracking.
+
++ Alternatively, you can import skill Postman collections that provide full examples of all of the object definitions required to evaluate a skill, from skillset to an index that you can query to view the results of a transformation.
+
 ## Next steps
 
 Context and input source fields are paths to nodes in an enrichment tree. As a next step, learn more about the syntax for setting up paths to nodes in an enrichment tree.
