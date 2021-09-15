@@ -21,7 +21,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/articles/active-directory/user-help/active-directory-passwords-reset-register.md",
+      "source_path": "articles/active-directory/user-help/index.yml",
+      "redirect_url": "https://support.microsoft.com/en-us/account-billing/work-or-school-account-help-718b3d92-a8a7-4656-8a05-c0228d346b7d",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/active-directory-passwords-reset-register.md",
       "redirect_url": "https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a",
       "redirect_document_id": false
     },
@@ -14104,11 +14109,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/deploy-zerto-disaster-recovery.md",
-      "redirect_url": "/azure/azure-vmware/introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
       "redirect_document_id": false
@@ -14266,11 +14266,6 @@
     {
       "source_path_from_root": "/articles/azure-vmware/vrealize-operations-for-avs.md",
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-vmware/deploy-disaster-recovery-using-jetstream.md",
-      "redirect_url": "/azure/azure-vmware/concepts-run-command",
       "redirect_document_id": false
     },
     {
@@ -16711,6 +16706,11 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/concept-pricing.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/azure-defender/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-forescout.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-forescout",
       "redirect_document_id": false
     },
     {
@@ -57201,6 +57201,16 @@
     {
       "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-53-r4.md",
       "redirect_url": "/azure/governance/policy/samples/nist-sp-800-53-r4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/export-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-stream-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/code-sample-export-sql-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-sql-stream-analytics",
       "redirect_document_id": false
     }
   ]

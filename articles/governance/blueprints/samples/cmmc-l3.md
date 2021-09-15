@@ -316,8 +316,8 @@ The following table provides a list of the blueprint artifact parameters:
 |CMMC Level 3|Policy Assignment|Namespaces excluded from evaluation of policy: Kubernetes cluster pods should only use approved host network and port range|List of Kubernetes namespaces to exclude from policy evaluation.|
 |CMMC Level 3|Policy Assignment|Latest Java version for App Services|Latest supported Java version for App Services|
 |CMMC Level 3|Policy Assignment|Latest Python version for Linux for App Services|Latest supported Python version for App Services|
-|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Linux OS to add to scope when auditing Log Analytics agent deployment|Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
-|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Windows OS to add to scope when auditing Log Analytics agent deployment|Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
+|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Linux OS to add to scope when auditing Log Analytics agent deployment|Example value: `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
+|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Windows OS to add to scope when auditing Log Analytics agent deployment|Example value: `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
 |CMMC Level 3|Policy Assignment|List of regions where Network Watcher should be enabled|Audit if Network Watcher is not enabled for region(s).|
 |CMMC Level 3|Policy Assignment|List of resource types that should have diagnostic logs enabled||
 |CMMC Level 3|Policy Assignment|Maximum value in the allowable host port range that pods can use in the host network namespace|The maximum value in the allowable host port range that pods can use in the host network namespace.|
