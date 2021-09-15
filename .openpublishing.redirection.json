@@ -57057,6 +57057,16 @@
       "source_path_from_root": "/articles/sentinel/normalization-schema.md",
       "redirect_url": "/azure/sentinel/network-normalization-schema",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/use-sample-label-tool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/client-library.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/use-sdk-rest-api.md",
+      "redirect_document_id": false
     }
   ]
 }

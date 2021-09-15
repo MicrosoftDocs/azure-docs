@@ -13,10 +13,20 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Get started with Azure Form Recognizer
-    href: quickstarts/get-started-with-form-recognizer.md
-  - name: Client libraries and REST API
-    href: quickstarts/client-library.md
+   - name: Form Recognizer v2.1
+     items: 
+     - name: "Get started: Form Recognizer labeling tool"
+       href: quickstarts/get-started-with-form-recognizer.md
+     - name: "Get started: client libraries and REST API"
+       href: quickstarts/client-library.md
+   - name: "Form Recognizer v3.0 | Preview"
+      items:
+       - name: "Get started: Form Recognizer Studio (preview)"
+         href: use-form-recognizer-studio-preview.md
+       - name: "Get started: REST API (preview)"
+         href: use-v3-rest-api-preview.md
+       - name: "Get started: client library SDKs (preview)"
+         href: use-v3-client-libraries-sdk-preview.md
 - name: Samples
   items:
   - name: "C#/.NET"
@@ -41,14 +51,18 @@
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: How-to guides
   items:
-  - name: Train a custom model with the sample labeling tool
-    href: label-tool.md
-  - name: Build a training data set
-    href: build-training-data-set.md
-  - name: Use table tags to train your custom model
-    href: supervised-table-tags.md
-  - name:   Deploy the sample labeling tool
-    href: deploy-label-tool.md
+  - name: Build and train a custom model 
+    items:
+    - name: Assemble a training data set
+      href: build-training-data-set.md
+    - name:   Deploy the sample labeling tool
+      href: deploy-label-tool.md
+    - name: Train a custom model with the sample labeling tool
+      href: label-tool.md
+    - name: Use table tags to train your custom model
+      href: supervised-table-tags.md
+   - name: Migrate to Form Recognizer v3.0 (preview)
+    href: v3-migration.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -75,19 +89,29 @@
     - name: Use Azure AD authentication
       href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: Concepts
-  items:
-  - name: Layout
-    href: concept-layout.md
-  - name: Receipts
-    href: concept-receipts.md
-  - name: Business cards
-    href: concept-business-cards.md
-  - name: Invoices
-    href: concept-invoices.md
-  - name: Identity documents
-    href: concept-identification-cards.md
-  - name: Custom
-    href: concept-custom.md
+  items: 
+  - name: Form Recognizer v2.1
+    items:
+     - name: Layout
+       href: concept-layout.md
+     - name: Prebuilt
+        href: concept-prebuilt  
+     - name: Receipts
+       href: concept-receipts.md
+     - name: Business cards
+       href: concept-business-cards.md
+     - name: Invoices
+       href: concept-invoices.md
+     - name: Identity documents
+       href: concept-identification-cards.md
+     - name: Custom
+       href: concept-custom.md
+  - name: "Form Recognizer v3.0 | Preview"
+    items:
+      - name: Prebuilt models (preview)
+        href: concept-prebuilt-preview.md
+      - name: Custom models (preview)
+        href: concept-custom-preview.md   
 - name: Tutorials
   items:
   - name: "Use Azure Form Recognizer and AI Builder"
