@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 08/17/2021
+ms.date: 09/15/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---
@@ -73,20 +73,28 @@ To create a virtual network, use the following steps:
     1. To create a subnet to contain the workspace, dependency services, and resources used for training, select __+ Add subnet__ and use the following values for the subnet:
         * __Subnet name__: Training
         * __Subnet address range__: 172.17.0.0/24
-        * __Services__: Select the following services:
-            * __Microsoft.Storage__
-            * __Microsoft.KeyVault__
-            * __Microsoft.ContainerRegistry__
+        
+        > [!TIP]
+        > If you plan on using a _service endpoint_ to add your Azure Storage Account, Azure Key Vault, and Azure Container Registry to the VNet, select the following under __Services__:
+        > * __Microsoft.Storage__
+        > * __Microsoft.KeyVault__
+        > * __Microsoft.ContainerRegistry__
+        >
+        > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet":::
 
     1. To create a subnet for compute resources used to score your models, select __+ Add subnet__ again, and use the follow values:
         * __Subnet name__: Scoring
         * __Subnet address range__: 172.17.1.0/24
-        * __Services__: Select the following services:
-            * __Microsoft.Storage__
-            * __Microsoft.KeyVault__
-            * __Microsoft.ContainerRegistry__
+        
+        > [!TIP]
+        > If you plan on using a _service endpoint_ to add your Azure Storage Account, Azure Key Vault, and Azure Container Registry to the VNet, select the following under __Services__:
+        > * __Microsoft.Storage__
+        > * __Microsoft.KeyVault__
+        > * __Microsoft.ContainerRegistry__
+        >
+        > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet":::
 
