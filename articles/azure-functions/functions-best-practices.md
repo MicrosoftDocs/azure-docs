@@ -49,7 +49,7 @@ Function apps that scale dynamically can run either from an Azure Files endpoint
 
 These settings are only supported when you are running in a Premium plan or in a Consumption plan on Windows.
 
-When you create your function app either in the Azure portal or by using Azure CLI or Azure PowerShell, these settings are created for your function app as needed. When you create your resources from an Azure Resource Manager template (ARM template), you need to also include these settings in the template. 
+When you create your function app either in the Azure portal or by using Azure CLI or Azure PowerShell, these settings are created for your function app when needed. When you create your resources from an Azure Resource Manager template (ARM template), you need to also include these settings in the template. 
 
 When deploying to a specific slot using an ARM template, don't include `WEBSITE_CONTENTSHARE`.  
 
@@ -68,7 +68,7 @@ Keep in mind the following considerations when creating this storage account:
 
 + To reduce latency, create the storage account in the same region as the function app.
 
-+ To improve performance in production, use a separate storage account for each function app. This especially true with Durable Functions and Event Hub triggered functions. 
++ To improve performance in production, use a separate storage account for each function app. This is especially true with Durable Functions and Event Hub triggered functions. 
 
 + For Event Hub triggered functions, don't use an account with [Data Lake Storage enabled](https://github.com/Azure/azure-functions-eventhubs-extension/issues/81).
 
@@ -142,7 +142,7 @@ Function apps running in [Consumption plan](consumption-plan.md) are subject to 
 
 ### Language-specific considerations
 
-For your language of choice, consider the following:
+For your language of choice, keep in mind the following considerations:
 
 # [C#](#tab/csharp)
 
@@ -152,7 +152,7 @@ For your language of choice, consider the following:
 
 # [Java](#tab/java)
 
-+ For applications that are a mix of CPU-bound and IO-bound operations, consider using [additional worker processes](functions-app-settings.md#functions_worker_process_count).
++ For applications that are a mix of CPU-bound and IO-bound operations, consider using [more worker processes](functions-app-settings.md#functions_worker_process_count).
 
 # [JavaScript](#tab/javascript)
 
@@ -192,7 +192,7 @@ You should be aware of the following considerations when using Application Insig
 
 +  Review the [Application Insights logs](analyze-telemetry-data.md). If data you expect to find is missing, consider adjusting the sampling settings to better capture your monitoring scenario. You can use the `excludedTypes` setting to exclude certain types from sampling, such as `Request` or `Exception`. To learn more, see [Configure sampling](configure-monitoring.md?tabs=v2#configure-sampling).
 
-Azure Functions also allows you to [send system-generated and user-generated logs to Azure Monitor Logs](functions-monitor-log-analytics.md). Integration with Azure Monitor Logs is current in preview. 
+Azure Functions also allows you to [send system-generated and user-generated logs to Azure Monitor Logs](functions-monitor-log-analytics.md). Integration with Azure Monitor Logs is currently in preview. 
 
 ## Build in redundancy
 
