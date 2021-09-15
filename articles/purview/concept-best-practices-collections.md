@@ -19,7 +19,7 @@ Access to collections, data sources and metadata is be set up and maintained bas
 
 ## Intended audience
 
-- Architect team 
+- Data architect team 
 - Data governance and management teams
 - Data security team
 
@@ -42,11 +42,15 @@ Consider deploying collections in your Azure Purview to fulfill the following re
 
 - Collections can hold data sources, scans, assets and role assignments.
 
-- A collection can have as many child collections, however, each collection can only have one parent collection. You cannot deploy any collections above root collection. 
+- A collection can have as many child collections, however, each collection can only have one parent collection. You cannot deploy any collections above root collection.
 
-- Collections hierarchy in an Azure Purview can support up to 10,000 collections with a maximum of eight levels of depth. This does not include the root collection. 
+- Data sources, scans and assets can belong only to one collection. 
 
-- By design, you cannot register data sources multiple times in the same Purview account. This architecture helps to avoid the risk of assigning different access control to the same data source. If the metadata of the same data source is consumed by multiple teams, you can register and manage the data source at a parent collection and create corresponding scans under each sub-collection, so relevant assets appear under each child collection. 
+- Collections hierarchy in an Azure Purview can support up to 300 collections with a maximum of 8 levels of depth. This does not include the root collection. 
+
+- By design, you cannot register data sources multiple times in the same Purview account. This architecture helps to avoid the risk of assigning different access control to the same data source. If the metadata of the same data source is consumed by multiple teams, you can register and manage the data source at a parent collection and create corresponding scans under each sub-collection, so relevant assets appear under each child collection.
+
+- Lineage connections and artifacts are attached to root collection even if the data sources are registered at lower-level collections.
 
 - When you run a new scan, by default, the scan is deployed inside the same collection as data source. You can optionally select a different sub-collection to run the scan, so as result, the assets will belong under the sub-collection. 
 
@@ -72,7 +76,7 @@ Consider deploying collections in your Azure Purview to fulfill the following re
 
 - Review [Azure Purview account best practices documentation](/deployment-best-practices.md#determine-the-number-of-purview-instances) and define the adequate number of Purview accounts required in your organization before planning collection structure.  
 
-- Consider designing your collection architecture based on security requirements, data management and governance structure in your organization. Review the recommended [collections architypes](#collections-architypes) in this guide.
+- It is recommended designing your collection architecture based on security requirements, data management and governance structure in your organization. Review the recommended [collections architypes](#collections-architypes) in this guide.
 
 - For future scalability, it is recommended creating a top-level collection for your organization below the root collection and assign relevant roles at the top-level collection instead of root collection.  
 
