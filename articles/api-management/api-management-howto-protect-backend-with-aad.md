@@ -245,7 +245,11 @@ For example, add the following policy to the `<inbound>` policy section of the `
 ```
 
 > [!NOTE]
-> The above `openid-config` URL corresponds to the v1 endpoint. For the v2 `openid-config`endpoint, use `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`.
+> The above `openid-config` URL corresponds to the v1 endpoint. For the v2 `openid-config`endpoint, use `https://login.microsoftonline.com/{aad-tenant}/v2.0/.well-known/openid-configuration`.
+> 
+> Find the **{aad-tenant}** value as your Active AD tenant ID in the Azure portal, either on:
+> * The overview page of your Active AD resource.
+> * The **Manage > Properties** page of your Active AD resource.
 
 For information on how to configure policies, see [Set or edit policies](./set-edit-policies.md).
 
