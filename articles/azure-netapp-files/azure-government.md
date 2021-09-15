@@ -64,15 +64,10 @@ Endpoints for Azure Government are different from commercial Azure endpoints. Fo
 When connecting to Azure Government through PowerShell, you must specify an environmental parameter to ensure you connect to the correct endpoints. From there, you can proceed to use Azure NetApp Files as you normally would with PowerShell. 
 
 | Connection type | Command | 
-
 | --- | --- | 
-
 | [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands |`Connect-AzAccount -EnvironmentName AzureUSGovernment` | 
-
 | [Azure Active Directory](/powershell/module/azuread/connect-azuread) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` | 
-
 | [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure.service/add-azureaccount) commands |`Add-AzureAccount -Environment AzureUSGovernment` | 
-
 | [Azure Active Directory (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` | 
 
 ## Next Steps
