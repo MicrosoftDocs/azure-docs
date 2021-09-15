@@ -2,7 +2,7 @@
 title: Open a developer account in Partner Center
 description: To publish your Office solutions to Microsoft AppSource, you first need to set up a developer account.
 ms.author: mingshen
-localization_priority: Normal
+ms.localizationpriority: medium
 ---
 
 # Open a developer account in Partner Center

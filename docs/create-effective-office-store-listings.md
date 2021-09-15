@@ -2,7 +2,7 @@
 title: Create effective listings in Microsoft AppSource and within Microsoft 365 app stores
 description: Make sure that the information you submit clearly communicates the benefits and functionality that your solution provides.
 ms.author: mingshen
-localization_priority: Normal
+ms.localizationpriority: medium
 ---
 
 # Create effective listings in Microsoft AppSource and Microsoft 365 app stores

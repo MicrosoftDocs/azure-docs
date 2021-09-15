@@ -2,7 +2,7 @@
 title: Promote your Microsoft AppSource solution
 description: Use Microsoft AppSource badges to promote your solution and drive traffic from your site to Microsoft AppSource.
 ms.author: mingshen
-localization_priority: Normal
+ms.localizationpriority: medium
 ---
 
 # Promote your Microsoft AppSource solution
