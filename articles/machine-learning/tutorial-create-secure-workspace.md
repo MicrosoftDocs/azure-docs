@@ -73,7 +73,9 @@ To create a virtual network, use the following steps:
     1. To create a subnet to contain the workspace, dependency services, and resources used for training, select __+ Add subnet__ and use the following values for the subnet:
         * __Subnet name__: Training
         * __Subnet address range__: 172.17.0.0/24
-        
+
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet":::
+
         > [!TIP]
         > If you plan on using a _service endpoint_ to add your Azure Storage Account, Azure Key Vault, and Azure Container Registry to the VNet, select the following under __Services__:
         > * __Microsoft.Storage__
@@ -81,13 +83,13 @@ To create a virtual network, use the following steps:
         > * __Microsoft.ContainerRegistry__
         >
         > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
-
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet":::
 
     1. To create a subnet for compute resources used to score your models, select __+ Add subnet__ again, and use the follow values:
         * __Subnet name__: Scoring
         * __Subnet address range__: 172.17.1.0/24
-        
+
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet":::
+
         > [!TIP]
         > If you plan on using a _service endpoint_ to add your Azure Storage Account, Azure Key Vault, and Azure Container Registry to the VNet, select the following under __Services__:
         > * __Microsoft.Storage__
@@ -95,8 +97,6 @@ To create a virtual network, use the following steps:
         > * __Microsoft.ContainerRegistry__
         >
         > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
-
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet":::
 
 1. Select __Security__. For __BastionHost__, select __Enable__. [Azure Bastion](../bastion/bastion-overview.md) provides a secure way to access the VM jump box you will create inside the VNet in a later step. Use the following values for the remaining fields:
 
