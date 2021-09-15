@@ -1,9 +1,9 @@
 ---
 title: Quickstart - Manage container registry content with client libraries
-description: Use this quickstart to manage repositories, images, and artifacts using the Azure Container Registry client libraries
+description: Use this quickstart to manage repositories, images, and artifacts using the Azure Container Registry client library
 author: dlepow
 ms.topic: quickstart
-ms.date: 09/14/2021
+ms.date: 09/15/2021
 ms.author: danlep
 ms.custom:
 zone_pivot_groups: programming-languages-set-ten       
@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-ten
 
 ::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-python"
 
-Use this article to get started with the client library for Azure Container Registry. Follow these steps to try out example code for managing images and artifacts.
+Use this article to get started with the client library for Azure Container Registry. Follow these steps to try out example code for data-plane operations on images and artifacts.
 
 Use the client library for Azure Container Registry to:
 
@@ -22,33 +22,38 @@ Use the client library for Azure Container Registry to:
 * Set read/write/delete properties on registry items
 * Delete images and artifacts, repositories, and tags
 
+Azure Container Registry also has a management library for control-plane operations including registry creation and updates. 
+
 ## Prerequisites
 
-You need an [Azure subscription](https://azure.microsoft.com/free/) and an Azure container registry to use this library.
+* You need an [Azure subscription](https://azure.microsoft.com/free/) and an Azure container registry to use this library.
 
-To create a new Azure container registry, you can use the [Azure Portal](container-registry-get-started-portal.md), [Azure PowerShell](container-registry-get-started-powershell.md), or the [Azure CLI](container-registry-get-started-azure-cli.md)). Here's an example using the Azure CLI:
+    To create a new Azure container registry, you can use the [Azure portal](container-registry-get-started-portal.md), [Azure PowerShell](container-registry-get-started-powershell.md), or the [Azure CLI](container-registry-get-started-azure-cli.md). Here's an example using the Azure CLI:
 
-```azurecli
-az acr create --name MyContainerRegistry --resource-group MyResourceGroup --location westus --sku Basic
-```
+    ```azurecli
+    az acr create --name MyContainerRegistry --resource-group MyResourceGroup \
+        --location westus --sku Basic
+    ```
+
+* Push one or more container images to your registry. For steps, see [Push your first image to your Azure container registry using the Docker CLI](container-registry-get-started-docker-cli.md).
 
 ## Key concepts
 
 * An Azure container registry stores *container images* and [OCI artifacts](container-registry-oci-artifacts.md). 
 * An image or artifact consists of a *manifest* and *layers*. 
-* A manifest describes the layers that make up the image or artifact, and is uniquely identified by its *digest*. 
+* A manifest describes the layers that make up the image or artifact. It is uniquely identified by its *digest*. 
 * An image or artifact can also be *tagged* to give it a human-readable alias. An image or artifact can have zero or more tags associated with it, and each tag uniquely identifies the image. 
 * A collection of images or artifacts that share the same name, but have different tags, is a *repository*.
 
-For more information, see [Container registry concepts](container-registry-concepts.md).
+For more information, see [About registries, repositories, and artifacts](container-registry-concepts.md).
 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
-[Source code][dotnet_source] | [Package (NuGet)][dotnet_package] | [API reference documentation][dotnet_docs] | [REST API documentation][rest_docs] | [Product documentation][product_docs]
+## Get started
 
-## Getting started
+[Source code][dotnet_source] | [Package (NuGet)][dotnet_package] | [API reference][dotnet_docs] | [Samples][dotnet_samples]
 
 To develop .NET application code that can connect to an Azure Container Registry instance, you will need the `Azure.Containers.ContainerRegistry` library.
 
@@ -85,8 +90,6 @@ For more information on using Azure AD with Azure Container Registry, see the [a
 Each sample assumes there is a `REGISTRY_ENDPOINT` environment variable set to a string containing the `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
 
 The following samples use synchronous APIs. Asynchronous APIs are identical to their synchronous counterparts, but methods end with the standard .NET `Async` suffix and return a Task.
-
-For more samples, see the [GitHub repo](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.0.0-beta.4/sdk/containerregistry/Azure.Containers.ContainerRegistry/samples).
 
 ### List repositories
 
@@ -179,9 +182,9 @@ foreach (string repositoryName in repositoryNames)
 
 ::: zone pivot="programming-language-java"
 
-[Source code][java_source] | [Package (Maven)][java_package] | [API reference documentation][java_docs] | [REST API documentation][rest_docs] | [Product documentation][product_docs]
+## Get started
 
-## Getting started
+[Source code][java_source] | [Package (Maven)][java_package] | [API reference][java_docs] | [Samples][java_samples]
 
 ### Currently supported environments
 
@@ -201,8 +204,9 @@ foreach (string repositoryName in repositoryNames)
 
 ## Authenticate the client
 
-The [Azure Identity library][java_identity] provides easy Azure Active Directory support for authentication.
-Note all the below samples assume you have an endpoint, which is the URL including the name of the login server and the `https://` prefix.
+The [Azure Identity library][java_identity] provides Azure Active Directory support for authentication.
+
+The following samples assume you have a registry endpoint string containing the  `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
 
 <!-- embedme ./src/samples/java/com/azure/containers/containerregistry/ReadmeSamples.java#L31-L35 -->
 ```Java
@@ -228,9 +232,6 @@ For more information on using Azure AD with Azure Container Registry, see the [a
 
 Each sample assumes there is a registry endpoint string containing the `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
 
-For more samples, see the [GitHub repo](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/containerregistry/azure-containers-containerregistry/src/samples/
-[cla]: https://cla.microsoft.com).
-
 ### List repository names
 
 Iterate through the collection of repositories in the registry.
@@ -244,6 +245,7 @@ ContainerRegistryClient client = new ContainerRegistryClientBuilder()
     .buildClient();
 
 client.listRepositoryNames().forEach(repository -> System.out.println(repository));
+```
 
 ### Set artifact properties
 
@@ -304,9 +306,9 @@ for (String repositoryName : client.listRepositoryNames()) {
 
 ::: zone pivot="programming-language-javascript"
 
-[Source code][javacript_source] | [Package (npm))][javascript_package] | [API reference documentation][javascript_docs] | [REST API documentation][rest_docs] | [Product documentation][product_docs]
+## Get started
 
-## Getting started
+[Source code][javascript_source] | [Package (npm))][javascript_package] | [API reference][javascript_docs] | [Samples][javascript_samples]
 
 ### Currently supported environments
 
@@ -329,9 +331,9 @@ npm install @azure/container-registry
 
 To use this client library in the browser, first you need to use a bundler. For details, refer to our [bundling documentation](https://aka.ms/AzureSDKBundling).
 
-### Authenticate the client
+## Authenticate the client
 
-The [Azure Identity library][javascript_identity] provides easy Azure Active Directory support for authentication.
+The [Azure Identity library][javascript_identity] provides Azure Active Directory support for authentication.
 
 ```javascript
 const { ContainerRegistryClient } = require("@azure/container-registry");
@@ -347,8 +349,6 @@ For more information on using Azure AD with Azure Container Registry, see the [a
 ## Examples
 
 Each sample assumes there is a `CONTAINER_REGISTRY_ENDPOINT` environment variable set to a string containing the `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
-
-For more samples, see the [GitHub repo](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/container-registry/samples).
 
 ### List repositories
 
@@ -447,9 +447,9 @@ main().catch((err) => {
 
 ::: zone pivot="programming-language-python"
 
-[Source code][python_source] | [Package (Pypi)][python_package] | [API reference documentation][python_docs] | [REST API documentation][rest_docs] | [Product documentation][product_docs]
+## Get started
 
-## Getting started
+[Source code][python_source] | [Package (Pypi)][python_package] | [API reference][python_docs] | [Samples][python_samples]
 
 ### Install the package
 
@@ -461,12 +461,10 @@ pip install --pre azure-containerregistry
 
 ## Authenticate the client
 
-The [Azure Identity library][identity] provides easy Azure Active Directory support for authentication. The `DefaultAzureCredential` assumes the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables are set, for more information refer to the [Azure Identity environment variables section](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#environment-variables)
+The [Azure Identity library][python_identity] provides Azure Active Directory support for authentication. The `DefaultAzureCredential` assumes the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables are set. For more information, see [Azure Identity environment variables](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#environment-variables).
 
 ```python
 # Create a ContainerRegistryClient that will authenticate through Active Directory
-
-```python
 from azure.containerregistry import ContainerRegistryClient
 from azure.identity import DefaultAzureCredential
 
@@ -478,10 +476,7 @@ client = ContainerRegistryClient(account_url, DefaultAzureCredential())
 
 Each sample assumes there is a `CONTAINERREGISTRY_ENDPOINT` environment variable set to a string containing the `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
 
-
-
 ### Delete three oldest tags in a repository
-
 
 ```python
 class DeleteOperations(object):
@@ -516,26 +511,29 @@ class DeleteOperations(object):
 
 ::: zone-end
 
-
-::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-python"
-
 ## Clean up resources
 
 If you want to clean up and remove an Azure container registry, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](...)
-* [Azure CLI](...)
-
-::: zone-end
+* [Portal](container-registry-get-started-portal.md#clean-up-resources)
+* [Azure CLI](container-registry-get-started-azure-cli.md#clean-up-resources)
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-...
+In this quickstart, you learned about using the Azure Container Registry client library to perform operations on images and artifacts in your container registry.
+
+* For more information, see the API reference documentation:
+
+    * [.NET][dotnet_docs]
+    * [Java][java_docs]
+    * [JavaScript][javascript_docs]
+    * [Python][python_docs]
+
+* Learn about the Azure Container Registry [REST API][rest_docs].
 
 [dotnet_source]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry/Azure.Containers.ContainerRegistry/src
 [dotnet_package]: https://www.nuget.org/packages/Azure.Containers.ContainerRegistry/
-[javascript_package]: https://www.npmjs.com/package/@azure/container-registry
+[dotnet_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/containerregistry/Azure.Containers.ContainerRegistry/samples
 [dotnet_docs]: /dotnet/api/azure.containers.containerregistry
 [rest_docs]: /rest/api/containerregistry/
 [product_docs]:  container-registry-intro.md
@@ -543,12 +541,18 @@ If you want to clean up and remove an Azure container registry, you can delete t
 [dotnet_identity]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity/README.md
 [javascript_identity]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md
 [javascript_source]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/container-registry/src
+[javascript_package]: https://www.npmjs.com/package/@azure/container-registry
 [javascript_docs]: /javascript/api/overview/azure/container-registry-readme
 [jdk_link]: /java/azure/jdk/
+[javascript_samples]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/container-registry/samples
 [java_source]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/containerregistry/azure-containers-containerregistry/src
 [java_package]: https://search.maven.org/artifact/com.azure/azure-containers-containerregistry
 [java_docs]: /java/api/overview/azure/containers-containerregistry-readme
 [java_identity]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/README.md
+[java_samples]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/containerregistry/azure-containers-containerregistry/src/samples/
 [python_package]: https://pypi.org/project/azure-containerregistry/
-[python_docs]: https://docs.microsoft.com/en-us/python/api/overview/azure/containerregistry-readme
+[python_docs]: /python/api/overview/azure/containerregistry-readme
+[python_samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry/azure-containerregistry/samples
 [pip_link]: https://pypi.org
+[python_identity]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity
+
