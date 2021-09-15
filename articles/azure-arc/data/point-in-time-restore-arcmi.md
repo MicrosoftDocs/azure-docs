@@ -48,7 +48,7 @@ There are two parameters that affect the point-in-time restore capability:
 
 ## Create a database from a point in time
 
-Following are the steps to restore a database to the same Azure Arc enabled SQL managed instance using Azure CLI:
+<span class="x x-first x-last">The following </span>are steps to restore a database to the same Azure Arc enabled SQL <span class="x x-first x-last">Managed Instance</span> using<span class="x x-first x-last"> the</span> Azure CLI:
 
 (1) Create a task for the restore operation. This is done by creating a .yaml file with the restore parameters.
 Create a yaml file as follows:
