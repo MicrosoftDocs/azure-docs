@@ -129,6 +129,11 @@ With AutoML for Images, Azure ML customers can easily build models trained on im
 
 AutoML for Images supports the following computer vision tasks -
 
+![Computer Vision Tasks](./media/ComputerVisionTasks.jpg)
+
+[Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf]
+
+
 #### Multi-class Image Classification
 Tasks where an image is classified with only a single label from a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'
 
