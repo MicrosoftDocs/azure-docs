@@ -1,6 +1,6 @@
 ---
-title: Add XSLT maps for XML transforms
-description: Create and add XSLT maps to transform XML in Azure Logic Apps with Enterprise Integration Pack.
+title: Add XSLT maps for XML transforms in workflows
+description: Create and add XSLT maps to transform XML for workflows in Azure Logic Apps using the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -12,11 +12,9 @@ ms.date: 09/14/2021
 
 # Add XSLT maps for XML transformation in Azure Logic Apps
 
-To transfer XML data between formats for enterprise integration scenarios in Azure Logic Apps, your logic app resource can use maps, or more specifically, Extensible Stylesheet Language Transformation (XSLT) maps. A map is an XML document that describes how to convert data from an XML document into another format.
+To convert XML between formats, your logic app workflow can use maps with the **Transform XML** action. A map is an XML document that uses Extensible Stylesheet Language Transformation (XSLT) language to describe how to convert data from XML to another format. The map consists of a source XML schema as input and a target XML schema as output. You can define a basic transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations. You can manipulate or control data by using different built-in functions, such as string manipulations, conditional assignments, arithmetic expressions, date time formatters, and even looping constructs.
 
 For example, suppose you regularly receive B2B orders or invoices from a customer who uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can define and use a map that transforms the YYYYMMDD format to the MMDDYYYY format before storing the order or invoice details in your customer activity database.
-
-With a map, you can define a basic transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.
 
 > [!NOTE]
 > Azure Logic Apps allocates finite memory for processing XML transformations. If you create logic apps based on the 
@@ -53,7 +51,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
    > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
    > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
-* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts for use in your enterprise integration and business-to-business (B2B) workflows. This resource has to meet the following requirements:
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
   * Is associated with the same Azure subscription as your logic app resource.
 
@@ -65,7 +63,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   * If you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you need an existing logic app resource because you don't store maps in your integration account. Instead, you can directly add maps to your logic app resource using either the Azure portal or Visual Studio Code. Only XSLT 1.0 is currently supported. You can then use these maps across multiple workflows within the *same logic app resource*.
 
-    You still need an integration account for your partners, agreements, and certificates along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account has to still meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
+    You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
 
 * While **Logic App (Consumption)** supports referencing external assemblies from maps, **Logic App (Standard)** currently doesn't support this capability. Referencing an assembly enables direct calls from XSLT maps to custom .NET code.
 

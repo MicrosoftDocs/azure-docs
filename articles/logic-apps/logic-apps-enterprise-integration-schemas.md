@@ -1,6 +1,6 @@
 ---
-title: Add schemas to validate XML
-description: Add schemas to validate XML documents in Azure Logic Apps with Enterprise Integration Pack.
+title: Add schemas for XML validation in workflows
+description: Add schemas to validate XML documents for workflows in Azure Logic Apps using the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.date: 09/14/2021
 ---
 
-# Add schemas to validate XML in Azure Logic Apps
+# Add schemas to validate XML documents for workflows in Azure Logic Apps
 
-To check that documents use valid XML and have the expected data in the predefined format for enterprise integration scenarios in Azure Logic Apps, your logic app can use schemas. A schema can also validate messages that logic apps exchange in business-to-business (B2B) scenarios.
+To check that documents use valid XML and have the expected data in the predefined format, your logic app workflow can use XML schemas with the **XML Validation** action. An XML schema describes a business document that's represented in XML using the [XML Schema Definition (XSD)](https://www.w3.org/TR/xmlschema11-1/).
 
 If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
@@ -35,7 +35,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
    > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
    > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
-* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you can store your schemas and other artifacts that you want to use in your enterprise integration and business-to-business (B2B) workflows. This resource has to meet the following requirements:
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
   * Is associated with the same Azure subscription as your logic app resource.
 
@@ -47,7 +47,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   * If you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you need an existing logic app resource because you don't store schemas in your integration account. Instead, you can directly add schemas to your logic app resource using either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
 
-    You still need an integration account for your partners, agreements, and certificates along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account has to still meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
+    You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
 
 * If your schema is [2 MB or smaller](#smaller-schema), you can add your schema to your integration account *directly* from the Azure portal. However, if your schema is bigger than 2 MB but not bigger than the [size limit for schemas](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), you can upload your schema to an Azure storage account. To add that schema to your integration account, you can then link to your storage account from your integration account. For this task, here are the items you need:
 

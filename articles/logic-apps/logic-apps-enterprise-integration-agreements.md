@@ -1,27 +1,28 @@
 ---
-title: Trading partner agreements
-description: Create and manage agreements between trading partners by using Azure Logic Apps and Enterprise Integration Pack
+title: Define agreements between partners in workflows
+description: Add agreements to your integration account for workflows in Azure Logic Apps using the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 06/22/2019
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 09/15/2021
 ---
 
-# Create and manage trading partner agreements in Azure Logic Apps
+# Add agreements between partners to integration accounts for workflows in Azure Logic Apps
 
-A [trading partner](../logic-apps/logic-apps-enterprise-integration-partners.md) 
-*agreement* helps organizations and businesses communicate seamlessly with each 
-other by defining the specific industry-standard protocol to use when exchanging 
-business-to-business (B2B) messages. Agreements provide common benefits, for example:
+After you add partners to your integration account, specify how partners exchange messages by defining [*agreements*](logic-apps-enterprise-integration-agreements.md) in your integration account. Agreements help organizations communicate seamlessly with each other by defining the specific industry-standard protocol for exchanging messages and provide the following shared benefits:
 
 * Enable organizations to exchange information by using a well-known format.
-* Improve efficiency when conducting B2B transactions.
-* Are easy to create, manage, and use for building enterprise integration solutions.
 
-This article shows how to create an AS2, EDIFACT, or X12 agreement that you can use 
+* Improve efficiency when conducting business-to-business (B2B) transactions.
+
+* Make creating, managing, and using agreements easy for building enterprise integration solutions.
+
+An agreement requires a *host partner*, which is always your organization, and a *guest partner*, which is the organization that exchanges messages with your organization. The guest partner can be another company, or even a department in your own organization. In this agreement, you can specify how to handle inbound and outbound messages from the host partner's perspective. For inbound messages, the **Receive Settings** specify how the host partner receives messages from the guest partner in the agreement. For outgoing messages, the **Send Settings** specify how the host partner sends messages to the guest partner.
+
+This article shows how to create an agreement AS2, EDIFACT, or X12 agreement that you can use 
 when building enterprise integration solutions for B2B scenarios by using the 
 [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) 
 and [Azure Logic Apps](../logic-apps/logic-apps-overview.md). After you create 
