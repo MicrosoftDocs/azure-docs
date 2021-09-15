@@ -2,7 +2,7 @@
 title: Deploy Bitnami virtual appliances
 description: Learn about the virtual appliances packed by Bitnami to deploy in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 09/15/2021
 
 ---
 
@@ -24,13 +24,11 @@ In this article, you'll learn how to install and configure the following virtual
 
 
 
-
-
 ## Prerequisites
 
-- Azure VMware Solution private cloud deployed with a minimum of three nodes.  
+- Azure VMware Solution private cloud [deployed with a minimum of three nodes](deploy-azure-vmware-solution.md).
 
-
+- Networking configured as described in [Network planning checklist](tutorial-network-checklist.md).
 
 
 
