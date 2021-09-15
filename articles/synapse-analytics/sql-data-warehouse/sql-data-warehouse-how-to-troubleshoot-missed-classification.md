@@ -37,7 +37,7 @@ To get a list of all workload groups(including system workload groups) and assoc
 
 ![query results](./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/filter-all-workload-groups.png)
 
-**Catalog views:** To view Workload groups using T-SQL, [connect to  Dedicated SQL Pool using SSMS](./sql/get-started-ssms.md) and issue following query:
+**Catalog views:** To view Workload groups using T-SQL, [connect to  Dedicated SQL Pool using SSMS](../sql/get-started-ssms.md) and issue following query:
  
 ```sql
 select * FROM sys.workload_management_workload_groups
@@ -86,7 +86,7 @@ In scenarios where Resource classes and workload groups are used together, user 
 * Newly created workload classifier maps database role DBARole (DBAUser is a member of this role) to mediumrc resource class with high importance.  
 * When DBAUser runs a query, the query is expected to run on mediumrc based on workload classifier. Instead it will be assigned to largerc, as **user** mapping takes precedence over **role membership** mapping to a classifier.
 
-It's best to avoid mixing usage of Resource Classes and Workload Management groups to do Workload management. Steps to convert Resource classes to Workloads are documented [here](sql-data-how-to-warehouse-convert-resource-classes-workload-groups.md). However, there can be situations where both Resource classes and Workload Management need to be used together. In such scenarios to simplify troubleshooting misclassification, recommendation is to remove resource class role mappings as you create workload classifiers. The code below returns existing resource class role memberships. Run [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for each member name returned from the corresponding resource class.
+It's best to avoid mixing usage of Resource Classes and Workload Management groups to do Workload management. Steps to convert Resource classes to Workloads are documented [here](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md). However, there can be situations where both Resource classes and Workload Management need to be used together. In such scenarios to simplify troubleshooting misclassification, recommendation is to remove resource class role mappings as you create workload classifiers. The code below returns existing resource class role memberships. Run [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for each member name returned from the corresponding resource class.
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -152,7 +152,7 @@ CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH
  ,IMPORTANCE     = 'Low')
 ```
 
-Queries submitted by User-1 can be submitted via both classifiers. Query run by User-1 with 'dimension_loads' label between 6PM and 7AM UTC will be assigned to wgDashboards as weight score of WLM_LABEL is higher than START_TIME/END_TIME. The weighting of classifier-1 is 80 (64 for user, plus 16 for WLM_LABEL). The weighting of classifier-2 is 68 (64 for user, 4 for START_TIME/END_TIME). More details on [Classification weighting](resource-classes-for-workload-management.md#classification-weighting).
+Queries submitted by User-1 can be submitted via both classifiers. Query run by User-1 with 'dimension_loads' label between 6PM and 7AM UTC will be assigned to wgDashboards as weight score of WLM_LABEL is higher than START_TIME/END_TIME. The weighting of classifier-1 is 80 (64 for user, plus 16 for WLM_LABEL). The weighting of classifier-2 is 68 (64 for user, 4 for START_TIME/END_TIME). More details on [Classification weighting](sql-data-warehouse-workload-classification.md#classification-weighting).
 
 ### What happens if Precedence in Workload Classification leads to a tie
 
