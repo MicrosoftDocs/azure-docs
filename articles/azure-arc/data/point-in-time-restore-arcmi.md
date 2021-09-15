@@ -1,6 +1,6 @@
 ---
-title: Restore a database in Azure Arc enabled SQL managed instance to a previous point in time
-description: Restore a database in Azure Arc enabled SQL managed instance to a previous point in time
+title: Restore a database in Azure Arc enabled SQL Managed Instance to a previous point in time
+description: Restore a database in Azure Arc enabled SQL Managed Instance to a previous point in time
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
