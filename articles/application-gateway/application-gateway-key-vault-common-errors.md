@@ -20,7 +20,7 @@ This article helps you understand the details of key vault error codes you might
 
 ## List of error codes and their details
 
-The following sections cover various errors you might encounter.
+The following sections cover various errors you might encounter. You can also see these error codes and resource details in Azure Advisor, and you can set up alerts in the Azure portal for quick access to the recommendations in Azure Advisor. For more information, see [Create Azure Advisor alerts on new recommendations by using the Azure portal](https://docs.microsoft.com/azure/advisor/advisor-alerts-portal).
 
 > [!NOTE]
 > Azure Application Gateway generates logs for key vault diagnostics every four hours. If the diagnostic continues to show the error after you have fixed the configuration, you might have to wait for the logs to be refreshed.
