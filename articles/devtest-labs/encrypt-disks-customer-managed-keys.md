@@ -1,7 +1,7 @@
 ---
-title: Encrypt OS disks using customer-managed keys in Azure DevTest Labs
+title: Encrypt OS disks using customer-managed keys
 description: Learn how to encrypt operating system (OS) disks using customer-managed keys in Azure DevTest Labs. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/01/2020
 ---
 
