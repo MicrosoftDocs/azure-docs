@@ -104,6 +104,16 @@ Here is what the condition looks like in code:
 
 For more information about the format of conditions, see [Azure role assignment condition format and syntax](conditions-format.md).
 
+## Features of conditions
+
+Here's a list of the some of the primary features of conditions:
+
+- Add conditions to Storage Blob Data role assignments
+- Use attributes on a resource in a condition
+- Use attributes that are part of the action request in a condition
+- Use custom security attributes on a principal in a condition
+
+
 ## Conditions and Privileged Identity Management (PIM)
 
 You can also add conditions to eligible role assignments using Privileged Identity Management (PIM). With PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using conditions in PIM enables you not only to limit a user's access to a resource using fine-grained conditions, but also to use PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
