@@ -98,7 +98,7 @@ To schedule a pickup, take the following steps.
     1. Place the power cords in the accessory tray and the rails on the top foam piece.
     1. Seal the box and affix the shipping label that you received from Azure on the package.
     
-    > ![IMPORTANT]
+    > [!IMPORTANT]
     > If proper guidelines to prepare the return shipment aren't observed, it could lead to a damaged device and fines may apply. Review the [Product Terms of service](https://www.microsoft.com/licensing/product-licensing/products) and [damaged device charges](https://azure.microsoft.com/pricing/details/databox/edge/).
  
 1. Schedule a pickup with your regional carrier. If returning the device in US, your carrier could be UPS or FedEx. To schedule a pickup with UPS:
