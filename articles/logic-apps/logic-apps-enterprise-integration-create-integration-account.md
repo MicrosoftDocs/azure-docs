@@ -33,7 +33,7 @@ If you're new to Azure Logic Apps, review [What is Azure Logic Apps](logic-apps-
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You have to use the same Azure subscription for both your integration account and logic app resource.
 
-* If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you need to have a logic app resource that you can [link to your integration account](d#link-account). This link is required before you can use your artifacts in your workflow. You can create your artifacts without this link, but the link is required when you're ready to use these artifacts in your workflows.
+* If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you need to have a logic app resource that you can [link to your integration account](#link-account). This link is required before you can use your artifacts in your workflow. You can create your artifacts without this link, but the link is required when you're ready to use these artifacts in your workflows.
 
 * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you can directly add maps and schemas to your logic app resource using either the Azure portal or Visual Studio Code. You can then use these artifacts across multiple workflows within the *same logic app resource*. You still have to create an integration account for your other B2B artifacts and to use B2B operations, such as [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your integration account to your logic app resource, so the linking capability doesn't exist.
 
@@ -145,15 +145,15 @@ For your **Logic App (Consumption)** workflow to access the B2B artifacts in you
 
 1. On your logic app's menu, under **Settings**, select **Workflow settings**. Under **Integration account**, open the **Select an Integration account** list, and select the integration account you want.
 
-   ![Select your integration account](./media/logic-apps-enterprise-integration-create-integration-account/select-integration-account.png)
+   ![Screenshot that shows the Azure portal with integration account menu with "Workflow settings" pane open and "Select an Integration account" list open.](./media/logic-apps-enterprise-integration-create-integration-account/select-integration-account.png)
 
 1. To finish linking, select **Save**.
 
-   ![Screenshot that shows where to select Save to choose your integration account.](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
+   ![Screenshot that shows "Workflow settings" pane and "Save" selected.](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
 
    After your integration account is successfully linked, Azure shows a confirmation message.
 
-   ![Azure confirms successful link](./media/logic-apps-enterprise-integration-create-integration-account/link-confirmation.png)
+   ![Screenshot that shows Azure confirmation message.](./media/logic-apps-enterprise-integration-create-integration-account/link-confirmation.png)
 
 Now your logic app can use the artifacts in your integration account plus the B2B connectors, such as XML validation and flat file encoding or decoding.  
 
@@ -182,7 +182,7 @@ To make this change, you can use either the Azure portal or the Azure CLI.
 
 1. Under **Integration accounts**, select the integration account that you want to move. On your integration account menu, select **Overview**.
 
-   ![On integration account menu, select "Overview"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
+   ![Screenshot that shows Azure portal with integration account menu and "Overview" selected.](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
 1. On the Overview pane, select **Upgrade Pricing Tier**, which lists any available higher tiers. When you select a tier, the change immediately takes effect.
 
@@ -270,7 +270,7 @@ If you want to link your logic app to another integration account, or no longer 
 
    For example:
 
-   ![Find "integrationAccount" object](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
+   ![Screenshot that shows how to find the "integrationAccount" object](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
 1. On the **Data** tab, select **Put** to save your changes.
 
@@ -324,15 +324,15 @@ For this task, you can use either the Azure portal by following the steps in thi
 
 1. Under **Integration accounts**, select the integration account that you want to delete. On your integration account menu, select **Overview**.
 
-   ![On integration account menu, select "Overview"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
+   ![Screenshot that shows Azure portal with "Integration accounts" list and integration account menu with "Overview" selected.](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
 1. On the Overview pane, select **Delete**.
 
-   ![On "Overview" pane, select "Delete"](./media/logic-apps-enterprise-integration-create-integration-account/delete-integration-account.png)
+   ![Screenshot that shows "Overview" pane with "Delete" selected.](./media/logic-apps-enterprise-integration-create-integration-account/delete-integration-account.png)
 
 1. To confirm that you want to delete your integration account, select **Yes**.
 
-   ![To confirm delete, select "Yes"](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
+   ![Screenshot that shows confirmation box and "Yes" selected.](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
 
 <a name="delete-account-azure-cli"></a>
 
