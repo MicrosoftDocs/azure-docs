@@ -54,7 +54,7 @@ param(
     [Parameter(Mandatory=$false)]
     [Switch] $NoUpdate = $false,
     [Parameter(Mandatory=$false)]
-    [string] $MinVersion = "1.4.1654.1"
+    [string] $MinVersion = "1.4.1974.1"
 )
 
 
