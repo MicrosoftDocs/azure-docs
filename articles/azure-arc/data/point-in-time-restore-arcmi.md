@@ -73,7 +73,7 @@ Instructions to edit the above yaml file:
 - source > database - Name of the **source** database on the Azure Arc enabled SQL managed instance to restore from
 - restorePoint - Point-in-time fto restore to, in "UTC" date time.
 - destination > name - Name of the Azure Arc enabled SQL managed instance
-- destination > dabase - Name of the **destination** database on the Azure Arc enabled SQL managed instance
+- destination > database - Name of the **destination** database on the Azure Arc enabled SQL Managed Instance
 
 
 > [!NOTE] 
