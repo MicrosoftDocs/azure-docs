@@ -13,14 +13,14 @@ ms.author: jaysoni
 
 # Common key vault errors in Azure Application Gateway
 
-This article helps you understand the details of key vault error codes you might encounter, including their cause and the associated key vault resource that's causing the problem. This article also contains steps to resolve such misconfigurations.
+This article helps you understand the details of key vault error codes you might encounter, including what is causing these errors. This article also contains steps to resolve such misconfigurations.
 
 > [!TIP]
 > Use a secret identifier that doesn't specify a version. This way, Azure Application Gateway will automatically rotate the certificate, if a newer version is available in Azure Key Vault. An example of a secret URI without a version is: `https://myvault.vault.azure.net/secrets/mysecret/`.
 
 ## List of error codes and their details
 
-The following sections cover various errors you might encounter. You can also see these error codes and resource details in Azure Advisor, and you can set up alerts in the Azure portal for quick access to the recommendations in Azure Advisor. For more information, see [Create Azure Advisor alerts on new recommendations by using the Azure portal](https://docs.microsoft.com/azure/advisor/advisor-alerts-portal).
+The following sections cover various errors you might encounter. You can find the details in Azure Advisor, and use this troubleshooting article to fix the problems. For more information, see [Create Azure Advisor alerts on new recommendations by using the Azure portal](https://docs.microsoft.com/azure/advisor/advisor-alerts-portal).
 
 > [!NOTE]
 > Azure Application Gateway generates logs for key vault diagnostics every four hours. If the diagnostic continues to show the error after you have fixed the configuration, you might have to wait for the logs to be refreshed.
@@ -88,7 +88,8 @@ For more information, see [How integration works](./key-vault-certs.md#how-integ
 **Resolution:** You will encounter this error when you enable the Key Vault firewall for restricted access. You can still configure Application Gateway in a restricted network of Key Vault, by following these steps:
 1. In Key Vault, open the **Networking** pane.
 1. Select the **Firewalls and virtual networks** tab, and select **Private endpoint and selected networks**.
-1. To allow trusted services to bypass the firewall, select **Yes**.
+1. Then, using Virtual Networks, add your Application Gateway’s virtual network and subnet. During the process, also configure ‘Microsoft.KeyVault' service endpoint by selecting its checkbox.
+1. Finally, select **Yes** to allow Trusted Services to bypass Key Vault’s firewall.
 
 :::image type="content" source="./media/application-gateway-key-vault-common-errors/key-vault-restricted-access.png" alt-text="Screenshot that shows how to work around the restricted network error.":::
 
