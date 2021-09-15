@@ -1,7 +1,6 @@
 ---
 title: Azure Arc-enabled Open Service Mesh (Preview)
 description: Open Service Mesh (OSM) extension on Azure Arc-enabled Kubernetes cluster
-services: azure-arc
 ms.service: azure-arc
 ms.date: 07/23/2021
 ms.topic: article
@@ -122,7 +121,7 @@ To ensure that the privileged init container setting is not reverted to the defa
 
 ### Install Azure Arc-enabled OSM using ARM template
 
-After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the <cluster-name> value:
+After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the \<cluster-name\> value:
 
 ```json
 {
