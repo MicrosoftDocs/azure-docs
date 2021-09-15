@@ -52,6 +52,8 @@ If you matched your objects with a soft-match, then the **sourceAnchor** is adde
 ### Hard-match vs Soft-match
 For a new installation of Connect, there is no practical difference between a soft- and a hard-match. The difference is in a disaster recovery situation. If you have lost your server with Azure AD Connect, you can reinstall a new instance without losing any data. An object with a sourceAnchor is sent to Connect during initial install. The match can then be evaluated by the client (Azure AD Connect), which is a lot faster than doing the same in Azure AD. A hard match is evaluated both by Connect and by Azure AD. A soft match is only evaluated by Azure AD.
 
+ We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0) shows how to disable Soft Matching.
+
 ### Other objects than users
 For mail-enabled groups and contacts, you can soft-match based on proxyAddresses. Hard-match is not applicable since you can only update the sourceAnchor/immutableID (using PowerShell) on Users only. For groups that aren't mail-enabled, there is currently no support for soft-match or hard-match.
 
