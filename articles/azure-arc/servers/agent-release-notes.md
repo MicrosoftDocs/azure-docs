@@ -22,9 +22,9 @@ Version 1.11
 
 ### Fixed
 
-- The agent can now be installed on Windows systems with the "System objects: Require case insensitivity for non-Windows subsystems" set to Disabled
-- The guest configuration policy agent will now automatically retry if an error is encountered during service start or restart events
-- Fixed an issue that prevented guest configuration audit policies from successfully executing on Linux machines
+- The agent can now be installed on Windows systems with the [System objects: Require case insensitivity for non-Windows subsystems](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) policy set to Disabled.
+- The guest configuration policy agent will now automatically retry if an error is encountered during service start or restart events.
+- Fixed an issue that prevented guest configuration audit policies from successfully executing on Linux machines.
 
 ## August 2021
 
