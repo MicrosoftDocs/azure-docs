@@ -16,16 +16,15 @@ ms.subservice: common
 
 # Create an expiration policy for shared access signatures
 
-You can use a shared access signature (SAS) to delegate access to resources in your Azure Storage account. A SAS token includes the targeted resource, the permissions granted, and the interval over which access is permitted. Best practices recommend that you limit the interval for a SAS in case it is compromised. By setting a SAS expiration policy for your storage accounts, you can provide a suggested expiry when a user creates a SAS. When a SAS expiration policy is in effect for the storage account, and a user creates a SAS that expires after the recommended interval, then a notification can be written to Azure Monitor logs.
+You can use a shared access signature (SAS) to delegate access to resources in your Azure Storage account. A SAS token includes the targeted resource, the permissions granted, and the interval over which access is permitted. Best practices recommend that you limit the interval for a SAS in case it is compromised. By setting a SAS expiration policy for your storage accounts, you can provide a recommended upper expiration limit when a user creates a SAS.
+
+A SAS expiration policy does not prevent a user from creating a SAS with an expiration that exceeds the limit recommended by the policy. When a user creates a SAS that violates the policy, they'll see a warning, together with the recommended maximum interval. If you have configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes to a property in the logs whenever a user creates a SAS that expires after the recommended interval.
 
 For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
 
 ## Create a SAS expiration policy
 
 When you create a SAS expiration policy on a storage account, the policy applies to each type of SAS that you can create on that storage account, including a service SAS, user delegation SAS, or account SAS.
-
-> [!NOTE]
-> The maximum interval for a user delegation SAS is seven days.
 
 To configure a SAS expiration policy for a storage account, use the Azure portal, PowerShell, or Azure CLI.
 
@@ -102,11 +101,11 @@ The SAS expiration period appears in the console output.
 
 ---
 
-## Query for policy violations
+## Query logs for policy violations
 
-If you create a diagnostic setting that [sends logs to Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics) workspace, then you can use an Azure Monitor log query to determine whether a SAS has expired.
+To log the creation of a SAS that is valid over a longer interval than the SAS expiration policy recommends, first create a diagnostic setting that sends logs to an Azure Log Analytics workspace. For more information, see [Send logs to Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics).
 
-To determine if a SAS has expired, enter the following query in the **Log search** bar.
+Next, use an Azure Monitor log query to determine whether a SAS has expired. Create a new query in your Log Analytics workspace, add the following query text, and press **Run**.
 
 ```kusto
 StorageBlobLogs | where SasExpiryStatus startswith "Policy Violated" 
