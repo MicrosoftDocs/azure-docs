@@ -1,4 +1,14 @@
-# Quickstart: Create an iOS app with Azure Maps
+--- 
+title:  Create an iOS app with Azure Maps
+description: Steps to create an Azure Maps account and the first iOS App.
+author: limingchen-ms
+ms.author: v-dbogomolov
+ms.date: 09/30/2021
+ms.topic: conceptual
+ms.service: azure-maps
+services: azure-maps
+---
+#  Create an iOS app with Azure Maps
 
 This article shows you how to add the Azure Maps to an iOS app. It walks you through these basic steps:
 
@@ -11,8 +21,8 @@ This article shows you how to add the Azure Maps to an iOS app. It walks you thr
 ## Prerequisites
 
 1. Create an Azure Maps account by signing into the  [Azure portal](https://portal.azure.com/) . If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/)  before you begin.
-2.  [Make an Azure Maps account](https://docs.microsoft.com/en-us/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account)
-3.  [Obtain a primary subscription key](https://docs.microsoft.com/en-us/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account) , also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see  [manage authentication in Azure Maps](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication) .
+2.  [Make an Azure Maps account](https://docs.microsoft.com//azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account)
+3.  [Obtain a primary subscription key](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account) , also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see  [manage authentication in Azure Maps](https://docs.microsoft.com//azure/azure-maps/how-to-manage-authentication) .
 4.  Download [‎Xcode on the Mac App Store](https://apps.apple.com/cz/app/xcode/id497799835?mt=12) for free.
 
 ## Create an Azure Maps account
