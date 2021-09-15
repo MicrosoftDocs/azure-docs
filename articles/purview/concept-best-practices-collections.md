@@ -120,7 +120,9 @@ Azure Purview data-plane roles are managed inside Azure Purview. After you deplo
 - Consider implementing [emergency access](/azure/active-directory/users-groups-roles/directory-emergency-access) or a break-glass strategy for collection admins role at your Azure Purview root collection level to avoid Purview account level lockouts. Document the process to use emergency accounts. 
 
     > [!NOTE]
-    > For certain scenarios, you may need to use an emergency account to login to Azure Purview to fix organizational level access issues when nobody else can login to Purview or other admins cannot perform certain operations due corporate authentication issues. It is highly recommended following Microsoft best practices guides around implementing [emergency access accounts](/azure/active-directory/users-groups-roles/directory-emergency-access) using cloud only users.  
+    > For certain scenarios, you may need to use an emergency account to login to Azure Purview to fix organizational level access issues when nobody else can login to Purview or other admins cannot perform certain operations due corporate authentication issues. It is highly recommended following Microsoft best practices guides around implementing [emergency access accounts](/azure/active-directory/users-groups-roles/directory-emergency-access) using cloud only users.
+    
+    Follow [this guide](/concept-account-upgrade.md#what-happens-when-your-upgraded-account-doesnt-have-a-collection-admin) to recover access to your Purview root collection in case your last collection admin is unavailable.
 
 - Keep the number of root collection admins minimal. Assign maximum of 3 collection admins users at root collection including the SPN and your break-glass accounts. Assign your collection admin roles at the top-level collection or subcollections instead.
 
