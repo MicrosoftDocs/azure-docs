@@ -15,7 +15,7 @@ This article is a step-by-step guide that will detail how to submit your app to 
 
 ## Step 1: Select the type of app you are submitting
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home). You can use the same username and password you use to manage Office Store products.
 
@@ -29,7 +29,7 @@ This article is a step-by-step guide that will detail how to submit your app to 
 
     [ ![Illustrates the New offer list.](./images/add-in-submission-guide/step-select-type-of-add-in-workspaces.png) ](./images/add-in-submission-guide/step-select-type-of-add-in-workspaces.png#lightbox)
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 From the **Overview** tab in Microsoft Partner Center, select **Create a new** and then select the type of app you want to submit. The example screenshots in this article show an Office Add-in, but the steps apply to Teams apps, SharePoint solutions, and so on.
 
@@ -39,7 +39,7 @@ From the **Overview** tab in Microsoft Partner Center, select **Create a new** a
 
 ## Step 2: Name your app
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. In the dialog box that appears, enter a name for your app.
 
@@ -48,7 +48,7 @@ From the **Overview** tab in Microsoft Partner Center, select **Create a new** a
 1. Select **Create**.
 
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 You’ll be prompted to enter a name for your app.
 
@@ -58,7 +58,7 @@ You’ll be prompted to enter a name for your app.
 
 ## Step 3: Tell us about your Product Setup
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. When filling out the **Product setup** page, you'll need to answer the following questions:
 
@@ -77,7 +77,7 @@ The following screenshot shows two yellow warning boxes on the **Product setup**
 
 [ ![Yellow warning box reminds you to fill in your Apple ID.](./images/add-in-submission-guide/step-3-yellow-warnings-workspaces.png)](./images/add-in-submission-guide/step-3-yellow-warnings-workspaces.png#lightbox)
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 - **Will your app be listed in the Apple Store?**
     If so, include your Apple ID. You'll see a warning that reminds you to enter this information on screen.
@@ -96,7 +96,7 @@ The following screenshot shows two yellow warning boxes that remind you to fill 
 
 ## Step 4: Upload your manifest for package testing
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 You will need to upload your manifest file to the grey box on the **Packages** page. Remember to pre-test your package to prevent any unexpected failures in this step. Get information on all [the pre-testing manifest tools](/office/dev/add-ins/testing/troubleshoot-manifest#:~:text=%20To%20use%20a%20command-line%20XML%20schema%20validation,and%20replace%20XML_FILE%20with%20the%20path...%20More%20).
 
@@ -104,7 +104,7 @@ When your manifest is uploaded and is correct, you will receive a confirmation a
 
 [ ![A completed manifest upload.](./images/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png) ](./images/add-in-submission-guide/step-4-packages-complete-upload-workspaces.png#lightbox)
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 You will need to upload your manifest file to the grey box on this page.
 
@@ -120,7 +120,7 @@ When your manifest is uploaded and is correct, you will receive a confirmation a
 
 ## Step 5: Define the metadata that will categorize your app in the store
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. On the **Properties** page, select at least one and up to three categories to help your customers find your product in the marketplace.
 1. You can optionally select up to two industries. If your product is not specific to an industry, do not select one.
@@ -150,7 +150,7 @@ When your manifest is uploaded and is correct, you will receive a confirmation a
 
 1. Select **Save** before continuing to the next page: Marketplace listings.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 In this step, you will add secure URL links to your support policies, privacy policies, and End User License Agreements (EULA). For more information on what your policies should look like, see [our submission checklist](./checklist.md).
 
@@ -206,7 +206,7 @@ To provide your listing information, select the language you want to configure u
 
 ## Step 9:  Make sure you add your critical testing instructions
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 This final critical step requires you to include notes for certification. Provide any instructions for the reviewer who will be testing your app, including test accounts, license keys, and testing credentials.
 
@@ -230,7 +230,7 @@ The following screenshot shows where you can optionally upload a PDF file of ins
 >[!TIP]
 > Do not include an email address of a company employee who can provide sign-in information. Our reviewers will **not be able to email you for sign-in information**. Applications that do not list clear instructions in the certification notes will automatically fail the submission process.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 This final critical step requires you to include notes for certification. Provide any instructions for the reviewer who will be testing your app, including test accounts, license keys, and testing credentials.
 
