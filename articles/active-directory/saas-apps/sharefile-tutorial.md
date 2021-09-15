@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Citrix ShareFile | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Citrix ShareFile'
 description: Learn how to configure single sign-on between Azure Active Directory and Citrix ShareFile.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/08/2021
+ms.date: 09/13/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Citrix ShareFile
@@ -27,13 +27,16 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Citrix ShareFile single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Citrix ShareFile supports **SP** initiated SSO.
 
-## Adding Citrix ShareFile from the gallery
+## Add Citrix ShareFile from the gallery
 
 To configure the integration of Citrix ShareFile into Azure AD, you need to add Citrix ShareFile from the gallery to your list of managed SaaS apps.
 
@@ -59,7 +62,7 @@ To configure and test Azure AD single sign-on with Citrix ShareFile, perform the
 	1. **[Create Citrix ShareFile test user](#create-citrix-sharefile-test-user)** - to have a counterpart of Britta Simon in Citrix ShareFile that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -71,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps: 
 
-    a. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** textbox, type a URL using one of the following patterns:
 
 	| **Identifier** |
 	|--------|
@@ -81,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://<tenant-name>.sharefile1.eu/saml/info` |
 	| `https://<tenant-name>.sharefile.eu/saml/info` |
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern:
+	b. In the **Reply URL** textbox, type a URL using one of the following patterns:
 	
 	| **Reply URL** |
 	|-------|

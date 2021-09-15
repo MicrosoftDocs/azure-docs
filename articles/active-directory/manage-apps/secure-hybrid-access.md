@@ -28,17 +28,17 @@ Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can pro
 
 ## Secure hybrid access through Azure AD partner integrations  
 
-In addition to [Azure AD Application Proxy](https://aka.ms/whyappproxy), Microsoft partners with third-party providers to enable secure access to your on-premises applications and applications that use legacy authentication.
+In addition to [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md), Microsoft partners with third-party providers to enable secure access to your on-premises applications and applications that use legacy authentication.
 
 ![Image shows secure hybrid access with app proxy and partners](./media/secure-hybrid-access/secure-hybrid-access.png)
 
-The following partners offer pre-built solutions to support conditional access policies per application and provide detailed guidance for integrating with Azure AD. 
+The following partners offer pre-built solutions to support **conditional access policies per application** and provide detailed guidance for integrating with Azure AD. 
 
 - [Akamai Enterprise Application Access](../saas-apps/akamai-tutorial.md)
 
 - [Citrix Application Delivery Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md)  
 
-- [Datawiza Access Broker](datawiza-with-azure-ad.md)
+- [Datawiza Access Broker](../manage-apps/datawiza-with-azure-ad.md)
 
 - [F5 Big-IP APM ADC](../manage-apps/f5-aad-integration.md)
 
@@ -48,15 +48,15 @@ The following partners offer pre-built solutions to support conditional access p
 
 - [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 
-- [Silverfort Authentication Platform](../manage-apps/add-application-portal-setup-oidc-sso.md)
+- [Silverfort Authentication Platform](../manage-apps/silverfort-azure-ad-integration.md)
 
-- [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
+- [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
 
-The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD. 
+The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD.
 
-- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
+- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
 
-- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
+- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
 
 - [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
 
