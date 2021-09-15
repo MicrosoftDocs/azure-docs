@@ -196,7 +196,7 @@ The following steps show you how to enable a blue-green deployment from the **Re
 1. Navigate to the **Azure Spring Cloud Deploy** task in **Stage 1**, then select the ellipsis next to **Package or folder**.
 1. Select *spring-boot-complete-0.0.1-SNAPSHOT.jar* in the dialog, then select **OK**.
 
-   :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Modify the artifact path." lightbox="media/spring-cloud-how-to-cicd/change-artifact-path.jpg":::
+   :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Screenshot of the 'Select a file or folder' dialog box." lightbox="media/spring-cloud-how-to-cicd/change-artifact-path.jpg":::
 
 1. Select the **+** to add another **Azure Spring Cloud** task to the job.
 2. Change the action to **Set Production Deployment**.
