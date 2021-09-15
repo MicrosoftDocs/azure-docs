@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 08/25/2021
 ---
 
-# Create knowledge base and manage settings
+# Create and manage knowledge base settings
 
 custom question answering allows you to manage your knowledge bases by providing access to the knowledge base settings and data sources.
 
@@ -32,7 +32,7 @@ custom question answering allows you to manage your knowledge bases by providing
     You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. You should add the Custom question answering feature to the service on creation.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of selecting additional features](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
+    > ![Screenshot of selecting additional features](../../../qnamaker/media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
     
     Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource. When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to Step 2.
 
@@ -62,7 +62,7 @@ custom question answering allows you to manage your knowledge bases by providing
 
        You can see all the services you created or shared with you sorted in the descending order of the **last modified** date.
 
-       ![My Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
+       ![My Knowledge Bases](../../../qnamaker/media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 1. Select a particular knowledge base to make edits to it.
 
@@ -95,7 +95,7 @@ custom question answering allows you to manage your knowledge bases by providing
     <br/>
   1. Once you are done making changes to the knowledge base, select **Save and train** in the top-right corner of the page in order to persist the changes.
 
-       ![Save and Train](../media/qnamaker-how-to-edit-kb/save-and-train.png)
+       ![Save and Train](../../../qnamaker/media/qnamaker-how-to-edit-kb/save-and-train.png)
 
        >[!CAUTION]
        >If you leave the page before selecting **Save and train**, all changes will be lost.
@@ -106,15 +106,15 @@ custom question answering allows you to manage your knowledge bases by providing
 
 * **Data source groups**: The QnAs are grouped by the data source from which they were extracted. You can expand or collapse the data source.
 
-    ![Use the QnA Maker data source bar to collapse and expand data source questions and answers](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+    ![Use the QnA Maker data source bar to collapse and expand data source questions and answers](../../../qnamaker/media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
 * **Search knowledge base**: You can search the knowledge base by typing in the text box at the top of the Knowledge Base table. Click enter to search on the question, answer, or metadata content. Click on the X icon to remove the search filter.
 
-    ![Use the QnA Maker search box above the questions and answers to reduce the view to only filter-matching items](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Use the QnA Maker search box above the questions and answers to reduce the view to only filter-matching items](../../../qnamaker/media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
 * **Pagination**: Quickly move through data sources to manage large knowledge bases
 
-    ![Use the QnA Maker pagination features above the questions and answers to move through pages of questions and answers](../media/qnamaker-how-to-edit-kb/pagination.png)
+    ![Use the QnA Maker pagination features above the questions and answers to move through pages of questions and answers](../../../qnamaker/media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## Delete knowledge bases
 

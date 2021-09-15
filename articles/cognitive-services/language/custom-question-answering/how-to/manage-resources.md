@@ -14,7 +14,7 @@ Before you can create knowledge bases, you must first set up a custom question a
 A solid understanding of the following concepts is helpful before creating your resource:
 
 * [QnA Maker resources](../../../qnamaker/Concepts/azure-resources.md)
-* [Authoring and publishing keys](../../../qnamakerConcepts/azure-resources.md#keys-in-qna-maker)
+* [Authoring and publishing keys](../../../qnamaker/Concepts/azure-resources.md#keys-in-qna-maker)
 
 ## Create a new custom question answering enabled resource
 
@@ -66,7 +66,7 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
 1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. Link the new Azure search resource to the Custom question answering feature in the [features tab of the Text Analytics resource](./configure-qna-maker-resources.md?tabs=v2#configure-text-analytics-resource-with-custom-question-answering-feature-to-use-a-different-cognitive-search-resource) .
+1. Link the new Azure search resource to the Custom question answering feature in the [features tab of the Text Analytics resource](../../../qnamaker/how-to/configure-qna-maker-resources.md?tabs=v2#configure-text-analytics-resource-with-custom-question-answering-feature-to-use-a-different-cognitive-search-resource) .
 
 ### Inactivity policy for free Search resources
 

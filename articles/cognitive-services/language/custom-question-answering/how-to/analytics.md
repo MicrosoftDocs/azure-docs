@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 08/25/2021
 ---
 
-# Get analytics on your knowledge base
+# Get analytics for your knowledge base
 
 Custom question answering uses Azure diagnostic logging to store the telemetry data and chat logs. Follow the below steps to run sample queries to get analytics on the usage of your QnA Maker knowledge base.
 

@@ -1,7 +1,7 @@
 ---
 title: Metadata with GenerateAnswer API - custom question answering
 titleSuffix: Azure Cognitive Services
-description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer pairs. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
+description: Custom question answering lets you add metadata, in the form of key/value pairs, to your question/answer pairs. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -11,7 +11,7 @@ ms.date: 08/25/2021
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-# Get an answer with the GenerateAnswer API
+# Get answers with the GenerateAnswer API
 
 To get the predicted answer to a user's question, use the GenerateAnswer API. When you publish a knowledge base, you can see information about how to use this API on the **Publish** page. You can also configure the API to filter answers based on metadata tags, and test the knowledge base from the endpoint with the test query string parameter.
 
@@ -30,11 +30,11 @@ After you publish your knowledge base, either from the [QnA Maker portal](https:
 To get your endpoint details:
 1. Sign in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. In **My knowledge bases**, select **View Code** for your knowledge base.
-    ![Screenshot of My knowledge bases](../media/generate-answermy-knowledge-bases.png)
+    ![Screenshot of My knowledge bases](../../../qnamaker/media/generate-answermy-knowledge-bases.png)
 1. Get your GenerateAnswer endpoint details.
 
 
-    ![Screenshot of endpoint details managed](../media/generate-answerview-code-managed.png)
+    ![Screenshot of endpoint details managed](../../../qnamaker/media/generate-answerview-code-managed.png)
 
 You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
@@ -76,7 +76,7 @@ An example JSON body looks like:
 }
 ```
 
-Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
+Learn more about [rankerType](../../../qnamaker/concepts/best-practices.md#choosing-ranker-type).
 
 The previous JSON requested only answers that are at 30% or above the threshold score.
 
@@ -165,7 +165,7 @@ The previous JSON requested only answers that are at 30% or above the threshold 
 
 ## Get precise answers with GenerateAnswer API
 
-The user can enable [precise answers](../reference-precise-answering.md) when using the Text Analytics resource with Custom question answering feature. The answerSpanRequest parameter has to be updated for the same.
+The user can enable [precise answers](../../../qnamaker/reference-precise-answering.md) when using the Text Analytics resource with Custom question answering feature. The answerSpanRequest parameter has to be updated for the same.
 
 ```json
 {
@@ -216,9 +216,9 @@ If you want to configure precise answer settings for your bot service, navigate 
 
 ## Next steps
 
-The **Publish** page also provides information to [generate an answer](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) with Postman or cURL.
+The **Publish** page also provides information to [generate an answer](./url-test-tool.md) with Postman or cURL.
 
 > [!div class="nextstepaction"]
-> [Get analytics on your knowledge base](../how-to/get-analytics-knowledge-base.md)
+> [Get analytics on your knowledge base](../../../qnamaker//how-to/get-analytics-knowledge-base.md)
 > [!div class="nextstepaction"]
-> [Confidence score](../Concepts/confidence-score.md)
+> [Confidence score](../../../qnamaker/Concepts/confidence-score.md)
