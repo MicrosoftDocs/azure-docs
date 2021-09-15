@@ -35,7 +35,7 @@ For app registrations:
    - A `resourceId` string. This variable is the app ID URI of the web API that you want to call.
    - An instance of `IClientAssertionCertificate` or `ClientAssertion`. This instance provides the client credentials for your app to prove the identity of your app.
 
-1. After you've identified that you have apps that are using ADAL.NET, install the MSAL.NET NuGet package [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) and update your project library references. For more information, see [Install a NuGet package](https://www.bing.com/search?q=install+nuget+package).
+1. After you've identified that you have apps that are using ADAL.NET, install the MSAL.NET NuGet package [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) and update your project library references. For more information, see [Install a NuGet package](https://www.bing.com/search?q=install+nuget+package). If you want to use token cache serializers, also install [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web).
 
 1. Update the code according to the confidential client scenario. Some steps are common and apply across all the confidential client scenarios. Other steps are unique to each scenario. 
 
@@ -379,7 +379,7 @@ public partial class AuthWrapper
    private Uri redirectUri = new Uri("host/login_oidc");
    X509Certificate2 certificate = LoadCertificate();
 
-   public IConfidentialClientApplication GetApplication()
+   public IConfidentialClientApplication CreateApplication()
    {
       IConfidentialClientApplication app;
 
@@ -387,6 +387,7 @@ public partial class AuthWrapper
                .WithCertificate(certificate)
                .WithAuthority(authority)
                .WithRedirectUri(redirectUri.ToString())
+               .WithLegacyCacheCompatibility(false)
                .Build();
 
       // Add a token cache. For details about other serialization
@@ -401,7 +402,7 @@ public partial class AuthWrapper
       string resourceId,
       string authorizationCode)
    {
-      IConfidentialClientApplication app = GetApplication();
+      IConfidentialClientApplication app = CreateApplication();
 
       var authResult = await app.AcquireTokenByAuthorizationCode(
                   new[] { $"{resourceId}/.default" },
@@ -426,7 +427,7 @@ public partial class AuthWrapper
         string resourceId2,
         string authority)
     {
-        IConfidentialClientApplication app = GetApplication();
+        IConfidentialClientApplication app = CreateApplication();
         AuthenticationResult authResult;
 
         var scopes = new[] { $"{resourceId2}/.default" };
