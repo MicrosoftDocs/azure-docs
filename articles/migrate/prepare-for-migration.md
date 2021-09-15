@@ -85,7 +85,7 @@ Changes performed are summarized in the table.
 **Install the Windows Azure Guest Agent** <br/><br/> The Virtual Machine Agent (VM Agent) is a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. |  Set automatically for machines running Windows Server 2008 R2 or later. <br/> Configure manually for earlier operating systems. | Set automatically for machines running Windows Server 2008 R2 or later. | Set automatically for machines running Windows Server 2008 R2 or later.
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
 
-[Learn more](/prepare-for-agentless-migration#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware migrations.
+[Learn more](/azure/migrate/prepare-for-agentless-migration#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware migrations.
 
 #### Configure SAN policy
 
