@@ -128,6 +128,8 @@
     href: connect-multiple-private-clouds-same-region.md
   - name: Deploy disaster recovery
     items:
+    - name: Deploy JetStream DR
+      href: deploy-disaster-recovery-using-jetstream.md
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
@@ -150,6 +152,10 @@
       href: ecosystem-back-up-vms.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
+    - name: Security solutions for Azure VMware Solution
+      href: ecosystem-security-solutions.md
+    - name: Bitnami appliance deployment
+      href: bitnami-appliances-deployment.md
   - name: VMware solutions
     items:
     - name: Configure HCX network extension

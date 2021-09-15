@@ -52,9 +52,6 @@ Compared to other data warehouse providers, the materialized views implemented i
 - Broad aggregate function support. See [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
 - The support for query-specific materialized view recommendation.  See [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql).
 - Automatic and synchronous data refresh with data changes in base tables. No user action is required.
->[!note] 
-> A materialized view created with CASE expressions stores values that meet the CASE criteria at the time of the view creation only.  The materialized view does not reflect incremental data changes resulting from the CASE expressions after the view is created.   
-
  
 ## Common scenarios  
 
