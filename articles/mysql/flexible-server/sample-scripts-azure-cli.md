@@ -18,27 +18,25 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
+
 | Sample link | Description  |
 |---|---|
 |**Create and connect to a server**||
-| [Create a server and enable public access connectivity](scripts/sample-cli-create-connect-public-access.md) | Azure CLI script that creates a Azure Database for MySQL - Flexible Server, configures a server-level firewall rule (public access connectivity method) and connects to the server. |
-| [Create a server and enable private access connectivity (VNet Integration)](scripts/sample-cli-create-connect-private-access.md) | Azure CLI script that creates an Azure Database for MySQL - Flexible Server in a VNet (private access connectivity method) and connects to the server through a VM within the VNet. |
+| [Create a server and enable public access connectivity](scripts/sample-cli-create-connect-public-access.md) | Creates a Azure Database for MySQL - Flexible Server, configures a server-level firewall rule (public access connectivity method) and connects to the server. |
+| [Create a server and enable private access connectivity (VNet Integration)](scripts/sample-cli-create-connect-private-access.md) | Creates an Azure Database for MySQL - Flexible Server in a VNet (private access connectivity method) and connects to the server through a VM within the VNet. |
 |**Monitor and scale**||
-| [Monitor metrics and scale a server](scripts/sample-cli-monitor-and-scale.md) | Azure CLI script that monitors and scales a single Azure Database for MySQL - Flexible server up or down to allow for changing performance needs. |
+| [Monitor metrics and scale a server](scripts/sample-cli-monitor-and-scale.md) | Monitors and scales a single Azure Database for MySQL - Flexible server up or down to allow for changing performance needs. |
 |**Backup and restore**||
-| [Restore a server](scripts/sample-cli-restore-server.md) | Azure CLI script that restores a single Azure Database for MySQL Flexible Server to a previous point in time. |
+| [Restore a server](scripts/sample-cli-restore-server.md) | Restores a single Azure Database for MySQL Flexible Server to a previous point in time. |
 |**High Availability**||
-| [Configure zone-redundant high availability](scripts/sample-cli-zone-redundant-ha.md) | Azure CLI script that enables zone-redundant high availability while creating an Azure Database for MySQL - Flexible Server.|
-| [Configure same-zone high availability](scripts/sample-cli-same-zone-ha.md) | Azure CLI script that enables same-zone high availability while creating an Azure Database for MySQL - Flexible Server.|
+| [Configure zone-redundant high availability](scripts/sample-cli-zone-redundant-ha.md) | Enables Zone-Redundant high availability while creating an Azure Database for MySQL - Flexible Server.|
+| [Configure same-zone high availability](scripts/sample-cli-same-zone-ha.md) | Enables Same-Zone high availability while creating an Azure Database for MySQL - Flexible Server.|
 |**Manage server**||
-| [Restart, Stop, Start a Server](scripts/sample-cli-restart-stop-start.md)| Azure CLI script that performs restart, stop and start operations on a single Azure Database for MySQL - Flexible Server. |
-| [Change server parameters](scripts/sample-cli-change-server-parameters.md) | Azure CLI script that change configurations of a single Azure Database for MySQL - Flexible Server. |
+| [Restart, Stop, Start a Server](scripts/sample-cli-restart-stop-start.md)| Performs restart, stop and start operations on a single Azure Database for MySQL - Flexible Server. |
+| [Change server parameters](scripts/sample-cli-change-server-parameters.md) | Changes server parameters of a single Azure Database for MySQL - Flexible Server. |
 |**Replication**||
-| [Create read replicas](scripts/sample-cli-read-replicas.md) | Azure CLI script that creates and manages read replicas of a single Azure Database for MySQL - Flexible Server. |
+| [Create read replicas](scripts/sample-cli-read-replicas.md) | Creates and manages read replicas of a single Azure Database for MySQL - Flexible Server. |
 |**Configure and download logs**||
-| [Configure and download audit logs](scripts/sample-cli-audit-logs.md) | Azure CLI script that configures and downloads audit logs of a single Azure Database for MySQL - Flexible Server. |
-| [Configure and download slow-query logs](scripts/sample-cli-slow-query-logs.md) | Azure CLI script that configures and downloads slow-query logs of a single Azure Database for MySQL - Flexible Server. |
-|**Application Development**||
-| Create an App Service App with database | Azure CLI script that configures and downloads audit logs of a single Azure Database for MySQL - Flexible Server. |
-| Deploy a MySQL App on AKS in a VNet | Azure CLI script that configures and downloads slow-query logs of a single Azure Database for MySQL - Flexible Server. |
+| [Configure and download audit logs](scripts/sample-cli-audit-logs.md) | Configures audit logs of a single Azure Database for MySQL - Flexible Server. |
+| [Configure and download slow-query logs](scripts/sample-cli-slow-query-logs.md) | Configures slow-query logs of a single Azure Database for MySQL - Flexible Server. |
 
