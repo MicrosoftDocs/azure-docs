@@ -120,9 +120,3 @@ public class Example {
 }
 
 ```
-
-### Output
-
-```console
-Detected primary language: French, ISO 6391 name: fr, score: 1.00.
-```

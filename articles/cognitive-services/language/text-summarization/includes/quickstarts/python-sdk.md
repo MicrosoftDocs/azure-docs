@@ -93,9 +93,3 @@ def sample_extractive_summarization(client):
 
 sample_extractive_summarization(client)
 ```
-
-### Output
-
-```console
-Language:  French
-```

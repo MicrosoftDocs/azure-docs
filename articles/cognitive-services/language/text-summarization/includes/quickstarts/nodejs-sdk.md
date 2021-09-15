@@ -114,10 +114,3 @@ summarization_example(textAnalyticsClient).catch((err) => {
     console.error("The sample encountered an error:", err);
 });
 ```
-
-### Output
-
-```console
-ID: 0
-    Primary Language French
-```

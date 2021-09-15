@@ -133,10 +133,3 @@ namespace LanguageDetectionExample
 }
 
 ```
-
-### Output
-
-```console
-Language:
-        French, ISO-6391: fr
-```
