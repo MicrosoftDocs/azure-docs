@@ -25,8 +25,7 @@ ms.reviewer: laobri
 | `type` | string | **Required.** The type of compute. | `computeinstance` | |
 | `name` | string | **Required.** Name of the compute. | | |
 | `description` | string | Description of the compute. | | |
-| `tags` | object | Dictionary of tags for the compute. | | |
-| `size` | string | The VM size to use for the compute instance. For more information, see [Supported VM series and sizes](concept-compute-target.md#supported-vm-series-and-sizes). Note that not all sizes are available in all regions. | For the list of supported sizes in a given region, please use the `az ml compute list-sizes` command.  | `Standard_NC6` |
+| `size` | string | The VM size to use for the compute instance. For more information, see [Supported VM series and sizes](concept-compute-target.md#supported-vm-series-and-sizes). Note that not all sizes are available in all regions. | For the list of supported sizes in a given region, please use the `az ml compute list-sizes` command.  | `??` |
 | `create_on_behalf_of` | object | Settings for creating the compute instance on behalf of another user. Please ensure that the assigned user has correct RBAC permissions. |  |  |
 | `create_on_behalf_of.user_tenant_id` | string | The AAD Tenant ID of the assigned user. |  |  |
 | `create_on_behalf_of.user_object_id` | string | The AAD Object ID of the assigned user. |  |  |
@@ -37,7 +36,6 @@ ms.reviewer: laobri
 | `network_settings` | object | Network security settings. | | |
 | `network_settings.vnet_name` | string | Name of the virtual network (VNet) when creating a new one or referencing an existing one. | | |
 | `network_settings.subnet` | string | Either the name of the subnet when creating a new VNet or referencing an existing one, or the fully qualified resource ID of a subnet in an existing VNet. Do not specify `network_settings.vnet_name` if the subnet ID is specified. The subnet ID can refer to a VNet/subnet in another resource group. | | |
-| `network_settings.private_ip_only` | boolean | Whether to remove the public IP address from the compute instance. | | `false` |
 
 ## Remarks
 
