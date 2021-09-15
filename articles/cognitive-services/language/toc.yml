@@ -112,6 +112,8 @@ items:
       href: custom-question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
       href: custom-question-answering/how-to/migrate-knowledge-base.md
+    - name: Add chit-chat
+      href: custom-question-answering/how-to/chit-chat.md
     - name: Change default answer
       href: custom-question-answering/how-to/change-default-answer.md
 - name: Entity linking
