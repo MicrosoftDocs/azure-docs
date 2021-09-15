@@ -51,6 +51,7 @@ The Purview connection information is stored in the data factory resource like t
             "purviewResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupname>/providers/Microsoft.Purview/accounts/<PurviewAccountName>"
         }
     },
+    ...
     "identity": {...},
     "tags": {
         "catalogUri": "<PurviewAccountName>.catalog.purview.azure.com //Note: used for SSIS lineage only"
