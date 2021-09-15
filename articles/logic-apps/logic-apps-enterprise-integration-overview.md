@@ -68,7 +68,7 @@ The following diagram shows the high-level steps to start building B2B logic app
 ## Next steps
 
 * [Create trading partners](logic-apps-enterprise-integration-partners.md)
-* [Create agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md)
+* [Create agreements](logic-apps-enterprise-integration-agreements.md)
 * [Add schemas](logic-apps-enterprise-integration-schemas.md)
-* [Add maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
-* [Migrate from BizTalk Services](../logic-apps/logic-apps-move-from-mabs.md)
+* [Add maps](logic-apps-enterprise-integration-maps.md)
+* [Migrate from BizTalk Services](logic-apps-move-from-mabs.md)
