@@ -204,7 +204,7 @@ The collection hierarchy consists of the following verticals:
 - Geo (Mid-level collections based on geographical locations where data sources and data owners are located)
 - Major business functions, clients (Further segregation based on functions or clients)
 
-Each region has a sub collection of their own under the top-level collection inside the Purview account. Data sources are registered and scanned inside the corresponding subcollections in their own geo, this way assets are also appear in the sub collection hierarchy for the region. 
+Each region has a sub collection of their own under the top-level collection inside the Purview account. Data sources are registered and scanned inside the corresponding subcollections in their own geo. This way assets are added to the subcollection hierarchy for the region. 
 
 If you have centralized data management and governance team, you can grant them access from top-level collection. This way, they gain oversight for the entire data estate in the data map. Optionally, the centralized team can register and scan any shared data sources.
 
