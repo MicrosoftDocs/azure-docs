@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/15/2021
 ms.author: alkohli
 ---
 
@@ -46,7 +46,7 @@ You can reset your device in the local web UI or in PowerShell. For PowerShell i
 
 To begin the return process, take the following steps.
 
-1. Go to your Azure Stack Edge/Data Box Gateway resource in Azure portal. In the **Overview**, go to the command bar in the right pane and select **Return device**. 
+1. Go to your Azure Stack Edge resource in Azure portal. In the **Overview**, go to the command bar in the right pane and select **Return device**. 
 
     ![Return device 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -90,9 +90,18 @@ To schedule a pickup, take the following steps.
 1. Shut down the device. In the local web UI, go to **Maintenance > Power settings**.
 2. Select **Shut down**. When prompted for confirmation, click **Yes** to continue. For more information, see [Manage power](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
 3. Unplug the power cables and remove all the network cables from the device.
-4. Prepare the shipment package by using your own box or the empty box you received from Azure. Place the device and the power cords that were shipped with the device in the box.
-5. Affix the shipping label that you received from Azure on the package.
-6. Schedule a pickup with your regional carrier. If returning the device in US, your carrier could be UPS or FedEx. To schedule a pickup with UPS:
+4. Carefully prepare the shipment package as per the following instructions:
+    1. Use the shipping box you requested from Azure or the original shipping box with its foam packaging. 
+    1. Place the bottom foam piece in the box.
+    1. Lay the device on top of the foam taking care that it sits snugly in the foam.
+    1. Place the top foam piece in the package.
+    1. Place the power cords in the accessory tray and the rails on the top foam piece.
+    1. Seal the box and affix the shipping label that you received from Azure on the package.
+    
+    > ![IMPORTANT]
+    > If proper guidelines to prepare the return shipment aren't observed, it could lead to a damaged device and fines may apply. Review the [Product Terms of service](https://www.microsoft.com/licensing/product-licensing/products) and [damaged device charges](https://azure.microsoft.com/pricing/details/databox/edge/).
+ 
+1. Schedule a pickup with your regional carrier. If returning the device in US, your carrier could be UPS or FedEx. To schedule a pickup with UPS:
 
     1. Call the local UPS (country/region-specific toll free number).
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.
