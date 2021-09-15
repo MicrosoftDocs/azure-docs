@@ -265,6 +265,12 @@ namespace ConsoleApp
                     // Only Application Insights is registered as a logger provider
                     builder.AddApplicationInsights("<YourInstrumentationKey>");
                 });
+                
+                // To use ILogger in different classes by dependency injection
+                 services.AddSingleton<<classname>>(x =>                {
+                    ILogger<<classname>> logger = x.GetRequiredService<ILogger<<classname>>>();
+                    return new classname(logger);
+                });
 
                 IServiceProvider serviceProvider = services.BuildServiceProvider();
                 ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
