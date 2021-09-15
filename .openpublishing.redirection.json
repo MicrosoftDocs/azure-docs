@@ -22719,7 +22719,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "articles/cognitive-services/QnAMaker/reference-precise-answering.md",
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
       "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
       "redirect_document_id": false
     },
