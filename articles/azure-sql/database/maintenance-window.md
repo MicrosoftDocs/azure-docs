@@ -102,8 +102,8 @@ Choosing a maintenance window other than the default is currently available in t
 | UK West | Yes | Yes | |
 | West Central US | Yes | Yes | |
 | West Europe | Yes | Yes | Yes |
-| West US | Yes | Yes | Yes |
-| West US 2 | Yes | Yes | |
+| West US | Yes | Yes |  |
+| West US 2 | Yes | Yes | Yes |
 | | | | | 
 
 ## Gateway maintenance for Azure SQL Database
