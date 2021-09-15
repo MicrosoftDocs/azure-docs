@@ -191,7 +191,7 @@ If you copy a condition from a document, it might include special characters and
 
 **Solution**
 
-If you are certain that your condition is correct, delete all spaces and returns and then add back the relevant spaces.
+If you copied a condition from a rich text editor and you are certain the condition is correct, delete all spaces and returns and then add back the relevant spaces. Alternatively, use a plain text editor or a code editor, such as Visual Studio Code.
 
 ## Next steps
 
