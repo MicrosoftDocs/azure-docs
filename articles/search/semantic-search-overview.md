@@ -91,7 +91,7 @@ You can use spell check without semantic search, free of charge. Charges for sem
 
 ## Disable semantic search
 
-To avoid accidental usage of semantic search on your search service, set the [disabled option](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
+Only a search service that has the feature enabled can incur charges. However, if you want full protection against accidental usage, set the [disabled option](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
 
 * Management REST API version 2021-04-01-Preview provides this option
 
