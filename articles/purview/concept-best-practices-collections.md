@@ -13,9 +13,9 @@ ms.date: 09/15/2021
 
 At the core of Azure Purview, data map is a Platform as a Service component that keeps an up to dated map of metadata across your data estate. In order to feed data map, you need to register and scan your data sources. In an organization, there might be thousands of sources of data which are managed and governed by a centralized and decentralized teams.  
 
-[Collections](./how-to-create-and-manage-collections.md) in Azure Purview to support organizational mapping of metadata. Using collections in Azure Purview, you can build a hierarchical structure of your data estate based on how your organization plans to Azure Purview as data governance solution at scale. 
+[Collections](./how-to-create-and-manage-collections.md) in Azure Purview to support organizational mapping of metadata. Using collections in Azure Purview, you can build a hierarchical structure of your data estate based on how your organization plans to Azure Purview as data governance solution at scale, therefore, instead of managing all data sources in a flat structure, we facilitate a break down hierarchical way to manage and maintain data sources, scans and assets in Purview data Map using collections. 
 
-Access to collections, data sources and metadata is be set up and maintained based on collections hierarchy in Azure Purview following least privilege model.
+A collection is a also a logical and security boundary of your metadata in data map. Access to collections, data sources and metadata is be set up and maintained based on collections hierarchy in Azure Purview following least privilege model. 
 
 ## Intended audience
 
