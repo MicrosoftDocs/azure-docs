@@ -74,12 +74,12 @@ Before starting the migration, make sure the following prerequisites have been m
  
 1. Next, we need to add Azure Credentials to allow connectivity and disk provisioning using the **Integrations** tab on the CMC portal. Fill in the required fields using your private company’s values for Azure: **Integration Name**, **Tenant ID**, **Client/Application ID**, and **Secret**. Press **Save**. 
 
-    >[!NOTE]
-    >Since you selected **Auto allocate destination volumes** on the previous step, don't press it again for a new allocation. If you do, it will output and error. Instead press **Continue**.
-
     :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-migration-4.jpg" alt-text="Screenshot that shows entering Azure credentials":::
 
     For details on creating Azure AD application, view our [step-by-step instructions](https://support.cirrusdata.cloud/en/article/creating-an-azure-service-account-for-cirrus-data-cloud-tw2c9n/). By creating and registering Azure AD application for CMC, you enable automatic creation of Azure Managed Disks on the target virtual machine.
+
+    >[!NOTE]
+    >Since you selected **Auto allocate destination volumes** on the previous step, don't press it again for a new allocation. If you do, it will output and error. Instead press **Continue**.
 
 ## Migration guide
 
