@@ -64,7 +64,7 @@ See [Compute linked services](compute-linked-services.md) article for descriptio
 
 Azure Machine Learning Studio (classic) supports both Classic Web Services and New Web Services for your predictive experiment. You can choose the right one to use from your Data Factory or Synapse workspace. To get the information required to create the Azure Machine Learning Studio (classic) Linked Service, go to https://services.azureml.net, where all your (new) Web Services and Classic Web Services are listed. Click the Web Service you would like to access, and click **Consume** page. Copy **Primary Key** for **apiKey** property, and **Batch Requests** for **mlEndpoint** property.
 
-![ML Studio (classic) Web Services](./media/transform-data-using-machine-learning/web-services.png)
+:::image type="content" source="./media/transform-data-using-machine-learning/web-services.png" alt-text="ML Studio (classic) Web Services":::
 
 ## ML Studio (classic) Batch Execution activity
 
