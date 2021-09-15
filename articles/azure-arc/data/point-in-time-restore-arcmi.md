@@ -74,7 +74,7 @@ Instructions to edit the above yaml file:
 - metadata > namespace - Namespace of the Azure Arc enabled SQL Managed Instance
 - source > name - Name of the Azure Arc enabled SQL Managed Instance
 - source > database - Name of the **source** database on the Azure Arc enabled SQL Managed Instance to restore from
-- restorePoint - Point-in-time fto restore to, in "UTC" date time.
+- restorePoint - Point-in-time to restore to, in "UTC" date time.
 - destination > name - Name of the Azure Arc enabled SQL Managed Instance
 - destination > database - Name of the **destination** database on the Azure Arc enabled SQL Managed Instance
 
