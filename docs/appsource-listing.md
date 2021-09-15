@@ -2,7 +2,7 @@
 title: Create your Microsoft AppSource listing
 description: Learn how to list your app within Microsoft AppSource using Partner Center.
 ms.author: mingshen
-localization_priority: Normal
+ms.localizationpriority: medium
 ---
 
 # Create your Microsoft AppSource listing
