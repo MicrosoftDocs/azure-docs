@@ -83,7 +83,7 @@ The next step in building your application is to install the Azure Maps iOS SDK.
 1. Add custom `UIView` to view controller
 2. Select `MapControl` class from `AzureMapsControl` module
 
-![add map control](./media/create-an-ios-apps/add_map.png)
+![add map control](./media/create-an-ios-app/add_map_control.png)
 
 3. In the **AppDelegate.swift** file you'll need to:
 	* add import for the Azure Maps SDK
@@ -114,6 +114,7 @@ If you don't plan on continuing to develop with the Azure Maps iOS SDK:
 2. Click on your Azure Maps account. At the top of the page, click **Delete**.
 3. Optionally, if you don't plan to continue developing iOS apps, uninstall Xcode.
 
+<!--
 For more code examples, see these guides:
 
 *  [Manage authentication in Azure Maps](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication)
@@ -121,9 +122,10 @@ For more code examples, see these guides:
 *  [Add a symbol layer](Add%20a%20symbol%20layer%20%28iOS%20SDK%29.md)
 *  [Add a line layer](Add%20a%20line%20layer%20to%20the%20map%20%28iOS%20SDK%29.md)
 *  [Add a polygon layer](Add%20a%20polygon%20layer%20to%20the%20map%20%28iOS%20SDK%29.md)
+-->
 
 ## Next steps
 
 In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:
 
-> [Load GeoJSON data into Azure Maps](https://docs.microsoft.com/en-us/azure/azure-maps/tutorial-load-geojson-file-android)
+> [Load GeoJSON data into Azure Maps](https://docs.microsoft.com/azure/azure-maps/tutorial-load-geojson-file-android)
