@@ -29,13 +29,13 @@ Azure Government users can access Azure NetApp Files by pointing their browsers 
 
 ![Screenshot of the Azure Government portal highlighting portal.azure.us as the URL](../media/azure-netapp-files/anf-azuregov.jpg)
 
-From the Microsoft Azure Government portal, you can access Azure NetApp Files the same way you would in the public Azure portal. For example, you can enter **Azure NetApp** Files in the portal’s Search Resources box, and then select **Azure NetApp Files** from the list that appears.  
+From the Microsoft Azure Government portal, you can access Azure NetApp Files the same way you would in the public Azure portal. For example, you can enter **Azure NetApp  Files** in the portal’s Search Resources box, and then select **Azure NetApp Files** from the list that appears.  
 
 You can follow [Azure NetApp Files](/azure/azure-netapp-files/) documentation for details about using the service.
 
-## CLI 
+## Azure CLI 
 
-You can connect to the Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to log in as you normally would with the `az login` command. After running the log in command, a browser will launch where you enter the appropriate Azure Government credentials.  
+You can connect to Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to log in as you normally would with the `az login` command. After running the log-in command, a browser will launch where you enter the appropriate Azure Government credentials.  
 
 ```azurecli 
 
@@ -53,7 +53,7 @@ az cloud list --output table
 
 This command will produce a table with Azure cloud locations. The `isActive` column entry for `AzureUSGovernment` should read `true`.  
 
-For more information on using the CLI with Azure Government, see [Connect to Azure Government with Azure CLI](../azure-government/documentation-government-get-started-connect-with-cli.md)
+For more information about using the CLI with Azure Government, see [Connect to Azure Government with Azure CLI](../azure-government/documentation-government-get-started-connect-with-cli.md)
 
 ## REST API
 
