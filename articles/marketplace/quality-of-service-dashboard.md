@@ -44,7 +44,7 @@ This feature is currently applicable to all partners performing deployment of Az
 
 1. In the left menu, select **Quality of Service**.
 
-    [ ![Illustrates the Insights tile in Partner Center.](./media/quality-of-service/insights-overview-workspaces.png) ](./media/workspaces/insights-overview-workspaces.png#lightbox)
+    [ ![Illustrates the left-nav on the Insights dashboard.](./media/quality-of-service/insights-overview-workspaces.png) ](./media/quality-of-service/insights-overview-workspaces.png#lightbox)
 
 #### [Current view](#tab/old-web-form)
 
@@ -64,7 +64,7 @@ The following sections describe how to use the Quality-of-Service (QoS) dashboar
 
 There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
 
-[ ![Illustrates the filters on the Quality of Service dashboard.](./media/quality-of-service/qos-filters-workspaces.png) ](./media/workspaces/qos-filters-workspaces.png#lightbox)
+[ ![Illustrates the filters on the Quality of Service dashboard.](./media/quality-of-service/qos-filters-workspaces.png) ](./media/quality-of-service/qos-filters-workspaces.png#lightbox)
 
 #### [Current view](#tab/old-web-form)
 
