@@ -59,7 +59,7 @@ Older minor versions are periodically removed from Functions. For the latest new
 
 Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no longer receives security and other updates. To learn more, see [Functions v2.x considerations](functions-dotnet-class-library.md#functions-v2x-considerations).   
 
-## Migrating from 3.x to 4.x (Preview)
+## <a name="migrating-from-3x-to-4x"></a>Migrating from 3.x to 4.x (Preview)
 
 Azure Functions version 4.x (Preview) is highly backwards compatible to version 3.x.  Many apps should be able to safely upgrade to 4.x without any code changes. Be sure to run extensive tests before changing the major version in production apps.
 
