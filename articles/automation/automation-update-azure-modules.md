@@ -3,12 +3,12 @@ title: Update Azure PowerShell modules in Azure Automation
 description: This article tells how to update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/14/2019
+ms.date: 09/24/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Update Azure PowerShell modules
+# Update Azure PowerShell modules in Automation
 
 The most common PowerShell modules are provided by default in each Automation account. See [Default modules](shared-resources/modules.md#default-modules). As the Azure team updates the Azure modules regularly, changes can occur with the included cmdlets. These changes, for example, renaming a parameter or deprecating a cmdlet entirely, can negatively affect your runbooks. 
 
@@ -26,9 +26,9 @@ If you develop your scripts locally, it's recommended to have the same module ve
 > [!NOTE]
 > A new Automation account might not contain the latest modules.
 
-## Use the portal for updates
+## Update Az modules
 
-Only default Az modules will be updated when performing the following steps:
+Currently, updating AZ modules is only available through the portal. Updates through PowerShell and ARM template will be available in the future. Only default Az modules will be updated when performing the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Automation account.
 1. Under **Shared Resources**, select **PowerShell Modules**.
