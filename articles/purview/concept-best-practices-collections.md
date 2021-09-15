@@ -187,7 +187,7 @@ The collection hierarchy consists of the following verticals:
 - Root collection (Default)
 - Fabrikam (Top-level collection)
 - Geos (Mid-level collections based on geographical locations where data sources and data owners are located)
-- Data Transformation Stages (Raw, Refine, Produce/ curated) 
+- Data Transformation Stages (Raw, Refine, Produce/Curated) 
 
 Data scientists and data engineers can have the _data curators_ role on their corresponding zones to perform curation of metadata. _Data reader_ access to the curated zone can be granted to entire data personas and business users. 
 
