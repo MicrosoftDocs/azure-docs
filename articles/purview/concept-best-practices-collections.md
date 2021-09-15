@@ -179,7 +179,7 @@ The department-level shared data sources can be registered and scanned in the de
 
 ### Example 3: Multi-region Data Transformation
 
-This scenario can be useful for organizations that are interested in distributing metadata access management based on geographical locations and then based on data transformation state. Meanwhile raw and refine zones can be managed by data scientists and data engineers to transform them to more meaningful data into produce or curated zone.  
+This scenario can be useful for organizations that are interested in distributing metadata access management based on geographical locations and data transformation states. Raw and refine zones can be managed by data scientists and data engineers to transform them to more meaningful data and moved into produce or curated zones.  
 
 
 The collection hierarchy consists of the following verticals: 
