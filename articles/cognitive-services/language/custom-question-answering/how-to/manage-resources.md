@@ -66,7 +66,7 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
 1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. Link the new Azure search resource to the Custom question answering feature in the [features tab of the Text Analytics resource](../../../qnamaker/how-to/configure-qna-maker-resources.md?tabs=v2#configure-text-analytics-resource-with-custom-question-answering-feature-to-use-a-different-cognitive-search-resource) .
+1. Link the new Azure search resource to the Custom question answering feature in the [features tab of the Text Analytics resource](../../../qnamaker/how-to/configure-qna-maker-resources.md) .
 
 ### Inactivity policy for free Search resources
 

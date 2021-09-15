@@ -30,11 +30,11 @@ After you publish your knowledge base, either from the [QnA Maker portal](https:
 To get your endpoint details:
 1. Sign in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. In **My knowledge bases**, select **View Code** for your knowledge base.
-    ![Screenshot of My knowledge bases](../../../qnamaker/media/generate-answermy-knowledge-bases.png)
+    ![Screenshot of My knowledge bases](../media/generate-answer/my-knowledge-bases.png)
 1. Get your GenerateAnswer endpoint details.
 
 
-    ![Screenshot of endpoint details managed](../../../qnamaker/media/generate-answerview-code-managed.png)
+    ![Screenshot of endpoint details managed](../media/generate-answer/view-code-managed.png)
 
 You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
@@ -42,7 +42,7 @@ You can also get your endpoint details from the **Settings** tab of your knowled
 
 ## GenerateAnswer request configuration
 
-You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/quickstart-sdk.md#generate-an-answer-from-the-knowledge-base).
+You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../../../qnamaker/quickstarts/quickstart-sdk.md#generate-an-answer-from-the-knowledge-base).
 
 The POST request uses:
 
