@@ -31,7 +31,7 @@ An IoT hub has a default built-in-endpoint (**messages/events**) that is compati
 
 Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints.
 
-If your custom endpoint has firewall configurations, consider using the [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources)
+If your custom endpoint has firewall configurations, consider using the [Microsoft trusted first party exception.](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 IoT Hub currently supports the following endpoints:
 
