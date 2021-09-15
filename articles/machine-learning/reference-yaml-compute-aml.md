@@ -25,13 +25,12 @@ ms.reviewer: laobri
 | `type` | string | **Required.** The type of compute. | `amlcompute` | |
 | `name` | string | **Required.** Name of the compute. | | |
 | `description` | string | Description of the compute. | | |
-| `tags` | object | Dictionary of tags for the compute. | | |
 | `location` | string | The location for the compute. If omitted, defaults to the workspace location. | | |
-| `size` | string | The VM size to use for the cluster. For more information, see [Supported VM series and sizes](concept-compute-target.md#supported-vm-series-and-sizes). Note that not all sizes are available in all regions. | For the list of supported sizes in a given region, please use `az ml compute list-sizes`.  | `Standard_NC6` |
+| `size` | string | The VM size to use for the cluster. For more information, see [Supported VM series and sizes](concept-compute-target.md#supported-vm-series-and-sizes). Note that not all sizes are available in all regions. | For the list of supported sizes in a given region, please use `az ml compute list-sizes`.  | `??` |
 | `tier` | string | The VM priority tier to use for the cluster. Low-priority VMs are pre-emptible but come at a reduced cost compared to dedicated VMs. | `dedicated`, `low_priority` | `dedicated` |
 | `min_instances` | integer | The minimum number of nodes to use on the cluster. Setting the minimum number of nodes to `0` allows Azure ML to autoscale the cluster down to zero nodes when not in use. Any value larger than `0` will keep that number of nodes running, even if the cluster is not in use. | | `0` |
 | `max_instances` | integer | The maximum number of nodes to use on the cluster. | | `4` |
-| `idle_time_before_scale_down` | integer | Node idle time in seconds before scaling down the cluster. | | `1800` |
+| `idle_time_before_scale_down` | integer | Node idle time in seconds before scaling down the cluster. | | `120` |
 | `ssh_public_access_enabled` | boolean | Whether to enable public SSH access on the nodes of the cluster. | | `false` |
 | `ssh_settings` | object | SSH settings for connecting to the cluster. | | |
 | `ssh_settings.admin_username` | string | The name of the administrator user account that can be used to SSH into nodes. | | |
@@ -40,14 +39,13 @@ ms.reviewer: laobri
 | `network_settings` | object | Network security settings. | | |
 | `network_settings.vnet_name` | string | Name of the virtual network (VNet) when creating a new one or referencing an existing one. | | |
 | `network_settings.subnet` | string | Either the name of the subnet when creating a new VNet or referencing an existing one, or the fully qualified resource ID of a subnet in an existing VNet. Do not specify `network_settings.vnet_name` if the subnet ID is specified. The subnet ID can refer to a VNet/subnet in another resource group. | | |
-| `network_settings.private_ip_only` | boolean | Whether to remove the public IP address from the compute nodes. | | `false` |
 | `identity` | object | The managed identity configuration to assign to the compute. AmlCompute clusters support only one system-assigned identity or multiple user-assigned identities, not both concurrently. | | |
 | `identity.type` | string | The type of managed identity to assign to the compute. If the type is `user_assigned`, the `identity.user_assigned_identities` property must also be specified. | `system_assigned`, `user_assigned` | |
 | `identity.user_assigned_identities` | array | List of fully qualified resource IDs of the user-assigned identities. | | |
 
 ## Remarks
 
-The `az ml compute` command can be used for managing Azure Machine Learning compute clusters (AmlCompute).
+The `az ml compute` commands can be used for managing Azure Machine Learning compute clusters (AmlCompute).
 
 ## Examples
 
