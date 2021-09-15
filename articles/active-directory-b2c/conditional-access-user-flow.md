@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 06/03/2021
+ms.date: 09/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -70,7 +70,7 @@ Azure AD B2C **Premium P2** is required to create risky sign-in policies. **Prem
 ## Prepare your Azure AD B2C tenant
 To add a Conditional Access policy, disable security defaults:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Select **Properties**, and then select **Manage Security defaults**.
@@ -330,7 +330,7 @@ When adding Conditional Access to a user flow, consider using **Multi-factor aut
 ::: zone pivot="b2c-user-flow"
 To enable Conditional Access for a user flow, make sure the version supports Conditional Access. These user flow versions are labeled **Recommended**.
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**. Then select the user flow.
@@ -374,7 +374,7 @@ The claims transformation isn't limited to the `strongAuthenticationPhoneNumber`
 ## Review Conditional Access outcomes in the audit report
 To review the result of a Conditional Access event:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Activities**, select **Audit logs**.
