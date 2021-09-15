@@ -38,7 +38,7 @@ Consider deploying collections in your Azure Purview to fulfill the following re
 
 ### Design considerations  
 
-- Each Purview account is created with a Root Collection by default. The root collection name is the same as your Azure Purview account name. The root collection cannot be removed or renamed. 
+- Each Purview account is created with a default _root collection_. The root collection name is the same as your Azure Purview account name. The root collection cannot be removed or renamed. 
 
 - Collections can hold data sources, scans, assets and role assignments.
 
