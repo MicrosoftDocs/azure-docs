@@ -49,10 +49,15 @@ Azure Cognitive Services for language provides Language Studio, which is a set o
 We offer quickstarts in several popular programming languages, each designed to teach you basic implementations of the features listed here. See the following list for the quickstart for each feature.
 
 * [Sentiment Analysis and Opinion Mining quickstart](sentiment-opinion-mining/quickstart.md)
+* [Entity linking](entity-linking/quickstart.md)
 * [NER and PII quickstart](named-entity-recognition/quickstart.md)
 * [Text summarization quickstart](text-summarization/quickstart.md)
-* Question answering quickstart
-* [Custom classification quickstart](custom-question-answering/overview.md)
+* [Language detection quickstart](language-detection/quickstart.md)
+* [Extract information from health-related text](health/quickstart.md)
+* [Key phrase extraction quickstart](key-phrase-extraction/quickstart.md)
+* [Question answering quickstart](custom-question-answering/quickstart/sdk.md)
+* [Custom classification quickstart](custom-question-answering/quickstart.md)
+* [Custom NER quickstart](custom-named-entity-recognition/quickstart.md)
 * [Custom conversational language understanding quickstart](custom-language-understanding/quickstart.md) 
 
 ## Tutorials
@@ -86,6 +91,5 @@ Use Language service containers to deploy API features on-premises. These Docker
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
 
 * [Transparency note for Language services](/legal/cognitive-services/text-analytics/transparency-note)
-* [Transparency note for Sentiment Analysis and Opinion Mining](/legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis)
 * [Integration and responsible use](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use)
 * [Data, privacy and security](/legal/cognitive-services/text-analytics/data-privacy)

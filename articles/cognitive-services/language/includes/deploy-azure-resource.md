@@ -28,8 +28,8 @@ To use Language Studio, you will need an Azure resource for language for authent
 4. Select **Done**. Your resource will be created, and you will be able to try the different features offered by the Language Service. 
 
     > [!TIP]
-    > * When selecting a location for your Azure resource, choose one that's closest to you for better latency.
-    > * The **Managed Identity** option is used for the custom features. If you aren't using a custom feature, you can turn this setting off. 
+    > * When selecting a location for your Azure resource, choose one that's closest to you for lower latency.
+    > * We recommend turning the **Managed Identity** option **on**, to authenticate your requests across Azure.
     > * If you use the free pricing tier, you can keep using the Language service even after your Azure free trial or service credit expires. 
 
 
