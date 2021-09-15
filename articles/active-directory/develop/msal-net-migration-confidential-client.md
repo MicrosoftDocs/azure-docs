@@ -465,10 +465,9 @@ app.UseInMemoryTokenCaches(); // or a distributed token cache.
 #### Handling MsalUiRequiredException
 
 When your controller attempts to acquire a token silently for different
-scopes/resources, MSAL.NET might throw and MsalUiRequiredException. This is expected if, for instance, the user needs to re-sign-in, or if the
+scopes/resources, MSAL.NET might throw an `MsalUiRequiredException`. This is expected if, for instance, the user needs to re-sign-in, or if the
 access to the resource requires more claims (because of a conditional access
-policy for instance). For details on mitigation see [msal-error-handling-dotnet.md].
-
+policy for instance). For details on mitigation see how to [Handle errors and exceptions in MSAL.NET](msal-error-handling-dotnet.md).
 
 [Learn more about web apps calling web APIs](scenario-web-app-call-api-overview.md) and how they're implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
 
