@@ -116,6 +116,10 @@ items:
       href: custom-question-answering/how-to/chit-chat.md
     - name: Change default answer
       href: custom-question-answering/how-to/change-default-answer.md
+  - name: Concepts
+    items:
+    - name: Precise answering
+      href: custom-question-answering/concepts/precise-answering.md
 - name: Entity linking
   items:
   - name: Overview

@@ -22719,6 +22719,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
+      "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/mariadb/policy-samples.md",
       "redirect_url": "/azure/mariadb/policy-reference",
       "redirect_document_id": false

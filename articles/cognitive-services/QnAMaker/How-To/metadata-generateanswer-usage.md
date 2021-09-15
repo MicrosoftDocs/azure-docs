@@ -177,7 +177,7 @@ We offer precise answer feature only with the QnA Maker managed version.
 
 # [Custom question answering (preview release)](#tab/v2)
 
-The user can enable [precise answers](../reference-precise-answering.md) when using the Text Analytics resource with Custom question answering feature. The answerSpanRequest parameter has to be updated for the same.
+The user can enable [precise answers](../../language/custom-question-answering/concepts/precise-answering.md) when using the Text Analytics resource with Custom question answering feature. The answerSpanRequest parameter has to be updated for the same.
 
 ```json
 {
