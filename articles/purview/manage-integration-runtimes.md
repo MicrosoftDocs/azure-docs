@@ -75,10 +75,18 @@ Here are the domains and ports that will need to be allowed through corporate an
 | `*.frontend.clouddatahub.net` | 443            | Global infrastructure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
 | `<managed Purview storage account>.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the managed Azure storage account.|
 | `<managed Purview storage account>.queue.core.windows.net` | 443            | Queues used by purview to run the scan process. |
-| `<your Key Vault Name>.vault.azure.net` | 443           | Required if any credentials are stored in Azure Key Vault. |
 | `download.microsoft.com` | 443           | Optional for SHIR updates. |
+
+Based on your sources, you may also need to allow the domains of other Azure or external sources. A few examples are provided below, as well as the Azure Key Vault domain, if you are connecting to any credentials stored in the Key Vault.
+
+| Domain names                  | Outbound ports | Description                              |
+| ----------------------------- | -------------- | ---------------------------------------- |
+| `<storage account>.core.windows.net`          | 443            | Optional, to connect to an Azure Storage account. |
+| `*.database.windows.net`      | 1433           | Optional, to connect to Azure SQL Database or Azure Synapse Analytics. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | Optional, to connect to Azure Data Lake Store Gen 1. |
+| `<datastoragename>.dfs.core.windows.net`    | 443            | Optional, to connect to Azure Data Lake Store Gen 2. |
+| `<your Key Vault Name>.vault.azure.net` | 443           | Required if any credentials are stored in Azure Key Vault. |
 | Various Domains | Dependant          | Domains for any other sources the SHIR will connect to. |
-  
   
 > [!IMPORTANT]
 > In most environments, you will also need to confirm that your DNS is correctly configured. To confirm you can use **nslookup** from your SHIR machine to check connectivity to each of the above domains. Each nslookup should return the the IP of the resource. If you are using [Private Endpoints](catalog-private-link.md), the private IP should be returned and not the Public IP. If no IP is returned, or if when using Private Endpoints the public IP is returned, you will need to address your DNS/VNET association, or your Private Endpoint/VNET peering.
@@ -95,4 +103,6 @@ You can delete a self-hosted integration runtime by navigating to **Integration 
 
 ## Next steps
 
-[How scans detect deleted assets](concept-detect-deleted-assets.md)
+- [How scans detect deleted assets](concept-scans-and-ingestion.md#how-scans-detect-deleted-assets)
+
+- [Use private endpoints with Purview](catalog-private-link.md)

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/19/2021
+ms.date: 08/24/2021
 ---
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics

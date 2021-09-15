@@ -12,7 +12,6 @@ ms.date: 8/17/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
-
 # Secure hybrid access: Secure legacy apps with Azure Active Directory
 
 You can now protect your on-premises and cloud legacy authentication applications by connecting them to Azure Active Directory (AD) with:
@@ -21,7 +20,7 @@ You can now protect your on-premises and cloud legacy authentication application
 
 - [Secure hybrid access partners](#secure-hybrid-access-through-azure-ad-partner-integrations)
 
-You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like [Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) and [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection). By having Azure AD as an Identity provider (IDP), you can use modern authentication and authorization methods like [single sign-on (SSO)](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) and [multifactor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) to secure your on-premises legacy applications.
+You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like [Azure AD Conditional Access](../conditional-access/overview.md) and [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). By having Azure AD as an Identity provider (IDP), you can use modern authentication and authorization methods like [single sign-on (SSO)](what-is-single-sign-on.md) and [multifactor authentication (MFA)](../authentication/concept-mfa-howitworks.md) to secure your on-premises legacy applications.
 
 ## Secure hybrid access through Azure AD Application Proxy
   
@@ -39,7 +38,7 @@ The following partners offer pre-built solutions to support conditional access p
 
 - [Citrix Application Delivery Controller (ADC)](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)  
 
-- [Datawiza Access Broker](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+- [Datawiza Access Broker](datawiza-with-azure-ad.md)
 
 - [F5 Big-IP APM ADC](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
 

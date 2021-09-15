@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/30/2021
 ---
 
 # Data types in Bicep
@@ -27,6 +27,23 @@ Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bi
 
 In an array, each item is represented by the [any type](bicep-functions-any.md). You can have an array where each item is the same data type, or an array that holds different data types.
 
+The following example shows an array of integers and an array different types.
+
+```bicep
+var integerArray = [
+  1
+  2
+  3
+]
+
+var mixedArray = [
+  resourceGroup().name
+  1
+  true
+  'example string'
+]
+```
+
 Arrays in Bicep are 0-based. In the following example, the expression `exampleArray[0]` evaluates to 1 and `exampleArray[2]` evaluates to 3. The index of the indexer may itself be another expression. The expression `exampleArray[index]` evaluates to 2. Integer indexers are only allowed on expression of array types.
 
 ```bicep
@@ -36,40 +53,6 @@ var exampleArray = [
   1
   2
   3
-]
-```
-
-String-based indexers are allowed in Bicep.
-
-```bicep
-param environment string = 'prod'
-
-var environmentSettings = {
-  dev: {
-    name: 'dev'
-  }
-  prod: {
-    name: 'prod'
-  }
-}
-```
-
-The expression environmentSettings['dev'] evaluates to the following object:
-
-```bicep
-{
-  name: 'dev'
-}
-```
-
-The following example shows an array with different types.
-
-```bicep
-var mixedArray = [
-  resourceGroup().name
-  1
-  true
-  'example string'
 ]
 ```
 
@@ -108,21 +91,38 @@ param exampleObject object = {
 }
 ```
 
-Property accessors are used to access properties of an object. They're constructed using the `.` operator. For example:
+Property accessors are used to access properties of an object. They're constructed using the `.` operator.
 
 ```bicep
-var x = {
-  y: {
-    z: 'Hello`
-    a: true
+var a = {
+  b: 'Dev'
+  c: 42
+  d: {
+    e: true
   }
-  q: 42
 }
+
+output result1 string = a.b // returns 'Dev' 
+output result2 int = a.c // returns 42
+output result3 bool = a.d.e // returns true
 ```
 
-Given the previous declaration, the expression x.y.z evaluates to the literal string 'Hello'. Similarly, the expression x.q evaluates to the integer literal 42.
-
 Property accessors can be used with any object, including parameters and variables of object types and object literals. Using a property accessor on an expression of non-object type is an error.
+
+You can also use the `[]` syntax to access a property. The following example returns `Development`.
+
+```bicep
+var environmentSettings = {
+  dev: {
+    name: 'Development'
+  }
+  prod: {
+    name: 'Production'
+  }
+}
+
+output accessorResult string = environmentSettings['dev'].name
+```
 
 ## Strings
 

@@ -23,6 +23,8 @@ landingContent:
             url: select-right-deployment-type.md
           - text: Understand supported MySQL versions
             url: concepts-supported-versions.md
+          - text: Get started for free with an Azure free account
+            url: flexible-server/how-to-deploy-on-azure-free-account.md
       - linkListType: whats-new
         links:
           - text: Check out our blog

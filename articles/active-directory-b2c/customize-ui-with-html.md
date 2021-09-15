@@ -71,7 +71,8 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 
 - Use an absolute URL when you include external resources like media, CSS, and JavaScript files in your HTML file.
 - Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload="true"`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
-  ```HTML
+
+  ```html
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
 - We recommend that you start with the default page content and build on top of it.
@@ -86,11 +87,41 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 
 ## Localize content
 
-You localize your HTML content by enabling [language customization](language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+You localize your HTML content by enabling [language customization](language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to set the HTML page language attribute and pass the OpenID Connect parameter `ui_locales` to your endpoint.
+
+#### Single-template approach
+
+During page load, Azure AD B2C sets the HTML page language attribute with the current language. For example, `<html lang="en">`. To render different styles per the current language, use the CSS `:lang` selector along with your CSS definition.
+
+The following example defines the following classes:
+
+* `imprint-en` - Used when the current language is English.
+* `imprint-de` - Used when the current language is German.
+* `imprint` - Default class that is used when the current language is neither English nor German.
+
+```css
+.imprint-en:lang(en),
+.imprint-de:lang(de) {
+    display: inherit !important;
+}
+.imprint {
+    display: none;
+}
+```
+
+The following HTML elements will be shown or hidden according to the page language:
+
+```html
+<a class="imprint imprint-en" href="Link EN">Imprint</a>
+<a class="imprint imprint-de" href="Link DE">Impressum</a>
+```
+
+#### Multi-template approach
+
+The language customization feature allows Azure AD B2C to pass the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
 
 > [!NOTE]
-> Azure AD B2C doesn't pass OpenID Connect parameters, such as `ui_locales` to the [Exception pages](page-layout.md#exception-page-globalexception).
-
+> Azure AD B2C doesn't pass OpenID Connect parameters, such as `ui_locales`, to the [exception pages](page-layout.md#exception-page-globalexception).
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.
 

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/28/2021
+ms.date: 08/26/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -17,6 +17,15 @@ ms.custom: fasttrack-edit
 # Billing model for Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Azure AD B2C tenants and [Azure AD guest user collaboration (B2B)](../active-directory/external-identities/external-identities-pricing.md). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. In this article, learn about MAU billing, linking your Azure AD B2C tenants to a subscription, and changing your pricing tier.
+
+## MAU overview
+
+A monthly active user (MAU) is a unique user that performs an authentication within a given month. A user that authenticates multiple times within a given month is counted as one MAU. Customers are not charged for a MAU’s subsequent authentications during the month, nor for inactive users. Authentications may include:
+
+- Active, interactive sign-in by the user, for example through [sign-up or sign-in](add-sign-up-and-sign-in-policy.md), [self-service password reset](add-password-reset-policy.md), [profile editing](add-profile-editing-policy.md), or any type of [user flow](user-flow-overview.md) or [custom policy](custom-policy-overview.md).
+- Passive, non-interactive sign-in such as [single sign-on (SSO)](session-behavior.md), or any type of token acquisition, such as authorization code flow, token refresh, or [resource owner password credentials (ROPC)](add-ropc-policy.md).
+
+If you choose to provide higher levels of assurance using Multi-factor Authentication (MFA) for Voice and SMS, you will continue to be charged a worldwide flat fee for each MFA attempt that month, whether the sign-in is successful or unsuccessful. 
 
 > [!IMPORTANT]
 > This article does not contain pricing details. For the latest information about usage billing and pricing, see [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). See also [Azure AD B2C region availability and data residency](data-residency.md) for details about where the Azure AD B2C service is available and where user data is stored.

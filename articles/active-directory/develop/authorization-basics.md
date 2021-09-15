@@ -58,6 +58,8 @@ One advantage of ABAC is that more granular and dynamic access control can be ac
 
 One method for achieving ABAC with Azure Active Directory is using [dynamic groups](../enterprise-users/groups-create-rule.md). Dynamic groups allow administrators to dynamically assign users to groups based on specific user attributes with desired values.  For example, an Authors group could be created where all users with the job title Author are dynamically assigned to the Authors group.  Dynamic groups can be used in combination with RBAC for authorization where you map roles to groups and dynamically assign users to groups.
 
+[Azure ABAC](../../role-based-access-control/conditions-overview.md) is an example of an ABAC solution that is available today. Azure ABAC builds on Azure RBAC by adding role assignment conditions based on attributes in the context of specific actions. 
+
 ## Implementing authorization
 
 Authorization logic is often implemented within the applications or solutions where access control is required. In many cases, application development platforms offer middleware or other API solutions that simplify the implementation of authorization. Examples include use of the [AuthorizeAttribute](/aspnet/core/security/authorization/simple?view=aspnetcore-5.0&preserve-view=true) in ASP.NET or [Route Guards](./scenario-spa-sign-in.md?tabs=angular2#sign-in-with-a-pop-up-window) in Angular.

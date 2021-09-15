@@ -5,10 +5,10 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: DavidTrigano
-ms.author: datrigan
+author: Rupp29
+ms.author: arupp
 ms.reviewer: vanto
-ms.date: 08/01/2021
+ms.date: 08/25/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -265,10 +265,10 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 
 **REST API**:
 
-- [Create or Update Database Auditing Policy](/rest/api/sql/2017-03-01-preview/server-auditing-settings/create-or-update)
-- [Create or Update Server Auditing Policy](/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Create or Update Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Create or Update Server Auditing Policy](/rest/api/sql/2017-03-01-preview/server-auditing-settings/create-or-update)
 - [Get Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/get)
-- [Get Server Auditing Policy](/rest/api/sql/2017-03-01-preview/server-auditing-settings/get) 
+- [Get Server Auditing Policy](/rest/api/sql/2017-03-01-preview/server-auditing-settings/get)
 
 Extended policy with WHERE clause support for additional filtering:
 
