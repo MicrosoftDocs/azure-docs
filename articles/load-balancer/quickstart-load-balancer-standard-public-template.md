@@ -137,4 +137,4 @@ In this quickstart, you:
 To learn more, continue to the tutorials for Azure Load Balancer.
 
 > [!div class="nextstepaction"]
-> [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Azure Load Balancer tutorials](./quickstart-load-balancer-standard-public-portal.md)

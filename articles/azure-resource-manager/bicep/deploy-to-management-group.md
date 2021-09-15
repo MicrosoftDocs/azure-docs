@@ -11,6 +11,10 @@ This article describes how to set scope with Bicep when deploying to a managemen
 
 As your organization matures, you can deploy a Bicep file to create resources at the management group level. For example, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
 
+### Microsoft Learn
+
+To learn more about deployment scopes, and for hands-on guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
+
 ## Supported resources
 
 Not all resource types can be deployed to the management group level. This section lists which resource types are supported.
@@ -264,7 +268,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -284,7 +288,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id
