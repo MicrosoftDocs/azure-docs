@@ -148,7 +148,7 @@ Tasks to identify objects in an image at the pixel level, drawing a polygon arou
 
 Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation runs, models and outputs can be accessed from the Azure ML Studio UI.
 
-Learn more about AutoML for Images capabilities in this how-to guide: 'How to auto-train an image model' (insert link to the how-to)
+Learn more about AutoML for Images capabilities in this how-to guide: ['How to auto-train image models'](how-to-auto-train-image-models)
 
 ## How automated ML works
 
