@@ -1,7 +1,6 @@
 - name: Bicep documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What is Bicep?
     href: overview.md
@@ -28,7 +27,6 @@
     expanded: true
     items:
     - name: Resources
-      expanded: true
       items:
       - name: Resource declaration
         href: resource-declaration.md
@@ -36,9 +34,9 @@
       - name: Conditional deployment
         href: conditional-resource-deployment.md
         displayName: runtime
-      - name: Child resource name and type
+      - name: Child resources
         href: child-resource-name-type.md
-        displayName: parent,parent resource
+        displayName: parent,parent resource,sub,nested
       - name: Extension resources
         href: scope-extension-resources.md
     - name: Parameters
@@ -149,6 +147,8 @@
       href: bicep-functions-date.md
     - name: Deployment functions
       href: bicep-functions-deployment.md
+    - name: File functions
+      href: bicep-functions-files.md
     - name: Logical functions
       href: bicep-functions-logical.md
     - name: Numeric functions

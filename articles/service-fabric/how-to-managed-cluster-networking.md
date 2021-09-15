@@ -310,7 +310,7 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
             }
    ```
 
-2. Deploy your IPv6 enabled managed cluster. Customize the [sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-IPv6/AzureDeploy.json) as needed or build your own.
+2. Deploy your IPv6 enabled managed cluster. Customize the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-IPv6) as needed or build your own.
    In the following example, we'll create a resource group called `MyResourceGroup` in `westus` and deploy a cluster with this feature enabled.
    ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
@@ -398,7 +398,7 @@ This feature allows customers to use an existing virtual network by specifying a
    > [!NOTE]
    > VNetRoleAssignmentID has to be a [GUID](../azure-resource-manager/templates/template-functions-string.md#examples-16). If you deploy a template again including this role assignment, make sure the GUID is the same as the one originally used. We suggest you run this isolated or remove this resource from the cluster template post-deployment as it just needs to be created once.
 
-   Here is a full sample [Azure Resource Manager (ARM) template that creates a VNet subnet and does role assignment](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/SFMC-VNet-RoleAssign.json) you can use for this step.
+   Here is a full sample [Azure Resource Manager (ARM) template that creates a VNet subnet and does role assignment](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOVNET/createVNet-assign-role.json) you can use for this step.
 
 3. Configure the `subnetId` property for the cluster deployment after the role is set up as shown below:
 
@@ -414,7 +414,7 @@ This feature allows customers to use an existing virtual network by specifying a
             ...
             }
    ```
-   See the [bring your own VNet cluster sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/AzureDeploy.json) or customize your own.
+   See the [bring your own VNet cluster sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOVNET) or customize your own.
 
 4. Deploy the configured managed cluster Azure Resource Manager (ARM) template.
 
@@ -440,7 +440,7 @@ Managed clusters create an Azure Load Balancer and fully qualified domain name w
 
 **Feature Requirements**
  * Basic and Standard SKU Azure Load Balancer types are supported
- * You must have backend and NAT pools configured on the existing Azure Load Balancer. See full [create and assign role sample here](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role) for an example. 
+ * You must have backend and NAT pools configured on the existing Azure Load Balancer. See full [create and assign role sample here](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json) for an example. 
 
 Here are a couple example scenarios customers may use this for:
 
@@ -527,7 +527,7 @@ To configure bring your own load balancer:
 
 5. Optionally configure the managed cluster NSG rules applied to the node type to allow any required traffic that you've configured on the Azure Load Balancer or traffic will be blocked.
 
-   See the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/AzureDeploy.json) for an example on how to open inbound rules.
+   See the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) for an example on how to open inbound rules.
 
 6. Deploy the configured managed cluster ARM Template
 

@@ -36,7 +36,7 @@ This configuration allows you to use the public IP or IPs of your load balancer 
 This configuration enables:
 
 - IP masquerading
-- Simplifying your allowlists.
+- Simplifying your allowlists
 - Reduces the number of public IP resources for deployment
 
 With outbound rules, you have full declarative control over outbound internet connectivity. Outbound rules allow you to scale and tune this ability to your specific needs.
@@ -87,13 +87,13 @@ A resource without:
 * NAT gateway configured
 * a load balancer
 
-creates outbound connections via default SNAT. This is known as Default Outbound Access. Another example of a scenario using default SNAT is that a virtual machine in Azure (without associatedions mentioned above). In this case outbound connectivity is provided by the Default Outbound Access IP. This is a dynamic IP assigned by Azure that you cannot control. Default SNAT is not recommended for production workloads
+creates outbound connections via default SNAT. This is known as Default Outbound Access. Another example of a scenario using default SNAT is a virtual machine in Azure (without the associations mentioned above). In this case outbound connectivity is provided by the Default Outbound Access IP. This is a dynamic IP assigned by Azure that you cannot control. Default SNAT is not recommended for production workloads.
 
 ### What are SNAT ports?
 
 Ports are used to generate unique identifiers used to maintain distinct flows. The internet uses a five-tuple to provide this distinction.
 
-If a port is used for inbound connections, it has a **listener** for inbound connection requests on that port. That port can't be used for outbound connections. To establish an outbound connection, an **ephemeral port** is used to provide the destination with a port on which to communicate and maintain a distinct traffic flow. When these ephemeral ports are used for SNAT, they're called **SNAT ports** 
+If a port is used for inbound connections, it has a **listener** for inbound connection requests on that port. That port can't be used for outbound connections. To establish an outbound connection, an **ephemeral port** is used to provide the destination with a port on which to communicate and maintain a distinct traffic flow. When these ephemeral ports are used for SNAT, they're called **SNAT ports**.
 
 By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). When a public IP address is added as a frontend IP to a load balancer, 64,000 ports are eligible for SNAT.
 

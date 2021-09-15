@@ -188,4 +188,4 @@ In this tutorial, you:
 
 Advance to the next article to learn how to...
 > [!div class="nextstepaction"]
-> [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Load balance VMs across availability zones](./quickstart-load-balancer-standard-public-portal.md)
