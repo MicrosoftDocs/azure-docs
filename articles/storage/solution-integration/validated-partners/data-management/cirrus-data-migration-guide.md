@@ -52,7 +52,7 @@ Before starting the migration, make sure the following prerequisites have been m
 
 1. **Prepare the application in the Azure virtual machine**. In this example, the source is Linux host. It can run any user application accessing the respective BSD storage. We will use a database application running at the source using a 1 GiB disk as a source storage device. However, any application can be used instead. Set up a virtual machine in Azure ready to be used as the destination virtual machine. Make sure that resource configuration and operating system are compatible with the application, and ready to receive the migration from the source using CMC portal. The destination block storage device/s will be automatically allocated and created during the migration process.
 
-1. **Sign up for CMC account**. To obtain a CMC account, follow the support page for the exact instructions on how to get an account. More details can be read [here](https://support.cirrusdata.cloud/portal/en/kb/articles/how-do-i-get-a-license-for-data-galaxy-complete).
+1. **Sign up for CMC account**. To obtain a CMC account, follow the support page for the exact instructions on how to get an account. More details can be read [here](https://support.cirrusdata.cloud/en/article/licensing-m4lhll/).
 
 1. **Create a Migration Project** reflecting the specific migration characteristics, type, owner of the migration, and any details needed to define the operations. 
 
