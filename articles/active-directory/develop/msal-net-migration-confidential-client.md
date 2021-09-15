@@ -373,45 +373,45 @@ using System.Threading.Tasks;
 
 public partial class AuthWrapper
 {
-   const string ClientId = "Guid (Application ID)";
-   const string authority
-      = "https://login.microsoftonline.com/{tenant}";
-   private Uri redirectUri = new Uri("host/login_oidc");
-   X509Certificate2 certificate = LoadCertificate();
+ const string ClientId = "Guid (Application ID)";
+ const string authority
+    = "https://login.microsoftonline.com/{tenant}";
+ private Uri redirectUri = new Uri("host/login_oidc");
+ X509Certificate2 certificate = LoadCertificate();
 
-   public IConfidentialClientApplication CreateApplication()
-   {
-      IConfidentialClientApplication app;
+ public IConfidentialClientApplication CreateApplication()
+ {
+  IConfidentialClientApplication app;
 
-      app = ConfidentialClientApplicationBuilder.Create(ClientId)
+  app = ConfidentialClientApplicationBuilder.Create(ClientId)
                .WithCertificate(certificate)
                .WithAuthority(authority)
                .WithRedirectUri(redirectUri.ToString())
                .WithLegacyCacheCompatibility(false)
                .Build();
 
-      // Add a token cache. For details about other serialization
-      // see https://aka.ms/msal-net-cca-token-cache-serialization
-      app.AddInMemoryTokenCache();
+  // Add a token cache. For details about other serialization
+  // see https://aka.ms/msal-net-cca-token-cache-serialization
+  app.AddInMemoryTokenCache();
 
-      return app;
-   }
+  return app;
+ }
 
-   // Called from 'code received event'.
-   public async Task<AuthenticationResult> GetAuthenticationResult(
+ // Called from 'code received event'.
+ public async Task<AuthenticationResult> GetAuthenticationResult(
       string resourceId,
       string authorizationCode)
-   {
-      IConfidentialClientApplication app = CreateApplication();
+ {
+  IConfidentialClientApplication app = CreateApplication();
 
-      var authResult = await app.AcquireTokenByAuthorizationCode(
+  var authResult = await app.AcquireTokenByAuthorizationCode(
                   new[] { $"{resourceId}/.default" },
                   authorizationCode)
                   .ExecuteAsync()
                   .ConfigureAwait(false);
 
-      return authResult;
-   }
+  return authResult;
+ }
 }
 ```
    :::column-end:::
@@ -422,34 +422,34 @@ Calling `AcquireTokenByAuthorizationCode` adds a token to the token cache when t
 ```csharp
 public partial class AuthWrapper
 {
-    // Called from controllers
-    public async Task<AuthenticationResult> GetAuthenticationResult(
-        string resourceId2,
-        string authority)
-    {
-        IConfidentialClientApplication app = CreateApplication();
-        AuthenticationResult authResult;
+ // Called from controllers
+ public async Task<AuthenticationResult> GetAuthenticationResult(
+      string resourceId2,
+      string authority)
+ {
+  IConfidentialClientApplication app = CreateApplication();
+  AuthenticationResult authResult;
 
-        var scopes = new[] { $"{resourceId2}/.default" };
-        var account = await app.GetAccountAsync(ClaimsPrincipal.Current.GetMsalAccountId());
+  var scopes = new[] { $"{resourceId2}/.default" };
+  var account = await app.GetAccountAsync(ClaimsPrincipal.Current.GetMsalAccountId());
 
-        try
-        {
-            // try to get an already cached token
-            authResult = await app.AcquireTokenSilent(
+  try
+  {
+   // try to get an already cached token
+   authResult = await app.AcquireTokenSilent(
                scopes,
                account)
                 .WithAuthority(authority)
                 .ExecuteAsync().ConfigureAwait(false);
-        }
-        catch (MsalUiRequiredException)
-        {
-            // The controller will need to challenge the user
-            // including asking for claims={ex.Claims}
-            throw;
-        }
-        return authResult;
-    }
+  }
+  catch (MsalUiRequiredException)
+  {
+   // The controller will need to challenge the user
+   // including asking for claims={ex.Claims}
+   throw;
+  }
+  return authResult;
+ }
 }
 ```
 
