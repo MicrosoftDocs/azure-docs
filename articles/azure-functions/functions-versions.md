@@ -37,6 +37,7 @@ The version of the Functions runtime used by published apps in Azure is dictated
 
 | Value | Runtime target |
 | ------ | -------- |
+| `~4` | 4.x (Preview) |
 | `~3` | 3.x |
 | `~2` | 2.x |
 | `~1` | 1.x |
@@ -57,6 +58,42 @@ Older minor versions are periodically removed from Functions. For the latest new
 .NET function apps running on version 2.x (`~2`) are automatically upgraded to run on .NET Core 3.1, which is a long-term support version of .NET Core 3. Running your .NET functions on .NET Core 3.1 allows you to take advantage of the latest security updates and product enhancements. 
 
 Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no longer receives security and other updates. To learn more, see [Functions v2.x considerations](functions-dotnet-class-library.md#functions-v2x-considerations).   
+
+## Migrating from 3.x to 4.x (Preview)
+
+Azure Functions version 4.x (Preview) is highly backwards compatible to version 3.x.  Many apps should be able to safely upgrade to 4.x without any code changes. Be sure to run extensive tests before changing the major version in production apps.
+
+To migrate an app from 3.x to 4.x:
+
+- Set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
+
+    ```bash
+    az functionapp config appsettings set FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+    ```
+
+- For Windows function apps, the runtime requires .NET 6.0 to be enabled with the following Azure CLI command:
+
+    ```bash
+    az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+    ```
+
+### Breaking changes between 3.x and 4.x
+
+The following are some changes to be aware of before upgrading a 3.x app to 4.x. For a full list, see Azure Functions GitHub issues labeled [*Breaking Change: Approved*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22).
+
+#### Runtime
+
+- Azure Functions Proxies are no longer supported in 4.x. You are recommended to use [Azure API Management](../api-management/import-function-app-as-api.md).
+
+- Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You are recommended to use [Application Insights](./functions-monitoring.md).
+
+- Azure Functions 4.x enforces [minimum version requirements](https://github.com/Azure/Azure-Functions/issues/1987) for extensions. Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later.
+
+- Default and maximum timeouts are now enforced in 4.x Linux consumption function apps.
+
+#### Python
+
+- Shared memory transfer is enabled by default in Azure Functions 4.x.
 
 ## Migrating from 2.x to 3.x
 
