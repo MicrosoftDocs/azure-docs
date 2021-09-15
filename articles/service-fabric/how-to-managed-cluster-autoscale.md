@@ -211,20 +211,20 @@ Some things to consider:
    Suppose you set a rule to scale out when average CPU is greater than 50% over five minutes, and to scale in when average CPU is less than 50%. This setting would cause a "flapping" problem when CPU usage is close to the threshold, with scale actions constantly increasing and decreasing the size of the set. Because of this setting, the autoscale service tries to prevent "flapping", which can manifest as not scaling. Therefore, be sure your scale-out and scale-in thresholds are sufficiently different to allow some space in between scaling.
 
 * Can you scale in or out a node type?
-   Adjust the count of nodes at the node type level and make sure it completes successfully. [How to scale a managed cluster](uri)
+   Adjust the count of nodes at the node type level and make sure it completes successfully. [How to scale a node type on a managed cluster](./how-to-managed-cluster-scale-node-type.md)
 
 * Check your Microsoft.ServiceFabric/managedclusters/nodetypes, and Microsoft.Insights resources in the Azure Resource Explorer
 
    The Azure Resource Explorer is an indispensable troubleshooting tool that shows you the state of your Azure Resource Manager resources. Click on your subscription and look at the Resource Group you are troubleshooting. Under the Compute resource provider, look at the virtual machine scale set you created and check the Instance View, which shows you the state of a deployment. Also, check the instance view of VMs in the virtual machine scale set. Then, go into the Microsoft.Insights resource provider and check that the autoscale rules look right. <Node Types vs nodes>
 
 * Are your emitted metric values as expected?
-   Use the `Get-AzMetric` [PowerShell module to get the metric values of a resource](https://docs.microsoft.com/en-us/powershell/module/az.monitor/get-azmetric?view=azps-6.4.0&viewFallbackFrom=azps-6.0.0) and review
+   Use the `Get-AzMetric` [PowerShell module to get the metric values of a resource](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric) and review
 
 
 Once you've been through these steps, if you're still having autoscale problems, you can try the following resources:
 [Log a support call](./service-fabric-support#create-an-azure-support-request). Be prepared to share the template and a view of your performance data.
 
 ## Next steps
-[Read about Azure Monitor auto scale support](https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview)
+[Read about Azure Monitor auto scale support](../azure-monitor/autoscale/autoscale-overview)
 [Review Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
