@@ -282,13 +282,15 @@ Diagnostic settings send the same data as the legacy method used to send the Act
 
 The columns in the following table have been deprecated in the updated schema. They still exist in *AzureActivity* but they will have no data. The replacement for these columns are not new, but they contain the same data as the deprecated column. They are in a different format, so you may need to modify log queries that use them. 
 
-| Deprecated column | Replacement column |
-|:---|:---|
-| ActivityStatus    | ActivityStatusValue    |
-| ActivitySubstatus | ActivitySubstatusValue |
-| Category          | CategoryValue          |
-| OperationName     | OperationNameValue     |
-| ResourceProvider  | ResourceProviderValue  |
+|Activity Log JSON | 	Log Analytics column name<br/>(older deprecated)	| New Log Analytics column name |	Notes |
+|category |	Category	| CategoryValue	|| 
+|status<br/> 
+|*values are (success,start,accept,failure)*	| ActivityStatus <br/>*(values same as JSON)*	| ActivityStatusValue<br/>*Values change to (succeeded, started, accepted, failed)*	|Possible values change as shown| 
+|subStatus	|ActivitySubstatus	|ActivitySubstatusValue||
+|operationName	| OperationName | 	OperationNameValue |	*REST API localizes operation name value. 
+Log Analytics UI always shows English.*  |
+|resourceProviderName	| ResourceProvider 	| ResourceProviderValue	||
+
 
 > [!IMPORTANT]
 > In some cases, the values in these columns may be in all uppercase. If you have a query that includes these columns, you should use the [=~ operator](/azure/kusto/query/datatypes-string-operators) to do a case insensitive comparison.
