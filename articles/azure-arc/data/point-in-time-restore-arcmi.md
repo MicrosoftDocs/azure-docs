@@ -71,7 +71,7 @@ spec:
 Instructions to edit the above yaml file:
 
 - metadata > name - Name for the task custom resource (CR)
-- metadata > namespace - Namespace of the Azure Arc enabled SQL managed instance
+- metadata > namespace - Namespace of the Azure Arc enabled SQL Managed Instance
 - source > name - Name of the Azure Arc enabled SQL managed instance
 - source > database - Name of the **source** database on the Azure Arc enabled SQL managed instance to restore from
 - restorePoint - Point-in-time fto restore to, in "UTC" date time.
