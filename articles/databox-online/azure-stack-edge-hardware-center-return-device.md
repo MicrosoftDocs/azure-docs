@@ -13,9 +13,9 @@ ms.author: alkohli
 
 # Return your Azure Stack Edge device
 
-[!INCLUDE [applies-to-pro-fpga](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to wipe the data and then return your Azure Stack Edge Pro FPGA device. After you've returned the device, you can also delete the resource associated with the device.
+This article describes how to wipe the data and then return your Azure Stack Edge device. After you've returned the device, you can also delete the resource associated with the device.
 
 In this article, you learn how to:
 
