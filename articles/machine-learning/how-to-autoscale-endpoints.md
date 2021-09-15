@@ -84,7 +84,6 @@ In Azure Machine Learning studio:
 :::image type="content" source="media/how-to-autoscale-endpoints/endpoints-portal.png" alt-text="Screenshot showing Endpoints page of Azure Machine Learning studio":::
 
 In the endpoint details screen, in the Details tab, select the deployment in which you're interested. In the deployment details section, select "Configure autoscaling" to open the autoscaling wizard.
-{>>TODO: PII <<}
 
 :::image type="content" source="media/how-to-autoscale-endpoints/configure-autoscale.png" lightbox="media/how-to-autoscale-endpoints/configure-autoscale.png" alt-text="Screenshot showing link to configure autoscaling":::
 
@@ -92,7 +91,7 @@ In the Scale Out page, choose the "Custom autoscale" option to begin the configu
 
 :::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" lightbox="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot showing custom autoscale choice":::
 
-In the "Instance limits" section, set the minimum, maximum, and default number of nodes. For instance, the following image specifies a maximum of five nodes, and a minimum and default of two nodes.
+In the "Scale mode" section, select "Scale based on a metric." In the "Instance limits" section, set the minimum, maximum, and default number of nodes. For instance, the following image specifies a maximum of five nodes, and a minimum and default of two nodes.
 
 :::image type="content" source="media/how-to-autoscale-endpoints/set-instance-limits.png" lightbox="media/how-to-autoscale-endpoints/set-instance-limits.png" alt-text="Screenshot showing set limits UI":::
 
@@ -111,7 +110,7 @@ Now create a rule for scaling in. Choose "New rule." In the "Scale rule" page:
 
 1. Set the "Operator" to "Less than" and the "Metric threshold" to 30
 1. Set the "Duration (minutes)" to 5
-1. Set the "Operation" to "Decrease count by" and set "Intsance count" to 1
+1. Set the "Operation" to "Decrease count by" and set "Instance count" to 1
 1. Choose the "Add" button to create the rule
 
 :::image type="content" source="media/how-to-autoscale-endpoints/scale-in-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-in-rule.png" alt-text="Screenshot showing scale-in rule":::
