@@ -6,6 +6,8 @@ items:
   items:
   - name: What are Language services?
     href: overview.md
+  - name: What's new
+    href: whats-new.md
 - name: Custom text classification
   items:
   - name: Overview
@@ -80,6 +82,8 @@ items:
     href: custom-language-understanding/overview.md
   - name: Quickstart
     href: custom-language-understanding/quickstart.md
+  - name: Language support
+    href: custom-language-understanding/language-support.md
   - name: How-to guides
     items:
       - name: Build a schema
@@ -100,12 +104,24 @@ items:
   items:
   - name: Quickstart
     href: custom-question-answering/quickstart/sdk.md
+  - name: Language support
+    href: custom-question-answering/language-support.md
   - name: How-to guides
     items:
+    - name: Query with REST APIs
+      href: custom-question-answering/how-to/url-test-tool.md
     - name: Encrypt data at rest
       href: custom-question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
       href: custom-question-answering/how-to/migrate-knowledge-base.md
+    - name: Add chit-chat
+      href: custom-question-answering/how-to/chit-chat.md
+    - name: Change default answer
+      href: custom-question-answering/how-to/change-default-answer.md
+  - name: Concepts
+    items:
+    - name: Precise answering
+      href: custom-question-answering/concepts/precise-answering.md
 - name: Entity linking
   items:
   - name: Overview
@@ -148,6 +164,8 @@ items:
   items:
   - name: Overview
     href: language-detection/overview.md
+  - name: Language support
+    href: language-detection/language-support.md 
   - name: Quickstart
     href: language-detection/quickstart.md 
   - name: How-to
@@ -180,6 +198,8 @@ items:
   items:
   - name: Overview
     href: named-entity-recognition/overview.md
+  - name: Language support
+    href: named-entity-recognition/language-support.md
   - name: Quickstart
     href: named-entity-recognition/quickstart.md
   - name: How-to guides
@@ -194,6 +214,8 @@ items:
   items:
   - name: Overview
     href: sentiment-opinion-mining/overview.md
+  - name: Language support
+    href: sentiment-opinion-mining/language-support.md
   - name: Quickstart
     href: sentiment-opinion-mining/quickstart.md
   - name: How-to guides
@@ -224,8 +246,6 @@ items:
     href: concepts/specify-model-version.md
   - name: Send batch requests asynchronously
     href: concepts/asynchronous-use.md
-  - name: Model and endpoint lifecycle
-    href: concepts/model-endpoint-lifecycle.md
   - name: Language Studio
     href: concepts/language-studio.md
 - name: Enterprise readiness
@@ -234,5 +254,7 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-
-  
+- name: Resources
+  items:
+    - name: Support and help options
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language/context/context

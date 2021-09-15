@@ -43,8 +43,6 @@ Follow these steps to enable CMKs:
 > [!NOTE]
 > To request the ability to use customer-managed keys, fill out and submit the [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk).
 
----
-
 ## Regional availability
 
 Customer-managed keys are available in all Azure Search regions.
