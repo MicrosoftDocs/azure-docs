@@ -38,11 +38,11 @@ Consider deploying collections in your Azure Purview to fulfill the following re
 
 ### Design considerations  
 
-- Each Purview account is created with a default _root collection_. The root collection name is the same as your Azure Purview account name. The root collection cannot be removed or renamed. 
+- Each Purview account is created with a default _root collection_. The root collection name is the same as your Azure Purview account name. The root collection cannot be removed. You can change friendly name of your Purview account from Purview Management center and this way change root collection's friendly name.   
 
 - Collections can hold data sources, scans, assets and role assignments.
 
-- Each collection can have as many child collections, however, each collection can only have one parent collection. You cannot deploy collection above root collection. 
+- A collection can have as many child collections, however, each collection can only have one parent collection. You cannot deploy any collections above root collection. 
 
 - Collections hierarchy in an Azure Purview can support up to 10,000 collections with a maximum of eight levels of depth. This does not include the root collection. 
 
@@ -54,7 +54,7 @@ Consider deploying collections in your Azure Purview to fulfill the following re
 
 - Moving assets across collections is allowed, if the user is granted _data curator_ role at source and destination collections. 
 
-- Currently, Certain operations such as _delete_, _move_, _rename_ for a collection is not allowed. 
+- Currently, certain operations such as _delete_, _move_, _rename_ for a collection is not allowed. 
 
 - Data sources, scans and assets must belong to a collection at any times meanwhile they exist inside Azure Purview data map.    
 
