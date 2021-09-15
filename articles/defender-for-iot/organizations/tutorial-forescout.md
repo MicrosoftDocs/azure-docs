@@ -31,7 +31,7 @@ The Forescout integration helps reduce the time required for industrial and crit
 
 - Correlate Defender for IoT information with other *Forescout eyeExtended* modules that oversee monitoring, incident management, and device control.
 
-The Defender for IoT integration with the Forescout platform provides centralized visibility, monitoring, and control for the IoT, and OT landscape. These bridged platforms enable automated device visibility, management to ICS devices and, siloed workflows. The integration provides SOC analysts with multilevel visibility into OT protocols deployed in industrial environments. Details are available for items such as firmware, device types, operating systems, and risk analysis scores based on proprietary Azure Defender for IoT technologies.
+The Defender for IoT integration with the Forescout platform provides centralized visibility, monitoring, and control for the IoT, and OT landscape. These bridged platforms enable automated device visibility, management to ICS devices and, siloed workflows. The integration provides SOC analysts with multilevel visibility into OT protocols deployed in industrial environments. Information becomes available such as firmware, device types, operating systems, and risk analysis scores based on proprietary Azure Defender for IoT technologies.
 
 In this tutorial, you learn how to:
 
@@ -52,7 +52,7 @@ In this tutorial, you learn how to:
 
 ## Generate an access token
 
-Access tokens allow external systems to access data discovered by Defender for IoT and perform actions with that data using the external REST API, over SSL connections. You can generate access tokens in order to access the Azure Defender for IoT REST API.
+Access tokens allow external systems to access data discovered by Defender for IoT. Access tokens allow that data to be used for external REST APIs,  and over SSL connections. You can generate access tokens in order to access the Azure Defender for IoT REST API.
 
 To ensure communication from Defender for IoT to Forescout, you must generate an access token in Defender for IoT.
 
@@ -103,7 +103,7 @@ You can now configure the Forescout platform to communicate with a Defender for 
 
 ### Change sensors in Forescout
 
-If you want the Forescout platform to communicate with a different sensor you will need to change the configuration within Forescout.
+To make the Forescout platform, communicate with a different sensor, the configuration within Forescout has to be changed.
 
 **To change sensors in Forescout**:
 
@@ -123,7 +123,7 @@ If you want the Forescout platform to communicate with a different sensor you wi
 
 ## Verify communication
 
-After configuring the connection between the Defender for IoT sensor to Forescout, you will need to confirm that the two platforms are communicating.
+Once the connection has been configured, you will need to confirm that the two platforms are communicating.
 
 **To confirm the two platforms are communicating**:
 
@@ -131,7 +131,7 @@ After configuring the connection between the Defender for IoT sensor to Forescou
 
 1. Navigate to **System Settings** > **Access Tokens**.
 
-If **N/A** is displayed in the Used field for the token, the connection between the sensor and the Forescout appliance is not working. **Used** indicates the last time an external call with this token was received.
+The Used field will alert you if the connection between the sensor and the Forescout appliance is not working. If **N/A** is displayed, the connection is not working. If **Used** is displayed, it will indicate the last time an external call with this token was received.
 
 :::image type="content" source="media/tutorial-forescout/forescout-access-token-added-successfully.png" alt-text="Verifies the token was received":::
 
@@ -162,9 +162,9 @@ The following table lists all of the attributes that are visible through the For
 
    :::image type="content" source="media/tutorial-forescout/vendor-attributes-in-forescout.png" alt-text="View the vendors attributes.":::
 
-### View additional details
+### View more details
 
-After viewing a device's attributes, you can see additional details for each device such as Forescout compliance and policy information.
+After viewing a device's attributes, you can see more details for each device such as Forescout compliance and policy information.
 
 **To view additional details**:
 
@@ -188,7 +188,7 @@ You can create custom policies in Forescout using Defender for IoT conditional p
 
 1. Navigate to **Policy Conditions** > **Properties Tree**.
 
-1. In the Properties Tree, expand the CyberX Platform folder . The Defender for IoT following properties are available.
+1. In the Properties Tree, expand the CyberX Platform folder. The Defender for IoT following properties are available.
 
 :::image type="content" source="media/tutorial-forescout/forescout-property-tree.png" alt-text="Properties":::
 
