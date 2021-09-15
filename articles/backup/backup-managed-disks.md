@@ -93,8 +93,9 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
 1. Select a Backup vault and click **Next** to proceed.
 
-   - Ensure that both the backup vault and the disk to be backed up are in same location.
-   - Azure Backup uses [_incremental snapshots_](/azure/virtual-machines/disks-incremental-snapshots#restrictions) of managed disks, which store only the delta changes to the disk as the last snapshot on Standard HDD storage, regardless of the storage type of the parent disk. For additional reliability, incremental snapshots are stored on Zone Redundant Storage (ZRS) by default in the ZRS supported regions. Currently, Azure Disk Backup supports operational backup of managed disks that doesn't copy backups to the Backup vault storage. So, the backup storage redundancy setting of the Backup vault doesn’t apply to the recovery points.
+   >[!Note]
+   >- Ensure that both the backup vault and the disk to be backed up are in same location.
+   >- Azure Backup uses [_incremental snapshots_](/azure/virtual-machines/disks-incremental-snapshots#restrictions) of managed disks, which store only the delta changes to the disk as the last snapshot on Standard HDD storage, regardless of the storage type of the parent disk. For additional reliability, incremental snapshots are stored on Zone Redundant Storage (ZRS) by default in the ZRS supported regions. Currently, Azure Disk Backup supports operational backup of managed disks that doesn't copy backups to the Backup vault storage. So, the backup storage redundancy setting of the Backup vault doesn’t apply to the recovery points.
 
    :::image type="content" source="./media/backup-managed-disks/select-backup-vault-inline.png" alt-text="Screenshot showing the process to select a Backup vault." lightbox="./media/backup-managed-disks/select-backup-vault-expanded.png":::
 
@@ -108,10 +109,10 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
    >[!Note]
    >While the portal allows you to select multiple disks and configure backup, each disk is an individual backup instance. Currently, Azure Disk Backup only supports backup of individual disks. Point-in-time backup of multiple disks attached to a virtual machine isn't supported.
-
-   In the Azure  portal, you can only select disks within the same subscription. If you have several disks to be backed up or if the disks reside in different subscriptions, you can use scripts ([PowerShell](/azure/backup/backup-managed-disks-ps)/[CLI](/azure/backup/backup-managed-disks-cli)) to automate. 
-
-   See the [support matrix](/azure/backup/disk-backup-support-matrix) for more information on the Azure Disk backup region availability, supported scenarios, and limitations.
+   >
+   >In the Azure  portal, you can only select disks within the same subscription. If you have several disks to be backed up or if the disks reside in different subscriptions, you can use scripts ([PowerShell](/azure/backup/backup-managed-disks-ps)/[CLI](/azure/backup/backup-managed-disks-cli)) to automate. 
+   >
+   >See the [support matrix](/azure/backup/disk-backup-support-matrix) for more information on the Azure Disk backup region availability, supported scenarios, and limitations.
 
 1. Select **Snapshot resource group** and click **Validate** to initiate prerequisites checks.
 
@@ -154,12 +155,12 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
    :::image type="content" source="./media/backup-managed-disks/role-assignmemt-not-done-error-inline.png" alt-text="Screenshot showing the Role assignment not done error message." lightbox="./media/backup-managed-disks/role-assignmemt-not-done-error-expanded.png":::
 
-   To configure backup of managed disks, the following prerequisites are required::
+   To configure backup of managed disks, the following prerequisites are required:
 
    >[!Note]
    >Backup vault uses managed identity to access other Azure resources. To configure a backup of managed disks, Backup Vault’s managed identity requires a set of permissions on the source disks and resource groups where snapshots are created and managed.
 
-   A system-assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. To grant permissions to the managed identity, use Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about Managed Identities.
+   A system-assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. To grant permissions to the managed identity, use Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
 
    - Assign the **Disk Backup Reader** role to Backup Vault’s managed identity on the Source disk that needs to be backed up.
    - Assign the Disk Snapshot Contributor role to the Backup vault’s managed identity on the Resource group where backups are created and managed by the Azure Backup service. The disk snapshots are stored in a resource group within your subscription. To allow Azure Backup service to create, store, and manage snapshots, you need to provide permissions to the backup vault.

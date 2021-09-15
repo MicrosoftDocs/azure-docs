@@ -165,7 +165,7 @@ To configure backup of managed disks, ensure the following prerequisites:
   1. In the right context pane, select **Disk Backup Reader** in the **Role** drop-down list.
   1. Select the Backup vault’s managed identity and click **Save**.
   
-     >[!Tip}
+     >[!Tip]
      >Type the Backup vault name to select the vault’s managed identity.
 
   :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-inline.png" alt-text="Screenshot showing the process to assign the Disk Backup Reader role to Backup vault’s managed identity on the Source disk that needs to be backed up." lightbox="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-expanded.png":::
