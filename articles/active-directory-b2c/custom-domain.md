@@ -96,7 +96,7 @@ Follow these steps to create a Front Door for your Azure AD B2C tenant. For more
   
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. To choose the directory that contains the Azure subscription you’d like to use for Azure Front Door, *not* be the directory containing your Azure AD B2C tenant, select the **Directories + subscriptions** icon in the portal toolbar.
+1. To choose the directory that contains the Azure subscription that you’d like to use for Azure Front Door and *not* the directory containing your Azure AD B2C tenant, select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**. 
 1. From the home page or the Azure menu, select **Create a resource**. Select **Networking** > **See All** > **Front Door**.
 1. In the **Basics** tab of **Create a Front Door** page, enter or select the following information, and then select **Next: Configuration**.
