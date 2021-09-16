@@ -12,19 +12,10 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Register and scan an on-premises SQL server
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
 
-[Add your introductory paragraph]
+Azure Purview is designed to connect to data sources across your data landscape. That includes sources on-premises. In this tutorial you'll use a self-hosted integration runtime to connect to data on an on-premises SQL server, and you'll use Azure Purview to scan and classify that data. 
 
-<!-- 3. Tutorial outline 
-Required. Use the format provided in the list below.
--->
-
-In this tutorial, you learn how to:
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Sign in to the Purview Studio.
@@ -49,7 +40,8 @@ In order to create and manage collections in Purview, you will need to be a **Co
 :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/open-purview-studio.png" alt-text="Screenshot of Purview window in Azure Portal, with Purview Studio button highlighted." border="true":::
 
 ## Create a collection
-<!-- Introduction paragraph -->
+
+Collections in Azure Purview are used to organize assets and sources into a custom hierarchy for organization and discoverability. However, they are also the tool used to manage access across Purview. In this tutorial we'll create one collection to house your SQL Server source and all its assets. This tutorial won't cover information about assigning permissions to other users, so if you would like more information you can follow our [Purview permissions guide](catalog-permissions.md).
 
 ### Check permissions
 
@@ -91,9 +83,10 @@ In order to create and manage collections in Purview, you will need to be a **Co
     :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/created-collection.png" alt-text="Screenshot of Purview studio window, showing the newly created collection window." border="true":::
 
 ## Create a self-hosted integration runtime
-<!-- Introduction paragraph -->
 
-This tutorial assumes the machine where you'll install your self-hosted integration runtime is able to make network connections to the internet. If your machine has a restricted firewall, or if you would like to secure your firewall, look into the [network requirements for the self-hosted integration runtime](manage-integration-runtimes.md#networking-requirements).
+The Self-Hosted Integration Runtime (SHIR) is the compute infrastructure used by Purview tp connect to on-premises data sources. The SHIR is downloaded and installed on a machine within the same network as the on-premises data source.
+
+This tutorial assumes the machine where you'll install your self-hosted integration runtime is able to make network connections to the internet. This connection allows the SHIR to communicate between your source and Azure Purview. If your machine has a restricted firewall, or if you would like to secure your firewall, look into the [network requirements for the self-hosted integration runtime](manage-integration-runtimes.md#networking-requirements).
 
 1. On the home page of Purview Studio, select **Data Map** from the left navigation pane.
 
@@ -263,11 +256,7 @@ To create and run a new scan, do the following:
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-the integration runtime, credential, and purview resources with the following steps:
-
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+If you're not going to continue to use this Purview or SQL source moving forward, you can follow the steps below to delete the integration runtime, SQL credential, and purview resources.
 
 ### Remove SHIR from Purview
 
