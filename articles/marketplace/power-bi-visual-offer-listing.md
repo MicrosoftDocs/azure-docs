@@ -22,7 +22,7 @@ Provide listing details in any one or multiple supported languages. Select **Man
 
 ## Marketplace details
 
-- The **[Name](https://aka.ms/PBIvisualreservename)** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered when you created the offer, but you can change it. If you want to reserve more names (for example, in another language) select *[Reserve more names](manage-names.md)*.
+- The **[Name](https://aka.ms/PBIvisualreservename)** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered when you created the offer, but you can change it. If you want to reserve more names (for example, in another language) select [Reserve more names](power-bi-visual-manage-names.md).
 - Enter a **Summary** of your offer for the Search results summary. This description may be used in marketplace search results.
 - Enter a thorough **Description** of your offer, up to 3,000 characters. Customers will see this in the Marketplace listing overview.
 - Add up to three **Search keywords** to help people find your offer.
@@ -56,4 +56,4 @@ If you selected additional languages, select each from the dropdown list at the 
 
 ## Next steps
 
-- [**Availability**](power-bi-visual-offer-availability.md)
+- [**Availability**](power-bi-visual-availability.md)

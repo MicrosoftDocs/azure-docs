@@ -14,7 +14,7 @@ ms.date: 09/21/2021
 
 On the **Technical configuration** tab, provide the files need for the Power BI visual offer. The required files are:
 
-- **PBIVIZ package** – [Pack your Power BI visual](package-visual.md) into a PBIVIZ package containing all the required metadata:
+- **PBIVIZ package** – [Pack your Power BI visual](/power-bi/developer/visuals/package-visual) into a PBIVIZ package containing all the required metadata:
 
   - Visual name
   - Display name

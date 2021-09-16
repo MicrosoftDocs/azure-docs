@@ -30,7 +30,7 @@ Read the following to ensure you're properly prepared before starting the creati
 
 These are the key publishing steps covered in the next several topics:
 
-1. [Package](package-visual.md) your Power BI visual.
+1. [Package](/power-bi/developer/visuals/package-visual) your Power BI visual.
 2. Prepare the [marketing details](/azure/marketplace/gtm-offer-listing-best-practices#online-store-offer-details), such as the official name, description, and logos.
 3. Gather links to the offer's legal and support documents, such as terms of use, privacy policy, support policy, and user help.
 4. Create the visual – Use Partner Center to enter the details, including the visual description, marketing materials, legal information, support information, and asset specifications.
@@ -40,7 +40,7 @@ These are the key publishing steps covered in the next several topics:
 
 The technical requirements to get a Power BI visual offer published are detailed in [Technical configuration of a Power BI visual offer](power-bi-visual-technical-configuration.md).
 
-Before submitting a Power BI visual to AppSource, ensure you've read the Power BI visuals [guidelines](guidelines-powerbi-visuals.md) and [tested](submission-testing.md) your visual.
+Before submitting a Power BI visual to AppSource, ensure you've read the Power BI visuals [guidelines](/power-bi/developer/visuals/guidelines-powerbi-visuals) and [tested](/power-bi/developer/visuals/submission-testing) your visual.
 
 ## Legal contracts
 
