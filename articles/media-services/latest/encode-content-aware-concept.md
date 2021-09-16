@@ -64,14 +64,14 @@ The content-aware encoding preset is available for use with the following codecs
 
 ## Preset names
 
-To use the content-aware encoding preset in your code, simple use the [BuiltInStandardEncoderPreset](/dotnet/api/microsoft.azure.management.media.models.builtinstandardencoderpreset) object and set the [PresetName](/dotnet/api/microsoft.azure.management.media.models.builtinstandardencoderpreset.presetname) property to one of the following built-in preset names.
+To encode with the content-aware preset in your code, use the [BuiltInStandardEncoderPreset](/dotnet/api/microsoft.azure.management.media.models.builtinstandardencoderpreset) object and set the [PresetName](/dotnet/api/microsoft.azure.management.media.models.builtinstandardencoderpreset.presetname) property to one of the following built-in preset names.
 
 - **ContentAwareEncoding**  - this preset supports H.264.
 - **H265ContentAwareEncoding** - this preset supports HEVC (H.265)
 
 ## Samples
 
-Several competed samples showing how to use the content-aware encoder area available. These samples demonstrate the various codecs and constraints available.
+There a several complete samples that show how to use the content-aware encoder. The following samples demonstrate the various codecs and constraints that can be used, how to instantiate the preset, and how to submit and monitor an encoding job.
 
 ### .NET
 
