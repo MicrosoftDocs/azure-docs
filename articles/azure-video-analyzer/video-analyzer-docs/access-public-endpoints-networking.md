@@ -48,3 +48,6 @@ This section provides a list of Video Analyzer endpoints.
 > [!NOTE]
 > The list of endpoints described in this article, is not meant to be a comprehensive list of the associated service endpoints. It is an informative list of the endpoints which are required for the normal operation of Video Analyzer. Refer to each individual Azure service documentation for a complete list of the endpoints exposed by each respective service.
 
+## Next steps
+
+[Access Policies](access-policies.md) 
