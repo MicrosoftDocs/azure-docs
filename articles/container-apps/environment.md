@@ -1,5 +1,5 @@
 ---
-title: Azure Container Apps Environments
+title: Azure Container Apps environments
 description: Learn how environments are managed in Azure Container Apps.
 services: app-service
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 09/16/2021
 ms.author: cshoe
 ---
 
-# Azure Container Apps Environments
+# Azure Container Apps environments
 
 <!-- PRELIMINARY OUTLINE
 - Intro: What is an environment & why do I need it?
@@ -27,8 +27,6 @@ Setting up an environment with a VNET
 Log analytics for logging and environment
 AppInsights for Dapr
 -->
-
-
 
 ## Next steps
 

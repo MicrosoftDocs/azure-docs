@@ -1,4 +1,4 @@
-- name: Azure Static Web Apps Documentation
+- name: Azure Static Web Apps documentation
   href: index.yml
 - name: Overview
   items:
@@ -16,7 +16,7 @@
     - name: Environment
       href: environment.md
     - name: Auto-scaling
-      href: auto-scaling.md
+      href: autoscale.md
     - name: Microservices
       href: microservices.md
     - name: Application lifecycle management
@@ -33,6 +33,8 @@
       href: monitor.md
     - name: Manage an app
       href: manage-app.md
+    - name: Connect multiple apps
+      href: connect-apps.md
 - name: Tutorials
   items:
     - name: Building microservices with Dapr
