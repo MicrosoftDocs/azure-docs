@@ -49,7 +49,7 @@ You learn how to register an application in the next tutorial.
     ![Directories + subscriptions filter icon](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
 
     1. In the new window, select **Directories + subscriptions** in the left menu.
-    1. Identify the directory that contains your subscription and click **Switch** button on it. Switching a directory will reload the portal.
+    1. Identify the directory that contains your subscription and select **Switch** button on it. Switching a directory will reload the portal.
 
     ![Directories + subscriptions with Switch button](media/tutorial-create-tenant/switch-directory.png)
 
@@ -87,7 +87,7 @@ You can link multiple Azure AD B2C tenants to a single Azure subscription for bi
 
 To start using your new Azure AD B2C tenant, you need to switch to the directory that contains the tenant:
 1. Select the **Directories + subscriptions** filter icon in the top menu of the Azure portal, 
-1. From the **All Directories** tab, identify the directory that contains your Azure AD B2C tenant and click **Switch** button on it.
+1. From the **All Directories** tab, identify the directory that contains your Azure AD B2C tenant and select **Switch** button on it.
 
 If at first you don't see your new Azure B2C tenant in the list, refresh your browser window or logout and login, then select the **Directories + subscriptions** filter again in the top menu.
 
