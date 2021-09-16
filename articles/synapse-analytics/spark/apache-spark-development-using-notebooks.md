@@ -37,7 +37,7 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |Drag and drop to move a cell| Not supported |&#9745;|
 |Outline (Table of Content)| Not supported |&#9745;|
 |Variable explorer| Not supported |&#9745;|
-|Format text cell with toolbar buttons|&#9745;| Not supported.|
+|Format text cell with toolbar buttons|&#9745;| Not supported|
 |Code cell commenting| Not supported | &#9745;|
 
 > [!NOTE]
@@ -131,7 +131,7 @@ You cannot reference data or variables directly across different languages in a 
 1. In Cell 1, read a DataFrame from a SQL pool connector using Scala and create a temporary table.
 
    ```scala
-   %%scala
+   %%spark
    val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
