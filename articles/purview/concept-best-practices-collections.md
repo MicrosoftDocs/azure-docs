@@ -15,7 +15,7 @@ At the core of Azure Purview, the data map is a Platform as a Service component 
 
 [Collections](./how-to-create-and-manage-collections.md) in Azure Purview to support organizational mapping of metadata.  With collections you can manage and maintain data sources, scans, and assets in a hierarchy instead of a flat structure. Collections allow you to build a custom hierarchical model of your data landscape based on how your organization plans to use Azure Purview to govern your landscape.
 
-A collection also provides a security boundary of your metadata in data map. Access to collections, data sources and metadata is be set up and maintained based on collections hierarchy in Azure Purview following a least privilege model: giving users the minimum amount of access they need to do their job, and preventing access to unneeded, sensitive data.
+A collection also provides a security boundary of your metadata in data map. Access to collections, data sources and metadata is set up and maintained based on collections hierarchy in Azure Purview following a least privilege model: giving users the minimum amount of access they need to do their job, and preventing access to unneeded, sensitive data.
 
 ## Intended audience
 
@@ -46,7 +46,7 @@ Consider deploying collections in your Azure Purview to fulfill the following re
 
 - Data sources, scans, and assets can belong only to one collection. 
 
-- Collections hierarchy in an Azure Purview can support up to 300 collections with a maximum of 8 levels of depth. This does not include the root collection. 
+- A collections hierarchy in an Azure Purview can support up to 300 collections with a maximum of 8 levels of depth. This does not include the root collection. 
 
 - By design, you cannot register data sources multiple times in the same Purview account. This architecture helps to avoid the risk of assigning different access control to the same data source. If the metadata of the same data source is consumed by multiple teams, you can register and manage the data source at a parent collection and create corresponding scans under each sub-collection, so relevant assets appear under each child collection.
 
