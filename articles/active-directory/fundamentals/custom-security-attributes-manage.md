@@ -88,18 +88,35 @@ Disadvantages of using delegation
 
 ## Which roles to assign
 
-The following table lists which roles to assign and the scope to read, manage, and assign custom security attributes and attribute sets.
+The following table lists the high-level permissions for the custom security attributes roles.
+
+| Permission | Global Administrator | Global Reader | Attribute Definition Administrator | Attribute Assignment Administrator | Attribute Definition Reader | Attribute Assignment Reader |
+| --- | --- | --- | --- | --- | --- | --- |
+| Add and update attribute sets |  |  | :heavy_check_mark: |  |  |  |
+| Read attribute sets |  |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Add and update attribute definitions |  |  | :heavy_check_mark: |  |  |  |
+| Assign attributes to users and applications (service principals) |  |  |  | :heavy_check_mark: |  |  |
+| Read attribute definitions |  |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| Read attribute assignments for users and applications (service principals) |  |  |  | :heavy_check_mark: |  | :heavy_check_mark: | 
+
+You should note the following about these roles:
+
+- [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator), by default, do not have permissions to read, filter, define, manage, or assign custom security attributes.
+- [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator), [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator), [Attribute Definition Reader](../roles/permissions-reference.md#attribute-definition-reader), and [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader) can be assigned at tenant or attribute set scope. 
+- You can't add or update attribute sets if the user has role assignments at the attribute set scope.
+
+The following table can help you determine which roles to assign and the scope.
 
 | I want to grant this access | Assign this role | Scope |
 | --- | --- | --- |
-| Read custom security attributes in a particular attribute set | Attribute Definition Reader | Attribute set |
-| Read all custom security attributes | Attribute Definition Reader | Tenant |
+| Manage all custom security attributes and attribute sets | Attribute Definition Administrator | Tenant |
 | Manage custom security attributes in a particular attribute set | Attribute Definition Administrator | Attribute set |
-| Manage all custom security attributes | Attribute Definition Administrator | Tenant |
-| Read custom security attribute assignments for users and enterprise applications (service principals) from a particular attribute set | Attribute Assignment Reader | Attribute set |
-| Read all custom security attribute assignments for users and enterprise applications (service principals) | Attribute Assignment Reader | Tenant |
-| Assign custom security attributes to users and enterprise applications (service principals) from a particular attribute set | Attribute Assignment Administrator | Attribute set |
-| Assign all custom security attributes to users and enterprise applications (service principals) | Attribute Assignment Administrator | Tenant |
+| Assign all custom security attributes to users and applications (service principals) | Attribute Assignment Administrator | Tenant |
+| Assign custom security attributes in a particular attribute set to users and applications (service principals) | Attribute Assignment Administrator | Attribute set |
+| Read all custom security attributes | Attribute Definition Reader | Tenant |
+| Read custom security attributes in a particular attribute set | Attribute Definition Reader | Attribute set |
+| Read all custom security attribute assignments for users and applications (service principals) | Attribute Assignment Reader | Tenant |
+| Read custom security attribute assignments in a particular attribute set for users and applications (service principals) | Attribute Assignment Reader | Attribute set |
 
 ## Grant access at the attribute set scope
 
