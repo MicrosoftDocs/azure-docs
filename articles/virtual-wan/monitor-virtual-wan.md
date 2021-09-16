@@ -57,11 +57,11 @@ The following metrics are available for Azure site-to-site VPN gateways:
 | Metric | Description|
 | --- | --- |
 | **BGP Peer Status** | BGP connectivity status per peer and per instance.|
-| **BGP Routes Advertised** | Number of routes advertised per peer and per intance.|
-| **BGP Routes Learned** | Number of routes learned per peer and per intance.|
+| **BGP Routes Advertised** | Number of routes advertised per peer and per instance.|
+| **BGP Routes Learned** | Number of routes learned per peer and per instance.|
 | **VNET Address Prefix Count** | Number of VNET address prefixes that are used/advertised by the gateway.|
 
-You can review per peer and instance metrics by slecting **Apply splitting** and choosing the preferred value. 
+You can review per peer and instance metrics by selecting **Apply splitting** and choosing the preferred value. 
 
 #### Traffic Flow Metrics
 | Metric | Description|
@@ -82,7 +82,7 @@ The following metrics are available for Azure point-to-site VPN gateways:
 | Metric | Description|
 | --- | --- |
 | **Gateway P2S Bandwidth** | Average point-to-site aggregate bandwidth of a gateway in bytes per second. |
-| **P2S Connection Count** |Point-to-site connection count of a gateway. Point-to-site connection count of a gateway. To ensure you are viewing accurate Metrics in Azure Monitor, please select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You may also select **Max** if you also Split By **Instance**. |
+| **P2S Connection Count** |Point-to-site connection count of a gateway. Point-to-site connection count of a gateway. To ensure you are viewing accurate Metrics in Azure Monitor, select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You may also select **Max** if you also Split By **Instance**. |
 | **User VPN Routes Count** | Number of User VPN Routes configured on the VPN Gateway. This metric can be broken down into **Static** and **Dynamic** Routes.
 
 ### Azure ExpressRoute gateways
@@ -118,9 +118,9 @@ The following diagnostics are available for Azure site-to-site VPN gateways:
 
 | Metric | Description|
 | --- | --- |
-| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, as well as additional diagnostics.|
-| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, as well as additional diagnostics.|
-| **Route Diagnostic Logs** | These are logs related to events for static routes, BGP, route updates, as well as additional diagnostics. |
+| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and additional diagnostics.|
+| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and additional diagnostics.|
+| **Route Diagnostic Logs** | These are logs related to events for static routes, BGP, route updates, and additional diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections. |
 
 ### Point-to-site VPN gateways
@@ -129,17 +129,17 @@ The following diagnostics are available for Azure point-to-site VPN gateways:
 
 | Metric | Description|
 | --- | --- |
-| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, as well as other diagnostics. |
+| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and other diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections.|
-| **P2S Diagnostic Logs** | These are User VPN (Point-to-site) P2S configuration and client events. They include client connect/disconnect, VPN client address allocation, as well as other diagnostics.|
+| **P2S Diagnostic Logs** | These are User VPN (Point-to-site) P2S configuration and client events. They include client connect/disconnect, VPN client address allocation, and other diagnostics.|
 
 ### Express Route gateways
 
-Diagnostic logs for Express Route gateways in Azure Virtual WAN are actually not supported.
+Diagnostic logs for Express Route gateways in Azure Virtual WAN are not supported.
 
 ### <a name="diagnostic-steps"></a>View diagnostic logs configuration
 
-The following steps help you create, edit and view diagnostic settings:
+The following steps help you create, edit, and view diagnostic settings:
 
 1. In the portal, navigate to your Virtual WAN resource, then select **Hubs** in the **Connectivity** group. 
 
@@ -153,7 +153,7 @@ The following steps help you create, edit and view diagnostic settings:
 
    :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhubGatewayViewLogsInAzureMonitor.png" alt-text="Select View in Azure Monitor for Logs":::
 
-4. In this page you can create new diagnostic setting (**+Add diagnostic setting**) or edit existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the example below), stream to an event hub, send to a 3rd-party solution, or to simply archive to a storage account.
+4. In this page you can create new diagnostic setting (**+Add diagnostic setting**) or edit existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the example below), stream to an event hub, send to a 3rd-party solution, or to archive to a storage account.
 
     :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhubGatewayDiagSettings.png" alt-text="Select Diagnostic Log settings":::
 
@@ -161,7 +161,7 @@ The following steps help you create, edit and view diagnostic settings:
 
 If you selected to send diagnostic data to a Log Analytics Workspace, then you can use queries as the example below to examine. 
 These queries use a SQL-like Log Analytics Query Language, you can learn more about this language from [this article](https://docs.microsoft.com/services-hub/health/log_analytics_query_language).
-The following example contains a query to obtain site-to-site route diagnostics.
+ The following example contains a query to obtain site-to-site route diagnostics.
 
 ```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
 
