@@ -90,14 +90,14 @@ Disadvantages of using delegation
 
 The following table lists the high-level permissions for the custom security attributes roles.
 
-| Permission | Global Administrator | Global Reader | Attribute Definition Administrator | Attribute Assignment Administrator | Attribute Definition Reader | Attribute Assignment Reader |
-| --- | --- | --- | --- | --- | --- | --- |
-| Add and update attribute sets |  |  | :heavy_check_mark: |  |  |  |
-| Read attribute sets |  |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Add and update attribute definitions |  |  | :heavy_check_mark: |  |  |  |
-| Assign attributes to users and applications (service principals) |  |  |  | :heavy_check_mark: |  |  |
-| Read attribute definitions |  |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| Read attribute assignments for users and applications (service principals) |  |  |  | :heavy_check_mark: |  | :heavy_check_mark: | 
+| Permission | Global Admin | Attribute Definition Admin | Attribute Assignment Admin | Attribute Definition Reader | Attribute Assignment Reader |
+| --- | --- | --- | --- | --- | --- |
+| Add and update attribute sets |  | :heavy_check_mark: |  |  |  |
+| Read attribute sets |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Add and update attribute definitions |  | :heavy_check_mark: |  |  |  |
+| Assign attributes to users and applications (service principals) |  |  | :heavy_check_mark: |  |  |
+| Read attribute definitions |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| Read attribute assignments for users and applications (service principals) |  |  | :heavy_check_mark: |  | :heavy_check_mark: | 
 
 You should note the following about these roles:
 
