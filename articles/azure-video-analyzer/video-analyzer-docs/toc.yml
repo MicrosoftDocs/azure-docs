@@ -141,6 +141,8 @@
           href: embed-player-in-power-bi.md
     - name: Troubleshoot
       href: troubleshoot.md
+    - name: Public endpoints
+      href: access-public-endpoints-networking.md
 - name: Reference
   items:
     - name: Developer SDKs
