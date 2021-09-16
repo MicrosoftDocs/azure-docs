@@ -27,9 +27,9 @@ This article shows you how to access the Azure NetApp Files service within Azure
 
 Azure Government users can access Azure NetApp Files by pointing their browsers to **portal.azure.us**.  The portal site name is **Microsoft Azure Government**. See [Connect to Azure Government using portal](../azure-government/documentation-government-get-started-connect-with-portal.md) for details.   
 
-![Screenshot of the Azure Government portal highlighting portal.azure.us as the URL](../media/azure-netapp-files/anf-azuregov.jpg)
+![Screenshot of the Azure Government portal highlighting portal.azure.us as the URL](../media/azure-netapp-files/azure-government.jpg)
 
-From the Microsoft Azure Government portal, you can access Azure NetApp Files the same way you would in the public Azure portal. For example, you can enter **Azure NetApp  Files** in the portal’s Search Resources box, and then select **Azure NetApp Files** from the list that appears.  
+From the Microsoft Azure Government portal, you can access Azure NetApp Files the same way you would in the Azure portal. For example, you can enter **Azure NetApp  Files** in the portal’s Search Resources box, and then select **Azure NetApp Files** from the list that appears.  
 
 You can follow [Azure NetApp Files](/azure/azure-netapp-files/) documentation for details about using the service.
 
@@ -72,7 +72,7 @@ When connecting to Azure Government through PowerShell, you must specify an envi
 
 See [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md) for details.
 
-## Next Steps
+## Next steps
 * [What is Azure Government?](../azure-government/documentation-government-welcome.md)
 * [Compare Azure Government and global Azure](../azure-government/compare-azure-government-global-azure.md)
 * [Azure NetApp Files REST API](azure-netapp-files-develop-with-rest-api.md)
