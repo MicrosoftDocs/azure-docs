@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 06/30/2021
+ms.date: 09/20/2021
 ---
 
 # Managed Identities for Transparent Data Encryption with BYOK

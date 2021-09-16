@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 06/23/2021
+ms.date: 09/20/2021
 ---
 # Azure SQL Transparent Data Encryption with customer-managed key
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]

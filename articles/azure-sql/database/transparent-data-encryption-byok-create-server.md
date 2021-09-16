@@ -1,14 +1,14 @@
 ---
 title: Create server configured with user-assigned managed identity and customer-managed TDE
 titleSuffix: Azure SQL Database & Azure Synapse Analytics 
-description: Learn how to configure user-assigned managed identity and customer-managed Transparent Data Encryption (TDE) while creating an Azure SQL Database using the Azure portal, PowerShell, or Azure CLI.
+description: Learn how to configure user-assigned managed identity and customer-managed Transparent Data Encryption (TDE) while creating an Azure SQL Database logical server using the Azure portal, PowerShell, or Azure CLI.
 ms.service: sql-database
 ms.subservice: security
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 06/30/2021
+ms.date: 09/90/2021
 ---
 # Create server configured with user-assigned managed identity and customer-managed TDE
 
@@ -60,11 +60,11 @@ This how-to guide outlines the steps to create an Azure SQL logical [server](log
 
 11. Select **Next: Security** at the bottom of the page.
 
-12. On the Security tab, under **Identity (preview)**, click **Configure Identities**.
+12. On the Security tab, under **Identity (preview)**, select **Configure Identities**.
 
     :::image type="content" source="media/transparent-data-encryption-byok-create-server/configure-identity.png" alt-text="screenshot of security settings and configuring identities in the Azure portal":::
 
-13. On the **Identity (preview)** blade, select **User assigned managed identity** click **Add**. Select the desired **Subscription** and then under **User assigned managed identities** select the desired user assigned managed identity from the selected subscription. Then click **Select**. 
+13. On the **Identity (preview)** blade, select **User assigned managed identity** and then select **Add**. Select the desired **Subscription** and then under **User assigned managed identities** select the desired user assigned managed identity from the selected subscription. Then select the  **Select** button. 
 
     :::image type="content" source="media/transparent-data-encryption-byok-create-server/identity-configuration-managed-identity.png" alt-text="screenshot of adding user assigned managed identity when configuring server identity":::
 
@@ -76,7 +76,7 @@ This how-to guide outlines the steps to create an Azure SQL logical [server](log
 
 15. Select **Apply**
 
-16. On the Security tab, under **Transparent data encryption**, select **Configure Transparent data encryption**. Then select **Select a key** and click **Change key**. Select the desired **Subscription**, **Key vault**, **Key**, and **Version** for the customer-managed key to be used for TDE. Click **Select**.
+16. On the Security tab, under **Transparent data encryption**, select **Configure Transparent data encryption**. Then select **Select a key** and select **Change key**. Select the desired **Subscription**, **Key vault**, **Key**, and **Version** for the customer-managed key to be used for TDE. Select the **Select** button.
 
     :::image type="content" source="media/transparent-data-encryption-byok-create-server/configure-tde-for-server.png" alt-text="screenshot configuring TDE for server":::
 
