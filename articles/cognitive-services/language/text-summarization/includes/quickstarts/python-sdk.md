@@ -93,3 +93,10 @@ def sample_extractive_summarization(client):
 
 sample_extractive_summarization(client)
 ```
+
+### Output
+
+```console
+Summary extracted: 
+The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured text document. This feature is provided as an API for developers. They can use it to build intelligent solutions based on the relevant information extracted to support various use cases.
+```

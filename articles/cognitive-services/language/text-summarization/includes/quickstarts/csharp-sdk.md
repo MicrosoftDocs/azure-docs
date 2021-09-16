@@ -133,3 +133,22 @@ namespace LanguageDetectionExample
 }
 
 ```
+
+### Output
+
+```console
+AnalyzeActions operation has completed
+
+Created On   : 9/16/2021 8:04:27 PM +00:00
+Expires On   : 9/17/2021 8:04:27 PM +00:00
+Id           : 2e63fa58-fbaa-4be9-a700-080cff098f91
+Status       : succeeded
+
+Extracted the following 3 sentence(s):
+
+Sentence: The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured text document.
+
+Sentence: This feature is provided as an API for developers.
+
+Sentence: They can use it to build intelligent solutions based on the relevant information extracted to support various use cases.
+```

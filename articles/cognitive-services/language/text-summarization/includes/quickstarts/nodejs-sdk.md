@@ -114,3 +114,20 @@ summarization_example(textAnalyticsClient).catch((err) => {
     console.error("The sample encountered an error:", err);
 });
 ```
+
+### Output
+
+```console
+== Analyze Sample For Extract Summary ==
+The analyze actions operation created on Thu Sep 16 2021 13:12:31 GMT-0700 (Pacific Daylight Time)
+The analyze actions operation results will expire on Fri Sep 17 2021 13:12:31 GMT-0700 (Pacific Daylight Time)
+
+- Document 0
+        Summary:
+        - They can use it to build intelligent solutions based on the relevant information extracted to support various use cases.
+        - This feature is provided as an API for developers.
+        - The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured 
+text document.
+        - These sentences collectively convey the main idea of the document.
+        - In the public preview, extractive summarization supports several languages.
+```

@@ -52,6 +52,10 @@ import com.azure.core.credential.AzureKeyCredential;
 import com.azure.ai.textanalytics.models.*;
 import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
+import java.util.ArrayList;
+import java.util.List;
+import com.azure.core.util.polling.SyncPoller;
+import com.azure.ai.textanalytics.util.*;
 
 public class Example {
 
@@ -119,4 +123,14 @@ public class Example {
     }
 }
 
+```
+
+### Output
+
+```console
+Extractive Summarization action results:
+	Extracted summary sentences:
+		 Sentence text: The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured text document., length: 156, offset: 0, rank score: 0.980000.
+		 Sentence text: This feature is provided as an API for developers., length: 50, offset: 224, rank score: 0.990000.
+		 Sentence text: They can use it to build intelligent solutions based on the relevant information extracted to support various use cases., length: 120, offset: 275, rank score: 1.000000.
 ```
