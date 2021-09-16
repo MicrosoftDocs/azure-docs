@@ -31,7 +31,7 @@ The [IoT Edge API proxy module](../articles/iot-edge/how-to-configure-api-proxy-
 ```azurecli
 az acr import \
   --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/azureiotedge-agent: 1.2.3
+  --source mcr.microsoft.com/azureiotedge-agent:1.2.3
 
 az acr import \
   --name $REGISTRY_NAME \

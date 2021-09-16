@@ -26,7 +26,7 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
 
 [!INCLUDE [container-registry-connected-client-token](../../includes/container-registry-connected-client-token.md)]
 
-## Retrieve connected registry configuration information
+## Retrieve connected registry configuration
 
 Before deploying the connected registry to the IoT Edge device, you need to retrieve the configuration from the connected registry resource in Azure. You will need the information for the IoT Edge manifest used in a later section. 
 
@@ -50,11 +50,15 @@ The following example output shows the connection string for the *myconnectedreg
 }
 ```
 
-The `ACR_REGISTRY_CONNECTION_STRING` environment variable needs to be passed to the connected registry container at runtime. The following environment variables are optional:
+The `ACR_REGISTRY_CONNECTION_STRING` environment variable needs to be passed to the connected registry container at runtime. 
 
-- `ACR_REGISTRY_LOGIN_SERVER` - Optionally specify the login server to access the connected registry. If specified, it is the only login server that can be used to access the connected registry. If no value is provided, then the connected registry can be accessed with any login server.
-- `ACR_REGISTRY_CERTIFICATE_VOLUME` - Optionally use if your connected registry will be accessible via HTTPS. The volume should point to the location where the HTTPS certificates are stored. If not set, the default location is `/var/acr/certs`.
-- `ACR_REGISTRY_DATA_VOLUME` - Optionally use to overwrite the default location `/var/acr/data` where the images will be stored by the connected registry. This location must match the volume bind for the container.
+The following environment variables are optional:
+
+|Variable  |Description  |
+|---------|---------|
+|`ACR_REGISTRY_LOGIN_SERVER`     |  Optionally specifies the hostname or FQDN of the login server used to access the connected registry. If specified, it is the only login server that can be used to access the connected registry.<br/><br/> If no value is provided, then the connected registry can be accessed with any login server.       |
+|`ACR_REGISTRY_CERTIFICATE_VOLUME`     |   If your connected registry will be accessible via HTTPS, points to the volume where the HTTPS certificates are stored. If not set, the default location is `/var/acr/certs`.      |
+|`ACR_REGISTRY_DATA_VOLUME`     |  Oerwrite sthe default location `/var/acr/data` where the images will be stored by the connected registry. This location must match the volume bind for the container.       |
 
 > [!IMPORTANT]
 > Make sure that you save the generated connection string. The connection string contains a one-time password that cannot be retrieved. If you issue the command again, a new password will be generated.
@@ -106,7 +110,7 @@ In this quickstart, you learned how to deploy a connected registry to an IoT Edg
 > [Pull images from a connected registry][pull-images-from-connected-registry]
 
 > [!div class="nextstepaction"]
-> [Tutorial: Deploy connected registry on nested IoT Edge devices][quickstart-connected-registry-nested]
+> [Tutorial: Deploy connected registry on nested IoT Edge devices][tutorial-connected-registry-nested]
 
 <!-- LINKS - internal -->
 [az-acr-connected-registry-install-renew-credentials]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_install_renew_credentials

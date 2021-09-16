@@ -62,14 +62,14 @@ You can also use the [az acr connected-registry create][az-acr-connected-registr
 CONNECTED_REGISTRY_RO=<connnected-registry-name>
 az acr connected-registry create --registry $REGISTRY_NAME \
   --parent $CONNECTED_REGISTRY_RW \
-  --name $CONNECTED_REGISTRY_READ \
+  --name $CONNECTED_REGISTRY_RO \
   --repository "hello-world" "acr/connected-registry" "azureiotedge-agent" "azureiotedge-hub" "azureiotedge-api-proxy" \
   --mode ReadOnly
 ```
 
-This command creates a connected registry resource named *$CONNECTED_REGISTRY_READ* in Azure and links it to the *$REGISTRY_NAME* cloud registry. 
+This command creates a connected registry resource named *$CONNECTED_REGISTRY_RO* in Azure and links it to the *$REGISTRY_NAME* cloud registry. 
 * The specified repositories will be synchronized between the parent *$CONNECTED_REGISTRY_RW* and the connected registry once deployed.
-* This resource is created in the ReadOnly mode, which enables read-only functionality once deployed. 
+* This resource is created in the ReadOnly mode, which enables read-only (artifact pull) functionality once deployed. 
 * Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 
 ## Verify that the resources are created
