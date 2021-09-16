@@ -100,7 +100,7 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 * Add Azure AD groups into API Management. 
 * Control product visibility using Azure AD groups.
 
-By default, the application you registered in the [previous section](#authorize-developer-accounts-by-using-azure-ad.md) has access to the Microsoft Graph API, with the required `User.Read` delegated permission. Grant the application access to the Microsoft Graph API and Azure AD Graph API with the `Directory.Read.All` application permission by following these steps: 
+By default, the application you registered in the [previous section](#authorize-developer-accounts-by-using-azure-ad) has access to the Microsoft Graph API, with the required `User.Read` delegated permission. Grant the application access to the Microsoft Graph API and Azure AD Graph API with the `Directory.Read.All` application permission by following these steps: 
 
 1. Navigate to the app registration you created in the previous section.
 2. Under **Manage** in the side menu, select **API Permissions**.
