@@ -36,7 +36,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. If you're using a preexisting resource, see [creating Azure resources](../how-to/use-azure-resources.md). When you are done, select **Next**. 
+4. If you have crated your resource using the steps above, the **Connect storage** step will completed already. If you're using a preexisting resource, see [creating Azure resources](../how-to/use-azure-resources.md). When you are done, select **Next**. 
  
     >[!NOTE]
     > * You only need to do this step once for each new resource you use. 
@@ -46,9 +46,14 @@ After you have created an Azure storage account and linked it to your Language S
 
 5. Select your project type. For this quickstart we will create a multi label classification project. Then click **Next**.
 
-6. Enter the project information, including a name, description and the language of the files in your project. You will not be able to change the name of your project later. 
+6. Enter the project information, including a name, description and the language of the files in your project. You will not be able to change the name of your project later.
 
-7. Review the data you entered and select **Create Project**.
+    >[!NOTE]
+    > If your datset contains files of different languages or if you expect different languages during runtime, enable the muti-lingual option.
+
+7. Select the container where you have uploaded your data. For this quickstart we will use the existing tags file avilable in the container. Then click **Next**.
+ 
+8. Review the data you entered and select **Create Project**.
 
 ## Tagging your data
 
