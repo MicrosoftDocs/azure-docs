@@ -7,7 +7,6 @@ services: iot-hub
 ms.author: v-stharr
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.author: briz
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
 ---
 
@@ -47,7 +46,7 @@ Within each of these five stages, there are several device operator requirements
     * [Bulk management of device identities](iot-hub-bulk-identity-mgmt.md)
     * [How to use device twin properties](tutorial-device-twins.md)
     * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
-    * [Azure IoT Hub Device Provisioning Service](./iot-dps)
+    * [Azure IoT Hub Device Provisioning Service](../iot-dps)
 
 * **Configure**: Facilitate bulk configuration changes and firmware updates to devices while maintaining both health and security. Perform these device management operations in bulk by using desired properties or with direct methods and broadcast jobs.
   
@@ -62,7 +61,7 @@ Within each of these five stages, there are several device operator requirements
     * [How to use device twin properties](tutorial-device-twins.md)
     * [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md)
     * [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md)
-    * [Azure Defender for IoT for organizations to provide comprehensive threat detection](./defender-for-iot/organizations/overview.md)
+    * [Azure Defender for IoT for organizations to provide comprehensive threat detection](../defender-for-iot/organizations/overview)
     * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
 
 * **Retire**: Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.  Use the device twin to maintain device info if the physical device is being replaced, or archived if being retired. Use the IoT Hub identity registry for securely revoking device identities and credentials.
@@ -93,7 +92,7 @@ IoT Hub enables the following set of device management patterns. The [device man
 
 ## Device Updates
 
-[Device Update for IoT Hub](./iot-hub-device-update/understand-device-update.md)  is a comprehensive platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. Device Update for IoT Hub allows customers to rapidly respond to security threats and deploy features to meet business objectives without incurring more development and maintenance costs of building custom update platforms.
+[Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md)  is a comprehensive platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. Device Update for IoT Hub allows customers to rapidly respond to security threats and deploy features to meet business objectives without incurring more development and maintenance costs of building custom update platforms.
 
 Device Update for IoT Hub offers optimized update deployment and streamlined operations through integration with Azure IoT Hub. With extended reach through Azure IoT Edge, it provides a cloud-hosted solution that connects virtually any device. It supports a broad range of IoT operating systems—including Linux and Azure RTOS (real-time operating system)—and is extensible via open source. Some features include:
 
@@ -107,7 +106,7 @@ Device Update for IoT Hub offers optimized update deployment and streamlined ope
 * Subscription and role-based access controls available through the Azure.com portal
 * Comprehensive cloud-to-edge security features and privacy controls
 
-For more information, see [Device Update for IoT Hub](./iot-hub-device-update/).
+For more information, see [Device Update for IoT Hub](../iot-hub-device-update/).
 
 ## Next Steps
 
