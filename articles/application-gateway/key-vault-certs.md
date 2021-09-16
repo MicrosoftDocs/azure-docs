@@ -27,7 +27,9 @@ Application Gateway integration with Key Vault offers many benefits, including:
 - Support for importing existing certificates into your key vault. Or use Key Vault APIs to create and manage new certificates with any of the trusted Key Vault partners.
 - Support for automatic renewal of certificates that are stored in your key vault.
 
-Application Gateway currently supports software-validated certificates only. Hardware security module (HSM)-validated certificates are not supported. After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances also poll Key Vault at 4-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the TLS/SSL certificate currently associated with the HTTPS listener is automatically rotated.
+Application Gateway currently supports software-validated certificates only. Hardware security module (HSM)-validated certificates are not supported. After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances also poll Key Vault at 4-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the TLS/SSL certificate currently associated with the HTTPS listener is automatically rotated. 
+
+Application Gateway uses Secret Identifier in Key Vault to reference the certificates. It is strongly recommended to use a secret identifier that doesn't specify a version. This way, Azure Application Gateway will automatically rotate the certificate, if a newer version is available in Azure Key Vault. An example of a secret URI without a version is `https://myvault.vault.azure.net/secrets/mysecret/`. Avoid using the complete URI with version for such certificates.
 
 > [!NOTE]
 > The Azure portal only supports KeyVault Certificates, not secrets. Application Gateway still supports referencing secrets from KeyVault, but only through non-Portal resources like PowerShell, CLI, API, ARM templates, etc. 
@@ -42,6 +44,8 @@ For TLS termination, Application Gateway supports certificates in Personal Infor
 ## How integration works
 
 Application Gateway integration with Key Vault is a three-step configuration process:
+
+   ![Key vault certificates](media/key-vault-certs/ag-kv.png)
 
 1. **Create a user-assigned managed identity**
 
@@ -69,7 +73,7 @@ Application Gateway integration with Key Vault is a three-step configuration pro
       c) then using Virtual Networks, add your Application Gateway’s virtual network and Subnet. During the process also configure ‘Microsoft.KeyVault' service endpoint by selecting its checkbox. <br/>
       d) Finally, select “Yes” to allow Trusted Services to bypass Key Vault’s firewall. <br/>
   
-       ![Key Vault Firewall](media/key-vault-certs/key-vault-firewall.png)
+      ![Key Vault Firewall](media/key-vault-certs/key-vault-firewall.png)
 
 
    > [!NOTE]
@@ -93,9 +97,6 @@ Application Gateway integration with Key Vault is a three-step configuration pro
 
    After you complete the two preceding steps, you can assign the user-assigned managed identity for your application gateway through its Identity and access management (IAM). For PowerShell, see [Set-AzApplicationGatewayIdentity](/powershell/module/az.network/set-azapplicationgatewayidentity).
 
-   You can also configure the HTTP listener’s TLS/SSL certificate to point to the complete URI of the Key Vault certificate or secret ID.
-
-   ![Key vault certificates](media/key-vault-certs/ag-kv.png)
 
 ## Investigating and resolving Key Vault errors
 
