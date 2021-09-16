@@ -13,13 +13,20 @@ ms.author: cherylmc
 
 # Monitoring Virtual WAN
 
-You can monitor Azure Virtual WAN using Azure Monitor. Virtual WAN is a networking service that brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor.
+You can monitor Azure Virtual WAN using Azure Monitor. Virtual WAN is a networking service that brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor. 
 
 This article discusses metrics and diagnostics that are available through the portal. Metrics are lightweight and can support near real-time scenarios, making them useful for alerting and fast issue detection.
 
 ### Monitoring Secured Hub (Azure Firewall) 
 
 You can monitor the Secured Hub using Azure Firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
+For every Azure Virtual WAN you secure and convert to a Secured Hub, an explicit firewall resource object is created in the resource group where the hub is located. 
+
+:::image type="content" source="./media/monitor-virtual-wan/FirewallResourceInTheAzurePortal.png" alt-text="Screenshot shows a Firewall resource in the vWAN hub resource group.":::
+
+Diagnostics and logging configuration must be done from there accessing the "Diagnostic Settings" tab:
+
+:::image type="content" source="./media/monitor-virtual-wan/FirewallDiagnosticsSettings.png" alt-text="Screenshot shows Firewall diagnostic settings.":::
 
 If you have chosen to secure your Virtual Hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
 
@@ -93,11 +100,11 @@ The following steps help you locate and view metrics:
 
 1. In the portal, navigate to the virtual hub that has the gateway.
 
-2. Select **VPN (Site to site)** to locate a site-to-site gateway, **ExpressRoute** to locate an ExpressRoute gateway, or **User VPN (Point to site)** to locate a point-to-site gateway. On the page, you can see the gateway information. Copy this information. You will use it later to view diagnostics using Azure Monitor.
+2. Select **VPN (Site to site)** to locate a site-to-site gateway, **ExpressRoute** to locate an ExpressRoute gateway, or **User VPN (Point to site)** to locate a point-to-site gateway.
 
 3. Select **Metrics**.
 
-   :::image type="content" source="./media/monitor-virtual-wan/metrics.png" alt-text="Screenshot shows a site to site V P N pane with View in Azure Monitor selected.":::
+   :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhubGatewayViewMetricsInAzureMonitor.png" alt-text="Screenshot shows a site to site V P N pane with View in Azure Monitor selected.":::
 
 4. On the **Metrics** page, you can view the metrics that you are interested in.
 
@@ -126,35 +133,49 @@ The following diagnostics are available for Azure point-to-site VPN gateways:
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections.|
 | **P2S Diagnostic Logs** | These are User VPN (Point-to-site) P2S configuration and client events. They include client connect/disconnect, VPN client address allocation, as well as other diagnostics.|
 
-### <a name="diagnostic-steps"></a>View diagnostic logs
+### Express Route gateways
 
-The following steps help you locate and view diagnostics:
+Diagnostic logs for Express Route gateways in Azure Virtual WAN are actually not supported.
 
-1. In the portal, navigate to your Virtual WAN resource. In the **Overview** section of the Virtual WAN page in the portal, select **Essentials** to expand the view and obtain resource group information. Copy the resource group information.
+### <a name="diagnostic-steps"></a>View diagnostic logs configuration
 
-   :::image type="content" source="./media/monitor-virtual-wan/3.png" alt-text="Screenshot that shows the 'Overview' section with an arrow pointing to the 'Copy' button.":::
+The following steps help you create, edit and view diagnostic settings:
 
-2. Navigate to **Monitor** from the search bar and in the Settings section, select **Diagnostic settings**, then input the resource group, resource type and resource information. This is the resource group information that you copied in Step 2 from the [View gateway metrics](#metrics-steps) section, earlier in this article.
+1. In the portal, navigate to your Virtual WAN resource, then select **Hubs** in the **Connectivity** group. 
 
-   :::image type="content" source="./media/monitor-virtual-wan/4.png" alt-text="Screenshot that shows the 'Monitoring' section with an arrow pointing to the 'Resource' drop-down.":::
+   :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhub.png" alt-text="Screenshot that shows the Hub selection in the vWAN Portal.":::
 
-3. On the results page, select **+Add diagnostic setting**, then select an option. You can choose to send to Log Analytics, stream to an event hub, or to simply archive to a storage account.
+2. Under the **Connectivity** group on the left select the gateway you want to examine the diagnostics:
 
-   :::image type="content" source="./media/monitor-virtual-wan/5.png" alt-text="metrics page":::
+   :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhubGateway.png" alt-text="Screenshot that shows the 'Connectivity' section for the hub.":::
+
+3. On the right part of the page, click on **View in Azure Monitor** link right to **Logs**  then select an option. You can choose to send to Log Analytics, stream to an event hub, or to simply archive to a storage account.
+
+   :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhubGatewayViewLogsInAzureMonitor.png" alt-text="Select View in Azure Monitor for Logs":::
+
+4. In this page you can create new diagnostic setting (**+Add diagnostic setting**) or edit existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the example below), stream to an event hub, send to a 3rd-party solution, or to simply archive to a storage account.
+
+    :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhubGatewayDiagSettings.png" alt-text="Select Diagnostic Log settings":::
 
 ### <a name="sample-query"></a>Log Analytics sample query
 
-Logs are located in **Azure Log Analytics Workspace**. You can set up a query in Log Analytics. The following example contains a query to obtain site-to-site route diagnostics.
+If you selected to send diagnostic data to a Log Analytics Workspace, then you can use queries as the example below to examine. 
+These queries use a SQL-like Log Analytics Query Language, you can learn more about this language from [this article](https://docs.microsoft.com/services-hub/health/log_analytics_query_language).
+You can set up a query in Log Analytics. The following example contains a query to obtain site-to-site route diagnostics.
 
 ```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
 
-Replace the values below, after the **= =**, as needed.
+Replace the values below, after the **= =**, as needed based on the tables reported in the previous section of this article.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"
 * "P2SDiagnosticLog”
 * "TunnelDiagnosticLog"
 * "RouteDiagnosticLog"
+
+In order to execute the query, you have to open the Log Analytics resource you configured to receive the diagnostic logs, and then select **Logs** under the **General** tab on the left side of the pane:
+
+:::image type="content" source="./media/monitor-virtual-wan/vWANDiagnosticLogAnalyticsQuerySamples.png" alt-text="Log Analytics Query Samples":::
 
 ## <a name="activity-logs"></a>Activity logs
 
