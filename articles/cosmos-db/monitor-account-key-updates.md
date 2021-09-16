@@ -33,7 +33,7 @@ Azure Monitor for Azure Cosmos DB provides metrics, alerts, and logs to monitor 
 
 1. To further see which key was changed, select the **Apply splitting** option. Select  **KeyType** and set the **Limit**, **Sort** properties. The graph is now split by primary and secondary key updates as shown in the following image:
 
-   :::image type="content" source="./media/monitor-account-key-updates/account-keys-updated-metric-chart.png" alt-text="Metric chart when primary and secondary keys are updated" border="true":::
+   :::image type="content" source="./media/monitor-account-key-updates/account-keys-updated-metric-chart.png" alt-text="Metric chart when primary and secondary keys are updated" border="true" lightbox="./media/monitor-account-key-updates/account-keys-updated-metric-chart.png":::
 
 ## Configure alerts for a key update
 
