@@ -135,7 +135,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, select **Azure Active Directory**.
    
-    ![Screenshot shows Azure Active Directory selected from the Azure portal menu.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Screenshot shows Azure Active Directory selected from the Azure portal menu to get domain name.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. On the **Azure Active Directory** page, select **Custom domain names**.
 
@@ -150,7 +150,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Azure Active Directory**.
    
-    ![Screenshot shows Azure Active Directory selected from the Azure portal menu.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Screenshot shows Azure Active Directory selected from the Azure portal menu to get application's client ID.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Select your application from the **App Registrations** page.
 
@@ -165,7 +165,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Azure Active Directory**.
    
-    ![Screenshot shows Azure Active Directory selected from the Azure portal menu.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Screenshot shows Azure Active Directory selected from the Azure portal menu to get application's client secret.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2.  Select your application from the **App Registrations** page.
 
@@ -189,7 +189,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, select **Azure Active Directory**.
    
-    ![Screenshot shows Azure Active Directory selected from the Azure portal menu.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Screenshot shows Azure Active Directory selected from the Azure portal menu to upload the certificate.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. On the **Azure Active Directory** page, select **App Registration**.
 3. From the application page, select your application.
@@ -197,7 +197,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 5. Select **Upload certificate**.
 6. Select the file icon, go to a certificate, and then select **Add**.
 
-    ![Screenshot shows Azure Active Directory selected from the Azure portal menu.](./media/howto-configure-prerequisites-for-reporting-api/upload-certificate.png)
+    ![Screenshot shows uploading the certificate.](./media/howto-configure-prerequisites-for-reporting-api/upload-certificate.png)
 
 ## Troubleshoot errors in the reporting API
 
