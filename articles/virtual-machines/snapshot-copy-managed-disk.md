@@ -7,7 +7,7 @@ ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/07/2021
+ms.date: 09/16/2021
 ---
 
 # Create a snapshot of a virtual hard disk
@@ -130,11 +130,11 @@ Deploy a virtual machine from a snapshot. Create a managed disk from a snapshot 
 
 # [Portal](#tab/portal)
 
-For more information, see the example in [Create a VM from a VHD by using the Azure portal](/windows/create-vm-specialized-portal).
+For more information, see the example in [Create a VM from a VHD by using the Azure portal](windows/create-vm-specialized-portal.md).
 
 # [PowerShell](#tab/powershell)
 
-For more information, see the example in [Create a Windows VM from a specialized disk by using PowerShell](/windows/create-vm-specialized).
+For more information, see the example in [Create a Windows VM from a specialized disk by using PowerShell](windows/create-vm-specialized.md).
 
 # [Azure CLI](#tab/cli)
 
