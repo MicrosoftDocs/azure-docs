@@ -58,7 +58,7 @@ After you set the properties in your trading partner agreement, you can configur
 1. Based on the agreement with the partner that exchanges messages with you, set the properties in the **Receive Settings** pane, which is organized into the following sections:
 
    * [Identifiers](#inbound-identifiers)
-   * [Acknowledgement](#inbound-acknowledgement)
+   * [Acknowledgment](#inbound-acknowledgment)
    * [Schemas](#inbound-schemas)
    * [Envelopes](#inbound-envelopes)
    * [Control Numbers](#inbound-control-numbers)
@@ -83,9 +83,9 @@ After you set the properties in your trading partner agreement, you can configur
 
 <a name="inbound-acknowledgement"></a>
 
-### Receive Settings - Acknowledgement
+### Receive Settings - Acknowledgment
 
-![Acknowledgement for inbound messages](./media/logic-apps-enterprise-integration-x12/x12-receive-settings-acknowledgement.png)
+![Acknowledgment for inbound messages](./media/logic-apps-enterprise-integration-x12/x12-receive-settings-acknowledgement.png)
 
 | Property | Description |
 |----------|-------------|
@@ -179,7 +179,7 @@ After you set the agreement properties, you can configure how this agreement ide
    The **Send Settings** are organized into these sections:
 
    * [Identifiers](#outbound-identifiers)
-   * [Acknowledgement](#outbound-acknowledgement)
+   * [Acknowledgment](#outbound-acknowledgement)
    * [Schemas](#outbound-schemas)
    * [Envelopes](#outbound-envelopes)
    * [Control Version Number](#outbound-control-version-number)
@@ -205,14 +205,14 @@ After you set the agreement properties, you can configure how this agreement ide
 
 <a name="outbound-acknowledgement"></a>
 
-### Send Settings - Acknowledgement
+### Send Settings - Acknowledgment
 
-![Acknowledgement properties for outbound messages](./media/logic-apps-enterprise-integration-x12/x12-send-settings-acknowledgement.png)
+![Acknowledgment properties for outbound messages](./media/logic-apps-enterprise-integration-x12/x12-send-settings-acknowledgement.png)
 
 | Property | Description |
 |----------|-------------|
 | **TA1 Expected** | Return a technical acknowledgment (TA1) to the interchange sender. <p>This setting specifies that the host partner, who is sending the message, requests an acknowledgment from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
-| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgements. <p>This setting specifies that the host partner, who is sending the message, requests an acknowledgement from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
+| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgments. <p>This setting specifies that the host partner, who is sending the message, requests an acknowledgement from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
 |||
 
 <a name="outbound-schemas"></a>
