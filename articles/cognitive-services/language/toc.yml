@@ -124,6 +124,8 @@ items:
     items:
     - name: Precise answering
       href: custom-question-answering/concepts/precise-answering.md
+    - name: Development lifecycle
+      href: ../qnamaker/concepts/development-lifecycle-knowledge-base.md?context=/azure/cognitive-services/language/context/context
 - name: Entity linking
   items:
   - name: Overview
