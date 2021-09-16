@@ -4,7 +4,7 @@ description: Learn how read and write Cosmos DB system document properties via G
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
-ms.date: 09/10/2019
+ms.date: 09/16/2021
 author: manishmsfte
 ms.author: mansha
 ---
@@ -28,13 +28,33 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 ## Time-to-live (TTL)
 
-If collection has document expiration enabled and documents have ```ttl``` property set on them, then this property will be available in Gremlin traversal as a regular vertex or edge property. ```ProjectionStrategy``` isn't necessary to enable time-to-live property exposure.
+If collection has document expiration enabled and documents have `ttl` property set on them, then this property will be available in Gremlin traversal as a regular vertex or edge property. `ProjectionStrategy` isn't necessary to enable time-to-live property exposure.
 
-Vertex created with the traversal below will be automatically deleted in **123 seconds**.
+* To set time-to-live on a new vertex use the following command:
 
-```
-g.addV('vertex-one').property('ttl', 123)
-```
+  ```msgraph-interactive
+  g.addV(<ID>).property('ttl', <expirationTime>)
+  ```
+
+  For example, a vertex created with the following traversal is automatically deleted after *123 seconds*:
+
+  ```msgraph-interactive
+  g.addV('vertex-one').property('ttl', 123)
+  ```
+
+* Use the following command to set time-to-live on an existing vertex:
+
+  ```
+  g.V().hasId(<ID>).has('pk', <pk>).property('ttl', <expirationTime>)
+  ```
+
+* Applying time-to-live property on vertices does not automatically apply it to edges. Because edges are independent records in the database store. Use the following command to set time-to-live on vertices and all the incoming and outgoing edges of the vertex:
+
+  ```
+  g.V().hasId(<ID>).has('pk', <pk>).as('v').bothE().hasNot('ttl').property('ttl', <expirationTime>)
+  ```
+
+You can set TTL on the container to -1 or set it to **On (no default)** from Azure portal, then the TTL is infinite for any item unless the item has TTL value explicitly set.
 
 ## Next steps
 * [Cosmos DB Optimistic Concurrency](../faq.yml#how-does-the-sql-api-provide-concurrency-)
