@@ -92,12 +92,12 @@ The following table lists the high-level permissions for the custom security att
 
 | Permission | Global Admin | Attribute Definition Admin | Attribute Assignment Admin | Attribute Definition Reader | Attribute Assignment Reader |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| Add and update attribute sets | :x: | :heavy_check_mark: | :x: | :x: | :x: |
-| Read attribute sets | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Add and update attribute definitions | :x: | :heavy_check_mark: | :x: | :x: | :x: |
-| Assign attributes to users and applications (service principals) | :x: | :x: | :heavy_check_mark: | :x: | :x: |
-| Read attribute definitions | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Read attribute assignments for users and applications (service principals) | :x: | :x: | :heavy_check_mark: | :x: | :heavy_check_mark: | 
+| Add and update attribute sets |  | :heavy_check_mark: |  |  |  |
+| Read attribute sets |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Add and update attribute definitions |  | :heavy_check_mark: |  |  |  |
+| Assign attributes to users and applications (service principals) |  |  | :heavy_check_mark: |  |  |
+| Read attribute definitions |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| Read attribute assignments for users and applications (service principals) |  |  | :heavy_check_mark: |  | :heavy_check_mark: | 
 
 You should note the following about these roles:
 
