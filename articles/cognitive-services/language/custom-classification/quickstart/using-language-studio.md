@@ -18,6 +18,8 @@ In this article, we use the Language studio to demonstrate key concepts of Custo
 
 ## Prerequisites
 
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
 ## Upload Sample data to blob container
