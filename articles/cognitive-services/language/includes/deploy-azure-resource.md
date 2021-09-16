@@ -21,11 +21,11 @@ To use Language Studio, you will need an Azure resource for language for authent
 
 2. [Log into Language Studio](https://language.azure.com/). If it's your first time logging in, you'll see a window appear that lets you choose a language resource. 
 
-   :::image type="content" source="../media/language-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../media/language-resource.png":::
+   :::image type="content" source="../media/language-resource-small.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../media/language-resource.png":::
 
 3. Select **Create a new language resource**. Then enter information for your new resource, such as a name, location and resource group.
 
-    :::image type="content" source="../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../media/create-new-language-resource.png":::
+    :::image type="content" source="../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../media/create-new-resource.png":::
 
 4. Select **Done**. Your resource will be created, and you will be able to try the different features offered by the Language Service. 
 
