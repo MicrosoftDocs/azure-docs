@@ -3,7 +3,7 @@ metadata:
   title: Partner Center migration FAQ
   description: Microsoft is migrating to a modern management experience for the Office Store program in Partner Center. This article provides answers to frequently asked questions about the migration.
   ms.author: mingshen
-  localization_priority: Normal
+  ms.localizationpriority: medium
     
 title: Partner Center migration FAQ
 summary: Microsoft is rolling out a modern management experience for the Microsoft 365 App Store program in Partner Center. Microsoft 365 Add-ins (including Outlook add-ins), SharePoint add-ins, Teams apps, and Power BI visuals will be migrated to Partner Center. This article provides answers to frequently asked questions about the migration.
