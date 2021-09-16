@@ -1,5 +1,5 @@
 ---
-title: Validate XML for B2B enterprise integration
+title: Validate XML in enterprise integration workflows
 description: Validate XML using schemas in Azure Logic Apps with the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
@@ -7,12 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 09/15/2021
 ---
 
 # Validate XML for workflows in Azure Logic Apps
 
 Often in enterprise integration business-to-business (B2B) scenarios, the trading partners in an agreement need to make sure that the messages they exchange are valid before any data processing can start. You can validate documents against a predefined schema by using the **XML Validation** action in Azure Logic Apps.
+
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## Prerequisites
 
@@ -22,27 +24,21 @@ Often in enterprise integration business-to-business (B2B) scenarios, the tradin
 
   If you have a blank workflow, use any trigger you want. This example uses the Request trigger.
 
-  If you're new to logic apps, review the following documentation:
-
-  * [What is Azure Logic Apps](logic-apps-overview.md)
-
-  * [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md)
-
-  * [Create single-tenant logic app workflows](create-single-tenant-workflows-azure-portal.md)
-
-  * [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
-
-* If you're using the **Logic App (Consumption)** resource type, you need to have an [integration account](logic-apps-enterprise-integration-create-integration-account.md) that meets the following requirements:
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
   * Is associated with the same Azure subscription as your logic app resource.
 
-  * Exists in the same location or Azure region as your logic app resource where you plan to use the **XML Validation** action.
+  * Exists in the same location or Azure region as your logic app resource where you plan to use the **XML Validation*** action.
 
-  * Is [linked](logic-apps-enterprise-integration-create-integration-account.md#link-account) to the logic app resource.
+  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account requires the following items:
 
-  * Contains the [schema](logic-apps-enterprise-integration-schemas.md) to use for validating XML content.
+    * The [schema](logic-apps-enterprise-integration-schemas.md) to use for validating XML content.
 
-  If you're using the **Logic App (Standard)** resource type, you don't need to link an integration account. However, you still have to add the [schema](logic-apps-enterprise-integration-schemas.md) to use for validating XML content to your logic app resource. You can complete this task on your logic app resource's menu, under **Settings**, in the **Schemas** section.
+    * A [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account).
+
+  * If you're using use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you don't store schemas in your integration account. Instead, you can [directly add schemas to your logic app resource](logic-apps-enterprise-integration-schemas.md) using either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
+
+    You still need an integration account for your partners, agreements, and certificates along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account has to still meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
 
 ## Add XML validation action
 
