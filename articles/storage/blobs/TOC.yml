@@ -875,17 +875,7 @@ items:
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Optimize performance
-      items:
-      - name: Performance optimization overview
-        href: data-lake-storage-performance-tuning-guidance.md
-      - name: Optimize Spark on HDInsight
-        href: data-lake-storage-performance-tuning-spark.md
-      - name: Optimize Hive on HDInsight
-        href: data-lake-storage-performance-tuning-hive.md
-      - name: Optimize MapReduce on HDInsight
-        href: data-lake-storage-performance-tuning-mapreduce.md
-      - name: Optimize Storm on HDInsight
-        href: data-lake-storage-performance-tuning-storm.md
+      href: data-lake-storage-performance-tuning-guidance.md
   - name: Reference
     items:
     - name: .NET
