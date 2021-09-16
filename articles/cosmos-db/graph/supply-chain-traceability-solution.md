@@ -82,7 +82,7 @@ The above diagram shows a high level and simplified view of a very complex suppl
 
 * These intricate relationships are vital in a quality incident where the system can track and trace pallets across the supply chain. Graph and its traversals provide the required information for this. For example, if there is an issue with one raw material, the graph can show the impacted pallets, current location.
 
-Infosys and Microsoft together offers:
+Infosys and Microsoft together offer:
 
 * A pre-configured platform using Azure services and [Infosys Cobolt solution](https://www.infosys.com/services/cloud-cobalt/).  
 * Infosys commodity graph solution with ingestion, traceability traversals, and algorithms.
@@ -95,3 +95,5 @@ Infosys and Microsoft together offers:
 
 ## Next steps
 
+* To visualize graph data, see the [Gremlin API visualization solutions](graph-visualization-partners.md).
+* To model your graph data, see the [Gremlin APU modeling solutions](graph-modeling-tools.md).
