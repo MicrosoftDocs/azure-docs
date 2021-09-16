@@ -54,7 +54,7 @@ In [multi-regional deployments](api-management-howto-deploy-multi-region.md), ea
 
 If your API Management service is inside a virtual network, it will have two types of IP addresses - public and private.
 
-Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the external VNet configuration, they are also used for runtime API traffic. When a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will be visible as the origin of the request.
+Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the external VNet configuration, they are also used for runtime API traffic. 
 
 Private virtual IP (VIP) addresses, available **only** in the [internal VNet mode](api-management-using-with-internal-vnet.md), are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane for direct API access. You can use them for setting up DNS records within the network.
 
@@ -84,7 +84,9 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 
 API Management uses a public IP address for connections outside the VNet and a private IP address for connections within the VNet. 
 
-For the purposes of "allow listing" access from API Management within the VNET (or a connected network) ensure the APIM subnet prefix and not just the private IP address associated to the APIM resource, is allowed. An example would be a NSG on the subnet for the backend service which is set to only accept http traffic from API Management. The rule to allow APIM traffic should have a source IP range set to the APIM subnet prefix.
+When API management is deployed in the [internal VNet configuration](api-management-using-with-internal-vnet.md) and API management connects to private (Intranet-facing) backends, internal IP addresses from the subnet are used for the runtime API traffic. When a request is sent from API Management to a private backend, a private IP address will be visible as the origin of the request. Therefore in this configuration, if a requirement exists to restrict traffic between API Management and an internal backend, it is better to use the whole API Management subnet prefix with an IP rule and not just the private IP address associated with the API Management resource. 
+
+When a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will always be visible as the origin of the request.
 
 ## IP addresses of Consumption tier API Management service
 
