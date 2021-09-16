@@ -337,13 +337,8 @@
     - name: Virtual machines selector tool
       href: https://aka.ms/vm-selector
     - name: Change the VM size
-      items:
-      - name: CLI
-        displayName: Change, resize, update size
-        href: ./linux/change-vm-size.md
-      - name: Portal or PowerShell
-        displayName: Change, resize, update size
-        href: ./windows/resize-vm.md
+      displayName: Change, resize, update size
+      href: resize-vm.md
     - name: States and billing
       href: states-billing.md
     - name: Azure VMs with no temp disk

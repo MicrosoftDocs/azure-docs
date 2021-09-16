@@ -1,7 +1,7 @@
 ---
-title: Configure a lab identity in Azure DevTest Labs
+title: Configure a lab identity
 description: Learn how to configure a lab identity in Azure DevTest.
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/20/2020
 ---
 

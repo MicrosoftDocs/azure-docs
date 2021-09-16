@@ -219,7 +219,7 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](integration-cisco-ise-pxgrid.md).
+In this tutorial, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](./integration-forescout.md).
 
 > [!div class="nextstepaction"]
-> [Next steps button](integration-cisco-ise-pxgrid.md)
+> [Next steps button](./integration-forescout.md)

@@ -52,7 +52,7 @@ With the MyApps Browser Extension, all internal URLs published with Application 
 
 To use this feature, the user needs to download the extension and be logged in. There is no other configuration needed for admins or the users. 
 
-To learn more, including how to configure this option, please see the [MyApps Browser Extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
+To learn more, including how to configure this option, please see the [MyApps Browser Extension](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
 
 > [!NOTE]
 > The MyApps Browser Extension does not support link translation for wildcard URLs.
