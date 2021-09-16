@@ -64,23 +64,23 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
  2. The Active Directory administrator or Azure Administrator should check **Azure AD Connect** Synchronization Service Manager. By default it takes approximately 30 minutes to replicate to the **Azure Active Directory**. 
  3. The Azure administrator should complete the following tasks:
      1. Create a Storage Account with either **Premium ZRS** or **LRS**. Customers with Zonal deployment should choose ZRS. Here the choice between setting up a **Standard** or **Premium Account** needs to be made:
-     ![Azure Portal Screenshot for create storage account - Step 1](media/virtual-machines-shared-sap-high-availability-guide/create-storage-account-1.png)Azure Portal Screenshot for create storage account - Step 1
+     ![Azure portal Screenshot for create storage account - Step 1](media/virtual-machines-shared-sap-high-availability-guide/create-storage-account-1.png)Azure portal Screenshot for create storage account - Step 1
          > [!IMPORTANT]
          > For productive use the recommendation is using a **Premium Account**. For non-productive using a **Standard Account** will be sufficient. 
          >
-         ![Azure Portal Screenshot for create storage account - Step 2](media/virtual-machines-shared-sap-high-availability-guide/create-storage-account-2.png)Azure Portal Screenshot for create storage account - Step 2
+         ![Azure portal Screenshot for create storage account - Step 2](media/virtual-machines-shared-sap-high-availability-guide/create-storage-account-2.png)Azure portal Screenshot for create storage account - Step 2
          
          In this screen the default settings should be ok.
         
-         ![Azure Portal Screenshot for create storage account - Step 3](media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png)Azure Portal Screenshot for create storage account - Step 3 
+         ![Azure portal Screenshot for create storage account - Step 3](media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png)Azure portal Screenshot for create storage account - Step 3 
          
          In this step the decision to use a private endpoint is made.
      1. **Select Private Network Endpoint** for the storage account.
      If required add a DNS A-Record into Windows DNS for the **<storage_account_name>.file.core.windows.net** (this may need to be in a new DNS Zone).  Discuss this topic with the DNS administrator.  The new zone should not update outside of an organization.  
-         ![pivate-endpoint-creation](media/virtual-machines-shared-sap-high-availability-guide/create-sa-3.png)Azure Portal screenshot for the private endpoint definition.
+         ![pivate-endpoint-creation](media/virtual-machines-shared-sap-high-availability-guide/create-sa-3.png)Azure portal screenshot for the private endpoint definition.
          ![private-endpoint-dns-1](media/virtual-machines-shared-sap-high-availability-guide/pe-dns-1.png)DNS server screenshot for private endpoint DNS definition.    
      1. Create the **sapmnt** File share with an appropriate size.  The suggested size is 256GB which delivers 650 IOPS, 75 MB/sec Egress and 50 MB/sec Ingress.
-         ![create-storage-account-5](media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png)Azure Portal screenshot for the SMB share definition. 
+         ![create-storage-account-5](media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png)Azure portal screenshot for the SMB share definition. 
       
      1. Download the [Azure Files GitHub](/azure/storage/files/storage-files-identity-ad-ds-enable#download-azfileshybrid-module) content and execute the [script](/azure/storage/files/storage-files-identity-ad-ds-enable#run-join-azstorageaccountforauth).   
      This script will create either a Computer Account or Service Account in Active Directory.  The user running the script must have the following properties: 
@@ -94,7 +94,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
          In this example scenario the Active Directory Administrator would logon to the Windows Server as **SAPCONT_ADMIN@SAPCONTOSO.local** and when using the **PS command Connect-AzAccount** connect as user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.  Ideally the Active Directory Administrator and the Azure Administrator should work together on this task.
          ![powershell-script-1](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png)Screenshot of the PowerShell script creating local AD account.
 
-         ![smb-configured-screenshot](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)Azure Portal screenshot after successful PowerShell script execution. 
+         ![smb-configured-screenshot](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)Azure portal screenshot after successful PowerShell script execution. 
 
          The following should appear as “Configured”  
          Storage -> Files Shares “Active Directory: Configured”
