@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
+  - name: Pricing
+    href: https://aka.ms/unifiedLanguagePricing
 - name: Custom text classification
   items:
   - name: Overview
