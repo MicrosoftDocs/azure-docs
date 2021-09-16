@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/06/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support, has-adal-ref"
@@ -131,13 +131,14 @@ In this section, configure where your application listens to the Azure AD B2C to
         </intent-filter>
     </activity>
     ```
+
 1. Replace the `Signature_Hash` with the hash you generated.
 1. Replace the `Package_Name` with your Android package name.
- 
+
 Follow these steps to update the mobile app registration with your app redirect URI:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select the application you registered in [2.3 Register the mobile app](configure-authentication-sample-android-app.md#23-register-the-mobile-app).
