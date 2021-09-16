@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
+  - name: Pricing
+    href: https://aka.ms/unifiedLanguagePricing
 - name: Custom text classification
   items:
   - name: Overview
@@ -100,8 +102,10 @@ items:
     items:
       - name: Backwards compatibility
         href: custom-language-understanding/concepts/backwards-compatibility.md
-- name: Custom question answering
+- name: Question answering
   items:
+  - name: Overview
+    href: custom-question-answering/overview.md
   - name: Quickstart
     href: custom-question-answering/quickstart/sdk.md
   - name: Language support
@@ -118,10 +122,21 @@ items:
       href: custom-question-answering/how-to/chit-chat.md
     - name: Change default answer
       href: custom-question-answering/how-to/change-default-answer.md
+    - name: Filter responses
+      href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language/context/context
   - name: Concepts
     items:
     - name: Precise answering
       href: custom-question-answering/concepts/precise-answering.md
+    - name: Development lifecycle
+      href: ../qnamaker/concepts/development-lifecycle-knowledge-base.md?context=/azure/cognitive-services/language/context/context
+    - name: Data sources and content
+      href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language/context/context
+    - name: Confidence score
+      href: ../qnamaker/concepts/confidence-score.md?context=/azure/cognitive-services/language/context/context
+    
+
+
 - name: Entity linking
   items:
   - name: Overview
