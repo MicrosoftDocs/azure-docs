@@ -1,7 +1,7 @@
 ---
 title: View acquisitions report
 description: Analyze your app or add-in performance and see funnel and acquisitions metrics.
-localization_priority: Priority
+ms.localizationpriority: medium
 ms.author: mingshen
 ms.date: 09/27/2021
 ---
