@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ---
-#  Create an iOS app with Azure Maps
+#  Create an iOS app with Azure Maps (Public Preview)
 
 This article shows you how to add the Azure Maps to an iOS app. It walks you through these basic steps:
 
