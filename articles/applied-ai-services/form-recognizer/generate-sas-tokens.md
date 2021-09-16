@@ -1,27 +1,26 @@
 ---
 title: Generate shared access signature (SAS) token for containers and blobs with Azure portal and Microsoft Storage Explorer
-description: How to generate a Shared Access Token (SAS) for containers and blobs with Microsoft Storage Explorer and the Azure portal
+description: How to generate a Shared Access Token (SAS) for containers and blobs in the Azure portal
 ms.topic: how-to
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: applied-ai-services
+ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: lajanuar
 recommendations: false
-keywords: on-premises, Docker, container, identify
 ---
 
 # Generate SAS tokens for your storage containers
 
-In this article, you'll learn how to create shared access signature (SAS) tokens using the Azure portal. An SAS token is a string that provides secure, delegated access to resources in your Azure storage account. Your application provides the SAS token to Azure storage as part of a request. If the storage service verifies that the SAS is valid, the request is authorized. If not, the request is declined with error code 403 (Forbidden).
+In this article, you'll learn how to generate shared access signature (SAS) tokens using the Azure portal. An SAS token is a string that provides secure, delegated access to resources in your Azure storage account. Your application provides the SAS token to Azure storage as part of a request. If the storage service verifies that the SAS is valid, the request is authorized. If not, the request is declined with error code 403 (Forbidden).
 
 Azure blob storage offers three types of resources:
 
 * **Storage** accounts provide a unique namespace in Azure for your data.
 * **Containers** in storage accounts organize sets of blobs.
-* **Blobs**—block blobs in a containers store text and binary data.
+* **Blobs**—block blobs in a container store text and binary data.
 
 > [!NOTE]
 >
@@ -33,7 +32,7 @@ Azure blob storage offers three types of resources:
 
 ## When to use a shared access signature
 
-* If you're using storage containers with public access to store and process your Form Recognizer documents, you can opt to use a SAS token to grant limited access.
+* If you're using storage containers with public access, you can opt to use a SAS token to grant limited access.
 
 * If you are training a custom model, your assembled set of training documents must be uploaded to an Azure blob storage container. Additionally, if you're using manually labeled data, you'll also have to upload the _labels.json_ and _ocr.json_ files that correspond to your training documents.
 
@@ -94,7 +93,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 
 1. Under  **Signing key**, select the access key that will be used to sign the SAS token. The access keys are located in the left menu under **Security + networking**.
 
-1. Define **Permissions** by checking and/or clearing the appropriate check box. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked
+1. Define **Permissions** by checking and/or clearing the appropriate check box. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are checked
 
 1. Specify the signed key **Start** and **Expiry** times.
 
@@ -108,7 +107,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 
 1. **Copy and paste the Blob SAS token and URL values in a secure location. They'll only be displayed once and cannot be retrieved once the window is closed.**
 
-* To use the *Blob SAS URL* add it to your API call as follows:
+* To use the *Blob SAS URL*, add it to your API call as follows:
 
 ```json
 {
