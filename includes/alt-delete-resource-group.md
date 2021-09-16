@@ -11,7 +11,7 @@ ms.date: 9/04/2021
 ---
 
 >[!IMPORTANT]
->The resources that you created can be used as prerequisites to other Azure Load Testing tutorials and how-to articles. 
+>You can use the resources that you created as prerequisites to other Azure Load Testing tutorials and how-to articles. 
 
 If you don't plan to use any of the resources that you created, delete them so you don't incur any further charges.
 
@@ -26,7 +26,7 @@ If you don't plan to use any of the resources that you created, delete them so y
 
     1. Enter the resource group name. Then select **Delete**.
 
-* Alternately, you can also use the CLI. 
+* Alternately, you can also use the CLI.
    ```cli
    az group delete --name myResourceGroup
    ```

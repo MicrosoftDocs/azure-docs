@@ -12,7 +12,7 @@ ms.topic: tutorial
 
 # Run a load test in Azure portal to identify performance bottlenecks
 
- This article describes how to load test a sample application to identify performance bottlenecks. The application consists of a Web API deployed to Azure App Service that interacts with an Azure Cosmos DB data store.
+ This article describes how to load test a sample application to identify performance bottlenecks. The application consists of a web API deployed to an Azure App Service that interacts with an Azure Cosmos DB data store.
 
 In this tutorial, you'll learn how to:
 
@@ -29,16 +29,16 @@ In this tutorial, you'll learn how to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Download and install:
   - [VS Code](https://code.visualstudio.com/Download)
-  - The [Azure Load Testing extension](https://github.com/microsoft/azureloadtest#installation-of-vs-code-extension)
+  - The [Azure Load Testing extension](https://github.com/microsoft/azureloadtest#installation-of-vs-code-extension) for VS Code
   - [Java](https://java.com/en/download/windows_manual.jsp)
   - [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi)
   - Apache JMeter [Plugins Manager](https://jmeter-plugins.org/install/Install/)
 
-    Since the JMX uses an Ultimate Thread group,  Install Plugins Manager to run the JMeter script on a fresh JMeter install .
+    Since the JMX uses an Ultimate Thread group, install Plugins Manager to run the JMeter script on a fresh JMeter install .
 
 ## Deploy the sample app
 
-1. In your terminal window, sign in to Azure and set the subscription:
+1. Open WIndows PowerShell, sign in to Azure, and set the subscription:
  
    ```powershell
    az login
@@ -53,7 +53,7 @@ In this tutorial, you'll learn how to:
 
     The sample application is a Node.js app consisting of an Azure App Service web component and a Cosmos DB database. The repo also includes a PowerShell script that deploys the sample app to your Azure subscription. It also has a JMeter script that you'll use in later steps.
 
-1. Deploy the sample app using the PowerShell script.
+1. Go to the Node.js app's directory and deploy the sample app using the PowerShell script.
 
    ```powershell
     cd nodejs-appsvc-cosmosdb-bottleneck
@@ -61,27 +61,33 @@ In this tutorial, you'll learn how to:
    ```
         
    > [!TIP]
-   > PowerShell Core can also be installed on [Linux/WASL](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-1804&preserve-view=true) or [macOS](/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7.1&preserve-view=true).
-   > After installing it, you can run the previous command with `pwsh .\deploymentscript.ps1`.
+   > You can install PowerShell Core on [Linux/WASL](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-1804&preserve-view=true) or [macOS](/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7.1&preserve-view=true).
+   >
+   > After installing it, you can run the previous command as `pwsh .\deploymentscript.ps1`.
 
-1. At the prompt, provide a unique application name and a location, which by default is  `eastus`.
+1. At the prompt, provide
+
+   - Your Subscription ID
+   - A unique name for your web app.
+   - A location. By default, it's `eastus`.
 
    > [!IMPORTANT]
    > For your webapp name, use only lowercase letters and numbers. No spaces. No special characters.
 
-1. Once deployment is finished, browse to the running sample application.
+1. Once deployment finishes, browse to the running sample application.
 
    ```powershell
-   Start-Process "https://<your-app-name>.azurewebsites.net"
+   Start-Process "https://<yourappname>.azurewebsites.net"
    ```
 
 1. You can also go to the [Azure portal](https://portal.azure.com) to view the application's components by going to its resource group.
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/resource-group.png" alt-text="Resource groups.":::
 
-Now that the application is deployed and running, let’s get started with running your first load test against it.
+Now that you have the application deployed and running, go ahead and get started with running your first load test against it.
 
 ## Create and run a load test
+
 The sample application's source repository includes a JMeter script named `SampleApp.jmx`. This script carries out three API calls on each test iteration:
 
 * `add` - Carries out a data insert operation on Cosmos DB for the number of visitors on the webapp.
@@ -112,12 +118,12 @@ Before you start, make sure you have the directory of the cloned sample app open
 
 1. Save your changes and close the file.
 
-1. Use **Ctrl+Shift+P** to launch the command palette. Begin typing `Azure load` and you would see two commands associated with the Azure Load Test extension:
+1. Use **Ctrl** + **Shift** + **P** to launch the command palette. Begin typing `Azure load` and you would see two commands associated with the Azure Load Test extension:
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/azure-load-testing-new-load-test.png" alt-text="Create a new Azure Load Testing test.":::
 
-    * **Run Current File as Load Test in Cloud**: This command is used to run an existing cloud load test at scale in Azure.
-    * **Create New Test**: This command is used to author a new cloud load test from an existing JMeter script.
+    * **Run Current File as Load Test in Cloud**: Use this command to run an existing cloud load test at scale in Azure.
+    * **Create New Test**: Use this command to author a new cloud load test from an existing JMeter script.
 
 1. Select **Create New Test**.
 
@@ -125,7 +131,7 @@ Before you start, make sure you have the directory of the cloned sample app open
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/browse-for-load-test-plans.png" alt-text="Search for Azure Load Testing plans.":::
 
-   If there are multiple test plans in the workspace, they'll be shown as a list. There's also a browse option to search for a test plan within your local file system.
+   If there are multiple test plans in the workspace, they'll see them in a list. There's also a browse option to search for a test plan within your local file system.
 
 1. A YAML-based load test with smart defaults opens.
 
@@ -139,32 +145,36 @@ Before you start, make sure you have the directory of the cloned sample app open
 
     For instance, since you don’t have configuration files associated with your current test plan, you can remove them for now.
 
-1. Save the changes to your YAML file and then select **Run Current File as Load Test in Cloud** from the Visual Studio Code command palette.
+1. Save the changes to your YAML file.
+
+1. With the YAML file still open, go to the command pallet and select **Run Current File as Load Test in Cloud**.
 
 1. Sign in to Azure if prompted.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/select-a-subscription.png" alt-text="Select an Azure subscription for Azure Load Testing.":::
-
 1. Select the subscription from which you'll run your load test. 
+
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/select-a-subscription.png" alt-text="Select an Azure subscription for Azure Load Testing.":::
 
 1. Select **Create new Test Environment...** and follow the prompts to create the resource.
 
    It's an Azure resource that will store load tests, test results, and other related artifacts.
 
-1. Finally, select the resource group *of the sample application being tested* and select **OK**.
+1. Finally, select the resource group *of the sample application you're testing* and select **OK**.
+
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/app-server-results.png" alt-text="Application's server metrics monitored by Azure Load Testing.":::
 
 Azure Load Testing service begins to monitor and display the application's server metrics in the test results.
 
-If everything is okay, the test will start with status messages as shown below. Select the **View here** link to see the metrics related to your load test in Azure portal. 
+If everything is okay, the test will start with status messages as shown below. 
 
-:::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/app-server-results.png" alt-text="Application's server metrics monitored by Azure Load Testing.":::
+:::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/azure-load-testing-run-messages.png" alt-text="Azure Load Testing status messages.":::
+
+Select **View Progress**, or follow the link to see the metrics related to your load test in Azure portal. 
 
 > [!TIP]
 > You can stop a load test at any time from the Azure portal UI.
 
-:::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/azure-load-testing-run-messages.png" alt-text="Azure Load Testing status messages.":::
-
-You can see the streaming client-side metrics while the test is running which auto refreshes every 10 seconds. You can stop the test by selecting **Stop** and also apply filters to the requests by sampler and errors. The response times can also be aggregated for different percentiles.
+You can see the streaming client-side metrics while the test is running which auto refreshes every 5 seconds. You can stop the test by selecting **Stop** and also apply filters to the requests by sampler and errors. You can aggregate the response times for different percentiles.
  
 :::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/azure-load-testing-aggregated-by-percentile.png" alt-text="Azure Load Testing: results by percentile.":::
 
@@ -182,7 +192,7 @@ Now, you'll analyze the load test results. Check if there are any performance bo
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/azure-load-testing-client-side-metrics-errors.png" alt-text="Errors in Azure Load Testing.":::
 
-1. To learn why this increase occurred, go to the **Server side metrics** section.
+1. To learn why this increase occurred, scroll down to the **Server-side metrics** section.
 
    It shows your application's components - in this case an App Service Plan, App Service, and Cosmos DB - and their server metrics.
 
@@ -198,7 +208,7 @@ Now, you'll analyze the load test results. Check if there are any performance bo
 
 1. In the chart above, check out the **Provisioned Throughput** metric.
 
-   It shows that your Cosmos DB has been set up with a maximum throughput of 400 RUs. Go ahead and adjust this limit and check whether it addresses your performance bottleneck.
+   It shows that your Cosmos DB has been set up with a maximum throughput of 400 RUs. Go to the next section and adjust this limit to check whether it addresses your performance bottleneck.
 
 ## Remove bottleneck and check the performance
 
