@@ -50,7 +50,7 @@ The following is a list of FedRAMP resources:
 
 * [Azure Compliance Offerings](https://aka.ms/azurecompliance)
 
-* [FedRAMP High blueprint sample overview](../../governance/blueprints/samples/fedramp-h/index.md)
+* [FedRAMP High Azure Policy built-in initiative definition](../../governance/policy/samples/fedramp-high.md)
 
 * [Microsoft 365 compliance center](/microsoft-365/compliance/microsoft-365-compliance-center)
 
