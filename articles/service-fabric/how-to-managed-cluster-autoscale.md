@@ -23,8 +23,8 @@ The rest of this article describes an example deployment, how to enable or disab
 ## Example auto scale deployment
 
 This example will walk through: 
-* Creating a Standard SKU Service Fabric managed cluster with two node types
-* Adding auto scale rules to the secondary node type
+* Creating a Standard SKU Service Fabric managed cluster with two node types, `NT1` and `NT2` by default.
+* Adding auto scale rules to the secondary node type, `NT2`.
 
 >[!NOTE] 
 > Auto-scale of the node type is done based on managed VMSS CPU host metrics. 
@@ -46,16 +46,12 @@ The following steps will take you step by step through an end to end setup of a 
    Download this sample [Standard SKU Service Fabric managed cluster sample](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT) 
    Execute this command to deploy the cluster resource:
 
-<fixme, align variables to template>
-
    ```powershell
        $parameters = @{ 
        clusterName = $clusterName
-       location = $location
-       adminPassword = $adminPassword
+       adminPassword = $VmAdminPassword
        clientCertificateThumbprint = $clientCertificateThumbprint
-       nodeType2Name = $secondaryNodeTypeName
-    } 
+       } 
    New-AzResourceGroupDeployment -Name "deploy_cluster" -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterObject $parameters -Verbose
    ```
 
@@ -65,14 +61,12 @@ The following steps will take you step by step through an end to end setup of a 
 
    ```powershell
    $parameters = @{ 
-       clusterName = $clusterName
-       nodeType2Name = $secondaryNodeTypeName
-    } 
+    clusterName = $clusterName
    New-AzResourceGroupDeployment -Name "deploy_autoscale" -ResourceGroupName $resourceGroupName -TemplateFile .\sfmc-autoscale-enable.json -TemplateParameterObject $parameters -Verbose 
    ```
 
 >[!NOTE]
-> After this deployment completes, future deployments should use -1 for secondary node types that have auto scale rules enabled. This will avoid cluster deployments conflicting with auto scale.
+> After this deployment completes, future cluster resource deployments should use -1 for secondary node types that have auto scale rules enabled. This will avoid cluster deployments conflicting with auto scale.
 
 
 ## Enable or disable auto scaling in a managed cluster
@@ -222,9 +216,9 @@ Some things to consider:
 
 
 Once you've been through these steps, if you're still having autoscale problems, you can try the following resources:
-[Log a support call](./service-fabric-support#create-an-azure-support-request). Be prepared to share the template and a view of your performance data.
+[Log a support call](./service-fabric-support.md#create-an-azure-support-request). Be prepared to share the template and a view of your performance data.
 
 ## Next steps
-[Read about Azure Monitor auto scale support](../azure-monitor/autoscale/autoscale-overview)
+[Read about Azure Monitor auto scale support](../azure-monitor/autoscale/autoscale-overview.md)
 [Review Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
