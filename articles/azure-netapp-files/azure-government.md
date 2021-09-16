@@ -25,7 +25,7 @@ This article shows you how to access the Azure NetApp Files service within Azure
 
 ## Portal 
 
-Azure Government users can access Azure NetApp Files by pointing their browsers to **portal.azure.us**.  The portal site name is **Microsoft Azure Government**.   
+Azure Government users can access Azure NetApp Files by pointing their browsers to **portal.azure.us**.  The portal site name is **Microsoft Azure Government**. See [Connect to Azure Government using portal](../azure-government/documentation-government-get-started-connect-with-portal.md) for details.   
 
 ![Screenshot of the Azure Government portal highlighting portal.azure.us as the URL](../media/azure-netapp-files/anf-azuregov.jpg)
 
@@ -53,7 +53,7 @@ az cloud list --output table
 
 This command will produce a table with Azure cloud locations. The `isActive` column entry for `AzureUSGovernment` should read `true`.  
 
-For more information about using the CLI with Azure Government, see [Connect to Azure Government with Azure CLI](../azure-government/documentation-government-get-started-connect-with-cli.md)
+See [Connect to Azure Government with Azure CLI](../azure-government/documentation-government-get-started-connect-with-cli.md) for details.
 
 ## REST API
 
@@ -69,6 +69,8 @@ When connecting to Azure Government through PowerShell, you must specify an envi
 | [Azure Active Directory](/powershell/module/azuread/connect-azuread) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` | 
 | [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure.service/add-azureaccount) commands |`Add-AzureAccount -Environment AzureUSGovernment` | 
 | [Azure Active Directory (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` | 
+
+See [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md) for details.
 
 ## Next Steps
 * [What is Azure Government?](../azure-government/documentation-government-welcome.md)
