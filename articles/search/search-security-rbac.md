@@ -105,7 +105,9 @@ Use the Management REST API version 2021-04-01-Preview, [Create or Update Servic
 
 If you are using Postman or another web testing tool, see the Tip below for help on setting up the request.
 
-1. Set [AuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`. Optionally, set [AadAuthFailureMode](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Make sure that `disableLocalAuth` is false (it's the default).
+1. Set [AuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`. 
+
+   Optionally, set [AadAuthFailureMode](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. The default of `disableLocalAuth` is false so you don't need to set it, but it's listed below to emphasize that it must be false whenever authOptions are set.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -274,7 +276,7 @@ Use Postman or another web testing tool to complete the following steps (see Tip
 
 1. [Assign roles](#assign-roles) on the service and verify they are working correctly.
 
-1. Set [disableLocalAuth](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) to true.
+1. Update the search service a second time. In the second pass, set [disableLocalAuth](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) to true.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
