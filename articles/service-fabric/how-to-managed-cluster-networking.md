@@ -194,7 +194,9 @@ Using Azure portal, locate the managed cluster created inbound NAT rules for Rem
 
    ![Inbound Nat Rules][Inbound-NAT-Rules]
 
-   By default, for Windows clusters, the Frontend Port allocate starts at 50000, or 10000 for node types using the BYOLB feature, and the target port is port 3389, which maps to the RDP service on the target node. 
+   By default, for Windows clusters, the Frontend Port allocation starts at 50000 and the target port is port 3389, which maps to the RDP service on the target node.
+   >[!NOTE]
+   > If you are using the BYOLB feature and you want RDP, you must configure a NAT pool separately to do so. This will not automatically create any NAT rules for those node types.
 
 4. Remotely connect to the specific node (scale set instance). You can use the user name and password that you set when you created the cluster or any other credentials you have configured.
 
