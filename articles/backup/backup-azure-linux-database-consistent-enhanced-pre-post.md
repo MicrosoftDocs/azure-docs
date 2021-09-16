@@ -13,7 +13,7 @@ snapshot of disks and calling post-script (commands to un-freeze the application
 
 Authoring, debugging and maintenance of e pre/post scripts could be challenging. To remove this complexity, Azure Backup provides simplified pre/post-script experience for marquee databases to get application consistent snapshot with least overhead.
 
-:::image type="content" source="./media/backup-azure-linux-database-consistent-enhanced-pre-post/linux-application-consistent-snapshot-inline.png" alt-text="Diagram showing Linux application-consistent snapshot by Azure Backup." lightbox="./media/backup-azure-linux-database-consistent-enhanced-pre-post/linux-application-consistent-snapshot-expanded.png":::
+:::image type="content" source="./media/backup-azure-linux-database-consistent-enhanced-pre-post/linux-application-consistent-snapshot.png" alt-text="Diagram showing Linux application-consistent snapshot by Azure Backup.":::
 
 The new _enhanced_ pre-post script framework has the following key benefits:
 
@@ -25,7 +25,7 @@ The new _enhanced_ pre-post script framework has the following key benefits:
 
 ## Solution flow (Preview)
 
-:::image type="content" source="./media/backup-azure-linux-database-consistent-enhanced-pre-post/solution-flow-inline.png" alt-text="Diagram showing the solution flow." lightbox="./media/backup-azure-linux-database-consistent-enhanced-pre-post/solution-flow-expanded.png":::
+:::image type="content" source="./media/backup-azure-linux-database-consistent-enhanced-pre-post/solution-flow.png" alt-text="Diagram showing the solution flow.":::
 ## Support matrix
 
 The following the list of databases are covered under the enhanced framework:
