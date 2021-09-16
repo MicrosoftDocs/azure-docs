@@ -21,6 +21,9 @@ The new _enhanced_ pre-post script framework has the following key benefits:
 - The robust framework is efficient to handle scenarios, such as pre-script execution failure or crashes. In any event, the post-script automatically runs to roll back all changes done in the pre-script.
 - The framework also provides a _messaging_ channel for external tools to fetch updates and prepare their own action plan on any message/event.
 
+## Solution flow (Preview)
+
+:::image type="content" source="./media/backup-azure-linux-database-consistent-enhanced-pre-post/solution-flow-inline.png" alt-text="Diagram showing the solution flow." lightbox="./media/backup-azure-linux-database-consistent-enhanced-pre-post/solution-flow-expanded.png":::
 ## Support matrix
 
 The following the list of databases are covered under the enhanced framework:
