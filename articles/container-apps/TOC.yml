@@ -1,0 +1,53 @@
+- name: Azure Static Web Apps documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: About Azure Container Apps
+      href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Deploy your first container app
+      href: get-started.md
+- name: Concepts
+  items:
+    - name: Containers
+      href: containers.md
+    - name: Environment
+      href: environment.md
+    - name: Auto-scaling
+      href: autoscale.md
+    - name: Microservices
+      href: microservices.md
+    - name: Application lifecycle management
+      href: application-lifecycle-management.md
+    - name: Networking
+      href: networking.md
+- name: How-to guides
+  items:
+    - name: Secure an app
+      href: secure-app.md
+    - name: Scale an app
+      href: scale-app.md
+    - name: Monitor an app
+      href: monitor.md
+    - name: Manage an app
+      href: manage-app.md
+    - name: Connect multiple apps
+      href: connect-apps.md
+- name: Tutorials
+  items:
+    - name: Building microservices with Dapr
+      href: microservices-dapr.md
+    - name: Background processing
+      href: background-processing.md
+- name: Reference
+  items:
+    - name: Azure CLI
+      href: /cli/azure/containerapps
+- name: Resources
+  items:
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/app-service/static/
+    - name: Quotas
+      href: quotas.md
