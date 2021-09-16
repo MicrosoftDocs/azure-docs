@@ -1,5 +1,5 @@
 ---
-title: Protect API backend in API Management using OAuth 2.0 and Azure AD 
+title: Protect API backend in API Management using OAuth 2.0 and Azure Active Directory 
 titleSuffix: Azure API Management
 description: Learn how to secure user access to a web API backend in Azure API Management and the developer portal with OAuth 2.0 user authorization and Azure Active Directory.
 services: api-management
@@ -33,9 +33,13 @@ Prior to following the steps in this article, you must have:
 :::image type="content" source="media/api-management-howto-protect-backend-with-aad/overview-graphic-2021.png" alt-text="Overview graphic to visually conceptualize the following flow.":::
 
 1. Register an application (backend-app) in Azure AD to represent the API.
+
 1. Register another application (client-app) in Azure AD to represent a client application that needs to call the API.
+
 1. In Azure AD, grant permissions to allow the client-app to call the backend-app.
+
 1. Configure the Developer Console in the developer portal to call the API using OAuth 2.0 user authorization.
+
 1. Add the **validate-jwt** policy to validate the OAuth token for every incoming request.
 
 ## 1. Register an application in Azure AD to represent the API
@@ -44,7 +48,7 @@ Using the Azure portal, protect an API with Azure AD by registering an applicati
 
 For details about app registration, see [Quickstart: Configure an application to expose a web API](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 
-1. Go to the [Azure portal](https://portal.azure.com) to register your application. Search for and select **App registrations**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **App registrations**.
 
 1. Select **New registration**. 
 
@@ -73,13 +77,11 @@ For details about app registration, see [Quickstart: Configure an application to
 
 ## 2. Register another application in Azure AD to represent a client application
 
-You'll need to register every client application that calls the API as an application in Azure AD. In this example, the client application is the **Developer Console** in the API Management developer portal. 
+Register every client application that calls the API as an application in Azure AD. In this example, the client application is the **Developer Console** in the API Management developer portal. 
 
 To register another application in Azure AD to represent the Developer Console:
 
-1. Go to the [Azure portal](https://portal.azure.com) to register your application.
-
-1. Search for and select **App registrations**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **App registrations**.
 
 1. Select **New registration**.
 
@@ -107,7 +109,7 @@ When the secret is created, note the key value for use in a subsequent step.
 
 Now that you have registered two applications to represent the API and the Developer Console, grant permissions to allow the client-app to call the backend-app.  
 
-1. Go to the [Azure portal](https://portal.azure.com) to grant permissions to your client application. Search for and select **App registrations**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **App registrations**.
 
 1. Choose your client app. Then in the list of pages for the app, select **API permissions**.
 
@@ -121,6 +123,7 @@ Now that you have registered two applications to represent the API and the Devel
 
 Optionally:
 1. Navigate to your client app's **API permissions** page.
+
 1. Select **Grant admin consent for \<your-tenant-name>** to grant consent on behalf of all users in this directory. 
 
 ## 4. Enable OAuth 2.0 user authorization in the Developer Console
@@ -183,7 +186,7 @@ In this example, you enable OAuth 2.0 user authorization in the Developer Consol
 
 Now that the Developer Console can obtain access tokens from Azure AD via your OAuth 2.0 authorization server, enable OAuth 2.0 user authorization for your API. This enables the Developer Console to know that it needs to obtain an access token on behalf of the user, before making calls to your API.
 
-14. Browse to your API Management instance, and go to **APIs**.
+15. Browse to your API Management instance, and go to **APIs**.
 
 1. Select the API you want to protect. For example, `Echo API`.
 
@@ -230,7 +233,7 @@ However, what if someone calls your API without a token or with an invalid token
 
 Pre-authorize requests in API Management with the [Validate JWT](./api-management-access-restriction-policies.md#ValidateJWT) policy, by validating the access tokens of each incoming request. If a request does not have a valid token, API Management blocks it. 
 
-The following example policy, when added to the <inbound> policy section, checks the value of the audience claim in an access token obtained from Azure Active Directory, and returns an error message if the token is not valid. 
+The following example policy, when added to the <inbound> policy section, checks the value of the audience claim in an access token obtained from Azure AD, and returns an error message if the token is not valid. 
 
 
 ```xml
@@ -246,7 +249,8 @@ The following example policy, when added to the <inbound> policy section, checks
 
 > [!NOTE]
 > The above `openid-config` URL corresponds to the v2 endpoint. For the v1 `openid-config`endpoint, use `https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration`.
-> 
+
+> [!TIP] 
 > Find the **{aad-tenant}** value as your Azure AD tenant ID in the Azure portal, either on:
 > * The overview page of your Azure AD resource.
 > * The **Manage > Properties** page of your Azure AD resource.
@@ -255,11 +259,11 @@ For information on how to configure policies, see [Set or edit policies](./set-e
 
 ## Build an application to call the API
 
-In this guide, you used the Developer Console in API Management as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement OAuth 2.0, see [Azure Active Directory code samples](../active-directory/develop/sample-v2-code.md).
+In this guide, you used the Developer Console in API Management as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement OAuth 2.0, see [Azure AD code samples](../active-directory/develop/sample-v2-code.md).
 
 ## Next steps
 
-- Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
+- Learn more about [Azure AD and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
 - For other ways to secure your back-end service, see [Mutual Certificate authentication](./api-management-howto-mutual-certificates.md).
 - [Create an API Management service instance](./get-started-create-service-instance.md).
