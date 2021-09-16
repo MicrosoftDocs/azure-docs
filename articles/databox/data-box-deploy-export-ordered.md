@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 09/16/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -266,7 +266,7 @@ Follow these guidelines to create your XML file if you choose to select blobs an
 - **XML file overview tab:** Review tag requirements for the XML file.
 - **Prefix examples tab:** See examples of valid prefixes that select multiple blobs and files for export.
 
-# [Sample XML file](#tab/sample-xml-file)
+### [Sample XML file](#tab/sample-xml-file)
 
 This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order. 
 
@@ -292,7 +292,7 @@ This sample XML file includes examples of each XML tag that is used to select bl
    </AzureFileList>
 ```
 
-# [XML file overview](#tab/xml-file-overview)
+### [XML file overview](#tab/xml-file-overview)
 
 Follow these guidelines when you construct the XML file for your export order. Incorrect tag formats can lead to export failures.
 
@@ -304,8 +304,6 @@ To form the XML tags in your XML file correctly, you need to understand the diff
 
 * A *path* selects and filters to a single blob or file.
 * A *prefix* selects and filters to multiple blobs or multiple files.
-  * For blobs, use a prefix to select a set of similarly named containers or similarly named blobs in a container. <!--The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name.-->
-  * For Azure Files, use a prefix to select a set of similarly named shares or similarly named folders or files in a share. <!--The prefix may be the prefix of the share name, the complete share name, or a complete share name followed by the prefix of the file name.-->
 
 For examples of correctly formed prefixes, go to the **Prefix examples** tab.
 
@@ -315,10 +313,10 @@ The following XML tags are used in the XML file for a Data Box export order:
 
 | xml tag           |Description |
 |-------------------|------------|
-|`<BlobList>`       |Lists blob paths and blob path prefixes for export.|
+|`<BlobList>`       |Parent tag for &lt;BlobPath&gt; and &lt;BlobPathPrefix&gt; tags.|
 |`<BlobPath>`       |Selects a single blob. |
 |`<BlobPathPrefix>` |Selects blobs with a common prefix. For examples, go to the **Prefix examples** tab.|
-|`<AzureFileList>`  |Lists file paths and file path prefixes for export. |
+|`<AzureFileList>`  |Parent tag for &lt;FilePath&gt; and &lt;FilePathPrefix&gt; tags.|
 |`<FilePath>`       |Selects a single file. |
 |`<FilePathPrefix>` |Selects files with a common prefix. For examples, go to the **Prefix examples** tab.|
 
@@ -331,24 +329,13 @@ To see the tags in context, go to the **Sample XML file** tab.
 * Incorrect XML tags or formatting may lead to data export failure.
 * No data will be exported if the blob prefix or file prefix is invalid. For examples of valid prefixes, go to the **Prefix examples** tab.
 
-# [Prefix examples](#tab/prefix-examples)
+### [Prefix examples](#tab/prefix-examples)
 
 These sample paths show various ways to construct a prefix to select multiple blobs or files for export.
 
 #### Valid blob path prefixes
 
 The sample paths below are used with the &lt;BlobPathPrefix&gt; tag to select multiple blobs in Azure Blob storage for export.
-
-<!--|Blob path prefix        | Description                                                                        |
-|------------------------|------------------------------------------------------------------------------------|
-|/	                     |Exports all blobs in the storage account.                                           |
-|/$root/	             |Exports all blobs in the root container.                                            |
-|/containers	         |Exports all blobs in any container that begins with prefix **containers**.          |
-|/container1/            |Exports all blobs in the container **container1**.                                  |
-|/container1/2021Q2      |Exports all blobs in container **container1** that begin with prefix **2021Q2**.    |
--->
-
-**OPTION 1:**
 
 |Blob path prefix        |Description                                                                     |Tag example                         |
 |------------------------|--------------------------------------------------------------------------------|------------------------------------|
@@ -358,19 +345,7 @@ The sample paths below are used with the &lt;BlobPathPrefix&gt; tag to select mu
 |/container1/            |Exports all blobs in the container **container1**.                              |`<BlobPathPrefix>/container1/</BlobPathPrefix>`|
 |/container1/2021Q2      |Exports all blobs in container **container1** that begin with prefix **2021Q2**.|`<BlobPathPrefix>/container1/2021Q2</BlobPathPrefix>`|
 
-**OPTION 2:**
-
-|Blob path prefix   |XML tag |Description                                                                |
-|-------------------|--------|---------------------------------------------------------------------------|
-|/	                |`<BlobPathPrefix>/</BlobPathPrefix>`|Exports all blobs in the storage account.                                           |
-|/$root/	        |`<BlobPathPrefix>/$root/</BlobPathPrefix>`|Exports all blobs in the root container.                                      |
-|/containers	    |`<BlobPathPrefix>/containers</BlobPathPrefix>`|Exports all blobs in any container that begins with prefix **containers**.|
-|/container1/       |`<BlobPathPrefix>/container1/</BlobPathPrefix>`|Exports all blobs in the container **container1**.                       |
-|/container1/2021Q2 |`<BlobPathPrefix>/container1/2021Q2</BlobPathPrefix>`|Exports all blobs in container **container1** that begin with prefix **2021Q2**.|
-
-To select a single blob for export, use the &lt;BlobPath&gt; tag with a container path and blob name. For example, to select **blob.txt** in the **8tbpageblob** container, you would use this tag:
-
-`<BlobPath>/8tbpageblob/blob.txt</BlobPath>`
+To select a single blob for export, use the &lt;BlobPath&gt; tag with a container path and blob name. For example, to select **blob.txt** in the **8tbpageblob** container, you would use this tag: `<BlobPath>/8tbpageblob/blob.txt</BlobPath>`
 
 #### Valid file path prefixes
 
@@ -383,9 +358,7 @@ The sample paths below are used with the &lt;FilePathPrefix&gt; tag to select mu
 |/fileshare1/            |Exports all files and directories in **fileshare1**.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix`|
 |/fileshare1/contosowest |Exports all files and directories in fileshare **fileshare1** that begin with prefix **contosowest**.|`<FilePathPrefix>/fileshare1/contosowest</FilePath>Prefix`|
 
-To select a single file for export, use the &lt;FilePath&gt; tag with a share path and file name. For example, to select **file.txt** in **fileshare1**, you would use this tag:
-
-`<FilePath>/fileshare1/file.txt</FilePath>`
+To select a single file for export, use the &lt;FilePath&gt; tag with a share path and file name. For example, to select **file.txt** in **fileshare1**, you would use this tag: `<FilePath>/fileshare1/file.txt</FilePath>`
 
 ---
 
