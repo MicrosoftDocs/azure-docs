@@ -78,7 +78,7 @@ You can change the default subscription at any time by following the steps above
 :::image type="content" source="../media/subscription-filter-all.png" alt-text="Screenshot of the default subscription filter with all directories and subscriptions selected":::
 
 > [!IMPORTANT]
-> When you check the **Select all** box, all of the subscriptions to which you *currently* have access are included. If you later gain access to additional subscriptions—for example, after you've onboarded a new customer to Azure Lighthouse—these subscriptions will not automatically be added to your filter. You'll need to return to **Directories + subscriptions** and select the additional subscriptions (or uncheck and then recheck **Select all** again).
+> Checking the **Select all** box sets the filter to show all of the subscriptions to which you *currently* have access. If you later gain access to additional subscriptions—for example, after you've onboarded a new customer to Azure Lighthouse—these subscriptions will not automatically be added to your filter. You'll need to return to **Directories + subscriptions** and select the additional subscriptions (or uncheck and then recheck **Select all** again).
 
 You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within an individual service.
 
