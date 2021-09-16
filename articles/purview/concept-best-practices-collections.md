@@ -153,7 +153,7 @@ Organizational-level shared data sources can be registered and scanned inside Hu
 
 The department-level shared data sources can be registered and scanned in the department collections. 
 
-:::image type="content" source="media/concept-best-practices/collections-example-1.png" alt-text="Screenshot that shows an example of Azure Purview collection example 1.":::
+:::image type="content" source="media/concept-best-practices/collections-example-1.png" alt-text="Screenshot that shows an example of Azure Purview collection example 1."lightbox="media/concept-best-practices/collections-example-1.png":::
 
 ### Example 2: Multi-region organization
 
@@ -175,12 +175,11 @@ Region-based data management and governance team can obtain access from their co
 
 The department-level shared data sources can be registered and scanned in the department collections. 
 
-:::image type="content" source="media/concept-best-practices/collections-example-2.png" alt-text="Screenshot that shows an example of Azure Purview collection example 2.":::
+:::image type="content" source="media/concept-best-practices/collections-example-2.png" alt-text="Screenshot that shows an example of Azure Purview collection example 2."lightbox="media/concept-best-practices/collections-example-2.png":::
 
 ### Example 3: Multi-region Data Transformation
 
 This scenario can be useful for organizations that are interested in distributing metadata access management based on geographical locations and data transformation states. Raw and refine zones can be managed by data scientists and data engineers to transform them to more meaningful data and moved into produce or curated zones.  
-
 
 The collection hierarchy consists of the following verticals: 
 
@@ -191,7 +190,7 @@ The collection hierarchy consists of the following verticals:
 
 Data scientists and data engineers can have the _data curators_ role on their corresponding zones to perform curation of metadata. _Data reader_ access to the curated zone can be granted to entire data personas and business users. 
 
-:::image type="content" source="media/concept-best-practices/collections-example-3.png" alt-text="Screenshot that shows an example of Azure Purview collection example 3.":::
+:::image type="content" source="media/concept-best-practices/collections-example-3.png" alt-text="Screenshot that shows an example of Azure Purview collection example 3."lightbox="media/concept-best-practices/collections-example-3.png":::
 
 ### Example 4: Multi-region Business Functions 
 
@@ -211,7 +210,7 @@ If you have centralized data management and governance team, you can grant them 
 Region-based data management and governance team can obtain access from their corresponding collections at lower level.
 Each Business unit has their own sub-collection.
 
-:::image type="content" source="media/concept-best-practices/collections-example-4.png" alt-text="Screenshot that shows an example of Azure Purview collection example 4.":::
+:::image type="content" source="media/concept-best-practices/collections-example-4.png" alt-text="Screenshot that shows an example of Azure Purview collection example 4."lightbox="media/concept-best-practices/collections-example-4.png":::
 
 ## Access management options
 
