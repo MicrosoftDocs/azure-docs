@@ -66,7 +66,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
    | **Guest Identity** | Yes | <*guest-partner-identifier*> | The guest partner's identifier |
    | **Receive Settings** | Varies | Varies | These properties specify how the host partner receives inbound messages from the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
    | **Send Settings** | Varies | Varies | These properties specify how the host partner sends outbound messages to the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
-   | **RosettaNet PIP references** | | | To create agreements for exchanging RosettaNet messages, review [Exchange RosettaNet messages](logic-apps-enterprise-integration-rosettanet.md). fs|
+   | **RosettaNet PIP references** | Varies | Varies | This pane specifies information about one or more Partner Interface Processes (PIP) to use RosettaNet messages. For more information, review [Exchange RosettaNet messages](logic-apps-enterprise-integration-rosettanet.md). |
    |||||
 
    > [!IMPORTANT]
@@ -77,50 +77,37 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
    >
    > If these values change for your partner, make sure that you update the agreement too.
 
-1. When you're done, select **OK**, and return to your integration account.
+1. When you're done, select **OK**.
 
    Your agreement now appears on the **Agreements** list.
 
-## Edit agreements
+## Edit an agreement
 
-1. In the [Azure portal](https://portal.azure.com), 
-on the main Azure menu, select **All services**.
+1. In the [Azure portal](https://portal.azure.com) search box, enter `integration accounts`, and select **Integration accounts**.
 
-1. In the search box, enter "integration" as your filter. 
-From the results, select this resource: **Integration accounts**
+1. Under **Integration accounts**, select the integration account where you want to add your partners.
 
-1. Under **Integration accounts**, select the integration 
-account that has the agreement you want to edit.
+1. On the integration account menu, under **Settings**, select **Agreements**.
 
-1. In the right-hand pane, under **Components**, 
-choose the **Agreements** tile.
+1. On the **Agreements** pane, select your agreement, select **Edit**, and make your changes.
 
-1. Under **Agreements**, select your agreement, 
-and choose **Edit**.
+1. When you're done, select **OK**.
 
-1. Make and then save your changes.
+## Delete an agreement
 
-## Delete agreements
+1. In the [Azure portal](https://portal.azure.com) search box, enter `integration accounts`, and select **Integration accounts**.
 
-1. In the [Azure portal](https://portal.azure.com), 
-on the main Azure menu, select **All services**.
+1. Under **Integration accounts**, select the integration account where you want to add your partners.
 
-1. In the search box, enter "integration" as your filter. 
-From the results, select this resource: **Integration accounts**
+1. On the integration account menu, under **Settings**, select **Agreements**.
 
-1. Under **Integration accounts**, select the integration 
-account that has the agreement you want to delete.
+1. On the **Agreements** pane, select the agreement to delete, and then select **Delete**.
 
-1. In the right-hand pane, under **Components**, 
-choose the **Agreements** tile.
-
-1. Under **Agreements**, select your agreement, 
-and choose **Delete**.
-
-1. Confirm that you want to delete the selected agreement.
+1. To confirm that you want to delete the agreement, select **Yes**.
 
 ## Next steps
 
 * [Exchange AS2 messages](logic-apps-enterprise-integration-as2.md)
 * [Exchange EDIFACT messages](logic-apps-enterprise-integration-edifact.md)
 * [Exchange X12 messages](logic-apps-enterprise-integration-x12.md)
+* [Exchange RosettaNet messages](logic-apps-enterprise-integration-rosettanet.md)

@@ -54,7 +54,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
    | **Value** | Yes | A value that identifies the documents that your logic apps receive. <p>For partners that use RosettaNet, this value must be a nine-digit number that corresponds to the DUNS number. You can provide more information for RosettaNet partners, such as their classification and contact information, by creating the partners first and then [editing their definitions afterwards](#edit-partner). |
    ||||
 
-1. When you're done, select **OK**, and return to your integration account.
+1. When you're done, select **OK**.
 
    Your partner now appears on the **Partners** list.
 
@@ -89,6 +89,8 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 1. On the integration account menu, under **Settings**, select **Partners**.
 
 1. On the **Partners** pane, select the partner to delete, and then select **Delete**.
+
+1. To confirm that you want to delete the partner, select **Yes**.
 
 ## Next steps
 

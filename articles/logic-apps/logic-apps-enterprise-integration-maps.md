@@ -115,7 +115,7 @@ Based on your assembly file's size, follow the steps for uploading an assembly t
 
    After you select the assembly, the **Assembly Name** property automatically shows the assembly's file name.
 
-1. When you're done, select **OK**, and return to your integration account.
+1. When you're done, select **OK**.
 
    After your assembly file finishes uploading, the assembly appears in the **Assemblies** list. On your integration account's **Overview** pane, under **Artifacts**, your uploaded assembly also appears.
 
@@ -242,7 +242,7 @@ After you upload any assemblies that your map references, you can now upload you
 
 #### Add maps up to 2 MB
 
-1. Under **Add Map**, enter a unique name for your map.
+1. On the **Add Map** pane, enter a unique name for your map.
 
 1. Under **Map type**, select the type, for example: **Liquid**, **XSLT**, **XSLT 2.0**, or **XSLT 3.0**.
 
@@ -250,7 +250,7 @@ After you upload any assemblies that your map references, you can now upload you
 
    If you left the **Name** property empty, the map's file name automatically appears in that property after you select the map file.
 
-1. When you're done, select **OK**, and return to your integration account.
+1. When you're done, select **OK**.
 
    After your map file finishes uploading, the map appears in the **Maps** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded map also appears.
 
@@ -268,11 +268,11 @@ Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/
 
 1. On the **Maps** pane toolbar, select **Add**.
 
-1. Under **Add map**, enter a unique name for your map and include the `.xslt` extension name.
+1. On the **Add Map** pane, enter a unique name for your map and include the `.xslt` extension name.
 
 1. Next to the **Map** box, select the folder icon. Select the map to upload.
 
-1. When you're done, select **OK**, and return to your integration account.
+1. When you're done, select **OK**.
 
    After your map file finishes uploading, the map appears in the **Maps** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded map also appears.
 
@@ -284,7 +284,7 @@ Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/
 
 ---
 
-## Edit maps
+## Edit a map
 
 To update an existing map, you have to upload a new map file that has the changes you want. However, you can first download the existing map for editing.
 
@@ -316,13 +316,13 @@ To update an existing map, you have to upload a new map file that has the change
 
 1. Next to the **Map** box, select the folder icon. Select the map to upload.
 
-1. When you're done, select **OK**, and return to your integration account.
+1. When you're done, select **OK**.
 
    After your map file finishes uploading, the updated map appears in the **Maps** list.
 
 ---
 
-## Delete maps
+## Delete a map
 
 ### [Consumption resource](#tab/consumption-3)
 

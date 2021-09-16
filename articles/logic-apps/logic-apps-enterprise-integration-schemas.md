@@ -94,9 +94,9 @@ Based on your schema (.xsd) file's size, follow the steps for uploading a schema
 
 ### Add schemas up to 2 MB
 
-1. Under **Add Schema**, enter a name for your schema. Keep **Small file** selected. Next to the **Schema** box, select the folder icon. Find and select the schema you're uploading.
+1. On the **Add Schema** pane, enter a name for your schema. Keep **Small file** selected. Next to the **Schema** box, select the folder icon. Find and select the schema you're uploading.
 
-1. When you're done, select **OK**, and return to your integration account.
+1. When you're done, select **OK**.
 
    After your schema finishes uploading, the schema appears in the **Schemas** list.
 
@@ -164,11 +164,11 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 1. On the **Schemas** pane toolbar, select **Add**.
 
-1. Under **Add schema**, enter a unique name for your schema.
+1. On the **Add schema** pane, enter a unique name for your schema.
 
 1. Next to the **Schema** box, select the folder icon. Select the schema to upload.
 
-1. When you're done, select **OK**, and return to your integration account.
+1. When you're done, select **OK**.
 
    After your schema file finishes uploading, the schema appears in the **Schemas** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded schema also appears.
 
@@ -180,7 +180,7 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 ---
 
-## Edit schemas
+## Edit a schema
 
 To update an existing schema, you have to upload a new schema file that has the changes you want. However, you can first download the existing schema for editing.
 
@@ -196,6 +196,8 @@ To update an existing schema, you have to upload a new schema file that has the 
 
 1. Find and select the updated schema you want to upload.
 
+1. When you're done, select **OK**.
+
    After your schema file finishes uploading, the updated schema appears in the **Schemas** list.
 
 ### [Standard resource](#tab/standard-2)
@@ -208,17 +210,17 @@ To update an existing schema, you have to upload a new schema file that has the 
 
 1. On the **Schemas** pane toolbar, select **Add**.
 
-1. Under **Add schema**, enter a unique name for your schema.
+1. On the **Add schema** pane, enter a unique name for your schema.
 
 1. Next to the **Schema** box, select the folder icon. Select the schema to upload.
 
-1. When you're done, select **OK**, and return to your integration account.
+1. When you're done, select **OK**.
 
    After your schema file finishes uploading, the updated schema appears in the **Schemas** list.
 
 ---
 
-## Delete schemas
+## Delete a schema
 
 ### [Consumption resource](#tab/consumption-3)
 
