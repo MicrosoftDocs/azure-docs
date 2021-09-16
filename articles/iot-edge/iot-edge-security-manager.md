@@ -149,17 +149,17 @@ Another core principle for the IoT Edge module runtime is to minimize churn.  Fo
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
 
-![Azure IoT Edge security daemon architecture](media/edge-security-manager/iot-edge-security-daemon.png)
-
 The IoT Edge security daemon takes advantage of any available hardware root of trust technology for security hardening.  It also allows for split-world operation between a standard/rich execution environment (REE) and a trusted execution environment (TEE) when hardware technologies offer trusted execution environments. Role-specific interfaces enable the major components of IoT Edge to assure the integrity of the IoT Edge device and its operations.
+
+![Azure IoT Edge security daemon architecture](media/edge-security-manager/iot-edge-security-daemon.png)
 :::moniker-end
 
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
 
-![Azure IoT Edge module runtime architecture](media/edge-security-manager/iot-edge-module-runtime.png)
-
 The IoT Edge module runtime takes advantage of any available hardware root of trust technology for security hardening.  It also allows for split-world operation between a standard/rich execution environment (REE) and a trusted execution environment (TEE) when hardware technologies offer trusted execution environments. Role-specific interfaces enable the major components of IoT Edge to assure the integrity of the IoT Edge device and its operations.
+
+![Azure IoT Edge module runtime architecture](media/edge-security-manager/iot-edge-module-runtime.png)
 :::moniker-end
 
 #### Cloud interface
