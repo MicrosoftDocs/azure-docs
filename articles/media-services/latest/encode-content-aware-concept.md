@@ -105,11 +105,7 @@ Below are the results for another category of source content, where the encoder 
 
 **Figure 4: RD curve using VMAF for low-quality input (at 1080p)**
 
-### HEVC (H.265) Support
 
-Azure Media Services' Standard Encoder now supports HEVC (H.265) encoding support. HEVC content can be delivered and packaged through the Dynamic Packager using the 'hev1' format.
-
-A new .NET custom encoding with HEVC sample is available in the [media-services-v3-dotnet Git Hub repository](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC). In addition to custom encoding, AMS also supports other new built-in HEVC encoding presets that you can view in our [February 2021 release notes](./release-notes.md#february-2021).
   
 ## Next steps
 
