@@ -31,7 +31,7 @@ Consider deploying collections in your Azure Purview to fulfill the following re
 
 - Delegate ownership of data sources and assets to corresponding teams by assigning roles to corresponding collections. 
 
-- Easily search and filter assets by collections. 
+- Search and filter assets by collections. 
  
 
 ## Define a collection hierarchy  
