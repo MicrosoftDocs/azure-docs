@@ -135,14 +135,14 @@
       items:
         - name: Monitor and logging
           href: monitor-log-edge.md
+        - name: Public endpoints
+          href: access-public-endpoints-networking.md
     - name: Visualize
       items:
         - name: Embed player widget in Power BI
           href: embed-player-in-power-bi.md
     - name: Troubleshoot
       href: troubleshoot.md
-    - name: Public endpoints
-      href: access-public-endpoints-networking.md
 - name: Reference
   items:
     - name: Developer SDKs
