@@ -3,6 +3,8 @@ ms.author: mbullwin
 author: mrbullwinkle
 ms.topic: include
 ms.custom: include file
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 09/15/2021
 ---
 
