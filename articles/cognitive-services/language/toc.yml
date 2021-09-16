@@ -102,6 +102,8 @@ items:
         href: custom-language-understanding/concepts/backwards-compatibility.md
 - name: Question answering
   items:
+  - name: Overview
+    href: custom-question-answering/overview.md
   - name: Quickstart
     href: custom-question-answering/quickstart/sdk.md
   - name: Language support
