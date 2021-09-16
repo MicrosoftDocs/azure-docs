@@ -14,21 +14,25 @@ This how-to guide shows you the options to get the diagnostic logs and how to tr
 
 ## What's the diagnostic logs?
 
-The diagnostic logs provide richer view of connectivity and messaging information to the Azure Web PubSub service instance. They can be used for issue identification, connection tracking, message tracing, and analysis.
+The diagnostic logs provide richer view of connectivity, messaging and HTTP request information to the Azure Web PubSub service instance. They can be used for issue identification, connection tracking, message tracing, HTTP request tracing and analysis.
 
-There are two types of logs: connectivity log and messaging log.
+There are three types of logs: connectivity log, messaging log and HTTP request logs.
 
 ### Connectivity logs
 
-Connectivity logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID, and so on) and event information (connect, disconnect, and abort event, and so on). That's why the connectivity log is helpful to troubleshoot connection-related issues. 
+Connectivity logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID, and so on) and event information (connect, disconnect, and abort event, and so on). That's why the connectivity log is helpful to troubleshoot connection-related issues.
 
 ### Messaging logs
 
-Messaging logs provide tracing information for the Azure Web PubSub hub messages received and sent via Azure Web PubSub service. For example, tracing ID and message type of the message. Typically the message is recorded when it arrives at or leaves from service. So messaging logs are helpful for troubleshooting message-related issues. 
+Messaging logs provide tracing information for the Azure Web PubSub hub messages received and sent via Azure Web PubSub service. For example, tracing ID and message type of the message. Typically the message is recorded when it arrives at or leaves from service. So messaging logs are helpful for troubleshooting message-related issues.
+
+### HTTP request logs
+
+Http request logs provide tracing information for HTTP requests to the Azure Web PubSub service. For example, HTTP method and status code. Typically the HTTP request is recorded when it arrives at or leave from service. So HTTP request logs are helpful for troubleshooting request-related issues.
 
 ## Capture diagnostic logs with Azure Web PubSub service live trace tool 
 
-The Azure Web PubSub service live trace tool has ability to collect diagnostic logs in real time, and is helpful to trace with customer's development environment. The live trace tool could capture both connectivity logs and messaging logs.
+The Azure Web PubSub service live trace tool has ability to collect diagnostic logs in real time, and is helpful to trace with customer's development environment. The live trace tool could capture connectivity logs, messaging logs and HTTP request logs.
 
 > [!NOTE]
 > The real-time diagnostic logs captured by live trace tool will be billed as messages (outbound traffic).
@@ -39,7 +43,10 @@ The Azure Web PubSub service live trace tool has ability to collect diagnostic l
 ### Launch the live trace tool
 
 1. Go to the Azure portal. 
-1. On the **Diagnostic Settings** page of your Azure Web PubSub service instance, select **Open Live Trace Tool**. 
+2. On the **Live trace settings** page of your Azure Web PubSub service instance, check **Enable Live Trace** if it's disabled.
+3. Check any log category you need below.
+4. Click **Save** button and wait until the settings take effect.
+5. Click *Open Live Trace Tool*
 
     :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Launch the live trace tool.":::
 
