@@ -1,7 +1,7 @@
 --- 
 title:  Create an iOS app with Azure Maps
 description: Steps to create an Azure Maps account and the first iOS App.
-author: limingchen-ms
+author: deniseatmicrosoft
 ms.author: v-dbogomolov
 ms.date: 09/30/2021
 ms.topic: conceptual
@@ -51,7 +51,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
 > **Note:**
-> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](https://docs.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation-dual)
+> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual)
 
 ![get key](./media/create-an-ios-app/get-key.png)
 
