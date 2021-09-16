@@ -131,6 +131,8 @@ To get the Storage Account access key:
 
 ## Create a profile container
 
+<!---replace--->
+
 Now that your profiles are ready to go, let's create a FSLogix profile container.
 
 To configure a FSLogix profile container:
@@ -165,6 +167,8 @@ To configure a FSLogix profile container:
     > ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
 
 ## Assign users to a session host
+
+<!---replace--->
 
 Now you'll need to assign users to your session host.
 
@@ -216,6 +220,8 @@ To assign users:
      ```
 
 ## Make sure your profile works
+
+<!---remove--->
 
 Now all you have to do is make sure the profile you created exists and works as intended.
 
