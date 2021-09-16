@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 09/16/2021
 ---
 
 # Upgrade to the latest REST API in Azure Cognitive Search
