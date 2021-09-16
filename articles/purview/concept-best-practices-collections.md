@@ -76,7 +76,7 @@ Consider deploying collections in your Azure Purview to fulfill the following re
 
 - Review [Azure Purview account best practices documentation](/deployment-best-practices.md#determine-the-number-of-purview-instances) and define the adequate number of Purview accounts required in your organization before planning collection structure.  
 
-- It is recommended designing your collection architecture based on security requirements, data management and governance structure in your organization. Review the recommended [collections architypes](#collections-architypes) in this guide.
+- It is recommended designing your collection architecture based on security requirements, data management and governance structure in your organization. Review the recommended [collections archetypes](#collections-archetypes) in this guide.
 
 - For future scalability, it is recommended creating a top-level collection for your organization below the root collection and assign relevant roles at the top-level collection instead of root collection.  
 
@@ -132,7 +132,7 @@ Azure Purview data-plane roles are managed inside Azure Purview. After you deplo
 
 - To increase security, enable Azure Active Directory Conditional Access with multi-factor authentication for at least collections admins, data source admins and data curator roles. Make sure emergency accounts are excluded from the Conditional Access policy.
  
-## Collections Architypes
+## Collections Archetypes
 
 You can plan to deploy your Azure Purview collection based on a centralized, decentralized or hybrid data management and governance models, according to your business and security requirements.
 
