@@ -247,15 +247,15 @@ SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCred
 
 ## Disable API key authentication
 
-API keys cannot be deleted, but they can be disabled on your service. If you are using Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Azure AD authentication, you can disable API keys, causing the search service to refuse all data-related requests that pass an API key in the header.
+API keys cannot be deleted, but they can be disabled on your service. If you are using Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Azure AD authentication, you can disable API keys, causing the search service to refuse all data-related requests that pass an API key in the header for content-related requests.
 
-+ Management REST API version 2021-04-01-Preview, [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), provides this option
+Use the Management REST API version 2021-04-01-Preview and send two consecutive requests for [Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to disable key authentication.
 
-+ Owner or Contributor permissions are required to disable features
+Owner or Contributor permissions are required to disable features
 
 Use Postman or another web testing tool to complete the following steps (see Tip below):
 
-1. Set [AuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`.
+1. Set [AuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`. There are two options for data plane authentication. The `aadOrApiKey` is the one that specifies Azure Active Directory.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -274,9 +274,7 @@ Use Postman or another web testing tool to complete the following steps (see Tip
    }
     ```
 
-1. [Assign roles](#assign-roles) on the service and verify they are working correctly.
-
-1. Update the search service a second time. In the second pass, set [disableLocalAuth](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) to true.
+1. Update the search service a second time. In the second pass, set [disableLocalAuth](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) to true. On the first request, `disableLocalAuth` must be false. On the second request, you can set it to true, which disables the API key portion of the `aadOrApiKy` option.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
