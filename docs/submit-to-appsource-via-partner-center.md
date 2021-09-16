@@ -69,7 +69,7 @@ After you submit your solution:
 
 ### Check the status of your submission in Partner Center
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 You can also follow these steps to check the status of your submission in Partner Center.
 
@@ -89,7 +89,7 @@ If you make changes after your submission is certified, it must go through the c
 
 If you have general questions about policies, processes, or validation requirements, you can engage with the Microsoft AppSource validation team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store". Please be aware that the validation team will not be able to discuss individual submission results on Stack Overflow.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 You can also follow these steps to check the status of your submission in Partner Center.
 
