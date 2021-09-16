@@ -19,7 +19,7 @@ The SLA for Acquisitions data is currently 4 days.
 
 ## How to view the Acquisitions report
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home). You can use the same username and password you use to manage Office Store products.
 
@@ -29,7 +29,7 @@ The SLA for Acquisitions data is currently 4 days.
 
 1. In the left-menu, select **Acquistions**.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home). You can use the same username and password you use to manage Office Store products.
 

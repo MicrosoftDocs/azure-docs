@@ -16,7 +16,7 @@ The service level agreement (SLA) for acquisitions data is currently four days.
 
 ## How to view the Usage report
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home). You can use the same username and password you use to manage Office Store products.
 
@@ -26,7 +26,7 @@ The service level agreement (SLA) for acquisitions data is currently four days.
 
 1. In the left-menu, select **Usage**.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home). You can use the same username and password you use to manage Office Store products.
 
@@ -36,7 +36,7 @@ The service level agreement (SLA) for acquisitions data is currently four days.
 
 ## Multiple apps
 
-#### [Preview interface](#tab/new-web-form)
+#### [Workspaces view](#tab/new-web-form)
 
 As a provider, if you have multiple apps listed on Microsoft AppSource, you can pick the app you want to view the usage for from the list near the upper-left corner of the page.
 
@@ -45,7 +45,7 @@ As a provider, if you have multiple apps listed on Microsoft AppSource, you can 
 > [!NOTE]
 > Usage of only one app at a time is displayed on the Usage dashboard.
 
-#### [Current interface](#tab/old-web-form)
+#### [Current view](#tab/old-web-form)
 
 As a provider, if you have multiple apps listed on Microsoft AppSource, you can pick an app from a drop-down by selecting the two-directional arrow icon :::image type="content" source="images/usage-bidirec-arrow.png" alt-text="Usage Bidirectional Arrow "::: near top left side of a page. Usage of only one app at a time is displayed on a page.
 
