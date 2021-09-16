@@ -281,7 +281,6 @@ Diagnostic settings send the same data as the legacy method used to send the Act
 
 The columns in the following table have been deprecated in the updated schema. They still exist in *AzureActivity* but they will have no data. The replacement for these columns are not new, but they contain the same data as the deprecated column. They are in a different format, so you may need to modify log queries that use them. 
 
-
 |Activity Log JSON | 	Log Analytics column name<br/>*(older deprecated)*	| New Log Analytics column name |	Notes |
 |:---------|:---------|:---------|:---------|
 |category |	Category | CategoryValue ||
