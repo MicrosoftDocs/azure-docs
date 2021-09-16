@@ -65,7 +65,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Hybrid Identity Administrator](#hybrid-identity-administrator) | Can manage AD to Azure AD cloud provisioning, Azure AD Connect, and federation settings. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Identity Governance Administrator](#identity-governance-administrator) | Manage access using Azure AD for identity governance scenarios. | 45d8d3c5-c802-45c6-b32a-1d70b5e1e86e |
 > | [Insights Administrator](#insights-administrator) | Has administrative access in the Microsoft 365 Insights app. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
-> | [Insights Business Leader](#insights-business-leader) | Can view and share dashboards and insights via the M365 Insights app. | 31e939ad-9672-4796-9c2e-873181342d2d |
+> | [Insights Business Leader](#insights-business-leader) | Can view and share dashboards and insights via the Microsoft 365 Insights app. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Intune Administrator](#intune-administrator) | Can manage all aspects of the Intune product. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
 > | [Kaizala Administrator](#kaizala-administrator) | Can manage settings for Microsoft Kaizala. | 74ef975b-6605-40af-a5d2-b9539d836353 |
 > | [Knowledge Administrator](#knowledge-administrator) | Can configure knowledge, learning, and other intelligent features. | b5a8dcf3-09d5-43a9-a639-8e29ef291470 |
@@ -220,7 +220,7 @@ Users in this role can create and manage all aspects of attack simulation creati
 
 Users with this role can set or reset any authentication method (including passwords) for non-administrators and some roles. Authentication Administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. For a list of the roles that an Authentication Administrator can read or update authentication methods, see [Password reset permissions](#password-reset-permissions).
 
-The [Privileged Authentication Administrator](#privileged-authentication-administrator) role has permission to force re-registration and multi-factor authentication for all users.
+The [Privileged Authentication Administrator](#privileged-authentication-administrator) role has permission to force re-registration and multifactor authentication for all users.
 
 The [Authentication Policy Administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
 
@@ -261,7 +261,7 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 
 Users with this role can configure the authentication methods policy, tenant-wide MFA settings, and password protection policy. This role grants permission to manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list.
 
-The [Authentication Administrator](#authentication-administrator) and [Privileged Authentication Administrator](#privileged-authentication-administrator) roles have permission to manage registered authentication methods on users and can force re-registration and multi-factor authentication for all users.
+The [Authentication Administrator](#authentication-administrator) and [Privileged Authentication Administrator](#privileged-authentication-administrator) roles have permission to manage registered authentication methods on users and can force re-registration and multifactor authentication for all users.
 
 | Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy |
 | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -1173,7 +1173,7 @@ Users with this role can manage Azure AD identity governance configuration, incl
 
 ## Insights Administrator
 
-Users in this role can access the full set of administrative capabilities in the [M365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This role has the ability to read directory information, monitor service health, file support tickets, and access the Insights Administrator settings aspects.
+Users in this role can access the full set of administrative capabilities in the [Microsoft 365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This role has the ability to read directory information, monitor service health, file support tickets, and access the Insights Administrator settings aspects.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1187,7 +1187,7 @@ Users in this role can access the full set of administrative capabilities in the
 
 ## Insights Business Leader
 
-Users in this role can access a set of dashboards and insights via the [M365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This includes full access to all dashboards and presented insights and data exploration functionality. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Administrator role.
+Users in this role can access a set of dashboards and insights via the [Microsoft 365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This includes full access to all dashboards and presented insights and data exploration functionality. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Administrator role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1553,7 +1553,7 @@ Users with this role can register printers and manage printer status in the Micr
 
 Users with this role can set or reset any authentication method (including passwords) for any user, including Global Administrators. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users.
 
-The [Authentication Administrator](#authentication-administrator) role has permission to force re-registration and multi-factor authentication for standard users and users with some admin roles.
+The [Authentication Administrator](#authentication-administrator) role has permission to force re-registration and multifactor authentication for standard users and users with some admin roles.
 
 The [Authentication Policy Administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
 
@@ -2037,7 +2037,7 @@ For example:
 | --- | --- |
 | namespace | Product or service that exposes the task and is prepended with `microsoft`. For example, all tasks in Azure AD use the `microsoft.directory` namespace. |
 | entity | Logical feature or component exposed by the service in Microsoft Graph. For example, Azure AD exposes User and Groups, OneNote exposes Notes, and Exchange exposes Mailboxes and Calendars. There is a special `allEntities` keyword for specifying all entities in a namespace. This is often used in roles that grant access to an entire product. |
-| propertySet | Specific properties or aspects of the entity for which access is being granted. For example, `microsoft.directory/applications/authentication/read` grants the ability to read the reply URL, logout URL, and implicit flow property on the application object in Azure AD.<ul><li>`allProperties` designates all properties of the entity, including privileged properties.</li><li>`standard` designates common properties, but excludes privileged ones related to `read` action. For example, `microsoft.directory/user/standard/read` includes the ability to read standard properties like public phone number and email address, but not the private secondary phone number or email address used for multi-factor authentication.</li><li>`basic` designates common properties, but excludes privileged ones related to the `update` action. The set of properties that you can read may be different from what you can update. That’s why there are `standard` and `basic` keywords to reflect that.</li></ul> |
+| propertySet | Specific properties or aspects of the entity for which access is being granted. For example, `microsoft.directory/applications/authentication/read` grants the ability to read the reply URL, logout URL, and implicit flow property on the application object in Azure AD.<ul><li>`allProperties` designates all properties of the entity, including privileged properties.</li><li>`standard` designates common properties, but excludes privileged ones related to `read` action. For example, `microsoft.directory/user/standard/read` includes the ability to read standard properties like public phone number and email address, but not the private secondary phone number or email address used for multifactor authentication.</li><li>`basic` designates common properties, but excludes privileged ones related to the `update` action. The set of properties that you can read may be different from what you can update. That’s why there are `standard` and `basic` keywords to reflect that.</li></ul> |
 | action | Operation being granted, most typically create, read, update, or delete (CRUD). There is a special `allTasks` keyword for specifying all of the above abilities (create, read, update, and delete). |
 
 ## Deprecated roles
