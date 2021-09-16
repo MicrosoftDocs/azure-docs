@@ -1,0 +1,27 @@
+### YamlMime:Landing
+
+title: Azure Container Apps documentation
+summary: Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure.
+
+metadata:
+  title: Azure Container Apps documentation
+  description: Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure.
+  ms.topic: landing-page
+  ms.service: app-service
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 11/01/2021
+
+landingContent:
+  - title: About Container Apps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Container Apps?
+            url: overview.md
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy your first container app
+            url: ./get-started.md
