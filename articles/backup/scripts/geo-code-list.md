@@ -7,7 +7,7 @@ ms.date: 09/16/2021
 
 # Geo-code mapping
 
-This XML sample provides you an insight about the geo-codes mapped with the respective regions. These geo-codes are used to create and add custom DNS zones for private endpoint for Recovery Services vault.
+This sample XML provides you an insight about the geo-codes mapped with the respective regions. These geo-codes are used to create and add custom DNS zones for private endpoint for Recovery Services vault.
 
 ## Mapping details
 
