@@ -1,82 +1,76 @@
 ---
-title: Create Azure Purview account in Portal frequently asked questions (FAQ)
-description: This article answers frequently asked questions about creating Purview accounts via portal
+title: Create an Azure Policy exception for Azure Purview
+description: This article describes how to create an Azure Policy exception for Purview while leaving existing Policies in place to maintain security.
 author: nayenama
-ms.author: zeinam
+ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/11/2021
-# Customer intent: As an Azure Purview admin, I want to set Purview accounts using Azure portal
+ms.date: 08/26/2021
 ---
 
-# FAQ about creating Purview accounts via portal
+# Create an Azure Policy exception for Purview
 
-This article answers common questions that customers and field teams often ask about creating Purview account using Azure portal [Create Purview Account](create-catalog-portal.md).
+Many subscriptions have [Azure Policies](../governance/policy/overview.md) in place that restrict the creation of some resources. This is to maintain subscription security and cleanliness. However, Purview accounts deploy two other Azure resources when they are created: an Azure Storage account, and an Event Hub namespace. When you [create Purview Account](create-catalog-portal.md), these resources will be deployed. They will be managed by Azure, so you don't need to maintain them, but you will need to deploy them.
 
-## Common questions
+To maintain your policies in your subscription, but still allow the creation of these managed resources, you can create a policy exception.
 
-Check out the answers to the following common questions.
+## Create a policy exception for Purview
 
-### Azure policy blocking from creating storage and event hub namespace 
+1. Navigate to the [Azure portal](https://portal.azure.com) and search for **Policy**
 
-* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an EventHub namespace.
+    :::image type="content" source="media/create-purview-portal-faq/search-for-policy.png" alt-text="Screenshot showing the Azure portal search bar, searching for Policy keyword.":::
 
-   >[!IMPORTANT]
-   >You don't have to follow this step if you don't have Azure Policy or an existing Azure Policy is not blocking the creation of **Storage account** and **EventHub namespace**.
+1. Follow [Create a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
 
-    1. Navigate to the Azure portal and search for **Policy**
-    1. Follow [Create a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
-
-        ```json
-        {
-          "mode": "All",
-          "policyRule": {
-            "if": {
-              "anyOf": [
-              {
-                "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.Storage/storageAccounts"
-                },
-                {
-                  "not": {
-                    "field": "tags['<resourceBypass>']",
-                    "exists": true
-                  }
-                }]
-              },
-              {
-                "allOf": [
-                {
-                  "field": "type",
-                  "equals": "Microsoft.EventHub/namespaces"
-                },
-                {
-                  "not": {
-                    "field": "tags['<resourceBypass>']",
-                    "exists": true
-                  }
-                }]
-              }]
+    ```json
+    {
+    "mode": "All",
+      "policyRule": {
+        "if": {
+          "anyOf": [
+          {
+            "allOf": [
+            {
+              "field": "type",
+              "equals": "Microsoft.Storage/storageAccounts"
             },
-            "then": {
-              "effect": "deny"
-            }
+            {
+              "not": {
+                "field": "tags['<resourceBypass>']",
+                "exists": true
+              }
+            }]
           },
-          "parameters": {}
+          {
+            "allOf": [
+            {
+              "field": "type",
+              "equals": "Microsoft.EventHub/namespaces"
+            },
+            {
+              "not": {
+                "field": "tags['<resourceBypass>']",
+                "exists": true
+              }
+            }]
+          }]
+        },
+        "then": {
+          "effect": "deny"
         }
-        ```
-        
-        > [!Note]
-        > The tag could be anything beside `resourceBypass` and it's up to you to define value when creating Purview in latter steps as long as the policy can detect the tag.
+      },
+      "parameters": {}
+    }
+    ```
+  
+    > [!Note]
+    > The tag could be anything beside `resourceBypass` and it's up to you to define value when creating Purview in latter steps as long as the policy can detect the tag.
 
-        :::image type="content" source="media/create-catalog-portal/policy-definition.png" alt-text="Screenshot showing how to create policy definition.":::
+    :::image type="content" source="media/create-catalog-portal/policy-definition.png" alt-text="Screenshot showing how to create policy definition.":::
 
-    1. [Create a policy assignment](../governance/policy/assign-policy-portal.md) using the custom policy created.
+1. [Create a policy assignment](../governance/policy/assign-policy-portal.md) using the custom policy created.
 
-       :::image type="content" source="media/create-catalog-portal/policy-assignment.png" alt-text="Screenshot showing how to create policy assignment" lightbox="./media/create-catalog-portal/policy-assignment.png":::
+    :::image type="content" source="media/create-catalog-portal/policy-assignment.png" alt-text="Screenshot showing how to create policy assignment" lightbox="./media/create-catalog-portal/policy-assignment.png":::
 
 > [!Note] 
 > If you have **Azure Policy** and need to add exception as in **Prerequisites**, you need to add the correct tag. For example, you can add `resourceBypass` tag:

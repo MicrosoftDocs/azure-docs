@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 09/12/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -111,7 +111,7 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
     - **Display name**: *name*
     - **Given name**: *given_name*
     - **Surname**: *family_name*
-    - **Email**: *preferred_username*
+    - **Email**: *email*
 
 1. Select **Save**.
 

@@ -1,8 +1,8 @@
 ---
 title: Analyze device data in your Azure IoT Central application | Microsoft Docs
 description: Analyze device data in your Azure IoT Central application.
-author: ankitscribbles
-ms.author: ankitgup
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/16/2021
 ms.topic: how-to
 ms.service: iot-central
@@ -19,7 +19,10 @@ Azure IoT Central provides rich analytics capabilities to analyze historical tre
 
 The analytics user interface has three main components:
 
-- **Data configuration panel:** On the configuration panel, select the device group for which you want to analyze the data. Next, select the telemetry that you want to analyze and select the aggregation method for each telemetry. The **Split By** control helps to group the data by using device properties as dimensions.
+- **Data configuration panel:** On the configuration panel, select the device group for which you want to analyze the data. Next, select the telemetry that you want to analyze and select the aggregation method for each telemetry. The **Group By** control helps to group the data by using device properties as dimensions.
+
+    > [!TIP]
+    > If your device uses organizations, the device groups you see depend on your organization membership.
 
 - **Time control:** Use the time control to select the duration for which you want to analyze the data. You can drag either end of the time slider to select the time span. The time control also has an **Interval size** slider that controls the bucket or the interval size used to aggregate the data.
 
@@ -38,10 +41,10 @@ Choose a **Device group** to get started and then the telemetry you want to anal
     > [!NOTE]
     > Historic data points are only shown when the conditions of the query are true. For example, a device was upgraded from **Template1** to **Template2** yesterday. Today, if you query device groups that contain **Template1** devices, you see device data from yesterday and before. If you query device groups that contain **Template2** devices, you see the device and data from when it was upgraded going forward.
 
-- **Split by:** The **Split by** control helps to group the data by using the device properties as dimensions. Device telemetry and properties are combined with cloud properties when the device sends data. If the cloud or device property is updated, then you see the telemetry grouped by different values on the chart.
+- **Group by:** The **Group by** control helps to group the data by using the device properties as dimensions. Device telemetry and properties are combined with cloud properties when the device sends data. If the cloud or device property is updated, then you see the telemetry grouped by different values on the chart.
 
     > [!TIP]
-    > To view data for each device separately, select **Device Id** in the **Split by** control.
+    > To view data for each device separately, select **Device Id** in the **Group by** control.
 
 ## Interact with your data
 
@@ -64,7 +67,7 @@ After you've queried your data, you can visualize it on the line chart. You can 
   > [!TIP]
   > Interval size is determined dynamically based on the selected time span. Smaller time spans let you aggregate the data into very granular intervals of up to a few seconds.
 
-- **Chart Legend:** The chart legend shows the selected telemetry on the chart. Hover over an item on the legend to bring it into focus on the chart. When you use **Split by**, the telemetry is grouped by the values of the selected dimension. You can toggle the visibility of each telemetry type or clicking on the group name to toggle the group visibility.  
+- **Chart Legend:** The chart legend shows the selected telemetry on the chart. Hover over an item on the legend to bring it into focus on the chart. When you use **Group by**, the telemetry is grouped by the values of the selected dimension. You can toggle the visibility of each telemetry type or clicking on the group name to toggle the group visibility.  
 
 - **Y-axis format control:** The y-axis mode cycles through the available y-axis view options. This control is available only when you're visualizing multiple telemetry types. The three modes are:
 

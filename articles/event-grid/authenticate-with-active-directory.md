@@ -25,8 +25,8 @@ Regardless of the security principal used, a managed identity or an application 
  
 If you're using the Event Grid SDK, you don't need to worry about the details on how to implement the acquisition of access tokens and how to include it with every request to Event Grid because the [Event Grid data plane SDKs](#publish-events-using-event-grids-client-sdks) do that for you. 
 
-### high-level steps
-Perform the following steps to ready your client to use Azure AD authentication when sending events to a topic, domain, or partner namespace.
+### Client configuration steps to use Azure AD authentication
+Perform the following steps to configure your client to use Azure AD authentication when sending events to a topic, domain, or partner namespace.
 
 1. Create or use a security principal you want to use to authenticate. You can use a [managed identity](#authenticate-using-a-managed-identity) or an [application security principal](#authenticate-using-a-security-principal-of-a-client-application).
 2. [Grant permission to a security principal to publish events](#assign-permission-to-a-security-principal-to-publish-events) by assigning the **EventGrid Data Sender** role to the security principal.

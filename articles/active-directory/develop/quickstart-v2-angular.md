@@ -3,7 +3,7 @@ title: "Quickstart: Sign in users in Angular single-page apps - Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how an Angular app can call an API that requires access tokens issued by the Microsoft identity platform.
 services: active-directory
-author: jasonnutter
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -12,7 +12,8 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:J
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
-ms.author: janutter
+ms.author: henrymbugua
+ROBOTS: NOINDEX
 
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform so that my Angular app can sign in users of personal Microsoft accounts, work accounts, or school accounts.
 ---
