@@ -13,7 +13,10 @@ keywords: automated data processing, document processing, automated data entry, 
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
 
-# What is Azure Form Recognizer? 
+# Form Recognizer v3.0 | Preview
+
+>[!NOTE]
+> Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities. 
 
 Azure Form Recognizer is an [Azure Applied AI Service](../../applied-ai-services/index.yml) that enables you to build automated document processing software using machine learning technology. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
 
@@ -26,29 +29,19 @@ Form Recognizer easily identifies, extracts, and analyzes the following document
 * Key/value pairs
 * Element location with bounding box coordinates.
 
-This documentation contains the following article types:
-
-* [**Concepts**](concept-layout.md) provide in-depth explanations of the service functionality and features.
-* [**Quickstarts**](quickstarts/client-library.md) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](build-training-data-set.md) contain instructions for using the service in more specific or customized ways.
-* [**Tutorials**](tutorial-ai-builder.md) are longer guides that show you how to use the service as a component in broader business solutions.
-
-## Form Recognizer features and development options
+## Form Recognizer v3.0 features and development options
 
 The following features are supported by the Form Recognizer service. Use the links in the table to learn more about each feature and browse the API references.
 
-### [Form Recognizer v2.1](#tab/v2.1)
-| Feature | Description | Development options <img width=500/>|
+| Feature | Description | Development options |
 |----------|--------------|-------------------------|
-|[**Layout**](concept-layout.md) | Extraction and analysis of text, selection marks, and table structures,  along with their bounding box coordinates, from forms and documents. | <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](quickstarts/client-library.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|[**Layout**](concept-layout.md) | Extraction and analysis of text, selection marks, and tables structures, along with their bounding box coordinates, from forms and documents. | <ul><li>[**REST API**](quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](quickstarts/client-library.md)</li></ul>|
+|[**Prebuilt document**](concept-prebuilt.md#document)|extract text, tables, structure, key-value pairs and named entities.||
 |[**Prebuilt business card model**](concept-prebuilt.md#business-card) | Automated data processing and extraction of key information from business cards.| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/client-library.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Prebuilt identity document model**](concept-prebuilt.md#identity-document) | Automated data processing and extraction of key information from US driver's licenses and international passports.| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-identity-id-documents)</li><li>[**Client-library SDK**](quickstarts/client-library.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Prebuilt invoice model**](concept-prebuilt.md#invoice) | Automated data processing and extraction of key information from sales invoices. | <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-invoices)</li><li>[**Client-library SDK**](quickstarts/client-library.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Prebuilt receipt model**](concept-prebuilt.md#receipt) | Automated data processing and extraction of key information from sales receipts.| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-receipts)</li><li>[**Client-library SDK**](quickstarts/client-library.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Custom model**](concept-prebuilt.md#business-card) | Extraction and analysis of data from forms and documents specific to distinct business data and use cases.| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net)</li><li>[**REST API**](quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[**Client-library SDK**](quickstarts/client-library.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
-
----
-
 
 ## Prerequisites
 

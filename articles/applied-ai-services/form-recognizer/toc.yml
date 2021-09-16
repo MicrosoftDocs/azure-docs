@@ -11,6 +11,8 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/
   - name: What's new
     href: whats-new.md
+  - name: "v3.0 | Preview"
+    href: overview-preview.md 
 - name: Quickstarts
   items:
    - name: Form Recognizer v2.1
