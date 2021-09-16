@@ -175,9 +175,9 @@ Depending on whether you have an Azure AD Premium P1 or P2 license, here are the
 | Role assignment task | Premium P1 | Premium P2 |
 | --- | :---: | :---: |
 | Permanent role assignments | :heavy_check_mark: | :heavy_check_mark: |
-| Eligible role assignments | N/A | :heavy_check_mark: |
+| Eligible role assignments | n/a | :heavy_check_mark: |
 | Permanent role assignments at attribute set scope | :heavy_check_mark: | :heavy_check_mark: |
-| Eligible role assignments at attribute set scope | N/A | :x: |
+| Eligible role assignments at attribute set scope | n/a | :x: |
 | **Assigned roles** page lists permanent role assignments at attribute set scope | :heavy_check_mark: | :warning:<br/>Role assignments exist, but aren't listed  |
 
 ## License requirements
