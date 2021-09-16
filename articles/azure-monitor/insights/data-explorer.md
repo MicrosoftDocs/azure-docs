@@ -77,7 +77,8 @@ To access Azure Data Explorer Insights directly from an Azure Data Explorer clus
 
 You can also access these views by selecting the resource name of an Azure Data Explorer cluster from within the Azure Monitor insights view.
 
-Azure Data Explorer Insights combines both logs and metrics to provide a global monitoring solution. The inclusion of logs-based visualizations requires users to [enable diagnostic logging of their Azure Data Explorer cluster and send them to a Log Analytics workspace](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). The diagnostic logs that should be enabled are **Command**, **Query**, **TableDetails**, and **TableUsageStatistics**.
+> [!NOTE]
+> Azure Data Explorer Insights combines both logs and metrics to provide a global monitoring solution. The inclusion of logs-based visualizations requires users to [enable diagnostic logging of their Azure Data Explorer cluster and send them to a Log Analytics workspace](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). The diagnostic logs that should be enabled are **Command**, **Query**, **SucceededIngestion**, **FailedIngestion**, **IngestionBatching**, **TableDetails**, and **TableUsageStatistics**. (Enabling **SucceededIngestion** logs might be costly. Enable them only if you need to monitor successful ingestions.)
 
 ![Screenshot of the button for configuring logs for monitoring.](./media/data-explorer/enable-logs.png)
 
