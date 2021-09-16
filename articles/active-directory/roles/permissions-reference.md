@@ -913,7 +913,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
-> | microsoft.cloudPC/allEntities/allProperties/allTasks |  |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks | Manage all aspects of Windows 365 |
 > | microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing |
 > | microsoft.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365 |
 > | microsoft.edge/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Edge |
@@ -1012,7 +1012,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/allProperties/read | Read a verifiable credential card |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/allProperties/read | Read a verifiable credential contract |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | Read configuration required to create and manage verifiable credentials |
-> | microsoft.cloudPC/allEntities/allProperties/read |  |
+> | microsoft.cloudPC/allEntities/allProperties/read | Read all aspects of Windows 365 |
 > | microsoft.commerce.billing/allEntities/read | Read all resources of Office 365 billing |
 > | microsoft.edge/allEntities/allProperties/read | Read all aspects of Microsoft Edge |
 > | microsoft.office365.exchange/allEntities/standard/read | Read all resources of Exchange Online |
@@ -1236,7 +1236,7 @@ This role can create and manage all security groups. However, Intune Administrat
 > | microsoft.directory/users/manager/update | Update manager for users |
 > | microsoft.directory/users/photo/update | Update photo of users |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
-> | microsoft.cloudPC/allEntities/allProperties/allTasks |  |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks | Manage all aspects of Windows 365 |
 > | microsoft.intune/allEntities/allTasks | Manage all aspects of Microsoft Intune |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
