@@ -41,7 +41,7 @@ In Cognitive Search, built-in roles include generally available and preview role
 
 Role assignments are cumulative and pervasive across all tools and client libraries used to create or manage a search service. These clients include the Azure portal, Management REST API, Azure PowerShell, Azure CLI, and the management client library of Azure SDKs.
 
-Roles apply to the search service as a whole. You cannot assign roles to specific indexes or other top-level objects.
+Roles apply to the search service as a whole and must be assigned by an Owner. You cannot assign roles to specific indexes or other top-level objects.
 
 There are no regional, tier, or pricing restrictions for using RBAC on Azure Cognitive Search, but your search service must be in the Azure public cloud.
 
@@ -101,13 +101,34 @@ If you can't save your selection, or if you get "API access control failed to up
 
 ### [**REST API**](#tab/config-svc-rest)
 
-Use the Management REST API, version 2021-04-01-Preview, to configure your service.
+Use the Management REST API version 2021-04-01-Preview, [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), to configure your service.
 
-1. Call [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+If you are using Postman or another web testing tool, see the Tip below for help on setting up the request.
 
-1. Set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`. See [this example](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateserviceauthoptions) for syntax.
+1. Set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`. Optionally, set [AadAuthFailureMode](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Make sure that `disableLocalAuth` is false (it's the default).
 
-1. Set [AadAuthFailureMode](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 or 403 errors are returned when authentication fails.
+    ```http
+    PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "location": "{{region}}",
+      "sku": {
+        "name": "standard"
+      },
+      "properties": {
+        "disableLocalAuth": false,
+        "authOptions": {
+          "aadOrApiKey": {
+            "aadAuthFailureMode": "http401WithBearerChallenge"
+          }
+        }
+      }
+   }
+    ```
+
+1. [Assign roles](#assign-roles) on the service and verify they are working correctly against the data plane.
+
+> [!TIP]
+> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principle and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
 
 ---
 
@@ -194,7 +215,7 @@ Recall that you can only scope access to top-level resources, such as indexes, s
 
 + Register your application with Azure Active Directory.
 
-+ Revise your code to use a [Search REST API](/rest/api/searchservice/) (any supported version) and set the **Authorization** header on requests, replacing the **api-key** header. 
++ Revise your code to use a [Search REST API](/rest/api/searchservice/) (any supported version) and set the **Authorization** header on requests, replacing the **api-key** header.
 
   :::image type="content" source="media/search-security-rbac/rest-authorization-header.png" alt-text="Screenshot of an HTTP request with an Authorization header" border="true":::
 
@@ -226,9 +247,11 @@ SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCred
 
 API keys cannot be deleted, but they can be disabled on your service. If you are using Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Azure AD authentication, you can disable API keys, causing the search service to refuse all data-related requests that pass an API key in the header.
 
-+ Management REST API version 2021-04-01-Preview provides this option
++ Management REST API version 2021-04-01-Preview, [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), provides this option
 
 + Owner or Contributor permissions are required to disable features
+
+Use Postman or another web testing tool to complete the following steps (see Tip below):
 
 1. Set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`.
 
@@ -251,7 +274,7 @@ API keys cannot be deleted, but they can be disabled on your service. If you are
 
 1. [Assign roles](#assign-roles) on the service and verify they are working correctly.
 
-1. Set [disableLocalAuth](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) to **True**.
+1. Set [disableLocalAuth](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) to true.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
