@@ -63,8 +63,6 @@ By default, ASP.NET Core applications have an Application Insights logging provi
             public void ConfigureServices(IServiceCollection services)
             {
                 services.AddApplicationInsightsTelemetry();
-                // The following will be picked up by Application Insights.
-                _logger.LogInformation("Logging from ConfigureServices.");
                 // Configure the Connection String/Instrumentation key in appsettings.json
             }
 
@@ -197,8 +195,6 @@ namespace WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationInsightsTelemetry();
-            // The following will be picked up by Application Insights.
-            _logger.LogInformation("Logging from ConfigureServices.");
             // Configure the Connection String/Instrumentation key in appsettings.json
         }
 
