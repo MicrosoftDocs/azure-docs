@@ -89,7 +89,47 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 ## Examples
 
-[TODO]
+### Basics
+
+#### Hello world
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world.yml":::
+
+#### Hello world with an environment variable
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world-env-var.yml":::
+
+#### Hello world with a tag
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world-tag.yml":::
+
+#### Hello world with Python
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world-python.yml":::
+
+#### Hello world with MLflow and Python
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world-python-mlflow.yml":::
+
+### Single-node
+
+#### LightGBM on Iris
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/lightgbm/iris/job.yml":::
+
+### Distributed
+
+#### PyTorch
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
+
+#### Tensorflow
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
+
+#### MPI
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
 
 ## Schema
 
