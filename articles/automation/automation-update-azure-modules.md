@@ -3,7 +3,7 @@ title: Update Azure PowerShell modules in Azure Automation
 description: This article tells how to update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/13/2021
+ms.date: 09/16/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -19,7 +19,7 @@ The most common PowerShell modules are provided by default in each Automation ac
 
 To avoid impacting your runbooks and the processes they automate, be sure to test and validate as you make updates. If you don't have a dedicated Automation account intended for this purpose, consider creating one so that you can test many different scenarios during the development of your runbooks. This testing should include iterative changes, such as updating the PowerShell modules.
 
-Ensure your Automation account has added a [user-assigned managed identity](quickstarts/enable-managed-identity.md).
+Ensure your Automation account has added a [system-assigned managed identity or user-assigned managed identity](quickstarts/enable-managed-identity.md).
 
 If you develop your scripts locally, it's recommended to have the same module versions locally that you have in your Automation account when testing to ensure that you receive the same results. After the results are validated and you've applied any changes required, you can move the changes to production.
 
