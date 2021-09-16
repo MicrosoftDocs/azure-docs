@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2021
+ms.date: 09/16/2021
 ms.author: jeedes
 
 ---
@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type the URL:
-    `https://service-portal.benq.com/login`
+    `https://service-portaltest.benq.com/login`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BenQ IAM Client support team](mailto:benqcare.us@benq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -130,7 +130,30 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure BenQ IAM SSO
 
-To configure single sign-on on **BenQ IAM** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [BenQ IAM support team](mailto:benqcare.us@benq.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Login BenQ IAM with BenQ Admin Account, click **SSO Setting** in the Account Management section.
+
+    ![Screenshot for SSO Setting](./media/benq-iam-tutorial/sso-setting.png)
+
+1. Select **SSO by SAML** as SSO Setting in the pop up and click **Next**.
+
+    ![Screenshot for SSO by saml](./media/benq-iam-tutorial/sso-by-saml.png)
+
+1. Perform the following steps in the **SSO Setting** page.
+
+    ![Screenshot for SSO configuration](./media/benq-iam-tutorial/saml-configuration.png)
+
+    a. In the **Login/SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+
+    b. In the **Identifier/Entity ID** textbox, paste the **Identifier** value which you have copied from the Azure portal.
+
+    c. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate(Base64)** textbox.
+
+    d. Copy **Identifier** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+    e. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+    f. Click **Next**.
+
 
 ### Create BenQ IAM test user
 
