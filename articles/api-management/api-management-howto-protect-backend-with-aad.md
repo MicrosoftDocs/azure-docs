@@ -6,7 +6,7 @@ services: api-management
 author: miaojiang
 ms.service: api-management
 ms.topic: article
-ms.date: 09/14/2021
+ms.date: 09/16/2021
 ms.author: apimpm
 ms.custom: contperf-fy21q1
 ---
@@ -230,22 +230,22 @@ However, what if someone calls your API without a token or with an invalid token
 
 Pre-authorize requests in API Management with the [Validate JWT](./api-management-access-restriction-policies.md#ValidateJWT) policy, by validating the access tokens of each incoming request. If a request does not have a valid token, API Management blocks it. 
 
-For example, add the following policy to the `<inbound>` policy section of the `Echo API`. It checks the audience claim in an access token, and returns an error message if the token is not valid. 
+The following example policy, when added to the <inbound> policy section, checks the value of the audience claim in an access token obtained from Azure Active Directory, and returns an error message if the token is not valid. 
 
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
+    <openid-config url="https://login.microsoftonline.com/{aad-tenant}/v2.0/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID of backend-app}</value>
+            <value>{insert aud claim value expected in the token}</value>
         </claim>
     </required-claims>
 </validate-jwt>
 ```
 
 > [!NOTE]
-> The above `openid-config` URL corresponds to the v1 endpoint. For the v2 `openid-config`endpoint, use `https://login.microsoftonline.com/{aad-tenant}/v2.0/.well-known/openid-configuration`.
+> The above `openid-config` URL corresponds to the v2 endpoint. For the v1 `openid-config`endpoint, use `https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration`.
 > 
 > Find the **{aad-tenant}** value as your Azure AD tenant ID in the Azure portal, either on:
 > * The overview page of your Azure AD resource.
