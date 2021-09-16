@@ -110,7 +110,10 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 - Enable auditing and reporting on all encryption keys: Key vault provides logs that are easy to inject into other security information and event management tools. Operations Management Suite [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) is one example of a service that is already integrated.
 
-- Link each server with two key vaults that reside in different regions and hold the same key material, to ensure high availability of encrypted databases. Mark only the key from the key vault in the same region as a TDE protector. System will automatically switch to the key vault in the remote region if there's an outage affecting the key vault in the same region.
+- Link each server with two key vaults that reside in different regions and hold the same key material, to ensure high availability of encrypted databases. Mark the key from one of the key vaults as the TDE protector. System will automatically switch to the key vault in the second region with the same key material, if there's an outage affecting the key vault in the first region.
+
+> [!NOTE]
+> To allow greater flexibility in configuring customer-managed TDE, Azure SQL Database server and Managed Instance in one region can now be linked to key vault in any other region. The server and key vault do not have to be co-located in the same region. 
 
 ### Recommendations when configuring TDE protector
 
@@ -136,9 +139,9 @@ When TDE is configured to use a customer-managed key, continuous access to the T
 
 After access to the key is restored, taking database back online requires extra time and steps, which may vary based on the time elapsed without access to the key and the size of the data in the database:
 
-- If key access is restored within 8 hours, the database will autoheal within next hour.
+- If key access is restored within 30 minutes, the database will autoheal within next hour.
 
-- If key access is restored after more than 8 hours, autoheal is not possible and bringing back the database requires extra steps on the portal and can take a significant amount of time depending on the size of the database. Once the database is back online, previously configured server-level settings such as [failover group](auto-failover-group-overview.md) configuration, point-in-time-restore history, and tags **will be lost**. Therefore, it's recommended implementing a notification system that allows you to identify and address the underlying key access issues within 8 hours.
+- If key access is restored after more than 30 minutes, autoheal is not possible and bringing back the database requires extra steps on the portal and can take a significant amount of time depending on the size of the database. Once the database is back online, previously configured server-level settings such as [failover group](auto-failover-group-overview.md) configuration, point-in-time-restore history, and tags **will be lost**. Therefore, it's recommended implementing a notification system that allows you to identify and address the underlying key access issues within 8 hours.
 
 Below is a view of the extra steps required on the portal to bring an inaccessible database back online.
 
@@ -191,21 +194,23 @@ Another consideration for log files: Backed up log files remain encrypted with t
 
 Even in cases when there's no configured geo-redundancy for server, it's highly recommended to configure the server to use two different key vaults in two different regions with the same key material. The key in the secondary key vault in the other region shouldn't be marked as TDE protector, and it's not even allowed. If there's an outage affecting the primary key vault, and only then, the system will automatically switch to the other linked key with the same thumbprint in the secondary key vault, if it exists. Note though that switch won't happen if TDE protector is inaccessible because of revoked access rights, or because key or key vault is deleted, as it may indicate that customer intentionally wanted to restrict server from accessing the key. Providing the same key material to two key vaults in different regions can be done by creating the key outside of the key vault, and importing them into both key vaults. 
 
-Alternatively, it can be accomplished by generating key using the primary key vault colocated in the same region as the server and cloning the key into a key vault in a different Azure region. Use the [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) cmdlet to retrieve the key in encrypted format from the primary key vault and then use the [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet and specify a key vault in the second region to clone the key. Alternatively, use the Azure portal to back up and restore the key. Key backup/restore operation is only allowed between key vaults within the same Azure subscription and [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/).  
+Alternatively, it can be accomplished by generating key using the primary key vault in one region and cloning the key into a key vault in a different Azure region. Use the [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) cmdlet to retrieve the key in encrypted format from the primary key vault and then use the [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet and specify a key vault in the second region to clone the key. Alternatively, use the Azure portal to back up and restore the key. Key backup/restore operation is only allowed between key vaults within the same Azure subscription and [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
 ## Geo-DR and customer-managed TDE
 
-In both [active geo-replication](active-geo-replication-overview.md) and [failover groups](auto-failover-group-overview.md) scenarios, each server involved requires a separate key vault, that must be colocated with the server in the same Azure region. Customer is responsible for keeping the key material across the key vaults consistent, so that geo-secondary is in sync and can take over using the same key from its local key vault if primary becomes inaccessible due to an outage in the region and a failover is triggered. Up to four secondaries can be configured, and chaining (secondaries of secondaries) isn't supported.
+In both [active geo-replication](active-geo-replication-overview.md) and [failover groups](auto-failover-group-overview.md) scenarios, the primary and secondary servers involved can be linked either to the same key vault (in any region) or to separate key vaults. If separate key vaults are linked to the primary and secondary servers, customer is responsible for keeping the key material across the key vaults consistent, so that geo-secondary is in sync and can take over using the same key from its linked key vault if primary becomes inaccessible due to an outage in the region and a failover is triggered. Up to four secondaries can be configured, and chaining (secondaries of secondaries) isn't supported.
 
-To avoid issues while establishing or during geo-replication due to incomplete key material, it's important to follow these rules when configuring customer-managed TDE:
+To avoid issues while establishing or during geo-replication due to incomplete key material, it's important to follow these rules when configuring customer-managed TDE (if separate key vaults are used for the primary and secondary servers):
 
 - All key vaults involved must have same properties, and same access rights for respective servers.
 
 - All key vaults involved must contain identical key material. It applies not just to the current TDE protector, but to the all previous TDE protectors that may be used in the backup files.
 
 - Both initial setup and rotation of the TDE protector must be done on the secondary first, and then on primary.
+
+Azure SQL Database server and Managed Instance in one region can now be linked to key vault in any other region. The server and key vault do not have to be co-located in the same region. With this, for simplicity, the primary and secondary servers can be connected to the same key vault (in any region). This will help avoid scenarios where key material may be out of sync if separate key vaults are used for both the servers. Azure Key Vault has multiple layers of redundancy in place to make sure that your keys and key vaults remain available in case of service or region failures. [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md)
 
 ![Failover groups and geo-dr](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
