@@ -19,16 +19,16 @@ This article discusses metrics and diagnostics that are available through the po
 
 ### Monitoring Secured Hub (Azure Firewall) 
 
-You can monitor the Secured Hub using Azure Firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
+If you have chosen to secure your Virtual Hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
+You can monitor the Secured Hub using Azure Firewall logs and metrics. You can also use activity logs to audit operations on Azure Firewall resources.
 For every Azure Virtual WAN you secure and convert to a Secured Hub, an explicit firewall resource object is created in the resource group where the hub is located. 
 
 :::image type="content" source="./media/monitor-virtual-wan/FirewallResourceInTheAzurePortal.png" alt-text="Screenshot shows a Firewall resource in the vWAN hub resource group.":::
 
-Diagnostics and logging configuration must be done from there accessing the "Diagnostic Settings" tab:
+Diagnostics and logging configuration must be done from there accessing the **Diagnostic Setting** tab:
 
 :::image type="content" source="./media/monitor-virtual-wan/FirewallDiagnosticsSettings.png" alt-text="Screenshot shows Firewall diagnostic settings.":::
 
-If you have chosen to secure your Virtual Hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
 
 ## Metrics
 
@@ -161,7 +161,7 @@ The following steps help you create, edit and view diagnostic settings:
 
 If you selected to send diagnostic data to a Log Analytics Workspace, then you can use queries as the example below to examine. 
 These queries use a SQL-like Log Analytics Query Language, you can learn more about this language from [this article](https://docs.microsoft.com/services-hub/health/log_analytics_query_language).
-You can set up a query in Log Analytics. The following example contains a query to obtain site-to-site route diagnostics.
+The following example contains a query to obtain site-to-site route diagnostics.
 
 ```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
 
