@@ -28,18 +28,6 @@ items:
       href: tutorial-data-sources-readiness.md
     - name: Azure Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
-  - name: Starter kit
-    items:
-    - name: Scan data
-      href: tutorial-scan-data.md
-    - name: Navigate home page and search
-      href: tutorial-asset-search.md
-    - name: Browse assets and view lineage
-      href: tutorial-browse-and-view-lineage.md
-    - name: Explore resource sets, assets, schemas, classifications
-      href: tutorial-schemas-and-classifications.md
-    - name: Create glossary terms
-      href: tutorial-import-create-glossary-terms.md
   - name: Register and scan an on-prem SQL server
     href: register-scan-on-premises-sql-server.md
   - name: Call the REST APIs for the catalog
@@ -76,6 +64,8 @@ items:
     href: concept-asset-normalization.md
   - name: Frequently asked questions
     href: ./frequently-asked-questions.yml
+  - name: Upgraded Purview accounts
+    href: concept-account-upgrade.md
 - name: How-to guides
   items:
   - name: Create and manage collections
@@ -241,19 +231,17 @@ items:
     items:
     - name: Private endpoints
       items:
-      - name: Azure Purview private endpoints overview
+      - name: Private endpoints overview
         href: catalog-private-link.md
-      - name: Connect privately and securely to your Purview account
-        href: catalog-private-link-account-portal.md
-      - name: Scan your data sources privately and securely
-        href: catalog-private-link-ingestion.md
-      - name: Connect to your Azure Purview and scan data sources privately and securely
+      - name: End-to-end network isolation
         href: catalog-private-link-end-to-end.md
-      - name: Azure Purview private endpoints DNS configuration
+      - name: Isolate network for Purview account and portal
+        href: catalog-private-link-account-portal.md
+      - name: Configure DNS for private endpoint
         href: catalog-private-link-name-resolution.md
-      - name: Azure Purview private endpoints troubleshooting guide
+      - name: Troubleshoot private endpoints
         href: catalog-private-link-troubleshoot.md                     
-      - name: Azure Purview Private endpoints FAQs
+      - name: Private endpoint FAQ
         href: catalog-private-link-faqs.md
     - name: Azure policy exceptions
       href: create-purview-portal-faq.md

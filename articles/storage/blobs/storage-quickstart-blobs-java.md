@@ -29,8 +29,6 @@ Additional resources:
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Setting up
 
 This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for Java.
@@ -122,7 +120,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-storage-blob</artifactId>
-    <version>12.6.0</version>
+    <version>12.13.0</version>
 </dependency>
 ```
 

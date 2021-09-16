@@ -5,6 +5,7 @@ description: Learn how to use the Identities & Access Tokens tool in the Azure p
 author: manoskow
 manager: chpalm
 services: azure-communication-services
+
 ms.author: manoskow
 ms.date: 07/19/2021
 ms.topic: quickstart

@@ -3,13 +3,13 @@ title: "Prepare data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them."
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.author: lajanuar
+ms.date: 09/16/2021
+ms.author: pafarley
 ---
 
 # Prepare data for Custom Speech
@@ -144,6 +144,7 @@ Additionally, you'll want to account for the following restrictions:
 * Avoid repeating characters, words, or groups of words more than three times. For example: "aaaa", "yeah yeah yeah yeah", or "that's it that's it that's it that's it". The Speech service might drop lines with too many repetitions.
 * Don't use special characters or UTF-8 characters above `U+00A1`.
 * URIs will be rejected.
+* For some languages (for example Japanese or Korean), importing large amounts of text data can take very long or time out. Please consider to divide the uploaded data into text files of up to 20.000 lines each.
 
 ## Pronunciation data for training
 
@@ -161,12 +162,7 @@ Provide pronunciations in a single text file. This includes examples of a spoken
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
 
-Customized pronunciation is available in English (`en-US`) and German (`de-DE`). This table shows supported characters by language:
-
-| Language | Locale | Characters |
-|----------|--------|------------|
-| English | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-| German | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+See [this table](language-support.md#speech-to-text) for the list of the supported languages (note the "Pronunciation assessment" column).
 
 Use the following table to ensure that your related data file for pronunciations is correctly formatted. Pronunciation files are small, and should only be a few kilobytes in size.
 
