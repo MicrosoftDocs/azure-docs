@@ -1,6 +1,6 @@
 ---
 title: What is question answering?
-description: Question answering is a cloud-based NLP service that easily creates a natural conversational layer over your data. It can be used to find the most appropriate answer for any given natural language input, from your custom knowledge base (KB) of information.
+description: Question answering is a cloud-based Natural Language Processing (NLP) service that easily creates a natural conversational layer over your data. It can be used to find the most appropriate answer for any given natural language input, from your custom knowledge base (KB) of information.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
@@ -23,9 +23,9 @@ This documentation contains the following article types:
 
 ## When to use question answering
 
-* **When you have static information** - Use question answering when you have static information in your knowledge base of answers. This knowledge base is custom to your needs, which you've built with documents such as [PDFs and URLs](../Concepts/data-sources-and-content.md).
+* **When you have static information** - Use question answering when you have static information in your knowledge base of answers. This knowledge base is custom to your needs, which you've built with documents such as [PDFs and URLs](../../qnamaker/Concepts/data-sources-and-content.md).
 * **When you want to provide the same answer to a request, question, or command** - when different users submit the same question, the same answer is returned.
-* **When you want to filter static information based on meta-information** - add [metadata](../../qnamaker/how-to/metadata-generateanswer-usage.md) tags to provide additional filtering options relevant to your client application's users and the information. Common metadata information includes [chit-chat](../how-to/chit-chat-knowledge-base.md), content type or format, content purpose, and content freshness. <!--TODO: Fix Link-->
+* **When you want to filter static information based on meta-information** - add [metadata](../../qnamaker/how-to/metadata-generateanswer-usage.md) tags to provide additional filtering options relevant to your client application's users and the information. Common metadata information includes [chit-chat](./how-to/chit-chat.md), content type or format, content purpose, and content freshness. <!--TODO: Fix Link-->
 * **When you want to manage a bot conversation that includes static information** - your knowledge base takes a user's conversational text or command and answers it. If the answer is part of a pre-determined conversation flow, represented in your knowledge base with [multi-turn context](../../qnamaker/how-to/multiturn-conversation.md), the bot can easily provide this flow.
 
 ## What is a knowledge base?
