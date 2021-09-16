@@ -125,13 +125,131 @@ az sql db create \
 
 # [PowerShell](#tab/azure-powershell)
 
+Create a server configured with user-assigned managed identity and customer-managed TDE using PowerShell.
+
 For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
 Use the [New-AzSqlServer](/powershell/module/az.sql/New-AzSqlServer) cmdlet.
 
+Replace the following values in the example:
+
+- `<ResourceGroupName>`: Name of the resource group for your Azure SQL logical server
+- `<Location>`: Location of the server, such as `West US`, or `Central US`
+- `<ServerName>`: Use a unique Azure SQL logical server name
+- `<ServerAdminName>`: The SQL Administrator login
+- `<ServerAdminPassword>`: The SQL Administrator password
+- `<IdentityType>`: Type of identity to be assigned to the server. Possible values are `SystemAsssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` and None
+- `<UserAssignedIdentityId>`: The list of user assigned identities
+- `<PrimaryUserAssignedIdentityId>`: The primary User-Managed Identity (UMI) ID
+- `<CustomerManagedKeyId>`: The Azure Key Vault URI that is used for encryption
+
 ```powershell
 # create a server with user-assigned managed identity and customer-managed TDE
-New-AzSqlServer -ResourceGroupName <ResourceGroupName> -Location <RegionName> -ServerName <ServerName> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -SqlAdministratorLogin <ServerAdminName> -SqlAdministratorPassword <ServerAdminPassword> -AssignIdentity -IdentityType <IdentityType> -UserAssignedIdentityId <UserAssignedIdentityId> -PrimaryUserAssignedIdentityId <PrimaryUserAssignedIdentityId> -KeyId <CustomerManagedKeyId>
+New-AzSqlServer -ResourceGroupName <ResourceGroupName> -Location <Location> -ServerName <ServerName> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -SqlAdministratorLogin <ServerAdminName> -SqlAdministratorPassword <ServerAdminPassword> -AssignIdentity -IdentityType <IdentityType> -UserAssignedIdentityId <UserAssignedIdentityId> -PrimaryUserAssignedIdentityId <PrimaryUserAssignedIdentityId> -KeyId <CustomerManagedKeyId>
+
+```
+
+# [ARM Template](#tab/arm-template)
+
+Here's an example of an ARM template that creates an Azure SQL logical server with a user-assigned managed identity and customer-managed TDE. The template also adds an Azure AD admin set for the server and enables [Azure AD-only authentication](authentication-azure-ad-only-authentication.md), but this can be removed from the template example.
+
+For more information and ARM templates, see [Azure Resource Manager templates for Azure SQL Database & SQL Managed Instance](arm-templates-content-guide.md).
+
+Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/Microsoft.Template), and **Build your own template in the editor**. Next, **Save** the configuration once you pasted in the example.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "server": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        },
+        "aad_admin_name": {
+            "type": "String",
+            "metadata": {
+                "description": "The name of the Azure AD admin for the SQL server."
+            }
+        },
+        "aad_admin_objectid": {
+            "type": "String",
+            "metadata": {
+                "description": "The Object ID of the Azure AD admin."
+            }
+        },
+        "aad_admin_tenantid": {
+            "type": "String",
+            "defaultValue": "[subscription().tenantId]",
+            "metadata": {
+                "description": "The Tenant ID of the Azure Active Directory"
+            }
+        },
+        "aad_admin_type": {
+            "defaultValue": "User",
+            "allowedValues": [
+                "User",
+                "Group",
+                "Application"
+            ],
+            "type": "String"
+        },
+        "aad_only_auth": {
+            "defaultValue": true,
+            "type": "Bool"
+        },
+        "user_identity_resource_id": {
+            "defaultValue": "",
+            "type": "String",
+            "metadata": {
+                "description": "The Object ID of the user-assigned managed identity."
+            }
+        },
+        "keyvault_url": {
+            "defaultValue": "",
+            "type": "String",
+            "metadata": {
+                "description": "The key vault URI."
+            }
+        },
+        "AdminLogin": {
+            "minLength": 1,
+            "type": "String"
+        },
+        "AdminLoginPassword": {
+            "type": "SecureString"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers",
+            "apiVersion": "2020-11-01-preview",
+            "name": "[parameters('server')]",
+            "location": "[parameters('location')]",
+            "identity": {
+                "type": "UserAssigned",
+                "UserAssignedIdentities": {
+                    "[parameters('user_identity_resource_id')]": {}
+                }
+            },
+            "properties": {
+                "administratorLogin": "[parameters('AdminLogin')]",
+                "administratorLoginPassword": "[parameters('AdminLoginPassword')]",
+                "PrimaryUserAssignedIdentityId": "[parameters('user_identity_resource_id')]",
+                "KeyId": "[parameters('keyvault_url')]",
+                "administrators": {
+                    "login": "[parameters('aad_admin_name')]",
+                    "sid": "[parameters('aad_admin_objectid')]",
+                    "tenantId": "[parameters('aad_admin_tenantid')]",
+                    "principalType": "[parameters('aad_admin_type')]",
+                    "azureADOnlyAuthentication": "[parameters('aad_only_auth')]"
+                }
+            }
+        }
+    ]
+}
 
 ```
 
