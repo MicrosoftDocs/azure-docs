@@ -158,7 +158,7 @@ public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X5
      
      // OR, when the user has previously logged in, get a token silently
      var homeAccountId = GetHomeAccountIdFromClaimsPrincipal(); // uid and utid claims
-     var account = await app.GetAccountsAsync(homeAccountId);
+     var account = await app.GetAccountAsync(homeAccountId);
      try
      {
           return await app.AcquireTokenSilent(scopes, account).ExecuteAsync();; 
