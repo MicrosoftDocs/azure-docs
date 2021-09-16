@@ -22,16 +22,16 @@ ms.reviewer: laobri
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
-| `name` | string | **Required.** Name of the deployment. | | |
+| `name` | string | **Required.** Name of the deployment. <br><br> Naming rules are defined [here](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).| | |
 | `description` | string | Description of the deployment. | | |
 | `tags` | object | Dictionary of tags for the deployment. | | |
 | `endpoint_name` | string | **Required.** Name of the endpoint to create the deployment under. | | |
-| `model` | string or object | **Required.** The model to use for the deployment. This can be either a reference to an existing versioned model in the workspace or an inline model specification. <br><br> To reference an existing model use the `azureml:<model-name>:<model-version>` syntax. <br><br> To define a model inline please follow the [Model schema](reference-yaml-model.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the model separately and reference it here. | | |
-| `model_mount_path` | string | The path to mount the model in a custom container. | | |
-| `code_configuration` | object | Configuration for the scoring code logic. | | |
+| `model` | string or object | The model to use for the deployment. This can be either a reference to an existing versioned model in the workspace or an inline model specification. <br><br> To reference an existing model use the `azureml:<model-name>:<model-version>` syntax. <br><br> To define a model inline please follow the [Model schema](reference-yaml-model.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the model separately and reference it here. | | |
+| `model_mount_path` | string | The path to mount the model in a custom container. Applicable only for [custom container deployment](how-to-deploy-custom-container.md) scenarios. If the `model` field is specified, it is mounted on this path in the container. | | |
+| `code_configuration` | object | Configuration for the scoring code logic. <br><br> This field is optional for [custom container deployment](how-to-deploy-custom-container.md) scenarios. | | |
 | `code_configuration.code.local_path` | string | Local path to the source code directory for scoring the model. | | |
 | `code_configuration.scoring_script` | string | Relative path to the scoring file in the source code directory. | | |
-| `environment` | string or object | The environment to use for the deployment. This can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline please follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
+| `environment` | string or object | **Required.** The environment to use for the deployment. This can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline please follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
 | `instance_type` | string | **Required.** The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md). | | |
 | `instance_count` | string | **Required.** The number of instances to use for the deployment. Specify the value based on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. `instance_count` can be updated after deployment creation using `az ml online-deployment update` command. | | |
 | `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
@@ -46,7 +46,7 @@ ms.reviewer: laobri
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
 | `request_timeout_ms` | integer | The scoring timeout in milliseconds. | `5000` |
-| `max_concurrent_requests_per_instance` | integer | The maximum number of concurrent requests per instance allowed for the deployment. **Do not change this setting from the default value unless instructed by Microsoft Technical Support or a member of the Azure ML team.** | `1` |
+| `max_concurrent_requests_per_instance` | integer | The maximum number of concurrent requests per instance allowed for the deployment. <br><br> **Do not change this setting from the default value unless instructed by Microsoft Technical Support or a member of the Azure ML team.** | `1` |
 | `max_queue_wait_ms` | integer | The maximum amount of time in milliseconds a request will stay in the queue. | `500` |
 
 ### ProbeSettings
