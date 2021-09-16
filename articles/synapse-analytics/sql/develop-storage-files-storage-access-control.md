@@ -206,9 +206,7 @@ Shared access signatures cannot be used to access firewall-protected storage.
 
 ### [Service Principal](#tab/service-principal)
 
-?????
-
-?????
+???
 
 ### [Managed Identity](#tab/managed-identity)
 
@@ -284,10 +282,13 @@ Optionally, you can use just the base URL of the storage account, without contai
 
 ### [Service Principal](#tab/service-principal)
 
-??????????????????????
-?????????????
+The following script creates a server-level credential that can be used to access files in a storage using Service Principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** is URL of AAD Oauth2.0 authority.
 
-??????????????????????????????
+```sql
+CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+WITH IDENTITY = '<AppID>@<AuthorityUrl>' 
+, SECRET = '<Secret>'
+```
 
 ### [Managed Identity](#tab/managed-identity)
  
@@ -344,7 +345,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 
 ### [Service Principal](#tab/service-principal)
-The following script creates a database-scoped credential that can be used to access files on storage using Service Principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** ?????????????????????????????????????
+The following script creates a database-scoped credential that can be used to access files in a storage using Service Principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** is URL of AAD Oauth2.0 authority.
 
 ```sql
 -- Optional: Create MASTER KEY if not exists in database:
@@ -438,7 +439,7 @@ Modify the following script to create an external table that accesses Azure stor
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
 GO
 
--- Create databases scoped credential that use Managed Identity or SAS token. User needs to create only database-scoped credentials that should be used to access data source:
+-- Create databases scoped credential that use Managed Identity, SAS token or Service Principal. User needs to create only database-scoped credentials that should be used to access data source:
 
 CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
 WITH IDENTITY = 'Managed Identity'
