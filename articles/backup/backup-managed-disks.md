@@ -189,7 +189,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
    >[!Note]
    >- In some cases, it can take up to 30 minutes for the role assignments to propagate, causing revalidation failure. In this scenario, retry after some time.
-   >- If the Add missing roles action fails  to assign permissions with the error ‘Insufficient permission for role assignment’ in Backup readiness column, it indicates that you don’t have the privilege to assign role permissions. Choose Download role assignment template to download role assignments as scripts and seek support from your IT Administrator to run the scripts to complete the prerequisites. 
+   >- If the **Add missing roles** action fails  to assign permissions with the error ‘Insufficient permission for role assignment’ in Backup readiness column, it indicates that you don’t have the privilege to assign role permissions. Choose Download role assignment template to download role assignments as scripts and seek support from your IT Administrator to run the scripts to complete the prerequisites. 
 
    :::image type="content" source="./media/backup-managed-disks/permission-propagation-taking-long-time-inline.png" alt-text="Screenshot showing the permission propagate instances taking longer time, upto 30 seconds." lightbox="./media/backup-managed-disks/permission-propagation-taking-long-time-expanded.png":::
 

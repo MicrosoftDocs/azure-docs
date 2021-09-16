@@ -278,7 +278,7 @@ az dataprotection backup-vault update -g testBkpVaultRG --vault-name TestBkpVaul
 
 ### Assign permissions
 
-You need to assign a few permissions via RBAC to the vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Azure portal or CLI. To assign related permissions, see the [the prerequisites to configure backup of managed disks](backup-managed-disks-ps.md#assign-permissions).
+You need to assign a few permissions via RBAC to the vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Azure portal or CLI. To assign related permissions, see the [prerequisites to configure backup of managed disks](backup-managed-disks-ps.md#assign-permissions).
 
 ### Prepare the request
 
