@@ -30,7 +30,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 If collection has document expiration enabled and documents have `ttl` property set on them, then this property will be available in Gremlin traversal as a regular vertex or edge property. `ProjectionStrategy` isn't necessary to enable time-to-live property exposure.
 
-* To set time-to-live on a new vertex use the following command:
+* Use the following command to set time-to-live on a new vertex:
 
   ```msgraph-interactive
   g.addV(<ID>).property('ttl', <expirationTime>)
