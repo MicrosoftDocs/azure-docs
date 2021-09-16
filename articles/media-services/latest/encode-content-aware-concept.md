@@ -9,7 +9,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 09/16/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ---
@@ -18,17 +18,73 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-In order to prepare content for delivery by [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low). This ensures graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. Such multiple bit-rate encoding makes use of a so-called encoding ladder – a table of resolutions and bitrates, see the Media Services [built-in encoding presets](/rest/api/media/transforms/createorupdate#encodernamedpreset).
+In order to prepare content for delivery using [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low) and multiple resolutions. This allows today's modern video players on Apple iOS, Android, Windows, and Mac to use streaming protocols that smoothly stream content without buffering. These different renditions of display size (resolution) and quality (bitrate) allows the player to select the best version of the video that the current network conditions can support. This can vary widely from LTE, 4G, 5G, public Wi-Fi or a home network.
 
-You should be aware of the content you are processing, and customize/tune the encoding ladder to the complexity of the individual video. At each resolution, there is a bitrate beyond which any increase in quality is not perceptive – the encoder operates at this optimal bitrate value. The next level of optimization is to select the resolutions based on the content – for example, a video of a PowerPoint presentation does not benefit from going below 720p. Going further, the encoder can be tasked to optimize the settings for each shot within the video. 
+The process of encoding content into multiple renditions requires the generation of an "encoding ladder" – a table of resolutions and bitrates that tells the encoder what to generate. For an example of such a ladder, see the Media Services [built-in encoding presets](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
-Microsoft's [Adaptive Streaming](encode-autogen-bitrate-ladder.md) preset partially addresses the problem of the variability in the quality and resolution of the source videos. Our customers have a varying mix of content, some at 1080p, others at 720p, and a few at SD and lower resolutions. Furthermore, not all source content is high-quality mezzanines from film or TV studios. The Adaptive Streaming preset addresses these problems by ensuring that the bitrate ladder never exceeds the resolution or the average bitrate of the input mezzanine. However, this preset does not examine source properties other than resolution and bitrate.
+In ideal conditions, you want to be very aware of the type of content you are encoding and tune the encoding ladder to match the complexity and motion in your source video. This means that at each display size (resolution) in the ladder, there should be a bitrate beyond which any increase in quality is not perceptive – the encoder operates at this optimal bitrate value.
 
-## The content-aware encoding preset
+The next level of optimization that can be made is to select the resolutions based on the content – for example, a video of a PowerPoint presentation with lots of small text would look really awful when encoded below 720 pixel lines in height. In addition, you may also have a video that changes motion and complexity throughout based on how it was shot and edited.  This provides an opportunity to tune and adjust the encoding settings at each scene or shot boundary. A smart encoder can be tasked to optimize encoding settings for each shot within the video.
 
-The content-aware encoding preset extends the "adaptive bitrate streaming" mechanism, by incorporating custom logic that lets the encoder seek the optimal bitrate value for a given resolution, but without requiring extensive computational analysis. This preset produces a set of GOP-aligned MP4s. Given any input content, the service performs an initial lightweight analysis of the input content, and uses the results to determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low and medium complexity videos, where the output files will be at lower bitrates than the Adaptive Streaming preset but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved
+Azure Media Services provides an [Adaptive Streaming](encode-autogen-bitrate-ladder.md) preset that partially addresses the problem of the variability in the bitrate and resolution of the source videos. However, this preset does not analyze the source content to see how complex it is, or how much motion it contains. 
 
-The following sample graphs show the comparison using quality metrics like [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) and [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). The source was created by concatenating short clips of high complexity shots from movies and TV shows, intended to stress the encoder. By definition, this preset produces results that vary from content to content – it also means that for some content, there may not be significant reduction in bitrate or improvement in quality.
+## The Content-Aware encoding preset
+
+The content-aware encoding preset improves on the more static "adaptive bitrate streaming" encoding preset by adding  logic that allows the encoder to seek an optimal bitrate value for a given resolution, but without requiring extensive computational analysis. This preset outputs a uniques "ladder" of GOP-aligned MP4s based on the source file. Given a source video, the preset performs an initial fast analysis of the input content and uses the results to determine the optimal number of layers, bitrate and resolutions needed to deliver the highest quality adaptive bitrate streaming experience. This preset is particularly effective with low-to-medium complexity videos, where the output files will be at lower bitrates than the more static Adaptive Streaming preset but at a quality that still delivers a very good experience to audiences. The output folder will contain several MP4 files with video and audio ready for streaming.
+
+### Constraining the content-aware encoding settings
+In addition, developers can also control the range of outputs that the content-aware encoding preset uses when deciding the optimal settings for encoding the adaptive bitrate streaming ladder. 
+
+Through the use of the **PresetConfigurations** class, developers can pass in a set of constraints and options to the content-aware encoding preset to control the resulting files generated by the encoder. This is especially useful for situations where you want to limit all encoding to a specific maximum resolution to control the experience or costs of your encoding jobs.  It is also useful to be able to control the maximum and minimum bitrates that your audience may be able to support on a mobile network or in a global region that has bandwidth constraints.
+
+The PresetConfigurations class allows you to adjust the following settings on the content-aware encoding presets. 
+
+| Property                   | Description                                                                                                                                                                         |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| complexity              | Speed, Balanced, or Quality. Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency |
+| interleaveOutput          |    Controls how the output MP4 file are formatted.  They can be interleaved with both audio and video to make them easier to share individually, or they can be separated audio and video files to make it easier to late-bind additional language audio tracks or modify the audio later.                                                                                                                                                                                 |
+| keyFrameIntervalInSeconds |        Sets the key-frame distance used for each group of pictures (GOP) when encoding the files.  Typical modern adaptive streaming protocols use 2 seconds.  Depending on what network conditions you are delivering over, it can sometimes help to use longer intervals. Check with your CDN provider or do some experimentation on your own networks.                                                                                                                                                                             |
+| maxBitrateBps             |               Constrains the top bitrate of the adaptive streaming ladder.  Very useful for controlling storage costs as well as network delivery costs.  In addition, this can also keep your delivered bitrates within a range that is supported by your clients.                                                                                                                                                                       |
+| maxHeight                 |       The top resolution that is allowed to be encoded in the adaptive ladder.  This is very useful for also controlling costs, or controlling the experience of your audience. You can limit all encodes to be Standard Definition, or limit them to be max 720P if desired.                                                                                                                                                                              |
+| maxLayers                 |        This property controls the number of layers in the adaptive streaming ladder. This also by definition controls the number of files output as MP4 into the storage container.  Lowering this value reduces costs as well, since you are producing fewer output renditions, the total amount of encoded minutes will be reduced. use this in combination with maxHeight and maxBitrateBps to keep costs in control during encoding and make your billing more predictable.                                                                                                                                                                             |
+| minBitrateBps             |                           This controls the lowest bitrate that the encoder wil l choose.  Use this to optimize for quality on your low bitrate and low resolution renditions.                                                                                                                                                         |
+| minHeight                 |     This setting controls the smallest resolution that the adaptive bitrate ladder will produce. This helps to avoid clients selecting a very low resolution rendition that could be too blurry for the type of content that you are encoding. This helps a lot with the quality of experience you are delivering.                                                                                                                                                                                |
+|
+
+### Example code for PresetConfigurations
+
+The following code snippet is from the sample [Encode with content-aware, H.246, and constraints](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_H264_ContentAware_Constrained).
+
+[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/Encoding_H264_ContentAware_Constrained/Program.cs#PresetConfigurations)]
+
+## Supported codecs
+
+The content-aware encoding preset is available for use with the following codecs:
+-  H.264
+-  HEVC (H.265)
+
+## Preset names
+
+To use the content-aware encoding preset in your code, simple use the [BuiltInStandardEncoderPreset](/dotnet/api/microsoft.azure.management.media.models.builtinstandardencoderpreset) object and set the [PresetName](/dotnet/api/microsoft.azure.management.media.models.builtinstandardencoderpreset.presetname) property to one of the following built-in preset names.
+
+- **ContentAwareEncoding**  - this preset supports H.264.
+- **H265ContentAwareEncoding** - this preset supports HEVC (H.265)
+
+## Samples
+
+Several competed samples showing how to use the content-aware encoder area available. These samples demonstrate the various codecs and constraints available.
+
+### .NET
+
+| Sample | Description|
+|---------|------------------|
+| [Encode with content-aware and H.246](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_H264_ContentAware) | Demonstrates the most basic use of H.264 content-aware encoding without any constraints |
+| [Encode with content-aware, H.246, and constraints](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_H264_ContentAware_Constrained) | Demonstrates how to use the PresetConfigurations class to constrain the output behavior of the preset|
+| [Encode with content-aware and HEVC (H.265)](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC_ContentAware) | Shows basic usage of the HEVC codec with content-aware encoding and no constraints.  The PresetConfigurations class is also supported for HEVC and can be added to this sample|
+
+## Technical details
+
+Lets now dig a bit deeper into how the content-aware encoding preset works.  following sample graphs show the comparison using quality metrics like [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) and [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). The source was created by concatenating short clips of high complexity shots from movies and TV shows, intended to stress the encoder. By definition, this preset produces results that vary from content to content – it also means that for some content, there may not be significant reduction in bitrate or improvement in quality.
 
 ![Rate-distortion (RD) curve using PSNR](media/encode-content-aware-concept/msrv1.png)
 
@@ -48,9 +104,9 @@ Below are the results for another category of source content, where the encoder 
 
 **Figure 4: RD curve using VMAF for low-quality input (at 1080p)**
 
-## 8-bit HEVC (H.265) Support
+## HEVC (H.265) Support
 
-Azure Media Services' Standard Encoder now supports 8-bit HEVC (H.265) encoding support. HEVC content can be delivered and packaged through the Dynamic Packager using the 'hev1' format.
+Azure Media Services' Standard Encoder now supports HEVC (H.265) encoding support. HEVC content can be delivered and packaged through the Dynamic Packager using the 'hev1' format.
 
 A new .NET custom encoding with HEVC sample is available in the [media-services-v3-dotnet Git Hub repository](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC). In addition to custom encoding, AMS also supports other new built-in HEVC encoding presets that you can view in our [February 2021 release notes](./release-notes.md#february-2021).
   
