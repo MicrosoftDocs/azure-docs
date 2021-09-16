@@ -74,7 +74,7 @@ To add the **Azure IoT Central V3- preview** connector as an action in Azure Log
 
 ## List of actions
 
-For a complete list of actions supported by the connector, see [Actions](../../connectors/azureiotcentral/#actions).
+For a complete list of actions supported by the connector, see [Actions](/connectors/azureiotcentral/#actions).
 
 
 ### Create or update a device
