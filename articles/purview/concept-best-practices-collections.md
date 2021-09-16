@@ -122,7 +122,7 @@ Azure Purview data-plane roles are managed inside Azure Purview. After you deplo
     > [!NOTE]
     > For certain scenarios, you may need to use an emergency account to login to Azure Purview to fix organizational level access issues when nobody else can login to Purview or other admins cannot perform certain operations due corporate authentication issues. It is highly recommended following Microsoft best practices guides around implementing [emergency access accounts](/azure/active-directory/users-groups-roles/directory-emergency-access) using cloud only users.
     
-    Follow [this guide](/concept-account-upgrade.md#what-happens-when-your-upgraded-account-doesnt-have-a-collection-admin) to recover access to your Purview root collection in case your last collection admin is unavailable.
+    Follow [this guide](./concept-account-upgrade.md#what-happens-to-your-collections-during-upgrade) to recover access to your Purview root collection in case your last collection admin is unavailable.
 
 - Keep the number of root collection admins minimal. Assign maximum of 3 collection admins users at root collection including the SPN and your break-glass accounts. Assign your collection admin roles at the top-level collection or subcollections instead.
 
@@ -214,7 +214,7 @@ Each Business unit has their own sub-collection.
 
 ## Access management options
 
-For organizations who are looking to implement data democratization across the entire organization, assign _data reader_ role at the top-level collection to ensure. ???? Assign _data source admin_ and _data Curator_ roles at the sub-collection levels to the corresponding data management teams.
+For organizations who are looking to implement data democratization across the entire organization, assign _data reader_ role at the top-level collection to data management and governance and business users. Assign _data source admin_ and _data Curator_ roles at the sub-collection levels to the corresponding data management and governance teams.
 
 If you need to restrict access metadata search and discovery in your organization, assign _data reader_ and _data curator_ roles at the specific collection level. For example, US employees can read data only at the US collection level and not the LATAM collection. 
 
