@@ -74,9 +74,13 @@ This article explains the considerations and steps for enabling LDAP with extend
 4. LDAP NFS users need to have certain POSIX attributes on the LDAP server. Set the attributes for LDAP users and LDAP groups as follows: 
 
     * Required attributes for LDAP users:   
-        `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: user, posixAccount`
+        `uid: Alice`,  
+        `uidNumber: 139`,  
+        `gidNumber: 555`,  
+        `objectClass: user, posixAccount`
     * Required attributes for LDAP groups:   
-        `objectClass: group, posixGroup`, `gidNumber: 555`
+        `objectClass: group, posixGroup`,  
+        `gidNumber: 555`
 
     Note that the values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
 

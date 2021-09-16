@@ -204,9 +204,13 @@ You can manage POSIX attributes such as UID, Home Directory, and other values by
 
 You need to set the following attributes for LDAP users and LDAP groups: 
 * Required attributes for LDAP users:   
-    `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: user, posixAccount`
+    `uid: Alice`,  
+    `uidNumber: 139`,  
+    `gidNumber: 555`,  
+    `objectClass: user, posixAccount`
 * Required attributes for LDAP groups:   
-    `objectClass: group, posixGroup`, `gidNumber: 555`
+    `objectClass: group, posixGroup`,  
+    `gidNumber: 555`
 * All users and groups must have unique `uidNumber` and `gidNumber`, respectively. 
 
 Note that the values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
