@@ -123,7 +123,6 @@ Currently, speaking style adjustments are supported for the following neural voi
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
 * `en-US-SaraNeural`
-* `ja-JP-NanamiNeural`
 * `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
@@ -184,9 +183,6 @@ Use this table to determine which speaking styles are supported for each neural 
 | `en-US-SaraNeural`      | `style="cheerful"`        | Expresses a positive and happy tone    |
 |                         | `style="sad"`             | Expresses a sorrowful tone   |
 |                         | `style="angry"`           | Expresses an angry and annoyed tone   |
-| `ja-JP-NanamiNeural`    | `style="cheerful"`        | Expresses a positive and happy tone   |
-|                         | `style="chat"`            | Expresses a casual and relaxed tone   |
-|                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support    |
 | `pt-BR-FranciscaNeural` | `style="calm"`            | Expresses a cool, collected, and composed attitude when speaking. Tone, pitch, prosody is much more uniform compared to other types of speech.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |

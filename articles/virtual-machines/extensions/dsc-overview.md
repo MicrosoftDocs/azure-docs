@@ -154,7 +154,7 @@ For a virtual machine running Windows:
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
-  --name DSC \
+  --name Microsoft.Powershell.DSC \
   --publisher Microsoft.Powershell \
   --version 2.77 --protected-settings '{}' \
   --settings '{}'
