@@ -12,7 +12,7 @@ ms.date: 09/15/2021
 
 # Monitor and Scale an Azure Database for MySQL - Flexible Server (Preview) using Azure CLI
 
-This sample CLI script scales compute and storage for a single Azure Database for MySQL - Flexible server after querying the corresponding metrics. Compute can be scaled up or down, while storage can only be scaled up. 
+This sample CLI script scales compute, storage and IOPS for a single Azure Database for MySQL - Flexible server after querying the corresponding metrics. Compute and IOPS can be scaled up or down, while storage can only be scaled up. 
 
 [!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
@@ -53,7 +53,7 @@ az mysql flexible-server create \
 --admin-password $PASSWORD \
 --public-access $IP_ADDRESS
 
-# 3. Monitor CPU and Storage usage
+# 3. Monitor CPU percent, Storage usage and IO percent
 
 # Monitor CPU Usage
 az monitor metrics list \
@@ -65,6 +65,12 @@ az monitor metrics list \
 az monitor metrics list \
     --resource "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.DBforMySQL/flexibleservers/$SERVER_NAME" \
     --metric storage_used \
+    --interval PT1M
+
+# Monitor IO Percent
+az monitor metrics list \
+    --resource "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.DBforMySQL/flexibleservers/$SERVER_NAME" \
+    --metric io_consumption_percent \
     --interval PT1M
 
 # 4. Scale up and down
@@ -88,6 +94,11 @@ az mysql flexible-server update \
     --name $SERVER_NAME \
     --storage-size 64
 
+# Scale IOPS
+az mysql flexible-server update \
+    --resource-group $RESOURCE_GROUP \
+    --name $SERVER_NAME \
+    --iops 550
 ```
 
 
