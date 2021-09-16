@@ -2,12 +2,16 @@
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 09/10/2021
+ms.date: 09/16/2021
 ms.author: danlep
 ---
-## Import the connected registry image to your registry
+## Import images to your cloud registry
 
-To support nested IoT Edge scenarios, the container image for the connected registry runtime must be available in your private Azure container registry. Use the [az acr import](/cli/azure/acr#az_acr_import) command to import the connected registry image into your private registry, if you haven't previously done so. 
+If you haven't already done so, import the following container images to your cloud registry using the [az acr import](/cli/azure/acr#az_acr_import) command.
+
+### Connected registry image
+
+To support nested IoT Edge scenarios, the container image for the connected registry runtime must be available in your private Azure container registry. Use the [az acr import](/cli/azure/acr#az_acr_import) command to import the connected registry image into your private registry. 
 
 ```azurecli
 # Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the registry
@@ -18,9 +22,9 @@ az acr import \
   --source mcr.microsoft.com/acr/connected-registry:0.3.0
 ```
 
-## Import the IoT Edge and API proxy images into your registry
+### IoT Edge and API proxy images
 
-To support the connected registry on nested IoT Edge, you need to deploy modules for the IoT Edge and API proxy. If you haven't already done so, import these images into your private registry.
+To support the connected registry on nested IoT Edge, you need to deploy modules for the IoT Edge and API proxy. Import these images into your private registry.
 
 The [IoT Edge API proxy module](../articles/iot-edge/how-to-configure-api-proxy-module.md) allows an IoT Edge device to expose multiple services using the HTTPS protocol on the same port such as 443.
 
@@ -35,5 +39,15 @@ az acr import \
 
 az acr import \
   --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/azureiotedge-api-proxy:1.0
+  --source mcr.microsoft.com/azureiotedge-api-proxy:latest
+```
+
+### Hello-world image
+
+For testing the connected registry, import the `hello-world` image. This repository will be synchronized to the connected registry and pulled by the connected registry clients.
+
+```azurecli
+az acr import \
+  --name $REGISTRY_NAME \
+  --source mcr.microsoft.com/hello-world:latest
 ```

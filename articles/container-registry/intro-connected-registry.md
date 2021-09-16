@@ -53,13 +53,13 @@ It can also be configured to synchronize a subset of the repositories from the c
 
 ### Modes
 
-A connected registry can work in one of two modes: *read-write* or *read-only*
+A connected registry can work in one of two modes: *ReadWrite* or *ReadOnly*
 
-- **Read-write mode** - The default mode allows clients to pull and push artifacts (read and write) to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. 
+- **ReadWrite mode** - The default mode allows clients to pull and push artifacts (read and write) to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. 
         
-  The read-write mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
+  The ReadWrite mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
 
-- **Read-only mode** - When the connected registry is in read-only mode, clients may only pull (read) artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate.
+- **ReadOnly mode** - When the connected registry is in ReadOnly mode, clients may only pull (read) artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate.
 
 ### Registry hierarchy
 

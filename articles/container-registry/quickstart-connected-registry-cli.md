@@ -47,7 +47,7 @@ az acr connected-registry create --registry $REGISTRY_NAME \
 
 This command creates a connected registry resource named *$CONNECTED_REGISTRY_RW* and links it to the *$REGISTRY_NAME* cloud registry. In later quickstart guides, you learn about options to deploy the connected registry. 
 * The specified repositories will be synchronized between the cloud regsitry and the connected registry once it is deployed. 
-* Because no `--mode` option is specified for the connected registry, it allows both read and write functionality by default. 
+* Because no `--mode` option is specified for the connected registry, it is created in the default ReadWrite mode. 
 * Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 
   > [!IMPORTANT]
@@ -64,12 +64,12 @@ az acr connected-registry create --registry $REGISTRY_NAME \
   --parent $CONNECTED_REGISTRY_RW \
   --name $CONNECTED_REGISTRY_READ \
   --repository "hello-world" "acr/connected-registry" "azureiotedge-agent" "azureiotedge-hub" "azureiotedge-api-proxy" \
-  --mode mirror
+  --mode ReadOnly
 ```
 
 This command creates a connected registry resource named *$CONNECTED_REGISTRY_READ* in Azure and links it to the *$REGISTRY_NAME* cloud registry. 
 * The specified repositories will be synchronized between the parent *$CONNECTED_REGISTRY_RW* and the connected registry once deployed.
-* This resource will be enabled for read-only functionality once deployed. 
+* This resource is created in the ReadOnly mode, which enables read-only functionality once deployed. 
 * Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 
 ## Verify that the resources are created
@@ -85,10 +85,10 @@ az acr connected-registry list \
 You should see a response as follows:
 
 ```
-NAME                 MODE       CONNECTION STATE    PARENT               LOGIN SERVER    LAST SYNC (UTC)
--------------------  --------   ------------------  -------------------  --------------  -----------------
-myconnectedregrw    Registry    Offline
-myconnectedregro    Mirror      Offline             myconnectedregrw
+NAME                 MODE        CONNECTION STATE    PARENT               LOGIN SERVER    LAST SYNC (UTC)
+-------------------  --------    ------------------  -------------------  --------------  -----------------
+myconnectedregrw    ReadWrite    Offline
+myconnectedregro    ReadOnly     Offline             myconnectedregrw
 ```
 
 ## Next steps

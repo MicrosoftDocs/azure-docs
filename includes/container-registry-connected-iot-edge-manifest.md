@@ -28,7 +28,7 @@ ms.author: danlep
                     },
                     "IoTEdgeAPIProxy": {
                         "settings": {
-                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-api-proxy:1.0",
+                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-api-proxy:latest",
                             "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8000/tcp\":[{\"HostPort\":\"8000\"}]}}}"
                         },
                         "type": "docker",
