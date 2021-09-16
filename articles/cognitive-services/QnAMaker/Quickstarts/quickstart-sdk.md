@@ -13,6 +13,8 @@ zone_pivot_groups: qnamaker-quickstart
 
 Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ::: zone pivot="rest"
 [!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
 ::: zone-end
