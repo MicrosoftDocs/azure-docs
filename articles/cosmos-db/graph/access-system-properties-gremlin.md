@@ -14,7 +14,7 @@ ms.author: mansha
 
 Azure Cosmos DB has [system properties](/rest/api/cosmos-db/databases) such as ```_ts```, ```_self```, ```_attachments```, ```_rid```, and ```_etag``` on every document. Additionally, Gremlin engine adds ```inVPartition``` and ```outVPartition``` properties on edges. By default, these properties are available for traversal. However, it's possible to include specific properties, or all of them, in Gremlin traversal.
 
-```
+```console
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())
 ```
 
@@ -22,7 +22,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').creat
 
 This property is used for optimistic concurrency control. If application needs to break operation into a few separate traversals, it can use eTag property to avoid data loss in concurrent writes.
 
-```
+```console
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').create()).V('1').has('_etag', '"00000100-0000-0800-0000-5d03edac0000"').property('test', '1')
 ```
 
@@ -32,25 +32,25 @@ If collection has document expiration enabled and documents have `ttl` property 
 
 * Use the following command to set time-to-live on a new vertex:
 
-  ```msgraph-interactive
+  ```console
   g.addV(<ID>).property('ttl', <expirationTime>)
   ```
 
   For example, a vertex created with the following traversal is automatically deleted after *123 seconds*:
 
-  ```msgraph-interactive
+  ```console
   g.addV('vertex-one').property('ttl', 123)
   ```
 
 * Use the following command to set time-to-live on an existing vertex:
 
-  ```
+  ```console
   g.V().hasId(<ID>).has('pk', <pk>).property('ttl', <expirationTime>)
   ```
 
 * Applying time-to-live property on vertices does not automatically apply it to edges. Because edges are independent records in the database store. Use the following command to set time-to-live on vertices and all the incoming and outgoing edges of the vertex:
 
-  ```
+  ```console
   g.V().hasId(<ID>).has('pk', <pk>).as('v').bothE().hasNot('ttl').property('ttl', <expirationTime>)
   ```
 
