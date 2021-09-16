@@ -7,11 +7,11 @@ ms.date: 11/01/2020
 
 # Transport Layer Security in Azure Site Recovery
 
-Transport Layer Security (TLS) is an encryption protocol that keeps data secure when being transferred over a network. Azure Site Recovery uses transport layer security to protect the privacy of data being transferred. This article describes steps to enable the TLS 1.2 protocol, which provides improved security over previous versions.
+Transport Layer Security (TLS) is an encryption protocol that keeps data secure when being transferred over a network. Azure Site Recovery uses TLS to protect the privacy of data being transferred. This article describes steps to enable the TLS 1.2 protocol, for improved security.
 
-## Earlier versions of Windows
+## Enable TLS on older versions of Windows
 
-If the machine is running earlier versions of Windows, the corresponding updates noted below must be installed and the registry changes documented in the KB articles must be applied.
+If the machine is running earlier versions of Windows, ensure to install the corresponding updates as detailed below and make the registry changes as documented in the respective KB articles.
 
 |Operating system  |KB article |
 |---------|---------|
@@ -19,11 +19,11 @@ If the machine is running earlier versions of Windows, the corresponding updates
 |Windows Server 2008 R2, Windows 7, Windows Server 2012   | <https://support.microsoft.com/help/3140245>         |
 
 >[!NOTE]
->The update will install the required protocol components. After installation, you must make the registry key changes mentioned in the KB articles above to properly enable the required protocols.
+>The update installs the required components for the protocol. After installation, to enable the required protocols, ensure to update the registry keys as mentioned in the above KB articles.
 
 ## Verify Windows registry
 
-### Configuring SChannel protocols
+### Configure SChannel protocols
 
 The following registry keys ensure that the TLS 1.2 protocol is enabled at the SChannel component level:
 
@@ -36,11 +36,11 @@ The following registry keys ensure that the TLS 1.2 protocol is enabled at the S
 ```
 
 >[!NOTE]
->The values shown are set by default in Windows Server 2012 R2 and newer versions. For these versions of Windows, if the registry keys are absent, they don't need to be created.
+>By default, the above registry keys are set in values shown are set in Windows Server 2012 R2 and later versions. For these versions of Windows, if the registry keys are absent, you do not need to create them.
 
-### Configuring .NET Framework
+### Configure .NET Framework
 
-The following registry keys configure .NET Framework to support strong cryptography. You can read more about [configuring .NET Framework here](/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
+Use the following registry keys to configure .NET Framework that supports strong cryptography. Learn more about [configuring .NET Framework here](/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
 
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
@@ -56,13 +56,13 @@ The following registry keys configure .NET Framework to support strong cryptogra
 
 ### Why enable TLS 1.2?
 
-TLS 1.2 is more secure than previous cryptographic protocols such as SSL 2.0, SSL 3.0, TLS 1.0, and TLS 1.1. Azure Site Recovery services already fully support TLS 1.2.
+TLS 1.2 is more secure than previous cryptographic protocols such as SSL 2.0, SSL 3.0, TLS 1.0, and TLS 1.1. Azure Site Recovery services fully support TLS 1.2.
 
 ### What determines the encryption protocol used?
 
 The highest protocol version supported by both the client and server is negotiated to establish the encrypted conversation. For more information on the TLS handshake protocol, see [Establishing a Secure Session by using TLS](/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
 
-### What is the impact of not enabling TLS 1.2?
+### What is the impact if TLS 1.2 is not enabled?
 
 For improved security from protocol downgrade attacks, Azure Site Recovery is beginning to disable TLS versions older than 1.2. This is part of a long-term shift across services to disallow legacy protocol and cipher suite connections. Azure Site Recovery services and components fully support TLS 1.2. However, Windows versions lacking required updates or certain customized configurations can still prevent TLS 1.2 protocols being offered. This can cause failures including but not limited to one or more of the following:
 
