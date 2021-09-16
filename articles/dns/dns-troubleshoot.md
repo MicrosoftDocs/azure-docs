@@ -71,9 +71,9 @@ DNS name resolution is a multi-step process, which can fail for many reasons. Th
 
 Configuration errors can cause DNS zones to become unhealthy. The following are scenarios that can lead to this behavior:
 
-* **Unhealthy delegation** - A zone contain *NS* delegation records that help delegate traffic fro the primary to the child zones. If any of the *NS* records are present in the parent zone, the DNS server is suppose to mask other records below the delegation, except glue records. However, if the zone contains other records below the delegation, the zone will be marked unhealthy.
+* **Unhealthy delegation** - A zone contain *NS* delegation records that help delegate traffic from the primary to the child zones. If any of the *NS* records are present in the parent zone, the DNS server is suppose to mask other records below the delegation, except glue records. However, if the zone contains other records below the delegation, the zone will be marked unhealthy.
 
-    The below table provides scenario and their corresponding zone health outcome when a zone contains NS delegation record.
+    The below table provides scenarios and their corresponding zone health outcomes when a zone contains NS delegation record.
 
     | Scenario | Zone contains</br>NS delegation record? | Zone contains</br>glue records? | Zone contains other</br>records below the</br>delegation? | Zone health |
     |----------|-------------------------------------|-----------------------------|--------------------------------------------------|-------------|
@@ -85,7 +85,7 @@ Configuration errors can cause DNS zones to become unhealthy. The following are 
 
     **Recommendation:** Remove all records except glue records under delegation records in your zones.
 
-* **Zero TTL** - TTL (time to live) is a setting that tells the DNS resolver how long to cache a query before requesting a new one. The information that is gather is then stored in the cache of the recursive or local resolver for the TTL before it reaches back out to the collect updated information.
+* **Zero TTL** - TTL (time to live) is a setting that tells the DNS resolver how long to cache a query before requesting a new one. The information gathered is then stored in the cache of the recursive or local resolver for the TTL duration before it reaches back out to the collect new and updated details.
 
     If the TTL is set to 0 in the configuration, then you can experience one of the following issues:
 
