@@ -22,7 +22,7 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
 * Mobility services (Preview) to request public transit information, plan routes by blending different travel modes and real-time arrivals.
-* Time zone and Geolocation (Preview) services.
+* Time zone and Geolocation services.
 * Elevation services with Digital Elevation Model
 * Geofencing service and mapping data storage, with location information hosted in Azure.
 * Location intelligence through geospatial analytics.
@@ -59,9 +59,9 @@ Azure Maps consists of the following services that can provide geographic contex
 
 Data is imperative for maps. Use the Data service to upload and store geospatial data for use with spatial operations or image composition.  Bringing customer data closer to the Azure Maps service will reduce latency, increase productivity, and create new scenarios in your applications. For details on this service, see the [Data service documentation](/rest/api/maps/data-v2).
 
-### Geolocation service (Preview)
+### Geolocation service
 
-Use the Geolocation service to preview the retrieved two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
+Use the Geolocation service to retrieve the two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
 
 For more details, read the [Geolocation service documentation](/rest/api/maps/geolocation).
 
@@ -228,7 +228,7 @@ To access Azure Maps services, go to the [Azure portal](https://portal.azure.com
 
 Azure Maps uses a key-based authentication scheme. When you create your account, two keys are generated. To authenticate for Azure Maps services, you can use either key.
 
-Note - Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals. The Mobility and Weather services, which include integration with Moovit, and AccuWeather are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Note - Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals. The Mobility services, which include integration with Moovit, are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Microsoft is currently in the process of adding TomTom, Moovit, and AccuWeather to the Online Services Subcontractor List.
 
