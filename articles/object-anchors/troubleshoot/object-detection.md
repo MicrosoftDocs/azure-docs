@@ -90,9 +90,9 @@ The application can capture and save diagnostics archives using the
 
 The [Unity sample app with MRTK](../quickstarts/get-started-unity-hololens-mrtk.md) writes diagnostics to the
 **TempState** folder. You can start a diagnostics session by opening the
-<a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a>,
+<a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">hand menu</a>,
 selecting **Start Tracing**, reproducing a detection attempt, and then select **Stop Tracing** to save the diagnostics
-archive. You can then use [Windows Device Portal](https://github.com/windows/mixed-reality/using-the-windows-device-portal)
+archive. You can then use [Windows Device Portal](/windows/mixed-reality/develop/platform-capabilities-and-apis/using-the-windows-device-portal)
 to retrieve the diagnostics archive from the app's **TempState** folder.
 
 The diagnostics archive can then be shared with us so that we can help debug the issue.
