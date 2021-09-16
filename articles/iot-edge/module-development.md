@@ -179,7 +179,7 @@ To help improve module security, IoT Edge disables some container features by de
 In the config.toml file on an IoT Edge device, there's a parameter called `allow_elevated_docker_permissions`. When set to **true**, this flag allows the `--privileged` flag as well as any additional capabilities that you define in the `CapAdd` field of the Docker HostConfig in the [container create options](how-to-use-create-options.md).
 
 >[!NOTE]
->Currently, this flag is commented out by default and you need to enable it yourself. In the future, this flag will be enabled and set to **false** by default.
+>Currently, this flag is **true** by default, which allows deployments to grant privileged permissions to modules. We recommend that you set this flag to false to improve device security. In the future, this flag will be set to **false** by default.
 
 ### Enable CAP_CHOWN and CAP_SETUID
 
