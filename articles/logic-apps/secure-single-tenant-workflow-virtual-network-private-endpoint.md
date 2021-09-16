@@ -4,7 +4,7 @@ description: Secure traffic between virtual networks, storage accounts, and sing
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/31/2021
 
 # As a developer, I want to connect to my single-tenant workflows from virtual networks using private endpoints.
@@ -130,7 +130,7 @@ If you use your own domain name server (DNS) with your virtual network, set your
 
 ### Considerations for outbound traffic through private endpoints
 
-Setting up virtual network integration doesn't affect inbound traffic, which continues to use the App Service shared endpoint. To secure inbound traffic, review [Set up inbound traffic through private endpoints](#set-up-inbound).
+Setting up virtual network integration affects only outbound traffic. To secure inbound traffic, which continues to use the App Service shared endpoint, review [Set up inbound traffic through private endpoints](#set-up-inbound).
 
 For more information, review the following documentation:
 

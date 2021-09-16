@@ -423,7 +423,7 @@ To modify an unlocked time-based retention policy with PowerShell, call the **az
 
 ```azurecli
 az storage blob immutability-policy set \
-    --expiry-time 2021-10-018:00:00Z \
+    --expiry-time 2021-10-0T18:00:00Z \
     --policy-mode Unlocked \
     --container <container> \
     --name <blob-version> \
@@ -484,7 +484,7 @@ To lock a policy with PowerShell, call the **az storage blob immutability-policy
 
 ```azurecli
 az storage blob immutability-policy set \
-    --expiry-time 2021-10-018:00:00Z \
+    --expiry-time 2021-10-0T18:00:00Z \
     --policy-mode Locked \
     --container <container> \
     --name <blob-version> \
