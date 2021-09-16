@@ -75,7 +75,7 @@ You can also enable CORS manually.
 1. Select the **Manually apply it on the global level** link to see the generated policy code.
 2. Navigate to **All APIs** in the **APIs** section of your API Management service in the Azure portal.
 3. Select the **</>** icon in the **Inbound processing** section.
-4. Insert the policy in the **<inbound>** section of the XML file. Make sure the **<origin>** value matches your developer portal's domain.
+4. Insert the policy in the **\<inbound\>** section of the XML file. Make sure the **\<origin\>** value matches your developer portal's domain.
 
 > [!NOTE]
 > 

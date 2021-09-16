@@ -89,7 +89,29 @@ Semantic search is available through [sign-up registration](https://aka.ms/Seman
 
 You can use spell check without semantic search, free of charge. Charges for semantic search are levied when query requests include `queryType=semantic` and the search string is not empty (for example, `search=pet friendly hotels in new york`. Empty search (queries where `search=*`) are not charged, even if queryType is set to `semantic`.
 
-If you do not want semantic search capability on your search service, you can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) to prevent accidental usage and charges.
+## Disable semantic search
+
+Only a search service that has the feature enabled can incur charges. However, if you want full protection against accidental usage, set the [disabled option](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
+
+* Management REST API version 2021-04-01-Preview provides this option
+
+* Owner or Contributor permissions are required to disable features
+
+```http
+PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "location": "{{region}}",
+      "sku": {
+        "name": "standard"
+      },
+      "properties": {
+        "semanticSearch": "disabled"
+      }
+    }
+```
+
+> [!TIP]
+> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principle and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The example above was tested using the instructions and Postman collection provided in the blog post.
 
 ## Next steps
 

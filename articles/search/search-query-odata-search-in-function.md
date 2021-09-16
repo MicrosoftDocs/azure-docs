@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 translation.priority.mt:
   - "de-de"
   - "es-es"
