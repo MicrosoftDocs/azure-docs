@@ -2,7 +2,7 @@
 title: Event Hubs - Capture streaming events using Azure portal
 description: This article describes how to enable capturing of events streaming through Azure Event Hubs by using the Azure portal.
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/16/2021
 ---
 
 # Enable capturing of events streaming through Azure Event Hubs
@@ -76,18 +76,16 @@ You can configure Capture on existing event hubs that are in Event Hubs namespac
 
 ### Azure Blob Storage
 
-![Configure Azure Blob Storage][2]
+:::image type="content" source="./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png" alt-text="Configure capture to an Azure storage for an existing event hub.":::
 
 ### Azure Data Lake Storage Gen 2
-
-![Configure Azure Data Lake Storage Gen 2](./media/event-hubs-capture-enable-through-portal/configure-data-lake-storage-gen2.png)
+It's same as above (for Azure Blob Storage) except that you will be selecting a container from an Azure Data Lake Storage Gen 2 account. 
 
 ### Azure Data Lake Storage Gen 1 
 
 ![Configure Azure Data Lake Storage][4]
 
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
-[2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
 
