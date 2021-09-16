@@ -14,6 +14,8 @@ The diagram below shows the complete list of endpoints exposed by Video Analyzer
 
 ## Video Analyzer endpoints 
 
+This section provides a list of Video Analyzer endpoints.
+
 ### Streaming
 
 * Purpose: exposes audio, video and inference data, which can be consumed by [Video Analyzer player widget](player-widget.md) or compatible DASH/HLS players.
