@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 09/15/2021
+ms.date: 09/16/2021
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -46,7 +46,7 @@ In this tutorial, you learn how to:
 
 In order to create and manage collections in Purview, you will need to be a **Collection Admin** within Purview. We can check these permissions in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the **Open Purview Studio** tile on the overview page.
 
-<!-- Add a screenshot -->
+:::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/open-purview-studio.png" alt-text="Screenshot of Purview window in Azure Portal, with Purview Studio button highlighted." border="true":::
 
 ## Create a collection
 <!-- Introduction paragraph -->
@@ -56,39 +56,39 @@ In order to create and manage collections in Purview, you will need to be a **Co
 In order to create and manage collections in Purview, you will need to be a **Collection Admin** within Purview. We can check these permissions in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the Open Purview Studio tile on the overview page.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
-<!-- Fix Image -->
-    :::image type="content" source="./media/how-to-create-and-manage-collections/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
+
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
 
 1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it is called Contoso Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
-<!-- Fix Image -->
-    :::image type="content" source="./media/how-to-create-and-manage-collections/select-root-collection.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
+
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/select-root-collection.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
 
 1. Select **Role assignments** in the collection window.
-<!-- Fix Image -->
-    :::image type="content" source="./media/how-to-create-and-manage-collections/role-assignments.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
+
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/role-assignments.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
 
 1. To create a collection, you will need to be in the collection admin list under role assignments. If you created the Purview resource, you should be listed as a collection admin under the root collection already. If not, you will need to contact the collection admin to grant you permission.
-<!-- Fix Image -->
-    :::image type="content" source="./media/how-to-create-and-manage-collections/collection-admins.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the collection admin section highlighted." border="true":::
+
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/collection-admins.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the collection admin section highlighted." border="true":::
 
 ### Create a collection
 
 1. Select Data Map > Collections from the left pane to open collection management page.
-<!-- Fix Image -->
-    :::image type="content" source="./media/how-to-create-and-manage-collections/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected and open." border="true":::
+
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected and open." border="true":::
 
 1. Select **+ Add a collection**. Again, note that only [collection admins](#check-permissions) can manage collections.
-<!-- Fix Image -->
-    :::image type="content" source="./media/how-to-create-and-manage-collections/select-add-a-collection.png" alt-text="Screenshot of Purview studio window, showing the new collection window, with the add a collection buttons highlighted." border="true":::
+
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/select-add-a-collection.png" alt-text="Screenshot of Purview studio window, showing the new collection window, with the add a collection buttons highlighted." border="true":::
 
 1. In the right panel, enter the collection name and description. If needed you can also add users or groups as collection admins to the new collection.
 1. Select **Create**.
-<!-- Fix Image -->
-    :::image type="content" source="./media/how-to-create-and-manage-collections/create-collection.png" alt-text="Screenshot of Purview studio window, showing the new collection window, with a display name and collection admins selected, and the create button highlighted." border="true":::
+
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/create-collection.png" alt-text="Screenshot of Purview studio window, showing the new collection window, with a display name and collection admins selected, and the create button highlighted." border="true":::
 
 1. The new collection's information will reflect on the page.
-<!-- Fix Image -->
-    :::image type="content" source="./media/how-to-create-and-manage-collections/created-collection.png" alt-text="Screenshot of Purview studio window, showing the newly created collection window." border="true":::
+
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/created-collection.png" alt-text="Screenshot of Purview studio window, showing the newly created collection window." border="true":::
 
 ## Create a self-hosted integration runtime
 <!-- Introduction paragraph -->
@@ -102,28 +102,28 @@ This tutorial assumes the machine where you'll install your self-hosted integrat
       :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-integration-runtime.png" alt-text="Select the Integration Runtimes button.":::
 
 1. On the **Integration runtime setup** page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
-<!-- Fix Image -->
-   :::image type="content" source="media/manage-integration-runtimes/select-self-hosted-ir.png" alt-text="Create new SHIR.":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-self-hosted-ir.png" alt-text="Create new SHIR.":::
 
 1. Enter a name for your IR, and select Create.
 
 1. On the **Integration Runtime settings** page, follow the steps under the **Manual setup** section. You will have to download the integration runtime from the download site onto a VM or machine where you intend to run it.
-<!-- Fix Image -->
-   :::image type="content" source="media/manage-integration-runtimes/integration-runtime-settings.png" alt-text="get key":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/integration-runtime-settings.png" alt-text="get key":::
 
    - Copy and paste the authentication key.
 
    - Download the self-hosted integration runtime from [Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) on a local Windows machine. Run the installer. Self-hosted integration runtime versions such as 5.4.7803.1 and 5.6.7795.1 are supported. 
 
    - On the **Register Integration Runtime (Self-hosted)** page, paste one of the two keys you saved earlier, and select **Register**.
-<!-- Fix Image -->
-     :::image type="content" source="media/manage-integration-runtimes/register-integration-runtime.png" alt-text="input key.":::
+
+     :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/register-integration-runtime.png" alt-text="input key.":::
 
    - On the **New Integration Runtime (Self-hosted) Node** page, select **Finish**.
 
 1. After the Self-hosted integration runtime is registered successfully, you see the following window:
-<!-- Fix Image -->
-   :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="successfully registered.":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/successfully-registered.png" alt-text="successfully registered.":::
 
 ## Set up SQL authentication
 
@@ -150,7 +150,7 @@ If you plan to use an existing server admin (sa) user to scan your on-premises S
 If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
 
 > [!Note]
-   > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
+> All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
 
 1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, right-click on login and create New login. Make sure to select SQL authentication.
 
@@ -171,22 +171,51 @@ If you would like to create a new login and user to be able to scan your SQL ser
 #### Storing your SQL login password in a key vault and creating a credential in Purview
 
 1. Navigate to your key vault in the Azure portal. Select **Settings > Secrets**
-1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your SQL server login
-1. Select **Create** to complete
-1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. In Azure Purview, go to the Credentials page.
-<!-- Add Image-->
-1. Create your new Credential by selecting **+ New**.
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-secrets.png" alt-text="Select Secrets from Left Menu":::
+
+1. Select **+ Generate/Import**
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-generate-import.png" alt-text="Select Generate/Import from the top menu.":::
+
+1. For upload options, select **Manual** and enter the **Name** and **Value** as the *password* from your SQL server login. Ensure **Enabled** is set to **Yes**. If you set an activation and expiration date, ensure that today's date is between the two, or you won't be able to use the credential.
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/create-credential-secret.png" alt-text="Add values to key vault credential.":::
+
+1. Select **Create** to complete.
+1. In the [Azure Purview Studio](#sign-in-to-purview-studio), navigate to the **Management** page in the left menu.
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-management.png" alt-text="Select Management page on left menu.":::
+
+1. Select the **Credentials** page.
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-credentials.png" alt-text="The credentials button on the Management page is highlighted.":::
+
+1. From the **Credentials** page, select **Manage Key Vault connections**.
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/manage-key-vault-connections.png" alt-text="Manage Azure Key Vault connections.":::
+
+1. Select **+ New** from the Manage Key Vault connections page.
+
+1. Provide the required information, then select **Create**.
+
+1. Confirm that your Key Vault has been successfully associated with your Azure Purview account as shown in this example:
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/view-kv-connections.png" alt-text="View Azure Key Vault connections to confirm.":::
+
+1. Create a new Credential for SQL Server by selecting **+ New**.
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-new.png" alt-text="Select +New to create credential.":::
 
 1. Provide the required information. Select the **Authentication method** and a **Key Vault connection** from which to select a secret from.
 
 1. Once all the details have been filled in, select **Create**.
-<!-- Fix Image -->
-   :::image type="content" source="media/manage-credentials/new-credential.png" alt-text="New credential":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/new-credential.png" alt-text="New credential":::
 
 1. Verify that your new credential shows up in the list view and is ready to use.
-<!-- Fix Image -->
-   :::image type="content" source="media/manage-credentials/view-credentials.png" alt-text="View credential":::
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/view-credentials.png" alt-text="View credential":::
 
 ## Register SQL Server
 
@@ -232,23 +261,13 @@ To create and run a new scan, do the following:
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
-<!-- 6. Clean up resources
-Required. If resources were created during the tutorial. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
-
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-<resources> with the following steps:
+the integration runtime, credential, and purview resources with the following steps:
 
 1. From the left-hand menu...
 1. ...click Delete, type...and then click Delete
-
-<!-- 7. Remove SHIR from Purview -->
-<!-- 7. Delete Purview Resource -->
-<!-- 7. Remove SQL Credentials from Key Vault -->
-<!-- 7. Uninstall SHIR -->
 
 ### Remove SHIR from Purview
 
@@ -260,9 +279,11 @@ If you're not going to continue to use this application, delete
 
 1. Select the checkbox next to your integration runtime, then select the **delete** button.
 
-<!-- 7. Add image -->
+      :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/delete-integration-runtime.png" alt-text="Check box next to integration runtime and delete button highlighted.":::
 
-### Remove SQL Credentials
+1. Select **Confirm** on the next window to confirm the delete.
+
+1. The window will self-refresh and you should no longer see your SHIR listed under Integration runtimes.
 
 ### Uninstall self-hosted integration runtime
 
@@ -271,9 +292,24 @@ If you're not going to continue to use this application, delete
 
 1. Uninstall the existing integration runtime.
 
-[!IMPORTANT] In the following process, select Yes. Do not keep data during the uninstallation process.
-<!-- Fix Image -->
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png" alt-text="Screenshot of the "Yes" button for deleting all user data from the integration runtime.":::
+>[!IMPORTANT] In the following process, select Yes. Do not keep data during the uninstallation process.
+
+:::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-yes.png" alt-text="Screenshot of the 'Yes' button for deleting all user data from the integration runtime.":::
+
+### Remove SQL Credentials
+
+1. Go to the [Azure portal](https://portal.azure.com) and navigate to the Key Vault resource where you stored your Purview credentials.
+
+1. Under **Settings** in the left menu, select **Secrets**
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-secrets.png" alt-text="Select Secrets from Left Menu in Azure Key Vault.":::
+
+1. Select the SQL Server credential secret you created for this tutorial.
+1. Select **Delete**
+
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-delete-credential.png" alt-text="Delete Secret from top Menu in Azure Key Vault Secret.":::
+
+1. Select **Yes** to permanently delete the resource.
 
 ### Delete Purview account
 
