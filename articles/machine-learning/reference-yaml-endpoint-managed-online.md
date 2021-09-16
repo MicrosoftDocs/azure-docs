@@ -28,7 +28,6 @@ ms.reviewer: laobri
 | `name` | string | **Required.** Name of the endpoint. Needs to be unique at the Azure region level. | | |
 | `description` | string | Description of the endpoint. | | |
 | `tags` | object | Dictionary of tags for the endpoint. | | |
-| `traffic` | object | Dictionary of the percentage of traffic from the endpoint to divert to each deployment. The key is the deployment name and the value is the traffic percentage. Traffic values need to sum to `100`. | | |
 | `auth_mode` | string | The authentication method for the endpoint. Key-based authentication and Azure ML token-based authentication are supported. Key-based authentication doesn't expire but Azure ML token-based authentication does. | `key`, `aml_token` | `key` |
 | `allow_public_access` | boolean | Whether to allow public access when Private Link is enabled. | | `true` |
 | `identity` | object | The managed identity configuration for accessing Azure resources for endpoint provisioning and inference. | | |
