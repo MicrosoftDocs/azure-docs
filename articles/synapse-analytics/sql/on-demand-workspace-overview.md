@@ -83,6 +83,10 @@ Serverless SQL pool has no local storage, only metadata objects are stored in da
 - DDL statements other than ones related to views and security
 - DML statements
 
+> [!NOTE]
+> Serverless SQL pool queries have a timeout of 30 minutes. The timeout cannot be changed on Serverless SQL pool.
+> 
+
 ### Extensions
 
 In order to enable smooth experience for in place querying of data residing in files in data lake, serverless SQL pool extends the existing [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) function by adding following capabilities:
