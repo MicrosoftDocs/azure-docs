@@ -333,7 +333,7 @@ Users with this role have all permissions in the Azure Information Protection se
 
 ## B2C IEF Keyset Administrator
 
-User can create and manage policy keys and secrets for token encryption, token signatures, and claim encryption/decryption. By adding new keys to existing key containers, this limited administrator can rollover secrets as needed without impacting existing applications. This user can see the full content of these secrets and their expiration dates even after their creation.
+User can create and manage policy keys and secrets for token encryption, token signatures, and claim encryption/decryption. By adding new keys to existing key containers, this limited administrator can roll over secrets as needed without impacting existing applications. This user can see the full content of these secrets and their expiration dates even after their creation.
 
 > [!IMPORTANT]
 > This is a sensitive role. The keyset administrator role should be carefully audited and assigned with care during pre-production and production.
@@ -1952,7 +1952,7 @@ Users with this role can access tenant level aggregated data and associated insi
 
 ## User Administrator
 
-Users with this role can create users, and manage all aspects of users with some restrictions (see the table), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User Administrators don't have permission to manage some user properties for users in most administrator roles. User with this role do not have permissions to manage MFA. The roles that are exceptions to this restriction are listed in the following table.
+Users with this role can create users, and manage all aspects of users with some restrictions (see the table), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User Administrators don't have permission to manage some user properties for users in most administrator roles. Users with this role do not have permissions to manage MFA. The roles that are exceptions to this restriction are listed in the following table.
 
 | User Administrator permission | Notes |
 | --- | --- |
