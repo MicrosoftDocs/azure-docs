@@ -343,6 +343,22 @@
         href: power-bi-app-supplemental-content.md
   - name: Power BI visual offers
     items:
+    - name: Plan the offer
+      href: marketplace-power-bi-visual.md
+    - name: Create the offer
+      items:
+      - name: Offer setup
+        href: power-bi-visual-offer-setup.md
+      - name: Properties
+        href: power-bi-visual-properties.md
+      - name: Offer listing
+        href: power-bi-visual-offer-listing.md
+      - name: Availability
+        href: power-bi-visual-availability.md
+      - name: Technical configuration
+        href: power-bi-visual-technical-configuration.md
+      - name: Manage offer names
+        href: power-bi-visual-manage-names.md
     - name: FAQs for migrating to Partner Center
       href: power-bi-visual-faq.yml
   - name: SaaS offers
