@@ -215,7 +215,7 @@ Each Business unit has their own sub-collection.
 
 ## Access management options
 
-For organizations who are looking to implement data democratization across the entire organization, assign _data reader_ role at the top-level collection to ensure. ???? Assign _data source admin_ and _data Curator_ roles at the sub-collection levels to the corresponding data management teams.
+For organizations who are looking to implement data democratization across the entire organization, assign _data reader_ role at the top-level collection to ensure data democratization. Assign _data source admin_ and _data Curator_ roles at the sub-collection levels to the corresponding data management teams.
 
 If you need to restrict access metadata search and discovery in your organization, assign _data reader_ and _data curator_ roles at the specific collection level. For example, US employees can read data only at the US collection level and not the LATAM collection. 
 
