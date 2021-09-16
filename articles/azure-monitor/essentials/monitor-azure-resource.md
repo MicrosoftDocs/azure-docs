@@ -4,7 +4,7 @@ description: Describes how to collect and analyze monitoring data from resources
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/08/2019
+ms.date: 09/15/2021Diagnostic
 
 ---
 
@@ -23,9 +23,13 @@ In this tutorial, you learn:
 > This article applies to all services in Azure that use Azure Monitor. Compute resources, including VMs and App Service, generate the same monitoring data described here but also have a guest operating system that may also generate logs and metrics. See the monitoring documentation for these services for details on how to collect and analyze this data.
 
 ## What is Azure Monitor?
-Azure Monitor is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises. The [Azure Monitor data platform](../data-platform.md) collects data into [logs](../logs/data-platform-logs.md) and [metrics](../essentials/data-platform-metrics.md) where they can be analyzed together using a complete set of monitoring tools. See the complete list of applications and services that can be monitored by Azure Monitor at [What is monitored by Azure Monitor?](../monitor-reference.md).
+Azure Monitor is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises. As soon as you create an Azure resource, Azure Monitor is enabled and starts collecting metrics and activity logs which you can [view and analyze in the Azure portal](#monitoring-in-the-azure-portal). With some configuration, you can gather additional monitoring data and enable additional features.
 
-As soon as you create an Azure resource, Azure Monitor is enabled and starts collecting metrics and activity logs which you can [view and analyze in the Azure portal](#monitoring-in-the-azure-portal). With some configuration, you can gather additional monitoring data and enable additional features. See [Monitoring Data](#monitoring-data) below for details on any configuration requirements.
+
+
+The [Azure Monitor data platform](../data-platform.md) collects data into [logs](../logs/data-platform-logs.md) and [metrics](../essentials/data-platform-metrics.md) where they can be analyzed together using a complete set of monitoring tools. See the complete list of applications and services that can be monitored by Azure Monitor at [What is monitored by Azure Monitor?](../monitor-reference.md).
+
+ See [Monitoring Data](#monitoring-data) below for details on any configuration requirements.
 
 
 ## Costs associated with monitoring
@@ -51,13 +55,23 @@ There may be Azure Monitor costs associated with the following. See [Azure Monit
 ## Monitoring data
 Resources in Azure generate [logs](../logs/data-platform-logs.md) and [metrics](../essentials/data-platform-metrics.md) shown in the following diagram. Refer to the documentation for each Azure services for the specific data they generate and any additional solutions or insights they provide.
 
-![Overview](media/monitor-azure-resource/logs-metrics.png)
-
-
 
 - [Platform metrics](../essentials/data-platform-metrics.md) - Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. 
 - [Resource logs](./platform-logs-overview.md) - Provide insight into operations that were performed within an Azure resource (the data plane), for example getting a secret from a Key Vault or making a request to a database. The content and structure of resource logs varies by the Azure service and resource type.
 - [Activity log](./platform-logs-overview.md) - Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane), for example creating a new resource or starting a virtual machine. This is information about the what, who, and when for any write operations (PUT, POST, DELETE) taken on the resources in your subscription.
+
+## Menu options
+
+
+| Menu option | Description |
+| Overview |  |
+| Activity log | |
+| Insights | |
+| Alerts | |
+| Metrics | |
+| Diagnostic settings | |
+| Logs | |
+| Workbooks | |
 
 
 ## Configuration requirements
@@ -131,19 +145,7 @@ Azure Monitor Logs consolidates logs and metrics from multiple services and othe
 
 ![Log Analytics in the Azure portal](media/monitor-azure-resource/logs.png)
 
-## Monitoring from command line
-You can access monitoring data collected from your resource from a command line or include in a script using [Azure PowerShell](/powershell/azure/) or [Azure Command Line Interface](/cli/azure/). 
 
-- See [CLI metrics reference](/cli/azure/monitor/metrics) for accessing metric data from CLI.
-- See [CLI Log Analytics reference](/cli/azure/monitor/log-analytics) for accessing Azure Monitor Logs data using a log query from CLI.
-- See [Azure PowerShell metrics reference](/powershell/module/azurerm.insights/get-azurermmetric) for accessing metric data from Azure PowerShell.
-- See [Azure PowerShell log query reference](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) for accessing Azure Monitor Logs data using a log query from Azure PowerShell.
-
-## Monitoring from REST API
-Include monitoring data collected from your resource in a custom application using a REST API.
-
-- See [Azure Monitoring REST API walkthrough](./rest-api-walkthrough.md) for details on accessing metrics from the Azure Monitor REST API.
-- See [Azure Log Analytics REST API](https://dev.loganalytics.io/) for information on accessing Azure Monitor Logs data using a log query from Azure PowerShell.
 
 ## Alerts
 [Alerts](../alerts/alerts-overview.md) proactively notify you and potentially take action when important conditions are found in your monitoring data. You create an alert rule that defines a target for the alert, the conditions for whether to create an alert, and any actions to take in response.

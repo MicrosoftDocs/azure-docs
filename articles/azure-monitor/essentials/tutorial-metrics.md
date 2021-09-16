@@ -8,14 +8,20 @@ ms.date: 03/09/2020
 ---
 
 # Tutorial: Analyze metrics for an Azure resource
-Metrics explorer is a feature of Azure Monitor in the Azure portal that allows you to create charts from metric values, visually correlate trends, and investigate spikes and dips in metric values. Use the metrics explorer to investigate the health and utilization of your Azure resources or to plot charts from custom metrics. 
+Metrics are one of the fundamental data types in Azure Monitor. They're numerical values that are automatically collected at regular intervals and describe some aspect of a resource. For example, a metric might tell you the processor utilization of a virtual machine. the free space in a storage account, or the incoming traffic for a virtual network.
+
+Metrics explorer is a feature of Azure Monitor in the Azure portal that allows you to create charts from metric values, visually correlate trends, and investigate spikes and dips in metric values. Use the metrics explorer to plot charts from metrics created by your Azure resources and investigate their health and utilization. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Open metrics explorer for an Azure resource
 > * Select a metric for which you want to plot a chart
 > * Perform different aggregations of metric values
 > * Modify the time range and granularity for the chart
+
+> [!NOTE]
+> This tutorial shows how to use metrics explorer for a single Azure resource. You can also open metrics explorer from the Azure Monitor menu where you must first select the resource.
 
 Following is a video that shows a more extensive scenario than the procedure outlined in this article. If you are new to metrics, we suggest you read through this article first and then view the video to see more specifics. 
 
@@ -27,10 +33,8 @@ To complete this tutorial you need the following:
 - An Azure resource to monitor. You can use any resource in your Azure subscription that supports metrics. To determine whether a resource supports metrics, go to its menu in the Azure portal and verify that there's a **Metrics** option in the **Monitoring** section of the menu.
 
 
-## Open metrics explorer and select a scope
-You can open metrics explorer either from the Azure Monitor menu or from a resource's menu in the Azure portal. Metrics from all resources are available regardless of which option you use. 
-
-Select **Metrics** from the **Monitoring** section of your resource's menu. The scope is already populated. The example below is for a Storage account, but this will look similar for other Azure services.
+## Open metrics explorer 
+Select **Metrics** from the **Monitoring** section of your resource's menu. The scope is already populated with your resource. The example below is for a storage account, but this will look similar for other Azure services.
 
 :::image type="content" source="media/tutorial-metrics/metrics-menu.png" lightbox="media/tutorial-metrics/metrics-menu.png" alt-text="Metrics menu item":::
 
@@ -72,7 +76,7 @@ You can customize chart style, title, and modify advanced chart settings. When d
 
 
 ## Next steps
-Now that you've learned how to work with metrics in Azure Monitor, learn how to use metrics to send proactive alerts.
+Now that you've learned how to work with metrics in Azure Monitor, learn how to create a metric alert rule to be notified when a metric value indicates a potential problem.
 
 > [!div class="nextstepaction"]
 > [Create a metric alert in Azure Monitor](../alerts/tutorial-metric-alert.md)
