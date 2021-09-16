@@ -56,7 +56,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Chinese (Cantonese, Traditional)   | `zh-HK` | Audio (20201015)<br>Text                 |        Yes                   |                          |
 | Chinese (Mandarin, Simplified)     | `zh-CN` | Audio (20200910)<br>Text                 |     Yes                      | Yes                         |
 | Chinese (Taiwanese Mandarin)       | `zh-TW` | Audio (20190701, 20201015)<br>Text                 |           Yes                |                          |
-| Croatian (Croatia)                 | `hr-HR` | Text                                   |                           |                          |
+| Croatian (Croatia)                 | `hr-HR` | Text<br>Pronunciation                  |                           |                          |
 | Czech (Czech Republic)             | `cs-CZ` | Text<br>Pronunciation                  |                           |                          |
 | Danish (Denmark)                   | `da-DK` | Text<br>Pronunciation                  | Yes                          |                          |
 | Dutch (Netherlands)                | `nl-NL` | Audio (20201015)<br>Text<br>Pronunciation|    Yes                       |                          |
@@ -89,7 +89,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Hindi (India)                      | `hi-IN` | Audio (20200701)<br>Text                 |     Yes                      |                          |
 | Hungarian (Hungary)                | `hu-HU` | Text<br>Pronunciation                  |                           |                          |
 | Indonesian (Indonesia)             | `id-ID` | Text<br>Pronunciation                  |                           |                          |
-| Irish (Ireland)                     | `ga-IE` | Text<br>Pronunciation                  |                           |                          |
+| Irish (Ireland)                    | `ga-IE` | Text<br>Pronunciation                  |                           |                          |
 | Italian (Italy)                    | `it-IT` | Audio (20201016)<br>Text<br>Pronunciation|      Yes                     |                          |
 | Japanese (Japan)                   | `ja-JP` | Text                                   |      Yes                     |                          |
 | Korean (Korea)                     | `ko-KR` | Audio (20201015)<br>Text                 |      Yes                     |                          |
@@ -129,7 +129,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Spanish (Uruguay)                  | `es-UY` | Text<br>Pronunciation                  |                           |                          |
 | Spanish (USA)                      | `es-US` | Text<br>Pronunciation                  |                           |                          |
 | Spanish (Venezuela)                | `es-VE` | Text<br>Pronunciation                  |                           |                          |
-| Swahili (Kenya)                    | `sw-KE` | Text<br>Pronunciation                  |                           |                          |
+| Swahili (Kenya)                    | `sw-KE` | Text                                   |                           |                          |
 | Swedish (Sweden)                   | `sv-SE` | Text<br>Pronunciation                  |   Yes                        |                          |
 | Tamil (India)                      | `ta-IN` | Text                                   |                           |                          |
 | Telugu (India)                     | `te-IN` | Text                                   |                           |                          |
