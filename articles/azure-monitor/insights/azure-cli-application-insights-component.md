@@ -91,12 +91,22 @@ To create a storage container, run the [az storage container create](/cli/azure/
 az storage container create --name contosostoragecontainer --account-name contosolinkedstorage --public-access blob 
 ```
 
-You need access for the container to be write only. You can set that from the Azure portal. You can also generate an SAS key for use in the next command.
+You need access for the container to be write only. Run the [az storage container policy create](/cli/azure/storage/container/policy#az_storage_container_policy_create) cmdlet:
+
+```azurecli
+az storage container policy create --container-name contosostoragecontainer --account-name contosolinkedstorage --name WAccessPolicy --permissions w
+```
+
+Create an SAS key by using the [az storage container generate-sas](/cli/azure/storage/container#az_storage_container_generate_sas) command. Be sure to use the `--output tsv` parameter value to save the key without unwanted formatting like quotation marks. For more information, see [Use Azure CLI effectively](/cli/azure/use-cli-effectively).
+
+```azurecli
+containersas=$(az storage container generate-sas --name contosostoragecontainer --account-name contosolinkedstorage --permissions w --output tsv)
+```
 
 To create a continuous export, run the [az monitor app-insights component continues-export create](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_create) command:
 
 ```azurecli
-az monitor app-insights component continues-export create --resource-group ContosoAppInsightRG --app ContosoApp --record-types Event --dest-account contosolinkedstorage --dest-container contosostoragecontainer --dest-sub-id 00000000-0000-0000-0000-000000000000 --dest-sas sp=w&st=2021-08-16T22:42:01Z&se=2021-08-17T06:42:01Z&spr=https&sv=2020-08-04&sr=c&sig=00000000000000000000000000000000000000000000000000
+az monitor app-insights component continues-export create --resource-group ContosoAppInsightRG --app ContosoApp --record-types Event --dest-account contosolinkedstorage --dest-container contosostoragecontainer --dest-sub-id 00000000-0000-0000-0000-000000000000 --dest-sas $containersas
 ```
 
 You can delete a configured continuous export by using the [az monitor app-insights component continues-export delete](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_delete) command: 
@@ -130,6 +140,8 @@ az group delete --name ContosoAppInsightRG
 - [az monitor log-analytics workspace create](/cli/azure/monitor/log-analytics/workspace#az_monitor_log_analytics_workspace_create)
 - [az storage account create](/cli/azure/storage/account#az_storage_account_create)
 - [az storage container create](/cli/azure/storage/container#az_storage_container_create)
+- [az storage container generate-sas](/cli/azure/storage/container#az_storage_container_generate_sas)
+- [az storage container policy create](/cli/azure/storage/container/policy#az_storage_container_policy_create)
 - [az webapp create](/cli/azure/webapp#az_webapp_create)
 
 ## Next steps
