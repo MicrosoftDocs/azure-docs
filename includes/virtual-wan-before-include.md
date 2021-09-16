@@ -22,9 +22,8 @@
    * If your virtual network already has gateways (VPN or ExpressRoute), you must remove all of the gateways before proceeding. 
    * This configuration requires that virtual networks connect to the Virtual WAN hub gateway only.
 
-* A virtual hub is a virtual network that is created and used by Virtual WAN. It's the core of your Virtual WAN network in a region. 
+* Decide the IP address range that you want to use for your virtual hub private address space. This information is used when configuring your virtual hub. A virtual hub is a virtual network that is created and used by Virtual WAN. It's the core of your Virtual WAN network in a region. The address space range must conform the certain rules:
 
-   * Obtain an IP address range for your virtual hub region. 
    * The address range that you specify for the hub can't overlap with any of the existing virtual networks that you connect to. 
    * The address range can't overlap with the on-premises address ranges that you connect to. 
    * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
