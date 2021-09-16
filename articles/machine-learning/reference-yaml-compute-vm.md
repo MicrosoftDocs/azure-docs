@@ -17,13 +17,23 @@ ms.reviewer: laobri
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+## YAML syntax
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------- |
+| `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
+| `type` | string | **Required.** The type of compute. | `virtualmachine` | |
+| `name` | string | **Required.** Name of the compute. | | |
+| `description` | string | Description of the compute. | | |
+| `resource_id` | string | **Required.** Fully qualified resource ID of the Azure Virtual Machine to attach to the workspace as a compute target. | | |
+
 ## Remarks
 
 The `az ml compute` command can be used for managing Virtual Machines (VM) attached to an Azure Machine Learning workspace.
 
-## Examples
+<!-- ## Examples
 
-[TODO]
+[TODO] -->
 
 ## Schema
 
