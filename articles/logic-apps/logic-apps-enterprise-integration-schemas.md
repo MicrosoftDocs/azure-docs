@@ -72,7 +72,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   To resolve this error, you need to use the element `xsd:import` or `xsd:include` instead of `xsd:redefine`, or use a URI.
 
-<a name="add-schemas"></a>
+<a name="add-schema"></a>
 
 ## Add schemas
 
@@ -180,6 +180,8 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 ---
 
+<a name="edit-schema"></a>
+
 ## Edit a schema
 
 To update an existing schema, you have to upload a new schema file that has the changes you want. However, you can first download the existing schema for editing.
@@ -219,6 +221,8 @@ To update an existing schema, you have to upload a new schema file that has the 
    After your schema file finishes uploading, the updated schema appears in the **Schemas** list.
 
 ---
+
+<a name="delete-schema"></a>
 
 ## Delete a schema
 

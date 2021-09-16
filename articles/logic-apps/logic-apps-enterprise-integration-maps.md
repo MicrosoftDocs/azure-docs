@@ -222,6 +222,8 @@ The following example shows a map that references an assembly named `XslUtilitie
 
 * To add a sample XML message, you can use the map testing capability. With just one gesture, you can test the map you created, and review the generated output.
 
+<a name="add-map"></a>
+
 ## Add maps
 
 ### [Consumption resource](#tab/consumption-1)
@@ -284,6 +286,8 @@ Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/
 
 ---
 
+<a name="edit-map"></a>
+
 ## Edit a map
 
 To update an existing map, you have to upload a new map file that has the changes you want. However, you can first download the existing map for editing.
@@ -321,6 +325,8 @@ To update an existing map, you have to upload a new map file that has the change
    After your map file finishes uploading, the updated map appears in the **Maps** list.
 
 ---
+
+<a name="delete-map"></a>
 
 ## Delete a map
 
