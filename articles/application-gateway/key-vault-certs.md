@@ -35,9 +35,13 @@ Application Gateway currently supports software-validated certificates only. Har
 > [!WARNING]
 > Azure Application Gateway currently only supports Key Vault accounts in the same subscription as the Application Gateway resource. Choosing a Key Vault under a different subscription than your Application Gateway will result in a failure.
 
+## Certificate settings in Key Vault
+
+For TLS termination, Application Gateway supports certificates in Personal Information Exchange (PFX) format. You can either import an existing certificate or create a new one in your key vault. Ensure that the certificate's status is set to Enabled in Key Vault to avoid any failures.
+
 ## How integration works
 
-Application Gateway integration with Key Vault requires a three-step configuration process:
+Application Gateway integration with Key Vault is a three-step configuration process:
 
 1. **Create a user-assigned managed identity**
 
@@ -45,18 +49,27 @@ Application Gateway integration with Key Vault requires a three-step configurati
 
 1. **Configure your key vault**
 
-   You then either import an existing certificate or create a new one in your key vault. The certificate will be used by applications that run through the application gateway. In this step, you can also use a Key Vault Secret which also allows storing a password-less, base-64 encoded PFX file. We recommend using a “Certificate” type because of the autorenewal capability that's available with this type of objects in the Key Vault. After you've created a Certificate or a Secret, you must define Access Policies in the Key Vault to allow the identity to be granted get access to the secret.
-   
-   > [!IMPORTANT]
-   > Starting March 15th 2021, Key Vault recognizes Azure Application Gateway as one of the Trusted Services, thus allowing you to build a secure network boundary in Azure. This gives you an ability to deny access to traffic from all networks (including internet traffic) to Key Vault but still make it accessible for Application Gateway resource under your subscription. 
+    **Access Policies** - After you've created a certificate in key vault by referring to the preceding section, you must define Key Vault's Access Policies to use the user-assigned managed identity with your Key Vault.
+    
+      i) Go to key vault in the Azure portal.<br />
+      ii) Open the Access policies pane.<br />
+      iii) For Permission model, select Vault access policy.<br />
+      iv) Click +Add Access Policy. Choose "Get" permission for "Secret permissions" field and choose your user-assigned managed identity for "Select principal" field.<br />
+      v) Select Save.<br />
 
-   > You can configure your Application Gateway in a restricted network of Key Vault in the following manner. <br />
-   > a) Under Key Vault’s Networking blade <br />
-   > b) choose Private endpoint and selected networks in "Firewall and Virtual Networks" tab <br/>
-   > c) then using Virtual Networks, add your Application Gateway’s virtual network and Subnet. During the process also configure ‘Microsoft.KeyVault' service endpoint by selecting its checkbox. <br/>
-   > d) Finally, select “Yes” to allow Trusted Services to bypass Key Vault’s firewall. <br/>
+    **Firewalls and virtual networks** - When using a restricted key vault, you can configure your Application Gateway in the following manner.
+
+   > [!IMPORTANT]
+   > Starting March 15th 2021, Key Vault recognizes Azure Application Gateway as one of the Trusted Services, thus allowing you to build a secure network boundary in Azure. This gives you an ability to deny access to traffic from all networks (including internet traffic) to Key Vault but still make it accessible for Application Gateway resource under your subscription.
    > 
-   > ![Key Vault Firewall](media/key-vault-certs/key-vault-firewall.png)
+   > Please note, in addition to the **Trusted Services** setting, you will need to allow your **Application Gateway's subnet** with **Service endpoint configuration** to grant access for all the scenarios.
+
+      a) Under Key Vault’s Networking blade <br />
+      b) choose Private endpoint and selected networks in "Firewall and Virtual Networks" tab <br/>
+      c) then using Virtual Networks, add your Application Gateway’s virtual network and Subnet. During the process also configure ‘Microsoft.KeyVault' service endpoint by selecting its checkbox. <br/>
+      d) Finally, select “Yes” to allow Trusted Services to bypass Key Vault’s firewall. <br/>
+  
+       ![Key Vault Firewall](media/key-vault-certs/key-vault-firewall.png)
 
 
    > [!NOTE]
@@ -78,7 +91,7 @@ Application Gateway integration with Key Vault requires a three-step configurati
 
 1. **Configure the application gateway**
 
-   After you complete the two preceding steps, you can set up or modify an existing application gateway to use the user-assigned managed identity. For more information see, [Set-AzApplicationGatewayIdentity](/powershell/module/az.network/set-azapplicationgatewayidentity).
+   After you complete the two preceding steps, you can assign the user-assigned managed identity for your application gateway through its Identity and access management (IAM). For PowerShell, see [Set-AzApplicationGatewayIdentity](/powershell/module/az.network/set-azapplicationgatewayidentity).
 
    You can also configure the HTTP listener’s TLS/SSL certificate to point to the complete URI of the Key Vault certificate or secret ID.
 
