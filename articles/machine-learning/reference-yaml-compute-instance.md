@@ -25,13 +25,12 @@ ms.reviewer: laobri
 | `type` | string | **Required.** The type of compute. | `computeinstance` | |
 | `name` | string | **Required.** Name of the compute. | | |
 | `description` | string | Description of the compute. | | |
-| `size` | string | The VM size to use for the compute instance. For more information, see [Supported VM series and sizes](concept-compute-target.md#supported-vm-series-and-sizes). Note that not all sizes are available in all regions. | For the list of supported sizes in a given region, please use the `az ml compute list-sizes` command.  | `??` |
+| `size` | string | The VM size to use for the compute instance. For more information, see [Supported VM series and sizes](concept-compute-target.md#supported-vm-series-and-sizes). Note that not all sizes are available in all regions. | For the list of supported sizes in a given region, please use the `az ml compute list-sizes` command.  | `Standard_DS3_v2` |
 | `create_on_behalf_of` | object | Settings for creating the compute instance on behalf of another user. Please ensure that the assigned user has correct RBAC permissions. |  |  |
 | `create_on_behalf_of.user_tenant_id` | string | The AAD Tenant ID of the assigned user. |  |  |
 | `create_on_behalf_of.user_object_id` | string | The AAD Object ID of the assigned user. |  |  |
 | `ssh_public_access_enabled` | boolean | Whether to enable public SSH access on the compute instance. | | `false` |
 | `ssh_settings` | object | SSH settings for connecting to the compute instance. | | |
-| `ssh_settings.admin_username` | string | The name of the administrator user account that can be used to SSH into the compute instance. | | |
 | `ssh_settings.ssh_key_value` | string | The SSH public key of the administrator user account. | | |
 | `network_settings` | object | Network security settings. | | |
 | `network_settings.vnet_name` | string | Name of the virtual network (VNet) when creating a new one or referencing an existing one. | | |
