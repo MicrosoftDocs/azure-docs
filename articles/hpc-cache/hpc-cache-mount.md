@@ -86,6 +86,8 @@ Follow this procedure to create the mount command.
 
    ![screenshot of the prototype mount command field, showing hover text for the "copy to clipboard" button](media/mount-command-copy.png)
 
+   Underneath, it shows alternate mount commands, which have the same client path and namespace path but use different cache mount addresses. For best performance, you must mount clients evenly among all of the available addresses on the HPC Cache.
+
 1. Use the copied mount command on the client machine to connect it to the Azure HPC Cache. You can issue the command directly from the client command line, or include the mount command in a client setup script or template.
 
 ## Understand mount command syntax
