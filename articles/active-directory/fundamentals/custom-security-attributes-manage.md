@@ -86,9 +86,9 @@ Disadvantages of using delegation
 
 - Does require that an administrator to develop an attribute set strategy
 
-## Which roles to assign
+## Comparing roles
 
-The following table lists the high-level permissions for the custom security attributes roles.
+To manage access to custom security attributes, there are four Azure AD built-in roles. The following table provides a high-level comparison of the custom security attributes roles.
 
 | Permission | Global Admin | Attribute Definition Admin | Attribute Assignment Admin | Attribute Definition Reader | Attribute Assignment Reader |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -104,6 +104,8 @@ You should note the following about these roles:
 - [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator), by default, do not have permissions to read, filter, define, manage, or assign custom security attributes.
 - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator), [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator), [Attribute Definition Reader](../roles/permissions-reference.md#attribute-definition-reader), and [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader) can be assigned at tenant or attribute set scope. 
 - You can't add or update attribute sets if the user has role assignments at the attribute set scope.
+
+## Which roles to assign
 
 The following table can help you determine which roles to assign and the scope.
 

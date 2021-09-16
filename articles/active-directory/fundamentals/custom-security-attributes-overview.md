@@ -143,7 +143,7 @@ Here are some of the limits and constraints for custom security attributes.
 > | Maximum number of predefined values per attribute | 100 |
 > | Maximum number of attribute values that can assigned per security principal (values can be distributed across single and multi-valued attributes) | 50 |
 
-## Azure AD roles
+## Custom security attribute roles
 
 Azure AD provides built-in roles to work with custom security attributes. The Attribute Definition Administrator role is the minimum role you need to manage custom security attributes. The Attribute Assignment Administrator role is the minimum role you need to assign custom security attribute values for Azure AD objects like users and applications.
 
