@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -96,7 +96,8 @@ Follow these steps to create a Front Door for your Azure AD B2C tenant. For more
   
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Directory + subscription** and choose the directory that contains the Azure subscription you’d like to use for Azure Front Door. The directory should *not* be the directory containing your Azure AD B2C tenant.
+1. To choose the directory that contains the Azure subscription that you’d like to use for Azure Front Door and *not* the directory containing your Azure AD B2C tenant, select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**. 
 1. From the home page or the Azure menu, select **Create a resource**. Select **Networking** > **See All** > **Front Door**.
 1. In the **Basics** tab of **Create a Front Door** page, enter or select the following information, and then select **Next: Configuration**.
 
@@ -249,7 +250,8 @@ Configure Azure Blob storage for Cross-Origin Resource Sharing with the followin
 ## Test your custom domain
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows (policies)**.
 1. Select a user flow, and then select **Run user flow**.
