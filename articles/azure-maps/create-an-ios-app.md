@@ -127,5 +127,8 @@ For more code examples, see these guides:
 ## Next steps
 
 In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:
+In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:
 
-> [Load GeoJSON data into Azure Maps](https://docs.microsoft.com/azure/azure-maps/tutorial-load-geojson-file-android)
+> [!div class="nextstepaction"]
+> [Load GeoJSON data into Azure Maps](tutorial-load-geojson-file-android.md)
+
