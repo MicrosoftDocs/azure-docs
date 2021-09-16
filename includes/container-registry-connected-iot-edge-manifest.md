@@ -28,7 +28,7 @@ ms.author: danlep
                     },
                     "IoTEdgeAPIProxy": {
                         "settings": {
-                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-api-proxy:9.9.9-dev",
+                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-api-proxy:1.0",
                             "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8000/tcp\":[{\"HostPort\":\"8000\"}]}}}"
                         },
                         "type": "docker",
@@ -65,7 +65,7 @@ ms.author: danlep
                 "systemModules": {
                     "edgeAgent": {
                         "settings": {
-                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-agent:20210609.5",
+                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-agent:1.2.3",
                             "createOptions": ""
                         },
                         "type": "docker",
@@ -77,7 +77,7 @@ ms.author: danlep
                     },
                     "edgeHub": {
                         "settings": {
-                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-hub:20210609.5",
+                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-hub:1.2.3",
                             "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                         },
                         "type": "docker",

@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Deploy a connected registry to a nested IoT Edge device
-description: Use Azure Container Registry CLI commands and Azure portal to deploy a connected registry to a nested Azure IoT Edge device.
+title: Tutorial - Deploy a connected registry to a nested IoT Edge device
+description: Use Azure Container Registry CLI commands and Azure portal to deploy a connected registry to a nested Azure IoT Edge hierarchy.
 ms.topic: quickstart
 ms.date: 09/01/2021
 ms.author: memladen
@@ -8,7 +8,7 @@ author: toddysm
 ms.custom:
 ---
 
-# Quickstart: Deploy a connected registry to a nested IoT Edge device
+# Tutorial: Deploy a connected registry to a nested IoT Edge hierarchy
 
 In this quickstart, you use Azure CLI commands to create a two-layer hierarchy of Azure IoT Edge device and deploy a [connected registry](intro-connected-registry.md) as a module at each layer.
 
@@ -22,12 +22,6 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
 
 [!INCLUDE [container-registry-connected-import-images](../../includes/container-registry-connected-import-images.md)]
 
-## Create client tokens for access to the parent registries
-
-The IoT Edge runtime on each device will need to authenticate with its parent registry to pull the images and deploy them. rview-connected-registry-access.md) is used for authentication.
-
-In this section, create a [client token](overview-connected-registry-access.md#client-tokens) for each device. You will configure the token credentials in the deployment manifest for the device, shown later in this article.
-
 [!INCLUDE [container-registry-connected-client-token](../../includes/container-registry-connected-client-token.md)]
 
 ## Retrieve connected registry configuration information
@@ -38,7 +32,7 @@ Before deploying each connected registry to the IoT Edge device in the hierarchy
 # Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the registry
 REGISTRY_NAME=<container-registry-name>
 
-# Run the command for both connected registry resources in the hierarchy
+# Run the command for each registry resource in the hierarchy
 
 az acr connected-registry install renew-credentials \
   --registry $REGISTRY_NAME \
@@ -94,6 +88,7 @@ Overall, the lower layer deployment file is similar to the top level deployment 
 - It pulls all the images required from top layer connected registry instead of from the cloud registry. 
     
     When you set up the top layer connected registry, make sure it will sync up all the reqiured images locally (`azureiotedge-agent`, `azureiotedge-hub`, `connected-registry`). The lower layer IoT device needs to pull these images from the top level connected registry.
+- It uses the sync token configured at the lower layer to authenticate with the top layer connected registry
 - It configures the parent gateway endpoint with the top layer connected registry IP address or FQDN instead of with the cloud registry. 
 
 > [!IMPORTANT]
@@ -152,8 +147,8 @@ Overall, the lower layer deployment file is similar to the top level deployment 
                         "registryCredentials": {
                             "tsmregistry": {
                                 "address": "$upstream:8000",
-                                "password": "<REPLACE_WITH_YOUR_CLIENT_TOKEN_PASSWORD>",
-                                "username": "<REPLACE_WITH_YOUR_CLIENT_TOKEN_NAME>"
+                                "password": "<REPLACE_WITH_YOUR_SYNC_TOKEN_PASSWORD>",
+                                "username": "<REPLACE_WITH_YOUR_SYNC_TOKEN_NAME>"
                             }
                         }
                     },
@@ -253,16 +248,16 @@ Use the `iotedge-config` tool to create and configure your hierarchy by followin
             # hostname: "FQDN or IP" ## Optional. If provided, install.sh will not prompt user for this value nor the parent_hostname value
         container_auth: ## The token used to pull the image from cloud registry
             serveraddress: "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io"
-            username: "<REPLACE_WITH_YOUR_PULL_TOKEN_NAME_FOR_TOP_LAYER>"
-            password: "<REPLACE_WITH_YOUR_PULL_TOKEN_PASSWORD_FOR_TOP_LAYER>"
+            username: "<REPLACE_WITH_YOUR_CLIENT_TOKEN_NAME_FOR_TOP_LAYER>"
+            password: "<REPLACE_WITH_YOUR_CLIENT_TOKEN_PASSWORD_FOR_TOP_LAYER>"
         child:
             - device_id: lower-layer
               deployment: "./templates/tutorial/deploymentLowerLayer.json" ## Optional. If provided, the given deployment file will be applied to the newly created device
                # hostname: "FQDN or IP" ## Optional. If provided, install.sh will not prompt user for this value nor the parent_hostname value
               container_auth: ## The token used to pull the image from parent connected registry
                 serveraddress: "$upstream:8000"
-                username: "<REPLACE_WITH_YOUR_PULL_TOKEN_NAME_FOR_LOWER_LAYER>"
-                password: "<REPLACE_WITH_YOUR_PULL_TOKEN_PASSWORD_FOR_LOWER_LAYER>"
+                username: "<REPLACE_WITH_YOUR_SYNC_TOKEN_NAME_FOR_LOWER_LAYER>"
+                password: "<REPLACE_WITH_YOUR_SYNC_TOKEN_PASSWORD_FOR_LOWER_LAYER>"
     ```
 
 
@@ -342,7 +337,7 @@ After successful deployment, the connected registry shows a status of `Online`.
 
 In this quickstart, you learned how to deploy a connected registry to a nested IoT Edge device. Continue to the next guide to learn how to pull images from the newly deployed connected registry.
 
-> [Quickstart: Pull images from a connected registry][quickstart-pull-images-from-connected-registry]
+> [Pull images from a connected registry][pull-images-from-connected-registry]
 
 <!-- LINKS - internal -->
 [az-acr-connected-registry-install-renew-credentials]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_install_renew_credentials
@@ -350,5 +345,5 @@ In this quickstart, you learned how to deploy a connected registry to a nested I
 [az-acr-import]: /cli/azure/acr#az-acr-import
 [az-acr-token-credential-generate]: /cli/azure/acr/credential#az-acr-token-credential-generate
 [container-registry-intro]: container-registry-intro.md
-[quickstart-pull-images-from-connected-registry]: quickstart-pull-images-from-connected-registry.md
+[pull-images-from-connected-registry]: pull-images-from-connected-registry.md
 [quickstart-connected-registry-cli]: quickstart-connected-registry-cli.md

@@ -5,6 +5,11 @@ ms.topic: include
 ms.date: 09/10/2021
 ms.author: danlep
 ---
+## Create a client token for access to the cloud registry
+
+The IoT Edge runtime at the top layer will need to authenticate with the cloud registry to pull the images and deploy them. Currently, [token-based authentication](../articles/container-registry/overview-connected-registry-access.md) is used for authentication.
+
+In this section, create a [client token](../articles/container-registry/overview-connected-registry-access.md#client-tokens) for the IoT Edge device. You will configure the token credentials in the deployment manifest for the device, shown later in this article.
 If you don't have an existing scope map for the required repositories, use the following command to create one:
 
 ```azurecli

@@ -14,7 +14,7 @@ In this quickstart, you use Azure CLI commands to configure a client token for a
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 * Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli].
-* Connected registry instance deployed on an IoT Edge device. For deployment steps, see [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md) or [Quickstart: Deploy a connected registry to a nested IoT Edge device](quickstart-deploy-connected-registry-nested-iot-edge-cli.md).
+* Connected registry instance deployed on an IoT Edge device. For deployment steps, see [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md) or [Quickstart: Deploy a connected registry to a nested IoT Edge device](quickstart-deploy-connected-registry-nested-iot-edge-cli.md). In the commands in this article, the connected registry name is stored in the environment variable *$CONNECTED_REGISTRY_RW*.
 
 ## Create a scope map
 
@@ -53,7 +53,7 @@ Use the [az acr connected-registry update][az-acr-connected-registry-update] com
 
 ```azurecli
 az acr connected-registry update \
-  --name myconnectedregistry \
+  --name $CONNECTED_REGISTRY_RW \
   --registry $REGISTRY_NAME \
   --add-client-token myconnectedregistry-client-token
 ```
@@ -61,6 +61,9 @@ az acr connected-registry update \
 ## Pull an image from the connected registry
 
 From a machine with access to the connected registry instance, use the following example command to sign into the connected registry, using the client token credentials. For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference:
+
+> [!CAUTION]
+> If you set up your connected registry as an insecure registry, update your Docker daemon configuration to include the name and port of your connected registry in the insecure registries list. This configuration should only be used for testing purposes. For more information, see [Test an insecure registry](https://docs.docker.com/registry/insecure/).
 
 ```
 docker login --username myconnectedregistry-client-token \

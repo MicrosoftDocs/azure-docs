@@ -12,7 +12,7 @@ ms.custom:
 
 In this quickstart, you use the Azure CLI to create a [connected registry](intro-connected-registry.md) resource in Azure. The connected registry feature of Azure Container Registry allows you to deploy a registry remotely or on your premises and synchronize images and other artifacts with the cloud registry. 
 
-In this quickstart, you create two connected registry resources for a cloud registry: one connected registry allows artifact pull and push functionality and one allows only artifact pull functionality. After creating a connected registry, you can follow other quickstart guides to deploy and use a connected registry on your on-premises or remote infrastructure.
+In this quickstart, you create two connected registry resources for a cloud registry: one connected registry allows read and write (artifact pull and push) functionality and one allows read-only functionality. After creating a connected registry, you can follow other quickstart guides to deploy and use it on your on-premises or remote infrastructure.
 
 [!INCLUDE [Prepare Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -23,68 +23,53 @@ In this quickstart, you create two connected registry resources for a cloud regi
 Enable the dedicated data endpoint for the Azure Container Registry in the cloud by using the [az acr update][az-acr-update] command. This step is needed for a connected registry to communicate with the cloud registry, t
 
 ```azurecli
-# Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the registry
+# Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the cloud registry
 REGISTRY_NAME=<container-registry-name>
 
 az acr update --name $REGISTRY_NAME \
   --data-endpoint-enabled
 ```
 
-## Import images into the container registry
+[!INCLUDE [container-registry-connected-import-images](../../includes/container-registry-connected-import-images.md)]
 
-This and subsequent quickstart guides use images in the following repositories in the registry:
-- `acr/connected-registry` - Images used to deploy the connected registry on your premises. This repository will also be synchronized to the connected registry in case you want to implement a nested registries scenario.
-- `azureiotedge-agent`,`azureiotedge-hub`, and `azureiotedge-api-proxy` - Images used to deploy the connected registry to an IoT Edge device.
-- `hello-world` - Sample image that will be synchronized to the connected registry and pulled by the connected registry clients.
+## Create a connected registry resource for read and write functionality
 
-The easiest way to populate those repositories is to use the [az acr import][az-acr-import] command as follows:
+Create a connected registry using the [az acr connected-registry create][az-acr-connected-registry-create] command. The connected registry name must start with a letter and contain only alphanumeric characters. It must be 5 to 40 characters long and unique in the hierarchy for this Azure container registry.
 
 ```azurecli
-az acr import --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/acr/connected-registry:0.2.0
-az acr import --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/azureiotedge-agent:1.2
-az acr import --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/azureiotedge-hub:1.2
-az acr import --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/azureiotedge-api-proxy:latest
-az acr import --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/hello-world:latest
-```
+# Use the CONNECTED_REGISTRY_RW variable in the following Azure CLI command to identify the connected registry with read/write functionality
+CONNECTED_REGISTRY_RW=<connnected-registry-name>
 
-## Create a connected registry resource for pull and push functionality
-
-Create a connected registry using the [az acr connected-registry create][az-acr-connected-registry-create] command. The name must start with a letter and contain only alphanumeric characters. It must be 5 to 40 characters long and unique in the hierarchy for this Azure container registry.
-
-```azurecli
 az acr connected-registry create --registry $REGISTRY_NAME \
-  --name myconnectedregistry \
+  --name $CONNECTED_REGISTRY_RW \
   --repository "hello-world" "acr/connected-registry" "azureiotedge-agent" "azureiotedge-hub" "azureiotedge-api-proxy"
 ```
 
-This command creates a connected registry resource named *myconnected registry* and links it to the *$REGISTRY_NAME* cloud registry. In later quickstart guides, you learn about options to deploy the connected registry. 
+This command creates a connected registry resource named *$CONNECTED_REGISTRY_RW* and links it to the *$REGISTRY_NAME* cloud registry. In later quickstart guides, you learn about options to deploy the connected registry. 
 * The specified repositories will be synchronized between the cloud regsitry and the connected registry once it is deployed. 
-* Because no `--mode` option is specified for the connected registry, it allows both pull and push functionality by default. 
+* Because no `--mode` option is specified for the connected registry, it allows both read and write functionality by default. 
 * Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 
   > [!IMPORTANT]
   > To support nested scenarios where lower layers have no Internet access, you must always allow synchronization of the `acr/connected-registry` repository. This repository contains the image for the connected registry runtime.
 
-## Create a connected registry resource for pull-only functionality
+## Create a connected registry resource for read-only functionality
 
-You can use the [az acr connected-registry create][az-acr-connected-registry-create] command to create a connected registry with _pull_-only functionality. 
+You can also use the [az acr connected-registry create][az-acr-connected-registry-create] command to create a connected registry with read-only functionality. 
 
 ```azurecli
+# Use the CONNECTED_REGISTRY_READ variable in the following Azure CLI command to identify the connected registry with read-only functionality
+CONNECTED_REGISTRY_RO=<connnected-registry-name>
 az acr connected-registry create --registry $REGISTRY_NAME \
-  --parent myconnectedregistry \
-  --name myconnectedmirror \
+  --parent $CONNECTED_REGISTRY_RW \
+  --name $CONNECTED_REGISTRY_READ \
   --repository "hello-world" "acr/connected-registry" "azureiotedge-agent" "azureiotedge-hub" "azureiotedge-api-proxy" \
   --mode mirror
 ```
 
-This command creates a connected registry resource named *myconntectedmirror** in Azure and links it to the *$REGISTRY_NAME* cloud registry. 
-* The specified repositories will be synchronized between the parent *myconnected registry* and the connected registry once deployed.
-* This resource will be enabled for pull-only functionality once deployed. 
+This command creates a connected registry resource named *$CONNECTED_REGISTRY_READ* in Azure and links it to the *$REGISTRY_NAME* cloud registry. 
+* The specified repositories will be synchronized between the parent *$CONNECTED_REGISTRY_RW* and the connected registry once deployed.
+* This resource will be enabled for read-only functionality once deployed. 
 * Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 
 ## Verify that the resources are created
@@ -100,10 +85,10 @@ az acr connected-registry list \
 You should see a response as follows:
 
 ```
-NAME                 MODE      CONNECTION STATE    PARENT               LOGIN SERVER    LAST SYNC (UTC)
--------------------  --------  ------------------  -------------------  --------------  -----------------
-myconnectedregistry  Registry  Offline
-myconnectedmirror    Mirror    Offline             myconnectedregistry
+NAME                 MODE       CONNECTION STATE    PARENT               LOGIN SERVER    LAST SYNC (UTC)
+-------------------  --------   ------------------  -------------------  --------------  -----------------
+myconnectedregrw    Registry    Offline
+myconnectedregro    Mirror      Offline             myconnectedregrw
 ```
 
 ## Next steps
