@@ -22,7 +22,7 @@ ms.author: b-juche
 
 Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. Policy definitions for these common use cases are already available in your Azure environment as built-ins to help you get started.
 
-The process of [creating and implementing a policy in Azure Policy](../governance/policy/tutorials/create-and-manage.md) begins with creating a (built-in or custom) [policy definition](../governance/policy/overview.md#policy-definition). Every policy definition has conditions under which it's enforced. It also has a defined [*effect*](../governance/policy/concepts/effects.md) that takes place if the conditions are met. Azure NetApp Files is supported with both Azure Policy custom and built-in policy definitions.
+The process of [creating and implementing a policy in Azure Policy](../governance/policy/tutorials/create-and-manage.md) begins with creating a (built-in or custom) [policy definition](../governance/policy/overview.md#policy-definition). Every policy definition has conditions under which it's enforced. It also has a defined [***effect***](../governance/policy/concepts/effects.md) that takes place if the conditions are met. Azure NetApp Files is supported with both Azure Policy custom and built-in policy definitions.
 
 ## Custom policy definitions
 
