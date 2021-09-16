@@ -12,7 +12,7 @@ ms.date: 09/07/2021
 Availability zone (AZ) support for Azure Functions is now available on Elastic Premium and Dedicated (App Service) plans. A Zone Redundant Azure Function application will automatically balance its instances between availability zones for higher availability. This document will focus on zone redundancy support for Elastic Premium Function plans. 
 
 > [!NOTE]
-> This article will focus on deploying zone redundant Elastic Premium hosting plans and function apps. Instructions on creating a zone redundant dedicated (App Service) hosting plan can be found [here](../app-service/how-to-zone-redundancy.md)
+> This article will focus on deploying zone redundant Elastic Premium hosting plans and function apps. Instructions on creating a zone redundant Dedicated (App Service) hosting plan can be found [here](../app-service/how-to-zone-redundancy.md).
 
 ## Overview
 
