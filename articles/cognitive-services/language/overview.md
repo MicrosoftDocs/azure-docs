@@ -14,9 +14,13 @@ ms.author: aahi
 
 # What are Azure Language services? 
 
-Azure Cognitive Service for language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding, mining, and analyzing text.
+Azure Cognitive Service for language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.  
 
-The service is the unification of several Cognitive Services offerings, such as Text Analytics, Language Understanding (LUIS), and QnA Maker. This unified service is enhanced with Microsoft’s state of the art AI models to help you build intelligent applications with Language Studio, REST APIs, and client libraries. 
+The service is the unification of the following Cognitive Services offerings:
+
+* Text Analytics
+* QnA Maker
+* Language Understanding (LUIS)
 
 ## Available features
 
@@ -68,9 +72,9 @@ After you've had a chance to get started with the Language service, try our tuto
 * Tutorial: Extract information in Excel with the Language SDK, C#
 * Tutorial: Add knowledge bases in multiple languages with Language SDK, C# 
 
-## Additional sample code
+## Additional code samples
 
-You can find additional code samples on GitHub for the following languages:
+You can find more code samples on GitHub for the following languages:
 
 * [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 * [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
@@ -78,7 +82,7 @@ You can find additional code samples on GitHub for the following languages:
 * [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 ## Deploy on premises using Docker containers 
-Use Language service containers to deploy API features on-premises. These Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. The Language service offers the following containers:
+Use Language service containers to deploy API features on-premises. These Docker containers enable you to bring the service closer to your data for compliance, security, or other operational reasons. The Language service offers the following containers:
 
 * [Sentiment analysis](sentiment-opinion-mining/how-to/use-containers.md)
 * [Language detection](language-detection/how-to/use-containers.md)
@@ -92,4 +96,4 @@ An AI system includes not only the technology, but also the people who will use 
 
 * [Transparency note for Language services](/legal/cognitive-services/text-analytics/transparency-note)
 * [Integration and responsible use](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use)
-* [Data, privacy and security](/legal/cognitive-services/text-analytics/data-privacy)
+* [Data, privacy, and security](/legal/cognitive-services/text-analytics/data-privacy)

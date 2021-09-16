@@ -25,9 +25,9 @@ Language Studio provides you with a platform to try several service features, an
 
 The Language Service offers multiple features that use prebuilt, pre-configured models for performing various tasks such as: entity linking, language detection, and key phrase extraction. See the [Azure Cognitive Services for Language overview](../overview.md) to see the list of features offered by the service. 
 
-Each of these feature has a demo-like experience inside Language Studio that lets you input text, and presents the response both visually, and in JSON. These demos help you quickly test these prebuilt features without using code. The pages are divided into sections:
+Each of these features has a demo-like experience inside Language Studio that lets you input text, and presents the response both visually, and in JSON. These demos help you quickly test these prebuilt features without using code. The pages are divided into sections:
 
-* An overview of the feature, with a name and description. You can also find additional links to its documentation, samples, and client libraries (SDK). The **Platforms** section lets you know if the feature is only available as a cloud-based service, or additionally as a Docker container that can be used on-premises.
+* An overview of the feature, with a name and description. You can also find links to its documentation, samples, and client libraries (SDK). The **Platforms** section lets you know if the feature is only available as a cloud-based service, or additionally as a Docker container that can be used on-premises.
 
 * A section for entering text, uploading a file, or choosing a text sample to demonstrate how the feature works. To try the demo, you will need to choose a resource and acknowledge it will incur usage according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). 
 
@@ -39,15 +39,13 @@ After sending text, you'll be able to see a visualization, along with the JSON r
 
 ## Features with customization
 
-The Language Service also offers multiple features that let you create, train, and publish custom models to better fit your data. For example, custom content classification and custom question answering. See the [Azure Cognitive Services for Language overview](../overview.md) to see the list of features offered by the service, and the note above the [Azure account and resource](#deploy-an-azure-resource-and-get-started) of this article. 
-
-For these features, Language Studio offers workflows that let developers and subject matter experts build models  without needing machine learning expertise. 
+The Language Service also offers multiple features that let you create, train, and publish custom models to better fit your data. For example, custom content classification and custom question answering. See the [overview article](../overview.md) for the list of features offered by the service. For features with customization, Language Studio offers workflows that let developers and subject matter experts build models without needing machine learning expertise. 
 
 ## Find keys, resource name, and location/region
 
 To find the keys and location/region of a completed deployment, follow these steps:
 
-1. Sign into Language Studio, and select the **Settings** icon in the top right corner of the screen. 
+1. Sign into Language Studio, and select the **Settings** icon in the top-right corner of the screen. 
 1. Select **Resources**. 
 
 Your resource's details such as the key and name associated with it will be listed here. You can use this information when sending API calls using the feature client libraries and REST APIs. You can also find this information on the [using the Azure portal](https://portal.azure.com/) by navigating to your resource group, and selecting your Azure resource.
