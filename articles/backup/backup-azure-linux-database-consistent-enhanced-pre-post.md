@@ -13,6 +13,8 @@ snapshot of disks and calling post-script (commands to un-freeze the application
 
 Authoring, debugging and maintenance of e pre/post scripts could be challenging. To remove this complexity, Azure Backup provides simplified pre/post-script experience for marquee databases to get application consistent snapshot with least overhead.
 
+:::image type="content" source="./media/backup-azure-linux-database-consistent-enhanced-pre-post/linux-application-consistent-snapshot-inline.png" alt-text="Diagram showing Linux application-consistent snapshot by Azure Backup." lightbox="./media/backup-azure-linux-database-consistent-enhanced-pre-post/linux-application-consistent-snapshot-expanded.png":::
+
 The new _enhanced_ pre-post script framework has the following key benefits:
 
 - These pre-post scripts are directly installed in Azure VMs along with the backup extension. This helps to eliminate authoring and download them from an external location.
