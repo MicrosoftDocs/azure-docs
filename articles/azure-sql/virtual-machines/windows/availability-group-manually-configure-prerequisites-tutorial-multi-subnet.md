@@ -28,7 +28,6 @@ In this tutorial, complete the prerequisites for creating an [Always On availabi
 
 **Time estimate**: This tutorial may take several hours to complete, as creating resources can be time-intensive. 
 
-
 The following diagram illustrates the resources you deploy in this tutorial: 
 
 :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/multi-subnet-availability-group-diagram.png" alt-text="New object":::
@@ -130,20 +129,20 @@ To create your domain controller (DC) virtual machines in the Azure portal, foll
     | **Virtual machine name** |First domain controller: *DC-VM-1*.</br>Second domain controller *DC-VM-2*. |
     | **Region** |*The location where you deployed your resource group and virtual network.* |
     | **Availability options** |Availability zone </br> *For Azure regions that do not support Availability zones, use Availability sets instead. Create a new availability set and place all VMs created in this tutorial inside the availability set.* |
-    | **Availability zone** |Specify 1 for DC-VM-1. </br> Specify 2 for DC-VM-2 |
+    | **Availability zone** |Specify 1 for DC-VM-1. </br> Specify 2 for DC-VM-2. |
     | **Size** |D2s_v3 (2 vCPUs, 8 GB RAM) |
     | **User name** |DomainAdmin |
     | **Password** |Contoso!0000 |
-    | **Public inbound ports** | *Allow selected ports*
-    | **Select inbound ports** | *RDP (3389)*
-    | **OS disk type** | Premium SSD (locally redundant storage)
+    | **Public inbound ports** | *Allow selected ports* |
+    | **Select inbound ports** | *RDP (3389)* |
+    | **OS disk type** | Premium SSD (locally redundant storage) |
     | **Virtual network** |SQLHAVNET |
     | **Subnet** |DC-subnet |
     | **Public IP** |*Same name as the VM, such as DC-VM-1 or DC-VM-2* |
     | **NIC network security group**| Basic |
     | **Public inbound ports**| Allow selected ports |
     | **Select inbound ports**| RDP (3389) |
-    | **Boot diagnostics** |Enable with managed storage account (recommended) |
+    | **Boot diagnostics** |Enable with managed storage account (recommended). |
 
     Azure notifies you when your virtual machines are created and ready to use. 
 
@@ -203,8 +202,6 @@ To identify the private IP address of the VM in the Azure portal, follow these s
 1. Note the **NIC Private IP** address. Use this IP address as the DNS server for the other virtual machines.  In the example image, the private IP address is **10.38.0.4**. 
 
 :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/12-dc-vm-1-private-ip.png" alt-text="On the DC-VM-1 page, choose Networking in the Settings pane, and then note the NIC private IP address. Use this IP address as the DNS server. ":::
-
-
 
 ### Configure VNet DNS
 
