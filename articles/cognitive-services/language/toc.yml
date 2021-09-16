@@ -129,9 +129,9 @@ items:
     - name: Development lifecycle
       href: ../qnamaker/concepts/development-lifecycle-knowledge-base.md?context=/azure/cognitive-services/language/context/context
     - name: Data sources and content
-      href: ../qnamaker/concepts/data-sources-and-content?context=/azure/cognitive-services/language/context/context
+      href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language/context/context
     - name: Confidence score
-      href: ../qnamaker/concepts/confidence-score?context=/azure/cognitive-services/language/context/context
+      href: ../qnamaker/concepts/confidence-score.md?context=/azure/cognitive-services/language/context/context
     
 
 
