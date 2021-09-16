@@ -120,12 +120,21 @@ items:
       href: custom-question-answering/how-to/chit-chat.md
     - name: Change default answer
       href: custom-question-answering/how-to/change-default-answer.md
+    - name: Filter responses
+      href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language/context/context
   - name: Concepts
     items:
     - name: Precise answering
       href: custom-question-answering/concepts/precise-answering.md
     - name: Development lifecycle
       href: ../qnamaker/concepts/development-lifecycle-knowledge-base.md?context=/azure/cognitive-services/language/context/context
+    - name: Data sources and content
+      href: ../qnamaker/concepts/data-sources-and-content?context=/azure/cognitive-services/language/context/context
+    - name: Confidence score
+      href: ../qnamaker/concepts/confidence-score?context=/azure/cognitive-services/language/context/context
+    
+
+
 - name: Entity linking
   items:
   - name: Overview
