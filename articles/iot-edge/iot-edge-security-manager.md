@@ -6,7 +6,7 @@ keywords: security, secure element, enclave, TEE, IoT Edge
 author: kgremban
 ms.author: kgremban
 ms.reviewer: eustacea
-ms.date: 09/08/2021
+ms.date: 09/16/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ---
@@ -76,6 +76,10 @@ The IoT Edge security manager consists of three components:
 * The IoT Edge module runtime
 * Hardware security module (HSM) abstractions through standard implementations such as PKCS#11 and Trusted Platform Module (TPM)
 * A hardware silicon root of trust or HSM (optional, but highly recommended)
+
+## Changes in version 1.2
+
+In versions 1.0 and 1.1 of IoT Edge, a component called the **security daemon** was responsible for the logical security operations of the security manager. In the update to version 1.2, several key responsibilities were delegated to the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/) security subsystem, which supports all of Azure IoT. Once these security-based tasks were removed from the security daemon, its name no longer made sense. To better reflect the work that this component does in version 1.2 and beyond, we renamed it to the **module runtime**.
 :::moniker-end
 
 <!--1.1-->
@@ -89,7 +93,7 @@ The IoT Edge security daemon is responsible for the logical security operations 
 :::moniker range=">=iotedge-2020-11"
 ## The IoT Edge module runtime
 
-The IoT Edge module runtime delegates trust from the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/) security subsystem to protect the IoT Edge container runtime environment. The module runtime is responsible for the logical security operations of the security manager. It represents a significant portion of the trusted computing base of the IoT Edge device. The module runtime uses security services from the IoT Identity Service, which is in turn hardened by the device manufacturer's choice of hardware security module (HSM). We strongly recommend the use of HSMs for device hardening. 
+The IoT Edge module runtime delegates trust from the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/) security subsystem to protect the IoT Edge container runtime environment. The module runtime is responsible for the logical security operations of the security manager. It represents a significant portion of the trusted computing base of the IoT Edge device. The module runtime uses security services from the IoT Identity Service, which is in turn hardened by the device manufacturer's choice of hardware security module (HSM). We strongly recommend the use of HSMs for device hardening.
 :::moniker-end
 
 ### Design principles
@@ -145,7 +149,7 @@ Another core principle for the IoT Edge module runtime is to minimize churn.  Fo
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
 
-![Azure IoT Edge security daemon](media/edge-security-manager/iot-edge-security-daemon.png)
+![Azure IoT Edge security daemon architecture](media/edge-security-manager/iot-edge-security-daemon.png)
 
 The IoT Edge security daemon takes advantage of any available hardware root of trust technology for security hardening.  It also allows for split-world operation between a standard/rich execution environment (REE) and a trusted execution environment (TEE) when hardware technologies offer trusted execution environments. Role-specific interfaces enable the major components of IoT Edge to assure the integrity of the IoT Edge device and its operations.
 :::moniker-end
@@ -153,7 +157,7 @@ The IoT Edge security daemon takes advantage of any available hardware root of t
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
 
-<!-- add new graphic here -->
+![Azure IoT Edge module runtime architecture](media/edge-security-manager/iot-edge-module-runtime.png)
 
 The IoT Edge module runtime takes advantage of any available hardware root of trust technology for security hardening.  It also allows for split-world operation between a standard/rich execution environment (REE) and a trusted execution environment (TEE) when hardware technologies offer trusted execution environments. Role-specific interfaces enable the major components of IoT Edge to assure the integrity of the IoT Edge device and its operations.
 :::moniker-end
@@ -209,7 +213,9 @@ Microsoft maintains the main code base for the [IoT Edge security daemon on GitH
 
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
-Microsoft maintains the main code base for the [IoT Edge module runtime on GitHub](https://github.com/Azure/iotedge/tree/release/1.2/edgelet).
+Microsoft maintains the main code base for the [IoT Edge module runtime](https://github.com/Azure/iotedge/tree/release/1.2/edgelet) and the [Azure IoT identity service](https://github.com/Azure/iot-identity-service) on GitHub.
+
+When you read the IoT Edge codebase, remember that the **module runtime** evolved from the **security daemon**. The codebase may still contain references to the security daemon.
 :::moniker-end
 
 #### Installation and updates
@@ -236,34 +242,37 @@ The IoT Edge runtime tracks and reports the version of the IoT Edge security dae
 The IoT Edge runtime tracks and reports the version of the IoT Edge module runtime. The version is reported as the *runtime.platform.version* attribute of the IoT Edge agent module reported property.
 :::moniker-end
 
-### Hardware security module platform abstraction layer (HSM PAL)
-
-The HSM PAL abstracts all root of trust hardware to isolate the developer or user of IoT Edge from their complexities.  It includes a combination of application programming interface (API) and trans-domain communication procedures, for example communication between a standard execution environment and a secure enclave.  The actual implementation of the HSM PAL depends on the specific secure hardware in use. Its existence enables the use of virtually any secure silicon hardware.
-
-## Secure silicon root of trust hardware
-
-Secure silicon is necessary to anchor trust inside the IoT Edge device hardware.  Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSE), ARM TrustZone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is recommended given the threats associated with physical accessibility of IoT devices.
+## Hardware security module
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
+The hardware security module platform abstraction layer (HSM PAL) abstracts all root of trust hardware to isolate the developer or user of IoT Edge from their complexities.  It includes a combination of application programming interface (API) and trans-domain communication procedures, for example communication between a standard execution environment and a secure enclave.  The actual implementation of the HSM PAL depends on the specific secure hardware in use. Its existence enables the use of virtually any secure silicon hardware.
+:::moniker-end
+
+<!--1.2-->
+:::moniker range=">=iotedge-2020-11"
+The IoT Edge security manager implements the Trusted Platform Module and PKCS#11 interface standards for integrating hardware security modules (HSMs). With these standards, virtually any HSM, including those with proprietary interfaces, can be integrated. We strongly recommend using HSMs for security hardening.
+:::moniker-end
+
+## Secure silicon root of trust hardware
+
+Secure silicon is necessary to anchor trust inside the IoT Edge device hardware.  Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSE), Arm TrustZone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is recommended given the threats associated with physical accessibility of IoT devices.
+
 The IoT Edge security manager aims to identify and isolate the components that defend the security and integrity of the Azure IoT Edge platform for custom hardening. Third parties, like device makers, should make use of custom security features available with their device hardware.  
 
 Learn how to harden the Azure IoT security manager with the Trusted Platform Module (TPM) using software or virtual TPMs:  
 
 Create and provision an [IoT Edge device with a virtual TPM on a Linux virtual machine](how-to-auto-provision-simulated-device-linux.md).
 
+<!--1.1-->
+:::moniker range="iotedge-2018-06"
 Create and provision an [IoT Edge device with a simulated TPM on Windows](how-to-auto-provision-simulated-device-windows.md).
-:::moniker-end
-
-<!--1.2-->
-:::moniker range=">=iotedge-2020-11"
-The IoT Edge module runtime aims to identify and isolate the components that defend the security and integrity of the Azure IoT Edge platform for custom hardening. Third parties, like device makers, should make use of custom security features available with their device hardware.  
-
-Learn how to harden the Azure IoT Edge module runtime with the Trusted Platform Module (TPM) using software or virtual TPMs:  
-
-Create and provision an [IoT Edge device with a virtual TPM on a Linux virtual machine](how-to-auto-provision-simulated-device-linux.md).
 :::moniker-end
 
 ## Next steps
 
-Read the blog on [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
+To learn more about securing your IoT Edge devices, read the following blog posts:
+
+* [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
+* [The blueprint to securely solve the elusive zero-touch provisioning of IoT devices at scale](https://azure.microsoft.com/blog/the-blueprint-to-securely-solve-the-elusive-zerotouch-provisioning-of-iot-devices-at-scale/)
+* [Solving IoT device security at scale through standards](https://azure.microsoft.com/blog/solving-iot-device-security-at-scale-through-standards/)
