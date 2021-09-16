@@ -15,8 +15,11 @@ ms.date: 09/16/2021
 To represent your organization and others in business-to-business (B2B) enterprise integration workflows, create each participant in a business relationship as a *trading partner* in your [integration account](logic-apps-enterprise-integration-create-integration-account.md). Partners are business entities that participate in B2B transactions and can exchange messages with each other.
 
 > [!IMPORTANT]
-> Before your define these partners, have a conversation with your partners about how to identify and validate the messages 
-> that you send each other. After you agree on these details, you're ready to create partners in your integration account.
+> Before your define these partners, have a conversation with your partners about how to identify and validate the messages that you send 
+> each other. To participate in an agreement and exchange messages with each other, partners in your integration account have to use the 
+> same or compatible *business qualifiers*. After you agree on these details, you're ready to create partners in your integration account.
+
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps](logic-apps-enterprise-integration-overview.md).
 
 ## Prerequisites
 
@@ -42,19 +45,16 @@ To represent your organization and others in business-to-business (B2B) enterpri
 
 1. On the **Partners** pane, select **Add**.
 
-1. On the **Add Partner** pane, provide information about the partner as described in the following table:
+1. On the **Add Partner** pane, provide the following information about the partner:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name** | Yes | The partner's name |
-   | **Qualifier** | Yes | The authenticating body that provides unique business identities to organizations, for example, **D-U-N-S (Dun & Bradstreet)**. <p>Partners can opt for a mutually defined business identity. For these scenarios, select **Mutually Defined** for EDIFACT or **Mutually Defined (X12)** for X12. <p>For RosettaNet, select only **DUNS**, which is the standard. |
-   | **Value** | Yes | A value that identifies the documents that your logic apps receive. <p>For RosettaNet, this value must be a nine-digit number that corresponds to the DUNS number. |
+   | **Qualifier** | Yes | The authenticating body that provides unique business identities to organizations, for example, **D-U-N-S (Dun & Bradstreet)**. <p>Partners can opt for a mutually defined business identity. For these scenarios, select **Mutually Defined** for EDIFACT or **Mutually Defined (X12)** for X12. <p>For RosettaNet, select only **DUNS**, which is the standard. <p>**Important**: For partners in your integration account to participate in an agreement and exchange messages with each other, they have to use the same or compatible qualifier. |
+   | **Value** | Yes | A value that identifies the documents that your logic apps receive. <p>For partners that use RosettaNet, this value must be a nine-digit number that corresponds to the DUNS number. You can provide more information for RosettaNet partners, such as their classification and contact information, by creating the partners first and then [editing their definitions afterwards](#edit-partner). |
    ||||
 
-   > [!NOTE]
-   > For partners that use RosettaNet, you can provide more information, such as partner classification and contact information, by creating these partners first and then [editing them afterwards](#edit-partner).
-
-1. When you're done, select **OK**.
+1. When you're done, select **OK**, and return to your integration account.
 
    Your partner now appears on the **Partners** list.
 

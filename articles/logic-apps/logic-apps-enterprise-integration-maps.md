@@ -115,7 +115,7 @@ Based on your assembly file's size, follow the steps for uploading an assembly t
 
    After you select the assembly, the **Assembly Name** property automatically shows the assembly's file name.
 
-1. When you're ready, select **OK**.
+1. When you're done, select **OK**, and return to your integration account.
 
    After your assembly file finishes uploading, the assembly appears in the **Assemblies** list. On your integration account's **Overview** pane, under **Artifacts**, your uploaded assembly also appears.
 
@@ -250,7 +250,7 @@ After you upload any assemblies that your map references, you can now upload you
 
    If you left the **Name** property empty, the map's file name automatically appears in that property after you select the map file.
 
-1. When you're ready, select **OK**.
+1. When you're done, select **OK**, and return to your integration account.
 
    After your map file finishes uploading, the map appears in the **Maps** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded map also appears.
 
@@ -272,7 +272,7 @@ Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/
 
 1. Next to the **Map** box, select the folder icon. Select the map to upload.
 
-1. When you're ready, select **OK**.
+1. When you're done, select **OK**, and return to your integration account.
 
    After your map file finishes uploading, the map appears in the **Maps** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded map also appears.
 
@@ -316,7 +316,7 @@ To update an existing map, you have to upload a new map file that has the change
 
 1. Next to the **Map** box, select the folder icon. Select the map to upload.
 
-1. When you're ready, select **OK**.
+1. When you're done, select **OK**, and return to your integration account.
 
    After your map file finishes uploading, the updated map appears in the **Maps** list.
 

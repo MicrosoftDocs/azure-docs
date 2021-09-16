@@ -96,7 +96,7 @@ Based on your schema (.xsd) file's size, follow the steps for uploading a schema
 
 1. Under **Add Schema**, enter a name for your schema. Keep **Small file** selected. Next to the **Schema** box, select the folder icon. Find and select the schema you're uploading.
 
-1. When you're ready, select **OK**.
+1. When you're done, select **OK**, and return to your integration account.
 
    After your schema finishes uploading, the schema appears in the **Schemas** list.
 
@@ -168,7 +168,7 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 1. Next to the **Schema** box, select the folder icon. Select the schema to upload.
 
-1. When you're ready, select **OK**.
+1. When you're done, select **OK**, and return to your integration account.
 
    After your schema file finishes uploading, the schema appears in the **Schemas** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded schema also appears.
 
@@ -212,7 +212,7 @@ To update an existing schema, you have to upload a new schema file that has the 
 
 1. Next to the **Schema** box, select the folder icon. Select the schema to upload.
 
-1. When you're ready, select **OK**.
+1. When you're done, select **OK**, and return to your integration account.
 
    After your schema file finishes uploading, the updated schema appears in the **Schemas** list.
 
