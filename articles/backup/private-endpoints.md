@@ -2,7 +2,7 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources. 
 ms.topic: conceptual
-ms.date: 09/14/2021 
+ms.date: 09/16/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -146,13 +146,14 @@ If you're using your custom DNS servers, you'll need to create the required DNS 
     |---------|---------|
     |`privatelink.<geo>.backup.windowsazure.com`   |  Backup        |
 
-    >[!NOTE]
+    >[!NOTE][Geo-code mapping](scripts/geo-code-list.md)
     > In the above text, `<geo>` refers to the region code (for example *eus* and *ne* for East US and North Europe respectively). Refer to the following lists for regions codes:
     >
     > - [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
     > - [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
     > - [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
     > - [US Gov](../azure-government/documentation-government-developer-guide.md)
+    > - [Geo-code list - sample  XML](scripts/geo-code-list.md)
 
 1. Next, we need to add the required DNS records. To view the records that need to be added to the Backup DNS zone, navigate to the private endpoint you created above, and go to the **DNS configuration** option under the left navigation bar.
 
@@ -538,6 +539,7 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
    >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
    >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
    >- [US Gov](../azure-government/documentation-government-developer-guide.md)
+   >- [Geo-code list - sample XML](scripts/geo-code-list.md)
 
 The following diagram shows a setup (while using the Azure Private DNS zones) with a proxy server, whose VNet is linked to a private DNS zone with required DNS entries. The proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 169.63.129.16. If you're using a custom DNS server/host file for DNS resolution, see the sections on [managing DNS entries](/azure/backup/private-endpoints#manage-dns-records) and [configuring protection](/azure/backup/private-endpoints#configure-backup).
 
