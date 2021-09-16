@@ -2,7 +2,6 @@
 title: Customer spotlight
 titleSuffix: Azure Applied AI Services
 description: Highlight customer stories with Form Recognizer.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
