@@ -10,7 +10,7 @@ ms.devlang: java
 ms.date: 01/16/2021
 ---
 
-# Quickstart: Use Java and JDBC with Azure Database for MySQL Flexible Server
+# Use Java and JDBC with Azure Database for MySQL Flexible Server
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

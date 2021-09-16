@@ -8,12 +8,9 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ---
 
-# Server concepts in Azure Database for MySQL Flexible Server (Preview)
+# Server concepts in Azure Database for MySQL Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT] 
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article provides considerations and guidelines for working with Azure Database for MySQL Flexible Servers.
 

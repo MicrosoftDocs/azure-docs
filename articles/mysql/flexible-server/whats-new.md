@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/17/2021
 ---
 
-# What's new in Azure Database for MySQL - Flexible Server (Preview)?
+# What's new in Azure Database for MySQL - Flexible Server ?
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[Azure Database for MySQL - Flexible Server](./overview.md#azure-database-for-mysql---flexible-server-preview) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
+[Azure Database for MySQL - Flexible Server](./overview.md) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
@@ -150,7 +150,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Fixes for provisioning failures for server creates in virtual network with private access**
 
-  All the provisioning failures caused when creating a server in virtual network are fixed. With this release, users can successfully create flexible servers with private access every time.  
+  All the provisioning failures caused when creating a server in virtual network are fixed. With this release, users can successfully create flexible servers with private access every time.
 
 ## March 2021
 
