@@ -162,7 +162,7 @@ Provide pronunciations in a single text file. This includes examples of a spoken
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
 
-See [this table](language-support.md#speech-to-text) for the list of the supported languages (note the "Pronunciation assessment" column).
+See [this table](language-support.md#speech-to-text) for the list of the supported languages (see "Pronunciation" in the "Customizations" column).
 
 Use the following table to ensure that your related data file for pronunciations is correctly formatted. Pronunciation files are small, and should only be a few kilobytes in size.
 
