@@ -64,15 +64,15 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
  2. The Active Directory administrator or Azure Administrator should check **Azure AD Connect** Synchronization Service Manager. By default it takes approximately 30 minutes to replicate to the **Azure Active Directory**. 
  3. The Azure administrator should complete the following tasks:
      1. Create a Storage Account with either **Premium ZRS** or **LRS**. Customers with Zonal deployment should choose ZRS. Here the choice between setting up a **Standard** or **Premium Account** needs to be made:
-     ![create-storage-account-1](media/virtual-machines-shared-sap-high-availability-guide/create-storage-account-1.png)Azure Portal Screenshot for create storage account - Step 1
+     ![Azure Portal Screenshot for create storage account - Step 1](media/virtual-machines-shared-sap-high-availability-guide/create-storage-account-1.png)Azure Portal Screenshot for create storage account - Step 1
          > [!IMPORTANT]
          > For productive use the recommendation is using a **Premium Account**. For non-productive using a **Standard Account** will be sufficient. 
          >
-         ![create-storage-account-2](media/virtual-machines-shared-sap-high-availability-guide/create-storage-account-2.png)Azure Portal Screenshot for create storage account - Step 2
+         ![Azure Portal Screenshot for create storage account - Step 2](media/virtual-machines-shared-sap-high-availability-guide/create-storage-account-2.png)Azure Portal Screenshot for create storage account - Step 2
          
          In this screen the default settings should be ok.
         
-         ![create-storage-account-4](media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png)Azure Portal Screenshot for create storage account - Step 3 
+         ![Azure Portal Screenshot for create storage account - Step 3](media/virtual-machines-shared-sap-high-availability-guide/create-sa-4.png)Azure Portal Screenshot for create storage account - Step 3 
          
          In this step the decision to use a private endpoint is made.
      1. **Select Private Network Endpoint** for the storage account.
@@ -107,12 +107,12 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
          ![ACL Properties](media/virtual-machines-shared-sap-high-availability-guide/smb-share-properties-1.png)Windows Explorer screenshot of the assigned user rights.
 
          The following screenshots show how to add Computer machine accounts by selecting the Object Types -> Computers
-         ![add-computer-account-2](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-2.png)Windows Server screenshot of adding the cluster name to the local AD.
+         ![Windows Server screenshot of adding the cluster name to the local AD](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-2.png)Windows Server screenshot of adding the cluster name to the local AD.
          
          The DOMAIN\CLUSTER_NAME$ can be found by selecting “Computers” from the “Object Types”  
-         ![add-computer-account-3](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-3.png)Screenshot of adding AD computer account - Step 2
-         ![add-computer-account-4](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-4.png)Screenshot of adding AD computer account - Step 3
-         ![add-computer-account-5](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-5.png)Screenshot of computer account access properties.
+         ![Screenshot of adding AD computer account - Step 2](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-3.png)Screenshot of adding AD computer account - Step 2
+         ![Screenshot of adding AD computer account - Step 3](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-4.png)Screenshot of adding AD computer account - Step 3
+         ![Screenshot of computer account access properties](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-5.png)Screenshot of computer account access properties.
 
      8. If required move the Computer Account created for Azure Files to an Active Directory Container that does not have account expiry.  The name of the Computer Account will be the short name of the storage account 
 
