@@ -39,8 +39,7 @@ Azure Cognitive Service for language provides the following features:
 |[Custom text classification](custom-classification/overview.md)    | Build an AI model to classify unstructured text into custom classes that you define.         |
 | [Text Summarization](text-summarization/overview.md)     | This pre-configured feature extracts key sentences that collectively convey the essence of a document. |
 | [Custom conversational language understanding](custom-language-understanding/overview.md)   | Build an AI model to bring the ability to understand natural language into apps, bots, and IoT devices. |
-| Question answering     | This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents. |
-| Custom question answering     | Customize conversational question and answer responses, using over your data. |
+| [Question answering](custom-question-answering/overview.md)     | This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents. |
 
 ## Get started using Azure Cognitive Services for language 
 
@@ -60,7 +59,7 @@ We offer quickstarts in several popular programming languages, each designed to 
 * [Extract information from health-related text](health/quickstart.md)
 * [Key phrase extraction quickstart](key-phrase-extraction/quickstart.md)
 * [Question answering quickstart](custom-question-answering/quickstart/sdk.md)
-* [Custom classification quickstart](custom-question-answering/quickstart.md)
+* [Custom classification quickstart](custom-classification/quickstart/using-language-studio.md)
 * [Custom NER quickstart](custom-named-entity-recognition/quickstart.md)
 * [Custom conversational language understanding quickstart](custom-language-understanding/quickstart.md) 
 
