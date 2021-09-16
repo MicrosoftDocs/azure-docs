@@ -7,7 +7,7 @@ ms.date: 11/01/2020
 
 # Transport Layer Security in Azure Site Recovery
 
-Transport Layer Security (TLS) is an encryption protocol that keeps data secure when being transferred over a network. Azure Site Recovery uses TLS to protect the privacy of data being transferred. This article describes steps to enable the TLS 1.2 protocol, for improved security.
+Transport Layer Security (TLS) is an encryption protocol that keeps data secure when being transferred over a network. Azure Site Recovery uses TLS to protect the privacy of data being transferred. Azure Site Recovery now uses TLS 1.2 protocol, for improved security.
 
 ## Enable TLS on older versions of Windows
 
