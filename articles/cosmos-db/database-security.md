@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides database protection and data sec
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/16/2021
 ms.author: mjbrown
 ---
 
@@ -95,7 +95,7 @@ Primary/secondary keys come in two versions: read-write and read-only. The read-
 
 ### <a id="key-rotation"></a> Key rotation and regeneration
 
-The process of key rotation and regeneration is simple. First, make sure that **your application is consistently using either the primary key or the secondary key** to access your Azure Cosmos DB account. Then, follow the steps outlined below.
+The process of key rotation and regeneration is simple. First, make sure that **your application is consistently using either the primary key or the secondary key** to access your Azure Cosmos DB account. Then, follow the steps outlined below. To monitor your account for key updates and key rotations, see [monitor key updates with metrics and alerts](monitor-account-key-updates.md) article.
 
 # [SQL API](#tab/sql-api)
 
