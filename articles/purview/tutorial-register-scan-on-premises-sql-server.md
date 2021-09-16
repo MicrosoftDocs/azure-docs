@@ -304,7 +304,7 @@ If you would like to delete your Purview account after completing this tutorial,
 
 1. At the top of the page, select the **Delete** button.
 
-   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-delete.png" alt-text="Delete button on the Purview account page in the azure portal is selected.":::
+   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-delete.png" alt-text="Delete button on the Purview account page in the Azure portal is selected.":::
 
 1. When the process is complete, you'll receive a notification in the Azure portal.
 
