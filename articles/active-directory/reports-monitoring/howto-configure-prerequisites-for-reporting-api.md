@@ -88,35 +88,35 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
 ## Grant permissions 
 
-If you want to access the Azure Active Directory reporting API, you need to grant your app the following 2 permissions:  
+To access the Azure AD reporting API, you must grant your app the following two permissions:  
 
 | API | Permission |
 | --- | --- |
 | Microsoft Graph | Read directory data |
 | Microsoft Graph | Read all audit log data |
 
-![Screenshot shows where you can select Add a permission in the A P I permissions pane.](./media/howto-configure-prerequisites-for-reporting-api/Picture1.PNG)
+![Screenshot shows where you can select Add a permission in the A P I permissions pane.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions.png)
 
 The following section lists the steps for API setting.
 
 **To grant your application permissions to use the APIs:**
 
 
-1. Select **API permissions** then **Add a permission**.
+1. Select **API permissions**, and then select **Add a permission**.
 
-    ![Screenshot shows the A P I Permissions page where you can select Add a permission.](./media/howto-configure-prerequisites-for-reporting-api/Picture2.png)
+    ![Screenshot shows the A P I Permissions page where you can select Add a permission.](./media/howto-configure-prerequisites-for-reporting-api/add-api-permission.png)
 
-2. On the **Request API permissions page**, locate **Microsoft Graph**.
+2. On the **Request API permissions page** page, locate **Microsoft Graph**.
 
-    ![Screenshot shows the Request A P I permissions page where you can select Azure Active Directory Graph.](./media/howto-configure-prerequisites-for-reporting-api/Picture3.png)
+    ![Screenshot shows the Request A P I permissions page where you can select Azure Active Directory Graph.](./media/howto-configure-prerequisites-for-reporting-api/select-microsoft-graph-api.png)
 
-3. On the **Required permissions** page, select **Application Permissions**, expand **Directory** checkbox **Directory.ReadAll**. Also expand **AuditLog** checkbox **AuditLog.Read.All**. Select **Add permissions**.
+3. On the **Required permissions** page, select **Application Permissions**. Select the **Directory** checkbox, and then select **Directory.ReadAll**. Select the **AuditLog** checkbox, and then select **AuditLog.Read.All**. Select **Add permissions**.
 
-    ![Screenshot shows the Request A P I permissions page where you can select Application permissions.](./media/howto-configure-prerequisites-for-reporting-api/Picture4.png)
+    ![Screenshot shows the Request A P I permissions page where you can select Application permissions.](./media/howto-configure-prerequisites-for-reporting-api/select-permissions.png)
 
 4. On the **Reporting API Application - API Permissions** page, select **Grant admin consent**.
 
-    ![Screenshot shows the Reporting A P I Application A P I permissions page where you can select Grant admin consent.](./media/howto-configure-prerequisites-for-reporting-api/Picture5.PNG)
+    ![Screenshot shows the Reporting A P I Application A P I permissions page where you can select Grant admin consent.](./media/howto-configure-prerequisites-for-reporting-api/grant-admin-consent.png)
 
 
 ## Gather configuration settings 
@@ -173,7 +173,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 
     ![Screenshot shows the Certificates & secrets page where you can add a client secret.](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
-5. On the **Add a client secret** page, add:
+4. On the **Add a client secret** page, add:
 
     a. In the **Description** textbox, type `Reporting API`.
 
@@ -183,7 +183,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 
     d. Copy the key value.
 
-### Upload certificate of your application
+### Upload the certificate of your application
 
 **To upload certificate:**
 
@@ -192,12 +192,12 @@ You need these values when configuring calls to the reporting API. We recommend 
     ![Screenshot shows Azure Active Directory selected from the Azure portal menu.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. On the **Azure Active Directory** page, select **App Registration**.
-3. From the application oage, select your application.
-4. Select **Certificates & secrets**
-5. Select **Upload certificate**
-6. Browse a certificate from file icon, select **Add**
+3. From the application page, select your application.
+4. Select **Certificates & secrets**.
+5. Select **Upload certificate**.
+6. Select the file icon, go to a certificate, and then select **Add**.
 
-    ![Screenshot shows Azure Active Directory selected from the Azure portal menu.](./media/howto-configure-prerequisites-for-reporting-api/Picture6.PNG)
+    ![Screenshot shows Azure Active Directory selected from the Azure portal menu.](./media/howto-configure-prerequisites-for-reporting-api/upload-certificate.png)
 
 ## Troubleshoot errors in the reporting API
 
