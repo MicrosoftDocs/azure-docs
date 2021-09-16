@@ -62,11 +62,9 @@ By default, ASP.NET Core applications have an Application Insights logging provi
 
             public void ConfigureServices(IServiceCollection services)
             {
-                services.AddApplicationInsightsTelemetry(
-                    Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
-
-                // An alternative overload, when not using appsettings.json or user secrets.
-                // services.AddApplicationInsightsTelemetry();
+                services.AddApplicationInsightsTelemetry();
+                // The following will be picked up by Application Insights.
+                _logger.LogInformation("Logging from ConfigureServices.");
             }
 
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -197,8 +195,9 @@ namespace WebApplication
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplicationInsightsTelemetry(
-                Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
+            services.AddApplicationInsightsTelemetry();
+            // The following will be picked up by Application Insights.
+            _logger.LogInformation("Logging from ConfigureServices.");
         }
 
         // The ILogger<Startup> is resolved by dependency injection
