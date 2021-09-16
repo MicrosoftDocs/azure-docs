@@ -76,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
     a. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://api-{REGION}.lawvu.com/sso/validate/{GUID}`
+    `https://api-<REGION>.lawvu.com/sso/validate/<GUID>`
 
     > [!NOTE]
 	> This value is not real. Update this value with the actual Reply URL. Contact [LawVu Client support team](mailto:support@lawvu.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
