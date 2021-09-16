@@ -72,12 +72,12 @@ In this tutorial, you will:
    - **Shared access policy name**: Select the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this tutorial, you can select iothubowner. To learn more, see [Access control and permissions](../../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions).
    - **Shared access policy key**: This field is auto filled based on your selection for the shared access policy name.
 
-Leave all other fields at their defaults.
+   Leave all other fields set to their defaults.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/add-iothub-input.png" alt-text="Screenshot to add IoT Hub input to Stream Analytics Job.":::
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/power-bi/add-iothub-input.png" alt-text="Screenshot to add IoT Hub input to Stream Analytics Job.":::
 
-4. Select Save.
+4. Select **Save**.
 
 ### Add an output to the Stream Analytics job
 
@@ -109,21 +109,21 @@ Leave all other fields at their defaults.
 1. Under Job topology, select **Query**.
 2. Make the following changes to your query:
 
-```SQL
-SELECT
-    CAST(InferenceRecords.ArrayValue.event.properties.total AS bigint) as EventTotal,
-    CAST(i.EventProcessedUtcTime AS datetime) as EventProcessedUtcTime
-INTO [YourOutputAlias]
-FROM [YourInputAlias] i
-CROSS APPLY GetArrayElements(inferences) AS InferenceRecords
-WHERE InferenceRecords.ArrayValue.subType = 'lineCrossing'
-```
+   ```SQL
+   SELECT
+       CAST(InferenceRecords.ArrayValue.event.properties.total AS bigint) as EventTotal,
+       CAST(i.EventProcessedUtcTime AS datetime) as EventProcessedUtcTime
+   INTO [YourOutputAlias]
+   FROM [YourInputAlias] i
+   CROSS APPLY GetArrayElements(inferences) AS InferenceRecords
+   WHERE InferenceRecords.ArrayValue.subType = 'lineCrossing'
+   ```
 
-> [!NOTE]
->
-> - In the above query, the _i_ in FROM clause is syntactically required to fetch value of EventProcessedUtcTime that is not nested in the _inferences_ array.
->   The above query is customized to get AI inferences for [Line Crossing tutorial](use-line-crossing.md).
-> - If you are running another pipeline, ensure to customize the query according to the pipeline's AI inference schema. Learn more about [Parsing JSON in Stream Analytics job](../../stream-analytics/stream-analytics-parsing-json.md).
+   > [!NOTE]
+   >
+   > - In the above query, the _i_ in FROM clause is syntactically required to fetch value of EventProcessedUtcTime that is not nested in the _inferences_ array.
+   >   The above query is customized to get AI inferences for [Line Crossing tutorial](use-line-crossing.md).
+   > - If you are running another pipeline, ensure to customize the query according to the pipeline's AI inference schema. Learn more about [Parsing JSON in Stream Analytics job](../../stream-analytics/stream-analytics-parsing-json.md).
 
 3. Replace [YourOutputAlias] with the output alias used in the step to Add an output to the Stream Analytics job such as "powerbioutput". Note the right sequence of output and input aliases.
 4. Replace [YourInputAlias] with the input alias used in the step to Add an input to the Stream Analytics job such as "iothubinput".
