@@ -1,6 +1,6 @@
 ---
 title: Register and scan an on-premises SQL server.
-description: This tutorial describes how to scan on-prem SQL server using a self-hosted IR. 
+description: This tutorial describes how to register an on-prem SQL Server to Purview, and scan the server using a self-hosted IR. 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -34,9 +34,9 @@ In this tutorial, you'll learn how to:
 
 ## Sign in to Purview Studio
 
-To interact with Purview, you'll connect to the Purview Studio through the Azure Portal. You can find the studio by going to your Purview resource in the [Azure Portal](https://portal.azure.com), and selecting the **Open Purview Studio** tile on the overview page.
+To interact with Purview, you'll connect to the Purview Studio through the Azure portal. You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the **Open Purview Studio** tile on the overview page.
 
-:::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/open-purview-studio.png" alt-text="Screenshot of Purview window in Azure Portal, with Purview Studio button highlighted." border="true":::
+:::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/open-purview-studio.png" alt-text="Screenshot of Purview window in Azure portal, with Purview Studio button highlighted." border="true":::
 
 ## Create a collection
 
@@ -158,7 +158,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 #### Create a Key Vault credential
 
-1. Navigate to your key vault in the Azure Portal. Select **Settings > Secrets**.
+1. Navigate to your key vault in the Azure portal. Select **Settings > Secrets**.
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-secrets.png" alt-text="Select Secrets from Left Menu":::
 
@@ -207,7 +207,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 ## Register SQL Server
 
-1. Navigate to your Purview acccount in the [Azure Portal](https://portal.azure.com), and select the [Purview Studio](#sign-in-to-purview-studio).
+1. Navigate to your Purview account in the [Azure portal](https://portal.azure.com), and select the [Purview Studio](#sign-in-to-purview-studio).
 
 1. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it's not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
@@ -276,13 +276,14 @@ If you're not going to continue to use this Purview or SQL source moving forward
 
 1. Uninstall the existing integration runtime.
 
->[!IMPORTANT] In the following process, select Yes. Do not keep data during the uninstallation process.
+> [!IMPORTANT] 
+> In the following process, select Yes. Do not keep data during the uninstallation process.
 
 :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-yes.png" alt-text="Screenshot of the 'Yes' button for deleting all user data from the integration runtime.":::
 
 ### Remove SQL credentials
 
-1. Go to the [Azure Portal](https://portal.azure.com) and navigate to the Key Vault resource where you stored your Purview credentials.
+1. Go to the [Azure portal](https://portal.azure.com) and navigate to the Key Vault resource where you stored your Purview credentials.
 
 1. Under **Settings** in the left menu, select **Secrets**
 
@@ -299,13 +300,13 @@ If you're not going to continue to use this Purview or SQL source moving forward
 
 If you would like to delete your Purview account after completing this tutorial, follow these steps.
 
-1. Go to the [Azure Portal](https://portal.azure.com) and navigate to your purview account.
+1. Go to the [Azure portal](https://portal.azure.com) and navigate to your purview account.
 
 1. At the top of the page, select the **Delete** button.
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/trigger-scan.png" alt-text="Delete button on the Purview account page in the azure portal is selected.":::
 
-1. When the process is complete, you'll receive a notification in the Azure Portal.
+1. When the process is complete, you'll receive a notification in the Azure portal.
 
 ## Next steps
 
