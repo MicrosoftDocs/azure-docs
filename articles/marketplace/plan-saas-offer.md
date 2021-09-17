@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 09/17/2021
 ---
 
 # How to plan a SaaS offer for the commercial marketplace
@@ -262,10 +262,8 @@ The following example shows a sample breakdown of costs and payouts to demonstra
 | Azure usage cost (D1/1-Core) | Billed directly to the publisher, not the customer |
 | Customer is billed by Microsoft | $100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee) |
 | **Microsoft bills** | **$100 per month** |
-| Microsoft pays you 97% of your license cost | $97.00 per month |
+| Microsoft charges a 3% Marketplace Service Fee and pays you 97% of your license cost | $97.00 per month |
 |
-
-## Preview audience
 
 A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live. 
 
