@@ -53,10 +53,10 @@ The following example shows the formatting of the `docker run` command you'll us
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 | `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
-| `{LICENSE_MOUNT}` | The path where the licence will be downloaded, and mounted.  | `/path/to/license/directory` |
+| `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/path/to/license/directory` |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| `{LICENSE_LOCATION}` | The path where the licence will be downloaded, and mounted.  | `/path/to/license/directory` |
+| `{LICENSE_LOCATION}` | The path where the license will be downloaded, and mounted.  | `/path/to/license/directory` |
 
 ```bash
 docker run -v {LICENSE_MOUNT} {IMAGE} \
