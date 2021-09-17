@@ -44,7 +44,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 * A `kubeconfig` file and context pointing to your cluster.
 * 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 
-* Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
+* [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -242,21 +242,11 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc-
 
 1. Set the environment variables needed for Azure CLI to use the outbound proxy server:
 
-    * If you are using bash, run the following command with appropriate values:
-
-        ```bash
-        export HTTP_PROXY=<proxy-server-ip-address>:<port>
-        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-        ```
-
-    * If you are using PowerShell, run the following command with appropriate values:
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
 
 2. Run the connect command with proxy parameters specified:
 
@@ -273,8 +263,6 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc-
 If your cluster is behind an outbound proxy server, Azure PowerShell and the Azure Arc-enabled Kubernetes agents need to route their requests via the outbound proxy server.
 
 1. Set the environment variables needed for Azure PowerShell to use the outbound proxy server:
-
-    * Run the following command with appropriate values:
 
         ```powershell
         $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
