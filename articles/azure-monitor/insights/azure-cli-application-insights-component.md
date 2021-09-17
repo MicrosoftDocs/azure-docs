@@ -28,13 +28,16 @@ If you don't already have a resource group and workspace, create them by using [
 
 ```azurecli
 az group create --name ContosoAppInsightRG --location eastus2
-az monitor log-analytics workspace create --resource-group ContosoAppInsightRG --workspace-name AppInWorkspace
+az monitor log-analytics workspace create --resource-group ContosoAppInsightRG \
+   --workspace-name AppInWorkspace
 ```
 
 To create a component, run the [az monitor app-insights component create](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create) command. The [az monitor app-insights component show](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_show) command displays the component.
 
 ```azurecli
-az monitor app-insights component create --resource-group ContosoAppInsightRG --app ContosoApp --location eastus2 --kind web --application-type web --retention-time 120
+az monitor app-insights component create --resource-group ContosoAppInsightRG \
+   --app ContosoApp --location eastus2 --kind web --application-type web \
+   --retention-time 120
 az monitor app-insights component show --resource-group ContosoAppInsightRG --app ContosoApp
 ```
 
@@ -44,13 +47,15 @@ This example connects your component to a webapp. You can create a webapp by usi
 
 ```azurecli
 az appservice plan create --resource-group ContosoAppInsightRG --name ContosoAppService
-az webapp create --resource-group ContosoAppInsightRG --name ContosoApp --plan ContosoAppService --name ContosoApp8765
+az webapp create --resource-group ContosoAppInsightRG --name ContosoApp \
+   --plan ContosoAppService --name ContosoApp8765
 ```
 
 Run the [az monitor app-insights component connect-webapp](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_connect_webapp) command to connect your component to the webapp:
 
 ```azurecli
-az monitor app-insights component connect-webapp --resource-group ContosoAppInsightRG --app ContosoApp --web-app ContosoApp8765 --enable-debugger false --enable-profiler false
+az monitor app-insights component connect-webapp --resource-group ContosoAppInsightRG \
+   --app ContosoApp --web-app ContosoApp8765 --enable-debugger false --enable-profiler false
 ```
 
 You can instead connect to an Azure function by using the [az monitor app-insights component connect-function](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_connect_function) command.
@@ -60,21 +65,25 @@ You can instead connect to an Azure function by using the [az monitor app-insigh
 You can link a component to a storage account. To create a storage account, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
 
 ```azurecli
-az storage account create --resource-group ContosoAppInsightRG --name contosolinkedstorage --location eastus2 --sku Standard_LRS
+az storage account create --resource-group ContosoAppInsightRG \
+   --name contosolinkedstorage --location eastus2 --sku Standard_LRS
 ```
 
 To link your component to the storage account, run the [az monitor app-insights component linked-storage link](/cli/azure/monitor/app-insights/component/linked-storage#az_monitor_app_insights_component_linked_storage_link) command. You can see the existing links by using the [az monitor app-insights component linked-storage show](/cli/azure/monitor/app-insights/component/linked-storage#az_monitor_app_insights_component_linked_storage_show) command:
 
 
 ```azurecli
-az monitor app-insights component linked-storage link  --resource-group ContosoAppInsightRG --app ContosoApp --storage-account contosolinkedstorage
-az monitor app-insights component linked-storage show --resource-group ContosoAppInsightRG --app ContosoApp
+az monitor app-insights component linked-storage link  --resource-group ContosoAppInsightRG \
+   --app ContosoApp --storage-account contosolinkedstorage
+az monitor app-insights component linked-storage show --resource-group ContosoAppInsightRG \
+   --app ContosoApp
 ```
 
 To unlink the storage, run the [az monitor app-insights component linked-storage unlink](/cli/azure/monitor/app-insights/component/linked-storage#az_monitor_app_insights_component_linked_storage_unlink) command:
 
 ```AzureCLI
-az monitor app-insights component linked-storage unlink  --resource-group ContosoAppInsightRG --app ContosoApp
+az monitor app-insights component linked-storage unlink  \
+   --resource-group ContosoAppInsightRG --app ContosoApp
 ```
 
 ## Set up continuous export
@@ -88,32 +97,40 @@ Continuous export saves events from Application Insights portal in a storage con
 To create a storage container, run the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command. 
 
 ```azurecli
-az storage container create --name contosostoragecontainer --account-name contosolinkedstorage --public-access blob 
+az storage container create --name contosostoragecontainer --account-name contosolinkedstorage \
+   --public-access blob 
 ```
 
 You need access for the container to be write only. Run the [az storage container policy create](/cli/azure/storage/container/policy#az_storage_container_policy_create) cmdlet:
 
 ```azurecli
-az storage container policy create --container-name contosostoragecontainer --account-name contosolinkedstorage --name WAccessPolicy --permissions w
+az storage container policy create --container-name contosostoragecontainer \
+   --account-name contosolinkedstorage --name WAccessPolicy --permissions w
 ```
 
 Create an SAS key by using the [az storage container generate-sas](/cli/azure/storage/container#az_storage_container_generate_sas) command. Be sure to use the `--output tsv` parameter value to save the key without unwanted formatting like quotation marks. For more information, see [Use Azure CLI effectively](/cli/azure/use-cli-effectively).
 
 ```azurecli
-containersas=$(az storage container generate-sas --name contosostoragecontainer --account-name contosolinkedstorage --permissions w --output tsv)
+containersas=$(az storage container generate-sas --name contosostoragecontainer \
+   --account-name contosolinkedstorage --permissions w --output tsv)
 ```
 
 To create a continuous export, run the [az monitor app-insights component continues-export create](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_create) command:
 
 ```azurecli
-az monitor app-insights component continues-export create --resource-group ContosoAppInsightRG --app ContosoApp --record-types Event --dest-account contosolinkedstorage --dest-container contosostoragecontainer --dest-sub-id 00000000-0000-0000-0000-000000000000 --dest-sas $containersas
+az monitor app-insights component continues-export create --resource-group ContosoAppInsightRG \
+   --app ContosoApp --record-types Event --dest-account contosolinkedstorage \
+   --dest-container contosostoragecontainer --dest-sub-id 00000000-0000-0000-0000-000000000000 \
+   --dest-sas $containersas
 ```
 
 You can delete a configured continuous export by using the [az monitor app-insights component continues-export delete](/cli/azure/monitor/app-insights/component/continues-export#az_monitor_app_insights_component_continues_export_delete) command: 
 
 ```azurecli
-az monitor app-insights component continues-export list --resource-group ContosoAppInsightRG --app ContosoApp
-az monitor app-insights component continues-export delete --resource-group ContosoAppInsightRG --app ContosoApp --id abcdefghijklmnopqrstuvwxyz=
+az monitor app-insights component continues-export list \
+   --resource-group ContosoAppInsightRG --app ContosoApp
+az monitor app-insights component continues-export delete \
+   --resource-group ContosoAppInsightRG --app ContosoApp --id abcdefghijklmnopqrstuvwxyz=
 ```
 
 ## Clean up deployment
