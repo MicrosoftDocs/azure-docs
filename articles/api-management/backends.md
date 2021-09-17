@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/29/2021
+ms.date: 09/17/2021
 ms.author: apimpm 
 ms.custom: devx-track-azurepowershell
 ---
@@ -27,9 +27,13 @@ After creating a backend, you can reference the backend URL in your APIs. Us
 
 A custom backend has several benefits, including:
 
-* Abstracts information about the backend service, promoting reusability across APIs and improved governance  
-* Easily used by configuring a transformation policy on an existing API
-* Takes advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication
+* Abstracts information about the backend service, promoting reusability across APIs and improved governance.  
+* Easily used by configuring a transformation policy on an existing API.
+* Takes advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication.
+
+## Limitation
+
+For **Developer** and **Premium** tiers, API Management can throw HTTP 500 `BackendConnectionFailure` errors when calling itself. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog. 
 
 ## Next steps
 
