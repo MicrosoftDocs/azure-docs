@@ -459,7 +459,7 @@ Make sure to back up your Custom Resources prior to deleting the CRDs so that th
 
 ### Upgrade instructions
 
-1. Delete the old CRDs and custom resources (Run from the root of the [OSM repo](https://github.com/openservicemesh/osm)). Ensure that the tag of the [OSM CRDs](https://github.com/openservicemesh/osm/tree/main/charts/osm/crds) corresponds to the new version of the chart.
+1. Delete the old CRDs and custom resources (Run from the root of the [OSM repo](https://github.com/openservicemesh/osm)). Ensure that the tag of the [OSM CRDs](https://github.com/openservicemesh/osm/tree/main/cmd/osm-bootstrap/crds) corresponds to the new version of the chart.
     ```azurecli-interactive
     kubectl delete --ignore-not-found --recursive -f ./charts/osm/crds/
 
