@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 
 # Create a Windows Virtual Desktop image using Azure VM Image Builder and PowerShell
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 This article shows you how to create a Windows Virtual Desktop image with these customizations:
 
 * Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).

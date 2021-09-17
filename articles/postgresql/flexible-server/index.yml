@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: What is Flexible Server?
             url: overview.md
+          - text: Try Flexible Server for free
+            url: how-to-deploy-on-azure-free-account.md
       - linkListType: quickstart
         links:
           - text: Create a flexible server

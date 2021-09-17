@@ -456,7 +456,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 Run the Invoke-Command and the next one until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  The creation of an on-demand HDInsight cluster usually takes some time.
 
-![output data](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
+:::image type="content" source="./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png" alt-text="output data":::
 
 > [!IMPORTANT]
 > The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.

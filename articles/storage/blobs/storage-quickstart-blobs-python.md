@@ -29,8 +29,6 @@ More resources:
 - An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
 - [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Setting up
 
 This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for Python.

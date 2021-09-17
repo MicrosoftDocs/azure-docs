@@ -211,7 +211,7 @@ Your final configuration file should look like the following JSON:
 ## Step 6: Run the sample web app
 
 1. Build and run the project.
-1. Browse to [https://localhost:5000](https://localhost:5000). 
+1. Browse to `https://localhost:5000`. 
 1. Complete the sign-up or sign-in process.
 
 After successful authentication, you'll see your display name in the navigation bar. To view the claims that Azure AD B2C token returns to your app, select **TodoList**.

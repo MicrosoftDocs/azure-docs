@@ -6,7 +6,7 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 05/05/2021
+ms.date: 09/14/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
 
@@ -88,8 +88,6 @@ In the example above, replace the placeholders with your subscription ID and res
     on:
         push:
             branches: [ master ]
-        pull_request:
-            branches: [ master ]
     ```
 
 1. Rename your workflow `Blob storage website CI` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier. 
@@ -99,8 +97,6 @@ In the example above, replace the placeholders with your subscription ID and res
 
     on:
         push:
-            branches: [ master ]
-        pull_request:
             branches: [ master ]
 
     jobs:
@@ -137,8 +133,6 @@ In the example above, replace the placeholders with your subscription ID and res
 
     on:
         push:
-            branches: [ master ]
-        pull_request:
             branches: [ master ]
 
     jobs:

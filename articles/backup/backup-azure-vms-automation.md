@@ -519,11 +519,11 @@ Use the [Wait-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservice
 Wait-AzRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
 ```
 
-Once the Restore job has completed, use the [Get-AzRecoveryServicesBackupJobDetails](/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet to get the details of the restore operation. The JobDetails property has the information needed to rebuild the VM.
+Once the Restore job has completed, use the [Get-AzRecoveryServicesBackupJobDetail](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjobdetail) cmdlet to get the details of the restore operation. The JobDetails property has the information needed to rebuild the VM.
 
 ```powershell
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
-$details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $targetVault.ID
+$details = Get-AzRecoveryServicesBackupJobDetail -Job $restorejob -VaultId $targetVault.ID
 ```
 
 #### Restore selective disks

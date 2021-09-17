@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/19/2020
+ms.date: 09/16/2021
 ms.author: aahi
 ms.reviewer: chtufts
 ---
@@ -17,18 +17,22 @@ ms.reviewer: chtufts
 # Data and rate limits for the Text Analytics API
 <a name="data-limits"></a>
 
-Use this article to find the limits for the size, and rates that you can send data to Text Analytics API. Note that pricing is not affected by the data limits or rate limits. Pricing is subject to your Text Analytics resource's [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+Use this article to find the limits for the size, and rates that you can send data to Text Analytics API.
 
 ## Data limits
 
 > [!NOTE]
-> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
-> * A document is a single string of text characters.  
+> * Pricing is not affected by data or rate limits. Pricing is based on the number of text records you send to the API, and is subject to your Text Analytics resource's [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+>   * A text record is measured as 1000 characters. 
+> * Data and rate limits are based on the number of documents you send to the API. If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
+>   * A document is a single string of text characters.  
+
+
 
 | Limit | Value |
 |------------------------|---------------|
 | Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Also applies to Text Analytics for health. |
-| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Does not apply to Text Analytics for health. |
+| Maximum number of characters per request (`/analyze` endpoint)  | 125K characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (maximum of 25 documents). Does not apply to Text Analytics for health. |
 | Maximum size of entire request | 1 MB. Also applies to Text Analytics for health. |
 
 
@@ -84,6 +88,8 @@ Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/p
 
 Requests rates are measured for each Text Analytics feature separately. You can send the maximum number of requests for your pricing tier to each feature, at the same time. For example, if you're in the `S` tier and send 1000 requests at once, you wouldn't be able to send another request for 59 seconds.
 
+
+S0-S4 tiers have been deprecated and you are encouraged to switch to S tier.
 
 ## See also
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 
@@ -37,6 +37,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * 4me supports **SP** initiated SSO.
 * 4me supports **Just In Time** user provisioning.
+* 4me supports [Automated user provisioning](4me-provisioning-tutorial.md).
 
 ## Add 4me from the gallery
 
@@ -177,7 +178,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to 4me Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the 4me tile in the My Apps, this will redirect to 4me Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the 4me tile in the My Apps, this will redirect to 4me Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

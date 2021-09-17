@@ -13,6 +13,8 @@ ms.author: guybo
 
 # Endorsed Linux distributions on Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
+
 Partners provide Linux images in Azure Marketplace. Microsoft works with various Linux communities to add even more flavors to the Endorsed Distribution list. For distributions that are not available from the Marketplace, you can always bring your own Linux by following the guidelines at [Create and upload a virtual hard disk that contains the Linux operating system](./create-upload-generic.md).
 
 ## Supported distributions and versions

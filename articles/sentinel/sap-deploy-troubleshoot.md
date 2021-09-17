@@ -123,7 +123,7 @@ If you want to check the SAP data connector configuration file and make manual u
 
 ## Reset the SAP data connector
 
-The following steps reset the connector and re-ingest SAP logs from the last 24 hours.
+The following steps reset the connector and reingest SAP logs from the last 24 hours.
 
 1.	Stop the connector. Run:
 
@@ -158,7 +158,7 @@ After having deployed both the SAP data connector and security content, you may 
 
 ### Corrupt or missing SAP SDK file
 
-This occurs when the connector fails to boot with PyRfc, or zip-related error messages are shown.
+This error may occur when the connector fails to boot with PyRfc, or zip-related error messages are shown.
 
 1. Reinstall the SAP SDK.
 1. Verify that you're the correct Linux 64-bit version. As of the current date, the release filename is: **nwrfc750P_8-70002752.zip**.
@@ -205,7 +205,7 @@ A fixed configuration is when the password is stored directly in the **systemcon
 
 If your credentials there are incorrect, verify your credentials.
 
-Use base64 encryption to encrypt the user and password. You can use online encryption tools to do this, such as https://www.base64encode.org/.
+Use base64 encryption to encrypt the user and password. You can use online encryption tools to do encrypt your credentials, such as https://www.base64encode.org/.
 
 ### Incorrect SAP ABAP user credentials in key vault
 
@@ -245,7 +245,7 @@ If you're having network connectivity issues to the SAP environment or to Azure 
 
 ### Other unexpected issues
 
-If you have unexpected issues not listed in this article, try the following:
+If you have unexpected issues not listed in this article, try the following steps:
 
 - [Reset the connector and reload your logs](#reset-the-sap-data-connector)
 - [Upgrade the the connector](sap-deploy-solution.md#update-your-sap-data-connector) to the latest version.
@@ -255,7 +255,7 @@ If you have unexpected issues not listed in this article, try the following:
 
 ### Retrieving an audit log fails with warnings
 
-If your attempt to retrieve an audit log, without the [required change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests) deployed or on an older / un-patched version, and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
+If you attempt to retrieve an audit log, without the [required change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests) deployed or on an older / unpatched version, and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
 
 - Using a compatibility mode called *XAL* on older versions
 - Using a version not recently patched
@@ -281,7 +281,7 @@ Check that the OS user is valid and can run the following command on the target 
 sapcontrol -nr <SID> -function GetSystemInstanceList
 ```
 
-### SAPCONTROL or JAVA subsystem fails with timezone related error message
+### SAPCONTROL or JAVA subsystem fails with timezone-related error message
 
 If your SAPCONTROL or JAVA subsystem fails with a timezone-related error message, such as: **Please check the configuration and network access to the SAP server - 'Etc/NZST'**, make sure that you're using standard timezone codes.
 
@@ -327,6 +327,7 @@ For more information, see:
 
 - [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md)
 - [Azure Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md)
-- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
+- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
+- [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution: security content reference (public preview)](sap-solution-security-content.md)
 - [Azure Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md)
