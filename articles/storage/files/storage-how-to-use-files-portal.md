@@ -1,17 +1,17 @@
 ---
-title: Quickstart for managing Azure file shares with Azure portal
-description: See how to create and manage Azure file shares in the Azure portal. Create a storage account, create an Azure file share, and use your Azure file share.
+title: Quickstart for managing Azure file shares
+description: See how to create and manage Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell module. Create a storage account, create an Azure file share, and use your Azure file share.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 09/01/2021
+ms.date: 09/17/2021
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Create and manage Azure file shares with the Azure portal 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using the [Azure portal](https://portal.azure.com/).
+# Quickstart: Create and manage Azure file shares
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using either the Azure portal, Azure CLI, or Azure PowerShell module.
 
 ## Applies to
 | File share type | SMB | NFS |

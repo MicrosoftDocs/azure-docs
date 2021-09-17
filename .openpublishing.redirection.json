@@ -29254,6 +29254,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-storage-explorer.md",
+      "redirect_url": "/azure/vs-azure-tools-storage-explorer-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-powershell.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-cli.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/common/storage-account-manage.md",
       "redirect_url": "/azure/storage/common/storage-account-keys-manage",
       "redirect_document_id": true

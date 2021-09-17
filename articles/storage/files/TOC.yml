@@ -9,14 +9,8 @@
   items:
   - name: Create / use file shares - Windows
     href: storage-files-quick-create-use-windows.md
-  - name: Create file shares - Portal
+  - name: Create file shares
     href: storage-how-to-use-files-portal.md
-  - name: Create file shares - PowerShell
-    href: storage-how-to-use-files-powershell.md
-  - name: Create file shares - CLI
-    href: storage-how-to-use-files-cli.md
-  - name: Create file shares - Storage Explorer
-    href: storage-how-to-use-files-storage-explorer.md
 - name: Tutorials
   items:
   - name: Extend Windows file servers with Azure File Sync
