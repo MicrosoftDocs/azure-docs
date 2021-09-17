@@ -332,6 +332,14 @@
       href: keyword-recognition-guidelines.md
     - name: Region support
       href: keyword-recognition-region-support.md
+- name: Language identification
+  href: language-identification.md
+- name: Audio processing
+  items:
+    - name: Audio processing overview
+      href: audio-processing-overview.md
+    - name: Speech SDK integration
+      href: audio-processing-speech-sdk.md
 - name: Scenario deep-dives
   items:
     - name: Conversation scenarios
