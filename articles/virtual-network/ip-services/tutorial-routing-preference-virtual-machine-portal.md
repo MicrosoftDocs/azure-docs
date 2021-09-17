@@ -87,7 +87,7 @@ In this section, you'll search for the public IP address previously created and 
 
 4. Verify **Internet** is displayed in **Routing preference**. 
 
-    :::image type="content" source="./media/tutorial-routing-preference-virtual-machine-portal/verify-routing-preference.png" alt-text="Screenshot of create public IP address.":::
+    :::image type="content" source="./media/tutorial-routing-preference-virtual-machine-portal/verify-routing-preference.png" alt-text="Screenshot of verify internet routing preference.":::
 
 ## Clean up resources
 
