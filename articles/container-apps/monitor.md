@@ -11,13 +11,13 @@ ms.author: cshoe
 
 # Monitor an app in Azure Container Apps
 
-Azure Container Apps gathers a broad set of data using [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) about your apps. This article describes the available logs, and how to view and write to logs.
+Azure Container Apps gathers a broad set of data about yoru apps and stores it using [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md). This article describes the available logs, and how to write and view logs.
 
 ## Writing to a log
 
 When you write to the [Standard output (stdout) or standard error (stderr) streams](https://wikipedia.org/wiki/Standard_streams), the Container Apps logging agents write logs for each message.
 
-As a message is logged, the following information is gathered for each message.
+As a message is logged, the following information is gathered.
 
 | Property | Description |
 |---|---|
@@ -35,12 +35,12 @@ You can log a single text string or line of serialized JSON data. Information is
 
 |Data type | Description |
 |---|---|
-|A single line of text|Text appears in the `Log_s` column.|
-|Serialized JSON object|Data is parsed by logging agent and displayed in columns that match the object property names.|
+| A single line of text | Text appears in the `Log_s` column. |
+| Serialized JSON | Data is parsed by the logging agent and displayed in columns that match the JSON object property names. |
 
 ## Viewing Logs
 
-Data logged via a container app are stored in the `WorkerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs via the Azure portal or with the CLI.
+Data logged via a container app are stored in the `WorkerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI.
 
 ### Portal
 
@@ -65,7 +65,11 @@ Use the following CLI command to view logs on the command line.
 
 ```console
 $ az monitor log-analytics query -w <workspace-d> --analytics-query "WorkerAppConsoleLogs_CL | where AppName_s contains 'myapp' | project AppName_s, Log_s, TimeGenerated | take 3" -o table
+```
 
+The following output demonstrates the type of response to expect from the CLI command.
+
+```console
 AppName_s      Log_s                                                       TableName      TimeGenerated
 -------------  ----------------------------------------------------------  -------------  ------------------------
 myapp-igsvt3p  INFO:     127.0.0.1:34504 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:01.079Z
