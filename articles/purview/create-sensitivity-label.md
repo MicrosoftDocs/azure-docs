@@ -177,7 +177,7 @@ For more information, see [Apply a sensitivity label to data automatically](/mic
 
 Define auto-labeling rules for database columns in the wizard when you create or edit your label. 
 
-Under the **Azure Purview assets (preview)** option:
+Under the **Azure Purview assets** option:
 
 1. Select the **Auto-labeling for database columns** slider.
 
