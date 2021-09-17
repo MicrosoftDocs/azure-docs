@@ -1,5 +1,5 @@
 ---
-title: Protect your data with a disaster recovery plan - Azure Virtual Desktop
+title: Azure Virtual Desktop disaster recovery plan
 description: Make a disaster recovery plan for your Azure Virtual Desktop deployment to protect your data.
 services: virtual-desktop
 author: Heidilohr
@@ -11,7 +11,7 @@ ms.author: helohr
 manager: femila
 ---
 
-# Create a disaster recovery plan to protect your data
+# Azure Virtual Desktop disaster recovery
 
 To keep your organization's data safe, you may need to adopt a business continuity and disaster recovery (BCDR) strategy. A sound BCDR strategy keeps your apps and workload up and running during planned and unplanned service or Azure outages.
 
