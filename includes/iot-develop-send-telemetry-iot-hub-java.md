@@ -29,7 +29,7 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 In this section, you use the Java SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
 ### Configure your environment
-1. Open a console to install the Azure IoT Java device SDK, build, and run the code sample.
+1. Open a console to install the Azure IoT Java device SDK, build, and run the code sample. You'll use this console in the following steps.
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
@@ -55,7 +55,7 @@ In this section, you use the Java SDK to send messages from a simulated device t
     ```
 
 ### Build the sample
-1. In your console, clone the Azure IoT Java device SDK to your local machine:
+1. Clone the Azure IoT Java device SDK to your local machine:
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-java.git
     ```
@@ -67,11 +67,11 @@ In this section, you use the Java SDK to send messages from a simulated device t
     This operation takes several minutes.
 
 ### Run the code
-1. In your Java console, navigate to the samples directory.
+1. Navigate to the samples directory.
     ```console
     cd device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample
     ```
-1. In your Java console, run the following code sample.
+1. Run the following code sample.
 
     ```console
     mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
@@ -106,7 +106,7 @@ To read telemetry sent by individual device components, you can use the plug and
 
 To view device telemetry with Azure CLI:
 
-1. In your CLI app, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the simulated device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
+1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the simulated device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}
