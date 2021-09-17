@@ -46,7 +46,7 @@ Within each of these five stages, there are several device operator requirements
     * [Bulk management of device identities](iot-hub-bulk-identity-mgmt.md)
     * [How to use device twin properties](tutorial-device-twins.md)
     * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
-    * [Azure IoT Hub Device Provisioning Service](../iot-dps/index.md)
+    * [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)
 
 * **Configure**: Facilitate bulk configuration changes and firmware updates to devices while maintaining both health and security. Perform these device management operations in bulk by using desired properties or with direct methods and broadcast jobs.
   
@@ -106,7 +106,7 @@ Device Update for IoT Hub offers optimized update deployment and streamlined ope
 * Subscription and role-based access controls available through the Azure.com portal
 * Comprehensive cloud-to-edge security features and privacy controls
 
-For more information, see [Device Update for IoT Hub](../iot-hub-device-update/index.md).
+For more information, see [Device Update for IoT Hub](../iot-hub-device-update/index.yml).
 
 ## Next Steps
 
