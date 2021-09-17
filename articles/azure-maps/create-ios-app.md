@@ -76,7 +76,7 @@ The next step in building your application is to install the Azure Maps iOS SDK.
 3. Switch to **Swift Package** tab
 4. Add Azure Maps iOS SDK: `{link goes here}`
 
-![add a iOS project](./media/create-an-ios-app/add_proj.png)
+![add a iOS project](./media/create-an-ios-app/add_project.png)
 
 ## Add MapControl view
 
