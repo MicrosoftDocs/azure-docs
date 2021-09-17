@@ -7,9 +7,9 @@ ms.date: 09/07/2021
 # Goal: Introduce AZ Redundancy in Azure Functions elastic premium plans to customers + a tutorial on how to get started with ARM templates
 ---
 
-# Azure Functions support for availability zones on Elastic Premium plans
+# Azure Functions support for availability zone redundancy
 
-Availability zone (AZ) support for Azure Functions is now available on Elastic Premium and Dedicated (App Service) plans. A Zone Redundant Azure Function application will automatically balance its instances between availability zones for higher availability. This document will focus on zone redundancy support for Elastic Premium Function plans. 
+Availability zone (AZ) support for Azure Functions is now available on Elastic Premium and Dedicated (App Service) plans. A Zone Redundant Azure Function application will automatically balance its instances between availability zones for higher availability. This document focuses on zone redundancy support for Elastic Premium Function plans. For zone redundancy on Dedicated plans, refer [here](../app-service/how-to-zone-redundancy.md).
 
 ## Overview
 
@@ -23,9 +23,9 @@ A zone redundant function app will automatically distribute load the instances t
 > When choosing a [storage account](storage-considerations.md#storage-account-requirements) for your function app, be sure to choose a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Otherwise, in the case of a zonal outage, Functions may show unexpected behavior due to its dependence on Storage. 
 
 - Both Windows and Linux are supported.
-- Must be hosted on an [Elastic Premium](functions-premium-plan.md) hosting plan.
+- Must be hosted on an [Elastic Premium](functions-premium-plan.md) or Dedicated hosting plan. Instructions on zone redundancy with Dedicated (App Service) hosting plan can be found [here](../app-service/how-to-zone-redundancy.md).
   - Availability zone (AZ) support isn't currently available for function apps on [Consumption](consumption-plan.md) plans.
-- Elastic premium zone redundant plans must specify a minimum instance count of 3.
+- Zone redundant plans must specify a minimum instance count of 3.
 - Function apps on an Elastic Premium plan additionally must have a minimum [always ready instances](functions-premium-plan.md#always-ready-instances) count of 3.
 - Can be enabled in any of the following regions:
   - West US 2
