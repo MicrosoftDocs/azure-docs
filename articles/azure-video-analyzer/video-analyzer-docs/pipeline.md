@@ -46,7 +46,7 @@ You start with creating the pipeline topology. Once the topology is defined, you
 The lifecycle of a  pipeline is represented in the diagram below.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/pipeline/pipeline-activation.svg" alt-text="Lifecycle of a pipeline":::
+> :::image type="content" source="./media/pipeline/pipeline-activation.svg" alt-text="Lifecycle of a live pipeline":::
 
 Upon successful creation a pipeline is in the “Inactive” state. Upon activation, a pipeline enters the “Activating” state and then “Active” state.
 Data (live video) starts flowing through the pipeline when it reaches the “Active” state. Upon deactivation, an active pipeline enters the “Deactivating” state and then “Inactive” state. Only inactive pipelines can be deleted.
@@ -61,9 +61,9 @@ Live pipelines are designed to remain active, once activated, and keep processin
 The lifecycle of a pipeline job is represented in the diagram below.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/pipeline/batch-pipeline-lifecycle.svg" alt-text="Lifecycle of a pipeline":::
+> :::image type="content" source="./media/pipeline/batch-pipeline-lifecycle.svg" alt-text="Lifecycle of a batch pipeline job":::
 
-Upon successful creation of pipeline job, it is in the “Processing” state. If the job completes successfully it goes into a “Completed” state, else if it fails it goes to the “Failed” state. Alternatively, while the pipeline job is in progress, a cancel request can be issued. In that case, the job will go to “Canceled” state if request is accepted by service.
+Upon successful creation of pipeline job, it is in the “Processing” state. If the job completes successfully it goes into a “Completed” state, else if it fails it goes to the “Failed” state. Alternatively, while the pipeline job is in progress, a cancel request can be issued. In that case, the job will go to “Canceled” state if request is successfully accepted by pipeline.
 
 > [!NOTE]
 > Your Azure subscription will only be billed if the pipeline job completes successfully.
