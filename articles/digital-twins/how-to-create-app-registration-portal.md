@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create an Azure AD app registration, as an authentication option for client apps, using the Azure portal.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/27/2021
+ms.date: 9/8/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -65,7 +65,7 @@ The following sections describe how to find the other values.
 
 The **client ID** and **tenant ID** values can be collected from the app registration's details page in the Azure portal:
 
-:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Screenshot of the Azure portal showing the important values for the app registration.":::
+:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Screenshot of the Azure portal showing the important values for the app registration."  lightbox="media/how-to-create-app-registration/client-id-tenant-id.png":::
 
 Take note of the **Application (client) ID** and **Directory (tenant) ID** shown on **your** page.
 
@@ -79,7 +79,13 @@ To set up a **client secret** for your app registration, start on your app regis
 
 1. Enter whatever values you want for Description and Expires, and select **Add**.
 
-    :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Screenshot of the Azure portal while adding a client secret.":::
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Screenshot of the Azure portal while adding a client secret.":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
 1. Verify that the client secret is visible on the **Certificates & secrets** page with Expires and Value fields. 
 
