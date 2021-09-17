@@ -187,4 +187,4 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 ## Next steps
 
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
-- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

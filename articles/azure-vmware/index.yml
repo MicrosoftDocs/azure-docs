@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 08/31/2021 
+  ms.date: 09/13/2021 
 
 
 # card 1
@@ -81,6 +81,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+        - text: Deploy JetStream DR
+          url: deploy-disaster-recovery-using-jetstream.md
         - text: Deploy VMware HCX for disaster recovery
           url: deploy-disaster-recovery-using-vmware-hcx.md
         - text: Deploy VMware SRM for disaster recovery

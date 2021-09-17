@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 06/25/2021
+ms.date: 09/09/2021
 ms.author: aahi
 ---
 
@@ -2071,7 +2071,7 @@ This container image has the following tags available. You can also find a full 
 # [Latest version](#tab/current)
 
 * Release notes for version `1.3.0`:
-    * Support for standalone language IDs with `SingleLanguage` and contiuous mode.
+    * Support for standalone language IDs with `SingleLanguage` and continuous mode.
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
@@ -2165,6 +2165,19 @@ The [Text Analytics for health][ta-he] container image can be found on the `mcr.
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/healthcare/tags/list).
 
 
+# [Latest version](#tab/current)
+
+Release notes for `3.0.017010001-onprem-amd64`:
+
+* You can now use the [Text Analytics for health container with the client library](../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) 
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `latest`                      |       |
+| `3.0.017010001-onprem-amd64` |       |
+
+# [Previous versions](#tab/previous)
+
 Release notes for `3.0.015490002-onprem-amd64`:
 
 * new model-version `2021-03-01`
@@ -2175,6 +2188,7 @@ Release notes for `3.0.015490002-onprem-amd64`:
 | `latest`   |                                               |
 | `3.0.015490002-onprem-amd64`   |                           |
 
+---
 
 ## Translator
 
@@ -2190,7 +2204,7 @@ This container image has the following tags available.
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: ../face/face-how-to-install-containers.md
-[fr-containers]: ../form-recognizer/containers/form-recognizer-container-install-run.md
+[fr-containers]: ../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md
 [lu-containers]: ../luis/luis-container-howto.md
 [sp-stt]: ../speech-service/speech-container-howto.md?tabs=stt
 [sp-cstt]: ../speech-service/speech-container-howto.md?tabs=cstt

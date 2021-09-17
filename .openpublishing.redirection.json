@@ -21,7 +21,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/articles/active-directory/user-help/active-directory-passwords-reset-register.md",
+      "source_path": "articles/active-directory/user-help/index.yml",
+      "redirect_url": "https://support.microsoft.com/en-us/account-billing/work-or-school-account-help-718b3d92-a8a7-4656-8a05-c0228d346b7d",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/active-directory-passwords-reset-register.md",
       "redirect_url": "https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a",
       "redirect_document_id": false
     },
@@ -313,6 +318,11 @@
     {
       "source_path": "articles/static-web-apps/routes.md",
       "redirect_url": "/azure/static-web-apps/configuration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/static-web-apps/github-actions-workflow.md",
+      "redirect_url": "/azure/static-web-apps/build-configuration",
       "redirect_document_id": true
     },
     {
@@ -10745,17 +10755,22 @@
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/resource-group-audit.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/insights-debugging-with-events.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/resource-group-audit.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/view-activity-logs.md",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
@@ -14064,16 +14079,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/deploy-disaster-recovery-using-jetstream.md",
-      "redirect_url": "/azure/azure-vmware/concepts-run-command",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-vmware/deploy-zerto-disaster-recovery.md",
-      "redirect_url": "/azure/azure-vmware/introduction",
-      "redirect_document_id": false
-    },    
-    {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
       "redirect_document_id": false
@@ -14490,152 +14495,177 @@
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/account-management.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/composability.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/index.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/index.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/overview.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/templates.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/service/connect-truffle.md",
-      "redirect_url": "/azure/blockchain/service/connect-vscode",
+      "source_path_from_root": "/articles/blockchain/service/index.yml",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/templates/ethereum-deployment.md",
-      "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
+      "source_path_from_root": "/articles/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/ethereum-deployment-guide.md",
-      "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
+      "source_path_from_root": "/articles/blockchain/templates/ethereum-poa-deployment.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/ethereum-poa-deployment.md",
-      "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
+      "source_path_from_root": "/articles/blockchain/service/configure-aad.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/templates/hyperledger-fabric-consortium-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
+      "source_path_from_root": "/articles/blockchain/service/configure-transaction-nodes.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/templates/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
+      "source_path_from_root": "/articles/blockchain/service/connect-geth.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
+      "source_path_from_root": "/articles/blockchain/service/connect-metamask.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/index.md",
-      "redirect_url": "/azure/blockchain/workbench",
+      "source_path_from_root": "/articles/blockchain/service/connect-vscode.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-architecture.md",
-      "redirect_url": "/azure/blockchain/workbench/architecture",
+      "source_path_from_root": "/articles/blockchain/service/consortium.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-configuration-overview.md",
-      "redirect_url": "/azure/blockchain/workbench/configuration",
+      "source_path_from_root": "/articles/blockchain/service/create-member-cli.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-create-app.md",
-      "redirect_url": "/azure/blockchain/workbench/create-app",
+      "source_path_from_root": "/articles/blockchain/service/create-member-powershell.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-database-firewall.md",
-      "redirect_url": "/azure/blockchain/workbench/database-firewall",
+      "source_path_from_root": "/articles/blockchain/service/create-member-template.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-database-views.md",
-      "redirect_url": "/azure/blockchain/workbench/database-views",
+      "source_path_from_root": "/articles/blockchain/service/create-member.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-data-excel.md",
-      "redirect_url": "/azure/blockchain/workbench/data-excel",
+      "source_path_from_root": "/articles/blockchain/service/data-manager-cli.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-data-powerbi.md",
-      "redirect_url": "/azure/blockchain/workbench/data-powerbi",
+      "source_path_from_root": "/articles/blockchain/service/data-manager-cosmosdb.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-data-sql-management-studio.md",
-      "redirect_url": "/azure/blockchain/workbench/data-sql-management-studio",
+      "source_path_from_root": "/articles/blockchain/service/data-manager-portal.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-deploy.md",
-      "redirect_url": "/azure/blockchain/workbench/deploy",
+      "source_path_from_root": "/articles/blockchain/service/data-manager.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-getdb-details.md",
-      "redirect_url": "/azure/blockchain/workbench/getdb-details",
+      "source_path_from_root": "/articles/blockchain/service/data-security.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-integration-patterns.md",
-      "redirect_url": "/azure/blockchain/workbench/integration-patterns",
+      "source_path_from_root": "/articles/blockchain/service/develop.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-manage-users.md",
-      "redirect_url": "/azure/blockchain/workbench/manage-users",
+      "source_path_from_root": "/articles/blockchain/service/ethereum-logic-app.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-messages-overview.md",
-      "redirect_url": "/azure/blockchain/workbench/messages-overview",
+      "source_path_from_root": "/articles/blockchain/service/ledger-versions.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-overview.md",
-      "redirect_url": "/azure/blockchain/workbench/overview",
+      "source_path_from_root": "/articles/blockchain/service/limits.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-troubleshooting.md",
-      "redirect_url": "/azure/blockchain/workbench/troubleshooting",
+      "source_path_from_root": "/articles/blockchain/service/manage-cli.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-use.md",
-      "redirect_url": "/azure/blockchain/workbench/use",
+      "source_path_from_root": "/articles/blockchain/service/manage-consortium-powershell.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-use-api.md",
-      "redirect_url": "/azure/blockchain/workbench/use-api",
+      "source_path_from_root": "/articles/blockchain/service/migration-guide.md",
+      "redirect_url": "https://github.com/Azure-Samples/blockchain/blob/master/abs/migration-guide.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/service/monitor-azure-blockchain-service.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/service/overview.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/service/send-transaction.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/service/whats-new.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
@@ -15774,6 +15804,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-data-guidelines.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-document-type-url.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-question-answer-set.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-role-based-access-control.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/log-query/log-search-transition.md",
       "redirect_url": "/azure/data-explorer/kusto/query/",
       "redirect_document_id": false
@@ -16626,6 +16676,21 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/concept-pricing.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/azure-defender/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-forescout.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-forescout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-palo-alto.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-palo-alto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-qradar.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-qradar",
       "redirect_document_id": false
     },
     {
@@ -24369,6 +24434,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/postgresql/hyperscale-preview-features.md",
+      "redirect_url": "/azure/postgresql/hyperscale-product-updates",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/postgresql/policy-samples.md",
       "redirect_url": "/azure/postgresql/policy-reference",
       "redirect_document_id": false
@@ -28966,6 +29036,11 @@
     {
       "source_path_from_root": "/articles/storage/storage-python-how-to-use-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-python-how-to-use-blob-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-storage-explorer.md",
+      "redirect_url": "/azure/storage/blobs/quickstart-storage-explorer",
       "redirect_document_id": true
     },
     {
@@ -45324,6 +45399,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-angular.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code-angular",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-angular.md",
+      "redirect_url": "/azure/active-directory/develop/tutorial-v2-angular-auth-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-applications-guiding-developers-for-lob-applications.md",
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
@@ -45333,6 +45418,7 @@
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
+    
     {
       "source_path_from_root": "/articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
       "redirect_url": "/azure/active-directory/manage-apps/disable-user-sign-in-portal",
@@ -57029,9 +57115,93 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sentinel/normalization-schema.md ",
+      "source_path_from_root": "/articles/sentinel/normalization-schema.md",
       "redirect_url": "/azure/sentinel/network-normalization-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/azure-security-benchmark.md",
+      "redirect_url": "/azure/governance/policy/samples/azure-security-benchmark",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/index.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/index.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/index.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/index.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-53-r4.md",
+      "redirect_url": "/azure/governance/policy/samples/nist-sp-800-53-r4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/export-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-stream-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/code-sample-export-sql-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-sql-stream-analytics",
       "redirect_document_id": false
     }
   ]
 }
+
+
+
+ 

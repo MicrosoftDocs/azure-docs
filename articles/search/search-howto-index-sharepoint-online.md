@@ -24,7 +24,6 @@ This article describes how to use Azure Cognitive Search to index documents (suc
 
 An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from a data source. The SharePoint Online indexer will connect to your SharePoint Online site and index documents from one or more Document Libraries. The indexer provides the following functionality:
 + Index content from one or more SharePoint Online Document Libraries.
-+ Index content from SharePoint Online Document Libraries that are in the same tenant as your Azure Cognitive Search service. The indexer will not work with SharePoint sites that are in a different tenant than your Azure Cognitive Search service. 
 + The indexer will support incremental indexing meaning that it will identify which content in the Document Library has changed and only index the updated content on future indexing runs. For example, if 5 PDFs are originally indexed by the indexer, then 1 is updated, then the indexer runs again, the indexer will only index the 1 PDF that was updated.
 + Text and normalized images will be extracted by default from the documents that are indexed. Optionally a skillset can be added to the pipeline for further content enrichment. More information on skillsets can be found in the article [Skillset concepts in Azure Cognitive Search](cognitive-search-working-with-skillsets.md).
 
@@ -46,8 +45,11 @@ To set up the SharePoint Online Indexer, you will need to perform some actions i
  
 > [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
-### Step 1: Enable system assigned managed identity
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer.
+### Step 1 (Optional): Enable system assigned managed identity
+
+When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer. This identity is used to automatically detect the tenant the search service is provisioned in.
+
+If the SharePoint Online site is in the same tenant as the search service you will need to enable the system-assigned managed identity for the search service. If the SharePoint Online site is in a different tenant from the search service, system-assigned managed identity doesn't need to be enabled.
 
 ![Enable system assigned managed identity](media/search-howto-index-sharepoint-online/enable-managed-identity.png "Enable system assigned managed identity")
 
@@ -113,10 +115,13 @@ api-key: [admin key]
 {
     "name" : "sharepoint-datasource",
     "type" : "sharepoint",
-    "credentials" : { "connectionString" : "SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[AAD App ID]" },
+    "credentials" : { "connectionString" : "SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[AAD App ID];TenantId=[SharePoint Online site tenant id]" },
     "container" : { "name" : "defaultSiteLibrary", "query" : null }
 }
 ```
+
+> [!NOTE]
+> If the SharePoint Online site is in the same tenant as the search service and system-assigned managed identity is enabled, `TenantId` doesn't have to be included in the connection string. If the SharePoint Online site is in a different tenant from the search service, `TenantId` must be included.
 
 ### Step 4: Create an index
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.

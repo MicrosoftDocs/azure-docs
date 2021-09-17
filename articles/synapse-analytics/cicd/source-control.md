@@ -156,9 +156,13 @@ Version control systems (also known as _source control_) allows developers to co
 
 ### Creating feature branches
 
-Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main` or `master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
+Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main` or `master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. 
 
-![Create a new branch](media/create-new-branch.png)
+![Create new branch](media/create-new-branch.png)
+
+Once the new branch pane appears, enter the name of your feature branch and select a branch to base the work off of.
+
+![Create branch based on private branch ](media/create-branch-from-private-branch.png)
 
 When you are ready to merge the changes from your feature branch to your collaboration branch, click on the branch dropdown and select **Create pull request**. This action takes you to Git provider where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. You are only allowed to publish to the Synapse service from your collaboration branch. 
 
