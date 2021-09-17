@@ -41,6 +41,8 @@ By default and without using MON, a VM in Azure VMware Solution on a stretched n
 
 If choosing the NE path for example, the MON policy routes have to specifically address the subnet on the on-premises side; otherwise, the 0.0/0 route is used. Policy routes can be found under the NE segment, selecting advanced. By default, all RFC1918 IP addresses are included in the MON policy routes definition. 
 
+:::image type="content" source="media/tutorial-vmware-hcx/default-hcx-mon-policy-based-routes.png" alt-text="Screenshot showing the default policy-based routes.":::
+
 Policy routes are evaluated only if the VM gateway is migrated to the cloud. The effect of this configuration is that any matching subnets for the destination get tunneled over the NE appliance.  If not matched, they get routed through the T0 gateway.
 
 >[!NOTE]
