@@ -1,5 +1,5 @@
 --- 
-title:  Create an iOS app with Azure Maps
+title:  Create an iOS app
 description: Steps to create an Azure Maps account and the first iOS App.
 author: deniseatmicrosoft
 ms.author: v-dbogomolov
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ---
-#  Create an iOS app with Azure Maps (Public Preview)
+#  Create an iOS app (Public Preview)
 
 This article shows you how to add the Azure Maps to an iOS app. It walks you through these basic steps:
 
@@ -20,10 +20,10 @@ This article shows you how to add the Azure Maps to an iOS app. It walks you thr
 
 ## Prerequisites
 
-1. Create an Azure Maps account by signing into the  [Azure portal](https://portal.azure.com/) . If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/)  before you begin.
-2.  [Make an Azure Maps account](https://docs.microsoft.com//azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account)
-3.  [Obtain a primary subscription key](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account) , also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see  [manage authentication in Azure Maps](https://docs.microsoft.com//azure/azure-maps/how-to-manage-authentication) .
-4.  Download [‎Xcode on the Mac App Store](https://apps.apple.com/cz/app/xcode/id497799835?mt=12) for free.
+* Create an Azure Maps account by signing into the  [Azure portal](https://portal.azure.com/) . If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/)  before you begin.
+* [Make an Azure Maps account](https://docs.microsoft.com//azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account)
+* [Obtain a primary subscription key](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account) , also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see  [manage authentication in Azure Maps](https://docs.microsoft.com//azure/azure-maps/how-to-manage-authentication) .
+* Download [‎Xcode on the Mac App Store](https://apps.apple.com/cz/app/xcode/id497799835?mt=12) for free.
 
 ## Create an Azure Maps account
 
@@ -50,7 +50,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
-> **Note:**
+> [!Note]
 > If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual)
 
 ![get key](./media/create-an-ios-app/get-key.png)
@@ -61,7 +61,7 @@ First, create a new iOS App project. Complete these steps to create an Xcode pro
 
 1. Under **File**, select **New** -> **Project**.
 2. On the **iOS** tab, select **App**, and then select **Next**.
-3. Enter app name, bundle id and select **Next**.
+3. Enter app name, bundle ID and select **Next**.
 
 See the [Creating an Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
 
@@ -100,7 +100,7 @@ Xcode will take a few seconds to build the application. After the build is compl
 
 ## Clean up resources
 
-> **Warning:**
+> [!WARNING]
 > The tutorials listed in the [Next Steps](#next-steps) section detail how to use and configure Azure Maps with your account. Don't clean up the resources created in this quickstart if you plan to continue to the tutorials.
 
 If you don't plan to continue to the tutorials, take these steps to clean up the resources:
@@ -117,7 +117,7 @@ If you don't plan on continuing to develop with the Azure Maps iOS SDK:
 <!--
 For more code examples, see these guides:
 
-*  [Manage authentication in Azure Maps](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-authentication)
+*  [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
 *  [Change map styles in iOS maps](Set%20map%20style%20%28iOS%20SDK%29.md)
 *  [Add a symbol layer](Add%20a%20symbol%20layer%20%28iOS%20SDK%29.md)
 *  [Add a line layer](Add%20a%20line%20layer%20to%20the%20map%20%28iOS%20SDK%29.md)
