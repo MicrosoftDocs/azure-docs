@@ -6,7 +6,7 @@ services: api-management
 author: miaojiang
 ms.service: api-management
 ms.topic: article
-ms.date: 09/16/2021
+ms.date: 09/17/2021
 ms.author: apimpm
 ms.custom: contperf-fy21q1
 ---
@@ -57,7 +57,7 @@ For details about app registration, see [Quickstart: Configure an application to
    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, such as *backend-app*. 
    - In the **Supported account types** section, select an option that suits your scenario. 
 
-1. Leave the [**Redirect URI**](https://docs.microsoft.com/azure/active-directory/develop/reply-url) section empty.
+1. Leave the [**Redirect URI**](../active-directory/develop/reply-url.md) section empty.
 
 1. Select **Register** to create the application. 
 
@@ -233,7 +233,7 @@ However, what if someone calls your API without a token or with an invalid token
 
 Pre-authorize requests in API Management with the [Validate JWT](./api-management-access-restriction-policies.md#ValidateJWT) policy, by validating the access tokens of each incoming request. If a request does not have a valid token, API Management blocks it. 
 
-The following example policy, when added to the <inbound> policy section, checks the value of the audience claim in an access token obtained from Azure AD, and returns an error message if the token is not valid. 
+The following example policy, when added to the `<inbound>` policy section, checks the value of the audience claim in an access token obtained from Azure AD, and returns an error message if the token is not valid. 
 
 
 ```xml
@@ -252,7 +252,7 @@ The following example policy, when added to the <inbound> policy section, checks
 
 > [!TIP] 
 > Find the **{aad-tenant}** value as your Azure AD tenant ID in the Azure portal, either on:
-> * The overview page of your Azure AD resource.
+> * The overview page of your Azure AD resource, or
 > * The **Manage > Properties** page of your Azure AD resource.
 
 For information on how to configure policies, see [Set or edit policies](./set-edit-policies.md).
