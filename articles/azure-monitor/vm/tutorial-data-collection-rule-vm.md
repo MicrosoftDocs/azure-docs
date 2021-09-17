@@ -21,14 +21,14 @@ In this tutorial, you learn how to:
 ## Azure Monitor agent
 Azure Monitor starts collecting metric data for your virtual machine host automatically. To collect metrics and logs from the guest operating system of the virtual machine though, you must install an agent that can send this data to Azure Monitor. 
 
-The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) is installed on Azure Monitor virtual machines and allows you to collect metrics and logs. You define the data to collect with a data collection rule, and this process will automatically install the Azure Monitor agent.
+The [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) is installed on Azure Monitor virtual machines and allows you to collect metrics and logs. You define the data to collect with a data collection rule, and this process will automatically install the Azure Monitor agent.
 
 
 ## Create data collection rule
 
 
 > [!NOTE]
-> Prior to the Azure Monitor agent, guest metrics for Azure virtual machines were collected with the [Azure diagnostic extension](../azure-monitor/agents/diagnostics-extension-overview.md) for Windows (WAD) and Linux (LAD). These agents are still available and can be configured with the **Diagnostic settings** menu item for the virtual machine, but they are in the process of being replaced with Azure Monitor agent.
+> Prior to the Azure Monitor agent, guest metrics for Azure virtual machines were collected with the [Azure diagnostic extension](../agents/diagnostics-extension-overview.md) for Windows (WAD) and Linux (LAD). These agents are still available and can be configured with the **Diagnostic settings** menu item for the virtual machine, but they are in the process of being replaced with Azure Monitor agent.
 
 You must currently install the Azure Monitor agent from **Monitor** menu in the Azure portal. This functionality is not yet available from the virtual machine's menu. You create a [data collection rule]() that defines the data you want to collect, and the agent is automatically installed on any virtual machines you select.
 
@@ -76,11 +76,10 @@ Data in Azure Monitor Logs is stored in tables in a Log Analytics workspace. Ret
 
 For a list of the types of logs collected for virtual machines, see [Monitoring Azure virtual machines data reference](monitor-vm-reference.md#resource-logs).
 
-If you're not familiar with using Log Analytics, see [Analyze logs from an Azure resource](../azure-monitor/logs/tutorial-logs.md)
+If you're not familiar with using Log Analytics, see [Analyze logs from an Azure resource](../logs/tutorial-logs.md)
 
 
 
 ## Next steps
 
-- See [Monitoring AKS data reference](monitor-aks-reference.md) for a reference of the metrics, logs, and other important values created by AKS.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
+

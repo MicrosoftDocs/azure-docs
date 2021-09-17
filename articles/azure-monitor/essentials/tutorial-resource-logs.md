@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Collect resource logs from an Azure resource
-description: Tutorial to configure diagnostic settings to collect resource logs from an Azure resource into a Log Analytics workspace where they can be analyzed with a log query.
+description: Tutorial to configure diagnostic settings to send resource logs from an Azure resource io a Log Analytics workspace where they can be analyzed with a log query.
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 12/15/2019
+ms.date: 12/15/2021
 ---
 
 # Tutorial: Collect and analyze resource logs from an Azure resource
@@ -52,26 +52,22 @@ Click **Save** to save the diagnostic settings.
     
  
  ## Use a log query to retrieve logs
-Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). Insights and solutions in Azure Monitor will provide log queries to retrieve data for a particular service, but you can work directly with log queries and their results in the Azure portal with Log Analytics. 
+Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). A set of precreated queries are available for may Azure resource so that you don't require knowledge of KQL to get started.
 
-Under the **Monitoring** section of your resource's menu, select **Logs**. Log Analytics opens with an empty query window with the scope set to your resource. Any queries will include only records from that resource.
+Select **Logs** from your resource's menu. Log Analytics opens with an empty query window with the scope set to your resource. Any queries will include only records from that resource.
 
-    > [!NOTE]
-    > If you opened Logs from the Azure Monitor menu, the scope would be set to the Log Analytics workspace. In this case, any queries will include all records in the workspace.
 
 :::image type="content" source="media/tutorial-resource-logs/logs.png" lightbox="media/tutorial-resource-logs/logs.png"alt-text="Screenshot shows Logs for a logic app displaying a new query with the logic app name highlighted.":::
 
 
-The service shown in the example writes resource logs to the **AzureDiagnostics** table, but other services may write to other tables. See [Supported services, schemas, and categories for Azure Resource Logs](../essentials/resource-logs-schema.md) for tables used by different Azure services.
-
-    > [!NOTE]
-    > Multiple services write resource logs to the AzureDiagnostics table. If you start Log Analytics from the Azure Monitor menu, then you would need to add a `where` statement with the `ResourceProvider` column to specify your particular service. When you start Log Analytics from a resource's menu, then the scope is set to only records from this resource so this column isn't required. See the service's documentation for sample queries.
+Click **Queries** to view prebuilt queries for your **Resource type**. 
 
 
-Type in a query and click **Run** to inspect results.  See [Get started with log queries in Azure Monitor](../logs/get-started-queries.md) for a tutorial on writing log queries.
 
-    ![Log query](media/tutorial-resource-logs/log-query-1.png)
+Browse through the available queries. Identify one to run and click **Run**. 
 
+
+The query is added to the query window and the results returned.
 
 
 

@@ -4,10 +4,10 @@ description: Learn how to create a metric chart with Azure metrics explorer.
 author: bwren
 ms.author: bwren
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 09/15/2021
 ---
 
-# Tutorial: Create a metric alert for an Azure resoource
+# Tutorial: Create a metric alert for an Azure resource
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. Metric alert rules create an alert when a metric value from an Azure resource exceeds a threshold.
 
 In this tutorial, you learn how to:
@@ -93,11 +93,7 @@ If there are any open alerts for the resources, they will be included in the vie
 
 :::image type="content" source="./media/tutorial-metric-alert/alerts-view.png" lightbox="./media/tutorial-metric-alert/alerts-view.png" alt-text="Alerts view":::
 
-Click on a severity to show the alerts with that severity.
-
-:::image type="content" source="./media/tutorial-metric-alert/alert-severity.png" lightbox="./media/tutorial-metric-alert/alert-severity.png" alt-text="Alert severity":::
-
-Select the **Alert state** and unselect **Closed** to view only open alerts.
+Click on a severity to show the alerts with that severity. Select the **Alert state** and unselect **Closed** to view only open alerts.
 
 :::image type="content" source="./media/tutorial-metric-alert/alert-state.png" lightbox="./media/tutorial-metric-alert/alert-state.png" alt-text="Alert state filter":::
 

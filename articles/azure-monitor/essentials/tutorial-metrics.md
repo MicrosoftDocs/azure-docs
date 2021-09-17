@@ -1,16 +1,14 @@
 ---
-title: Tutorial - Create a metrics chart in Azure Monitor
-description: Learn how to create a metric chart with Azure metrics explorer.
+title: Tutorial - Analyze metrics for an Azure resource
+description: Learn how analyze metrics for an Azure resource using metrics explorer in Azure Monitor
 author: bwren
 ms.author: bwren
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 09/15/2021
 ---
 
 # Tutorial: Analyze metrics for an Azure resource
-Metrics are one of the fundamental data types in Azure Monitor. They're numerical values that are automatically collected at regular intervals and describe some aspect of a resource. For example, a metric might tell you the processor utilization of a virtual machine. the free space in a storage account, or the incoming traffic for a virtual network.
-
-Metrics explorer is a feature of Azure Monitor in the Azure portal that allows you to create charts from metric values, visually correlate trends, and investigate spikes and dips in metric values. Use the metrics explorer to plot charts from metrics created by your Azure resources and investigate their health and utilization. 
+Metrics are one of the fundamental data types in Azure Monitor. They're numerical values that are automatically collected at regular intervals and describe some aspect of a resource. For example, a metric might tell you the processor utilization of a virtual machine. the free space in a storage account, or the incoming traffic for a virtual network. Metrics explorer is a feature of Azure Monitor in the Azure portal that allows you to create charts from metric values, visually correlate trends, and investigate spikes and dips in metric values. Use the metrics explorer to plot charts from metrics created by your Azure resources and investigate their health and utilization. 
 
 In this tutorial, you learn how to:
 

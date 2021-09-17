@@ -4,7 +4,7 @@ description: Tutorial to create a log query alert for an Azure resource.
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 12/15/2019
+ms.date: 09/16/2021
 ---
 
 # Tutorial: Create a log query alert for an Azure resource
@@ -13,16 +13,25 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Access prebuilt log queries designed to suppoer alert rules for different kinds of resources
+> * Access prebuilt log queries designed to support alert rules for different kinds of resources
 > * Create a log query alert rule
 > * Create an action group to define notification details
 
 
 ## Prerequisites
-To complete this tutorial you need an Azure resource with resource logs or other data being collected in a Log Analytics workspace. Complete one of the following tutorials to collect this data.
 
-- [Tutorial: Collect and analyze resource logs from an Azure resource](../essentials/tutorial-resource-logs.md).
+To complete this tutorial you need the following: 
 
+- An Azure resource to monitor. You can use any resource in your Azure subscription that supports diagnostic settings. To determine whether a resource supports diagnostic settings, go to its menu in the Azure portal and verify that there's a **Diagnostic settings** option in the **Monitoring** section of the menu.
+- A Log Analytics workspace to collect the resource logs. See [Tutorial: Create Log Analytics workspace in Azure Monitor](../logs/tutorial-workspace.md).
+
+If you're using any Azure resource other than a virtual machine:
+
+- A diagnostic setting to send the resource logs from your Azure resource to a Log Analytics workspace. See [Tutorial: Create Log Analytics workspace in Azure Monitor](../logs/tutorial-workspace.md).
+
+If you're using an Azure virtual machine:
+
+- A data collection rule to send guest logs and metrics to a Log Analytics workspace. See [Tutorial: Collect guest metrics and logs from Azure virtual machine](../vm/tutorial-data-collection-rule-vm.md).
 
    
  
