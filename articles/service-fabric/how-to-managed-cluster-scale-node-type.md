@@ -1,13 +1,15 @@
 ---
-title: Scale a node type on a Service Fabric managed cluster
-description: This article walks through how to scale a node type on a managed cluster
+title: Modify a Service Fabric managed cluster node type
+description: This article walks through how to modify a managed cluster node type
 ms.topic: how-to
-ms.date: 9/16/2021 
+ms.date: 10/04/2021 
 ---
 
-# Service Fabric managed cluster node type scaling
+# Service Fabric managed cluster node types
 
-Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters you make any required changes through the Service Fabric provider vs VMSS directly. This encapsulation model helps ...
+Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters you make any required changes through the Service Fabric managed cluster resource provider instead of against the resource directly. This encapsulation model helps... 
+
+The rest of this document will cover how to adjust various settings from node type instance count, OS Image, and configuring placement properties.
 
 
 > [!NOTE]
@@ -24,13 +26,12 @@ In this walkthrough you will adjust the instance count for a node type using por
 3)
 
 
-
 ## Scale a Service Fabric managed cluster node type with a template
 
-You can follow this guidance to adjust instance count for a given node type using an ARM Template:
+To adjust the instance count for a given node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.  
 
 > [!NOTE]
-> This property can’t be set on the primary node type.
+> The managed cluster provider will block instance count adjustments that go below the required minimums for a given deployment type.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
@@ -40,9 +41,62 @@ You can follow this guidance to adjust instance count for a given node type usin
             "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
             "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
             "location": "[resourcegroup().location]",
-            "dependsOn": [
-              "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-            ],
+            "properties": {
+                ...
+                "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+                ...
+            }
+        }
+}
+```
+
+## Modify the OS image for a node type with portal
+
+
+## Modify the OS image for a node type with a template
+
+To modify the OS image used for a node type using an ARM Template, adjust the `vmImageSku` property with the new value and do a cluster deployment for the setting to take affect.  
+
+> [!NOTE]
+> The managed cluster provider will re-image each instance by upgrade domain.
+
+* The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
+
+```json
+     {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+            "location": "[resourcegroup().location]",
+            "properties": {
+                ...
+                "vmImagePublisher": "[parameters('vmImagePublisher')]",
+                "vmImageOffer": "[parameters('vmImageOffer')]",
+                "vmImageSku": "[parameters('vmImageSku')]",
+                "vmImageVersion": "[parameters('vmImageVersion')]",
+                ...
+            }
+        }
+}
+```
+
+## Configure placement properties for a node type with portal
+
+## Configure placement properties for a node type with a template
+
+To adjust the placement properties for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.  
+
+> [!NOTE]
+> The managed cluster provider will re-image each instance by upgrade domain.
+
+* The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
+
+```json
+     {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+            "location": "[resourcegroup().location]",
             "properties": {
                 "multiplePlacementGroups": true,
                 "isPrimary": false,
@@ -57,6 +111,7 @@ You can follow this guidance to adjust instance count for a given node type usin
         }
 }
 ```
+
 
 ## Next steps
 

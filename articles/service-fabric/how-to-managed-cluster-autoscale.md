@@ -6,12 +6,12 @@ ms.date: 10/04/2021
 ---
 
 # Introduction to Auto Scaling on Service Fabric managed clusters
-[Auto scaling](../azure-monitor/autoscale/autoscale-overview.md) is an additional capability of a Service Fabric managed cluster to dynamically scale your resources based on the usage of resources. Auto scaling gives great elasticity and enables provisioning of additional or reduction of instances on demand. Auto scaling is an automated and transparent capability supported for secondary node types eliminating any need for manual scaling operations. Auto scaling can be enabled at any time for a secondary node type that is configured and available. Auto scaling is supported for services deployed as regular Service Fabric services, or [in containers](./service-fabric-containers-overview.md), as it's based on resource usage of the underlying resources. 
+[Auto scaling](../azure-monitor/autoscale/autoscale-overview.md) enables a Service Fabric managed cluster to dynamically scale a secondary node type based on the usage of resources. Auto scaling gives great elasticity and enables provisioning of additional or reduction of instances on demand. Auto scaling is an automated and transparent capability eliminating any need for manual scaling operations. Auto scaling on a managed cluster node type can be enabled, disabled, or configured at any time.
 
 **Requirements and supported metrics:**
 * In order to use auto scaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
-* The cluster SKU must be Standard
-* A secondary node type. Auto scale is not supported on a primary node type.
+* The cluster SKU must be Standard.
+* The node type must be secondary and not primary.
 * Only [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md) are supported.
 
 A common scenario where auto-scaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like:
@@ -43,7 +43,7 @@ The following steps will take you step by step through an end to end setup of a 
 
 2) Create cluster resource
 
-   Download this sample [Standard SKU Service Fabric managed cluster sample](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT) 
+   Download this sample [Standard SKU Service Fabric managed cluster sample](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale/azuredeploy.json) 
    Execute this command to deploy the cluster resource:
 
    ```powershell
@@ -57,7 +57,7 @@ The following steps will take you step by step through an end to end setup of a 
 
 3) Configure auto scale rules on a secondary node type
  
-   Download the [SF-Managed-Standard-SKU-autoscale sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale) that you will use to configure auto scaling with the following commands:
+   Download the [SF-Managed-Standard-SKU-autoscale sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale/sfmc-autoscale-enable.json) that you will use to configure auto scaling with the following commands:
 
    ```powershell
    $parameters = @{ 
@@ -66,7 +66,7 @@ The following steps will take you step by step through an end to end setup of a 
    ```
 
 >[!NOTE]
-> After this deployment completes, future cluster resource deployments should use -1 for secondary node types that have auto scale rules enabled. This will avoid cluster deployments conflicting with auto scale.
+> After this deployment completes, future cluster resource deployments should set the `vmInstanceCount` property to `-1` on secondary node types that have auto scale rules enabled. This will make sure cluster deployments do not conflict with auto scale.
 
 
 ## Enable or disable auto scaling on a secondary node type
@@ -77,16 +77,15 @@ To enable this feature, configure the `enabled` property under the type `Microso
 
 ```JSON
     "resources": [
-        ...
-        {
-        "type": "Microsoft.Insights/autoscaleSettings",
-        "apiVersion": "2015-04-01",
-        "name": "[concat('Autoscale-', parameters('vmNodeType1Name'))]",
-        "location": "[resourceGroup().location]",
-        "properties": {
-            "name": "[concat('Autoscale-', parameters('vmNodeType1Name'))]",
-            "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.ServiceFabric/managedclusters/', parameters('clusterDnsName'), '/nodetypes/', parameters('vmNodeType1Name'))]",
-            "enabled": true,
+            {
+            "type": "Microsoft.Insights/autoscaleSettings",
+            "apiVersion": "2015-04-01",
+            "name": "[concat('Autoscale-', parameters('nodeType2Name'))]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "name": "[concat('Autoscale-', parameters('nodeType2Name'))]",
+                "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'), '/nodetypes/', parameters('nodeType2Name'))]",
+                "enabled": true,
             ...
 ```
 
@@ -96,7 +95,7 @@ To disable auto scaling, set the value to `false`
 
  A Service Fabric managed cluster does not configure any [policies for auto scaling](../azure-monitor/autoscale/autoscale-understanding-settings.md) by default. Auto scaling policies must be configured for any scaling actions to occur on the underlying resources.
 
-The following example will set a policy for `VmNodeType1Name` to be at least 3 nodes, but allow scaling up to 20 nodes. It will trigger scaling up when average CPU usage is 70% over the last 30 minutes with 1 minute granularity. It will trigger scaling down once average CPU usage is under 40% for the last 30 minutes with 1 minute granularity.
+The following example will set a policy for `nodeType2Name` to be at least 3 nodes, but allow scaling up to 20 nodes. It will trigger scaling up when average CPU usage is 70% over the last 30 minutes with 1 minute granularity. It will trigger scaling down once average CPU usage is under 40% for the last 30 minutes with 1 minute granularity.
 
 ```JSON
     "resources": [
@@ -165,7 +164,7 @@ The following example will set a policy for `VmNodeType1Name` to be at least 3 n
     ]                           
 ```
 
-Download this sample [ARM Template to enable autoscale](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale/sfmc-autoscale-enable.json)
+You can download this [ARM Template to enable autoscale](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale/sfmc-autoscale-enable.json) which contains the above example
 
 
 ## View configured auto scale definitions of your managed cluster resource
