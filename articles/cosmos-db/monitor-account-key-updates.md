@@ -1,5 +1,5 @@
 ---
-title: Monitor your Azure Cosmos DB account for key updates and key rotations
+title: Monitor your Azure Cosmos DB account for key updates and key regeneration
 description: Use the Account Keys Updated metric to monitor your account for key updates. This metric shows you the number of times the primary and secondary keys are updated for an account and the time when they were changed.
 ms.service: cosmos-db
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.date: 09/16/2021
 
 ---
 
-# Monitor your Azure Cosmos DB account for key updates and key rotations
+# Monitor your Azure Cosmos DB account for key updates and key regeneration
 
 Azure Monitor for Azure Cosmos DB provides metrics, alerts, and logs to monitor your account. You can create dashboards and customize them per your requirement. The Azure Cosmos DB metrics are collected by default, you don’t have to enable or configure anything explicitly. To monitor your account for key updates, use the **Account Keys Updated** metric. This metric shows you the number of times the primary and secondary keys are updated for an account and the time when they were changed. You can also set up alerts to get notifications when a key is updated.
 
