@@ -49,7 +49,7 @@ ASP.NET Core supports adding RBAC to an ASP.NET Core web application or web API.
 
 Implementing RBAC in an ASP.NET Core MVC web application is straightforward.  It mainly involves using the *Authorize* attribute to specify which roles should be allowed to access specific controllers or actions in the controllers. Follow these steps to implement RBAC in your ASP.NET Core MVC application:
 1. Create an app registration with app roles and assignments as outlined in *Defining roles for your application* above.
-1. Either:
+1. Do one of the following steps:
     - Create a new ASP.NET Core MVC web app project using the **dotnet cli**.  Specify the *--auth* flag with either *SingleOrg* for single tenant authentication or *MultiOrg* for multi-tenant authentication, the *--client-id* flag with the client if from your app registration, and the *--tenant-id* flag with your tenant if from your Azure AD tenant:
       ```bash 
     
@@ -57,8 +57,6 @@ Implementing RBAC in an ASP.NET Core MVC web application is straightforward.  It
   <YOUR-TENANT-ID>  
     
       ```
-    *OR*    
-
     - Add the Microsoft.Identity.Web and Microsoft.Identity.Web.UI libraries to an existing ASP.NET Core MVC project:
       ```bash 
 
@@ -75,7 +73,7 @@ Implementing RBAC in an ASP.NET Core MVC web application is straightforward.  It
 
 Implementing RBAC in an ASP.NET Core web API mainly involves utilizing the *Authorize* attribute to specify which roles should be allowed to access specific controllers or actions in the controllers. Follow these steps to implement RBAC in your ASP.NET Core web API:
 1. Create an app registration with app roles and assignments as outlined in *Defining roles for your application* above.
-1. Either:
+1. Do one of the following steps:
     - Create a new ASP.NET Core MVC web API project using the **dotnet cli**.  Specify the *--auth* flag with either *SingleOrg* for single tenant authentication or *MultiOrg* for multi-tenant authentication, the *--client-id* flag with the client if from your app registration, and the *--tenant-id* flag with your tenant if from your Azure AD tenant:
       ```bash 
     
@@ -83,7 +81,6 @@ Implementing RBAC in an ASP.NET Core web API mainly involves utilizing the *Auth
   <YOUR-TENANT-ID> 
     
       ```
-    *OR*
 
     - Add the Microsoft.Identity.Web and Swashbuckle.AspNetCore libraries to an existing ASP.NET Core web API project:
       ```bash 
