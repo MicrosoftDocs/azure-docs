@@ -163,7 +163,7 @@ To refresh an access token, use the `CommunicationUserIdentifier` object to reis
 
 ```java
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity);
+CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity.getId());
 AccessToken response = communicationIdentityClient.getToken(identity, scopes);
 ```
 
