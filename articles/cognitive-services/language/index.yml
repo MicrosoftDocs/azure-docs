@@ -55,7 +55,7 @@ conceptualContent:
     - title: Classify Text
       links:
         - itemType: overview
-          text: Analyze sentiment and mine opinions
+          text: Analyze sentiment and mine text for opinions
           url: sentiment-opinion-mining/overview.md
         - itemType: overview
           text: Detect Language
@@ -64,12 +64,22 @@ conceptualContent:
           text: Custom classification
           url: custom-classification/overview.md    
 
-
-    - title: Understand conversational language
+    - title: Understand conversations and answer questions
       links:
         - itemType: overview
           text: Custom language understanding
           url: custom-language-understanding/overview.md 
+        - itemType: overview
+          text: Question answering
+          url: custom-question-answering/overview.md 
+
+
+    - title: Translate text 
+      links:
+        - itemType: overview
+          text: Use machine translation on text. 
+          url: ../translator/translator-overview.md
+
     
     - title: Summarize text
       links:
@@ -96,10 +106,6 @@ tools:
 
 additionalContent:
   sections:
-    - items:
-      - title: Translate text 
-        summary: Explore Translator, a cloud-based machine translation service. 
-        url: ../translator/translator-overview.md
     - items:
       - title: Resources
         links:
