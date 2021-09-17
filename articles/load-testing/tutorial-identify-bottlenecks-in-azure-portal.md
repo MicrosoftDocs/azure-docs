@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: jmartens
 author: j-martens
-ms.date: 09/16/2021
+ms.date: 09/17/2021
 ms.topic: tutorial
 #Customer intent: As a Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps I have running in Azure.
 ---
@@ -52,7 +52,7 @@ Before you can load test the sample app, you have to get it up and running. Use 
     git clone https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git
    ```
 
-    The sample application is a Node.js app consisting of an Azure App Service web component and a Cosmos DB database. The repo also includes a PowerShell script that deploys the sample app to your Azure subscription. It also has a JMeter script that you'll use in later steps.
+    The sample application is a Node.js app consisting of an Azure App Service web component and a Cosmos DB database. The repo includes a PowerShell script that deploys the sample app to your Azure subscription. It also has a JMeter script that you'll use in later steps.
 
 1. Go to the Node.js app's directory and deploy the sample app using the PowerShell script.
 
@@ -189,7 +189,7 @@ Now, you'll analyze the load test results. Check if there are any performance bo
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-in-azure-portal/azure-load-testing-client-side-metrics.png" alt-text="Azure Load Testing: Client-side metrics.":::
 
-    They reveals an increase in the 90th percentile **Response time** for the API requests (`add` and `get`). That's compared to the `lasttimestamp` API.
+    The metrics reveal an increase in the 90th percentile **Response time** for the API requests (`add` and `get`). That's compared to the `lasttimestamp` API.
 
    The issues may be database-related since the `add` and `get` APIs interact with Cosmos DB. Notice a similar pattern for **Errors**.
 
@@ -213,11 +213,11 @@ Now, you'll analyze the load test results. Check if there are any performance bo
 
 1. In the chart above, check out the **Provisioned Throughput** metric.
 
-   It shows that your Cosmos DB has been set up with a maximum throughput of 400 RUs. Go to the next section and adjust this limit to check whether it addresses your performance bottleneck.
+   Your Cosmos DB is set up with a maximum throughput of 400 RUs. Go to the next section and adjust this limit to see if it fixes your performance bottleneck.
 
 ## Remove bottleneck
 
-To remove teh bottleneck, manually increase the RU settings:
+To remove the bottleneck, manually increase the RU settings:
 
 1. Open a new browser tab.
 
