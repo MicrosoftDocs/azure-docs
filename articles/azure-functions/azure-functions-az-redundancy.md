@@ -20,7 +20,7 @@ A zone redundant function app will automatically distribute load the instances t
 ## Requirements
 
 > [!IMPORTANT]
-> When choosing a [storage account](storage-considerations.md#storage-account-requirements) for your function app, be sure to choose a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Otherwise, in the case of a zonal outage, Functions may show unexpected behavior due to its dependence on Storage. 
+> When selecting a [storage account](storage-considerations.md#storage-account-requirements) for your function app, be sure to use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Otherwise, in the case of a zonal outage, Functions may show unexpected behavior due to its dependency on Storage. 
 
 - Both Windows and Linux are supported.
 - Must be hosted on an [Elastic Premium](functions-premium-plan.md) or Dedicated hosting plan. Instructions on zone redundancy with Dedicated (App Service) hosting plan can be found [here](../app-service/how-to-zone-redundancy.md).
