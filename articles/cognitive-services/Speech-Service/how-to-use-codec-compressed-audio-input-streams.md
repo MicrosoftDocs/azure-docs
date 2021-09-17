@@ -76,6 +76,10 @@ Please look at the Java tab above for the details about building libgstreamer_an
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/go/prerequisites.md)]
+::: zone-end
+
 ## Example code using codec compressed audio input
 
 ::: zone pivot="programming-language-csharp"
@@ -92,6 +96,10 @@ Please look at the Java tab above for the details about building libgstreamer_an
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/examples.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/go/examples.md)]
 ::: zone-end
 
 ## Next steps
