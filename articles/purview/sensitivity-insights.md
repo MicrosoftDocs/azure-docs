@@ -36,11 +36,11 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - [Extended Microsoft 365 sensitivity labels to assets in Azure Purview](create-sensitivity-label.md), and created or selected the labels you want to apply to your data.
 
-- Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
+- Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
 
 - Signed in to Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#roles).
 
-For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md) and [Automatically label your data in Azure Purview](create-sensitivity-label.md).
+For more information, see [Manage data sources in Azure Purview](manage-data-sources.md) and [Automatically label your data in Azure Purview](create-sensitivity-label.md).
 
 ## Use Purview Sensitivity labeling insights
 

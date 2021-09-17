@@ -1,5 +1,5 @@
 ---
-title: Apply classifications on assets (preview)
+title: Apply classifications on assets
 description: This document describes how to apply classifications on assets.
 author: SunetraVirdi
 ms.author: suvirdi
