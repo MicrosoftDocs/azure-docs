@@ -264,11 +264,11 @@ If your cluster is behind an outbound proxy server, Azure PowerShell and the Azu
 
 1. Set the environment variables needed for Azure PowerShell to use the outbound proxy server:
 
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
+    ```powershell
+    $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+    $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+    $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+    ```
 
 2. Run the connect command with the proxy parameter specified:
 
