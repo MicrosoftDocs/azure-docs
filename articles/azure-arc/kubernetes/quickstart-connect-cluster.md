@@ -44,7 +44,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 * A `kubeconfig` file and context pointing to your cluster.
 * 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 
-* [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
+* Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -76,7 +76,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 * A `kubeconfig` file and context pointing to your cluster.
 * 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 
-* [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
+* Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ---
 
