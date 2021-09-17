@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
-zone_pivot_groups: programming-languages-set-twenty-two
+zone_pivot_groups: programming-languages-set-compress-audio-one
 ---
 
 # Use codec compressed audio input
