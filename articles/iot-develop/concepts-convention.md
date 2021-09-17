@@ -191,7 +191,7 @@ If a writable property is defined as an object, the service must send a complete
 - Just the fields that the device updated.
 - A subset of the fields.
 
-For large objects, consider minimizing the size of the object you include in the acknowledgement.
+For large objects, consider minimizing the size of the object you include in the acknowledgment.
 
 The following example shows a writable property defined as an `Object` with four fields:
 
@@ -240,7 +240,7 @@ To update this writable property, send a complete object from the service that l
 }
 ```
 
-The device responds with an acknowledgement that looks like the following:
+The device responds with an acknowledgment that looks like the following:
 
 ```json
 {
