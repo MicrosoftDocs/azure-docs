@@ -128,7 +128,7 @@ Now you can add external Azure AD groups from the **Groups** tab of your API Man
 
    !["Add A A D group" button](./media/api-management-howto-aad/api-management-with-aad008.png)
 1. Select the **Tenant** from the drop-down. 
-1. Search for and seelect the group that you want to add.
+1. Search for and select the group that you want to add.
 1. Press the **Select** button.
 
 Once you add an external Azure AD group, you can review and configure its properties: 
@@ -140,7 +140,7 @@ Users from the configured Azure AD instance can now:
 * View and subscribe to any groups for which they have visibility.
 
 > [!NOTE]
-> Learn more about the difference between **Delegated** and **Application** permissions types in [Permissions and consent in the Microsoft identity platform](./active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
+> Learn more about the difference between **Delegated** and **Application** permissions types in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
 
 ## <a id="log_in_to_dev_portal"></a> Developer portal: Add Azure AD account authentication
 
@@ -175,6 +175,15 @@ To sign into the developer portal by using an Azure AD account that you configur
 Your user is now signed in to the developer portal for your API Management service instance.
 
 ![Developer portal after registration is complete][api-management-registration-complete]
+
+## Next Steps
+
+- Learn how to [Protect your web API backend in API Management by using OAuth 2.0 authorization with Azure AD](./api-management-howto-protect-backend-with-aad.md)
+- Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
+- Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
+- For other ways to secure your back-end service, see [Mutual Certificate authentication](./api-management-howto-mutual-certificates.md).
+- [Create an API Management service instance](./get-started-create-service-instance.md).
+- [Manage your first API](./import-and-publish.md).
 
 [api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
 [api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png
