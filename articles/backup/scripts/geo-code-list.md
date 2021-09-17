@@ -2,12 +2,12 @@
 title: Geo-code mapping
 description: Learn about geo-codes mapped with the respective regions.
 ms.topic: sample
-ms.date: 09/16/2021
+ms.date: 09/17/2021
 ---
 
 # Geo-code mapping
 
-This sample XML provides you an insight about the geo-codes mapped with the respective regions. These geo-codes are used to create and add custom DNS zones for private endpoint for Recovery Services vault.
+This sample XML provides you an insight about the geo-codes mapped with the respective regions. Use these geo-codes to create and add custom DNS zones for private endpoint for Recovery Services vault.
 
 ## Mapping details
 
