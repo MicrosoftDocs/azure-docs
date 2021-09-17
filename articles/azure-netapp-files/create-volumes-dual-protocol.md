@@ -213,7 +213,7 @@ You need to set the following attributes for LDAP users and LDAP groups:
     `gidNumber: 555`
 * All users and groups must have unique `uidNumber` and `gidNumber`, respectively. 
 
-Note that the values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
+The values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
 
 ![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
