@@ -64,19 +64,6 @@ Scope is the set of resources that the access applies to. For custom security at
 
 ![Diagram showing tenant scope and attribute set scope.](./media/custom-security-attributes-manage/scope-tenant-attribute-set.png)
 
-The following table can help you determine which roles to assign and the scope.
-
-| I want to grant this access | Assign this role | Scope |
-| --- | --- | --- |
-| Manage all custom security attributes and attribute sets | Attribute Definition Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| Manage custom security attributes in a particular attribute set<br/>(Can't add or update attribute sets) | Attribute Definition Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
-| Assign all custom security attributes to users and applications (service principals) | Attribute Assignment Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| Assign custom security attributes in a particular attribute set to users and applications (service principals) | Attribute Assignment Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
-| Read all custom security attributes | Attribute Definition Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| Read custom security attributes in a particular attribute set | Attribute Definition Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
-| Read all custom security attribute assignments for users and applications (service principals) | Attribute Assignment Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| Read custom security attribute assignments in a particular attribute set for users and applications (service principals) | Attribute Assignment Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
-
 ## Step 4: Determine your delegation strategy
 
 Two ways to manage custom security attributes is to manage them centrally or to delegate management to others.
@@ -139,6 +126,20 @@ Disadvantages of using delegation
 
 ## Step 5: Assign roles
 
+To grant access, assign one of the custom security attribute roles. The following table can help you determine which roles to assign and the scope.
+
+| I want to grant this access | Assign this role | Scope |
+| --- | --- | --- |
+| Manage all custom security attributes and attribute sets | Attribute Definition Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| Manage custom security attributes in a particular attribute set<br/>(Can't add or update attribute sets) | Attribute Definition Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+| Assign all custom security attributes to users and applications (service principals) | Attribute Assignment Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| Assign custom security attributes in a particular attribute set to users and applications (service principals) | Attribute Assignment Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+| Read all custom security attributes | Attribute Definition Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| Read custom security attributes in a particular attribute set | Attribute Definition Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+| Read all custom security attribute assignments for users and applications (service principals) | Attribute Assignment Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| Read custom security attribute assignments in a particular attribute set for users and applications (service principals) | Attribute Assignment Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+
+
 ### Assign roles at the attribute set scope
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
@@ -153,12 +154,7 @@ Disadvantages of using delegation
 
     ![Screenshot of assigning attribute roles at attribute set scope.](./media/custom-security-attributes-manage/manage-attribute-set.png)
 
-1. Add assignments to one of the following roles:
-
-    - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
-    - [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader)
-    - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
-    - [Attribute Definition Reader](../roles/permissions-reference.md#attribute-definition-reader)
+1. Add assignments for the custom security attribute roles.
 
     > [!NOTE]
     > If you are using Azure AD Privileged Identity Management (PIM), eligible role assignments at attribute set scope currently aren't supported. Permanent role assignments at attribute set scope are supported, but the **Assigned roles** page for a user doesn't list the role assignments.
@@ -176,12 +172,7 @@ Disadvantages of using delegation
 
     ![Screenshot of assigning attribute roles at tenant scope.](./media/custom-security-attributes-manage/manage-tenant.png)
 
-1. Add assignments to one of the following roles:
-
-    - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
-    - [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader)
-    - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
-    - [Attribute Definition Reader](../roles/permissions-reference.md#attribute-definition-reader)
+1. Add assignments for the custom security attribute roles.
 
 ## Next steps
 
