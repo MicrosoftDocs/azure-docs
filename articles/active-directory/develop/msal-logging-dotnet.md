@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 ## Configure logging in MSAL.NET
 
-In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
+In MSAL 4.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
 - `Level` enables you to decide which level of logging you want. Setting it to Errors will only get errors
 - `PiiLoggingEnabled` enables you to log personal and organizational data if set to true. By default this is set to false, so that your application does not log personal data.
