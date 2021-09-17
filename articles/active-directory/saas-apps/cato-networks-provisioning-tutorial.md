@@ -45,28 +45,23 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure Cato Networks to support provisioning with Azure AD
 
 1. Log in to your account in the [Cato Management Application](https://cc2.catonetworks.com).
-2. From the navigation menu, select **Configuration > Global Settings**, and then expand the **VPN Settings** section.
+1. From the navigation menu, select **Configuration > Global Settings**, and then expand the **VPN Settings** section.
         ![VPN Settings section](media/cato-networks-provisioning-tutorial/vpn-settings.png)
-3. Expand the **SCIM Provisioning** section and enable SCIM provisioning:
-   1. Click **Enable SCIM Provisioning**.
+1. Expand the **SCIM Provisioning** section and enable SCIM provisioning by clicking on **Enable SCIM Provisioning**.
          ![Enable SCIM Provisioning](media/cato-networks-provisioning-tutorial/scim-settings.png)
-4. Copy the Base URL and Bearer Token from the Cato Management Application to the SCIM app in the Azure Portal:
+1. Copy the Base URL and Bearer Token from the Cato Management Application to the SCIM app in the Azure portal:
    1. In the Cato Management Application (from the **SCIM Provisioning** section), copy the Base URL.
-   2. In the Cato Networks SCIM app in the Azure Portal, in the **Provisioning** tab, paste the base URL in the **Tenant URL** field.
+   1. In the Cato Networks SCIM app in the Azure portal, in the **Provisioning** tab, paste the base URL in the **Tenant URL** field.
         ![Copy tenant URL](media/cato-networks-provisioning-tutorial/tenant-url.png)
-   3. In the Cato Management Application (from the **SCIM Provisioning** section), click **Generate Token** and copy the bearer token.
-   4. In the Cato Networks SCIM app in the Azure Portal, paste the bearer token in the **Secret Token** field.
+   1. In the Cato Management Application (from the **SCIM Provisioning** section), click **Generate Token** and copy the bearer token.
+   1. In the Cato Networks SCIM app in the Azure portal, paste the bearer token in the **Secret Token** field.
         ![Copy secret token](media/cato-networks-provisioning-tutorial/secret-token.png)
-5. In the Cato Management Application (from the **SCIM Provisioning** section), click **Save**. SCIM Provisioning between your Cato account and Azure AD is configured. 
+1. In the Cato Management Application (from the **SCIM Provisioning** section), click **Save**. SCIM Provisioning between your Cato account and Azure AD is configured. 
         ![Save SCIM Configuration](media/cato-networks-provisioning-tutorial/save-CC.png)
-6. Test the connection between the Azure SCIM app and the Cato Cloud. In the Cato Networks SCIM apps in the Azure Portal, in the **Provisioning** tab, click **Test Connection**.         
+1. Test the connection between the Azure SCIM app and the Cato Cloud. In the Cato Networks SCIM apps in the Azure portal, in the **Provisioning** tab, click **Test Connection**.         
                                   
 
 ## Step 3. Add Cato Networks from the Azure AD application gallery
-
-
-
-
 
 Add Cato Networks from the Azure AD application gallery to start managing provisioning to Cato Networks. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
