@@ -164,6 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     >You can locate the appRoles property by entering `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` in the field of the query. Note that the `objectID` is the object ID you have copied from the Azure AD **Properties** page.
 
     f. Go back to the Graph Explorer, change the method from **GET** to **PATCH**, paste the following content into the **Request Body** section, and click **Run Query**:
+    
     ```
     { 
     "appRoles": [
@@ -224,7 +225,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
         }
     ]
     }
+    
     ```
+   
         > [!NOTE]
         > Azure AD will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
 
