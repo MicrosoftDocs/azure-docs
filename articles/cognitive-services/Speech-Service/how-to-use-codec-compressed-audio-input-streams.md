@@ -21,7 +21,7 @@ The Speech SDK and Speech CLI can accept compressed audio formats using GStreame
 Platform | Languages | Supported GStreamer version
 | :--- | ---: | :---:
 Windows (excluding UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi) | [Windows installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c)
-Linux  | C++, C#, Java, Python | [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md) | [Linux installation instructions] (https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c)
+Linux  | C++, C#, Java, Python, Go | [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md) | [Linux installation instructions] (https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c)
 Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/) | [Android installation instructions] (https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)
 
 ## Installing Gstreamer on Linux
