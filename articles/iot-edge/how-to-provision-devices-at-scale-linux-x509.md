@@ -1,42 +1,41 @@
 ---
-title: Automatically provision devices with DPS using X.509 certificates - Azure IoT Edge | Microsoft Docs 
-description: Use X.509 certificates to test automatic device provisioning for Azure IoT Edge with Device Provisioning Service
-author: kgremban
-
-ms.author: kgremban
-ms.date: 06/18/2021
+title: Create and provision IoT Edge devices at scale using X.509 certificates on Linux - Azure IoT Edge | Microsoft Docs 
+description: Use X.509 certificates to test provisioning devices at scale for Azure IoT Edge with Device Provisioning Service
+author: v-tcassi
+ms.author: v-tcassi
+ms.date: 08/12/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
 ---
 
-# Create and provision an IoT Edge device using X.509 certificates
+# Create and provision IoT Edge devices at scale on Linux using X.509 certificates
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
-With the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml), you can automatically provision IoT Edge devices using X.509 certificates. If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
+This article provides end-to-end instructions for auto-provisioning one or more Linux IoT Edge devices using X.509 certificates. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of auto-provisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
-This article shows you how to create a Device Provisioning Service enrollment using X.509 certificates on an IoT Edge device with the following steps:
+The tasks are as follows:
 
-* Generate certificates and keys.
-* Create either an individual enrollment for a device, or a group enrollment for a set of devices.
-* Install the IoT Edge runtime and register the device with IoT Hub.
+1. Generate certificates and keys.
+1. Create either an **individual enrollment** for a single device or a **group enrollment** for a set of devices.
+1. Install the IoT Edge runtime and register the device with IoT Hub.
 
 Using X.509 certificates as an attestation mechanism is an excellent way to scale production and simplify device provisioning. Typically, X.509 certificates are arranged in a certificate chain of trust. Starting with a self-signed or trusted root certificate, each certificate in the chain signs the next lower certificate. This pattern creates a delegated chain of trust from the root certificate down through each intermediate certificate to the final "leaf" certificate installed on a device.
 
 ## Prerequisites
 
 * An active IoT Hub.
-* A physical or virtual device to be the IoT Edge device.
+* A physical or virtual Linux device to be the IoT Edge device.
 * The latest version of [Git](https://git-scm.com/download/) installed.
 * An instance of the IoT Hub Device Provisioning Service in Azure, linked to your IoT hub.
-  * If you don't have a Device Provisioning Service instance, follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
+  * If you don't have a Device Provisioning Service instance, you can follow the instructions in the [Create a new IoT Hub Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) and [Link the IoT hub and your Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) sections of the IoT Hub Device Provisioning Service quickstart.
   * After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime.
 
 ## Generate device identity certificates
 
-The device identity certificate is a leaf certificate that connects through a certificate chain of trust to the top X.509 certificate authority (CA) certificate. The device identity certificate must have it common name (CN) set to the device ID that you want the device to have in your IoT hub.
+The device identity certificate is a leaf certificate that connects through a certificate chain of trust to the top X.509 certificate authority (CA) certificate. The device identity certificate must have its common name (CN) set to the device ID that you want the device to have in your IoT hub.
 
 Device identity certificates are only used for provisioning the IoT Edge device and authenticating the device with Azure IoT Hub. They aren't signing certificates, unlike the CA certificates that the IoT Edge device presents to modules or leaf devices for verification. For more information, see [Azure IoT Edge certificate usage detail](iot-edge-certs.md).
 
@@ -50,10 +49,12 @@ You need the following files to set up automatic provisioning with X.509:
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+
 > [!NOTE]
 > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
 :::moniker-end
+<!-- end 1.1 -->
 
 ### Use test certificates (optional)
 
@@ -61,30 +62,29 @@ If you don't have a certificate authority available to create new identity certs
 
 To create test certificates, follow the steps in [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md). Complete the two required sections to set up the certificate generation scripts and to create a root CA certificate. Then, follow the steps to create a device identity certificate. When you're finished, you should have the following certificate chain and key pair:
 
-Linux:
-
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
-Windows:
+You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you will upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. If you're using demo certs, use the `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
 
-* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
-* `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
+## Create a DPS enrollment
 
-You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you will upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. If you're using demo certs, use the `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
+Use your generated certificates and keys to create an enrollment in DPS for one or more IoT Edge devices.
 
-## Create a DPS individual enrollment
-
-Use your generated certificates and keys to create an individual enrollment in DPS for a single IoT Edge device. Individual enrollments take the public portion of a device's identity certificate and match that to the certificate on the device.
-
-If you're looking to provision multiple IoT Edge devices, follow the steps in the next section, [Create a DPS group enrollment](#create-a-dps-group-enrollment).
+If you are looking to provision a single IoT Edge device, create an **individual enrollment**. If you need multiple devices provisioned, follow the steps for creating a DPS **group enrollment**.
 
 When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-at-scale.md).
 
 For more information about enrollments in the Device Provisioning Service, see [How to manage device enrollments](../iot-dps/how-to-manage-enrollments.md).
 
-   > [!TIP]
-   > In the Azure CLI, you can create an [enrollment](/cli/azure/iot/dps/enrollment) or an [enrollment group](/cli/azure/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
+# [Individual enrollment](#tab/individual-enrollment)
+
+### Create a DPS individual enrollment
+
+Individual enrollments take the public portion of a device's identity certificate and match that to the certificate on the device.
+
+> [!TIP]
+> The steps in this article are for the Azure portal, but you can also create individual enrollments using the Azure CLI. For more information, see [az iot dps enrollment](/cli/azure/iot/dps/enrollment). As part of the CLI command, use the **edge-enabled** flag to specify that the enrollment is for an IoT Edge device.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 
@@ -119,17 +119,15 @@ For more information about enrollments in the Device Provisioning Service, see [
 
 1. Select **Save**.
 
-Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation. Continue to the [Install the IoT Edge runtime](#install-the-iot-edge-runtime) section to set up your IoT Edge device.
+Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation.
 
-## Create a DPS group enrollment
+# [Group enrollment](#tab/group-enrollment)
 
-Use your generated certificates and keys to create a group enrollment in DPS for multiple IoT Edge devices. Group enrollments use an intermediate or root CA certificate from the certificate chain of trust used to generate the individual device identity certificates.
+### Create a DPS group enrollment
 
-If you're looking to provision a single IoT Edge device instead, follow the steps in the previous section, [Create a DPS individual enrollment](#create-a-dps-individual-enrollment).
+Group enrollments use an intermediate or root CA certificate from the certificate chain of trust to verify the individual device identity certificates.
 
-When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-at-scale.md).
-
-### Verify your root certificate
+#### Verify your root certificate
 
 When you create an enrollment group, you have the option of using a verified certificate. You can verify a certificate with DPS by proving that you have ownership of the root certificate. For more information, see [How to do proof-of-possession for X.509 CA certificates](../iot-dps/how-to-verify-certificates.md).
 
@@ -151,25 +149,20 @@ When you create an enrollment group, you have the option of using a verified cer
 
 1. Whether you brought your own CA certificate or are using the demo certificates, you can use the verification tool provided in the IoT Edge repository to verify proof of possession. The verification tool uses your CA certificate to sign a new certificate that has the provided verification code as the subject name.
 
-   * Windows:
-
-     ```powershell
-     New-CACertsVerificationCert "<verification code>"
-     ```
-
-   * Linux:
-
-     ```bash
-     ./certGen.sh create_verification_certificate <verification code>
-     ```
+   ```bash
+   ./certGen.sh create_verification_certificate <verification code>
+   ```
 
 1. In the same certificate details page in the Azure portal, upload the newly generated verification certificate.
 
 1. Select **Verify**.
 
-### Create enrollment group
+#### Create enrollment group
 
 For more information about enrollments in the Device Provisioning Service, see [How to manage device enrollments](../iot-dps/how-to-manage-enrollments.md).
+
+> [!TIP]
+> The steps in this article are for the Azure portal, but you can also create group enrollments using the Azure CLI. For more information, see [az iot dps enrollment-group](/cli/azure/iot/dps/enrollment-group). As part of the CLI command, use the **edge-enabled** flag to specify that the enrollment is for IoT Edge devices. For a group enrollment, all devices must be IoT Edge devices or none of them can be.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 
@@ -183,9 +176,9 @@ For more information about enrollments in the Device Provisioning Service, see [
 
    * **IoT Edge device**: Select **True**. For a group enrollment, all devices must be IoT Edge devices or none of them can be.
 
-   * **Certificate Type**: Select **CA Certificate** if you have a verified CA certificate stored with DPS, or **Intermediate Certificate** if you want to upload a new file for just this enrollment.
+   * **Certificate Type**: Select **CA Certificate**.
 
-   * **Primary certificate**: If you chose CA certificate in the last section, choose your certificate from the dropdown list. If you chose intermediate certificate, upload the public file from a CA certificate in the certificate chain of trust that was used to generate the device identity certificates.
+   * **Primary certificate**: Choose your certificate from the dropdown list.
 
    * **Select the IoT hubs this device can be assigned to**: Choose the linked IoT hub that you want to connect your device to. You can choose multiple hubs, and the device will be assigned to one of them according to the selected allocation policy.
 
@@ -204,23 +197,100 @@ For more information about enrollments in the Device Provisioning Service, see [
 
 1. Select **Save**.
 
-Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation. Continue to the next section to set up your IoT Edge device.
+Now that an enrollment exists for these devices, the IoT Edge runtime can automatically provision the devices during installation.
+
+---
 
 ## Install the IoT Edge runtime
 
-The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge.
+In this section, you prepare your Linux virtual machine or physical device for IoT Edge. Then, you will install IoT Edge.
+
+There are two steps you need to complete on your device before it is ready to install the IoT Edge runtime. Your device needs access to the Microsoft installation packages, and it needs a container engine installed.
+
+### Access the Microsoft installation packages
+
+Your device must have access to the Microsoft installation packages.
+
+1. Install the repository configuration that matches your device's operating system.
+
+   * **Ubuntu Sever 18.04**:
+
+      ```bash
+      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+      ```
+
+   * **Raspberry Pi OS Stretch**:
+
+      ```bash
+      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+      ```
+
+1. Copy the generated list to the sources.list.d directory.
+
+   ```bash
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+1. Install the Microsoft GPG public key.
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trust.gpg.d/
+   ```
+
+> [!NOTE]
+> Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
+
+### Install a container engine
+
+Azure IoT Edge relies on an OCI-compatible container runtime. For production scenarios, we recommend that you use the Moby engine. The Moby engine is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
+
+1. Update package lists on your device.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+1. Install the Moby engine.
+
+   ```bash
+   sudo apt-get install moby-engine
+   ```
+
+   > [!TIP]
+   > If you get errors when installing the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration.
+   >
+   >   ```bash
+   >   curl -ssl https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+   >   chmod +x check-config.sh
+   >   ./check-config.sh
+   >   ```
+   >
+   > In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you are missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you are using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. Once you have deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
+
+### Install IoT Edge
 
 <!-- 1.1 -->
-:::moniker range="=iotedge-2018-06"
+:::moniker range="iotedge-2018-06"
 
-Follow the appropriate steps to install Azure IoT Edge based on your operating system:
+The IoT Edge security daemon provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
-* [Install IoT Edge for Linux](how-to-install-iot-edge.md)
-* [Install IoT Edge for Linux on Windows devices](how-to-install-iot-edge-on-windows.md)
-  * This scenario is the recommended way to run IoT Edge on Windows devices.
-* [Install IoT Edge with Windows containers](how-to-install-iot-edge-windows-on-windows.md)
+The steps in this section represent the typical process to install the latest version on a device that has internet connectivity. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the Offline or specific version installation steps. <!-- Should offline and specific version be included in every article or linked out to in a separate spot? -->
 
-Once IoT Edge is installed on your device, return to this article to provision the device.
+1. Update package lists on your device.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+1. Install IoT Edge version 1.1* along with the **libiothsm-std** package.
+
+   ```bash
+   sudo apt-get install iotedge
+   ```
+
+   > [!NOTE]
+   > *IoT Edge version 1.1 is the long-term support branch of IoT Edge. If you running an older version, we recommend installing or updating to the latest patch as older versions are no longer supported.
 
 :::moniker-end
 <!-- end 1.1 -->
@@ -228,12 +298,34 @@ Once IoT Edge is installed on your device, return to this article to provision t
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-Follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this article to provision the device.
+The IoT Edge service provides and maintains security standards on the IoT Edge device. The service starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
+
+The IoT identity service was introduced along with version 1.2 of IoT Edge. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub.
+
+The steps in this section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the Offline or specific version installation steps. <!-- Should offline and specific version be included in every article or linked out to in a separate spot? -->
+
+Update package lists on your device.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+Check to see which versions of IoT Edge and the IoT identity service are available.
+
+   ```bash
+   apt list -a aziot-edge aziot-identity-service
+   ```
+
+To install the latest version of IoT Edge and the IoT identity service package, use the following command:
+
+   ```bash
+   sudo apt-get install aziot-edge
+   ```
+
+Or, if you choose to install a different version of IoT Edge than the latest, be sure to install the same version for both the `aziot-edge` and the `aziot-identity-service` services.
 
 :::moniker-end
 <!-- end 1.2 -->
-
-X.509 provisioning with DPS is only supported in IoT Edge version 1.0.9 or newer.
 
 ## Configure the device with provisioning information
 
@@ -244,8 +336,6 @@ Have the following information ready:
 * The DPS **ID Scope** value. You can retrieve this value from the overview page of your DPS instance in the Azure portal.
 * The device identity certificate chain file on the device.
 * The device identity key file on the device.
-
-# [Linux](#tab/linux)
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -353,99 +443,21 @@ Have the following information ready:
 :::moniker-end
 <!-- end 1.2 -->
 
-# [Linux on Windows](#tab/eflow)
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-You can use either PowerShell or Windows Admin Center to provision your IoT Edge device.
-
-### PowerShell
-
-For PowerShell, run the following command with the placeholder values updated with your own values:
-
-```powershell
-Provision-EflowVm -provisioningType DPSX509 -​scopeId <ID_SCOPE_HERE> -identityCertPath <ABSOLUTE_CERT_DEST_PATH_ON_WINDOWS_HOST> -identityPrivKeyPath <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_WINDOWS_HOST>
-```
-
-### Windows Admin Center
-
-For Windows Admin Center, use the following steps:
-
-1. On the **Azure IoT Edge device provisioning** pane, select **X.509 Certificate (DPS)** from the provisioning method dropdown.
-
-1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
-
-1. On the **Overview** tab, copy the **ID Scope** value. Paste it into the scope ID field in the Windows Admin Center.
-
-1. Provide the registration ID of your device in the registration ID field in the Windows Admin Center.
-
-1. Upload your certificate and private key files.
-
-1. Choose **Provisioning with the selected method**.
-
-   ![Choose provisioning with the selected method after filling in the required fields for X.509 certificate provisioning](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-x509-certs.png)
-
-1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
-
-:::moniker-end
-<!-- end 1.1. -->
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
->[!NOTE]
->Currently, there is not support for IoT Edge version 1.2 running on IoT Edge for Linux for Windows.
-
-:::moniker-end
-<!-- end 1.2 -->
-
-# [Windows](#tab/windows)
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-1. Open a PowerShell window in administrator mode. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
-
-1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers, so use the `-DpsX509` flag to use automatic provisioning with X.509 certificate authentication.
-
-   Replace the placeholder values for `{scope_id}`, `{identity cert chain path}`, and `{identity key path}` with the appropriate values from your DPS instance and the file paths on your device.
-
-   Add the `-RegistrationId {registration_id}` if you want to set the device ID as something other than the CN name of the identity certificate.
-
-   Add the `-ContainerOs Linux` parameter if you're using Linux containers on Windows.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -DpsX509 -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
-   ```
-
-   >[!TIP]
-   >The config file stores your certificate and key information as file URIs. However, the Initialize-IoTEdge command handles this formatting step for you, so you can provide the absolute path to the certificate and key files on your device.
-
-:::moniker-end
-<!-- end 1.1. -->
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
->[!NOTE]
->Currently, there is not support for IoT Edge version 1.2 running on Windows.
-
-:::moniker-end
-<!-- end 1.2 -->
-
----
-
 ## Verify successful installation
 
 If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device.
 
+# [Individual enrollment](#tab/individual-enrollment)
+
 You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
 
-Use the following commands on your device to verify that the IoT Edge installed and started successfully.
+# [Group enrollment](#tab/group-enrollment)
 
-# [Linux](#tab/linux)
+You can verify that the group enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the group enrollment that you created. Go to the **Registration Records** tab to view all devices registered in that group.
+
+---
+
+Use the following commands on your device to verify that the IoT Edge installed and started successfully.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -492,82 +504,6 @@ sudo iotedge list
 ```
 
 :::moniker-end
-
-# [Linux on Windows](#tab/eflow)
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-Connect to the IoT Edge for Linux on Windows virtual machine.
-
-```powershell
-Connect-EflowVM
-```
-
-Check the status of the IoT Edge service.
-
-```cmd/sh
-sudo systemctl status iotedge
-```
-
-Examine service logs.
-
-```cmd/sh
-sudo journalctl -u iotedge --no-pager --no-full
-```
-
-List running modules.
-
-```cmd/sh
-sudo iotedge list
-```
-
-:::moniker-end
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
->[!NOTE]
->Currently, there is not support for IoT Edge version 1.2 running on IoT Edge for Linux for Windows.
-
-:::moniker-end
-<!-- end 1.2 -->
-
-# [Windows](#tab/windows)
-
-<!-- 1.1 -->
-:::moniker range="=iotedge-2018-06"
-
-Check the status of the IoT Edge service.
-
-```powershell
-Get-Service iotedge
-```
-
-Examine service logs.
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-```
-
-List running modules.
-
-```powershell
-iotedge list
-```
-
-:::moniker-end
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
->[!NOTE]
->Currently, there is not support for IoT Edge version 1.2 running on Windows.
-
-:::moniker-end
-<!-- end 1.2 -->
-
----
 
 ## Next steps
 
