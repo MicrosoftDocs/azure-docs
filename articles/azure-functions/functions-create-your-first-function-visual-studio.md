@@ -13,6 +13,8 @@ zone_pivot_groups: runtime-version-programming-functions
 ---
 # Quickstart: Create your first C# function in Azure using Visual Studio
 
+[!INCLUDE [functions-runtime-version-dotnet](../../includes/functions-runtime-version-dotnet.md)]
+
 Azure Functions lets you run your C# code in a serverless environment in Azure. 
 
 In this article, you learn how to:
