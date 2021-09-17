@@ -12,12 +12,9 @@ Each node type in a Service Fabric managed cluster is backed by a virtual machin
 The rest of this document will cover how to adjust various settings from node type instance count, OS Image, and configuring placement properties.
 
 
-> [!NOTE]
-> This property can not be modified after a node type is deployed.
-
 ## Scale a Service Fabric managed cluster node type with portal
 
-In this walkthrough you will adjust the instance count for a node type using portal. 
+In this walkthrough you will adjust the instance count for a node type using portal.
 
 1)
 
@@ -28,7 +25,7 @@ In this walkthrough you will adjust the instance count for a node type using por
 
 ## Scale a Service Fabric managed cluster node type with a template
 
-To adjust the instance count for a given node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.  
+To adjust the instance count for a given node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.
 
 > [!NOTE]
 > The managed cluster provider will block instance count adjustments that go below the required minimums for a given deployment type.
@@ -55,7 +52,7 @@ To adjust the instance count for a given node type using an ARM Template, adjust
 
 ## Modify the OS image for a node type with a template
 
-To modify the OS image used for a node type using an ARM Template, adjust the `vmImageSku` property with the new value and do a cluster deployment for the setting to take affect.  
+To modify the OS image used for a node type using an ARM Template, adjust the `vmImageSku` property with the new value and do a cluster deployment for the setting to take affect.
 
 > [!NOTE]
 > The managed cluster provider will re-image each instance by upgrade domain.
@@ -116,4 +113,5 @@ To adjust the placement properties for a node type using an ARM Template, adjust
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
 > [Deploy an app to a Service Fabric managed cluster](./tutorial-managed-cluster-deploy-app.md)

@@ -218,10 +218,12 @@ Some things to consider:
 Once you've been through these steps, if you're still having autoscale problems, you can try the following resources:
 [Log a support call](./service-fabric-support.md#create-an-azure-support-request). Be prepared to share the template and a view of your performance data.
 
+
 ## Next steps
-[Read about Azure Monitor auto scale support](../azure-monitor/autoscale/autoscale-overview.md)
-[Review Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
-[Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
+> [!div class="nextstepaction"]
+> [Read about Azure Monitor auto scale support](../azure-monitor/autoscale/autoscale-overview.md)
+> [Review Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
+> [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
 
 [autoscale-are-tree]: ./media/how-to-managed-cluster-autoscale/autoscale-are-tree.png
 [autoscale-nt-details]: ./media/how-to-managed-cluster-autoscale/autoscale-nt-details.png
