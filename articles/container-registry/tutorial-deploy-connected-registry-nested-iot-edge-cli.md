@@ -57,7 +57,7 @@ To deploy the connected registry module on each IoT Edge device using the Azure 
 
 ### Deployment manifest for the top layer
 
-For the device at the top layer, create a deployment manifest file `deploymentTopLayer.json` with the following content. This manifest is similar to the one used in [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-eploy-connected-registry-iot-edge-cli.md)
+For the device at the top layer, create a deployment manifest file `deploymentTopLayer.json` with the following content. This manifest is similar to the one used in [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md)
 .
 [!INCLUDE [container-registry-connected-iot-edge-manifest](../../includes/container-registry-connected-iot-edge-manifest.md)]
 
@@ -69,7 +69,7 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
 
 - It pulls the required images from the top layer connected registry instead of from the cloud registry. 
     
-    When you set up the top layer connected registry, make sure it will sync all the reqiured images locally (`azureiotedge-agent`, `azureiotedge-hub`, `connected-registry`). The lower layer IoT device needs to pull these images from the top layer connected registry.
+    When you set up the top layer connected registry, make sure it will sync all the required images locally (`azureiotedge-agent`, `azureiotedge-hub`, `connected-registry`). The lower layer IoT device needs to pull these images from the top layer connected registry.
 - It uses the sync token configured at the lower layer to authenticate with the top layer connected registry
 - It configures the parent gateway endpoint with the top layer connected registry IP address or FQDN instead of with the cloud registry's FQDN. 
 

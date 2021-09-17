@@ -46,7 +46,7 @@ az acr connected-registry create --registry $REGISTRY_NAME \
 ```
 
 This command creates a connected registry resource named *$CONNECTED_REGISTRY_RW* and links it to the *$REGISTRY_NAME* cloud registry. In later quickstart guides, you learn about options to deploy the connected registry. 
-* The specified repositories will be synchronized between the cloud regsitry and the connected registry once it is deployed. 
+* The specified repositories will be synchronized between the cloud registry and the connected registry once it is deployed. 
 * Because no `--mode` option is specified for the connected registry, it is created in the default ReadWrite mode. 
 * Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 

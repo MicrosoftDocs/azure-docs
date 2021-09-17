@@ -41,27 +41,7 @@ az acr connected-registry install renew-credentials \
 
 This command returns the connection string for the connected registry, including a newly generated password for the [sync token](overview-connected-registry-access.md#sync-token). 
 
-The following example output shows the connection string for the *myconnectedregistry* connected registry with parent registry *contosoregistry*:
-
-```json
-{
-  "ACR_REGISTRY_CONNECTION_STRING": "ConnectedRegistryName=myconnectedregistry;SyncTokenName=myconnectedregistry-sync-token;SyncTokenPassword=xxxxxxxxxxxxxxxx;ParentGatewayEndpoint=contosoregistry.eastus.data.azurecr.io;ParentEndpointProtocol=https",
-  "ACR_REGISTRY_LOGIN_SERVER": "<Optional: connected registry login server>."
-}
-```
-
-The `ACR_REGISTRY_CONNECTION_STRING` environment variable needs to be passed to the connected registry container at runtime. 
-
-The following environment variables are optional:
-
-|Variable  |Description  |
-|---------|---------|
-|`ACR_REGISTRY_LOGIN_SERVER`     |  Optionally specifies the hostname or FQDN of the login server used to access the connected registry. If specified, it is the only login server that can be used to access the connected registry.<br/><br/> If no value is provided, then the connected registry can be accessed with any login server.       |
-|`ACR_REGISTRY_CERTIFICATE_VOLUME`     |   If your connected registry will be accessible via HTTPS, points to the volume where the HTTPS certificates are stored. If not set, the default location is `/var/acr/certs`.      |
-|`ACR_REGISTRY_DATA_VOLUME`     |  Oerwrite sthe default location `/var/acr/data` where the images will be stored by the connected registry. This location must match the volume bind for the container.       |
-
-> [!IMPORTANT]
-> Make sure that you save the generated connection string. The connection string contains a one-time password that cannot be retrieved. If you issue the command again, a new password will be generated.
+[!INCLUDE [container-registry-connected-connection-configuration](../../includes/container-registry-connected-connection-configuration.md)]
 
 ## Configure a deployment manifest for IoT Edge
 
@@ -69,7 +49,7 @@ A deployment manifest is a JSON document that describes which modules to deploy 
 
 To deploy the connected registry and API proxy modules using the Azure CLI, save the following deployment manifest locally as a `manifest.json` file. You will use the file path in the next section when you run the command to apply the configuration to your device.
 * Use the information from the previous sections to update the relevant JSON values for the modules. 
-* Envionment variables for the connected registry   module are defined in the `env` node. Add optional varibles in this node.
+* Environment variables for the connected registry module are defined in the `env` node. Add optional variables in this node.
 * The API proxy will listen on port 8000 configured as `NGINX_DEFAULT_PORT`. For more information about the API proxy settings, see the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/master/edge-modules/api-proxy-module). 
 
 [!INCLUDE [container-registry-connected-iot-edge-manifest](../../includes/container-registry-connected-iot-edge-manifest.md)]
