@@ -1,9 +1,9 @@
 ---
 title: Quickstart - Manage container registry content with client libraries
-description: Use this quickstart to manage repositories, images, and artifacts using the Azure Container Registry client library
+description: Use this quickstart to manage repositories, images, and artifacts using the Azure Container Registry client libraries
 author: dlepow
 ms.topic: quickstart
-ms.date: 09/15/2021
+ms.date: 09/17/2021
 ms.author: danlep
 ms.custom:
 zone_pivot_groups: programming-languages-set-ten       
@@ -81,7 +81,7 @@ ContainerRegistryClient client = new ContainerRegistryClient(endpoint, new Defau
     });
 ```
 
-See the [Azure Identity README][dotnet_identity] for more approaches to authenticating with `DefaultAzureCredential`, both locally and in deployment environments.  To connect to registries in non-public Azure clouds, see the [API reference][dotnet_docs].
+See the [Azure Identity README][dotnet_identity] for more approaches to authenticating with `DefaultAzureCredential`, both locally and in deployment environments. To connect to registries in non-public Azure clouds, see the [API reference][dotnet_docs].
 
 For more information on using Azure AD with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
 
@@ -89,13 +89,13 @@ For more information on using Azure AD with Azure Container Registry, see the [a
 
 Each sample assumes there is a `REGISTRY_ENDPOINT` environment variable set to a string containing the `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
 
-The following samples use synchronous APIs. Asynchronous APIs are identical to their synchronous counterparts, but methods end with the standard .NET `Async` suffix and return a Task.
+The following samples use asynchronous APIs that return a task. Synchronous APIs are also available.
 
-### List repositories
+### List repositories asynchronously
 
 Iterate through the collection of repositories in the registry.
 
-```C# Snippet:ContainerRegistry_Tests_Samples_CreateClient
+```C# Snippet:ContainerRegistry_Tests_Samples_CreateClientAsync
 // Get the service endpoint from the environment
 Uri endpoint = new Uri(Environment.GetEnvironmentVariable("REGISTRY_ENDPOINT"));
 
@@ -107,38 +107,38 @@ ContainerRegistryClient client = new ContainerRegistryClient(endpoint, new Defau
     });
 
 // Get the collection of repository names from the registry
-Pageable<string> repositories = client.GetRepositoryNames();
-foreach (string repository in repositories)
+AsyncPageable<string> repositories = client.GetRepositoryNamesAsync();
+await foreach (string repository in repositories)
 {
     Console.WriteLine(repository);
 }
 ```
 
-### Set artifact properties
+### Set artifact properties asynchronously
 
-```C# Snippet:ContainerRegistry_Tests_Samples_SetArtifactProperties
+```C# Snippet:ContainerRegistry_Tests_Samples_CreateClientAsync
 // Get the service endpoint from the environment
 Uri endpoint = new Uri(Environment.GetEnvironmentVariable("REGISTRY_ENDPOINT"));
 
-// Create a new ContainerRegistryClient and RegistryArtifact to access image operations
+// Create a new ContainerRegistryClient
 ContainerRegistryClient client = new ContainerRegistryClient(endpoint, new DefaultAzureCredential(),
     new ContainerRegistryClientOptions()
     {
         Audience = ContainerRegistryAudience.AzureResourceManagerPublicCloud
     });
-RegistryArtifact image = client.GetArtifact("library/hello-world", "latest");
 
-// Set permissions on the v1 image's "latest" tag
-image.UpdateTagProperties("latest", new ArtifactTagProperties()
+// Get the collection of repository names from the registry
+AsyncPageable<string> repositories = client.GetRepositoryNamesAsync();
+await foreach (string repository in repositories)
 {
-    CanWrite = false,
-    CanDelete = false
-});
+    Console.WriteLine(repository);
+}
 ```
 
-### Delete images
+### Delete images asynchronously
 
-```C# Snippet:ContainerRegistry_Tests_Samples_DeleteImage
+```C# Snippet:ContainerRegistry_Tests_Samples_DeleteImageAsync
+using System.Linq;
 using Azure.Containers.ContainerRegistry;
 using Azure.Identity;
 
@@ -153,17 +153,17 @@ ContainerRegistryClient client = new ContainerRegistryClient(endpoint, new Defau
     });
 
 // Iterate through repositories
-Pageable<string> repositoryNames = client.GetRepositoryNames();
-foreach (string repositoryName in repositoryNames)
+AsyncPageable<string> repositoryNames = client.GetRepositoryNamesAsync();
+await foreach (string repositoryName in repositoryNames)
 {
     ContainerRepository repository = client.GetRepository(repositoryName);
 
     // Obtain the images ordered from newest to oldest
-    Pageable<ArtifactManifestProperties> imageManifests =
-        repository.GetManifestPropertiesCollection(orderBy: ArtifactManifestOrderBy.LastUpdatedOnDescending);
+    AsyncPageable<ArtifactManifestProperties> imageManifests =
+        repository.GetManifestPropertiesCollectionAsync(orderBy: ArtifactManifestOrderBy.LastUpdatedOnDescending);
 
     // Delete images older than the first three.
-    foreach (ArtifactManifestProperties imageManifest in imageManifests.Skip(3))
+    await foreach (ArtifactManifestProperties imageManifest in imageManifests.Skip(3))
     {
         RegistryArtifact image = repository.GetArtifact(imageManifest.Digest);
         Console.WriteLine($"Deleting image with digest {imageManifest.Digest}.");
@@ -171,9 +171,9 @@ foreach (string repositoryName in repositoryNames)
         foreach (var tagName in imageManifest.Tags)
         {
             Console.WriteLine($"        {imageManifest.RepositoryName}:{tagName}");
-            image.DeleteTag(tagName);
+            await image.DeleteTagAsync(tagName);
         }
-        image.Delete();
+        await image.DeleteAsync();
     }
 }
 ```
@@ -313,7 +313,6 @@ for (String repositoryName : client.listRepositoryNames()) {
 ### Currently supported environments
 
 - [LTS versions of Node.js](https://nodejs.org/about/releases/)
-- Latest versions of Safari, Chrome, Edge, and Firefox.
 
 See our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
 
@@ -324,12 +323,6 @@ Install the Container Registry client library for JavaScript with `npm`:
 ```bash
 npm install @azure/container-registry
 ```
-
-### Browser support
-
-#### JavaScript bundle
-
-To use this client library in the browser, first you need to use a bundler. For details, refer to our [bundling documentation](https://aka.ms/AzureSDKBundling).
 
 ## Authenticate the client
 
@@ -350,7 +343,7 @@ For more information on using Azure AD with Azure Container Registry, see the [a
 
 Each sample assumes there is a `CONTAINER_REGISTRY_ENDPOINT` environment variable set to a string containing the `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
 
-### List repositories
+### List repositories asynchronously
 
 Iterate through the collection of repositories in the registry.
 
@@ -376,7 +369,7 @@ main().catch((err) => {
 });
 ```
 
-### Set artifact properties
+### Set artifact properties asynchronously
 
 ```javascript
 const { ContainerRegistryClient } = require("@azure/container-registry");
@@ -399,7 +392,7 @@ main().catch((err) => {
 });
 ```
 
-### Delete images
+### Delete images asynchronously
 
 ```javascript
 const { ContainerRegistryClient } = require("@azure/container-registry");
@@ -468,7 +461,7 @@ The [Azure Identity library][python_identity] provides Azure Active Directory su
 from azure.containerregistry import ContainerRegistryClient
 from azure.identity import DefaultAzureCredential
 
-account_url = "https://MYCONTAINERREGISTRY.azurecr.io"
+account_url = "https://mycontainerregistry.azurecr.io"
 client = ContainerRegistryClient(account_url, DefaultAzureCredential())
 ```
 
@@ -476,38 +469,46 @@ client = ContainerRegistryClient(account_url, DefaultAzureCredential())
 
 Each sample assumes there is a `CONTAINERREGISTRY_ENDPOINT` environment variable set to a string containing the `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
 
-### Delete three oldest tags in a repository
+### Delete three oldest tags in a repository asynchronously
 
 ```python
+import asyncio
+from dotenv import find_dotenv, load_dotenv
+import os
+
+
 class DeleteOperations(object):
     def __init__(self):
         load_dotenv(find_dotenv())
         self.account_url = os.environ["CONTAINERREGISTRY_ENDPOINT"]
 
-    def delete_old_tags(self):
-        from azure.containerregistry import ContainerRegistryClient, TagOrder
-        from azure.identity import DefaultAzureCredential
+    async def delete_old_tags(self):
+        from azure.containerregistry import TagOrder
+        from azure.containerregistry.aio import (
+            ContainerRegistryClient,
+        )
+        from azure.identity.aio import DefaultAzureCredential
 
         # [START list_repository_names]
         account_url = os.environ["CONTAINERREGISTRY_ENDPOINT"]
         credential = DefaultAzureCredential()
         client = ContainerRegistryClient(account_url, credential)
 
-        for repository in client.list_repository_names():
-            print(repository)
-            # [END list_repository_names]
+        async with client:
+            async for repository in client.list_repository_names():
+                print(repository)
+                # [END list_repository_names]
 
-            # [START list_tag_properties]
-            # Keep the three most recent tags, delete everything else
-            tag_count = 0
-            for tag in client.list_tag_properties(repository, order_by=TagOrder.LAST_UPDATE_TIME_DESCENDING):
-                tag_count += 1
-                if tag_count > 3:
-                    client.delete_tag(repository, tag.name)
-            # [END list_tag_properties]
-        client.close()
+                # [START list_tag_properties]
+                # Keep the three most recent tags, delete everything else
+                tag_count = 0
+                async for tag in client.list_tag_properties(repository, order_by=TagOrder.LAST_UPDATE_TIME_DESCENDING):
+                    tag_count += 1
+                    if tag_count > 3:
+                        await client.delete_tag(repository, tag.name)
+                # [END list_tag_properties]
+
 ```
-
 
 ::: zone-end
 
