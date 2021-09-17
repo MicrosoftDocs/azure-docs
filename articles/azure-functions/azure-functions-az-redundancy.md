@@ -11,22 +11,22 @@ ms.date: 09/07/2021
 
 Availability zone (AZ) support for Azure Functions is now available on Elastic Premium and Dedicated (App Service) plans. A Zone Redundant Azure Function application will automatically balance its instances between availability zones for higher availability. This document will focus on zone redundancy support for Elastic Premium Function plans. 
 
-> [!NOTE]
-> This article will focus on deploying zone redundant Elastic Premium hosting plans and function apps. Instructions on creating a zone redundant Dedicated (App Service) hosting plan can be found [here](../app-service/how-to-zone-redundancy.md).
-
 ## Overview
 
 An [availability zone](../availability-zones/az-overview.md#availability-zones) is a high-availability offering that protects your applications and data from datacenter failures. Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there&#39;s a minimum of three separate zones in all enabled regions. You can build high availability into your application architecture by co-locating your compute, storage, networking, and data resources within a zone and replicating in other zones.
 
-A zone redundant function app will automatically distribute load the instances that your app runs on between the availability zones in the region. For Zone Redundant Elastic Premium apps, even as the app scales in and out, the instances the app is running on are still evenly distributed between A]availability zones.
+A zone redundant function app will automatically distribute load the instances that your app runs on between the availability zones in the region. For Zone Redundant Elastic Premium apps, even as the app scales in and out, the instances the app is running on are still evenly distributed between availability zones.
 
 ## Requirements
+
+> [!IMPORTANT]
+> When choosing a [storage account](storage-considerations.md#storage-account-requirements) for your function app, be sure to choose a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Otherwise, in the case of a zonal outage, Functions may show unexpected behavior due to its dependence on Storage. 
 
 - Both Windows and Linux are supported.
 - Must be hosted on an [Elastic Premium](functions-premium-plan.md) hosting plan.
   - Availability zone (AZ) support isn't currently available for function apps on [Consumption](consumption-plan.md) plans.
 - Elastic premium zone redundant plans must specify a minimum instance count of 3.
-- Function apps on Elastic Premium plans additionally must have a minimum [always ready instances](functions-premium-plan.md#always-ready-instances) count of 3.
+- Function apps on an Elastic Premium plan additionally must have a minimum [always ready instances](functions-premium-plan.md#always-ready-instances) count of 3.
 - Can be enabled in any of the following regions:
   - West US 2
   - West US 3
@@ -86,8 +86,5 @@ Below is an ARM template snippet for a zone redundant, Premium Function Plan, sh
         }
     ]
 ```
-
-> [!IMPORTANT]
-> When choosing a [storage account](storage-considerations.md#storage-account-requirements) for your function app, be sure to choose a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Otherwise, in the case of a zonal outage, Functions may show unexpected behavior due to its dependence on Storage. 
 
 To learn more, see [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md).
