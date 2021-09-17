@@ -277,7 +277,7 @@ External identities can be granted access to company resources through one of th
 
 * Assigned a privileged role in Azure AD or in an Azure subscription
 
-See [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). The script will show where external identities invited into the tenant are used. You can see external user’s group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example direct rights assignment to Sharepoint resources, without the use of groups.
+See [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). The script will show where external identities invited into the tenant are used. You can see external user’s group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example direct rights assignment to SharePoint resources, without the use of groups.
 
 When creating an Access Review for groups or applications, you can choose to let the reviewer focus on Everyone with access, or Guest users only. By selecting Guest users only, reviewers are given a focused list of external identities from Azure AD B2B that have access to the resource.
 
@@ -438,9 +438,9 @@ Follow the instructions in the links below:
 
 | How-to articles | Description |
 | - | - |
- [Create Access Reviews](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure AD roles in PIM |
-| [Self-review your access](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
-| [Complete an Access Review](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
+ [Create Access Reviews](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure AD roles in PIM |
+| [Self-review your access](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
+| [Complete an Access Review](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
 
 
 ### Review Azure resource roles
@@ -453,9 +453,9 @@ Follow the instructions in the links below:
 
 | How-to articles| Description |
 | - | -|
-| [Create Access Reviews](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure resource roles in PIM |
-| [Self-review your access](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
-| [Complete an Access Review](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
+| [Create Access Reviews](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure resource roles in PIM |
+| [Self-review your access](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
+| [Complete an Access Review](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
 
 
 ## Use the Access Reviews API

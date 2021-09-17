@@ -28,9 +28,9 @@ You need the following to use Azure AD Connect cloud sync:
 A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and uses a gMSA for running the agent.  You will be prompted for administrative credentials during setup, in order to create this account.  The account will appear as (domain\provAgentgMSA$).  For more information on a gMSA, see [Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### Prerequisites for gMSA:
-1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2016.
+1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012 or later.
 2.	[PowerShell RSAT modules](/windows-server/remote/remote-server-administration-tools) on a domain controller
-3.	At least one domain controller in the domain must be running Windows Server 2016.
+3.	At least one domain controller in the domain must be running Windows Server 2012 or later.
 4.	A domain joined server where the agent is being installed needs to be either Windows Server 2016 or later.
 
 ### Custom gMSA account
@@ -83,7 +83,7 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
 ### Additional requirements
 
-- [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
+- [Microsoft .NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471) 
 
 #### TLS requirements
 
@@ -104,6 +104,9 @@ To enable TLS 1.2, follow these steps.
     ```
 
 1. Restart the server.
+## NTLM requirement
+
+You should not enable NTLM on the Windows Server that is running the Azure AD Connect Provisioning Agent and if it is enabled you should make sure you disable it. 
 
 ## Known limitations
 
@@ -125,6 +128,9 @@ The following are known limitations:
 When using OU scoping filter
 - You can only sync up to 59 separate OUs for a given configuration. 
 - Nested OUs are supported (that is, you **can** sync an OU that has 130 nested OUs, but you **cannot** sync 60 separate OUs in the same configuration). 
+
+### Password Hash Sync
+- Using password hash sync with InetOrgPerson is not supported.
 
 
 ## Next steps 

@@ -9,6 +9,7 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick 
 ms.subservice: spark
+ms.custom: has-adal-ref
 ---
 
 # Manage Python libraries for Apache Spark in Azure Synapse Analytics

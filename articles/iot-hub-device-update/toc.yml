@@ -45,7 +45,7 @@ items:
     href: connected-cache-configure.md
   - name: Device update importing
     href: import-concepts.md
-  - name: Import-related schema
+  - name: Import-related schema and API details
     href: import-schema.md
   - name: Device Update limits
     href: device-update-limits.md

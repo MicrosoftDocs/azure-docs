@@ -24,6 +24,8 @@
   items:
   - name: Essentials for remote app streaming
     items:
+    - name: Set up managed identities
+      href: identities.md
     - name: Deploy apps with MSIX app attach
       href: msix-app-attach.md
     - name: Host custom apps
@@ -46,6 +48,12 @@
       href: ../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Enable universal printing
       href: /universal-print/fundamentals/universal-print-getting-started?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Start VM on Connect
+      items:
+      - name: Set up Start VM on Connect
+        href: ../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+      - name: Start VM on Connect FAQ
+        href: ../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Other topics
     items:
     - name: Connect to Azure Virtual Desktop resources
@@ -124,12 +132,6 @@
       href: ../azure-monitor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Set up a disaster recovery plan
       href: ../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-    - name: Start VM on Connect
-      items:
-      - name: Set up Start VM on Connect
-        href: ../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: Start VM on Connect FAQ
-        href: ../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Set drain mode
       href: ../drain-mode.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: Concepts
@@ -183,7 +185,7 @@
     - name: Storage options for FSLogix profile containers
       href: ../store-fslogix-profile.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Azure Virtual Desktop FAQ
-      href: ../faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+      href: ../faq.yml?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Windows 10 Enterprise multi-session FAQ
       href: ../windows-10-multisession-faq.yml
     - name: MSIX app attach
@@ -193,7 +195,7 @@
         - name: Glossary
           href: ../app-attach-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: FAQ
-          href: ../app-attach-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          href: ../app-attach-faq.yml?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Data locations
       href: ../data-locations.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: Troubleshoot
@@ -202,6 +204,8 @@
     href: ../troubleshoot-set-up-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Identify and diagnose issues
     href: ../diagnostics-role-service.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+  - name: Getting started feature
+    href: ../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Host pool creation
     href: ../troubleshoot-set-up-issues.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Session host virtual machine configuration

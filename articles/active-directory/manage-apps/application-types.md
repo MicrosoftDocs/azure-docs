@@ -10,6 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: davidmu
+ms.reviewer: alamaral
 ---
 
 # Viewing apps using your Azure AD tenant for identity management

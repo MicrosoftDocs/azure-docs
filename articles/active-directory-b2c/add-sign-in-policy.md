@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 08/24/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -42,7 +42,8 @@ If you haven't already done so, [register a web application in Azure Active Dire
 To add sign-in policy:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**, and then select **New user flow**.
 1. On the **Create a user flow** page, select the **Sign in** user flow.
@@ -112,7 +113,8 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
 ## Update and test your policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
+1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the policy file that you changed, *TrustFrameworkExtensions.xml*.

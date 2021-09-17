@@ -99,7 +99,7 @@ If [collection of resource logs](monitor-service.md) is enabled in the registry,
 
 Related links:
 
-* [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
+* [Logs for diagnostic evaluation and auditing](./monitor-service.md)
 * [Container registry FAQ](container-registry-faq.yml)
 * [Best practices for Azure Container Registry](container-registry-best-practices.md)
 

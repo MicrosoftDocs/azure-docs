@@ -3,17 +3,17 @@ title: Reference inputs and outputs in skillsets
 titleSuffix: Azure Cognitive Search
 description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
 
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ---
-# How to reference annotations in an Azure Cognitive Search skillset
+# Reference annotations in an Azure Cognitive Search skillset
 
 In this article, you learn how to reference annotations in skill definitions, using examples to illustrate various scenarios. As the content of a document flows through a set of skills, it gets enriched with annotations. Annotations can be  used as inputs for further downstream enrichment, or mapped to an output field in an index. 
  
-Examples in this article are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the document cracking phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
+Examples in this article are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the [document cracking](search-indexer-overview.md#document-cracking) phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
 
 ## Background concepts
 

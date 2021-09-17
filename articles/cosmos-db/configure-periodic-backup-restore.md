@@ -4,7 +4,7 @@ description: This article describes how to configure Azure Cosmos DB accounts wi
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 08/30/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -45,7 +45,7 @@ Backup data in Azure Cosmos DB is replicated three times in the primary region. 
 * **Locally-redundant backup storage:** This option copies your data asynchronously three times within a single physical location in the primary region.
 
 > [!NOTE]
-> Zone-redundant storage is currently available only in [specific regions](high-availability.md#availability-zone-support). Based on the region you select; this option will not be available for new or existing accounts.
+> Zone-redundant storage is currently available only in [specific regions](high-availability.md#availability-zone-support). Depending on the region you select for a new account or the region you have for an existing account; the zone-redundant option will not be available.
 >
 > Updating backup storage redundancy will not have any impact on backup storage pricing.
 
@@ -172,5 +172,7 @@ It is advised that you delete the container or database immediately after migrat
 ## Next steps
 
 * To make a restore request, contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-* Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
+* Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Restore continuous backup account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

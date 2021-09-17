@@ -2,28 +2,38 @@
 title: Peer on-premises environments to Azure VMware Solution
 description: Learn how to create ExpressRoute Global Reach peering to a private cloud in Azure VMware Solution.
 ms.topic: tutorial
-ms.custom: contperf-fy22q1
-ms.date: 06/21/2021
+ms.custom: contperf-fy21q4, contperf-fy22q1
+ms.date: 07/28/2021
 ---
 
 # Peer on-premises environments to Azure VMware Solution
 
-In this step of the quick start, you'll connect Azure VMware Solution to your on-premises environment. ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. The ExpressRoute Global Reach connection is established between the private cloud ExpressRoute circuit and an existing ExpressRoute connection to your on-premises environments. 
+After you deploy your Azure VMware Solution private cloud, you'll connect it to your on-premises environment. ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. The ExpressRoute Global Reach connection is established between the private cloud ExpressRoute circuit and an existing ExpressRoute connection to your on-premises environments. 
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="Diagram showing ExpressRoute Global Reach on-premises network connectivity." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
 
 >[!NOTE]
 >You can connect through VPN, but that's out of scope for this quick start guide.
 
+In this article, you'll:
+
+> [!div class="checklist"]
+> * Create an ExpressRoute auth key in the on-premises ExpressRoute circuit
+> * Peer the private cloud with your on-premises ExpressRoute circuit
+> * Verify on-premises network connectivity
+
+After you're finished, follow the recommended next steps at the end to continue with the steps of this getting started guide.
 
 ## Prerequisites
 
 - Review the documentation on how to [enable connectivity in different Azure subscriptions](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
-- A separate, functioning ExpressRoute circuit used to connect on-premises environments to Azure, which is _circuit 1_ for peering.
+
+- A separate, functioning ExpressRoute circuit for connecting on-premises environments to Azure, which is _circuit 1_ for peering.
+
 - Ensure that all gateways, including the ExpressRoute provider's service, supports 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
 
 >[!NOTE]
-> If advertising a default route to Azure (0.0.0.0/0), ensure a more specific route containing your on-premises networks is advertised in addition to the default route to enable management access to AVS. A single 0.0.0.0/0 route will be discarded by Azure VMware Solution's management network to ensure successful operation of the service.
+>If advertising a default route to Azure (0.0.0.0/0), ensure a more specific route containing your on-premises networks is advertised in addition to the default route to enable management access to Azure VMware Solution. A single 0.0.0.0/0 route will be discarded by Azure VMware Solution's management network to ensure successful operation of the service.
 
 ## Create an ExpressRoute auth key in the on-premises ExpressRoute circuit
 
@@ -63,16 +73,16 @@ Now that you've created an authorization key for the private cloud ExpressRoute 
 
 ## Verify on-premises network connectivity
 
-You should now see in your **on-premises edge router** where the ExpressRoute connects the NSX-T network segments and the Azure VMware Solution management segments.
+In your **on-premises edge router**, you should now see where the ExpressRoute connects the NSX-T network segments and the Azure VMware Solution management segments.
 
 >[!IMPORTANT]
 >Everyone has a different environment, and some will need to allow these routes to propagate back into the on-premises network.  
 
 ## Next steps
-Continue to the next tutorial to learn how to deploy and configure VMware HCX solution for your Azure VMware Solution private cloud.
+Continue to the next tutorial to install VMware HCX add-on in your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
-> [Deploy and configure VMware HCX](tutorial-deploy-vmware-hcx.md)
+> [Install VMware HCX](install-vmware-hcx.md)
 
 
 <!-- LINKS - external-->

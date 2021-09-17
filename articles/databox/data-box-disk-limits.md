@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 07/16/2021
+ms.date: 08/02/2021
 ms.author: alkohli
 ---
 # Azure Data Box Disk limits
@@ -44,7 +44,7 @@ For the latest information on Azure storage service limits and best practices fo
 - If a folder has the same name as an existing container, the folder's contents are merged with the container's contents. Files or blobs that aren't already in the cloud are added to the container. If a file or blob has the same name as a file or blob that's already in the container, the existing file or blob is overwritten.
 - Every file written into *BlockBlob* and *PageBlob* shares is uploaded as a block blob and page blob respectively.
 - Any empty directory hierarchy (without any files) created under *BlockBlob* and *PageBlob* folders is not uploaded.
-- To improve performance during data uploads, we recommend that you [enable large file shares on the storage account and increase share capacity to 100 TiB](../../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account) before you place your order. Large file shares are only supported for storage accounts with locally redundant storage (LRS).
+- To improve performance during data uploads, we recommend that you [enable large file shares on the storage account and increase share capacity to 100 TiB](../../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account). Large file shares are only supported for storage accounts with locally redundant storage (LRS).
 - If there are any errors when uploading data to Azure, an error log is created in the target storage account. The path to this error log is available in the portal when the upload is complete and you can review the log to take corrective action. Do not delete data from the source without verifying the uploaded data.
 - File metadata and NTFS permissions are not preserved when the data is uploaded to Azure Files. For example, the *Last modified* attribute of the files will not be kept when the data is copied.
 - If you specified managed disks in the order, review the following additional considerations:

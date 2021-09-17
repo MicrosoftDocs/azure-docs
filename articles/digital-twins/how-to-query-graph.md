@@ -110,6 +110,8 @@ Here's a sample relationship-based query. This code snippet selects all digital 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationship1":::
 
+The type of the relationship (`contains` in the example above) is indicated using the relationship's **name** field from its [DTDL definition](concepts-models.md#basic-relationship-example).
+
 > [!NOTE]
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
 

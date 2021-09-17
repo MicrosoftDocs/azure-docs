@@ -38,7 +38,7 @@ To learn how to configure staged rollout, see the [staged rollout interactive gu
 
 ## Prerequisites
 
-Before you begin your migration, ensure that you meet these prerequisites:
+Before you begin your migration, ensure that you meet these prerequisites.
 
 ### Required roles
 
@@ -398,14 +398,14 @@ Your support team should understand how to troubleshoot any authentication issue
 
 Migration requires assessing how the application is configured on-premises, and then mapping that configuration to Azure AD.
 
-If you plan to keep using AD FS with on-premises & SaaS Applications using SAML / WS-FED or Oauth protocol, you’ll use both AD FS and Azure AD after you convert the domains for user authentication. In this case, you can protect your on-premises applications and resources with Secure Hybrid Access (SHA) through [Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md) or one of [Azure AD partner integrations](../manage-apps/secure-hybrid-access.md). Using Application Proxy or one of our partners can provide secure remote access to your on-premises applications. Users benefit by easily connecting to their applications from any device after a [single sign-on](../manage-apps/add-application-portal-setup-sso.md).
+If you plan to keep using AD FS with on-premises & SaaS Applications using SAML / WS-FED or Oauth protocol, you’ll use both AD FS and Azure AD after you convert the domains for user authentication. In this case, you can protect your on-premises applications and resources with Secure Hybrid Access (SHA) through [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) or one of [Azure AD partner integrations](../manage-apps/secure-hybrid-access.md). Using Application Proxy or one of our partners can provide secure remote access to your on-premises applications. Users benefit by easily connecting to their applications from any device after a [single sign-on](../manage-apps/add-application-portal-setup-sso.md).
 
 You can move SaaS applications that are currently federated with ADFS to Azure AD. Reconfigure to authenticate with Azure AD either via a built-in connector from the [Azure App gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), or by [registering the application in Azure AD](../develop/quickstart-register-app.md).
 
 For more information, see – 
 
-- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](/manage-apps/migrate-adfs-apps-to-azure) and
-- [AD FS to Azure AD application migration playbook for developers](/samples/azure-samples/ms-identity-dotnet-adfs-to-aad)
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](../manage-apps/migrate-adfs-apps-to-azure.md) and
+- [AD FS to Azure AD application migration playbook for developers](/samples/azure-samples/ms-identity-adfs-to-aad/ms-identity-dotnet-adfs-to-aad)
 
 ### Remove relying party trust
 

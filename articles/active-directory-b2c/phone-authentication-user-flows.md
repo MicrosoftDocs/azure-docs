@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -66,7 +66,7 @@ Here's an example showing how to add phone sign-up to a new user flow.
 3. In the Azure portal, search for and select **Azure AD B2C**.
 4. Under **Policies**, select **User flows**, and then select **New user flow**.
 
-    ![User flows page in portal with New user flow button highlighted](./media/phone-authentication-user-flows/signup-signin-user-flow.png)
+    ![User flows page in portal with New user flow button highlighted](./media/phone-authentication-user-flows/sign-up-sign-in-user-flow.png)
 
 5. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 
@@ -172,6 +172,25 @@ To enable consent information
 12. Save the file. Under **Upload new overrides**, browse for the file and select it. Confirm that you see a “Successfully uploaded overrides” notification.
 
 13. Select **Phone signUp page**, and then repeat steps 10 through 12. 
+
+
+## Get a user's phone number in your directory
+
+1. Run the following request in Graph Explorer:
+
+   `GET https://graph.microsoft.com/v1.0/users/{object_id}?$select=identities`
+
+1. Find the `issuerAssignedId` property in the response returned:
+
+   ```json
+       "identities": [
+           {
+               "signInType": "phoneNumber",
+               "issuer": "contoso.onmicrosoft.com",
+               "issuerAssignedId": "+11231231234"
+           }
+       ]
+   ```
 
 ## Next steps
 

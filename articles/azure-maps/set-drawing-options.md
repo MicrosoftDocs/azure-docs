@@ -6,14 +6,12 @@ ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
 ---
 
 # Use the drawing tools module
 
-The Azure Maps Web SDK provides a *drawing tools module*. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) class. 
+The Azure Maps Web SDK provides a *drawing tools module*. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) class.
 
 ## Loading the drawing tools module in a webpage
 
@@ -22,14 +20,14 @@ The Azure Maps Web SDK provides a *drawing tools module*. This module makes it e
     - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Add reference to the JavaScript and CSS stylesheet in the `<head>` element of the file:
 
         ```html
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.js"></script>
         ```
 
     - Or, you can load the drawing tools module for the Azure Maps Web SDK source code locally by using the [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
-    
+
         > **npm install azure-maps-drawing-tools**
-    
+
         Then, add a reference to the JavaScript and CSS stylesheet in the `<head>` element of the file:
 
          ```html
@@ -56,7 +54,7 @@ The code below is a complete running example of how to set a drawing mode of the
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Draw a polygon" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Draw a polygon" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Draw a polygon</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -84,7 +82,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Free-hand drawing" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Free-hand drawing" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>Free-hand drawing</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -96,7 +94,7 @@ The previous examples demonstrated how to customize drawing options while instan
 
 <br/>
 
-<iframe height="685" title="Customize drawing manager" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Get shape data</a> by Azure Maps
+<iframe height="685" title="Customize drawing manager" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Get shape data</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -141,7 +139,23 @@ var source = drawingManager.getSource();
 
 //Add your shape.
 source.add(shape);
+
+//Alternatively, load in a GeoJSON feed using the sources importDataFromUrl function.
+source.importDataFromUrl('yourFeatures.json');
 ```
+
+The following table lists the type of editing supported by different types of shape features.
+
+| Shape feature | Edit points | Rotate | Delete shape |
+|---------------|:-----------:|:------:|:------------:|
+| Point         | ✓           |        | ✓           |
+| LineString    | ✓           | ✓      | ✓           |
+| Polygon       | ✓           | ✓      | ✓           |
+| MultiPoint    |             | ✓      | ✓           |
+| MultiLineString |           | ✓      | ✓           |
+| MultiPolygon  |             | ✓      | ✓           |
+| Circle        | ✓           |        | ✓           |
+| Rectangle     | ✓           | ✓      | ✓           |
 
 ## Next steps
 

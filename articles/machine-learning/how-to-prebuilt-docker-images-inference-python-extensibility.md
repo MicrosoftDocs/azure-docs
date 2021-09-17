@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
 ---
 
-# Python package extensibility for prebuilt Docker images (Preview)
+# Python package extensibility for prebuilt Docker images (preview)
 
 The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) contain packages for popular machine learning frameworks. There are two methods that can be used to add Python packages __without rebuilding the Docker image__:
 
@@ -168,6 +168,13 @@ Here are some things that may cause this problem:
 
 
 * For more information on how to load a registered or local model, see [Where and how to deploy](how-to-deploy-and-where.md?tabs=azcli#define-a-dummy-entry-script).
+
+## Bug Fixes
+
+### 2021-07-26
+
+* `AZUREML_EXTRA_REQUIREMENTS_TXT` and `AZUREML_EXTRA_PYTHON_LIB_PATH` are now always relative to the directory of the score script.
+For example, if the both the requirements.txt and score script is in **my_folder**, then `AZUREML_EXTRA_REQUIREMENTS_TXT` will need to be set to requirements.txt. No longer will `AZUREML_EXTRA_REQUIREMENTS_TXT` be set to **my_folder/requirements.txt**.
 
 ## Next steps
 

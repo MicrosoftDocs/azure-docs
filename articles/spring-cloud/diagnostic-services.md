@@ -51,9 +51,10 @@ To get started, enable one of these services to receive the data. To learn about
 
 > [!NOTE]
 > 1. There might be a gap of up to 15 minutes between when logs or metrics are emitted and when they appear in your storage account, your event hub, or Log Analytics.
-> 1. If the Azure Spring Cloud instance is deleted or moved, the operation will not cascade to the **diagnostics settings** resources. The **diagnostics settings** resources have to be deleted manually before the operation against its parent, i.e. the Azure Spring Cloud instance. Otherwise, if a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
+> 1. If the Azure Spring Cloud instance is deleted or moved, the operation will not cascade to the **diagnostics settings** resources. The **diagnostics settings** resources have to be deleted manually before the operation against its parent, the Azure Spring Cloud instance. Otherwise, if a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
 
 ## View the logs and metrics
+
 There are various methods to view logs and metrics as described under the following headings.
 
 ### Use the Logs blade
@@ -67,12 +68,14 @@ There are various methods to view logs and metrics as described under the follow
     AppPlatformLogsforSpring
     | limit 50
     ```
+
    * To view metrics, enter a simple query such as:
 
     ```sql
     AzureMetrics
     | limit 50
     ```
+
 1. To view the search result, select **Run**.
 
 ### Use Log Analytics
@@ -87,6 +90,7 @@ There are various methods to view logs and metrics as described under the follow
     AppPlatformLogsforSpring
     | limit 50
     ```
+
     * to view metrics, enter a simple query such as:
 
     ```sql
@@ -102,8 +106,9 @@ There are various methods to view logs and metrics as described under the follow
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
-> [!NOTE]
-> `==` is case sensitive, but `=~` is not.
+
+    > [!NOTE]
+    > `==` is case sensitive, but `=~` is not.
 
 To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
@@ -193,12 +198,14 @@ There is a workaround to convert your multi-line stack traces into a single line
     </root>
 </configuration>
 ```
+
 And then you can replace the token with newline characters again in Log Analytics as below:
 
 ```sql
 AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
+
 You may be able to use the same strategy for other Java log libraries.
 
 ## Next steps

@@ -29,7 +29,7 @@ The following file types are supported for scanning, for schema extraction and c
 > Every Gzip file must be mapped to a single csv file within. Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. Also, Purview scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
 
 > [!Note]
-> Purview scanner does not support complex data types in AVRO, ORC and PARQUET file types for schema extraction.   
+> Purview scanner does not support complex data types (for example, MAP, LIST, STRUCT) in AVRO, ORC, and PARQUET file types for schema extraction.   
 
 ## Sampling within a file
 
@@ -40,9 +40,10 @@ In Purview terminology,
 
 For all structured file formats, Purview scanner samples files in the following way:
 
-- For structured file types, it samples 128 rows in each column or 1 MB, whichever is lower.
-- For document file formats, it samples 20 MB of each file.
+- For structured file types, it samples the top 128 rows in each column or the first 1 MB, whichever is lower.
+- For document file formats, it samples the first 20 MB of each file.
     - If a document file is larger than 20 MB, then it is not subject to a deep scan (subject to classification). In that case, Purview captures only basic meta data like file name and fully qualified name.
+- For **tabular data sources(SQL, CosmosDB)**, it samples the top 128 rows. 
 
 ## Resource set file sampling
 

@@ -7,8 +7,8 @@ ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: rothja
-ms.author: jroth
+author: SQLSourabh
+ms.author: sourabha
 ms.reviewer: mathoma
 ms.date: 07/03/2019
 ---

@@ -4,13 +4,15 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Using Azure ultra disks
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 This article explains how to deploy and use an ultra disk, for conceptual information about ultra disks, refer to [What disk types are available in Azure?](disks-types.md#ultra-disk).
 

@@ -41,7 +41,7 @@ The Hive Metastore source supports Full scan to extract metadata from a **Hive M
     > [!Note]
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
-5.  Supported Hive versions are 2.x to 3.x.
+5.  Supported Hive versions are 2.x to 3.x. Supported Databricks versions are 8.0 and above. 
 
 ## Setting up authentication for a scan
 
@@ -54,9 +54,9 @@ following:
 
 1.  Navigate to your Purview account.
 
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 
-3.  Select **Register.**
+3.  Select **Register**
 
 4.  On Register sources, select Hive **Metastore**. Select **Continue.**
 

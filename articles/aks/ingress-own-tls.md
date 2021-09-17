@@ -62,7 +62,7 @@ To create the ingress controller, use `Helm` to install *nginx-ingress*. For add
 The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
 
 > [!TIP]
-> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed. If your AKS cluster is not Kubernetes RBAC enabled, add `--set rbac.create=false` to the Helm commands.
+> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic* and is intended to work within that namespace. Specify a namespace for your own environment as needed. If your AKS cluster is not Kubernetes RBAC enabled, add `--set rbac.create=false` to the Helm commands.
 
 > [!TIP]
 > If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
@@ -81,16 +81,16 @@ ACR_URL=<REGISTRY_URL>
 helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.image.registry=$ACR_URL \
     --set controller.image.image=$CONTROLLER_IMAGE \
     --set controller.image.tag=$CONTROLLER_TAG \
     --set controller.image.digest="" \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
     --set defaultBackend.image.registry=$ACR_URL \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
     --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG

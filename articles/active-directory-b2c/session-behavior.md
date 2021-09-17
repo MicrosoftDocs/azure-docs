@@ -111,7 +111,7 @@ To change your session behavior and SSO configurations, you add a **UserJourneyB
 
 ## Enable Keep me signed in (KMSI)
 
-You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. Then they can reopen the browser without being prompted to reenter their username and password. This access is revoked when a user signs out.
+You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. The session is maintained by setting a [persistent cookie](cookie-definitions.md). Users who select KMSI, can reopen the browser without being prompted to reenter their username and password. This access (persistent cookie) is revoked when a user signs out. 
 
 ![Example sign-up sign-in page showing a Keep me signed in checkbox](./media/session-behavior/keep-me-signed-in.png)
 

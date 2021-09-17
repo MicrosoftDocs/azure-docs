@@ -108,20 +108,7 @@ To complete all the database objects like table schemas, indexes and stored proc
    > [!NOTE]
    > The migration service internally handles the enable/disable of foreign keys and triggers to ensure a reliable and robust data migration. As a result, you do not have to worry about making any modifications to the target database schema.
 
-
-## Register the Microsoft.DataMigration resource provider
-
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
-
-   ![Show portal subscriptions](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-select-subscriptions.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-    ![Show resource providers](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-select-resource-provider.png)
-
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
-
-    ![Register resource provider](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-register-resource-provider.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## Create a DMS instance
 

@@ -189,7 +189,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen5 compute generation (part 1)
 
-|Compute size (service objective)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
+|Compute size (service objective)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen5_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|

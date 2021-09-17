@@ -7,7 +7,7 @@ ms.date: 07/28/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Azure Maps geocoding coverage

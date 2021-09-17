@@ -54,7 +54,7 @@ Each issuer has a single key set used for signing, updating, and recovery. This 
 
 * Rules are an issuer-defined model that describes the required inputs of a verifiable credential, the trusted sources of the inputs, and the mapping of input claims to output claims. 
 
-   * Input – Are a subset of the model in the rules file for client consumption. The subset must describe the set of inputs, where to obtain the inputs and the endpoint to call to obtain a verifiable credential.
+   * **Input** – Are a subset of the model in the rules file for client consumption. The subset must describe the set of inputs, where to obtain the inputs and the endpoint to call to obtain a verifiable credential.
 
 * Rules and display files for different credentials can be configured to use different containers, subscriptions, and storage. For example, you can delegate permissions to different teams that own management of specific VCs. 
 
@@ -78,7 +78,7 @@ Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/
 
 ### Microsoft Authenticator application
 
-![Microsoft Authenticator application](media/plan-issuance-solution/plan-issuance-solution-microsoft-authenticator.png)
+![Microsoft Authenticator application](media/plan-issuance-solution/plan-issuance-solution-authenticator.png)
 
 Microsoft Authenticator is the mobile application that orchestrates the interactions between the user, the Azure AD Verifiable Credentials service, and dependencies that are described in the contract used to issue VCs. It acts as a digital wallet in which the holder of the VC stores the VC, including the private key of the subject of the VC. Authenticator is also the mechanism used to present VCs for verification.
 
@@ -122,7 +122,7 @@ With Azure AD Verifiable Credentials, the most common credential use cases are:
 
 * a user’s selfie 
 
-* verification of liveness.
+* verification of liveness
 
 This kind of credential is a good fit for identity onboarding scenarios of new employees, partners, service providers, students, and other instances where identity verification is essential.
 
@@ -150,7 +150,7 @@ In addition to the industry-specific standards and schemas that might be applica
 
 * **Minimize private information**: Meet the use cases with the minimal amount of private information necessary. For example, a VC used for e-commerce websites that offers discounts to employees and alumni can be fulfilled by presenting the credential with just the first and last name claims. Additional information such as hiring date, title, department, etc. are not needed.
 
-* **Favor abstract claims**: Each claim should meet the need while minimizing the detail. For example, a claim called “ageOver” with discrete values such as “13”,”21”,”60”, is more abstract than a date of birth claim.
+* **Favor abstract claims**: Each claim should meet the need while minimizing the detail. For example, a claim named “ageOver” with discrete values such as “13”,”21”,”60”, is more abstract than a date of birth claim.
 
 * **Plan for revocability**: We recommend you define an index claim to enable mechanisms to find and revoke credentials. You are limited to defining one index claim per contract. It is important to note that values for indexed claims are not stored in the backend, only a hash of the claim value. For more information, see [Revoke a previously issued verifiable credential](../verifiable-credentials/how-to-issuer-revoke.md).
 
@@ -267,7 +267,7 @@ As part of your design considerations focused on security, we recommend the foll
 
    * Create a dedicated Key Vault for VC issuance. Limit Azure Key Vault permissions to the Azure AD Verifiable Credentials issuance service and the issuance service frontend website service principal. 
 
-   * Treat Azure Key Vault as a highly privileged system - Azure Key Vault issues credentials to customers. We recommend that no human identities have standing permissions over the Azure Key Vault service. Administrators should have only just I time access to Key Vault. For more best practices for Azure Key Vault usage, refer to [Azure Security Baseline for Key Vault](https://docs.microsoft.com/security/benchmark/azure/baselines/key-vault-security-baseline).
+   * Treat Azure Key Vault as a highly privileged system - Azure Key Vault issues credentials to customers. We recommend that no human identities have standing permissions over the Azure Key Vault service. Administrators should have only just I time access to Key Vault. For more best practices for Azure Key Vault usage, refer to [Azure Security Baseline for Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline).
 
 * For service principal that represents the issuance frontend website:
 
@@ -281,7 +281,7 @@ For security logging and monitoring, we recommend the following:
 
 * Enable logging of your Azure Storage account to monitor and send alert for configuration changes. More information can be found at [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage.md).
 
-* Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel.md) for long-term retention.
+* Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) for long-term retention.
 
 * Mitigate spoofing risks by using the following
 
@@ -293,7 +293,7 @@ For security logging and monitoring, we recommend the following:
 
 * Mitigate distributed denial of service (DDOS) and Key Vault resource exhaustion risks. Every request that triggers a VC issuance request generates Key Vault signing operations that accrue towards service limits. We recommend protecting traffic by incorporating authentication or captcha before generating issuance requests.
 
-For guidance on managing your Azure environment, we recommend you review [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/) and [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
+For guidance on managing your Azure environment, we recommend you review [Azure Security Benchmark](/security/benchmark/azure/) and [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
 
 ## Additional considerations
 
