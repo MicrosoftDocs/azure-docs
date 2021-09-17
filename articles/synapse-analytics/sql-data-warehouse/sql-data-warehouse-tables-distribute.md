@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019, azure-synapse
 
 # Guidance for designing distributed tables using dedicated SQL pool in Azure Synapse Analytics
 
-Recommendations for designing hash-distributed and round-robin distributed tables in dedicated SQL pools.
+This article contains recommendations for designing hash-distributed and round-robin distributed tables in dedicated SQL pools.
 
 This article assumes you are familiar with data distribution and data movement concepts in dedicated SQL pool.  For more information, see [Azure Synapse Analytics  architecture](massively-parallel-processing-mpp-architecture.md).
 
@@ -23,7 +23,7 @@ This article assumes you are familiar with data distribution and data movement c
 
 A distributed table appears as a single table, but the rows are actually stored across 60 distributions. The rows are distributed with a hash or round-robin algorithm.  
 
-**Hash-distributed tables** improve query performance on large fact tables, and are the focus of this article. **Round-robin tables** are useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
+**Hash-distribution** improves query performance on large fact tables, and is the focus of this article. **Round-robin distribution** is useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
 
 Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md).
 
@@ -102,7 +102,7 @@ For best performance, all of the distributions should have approximately the sam
   
 To balance the parallel processing, select a distribution column that:
 
-- **Has many unique values.** The column can have some duplicate values. However, all rows with the same value are assigned to the same distribution. Since there are 60 distributions, the column should have at least 60 unique values.  Usually the number of unique values is much greater.
+- **Has many unique values.** The column can have duplicate values.  All rows with the same value are assigned to the same distribution. Since there are 60 distributions, some distributions can have > 1 unique values while others may end with zero values.  
 - **Does not have NULLs, or has only a few NULLs.** For an extreme example, if all values in the column are NULL, all the rows are assigned to the same distribution. As a result, query processing is skewed to one distribution, and does not benefit from parallel processing.
 - **Is not a date column**. All data for the same date lands in the same distribution. If several users are all filtering on the same date, then only 1 of the 60 distributions do all the processing work.
 

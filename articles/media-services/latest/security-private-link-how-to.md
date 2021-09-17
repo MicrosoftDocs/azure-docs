@@ -19,7 +19,7 @@ Create a Media Services account and Storage Account with Private Links to a VNet
 
 ## Prerequisites
 
-Read [Quickstart: Create and deploy ARM templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+Read [Quickstart: Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## Limitations
 
@@ -37,6 +37,8 @@ The template creates:
   - Links between links (to connect the private DNS zones to the VNet)
   - Private DNS zone groups (to trigger the automatic creation of DNS records in the private DNS zones)
 - A VM (with associated public IP address and network interface)
+
+[!INCLUDE [Azure Policy Media Services](includes/security-azure-policy-private-links.md)]
 
 ## Azure Resource Manager (ARM) template for private link
 

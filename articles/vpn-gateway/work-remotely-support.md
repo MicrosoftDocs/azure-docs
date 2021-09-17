@@ -1,19 +1,20 @@
 ---
-title: 'Remote work with P2S: Azure VPN Gateway'
-description: This page describes how you can leverage VPN Gateway to enable working remotely due to the COVID-19 pandemic.
+title: 'Remote work and Point-to-Site VPN gateways'
+titleSuffix: Azure VPN Gateway
+description: Learn how you can use VPN Gateway point-to-site connections in order to work remotely due to the COVID-19 pandemic.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 04/29/2021
 ms.author: alzam
 
 ---
 # Remote work using Azure VPN Gateway Point-to-site
 
 >[!NOTE]
->This article describes how you can leverage Azure VPN Gateway, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of COVID-19 crisis.
+>This article describes how you can leverage Azure VPN Gateway, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and mitigate network issues that you are facing because of COVID-19 crisis.
 >
 
 This article describes the options that are available to organizations to set up remote access for their users or to supplement their existing solutions with additional capacity during the COVID-19 epidemic.

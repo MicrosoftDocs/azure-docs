@@ -70,7 +70,7 @@ Template-based deployment supports parameterization and templating. We use this 
 
 ## Programmatically create a dashboard from your template using a template deployment
 
-Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy and the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the template language adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment. It doesn't work if used with the imperative APIs discussed earlier. For more information, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
+Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy and the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the template language adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment. It doesn't work if used with the imperative APIs discussed earlier. For more information, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 Parameterization should be done using the template's parameter syntax.  You replace all instances of the resource ID we found earlier as shown here.
 

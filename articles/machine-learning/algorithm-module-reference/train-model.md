@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2021
+ms.date: 05/10/2021
 ---
 # Train Model module
 
@@ -70,9 +70,16 @@ Currently **Train Model** module supports [using interpretability package to exp
 
 - Linear Regression
 - Neural Network Regression
+- Boosted Decistion Tree Regression
+- Decision Forest Regression
+- Poisson Regression
 - Two-Class Logistic Regression
 - Two-Class Support Vector Machine
+- Two-Class Boosted Decistion Tree
+- Two-Class Decision Forest
 - Multi-class Decision Forest
+- Multi-class Logistic Regression
+- Multi-class Neural Network
 
 To generate model explanations, you can select **True** in the drop-down list of **Model Explanation** in Train Model module. By default it is set to False in the **Train Model** module. Please note that generating explanation requires extra compute cost.
 

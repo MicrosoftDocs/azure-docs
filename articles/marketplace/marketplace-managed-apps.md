@@ -46,4 +46,4 @@ If you haven't already done so, learn how to [Grow your cloud business with Azur
 To register for and start working in Partner Center:
 
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- See [Create an Azure application offer](./create-new-azure-apps-offer.md) for more information.
+- See [Create an Azure application offer](azure-app-offer-setup.md) for more information.

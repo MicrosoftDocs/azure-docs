@@ -7,7 +7,7 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: devx-track-js
 ---
 

@@ -13,6 +13,8 @@ ms.custom: template-concept; references_regions
 
 # Trusted launch for Azure virtual machines (preview)
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
 Azure offers trusted launch as a seamless way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats.
 
 > [!IMPORTANT]
@@ -34,13 +36,16 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 ## Public preview limitations
 
 **Size support**:
-All [Generation 2](generation-2.md) VM sizes, except:
-
-- Lsv2-series 
-- M-series 
-- Mv2-series 
-- NDv4 series 
-- NVv4-series
+- B-series
+- Dav4-series, Dasv4-series
+- DCsv2-series
+- Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series
+- Ddv4-series, Ddsv4-series
+- Fsv2-series
+- Eav4-series, Easv4-series
+- Ev4-series, Esv4-series, Esv3-series
+- Edv4-series, Edsv4-series
+- Lsv2-series
 
 **OS support**:
 - Redhat Enterprise Linux 8.3
@@ -54,8 +59,17 @@ All [Generation 2](generation-2.md) VM sizes, except:
 - Windows 10 Enterprise multi-session
 
 **Regions**: 
+- Central US
+- East US
+- East US 2
+- North Central US
 - South Central US
+- West US
+- West US 2
 - North Europe
+- West Europe
+- Japan East
+- South East Asia
 
 **Pricing**:
 No additional cost to existing VM pricing.

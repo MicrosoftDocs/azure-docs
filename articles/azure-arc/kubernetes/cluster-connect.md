@@ -1,27 +1,27 @@
 ---
-title: "Use Cluster Connect to connect to Azure Arc enabled Kubernetes clusters"
+title: "Use Cluster Connect to connect to Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 04/05/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-description: "Use Cluster Connect to securely connect to Azure Arc enabled Kubernetes clusters"
+description: "Use Cluster Connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 ---
 
-# Use Cluster Connect to connect to Azure Arc enabled Kubernetes clusters
+# Use Cluster Connect to connect to Azure Arc-enabled Kubernetes clusters
 
-With Cluster Connect, you can securely connect to Azure Arc enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall. Access to the `apiserver` of the Arc enabled Kubernetes cluster enables the following scenarios:
+With Cluster Connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall. Access to the `apiserver` of the Azure Arc-enabled Kubernetes cluster enables the following scenarios:
 * Enable interactive debugging and troubleshooting.
 * Provide cluster access to Azure services for [custom locations](custom-locations.md) and other resources created on top of it.
 
-A conceptual overview of this feature is available in [Cluster connect - Azure Arc enabled Kubernetes](conceptual-cluster-connect.md) article.
+A conceptual overview of this feature is available in [Cluster connect - Azure Arc-enabled Kubernetes](conceptual-cluster-connect.md) article.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites   
 
-- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
+- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 
 - Install the `connectedk8s` Azure CLI extension of version >= 1.1.0:
 
@@ -35,11 +35,11 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     az extension update --name connectedk8s
     ```
 
-- An existing Azure Arc enabled Kubernetes connected cluster.
+- An existing Azure Arc-enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
 
-- Enable the Cluster Connect on any Azure Arc enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
+- Enable the Cluster Connect on any Azure Arc-enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
 
     ```azurecli
     az connectedk8s enable-features --features cluster-connect -n <clusterName> -g <resourceGroupName>
@@ -50,7 +50,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     | Endpoint | Port |
     |----------------|-------|
     |`*.servicebus.windows.net` | 443 |
-    |`*.guestnotificationservice.azure.com` | 443 |
+    |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
 
 ## Usage
 
@@ -143,8 +143,8 @@ You must be logged in to the server (Error:Error while retrieving group info. Er
 ```
 
 To get past this error:
-1. Create a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
-1. [Sign in](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running `az connectedk8s proxy` command.
+1. Create a [service principal](/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
+1. [Sign in](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running `az connectedk8s proxy` command.
 
 ## Next steps
 

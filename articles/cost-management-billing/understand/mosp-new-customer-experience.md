@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 05/20/2021
 ms.author: banders
 ---
 
@@ -110,7 +110,7 @@ In the new experience, your invoice will be generated around the ninth day of ea
 
 **Invoices in the first month after migration**
 
-The day your account is updated, your existing unbilled charges are finalized and you'll receive the invoices for these charges on the day when you typically receive your invoices. For example, John has two Azure subscriptions - Azure sub 01 with billing cycle from the fifth day of the month to the fourth day of the next month and Azure sub 02 with billing cycle from the tenth day of a month to the ninth day of next month. John gets invoices for both Azure subscriptions typically on fifth of the month. Now if John's account is updated on April 4th, the charges for Azure sub 01 from March 5th to April 4th and charges for Azure sub 02 from March 10th to April 4th will be finalized. John will receive two invoices, one for each sub on April 5th. After the account is updated, John's billing cycle will be based on calendar month and will cover all charges incurred from the beginning of a calendar month to the end of that calendar month.  Invoice for the previous calendar month’s charges are available on the 9th of each month. So in the example above, John will receive another invoice on May 5th for the billing period of April 5th to April 30th. 
+The day your account is updated, your existing unbilled charges are finalized and you'll receive the invoices for these charges on the day when you typically receive your invoices. For example, John has two Azure subscriptions - Azure sub 01 with billing cycle from the fifth day of the month to the fourth day of the next month and Azure sub 02 with billing cycle from the tenth day of a month to the ninth day of next month. John gets invoices for both Azure subscriptions typically on fifth of the month. Now if John's account is updated on April 4th, the charges for Azure sub 01 from March 5th to April 4th and charges for Azure sub 02 from March 10th to April 4th will be finalized. John will receive two invoices, one for each sub on April 5th. After the account is updated, John's billing cycle will be based on calendar month and will cover all charges incurred from the beginning of a calendar month to the end of that calendar month. The invoice for the previous calendar month’s charges are available in the first few days of each month. So in the example above, John will receive another invoice in the beginning of May for the billing period of April 5th to April 30th.
 
 
 **New billing and cost management APIs**

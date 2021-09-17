@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
 ---
 
@@ -152,6 +152,26 @@ $fabrikamRule = New-AzApplicationGatewayRequestRoutingRule `
   -RuleType Basic `
   -HttpListener $fabrikamListener `
   -BackendAddressPool $fabrikamPool `
+  -BackendHttpSettings $poolSettings
+```
+
+### Add priority to routing rules
+
+```azurepowershell-interactive
+$contosoRule = New-AzApplicationGatewayRequestRoutingRule `
+  -Name wccontosoRule `
+  -RuleType Basic `
+  -Priority 200 `
+  -HttpListener $wccontosoListener `
+  -BackendAddressPool $wccontosoPool `
+  -BackendHttpSettings $poolSettings
+
+$fabrikamRule = New-AzApplicationGatewayRequestRoutingRule `
+  -Name shopcontosoRule `
+  -RuleType Basic `
+  -Priority 100 `
+  -HttpListener $shopcontosoListener `
+  -BackendAddressPool $shopcontosoPool `
   -BackendHttpSettings $poolSettings
 ```
 

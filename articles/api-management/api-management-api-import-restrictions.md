@@ -30,6 +30,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 ### <a name="open-api-general"> </a>General
 
 -   Required parameters across both path and query must have unique names. (In OpenAPI a parameter name only needs to be unique within a location, for example path, query, header. However, in API Management we allow operations to be discriminated by both path and query parameters (which OpenAPI doesn't support). That's why we require parameter names to be unique within the entire URL template.)
+- When imported inline to API Management, an OpenAPI specification can be up to 4 MB in size. The size limit doesn't apply when an OpenAPI document is provided via a URL to a location accessible from your API Management service.
 -   `\$ref` pointers can't reference external files.
 -   `x-ms-paths` and `x-servers` are the only supported extensions.
 -   Custom extensions are ignored on import and aren't saved or preserved for export.
@@ -54,7 +55,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 
 ### <a name="open-import-export-general"> </a>General
 
--   API definitions exported from API Management service are primarily intended for applications external to API Management service that need to call the API hosted in API Management service. Exported API definitions are not intended to be imported again into the same or different API Management service. For configuration management of API defiitions across different serivces/envionments, please refer to documentation regarding using API Management Service with Git. 
+-   API definitions exported from API Management service are primarily intended for applications external to API Management service that need to call the API hosted in API Management service. Exported API definitions are not intended to be imported again into the same or different API Management service. For configuration management of API definitions across different services/environments, please refer to documentation regarding using API Management Service with Git. 
 
 ### Add new API via OpenAPI import
 

@@ -1,0 +1,69 @@
+### YamlMime:Landing
+
+title: Azure Confidential Ledger 
+summary: Learn how to use Azure Confidential Ledger 
+metadata:
+  title: Azure Confidential Ledger documentation
+  description: Learn how to use Azure Confidential Ledger 
+  services: confidential-ledger
+  ms.service: confidential-ledger
+  ms.topic: landing-page # Required
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 04/15/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Confidential Ledger
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Confidential Ledger?
+            url: overview.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Python quickstart
+            url: quickstart-python.md
+          - text: ARM template quickstart
+            url: quickstart-template.md
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Architecture
+            url: architecture.md
+          - text: Authenticating Ledger nodes
+            url: authenticate-ledger-nodes.md
+
+  # Card
+  - title: How-to-guides
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Authenticating Ledger nodes
+            url: authenticate-ledger-nodes.md
+          - text: Create a client certificate
+            url: create-client-certificate.md
+          - text: Register a Ledger service principal
+            url: register-ledger-service-principal.md
+          - text: Register the Confidential Ledger resource provider
+            url: register-ledger-resource-provider.md
+  # Card
+  - title: References
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Frequently asked questions
+            url: faq.md  
+
+

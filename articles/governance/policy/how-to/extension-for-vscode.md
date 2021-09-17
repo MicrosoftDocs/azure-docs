@@ -1,19 +1,19 @@
 ---
 title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
-ms.date: 04/25/2021
+ms.date: 09/01/2021
 ms.topic: how-to
 ---
 # Use Azure Policy extension for Visual Studio Code
 
-> Applies to Azure Policy extension version **0.1.1** and newer
+> Applies to Azure Policy extension version **0.1.2** and newer
 
 Learn how to use the Azure Policy extension for Visual Studio Code to look up
 [aliases](../concepts/definition-structure.md#aliases), review resources and policy definitions,
 export objects, and evaluate policy definitions. First, we'll describe how to install the Azure
 Policy extension in Visual Studio Code. Then we'll walk through how to look up aliases.
 
-The Azure Policy extension for Visual Studio Code can be installed on Windows.
+The Azure Policy extension for Visual Studio Code can be installed on Linux, Mac, and Windows.
 
 ## Prerequisites
 
@@ -249,6 +249,27 @@ example:
 > information about the modes, see the [mode definitions](../concepts/definition-structure.md#mode).
 >
 > The evaluation feature does not work on macOS and Linux installations of the extension.
+
+### Create policy definition from constraint template
+
+The VS Code extension can create a policy definition from an existing
+[Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+[constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). The YAML
+file must be open in VS Code for the Command Palette to be an option.
+
+1. Open a valid OPA GateKeeper v3 constraint template YAML file.
+
+1. From the menu bar, go to **View** > **Command Palette**, and enter **Azure Policy for Kubernetes:
+   Create Policy Definition from Constraint Template**.
+
+1. Select the appropriate _sourceType_ value.
+
+1. Fill in the `/* EDIT HERE */` portions of the policy definition JSON.
+
+While the extension generates the JSON of a policy definition, it doesn't create the definition in
+Azure. Once you've filled in the appropriate "edit here" fields, use the completed policy definition
+JSON and the Azure portal or supported SDK to create the policy definition within your Azure
+environment.
 
 ### Sign out
 

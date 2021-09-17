@@ -3,13 +3,13 @@ title: Elastic Database Jobs (preview)
 description: 'Configure Elastic Database Jobs (preview) to run Transact-SQL (T-SQL) scripts across a set of one or more databases in Azure SQL Database'
 services: sql-database
 ms.service: sql-database
-ms.subservice: scale-out
+ms.subservice: elastic-jobs
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: srinia
 ms.author: srinia
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 12/18/2018
 ---
 # Create, configure, and manage elastic jobs (preview)
@@ -72,25 +72,25 @@ Currently, the preview is limited to 100 concurrent jobs.
 
 To ensure resources aren't overburdened when running jobs against databases in a SQL elastic pool, jobs can be configured to limit the number of databases a job can run against at the same time.
 
-Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL, or `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL.
 
 ## Best practices for creating jobs
 
 ### Idempotent scripts
 A job's T-SQL scripts must be [idempotent](https://en.wikipedia.org/wiki/Idempotence). **Idempotent** means that if the script succeeds, and it is run again, the same result occurs. A script may fail due to transient network issues. In that case, the job will automatically retry running the script a preset number of times before desisting. An idempotent script has the same result even if its been successfully run twice (or more).
 
-A simple tactic is to test for the existence of an object before creating it.
-
+A simple tactic is to test for the existence of an object before creating it. A hypothetical example is shown below:
 
 ```sql
-IF NOT EXISTS (some_object)
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE [name] = N'some_object')
+    print 'Object does not exist'
     -- Create the object
+ELSE
+    print 'Object exists'
     -- If it exists, drop the object before recreating it.
 ```
 
 Similarly, a script must be able to execute successfully by logically testing for and countering any conditions it finds.
-
-
 
 ## Next steps
 

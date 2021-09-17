@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 08/04/2021
 ms.author: aahi
 ---
 
 # Example: How to extract key phrases using Text Analytics
 
-The [Key Phrase Extraction API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) evaluates unstructured text, and for each JSON document, returns a list of key phrases.
+The [Key Phrase Extraction API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases) evaluates unstructured text, and for each JSON document, returns a list of key phrases.
 
 This capability is useful if you need to quickly identify the main points in a collection of documents. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and "wonderful staff".
 
@@ -30,7 +30,7 @@ Key phrase extraction works best when you give it bigger amounts of text to work
 
 You must have JSON documents in this format: ID, text, language
 
-Document size must be 5,120 or fewer characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction. 
+Document size must be 5,120 or fewer characters per document, and you can have up to 10 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction. 
 
 See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for more information on request and response objects.  
 
@@ -71,7 +71,7 @@ See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for 
 
 ### Example asynchronous request object
 
-Starting in `v3.1-preview.3`, You can send NER requests asynchronously using the `/analyze` endpoint.
+Starting in `v3.1`, You can send NER requests asynchronously using the `/analyze` endpoint.
 
 
 ```json
@@ -103,16 +103,16 @@ Starting in `v3.1-preview.3`, You can send NER requests asynchronously using the
 
 For information about request definition, see [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
 
-+ Create a **POST** request. Review the API documentation for this request: [Key Phrases API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
++ Create a **POST** request. Review the API documentation for this request: [Key Phrases API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases).
 
-+ Set the HTTP endpoint for key phrase extraction by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). if you're using the API synchronously, you must include `/text/analytics/v3.0/keyPhrases` in the URL. For example: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
++ Set the HTTP endpoint for key phrase extraction by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). if you're using the API synchronously, you must include `/text/analytics/v3.1/keyPhrases` in the URL. For example: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.1/keyPhrases`.
 
 + Set a request header to include the [access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
 
 + In the request body, provide the JSON documents collection you prepared for this analysis.
 
 > [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) to structure a request and POST it to the service.
+> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases) to structure a request and POST it to the service.
 
 ## Step 2: Post the request
 
@@ -126,67 +126,64 @@ All POST requests return a JSON formatted response with the IDs and detected pro
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
-An example of the output for key phrase extraction from the v3.1-preview.2 endpoint is shown here:
+An example of the output for key phrase extraction from the v3.1 endpoint is shown here:
 
 ### Synchronous result
 
 ```json
-    {
-       "documents":[
-          {
-             "id":"1",
-             "keyPhrases":[
-                "year",
+{
+    "documents": [
+        {
+            "id": "1",
+            "keyPhrases": [
                 "trail",
                 "trip",
                 "views",
                 "hike"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"2",
-             "keyPhrases":[
-                "marked trails",
+            ],
+            "warnings": []
+        },
+        {
+            "id": "2",
+            "keyPhrases": [
                 "Worst hike",
-                "goners"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"3",
-             "keyPhrases":[
-                "trail",
+                "trails"
+            ],
+            "warnings": []
+        },
+        {
+            "id": "3",
+            "keyPhrases": [
+                "less athletic",
                 "small children",
-                "family"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"4",
-             "keyPhrases":[
+                "Everyone",
+                "family",
+                "trail"
+            ],
+            "warnings": []
+        },
+        {
+            "id": "4",
+            "keyPhrases": [
                 "spectacular views",
                 "trail",
-                "Worth",
                 "area"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"5",
-             "keyPhrases":[
-                "places",
-                "beautiful views",
+            ],
+            "warnings": []
+        },
+        {
+            "id": "5",
+            "keyPhrases": [
                 "favorite trail",
-                "rest"
-             ],
-             "warnings":[]
-          }
-       ],
-       "errors":[],
-       "modelVersion":"2020-07-01"
-    }
-
+                "beautiful views",
+                "many places"
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2021-06-01"
+}
 ```
 As noted, the analyzer finds and discards non-essential words, and it keeps single terms or phrases that appear to be the subject or object of a sentence.
 
@@ -196,51 +193,46 @@ If you use the `/analyze` endpoint for asynchronous operation, you will get a re
 
 ```json
 {
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
+    "jobId": "fa813c9a-0d96-4a34-8e4f-a2a6824f9190",
+    "lastUpdateDateTime": "2021-07-07T18:16:45Z",
+    "createdDateTime": "2021-07-07T18:16:15Z",
+    "expirationDateTime": "2021-07-08T18:16:15Z",
+    "status": "succeeded",
+    "errors": [],
+    "displayName": "My Job",
+    "tasks": {
+        "completed": 1,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 1,
+        "keyPhraseExtractionTasks": [
+            {
+                "lastUpdateDateTime": "2021-07-07T18:16:45.0623454Z",
+                "taskName": "KeyPhraseExtraction_latest",
+                "state": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "id": "doc1",
+                            "keyPhrases": [],
+                            "warnings": []
+                        },
+                        {
+                            "id": "doc2",
+                            "keyPhrases": [
+                                "Pike place market",
+                                "Seattle attraction",
+                                "favorite"
+                            ],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2021-06-01"
+                }
+            }
+        ]
+    }
 }
 ```
 
@@ -249,7 +241,7 @@ If you use the `/analyze` endpoint for asynchronous operation, you will get a re
 
 In this article, you learned concepts and workflow for key phrase extraction by using Text Analytics in Cognitive Services. In summary:
 
-+ [Key phrase extraction API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) is available for selected languages.
++ [Key phrase extraction API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases) is available for selected languages.
 + JSON documents in the request body include an ID, text, and language code.
 + POST request is to a `/keyphrases` or `/analyze` endpoint, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
 + Response output, which consists of key words and phrases for each document ID, can be streamed to any app that accepts JSON, including Microsoft Office Excel and Power BI, to name a few.
@@ -257,7 +249,7 @@ In this article, you learned concepts and workflow for key phrase extraction by 
 ## See also
 
  [Text Analytics overview](../overview.md)
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Frequently asked questions (FAQ)](../text-analytics-resource-faq.yml)</br>
  [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## Next steps
@@ -265,3 +257,4 @@ In this article, you learned concepts and workflow for key phrase extraction by 
 * [Text Analytics overview](../overview.md)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)
+* [Model versions](../concepts/model-versioning.md)

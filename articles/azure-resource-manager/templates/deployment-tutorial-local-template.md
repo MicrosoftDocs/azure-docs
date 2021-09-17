@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Resource Manager template (ARM templat
 ms.date: 02/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.custom:
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy a local ARM template
@@ -39,7 +39,7 @@ The template deploys a storage account, app service plan, and web app. If you're
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with **store** appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
+> Storage account names must be unique, between 3 and 24 characters in length, and use **numbers** and **lowercase** letters only. The sample template's `storageAccountName` variable combines the `projectName` parameter's maximum of 11 characters with a [uniqueString](./template-functions-string.md#uniquestring) value of 13 characters.
 
 Save a copy of the template to your local computer with the _.json_ extension, for example, _azuredeploy.json_. You deploy this template later in the tutorial.
 

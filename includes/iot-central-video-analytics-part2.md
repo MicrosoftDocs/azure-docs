@@ -73,7 +73,7 @@ To create a new video analytics application:
 
 1. If you have an Azure subscription, select your **Directory**, **Azure subscription**, and **United States** as the **Location**. If you don't have a subscription, you can enable **7-day free trial** and complete the required contact information. This tutorial uses three devices - two cameras and an IoT Edge device - so if you don't use the free trial you'll be billed for usage.
 
-    For more information about directories, subscriptions, and locations, see the [create an application quickstart](../articles/iot-central/core/quick-deploy-iot-central.md).
+    For more information about directories, subscriptions, and locations, see the [Create an IoT Central application](../articles/iot-central/core/howto-create-iot-central-application.md).
 
 1. Select **Create**.
 

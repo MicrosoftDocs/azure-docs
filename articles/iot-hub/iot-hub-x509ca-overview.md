@@ -6,7 +6,7 @@ manager: arjmands
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/18/2017
+ms.date: 07/13/2021
 ms.author: eustacea
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
 ---
@@ -27,7 +27,7 @@ The X.509 CA feature enables device authentication to IoT Hub using a Certificat
 
 ## Prerequisite
 
-Using the X.509 CA feature requires that you have an IoT Hub account.  [Learn how to create an IoT Hub instance](quickstart-send-telemetry-dotnet.md) if you don't already have one.
+Using the X.509 CA feature requires that you have an IoT Hub account.  [Learn how to create an IoT Hub instance](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) if you don't already have one.
 
 ## How to get an X.509 CA certificate
 
@@ -59,13 +59,13 @@ The upload process entails uploading a file that contains your certificate.  Thi
 
 The proof of possession step involves a cryptographic challenge and response process between you and IoT Hub.  Given that digital certificate contents are public and therefore susceptible to eavesdropping, IoT Hub would like to ascertain that you really own the CA certificate.  It shall do so by generating a random challenge that you must sign with the CA certificate's corresponding private key.  If you kept the private key secret and protected as earlier advised, then only you will possess the knowledge to complete this step. Secrecy of private keys is the source of trust in this method.  After signing the challenge, complete this step by uploading a file containing the results.
 
-Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
+Learn here how to [register your CA certificate](./tutorial-x509-scripts.md)
 
 ## How to create a device on IoT Hub
 
 To preclude device impersonation, IoT Hub requires you to let it know what devices to expect.  You do this by creating a device entry in the IoT Hub's device registry.  This process is automated when using IoT Hub [Device Provisioning Service](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/). 
 
-Learn here how to [manually create a device in IoT Hub](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
+Learn here how to [manually create a device in IoT Hub](./tutorial-x509-scripts.md).
 
 Create an X.509 device for your IoT hub
 
@@ -73,9 +73,9 @@ Create an X.509 device for your IoT hub
 
 With X.509 CA certificate registered and devices signed into a certificate chain of trust, what remains is device authentication when the device connects, even for the first time.  When an X.509 CA signed device connects, it uploads its certificate chain for validation. The chain includes all intermediate CA and device certificates.  With this information, IoT Hub authenticates the device in a two-step process.  IoT Hub cryptographically validates the certificate chain for internal consistency, and then issues a proof-of-possession challenge to the device.  IoT Hub declares the device authentic on a successful proof-of-possession response from the device.  This declaration assumes that the device's private key is protected and that only the device can successfully respond to this challenge.  We recommend use of secure chips like Hardware Secure Modules (HSM) in devices to protect private keys.
 
-A successful device connection to IoT Hub completes the authentication process and is also indicative of a proper setup.
+A successful device connection to IoT Hub completes the authentication process and is also indicative of a proper setup. Every time a device connects, IoT Hub renegotiates the TLS session and verifies the device’s X.509 certificate. 
 
-Learn here how to [complete this device connection step](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
+Learn here how to [complete this device connection step](./tutorial-x509-scripts.md).
 
 ## Next Steps
 

@@ -8,7 +8,7 @@ ms.date: 11/13/2020
 ms.topic: quickstart
 ms.service: key-vault
 ms.devlang: azurepowershell
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - devx-track-azurepowershell
   - mode-api
 ---

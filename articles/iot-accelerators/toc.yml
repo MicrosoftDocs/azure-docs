@@ -9,39 +9,13 @@
   - name: Industrial IoT
     href: overview-iot-industrial.md
     items:
-    - name: What is OPC Twin
-      href: overview-opc-twin.md
-    - name: What is OPC Vault
-      href: overview-opc-vault.md
-    - name: What is OPC Publisher
-      href: overview-opc-publisher.md
     - name: What is Connected Factory
       href: iot-accelerators-connected-factory-features.md
-  - name: Device simulation
-    href: iot-accelerators-device-simulation-overview.md
 - name: Quickstarts
   items:
-  - name: Deploy the device simulation solution accelerator
-    href: https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md
   - name: Try a connected factory solution
     href: quickstart-connected-factory-deploy.md
   expanded: true
-- name: Tutorials
-  items:
-  - name: Device simulation
-    items:
-    - name: Create and run a simulation
-      href: iot-accelerators-device-simulation-create-simulation.md
-    - name: Create a custom simulated device
-      href: iot-accelerators-device-simulation-create-custom-device.md
-- name: Concepts
-  items:
-  - name: Industrial IoT
-    items:
-    - name: OPC Twin architecture
-      href: overview-opc-twin-architecture.md
-    - name: OPC Vault architecture
-      href: overview-opc-vault-architecture.md
 - name: How-to guides
   items:
   - name: Industrial IoT
@@ -54,40 +28,6 @@
         href: iot-accelerators-connected-factory-configure.md
       - name: Customize the solution accelerator
         href: iot-accelerators-connected-factory-customize.md
-    - name: OPC Twin
-      items:
-      - name: Deploy OPC Twin services
-        href: howto-opc-twin-deploy-existing.md
-      - name: Deploy OPC Twin module to IoT Edge
-        href: howto-opc-twin-deploy-modules.md
-      - name: Deploy OPC Twin dependencies only
-        href: howto-opc-twin-deploy-dependencies.md
-    - name: OPC Vault
-      items:
-      - name: Deploy OPC Vault service
-        href: howto-opc-vault-deploy.md
-      - name: Manage OPC Vault service
-        href: howto-opc-vault-manage.md
-      - name: Secure OPC UA device communication with OPC Vault
-        href: howto-opc-vault-secure.md
-      - name: Operate the OPC Vault service securely
-        href: howto-opc-vault-secure-ca.md
-    - name: OPC Publisher
-      items:
-      - name: Configure OPC Publisher
-        href: howto-opc-publisher-configure.md
-      - name: Run OPC Publisher
-        href: howto-opc-publisher-run.md
-  - name: Device simulation
-    items:
-    - name: Use an existing IoT Hub
-      href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Create an advanced simulated device
-      href: iot-accelerators-device-simulation-advanced-device.md
-    - name: Visualize telemetry with Time Series Insights
-      href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Serialize telemetry using Protobuf
-      href: iot-accelerators-device-simulation-protobuf.md
 - name: Resources
   items:
   - name: Support and help options
@@ -107,7 +47,7 @@
     - name: IoT solution accelerators
       href: ./index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights
@@ -122,12 +62,6 @@
     items:
     - name: GitHub repository
       href: https://github.com/Azure/azure-iot-connected-factory
-  - name: Device simulation
-    items:
-    - name: Developer reference guide
-      href: https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide
-    - name: GitHub repository
-      href: https://github.com/Azure/azure-iot-pcs-device-simulation
   - name: Reference Architecture
     href: /azure/architecture/reference-architectures/iot
     items:
@@ -136,8 +70,8 @@
   - name: FAQ
     items:
     - name: Solution Accelerators FAQ
-      href: iot-accelerators-faq.md
+      href: iot-accelerators-faq.yml
     - name: Connected Factory FAQ
-      href: iot-accelerators-faq-cf.md 
+      href: iot-accelerators-faq-cf.yml
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite

@@ -30,10 +30,6 @@ The best way to try Azure Batch rendering and simplest way for end-users, who ar
 
 ## Using Batch Explorer
 
-For a step-by-step tutorial for using Batch Explorer to perform rendering see the [Blender tutorial](./tutorial-rendering-batchexplorer-blender.md).
-
-### Download and Install
-
 Batch Explorer [downloads are available](https://azure.github.io/BatchExplorer/) for Windows, OSX, and Linux.
 
 ### Using templates to create pools and run jobs
@@ -52,7 +48,5 @@ The 'Data' section in Batch Explorer allows files to be copied between a local f
 
 ## Next steps
 
-For examples of Batch rendering try out the two tutorials:
-
-* [Rendering using the Azure CLI](./tutorial-rendering-cli.md)
-* [Rendering using Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
+* Learn about [using rendering applications with Batch](batch-rendering-applications.md).
+* Learn about [Storage and data movement options for rendering asset and output files](batch-rendering-storage-data-movement.md).

@@ -12,9 +12,6 @@ ms.service: api-management
 
 This topic provides a reference for Dapr integration API Management policies. Dapr is a portable runtime for building stateless and stateful microservices-based applications with any language or framework. It codifies the common microservice patterns, like service discovery and invocation with build-in retry logic, publish-and-subscribe with at-least-once delivery semantics, or pluggable binding resources to ease composition using external services. Go to [dapr.io](https://dapr.io) for detailed information and instruction on how to get started with Dapr. For information on adding and configuring policies, see [Policies in API Management](api-management-howto-policies.md).
 
-> [!CAUTION]
-> Policies referenced in this topic are in Public Preview and are subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 > [!IMPORTANT]
 > Policies referenced in this topic work only in the [self-hosted version of the API Management gateway](self-hosted-gateway-overview.md) with Dapr support enabled.
 

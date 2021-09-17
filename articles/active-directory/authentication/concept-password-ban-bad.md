@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/13/2021
 
 ms.author: justinha
 author: justinha
@@ -217,7 +217,7 @@ When a user attempts to reset a password to something that would be banned, the 
 > [!NOTE]
 > On-premises AD DS users that aren't synchronized to Azure AD also benefit from Azure AD Password Protection based on existing licensing for synchronized users.
 
-Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 

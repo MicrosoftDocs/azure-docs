@@ -1,12 +1,14 @@
 ---
-title: Analyze live video with Live Video Analytics on IoT Edge and Azure Custom Vision
-description: Learn how to use Azure Custom Vision to build a containerized model that can detect a toy truck and use AI extensibility capability of Azure Live Video Analytics on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
+title: Analyze live video with Azure Live Video Analytics on IoT Edge and Azure Custom Vision
+description: Learn how to use Azure Custom Vision to build a containerized model that can detect a toy truck and use AI extensibility capability of Live Video Analytics on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
 
 ---
-# Tutorial: Analyze live video with Live Video Analytics on IoT Edge and Azure Custom Vision
+# Tutorial: Analyze live video with Azure Live Video Analytics on IoT Edge and Azure Custom Vision
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](analyze-live-video-concept.md#analyzing-video-using-a-custom-vision-model) of Azure Live Video Analytics on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 

@@ -8,11 +8,13 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
-ms.reviewer: jagaveer
+ms.reviewer: jagaveer 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy Azure Spot Virtual Machines using Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 Using [Azure Spot Virtual Machines](../spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. Therefore, Azure Spot Virtual Machines are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
@@ -94,7 +96,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 This first response could take up to 2 minutes. From now on, they should display output almost immediately.
 
-From a computer that has the Az PowerShell module installed (like your local machine), simulate an eviction using [Set-AzVM](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). Replace the resource group name and VM name with your own. 
+From a computer that has the Az PowerShell module installed (like your local machine), simulate an eviction using [Set-AzVM](/powershell/module/az.compute/set-azvm). Replace the resource group name and VM name with your own. 
 
 ```azurepowershell-interactive
 Set-AzVM -ResourceGroupName "mySpotRG" -Name "mySpotVM" -SimulateEviction

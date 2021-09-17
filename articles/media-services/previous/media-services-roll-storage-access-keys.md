@@ -14,7 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
-ms.reviewer: milanga;cenkdin
+ms.reviewer: milanga;cenkdin 
+ms.custom: devx-track-azurepowershell
 ---
 # Update Media Services after rolling storage access keys
 

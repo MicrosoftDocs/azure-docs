@@ -47,9 +47,7 @@ The following diagram shows a fully connected hybrid scenario for both compute a
 
   ![Cloud bursting - Hybrid compute and storage](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
-
 ## Next steps
 
-* Learn more about using [Render managers](batch-rendering-render-managers.md) with Azure Batch.
-
-* Learn more about options for [Rendering in Azure](batch-rendering-service.md).
+* Learn more about options for [rendering in Azure](batch-rendering-service.md).
+* Learn about [using rendering applications with Batch](batch-rendering-applications.md).

@@ -10,13 +10,23 @@ ms.date: 11/09/2020
 
 # Quickstart: Create, train, and publish your QnA Maker knowledge base
 
-You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions QnA Maker.
+You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions.
 
 ## Prerequisites
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A QnA Maker [resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA Maker resource name you selected when you created the resource.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+> [!div class="checklist"]
+> * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with Custom question answering feature enabled. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
+
+---
 
 ## Create your first QnA Maker knowledge base
 
@@ -28,9 +38,9 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 3. On the **Create** page, skip **Step 1** if you already have your QnA Maker resource.
 
-    If you haven't created the resource yet, select **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+If you haven't created the service yet, select **Stable** and **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
-    When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
+When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
 
 4. In **Step 2**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
@@ -43,7 +53,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |Setting|Value|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
-    |**Multi-turn default text**| Select and option|
+    |**Multi-turn default text**| Select an option|
     |**+ Add URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Chit-chat**|Select **Professional**|
 
@@ -53,23 +63,32 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
     After QnA Maker successfully creates the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 1. Sign in to the [QnAMaker.ai](https://QnAMaker.ai) portal with your Azure credentials.
 
 2. In the QnA Maker portal, select **Create a knowledge base**.
 
-3. On the **Create** page, skip **Step 1** if you already have your QnA Maker resource.
+3. On the **Create** page, skip **Step 1** if you already have Custom question answering added to a Text Analytics service.
 
-    If you haven't created the resource yet, select **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+    If you haven't created the service yet, select **Preview** and **Create a QnA service**. 
 
-    When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
+> [!div class="mx-imgBorder"]
+> ![Create service](../media/qnamaker-create-publish-knowledge-base/create-qna-service.png) 
+    
+You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. You should add the Custom question answering feature to the service on creation. 
+    
+> [!div class="mx-imgBorder"]
+> ![Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
+ 
+   Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource. When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
 
 4. In **Step 2**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Screenshot of selecting a QnA Maker service knowledge base managed preview":::
+> [!div class="mx-imgBorder"]
+> ![Create KB](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png) 
 
-5. In **Step 2**, if you are creating the first knowledge base for your service, you will have an option to make language setting specific to every knowledge base. Once the language setting has been defined for the first knowledge base, you will not be allowed to modify the settings for the service later.
+5. In **Step 2**, if you are creating the first knowledge base for your service, you can check **Add knowledge bases in multiple languages to this service** property to allow the capability to add knowledge bases in different languages to the same service. You won't be able to modify this later.
 
 6. In **Step 3**, name your knowledge base **My Sample QnA KB**. 
 
@@ -78,7 +97,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |Setting|Value|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
-    |**Multi-turn default text**| Select and option|
+    |**Multi-turn default text**| Select an option|
     |**+ Add File**| Download Surface laptop manual from: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf' 
     |**Chit-chat**|Select **Professional**|
 
@@ -86,7 +105,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
     The extraction process takes a few moments to read the document and identify questions and answers.
 
-    After QnA Maker successfully creates the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
+    After successfully creating the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
 
 ---
 
@@ -126,7 +145,7 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 
 4. Select **Test** again to close the **Test** panel.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 1. In the QnA Maker portal, in the upper right, select **Test** to test that the changes you made took effect.
 2. Enter an example user query in the textbox.

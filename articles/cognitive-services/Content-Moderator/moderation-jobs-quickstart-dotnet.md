@@ -17,6 +17,8 @@ ms.custom: devx-track-csharp
 
 # Define and use moderation jobs (.NET)
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows and reviews. This guide provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 
 - Start a moderation job to scan and create reviews for human moderators

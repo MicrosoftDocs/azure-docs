@@ -92,7 +92,7 @@ The SKU of the virtual machine's public IP address must match the public IP SKU 
 
 You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
 
-- Learn more about [static public IP addresses](./public-ip-addresses.md#allocation-method).
+- Learn more about [static public IP addresses](./public-ip-addresses.md#ip-address-assignment).
 - Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
 - Learn more about [private IP addresses](./private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.

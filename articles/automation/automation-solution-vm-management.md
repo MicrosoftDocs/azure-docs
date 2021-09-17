@@ -3,7 +3,7 @@ title: Azure Automation Start/Stop VMs during off-hours overview
 description: This article describes the Start/Stop VMs during off-hours feature, which starts or stops VMs on a schedule and proactively monitor them from Azure Monitor Logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/04/2020
+ms.date: 05/25/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -12,13 +12,15 @@ ms.custom: devx-track-azurepowershell
 
 The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios.
 
+> [!NOTE]
+> Before you install this version (v1), we would like you to know about the [next version](../azure-functions/start-stop-vms/overview.md), which is in preview right now. This new version (v2) offers all the same functionality as this one, but is designed to take advantage of newer technology in Azure. It adds some of the commonly requested features from customers, such as multi-subscription support from a single Start/Stop instance. 
+>
+> Start/Stop VMs during off-hours (v1) will deprecate on 5/21/2022. 
+
 This feature uses [Start-AzVm](/powershell/module/az.compute/start-azvm) cmdlet to start VMs. It uses [Stop-AzVM](/powershell/module/az.compute/stop-azvm) for stopping VMs.
 
 > [!NOTE]
-> While the runbooks have been updated to use the new Azure Az module cmdlets, they use the AzureRM prefix alias.
-
-> [!NOTE]
-> Start/Stop VMs during off-hours has been updated to support the newest versions of the Azure modules that are available. The updated version of this feature, available in the Marketplace, doesn’t support AzureRM modules because we have migrated from AzureRM to Az modules.
+> Start/Stop VMs during off-hours has been updated to support the newest versions of the Azure modules that are available. The updated version of this feature, available in the Marketplace, doesn’t support AzureRM modules because we have migrated from AzureRM to Az modules. While the runbooks have been updated to use the new Azure Az module cmdlets, they use the AzureRM prefix alias.
 
 The feature provides a decentralized low-cost automation option for users who want to optimize their VM costs. You can use the feature to:
 
@@ -31,14 +33,11 @@ The following are limitations with the current feature:
 - It manages VMs in any region, but can only be used in the same subscription as your Azure Automation account.
 - It is available in Azure and Azure Government for any region that supports a Log Analytics workspace, an Azure Automation account, and alerts. Azure Government regions currently don't support email functionality.
 
-> [!NOTE]
-> Before you install this version, we would like you to know about the [next version](https://github.com/microsoft/startstopv2-deployments), which is in preview right now.  This new version (V2) offers all the same functionality as this one, but is designed to take advantage of newer technology in Azure. It adds some of the commonly requested features from customers, such as multi-subscription support from a single Start/Stop instance.
-
 ## Prerequisites
 
 - The runbooks for the Start/Stop VMs during off hours feature work with an [Azure Run As account](./automation-security-overview.md#run-as-accounts). The Run As account is the preferred authentication method because it uses certificate authentication instead of a password that might expire or change frequently.
 
-- An [Azure Monitor Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md) that stores the runbook job logs and job stream results in a workspace to query and analyze. The Automation account can be linked to a new or existing Log Analytics workspace, and both resources need to be in the same resource group.
+- An [Azure Monitor Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md) that stores the runbook job logs and job stream results in a workspace to query and analyze. The Automation account and Log Analytics workspace need to be in the same subscription and supported region. The workspace needs to already exist, you cannot create a new workspace during deployment of this feature.
 
 We recommend that you use a separate Automation account for working with VMs enabled for the Start/Stop VMs during off-hours feature. Azure module versions are frequently upgraded, and their parameters might change. The feature isn't upgraded on the same cadence and it might not work with newer versions of the cmdlets that it uses. Before importing the updated modules into your production Automation account(s), we recommend you import them into a test Automation account to verify there aren't any compatibility issues.
 
@@ -75,7 +74,7 @@ To enable VMs for the Start/Stop VMs during off-hours feature using an existing 
 
 ### Permissions for new Automation account and new Log Analytics workspace
 
-You can enable VMs for the Start/Stop VMs during off-hours feature using a new Automation account and Log Analytics workspace. In this case, you need the permissions defined in the preceding section as well as the permissions defined in this section. You also require the following roles:
+You can enable VMs for the Start/Stop VMs during off-hours feature using a new Automation account and Log Analytics workspace. In this case, you need the permissions defined in the previous section and the permissions defined in this section. You also require the following roles:
 
 - Co-Administrator on subscription. This role is required to create the Classic Run As account if you are going to manage classic VMs. [Classic Run As accounts](automation-create-standalone-account.md#create-a-classic-run-as-account) are no longer created by default.
 - Membership in the [Azure AD](../active-directory/roles/permissions-reference.md) Application Developer role. For more information on configuring Run As Accounts, see [Permissions to configure Run As accounts](automation-security-overview.md#permissions).
@@ -95,7 +94,7 @@ You can enable VMs for the Start/Stop VMs during off-hours feature using a new A
 
 ## Components
 
-The Start/Stop VMs during off-hours feature include preconfigured runbooks, schedules, and integration with Azure Monitor logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
+The Start/Stop VMs during off-hours feature include preconfigured runbooks, schedules, and integration with Azure Monitor Logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
 
 ### Runbooks
 

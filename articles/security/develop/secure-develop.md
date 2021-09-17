@@ -36,7 +36,7 @@ misuse of your application.
 
 ### Perform code reviews
 
-Before you check in code, conduct [code reviews](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) to increase overall code quality and reduce the risk of creating bugs. You can use [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) to manage the code review process.
+Before you check in code, conduct code reviews to increase overall code quality and reduce the risk of creating bugs. You can use [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) to manage the code review process.
 
 ### Perform static code analysis
 

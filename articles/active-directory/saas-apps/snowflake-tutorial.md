@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Snowflake | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Snowflake'
 description: Learn how to configure single sign-on between Azure Active Directory and Snowflake.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 09/13/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Snowflake
+# Tutorial: Azure AD SSO integration with Snowflake
 
 In this tutorial, you'll learn how to integrate Snowflake with Azure Active Directory (Azure AD). When you integrate Snowflake with Azure AD, you can:
 
@@ -24,17 +24,20 @@ In this tutorial, you'll learn how to integrate Snowflake with Azure Active Dire
 
 To configure Azure AD integration with Snowflake, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Snowflake single sign-on enabled subscription
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* Snowflake single sign-on enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
 In this tutorial, you will configure and test Azure AD single sign-on in a test environment.
 
-- Snowflake supports **SP and IDP** initiated SSO
-- Snowflake supports [Automated user provisioning and deprovisioning](snowflake-provisioning-tutorial.md) (recommended)
+* Snowflake supports **SP and IDP** initiated SSO.
+* Snowflake supports [automated user provisioning and deprovisioning](snowflake-provisioning-tutorial.md) (recommended).
 
-## Adding Snowflake from the gallery
+## Add Snowflake from the gallery
 
 To configure the integration of Snowflake into Azure AD, you need to add Snowflake from the gallery to your list of managed SaaS apps.
 
@@ -49,7 +52,7 @@ To configure the integration of Snowflake into Azure AD, you need to add Snowfla
 
 Configure and test Azure AD SSO with Snowflake using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Snowflake.
 
-To configure and test Azure AD SSO with Snowflake, complete the following building blocks:
+To configure and test Azure AD SSO with Snowflake, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -58,7 +61,7 @@ To configure and test Azure AD SSO with Snowflake, complete the following buildi
 	1. **[Create Snowflake test user](#create-snowflake-test-user)** - to have a counterpart of B.Simon in Snowflake that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -95,7 +98,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -129,11 +131,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	> [!NOTE]
 	> This is separate from the context you have selected in the top-right corner under your User Name.
     
-	![The Snowflake admin](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+	![The Snowflake admin](./media/snowflake-tutorial/account.png)
 
 1. Open the **downloaded Base 64 certificate** in notepad. Copy the value between “-----BEGIN CERTIFICATE-----” and “-----END CERTIFICATE-----" and paste this into the quotation marks next to **certificate** below. In the **ssoUrl**, paste **Login URL** value which you have copied from the Azure portal. Select the **All Queries** and click **Run**.
 
-   ![Snowflake sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
+   ![Snowflake sql](./media/snowflake-tutorial/certificate.png)
 
    ```
    use role accountadmin;
@@ -146,7 +148,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    alter account set sso_login_page = TRUE;
    ```
 
-
 ### Create Snowflake test user
 
 To enable Azure AD users to log in to Snowflake, they must be provisioned into Snowflake. In Snowflake, provisioning is a manual task.
@@ -157,18 +158,18 @@ To enable Azure AD users to log in to Snowflake, they must be provisioned into S
 
 2. **Switch Role** to **ACCOUNTADMIN**, by clicking on **profile** on the top right side of page.  
 
-	![The Snowflake admin](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+	![The Snowflake admin](./media/snowflake-tutorial/account.png)
 
 3. Create the user by running the below SQL query, ensuring "Login name" is set to the Azure AD username on the worksheet as shown below.
 
-	![The Snowflake adminsql](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+	![The Snowflake adminsql](./media/snowflake-tutorial/user.png)
 
     ```
 	use role accountadmin;
 	CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
     ```
 
-### Test SSO 
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
@@ -180,11 +181,10 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Snowflake for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Snowflake for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Snowflake tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Snowflake for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-
 ## Next steps
 
-Once you configure Snowflake you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Once you configure Snowflake you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

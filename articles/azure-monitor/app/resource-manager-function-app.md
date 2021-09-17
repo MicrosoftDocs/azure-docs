@@ -11,7 +11,7 @@ ms.date: 08/06/2020
 
 # Resource Manager template sample for creating Azure Function apps with Application Insights monitoring
 
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure [classic Application Insights resources](../app/create-new-resource.md) in conjunction with an Azure Function app. The sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to deploy and configure [classic Application Insights resources](../app/create-new-resource.md) in conjunction with an Azure Function app. The sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

@@ -17,6 +17,7 @@ ms.date: 04/17/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurecli
+ROBOTS: NOINDEX
 ---
 
 # Create, list, or delete a user-assigned managed identity using the Azure CLI

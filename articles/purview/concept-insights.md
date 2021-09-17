@@ -29,7 +29,7 @@ The report also allows administrators to deep dive and explore which scans faile
 
 ## Glossary Insights
 
-This report is gives the business users and data stewards a status report on glossary. Users can view this report to understand distribution of glossary terms by status, learn how many glossary terms are attached to assets and how many are not yet attached to any asset. Business users can also learn about completeness of their glossary terms. 
+This report gives the business users and data stewards a status report on glossary. Users can view this report to understand distribution of glossary terms by status, learn how many glossary terms are attached to assets and how many are not yet attached to any asset. Business users can also learn about completeness of their glossary terms. 
 
 This report summarizes top items that a business user or data steward needs to focus on, to create a complete and usable glossary for his/her organization. Users can also navigate into the "Glossary" experience from "Glossary Insights" experience, to make changes on a specific glossary term.
 

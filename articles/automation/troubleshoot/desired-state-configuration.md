@@ -85,7 +85,7 @@ This error is normally caused by a firewall, the machine being behind a proxy se
 
 Verify that your machine has access to the proper endpoints for DSC and try again. For a list of ports and addresses needed, see [Network planning](../automation-dsc-overview.md#network-planning).
 
-## <a name="unauthorized"><a/>Scenario: Status reports return the response code Unauthorized
+## <a name="unauthorized"></a>Scenario: Status reports return the response code Unauthorized
 
 ### Issue
 

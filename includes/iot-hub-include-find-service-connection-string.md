@@ -23,4 +23,4 @@ To get the IoT Hub connection string for the **service** policy, follow these st
 
     ![Show how to retrieve the connection string](./media/iot-hub-include-find-service-connection-string/iot-hub-get-connection-string.png)
 
-For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](../articles/iot-hub/iot-hub-devguide-security.md#access-control-and-permissions).
+For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](../articles/iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions).

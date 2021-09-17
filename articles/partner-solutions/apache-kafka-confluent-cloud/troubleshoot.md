@@ -12,7 +12,7 @@ ms.author: tomfitz
 
 This document contains information about troubleshooting your solutions that use Apache Kafka for Confluent Cloud.
 
-If you don't find an answer or can't resolve a problem, [create a request through the Azure portal](manage.md#get-support) or contact [Confluent support](https://support.confluent.io).
+If you don't find an answer or can't resolve a problem, [create a request through the Azure portal](get-support.md) or contact [Confluent support](https://support.confluent.io).
 
 ## Can't find offer in the Marketplace
 

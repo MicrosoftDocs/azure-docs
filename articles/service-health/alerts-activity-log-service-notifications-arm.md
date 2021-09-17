@@ -3,7 +3,7 @@ title: Receive activity log alerts on Azure service notifications using Resource
 description: Get notified via SMS, email, or webhook when Azure service occurs.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - subject-armqs
   - mode-arm
 ---

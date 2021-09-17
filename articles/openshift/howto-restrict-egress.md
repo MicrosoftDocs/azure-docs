@@ -13,7 +13,7 @@ This article provides the necessary details that allow you to secure outbound tr
 
 ## Before you begin
 
-This article assumes that you're creating a new cluster. If you need a basic ARO cluster, see the [ARO quickstart](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+This article assumes that you're creating a new cluster. If you need a basic ARO cluster, see the [ARO quickstart](./tutorial-create-cluster.md).
 
 > [!IMPORTANT]
 > ARO preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. ARO previews are partially covered by customer support on a best-effort basis.
@@ -26,7 +26,7 @@ The following FQDN / application rules are required:
 
 | Destination FQDN | Port | Use |
 | ----------- | ----------- | ------------- |
-| **`quay.io`** | **HTTPS:443** | Mandatory for the installation, used by the cluster. This is used by the cluster to download the platform container images. |
+| **`*.quay.io`** | **HTTPS:443** | Mandatory for the installation, used by the cluster. This is used by the cluster to download the platform container images. |
 | **`registry.redhat.io`** | **HTTPS:443** | Mandatory for core add-ons. This is used by the cluster to download core components such as dev tools, operator-based add-ons, and Red Hat provided container images.
 | **`mirror.openshift.com`** | **HTTPS:443** | This is required in the VDI environment or your laptop to access mirrored installation content and images. It's required in the cluster to download platform release signatures to know what images to pull from quay.io. |
 | **`api.openshift.com`** | **HTTPS:443** | Required  by the cluster to check if there are available updates before downloading the image signatures. |
@@ -93,7 +93,7 @@ In OpenShift Container Platform, customers can opt out of reporting health and u
 
 ### Azure Monitor for containers
 
-There are two options to provide access to Azure Monitor for containers, you may allow the Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) **or** provide access to the required FQDN/Application Rules.  Here are the [instructions](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-azure-redhat4-setup) on how to add Azure Monitor to your existing ARO cluster.
+There are two options to provide access to Azure Monitor for containers, you may allow the Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) **or** provide access to the required FQDN/Application Rules.  Here are the [instructions](../azure-monitor/containers/container-insights-azure-redhat4-setup.md) on how to add Azure Monitor to your existing ARO cluster.
 
 #### Required network rules
 

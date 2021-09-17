@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: carlrab
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Use CLI to configure active geo-replication for a single database in Azure SQL Database

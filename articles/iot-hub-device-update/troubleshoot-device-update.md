@@ -62,6 +62,9 @@ _This may have been caused by a service/UX bug, or by an API permissions issue. 
 ### Q: I started a deployment but it isn’t reaching an end state.
 _This may have been caused by a service performance issue, a service bug, or a client bug. Please retry your deployment after 10 minutes. If you encounter the same issue, please pull your device logs and refer to the Device Failures section of this troubleshooting guide. If the same issue persists, please follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft._
 
+### Q: I migrated from a device level agent to adding the agent as a Module identity on the device, and my update shows as 'in-progress' even though it has been applied to the device.
+_This may have been caused if you did not remove the older agent that was communicating over the Device Twin. When you provision the Device Update agent as a Module (see [how to](device-update-agent-provisioning.md)) all communications between the device and the Device Update service happen over the Module Twin so do remember to tag the Module Twin of the device when creating [groups](device-update-groups.md) and all [communications](device-update-plug-and-play.md) must happen over the module twin.
+
 ## <a name="download"></a> Downloading updates onto devices
 
 ### Q: How do I resume a download when a device has reconnected after a period of disconnection?

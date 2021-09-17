@@ -17,7 +17,7 @@ There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-ha
 
 ## I'm getting a `quota exceeded` error during creation or upgrade. What should I do? 
 
- [Request more cores](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+ [Request more cores](../azure-portal/supportability/regional-quota-requests.md).
 
 ## I'm getting an `insufficientSubnetSize` error while deploying an AKS cluster with advanced networking. What should I do?
 
@@ -57,7 +57,7 @@ There might be various reasons for the pod being stuck in that mode. You might l
 * The pod itself, by using `kubectl describe pod <pod-name>`.
 * The logs, by using `kubectl logs <pod-name>`.
 
-For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+For more information about how to troubleshoot pod problems, see [Debugging Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods) in the Kubernetes documentation.
 
 ## I'm receiving `TCP timeouts` when using `kubectl` or other third-party tools connecting to the API server
 AKS has HA control planes that scale vertically according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
@@ -99,7 +99,7 @@ You might be getting this error because you've modified the tags in the agent no
 This error occurs when clusters enter a failed state for multiple reasons. Follow the steps below to resolve your cluster failed state before retrying the previously failed operation:
 
 1. Until the cluster is out of `failed` state, `upgrade` and `scale` operations won't succeed. Common root issues and resolutions include:
-    * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-portal/supportability/resource-manager-core-quotas-request.md) before trying to scale up again beyond initial quota limits.
+    * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-portal/supportability/regional-quota-requests.md) before trying to scale up again beyond initial quota limits.
     * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/templates/error-resource-quota.md#solution) before trying to scale up again beyond initial quota limits.
 2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
 
@@ -209,6 +209,10 @@ If your cluster's provisioning status remains as *Failed* or the applications on
 ## My watch is stale or Azure AD Pod Identity NMI is returning status 500
 
 If you're using Azure Firewall like on this [example](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall), you may encounter this issue as the long lived TCP connections via firewall using Application Rules currently have a bug (to be resolved in Q1CY21) that causes the Go `keepalives` to be terminated on the firewall. Until this issue is resolved, you can mitigate by adding a Network rule (instead of application rule) to the AKS API server IP.
+
+## When resuming my cluster after a stop operation, why is my node count not in the autoscaler min and max range?
+
+If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
 
 ## Azure Storage and AKS Troubleshooting
 
@@ -434,7 +438,7 @@ On Kubernetes versions **older than 1.15.0**, you may receive an error such as *
 
 ### Why do upgrades to Kubernetes 1.16 fail when using node labels with a kubernetes.io prefix
 
-As of Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [only a defined subset of labels with the kubernetes.io prefix](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
+As of Kubernetes 1.16 [only a defined subset of labels with the kubernetes.io prefix](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
 
 As a result, to mitigate this issue you can:
 
@@ -447,5 +451,5 @@ AKS is investigating the capability to mutate active labels on a node pool to im
 
 
 <!-- LINKS - internal -->
-[view-master-logs]: ./view-control-plane-logs.md
+[view-master-logs]: monitor-aks-reference.md#resource-logs
 [cluster-autoscaler]: cluster-autoscaler.md

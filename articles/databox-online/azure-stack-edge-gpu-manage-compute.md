@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 06/04/2021
 ms.author: alkohli
 ---
 # Manage compute on your Azure Stack Edge Pro GPU
@@ -139,4 +139,4 @@ Kubernetes external service IPs are used to reach out to services that are expos
 
 ## Next steps
 
-- Learn how to [troubleshoot your Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md).
+- Learn how to [troubleshoot IoT Edge issues on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-troubleshoot-iot-edge.md).

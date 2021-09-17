@@ -110,7 +110,7 @@ Many different configuration settings can be customized on a cluster, such as th
 
 ### Upgrading OS images for cluster nodes
 
-Enabling automatic OS image upgrades for your Service Fabric cluster nodes is a best practice. In order to do so, there are several cluster requirements and steps to take. Another option is using Patch Orchestration Application (POA, a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. To learn more about these options, see [Patch the Windows operating system in your Service Fabric cluster](service-fabric-patch-orchestration-application.md).
+Enabling automatic OS image upgrades for your Service Fabric cluster nodes is a best practice. In order to do so, there are several cluster requirements and steps to take. Another option is using Patch Orchestration Application (POA), a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. To learn more about these options, see [Patch the Windows operating system in your Service Fabric cluster](how-to-patch-cluster-nodes-windows.md).
 
 ## Next steps
 

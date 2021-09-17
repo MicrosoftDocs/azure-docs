@@ -2,7 +2,8 @@
 title: Azure Service Bus - suspend messaging entities
 description: This article explains how to temporarily suspend and reactivate Azure Service Bus message entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 09/29/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Suspend and reactivate messaging entities (disable)
