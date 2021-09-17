@@ -114,7 +114,8 @@ By default, the application you registered in the [previous section](#authorize-
 1. Select **Add a permission** to add another permission. 
 1. In the **Request API Permissions** pane:
     1. Select the **Microsoft APIs** tab.
-    1. Scroll down to select the **Azure Active Directory Graph** tile. 
+    1. Scroll down to the **Supported legacy APIs** section.
+    1. Select the **Azure Active Directory Graph** tile. 
     1. Select **Application permissions** and search for **Directory**. 
     1. Select the **Directory.Read.All** permission.
     1. Select **Add permissions**. 
