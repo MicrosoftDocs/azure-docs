@@ -1,5 +1,5 @@
 ---
-title: Data lineage in Azure Purview (preview)
+title: Data lineage in Azure Purview
 description: Describes the concepts for data lineage. 
 author: chanuengg
 ms.author: csugunan
