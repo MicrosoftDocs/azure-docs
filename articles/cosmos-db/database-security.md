@@ -269,7 +269,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 ---
 
-## Track the status of key rotation and regeneration
+## Track the status of key regeneration
 
 After you rotate or regenerate a key, you can track it's status from the Activity log. Use the following steps to track the status:
 
