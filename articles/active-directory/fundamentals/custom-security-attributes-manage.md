@@ -66,9 +66,9 @@ Scope is the set of resources that the access applies to. For custom security at
 
 ## Step 4: Determine your delegation strategy
 
-Two ways to manage custom security attributes is to manage them centrally or to delegate management to others.
+This step describes two ways to manage access to custom security attributes. The first way is to manage them centrally and the second is to delegate management to others.
 
-### Manage attributes centrally
+#### Manage attributes centrally
 
 An administrator that has been assigned the Attribute Definition Administrator and Attribute Assignment Administrator roles at the tenant scope can manage all aspects of custom security attributes. The following steps show how custom security attributes are defined and assigned by a single administrator.
 
@@ -94,7 +94,7 @@ Disadvantages of managing centrally
 - Administrator might get several requests to define and assign custom security attributes
 - Does not scale for large organizations
 
-### Manage attributes with delegation
+#### Manage attributes with delegation
 
 An administrator may not know all the situations of how custom security attributes should be defined and assigned. Typically it's users within the respective departments, teams, or projects who know the most about their area. Instead of assigning one or two administrators to manage all custom security attributes, you can instead delegate the management at the attribute set scope. This also follows the best practice of least privilege to grant just the permissions other administrators need to do their job and avoid unnecessary access. The following steps show how the management of custom security attributes being delegated to multiple administrators.
 
@@ -140,7 +140,7 @@ To grant access, assign one of the custom security attribute roles. The followin
 | Read custom security attribute assignments in a particular attribute set for users and applications (service principals) | Attribute Assignment Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
 
 
-### Assign roles at the attribute set scope
+#### Assign roles at attribute set scope
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
@@ -162,7 +162,7 @@ To grant access, assign one of the custom security attribute roles. The followin
     > [!NOTE]
     > Users with attribute set scope role assignments currently can see other attribute sets and custom security attribute definitions.
     
-### Assign roles at the tenant scope
+#### Assign roles at tenant scope
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
