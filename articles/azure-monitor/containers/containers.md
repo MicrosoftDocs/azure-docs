@@ -122,7 +122,7 @@ After you've installed Docker, use the following settings for your container hos
 Start the container that you want to monitor. Modify and use the following example:
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
 ```
 
 **For all Azure Government Linux container hosts including CoreOS:**
@@ -130,7 +130,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 Start the container that you want to monitor. Modify and use the following example:
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
 ```
 
 **Switching from using an installed Linux agent to one in a container**
@@ -144,7 +144,7 @@ You can run the Log Analytics agent as a global service on Docker Swarm. Use the
 - Run the following on the master node.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
     ```
 
 ##### Secure secrets for Docker Swarm
@@ -173,7 +173,7 @@ For Docker Swarm, once the secret for Workspace ID and Primary Key is created, u
 3. Run the following command to mount the secrets to the containerized Log Analytics agent.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
     ```
 
 #### Configure a Log Analytics agent for Red Hat OpenShift
@@ -210,7 +210,7 @@ In this section we cover the steps required to install the Log Analytics agent a
     ```
     [ocpadmin@khm-0 ~]$ oc describe ds oms  
     Name:           oms  
-    Image(s):       microsoft/oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
     Selector:       name=omsagent  
     Node-Selector:  zone=default  
     Labels:         agentVersion=1.4.0-12  
@@ -274,7 +274,7 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
     Name:           oms  
-    Image(s):       microsoft/oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
     Selector:       name=omsagent  
     Node-Selector:  zone=default  
     Labels:         agentVersion=1.4.0-12  
