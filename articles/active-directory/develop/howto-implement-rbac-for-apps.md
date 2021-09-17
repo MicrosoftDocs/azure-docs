@@ -51,6 +51,7 @@ Implementing RBAC in an ASP.NET Core MVC web application is straightforward.  It
 1. Create an app registration with app roles and assignments as outlined in *Defining roles for your application* above.
 1. Do one of the following steps:
     - Create a new ASP.NET Core MVC web app project using the **dotnet cli**.  Specify the *--auth* flag with either *SingleOrg* for single tenant authentication or *MultiOrg* for multi-tenant authentication, the *--client-id* flag with the client if from your app registration, and the *--tenant-id* flag with your tenant if from your Azure AD tenant:
+ 
       ```bash 
     
       dotnet new mvc --auth SingleOrg --client-id <YOUR-APPLICATION-CLIENT-ID> --tenant-id 
@@ -58,6 +59,7 @@ Implementing RBAC in an ASP.NET Core MVC web application is straightforward.  It
     
       ```
     - Add the Microsoft.Identity.Web and Microsoft.Identity.Web.UI libraries to an existing ASP.NET Core MVC project:
+ 
       ```bash 
 
       dotnet add package Microsoft.Identity.Web 
@@ -83,6 +85,7 @@ Implementing RBAC in an ASP.NET Core web API mainly involves utilizing the *Auth
       ```
 
     - Add the Microsoft.Identity.Web and Swashbuckle.AspNetCore libraries to an existing ASP.NET Core web API project:
+      
       ```bash 
 
       dotnet add package Microsoft.Identity.Web 
