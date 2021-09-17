@@ -6,7 +6,7 @@ keywords: security, secure element, enclave, TEE, IoT Edge
 author: kgremban
 ms.author: kgremban
 ms.reviewer: eustacea
-ms.date: 09/16/2021
+ms.date: 09/17/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ---
@@ -57,7 +57,8 @@ The responsibilities of the IoT Edge security manager include, but aren't limite
 * Bootstrap the Azure IoT Edge device.
 * Control access to the device hardware root of trust through notary services.
 * Monitor the integrity of IoT Edge operations at runtime.
-* Ensure safe operation of client agents for services including Device Provisioning Service, Device Update for IoT Hub, and Azure Defender for IoT.
+* Provision the device identity and manage transition of trust where applicable.
+* Ensure safe operation of client agents for services including Device Update for IoT Hub and Azure Defender for IoT.
 :::moniker-end
 
 The IoT Edge security manager consists of three components:
@@ -79,7 +80,7 @@ The IoT Edge security manager consists of three components:
 
 ## Changes in version 1.2
 
-In versions 1.0 and 1.1 of IoT Edge, a component called the **security daemon** was responsible for the logical security operations of the security manager. In the update to version 1.2, several key responsibilities were delegated to the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/) security subsystem, which supports all of Azure IoT. Once these security-based tasks were removed from the security daemon, its name no longer made sense. To better reflect the work that this component does in version 1.2 and beyond, we renamed it to the **module runtime**.
+In versions 1.0 and 1.1 of IoT Edge, a component called the **security daemon** was responsible for the logical security operations of the security manager. In the update to version 1.2, several key responsibilities were delegated to the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/) security subsystem. Once these security-based tasks were removed from the security daemon, its name no longer made sense. To better reflect the work that this component does in version 1.2 and beyond, we renamed it to the **module runtime**.
 :::moniker-end
 
 <!--1.1-->
@@ -208,12 +209,12 @@ The IoT Edge module runtime uses an attestation process to guard this API. When 
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
-Microsoft maintains the main code base for the [IoT Edge security daemon on GitHub](https://github.com/Azure/iotedge/tree/master/edgelet).
+Microsoft maintains the main code base for the [IoT Edge security daemon on GitHub](https://github.com/Azure/iotedge/tree/release/1.1/edgelet).
 :::moniker-end
 
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
-Microsoft maintains the main code base for the [IoT Edge module runtime](https://github.com/Azure/iotedge/tree/release/1.2/edgelet) and the [Azure IoT identity service](https://github.com/Azure/iot-identity-service) on GitHub.
+Microsoft maintains the main code base for the [IoT Edge module runtime](https://github.com/Azure/iotedge/tree/master/edgelet) and the [Azure IoT identity service](https://github.com/Azure/iot-identity-service) on GitHub.
 
 When you read the IoT Edge codebase, remember that the **module runtime** evolved from the **security daemon**. The codebase may still contain references to the security daemon.
 :::moniker-end
