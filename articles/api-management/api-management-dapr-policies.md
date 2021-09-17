@@ -2,7 +2,7 @@
 title: Azure API Management Dapr integration policies | Microsoft Docs
 description: Learn about Azure API Management policies for interacting with Dapr microservices extensions.
 author: dlepow
-ms.author: vlvinogr
+ms.author: danlep
 ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
