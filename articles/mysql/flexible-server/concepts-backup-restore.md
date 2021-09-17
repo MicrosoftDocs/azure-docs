@@ -8,12 +8,9 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ---
 
-# Backup and restore in Azure Database for MySQL Flexible Server (Preview)
+# Backup and restore in Azure Database for MySQL Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 Azure Database for MySQL Flexible Server, automatically creates server backups and securely stores them in local redundant storage within the region. Backups can be used to restore your server to a point-in-time. Backup and restore are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion.
 
@@ -88,7 +85,7 @@ After a restore from either **latest restore point** or **custom restore point**
 ### Backup related questions
 
 - **How do I backup my server?**
-By default, Azure Database for MySQL enables automated backups of your entire server (encompassing all databases created) with a default 7 day retention period. The only way to manually take a backup is by using community tools such as mysqldump as documented [here](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) or mydumper as documented [here](../concepts-migrate-mydumper-myloader.md#create-a-backup-using-mydumper). If you wish to backup Azure Database for MySQL to a Blob storage, refer to our tech community blog [Backup Azure Database for MySQL to a Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830). 
+By default, Azure Database for MySQL enables automated backups of your entire server (encompassing all databases created) with a default 7 day retention period. The only way to manually take a backup is by using community tools such as mysqldump as documented [here](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) or mydumper as documented [here](../concepts-migrate-mydumper-myloader.md#create-a-backup-using-mydumper). If you wish to backup Azure Database for MySQL to a Blob storage, refer to our tech community blog [Backup Azure Database for MySQL to a Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830).
 
 - **Can I configure automatic backups to be retained for long term?**
 No, currently we only support a maximum of 35 days of automated backup retention. You can take manual backups and use that for long-term retention requirement.
@@ -97,7 +94,7 @@ No, currently we only support a maximum of 35 days of automated backup retention
 The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are taken daily once. Transaction log backups occur every five minutes. Backup windows are inherently managed by Azure and cannot be customized.
 
 - **Are my backups encrypted?**
-All Azure Database for MySQL data, backups and temporary files created during query execution are encrypted using AES 256-bit encryption. The storage encryption is always on and cannot be disabled. 
+All Azure Database for MySQL data, backups and temporary files created during query execution are encrypted using AES 256-bit encryption. The storage encryption is always on and cannot be disabled.
 
 - **Can I restore a single/few database(s)?**
 Restoring a single/few database(s) or tables is not supported. In case you want to restore specific databases, perform a Point in Time Restore and then extract the table(s) or database(s) needed.
@@ -127,7 +124,7 @@ Flexible server provides up to 100% of your provisioned server storage as backup
 No new backups are performed for stopped servers. All older backups (within the retention window) at the time of stopping the server are retained until the server is restarted post which backup retention for the active server is governed by it’s backup retention window.
 
 - **How will I be billed for backups for a stopped server?**
-While your server instance is stopped, you are charged for provisioned storage (including Provisioned IOPS) and backup storage (backups stored within your specified retention window). Free backup storage is limited to the size of your provisioned database and only applies to active servers. 
+While your server instance is stopped, you are charged for provisioned storage (including Provisioned IOPS) and backup storage (backups stored within your specified retention window). Free backup storage is limited to the size of your provisioned database and only applies to active servers.
 
 ### Restore related questions
 
@@ -135,12 +132,12 @@ While your server instance is stopped, you are charged for provisioned storage (
 Azure portal supports Point In Time Restore (for all servers) allowing users to restore to latest or custom restore point. To manually restore your server from the backups taken by mysqldump/myDumper read [Restore your database using myLoader](../concepts-migrate-mydumper-myloader.md#restore-your-database-using-myloader).
 
 - **Why is my restore taking so much time?**
-The estimated time for the recovery of the server depends on several factors: 
+The estimated time for the recovery of the server depends on several factors:
    - The size of the databases. As a part of the recovery process, the database needs to be hydrated from the last physical backup and hence the time taken to recover will be proportional to the size of the database.
    - The active portion of transaction activity that needs to be replayed to recover. Recovery can take longer depending on the additional transaction activity from the last successful checkpoint.
-   - The network bandwidth if the restore is to a different region 
-   - The number of concurrent restore requests being processed in the target region 
-   - The presence of primary key in the tables in the database. For faster recovery, consider adding primary key for all the tables in your database.  
+   - The network bandwidth if the restore is to a different region
+   - The number of concurrent restore requests being processed in the target region
+   - The presence of primary key in the tables in the database. For faster recovery, consider adding primary key for all the tables in your database.
 
 
 ## Next steps

@@ -9,13 +9,9 @@ ms.topic: quickstart
 ms.date: 9/21/2020
 ---
 
-# Quickstart: Use PHP to connect and query data in Azure Database for MySQL - Flexible Server
+# Use PHP with Azure Database for MySQL Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
-
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 This quickstart demonstrates how to connect to an Azure Database for MySQL Flexible Server using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes that you are familiar with development using PHP and that you are new to working with Azure Database for MySQL Flexible Server.
 
 ## Prerequisites

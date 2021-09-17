@@ -10,12 +10,9 @@ ms.date: 03/30/2021
 
 # Configure slow query logs for Azure Database for MySQL - Flexible Server using the Azure CLI
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
-
-The article shows you how to configure [slow query logs](concepts-slow-query-logs.md) for your MySQL flexible server using Azure CLI. 
+The article shows you how to configure [slow query logs](concepts-slow-query-logs.md) for your MySQL flexible server using Azure CLI.
 
 ## Prerequisites
 
