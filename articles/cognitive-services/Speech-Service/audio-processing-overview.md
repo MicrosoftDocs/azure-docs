@@ -48,5 +48,4 @@ Microsoft Audio Stack can be used by any product or application that can meet th
 
 ## Next steps
 
-* [Read the quickstart to generate on-device keyword recognition models using Custom Keyword.](custom-keyword-basics.md)
-* [Learn more about Voice Assistants.](voice-assistants.md)
+* [Learn more about the Speech SDK integration of Microsoft Audio Stack.](audio-processing-speech-sdk.md)

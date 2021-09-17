@@ -22,6 +22,7 @@ Key features made available via Speech SDK APIs include:
 * **Selection of enhancements** - To allow for full control of your scenario, the SDK allows you to disable individual enhancements like dereverberation, noise suppression, automatic gain control, and acoustic echo cancellation. For example, if your scenario does not include rendering output audio that needs to be suppressed from the input audio, you have the option to disable acoustic echo cancellation.
 * **Custom microphone geometries** - The SDK allows you to provide your own custom microphone geometry information, in addition to supporting preset geometries like linear two-mic, linear four-mic, and circular 7-mic arrays.
 * **Beamforming angles** - Specific beamforming angles can be provided to optimize audio input originating from a predetermined location, relative to the microphones.
+
 Processing is performed fully locally where the Speech SDK is being used. No audio data is streamed to Microsoft’s cloud services for processing by the Microsoft Audio Stack. The only exception to this is for the Conversation Transcription Service, where raw audio is sent to Microsoft’s cloud services for processing. 
 
 > [!NOTE]
@@ -60,6 +61,7 @@ std::shared_ptr<AudioConfig> audioConfig = AudioConfig::FromDefaultMicrophoneInp
 
 std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
 ```
+---
 
 ### Using Microsoft Audio Stack with a preset microphone geometry
 
@@ -84,6 +86,7 @@ std::shared_ptr<AudioConfig> audioConfig = AudioConfig::FromMicrophoneInput("hw:
 
 std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
 ```
+---
 
 ### Using Microsoft Audio Stack with custom microphone geometry
 
@@ -121,6 +124,7 @@ std::shared_ptr<AudioConfig> audioConfig = AudioConfig::FromMicrophoneInput("hw:
 
 std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
 ```
+---
 
 ### Using Microsoft Audio Stack with select enhancements
 
@@ -145,6 +149,7 @@ std::shared_ptr<AudioConfig> audioConfig = AudioConfig::FromDefaultMicrophoneInp
 
 std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
 ```
+---
 
 ### Using Microsoft Audio Stack to specify beamforming angles
 
@@ -186,4 +191,7 @@ std::shared_ptr<AudioConfig> audioInput = AudioConfig::FromStreamInput(pushStrea
 
 std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
+---
+
+## Migrating from Speech Devices SDK
 
