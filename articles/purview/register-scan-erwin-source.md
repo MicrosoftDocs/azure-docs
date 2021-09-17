@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 7/16/2021
 ---
-# Register and Scan erwin Mart Server (Preview)
+# Register and Scan Erwin Mart Server (Preview)
 
 This article outlines how to register an Erwin Mart Server in Purview and set up a scan.
 

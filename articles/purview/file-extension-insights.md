@@ -28,12 +28,12 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
-- Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
+- Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
 
 - Signed in to Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#roles).
 
 
-For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
+For more information, see [Manage data sources in Azure Purview](manage-data-sources.md).
 
 ## Use Purview File extension insights
 

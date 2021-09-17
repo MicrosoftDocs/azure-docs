@@ -1,5 +1,5 @@
 ---
-title: Create a custom classification and classification rule (preview)
+title: Create a custom classification and classification rule
 description: Learn how to create custom classifications to define data types in your data estate that are unique to your organization in Azure Purview.
 author: viseshag
 ms.author: viseshag
