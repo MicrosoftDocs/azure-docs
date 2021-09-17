@@ -1,123 +1,94 @@
 ---
-title: Configure routing preference for a VM - Azure CLI
-description: Learn how to create a VM with a public IP address with routing preference choice using the Azure command-line interface (CLI).
-services: virtual-network
-documentationcenter: na
-author: KumudD
-manager: mtillman
+title: 'Tutorial: Configure routing preference for a VM - Azure CLI'
+description: In this tutorial, learn how to create a VM with a public IP address with routing preference choice using the Azure CLI.
+author: asudbring
+ms.author: allensu
 ms.service: virtual-network
-ms.devlang: na
-ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/01/2021
-ms.author: mnayak 
-ms.custom: devx-track-azurecli
-
+ms.subservice: ip-services
+ms.topic: tutorial
+ms.date: 09/17/2021
+ms.custom: template-tutorial
 ---
-# Configure routing preference for a VM using Azure CLI
 
-This article shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed via the ISP network when you choose **Internet** as your routing preference option . The default routing is via the Microsoft global network.
+# Tutorial: Configure routing preference for a VM using the Azure CLI
+This tutorial shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed via the ISP network when you choose **Internet** as your routing preference option. The default routing is via the Microsoft global network.
 
-This article shows you how to create a virtual machine with a public IP that is set to route traffic via the public internet using Azure CLI.
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a public IP address configured for **Internet** routing preference.
+> * Create a virtual machine.
+> * Verify the public IP address is set to **Internet** routing preference.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
-1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `az login`.
-2. Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group in the East US Azure region:
 
-    ```azurecli
-    az group create --name myResourceGroup --location eastus
-    ```
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-## Create a public IP address
-To access your virtual machines from the Internet, you need to create a public IP address. Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip). The following example creates a public ip of routing preference type *Internet* in the *East US* region:
-
-```azurecli
-az network public-ip create \
---name MyRoutingPrefIP \
---resource-group MyResourceGroup \
---location eastus \
---ip-tags 'RoutingPreference=Internet' \
---sku STANDARD \
---allocation-method static \
---version IPv4
-```
-
-## Create network resources
-
-Before you deploy a VM, you must create supporting network resources - network security group, virtual network, and virtual NIC.
-
-### Create a network security group
-
-Create a network security group for the rules that will govern inbound and outbound communication in your VNet with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)
-
-```azurecli
-az network nsg create \
---name myNSG  \
---resource-group MyResourceGroup \
---location eastus
-```
-
-### Create a virtual network
-
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVNET* with subnets *mySubNet*:
-
-```azurecli
-# Create a virtual network
-az network vnet create \
---name myVNET \
---resource-group MyResourceGroup \
---location eastus
-
-# Create a subnet
-az network vnet subnet create \
---name mySubNet \
---resource-group MyResourceGroup \
---vnet-name myVNET \
---address-prefixes "10.0.0.0/24" \
---network-security-group myNSG
-```
-
-### Create a NIC
-
-Create a virtual NIC for the VM with [az network nic create](/cli/azure/network/nic#az_network_nic_create). The following example creates a virtual NIC, which will be attached to the VM.
+Create a resource group with [az group create](/cli/azure/group#az_group_create) named **TutorVMRoutePref-rg** in the **westus2** location.
 
 ```azurecli-interactive
-# Create a NIC
-az network nic create \
---name mynic  \
---resource-group MyResourceGroup \
---network-security-group myNSG  \
---vnet-name myVNET \
---subnet mySubNet  \
---private-ip-address-version IPv4 \
---public-ip-address MyRoutingPrefIP
+  az group create \
+    --name TutorVMRoutePref-rg \
+    --location westus2
 ```
 
-## Create a virtual machine
+## Create a public IP address
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a windows server 2019 VM and the required virtual network components if they do not already exist.
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard zone-redundant public IPv4 address named **myPublicIP** in **TutorVMRoutePref-rg**. The **Tag** of **Internet** is applied to the public IP address as a parameter in the CLI command enabling the **Internet** routing preference.
 
-```azurecli
+```azurecli-interactive
+az network public-ip create \
+    --resource-group TutorVMRoutePref-rg \
+    --name myPublicIP \
+    --version IPv4 \
+    --ip-tags 'RoutingPreference=Internet' \
+    --sku Standard \
+    --zone 1 2 3
+```
+
+## Create virtual machine
+
+Use [az vm create](/cli/azure/vm#az_vm_create) to create a virtual machine. The public IP address created in the previous section is added as part of the CLI command and is attached to the VM during creation.
+
+```azurecli-interactive
 az vm create \
 --name myVM \
---resource-group MyResourceGroup \
---nics mynic \
+--resource-group TutorVMRoutePref-rg \
+--public-ip-address myPublicIP \
 --size Standard_A2 \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest \
---admin-username myUserName
+--admin-username azureuser
+```
+
+## Verify internet routing preference
+
+Use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to verify that **Internet** routing preference is configured for the public IP address.
+
+```azurepowershell-interactive
+az network public-ip show \
+    --resource-group TutorVMRoutePref-rg \
+    --name myPublicIP \
+    --query ipTags \
+    --output tsv
 ```
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains:
+When you're done with the virtual machine and public IP address, delete the resource group and all of the resources it contains with [az group delete](/cli/azure/group#az_group_delete).
 
-```azurecli
-az group delete --name myResourceGroup --yes
+```azurecli-interactive
+  az group delete \
+    --name TutorVMRoutePref-rg
 ```
 
 ## Next steps
 
-- Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
-- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
-- Learn more about [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+Advance to the next article to learn how to create a virtual machine with mixed routing preference:
+> [!div class="nextstepaction"]
+> [Configure both routing preference options for a virtual machine](routing-preference-mixed-network-adapter-portal.md)
+
