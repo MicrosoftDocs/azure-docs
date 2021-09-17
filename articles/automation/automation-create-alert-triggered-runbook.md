@@ -101,7 +101,7 @@ To use Automation with alerts, you need a runbook that manages the alert JSON pa
 
 As described in the preceding section, each type of alert has a different schema. The script takes the webhook data from an alert in the `WebhookData` runbook input parameter. Then, the script evaluates the JSON payload to determine which alert type is being used.
 
-This example uses an alert from an Azure virtual machine (VM). It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run. When using alerts to trigger runbooks, it is important to check the alert status in the runbook that is triggered. The runbook triggers each time the alert changes state. Alerts have multiple states, with the two most common being Activated and Resolved. Check for state in your runbook logic to ensure that the runbook does not run more than once. The example in this article shows how to look for alerts with state Activated only.
+This example uses an alert from an Azure virtual machine (VM). It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run. When using alerts to trigger runbooks, it's important to check the alert status in the runbook that is triggered. The runbook triggers each time the alert changes state. Alerts have multiple states, with the two most common being Activated and Resolved. Check for state in your runbook logic to ensure the runbook doesn't run more than once. The example in this article shows how to look for alerts with state Activated only.
 
 The runbook uses the Automation account's [system-assigned managed identity](./automation-security-overview.md#managed-identities-preview) to authenticate with Azure to perform the management action against the VM. The runbook can be easily modified to use a user-assigned managed identity.
 
@@ -226,7 +226,7 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
 1. If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
     1. From line 78, remove `Connect-AzAccount -Identity`,
     1. Replace it with `Connect-AzAccount -Identity -AccountId <ClientId>`, and
-    1. Enter the Client Id you obtained earlier.
+    1. Enter the Client ID you obtained earlier.
 
 1. Select **Save**, **Publish** and then **Yes** when prompted.
 
@@ -252,9 +252,9 @@ Alerts use action groups, which are collections of actions that are triggered by
 
 1. On the **Select a signal** page, enter `Percentage CPU` in the search text box, and then select **Percentage CPU** from the results.
 
-1. On the **Configure signal logic** page, under **Threshold value** enter an initial low value for testing purposes, such as `5`. You can go back and update this value once you have confirmed the alert works as expected. Then select **Done** to return to the **Create alert rule** page.
+1. On the **Configure signal logic** page, under **Threshold value** enter an initial low value for testing purposes, such as `5`. You can go back and update this value once you've confirmed the alert works as expected. Then select **Done** to return to the **Create alert rule** page.
 
-   :::image type="content" source="./media/automation-create-alert-triggered-runbook/configure-signal-logic-portal.png" alt-text="Entering spu percentage threshold value.":::
+   :::image type="content" source="./media/automation-create-alert-triggered-runbook/configure-signal-logic-portal.png" alt-text="Entering CPU percentage threshold value.":::
  
 1. Under **Actions**, select **Add action groups**, and then **+Create action group**.
 
@@ -262,7 +262,7 @@ Alerts use action groups, which are collections of actions that are triggered by
 
 1. On the **Create action group** page:
     1. On the **Basics** tab, enter an **Action group name** and **Display name**.
-    1. On the **Actions** tab, in the **Name** text box, enter a name. Then from the **Action type** drop-down list select **Automation Runbook** to open the **Configure Runbook** page.
+    1. On the **Actions** tab, in the **Name** text box, enter a name. Then from the **Action type** drop-down list, select **Automation Runbook** to open the **Configure Runbook** page.
         1. For the **Runbook source** item, select **User**.  
         1. From the **Subscription** drop-down list, select your subscription.
         1. From the **Automation account** drop-down list, select your Automation account.
@@ -280,7 +280,7 @@ Alerts use action groups, which are collections of actions that are triggered by
 
 ## Verification
 
-Ensure your VM is running. Navigate to the runbook **Stop-AzureVmInResponsetoVMAlert** and watch for for the **Recent Jobs** list to populate. Once a completed job appears, select the job and review the output. Also check to see if your VM stopped.
+Ensure your VM is running. Navigate to the runbook **Stop-AzureVmInResponsetoVMAlert** and watch for the **Recent Jobs** list to populate. Once a completed job appears, select the job and review the output. Also check to see if your VM stopped.
 
    :::image type="content" source="./media/automation-create-alert-triggered-runbook/job-result-portal.png" alt-text="Showing output from job.":::
 
