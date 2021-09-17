@@ -52,7 +52,7 @@ You can also query the Azure resources for which outbound private endpoint conne
 In the remainder of this article, a mix of Azure portal (or the [Azure CLI](/cli/azure/) if you prefer) and [Postman](https://www.postman.com/) (or any other HTTP client like [curl](https://curl.se/) if you prefer) is used to demonstrate the REST API calls.
 
 > [!NOTE]
-> Using Azure Data Lake Storage Gen 2 requires both `dfs` and `blob` private endpoints.
+> To create a private endpoint connection to Azure Data Lake Storage Gen2 you need to create two private endpoints. One private endpoint with the groupID 'dfs' and another private endpoint with the groupID 'blob'.
 
 ## Set up indexer connection through private endpoint
 
