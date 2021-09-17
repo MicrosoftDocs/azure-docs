@@ -65,7 +65,7 @@ A connected registry can work in one of two modes: *ReadWrite* or *ReadOnly*
 
 Each connected registry must be connected to a parent. The top parent is the cloud registry. For hierarchical scenarios such as [nested IoT Edge](overview-connected-registry-and-iot-edge.md), you can nest connected registries in either mode. The parent connected to the cloud registry can operate in either mode. 
 
-Child registries must be compatible with their parent capabilities. Thus, both registry and mirror mode connected registries can be children of a connected registry operating in registry mode, but only a mirror mode registry can be a child of a connected registry operating in mirror mode.  
+Child registries must be compatible with their parent capabilities. Thus, both ReadWrite and ReadOnly mode connected registries can be children of a connected registry operating in ReadWrite mode, but only a ReadOnly mode registry can be a child of a connected registry operating in ReadOnly mode.  
 
 ## Client access
 
@@ -81,7 +81,7 @@ For more information, see [Manage access to a connected registry][overview-conne
 - Number of repository permissions in a scope map is limited to 500.
 - Number of clients for the connected registry is currently limited to 20.
 - [Image locking](container-registry-image-lock.md) through repository/manifest/tag metadata is not currently supported for connected registries.
-- [Repository delete](container-registry-delete.md) is not supported on the connected registry using registry mode.
+- [Repository delete](container-registry-delete.md) is not supported on the connected registry using ReadOnly mode.
 - [Resource logs](monitor-service-reference.md#resource-logs) for connected registries are currently not supported.
 - Connected registry is coupled with the registry's home region data endpoint. Automatic migration for [geo-replication](container-registry-geo-replication.md) is not supported.
 - Deletion of a connected registry needs manual removal of the containers on-premises as well as removal of the respective scope map or tokens in the cloud.

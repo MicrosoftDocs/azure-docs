@@ -28,7 +28,7 @@ The following image shows how the connected registry can be used to support the 
 
 The top layer of the example architecture, *Layer 5: Enterprise Network*, is managed by IT and can access the container registry for Contoso in the Azure cloud. The connected registry is deployed as an IoT Edge module on the IoT Edge VM and can directly communicate with the cloud registry to pull and push images and artifacts. 
 
-The connected registry is show as working in [registry mode](intro-connected-registry.md#modes). Clients of this connected registry can pull and push images and artifacts to it. Pushed images will be synchronized with the cloud registry. If pushes are not required in that layer, the connected registry can be changed to operate in [mirror mode](intro-connected-registry.md#modes).
+The connected registry is shown as working in the default [ReadWrite mode](intro-connected-registry.md#modes). Clients of this connected registry can pull and push images and artifacts to it. Pushed images will be synchronized with the cloud registry. If pushes are not required in that layer, the connected registry can be changed to operate in [ReadOnly mode](intro-connected-registry.md#modes).
 
 For steps to deploy the connected registry as an IoT Edge module at this level, see [Quickstart - Deploy a connected registry to an IoT Edge device][quickstart-deploy-connected-registry-iot-edge-cli].
 
@@ -36,7 +36,7 @@ For steps to deploy the connected registry as an IoT Edge module at this level, 
 
 The next lower layer, *Layer 4: Site Business Planning and Logistics*, is configured to communicate only with Layer 5. Thus, when deploying the IoT Edge VM on Layer 4, it needs to pull the module images from the connected registry on Layer 5 instead. 
 
-You can also deploy a connected registry working in mirror mode to serve the layers below. This is illustrated with the IoT Edge VM on *Layer 3: Industrial Security Zone*. That VM must pull the module images from the connected registry on *Layer 4*. If clients on lower layers need to be served, a connected registry in mirror mode can be deployed on Layer 3, and so on.
+You can also deploy a connected registry working in ReadOnly mode to serve the layers below. This is illustrated with the IoT Edge VM on *Layer 3: Industrial Security Zone*. That VM must pull the module images from the connected registry on *Layer 4*. If clients on lower layers need to be served, a connected registry in ReadOnly mode can be deployed on Layer 3, and so on.
 
 In this architecture, the connected registries deployed on each layer are configured to synchronize the images with the connected registry on the layer above. The connected registries are deployed as IoT Edge modules and leverage the IoT Edge mechanisms for deployment and network routing.
 

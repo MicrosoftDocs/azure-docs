@@ -25,8 +25,8 @@ To access and manage a [connected registry](intro-connected-registry.md), curren
 To manage client access to a connected registry, you create tokens scoped for actions on one or more repositories. After creating a token, configure the connected registry to accept the token by using the [az acr connected-registry update](/cli/azure/acr/connected-registry#az_acr_connected_registry_update) command. A client can then use the token credentials to access a connected registry endpoint - for example, to use Docker CLI commands to pull or push images to the connected registry.
 
 Your options for configuring client token actions depend on whether the connected registry allows both push and pull operations or functions as a pull-only mirror. 
-* A connected registry in the default [registry mode](intro-connected-registry.md#modes) allows both pull and push operations, so you can create a token that allows actions to both *read* and *write* repository content in that registry. 
-* For a connected registry in [mirror mode](intro-connected-registry.md#modes), client tokens can only allow actions to *read* repository content.
+* A connected registry in the default [ReadWrite mode](intro-connected-registry.md#modes) allows both pull and push operations, so you can create a token that allows actions to both *read* and *write* repository content in that registry. 
+* For a connected registry in [ReadOnly mode](intro-connected-registry.md#modes), client tokens can only allow actions to *read* repository content.
 
 ### Manage client tokens
 
