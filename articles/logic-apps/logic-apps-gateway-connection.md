@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, azla
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/14/2021
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
@@ -32,7 +32,7 @@ For information about how to use the gateway with other services, see these arti
 In Azure Logic Apps, the on-premises data gateway supports the [on-premises connectors](../connectors/managed.md#on-premises-connectors) for these data sources:
 
 * [Apache Impala](/connectors/impala)
-* [BizTalk Server 2016](/connectors/biztalk)
+* [BizTalk Server](/connectors/biztalk)
 * [File System](/connectors/filesystem)
 * [HTTP with Azure AD](/connectors/webcontents)
 * [IBM DB2](/connectors/db2)

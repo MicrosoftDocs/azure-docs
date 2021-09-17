@@ -33,7 +33,7 @@ MVAD detects anomalies from a group of metrics, and we call each metric a **vari
     >
     > For example, if your data frequency is supposed to be one data point every 30 seconds, but you're seeing timestamps like "12:00:01" and "12:00:28", it's a strong signal that you should pre-process the timestamps to new values like "12:00:00" and "12:00:30".
     >
-    > For details, please refer to the ["Timestamp round-up" section](/azure/cognitive-services/anomaly-detector/concepts/best-practices-multivariate#timestamp-round-up) in the best practices document.
+    > For details, please refer to the ["Timestamp round-up" section](../concepts/best-practices-multivariate.md#timestamp-round-up) in the best practices document.
 * The name of the csv file will be used as the variable name and should be unique. For example, "temperature.csv" and "humidity.csv".
 * Variables for training and variables for inference should be consistent. For example, if you are using `series_1`, `series_2`, `series_3`, `series_4`, and `series_5` for training, you should provide exactly the same variables for inference.
 * CSV files should be compressed into a zip file and uploaded to an Azure blob container. The zip file can have whatever name you want.

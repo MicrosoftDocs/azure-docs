@@ -3,8 +3,8 @@ title: Supported browsers
 description: This article provides the list of supported browsers for Azure Purview. 
 author: nayenama
 ms.author: nayenama
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---

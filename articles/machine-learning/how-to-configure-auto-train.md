@@ -41,6 +41,8 @@ For this article you need,
     * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
 
     * [Install the `automl` package yourself](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+
+    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
     
     > [!WARNING]
     > Python 3.8 is not compatible with `automl`. 
@@ -104,13 +106,30 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 
 At this time, you need to provide your own **test data** for  model evaluation. For a code example of bringing your own test data for model evaluation see the **Test** section of [this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
 
+### Large data 
+
+Automated ML supports a limited number of algorithms for training on large data that can successfully build models for big data on small virtual machines. Automated ML heuristics depend on properties such as data size, virtual machine memory size, experiment timeout and featurization settings to determine if these large data algorithms should be applied. [Learn more about what models are supported in automated ML](#supported-models). 
+
+* For regression, [Online Gradient Descent Regressor](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) and
+[Fast Linear Regressor](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)
+
+* For classification, [Averaged Perceptron Classifier](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest) and [Linear SVM Classifier](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest);  where the Linear SVM classifier has both large data and small data versions.
+
+If you want to override these heuristics, apply the following settings: 
+
+Task | Setting | Notes
+|---|---|---
+Block&nbsp;data streaming algorithms | `blocked_models` in your `AutoMLConfig` object and list the model(s) you don't want to use. | Results in either run failure or long run time
+Use&nbsp;data&nbsp;streaming&nbsp;algorithms| `allowed_models` in your `AutoMLConfig` object and list the model(s) you want to use.| 
+Use&nbsp;data&nbsp;streaming&nbsp;algorithms <br> [(studio UI experiments)](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)|Block all models except the big data algorithms you want to use. |
+
 ## Compute to run experiment
 
 Next determine where the model will be trained. An automated ML training experiment can run on the following compute options. Learn the [pros and cons of local and remote compute](concept-automated-ml.md#local-remote) options. 
 
 * Your **local** machine such as a local desktop or laptop – Generally when you have a small dataset and you are still in the exploration stage. See [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) for a local compute example. 
  
-* A **remote** machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines. 
+* A **remote** machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines. Compute instance is also supported as a compute target.
 
     See [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) for a remote example using Azure Machine Learning Managed Compute. 
 
@@ -178,7 +197,7 @@ The three different `task` parameter values determine the list of algorithms, or
 The following table summarizes the supported models by task type. 
 
 > [!NOTE]
-> If you plan to export your automated ML created models to an [ONNX model](concept-onnx.md), only those algorithms indicated with an * are able to be converted to the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
+> If you plan to export your automated ML created models to an [ONNX model](concept-onnx.md), only those algorithms indicated with an * (asterisk) are able to be converted to the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
 
 Classification | Regression | Time Series Forecasting
 |-- |-- |--
@@ -351,6 +370,9 @@ A&nbsp;score&nbsp;has&nbsp;been&nbsp;reached| Use `experiment_exit_score` comple
 
 ## Run experiment
 
+> [!WARNING]
+> If you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score and generated models. The algorithms automated ML employs have inherent randomness that can cause slight variation in the models output by the experiment and the recommended model's final metrics score, like accuracy. You'll likely also see results with the same model name, but different hyperparameters used. 
+
 For automated ML, you create an `Experiment` object, which is a named object in a `Workspace` used to run experiments.
 
 ```python
@@ -383,7 +405,8 @@ Each node in the cluster acts as an individual virtual machine (VM) that can acc
 
 To help manage child runs and when they can be performed, we recommend you create a dedicated cluster per experiment, and match the number of `max_concurrent_iterations` of your experiment to the number of nodes in the cluster. This way, you use all the nodes of the cluster at the same time with the number of concurrent child runs/iterations you want.
 
-Configure  `max_concurrent_iterations` in your `AutoMLConfig` object. If it is not configured, then by default only one concurrent child run/iteration is allowed per experiment.  
+Configure  `max_concurrent_iterations` in your `AutoMLConfig` object. If it is not configured, then by default only one concurrent child run/iteration is allowed per experiment.
+In case of compute instance, `max_concurrent_iterations` can be set to be the same as number of cores on the compute instance VM.
 
 ## Explore models and metrics
 
@@ -489,8 +512,6 @@ best_run, model_from_aml = automl_run.get_output()
 print_model(model_from_aml)
 
 ```
-> [!NOTE]
-> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
 
 ## <a name="monitor"></a> Monitor automated machine learning runs
 
@@ -516,7 +537,7 @@ To register a model from an automated ML run, use the [`register_model()`](/pyth
 
 ```Python
 
-best_run, fitted_model = run.get_output()
+best_run = run.get_best_child()
 print(fitted_model.steps)
 
 model_name = best_run.properties['model_name']
@@ -551,7 +572,5 @@ For general information on how model explanations and feature importance can be 
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
 + Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md).
-
-+ Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
 
 + [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 

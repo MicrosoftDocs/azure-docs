@@ -131,6 +131,8 @@ Using `AADClientCertificate`:
 
 ### Property values
 
+Note: All property values are case sensitive.
+
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |

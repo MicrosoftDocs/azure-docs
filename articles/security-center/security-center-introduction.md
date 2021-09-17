@@ -37,7 +37,7 @@ To help you protect yourself against these challenges, Security Center provides 
 
 -   **Protect against threats**: Security Center assesses your workloads and raises threat prevention recommendations and security alerts.
 
--   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with auto-provisioning and protection with Azure services.
+-   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with auto provisioning and protection with Azure services.
 
 > [!NOTE]
 > This service supports [Azure Lighthouse](../lighthouse/overview.md), which lets service providers sign in to their own tenant to manage subscriptions and resource groups that customers have delegated. For Azure Security Center scenarios, a subscription must be delegated rather than individual resource groups.
@@ -46,7 +46,7 @@ To help you protect yourself against these challenges, Security Center provides 
 
 Because Security Center is natively part of Azure, PaaS services in Azure - including Service Fabric, SQL Database, SQL Managed Instance, and storage accounts - are monitored and protected by Security Center without necessitating any deployment.
 
-In addition, Security Center protects non-Azure servers and virtual machines in the cloud or on premises, for both Windows and Linux servers, by installing the Log Analytics agent on them. Azure virtual machines are auto-provisioned in Security Center.
+In addition, Security Center protects non-Azure servers and virtual machines in the cloud or on premises, for both Windows and Linux servers, by installing the Log Analytics agent on them. Azure virtual machines are auto provisioned in Security Center.
 
 The events collected from the agents and from Azure are correlated in the security analytics engine to provide you tailored recommendations (hardening tasks), that you should follow to make sure your workloads are secure, and security alerts. You should investigate such alerts as soon as possible to make sure malicious attacks aren't taking place on your workloads.
 

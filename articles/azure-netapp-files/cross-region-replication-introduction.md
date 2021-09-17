@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 08/16/2021
 ms.author: b-juche
 ms.custom: references_regions
 ---
@@ -39,6 +39,8 @@ Azure NetApp Files volume replication is supported between various [Azure region
 * Japan East and Japan West
 * North Europe and West Europe
 * UK South and UK West
+* UAE North and UAE Central
+* Norway East and Norway West
 
 ### Azure regional non-standard pairs
 
@@ -51,6 +53,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 *	Australia East and Southeast Asia 
 *	Germany West Central and UK South
 *	Germany West Central and West Europe
+*	Germany West Central and France Central
 
 ## Service-level objectives
 

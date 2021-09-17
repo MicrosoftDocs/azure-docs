@@ -21,7 +21,7 @@
     - name: Client libraries or REST API
       href: Quickstarts/quickstart-sdk.md
 - name: Samples
-  href: https://docs.microsoft.com/samples/browse/?products=azure&term=face&terms=qna-maker
+  href: /samples/browse/?products=azure&term=face&terms=qna-maker
 - name: Responsible use of AI
   items:
   - name: Transparency notes

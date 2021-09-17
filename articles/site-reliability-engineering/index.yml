@@ -111,7 +111,7 @@ conceptualContent:
           itemType: reference
           text: Cloud Best Practices
 
-        - url: /azure/architecture/framework/resiliency/overview
+        - url: /azure/architecture/framework/resiliency/app-design
           itemType: reference
           text: Designing Reliable Azure applications
 

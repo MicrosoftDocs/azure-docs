@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -236,5 +236,6 @@ az disk-pool iscsi-target update --name $targetName \
 
 ## Next steps
 
-- [Attach disk pools to Azure VMware Solution hosts (Preview)](../azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md)
+- If you encounter any issues deploying a disk pool, see [Troubleshoot Azure disk pools (preview)](disks-pools-troubleshoot.md).
+- [Attach disk pools to Azure VMware Solution hosts (Preview)](../azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md).
 - [Manage a disk pool](disks-pools-manage.md).

@@ -2,14 +2,14 @@
 title: Best practices using Azure Key Vault Managed HSM
 description: This document explains some of the best practices to use Key Vault
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-key-vault
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 06/21/2021
-ms.author: ambapat
+ms.author: mbaldwin
 # Customer intent: As a developer using Managed HSM I want to know the best practices so I can implement them.
 ---
 # Best practices when using Managed HSM

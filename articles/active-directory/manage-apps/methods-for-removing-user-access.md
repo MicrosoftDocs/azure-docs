@@ -10,6 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: davidmu
+ms.reviewer: phsignor
 ---
 
 # How to remove a user's access to an application

@@ -2,15 +2,14 @@
 title: What is agentless solution architecture
 description: Learn about Azure Defender for IoT agentless architecture and information flow.
 ms.topic: overview
-ms.date: 1/25/2021
-ms.author: shhazam
+ms.date: 07/19/2021
 ---
 
 # Azure Defender for IoT architecture
 
 This article describes the functional system architecture of the Defender for IoT agentless solution. Azure Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders.
 
-## Agentless solution for organizations
+## Agentless solution architecture for organizations
 ### Defender for IoT components
 
 Defender for IoT connects both to the Azure cloud and to on-premises components. The solution is designed for scalability in large and geographically distributed environments with multiple remote locations. This solution enables a multi-layered distributed architecture by country, region, business unit, or zone. 

@@ -63,18 +63,6 @@ After you submit your offer for publication in Partner Center, we'll validate th
 > [!TIP]
 > Make sure the connection to the lead destination stays updated so you don't lose any leads.
 
-## Configure offer properties
-
-On the Properties page of your offer in Partner Center, you’ll define the categories applicable to your offer, and legal contracts. This information ensures your Managed Service is displayed correctly on the online store and offered to the right set of customers.
-
-### Select a category
-
-Under **Categories**, select at least one and up to five categories for grouping your offer into the appropriate commercial marketplace search areas.
-
-### Provide terms and conditions
-
-Under **Legal**, provide your terms and conditions for this offer. Customers will be required to accept them before using the offer. You can also provide the URL where your terms and conditions can be found.
-
 Select **Save draft** before continuing to the next tab, **Properties**.
 
 ## Next step

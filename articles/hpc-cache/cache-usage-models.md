@@ -4,7 +4,7 @@ description: Describes the different cache usage models and how to choose among 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 07/12/2021
 ms.author: v-erkel
 ---
 <!-- filename is referenced from GUI in aka.ms/hpc-cache-usagemodel -->
@@ -80,9 +80,11 @@ You can change usage models by editing the storage target, but some changes are 
 
 You can't change **to** or **from** the model named **Read heavy, infrequent writes**. To change a storage target to this usage model, or to change it from this model to a different usage model, you have to delete the original storage target and create a new one.
 
-This restriction is needed because of the way different usage models handle Network Lock Manager (NLM) requests. Azure HPC Cache sits between clients and the back-end storage system. Usually, the cache passes NLM requests through to the back-end storage system, but in some situations, the cache itself acknowledges the NLM request and returns a value to the client. In Azure HPC Cache, this only happens when you use the usage model **Read heavy, infrequent writes** (or with a standard blob storage target, which doesn't have configurable usage models).
+This restriction also applies to the usage model **Read heavy, checking the backing server every 3 hours**, which is less commonly used. Also, you can change between between the two "read heavy..." usage models, but not into or out of a different usage model style.
 
-If you change between the **Read heavy, infrequent writes** usage model and a different usage model, there's no way to transfer the current NLM state from the cache to the storage system or vice versa. So the client's lock status is inaccurate.
+This restriction is needed because of the way different usage models handle Network Lock Manager (NLM) requests. Azure HPC Cache sits between clients and the back-end storage system. Usually, the cache passes NLM requests through to the back-end storage system, but in some situations, the cache itself acknowledges the NLM request and returns a value to the client. In Azure HPC Cache, this only happens when you use the usage models **Read heavy, infrequent writes** or **Read heavy, checking the backing server every 3 hours**, or with a standard blob storage target, which doesn't have configurable usage models.
+
+If you change between **Read heavy, infrequent writes** and a different usage model, there's no way to transfer the current NLM state from the cache to the storage system or vice versa. So the client's lock status is inaccurate.
 
 > [!NOTE]
 > ADLS-NFS does not support NLM. You should disable NLM when clients mount the cluster to access an ADLS-NFS storage target.

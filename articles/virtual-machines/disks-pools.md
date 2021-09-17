@@ -4,7 +4,7 @@ description: Learn about Azure disk pools (preview).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/23/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -27,7 +27,7 @@ When you add a managed disk to the disk pool, the disk is attached to managed iS
 In preview, disk pools have the following restrictions:
 
 - Only premium SSDs or ultra disks can be added to a disk pool.
-- Disks using [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) aren't currently supported. 
+- Disks using [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks) aren't currently supported. 
 
 ### Regional availability
 
@@ -35,10 +35,14 @@ Disk pools are currently available in the following regions:
 
 - Australia East
 - Canada Central
+- Central US
 - East US
 - West US 2
 - Japan East
 - North Europe
+- West Europe
+- Southeast Asia
+- UK South
 
 
 ## Billing

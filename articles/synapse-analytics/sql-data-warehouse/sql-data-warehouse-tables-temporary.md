@@ -26,8 +26,6 @@ Temporary tables are only visible to the session in which they were created and 
 
 Temporary tables offer a performance benefit because their results are written to local rather than remote storage.
 
-Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. With dedicated SQL pool, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session logs off. 
-
 ## Temporary tables in dedicated SQL pool
 
 In the dedicated SQL pool resource, temporary tables offer a performance benefit because their results are written to local rather than remote storage.

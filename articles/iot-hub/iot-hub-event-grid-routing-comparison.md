@@ -2,7 +2,7 @@
 title: Compare Event Grid, routing for IoT Hub | Microsoft Docs
 description: IoT Hub offers its own message routing service, but also integrates with Event Grid for event publishing. Compare the two features. 
 author: kgremban
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

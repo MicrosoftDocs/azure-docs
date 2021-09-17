@@ -27,7 +27,7 @@ On the **Offer listing** page in Partner Center, provide the information describ
 4. In the **Description** field, describe your Managed Service offer. You can enter up to 2,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the offer descriptions](./supported-html-tags.md).
 5. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy. You're responsible to ensure your offer complies with privacy laws and regulations, and for providing a valid privacy policy.
 
-## Useful links
+## Product information links
 
 You have the option to provide supplemental online documents about your solution:
 
@@ -38,7 +38,7 @@ You have the option to provide supplemental online documents about your solution
 
 Enter the name, email address, and phone number of two people in your company (you can be one of them): a support contact and an engineering contact. We'll use this information to communicate with you about your offer. This information isn’t shown to customers but may be provided to Cloud Solution Provider (CSP) partners.
 
-## Support URLs
+## Support link
 
 If you have support websites for Azure Global Customers and/or Azure Government customers, enter their URL, starting with https.
 

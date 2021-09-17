@@ -426,7 +426,7 @@ Looking into the documentation, you can see that the functionality with the more
 ### Azure Backup for SQL Server VMs
 This new method of SQL Server backups is offered as of June 2018 as public preview by Azure Backup services. The method to backup SQL Server is the same as other third-party tools are using, namely the SQL Server VSS/VDI interface to stream backups to a target location. In this case, the target location is Azure Recovery Service vault.
 
-A more than detailed description of this backup method, which adds numerous advantages of central backup configurations, monitoring, and administration is available [here](../../../backup/backup-azure-sql-database.md). 
+A more than detailed description of this backup method, which adds numerous advantages of central backup configurations, monitoring, and administration is available on the [Back up SQL Server databases to Azure](../../../backup/backup-azure-sql-database.md) page.
 
 
 ### Third-party backup solutions

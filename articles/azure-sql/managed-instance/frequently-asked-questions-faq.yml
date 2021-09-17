@@ -148,7 +148,7 @@ sections:
           
           ### How can I migrate my SQL Server instance to SQL Managed Instance?
           
-          To migrate your SQL Server instance, see [SQL Server instance migration to Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md).
+          To migrate your SQL Server instance, see [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
           
           ### How can I migrate from other platforms to SQL Managed Instance?
           
@@ -191,7 +191,7 @@ sections:
           
           ### My query duration is too long. How can I analyze wait statistics on my managed instance?
           
-          See [Analyzing wait statistics on SQL Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/03/05/analyzing-wait-statistics-on-managed-instance/). Wait statistics are information that might help you understand why the query duration is long and identify the queries that are waiting for something in database engine.
+          See [Analyzing wait statistics on SQL Managed Instance](/archive/blogs/sqlserverstorageengine/analyzing-wait-statistics-on-managed-instance). Wait statistics are information that might help you understand why the query duration is long and identify the queries that are waiting for something in database engine.
                
       - question: |
           Monitoring, Metrics and Alerts
@@ -202,11 +202,11 @@ sections:
           
           ### How can I monitor performance of my managed instance?
           
-          See [Monitor your SQL deployments with SQL insights](https://docs.microsoft.com/azure/azure-monitor/insights/sql-insights-overview).
+          See [Monitor your SQL deployments with SQL insights](../../azure-monitor/insights/sql-insights-overview.md).
           
           ### How can I monitor the real-time performance of my managed instance?
           
-          See [Real-time performance monitoring for Azure SQL DB Managed Instance](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+          See [Real-time performance monitoring for Azure SQL DB Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
           
           ### Can I use SQL Profiler for performance tracking?
           
@@ -222,7 +222,7 @@ sections:
           
           ### Can I create metric alerts on SQL Managed Instance?
           
-          Yes. For instructions, see [Create alerts for SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/alerts-create). For more tips and tricks, see [the blog](https://techcommunity.microsoft.com/t5/azure-database-support-blog/tips-amp-tricks-1-creating-alerts-for-azure-sql-managed-instance/ba-p/2396044).
+          Yes. For instructions, see [Create alerts for SQL Managed Instance](./alerts-create.md). For more tips and tricks, see [the blog](https://techcommunity.microsoft.com/t5/azure-database-support-blog/tips-amp-tricks-1-creating-alerts-for-azure-sql-managed-instance/ba-p/2396044).
           
           ### Can I create metric alerts on a database in managed instance?
           
@@ -264,7 +264,7 @@ sections:
           
           ### Is native restore (from .bak files) to Managed Instance supported?
           
-          Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](./migrate-to-instance-from-sql-server.md#native-restore-from-url).
+          Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
           
       - question: |
           Business continuity
@@ -569,4 +569,3 @@ sections:
           ### How can I create Azure support request?
           
           To learn how to create Azure support request, see [How to create Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
-          

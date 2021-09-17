@@ -7,7 +7,7 @@ ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Azure Maps supported built-in map styles

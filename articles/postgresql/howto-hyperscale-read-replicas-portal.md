@@ -6,19 +6,10 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 08/03/2021
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal
-
-> [!IMPORTANT]
-> Read replicas in Hyperscale (Citus) are currently in preview. This preview
-> version is provided without a service level agreement, and it's not
-> recommended for production workloads. Certain features might not be supported
-> or might have constrained capabilities.
->
-> You can see a complete list of other new features in [preview features for
-> Hyperscale (Citus)](hyperscale-preview-features.md).
 
 In this article, you learn how to create and manage read replicas in Hyperscale
 (Citus) from the Azure portal. To learn more about read replicas, see the

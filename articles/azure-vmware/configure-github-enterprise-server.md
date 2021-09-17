@@ -44,9 +44,9 @@ After the newly provisioned virtual machine (VM) has powered on, [configure it t
 
 :::image type="content" source="media/github-enterprise-server/ssh-access.png" alt-text="Screenshot of the GitHub Enterprise SSH access screen to add a new SSH key.":::	
 
-We recommend to at least take the following steps:
+We recommend at least take the following steps:
 
-1. Upload a public SSH key to the management console, so that you can [access the administrative shell via SSH](https://docs.github.com/en/enterprise/admin/configuration/accessing-the-administrative-shell-ssh). 
+1. Upload a public SSH key to the management console so that you can [access the administrative shell via SSH](https://docs.github.com/en/enterprise/admin/configuration/accessing-the-administrative-shell-ssh). 
 
 2. [Configure TLS on your instance](https://docs.github.com/en/enterprise/admin/configuration/configuring-tls) so that you can use a certificate signed by a trusted certificate authority. Apply your settings.
 
@@ -57,11 +57,11 @@ We recommend to at least take the following steps:
    >[!NOTE]
    >GitHub Actions is [currently available as a limited beta on GitHub Enterprise Server release 2.22](https://docs.github.com/en/enterprise/admin/github-actions).
     
-   External blob storage is necessary to enable GitHub Actions on GitHub Enterprise Server (currently available as a "beta" feature). This external blob storage is used by Actions to store artifacts and logs. Actions on GitHub Enterprise Server [supports Azure Blob Storage as a storage provider](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (and some others). So we'll provision a new Azure storage account with a [storage account type](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts) of BlobStorage.
+   External blob storage is necessary to enable GitHub Actions on GitHub Enterprise Server (currently available as a "beta" feature). Actions use this external blob storage to store artifacts and logs. Actions on GitHub Enterprise Server [supports Azure Blob Storage as a storage provider](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (and some others). So we'll provision a new Azure storage account with a [storage account type](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts) of BlobStorage.
     
    :::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="Screenshot showing the instance details to enter for provisioning an Azure Blob Storage account.":::
     
-1. Once the deployment of the new BlobStorage resource has completed, copy and make a note of the connection string (available under Access keys). You'll need this string shortly.
+1. Once the new BlobStorage resource deployment completes, save the connection string (available under Access keys). You'll need this string shortly.
 
 1. After the instance restarts, create a new admin account on the instance. Be sure to make a note of this user's password as well.
 
@@ -97,7 +97,7 @@ Create somewhere for GitHub Actions to run; again, we'll use Azure VMware Soluti
 
 1. Continue through the set up selecting the compute resource, storage, and compatibility.
 
-1. Select the guest OS that will be installed on the VM.
+1. Select the guest OS you want installed on the VM.
 
    :::image type="content" source="media/github-enterprise-server/provision-new-vm-2.png" alt-text="Screenshot showing the Guest OS Family and Guest OS version to install on the VM.":::
 
@@ -105,21 +105,25 @@ Create somewhere for GitHub Actions to run; again, we'll use Azure VMware Soluti
 
 1. Install [the Actions runner](https://github.com/actions/runner) application, which runs a job from a GitHub Actions workflow. Identify and download the most current Linux x64 release of the Actions runner, either from [the releases page](https://github.com/actions/runner/releases) or by running the following quick script. This script requires both curl and [jq](https://stedolan.github.io/jq/) to be present on your VM.
 
-    `LATEST\_RELEASE\_ASSET\_URL=$( curl https://api.github.com/repos/actions/runner/releases/latest | \`
+   ```bash
+   LATEST\_RELEASE\_ASSET\_URL=$( curl https://api.github.com/repos/actions/runner/releases/latest | \
     
-    `  jq -r '.assets | .[] | select(.name | match("actions-runner-linux-arm64")) | .url' )`
+   jq -r '.assets | .[] | select(.name | match("actions-runner-linux-arm64")) | .url' )
     
-    `DOWNLOAD\_URL=$( curl $LATEST\_RELEASE\_ASSET\_URL | \`
+   DOWNLOAD\_URL=$( curl $LATEST\_RELEASE\_ASSET\_URL | \
     
-    `  jq -r '.browser\_download\_url' )`
+   jq -r '.browser\_download\_url' )
     
-    `curl -OL $DOWNLOAD\_URL`
+   curl -OL $DOWNLOAD\_URL
+   ```
     
-    You should now have a file locally on your VM, actions-runner-linux-arm64-\*.tar.gz. Extract this tarball locally:
+   You should now have a file locally on your VM, actions-runner-linux-arm64-\*.tar.gz. Extract this tarball locally:
     
-    `tar xzf actions-runner-linux-arm64-\*.tar.gz`
+   ```bash
+   tar xzf actions-runner-linux-arm64-\*.tar.gz
+   ```
     
-    This extraction unpacks a few files locally, including a `config.sh` and `run.sh` script.
+   This extraction unpacks a few files locally, including a `config.sh` and `run.sh` script.
 
 ## Enable GitHub Actions
 
@@ -130,37 +134,49 @@ Configure and enable GitHub Actions on the GitHub Enterprise Server instance.
 
 1. [Access the GitHub Enterprise Server instance's administrative shell over SSH](https://docs.github.com/en/enterprise/admin/configuration/accessing-the-administrative-shell-ssh), and then run the following commands:
 
-    `# set an environment variable containing your Blob storage connection string`
-    
-    `export CONNECTION\_STRING="<your connection string from the blob storage step>"`
-    
-    `# configure actions storage`
-    
-    `ghe-config secrets.actions.storage.blob-provider azure`
-    
-    `ghe-config secrets.actions.storage.azure.connection-string "$CONNECTION\_STRING"`
-    
-    `# apply these settings`
-    
-    `ghe-config-apply`
-    
-    `# execute a precheck, this install additional software required by Actions on GitHub Enterprise Server`
-    
-    `ghe-actions-precheck -p azure -cs "$CONNECTION\_STRING"`
-    
-    `# enable actions, and re-apply the config`
-    
-    `ghe-config app.actions.enabled true`
-    
-    `ghe-config-apply`
+1. Set an environment variable containing your Blob storage connection string.
 
-1. Next check the health of your blob storage:
+   ```bash
+   export CONNECTION\_STRING="<your connection string from the blob storage step>"
+   ```    
 
-   `ghe-actions-check -s blob`
+1. Configure actions storage.
+    
+   ```bash
+   ghe-config secrets.actions.storage.blob-provider azure
+  
+   ghe-config secrets.actions.storage.azure.connection-string "$CONNECTION\_STRING`      
+   ```
+
+1. Apply the settings.
+
+   ```bash
+   ghe-config-apply
+   ```    
+
+1. Execute a precheck to install additional software required by Actions on GitHub Enterprise Server.
+    
+   ```bash
+   ghe-actions-precheck -p azure -cs "$CONNECTION\_STRING"
+   ```
+
+1. Enable actions, and re-apply the configuration.
+ 
+   ```bash
+   ghe-config app.actions.enabled true
+    
+   ghe-config-apply      
+   ```
+
+1. Check the health of your blob storage.
+
+   ```bash
+   ghe-actions-check -s blob
+   ```
 
    You should see output: _Blob Storage is healthy_.
 
-1. Now that **GitHub Actions** is configured, enable it for your users. Sign in to your GitHub Enterprise Server instance as an administrator, and select the ![Rocket icon.](media/github-enterprise-server/rocket-icon.png) in the upper right corner of any page. 
+1. Now that **GitHub Actions** is configured, enable it for your users. Sign in to your GitHub Enterprise Server instance as an administrator, and select the :::image type="icon" source="media/github-enterprise-server/rocket-icon.png"::: in the upper right corner of any page. 
 
 1. In the left sidebar, select **Enterprise overview**, then **Policies**, **Actions**, and select the option to **enable Actions for all organizations**.
 
@@ -168,7 +184,9 @@ Configure and enable GitHub Actions on the GitHub Enterprise Server instance.
 
 1. Copy the command to **configure** the runner, for instance:
 
-   `./config.sh --url https://10.1.1.26/enterprises/octo-org --token AAAAAA5RHF34QLYBDCHWLJC7L73MA`
+   ```bash
+   ./config.sh --url https://10.1.1.26/enterprises/octo-org --token AAAAAA5RHF34QLYBDCHWLJC7L73MA
+   ```
 
 1. Copy the `config.sh` command and paste it into a session on your Actions runner (created previously).
 
@@ -196,14 +214,14 @@ Once GitHub Connect is enabled, select the **Server to use actions from GitHub.c
 
 Now that Actions and GitHub Connect is set up, let's put all this work to good use. Here's an example workflow that references the excellent [octokit/request-action](https://github.com/octokit/request-action), allowing us to "script" GitHub through interactions using the GitHub API, powered by GitHub Actions.
 
-In this basic workflow, we'll use `octokit/request-action` to just open an issue on GitHub using the API.
+In this basic workflow, we'll use `octokit/request-action` to open an issue on GitHub using the API.
 
 :::image type="content" source="media/github-enterprise-server/workflow-example.png" alt-text="Screenshot of an example workflow.":::
 
 >[!NOTE]
 >GitHub.com hosts the action, but when it runs on GitHub Enterprise Server, it *automatically* uses the GitHub Enterprise Server API.
 
-If you chose to not enable GitHub Connect, you can use the following alternative workflow.
+If you chose not to enable GitHub Connect, you could use the following alternative workflow.
 
 :::image type="content" source="media/github-enterprise-server/workflow-example-2.png" alt-text="Screenshot of an alternative example workflow.":::
 
@@ -225,7 +243,7 @@ If everything ran successfully, you should see a new issue in your repo, entitle
 
 Congratulations! You just completed your first Actions workflow on GitHub Enterprise Server, running on your Azure VMware Solution private cloud.
 
-In this article, we set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. This instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. But we're just scratching the surface of what you can do with GitHub Actions. Check out the list of Actions on [GitHub's Marketplace](https://github.com/marketplace), or [create your own](https://docs.github.com/en/actions/creating-actions).
+This article set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. The instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. But we're just scratching the surface of what you can do with GitHub Actions. Check out the list of Actions on [GitHub's Marketplace](https://github.com/marketplace), or [create your own](https://docs.github.com/en/actions/creating-actions).
 
 ## Next steps
 
