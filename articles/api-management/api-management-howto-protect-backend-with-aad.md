@@ -154,7 +154,7 @@ In this example, you enable OAuth 2.0 user authorization in the Developer Consol
 1. Specify the **Authorization endpoint URL** and **Token endpoint URL** you saved earlier: 
     1. Copy and paste the **OAuth 2.0 Authorization Endpoint** into the **Authorization endpoint URL** text box. 
     1. Select **POST** under Authorization request method.
-    1. Enter the  the **OAuth 2.0 Token Endpoint**, and paste it into the **Token endpoint URL** text box. 
+    1. Enter the **OAuth 2.0 Token Endpoint**, and paste it into the **Token endpoint URL** text box. 
         * If you use the **v1** endpoint:
           * Add a body parameter named **resource**.
           * Enter the back-end app **Application ID** for the value.
@@ -184,7 +184,7 @@ In this example, you enable OAuth 2.0 user authorization in the Developer Consol
     * Paste the redirect URI you saved earlier under **Redirect URIs**.
     * Click on **Configure** button to save.
 
-Now that the Developer Console can obtain access tokens from Azure AD via your OAuth 2.0 authorization server, enable OAuth 2.0 user authorization for your API. This enables the Developer Console to know that it needs to obtain an access token on behalf of the user, before making calls to your API.
+   Now that the Developer Console can obtain access tokens from Azure AD via your OAuth 2.0 authorization server, enable OAuth 2.0 user authorization for your API. This enables the Developer Console to know that it needs to obtain an access token on behalf of the user, before making calls to your API.
 
 15. Browse to your API Management instance, and go to **APIs**.
 
