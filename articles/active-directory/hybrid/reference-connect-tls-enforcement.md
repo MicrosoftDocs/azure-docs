@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 9/10/2021
+ms.date: 9/14/2021
 ms.subservice: hybrid
 ms.author: rodejo
 
