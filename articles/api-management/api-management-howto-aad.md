@@ -139,6 +139,9 @@ Users from the configured Azure AD instance can now:
 * Sign into the developer portal. 
 * View and subscribe to any groups for which they have visibility.
 
+> [!NOTE]
+> Learn more about the difference between **Delegated** and **Application** permissions types in [Permissions and consent in the Microsoft identity platform](./active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
+
 ## <a id="log_in_to_dev_portal"></a> Developer portal: Add Azure AD account authentication
 
 In the developer portal, you can sign in with Azure AD using the **Sign-in button: OAuth** widget included on the sign-in page of the default developer portal content.
