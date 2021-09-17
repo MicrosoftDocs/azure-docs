@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Azure API management policy sample - Demonstrates how to send request context information to the backend service.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 

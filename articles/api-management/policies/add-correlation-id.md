@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Azure API management policy sample - Demonstrates how to add a header containing a correlation id to the inbound request.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 

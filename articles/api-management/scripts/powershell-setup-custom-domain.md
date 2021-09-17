@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Set up custom domain | Microsoft Docs
 description: Learn how to set up a custom domain on proxy or portal endpoints of the API management service. See sample scripts and view additional available resources.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 

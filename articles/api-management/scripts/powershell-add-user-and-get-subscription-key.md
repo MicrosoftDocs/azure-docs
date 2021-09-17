@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Add a user | Microsoft Docs
 description: Learn how to add a user in API Management and get a subscription key. See a sample script and view additional available resources.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 

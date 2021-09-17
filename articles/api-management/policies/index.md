@@ -3,7 +3,7 @@ title: Azure API Management policy samples | Microsoft Docs
 description: Learn about the policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cflower
 editor: ''
 

@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Backup and restore service | Microsoft D
 description: Learn how to backup and restore the API management service instance. See a sample script and view additional available resources.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 

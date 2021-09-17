@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Create an APIM service | Microsoft Docs
 description: Learn how to create an API Management (APIM) service. See a sample script and view additional available resources.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
