@@ -12,9 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Configure routing preference for a VM using the Azure portal 
 
-This article shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed via the ISP network when you choose **Internet** as your routing preference option . The default routing is via the Microsoft global network.
-
-This article shows you how to create a virtual machine with a public IP that is set to route traffic via the public internet using the Azure portal.
+This tutorial shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed via the ISP network when you choose **Internet** as your routing preference option. The default routing is via the Microsoft global network.
 
 In this tutorial, you learn how to:
 
@@ -36,7 +34,7 @@ In this section, you'll create a virtual machine and public IP address. During t
 
 3. In **Virtual machines**, select **+ Create**, then **+ Virtual machine**.
 
-4. In the **Basics** tab of **Create a virtual machine**, enter or select the following information.
+4. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -53,7 +51,7 @@ In this section, you'll create a virtual machine and public IP address. During t
     | **Administrator account** |   |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | Confirm password | Re-enter password. |
+    | Confirm password | Reenter password. |
     | **Inbound port rules** |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Leave the default of **RDP (3389)**. </br> _**Opening port 3389 from the internet is not recommended for production workloads**_. |
