@@ -30,14 +30,14 @@ You can find the Revert Volume option in the Snapshots menu of a volume. After y
 
 1. Go to the **Snapshots** menu of a volume.  Right-click the snapshot you want to use for the revert operation. Select **Revert volume**. 
 
-    ![Screenshot that describes the right-click menu of a snapshot](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+    ![Screenshot that describes the right-click menu of a snapshot.](../media/azure-netapp-files/snapshot-right-click-menu.png) 
 
 2. In the Revert Volume to Snapshot window, 
 type the name of the volume, and click **Revert**.   
 
     The volume is now restored to the point in time of the selected snapshot.
 
-    ![Screenshot that the Revert volume to snapshot window](../media/azure-netapp-files/snapshot-revert-volume.png) 
+![Screenshot that shows the Revert Volume to Snapshot window.](../media/azure-netapp-files/snapshot-revert-volume.png) 
 
 ## Next steps
 

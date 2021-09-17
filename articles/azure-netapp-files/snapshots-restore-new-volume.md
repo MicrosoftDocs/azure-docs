@@ -26,7 +26,7 @@ ms.author: b-juche
 1. Select **Snapshots** from the Volume blade to display the snapshot list. 
 2. Right-click the snapshot to restore and select **Restore to new volume** from the menu option.  
 
-    ![Restore snapshot to new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
+    ![Screenshot that shows the Restore New Volume menu.](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 3. In the Create a Volume window, provide information for the new volume:  
     * **Name**   
@@ -37,7 +37,7 @@ ms.author: b-juche
     * **Quota**  
         Specify the amount of logical storage that you want to allocate to the volume.  
 
-    ![Restore to new volume](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
+    ![Screenshot that shows the Create a Volume window.](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
 4. Click **Review+create**.  Click **Create**.   
     The new volume uses the same protocol that the snapshot uses.   

@@ -30,6 +30,6 @@ The Hide Snapshot Path option controls whether the snapshot path of a volume is 
 2. To edit the Hide Snapshot Path option, click **Edit** on the volume page and modify the **Hide snapshot path** option as needed.   
     ![Screenshot that describes the Edit volume snapshot option.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 
-## Next Steps
+## Next steps
 
 * [Learn more about snapshots](snapshots-introduction.md)

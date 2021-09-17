@@ -23,18 +23,19 @@ Azure NetApp Files supports creating on-demand [snapshots](snapshots-introductio
 > [!NOTE] 
 > For considerations about snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).
  
+## Steps
 
 1.	Go to the volume that you want to create a snapshot for. Click **Snapshots**.
 
-    ![Navigate to snapshots](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
+    ![Screenshot that shows how to navigate to the snapshots blade.](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
 
 2.  Click **+ Add snapshot** to create an on-demand snapshot for a volume.
 
-    ![Add snapshot](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+    ![Screenshot that shows how to add a snapshot.](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
 
 3.	In the New Snapshot window, provide a name for the new snapshot that you are creating.   
 
-    ![New snapshot](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
+    ![Screenshot that shows the New Snapshot window.](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
 
 4. Click **OK**. 
 
