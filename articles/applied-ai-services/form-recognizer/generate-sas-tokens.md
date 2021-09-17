@@ -6,15 +6,14 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: lajanuar
 recommendations: false
 ---
 
-# Generate SAS tokens for your storage containers
+# Generate SAS tokens for storage containers
 
-In this article, you'll learn how to generate shared access signature (SAS) tokens using the Azure portal. An SAS token is a string that provides secure, delegated access to resources in your Azure storage account. Your application provides the SAS token to Azure storage as part of a request. If the storage service verifies that the SAS is valid, the request is authorized. If not, the request is declined with error code 403 (Forbidden).
+In this article, you'll learn how to generate shared access signature (SAS) tokens using the Azure portal. A SAS token is a string that provides secure, delegated access to resources in your Azure storage account. Your application provides the SAS token to Azure storage as part of a request. If the storage service verifies that the SAS is valid, the request is authorized. If not, the request is declined with error code 403 (Forbidden).
 
 Azure blob storage offers three types of resources:
 
@@ -26,9 +25,9 @@ Azure blob storage offers three types of resources:
 >
 > * If your Azure storage account is protected by a Virtual Network (VNet) or firewall, you cannot grant access using a SAS token. You'll have to use a [**managed identity**](managed-identity-byos.md) to grant access to your storage resource.
 >
-> * Also, if you will analyze your storage data with the [**Form Recognizer sample labeling tool (FOTT)**](https://fott-2-1.azurewebsites.net/), you must deploy the tool behind your VNet or firewall.
+> * If you will analyze your storage data with the [**Form Recognizer sample labeling tool (FOTT)**](https://fott-2-1.azurewebsites.net/), you must deploy the tool behind your VNet or firewall.
 >
-> * Managed identity supports both privately and publicly accessible Azure blob storage accounts.
+> * [**Managed identity**](managed-identity-byos.md) supports both privately and publicly accessible Azure blob storage accounts.
 
 ## When to use a shared access signature
 
@@ -89,7 +88,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 
 ---
 
-1. Select **Signing method** → **User delegation key**.
+4. Select **Signing method** → **User delegation key**.
 
 1. Under  **Signing key**, select the access key that will be used to sign the SAS token. The access keys are located in the left menu under **Security + networking**.
 
@@ -107,7 +106,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 
 1. **Copy and paste the Blob SAS token and URL values in a secure location. They'll only be displayed once and cannot be retrieved once the window is closed.**
 
-* To use the *Blob SAS URL*, add it to your API call as follows:
+* To use the **Blob SAS URL**, add it to your API call as follows:
 
 ```json
 {
@@ -115,7 +114,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 }
 ```
 
-That's it. You have learned how to generate a SAS token to authorize how a client can access your data.
+That's it. You have learned how to generate a SAS token to authorize how clients can access your data.
 
 > [!div class="nextstepaction"]
 > [Build a training data set](build-training-data-set.md)
