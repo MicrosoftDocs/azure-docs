@@ -11,7 +11,7 @@ ms.date: 10/04/2021
 **Requirements and supported metrics:**
 * In order to use auto scaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
 * The cluster SKU must be Standard.
-* The node type must be secondary and not primary.
+* Can only be configured on a secondary node type in your cluster.
 * Only [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md) are supported.
 
 A common scenario where auto-scaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like:
