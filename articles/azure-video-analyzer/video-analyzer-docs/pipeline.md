@@ -63,7 +63,7 @@ The lifecycle of a pipeline job is represented in the diagram below.
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/pipeline/batch-pipeline-lifecycle.svg" alt-text="Lifecycle of a pipeline":::
 
-Upon successful creation of pipeline job, it is in the “processing” state. If the job completes successfully it goes into a “completed” state, else if it fails it goes to the “failed” state. Alternatively, while the pipeline job is in progress, a cancel request can be issued. In that case, the job will go to a temporary “Cancelling” state and then a “Cancelled” state if request is executed successfully.
+Upon successful creation of pipeline job, it is in the “Processing” state. If the job completes successfully it goes into a “Completed” state, else if it fails it goes to the “Failed” state. Alternatively, while the pipeline job is in progress, a cancel request can be issued. In that case, the job will go to “Canceled” state if request is accepted by service.
 
 > [!NOTE]
 > Your Azure subscription will only be billed if the pipeline job completes successfully.
@@ -75,7 +75,7 @@ Multiple pipelines can be created from a single topology by supplying different 
 Video Analyzer edge module supports the following types of nodes within a pipeline.
 
 > [!NOTE]
-> Not all nodes are available in both Video Analyzer edge module and service. Please see <TODO: link to section below in this doc>
+> Not all nodes are available in both Video Analyzer edge module and service. Please see [Rules on nodes usage](pipeline.md#rules-on-the-use-of-nodes)
 
 ### Sources
 
