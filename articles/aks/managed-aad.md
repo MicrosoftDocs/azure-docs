@@ -390,6 +390,15 @@ aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
 aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
 aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 ```
+### Apply Just-in-Time access at the namespace level
+
+1. Integrate your AKS cluster with [Azure RBAC](https://docs.microsoft.com/azure/aks/manage-azure-rbac).
+2. Associate the group you want to integrate with Just-in-Time access with a namespace in the cluster through role assignment.
+
+```azurecli-interactive
+az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
+```
+3. Associate the group you just configured at the namespace level with PIM to complete the configuration.
 
 ### Troubleshooting
 
