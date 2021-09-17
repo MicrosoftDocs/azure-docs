@@ -1,144 +1,86 @@
 ---
-title: Offline containers for Cognitive Services
-titleSuffix: Azure Cognitive Services
+title: Use Docker containers in disconnected environments
+titleSuffix: Learn how to run Cognitive Services Docker containers disconnected from the internet
 description: Use Azure Cognitive Services in 
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 05/24/2021
+ms.date: 09/17/2021
 ms.author: aahi
 ---
 
 # Use Docker containers in disconnected environments
 
-
-Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Offline containers enable you to use these APIs completely disconnected from the internet. 
-
-You must meet the following prerequisites before using offline containers.
-
-* [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
-    * On Windows, Docker must also be configured to support Linux containers.
-    * You should have a basic understanding of Docker concepts 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-* A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a TBD resource"  target="_blank">TBD resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-    * You will need the key and endpoint from the resource to use the container.
-
-[!INCLUDE [Gathering required parameters](includes/container-gathering-required-parameters.md)]
-
-## The host computer
-
-[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
-
-### Container requirements and recommendations
-
-The following table describes the minimum and recommended specifications for the available offline containers. At least 2 gigabytes (GB) of memory are required, and each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Section (TPS) are also listed.
-
-|  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
-|---|---------|-------------|--|--|
-| **TBD**   | TBD core, TBD GB memory | TBD core, TBD memory |TBD | TBD|
-
-CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
-
-## Request access to the offline container
-
-Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to offline containers.
-
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you've submitted the form, the Azure Cognitive Services team reviews it to ensure that you meet the criteria for access to the private container registry.
+Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs completely disconnected from the internet. Currently, the following containers can be run in this manner:
+* Speech containers
+* Text Analytics containers
+* TBD 
 
 
-## Get the container image with the Docker pull command
+## Request access to use containers in disconnected environments
 
 > [!IMPORTANT]
 > * On the form, you must use an email address associated with an Azure subscription ID.
 > * The Azure resource (billing endpoint and apikey) you use to run the container must have been created with the approved Azure subscription ID. 
 > * Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the Microsoft Container Registry.
+Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to use containers disconnected from the internet.
 
-<!-- the following docker pull command is for Text Analytics, update it to the correct container image location for your service -->
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase:latest
-```
+The form requests information about you, your company, and the user scenario for which you'll use the container. After you've submitted the form, the Azure Cognitive Services team reviews it to ensure that you meet the criteria for usage.
 
-[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+## Sign up for commitment tiers
 
-## Run the container with the Docker run command
+To use a container in a disconnected environment, you will need to sign up for a pricing plan that offers a set amount of service for a specified amount of time. To sign up for a commitment tier:
 
-Once the container is on the host computer](#the-host-computer), use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
+1. Sign on to the [Azure portal](https://portal.azure.com/).
+2. TBD 
+3. TBD
 
-> [!IMPORTANT]
-> * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
-> * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+## Use `docker run` to download the license file
 
+> [!TIP]
+> Make sure you know the requirements for your host computer, and the `docker pull` command for the docker container you want to use. See the following articles for more information
+> * [Speech containers](../speech-service/speech-container-howto.md) 
+> * [Text Analytics containers](../text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+> * TBD
 
-To run the <service> container, execute the following `docker run` command. Replace the placeholders below with your own values:
+After you've signed up for a commitment tier, you'll be able to download a license file using a `docker run` command. This file will let you run the container offline.
+
+The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-| **{API_KEY}** | The key for your <service> resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The endpoint for accessing the <service> API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
+| `{LICENSE_MOUNT}` | The path where the licence will be downloaded, and mounted.  | `/path/to/license/directory` |
+| `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| `{LICENSE_LOCATION}` | The path where the licence will be downloaded, and mounted.  | `/path/to/license/directory` |
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
+docker run -v {LICENSE_MOUNT} {IMAGE} \
+eula=accept billing={ENDPOINT_URI} \
+apikey={API_KEY} \
+DownloadLicense=True \
+Mounts:License=/path/to/license/directory
 ```
 
-This command:
+Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with the `LicenseFolderKey` parameter 
 
-* Runs a <service> container from the container image
-* Allocates one CPU core and 8 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer.
-
-[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)
-
-
-## Query the container's prediction endpoint
-
-The container provides REST-based query prediction endpoint APIs.
-
-Use the host, `http://localhost:5000`, for container APIs.
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
-## Stop the container
-
-[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
+```bash
+docker run -v <license-mount> <image> \
+eula=accept \
+billing=<> \
+apikey=<> \
+Mounts:License=/path/to/license/directory
+```
 
 ## Troubleshooting
 
-<!-- link to the offline containers configuration article-->
 If you run the container with an output mount and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
-
-## Billing
-
-The <service> containers send billing information to Azure, using a <service> resource on your Azure account. 
-
-[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
-
-## Summary
-
-In this article, you learned concepts and workflow for downloading, installing, and running <service> containers. In summary:
-
-* There are TBD offline Linux containers for Docker, encapsulating various capabilities:
-   * Container 1
-   * Container 2. 
-   * ...
-
-* Container images are downloaded from the Microsoft Container Registry (MCR).
-* Container images run in Docker.
-* You can use either the REST API or SDK to call operations in <service> containers by specifying the host URI of the container.
-* You must specify billing information when instantiating a container.
-
-> [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g. text that is being analyzed) to Microsoft.
 
 ## Next steps
 
