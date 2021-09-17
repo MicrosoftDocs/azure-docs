@@ -1,13 +1,14 @@
 ---
-title: Deploy resources with Azure CLI and Bicep files
+title: Deploy resources with Azure CLI and Bicep files | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
 ---
 
-# Deploy resources with Bicep and Azure CLI
+# How to deploy resources with Bicep and Azure CLI
 
 This article explains how to use Azure CLI with Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Bicep overview](./overview.md).
 
