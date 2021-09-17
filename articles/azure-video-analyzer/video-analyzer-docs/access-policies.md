@@ -199,11 +199,11 @@ There are two ways to create an access policy.
 
    - Algorithm - supported values are RS256, RS384, RS512
 
-   - Key ID - generated from your certificate. For more information, see [Create a token](#create-a-token).
+   - Key ID - generated from your certificate. For more information, see [Create a token](#creating-a-token).
 
-   - RSA Key Modulus - generated from your certificate. For more information, see [Create a token](#create-a-token).
+   - RSA Key Modulus - generated from your certificate. For more information, see [Create a token](#creating-a-token).
 
-   - RSA Key Exponent - generated from your certificate. For more information, see [Create a token](#create-a-token).
+   - RSA Key Exponent - generated from your certificate. For more information, see [Create a token](#creating-a-token).
 
    :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="Player widget - access policies portal"::: 
    
