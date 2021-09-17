@@ -129,11 +129,9 @@ To get the Storage Account access key:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-## Create a profile container
+## Create a profile container with FSLogix
 
-## Configure FSLogix on session host VMs
-
-This section will show you how to configure a VM with FSLogix. You'll need to follow these instructions every time you configure a session host. Before you start configuring, follow the instructions in [Download and install FSLogix](/fslogix/install-ht). There are several options available that ensure the registry keys are set on all session hosts. You can set these options in an image or configure a group policy.
+In order to make profile containers, you'll need to configure FSLogix on your session host VMs. Before you start configuring, follow the instructions in [Download and install FSLogix](/fslogix/install-ht). You can set options for setting registry keys on session hosts in images or on a group policy. You'll need to follow these instructions every time you configure a session host.
 
 To configure FSLogix on your session host VM:
 
@@ -141,9 +139,9 @@ To configure FSLogix on your session host VM:
 
 2. [Download and install FSLogix](/fslogix/install-ht).
 
-5. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
+3. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
-    - Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
+    - Go to **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
 
     - Create a **Profiles** key.
 
@@ -151,15 +149,15 @@ To configure FSLogix on your session host VM:
 
     - Create **VHDLocations, MULTI_SZ**.
 
-    - Set the value of **VHDLocations** to the UNC path you generated in [Get the UNC path](create-file-share.md#get-the-unc-path).
+    - [Get the UNC path](create-file-share.md#get-the-unc-path), then set the value of **VHDLocations** to that UNC path.
 
-6. Restart the VM.
+4. Restart the VM.
 
 ## Make sure your profile works
 
 Once you've installed and configured FSLogix, you can test your deployment by signing in with a user account that's been assigned an app group or desktop on the host pool. Make sure the user account you sign in with has permission on the file share.
 
-If the user has signed in before, they'll have an existing local profile that will be used during this session. To avoid creating a local profile, either create a new user account to use for tests or use the configuration methods described in [Tutorial: Configure Profile Container to redirect User Profiles](/fslogix/configure-profile-container-tutorial/).
+If the user has signed in before, they'll have an existing local profile that they'll use during this session. To avoid creating a local profile, either create a new user account to use for tests or use the configuration methods described in [Tutorial: Configure Profile Container to redirect User Profiles](/fslogix/configure-profile-container-tutorial/).
 
 To check your permissions on your session:
 

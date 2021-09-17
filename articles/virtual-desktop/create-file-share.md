@@ -192,7 +192,7 @@ To configure FSLogix on your session host VM:
 
 2. [Download and install FSLogix](/fslogix/install-ht).
 
-5. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
+3. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
     - Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
 
@@ -204,7 +204,7 @@ To configure FSLogix on your session host VM:
 
     - Set the value of **VHDLocations** to the UNC path you generated in [Get the UNC path](#get-the-unc-path).
 
-6. Restart the VM.
+4. Restart the VM.
 
 ## Testing
 
