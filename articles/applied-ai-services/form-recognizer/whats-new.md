@@ -17,6 +17,12 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
 
+## September 2021
+
+[Azure metrics explorer advanced features](/azure/azure-monitor/essentials/metrics-charts) are available on your Form Recognizer resource overview page in the Azure portal. 
+
+:::image type="content" source="media/portal-metrics.png" alt-text="{alt-text}":::
+
 ## July 2021
 
 ### System-assigned managed identity support 

@@ -87,32 +87,32 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 ---
 
   4. Select **Signing method** → **User delegation key**.
-  
+
   1. Under  **Signing key**, select the access key that will be used to sign the SAS token. The access keys are located in the left menu under **Security + networking**.
-  
+
   1. Define **Permissions** by checking and/or clearing the appropriate check box. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are checked
-  
+
   1. Specify the signed key **Start** and **Expiry** times.
-  
+
   1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
-  
+
   1. The **Allowed protocols** field is optional and specifies the protocol permitted for a request made with the SAS. The default value is HTTPS.
-  
+
   1. Review then select **Generate SAS token and URL**.
-  
+
   1. The **Blob SAS token** query string and **Blob SAS URL** will be displayed in the lower area of window. To use the **Blob SAS token**, append it a storage service URI.
-  
+
   1. **Copy and paste the Blob SAS token and URL values in a secure location. They'll only be displayed once and cannot be retrieved once the window is closed.**
-  
+
   1. To use the **Blob SAS URL**, add it to your API call as follows:
-  
-    ```json
-    {
-      "source":"<BLOB SAS URL>"
-    }
-    ```
-    
-That's it. You have learned how to generate a SAS token to authorize how clients access your data.
+
+ ```json
+ {
+     "source":"<BLOB SAS URL>"
+ }
+ ```
+
+That's it. You've learned how to generate a SAS token to authorize how clients access your data.
 
 > [!div class="nextstepaction"]
 > [Build a training data set](build-training-data-set.md)
