@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 The [Reference Architecture for Azure Spring Cloud](/azure/spring-cloud/reference-architecture) includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Cloud deployment and use Palo Alto instead. This document will tell you how.
 
-We recommend keeping configuration information, such as rules, address wildcards, etc in CSV files in a Git repository, following Infrastructure-As-Code processes. We'll show you how to use automation to apply these files to Palo Alto. Familiarize yourself with [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/vnet-customer-responsibilities) to understand the configuration to be applied to Palo Alto.
+We recommend keeping configuration information, such as rules, address wildcards, and so on in CSV files in a Git repository, following Infrastructure-As-Code processes. We'll show you how to use automation to apply these files to Palo Alto. Familiarize yourself with [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/vnet-customer-responsibilities) to understand the configuration to be applied to Palo Alto.
 
 > [!Note]
 > In describing the use of REST APIs, we'll use the PowerShell variable syntax to indicate names and values that are left to your discretion. Make sure you use the same values throughout all the steps.
@@ -28,10 +28,13 @@ We recommend keeping configuration information, such as rules, address wildcards
 
 ### Palo Alto starting configuration
 
-You should already have a Palo Alto deployment (you can provision [Palo Alto from Azure Marketplace](https://ms.portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2)). 
-The detailed steps to configure the Palo Alto VM Based Firewall can be found [here](https://docs.paloaltonetworks.com/vm-series/9-1/vm-series-deployment/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewall-on-azure-solution-template.html). The link helps you to provision a VM Series Firewall along with configuring both the `Trust`,  `Untrust` subnets and the associated Network interface cards. We reccomend that you create this Firewall in the address space of `Hub` virtual network in the referene architecture to stay consistent.
-The detailed design of [Reference Architecture Guide for Azure](https://www.paloaltonetworks.com/resources/guides/azure-architecture-guide) explores several technical design models for deploying the Firewall on Azure. 
-In the steps below, we'll assume you have two pre-configured network zones: `Trust`, containing the interface connected to a virtual network peered with the Azure Spring Cloud virtual network, and `Untrust` containing the interface to the public internet created earlier in the VM Series deployment guide.
+You should already have a Palo Alto deployment (you can provision [Palo Alto from Azure Marketplace](https://ms.portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2)).
+
+The detailed steps to configure the Palo Alto VM-Series Firewall can be found [here](https://docs.paloaltonetworks.com/vm-series/9-1/vm-series-deployment/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewall-on-azure-solution-template.html). The link helps you to provision a VM-Series Firewall along with configuring both the `Trust`,  `Untrust` subnets and the associated Network interface cards. We recommend that you create this Firewall in the address space of `Hub` virtual network in the reference architecture to stay consistent.
+
+The detailed design of [Reference Architecture Guide for Azure](https://www.paloaltonetworks.com/resources/guides/azure-architecture-guide) explores several technical design models for deploying the Firewall on Azure.
+
+In the steps below, we'll assume you have two pre-configured network zones: `Trust`, containing the interface connected to a virtual network peered with the Azure Spring Cloud virtual network, and `Untrust` containing the interface to the public internet created earlier in the VM-Series deployment guide.
 
 ### Prepare CSV files
 
@@ -85,7 +88,7 @@ rt.services.visualstudio.com,fqdn,rt.services.visualstudio.com,AzureMonitor
 
 To follow the REST API calls below, you should [authenticate into Palo Alto and obtain an API key](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-panorama-api/get-started-with-the-pan-os-xml-api/get-your-api-key.html).
 
-Here's a sample for how to do it in powershell and generate request headers that will be used in subsequent Palo Alto calls in this example:
+Here's a sample for how to do it in PowerShell and generate request headers that will be used in later Palo Alto calls in this example:
 
 ```powershell
 $authResponse = irm "https://${PaloAltoIpAddress}/api/?type=keygen&user=yevster&password=CwtN8s@MuqXDNE!(gb!CqWY" -SkipCertificateCheck
@@ -173,7 +176,7 @@ function New-PaloAltoService {
 Get-Content ./AzureSpringCloudServices.csv | ConvertFrom-Csv | New-PaloAltoService
 ```
 
-Next, let's create a Service Group for these services. 
+Next, let's create a Service Group for these services.
 
 ```powershell
 # Create a function to consume service definitions and submit a service group creation request
@@ -183,7 +186,7 @@ function New-PaloAltoServiceGroup {
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [PSCustomObject[]]
         $RuleData,
-        
+
         [Parameter(Mandatory = $true)]
         [string]
         $ServiceGroupName
@@ -201,12 +204,12 @@ function New-PaloAltoServiceGroup {
                 '@name'   = $ServiceGroupName
                 'members' = @{ 'member' = $names }
                 'tag'     = @{ 'member' = 'AzureSpringCloud' }
-            }       
+            }
         }
 
         $url = "https://${PaloAltoIpAddress}/restapi/v9.1/Objects/ServiceGroups?location=vsys&vsys=vsys1&name=${ServiceGroupName}"
 
-        Invoke-RestMethod -Method Post -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders -Body (ConvertTo-Json $requestBody) -Verbose   
+        Invoke-RestMethod -Method Post -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders -Body (ConvertTo-Json $requestBody) -Verbose
     }
 }
 
@@ -244,7 +247,7 @@ Invoke-RestMethod -Method Post -Uri $url  -SkipCertificateCheck -Headers $paloAl
 
 ## Create a security rule
 
-Create a JSON file containing a security rule, e.g. `SecurityRule.json`. Note the name two zones `Azure_Inside` and `Azure_Outside` zone names match the zones from the prerequisites. Also note the `service/member` entry contains the name of the service group created in the previous steps.
+Create a JSON file containing a security rule, for example `SecurityRule.json`. Note the name two zones `Azure_Inside` and `Azure_Outside` zone names match the zones from the prerequisites. Also note the `service/member` entry contains the name of the service group created in the previous steps.
 
 ```json
 {
@@ -304,14 +307,14 @@ Create a JSON file containing a security rule, e.g. `SecurityRule.json`. Note th
 }
 ```
 
-Now, apply this rule to Palo Alto. 
+Now, apply this rule to Palo Alto.
 
 ```powershell
 $url = "https://${PaloAltoIpAddress}/restapi/v9.1/Policies/SecurityRules?location=vsys&vsys=vsys1&name=azureSpringCloudRule"
 
 # Delete the rule if it already exists
 try {
-    $getResult = Invoke-RestMethod -Headers $paloAltoHeaders -Method Get -SkipCertificateCheck -Uri $url -Verbose 
+    $getResult = Invoke-RestMethod -Headers $paloAltoHeaders -Method Get -SkipCertificateCheck -Uri $url -Verbose
     if ($getResult.'@status' -eq 'success') {
         Invoke-RestMethod -Method Delete  -Headers $paloAltoHeaders -SkipCertificateCheck -Uri $url
     }
@@ -324,17 +327,17 @@ Invoke-WebRequest -Uri $url -Method Post -Headers $paloAltoHeaders -Body (Get-Co
 
 ## Create Azure Monitor addresses
 
-Addreses for Azure Monitor (defined in `AzureMonitorAddresses.csv`) now need to be defined as Address objects on Palo Alto. Here's how this task can be automated:
+Addresses for Azure Monitor (defined in `AzureMonitorAddresses.csv`) now need to be defined as Address objects on Palo Alto. Here's how this task can be automated:
 
 ```powershell
-Get-Content ./AzureMonitorAddresses.csv | ConvertFrom-Csv | ForEach-Object { 
+Get-Content ./AzureMonitorAddresses.csv | ConvertFrom-Csv | ForEach-Object {
     $requestBody = @{ 'entry' = [ordered]@{
             '@name' = $_.name
             $_.type = $_.address
             'tag'   = @{ 'member' = @($_.tag) }
         }
     }
- 
+
     $name = $requestBody.entry.'@name'
     $url = "https://${PaloAltoIpAddress}/restapi/v9.1/Objects/Addresses?location=vsys&vsys=vsys1&name=${name}"
 
@@ -352,7 +355,7 @@ Get-Content ./AzureMonitorAddresses.csv | ConvertFrom-Csv | ForEach-Object {
 
 ## Commit changes to Palo Alto
 
-Some of the changes above must be committed in order to become active. This can be done with a single REST API call:
+Some of the changes above must be committed to become active. This can be done with a single REST API call:
 
 ```powershell
 $url = "https://${PaloAltoIpAddress}/api/?type=commit&cmd=<commit></commit>"
