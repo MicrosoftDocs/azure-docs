@@ -1,9 +1,10 @@
 ---
-title: Azure Functions availability zone Support on Elastic Premium plans
+title: Azure Functions availability zone support on Elastic Premium plans
 description: Learn how to use availability zone redundancy with Azure Functions for high-availability function applications on Elastic Premium plans. 
 ms.topic: conceptual
 ms.author: johnguo
 ms.date: 09/07/2021
+ms.custom: references_regions
 # Goal: Introduce AZ Redundancy in Azure Functions elastic premium plans to customers + a tutorial on how to get started with ARM templates
 ---
 
@@ -45,9 +46,9 @@ A zone redundant function app will automatically distribute load the instances t
   - Australia East
 - At this time, must be created through [ARM template](../azure-resource-manager/templates/index.yml).
 
-## How to Deploy a function app on a zone redundant Premium plan
+## How to deploy a function app on a zone redundant Premium plan
 
-For initial creation of a zone redundant Elastic Premium Functions plan, you need to deploy via [ARM templates](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md). Then, once successfully created, you can view and interact with the Function Plan via the Azure Portal and CLI tooling. An ARM template is only needed for the initial creation of the Function Plan. A guide to hosting Functions on Premium plans can be found [here](functions-infrastructure-as-code.md#deploy-on-premium-plan). Once the zone redundant plan is created and deployed, any function app hosted on your new plan will now be zone redundant. 
+For initial creation of a zone redundant Elastic Premium Functions plan, you need to deploy via [ARM templates](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md). Then, once successfully created, you can view and interact with the Function Plan via the Azure portal and CLI tooling. An ARM template is only needed for the initial creation of the Function Plan. A guide to hosting Functions on Premium plans can be found [here](functions-infrastructure-as-code.md#deploy-on-premium-plan). Once the zone redundant plan is created and deployed, any function app hosted on your new plan will now be zone redundant. 
 
 The only properties to be aware of while creating a zone redundant Function plan are the new **zoneRedundant** property and the Function Plan instance count (**capacity**) fields. The **zoneRedundant** property must be set to **true** and the **capacity** property should be set based on the workload requirement, but no less than 3. Choosing the right capacity varies based on several factors and high availability/fault tolerance strategies. A good rule of thumb is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
 
