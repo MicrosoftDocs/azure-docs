@@ -159,6 +159,10 @@ sections:
           
       - question: Can I change instance size from medium to large without disruption?
         answer: Yes.
+        
+      - question: What is considered an active listener versus inactive listener
+        answer: |
+          An active listener is a listener that is associated to a rule **and** sending traffic to a backend pool. Any listener that **only** redirects traffic is not an active listener. Listeners associated with redirect rules are not considered active. If the redirect rules is a path-based rule, then all the paths in that redirect rule must be redirecting traffic, else the listener is considered active. Refer to [Azure subscription limits and quotas](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) for details individual component limits. 
 
   - name: Configuration
     questions:
