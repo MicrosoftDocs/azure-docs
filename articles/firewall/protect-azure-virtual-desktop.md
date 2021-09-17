@@ -33,10 +33,7 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 
 You will need to create an Azure Firewall Policy and create Rule Collections for Network Rules and Applications Rules. Give the Rule Collection a priority and an allow or deny action. 
 
-# [Azure portal](#tab/portal)
-```markdown
-
-Create network rules
+### Create network rules
 
 | Name | Source type | Source | Protocol | Destination ports | Destination type | Destination 
 --- | --- | --- | --- | --- | --- | ---
@@ -44,23 +41,20 @@ Create network rules
 | Rule Name | IP Address | VNet or Subnet IP Address | 443 | TCP | Service Tag | AzureCloud, WindowsVirtualDesktop
 | Rule Name | IP Address | VNet or Subnet IP Address | 53 | TCP, UDP | IP Address | *
 
-Create application rules 
-
-| Name | Source type | Source | Protocol | TLS inspection (optional) | Destination type | Destination 
---- | --- | --- | --- | --- | --- | ---
-| Rule Name | IP Address | VNet or Subnet IP Address | Https:443 | | FQDN Tag | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| Rule Name | IP Address | VNet or Subnet IP Address | Https:1688 | | FQDN | kms.core.windows.net 
-```
-
-# [PowerShell](#tab/portal)
-```azurepowershell-interactive
-
-
-```
-
-
 > [!NOTE]
 > Some deployments might not need DNS rules. For example, Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
+
+### Create application rules 
+
+| Name | Source type | Source | Protocol | Destination type | Destination 
+--- | --- | --- | --- | --- | ---
+| Rule Name | IP Address | VNet or Subnet IP Address | Https:443 | FQDN Tag | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
+| Rule Name | IP Address | VNet or Subnet IP Address | Https:1688 | FQDN | kms.core.windows.net 
+
+
+> [!Important]
+> It is not recommended to use TLS Inspection with Azure Virtual Desktop. Please see [Proxy Server Guidlines](https://docs.microsoft.com/en-us/azure/virtual-desktop/proxy-server-support#dont-use-ssl-termination-on-the-proxy-server) fore more info.
+
 
 ## Host pool outbound access to the internet
 
