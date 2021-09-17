@@ -137,7 +137,7 @@
     items:
     - name: View metrics in Azure Monitor
       href: troubleshoot-metrics.md
-    - name: Enable and query diagnostics logs
+    - name: Use diagnostics logs
       href: troubleshoot-diagnostics.md
     - name: Enable alerts
       href: troubleshoot-alerts.md

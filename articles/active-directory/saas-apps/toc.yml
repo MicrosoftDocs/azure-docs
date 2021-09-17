@@ -89,6 +89,8 @@
         href: alertmedia-tutorial.md
       - name: AlertOps
         href: alertops-tutorial.md
+      - name: AlexisHR
+        href: alexishr-tutorial.md  
       - name: Alibaba Cloud Service (Role-based SSO)
         href: alibaba-cloud-service-role-based-sso-tutorial.md
       - name: Allbound SSO
@@ -516,11 +518,13 @@
       - name: Creatio
         href: bpmonline-tutorial.md
       - name: Create!Webフロー
-        href: createweb-tutorial.md  
+        href: createweb-tutorial.md
       - name: Crises Control
         href: crises-control-tutorial.md
       - name: CrossKnowledge Learning Suite
         href: crossknowledge-learning-suite-tutorial.md
+      - name: CrowdStrike Falcon Platform
+        href: crowdstrike-falcon-platform-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
       - name: Curricula SAML
@@ -712,6 +716,8 @@
         href: fabric-tutorial.md
       - name: F5
         href: headerf5-tutorial.md
+      - name: Facebook Work Accounts
+        href: facebook-work-accounts-tutorial.md  
       - name: FactSet
         href: factset-tutorial.md
       - name: Fastly Edge Cloud
@@ -2124,6 +2130,8 @@
         href: velpicsaml-tutorial.md
       - name: Veracode
         href: veracode-tutorial.md
+      - name: VergeSense
+        href: vergesense-tutorial.md  
       - name: Veritas Enterprise Vault.cloud SSO
         href: veritas-tutorial.md
       - name: Verkada Command
@@ -2375,6 +2383,8 @@
         href: britive-provisioning-tutorial.md
       - name: BrowserStack Single Sign-on
         href: browserstack-single-sign-on-provisioning-tutorial.md
+      - name: Cato Networks Provisioning
+        href: cato-networks-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
       - name: Chatwork

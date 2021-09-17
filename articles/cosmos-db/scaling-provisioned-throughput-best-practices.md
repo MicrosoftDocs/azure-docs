@@ -41,7 +41,7 @@ Navigate to
 :::image type="content" source="media/scaling-provisioned-throughput-best-practices/number-of-physical-partitions.png" alt-text="Count the distinct number of PartitionKeyRangeIds in the Normalized RU Consumption (%) by PartitionKeyRangeID chart":::
 
 > [!NOTE]
-> The chart will only show a maximum of 50 PartitionKeyRangeIds. If your resource has more than 50, you can use the [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/cosmos-db/get-partition-key-ranges#example) to count the total number of partitions. 
+> The chart will only show a maximum of 50 PartitionKeyRangeIds. If your resource has more than 50, you can use the [Azure Cosmos DB REST API](/rest/api/cosmos-db/get-partition-key-ranges#example) to count the total number of partitions. 
 
 Each PartitionKeyRangeId maps to one physical partition and is assigned to hold data for a range of possible hash values. 
 
@@ -144,7 +144,7 @@ This means that for 1 TB of data, we'll need 1000 GB / 40 GB = 25 physical parti
 
 If we're using autoscale throughput or a shared throughput database, to get 25 physical partitions, we'd first provision 25 * 10,000 RU/s = 250,000 RU/s. Because we are already at the highest RU/s that can be supported with 25 physical partitions, we would not further increase our provisioned RU/s before the ingestion.
  
-In theory, with 250,000 RU/s and 1 TB of data, if we assume 1-kb documents and 10 RUs required for write, the ingestion can theoretically complete in: 1000 GB * (1,000,000 kb / 1 GB) * (1 document / 1 kb) * (10 RU / document) * (1 sec / 150,000 RU) * (1 hour / 3600 seconds) = 11.1 hours. 
+In theory, with 250,000 RU/s and 1 TB of data, if we assume 1-kb documents and 10 RUs required for write, the ingestion can theoretically complete in: 1000 GB * (1,000,000 kb / 1 GB) * (1 document / 1 kb) * (10 RU / document) * (1 sec / 250,000 RU) * (1 hour / 3600 seconds) = 11.1 hours. 
 
 This calculation is an estimate assuming the client performing the ingestion can fully saturate the throughput and distribute writes across all physical partitions. As a best practice, it’s recommended to “shuffle” your data on the client-side. This ensures that each second, the client is writing to many distinct logical (and thus physical) partitions. 
  

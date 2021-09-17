@@ -262,11 +262,11 @@ The following example shows a sample breakdown of costs and payouts to demonstra
 | Azure usage cost (D1/1-Core) | Billed directly to the publisher, not the customer |
 | Customer is billed by Microsoft | $100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee) |
 | **Microsoft bills** | **$100 per month** |
+<<<<<<< HEAD
 | Microsoft charges a 3% Marketplace Service Fee and pays you 97% of your license cost | $97.00 per month |
+=======
+| Microsoft pays you 97% of your license cost | $97.00 per month |
 |
-
-## Preview audience
-
 A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live. 
 
 On the **Preview audience** page, you can define a limited preview audience. This setting is not available if you choose to process transactions independently instead of selling your offer through Microsoft. If so, you can skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
