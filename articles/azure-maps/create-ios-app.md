@@ -40,7 +40,7 @@ Create a new Azure Maps account with the following steps:
 	* Read the _License_ and _Privacy Statement_, and check the checkbox to accept the terms.
 	* Click the **Create** button.
 
-![Create ccont](./media/create-an-ios-app/create-account.png)
+![Create an azure maps ccont.](./media/create-an-ios-app/create-account.png)
 
 ## Get the primary key for your account
 
@@ -53,7 +53,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 > [!Note]
 > If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual)
 
-![get key](./media/create-an-ios-app/get-key.png)
+![get the subscription key.](./media/create-an-ios-app/get-key.png)
 
 ## Create a project in Xcode
 
@@ -65,7 +65,7 @@ First, create a new iOS App project. Complete these steps to create an Xcode pro
 
 See the [Creating an Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
 
-![create app](./media/create-an-ios-app/create_app.png)
+![create the first iOS application.](./media/create-an-ios-app/create_app.png)
 
 ## Install the Azure Maps iOS SDK
 
@@ -76,14 +76,14 @@ The next step in building your application is to install the Azure Maps iOS SDK.
 3. Switch to **Swift Package** tab
 4. Add Azure Maps iOS SDK: `{link goes here}`
 
-![add project](./media/create-an-ios-app/add_proj.png)
+![add a iOS project](./media/create-an-ios-app/add_proj.png)
 
 ## Add MapControl view
 
 1. Add custom `UIView` to view controller
 2. Select `MapControl` class from `AzureMapsControl` module
 
-![add map control](./media/create-an-ios-app/add_map_control.png)
+![add auzre maps contro.l](./media/create-an-ios-app/add_map_control.png)
 
 3. In the **AppDelegate.swift** file you'll need to:
 	* add import for the Azure Maps SDK
@@ -92,11 +92,11 @@ Setting the authentication information on the AzureMaps class globally using the
 
 4. Select the run button, as shown in the following graphic (or press `CMD` + `R`), to build your application.
 
-![run app](./media/create-an-ios-app/run.png)
+![run the ios application.](./media/create-an-ios-app/run.png)
 
 Xcode will take a few seconds to build the application. After the build is complete, you can test your application in the simulated iOS device. You should see a map like this one:
 
-![mapsample](./media/create-an-ios-app/example.png)
+![your first map on iOS application.](./media/create-an-ios-app/example.png)
 
 ## Clean up resources
 
