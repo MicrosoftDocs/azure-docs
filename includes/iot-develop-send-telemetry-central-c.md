@@ -20,8 +20,6 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 - Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
 - Raspberry Pi OS version 10 (buster) running on a Raspberry Pi 3 Model B+
 
-The shell commands in this quickstart use the standard Linux path separator `/`. If you use Windows, replace these separators with the Windows path separator `\`.
-
 Install the remaining prerequisites for your operating system.
 
 ### Linux or Raspberry Pi OS

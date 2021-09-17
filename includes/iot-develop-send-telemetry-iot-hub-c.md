@@ -63,7 +63,7 @@ To complete this quickstart on Windows, install Visual Studio 2019 and add the r
 In this section, you use the C SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
 ### Build the sample
-1. Open a console to install the Azure IoT C device SDK and run the code sample. For Windows, select **Start**, type *Developer Command Prompt for VS 2019*, and open the console. For Linux and Raspberry Pi OS, open a terminal for Bash commands.
+1. Open a new console to install the Azure IoT C device SDK and run the code sample. For Windows, select **Start**, type *Developer Command Prompt for VS 2019*, and open the console. For Linux and Raspberry Pi OS, open a terminal for Bash commands.
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
