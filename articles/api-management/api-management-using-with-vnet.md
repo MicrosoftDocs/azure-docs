@@ -2,12 +2,12 @@
 title: Connect to a virtual network using Azure API Management
 description: Learn how to set up a connection to a virtual network in Azure API Management and access web services through it.
 services: api-management
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
 ms.date: 08/10/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Connect to a virtual network using Azure API Management
