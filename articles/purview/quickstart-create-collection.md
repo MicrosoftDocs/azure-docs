@@ -53,9 +53,12 @@ To create your collection, we'll start in the [Purview Studio](use-purview-studi
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
-    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/find-collections-2.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
 
 1. Select **+ Add a collection**.
+
+    :::image type="content" source="./media/quickstart-create-collection/select-add-collection.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected and Add a Collection highlighted." border="true":::
+
 1. In the right panel, enter the collection name, description, and search for users to add them as collection admins.
 
     :::image type="content" source="./media/quickstart-create-collection/create-collection.png" alt-text="Screenshot of Purview studio window, showing the new collection window, with a display name and collection admins selected, and the create button highlighted." border="true":::
