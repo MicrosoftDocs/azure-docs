@@ -8,7 +8,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 07/07/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management

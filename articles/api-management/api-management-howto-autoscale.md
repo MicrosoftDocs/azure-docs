@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Automatically scale an Azure API Management instance  

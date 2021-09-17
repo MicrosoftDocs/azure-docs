@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # How to set or edit Azure API Management policies

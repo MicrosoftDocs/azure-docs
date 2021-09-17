@@ -9,7 +9,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 03/31/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Configure a custom domain name for a self-hosted gateway

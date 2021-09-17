@@ -8,7 +8,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # IP addresses of Azure API Management

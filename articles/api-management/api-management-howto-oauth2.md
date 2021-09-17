@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/14/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # How to authorize developer accounts using OAuth 2.0 in Azure API Management

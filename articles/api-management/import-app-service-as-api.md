@@ -8,7 +8,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/27/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Import an Azure Web App as an API

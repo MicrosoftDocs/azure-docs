@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Import a SOAP API and convert to REST

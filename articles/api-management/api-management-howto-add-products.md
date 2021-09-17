@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 02/09/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Tutorial: Create and publish a product  

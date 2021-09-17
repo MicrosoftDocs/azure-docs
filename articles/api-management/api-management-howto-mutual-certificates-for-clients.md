@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/01/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # How to secure APIs using client certificate authentication in API Management

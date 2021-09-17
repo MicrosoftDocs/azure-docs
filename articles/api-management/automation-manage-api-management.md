@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Managing Azure API Management using Azure Automation

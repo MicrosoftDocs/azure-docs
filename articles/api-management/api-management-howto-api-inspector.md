@@ -9,7 +9,7 @@ editor: ''
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 10/30/2020
-ms.author: apimpm
+ms.author: danlep
 
 ---
 

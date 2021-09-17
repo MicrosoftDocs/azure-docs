@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/08/2017
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Edit an API

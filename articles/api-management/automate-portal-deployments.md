@@ -3,7 +3,7 @@ title: Automate developer portal deployments
 titleSuffix: Azure API Management
 description: Learn how to automatically migrate self-hosted developer portal content between two API Management services.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 04/15/2021
 ms.service: api-management
 ms.topic: how-to

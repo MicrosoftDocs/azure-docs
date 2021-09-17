@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
-ms.author: apimpm
+ms.author: danlep
 ---
 # How to save and configure your API Management service configuration using Git
 

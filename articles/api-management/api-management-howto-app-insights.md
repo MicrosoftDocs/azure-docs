@@ -9,7 +9,7 @@ ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/04/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 

@@ -4,7 +4,7 @@ description: Soft-delete allows you to recover deleted API Management instances.
 ms.service: api-management
 ms.topic: conceptual
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 11/27/2020
 ---
 

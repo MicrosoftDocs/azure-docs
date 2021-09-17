@@ -6,7 +6,7 @@ manager: gwallace
 ms.service: api-management
 ms.topic: article
 ms.date: 04/19/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Deploy an Azure API Management self-hosted gateway to Docker

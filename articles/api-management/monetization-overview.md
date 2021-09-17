@@ -2,7 +2,7 @@
 title: Monetization with Azure API Management
 description: Learn how to set up your monetization strategy for Azure API Management in six simple stages.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 08/23/2021
 ms.topic: article
 ms.service: api-management

@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: article
 ms.date: 07/19/2021
 ms.service: api-management
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # API Management advanced policies

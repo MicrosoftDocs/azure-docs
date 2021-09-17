@@ -7,7 +7,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 09/17/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: contperf-fy21q1
 ---
 

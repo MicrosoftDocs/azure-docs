@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Upgrade and scale an Azure API Management instance  

@@ -6,7 +6,7 @@ manager: gwallace
 ms.service: api-management
 ms.topic: article
 ms.date: 06/11/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Deploy to Azure Kubernetes Service

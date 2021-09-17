@@ -7,7 +7,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # How to deploy an Azure API Management service instance to multiple Azure regions

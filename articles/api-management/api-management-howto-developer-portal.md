@@ -9,7 +9,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/15/2021
-ms.author: apimpm 
+ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
 

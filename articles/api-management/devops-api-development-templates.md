@@ -7,7 +7,7 @@ ms.service: api-management
 
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # CI/CD for API Management using Azure Resource Manager templates

@@ -4,7 +4,7 @@ description: Troubleshoot intermittent connection errors and related latency iss
 author: dlepow
 ms.topic: troubleshooting
 ms.date: 12/04/2020
-ms.author: apimpm
+ms.author: danlep
 ms.service: api-management
 ---
 

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Advanced request throttling with Azure API Management

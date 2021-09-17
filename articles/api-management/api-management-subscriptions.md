@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/27/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 # Subscriptions in Azure API Management
 

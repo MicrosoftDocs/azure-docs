@@ -8,7 +8,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 04/26/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 

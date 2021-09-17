@@ -4,7 +4,7 @@ description: Visual Studio Code to create an Azure API Management instance.
 ms.service: api-management
 ms.workload: integration
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.topic: quickstart
 ms.date: 09/14/2020
 ---

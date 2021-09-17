@@ -11,7 +11,7 @@ ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.author: apimpm
+ms.author: danlep
 
 ---
 

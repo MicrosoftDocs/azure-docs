@@ -2,7 +2,7 @@
 title: Azure API Management support for monetization 
 description: Learn how Azure API Management supports monetization strategies for your API products.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 08/23/2021
 ms.topic: article
 ms.service: api-management

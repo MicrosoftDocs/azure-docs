@@ -13,7 +13,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 08/24/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Configure a custom domain name for your Azure API Management instance

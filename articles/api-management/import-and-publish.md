@@ -7,7 +7,7 @@ ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Tutorial: Import and publish your first API

@@ -8,7 +8,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 07/07/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 # API Management policy expressions
 This article discusses policy expressions syntax in C# 7. Each expression has access to the implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.

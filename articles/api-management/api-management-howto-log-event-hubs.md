@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # How to log events to Azure Event Hubs in Azure API Management
