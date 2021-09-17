@@ -1,7 +1,7 @@
 ---
 title: Connect to an internal virtual network using Azure API Management
 description: Learn how to set up and configure Azure API Management in a virtual network using internal mode
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to

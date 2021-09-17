@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Set up and configure Azure API Management in an internal virtual network with Application Gateway (Web Application Firewall) as a front end
 services: api-management
 documentationcenter: ''
-author: solankisamir
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to

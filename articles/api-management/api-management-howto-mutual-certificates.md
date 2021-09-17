@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to manage client certificates and secure backend services using client certificate authentication in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: article

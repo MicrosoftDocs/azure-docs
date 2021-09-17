@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to secure access to APIs by using client certificates. You can use policy expressions to validate incoming certificates.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 

@@ -3,7 +3,7 @@ title: How to set or edit Azure API Management policies | Microsoft Docs
 description: Learn how to set or edit Azure API Management policies. These policies are XML documents that describe a sequence of inbound and outbound statements.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: cflower
 editor: ''
 

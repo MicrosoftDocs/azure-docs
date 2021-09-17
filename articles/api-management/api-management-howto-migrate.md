@@ -2,7 +2,7 @@
 title: How to migrate Azure API Management between regions
 description: Learn how to migrate an API Management instance from one region to another.
 services: api-management
-author: miaojiang
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to

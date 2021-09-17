@@ -3,7 +3,7 @@ title: Provision a self-hosted gateway in Azure API Management | Microsoft Docs
 description: Learn how to provision a self-hosted gateway in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
 editor: ''
 

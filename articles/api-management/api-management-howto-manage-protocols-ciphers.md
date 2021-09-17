@@ -3,7 +3,7 @@ title: Manage protocols and ciphers in Azure API Management | Microsoft Docs
 description: Learn how to manage protocols (TLS) and ciphers (DES) in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: cfowler
 editor: ''
 

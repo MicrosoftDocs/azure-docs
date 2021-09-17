@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to manage developer accounts using groups in Azure API Management. Create groups, and then associate them with products or developers.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 

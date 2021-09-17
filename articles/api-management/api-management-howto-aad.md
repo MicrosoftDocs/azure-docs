@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to authorize users by using Azure Active Directory in API Management.
 services: api-management
 documentationcenter: API Management
-author: miaojiang
+author: dlepow
 manager: cfowler
 editor: ''
 

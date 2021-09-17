@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to customize the Azure API Management developer portal using templates.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 

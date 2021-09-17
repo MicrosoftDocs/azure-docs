@@ -3,7 +3,7 @@ title: Use an external cache in Azure API Management | Microsoft Docs
 description: Learn how to configure and use an external cache in Azure API Management. Using an external cache lets you overcome some limitations of the built-in cache.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: erikre
 editor: ''
 

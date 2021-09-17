@@ -3,7 +3,7 @@ title: Create an Azure API Management instance using Visual Studio Code | Micros
 description: Visual Studio Code to create an Azure API Management instance.
 ms.service: api-management
 ms.workload: integration
-author: vladvino
+author: dlepow
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020

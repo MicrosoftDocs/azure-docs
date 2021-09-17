@@ -3,7 +3,7 @@ title: Azure API Management policy expressions | Microsoft Docs
 description: Learn about policy expressions in Azure API Management. See examples and view additional available resources.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: article

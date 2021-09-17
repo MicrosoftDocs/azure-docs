@@ -3,7 +3,7 @@ title: Edit an API with the Azure portal  | Microsoft Docs
 description: Learn how to use API Management (APIM) to edit an API. Add, delete, or rename operations in the APIM instance, or edit the API's swagger.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 

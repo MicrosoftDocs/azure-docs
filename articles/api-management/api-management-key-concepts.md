@@ -3,7 +3,7 @@ title: Azure API Management overview and key concepts | Microsoft Docs
 description: Learn about APIs, products, roles, groups, and other API Management key concepts.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
  

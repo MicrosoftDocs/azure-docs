@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to migrate from the legacy developer portal to the new developer portal in API Management.
 services: api-management
 documentationcenter: API Management
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: article

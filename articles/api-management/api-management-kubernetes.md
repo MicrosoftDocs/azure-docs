@@ -3,7 +3,7 @@ title: Use Azure API Management with Microservices Deployed in Azure Kubernetes 
 description: This article describes the options of deploying API Management with AKS
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: cfowler
 editor: ''
  

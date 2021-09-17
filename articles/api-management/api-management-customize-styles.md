@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Follow the steps of this quickstart to customize the styling of elements on the Azure API Management developer portal.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 

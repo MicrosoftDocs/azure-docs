@@ -3,7 +3,7 @@ title: Azure API Management transformation policies | Microsoft Docs
 description: Learn about the transformation policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: erikre
 editor: ''
 

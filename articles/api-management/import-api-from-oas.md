@@ -3,7 +3,7 @@ title: Import an OpenAPI specification using the Azure portal | Microsoft Docs
 description: Learn how to import an OpenAPI specification with API Management, and then test the API in the Azure and Developer portals.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 

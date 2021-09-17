@@ -2,7 +2,7 @@
 title: Tutorial - Create and publish a product in Azure API Management
 description: In this tutorial, you create and publish a product in Azure API Management. Once it's published, developers can begin to use the product's APIs.
 
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 02/09/2021

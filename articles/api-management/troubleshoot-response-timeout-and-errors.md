@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting client response timeouts and errors with API Management
 description: Troubleshoot intermittent connection errors and related latency issues in API Management
-author: vladvino
+author: dlepow
 ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: apimpm

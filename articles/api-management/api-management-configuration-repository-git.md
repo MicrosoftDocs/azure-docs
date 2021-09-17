@@ -3,7 +3,7 @@ title: Configure your API Management service using Git - Azure | Microsoft Docs
 description: Learn how to save and configure your API Management service configuration using Git.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: mattfarm
 
