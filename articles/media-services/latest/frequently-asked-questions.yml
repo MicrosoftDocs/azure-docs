@@ -37,7 +37,7 @@ sections:
         For information about using the Azure CLI to pair Media Services with Azure Key Vault to encrypt your data, see the [Use a Key Vault key to encrypt data into a Media Services account](security-encrypt-data-managed-identity-cli-tutorial.md) tutorial.  
     - question: How do I use a managed identity to give Media Services access to a restricted storage account? 
       answer: |
-        If you want to access a storage account when the storage account is configured to block requests from unknown IP addresses, follow the steps in [Access storage with a Media Services managed mdentity](security-access-storage-managed-identity-cli-tutorial.md).
+        If you want to access a storage account when the storage account is configured to block requests from unknown IP addresses, follow the steps in [Access storage with a Media Services managed identity](security-access-storage-managed-identity-cli-tutorial.md).
     - question: What is the process for moving a Media Services account between subscriptions?  
       answer: |
         For details, see [Moving a Media Services account between subscriptions](account-move-account-how-to.md).
@@ -71,18 +71,18 @@ sections:
       answer: |
         Yes. Media Services can perform a two-pass analysis on a video. It can then recommend the best adaptive bitrate set, resolutions, and encoding settings based on contents of the video. 
         For more information, see [How to use the content-aware encoding preset](./encode-content-aware-how-to.md).
-    - question: Can I use an externally encoded or existing MP4 files in Media Services?
+    - question: Can I use an externally encoded or existing MP4 file in Media Services?
       answer: | 
         Yes. For details and links to a sample application that shows how to upload a single-bitrate MP4 file that's pre-encoded and generate the server manifest (.ism) and client manifest (.ismc), see the answer to the question "Can I stream existing MP4 files that are pre-encoded or encoded in another solution?" in the section about streaming. That answer also describes the performance impact on the origin.
     - question: Can Media Services be used for very short-form file content encoding?
       answer: | 
-        We don't recommend it. Very short content that's less than a minute or two in duration is not ideal for adaptive bitrate streaming. If you intend to stream very short form files, we recommend that you pre-encode the content into a format that's 
+        We don't recommend it. Very short content that's less than a minute or two in duration is not ideal for adaptive bitrate streaming. If you intend to stream very short-form files, we recommend that you pre-encode the content into a format that's 
         easily streamed using a single bitrate. 
         
         Because most adaptive bitrate players need time to buffer multiple segments of video, as well as time to analyze the network bandwidth before "shifting" up or down the adaptive bitrate ladder, it's often useless to provide 
         a lot of bitrates for content that's under 30 seconds long. By the time the player locks its heuristic algorithm on the right bitrate to play based on network conditions, the file will be done streaming.  
         
-        In addition, some players default to buffering up to three segments of video. Each segment can be two to six seconds long. For very short format videos, the player is likely to buffer and begin playback of the first selected bitrate of the adaptive bitrate set. 
+        In addition, some players default to buffering up to three segments of video. Each segment can be two to six seconds long. For very short-format videos, the player is likely to buffer and begin playback of the first selected bitrate of the adaptive bitrate set. 
         For this reason, we recommend using a single-bitrate MP4 file, and uploading it to an asset if you need HLS or DASH manifest generation. For details on how to achieve this, see the answer to the question "Can I stream existing MP4 files that are pre-encoded or encoded in another solution?" in the section about streaming. 
         
         It's necessary to deliver the files in HLS or DASH format only if you want to benefit from the capabilities of those protocols. For single-bitrate streams, they can still offer a lot - such as faster seeking, DRM support, and increased difficulty to download via URL (but still possible!) than a
@@ -156,7 +156,7 @@ sections:
 
         Keep in mind that there are performance implications when you use this approach, because the built-in encoder in AMS also generates binary indexes (.mpi files) that improve the access time into the MP4 files. Without these files, the server can use slightly more CPU at high load. For more information, see [Streaming an existing single bitrate MP4 file with HLS or Dash](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamExistingMp4).
         When you're scaling up with this approach, you should monitor the streaming endpoint's CPU load. If you're planning to go to production with a large library of MP4 files that are pre-encoded outside AMS, file a support ticket to have your architecture reviewed and
-        inquire about ways to improve the origin server performance of pre-encoded MP4 content. 
+        ask about ways to improve the origin server performance of pre-encoded MP4 content. 
 
   - name: Content protection
     questions:
