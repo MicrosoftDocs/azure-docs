@@ -1517,6 +1517,8 @@
               href: monitor-server-side-latency.md
             - name: Monitor request unit usage
               href: monitor-request-unit-usage.md
+            - name: Monitor key updates
+              href: monitor-account-key-updates.md
             - name: Monitor normalized request unit usage
               href: monitor-normalized-request-units.md
         - name: Use Azure monitor logs
