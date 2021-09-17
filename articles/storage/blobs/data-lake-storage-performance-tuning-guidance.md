@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/18/2019
+ms.date: 09/17/2021
 ms.author: normesta
 ms.reviewer: stewu
 ---
@@ -48,31 +48,13 @@ Your account can scale to provide the necessary throughput for all analytics sce
 
 Typically, analytics engines such as HDInsight and Azure Data Lake Analytics have a per-file overhead that involve tasks such as listing, checking access, and performing various metadata operations. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance (256MB to 100GB in size). Some engines and applications might have trouble efficiently processing files that are greater than 100GB in size.
 
-Sometimes, data pipelines have limited control over the raw data which has lots of small files. In general, we recommend that your system have some sort of process to aggregate small files into larger ones for use by downstream applications. You can also use this opportunity to store data in a read-optimized format such as Parquet for downstream processing.
+Sometimes, data pipelines have limited control over the raw data which has lots of small files. In general, we recommend that your system have some sort of process to aggregate small files into larger ones for use by downstream applications. If you're processing data in real-time, you can use a real time streaming engine (such as Azure Stream Analytics or Spark Streaming) together with a message broker (such as Event Hub or Apache Kafka) to store your data as larger files.
 
-If you're processing data in real-time, you can use a real time streaming engine (such as Azure Stream Analytics or Spark Streaming) together with a message broker (such as Event Hub or Apache Kafka) to store your data as larger files.
+As your storing larger files, you might use this opportunity to store data in a read-optimized format such as Apache Parquet for downstream processing. Apache Parquet is an open source file format that is optimized for read heavy analytics pipelines. The columnar storage structure of Parquet lets you skip over non-relevant data. You're queries are much more efficient because only narrowly scope which data to send from storage to the analytics engine. Also, because similar data types (for a column) are stored together, Parquet lends itself well to efficient data compression and encoding schemes which lead to lower data storage costs. Services such as Azure Synapse Analytics, Azure Databricks and Azure Data Factory have native functionality that take advantage of Parquet file formats.
 
-## Choose an efficient file Format
+For more information about data formats, see [data format section of best practice article](data-lake-storage-best-practices.md).
 
-An thoughtful file format can lower your data storage costs and improve performance. Consider using the Apache Parquet format. It's an open source file format that is optimized for read heavy analytics pipelines. The columnar storage structure of Parquet lets you skip over non-relevant data. You're queries are much more efficient because only narrowly scope which data to send from storage to the analytics engine. Also, because similar data types (for a column) are stored together, Parquet lends itself well to efficient data compression and encoding schemes which lead to lower data storage costs.
-
-Services such as Azure Synapse Analytics, Azure Databricks and Azure Data Factory have native functionality that take advantage of Parquet file formats.
-
-## Partition data for maximum efficiency
-
-Partition your data to improve the performance of your analytics pipeline and reduce the overall transaction costs incurred by your queries. Partitioning is a way of organizing your data by grouping datasets with similar attributes together in a storage entity, such as a directory. When your data processing pipeline queries for data with that similar attribute (for example: all the data in the past 12 hours), the partitioning scheme (in this case, done by datetime) lets you skip over  irrelevant data to seek only the data that you want.
-
-For example, assume an Internet of Things (IoT) scenario where data is ingested in real time from various sensors into the data lake. 
-
-If a high priority scenario is to understand the health of the sensors based on the values they send to ensure the sensors are working fine, then you would have analytics pipelines running every hour or so to triangulate data from a specific sensor with data from other sensors to ensure they are working fine. In this case, You might use organize your data in the following directory structure:
-
-`/<sensorid>/<datetime>/<temperature>, <sensorid>/<datetime>/<pressure>, <sensorid>/<datetime>/<humidity>`
-
-If instead your high priority scenario is to understand the weather patterns in the area based on the sensor data to ensure what remedial action you need to take, you would have analytics pipelines running periodically to assess the weather based on the sensor data from the area. In this case, you would want to optimize for the organization by date and attribute over the sensorID.
-
-`/<datetime>/<sensorid>/<temperature>, /<datetime>/<sensorid>/<pressure>, /datetime>/<sensorid>/<humidity>`
-
-Open source computing frameworks such as Apache Spark provide native support for partitioning schemes that you can leverage in your big data application.
+## Organizing time series data in folders
 
 For Hive workloads, partition pruning of time-series data can help some queries read only a subset of the data which improves performance.    
 
@@ -87,6 +69,8 @@ For date and time, the following is a common pattern
 *\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv*
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
+
+For other directory layout structure suggestions, see [Directory layout considerations](data-lake-storage-best-practices.md#directory-layout-considerations)
 
 ### Access data efficiently with Query Acceleration
 
