@@ -10,7 +10,7 @@ ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -198,7 +198,7 @@ Currently, Azure AD joined devices do not support RADIUS authentication for conn
 
 You can provision Azure AD join using the following approaches:
 
-- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](../user-help/user-help-join-device-on-network.md). 
+- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). 
 - **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother experience in OOBE to perform an Azure AD join. For more information, see the [Overview of Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices. For more information, see [Bulk enrollment for Windows devices](/intune/windows-bulk-enroll).
  
@@ -307,7 +307,7 @@ You can use this implementation to [require managed devices for cloud app access
 
 > [!div class="nextstepaction"]
 > [Join a new Windows 10 device with Azure AD during a first run](azuread-joined-devices-frx.md)
-> [Join your work device to your organization's network](../user-help/user-help-join-device-on-network.md)
+> [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

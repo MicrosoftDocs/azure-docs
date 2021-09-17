@@ -257,9 +257,9 @@ if __name__ == '__main__':
 
 ```
 
-Before running it can be helpful to check your project against the [full sample code](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) that this quickstart is derived from.
+Before running it can be helpful to check your project against the [full sample code](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) that this quickstart is derived from.
 
-We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) to help you get started.
+We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) to help you get started.
 
 Run the application with the `python` command and your file name.
 
