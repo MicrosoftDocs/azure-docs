@@ -70,7 +70,7 @@ In this section, you'll use the Node.js SDK to send messages from a simulated de
     * Set an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. For the variable value, use the device connection string that you saved in the previous section.
     * Set an environment variable called `IOTHUB_DEVICE_SECURITY_TYPE`. For the variable, use the literal string value `connectionString`.
 
-    **Windows (cmd)**
+    **CMD (Windows)**
 
     ```console
     set IOTHUB_DEVICE_CONNECTION_STRING=<your connection string here>
@@ -87,7 +87,7 @@ In this section, you'll use the Node.js SDK to send messages from a simulated de
     $env:IOTHUB_DEVICE_SECURITY_TYPE='connectionString'
     ```
 
-    **Bash (Linux or Windows)**
+    **Bash**
 
     ```bash
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
