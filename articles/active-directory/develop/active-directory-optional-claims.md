@@ -15,7 +15,7 @@ ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ---
 
-# How to: Provide optional claims to your app
+# Provide optional claims to your app
 
 Application developers can use optional claims in their Azure AD applications to specify which claims they want in tokens sent to their application.
 
