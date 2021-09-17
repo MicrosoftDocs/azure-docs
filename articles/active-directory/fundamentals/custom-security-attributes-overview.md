@@ -105,7 +105,7 @@ To better understand custom security attributes, you can refer back to the follo
 | Term | Definition |
 | --- | --- |
 | attribute definition | The schema of a custom security attribute. For example, the custom security attribute name, description, data type, and values. |
-| attribute set | A collection of custom security attributes that can be delegated to other users for defining and assigning custom security attributes. |
+| attribute set | A group of related custom security attributes. Attribute sets can be delegated to other users for defining and assigning custom security attributes. |
 | attribute name | A unique name of a custom security attribute within an attribute set. The combination of attribute set and attribute name forms a unique attribute for your tenant. |
 | attribute assignment | The assignment of a custom security attribute to an Azure AD object, such as users, enterprise applications (service principals), and managed identities. |
 
