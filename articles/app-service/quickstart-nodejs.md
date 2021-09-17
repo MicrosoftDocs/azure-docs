@@ -77,6 +77,10 @@ In this step, you create a starter Node.js application and make sure it runs on 
 
 Before you continue, ensure that you have all the prerequisites installed and configured.
 
+> [!NOTE]
+> For your Node.js application to run in Azure, it needs to listen on the port provided by the `PORT` environment variable. In your generated Express app, this environment variable is already used in the startup script *bin/www* (search for `process.env.PORT`).
+>
+
 :::zone target="docs" pivot="development-environment-vscode"
 
 #### Sign in to Azure
@@ -133,7 +137,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
     While Visual Studio Code provisions the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
 
     > [!NOTE]
-    > When deployment completes, your Azure app doesn't run yet because you still need extra steps to make Azure recognize Node.js as the web framework. Follow the remaining steps.
+    > When deployment completes, your Azure app doesn't run yet because your project root doesn't have a *web.config*. Follow the remaining steps to generate it automatically. For more information, see [You do not have permission to view this directory or page](quickstart.md#you-do-not-have-permission-to-view-this-directory-or-page).
 
 1. In the **App Service** explorer in Visual Studio code, expand the node for the new app, right-click **Application Settings**, and select **Add New Setting**:
 
@@ -141,13 +145,13 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 1. Enter `SCM_DO_BUILD_DURING_DEPLOYMENT` for the setting key.
 1. Enter `true` for the setting value.
+
+    This app setting enables build automation at deploy time, which automatically detects the start script and generates the *web.config* with it.
+
 1. In the **App Service** explorer, select the **Deploy to Web App** icon again, confirm by clicking **Deploy** again.
 1. Wait for deployment to complete, then select **Browse Website** in the notification popup. The browser should display the Express default page.
 
 -----
-
-> [!TIP]
-> Your Node.js application needs to listen on the port provided by the `PORT` environment variable. In your basic Express app, this port is used in the startup script *bin/www* (search for `process.env.PORT`).
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
@@ -259,9 +263,7 @@ You can stream log output (calls to `console.log()`) from the Azure app directly
 
     ![Start Streaming Logs](media/quickstart-nodejs/view-logs.png)
 
-1. When prompted, choose to enable logging and restart the app. Once the app is restarted, the Visual Studio Code output window opens with a connection to the log stream. 
-
-    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot of the Visual Studio Code prompt to enable logging and restart the application with the Yes button selected.":::
+1. If asked to restart the app, click **Yes**. Once the app is restarted, the Visual Studio Code output window opens with a connection to the log stream. 
 
 1. After a few seconds, the output window shows a message indicating that you're connected to the log-streaming service. You can generate more output activity by refreshing the page in the browser.
 
@@ -310,6 +312,9 @@ In the preceding steps, you created Azure resources in a resource group. The cre
     :::image type="content" source="media/quickstart-nodejs/clean-up.png" alt-text="Screenshot of the Visual Studio Code navigation to delete a resource that contains App Service resources.":::
 
 1. When prompted, confirm your deletion by entering the name of the resource group you're deleting. Once you confirm, the resource group is deleted, and you see a [notification](https://code.visualstudio.com/api/references/extension-guidelines#notifications) when it's done.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=clean-up)
 
 ::: zone-end
 
