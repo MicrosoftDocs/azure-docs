@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 09/16/2021
 ms.author: b-juche
 ---
 
-# Restore a file from a snapshot using a client
+# Restore a file from a snapshot using a client with Azure NetApp Files
 
 [Snapshots](snapshots-introduction.md) enable point-in-time recovery of volumes. If you do not want to [restore the entire snapshot to a volume](snapshot-restore-to-new-volume.md), you have the option to restore a file from a snapshot by using a client that has the volume mounted.  
 
