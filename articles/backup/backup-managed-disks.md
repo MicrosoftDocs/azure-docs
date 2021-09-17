@@ -136,7 +136,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
        If any existing policy stops the creation of a Storage Account on the subscription or resource group with GRS redundancy, the Storage Account is created as LRS. The Storage Account that’s created is **General Purpose v2**, with block blobs stored on the hot tier in the Blob container.
      - The number of recovery points is determined by the Backup policy used to configure backup of the disk backup instance. According to the Garbage collection process, the older block blobs are deleted, as the corresponding older recovery points are pruned.
 
-   - Don’t apply resource lock or policies on the snapshot resource group or Storage Account created by Azure Backup service. The service creates and manages resources in this Snapshot resource group that’s assigned to a backup instance when you configure a disk backup. The service creates the Storage Account and its resources, and this shouldn’t be deleted or moved.
+   - Don’t apply resource lock or policies or firewall on the snapshot resource group or Storage Account created by Azure Backup service. The service creates and manages resources in this Snapshot resource group that’s assigned to a backup instance when you configure a disk backup. The service creates the Storage Account and its resources, and this shouldn’t be deleted or moved.
 
      >[!Note]
      >If a Storage Account is deleted, backups will fail, and restore will fail for all existing recovery points.
