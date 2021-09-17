@@ -13,7 +13,7 @@ zone_pivot_groups: runtime-version-programming-functions
 
 # Quickstart: Create a C# function in Azure using Visual Studio Code
 
-[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
+[!INCLUDE [functions-runtime-version-dotnet](../../includes/functions-runtime-version-dotnet.md)]
 
 In this article, you use Visual Studio Code to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
