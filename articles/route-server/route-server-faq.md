@@ -43,6 +43,10 @@ No. Azure Route Server only exchanges BGP routes with your NVA and then propagat
 
 Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, as such a public IP address is required. 
 
+### Does Azure Route Server support IPv6?
+
+No. We'll add IPv6 support in the future. 
+
 ### If Azure Route Server receives the same route from more than one NVA, how does it handle them?
 
 If the route has the same AS path length, Azure Route Server will program multiple copies of the route, each with a different next hop, to the VMs in the virtual network. When the VMs send traffic to the destination of this route, the VM hosts will do Equal-Cost Multi-Path (ECMP) routing. However, if one NVA sends the route with a shorter AS path length than other NVAs, Azure Route Server will only program the route that has the next hop set to this NVA to the VMs in the virtual network.

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 09/16/2021
 ms.author: b-juche
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -198,16 +198,24 @@ The **Allow local NFS users with LDAP** option in Active Directory connections e
 
 ## Manage LDAP POSIX Attributes
 
-You can manage POSIX attributes such as UID, Home Directory, and other values by using the Active Directory Users and Computers MMC snap-in.  The following example shows the Active Directory Attribute Editor:  
+You can manage POSIX attributes such as UID, Home Directory, and other values by using the Active Directory Users and Computers MMC snap-in.  The following example shows the Active Directory Attribute Editor: 
 
 ![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
 You need to set the following attributes for LDAP users and LDAP groups: 
 * Required attributes for LDAP users:   
-    `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: posixAccount`
+    `uid: Alice`,  
+    `uidNumber: 139`,  
+    `gidNumber: 555`,  
+    `objectClass: user, posixAccount`
 * Required attributes for LDAP groups:   
-    `objectClass: posixGroup`, `gidNumber: 555`
+    `objectClass: group, posixGroup`,  
+    `gidNumber: 555`
 * All users and groups must have unique `uidNumber` and `gidNumber`, respectively. 
+
+The values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
+
+![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
 Azure Active Directory Domain Services (AADDS) doesn’t allow you to modify POSIX attributes on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
 

@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Sign into [SAP Identity Provisioning admin console](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/) with your administrator account and then select **Proxy Systems**.
 
-   ![SAP Proxy Systems](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png.png)
+   ![SAP Proxy Systems](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png)
 
 2. Select **Properties**.
 
