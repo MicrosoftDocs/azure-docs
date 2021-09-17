@@ -57,9 +57,7 @@ It is required to get the Service Principal's application ID and secret:
 
 1. Navigate to the Azure portal. Then navigate to your Azure data explorer instance.
 
-1. Add the service principal to the **AllDatabasesViewer** role in the **Permissions** tab, as shown in the following screenshot.
-
-    :::image type="content" source="./media/register-scan-azure-data-explorer/permissions-auth.png" alt-text="Screenshot to add service principal in permissions" border="true":::
+1. Add the service principal to the **AllDatabasesViewer** role in the **Permissions** tab.
 
 ## Register an Azure Data Explorer account
 

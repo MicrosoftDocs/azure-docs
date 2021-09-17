@@ -32,7 +32,6 @@ The Azure SQL Database data source supports the following functionality:
 
 1. Networking access between the Purview account and Azure SQL Database.
 
-
 ### Set up authentication for a scan
 
 Authentication to scan Azure SQL Database. If you need to create new authentication, you need to [authorize database access to SQL Database](../azure-sql/database/logins-create-manage.md). There are three authentication methods that Purview supports today:
@@ -97,7 +96,7 @@ The service principal or managed identity must have permission to get metadata f
 
     > [!Note]
     > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
-    
+
 ##### Add service principal to key vault and Purview's credential
 
 > [!Note]

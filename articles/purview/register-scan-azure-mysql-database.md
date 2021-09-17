@@ -14,7 +14,6 @@ ms.date: 06/30/2021
 
 This article describes how to register and scan an Azure MySQL database.
 
-
 ## Supported Capabilities
 - **Full and incremental scans** to capture metadata and classification from Azure MySQL databases.
 
