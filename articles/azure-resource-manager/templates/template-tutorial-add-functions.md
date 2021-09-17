@@ -24,11 +24,11 @@ At the end of the previous tutorial, your template had the following JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
-The location of the storage account is hard-coded to **East US**. However, you may need to deploy the storage account to other regions. You're again facing an issue of your template lacking flexibility. You could add a parameter for location, but it would be great if its default value made more sense than just a hard-coded value.
+The location of the storage account is hard-coded to **eastus**. However, you may need to deploy the storage account to other regions. You're again facing an issue of your template lacking flexibility. You could add a parameter for location, but it would be great if its default value made more sense than just a hard-coded value.
 
 ## Use function
 
-If you've completed the previous tutorial in this series, you've already used a function. When you added `"[parameters('storageName')]"` you used the [parameters](template-functions-deployment.md#parameters) function. The brackets indicate that the syntax inside the brackets is a [template expression](template-expressions.md). Resource Manager resolves the syntax rather than treating it as a literal value.
+If you've completed the [parameters tutorial](./template-tutorial-add-parameters.md#make-template-reusable), you used a function. When you added `"[parameters('storageName')]"` you used the [parameters](template-functions-deployment.md#parameters) function. The brackets indicate that the syntax inside the brackets is a [template expression](template-expressions.md). Resource Manager resolves the syntax rather than treating it as a literal value.
 
 Functions add flexibility to your template by dynamically getting values during deployment. In this tutorial, you use a function to get the location of the resource group you're using for deployment.
 
