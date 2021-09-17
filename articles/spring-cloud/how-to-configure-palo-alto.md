@@ -1,11 +1,11 @@
 ---
 title: How to configure Palo Alto for Azure Spring Cloud
 description: How to configure Palo Alto for Azure Spring Cloud
-author: yevster
-ms.author: yebronsh
+author: karlerickson
+ms.author: vaangadi
 ms.topic: conceptual
 ms.service: spring-cloud
-ms.date: 06/30/2021
+ms.date: 09/17/2021
 ms.custom: devx-track-java
 ---
 
@@ -24,7 +24,6 @@ We recommend keeping configuration information, such as rules, address wildcards
 > [!Note]
 > This document should not be used as a reference for Palo Alto REST APIs. All examples are used for demonstration purposes only. Consult [Palo Alto's REST API documentation](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-panorama-api/get-started-with-the-pan-os-rest-api/access-the-rest-api.html) for authoritative API details.
 
-
 ## Pre-requisites
 
 ### Palo Alto starting configuration
@@ -38,9 +37,9 @@ In the steps below, we'll assume you have two pre-configured network zones: `Tru
 
 We'll need to create three CSV files.
 
-The first, `AzureSpringCloudServices.csv` should contain ingress ports for Azure Spring Cloud. The values below are offered as an example only. See [Azure Spring Cloud network requirements](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-cloud-network-requirements) for all required values.
+The first, *AzureSpringCloudServices.csv* should contain ingress ports for Azure Spring Cloud. The values below are offered as an example only. See [Azure Spring Cloud network requirements](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-cloud-network-requirements) for all required values.
 
-```
+```CSV
 name,protocol,port,tag
 ASC_1194,udp,1194,AzureSpringCloud
 ASC_443,tcp,443,AzureSpringCloud
@@ -49,9 +48,9 @@ ASC_445,tcp,445,AzureSpringCloud
 ASC_123,udp,123,AzureSpringCloud
 ```
 
-The second CSV file is `AzureSpringCloudUrlCategories.csv`, containing the addresses (with wildcards) that should be available for egress from Azure Spring Cloud. As before, the content below is for demonstration purposes only. Consult [Azure Spring Cloud FQDN requirements/application rules](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirementsapplication-rules) for up-to-date values.
+The second CSV file is *AzureSpringCloudUrlCategories.csv*, containing the addresses (with wildcards) that should be available for egress from Azure Spring Cloud. As before, the content below is for demonstration purposes only. Consult [Azure Spring Cloud FQDN requirements/application rules](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirementsapplication-rules) for up-to-date values.
 
-```
+```CSV
 name,description
 *.azmk8s.io,
 mcr.microsoft.com,
@@ -67,9 +66,9 @@ crl.microsoft.com,
 crl3.digicert.com
 ```
 
-The third CSV file is `AzureMonitorAddresses.csv`. This file should contain all addresses and IP ranges to be made available for metrics and monitoring via Azure Monitor, if Azure monitor is to be used. The content below is for demonstration purposes only. Consult [IP addresses used by Azure Monitor](/azure/azure-monitor/app/ip-addresses) for up-to-date values.
+The third CSV file is *AzureMonitorAddresses.csv*. This file should contain all addresses and IP ranges to be made available for metrics and monitoring via Azure Monitor, if Azure monitor is to be used. The content below is for demonstration purposes only. Consult [IP addresses used by Azure Monitor](/azure/azure-monitor/app/ip-addresses) for up-to-date values.
 
-```
+```CSV
 name,type,address,tag
 40.114.241.141,ip-netmask,40.114.241.141/32,AzureMonitor
 104.45.136.42,ip-netmask,104.45.136.42/32,AzureMonitor
@@ -82,8 +81,6 @@ rt.services.visualstudio.com,fqdn,rt.services.visualstudio.com,AzureMonitor
 
 ```
 
-
-
 ### Authenticate into Palo Alto
 
 To follow the REST API calls below, you should [authenticate into Palo Alto and obtain an API key](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-panorama-api/get-started-with-the-pan-os-xml-api/get-your-api-key.html).
@@ -95,12 +92,11 @@ $authResponse = irm "https://${PaloAltoIpAddress}/api/?type=keygen&user=yevster&
 $paloAltoHeaders = @{'X-PAN-KEY' = $authResponse.response.result.key; 'Content-Type' = 'application/json' }
 ```
 
-
 ## Delete existing service group
 
 If prior configuration attempts have been made, these should be reset. Delete any security rule and service group.
 
-**Delete the security rule using the [Security Rule REST API](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-panorama-api/get-started-with-the-pan-os-rest-api/create-security-policy-rule-rest-api.html)**
+Delete the security rule using the [Security Rule REST API](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-panorama-api/get-started-with-the-pan-os-rest-api/create-security-policy-rule-rest-api.html).
 
 ```powershell
 $url = "https://${PaloAltoIpAddress}/restapi/v9.1/Policies/SecurityRules?location=vsys&vsys=vsys1&name=${paloAltoSecurityPolicyName}"
@@ -108,6 +104,7 @@ Invoke-RestMethod -Method Delete -Uri $url -Headers $paloAltoHeaders -SkipCertif
 ```
 
 **Delete the service group**
+
 ```powershell
 $url = "https://${PaloAltoIpAddress}/restapi/v9.1/Objects/ServiceGroups?location=vsys&vsys=vsys1&name=${paloAltoServiceGroupName}"
 Invoke-RestMethod -Method Delete -Uri $url -Headers $paloAltoHeaders -SkipCertificateCheck
@@ -368,9 +365,21 @@ Add Network Security Rules to enable traffic from Palo Alto to access Azure Spri
 
 We run the following command to create the necessary network security rule for each of these NSGs, where $PaloAltoAddressPrefix is the CIDR of Palo Alto's private IPs.
 
-```bash
- az network nsg rule create --name 'allow-palo-alto' --nsg-name 'nsg-spokeapp' --access Allow --source-address-prefixes $PaloAltoAddressPrefix -g $ResourceGroupName --priority 1000
- az network nsg rule create --name 'allow-palo-alto' --nsg-name 'nsg-spokeruntime' --access Allow --source-address-prefixes $PaloAltoAddressPrefix -g $ResourceGroupName --priority 1000
+```azurecli
+az network nsg rule create `
+    --name 'allow-palo-alto' `
+    --nsg-name 'nsg-spokeapp' `
+    --access Allow `
+    --source-address-prefixes $PaloAltoAddressPrefix `
+    -g $ResourceGroupName `
+    --priority 1000
+az network nsg rule create `
+    --name 'allow-palo-alto' `
+    --nsg-name 'nsg-spokeruntime' `
+    --access Allow `
+    --source-address-prefixes $PaloAltoAddressPrefix `
+    -g $ResourceGroupName `
+    --priority 1000
 ```
 
 ## Configure the next hop
@@ -386,7 +395,8 @@ az network route-table route create `
     --name default `
     --address-prefix 0.0.0.0/0 `
     --next-hop-type VirtualAppliance `
-    --next-hop-ip-address ${PaloAltoIpAddress} --verbose
+    --next-hop-ip-address ${PaloAltoIpAddress} `
+    --verbose
 
 az network route-table route create `
     --resource-group ${AppResourceGroupName} `
@@ -394,11 +404,15 @@ az network route-table route create `
     --name default `
     --address-prefix 0.0.0.0/0 `
     --next-hop-type VirtualAppliance `
-    --next-hop-ip-address ${PaloAltoIpAddress} --verbose
+    --next-hop-ip-address ${PaloAltoIpAddress} `
+    --verbose
 ```
 
 The variables should be populated as follows:
-`$AppResourceGroupName` - The name of the resource group containing Azure Spring Cloud
-`$AzureSpringCloudServiceSubnetRouteTableName` - The name of the Azure Spring Cloud service/runtime subnet route table. In the reference architecture, this is set to 'rt-spokeruntime'.
-`$AzureSpringCloudAppSubnetRouteTableName` - The name of the Azure Spring Cloud app subnet route table. In the reference architecture, this is set to `rt-spokeapp`.
+
+* `$AppResourceGroupName`: The name of the resource group containing Azure Spring Cloud
+* `$AzureSpringCloudServiceSubnetRouteTableName`: The name of the Azure Spring Cloud service/runtime subnet route table. In the reference architecture, this is set to 'rt-spokeruntime'.
+* `$AzureSpringCloudAppSubnetRouteTableName`: The name of the Azure Spring Cloud app subnet route table. In the reference architecture, this is set to `rt-spokeapp`.
+
+# Next steps
 
