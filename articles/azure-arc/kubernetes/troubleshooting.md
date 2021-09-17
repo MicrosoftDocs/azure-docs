@@ -73,6 +73,18 @@ All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the 
 
 Connecting clusters to Azure requires both access to an Azure subscription and `cluster-admin` access to a target cluster. If you cannot reach the cluster or you have insufficient permissions, connecting the cluster to Azure Arc will fail.
 
+### Azure CLI is unable to download Helm chart for Azure Arc agents
+
+If you are using Helm version >= 3.7.0, you will run into the following error when `az connectedk8s connect` is run to connect the cluster to Azure Arc:
+
+```console
+$ az connectedk8s connect -n AzureArcTest -g AzureArcTest
+Unable to pull helm chart from the registry 'mcr.microsoft.com/azurearck8s/batch1/stable/azure-arc-k8sagents:1.4.0': Error: unknown command "chart" for "helm"
+Run 'helm --help' for usage.
+```
+
+In this case, you'll need to install [Helm 3](https://helm.sh/docs/intro/install/) with version &lt; 3.7.0. After this, run the `az connectedk8s connect` command again to connect the cluster to Azure Arc.
+
 ### Insufficient cluster permissions
 
 If the provided kubeconfig file does not have sufficient permissions to install the Azure Arc agents, the Azure CLI command will return an error.
@@ -115,7 +127,7 @@ This operation might take a while...
 Helm `v3.3.0-rc.1` version has an [issue](https://github.com/helm/helm/pull/8527) where helm install/upgrade (used by `connectedk8s` CLI extension) results in running of all hooks leading to the following error:
 
 ```console
-$ az connectedk8s connect -n shasbakstest -g shasbakstest
+$ az connectedk8s connect -n AzureArcTest -g AzureArcTest
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
@@ -194,6 +206,7 @@ metadata:
   resourceVersion: ""
   selfLink: ""
 ```
+
 ## Monitoring
 
 Azure Monitor for containers requires its DaemonSet to be run in privileged mode. To successfully set up a Canonical Charmed Kubernetes cluster for monitoring, run the following command:
