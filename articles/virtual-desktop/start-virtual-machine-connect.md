@@ -85,7 +85,7 @@ If you're using a JSON file to create the custom role, the following example sho
   "Description": "Start VM on connect with AVD (Custom)",
   "Actions": [
     "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/read by Microsoft.Compute/virtualMachines/*/read"
+    "Microsoft.Compute/virtualMachines/*/read"
   ],
   "NotActions": [],
   "DataActions": [],
