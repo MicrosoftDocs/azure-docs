@@ -48,7 +48,7 @@ function getVideos()
 }
 ```
    > [!NOTE]
-   >The `clientApiEndPoint` and token are collected from [Create a token](#create-a-token).
+   >The `clientApiEndPoint` and token are collected from [creating a token](./access-policies.md#creating-a-token)
 
 ## Add the Video Analyzer player component
 
