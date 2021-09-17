@@ -12,16 +12,44 @@ Azure Arc resource bridge supports VM self-servicing and management from Azure, 
 * Enables VM self-servicing from Azure without having to create and manage a Kubernetes cluster
 * It is fully supported by Microsoft, including update of core components. 
 * Designed to recover from software failures.
-* Supports deployment to any private cloud hosted on Hyper-V or VMware from the Azure portal or using the Azure CLI.
+* Supports deployment to any private cloud hosted on Hyper-V or VMware from the Azure portal or using the Azure Command-Line Interface (CLI).
 
 All management operations are performed from Azure, no local configuration is required on the appliance.
 
 ## Prerequisites
 
+[Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments. If you are deploying on VMware, a x64 Python environment is required. When deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
+
 ### Private cloud environments
+
+The following private cloud environments and their versions are officially supported for the Azure Arc resource bridge:
+
+* VMware vSphere
+* Azure Stack HCI
 
 ### Security
 
 ### Networking
+
+The Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol.
+
+If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. 
+
+URLS:
+
+| Agent resource | Description |
+|---------|---------|
+|`https://mcr.microsoft.com`|Microsoft container registry|
+|`https://*.his.arc.azure.com`|Azure Arc Identity service|
+|`https://*.dp.kubernetesconfiguration.azure.com`|Azure Arc configuration service|
+|`https://*.servicebus.windows.net`|Cluster connect|
+|`https://guestnotificationservice.azure.com` |Guest notification service|
+|`https://*.dp.prod.appliances.azure.com`|Resource bridge (appliance) Dataplane service|
+|`https://ecpacr.azurecr.io` |Resource bridge (appliance) container image download |
+|`.blob.core.windows.net`<br> `*.dl.delivery.mp.microsoft.com`<br> `*.do.dsp.mp.microsoft.com` |Resource bridge (appliance) image download |
+
+## Download appliance
+
+You can download the Azure Arc resource bridge package from the locations listed below.
 
 ## Next steps
