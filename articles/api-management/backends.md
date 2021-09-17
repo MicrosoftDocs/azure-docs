@@ -17,9 +17,16 @@ ms.custom: devx-track-azurepowershell
 
 A *backend* (or *API backend*) in API Management is an HTTP service that implements your front-end API and its operations.
 
-When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend when importing an [OpenAPI specification](import-api-from-oas.md), [SOAP API](import-soap-api.md), or Azure resources such as an HTTP-triggered [Azure Function App](import-function-app-as-api.md) or [Logic App](import-logic-app-as-api.md).
+When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend when importing:
+* An [OpenAPI specification](import-api-from-oas.md).
+* A [SOAP API](import-soap-api.md).
+* Azure resources, such as an HTTP-triggered [Azure Function App](import-function-app-as-api.md) or [Logic App](import-logic-app-as-api.md).
 
-API Management also supports using other Azure resources such as a [Service Fabric cluster](how-to-configure-service-fabric-backend.md) or a custom service as an API backend. Using these custom backends requires extra configuration, for example, to authorize credentials of requests to the backend service and to define API operations. You configure and manage these backends in the Azure portal or using Azure APIs or tools.
+API Management also supports using other Azure resources as an API backend, such as:
+* A [Service Fabric cluster](how-to-configure-service-fabric-backend.md).
+* A custom service. 
+
+Custom backends require extra configuration to authorize the credentials of requests to the backend service and define API operations. Configure and manage custom backends in the Azure portal, or using Azure APIs or tools.
 
 After creating a backend, you can reference the backend URL in your APIs. Use the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy to redirect an incoming API request to the custom backend instead of the default backend for that API.
 
