@@ -24,7 +24,7 @@ Here is how to enable alerts for your Azure Digital Twins instance:
 
 2. Select **Alerts** from the menu, then **+ New alert rule**.
 
-:::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot of the Azure portal showing the button to create a new alert rule in the Alerts section of an Azure Digital Twin instance." lightbox="media/troubleshoot-alerts/alerts-pre.png":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot of the Azure portal showing the button to create a new alert rule in the Alerts section of an Azure Digital Twin instance." lightbox="media/troubleshoot-alerts/alerts-pre.png":::
 
 3. On the *Create alert rule* page that follows, you can follow the prompts to define conditions, actions to be triggered, and alert details.     
     * **Scope** details should fill automatically with the details for your instance
@@ -36,7 +36,7 @@ Here is how to enable alerts for your Azure Digital Twins instance:
 
 4. Select the _Create alert rule_ button to create your alert rule.
 
-:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot of the Azure portal showing the Create Alert Rule page with sections for scope, condition, action group, and alert rule details." lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+    :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot of the Azure portal showing the Create Alert Rule page with sections for scope, condition, action group, and alert rule details." lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
 For a guided walkthrough of filling out these fields, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Below are some examples of what the steps will look like for Azure Digital Twins.
 
