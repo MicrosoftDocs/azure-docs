@@ -48,13 +48,13 @@ Azure now offers generation 2 support for the following selected VM series:
 * [NCv2-series](ncv2-series.md) 
 * [NCv3-series](ncv3-series.md)
 * [ND-series](nd-series.md)
-* [ND A100 v4-series](nda100v4-series.md)
+* [ND A100 v4-series](nda100-v4-series.md)
 * [NDv2-series](ndv2-series.md)
 * [NVv3-series](nvv3-series.md)
 * [NVv4-series](nvv4-series.md)
 * [NCasT4_v3-series](nct4-v3-series.md)
 
-<sup>1</sup> Mv2-series, DC-series, NDv2-series, Msv2 and Mdsv2-series Medium Memory do not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](mv2-series.md), [DSv2-series](dv2-dsv2-series.md), [ND A100 v4-series](nda100v4-series.md), [NDv2-series](ndv2-series.md), and [Msv2 and Mdsv2 Medium Memory Series](msv2-mdsv2-series.md) for details.
+<sup>1</sup> Mv2-series, DC-series, NDv2-series, Msv2 and Mdsv2-series Medium Memory do not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](mv2-series.md), [DSv2-series](dv2-dsv2-series.md), [ND A100 v4-series](nda100-v4-series.md), [NDv2-series](ndv2-series.md), and [Msv2 and Mdsv2 Medium Memory Series](msv2-mdsv2-series.md) for details.
 
 
 ## Generation 2 VM images in Azure Marketplace
