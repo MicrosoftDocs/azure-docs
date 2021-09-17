@@ -215,7 +215,7 @@ Now, with the application still running, set up the Power BI visualization to se
 
 ## Set up the Power BI visualizations
 
-1. Sign in to your [Power BI](https://powerbi.microsoft.com/) account.
+1. Sign in to your [Power BI](https:// powerbi.microsoft.com /) account.
 
 2. Go to **Workspaces** and select the workspace that you set when you created the output for the Stream Analytics job. This tutorial uses **My Workspace**. 
 
