@@ -45,3 +45,7 @@ To download the container updates, go to [Azure Percept Studio](https://ms.porta
     - Fixed IoT Hub message format to be UTF-8 encoded JSON (previously it was 64-bit encoded format).
     - Fixed bug with Custom Vision classifier (previously, the Custom Vision classifier models were not working properly - they were interpreting the wrong dimension of the output tensor as the class confidences, which led to always predicting a single class, regardless of confidence).
     - Updated H.264 to use TCP instead of UDP, for Azure video analyzer integration.
+
+## Next steps
+
+- [How to determine your update strategy](./how-to-determine-your-update-strategy.md)
