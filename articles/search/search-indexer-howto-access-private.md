@@ -39,6 +39,7 @@ The following table lists Azure resources for which you can create outbound priv
 | Azure resource | Group ID |
 | --- | --- |
 | Azure Storage - Blob | `blob`|
+| Azure Storage - Data Lake Storage Gen2 | `dfs` and `blob` |
 | Azure Storage - Tables | `table`|
 | Azure Cosmos DB - SQL API | `Sql`|
 | Azure SQL Database | `sqlServer`|
@@ -49,6 +50,9 @@ The following table lists Azure resources for which you can create outbound priv
 You can also query the Azure resources for which outbound private endpoint connections are supported by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
 In the remainder of this article, a mix of Azure portal (or the [Azure CLI](/cli/azure/) if you prefer) and [Postman](https://www.postman.com/) (or any other HTTP client like [curl](https://curl.se/) if you prefer) is used to demonstrate the REST API calls.
+
+> [!NOTE]
+> To create a private endpoint connection to Azure Data Lake Storage Gen2 you need to create two private endpoints. One private endpoint with the groupID 'dfs' and another private endpoint with the groupID 'blob'.
 
 ## Set up indexer connection through private endpoint
 

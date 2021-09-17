@@ -19,7 +19,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## September 2021
 
-* The Text Analytics for health container can be called using the client library, starting with version `3.0.017010001-onprem-amd64`. See [How to install and run Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) for more information.
+* Starting with version `3.0.017010001-onprem-amd64` The Text Analytics for health container can now be called using the client library. See [How to install and run Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) for more information.
 
 
 
