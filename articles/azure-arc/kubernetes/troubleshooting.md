@@ -79,11 +79,12 @@ If you are using Helm version >= 3.7.0, you will run into the following error wh
 
 ```console
 $ az connectedk8s connect -n AzureArcTest -g AzureArcTest
+
 Unable to pull helm chart from the registry 'mcr.microsoft.com/azurearck8s/batch1/stable/azure-arc-k8sagents:1.4.0': Error: unknown command "chart" for "helm"
 Run 'helm --help' for usage.
 ```
 
-In this case, you'll need to install [Helm 3](https://helm.sh/docs/intro/install/) with version &lt; 3.7.0. After this, run the `az connectedk8s connect` command again to connect the cluster to Azure Arc.
+In this case, you'll need to install a prior version of [Helm 3](https://helm.sh/docs/intro/install/), where version &lt; 3.7.0. After this, run the `az connectedk8s connect` command again to connect the cluster to Azure Arc.
 
 ### Insufficient cluster permissions
 
