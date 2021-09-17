@@ -114,7 +114,7 @@
     - name: Playback a recording
       href: playback-recordings-how-to.md
     - name: Player widget sample app 
-      href: sample-player-widget
+      href: sample-player-widget.md
     - name: Building your own player widget
       href: player-widget.md
   - name: Record
