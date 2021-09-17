@@ -346,7 +346,7 @@ az storage file download \
 
 # [PowerShell](#tab/azure-powershell)
 
-When you are done, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group and all related resources. 
+When you are done, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to delete the resource group and all resources contained in the resource group. 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
@@ -354,7 +354,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 # [Azure CLI](#tab/azure-cli)
 
-When you are done, you can use the [`az group delete`](/cli/azure/group) command to remove the resource group and all related resources: 
+When you are done, you can use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources contained in the resource group: 
 
 ```azurecli-interactive 
 az group delete --name $resourceGroupName
