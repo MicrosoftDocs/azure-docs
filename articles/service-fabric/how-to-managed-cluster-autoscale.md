@@ -2,11 +2,11 @@
 title: Configure autoscaling for Service Fabric managed cluster nodes
 description: Learn how to configure autoscaling policies on Service Fabric managed cluster.
 ms.topic: how-to
-ms.date: 9/16/2021
+ms.date: 10/04/2021
 ---
 
 # Introduction to Auto Scaling on Service Fabric managed clusters
-[Auto scaling](../azure-monitor/autoscale/autoscale-overview.md) is an additional capability of a Service Fabric managed cluster to dynamically scale your resources based on the usage of resources. Auto scaling gives great elasticity and enables provisioning of additional or reduction of instances on demand. Auto scaling is an automated and transparent capability supported for secondary node types eliminating any need for manual scaling operations. Auto scaling can be enabled at any time for a secondary node type that is configured and available. Auto scaling is supported for services deployed as regular Service Fabric services, or [in containers](./service-fabric-containers-overview), as it's based on resource usage of the underlying resources. 
+[Auto scaling](../azure-monitor/autoscale/autoscale-overview.md) is an additional capability of a Service Fabric managed cluster to dynamically scale your resources based on the usage of resources. Auto scaling gives great elasticity and enables provisioning of additional or reduction of instances on demand. Auto scaling is an automated and transparent capability supported for secondary node types eliminating any need for manual scaling operations. Auto scaling can be enabled at any time for a secondary node type that is configured and available. Auto scaling is supported for services deployed as regular Service Fabric services, or [in containers](./service-fabric-containers-overview.md), as it's based on resource usage of the underlying resources. 
 
 **Requirements and supported metrics:**
 * In order to use auto scaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
@@ -208,7 +208,7 @@ Some things to consider:
 
 * Check your Microsoft.ServiceFabric/managedclusters/nodetypes, and Microsoft.Insights resources in the Azure Resource Explorer
 
-   The Azure Resource Explorer is an indispensable troubleshooting tool that shows you the state of your Azure Resource Manager resources. Click on your subscription and look at the Resource Group you are troubleshooting. Under the Compute resource provider, look at the virtual machine scale set you created and check the Instance View, which shows you the state of a deployment. Also, check the instance view of VMs in the virtual machine scale set. Then, go into the Microsoft.Insights resource provider and check that the autoscale rules look right. <Node Types vs nodes>
+   The Azure Resource Explorer is an indispensable troubleshooting tool that shows you the state of your Azure Resource Manager resources. Click on your subscription and look at the Resource Group you are troubleshooting. Under the `ServiceFabric/managedclusters/clustername` resource provider, look under `NodeTypes` for node types you created and check properties to validate `provisioningState` is `Succeeded`. Then, go into the Microsoft.Insights resource provider under `clustername` and check that the autoscale rules look right. 
 
 * Are your emitted metric values as expected?
    Use the `Get-AzMetric` [PowerShell module to get the metric values of a resource](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric) and review
@@ -222,7 +222,7 @@ Once you've been through these steps, if you're still having autoscale problems,
 [Review Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
 
-[sf-architecture]: ./media/how-to-managed-cluster-autoscale/autoscale-are-tree.png
-[sf-architecture]: ./media/how-to-managed-cluster-autoscale/autoscale-nt-details.png
+[autoscale-are-tree]: ./media/how-to-managed-cluster-autoscale/autoscale-are-tree.png
+[autoscale-nt-details]: ./media/how-to-managed-cluster-autoscale/autoscale-nt-details.png
 
 
