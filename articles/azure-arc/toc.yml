@@ -8,6 +8,10 @@
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
+- name: Azure resource bridge
+  items:
+    - name: Overview
+      href: /resource-bridge/overview.md
 - name: Azure Arc-enabled servers >
   href: ./servers/overview.md
 - name: Azure Arc-enabled Kubernetes >
