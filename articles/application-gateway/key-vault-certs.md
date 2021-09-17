@@ -29,7 +29,7 @@ Application Gateway integration with Key Vault offers many benefits, including:
 
 Application Gateway currently supports software-validated certificates only. Hardware security module (HSM)-validated certificates are not supported. After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances also poll Key Vault at 4-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the TLS/SSL certificate currently associated with the HTTPS listener is automatically rotated. 
 
-Application Gateway uses Secret Identifier in Key Vault to reference the certificates. It is strongly recommended to use a secret identifier that doesn't specify a version. This way, Azure Application Gateway will automatically rotate the certificate, if a newer version is available in Azure Key Vault. An example of a secret URI without a version is `https://myvault.vault.azure.net/secrets/mysecret/`. Avoid using the complete URI with version for such certificates.
+Application Gateway uses Secret Identifier in Key Vault to reference the certificates. For Azure PowerShell, CLI, or ARM it is strongly recommended to use a secret identifier that doesn't specify a version. This way, Azure Application Gateway will automatically rotate the certificate, if a newer version is available in your Key Vault. An example of a secret URI without a version is `https://myvault.vault.azure.net/secrets/mysecret/`.
 
 > [!NOTE]
 > The Azure portal only supports KeyVault Certificates, not secrets. Application Gateway still supports referencing secrets from KeyVault, but only through non-Portal resources like PowerShell, CLI, API, ARM templates, etc. 
@@ -69,8 +69,8 @@ Application Gateway integration with Key Vault is a three-step configuration pro
    > Please note, in addition to the **Trusted Services** setting, you will need to allow your **Application Gateway's subnet** with **Service endpoint configuration** to grant access for all the scenarios.
 
       a) Under Key Vault’s Networking blade <br />
-      b) choose Private endpoint and selected networks in "Firewall and Virtual Networks" tab <br/>
-      c) then using Virtual Networks, add your Application Gateway’s virtual network and Subnet. During the process also configure ‘Microsoft.KeyVault' service endpoint by selecting its checkbox. <br/>
+      b) Choose Private endpoint and selected networks in "Firewall and Virtual Networks" tab <br/>
+      c) Then using Virtual Networks, add your Application Gateway’s virtual network and Subnet. During the process also configure ‘Microsoft.KeyVault' service endpoint by selecting its checkbox. <br/>
       d) Finally, select “Yes” to allow Trusted Services to bypass Key Vault’s firewall. <br/>
   
       ![Key Vault Firewall](media/key-vault-certs/key-vault-firewall.png)
@@ -102,7 +102,7 @@ Application Gateway integration with Key Vault is a three-step configuration pro
 
 Azure Application Gateway not only polls for the renewed certificate version on Key Vault at every 4-hour interval, but also logs any error and is integrated with Azure Advisor to surface any misconfiguration as a recommendation. The details of the recommendation contain the exact issue and the associated Key Vault resource. You can use this information along with the [troubleshooting guide](../application-gateway/application-gateway-key-vault-common-errors.md) to quickly resolve such configuration error. 
 
-It is strongly recommended that you [configure Advisor Alerts](../advisor/advisor-alerts-portal.md) to stay updated in the event such a problem is detected. To set an alert for this specific case, use the Recommendation Type as "Resolve Azure Key Vault issue for your Application Gateway". 
+It is strongly recommended that you [configure Advisor Alerts](../advisor/advisor-alerts-portal.md) to stay updated when such a problem is detected. To set an alert for this specific case, use the Recommendation Type as "Resolve Azure Key Vault issue for your Application Gateway". 
 
 ## Next steps
 
