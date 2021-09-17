@@ -21,7 +21,7 @@ After following the README instructions and the app is running on http://localho
 
 ## Video Player
 The Video Player page presents the typical player, as seen in the Portal.  
-![Screenshot of video player.](./media/sample-widget-player/widget-video-player.png)
+![Screenshot of video player.](./media/sample-player-widget/widget-video-player.png)
 
 ## Zone Drawer
 The Zone Drawer allows you to create zones by drawing polygons and drawing lines on your video. You can also save these zones and lines to receive the coordinates of your respective zones and lines.  
@@ -65,14 +65,14 @@ The Zone Drawer allows you to create zones by drawing polygons and drawing lines
   }
 ```
 Copying these coordinates can be done using the **Copy to clipboard** button. Zones and lines can be renamed and deleted using the three dots next to each zone and line.  
-![Screenshot of zone drawer.](./media/sample-widget-player/widget-zone-drawer.png)
+![Screenshot of zone drawer.](./media/sample-player-widget/widget-zone-drawer.png)
 
 ## Video Clips
 Video Clips allows you to select a start date and time along with an end date and time. You can generate the video clip by using the *Add* button.
 You can select any of your generated clips from drop-down list, where each clip is titled as the start and end dates and times.
 (Example: Format)
 Your video clip can then be viewed in the typical video player format.  
-![Screenshot of video clips.](./media/sample-widget-player/widget-video-clips.png)
+![Screenshot of video clips.](./media/sample-player-widget/widget-video-clips.png)
 
 ## Next Steps
 Try creating your own custom Video Analyzer player widget with these [instructions](./player-widget.md)
