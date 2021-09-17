@@ -1,74 +1,111 @@
 ---
-title: Configure routing preference for a VM - Azure portal
-description: Learn how to create a VM with a public IP address with routing preference choice using the Azure portal.
-services: virtual-network
-documentationcenter: na
-author: KumudD
-manager: mtillman
+title: 'Tutorial: Configure routing preference for a VM - Azure portal'
+description: In this tutorial, learn how to create a VM with a public IP address with routing preference choice using the Azure portal.
+author: asudbring
+ms.author: allensu
 ms.service: virtual-network
-ms.devlang: na
-ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/01/2021
-ms.author: mnayak
-
+ms.subservice: ip-services
+ms.topic: tutorial
+ms.date: 09/16/2021
+ms.custom: template-tutorial
 ---
-# Configure routing preference for a VM using the Azure portal
 
-This article shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed via the ISP network when you choose **Internet** as your routing preference option . The default routing is via the Microsoft global network.
+# Tutorial: Configure routing preference for a VM using the Azure portal 
 
-This article shows you how to create a virtual machine with a public IP that is set to route traffic via the public internet using the Azure portal.
+This tutorial shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed via the ISP network when you choose **Internet** as your routing preference option. The default routing is via the Microsoft global network.
 
-## Sign in to Azure
+In this tutorial, you learn how to:
 
-Sign in to the [Azure portal](https://portal.azure.com/).
+> [!div class="checklist"]
+> * Create a virtual machine with a public IP address configured for **Internet** routing preference.
+> * Verify the public IP address is set to **Internet** routing preference.
 
-## Create a virtual machine
+## Prerequisites
 
-1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
-2. Select **Compute**, and then select **Windows Server 2016 VM**, or another operating system of your choosing.
-3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**:
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-    |Setting|Value|
-    |---|---|
-    |Name|myVM|
-    |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
-    |Subscription| Select your subscription.|
-    |Resource group| Select **Use existing** and select **myResourceGroup**.|
-    |Location| Select **East US**|
+## Create virtual machine
 
-4. Select a size for the VM and then select **Select**.
-5. Under **Networking** tab, click on **Create new** for **Public IP address**.
-6. Enter *myPublicIpAddress*, select sku as **Standard**, and then select routing preference **Internet** and then hit **ok**, as shown in the following picture:
+In this section, you'll create a virtual machine and public IP address. During the public IP address configuration, you'll select **Internet** for routing preference.
 
-   ![Select static](./media/tutorial-routing-preference-virtual-machine-portal/routing-preference-internet-new.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-6. Select a port, or no ports under **Select public inbound ports**. Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 from the internet is not recommended for production workloads.
+2. In the portal search box, enter **Virtual machine**. In the search results, select **Virtual machines**.
 
-   ![Select a port](./media/tutorial-routing-preference-virtual-machine-portal/pip-ports-new.png)
+3. In **Virtual machines**, select **+ Create**, then **+ Virtual machine**.
 
-7. Accept the remaining default settings and select **OK**.
-8. On the **Summary** page, select **Create**. The virtual machine takes a few minutes to deploy.
-9. Once the virtual machine is deployed, enter *myPublicIpAddress* in the search box at the top of the portal. When **myPublicIpAddress** appears in the search results, select it.
-10. You can view the public IP address that is assigned, and that the address is assigned to the **myVM** virtual machine, as shown in the following picture:
+4. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information.
 
-    ![Screenshot shows the NIC Public I P for the network interface mynic.](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**. </br> Enter **TutorVMRoutePref-rg**. Select **OK**. |
+    | **Instance details** |   |
+    | Virtual machine name | Enter **myVM**. |
+    | Region | Select **(US) West US 2**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Image | Select **Windows Server 2019 Datacenter - Gen2**. |
+    | Azure Spot instance | Leave the default of unchecked. |
+    | Size | Select a size. |
+    | **Administrator account** |   |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Reenter password. |
+    | **Inbound port rules** |
+    | Public inbound ports | Select **Allow selected ports**. |
+    | Select inbound ports | Leave the default of **RDP (3389)**. </br> _**Opening port 3389 from the internet is not recommended for production workloads**_. |
 
-11. Select **Networking**, then click on nic **mynic** and then select the public ip address to confirm that the routing preference is assigned as **Internet**.
+    :::image type="content" source="./media/tutorial-routing-preference-virtual-machine-portal/create-virtual-machine.png" alt-text="Screenshot of create virtual machine.":::
 
-    ![Screenshot shows the I P address and routing preference for a Public I P address.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+5. Select **Next: Disks** then **Next: Networking**, or select the **Networking** tab.
+
+6. In the networking tab, enter or select the following information.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Network interface** |   |
+    | Virtual network | Leave the default of **(new) TutorVMRoutePref-rg-vnet**. |
+    | Subnet | Leave the default of **(new) default (10.1.0.0/24)**. |
+    | Public IP | Select **Create new**. </br> In **Name**, enter **myPublicIP**. </br> Select **Standard** in **SKU**. </br> In **Routing preference**, select **Internet**. </br> Select **OK**. |
+
+    :::image type="content" source="./media/tutorial-routing-preference-virtual-machine-portal/create-public-ip.png" alt-text="Screenshot of create public IP address.":::
+
+7. Select **Review + create**.
+
+8. Select **Create**.
+
+## Verify internet routing preference
+
+In this section, you'll search for the public IP address previously created and verify the internet routing preference.
+
+1. In the portal search box, enter **Public IP address**. In the search results, select **Public IP addresses**.
+
+2. In **Public IP addresses**, select **myPublicIP**.
+
+3. Select **Properties** in **Settings**.
+
+4. Verify **Internet** is displayed in **Routing preference**. 
+
+    :::image type="content" source="./media/tutorial-routing-preference-virtual-machine-portal/verify-routing-preference.png" alt-text="Screenshot of verify internet routing preference.":::
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and all of the resources it contains:
+If you're not going to continue to use this application, delete the public IP address with the following steps:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
-2. Select **Delete resource group**.
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+1. In the search box at the top of the portal, enter **Resource group**.
+
+2. In the search results, select **Resource groups**.
+
+3. Select **TutorVMRoutePref-rg**
+
+4. Select **Delete resource group**.
+
+5. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
-- Learn more about [public IP with routing preference](routing-preference-overview.md).
-- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
-- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+
+Advance to the next article to learn how to create a virtual machine with mixed routing preference:
+> [!div class="nextstepaction"]
+> [Configure both routing preference options for a virtual machine](routing-preference-mixed-network-adapter-portal.md)
+
