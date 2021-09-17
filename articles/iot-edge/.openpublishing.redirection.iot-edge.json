@@ -177,7 +177,7 @@
         },                  
         {
             "source_path_from_root": "/articles/iot-edge/tutorial-deploy-machine-learning.md",
-            "redirect_url": "/azure/iot-edge/tutorial-machine-learning-01-intro",
+            "redirect_url": "/azure/iot-edge/tutorial-machine-learning-edge-01-intro",
             "redirect_document_id": false
         }                  
     ]
