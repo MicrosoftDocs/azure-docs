@@ -190,7 +190,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | communicationServices | global | 1-63 | Alphanumerics, hyphens, and underscores. |
+> | communicationServices | global | 1-63 | Alphanumerics and hyphens<br><br>Can't use underscores. |
 
 ## Microsoft.Consumption
 
