@@ -15,7 +15,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Cato Networks for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Cato Networks and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Cato Networks](https://www.catonetworks.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to do in both Cato Networks and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Cato Networks](https://www.catonetworks.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities Supported
@@ -34,7 +34,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A [Cato Networks](https://www.catonetworks.com/) account.
 * An admin account in Cato Networks with Admin permissions.
-* License with a sufficient amount of users.
+* License with a sufficient number of users.
 
 
 ## Step 1. Plan your provisioning deployment
@@ -59,7 +59,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
         ![Copy secret token](media/cato-networks-provisioning-tutorial/secret-token.png)
 5. In the Cato Management Application (from the **SCIM Provisioning** section), click **Save**. SCIM Provisioning between your Cato account and Azure AD is configured. 
         ![Save SCIM Configuration](media/cato-networks-provisioning-tutorial/save-CC.png)
-6. Test the connection between the Azure SCIM app and the Cato Cloud. In the Cato Networks SCIM app in the Azure Portal, in the **Provisioning** tab, click **Test Connection**.         
+6. Test the connection between the Azure SCIM app and the Cato Cloud. In the Cato Networks SCIM apps in the Azure Portal, in the **Provisioning** tab, click **Test Connection**.         
                                   
 
 ## Step 3. Add Cato Networks from the Azure AD application gallery
@@ -76,7 +76,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * When assigning users and groups to Cato Networks, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add more roles. 
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control provisioning by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## Step 5. Configure automatic user provisioning to Cato Networks 
@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Cato Networks**.
 
-1. Review the user attributes that are synchronized from Azure AD to Cato Networks in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cato Networks for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Cato Networks API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Cato Networks in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cato Networks for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Cato Networks API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
