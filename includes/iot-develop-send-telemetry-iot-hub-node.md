@@ -4,7 +4,7 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 09/10/2021
+ ms.date: 09/17/2021
  ms.author: timlt
  ms.custom: include file
 ---
@@ -25,10 +25,10 @@ Install the following prerequisites on your development machine except where not
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Node.js](https://nodejs.org) version 10 or later. To check your node version run `node --version`.
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform utility to  monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that, for this quickstart, you install IoT Explorer on another computer. Alternatively, you can use Azure CLI to perform the steps that use IoT Explorer. 
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform utility to  monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps. 
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
-    - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli). If you're using Raspberry Pi as your development platform, we recommend that, for this quickstart, you use Azure Cloud Shell or install Azure CLI on another computer to run CLI commands.
+    - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli). If you're using Raspberry Pi as your development platform, we recommend that you use Azure Cloud Shell or install Azure CLI on another computer.
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
