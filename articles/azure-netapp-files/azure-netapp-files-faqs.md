@@ -49,9 +49,9 @@ No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment
 
 No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNet.  
 
-### Is the number of the IP addresses using Azure VMWare Solutions for Guest OS mounts [limited to 1000](azure-netapp-files-resource-limits.md#resource-limits)?
+### Is the number of the IP addresses using Azure VMware Solutions for Guest OS mounts [limited to 1000](azure-netapp-files-resource-limits.md#resource-limits)?
 
-No. Azure VMWare Solutions is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" is not visible to Azure NetApp Files, and the 1000 IP address limit is not applicable.
+No. Azure VMware Solutions is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" is not visible to Azure NetApp Files, and the 1000 IP address limit is not applicable.
  
 ## Security FAQs
 
