@@ -68,6 +68,8 @@ In this section, you use the C SDK to send messages from a simulated device to y
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
 
+1. Navigate to a local folder where you want to clone the sample repo.
+
 1. Clone the Azure IoT C device SDK to your local machine:
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-c.git
