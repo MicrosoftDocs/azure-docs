@@ -31,4 +31,4 @@ This article describes error scenarios you might encounter when managing Azure N
 
 ## Next steps  
 
-* [Manage snapshot policies](snapshot-manage-policy.md)
+* [Manage snapshot policies](snapshots-manage-policy.md)

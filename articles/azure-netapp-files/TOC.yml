@@ -164,17 +164,17 @@
       - name: Create an on-demand snapshot
         href: azure-netapp-files-manage-snapshots.md
       - name: Manage snapshot policies
-        href: snapshot-manage-policy.md
+        href: snapshots-manage-policy.md
       - name: Edit the Hide Snapshot Path
-        href: snapshot-edit-hide-path.md
+        href: snapshots-edit-hide-path.md
       - name: Restore a snapshot to a new volume
-        href: snapshot-restore-to-new-volume.md
+        href: snapshots-restore-new-volume.md
       - name: Restore a file from a snapshot using a client
-        href: snapshot-restore-file-with-client.md
+        href: snapshots-restore-file-client.md
       - name: Restore a volume using snapshot revert
-        href: snapshot-revert-volume.md
+        href: snapshots-revert-volume.md
       - name: Delete snapshots
-        href: snapshot-delete.md
+        href: snapshots-delete.md
     - name: Manage cross-region replication
       items:
       - name: Create volume replication

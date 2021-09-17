@@ -107,7 +107,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
     * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
-        For information about creating a snapshot policy, see [Manage snapshot policies](snapshot-manage-policy.md).
+        For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

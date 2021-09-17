@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 09/16/2021
 ms.author: b-juche
 ---
 
@@ -56,7 +56,7 @@ A snapshot policy enables you to specify the snapshot creation frequency in hour
 If you need to create additional snapshot policies, repeat Step 3.
 The policies you created appear in the Snapshot policy page.
 
-If you want a volume to use the snapshot policy, you need to [apply the policy to the volume](snapshot-manage-policy.md#apply-a-snapshot-policy-to-a-volume). 
+If you want a volume to use the snapshot policy, you need to [apply the policy to the volume](snapshots-manage-policy.md#apply-a-snapshot-policy-to-a-volume). 
 
 ## Apply a snapshot policy to a volume
 
