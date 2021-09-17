@@ -20,9 +20,36 @@ The Speech SDK and Speech CLI can accept compressed audio formats using GStreame
 
 Platform | Languages | Supported GStreamer version
 | :--- | ---: | :---:
-Windows (excluding UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
-Linux  | C++, C#, Java, Python | [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md)
-Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/)
+Windows (excluding UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi) | [Windows installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c)
+Linux  | C++, C#, Java, Python | [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md) | [Linux installation instructions] (https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c)
+Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/) | [Android installation instructions] (https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)
+
+## Installing Gstreamer on Linux
+```sh
+sudo apt install libgstreamer1.0-0 \
+gstreamer1.0-plugins-base \
+gstreamer1.0-plugins-good \
+gstreamer1.0-plugins-bad \
+gstreamer1.0-plugins-ugly
+```
+## Installing Gstreamer on Windows
+* Create a folder c:\gstreamer
+* Download [installer](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi) 
+* Copy the installer to c:\gstreamer
+* Open powershell as an administrator.
+* Run the following command in the powershell 
+
+```powershell
+cd c:\gstreamer
+msiexec /passive INSTALLLEVEL=1000 INSTALLDIR=C:\gstreamer /i gstreamer-1.0-msvc-x86_64-1.18.3.msi
+```
+* Add the system variables GST_PLUGIN_PATH with value C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0
+* Add the system variables GSTREAMER_ROOT_X86_64 with value C:\gstreamer\1.0\msvc_x86_64
+* Add another entry in the path variable as C:\gstreamer\1.0\msvc_x86_64\bin
+* Reboot the machine
+
+## Using Gstreamer in Android
+Please look at the Java tab above for the details about building libgstreamer_android.so 
 
 ## Speech SDK version required for compressed audio input
 * Speech SDK version 1.10.0 or later is required for RHEL 8 and CentOS 8
