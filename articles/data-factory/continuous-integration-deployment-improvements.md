@@ -22,7 +22,7 @@ In Azure Data Factory, continuous integration and continuous delivery (CI/CD) me
 
 There are two suggested methods to promote a data factory to another environment:
 
-- Automated deployment using the integration of Data Factory with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
+- Automated deployment using the integration of Data Factory with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
 - Manually uploading an ARM template by using Data Factory user experience integration with Azure Resource Manager.
 
 For more information, see [Continuous integration and delivery in Azure Data Factory](continuous-integration-deployment.md).
@@ -183,6 +183,85 @@ Follow these steps to get started:
 4. Enter your YAML code. We recommend that you use the YAML file as a starting point.
 
 5. Save and run. If you used the YAML, it gets triggered every time the main branch is updated.
+
+## Create a GitHub Action
+
+Another possibility is is having npm packages being consumed via [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions). The design approach is similar to the one used for Azure pipelines: on each merge into your collaboration branch, a build [workflow](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#workflows) can be triggered that first validates all of the code and then exports the ARM template into its artifact that can be consumed further by a release workflow. How it differs from the current CI/CD process is that you will *point your release workflow at this artifact instead of the existing `adf_publish` branch*.
+
+Follow these steps to get started:
+
+1. Select the GitHub repository where you want to save your workflow YAML script. Ensure there's a *package.json* in the same directory of your Data Factory resources.
+
+   ```json
+   {
+       "scripts":{
+           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
+       },
+       "dependencies":{
+           "@microsoft/azure-data-factory-utilities":"^0.1.5"
+       }
+   } 
+   ```
+
+2. Open the repository on GitHub, and go to **Actions**. On the **Simple workflow** section, select **Set up this workflow**.
+
+   :::image type="content" source="media/continuous-integration-deployment-improvements/new-workflow.png" alt-text="Screenshot that shows the Set up this workflow button.":::
+
+3. A new page with a `blank.yml` file will open, then you're ready to edit its name and its content.
+  
+    :::image type="content" source="media/continuous-integration-deployment-improvements/github-workflow-start.png" alt-text
+
+    ```yml
+    # Sample YAML file to validate and export an ARM template into a build artifact
+    # Requires a package.json file located in the target repository
+    name: build
+
+    on:
+      push:
+        branches: [ main ] #collaboration branch
+
+      # Allows you to run this workflow manually from the Actions tab
+      workflow_dispatch:
+
+    env:
+      # Enter the appropriate subscription, resource group and name for the source factory.
+      DATA_FACTORY_ID: '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yourResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Code checkout
+          - uses: actions/checkout@v2
+
+          # Validates all of the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected.
+          - name: Validate
+            uses: Azure/data-factory-validate-action@v1.0.0
+            with:
+              id: ${{ env.DATA_FACTORY_ID }}
+              path: <data-factory-dir> # replace by the folder that contains the Data Factory resources and the package.json
+
+          # Generate the ARM template into the destination folder, which is the same as selecting "Publish" from the UX.
+          # The ARM template generated isn't published to the live version of the factory. Deployment should be done by using a CD pipeline.
+          - name: Export ARM Template
+            id: export
+            uses: Azure/data-factory-export-action@v1.0.0
+            with:
+              id: ${{ env.DATA_FACTORY_ID }}
+              path: <data-factory-dir> # replace by the folder that contains the Data Factory resources and the package.json
+
+          # Publish the artifact to be used as a source for a release pipeline.
+          - name: Publish artifact
+            uses: actions/upload-artifact@v2
+            with:
+              name: ArmTemplates
+              path: ${{ steps.export.outputs.arm-template-directory }}
+              if-no-files-found: error
+    ```
+
+4. Enter your YAML code. We recommend that you use the YAML file as a starting point.
+
+5. Update the appropriate values, save and run. If you used the YAML, it gets triggered every time the main branch is updated.
 
 ## Next steps
 
