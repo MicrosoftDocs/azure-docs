@@ -24,7 +24,7 @@ ms.reviewer: mathoma
 > [!TIP]
 > Eliminate the need for an Azure Load Balancer for your Always On availability group by creating your SQL Server VMs in multiple subnets within the same Azure virtual network.
 
-In this tutorial, complete the prerequisites for creating an [Always On availability group for SQL Server on AzureVirtual Machines (VMs) in multiple subnets](availability-group-manually-configure-tutorial-multiple-subnet.md). At the end of this tutorial, you will have a domain controller on two Azure virtual machines, two SQL Server VMs in multiple subnets, and a storage account in a single resource group. 
+In this tutorial, complete the prerequisites for creating an [Always On availability group for SQL Server on AzureVirtual Machines (VMs) in multiple subnets](availability-group-manually-configure-tutorial-multi-subnet.md). At the end of this tutorial, you will have a domain controller on two Azure virtual machines, two SQL Server VMs in multiple subnets, and a storage account in a single resource group. 
 
 **Time estimate**: This tutorial may take several hours to complete, as creating resources can be time-intensive. 
 
@@ -297,6 +297,7 @@ Configure three accounts in total, one installation account for both SQL Server 
 
 
 Configure three accounts in total, one installation account for both SQL Server VMs, and then a service account for each SQL Server VM. For example, use the values in the following table for the accounts:
+
 |Account  | VM  |Full domain name  |Description   |
 |---------|---------|---------|---------|
 |Install    |Both| Corp\Install        |Log into either VM with this account to configure the cluster and availability group. |
@@ -369,7 +370,7 @@ To create your VMs, follow these steps:
 1. Search for **Azure SQL** and select the **Azure SQL** tile from Microsoft. 
 1. On the **Azure SQL** page, select **Create** and then choose the **SQL Server 2016 SP2 Enterprise on Windows Server 2016** image from the drop-down. 
 
-   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/18-select-sql-vm-image.png.png" alt-text=" On the Azure SQL page of the portal, select Create and then choose the SQL Server 2016 SP2 Enterprise on Windows Server 2016 image from the drop-down.":::
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/18-select-sql-vm-image.png" alt-text=" On the Azure SQL page of the portal, select Create and then choose the SQL Server 2016 SP2 Enterprise on Windows Server 2016 image from the drop-down.":::
 
 Use the following table to fill out the values on the **Create a virtual machine** page to create both SQL Server VMs, such as **SQL-VM-1** and **SQL-VM-2** (your IP addresses may differ from the examples in the table): 
 

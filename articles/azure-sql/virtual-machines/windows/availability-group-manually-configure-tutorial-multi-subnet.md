@@ -27,7 +27,7 @@ ms.reviewer: mathoma
 This tutorial shows how to create an Always On availability group for SQL Server on Azure Virtual Machines (VMs) within multiple subnets. The complete tutorial creates a Windows Server Failover Cluster, and an availability group with a two SQL Server replicas and a listener.
 
  
-**Time estimate**: Assuming your [prerequisites](availability-group-manually-configure-prerequisites-tutorial.md) are complete, this tutorial should take about 30 minutes to complete. 
+**Time estimate**: Assuming your [prerequisites](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) are complete, this tutorial should take about 30 minutes to complete. 
 
 
 ## Prerequisites
@@ -138,7 +138,7 @@ Since the SQL Server VMs are in different subnets the cluster will have an OR de
 
 ## Configure quorum
 
-On a two node cluster, a quorum device is necessary for cluster reliability and stability. On Azure VMs, the cloud witness is the recommended quorum configuration, though there are [other options available](hadr-cluster-quorum-configure-how-to.). The steps in this section configure a cloud witness for quorum. Identify the access keys to the storage account and then configure the cloud witness. 
+On a two node cluster, a quorum device is necessary for cluster reliability and stability. On Azure VMs, the cloud witness is the recommended quorum configuration, though there are [other options available](hadr-cluster-quorum-configure-how-to.md). The steps in this section configure a cloud witness for quorum. Identify the access keys to the storage account and then configure the cloud witness. 
 
 ## Get access keys for storage account 
 
@@ -262,7 +262,7 @@ To create your availability group, follow these steps.
 
     :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/12-newagname.png" alt-text="New availability group Wizard, Specify availability group Name":::
 
-1. In the **Select Databases** page, select your database, and then select **Next**. If your database does not meet the prerequisites, [take a backup](#take-a-full-backup-of-the-database): 
+1. In the **Select Databases** page, select your database, and then select **Next**. If your database does not meet the prerequisites, [take a backup](#create-database): 
 
    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/13-newagselectdatabase.png" alt-text="New availability group Wizard, Select Databases":::
 
@@ -275,7 +275,7 @@ To create your availability group, follow these steps.
 
    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/15-newagreplica.png" alt-text=" On the **Specify Replicas** page, check the boxes for Automatic Failover and choose Synchronous commit for the availability mode":::
 
-1. Select the **Endpoints** tab to confirm the ports used for the database mirroring endpoint are those you [opened in the firewall](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall): 
+1. Select the **Endpoints** tab to confirm the ports used for the database mirroring endpoint are those you [opened in the firewall](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#endpoint-firewall): 
 
     :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/16-endpoint.png" alt-text="New availability group Wizard, Select Initial Data Synchronization":::
 
