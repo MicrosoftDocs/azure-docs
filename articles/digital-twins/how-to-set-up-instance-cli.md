@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the CLI
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/23/2020
+ms.date: 9/3/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -19,11 +19,11 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you will have an Azure Digital Twins instance ready to start programming against.
+This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you'll have an Azure Digital Twins instance ready to start programming against.
 
-This version of this article goes through these steps manually, one by one, using the CLI.
-* To go through these steps manually using the Azure portal, see the portal version of this article in [Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
-* To run through an automated setup using a deployment script sample, see the scripted version of this article in [Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
+This version of this article goes through these steps manually, one by one, using the CLI. Setup can also be completed by using the following alternate instructions:
+* [Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md)
+* [Set up an instance and authentication (PowerShell)](how-to-set-up-instance-powershell.md)
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -34,7 +34,7 @@ This version of this article goes through these steps manually, one by one, usin
 
 ## Create the Azure Digital Twins instance
 
-In this section, you will **create a new instance of Azure Digital Twins** using the Cloud Shell command. You'll need to provide:
+In this section, you'll **create a new instance of Azure Digital Twins** using the Cloud Shell command. You'll need to provide:
 * A resource group where the instance will be deployed. If you don't already have an existing resource group in mind, you can create one now with this command:
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
@@ -55,7 +55,7 @@ If the instance was created successfully, the result in Cloud Shell looks someth
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Screenshot of the Cloud Shell window with successful creation of a resource group and Azure Digital Twins instance in the Azure portal.":::
 
-Note the Azure Digital Twins instance's **hostName**, **name**, and **resourceGroup** from the output. These are all important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources. If other users will be programming against the instance, you should share these values with them.
+Note the Azure Digital Twins instance's **hostName**, **name**, and **resourceGroup** from the output. These values are all important and you may need to use them as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources. If other users will be programming against the instance, you should share these values with them.
 
 > [!TIP]
 > You can see these properties, along with all the properties of your instance, at any time by running `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -74,7 +74,7 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 To give a user permissions to manage an Azure Digital Twins instance, you must assign them the **Azure Digital Twins Data Owner** role within the instance.
 
-Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this will match the user's email on the Azure AD account.
+Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this value will match the user's email on the Azure AD account.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"

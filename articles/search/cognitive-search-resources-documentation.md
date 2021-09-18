@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/16/2021
 ---
 # Documentation resources for AI enrichment in Azure Cognitive Search
 

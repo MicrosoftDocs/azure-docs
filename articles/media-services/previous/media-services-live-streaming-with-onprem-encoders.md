@@ -228,7 +228,7 @@ Here are other considerations related to working with channels and related compo
 ## Related topics
 [Recommended on premises encoders](media-services-recommended-encoders.md)
 
-[Azure Media Services fragmented MP4 lives ingest specification](../media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services fragmented MP4 lives ingest specification](media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services overview and common scenarios](media-services-overview.md)
 
