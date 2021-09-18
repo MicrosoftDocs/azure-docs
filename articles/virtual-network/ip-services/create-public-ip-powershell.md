@@ -163,7 +163,7 @@ The command creates a new standard zone-redundant public IPv4 address with a rou
 
 ```azurepowershell-interactive
 ## Create IP tag for Internet and Routing Preference. ##
-$tag = ${
+$tag = @{
     IpTagType = 'RoutingPreference'
     Tag = 'Internet'   
 }
@@ -210,17 +210,12 @@ New-AzPublicIpAddress @ip
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the public IP address with the following steps:
+When you're done with the virtual machine and public IP address, delete the resource group and all of the resources it contains with [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
-1. In the search box at the top of the portal, enter **Resource group**.
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name 'TutorVMRoutePref-rg'
 
-2. In the search results, select **Resource groups**.
-
-3. Select **QuickStartCreateIP-rg**
-
-4. Select **Delete resource group**.
-
-5. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+```
 
 ## Next steps
 
