@@ -163,4 +163,4 @@ Language specific configuration guides, such as the [Linux Node.js configuration
 ## More resources
 
 * [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md)
-* [FAQ : App Service Certificates](./faq-configuration-and-management.md)
+* [FAQ : App Service Certificates](./faq-configuration-and-management.yml)

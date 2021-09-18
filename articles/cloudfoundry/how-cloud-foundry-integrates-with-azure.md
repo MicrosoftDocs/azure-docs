@@ -86,7 +86,7 @@ Managed disks support smaller disk sizes, for example P4(32 GB) and P6(64 GB) fo
 #### Use Azure First Party Services: 
 Taking advantage of Azure’s first party service will lower the long-term administration cost, in addition to HA and reliability mentioned in above sections. 
 
-Pivotal has launched a [Small Footprint ERT](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html) for PCF customers, the components are co-located into just 4 VMs, running up to 2500 application instances. The trial version is now available through [Azure Market place](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Pivotal has launched a [Small Footprint ERT](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html) for PCF customers, the components are co-located into just 4 VMs, running up to 2500 application instances. The trial version is now available through Azure Market place.
 
 ## Next Steps
 Azure integration features are first available with [Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/), before it's available on Pivotal Cloud Foundry. Features marked with * are still not available through PCF. Cloud Foundry integration with Azure Stack isn't covered in this document either.

@@ -122,7 +122,7 @@
 - name: Resources
   items:
     - name: Frequently asked questions
-      href: openshift-faq.md
+      href: openshift-faq.yml
     - name: Troubleshooting
       href: troubleshoot.md
     - name: Support policies for ARO 4

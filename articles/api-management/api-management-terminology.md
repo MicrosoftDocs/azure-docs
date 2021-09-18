@@ -1,10 +1,9 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Azure API Management terminology | Microsoft Docs
 description: This article gives definitions for the terms that are specific to API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -12,7 +11,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Azure API Management terminology

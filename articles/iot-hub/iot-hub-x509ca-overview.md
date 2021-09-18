@@ -6,7 +6,7 @@ manager: arjmands
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/18/2017
+ms.date: 07/13/2021
 ms.author: eustacea
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
 ---
@@ -27,7 +27,7 @@ The X.509 CA feature enables device authentication to IoT Hub using a Certificat
 
 ## Prerequisite
 
-Using the X.509 CA feature requires that you have an IoT Hub account.  [Learn how to create an IoT Hub instance](quickstart-send-telemetry-dotnet.md) if you don't already have one.
+Using the X.509 CA feature requires that you have an IoT Hub account.  [Learn how to create an IoT Hub instance](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) if you don't already have one.
 
 ## How to get an X.509 CA certificate
 
@@ -73,7 +73,7 @@ Create an X.509 device for your IoT hub
 
 With X.509 CA certificate registered and devices signed into a certificate chain of trust, what remains is device authentication when the device connects, even for the first time.  When an X.509 CA signed device connects, it uploads its certificate chain for validation. The chain includes all intermediate CA and device certificates.  With this information, IoT Hub authenticates the device in a two-step process.  IoT Hub cryptographically validates the certificate chain for internal consistency, and then issues a proof-of-possession challenge to the device.  IoT Hub declares the device authentic on a successful proof-of-possession response from the device.  This declaration assumes that the device's private key is protected and that only the device can successfully respond to this challenge.  We recommend use of secure chips like Hardware Secure Modules (HSM) in devices to protect private keys.
 
-A successful device connection to IoT Hub completes the authentication process and is also indicative of a proper setup.
+A successful device connection to IoT Hub completes the authentication process and is also indicative of a proper setup. Every time a device connects, IoT Hub renegotiates the TLS session and verifies the device’s X.509 certificate. 
 
 Learn here how to [complete this device connection step](./tutorial-x509-scripts.md).
 

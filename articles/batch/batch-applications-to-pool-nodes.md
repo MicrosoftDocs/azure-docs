@@ -29,6 +29,10 @@ For applications or data that need to be installed on every node in the pool, co
 
 Application packages are useful when you have a large number of files, because they can combine many file references into a small payload. If you try to include more than 100 separate resource files into one task, the Batch service might come up against internal system limitations for a single task. Application packages are also useful when you have many different versions of the same application and need to choose between them.
 
+## Extensions
+
+[Extensions](create-pool-extensions.md) are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. When you create a pool, you can select a supported extension to be installed on the compute nodes as they are provisioned. After that, the extension can perform its intended operation.
+
 ## Job preparation task resource files
 
 For applications or data that must be installed for the job to run, but don't need to be installed on the entire pool, consider using [job preparation task resource files](./batch-job-prep-release.md).

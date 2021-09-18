@@ -31,7 +31,7 @@ When preparing a multi-node SAS GRID environment for production, you might notic
 | No `nconnect` | 8 hours |
 | `nconnect=8`  | 5.5 hours | 
 
-Both sets of tests used the same E32-8_v4 virtual machine and RHEL8.3, with readahead set to 15 MiB.
+Both sets of tests used the same E32-8_v4 virtual machine and RHEL8.3, with read-ahead set to 15 MiB.
 
 When you use `nconnect`, keep the following rules in mind:
 
@@ -85,7 +85,7 @@ sudo vi /etc/fstab
 10.23.1.4:/HN1-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
 ```
  
-Also for example, SAS Viya recommends a 256-KiB read and write sizes, and [SAS GRID](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/606973/highlight/true#M17740) limits the `r/wsize` to 64 KiB while augmenting read performance with increased readahead for the NFS mounts.  <!-- For more information on readahead, see the article “NFS Readahead”. --> 
+Also for example, SAS Viya recommends a 256-KiB read and write sizes, and [SAS GRID](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/606973/highlight/true#M17740) limits the `r/wsize` to 64 KiB while augmenting read performance with increased read-ahead for the NFS mounts. See [NFS read-ahead best practices for Azure NetApp Files](performance-linux-nfs-read-ahead.md) for details.
 
 The following considerations apply to the use of `rsize` and `wsize`:
 
@@ -133,5 +133,9 @@ When no close-to-open consistency (`nocto`) is used, the client will trust the f
 
 ## Next steps  
 
+* [Linux direct I/O best practices for Azure NetApp Files](performance-linux-direct-io.md)
+* [Linux filesystem cache best practices for Azure NetApp Files](performance-linux-filesystem-cache.md)
 * [Linux concurrency best practices for Azure NetApp Files](performance-linux-concurrency-session-slots.md)
+* [Linux NFS read-ahead best practices](performance-linux-nfs-read-ahead.md)
+* [Azure virtual machine SKUs best practices](performance-virtual-machine-sku.md) 
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 

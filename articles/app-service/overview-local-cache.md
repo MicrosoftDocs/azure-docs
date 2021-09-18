@@ -120,3 +120,7 @@ As part of the step that copies the storage content, any folder that is named re
 
 ### How to flush the local cache logs after a site management operation?
 To flush the local cache logs, stop and restart the app. This action clears the old cache. 
+
+## More resources
+
+[Environment variables and app settings reference](reference-app-settings.md)

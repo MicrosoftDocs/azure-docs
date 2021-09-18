@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to learn scopes for a v1.0 application so I can decide if this platform meets my application development needs and requirements.
 ---
 

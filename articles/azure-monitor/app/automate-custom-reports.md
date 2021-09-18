@@ -1,13 +1,13 @@
 ---
-title: Automate custom reports with Azure Application Insights data
-description: Automate custom daily/weekly/monthly reports with Azure Application Insights data
+title: Automate custom reports with Application Insights data
+description: Automate custom daily/weekly/monthly reports with Azure Monitor Application Insights data
 ms.topic: conceptual
 ms.date: 05/20/2019
 
 ms.reviewer: sdash
 ---
 
-# Automate custom reports with Azure Application Insights data
+# Automate custom reports with Application Insights data
 
 Periodical reports help keep a team informed on how their business critical services are doing. Developers, DevOps/SRE teams, and their managers can be productive with automated reports reliably delivering insights without requiring everyone to sign in the portal. Such reports can also help identify gradual increases in latencies, load or failure rates that may not trigger any alert rules.
 

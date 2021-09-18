@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then select **Connect**. Select **Bastion** from the dropdown.
+1. In the [Azure portal](https://portal.azure.com), navigate to the virtual machine that you want to connect to. On the **Overview** page, select **Connect**, then select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-vm-rdp/connect-vm.png" alt-text="Select Bastion":::
 
@@ -22,6 +22,9 @@
 
    :::image type="content" source="./media/bastion-vm-rdp/connect-vm-host.png" alt-text="Connect":::
 
-1. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. When you connect, the desktop of the VM may look different than the example screenshot. Note that when using keyboard shortcut keys while connected to a VM, they may not result in the same behavior as shortcut keys on a local computer. For example, when connected to the VM, Ctrl+Alt+End is the keyboard shortcut for Ctrl+Alt+Del on a local computer.
+1. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. 
+
+   * When you connect, the desktop of the VM may look different than the example screenshot. 
+   * Using keyboard shortcut keys while connected to a VM may not result in the same behavior as shortcut keys on a local computer. For example, when connected to a Windows VM from a Windows client, CTRL+ALT+END is the keyboard shortcut for CTRL+ALT+Delete on a local computer. To do this from a Mac while connected to a Windows VM, the keyboard shortcut is Fn+CTRL+ALT+Backspace.
 
    :::image type="content" source="./media/bastion-vm-rdp/connection.png" alt-text="Connect using port 443":::

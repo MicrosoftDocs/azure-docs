@@ -122,7 +122,7 @@ EXEC sp_describe_first_result_set N'
 Here's the result set:
 
 |is_hidden|column_ordinal|name|system_type_name|max_length|
-|----------------|---------------------|----------|--------------------|-------------------||
+|----------------|---------------------|----------|--------------------|-------------------|
 |0|1|vendor_id|varchar(8000)|8000|
 |0|2|pickup_datetime|datetime2(7)|8|
 |0|3|passenger_count|int|4|

@@ -42,7 +42,7 @@ Customers can secure these resources via several network isolation mechanisms of
 | --- | --- | ---- |
 | Azure Storage (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions | Supported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
-| Azure Cosmos DB - Cassandra, Mongo, and Gremlin API | Supported | Unsupported |
+| Azure Cosmos DB - MongoDB and Gremlin API | Supported | Unsupported |
 | Azure SQL Database | Supported | Supported |
 | SQL Server on Azure virtual machines | Supported | N/A |
 | SQL Managed Instance | Supported | N/A |
@@ -90,7 +90,7 @@ This functionality is only available in billable search services, with limits on
 
 ### Step 1: Create a private endpoint to the secure resource
 
-Customers should call the search management operation, [CreateOrUpdate API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) on a **shared private link resource**,  in order to create a private endpoint connection to their secure resource (for example, a storage account). Traffic that goes over this (outbound) private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
+Customers should call the search management operation, [CreateOrUpdate API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) on a **shared private link resource**,  in order to create a private endpoint connection to their secure resource (for example, a storage account). Traffic that goes over this (outbound) private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
 
 Azure Cognitive Search will validate that callers of this API have Azure RBAC permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
 

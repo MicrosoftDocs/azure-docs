@@ -3,8 +3,8 @@ title: 'Tutorial: Configure AlertMedia for automatic user provisioning with Azur
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to AlertMedia.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: a5df0dd7-05a3-4744-9d51-ec33e89a934f
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure AlertMedia for automatic user provisioning

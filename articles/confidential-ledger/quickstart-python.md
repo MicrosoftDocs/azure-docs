@@ -7,7 +7,6 @@ ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: "devx-track-python, devx-track-azurepowershell"
-
 ---
 
 # Quickstart: Microsoft Azure Confidential Ledger client library for Python
@@ -18,7 +17,7 @@ Microsoft Azure Confidential Ledger is a new and highly secure service for manag
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-secrets/)
+[API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Package (Python Package Index) Client Library](https://pypi.org/project/azure-confidentialledger/)
 
 ## Prerequisites
 
@@ -95,7 +94,7 @@ credential = DefaultAzureCredential()
 We'll finish setup by setting some variables for use in your application: the resource group (myResourceGroup), the name of ledger you want to create, and two urls to be used by the data plane client library.
 
   > [!Important]
-  > Each ledger must have a globally unique name. Replace <your-unique-keyvault-name> with the name of your ledger in the following example.
+  > Each ledger must have a globally unique name. Replace \<your-unique-keyvault-name\> with the name of your ledger in the following example.
 
 ```python
 resource_group = "myResourceGroup"
@@ -103,7 +102,7 @@ ledger_name = "<your-unique-ledger-name>"
 subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
-ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
+ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com"
 ```
 
 ### Use the control plane client library
@@ -144,7 +143,7 @@ confidential_ledger_mgmt.ledger.begin_create(resource_group, ledger_name, ledger
 To verify that your ledger was successfully created, view its details using the `get` function.
 
 ```python
-myledger = ledger = confidential_ledger_mgmt.ledger.get(resource_group, ledger_name)
+myledger = confidential_ledger_mgmt.ledger.get(resource_group, ledger_name)
 
 print("Here are the details of your newly created ledger:")
 print (f"- Name: {myledger.name}")

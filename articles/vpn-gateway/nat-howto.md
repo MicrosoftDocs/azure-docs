@@ -139,6 +139,7 @@ After completing these steps, you will have a setup that matches the topology sh
 * NAT rules cannot be associated with connection resources during the create connection process. Create the connection resource first, then associate the NAT rules in the Connection Configuration page.
 * For preview, use **BGP** and leave the local network gateway address space **blank** if the local network gateway address space is the same or part of the VNet address space. Static routing (non-BGP) is **not** supported with the address conflict between local network gateways and VNet.
 * Address spaces for different local network gateways (on-premises networks or branches) can be the same with *IngressSNAT* rules to map to non-overlapping prefixes as shown in [Diagram 1](#diagram).
+* NAT rules are not supported on connections that have *Use Policy Based Traffic Selectors* enabled.
 
 ## Next steps
 

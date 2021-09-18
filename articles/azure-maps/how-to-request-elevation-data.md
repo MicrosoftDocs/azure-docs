@@ -6,8 +6,6 @@ ms.author: v-stharr
 ms.date: 05/18/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-manager: philmea
 ms.custom: mvc
 ---
 
@@ -39,9 +37,7 @@ To request elevation data in raster tile format using the Postman app:
 
 3. Enter a **Request name** for the request.
 
-4. Select the collection that you created, and then select **Save**.
-
-5. On the **Builder** tab, select the **GET** HTTP method and then enter the following URL to request the raster tile.
+4. On the **Builder** tab, select the **GET** HTTP method and then enter the following URL to request the raster tile.
 
     ```http
     https://atlas.microsoft.com/map/tile?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&tilesetId=microsoft.dem&zoom=13&x=6074&y=3432
@@ -50,7 +46,7 @@ To request elevation data in raster tile format using the Postman app:
     >[!Important]
     >For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
-6. Select the **Send** button.
+5. Select the **Send** button.
 
     You should receive the raster tile that contains the elevation data in GeoTIFF format. Each pixel within the raster tile raw data is of type `float`. The value of each pixel represents the elevation height in meters.
 
@@ -483,7 +479,7 @@ The following sample webpage describes how to use the map control to display ele
 
 <br/>
 
-<iframe height="500" style="width:100%;" scrolling="no" title="Get elevation at position" src="https://codepen.io/azuremaps/embed/c840b510e113ba7cb32809591d5f96a2?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Get elevation at position" src="https://codepen.io/azuremaps/embed/c840b510e113ba7cb32809591d5f96a2?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/c840b510e113ba7cb32809591d5f96a2'>Get elevation at position</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -494,7 +490,7 @@ The following sample webpage describes how to use the map control to display ele
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Elevations by bounding box" src="https://codepen.io/azuremaps/embed/619c888c70089c3350a3e95d499f3e48?height=500&theme-id=default&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Elevations by bounding box" src="https://codepen.io/azuremaps/embed/619c888c70089c3350a3e95d499f3e48?height=500&theme-id=default&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d499f3e48'>Elevations by bounding box</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -505,7 +501,7 @@ The following sample webpage describes how to use the map control to display ele
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Elevation path gradient" src="https://codepen.io/azuremaps/embed/7bee08e5cb13d05cb0a11636b60f14ca?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Elevation path gradient" src="https://codepen.io/azuremaps/embed/7bee08e5cb13d05cb0a11636b60f14ca?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f14ca'>Elevation path gradient</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

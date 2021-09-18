@@ -6,7 +6,7 @@ manager: nimag
 services: azure-communication-services
 
 ms.author: ddematheu2
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
 ---

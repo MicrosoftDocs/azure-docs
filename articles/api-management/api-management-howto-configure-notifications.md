@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to configure notifications and email templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # How to configure notifications and email templates in Azure API Management
@@ -80,9 +80,6 @@ Each email template has a subject in plain text, and a body definition in HTML f
 ![Email template editor][api-management-email-template]
 
 The **Parameters** list contains a list of parameters, which when inserted into the subject or body, will be replaced the designated value when the email is sent. To insert a parameter, place the cursor where you wish the parameter to go, and click the arrow to the left of the parameter name.
-
-> [!NOTE]
-> The parameters are not replaced with actual values when previewing or sending a test.
 
 To save the changes to the email template, click **Save**, or to cancel the changes click **Discard**.
 

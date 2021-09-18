@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 09/17/2021
 ---
 
 # How to plan a SaaS offer for the commercial marketplace
@@ -22,10 +22,10 @@ The following table shows the listing options for SaaS offers in the commercial 
 
 | Listing option | Transaction process |
 | ------------ | ------------- |
-| Contact me | The customer contacts you directly from information in your listing.``*`` |
-| Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*`` |
-| Get it now (Free) | The customer is redirected to your target URL via Azure AD.``*`` |
-| Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers using the pricing model you choose, and manage customer transactions on your behalf. Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [SaaS billing](#saas-billing) below.  |
+| Contact me | The customer contacts you directly from information in your listing.``*``<br>You can change to a different listing option after publishing the offer. |
+| Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*``<br>You can change to a different listing option after publishing the offer. |
+| Get it now (Free) | The customer is redirected to your target URL via Azure AD.``*``<br>You can change to a different listing option after publishing the offer. |
+| Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers using the pricing model you choose, and manage customer transactions on your behalf. Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [SaaS billing](#saas-billing) below.<br><br>**Note**: You cannot change this option once your offer is published.  |
 |||
 
 ``*`` Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to order, fulfillment, metering, billing, invoicing, payment, and collection.
@@ -262,12 +262,8 @@ The following example shows a sample breakdown of costs and payouts to demonstra
 | Azure usage cost (D1/1-Core) | Billed directly to the publisher, not the customer |
 | Customer is billed by Microsoft | $100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee) |
 | **Microsoft bills** | **$100 per month** |
-| Microsoft pays you 80% of your license cost<br>`*` For qualified SaaS apps, Microsoft pays 90% of your license cost| $80.00 per month<br>``*`` $90.00 per month |
-|||
-
-**`*` Reduced Marketplace Service Fee** – For certain SaaS offers that you have published on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five (5) business days before the end of each calendar month to receive the Reduced Marketplace Service Fee. Once eligibility is met, the reduced service fee is awarded to all transactions effective the first day of the following month and will continue to be applied until Azure IP Co-sell incentivized status is lost. For details about IP co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). The Reduced Marketplace Service Fee also applies to Azure IP Co-sell incentivized VMs, Managed Apps, and any other qualified transactable IaaS offers made available through the commercial marketplace.
-
-## Preview audience
+| Microsoft charges a 3% Marketplace Service Fee and pays you 97% of your license cost | $97.00 per month |
+|
 
 A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live. 
 

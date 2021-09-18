@@ -2,11 +2,10 @@
 title: Understand Azure IoT Hub message format | Microsoft Docs
 description: Developer guide - describes the format and expected content of IoT Hub messages.
 author: ash2017
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 07/01/2021
 ms.author: asrastog
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
@@ -144,4 +143,4 @@ The **iothub-connection-auth-method** property contains a JSON serialized object
 
 * For information about message size limits in IoT Hub, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
-* To learn how to create and read IoT Hub messages in various programming languages, see the [Quickstarts](quickstart-send-telemetry-node.md).
+* To learn how to create and read IoT Hub messages in various programming languages, see the [Quickstarts](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs).

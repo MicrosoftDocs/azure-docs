@@ -60,7 +60,7 @@ You may have questions regarding how many components to include, or what compone
 | Finished Product                                   | 1          | Customer Ready Product, Discrete | N/A                                              |
 | Finished Product with **detachable peripheral(s)** | 2 or more  | Customer Ready Product, Discrete | Peripheral / Discrete or Integrated              |
 | Finished Product with **integrated component(s)**  | 2 or more  | Customer Ready Product, Discrete | Select appropriate type / Discrete or integrated |
-| Solution-Ready Dev Kit                             | 2 or more  | Customer Ready Product, Discrete or Integrated| Select appropriate type / Discrete or integrated |
+| Solution-Ready Dev Kit                             | 1 or more  | Customer Ready Product or Development Board, Discrete or Integrated| Select appropriate type / Discrete or integrated |
 
 ## Example component usage
 

@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 07/26/2021
 
 ms.author: mimart
 author: msmimart
@@ -16,9 +16,6 @@ ms.collection: M365-identity-device-management
 
 # Add a self-service sign-up user flow to an app
 
-> [!NOTE]
-> Some of the features mentioned in this article are public preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 For applications you build, you can create user flows that allow a user to sign up for an app and create a new guest account. A self-service sign-up user flow defines the series of steps the user will follow during sign-up, the identity providers you'll allow them to use, and the user attributes you want to collect. You can associate one or more applications with a single user flow.
 
 > [!NOTE]
@@ -28,9 +25,9 @@ For applications you build, you can create user flows that allow a user to sign 
 
 ### Add identity providers (optional)
 
-Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account (Preview), and Email One-time Passcode (Preview). For more information, see these articles:
+Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and Email One-time Passcode. For more information, see these articles:
 
-- [Microsoft Account (Preview) identity provider](microsoft-account.md)
+- [Microsoft Account identity provider](microsoft-account.md)
 - [Email one-time passcode authentication](one-time-passcode.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
 - [Add Google to your list of social identity providers](google-federation.md)
