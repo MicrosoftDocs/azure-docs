@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Collect guest metrics and logs from Azure virtual machine
-description: Start here to learn how to monitor Azure virtual machines
+description: Create data collection rule to collect guest logs and metrics from Azure virtual machine.
 ms.service: container-service
 ms.topic: article
 ms.custom: subject-monitoring

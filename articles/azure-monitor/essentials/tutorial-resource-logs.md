@@ -4,7 +4,7 @@ description: Tutorial to configure diagnostic settings to send resource logs fro
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 12/15/2021
+ms.date: 09/15/2021
 ---
 
 # Tutorial: Collect and analyze resource logs from an Azure resource

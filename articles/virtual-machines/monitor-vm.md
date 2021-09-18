@@ -51,7 +51,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 The following table lists common and recommended alert rules for AKS.
 
 ### Metric alert rules
-The following table lists common metric alerts used for virtual machines. If you're not familiar with creating metric alert rules, see [Tutorial: Create a metric alert in Azure Monitor](../azure-monitor/alerts/tutorial-metric-alerts.md).
+The following table lists common metric alerts used for virtual machines. If you're not familiar with creating metric alert rules, see [Tutorial: Create a metric alert in Azure Monitor](../azure-monitor/alerts/tutorial-metric-alert.md).
 
 | Type | Rule Name | Condition | Description  |
 |:---|:---|:---|:---|
@@ -65,7 +65,7 @@ The following table lists common metric alerts used for virtual machines. If you
 These alerts are also available as *Recommended alerts (Preview)* in the *Insights* area under *Monitoring* in the Azure portal.
 
 ### Log alert rules
-If you're not familiar with creating log query alert rules, see [Tutorial: Create a log query alert in Azure Monitor](../azure-monitor/alerts/tutorial-metric-alerts.md).
+If you're not familiar with creating log query alert rules, see [Tutorial: Create a log query alert in Azure Monitor](../azure-monitor/alerts/tutorial-metric-alert.md).
 
 For common log alert rules, see the **Queries** in Log Analytics for **Resource type** of *Virtual machines* and type of **Alerts**. Examples of alert queries include the following:
 
@@ -90,5 +90,3 @@ See [Enable Azure Monitor for single virtual machine or virtual machine scale se
 
 ## Next steps
 
-- See [Monitoring AKS data reference](monitor-aks-reference.md) for a reference of the metrics, logs, and other important values created by AKS.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.

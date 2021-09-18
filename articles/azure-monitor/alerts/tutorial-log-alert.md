@@ -23,11 +23,11 @@ In this tutorial, you learn how to:
 To complete this tutorial you need the following: 
 
 - An Azure resource to monitor. You can use any resource in your Azure subscription that supports diagnostic settings. To determine whether a resource supports diagnostic settings, go to its menu in the Azure portal and verify that there's a **Diagnostic settings** option in the **Monitoring** section of the menu.
-- A Log Analytics workspace to collect the resource logs. See [Tutorial: Create Log Analytics workspace in Azure Monitor](../logs/tutorial-workspace.md).
+
 
 If you're using any Azure resource other than a virtual machine:
 
-- A diagnostic setting to send the resource logs from your Azure resource to a Log Analytics workspace. See [Tutorial: Create Log Analytics workspace in Azure Monitor](../logs/tutorial-workspace.md).
+- A diagnostic setting to send the resource logs from your Azure resource to a Log Analytics workspace. See [Tutorial: Create Log Analytics workspace in Azure Monitor](../essentials/tutorial-resource-logs.md).
 
 If you're using an Azure virtual machine:
 
@@ -40,7 +40,7 @@ Data is retrieved from a Log Analytics workspace using a log query written in Ku
 
 Under the **Monitoring** section of your resource's menu, select **Logs**. Log Analytics opens with an empty query window with the scope set to your resource. Any queries will include only records from that resource.
 
-![Screenshot shows Logs for a logic app displaying a new query with the logic app name highlighted.](media/tutorial-log-alert/logs.png)
+
 
 Click **Queries** to view prebuilt queries for the **Resource type** and then select **Alerts** to view queries specifically designed for alert rules.
 

@@ -86,8 +86,9 @@ Click on the name of an alert to view its detail.
 
 
 ## Next steps
-Now that you've learned how to create a metric alert for an Azure resource in Azure Monitor, create a Log Analytics workspace to collect log data for your resources.
+Now that you've learned how to create a metric alert for an Azure resource, use one of the following tutorials to collect log data.
 
 > [!div class="nextstepaction"]
-> [Create Log Analytics workspace in Azure Monitor](../logs/tutorial-workspace.md)
-
+> [Collect resource logs from an Azure resource](../logs/get-started-queries.md)
+> [!div class="nextstepaction"]
+> [Get started with log queries in Azure Monitor](../logs/get-started-queries.md)

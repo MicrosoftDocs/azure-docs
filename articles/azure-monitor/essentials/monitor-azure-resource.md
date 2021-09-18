@@ -8,7 +8,7 @@ ms.date: 09/15/2021
 
 ---
 
-# Monitoring Azure resources with Azure Monitor
+# Tutorial: Monitor Azure resources with Azure Monitor
 When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. This monitoring is provided by Azure Monitor, which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
 In this tutorial, you learn:
@@ -33,7 +33,7 @@ Azure resources generate the following monitoring data:
 As soon as you create an Azure resource, Azure Monitor is enabled and starts collecting metrics and activity logs. With some configuration, you can gather additional monitoring data and enable additional features. The Azure Monitor data platform is made up of Metrics and Logs. Each collects different kinds of data and enables different Azure Monitor features.
 
 - [Azure Monitor Metrics](../essentials/data-platform-metrics.md) stores numeric data from monitored resources into a time series database. The metric database is automatically created for each Azure subscription. Use [metrics explorer](../essentials/tutorial-metrics.md) to analyze data from Azure Monitor Logs.
-- [Azure Monitor Logs](../logs/data-platform-logs.md) collects logs and performance data where they can be retrieved and analyzed in a different ways using log queries. You must [create a Log Analytics workspace](../logs/tutorial-create-workspace.png) to collect log data. Use [Log Analytics](../logs/tutorial-logs.md) to analyze data from Azure Monitor Logs.
+- [Azure Monitor Logs](../logs/data-platform-logs.md) collects logs and performance data where they can be retrieved and analyzed in a different ways using log queries. You must create a Log Analytics workspace to collect log data. Use [Log Analytics](../logs/tutorial-logs.md) to analyze data from Azure Monitor Logs.
 
 ## Menu options
 Azure Monitor features are integrated into the menu for different Azure services. While different Azure services may have slightly different experiences, they share a common set of monitoring options in the Azure portal. This includes **Overview** and **Activity log** and multiple options in the **Monitoring** section of the menu. 
@@ -78,8 +78,10 @@ See [Tutorial: Collect and analyze resource logs from an Azure resource](../esse
 The **Insights** menu item opens the insight for the resource if the Azure service has one. [Insights](../monitor-reference.md) provide a customized monitoring experience built on the Azure Monitor data platform and standard features. 
 
 
-See [Insights and Core solutions](../monitor-reference#insights-and-core-solutions.png) for a list of insights that are available and links to their documentation.
+See [Insights and Core solutions](../monitor-reference.md#insights-and-core-solutions) for a list of insights that are available and links to their documentation.
 
 ## Next steps
+Now that you have a basic understanding of Azure Monitor, get start analyzing some metrics for an Azure resource.
 
-* See [Supported services, schemas, and categories for Azure Resource Logs](./resource-logs-schema.md) for details of resource logs for different Azure services.
+> [!div class="nextstepaction"]
+> [Analyze metrics for an Azure resource](../alerts/tutorial-metrics.md)
