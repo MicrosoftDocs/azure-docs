@@ -10,7 +10,7 @@ ms.date: 09/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: jairoc
 
 #Customer intent: As an IT admin, I wan to know how to require managed devices for the access to certain resources to ensure that they are accessed only from devices that meet my standards for security and compliance
