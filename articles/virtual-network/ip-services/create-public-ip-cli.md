@@ -36,9 +36,8 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 
 >[!NOTE]
 >Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
-
->[!NOTE]
->The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
+>
+>The following command works for API version **2020-08-01** or **later**.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard zone-redundant public IPv4 address named **myStandardPublicIP** in **QuickStartCreateIP-rg**.  
 
@@ -53,7 +52,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
     --zone 1 2 3
 ```
 > [!IMPORTANT]
-> For versions of the API older than 2020-08-01, execute the command without specifying a zone parameter to create a zone-redundant IP address. 
+> For versions of the API older than 2020-08-01, execute the command without specifying a **`--zone`** parameter to create a zone-redundant IP address. 
 >
 
 # [**Basic SKU**](#tab/create-public-ip-basic)
