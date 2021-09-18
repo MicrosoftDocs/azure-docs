@@ -153,7 +153,7 @@ The following steps help you create, edit, and view diagnostic settings:
 
    :::image type="content" source="./media/monitor-virtual-wan/view-hub-gateway-logs.png" alt-text="Screenshot for Select View in Azure Monitor for Logs.":::
 
-4. In this page you can create new diagnostic setting (**+Add diagnostic setting**) or edit existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the example below), stream to an event hub, send to a 3rd-party solution, or to archive to a storage account.
+4. In this page, you can create new diagnostic setting (**+Add diagnostic setting**) or edit existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the example below), stream to an event hub, send to a 3rd-party solution, or to archive to a storage account.
 
     :::image type="content" source="./media/monitor-virtual-wan/select-gateway-settings.png" alt-text="Screenshot for Select Diagnostic Log settings.":::
 
@@ -178,6 +178,7 @@ In order to execute the query, you have to open the Log Analytics resource you c
 :::image type="content" source="./media/monitor-virtual-wan/log-analytics-query-samples.png" alt-text="Log Analytics Query Samples.":::
 
 For additional Log Analytics query samples for Azure VPN Gateway, both Site-to-Site and Point-to-Site, you can visit the page [Troubleshoot Azure VPN Gateway using diagnostic logs](../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md). 
+For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, it will be possible to investigate into the diagnostic data without manually writing any Log Analytics query. 
 
 ## <a name="activity-logs"></a>Activity logs
 
