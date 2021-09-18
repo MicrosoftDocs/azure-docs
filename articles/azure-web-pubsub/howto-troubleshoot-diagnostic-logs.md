@@ -1,6 +1,6 @@
 ---
-title: How to troubleshoot with Azure Web PubSub service diagnostic logs
-description: Learn how to get and troubleshoot with diagnostic logs
+title: How to troubleshoot with Azure Web PubSub service resource logs
+description: Learn how to get and troubleshoot with resource logs
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ---
 
-# How to troubleshoot with diagnostic logs
+# How to troubleshoot with resource logs
 
-This how-to guide shows you the options to get the diagnostic logs and how to troubleshoot with them.
+This how-to guide shows you the options to get the resource logs and how to troubleshoot with them.
 
-## What's the diagnostic logs?
+## What's the resource logs?
 
-The diagnostic logs provide richer view of connectivity, messaging and HTTP request information to the Azure Web PubSub service instance. They can be used for issue identification, connection tracking, message tracing, HTTP request tracing and analysis.
+The resource logs provide richer view of connectivity, messaging and HTTP request information to the Azure Web PubSub service instance. They can be used for issue identification, connection tracking, message tracing, HTTP request tracing and analysis.
 
 There are three types of logs: connectivity log, messaging log and HTTP request logs.
 
@@ -30,12 +30,12 @@ Messaging logs provide tracing information for the Azure Web PubSub hub messages
 
 Http request logs provide tracing information for HTTP requests to the Azure Web PubSub service. For example, HTTP method and status code. Typically the HTTP request is recorded when it arrives at or leave from service. So HTTP request logs are helpful for troubleshooting request-related issues.
 
-## Capture diagnostic logs with Azure Web PubSub service live trace tool 
+## Capture resource logs with Azure Web PubSub service live trace tool 
 
-The Azure Web PubSub service live trace tool has ability to collect diagnostic logs in real time, and is helpful to trace with customer's development environment. The live trace tool could capture connectivity logs, messaging logs and HTTP request logs.
+The Azure Web PubSub service live trace tool has ability to collect resource logs in real time, and is helpful to trace with customer's development environment. The live trace tool could capture connectivity logs, messaging logs and HTTP request logs.
 
 > [!NOTE]
-> The real-time diagnostic logs captured by live trace tool will be billed as messages (outbound traffic).
+> The real-time resource logs captured by live trace tool will be billed as messages (outbound traffic).
 
 > [!NOTE]
 > The Azure Web PubSub service instance created as free tier has the daily limit of messages (outbound traffic).
@@ -44,24 +44,24 @@ The Azure Web PubSub service live trace tool has ability to collect diagnostic l
 
 1. Go to the Azure portal. 
 2. On the **Live trace settings** page of your Azure Web PubSub service instance, check **Enable Live Trace** if it's disabled.
-3. Check any log category you need below.
+3. Check any log category you need.
 4. Click **Save** button and wait until the settings take effect.
 5. Click *Open Live Trace Tool*
 
     :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Launch the live trace tool.":::
 
-### Capture the diagnostic logs
+### Capture the resource logs
 
-The live trace tool provides some fundamental functionalities to help you capture the diagnostic logs for troubleshooting.
+The live trace tool provides some fundamental functionalities to help you capture the resource logs for troubleshooting.
 
-* **Capture**: Begin to capture the real-time diagnostic logs from Azure Web PubSub instance with live trace tool.
-* **Clear**: Clear the captured real-time diagnostic logs.
-* **Log filter**: The live trace tool allows you filtering the captured real-time diagnostic logs with one specific key word. The common separator (for example, space, comma, semicolon, and so on) will be treated as part of the key word. 
+* **Capture**: Begin to capture the real-time resource logs from Azure Web PubSub instance with live trace tool.
+* **Clear**: Clear the captured real-time resource logs.
+* **Log filter**: The live trace tool allows you filtering the captured real-time resource logs with one specific key word. The common separator (for example, space, comma, semicolon, and so on) will be treated as part of the key word. 
 * **Status**: The status shows whether the live trace tool is connected or disconnected with the specific instance.
 
-:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/live-trace-tool-capture.png" alt-text="Capture diagnostic logs with live trace tool.":::
+:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/live-trace-tool-capture.png" alt-text="Capture resource logs with live trace tool.":::
 
-The real-time diagnostic logs captured by live trace tool contain detailed information for troubleshooting. 
+The real-time resource logs captured by live trace tool contain detailed information for troubleshooting. 
 
 | Name | Description |
 | ------------ |  ------------------------ | 
@@ -77,19 +77,85 @@ The real-time diagnostic logs captured by live trace tool contain detailed infor
 
 After the Azure Web PubSub service is GA, the live trace tool will also support to export the logs as a specific format and then help you share with others for troubleshooting. 
 
-## Capture diagnostic logs with Azure Monitor
+## Capture resource logs with Azure Monitor
 
-Integration with [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage), and [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) to capture the diagnostic logs is not supported for public preview.
+### How to enable resource logs
 
-## Troubleshoot with the diagnostic logs
+Currently Azure Web PubSub supports integrate with [Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
-When finding connection unexpected growing or dropping situation, you can take advantage of diagnostic logs to troubleshoot. Typical issues are often about connections' unexpected quantity changes, connections reach connection limits and authorization failure.
+1. Go to Azure portal.
+2. On **Diagnostic settings** page of your Azure Web PubSub service instance, click **+ Add diagnostic setting** link.
+3. In **Diagnostic setting name**, input the setting name.
+4. In **Category details**, select any log category you need.
+5. In **Destination details**, check **Archive to a storage account**.
+6. Click **Save** button to save the diagnostic setting.
+
+:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-list.png" alt-text="View diagnostic settings and create a new one":::
+
+:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-details.png" alt-text="Setup diagnostic setting detail":::
+
+> [!NOTE]
+> the storage account should be the same region to Azure Web PubSub service.
+
+### Archive to a storage account
+
+Logs are stored in the storage account that configured in **Diagnostics setting** pane. A container named `insights-logs-<CATEGORY_NAME>` is created automatically to store resource logs. Inside the container, logs are stored in the file `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`. Basically, the path is combined by `resource ID` and `Date Time`. The log files are split by `hour`. Therefore, the minutes always be `m=00`.
+
+All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following sections.
+
+Archive log JSON strings include elements listed in the following tables:
+
+**Format**
+
+Name | Description
+------- | -------
+time | Log event time
+level | Log event level
+resourceId | Resource ID of your Azure SignalR Service
+location | Location of your Azure SignalR Service
+category | Category of the log event
+operationName | Operation name of the event
+callerIpAddress | IP address of your server/client
+properties | Detailed properties related to this log event. For more detail, see the properties table below
+
+**Properties Table**
+
+Name | Description
+------- | -------
+collection | Collection of the log event. Allowed values are: `Connection`, `Authorization` and `Throttling`
+connectionId | Identity of the connection
+userId | Identity of the user
+message | Detailed message of log event
+
+The following code is an example of an archive log JSON string:
+
+```json
+{
+  "properties": {
+    "message": "Connection started",
+    "collection": "Connection",
+    "connectionId": "LW61bMG2VQLIMYIVBMmyXgb3c418200",
+    "userId": null
+  },
+  "operationName": "ConnectionStarted",
+  "category": "ConnectivityLogs",
+  "level": "Informational",
+  "callerIpAddress": "167.220.255.79",
+  "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYGROUP/PROVIDERS/MICROSOFT.SIGNALRSERVICE/WEBPUBSUB/MYWEBPUBSUB",
+  "time": "2021-09-17T05:25:05Z",
+  "location": "westcentralus"
+}
+```
+
+## Troubleshoot with the resource logs
+
+When finding connection unexpected growing or dropping situation, you can take advantage of resource logs to troubleshoot. Typical issues are often about connections' unexpected quantity changes, connections reach connection limits and authorization failure.
 
 ### Unexpected connection number changes
 
 #### Unexpected connection dropping
 
-If a connection disconnects, the diagnostic logs will record this disconnecting event with `ConnectionAborted` or `ConnectionEnded` in `operationName`.
+If a connection disconnects, the resource logs will record this disconnecting event with `ConnectionAborted` or `ConnectionEnded` in `operationName`.
 
 The difference between `ConnectionAborted` and `ConnectionEnded` is that `ConnectionEnded` is an expected disconnecting which is triggered by client or server side. While the `ConnectionAborted` is usually an unexpected connection dropping event, and aborting reason will be provided in `message`.
 
@@ -103,12 +169,12 @@ The abort reasons are listed in the following table:
 
 #### Unexpected connection growing
 
-To troubleshoot about unexpected connection growing, the first thing you need to do is to filter out the extra connections. You can add unique test user ID to your test client connection. Then verify it in with diagnostic logs, if you see more than one client connections have the same test user ID or IP, then it is likely the client side create and establish more connections than expectation. Check your client side.
+To troubleshoot about unexpected connection growing, the first thing you need to do is to filter out the extra connections. You can add unique test user ID to your test client connection. Then verify it in with resource logs, if you see more than one client connections have the same test user ID or IP, then it is likely the client side create and establish more connections than expectation. Check your client side.
 
 ### Authorization failure
 
-If you get 401 Unauthorized returned for client requests, check your diagnostic logs. If you meet `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`, it means all audiences in your access token are invalid. Try to use the valid audiences suggested in the log.
+If you get 401 Unauthorized returned for client requests, check your resource logs. If you meet `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`, it means all audiences in your access token are invalid. Try to use the valid audiences suggested in the log.
 
 ### Throttling
 
-If you find that you cannot establish client connections to Azure Web PubSub service, check your diagnostic logs. If you meet `Connection count reaches limit` in diagnostic log, you establish too many connections to Azure Web PubSub service, which reach the connection count limit. Consider scaling up your Azure Web PubSub service instance. If you meet `Message count reaches limit` in diagnostic log, it means you use free tier, and you use up the quota of messages. If you want to send more messages, consider changing your Azure Web PubSub service instance to standard tier to send additional messages. For more information, see [Azure Web PubSub service Pricing](https://azure.microsoft.com/pricing/details/web-pubsub/).
+If you find that you cannot establish client connections to Azure Web PubSub service, check your resource logs. If you meet `Connection count reaches limit` in resource log, you establish too many connections to Azure Web PubSub service, which reach the connection count limit. Consider scaling up your Azure Web PubSub service instance. If you meet `Message count reaches limit` in resource log, it means you use free tier, and you use up the quota of messages. If you want to send more messages, consider changing your Azure Web PubSub service instance to standard tier to send additional messages. For more information, see [Azure Web PubSub service Pricing](https://azure.microsoft.com/pricing/details/web-pubsub/).
