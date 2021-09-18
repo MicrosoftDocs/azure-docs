@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control.
