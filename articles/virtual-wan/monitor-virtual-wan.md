@@ -23,11 +23,11 @@ If you have chosen to secure your Virtual Hub using Azure Firewall, relevant log
 You can monitor the Secured Hub using Azure Firewall logs and metrics. You can also use activity logs to audit operations on Azure Firewall resources.
 For every Azure Virtual WAN you secure and convert to a Secured Hub, an explicit firewall resource object is created in the resource group where the hub is located. 
 
-:::image type="content" source="./media/monitor-virtual-wan/FirewallResourceInTheAzurePortal.png" alt-text="Screenshot shows a Firewall resource in the vWAN hub resource group.":::
+:::image type="content" source="./media/monitor-virtual-wan/firewall-resources-portal.png" alt-text="Screenshot shows a Firewall resource in the vWAN hub resource group.":::
 
 Diagnostics and logging configuration must be done from there accessing the **Diagnostic Setting** tab:
 
-:::image type="content" source="./media/monitor-virtual-wan/FirewallDiagnosticsSettings.png" alt-text="Screenshot shows Firewall diagnostic settings.":::
+:::image type="content" source="./media/monitor-virtual-wan/firewall-diagnostic-settings.png" alt-text="Screenshot shows Firewall diagnostic settings.":::
 
 
 ## Metrics
@@ -104,7 +104,7 @@ The following steps help you locate and view metrics:
 
 3. Select **Metrics**.
 
-   :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhubGatewayViewMetricsInAzureMonitor.png" alt-text="Screenshot shows a site to site V P N pane with View in Azure Monitor selected.":::
+   :::image type="content" source="./media/monitor-virtual-wan/view-metrics.png" alt-text="Screenshot shows a site to site VPN pane with View in Azure Monitor selected.":::
 
 4. On the **Metrics** page, you can view the metrics that you are interested in.
 
@@ -143,19 +143,19 @@ The following steps help you create, edit, and view diagnostic settings:
 
 1. In the portal, navigate to your Virtual WAN resource, then select **Hubs** in the **Connectivity** group. 
 
-   :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhub.png" alt-text="Screenshot that shows the Hub selection in the vWAN Portal.":::
+   :::image type="content" source="./media/monitor-virtual-wan/select-hub.png" alt-text="Screenshot that shows the Hub selection in the vWAN Portal.":::
 
 2. Under the **Connectivity** group on the left select the gateway you want to examine the diagnostics:
 
-   :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhubGateway.png" alt-text="Screenshot that shows the 'Connectivity' section for the hub.":::
+   :::image type="content" source="./media/monitor-virtual-wan/select-hub-gateway.png" alt-text="Screenshot that shows the Connectivity section for the hub.":::
 
 3. On the right part of the page, click on **View in Azure Monitor** link right to **Logs**  then select an option. You can choose to send to Log Analytics, stream to an event hub, or to simply archive to a storage account.
 
-   :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhubGatewayViewLogsInAzureMonitor.png" alt-text="Select View in Azure Monitor for Logs":::
+   :::image type="content" source="./media/monitor-virtual-wan/view-hub-gateway-logs.png" alt-text="Screenshot for Select View in Azure Monitor for Logs.":::
 
 4. In this page you can create new diagnostic setting (**+Add diagnostic setting**) or edit existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the example below), stream to an event hub, send to a 3rd-party solution, or to archive to a storage account.
 
-    :::image type="content" source="./media/monitor-virtual-wan/SelectVWANhubGatewayDiagSettings.png" alt-text="Select Diagnostic Log settings":::
+    :::image type="content" source="./media/monitor-virtual-wan/select-gateway-settings.png" alt-text="Screenshot for Select Diagnostic Log settings.":::
 
 ### <a name="sample-query"></a>Log Analytics sample query
 
@@ -175,7 +175,7 @@ Replace the values below, after the **= =**, as needed based on the tables repor
 
 In order to execute the query, you have to open the Log Analytics resource you configured to receive the diagnostic logs, and then select **Logs** under the **General** tab on the left side of the pane:
 
-:::image type="content" source="./media/monitor-virtual-wan/vWANDiagnosticLogAnalyticsQuerySamples.png" alt-text="Log Analytics Query Samples":::
+:::image type="content" source="./media/monitor-virtual-wan/log-analytics-query-samples.png" alt-text="Log Analytics Query Samples.":::
 
 ## <a name="activity-logs"></a>Activity logs
 
