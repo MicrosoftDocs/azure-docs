@@ -17,10 +17,7 @@ zone_pivot_groups: runtime-version-programming-functions
 
 In this article, you use command-line tools to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-This article supports creating both types of compiled C# functions: 
-
-+ [In-process](create-first-function-cli-csharp.md?tabs=in-process) - runs in the same process as the Functions host process. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-+ [Isolated process](create-first-function-cli-csharp.md?tabs=isolated-process) - runs in a separate .NET worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+[!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 

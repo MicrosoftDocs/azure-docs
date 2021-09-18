@@ -18,10 +18,7 @@ zone_pivot_groups: runtime-version-programming-functions
 In this article, you use Visual Studio Code to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 ::: zone pivot="programming-runtime-functions-v3"
-This article supports creating both types of compiled C# functions: 
-
-+ [In-process](create-first-function-vs-code-csharp.md?tabs=in-process) - runs in the same process as the Functions host process. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-+ [Isolated process](create-first-function-vs-code-csharp.md?tabs=isolated-process) - runs in a separate .NET worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+[!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]    
 ::: zone-end
 ::: zone pivot="programming-runtime-functions-v4"
 > [!NOTE]
