@@ -23,11 +23,13 @@ In this tutorial, you learn how to:
 To complete this tutorial you need the following: 
 
 - An Azure resource to monitor. You can use any resource in your Azure subscription that supports diagnostic settings. To determine whether a resource supports diagnostic settings, go to its menu in the Azure portal and verify that there's a **Diagnostic settings** option in the **Monitoring** section of the menu.
-- A Log Analytics workspace to collect the resource logs. If you don't already have a workspace, follow [Tutorial: Create Log Analytics workspace in Azure Monitor](../logs/tutorial-workspace.md) to create one.
+
 
 > [!NOTE]
 > This procedure does not apply to Azure virtual machines since their **Diagnostic settings** menu is used to configure the diagnostic extension.
 
+## Create a Log Analytics workspace
+[!INCLUDE [Create workspace](../../../includes/azure-monitor-tutorial-workspace.md)]
 
 ## Create a diagnostic setting
 [Diagnostic settings](../essentials/diagnostic-settings.md) define where resource logs should be sent for a particular resource. A single diagnostic setting can have multiple [destinations](../essentials/diagnostic-settings.md#destinations), but we'll only use a Log Analytics workspace in this tutorial.

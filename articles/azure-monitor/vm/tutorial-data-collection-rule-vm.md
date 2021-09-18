@@ -7,77 +7,82 @@ ms.custom: subject-monitoring
 ms.date: 06/21/2021
 ---
 
-# Tutorial: Collect guest metrics and logs from Azure virtual machine
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. Log query alert rules create an alert when a log query returns a particular result. For example, receive an alert when a particular event is created on a virtual machine, or send a warning when excessive anonymous requests are made to a storage account.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Understand agents required to collect guest data from Azure virtual machines
-> * Create a data collection rule to define collection details
-> * Verify that metrics and logs are being collected
-
-
-## Azure Monitor agent
-Azure Monitor starts collecting metric data for your virtual machine host automatically. To collect metrics and logs from the guest operating system of the virtual machine though, you must install an agent that can send this data to Azure Monitor. 
-
-The [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) is installed on Azure Monitor virtual machines and allows you to collect metrics and logs. You define the data to collect with a data collection rule, and this process will automatically install the Azure Monitor agent.
-
-
-## Create data collection rule
-
+# Tutorial: Collect guest metrics and logs from Azure virtual machine (preview)
+To collect guest metrics and logs from an Azure virtual machine, you must install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule](../agents/data-collection-rule-overview.md) . 
 
 > [!NOTE]
 > Prior to the Azure Monitor agent, guest metrics for Azure virtual machines were collected with the [Azure diagnostic extension](../agents/diagnostics-extension-overview.md) for Windows (WAD) and Linux (LAD). These agents are still available and can be configured with the **Diagnostic settings** menu item for the virtual machine, but they are in the process of being replaced with Azure Monitor agent.
 
-You must currently install the Azure Monitor agent from **Monitor** menu in the Azure portal. This functionality is not yet available from the virtual machine's menu. You create a [data collection rule]() that defines the data you want to collect, and the agent is automatically installed on any virtual machines you select.
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a data collection rule to define collection details and install Azure Monitor agent
+> * Verify that metrics and logs are being collected
+
+## Prerequisites
+
+To complete this tutorial you need the following: 
+
+- An Azure virtual machine to monitor.
+
+
+## Create a Log Analytics workspace
+[!INCLUDE [Create workspace](../../../includes/azure-monitor-tutorial-workspace.md)]
+
+## Create data collection rule
+[Data collection rules](../agents/data-collection-rule-overview.md) in Azure Monitor define data to collect and where it should be sent. When you define the data collection rule using the Azure portal, you specify the virtual machines it should be applied to. The Azure Monitor agent will automatically be installed on any virtual machines that don't already have it.
+
+> [!NOTE]
+> You must currently install the Azure Monitor agent from **Monitor** menu in the Azure portal. This functionality is not yet available from the virtual machine's menu. 
 
 From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and then **Create** to create a new data collection rule.
 
 :::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-create.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-create.png" alt-text="Create data collection rule":::
 
-
-On the **Basics** tab, provide the following values:
-
-- **Rule Name:** The name of the rule displayed in the Azure portal.
-- **Subscription**: Select the subscription to store the data collection rule. This does not need to be the same subscription same as the resource being monitored.
-- **Resource Group**: Select an existing resource group or click **Create new** to create a new one. This does not need to be the same resource group same as the resource being monitored.
-- **Region**: Select an Azure region or create a new one. This does not need to be the same location same as the resource being monitored.
-- **Platform:** Select with *Windows* or *Linux* depending on the type of virtual machine you're monitoring.
+On the **Basics** tab, provide a **Rule Name** which is the name of the rule displayed in the Azure portal. Select a **Subscription**, **Resource Group**, and **Region** where the DCR and its associations will be stored. These do not need to be the same as the resources being monitored. The **Platform Type** defines the options that are available as you define the rest of the DCR. Select *Windows* or *Linux* if it will be associated only those resources or *Custom* if it will be associated with both types.
 
 :::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-basics.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-basics.png" alt-text="Data collection rule basics":::
 
-On the **Resources** tab, click **Add resources**. Select either your virtual machine or the resource group or subscription where your virtual machine is located. The data collection rule will apply to all virtual machines in the selected scope.
+## Select resources
+On the **Resources** tab, identify one or more virtual machines that the data collection rule will apply to. The Azure Monitor agent will be installed on any that don't already have it. Click **Add resources** and select either your virtual machines or the resource group or subscription where your virtual machine is located. The data collection rule will apply to all virtual machines in the selected scope.
 
 :::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-resources.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-resources.png" alt-text="Data collection rule resources":::
 
+## Select data sources
+A single data collection rule can have multiple data sources. For this tutorial, we'll use the same rule to collect both guest metrics and guest logs. We'll also send metrics both to Azure Monitor Metrics and to Azure Monitor Logs so that they can be analyzed both with metrics explorer and Log Analytics.
 
-On the **Collect and deliver** tab, click **Add data source**. For the **Data source type**, select **Performance counters**. Leave the **Basic** setting and select the events that you want to collect. **Custom** allows you to select individual metric values.
+On the **Collect and deliver** tab, click **Add data source**. For the **Data source type**, select **Performance counters**. Leave the **Basic** setting and select the events that you want to collect. **Custom** allows you to select individual metric values. 
 
 :::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source.png" alt-text="Data collection rule data source":::
 
-Click **Review + create** to create the data collection rule and install the Azure Monitor agent on the selected virtual machines.
+Select the **Destination** tab. **Azure Monitor Metrics** should already be listed. Click **Add destination** to add another. Select **Azure Monitor Logs** for the **Destination type**. Select your Log Analytics workspace for the **Account or namespace**. Click **Add data source** to save the data source.
 
 
-## Collect guest logs
-You can collect logs from the guest operating of a virtual machine for analysis and alerting. This includes the Windows event log for Windows machines and Syslog for Linux machines. This is done with the same Azure Monitor agent and data collection rule used to collect metrics. 
 
-From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and locate the data collection you created for metrics.
+Click **Add data source** again to add logs to the data collection rule. For the **Data source type**, select **Windows event logs** or **Linux syslog**. Leave the **Basic** setting which allows you to select groups of metric values to collect. **Custom** allows you to select individual metric values. Select the types of log data that you want to collect. 
 
-Select **Data sources** and then click **Add data source** to add the data source to the data collection rule.
-
-On the **Collect and deliver** tab, click **Add data source**. For the **Data source type**, select **Windows event logs** or **Linux syslog**. Leave the **Basic** setting which allows you to select groups of metric values to collect. **Custom** allows you to select individual metric values.
+Select the **Destination** tab. *Azure Monitor Logs* should already be selected for the **Destination type**. Select you Log Analytics workspace for the **Account or namespace**. Click **Add data source** to save the data source.
 
 Click **Review + create** to create the data collection rule and install the Azure Monitor agent on the selected virtual machines.
 
 ## Analyzing logs
 
-Data in Azure Monitor Logs is stored in tables in a Log Analytics workspace. Retrieve log data with a log query in Log Analytics. You can interactively work with the data, pin results to an Azure dashboard, or create an alert based on log query results.
+Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). A set of precreated queries are available for may Azure resource so that you don't require knowledge of KQL to get started.
 
-For a list of the types of logs collected for virtual machines, see [Monitoring Azure virtual machines data reference](monitor-vm-reference.md#resource-logs).
+Select **Logs** from your resource's menu. Log Analytics opens with an empty query window with the scope set to your resource. Any queries will include only records from that resource.
 
-If you're not familiar with using Log Analytics, see [Analyze logs from an Azure resource](../logs/tutorial-logs.md)
 
+:::image type="content" source="media/tutorial-resource-logs/logs.png" lightbox="media/tutorial-resource-logs/logs.png"alt-text="Screenshot shows Logs for a logic app displaying a new query with the logic app name highlighted.":::
+
+
+Click **Queries** to view prebuilt queries for **Virtual machines**. 
+
+
+
+Browse through the available queries. Identify one to run and click **Run**. 
+
+
+The query is added to the query window and the results returned.
 
 
 ## Next steps

@@ -48,24 +48,7 @@ You can accept the default time granularity or modify it to your requirements. *
 Click **Done** when you're done configuring the signal logic.
 
 ## Add action group
-[Action groups](../alerts/action-groups.md) define a set of actions to take when an alert is fired such as sending an email or an SMS message.
-
-Click **Add action groups** to add one to the alert rule.
-
-:::image type="content" source="media/tutorial-metric-alert/add-action-group.png" lightbox="./media/tutorial-metric-alert/add-action-group.png" alt-text="Add action group":::
-
-
-If you don't already have an action group in your subscription to select, then click **Create action group** to create a new one.
-
-:::image type="content" source="media/tutorial-metric-alert/create-action-group.png" lightbox="./media/tutorial-metric-alert/create-action-group.png" alt-text="Create action group":::
-
-Select a **Subscription** and **Resource group** for the action group and give it an **Action group name** that will appear in the portal and a **Display name** that will appear in email and SMS notifications.
-
-:::image type="content" source="media/tutorial-metric-alert/action-group-basics.png" lightbox="./media/tutorial-metric-alert/create-action-basics.png" alt-text="Action group basics":::
-
-Select **Notifications** and add one or mre methods to notify appropriate people when the alert is fired.
-
-:::image type="content" source="media/tutorial-metric-alert/action-group-notifications.png" lightbox="./media/tutorial-metric-alert/action-group-notifications.png" alt-text="Action group notifications":::
+[!INCLUDE [Action groups](../../../includes/azure-monitor-tutorial-action-group.md)]
 
 ## Configure alert rule details
 
