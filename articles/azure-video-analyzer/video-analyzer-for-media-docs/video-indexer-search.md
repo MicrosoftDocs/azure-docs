@@ -1,12 +1,7 @@
 ---
 title: Search for exact moments in videos with Azure Video Analyzer for Media (formerly Video Indexer)
-titleSuffix: Azure Video Analyzer for Media
 description: Learn how to search for exact moments in videos using Azure Video Analyzer for Media (formerly Video Indexer).
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: how-to
 ms.date: 11/23/2019
 ms.author: juliako
 ---

@@ -44,7 +44,7 @@ To reassign an organization to a new parent, select **Edit** and choose a new pa
 To delete an organization, you must delete or move to another organization any associated items such as dashboards, devices, users, device groups, and jobs.
 
 > [!TIP]
-> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/1.1-preview/organizations).
+> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/1.1-previewdataplane/organizations).
 
 ## Assign devices
 
@@ -139,6 +139,13 @@ When you start adding organizations, all existing devices, users, and experience
 - You can reassign devices to a new organization.
 - You can assign users to a new organization and unassign them from the root.
 - You can recreate experience such as dashboards, device groups, and jobs and associate them with organizations in the hierarchy.
+
+## Limits
+
+To following limits apply to organizations:
+
+- The hierarchy can be no more than five levels deep.
+- The total number of organization cannot be more than 200. Each node in the hierarchy counts as an organization.
 
 ## Next steps
 
