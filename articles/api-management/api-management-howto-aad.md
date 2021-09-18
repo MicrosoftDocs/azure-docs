@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to authorize users by using Azure Active Directory in API Management.
 services: api-management
 documentationcenter: API Management
-author: miaojiang
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Authorize developer accounts by using Azure Active Directory in Azure API Management
@@ -77,7 +77,7 @@ This article shows you how to enable access to the developer portal for users fr
 
     > [!NOTE]
     > You can specify multiple domains in the **Allowed Tenants** section. Before any user can sign in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should:
-    > a. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, https://contoso.portal.azure-api.net/aadadminconsent).
+    > a. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, `https://contoso.portal.azure-api.net/aadadminconsent`).
     > b. Type in the domain name of the Azure AD tenant that they want to give access to.
     > c. Select **Submit**. 
 

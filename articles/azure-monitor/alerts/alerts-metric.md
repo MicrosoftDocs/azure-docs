@@ -4,7 +4,7 @@ description: Learn how to use Azure portal or CLI to create, view, and manage me
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/02/2021
+ms.date: 09/09/2021
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 
@@ -120,7 +120,7 @@ The previous sections described how to create, view, and manage metric alert rul
 6. You can disable a metric alert rule using the following command.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --disabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. You can delete a metric alert rule using the following command.

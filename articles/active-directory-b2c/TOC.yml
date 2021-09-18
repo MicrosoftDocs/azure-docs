@@ -332,15 +332,23 @@
       href: configure-tokens.md
   - name: Define custom attributes
     href: user-flow-custom-attributes.md
-  - name: Security and threat management
+  - name: Security
     items:
-    - name: Investigate risk with Identity Protection
-      href: identity-protection-investigate-risk.md
-    - name: Configure Conditional Access
-      href: conditional-access-user-flow.md
-    - name: Mitigate credential attacks
-      displayName: smart lockout, account lockout, password attack
-      href: threat-management.md
+    - name: Monitoring and threat management
+      items:
+      - name: Azure Monitor
+        href: azure-monitor.md
+      - name: Azure Sentinel
+        href: azure-sentinel.md
+        displayName: log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration
+    - name: Web Application Firewall partners
+      items:
+      - name: Akamai
+        href: partner-akamai.md
+      - name: Azure WAF
+        href: partner-azure-web-application-firewall.md
+      - name: Cloudflare
+        href: partner-cloudflare.md
     - name: Fraud protection partners
       items: 
       - name: Arkose Labs
@@ -352,6 +360,28 @@
       - name: Microsoft Dynamics 365 Fraud Protection
         href: partner-dynamics-365-fraud-protection.md
         displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
+    - name: Investigate risk with Identity Protection
+      href: identity-protection-investigate-risk.md
+    - name: Configure Conditional Access
+      href: conditional-access-user-flow.md
+    - name: Mitigate credential attacks
+      displayName: smart lockout, account lockout, password attack
+      href: threat-management.md
+    - name: Secure phone-based MFA
+      href: phone-based-mfa.md
+      displayName: multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard
+    - name: Secure access to legacy and on-premises apps
+      items:
+      - name: Datawiza
+        href: partner-datawiza.md
+      - name: Ping Identity
+        href: partner-ping-identity.md
+      - name: Strata
+        href: partner-strata.md
+        displayName: AAD b2c access, legacy app, onpremises apps
+      - name: Zscaler
+        href: partner-zscaler.md
+        displayName: zscaler b2c, vpn, sdp b2c
   - name: Configure age gating
     href: age-gating.md
   - name: API connectors
@@ -394,32 +424,12 @@
       href: partner-lexisnexis.md
     - name: Onfido
       href: partner-onfido.md
-  - name: Secure access to legacy and on-premises apps
-    items:
-    - name: Datawiza
-      href: partner-datawiza.md
-    - name: Ping Identity
-      href: partner-ping-identity.md
-    - name: Strata
-      href: partner-strata.md
-      displayName: AAD b2c access, legacy app, onpremises apps
-    - name: Zscaler
-      href: partner-zscaler.md
-      displayName: zscaler b2c, vpn, sdp b2c
   - name: Domain name
     items:
     - name: b2clogin.com overview
       href: b2clogin.md
     - name: Configure a custom domain
       href: custom-domain.md
-    - name: Web Application Firewall partners
-      items:
-      - name: Akamai
-        href: partner-akamai.md
-      - name: Azure WAF
-        href: partner-azure-web-application-firewall.md
-      - name: Cloudflare
-        href: partner-cloudflare.md
     - name: Configure web API domains 
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin
@@ -450,23 +460,14 @@
         href: partner-n8identity.md
       - name: Saviynt 
         href: partner-saviynt.md
-  - name: Logs and monitoring
+  - name: Logs 
     items:
     - name: Audit logs
       href: view-audit-logs.md
-      displayName: log, logs, logging, usage, events, reports, reporting
-    - name: Azure Monitor
-      href: azure-monitor.md
       displayName: log, logs, logging, usage, events, reports, reporting, dashboard
-    - name: Azure Sentinel
-      href: azure-sentinel.md
-      displayName: log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration
     - name: Usage analytics
       href: analytics-with-application-insights.md
       displayName: application insights, app insights, reports, reporting
-    - name: Secure phone-based MFA
-      href: phone-based-mfa.md
-      displayName: multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard
   - name: Compliance
     items:
     - name: User access

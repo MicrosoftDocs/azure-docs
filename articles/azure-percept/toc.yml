@@ -85,7 +85,7 @@
           href: delete-voice-assistant-application.md
     - name: Update your Azure Percept devices
       items:
-        - name: How to determine your update strategy
+        - name: Determine your update strategy for Azure Percept DK
           href: how-to-determine-your-update-strategy.md
         - name: Set up Azure IoT Hub to deploy over-the-air updates
           href: how-to-set-up-over-the-air-updates.md
@@ -95,7 +95,7 @@
           href: how-to-update-over-the-air.md
         - name: Update Azure Percept DK over a USB-C connection
           href: how-to-update-via-usb.md
-    - name: Connect to your Azure Percept DK
+    - name: Connect to/from your Azure Percept DK
       items:
         - name: Connect to Azure Percept DK over Ethernet
           href: how-to-connect-over-ethernet.md
@@ -132,10 +132,12 @@
       items:
         - name: Software releases for OTA updates
           href: software-releases-over-the-air-updates.md
-        - name: Azure Percept DK software releases for updating over USB
+        - name: Software releases for USB cable updates
           href: software-releases-usb-cable-updates.md
         - name: Azure Percept DK software release notes
           href: azure-percept-devkit-software-release-notes.md
+        - name: Azure Percept DK Container release notes
+          href: azure-percept-devkit-container-release-notes.md
     - name: Azure Percept device datasheets
       items:
         - name: Azure Percept DK datasheet

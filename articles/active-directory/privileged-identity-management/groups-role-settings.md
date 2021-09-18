@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 09/14/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ Role settings are the default settings that are applied to group owner and group
 
 Follow these steps to open the settings for an Azure privileged access group role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
+1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Global Administrator](../roles/permissions-reference.md#global-administrator) role or who is assigned as the group owner.
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -85,23 +85,23 @@ And, you can choose one of these **active** assignment duration options:
 > [!NOTE]
 > All assignments that have a specified end date can be renewed by resource administrators. Also, users can initiate self-service requests to [extend or renew role assignments](pim-resource-roles-renew-extend.md).
 
-## Require multi-factor authentication
+## Require multifactor authentication
 
 Privileged Identity Management provides optional enforcement of Azure AD Multi-Factor Authentication for two distinct scenarios.
 
-### Require Multi-Factor Authentication on active assignment
+### Require multifactor authentication on active assignment
 
-In some cases, you might want to assign a user or group to a role for a short duration (one day, for example). In this case, the assigned users don't need to request activation. In this scenario, Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
+This option requires admins must complete a multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
 
-To ensure that the resource administrator fulfilling the assignment is who they say they are, you can enforce multi-factor authentication on active assignment by checking the **Require Multi-Factor Authentication on active assignment** box.
+To require multifactor authentication when creating an active role assignment, select the **Require Multi-Factor Authentication on active assignment** check box.
 
-### Require Multi-Factor Authentication on activation
+### Require multifactor authentication on activation
 
-You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
+You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multifactor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
-To require multi-factor authentication before activation, check the **Require Multi-Factor Authentication on activation** box.
+To require multifactor authentication before activation, check the **Require Multi-Factor Authentication on activation** box.
 
-For more information, see [Multi-factor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
+For more information, see [Multifactor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
 
 ## Activation maximum duration
 
