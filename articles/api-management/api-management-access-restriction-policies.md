@@ -3,12 +3,12 @@ title: Azure API Management access restriction policies | Microsoft Docs
 description: Learn about the access restriction policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: article
 ms.date: 08/20/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # API Management access restriction policies
