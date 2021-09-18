@@ -177,7 +177,7 @@ If you're not going to continue to use this application, delete the public IP ad
 
 2. In the search results, select **Resource groups**.
 
-3. Select **QuickStartCreateIP-rg**
+3. Select **QuickStartCreateIP-rg**.
 
 4. Select **Delete resource group**.
 
