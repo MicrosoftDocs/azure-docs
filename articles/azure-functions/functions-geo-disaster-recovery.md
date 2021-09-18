@@ -32,7 +32,7 @@ The active/active pattern is the best deployment model for HTTP trigger function
 
 ## Redundancy for non-HTTP trigger functions
 
-Redundancy for functions that consume events from other services requires a different pattern, which work wit the failover pattern of the related services. 
+Redundancy for functions that consume events from other services requires a different pattern, which work with the failover pattern of the related services. 
 
 ### Active/passive redundancy for non-HTTP trigger functions
 
