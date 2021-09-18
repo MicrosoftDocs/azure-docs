@@ -102,7 +102,7 @@ The following example shows an application that declares a connection string at 
 
 In this example, the application connection string is declared as `queue-connection-string` and becomes available elsewhere in the configuration sections.
 
-:::code language="json" source="code/secure-app-arm-template.json" highlight="47-48,64-65":::
+:::code language="json" source="code/secure-app-arm-template.json" highlight="47,48,64,65":::
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret. Also, the Azure Queue Storage scale rule's authorization configuration uses the `queue-connection-string` as a connection is established.
 
