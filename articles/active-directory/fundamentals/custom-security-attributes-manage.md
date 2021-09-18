@@ -49,12 +49,12 @@ The following table provides a high-level comparison of the custom security attr
 
 | Permission | Global Admin | Attribute Definition Admin | Attribute Assignment Admin | Attribute Definition Reader | Attribute Assignment Reader |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| Add and update attribute sets |  | :heavy_check_mark: |  |  |  |
 | Read attribute sets |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Add and update attribute definitions |  | :heavy_check_mark: |  |  |  |
-| Assign attributes to users and applications (service principals) |  |  | :heavy_check_mark: |  |  |
 | Read attribute definitions |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | Read attribute assignments for users and applications (service principals) |  |  | :heavy_check_mark: |  | :heavy_check_mark: | 
+| Add and update attribute sets |  | :heavy_check_mark: |  |  |  |
+| Add and update attribute definitions |  | :heavy_check_mark: |  |  |  |
+| Assign attributes to users and applications (service principals) |  |  | :heavy_check_mark: |  |  |
 
 Note that [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator), by default, do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
@@ -128,16 +128,16 @@ Disadvantages of using delegation
 
 To grant access, assign one of the custom security attribute roles. The following table can help you determine which roles to assign and the scope.
 
-| I want to grant this access | Assign this role | Scope |
+| I want to grant this permission | Assign this role | Scope |
 | --- | --- | --- |
-| Manage all custom security attributes and attribute sets | Attribute Definition Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| Manage custom security attributes in a particular attribute set<br/>(Can't add or update attribute sets) | Attribute Definition Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
-| Assign all custom security attributes to users and applications (service principals) | Attribute Assignment Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| Assign custom security attributes in a particular attribute set to users and applications (service principals) | Attribute Assignment Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
-| Read all custom security attributes | Attribute Definition Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| Read custom security attributes in a particular attribute set | Attribute Definition Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
-| Read all custom security attribute assignments for users and applications (service principals) | Attribute Assignment Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| Read custom security attribute assignments in a particular attribute set for users and applications (service principals) | Attribute Assignment Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+| <ul><li>Read, add, and update all attribute sets in a tenant</li><li>Read, add, and update all attribute definitions in a tenant</li></ul> | Attribute Definition Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| <ul><li>Read, add, and update attribute definitions in a scoped attribute set</li><li>**Cannot** update the scoped attribute set</li><li>**Cannot** read, add, or update other attribute sets</li></ul> | Attribute Definition Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+| <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute definitions in a tenant</li><li>Read all attribute assignments in a tenant for users and applications (service principals)</li><li>Assign all attributes in a tenant to users and applications (service principals)</li></ul> | Attribute Assignment Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| <ul><li>Read attribute definitions in a scoped attribute set</li><li>Read attribute assignments that use attributes in a scoped attribute set for users and applications (service principals)</li><li>Assign attributes in a scoped attribute set to users and applications (service principals)</li><li>**Cannot** read attributes in other attribute sets</li><li>**Cannot** read attribute assignments that use attributes in other attribute sets</li></ul> | Attribute Assignment Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+| <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute definitions in a tenant</li></ul> | Attribute Definition Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| <ul><li>Read attribute definitions in a scoped attribute set</li><li>**Cannot** read other attribute sets</li></ul> | Attribute Definition Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+| <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute assignments in a tenant for users and applications (service principals)</li></ul> | Attribute Assignment Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| <ul><li>Read attribute assignments that use attributes in a scoped attribute set for users and applications (service principals)</li><li>**Cannot** read attribute assignments that use attributes in other attribute sets</li></ul> | Attribute Assignment Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
 
 
 #### Assign roles at attribute set scope
