@@ -80,19 +80,19 @@ Here are some ways that custom security attributes compare with [directory schem
 
     Specify who can read, define, or assign custom security attributes in an attribute set. [Learn more](custom-security-attributes-manage.md)
 
-    ![Diagram showing assigning attribute definition administrators and attribute assignment administrators to attribute sets.](./media/custom-security-attributes-manage/delegate-attribute-sets-manage.png)
+    ![Diagram showing assigning attribute definition administrators and attribute assignment administrators to attribute sets.](./media/custom-security-attributes-overview/delegate-attribute-sets-manage.png)
 
 1. **Define attributes**
 
     Add your custom security attributes to your directory. You can specify the date type (Boolean, integer, or string) and whether values are predefined, free-form, single, or multiple. [Learn more](custom-security-attributes-add.md)
 
-    ![Diagram showing delegated administrators defining custom security attributes.](./media/custom-security-attributes-manage/delegate-attributes-define.png)
+    ![Diagram showing delegated administrators defining custom security attributes.](./media/custom-security-attributes-overview/delegate-attributes-define.png)
 
 1. **Assign attributes**
 
     Assign custom security attributes to Azure AD objects for your business scenarios. [Learn more](../enterprise-users/users-custom-security-attributes.md)
 
-    ![Diagram showing delegated administrators assigning custom security attributes to Azure AD objects.](./media/custom-security-attributes-manage/delegate-attributes-assign.png)
+    ![Diagram showing delegated administrators assigning custom security attributes to Azure AD objects.](./media/custom-security-attributes-overview/delegate-attributes-assign.png)
 
 1. **Use attributes**
 
