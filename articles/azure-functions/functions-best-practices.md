@@ -51,7 +51,7 @@ These settings are only supported when you are running in a Premium plan or in a
 
 When you create your function app either in the Azure portal or by using Azure CLI or Azure PowerShell, these settings are created for your function app when needed. When you create your resources from an Azure Resource Manager template (ARM template), you need to also include `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` in the template. 
 
-On your first deployment using an ARM template, don't include `WEBSITE_CONTENTSHARE`, which is gnerated for you.   
+On your first deployment using an ARM template, don't include `WEBSITE_CONTENTSHARE`, which is generated for you.   
 
 You can use the following ARM template examples to help correctly configure these settings:
 
