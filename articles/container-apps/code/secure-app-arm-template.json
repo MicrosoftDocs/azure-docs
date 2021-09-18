@@ -1,0 +1,75 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "defaultValue": "North Central US (Stage)",
+            "type": "String"
+        },
+        "environment_id": {
+            "defaultValue": "",
+            "type": "String"
+        },
+        "queue-connection-string": {
+            "defaultValue": "",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+    {
+        "name": "queuereader",
+        "type": "Microsoft.Web/containerApps",
+        "apiVersion": "2021-02-01",
+        "kind": "containerapp",
+        "location": "[parameters('location')]",
+        "properties": {
+            "kubeEnvironmentId": "[parameters('environment_id')]",
+            "configuration": {
+                "activeRevisionsMode": "single",
+                "secrets": [
+                {
+                    "name": "queue-connection-string",
+                    "value": "[parameters('queue-connection-string')]"
+                }]
+            },
+            "template": {
+                "containers": [
+                    {
+                        "image": "demos/queuereader:v1",
+                        "name": "queuereader",
+                        "env": [
+                            {
+                                "name": "QueueName",
+                                "value": "demoqueue"
+                            },
+                            {
+                                "secretref": "queue-connection-string",
+                                "name": "connection-string"
+                            }
+                        ]
+                    }
+                ],
+                "scale": {
+                    "minReplicas": 0,
+                    "maxReplicas": 10,
+                    "rules": [
+                        {
+                            "name": "myqueuerule",
+                            "azureQueue": {
+                                "queueName": "demoqueue",
+                                "queueLength": 100,
+                                "auth": [
+                                    {
+                                        "secretRef": "queue-connection-string",
+                                        "triggerParameter": "connection"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }]
+}
