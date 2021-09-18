@@ -24,11 +24,11 @@ In this quickstart, you'll learn how to create an Azure public IP address. Publi
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create) named **myResourceGroup** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az_group_create) named **QuickStartCreateIP-rg** in the **eastus2** location.
 
 ```azurecli-interactive
   az group create \
-    --name myResourceGroup \
+    --name QuickStartCreateIP-rg \
     --location eastus2
 ```
 
@@ -36,24 +36,23 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 
 >[!NOTE]
 >Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
+>
+>The following command works for API version **2020-08-01** or **later**.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
->[!NOTE]
->The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
-
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard zone-redundant public IPv4 address named **myStandardPublicIP** in **myResourceGroup**.  
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard zone-redundant public IPv4 address named **myStandardPublicIP** in **QuickStartCreateIP-rg**.  
 
 To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIP-rg \
     --name myStandardPublicIP \
     --version IPv4 \
     --sku Standard \
     --zone 1 2 3
 ```
 > [!IMPORTANT]
-> For versions of the API older than 2020-08-01, execute the command without specifying a zone parameter to create a zone-redundant IP address. 
+> For versions of the API older than 2020-08-01, execute the command without specifying a **`--zone`** parameter to create a zone-redundant IP address. 
 >
 
 # [**Basic SKU**](#tab/create-public-ip-basic)
@@ -91,7 +90,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group QuickStartCreateIP-rgLB \
     --name myStandardPublicIP-zonal \
     --version IPv4 \
     --sku Standard \
@@ -108,13 +107,13 @@ In this section, you'll create a non-zonal IP address.
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP-nozone** in **myResourceGroup**. 
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP-nozone** in **QuickStartCreateIP-rg**. 
 
 To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIP-rg \
     --name myStandardPublicIP-nozone \
     --version IPv4 \
     --sku Standard
@@ -141,8 +140,8 @@ The command creates a new standard zone-redundant public IPv4 address with a rou
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroup \
-    --name myStandardZRPublicIP-RP \
+    --resource-group QuickStartCreateIP-rg \
+    --name myStandardPublicIP-RP \
     --version IPv4 \
     --ip-tags 'RoutingPreference=Internet' \
     --sku Standard \
@@ -159,7 +158,7 @@ The following command creates a global IPv4 address. This address can be associa
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroup \
+    --resource-group QuickStartCreateIP-rg \
     --name myStandardPublicIP-Global \
     --version IPv4 \
     --tier global \
@@ -178,11 +177,11 @@ If you're not going to continue to use this application, delete the public IP ad
 
 2. In the search results, select **Resource groups**.
 
-3. Select **QuickStartCreateIP-rg**
+3. Select **QuickStartCreateIP-rg**.
 
 4. Select **Delete resource group**.
 
-5. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+5. Enter **QuickStartCreateIP-rg** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
 
