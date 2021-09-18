@@ -49,9 +49,9 @@ Function apps that scale dynamically can run either from an Azure Files endpoint
 
 These settings are only supported when you are running in a Premium plan or in a Consumption plan on Windows.
 
-When you create your function app either in the Azure portal or by using Azure CLI or Azure PowerShell, these settings are created for your function app when needed. When you create your resources from an Azure Resource Manager template (ARM template), you need to also include these settings in the template. 
+When you create your function app either in the Azure portal or by using Azure CLI or Azure PowerShell, these settings are created for your function app when needed. When you create your resources from an Azure Resource Manager template (ARM template), you need to also include `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` in the template. 
 
-When deploying to a specific slot using an ARM template, don't include `WEBSITE_CONTENTSHARE`.  
+On your first deployment using an ARM template, don't include `WEBSITE_CONTENTSHARE`, which is gnerated for you.   
 
 You can use the following ARM template examples to help correctly configure these settings:
 
