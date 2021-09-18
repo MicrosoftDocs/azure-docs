@@ -179,7 +179,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
 * Create logic apps and their workflows from [400+ managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
-  * More managed connectors are now available as built-in operations and run similarly to other built-in operations, such as Azure Functions. Built-in operations run natively on the single-tenant Azure Logic Apps runtime. For example, new built-in operations include Azure Service Bus, Azure Event Hubs, SQL Server, and MQ.
+  * More managed connectors are now available as built-in operations and run similarly to other built-in operations, such as Azure Functions. Built-in operations run natively on the single-tenant Azure Logic Apps runtime. For example, new built-in operations include Azure Service Bus, Azure Event Hubs, SQL Server, MQ, DB2, and IBM Host File.
 
     > [!NOTE]
     > For the built-in SQL Server version, only the **Execute Query** action can directly connect to Azure 
@@ -205,7 +205,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
   * **Logic app (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
     > [!NOTE]
-    > By default, the **Logic App (Standard)** resource type has the [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
+    > By default, the **Logic App (Standard)** resource type has the [system-assigned managed identity](create-managed-service-identity.md) 
     > automatically enabled to authenticate connections at run time. This identity differs from the authentication 
     > credentials or connection string that you use when you create a connection. If you disable this identity, 
     > connections won't work at run time. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
@@ -234,7 +234,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
 For the **Logic App (Standard)** resource, these capabilities have changed, or they are currently limited, unavailable, or unsupported:
 
-* **Triggers and actions**: Built-in triggers and actions run natively in the single-tenant Azure Logic Apps runtime, while managed connectors are hosted and run in Azure. Some built-in triggers are unavailable, such as Sliding Window and Batch. To start a stateful or stateless workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). In the designer, built-in triggers and actions appear under the **Built-in** tab.
+* **Triggers and actions**: Built-in triggers and actions run natively in Azure Logic Apps, while managed connectors are hosted and run in Azure. Some built-in triggers and actions are unavailable, such as Sliding Window, Batch, Azure App Services, and Azure API Management. To start a stateful or stateless workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). In the designer, built-in triggers and actions appear under the **Built-in** tab.
 
   For *stateful* workflows, [managed connector triggers and actions](../connectors/managed.md) appear under the **Azure** tab, except for the unavailable operations listed below. For *stateless* workflows, the **Azure** tab doesn't appear when you want to select a trigger. You can select only [managed connector *actions*, not triggers](../connectors/managed.md). Although you can enable Azure-hosted managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
 
@@ -263,7 +263,7 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
 
-    * Some [built-in triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
+    * Some [triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the Flat File actions and the AS2 (V2) actions.
 
     * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 

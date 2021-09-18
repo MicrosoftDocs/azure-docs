@@ -22,7 +22,7 @@ After you add partners to your integration account, specify how partners exchang
 
 An agreement requires a *host partner*, which is always your organization, and a *guest partner*, which is the organization that exchanges messages with your organization. The guest partner can be another company, or even a department in your own organization. Using this agreement, you specify how to handle inbound and outbound messages from the host partner's perspective.
 
-This article shows how to create an agreement, which you can then use to exchange B2B messages with another partner by using the AS2, X12, EDIFACT, or RosettaNet operations.
+This article shows how to create and manage an agreement, which you can then use to exchange B2B messages with another partner by using the AS2, X12, EDIFACT, or RosettaNet operations.
 
 ## Prerequisites
 
